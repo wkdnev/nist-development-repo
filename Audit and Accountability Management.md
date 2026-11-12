@@ -58,6 +58,7 @@
 
 | Version | Date | Change |
 | --- | --- | --- |
+| \<ver\> | 12 November 2026 | The list of application event types and the actions recorded under each is now set out in Table 7, as the design, and no longer by reference to the code. No document sends the reader to the application's code: source file, class and setting names are replaced by what they stand for, stated in plain words. No value, finding or decision is changed |
 | \<ver\> | 12 November 2026 | Finalised with the system owner's decisions (D-AU-12): the PostgreSQL logging settings and the legal hold rule are adopted as the design; selection of events by release is recommended for acceptance; and the archive location is settled with ABC Technologies' storage |
 | \<ver\> | 12 November 2026 | Cross-check against NIST's guidance for the family: the events include the use of privileged functions; the content of server records, the archive, legal hold, backups and storage failure are stated; the gap in selecting events without a release is registered (PA-105); and three appendix tables are added: proposed PostgreSQL logging settings, the logging other controls require, and the AU controls outside the Moderate baseline |
 | \<ver\> | 12 November 2026 | The system owner's answers to the review (D-AU-11), as recommended: only the API writes audit records; ABC Technologies is asked for a weekly report of AD FS and Active Directory records; the session field holds a hash, never the session ID; the reason \<DocuView\> keeps running when logging fails is recorded; and the method for sizing storage is set |
@@ -81,7 +82,7 @@ An assessor examines the list of events, the record content, the settings that p
 - **the records an assessor will ask for**, and whether they exist yet;
 - **its status**, the risk decision, and what is still open.
 
-**Design and today.** The Design column is what the system owner has agreed. The Today column is what was found in the code labelled v1.0, tested in Docker between 5 and 9 November 2026, and the position of the servers, which are not yet built. That build signed in with its own passwords. \<DocuView\> signs in through ABC Technologies' AD FS (D-AC-23), so the tests are to be repeated on that build (PA-95).
+**Design and today.** The Design column is what the system owner has agreed. The Today column is what was found in the build labelled v1.0, tested in Docker between 5 and 9 November 2026, and the position of the servers, which are not yet built. That build signed in with its own passwords. \<DocuView\> signs in through ABC Technologies' AD FS (D-AC-23), so the tests are to be repeated on that build (PA-95).
 
 **Table 4: Status values**
 
@@ -152,7 +153,7 @@ An investigation must be able to follow an action from the network to the databa
 
 | Source | Events to log | Held in | Set by | Today |
 | --- | --- | --- | --- | --- |
-| DV\_Web, DV\_Admin\_UI and DV\_API | The events in Table 7 | The audit log: table `dbo.AuditLog` in the \<DocuView\> database | \<DocuView\>'s developers, in code | Partly logged (Table 7) |
+| DV\_Web, DV\_Admin\_UI and DV\_API | The events in Table 7 | The audit log: table `dbo.AuditLog` in the \<DocuView\> database | The system owner, in Table 7; built by \<DocuView\>'s developers through a release | Partly logged (Table 7) |
 | The three applications' own logs | Errors, start-up and shut-down, and logging failures. No audit details | Log files on the application server, kept 30 days | \<DocuView\>'s developers | They also repeat usernames, IP addresses and session IDs (A38, PA-75) |
 | PostgreSQL | Connections and failed connections; role and permission changes; schema changes; any change to or deletion of audit records; changes to logging settings | The PostgreSQL log on the database server | Database administrator | Statement and connection logging are off (A30, PA-43) |
 | Windows Server 2025, both servers | Sign-ins and failed sign-ins (events 4624, 4625); account and group changes (4720, 4722 to 4726, 4728, 4732, 4756); use of special privileges (4672); audit policy changes (4719); security log cleared (1102); services installed (7045); system time changed (4616) | The Windows Security and System logs on each server, forwarded to ABC Technologies' central monitoring if confirmed (D-AU-07) | ABC Technologies' Group Policy. \<DocuView\> states the events it needs (EV-AU-04) | Not assessable: the servers are not built (PA-43) |
@@ -163,24 +164,28 @@ Each source logs at every occurrence. The system owner selects the events and re
 
 ### 4.3 Application events
 
-Table 7 lists the events \<DocuView\>'s applications log, and what an investigator learns from each. That is the reason each is selected (AU-2, part d).
+Table 7 lists every event type \<DocuView\>'s applications log, the actions recorded under each, and what an investigator learns from it. That is the reason each is selected (AU-2, part d).
 
 **Table 7: Application events logged**
 
-| Events | Why they are needed to investigate an incident | Logged today? |
-| --- | --- | --- |
-| Sign-ins and sign-outs. \<DocuView\> records each sign-in it accepts and each sign-in token it refuses. Failed passwords and second factors are recorded by AD FS (Table 6) | Shows who entered the system, and any attempt to enter without the right | Yes, in the tested build, for its own sign-in and failed sign-in (A15, A16). To be repeated with AD FS (PA-95) |
-| Session creation, ending and time-outs | Links activity to one sign-in | Partly: ending all of a user's sessions is not logged (PA-14) |
-| Changes to projects, to the AD groups each project uses, and to role mappings | Shows who was given a route to information, and by whom. Changes to the members of a group are recorded by Active Directory (Table 6) | Partly: most changes in the admin portal are not logged (PA-14) |
-| Denied access | Shows attempts to reach restricted information | Yes (A18) |
-| Document views, downloads, exports and searches | Shows who saw which information | Yes (A17) |
-| Document corrections and deletions | Shows who changed or removed a record about a person | No (PA-89) |
-| Use of privileged functions: ending sessions, the maintenance pages, cache management and database maintenance (\<Access Control Management\>, section 4.8) | Shows what each administrator did with their extra rights (AC-6(9)) | Partly: ending a user's sessions and the maintenance pages are not logged (T37; PA-14, PA-31) |
-| Configuration changes | Shows changes to security settings | Not confirmed: the event type exists (PA-103) |
-| Reading or searching the audit log | Shows who looked at audit records, which AU-9 protects | No (PA-76) |
-| Start-up and shut-down of each application | Shows periods when nothing could be logged | No (PA-76) |
-| Changes to logging, and audit chain check results | Shows attempts to stop or hide logging | No (PA-76) |
-| Logging failures | Shows periods without records | Application log only (A31, PA-38) |
+| Event type | Actions recorded | What is covered | Why it is needed to investigate an incident | Logged today? |
+| --- | --- | --- | --- | --- |
+| Sign-in | Sign-in accepted; sign-in token refused; sign-out | Sign-ins and sign-outs. \<DocuView\> records each sign-in it accepts and each sign-in token it refuses. Failed passwords and second factors are recorded by AD FS (Table 6) | Shows who entered the system, and any attempt to enter without the right | Yes, in the tested build, for its own sign-in and failed sign-in (A15, A16). To be repeated with AD FS (PA-95) |
+| Session | Session created; session ended by the user; session timed out; session ended by an administrator | Session creation, ending and time-outs | Links activity to one sign-in | Partly: ending all of a user's sessions is not logged (PA-14) |
+| Project and group administration | Project created, changed or removed; a project's read or edit group changed; a role mapping changed | Changes to projects, to the AD groups each project uses, and to role mappings | Shows who was given a route to information, and by whom. Changes to the members of a group are recorded by Active Directory (Table 6) | Partly: most changes in the admin portal are not logged (PA-14) |
+| Access decision | Access to a page or function refused; access to a project refused; unauthorised attempt | Denied access | Shows attempts to reach restricted information | Yes (A18) |
+| Document access; Export | Document viewed; document downloaded; document details viewed; documents searched; documents exported | Document views, downloads, exports and searches | Shows who saw which information | Yes (A17) |
+| Data change | Document uploaded; document corrected; document deleted | Document corrections and deletions | Shows who changed or removed a record about a person | No (PA-89) |
+| Privileged function | Maintenance page used; cache cleared; database maintenance run; a global administrator opens a project by right of the role | Use of privileged functions: ending sessions, the maintenance pages, cache management and database maintenance (\<Access Control Management\>, section 4.8) | Shows what each administrator did with their extra rights (AC-6(9)) | Partly: ending a user's sessions and the maintenance pages are not logged (T37; PA-14, PA-31) |
+| Configuration change | A security setting changed | Configuration changes | Shows changes to security settings | Not confirmed by any test (PA-103) |
+| Audit | Audit log read; audit log searched or exported | Reading or searching the audit log | Shows who looked at audit records, which AU-9 protects | No (PA-76) |
+| System | Application started; application stopped | Start-up and shut-down of each application | Shows periods when nothing could be logged | No (PA-76) |
+| Audit | Logging setting changed; chain check passed; chain check failed | Changes to logging, and audit chain check results | Shows attempts to stop or hide logging | No (PA-76) |
+| Logging failure | An audit record could not be written | Logging failures | Shows periods without records | Application log only (A31, PA-38) |
+| Security event | Suspicious activity; a breach of a security rule | Events the applications judge to be an attack or misuse, such as a forged request | Shows attempts to defeat the controls | Not confirmed by any test (PA-103) |
+| Faulty document report | A user reports a document or page as faulty | Reports made from the viewer | Shows who reported what, as these reports name documents | Not confirmed by any test (PA-103) |
+
+This table is the full list of event types and actions that \<DocuView\>'s applications must be able to log (AU-2, part a). It is the design: a release may add to it only after the system owner has changed this table (PRO-AU-5).
 
 \<DocuView\> holds no passwords, so it logs no password change or reset (D-AC-23). Those are recorded in Active Directory.
 
@@ -371,7 +376,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
-| a | Identify the types of event the system can log | For the applications, the event types listed in code, in `AuditEventTypes` in `DV_Shared/Security/AuditLog.cs`. For the servers, what PostgreSQL and Windows Server 2025 can log. Section 4.2 lists each source | The list exists in the v1.0 code |
+| a | Identify the types of event the system can log | For the applications, the event types and actions in Table 7. For the servers, the events PostgreSQL and Windows Server 2025 log, in Table 6 and appendix C. For ABC Technologies' services, the events in Table 6 | The tested build can log the event types in Table 7, except those the table marks as not logged |
 | b | Coordinate event logging with the other parts of the organisation that need audit information | The system owner agrees with ABC Technologies' security contact two things, and records them: which logs ABC Technologies' monitoring needs from \<DocuView\> and its servers; and which of ABC Technologies' own records, of AD FS, Active Directory, the network and the VPN, \<DocuView\>'s auditor receives (section 4.11) | Not done. The request has not been sent (EV-AU-01, EV-AU-05), and whether central monitoring will take \<DocuView\>'s logs is open (D-AU-07) |
 | c | Select the event types to log, and how often | The events in section 4.3 for the applications, and in section 4.2 for PostgreSQL, Windows and ABC Technologies' services. Each is logged at every occurrence | Partly. Most account, group and role changes in the admin portal are not logged (PA-14). Reading the audit log, start-up and shut-down, and changes to logging are not logged (PA-76). Whether configuration changes are logged is not confirmed (PA-103). PostgreSQL logging is off, and Windows is not built (PA-43) |
 | d | Say why the selected events are enough to investigate an incident | Table 7 gives, for each event, what an investigator learns from it. Together they answer who signed in, what they saw or changed, what they were refused, who changed access or settings, and when nothing could be logged | Written and approved (D-AU-03, D-AU-09) |
@@ -385,7 +390,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | Responsible | System owner, developers |
 | Enforced by | The application's audit service, which writes a record at each event; PostgreSQL and Windows logging settings on the servers |
 | Rules and procedures | Policy principle P1; rule R1 (\<Policy\>, sections AU.3 and AU.4); PRO-AU-5 (\<Procedures\> (AU)) |
-| Tests | Checks A15 to A18 on the v1.0 code (Test-AuditAndAuth.ps1), 6 November 2026: sign-in and failed sign-in, document views and refused access each wrote a record. These checks ran on a build that used its own passwords and groups, and are to be repeated on the AD FS build (PA-95) |
+| Tests | Checks A15 to A18 on the v1.0 build (Test-AuditAndAuth.ps1), 6 November 2026: sign-in and failed sign-in, document views and refused access each wrote a record. These checks ran on a build that used its own passwords and groups, and are to be repeated on the AD FS build (PA-95) |
 | Records an assessor will ask for | The list of events and its yearly review record; the record of what was agreed with ABC Technologies; sample audit records for each event. The list exists; samples exist only from the test environment |
 | Status | Partially implemented |
 | Risk decision | NC-AU-02, rated Medium: remediate; NC-AU-17, rated Low: remediate (system owner, Low) |
@@ -410,9 +415,9 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | --- | --- |
 | Provided by | \<DocuView\>: built into the system |
 | Responsible | Developers |
-| Enforced by | The audit record definition in `DV_Shared/Security/AuditLog.cs`, which every app uses |
+| Enforced by | One record format, set out in Table 8, which all three applications use |
 | Rules and procedures | Policy principle P2 (\<Policy\>, sections AU.3 and AU.4). No procedure: it is built into the system |
-| Tests | Check A19 on the v1.0 code, 6 November 2026: every record held the six kinds of content. These checks ran on a build that used its own passwords and groups, and are to be repeated on the AD FS build (PA-95) |
+| Tests | Check A19 on the v1.0 build, 6 November 2026: every record held the six kinds of content. These checks ran on a build that used its own passwords and groups, and are to be repeated on the AD FS build (PA-95) |
 | Records an assessor will ask for | The record definition; sample records showing each field. Samples exist only from the test environment |
 | Status | Partially implemented |
 | Risk decision | NC-AU-03, rated Low: remediate |
@@ -434,7 +439,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | Responsible | Developers |
 | Enforced by | The same record definition |
 | Rules and procedures | Policy principle P2 (\<Policy\>, sections AU.3 and AU.4). No procedure: it is built into the system |
-| Tests | Checks A20 and A21 on the v1.0 code, 6 November 2026: both passed. These checks ran on a build that used its own passwords and groups, and are to be repeated on the AD FS build (PA-95) |
+| Tests | Checks A20 and A21 on the v1.0 build, 6 November 2026: both passed. These checks ran on a build that used its own passwords and groups, and are to be repeated on the AD FS build (PA-95) |
 | Records an assessor will ask for | Sample records showing the four fields |
 | Status | Partially implemented |
 | Risk decision | None: no finding |
@@ -479,7 +484,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | Responsible | Windows server administrator, security officer |
 | Enforced by | The audit service's failure handling; the alert route, when built |
 | Rules and procedures | Policy rule R6 (\<Policy\>, sections AU.3 and AU.4); PRO-AU-3 (\<Procedures\> (AU)) |
-| Tests | Checks A31, A32 and A35 on the v1.0 code, 6 and 8 November 2026. A31 and A32 passed: a failed write is logged as critical and the action carries on. A35 showed the gap: no alert reaches anyone |
+| Tests | Checks A31, A32 and A35 on the v1.0 build, 6 and 8 November 2026. A31 and A32 passed: a failed write is logged as critical and the action carries on. A35 showed the gap: no alert reaches anyone |
 | Records an assessor will ask for | The alert configuration; a sample alert and the response record on TPL-8. None exist yet |
 | Status | Partially implemented |
 | Risk decision | NC-AU-05, rated Medium: remediate |
@@ -559,7 +564,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
-| a | Provide a way to cut records down and make reports, for review on demand and for investigation after the event | The admin portal's audit page, at `/sysadmin/audit-logs`, filters the records and shows a summary. An export gives the auditor the filtered records as a file for a report or an investigation | The page filters by date, event type, result and username (A23, A24). There is no export and no report (PA-41) |
+| a | Provide a way to cut records down and make reports, for review on demand and for investigation after the event | The admin portal's audit page filters the records and shows a summary. An export gives the auditor the filtered records as a file for a report or an investigation | The page filters by date, event type, result and username (A23, A24). There is no export and no report (PA-41) |
 | b | Do not change the content or time order of the records | The page only reads. It cannot change a record, and an export is a copy. Records are always shown with their stored time | The page changes nothing (A23, A24) |
 
 **Table 34: AU-7 responsibility and evidence**
@@ -570,7 +575,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | Responsible | Developers |
 | Enforced by | The audit page, open only to the auditor group |
 | Rules and procedures | Policy principle P4 (\<Policy\>, sections AU.3 and AU.4); PRO-AU-1 (\<Procedures\> (AU)) |
-| Tests | Checks A23 and A24 on the v1.0 code, 6 November 2026: both passed. These checks ran on a build that used its own passwords and groups, and are to be repeated on the AD FS build (PA-95) |
+| Tests | Checks A23 and A24 on the v1.0 build, 6 November 2026: both passed. These checks ran on a build that used its own passwords and groups, and are to be repeated on the AD FS build (PA-95) |
 | Records an assessor will ask for | A demonstration of the page; a sample report or export. No export exists yet |
 | Status | Partially implemented |
 | Risk decision | NC-AU-09, rated Low: remediate |
@@ -615,7 +620,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | Responsible | Developers, ABC Technologies |
 | Enforced by | The application, which records UTC; the Windows time service on each server, set by ABC Technologies |
 | Rules and procedures | Policy rule R3 (\<Policy\>, sections AU.3 and AU.4); PRO-AU-4 (\<Procedures\> (AU)) |
-| Tests | Check A22 on the v1.0 code, 6 November 2026: passed, records are in UTC |
+| Tests | Check A22 on the v1.0 build, 6 November 2026: passed, records are in UTC |
 | Records an assessor will ask for | The servers' time settings; the monthly drift checks on TPL-8; ABC Technologies' time service configuration (EV-AU-02). None exist yet |
 | Status | Partially implemented |
 | Risk decision | NC-AU-11, rated Low: obtain evidence |
@@ -628,7 +633,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Protect audit information and audit tools from unauthorised access, change and deletion | Section 4.5 sets it out. Only DV\_API writes records, through a database account that can add them but not change or delete them (D-AC-18). Only the auditor group opens the audit pages. Each record carries a keyed chain hash, with the key held outside the database, and the newest hash is copied each day to a store the applications cannot write to. Application logs are readable only by the Windows server administrators and the auditor. The archive is offline, and its hash is recorded. Rule B12 of \<Security Operating Procedures\> forbids anyone to alter, delete or disable audit records or logging | An ordinary user cannot open the audit pages (T71), and records are chained. But the application's database account can change, delete and empty the table (A26 to A28; PA-36). The chain has no key, so it can be rewritten, and the newest records can be removed without trace (A36; PA-73). Stored hashes cannot be recomputed (A37; PA-74). Ordinary users can add records (PA-29). The application log repeats usernames, IP addresses and session IDs (A38; PA-75) |
-| b | Alert defined people when unauthorised access, change or deletion is detected | The chain check runs on a schedule and at each start-up. A break alerts the security officer and the auditor (detection use case U2), who preserve the evidence and raise an incident (PRO-AU-2) | Not built. The check exists in the code, but nothing runs it or alerts (PA-37), and until PA-73 and PA-74 are fixed it cannot be relied on |
+| b | Alert defined people when unauthorised access, change or deletion is detected | The chain check runs on a schedule and at each start-up. A break alerts the security officer and the auditor (detection use case U2), who preserve the evidence and raise an incident (PRO-AU-2) | Not built. The tested build contains a chain check, but nothing runs it or alerts (PA-37), and until PA-73 and PA-74 are fixed it cannot be relied on |
 
 **Table 40: AU-9 responsibility and evidence**
 
@@ -638,7 +643,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | Responsible | Developers, database administrator |
 | Enforced by | Database permissions; the application's role check on the audit pages; the chain hash and its check; Windows file permissions on the logs |
 | Rules and procedures | Policy principle P3; rules R4, R7 to R9 (\<Policy\>, sections AU.3 and AU.4); PRO-AU-2, PRO-AU-7 (\<Procedures\> (AU)) |
-| Tests | Checks A26 to A29 and A36 to A38 on the v1.0 code, 6 and 8 November 2026. A29 passed: each record holds a chain hash. The rest showed gaps: the application account could update, delete and empty the audit table (A26 to A28); the chain could be rewritten and cut short (A36); stored hashes did not recompute (A37); and the application log repeated audit details (A38) |
+| Tests | Checks A26 to A29 and A36 to A38 on the v1.0 build, 6 and 8 November 2026. A29 passed: each record holds a chain hash. The rest showed gaps: the application account could update, delete and empty the audit table (A26 to A28); the chain could be rewritten and cut short (A36); stored hashes did not recompute (A37); and the application log repeated audit details (A38) |
 | Records an assessor will ask for | Database permissions on the audit table; chain check results; the daily copy of the newest hash; file permissions on the logs; any tampering alert and its incident record. None exist yet in the form designed |
 | Status | Partially implemented |
 | Risk decision | NC-AU-12, rated High: remediate; NC-AU-16, rated Medium: remediate (D-AU-06) |
@@ -658,9 +663,9 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | --- | --- |
 | Provided by | \<DocuView\>: built into the system |
 | Responsible | System owner, developers |
-| Enforced by | The AD group `DocViewer_Auditors` and the application's `AuditorPolicy`; change control for logging settings |
+| Enforced by | The AD group `DocViewer_Auditors`, the only group that opens the audit pages; change control for logging settings |
 | Rules and procedures | Policy principle P3; rule R4 (\<Policy\>, sections AU.3 and AU.4); PRO-AU-6 (\<Procedures\> (AU)) |
-| Tests | Checks A23 to A25 on the v1.0 code, 6 November 2026. A23 and A24 passed. A25 showed the gap: a global administrator can read the audit records. These checks ran on a build that used its own passwords and groups, and are to be repeated on the AD FS build (PA-95) |
+| Tests | Checks A23 to A25 on the v1.0 build, 6 November 2026. A23 and A24 passed. A25 showed the gap: a global administrator can read the audit records. These checks ran on a build that used its own passwords and groups, and are to be repeated on the AD FS build (PA-95) |
 | Records an assessor will ask for | The members of the auditor group, and the Jira requests behind them; the quarterly access review record; the test results. No members or reviews exist yet |
 | Status | Partially implemented |
 | Risk decision | NC-AU-13, rated Medium: remediate |
@@ -695,7 +700,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Provide audit record generation, for the events the system can log, on defined components | Five components generate records: DV\_API, DV\_Web, DV\_Admin\_UI, PostgreSQL and Windows Server 2025 on both servers (section 4.2) | The three applications generate records (A15 to A18). PostgreSQL statement and connection logging are off (A30), and Windows is not built (PA-43) |
-| b | Let defined people select which events each component logs | The system owner selects the events. Application events are set in code, so developers make a change through a release (PRO-AU-5). A release is reviewed, tested and recorded, so nobody can switch an event off quietly. PostgreSQL settings are changed by the database administrator, and the Windows audit policy by ABC Technologies' Group Policy, each through a recorded change | The system owner has selected the events (D-AU-P01). But no setting lets an event be turned on or off for a component: every change needs a release. The assessment found this a gap (statement AU-12b), and it is registered as PA-105 |
+| b | Let defined people select which events each component logs | The system owner selects the events. Application events are built into each release, so developers make a change through a release (PRO-AU-5). A release is reviewed, tested and recorded, so nobody can switch an event off quietly. PostgreSQL settings are changed by the database administrator, and the Windows audit policy by ABC Technologies' Group Policy, each through a recorded change | The system owner has selected the events (D-AU-P01). But no setting lets an event be turned on or off for a component: every change needs a release. The assessment found this a gap (statement AU-12b), and it is registered as PA-105 |
 | c | Generate records for the selected events, with the content AU-3 requires | Every event in sections 4.2 and 4.3 writes a record with the content in Table 8 | Partly: the events in PA-14 and PA-76 write no record |
 
 **Table 46: AU-12 responsibility and evidence**
@@ -706,7 +711,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | Responsible | Developers, administrators |
 | Enforced by | The audit service in each application; PostgreSQL and Windows logging settings |
 | Rules and procedures | Policy rule R1 (\<Policy\>, sections AU.3 and AU.4); PRO-AU-5 (\<Procedures\> (AU)) |
-| Tests | Checks A15 to A18 and A30 on the v1.0 code, 6 November 2026. A15 to A18 passed. A30 showed the gap: PostgreSQL logging is off. These checks ran on a build that used its own passwords and groups, and are to be repeated on the AD FS build (PA-95) |
+| Tests | Checks A15 to A18 and A30 on the v1.0 build, 6 November 2026. A15 to A18 passed. A30 showed the gap: PostgreSQL logging is off. These checks ran on a build that used its own passwords and groups, and are to be repeated on the AD FS build (PA-95) |
 | Records an assessor will ask for | Sample records from each of the five components; the PostgreSQL logging settings; the Windows audit policy (EV-AU-04). Application samples exist only from the test environment |
 | Status | Partially implemented |
 | Risk decision | NC-AU-15, rated Medium: remediate; NC-AU-17, rated Low: remediate (system owner, Low) |
@@ -717,19 +722,19 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 ## Appendix A How logging was built in the tested build
 
-This records what the code labelled v1.0 did when it was examined and tested in Docker between 5 and 9 November 2026. It is the basis of the Today columns. That build signed in with its own passwords, and each application connected to the database itself.
+This records what the build labelled v1.0 did when it was examined and tested in Docker between 5 and 9 November 2026. It is the basis of the Today columns. That build signed in with its own passwords, and each application connected to the database itself.
 
 **Table 47: How logging was built in the tested build**
 
 | Part | What happens today | Where |
 | --- | --- | --- |
-| Writing a record | Each application writes to the table `dbo.AuditLog` in the \<DocuView\> database, and also to its application log | `AuditService.cs` in DV\_API, DV\_Web and DV\_Admin\_UI |
-| Record content | Event type, action, username, user ID, project, document, result, details, IP address, browser, session, time, duration and source component | `DV_Shared/Security/AuditLog.cs` |
-| Chain hash | Each record holds a SHA-256 hash of its fields and the previous record's hash, with no secret key. Anyone who can write to the table can recalculate the chain, and removing the newest records leaves it intact (A36). The time stamp is hashed to 100 nanoseconds but stored to the microsecond, so most stored hashes cannot be recomputed (A37). The chain therefore detects neither deliberate tampering nor, as built, accidental damage | AuditService.cs; A29, A36, A37; PA-73, PA-74 |
-| Chain check | VerifyAuditChainIntegrityAsync exists, but nothing calls it. Until PA-74 is fixed it would report a break at almost every record | PA-37, PA-74 |
+| Writing a record | Each application writes to the table `dbo.AuditLog` in the \<DocuView\> database, and also to its application log | The audit service in each of DV\_API, DV\_Web and DV\_Admin\_UI |
+| Record content | Event type, action, username, user ID, project, document, result, details, IP address, browser, session, time, duration and source component | The audit record format |
+| Chain hash | Each record holds a SHA-256 hash of its fields and the previous record's hash, with no secret key. Anyone who can write to the table can recalculate the chain, and removing the newest records leaves it intact (A36). The time stamp is hashed to 100 nanoseconds but stored to the microsecond, so most stored hashes cannot be recomputed (A37). The chain therefore detects neither deliberate tampering nor, as built, accidental damage | A29, A36, A37; PA-73, PA-74 |
+| Chain check | A chain check exists in the build, but nothing runs it. Until PA-74 is fixed it would report a break at almost every record | PA-37, PA-74 |
 | Failure | A failed write goes to the application log as critical, and the user's action carries on | A31, A32 |
-| Application log | Every audit event is also written to the application log at Information level as two "AUDIT DEBUG" lines, with the username, IP address and session ID, and a failed write logs its details at Critical. Until PA-75 is fixed, the application log is audit information: administrators and auditors only, kept 30 days (PRO-AU-7) | AuditService.cs; A38; PA-75 |
-| Reading | The page `/sysadmin/audit-logs` filters by date, event type, result and username. There is no export or choice of sort order | A23 to A25; PA-41 |
+| Application log | Every audit event is also written to the application log at Information level as two "AUDIT DEBUG" lines, with the username, IP address and session ID, and a failed write logs its details at Critical. Until PA-75 is fixed, the application log is audit information: administrators and auditors only, kept 30 days (PRO-AU-7) | A38; PA-75 |
+| Reading | The admin portal's audit page filters by date, event type, result and username. There is no export or choice of sort order | A23 to A25; PA-41 |
 | Protection | The application's database account can read, change, delete and empty the table, and there are no triggers | A26 to A28; PA-36 |
 | Retention | Nothing removes records, and no retention setting or capacity plan exists | PA-42 |
 | Database and server logs | PostgreSQL statement logging is off. Windows logs have not been examined, as the VMs are not built | A30; PA-43 |
@@ -753,7 +758,7 @@ These are NIST's organisation-defined values for the 16 AU entries: 28 in total.
 | AU-01\_ODP\[06\] | Events requiring policy review | Significant incident, audit finding or system change | Met: this review is one |
 | AU-01\_ODP\[07\] | Procedures review frequency | Every 12 months | Met: set |
 | AU-01\_ODP\[08\] | Events requiring procedures review | A change to the steps | Met: set |
-| AU-02\_ODP\[01\] | Event types the system can log | The event types in `AuditEventTypes` in `DV_Shared/Security/AuditLog.cs` | Met |
+| AU-02\_ODP\[01\] | Event types the system can log | The event types and actions in section 4.3, Table 7 | Met |
 | AU-02\_ODP\[02\] | Event types selected for logging | Sections 4.2 and 4.3 | Partly: account, group and role changes and the PA-76 events are not logged; PostgreSQL and Windows not set (PA-14, PA-43, PA-76) |
 | AU-02\_ODP\[03\] | How often they are logged | Every occurrence | Met for the events that are logged |
 | AU-02\_ODP\[04\] | Review of selected events | Every 12 months | Met: set |
