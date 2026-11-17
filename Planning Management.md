@@ -54,6 +54,8 @@
 
 | Version | Date | Change |
 | --- | --- | --- |
+| \<ver\> | 17 November 2026 | The register of plans in force shows the current version of each plan |
+| \<ver\> | 17 November 2026 | The register of plans in force shows the current version of each plan |
 | \<ver\> | 17 November 2026 | The system owner's decisions on the cross-check (D-PL-14): signed rules of behaviour are kept while the person has access and for 3 years after, and the wording of the declaration is confirmed. The register of plans in force shows the current version of each plan |
 | \<ver\> | 17 November 2026 | Cross-check against NIST's guidance for the family: the acknowledgement is a signed declaration that the rules were read, understood and agreed; the retention of signed forms is shown as not yet set; the open questions in the concept of operations are shown; who planning is coordinated with is named; and the PL controls outside the Moderate baseline are listed in a new appendix B. The register of plans in force shows the current version of each plan |
 | \<ver\> | 17 November 2026 | The system owner's decisions on the review (D-PL-13): the table of where each required part of the plans is held is confirmed |
