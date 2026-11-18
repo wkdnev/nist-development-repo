@@ -58,6 +58,10 @@
 
 | Version | Date | Change |
 | --- | --- | --- |
+| \<ver\> | 18 November 2026 | No code references: page addresses, setting names, folder paths and file paths are described in plain words, and names of groups, scripts and releases are shown as plain text. No value, finding or decision is changed |
+| \<ver\> | 18 November 2026 | References to the communications protection design point to \<System and Communications Protection Management\>, where it is now held (D-SC-09) |
+| \<ver\> | 18 November 2026 | References to the personal data design point to \<PII Processing Management\>, where it is now held (D-PT-22) |
+| \<ver\> | 15 November 2026 | References to the identification and authentication design point to \<Identification and Authentication Management\>, where it is now held (D-IA-11) |
 | \<ver\> | 13 November 2026 | Appendix C: wording of the development environment |
 | \<ver\> | 13 November 2026 | Cross-check against NIST's guidance for the family: the baseline includes network placement; each change records who made it; the environments are set out in a new appendix C; the CM controls outside the Moderate baseline are listed in a new appendix D; and the Administrator Guide's statement on the server build is noted against the open fact |
 | \<ver\> | 13 November 2026 | The fact still to be supplied on the server build is worded as one placeholder |
@@ -199,11 +203,11 @@ The baseline is what a release must contain so that it can be rebuilt exactly. T
 
 | Item | Baseline | State now |
 | --- | --- | --- |
-| Application code | Tag v1.0: DV\_API `b82831a`, DV\_Web `b06b4e1`, DV\_Admin\_UI `43ef895`, DV\_Shared `a8c3a3a` | Met (C03) |
-| Deployment files | DV\_Workspace tag v1.0, commit `21018a6` | Met |
-| Access-control toolkit | Commit `20524d8`, packaged as 0.2.0 | Met |
-| Application base images | `mcr.microsoft.com/dotnet/aspnet:10.0` and `sdk:10.0`, to be pinned by digest; .NET runtime 10.0.14 observed on 8 November 2026 | Not met: floating tags (C01; PA-77) |
-| Database image | `postgres:18`, to be pinned by digest; observed as PostgreSQL 18.6, digest `sha256:3a4264520e12…` | Not met: floating tag (C02; PA-77) |
+| Application code | Tag v1.0: DV\_API b82831a, DV\_Web b06b4e1, DV\_Admin\_UI 43ef895, DV\_Shared a8c3a3a | Met (C03) |
+| Deployment files | DV\_Workspace tag v1.0, commit 21018a6 | Met |
+| Access-control toolkit | Commit 20524d8, packaged as 0.2.0 | Met |
+| Application base images | mcr.microsoft.com/dotnet/aspnet:10.0 and sdk:10.0, to be pinned by digest; .NET runtime 10.0.14 observed on 8 November 2026 | Not met: floating tags (C01; PA-77) |
+| Database image | postgres:18, to be pinned by digest; observed as PostgreSQL 18.6, digest sha256:3a4264520e12… | Not met: floating tag (C02; PA-77) |
 | Software components | Section 4.5 | Met: listed by hand; no bill of materials yet (PA-78) |
 | Settings | Section 4.6; settings files at tag v1.0, with secrets moved out (PA-19) | Partly: secrets still in settings files (C07) |
 | Windows Server and PostgreSQL on the VMs | CIS Benchmarks with recorded exceptions | Not assessable: VMs not built (PA-54) |
@@ -243,10 +247,10 @@ Every package, image, runtime and database \<DocuView\> is built from, with its 
 | Layer | Guidance | Key settings | Where set | State now |
 | --- | --- | --- | --- | --- |
 | Windows Server 2025, both VMs | CIS Benchmark, Level 1 member server | Unneeded services and accounts removed, default passwords changed, auto-run off, Defender on, audit policy as \<Audit and Accountability Management\>, section 4.2 | Group policy and VM build | Not assessable: VMs not built (PA-54) |
-| PostgreSQL 18 | CIS Benchmark for PostgreSQL | TLS required; scram-sha-256 passwords; listens only on the database VM's address; connections and changes logged | postgresql.conf, pg\_hba.conf | Not met in Docker: TLS off (B02), logging off (A30) |
-| Application hosting | Microsoft's guidance for hosting ASP.NET Core as a Windows service | HTTPS only with HSTS, under NCSC's TLS profiles in \<Control Implementation Register\>, section SC.4; data protection key rings protected with DPAPI; each application under its own low-privilege account | Each service's configuration | Decided on 13 November 2026: each application runs as a Windows service, under its own service account (D-PL-10, D-AC-19). Not built, as the servers are not built |
+| PostgreSQL 18 | CIS Benchmark for PostgreSQL | TLS required; scram-sha-256 passwords; listens only on the database VM's address; connections and changes logged | The server and client access settings of PostgreSQL | Not met in Docker: TLS off (B02), logging off (A30) |
+| Application hosting | Microsoft's guidance for hosting ASP.NET Core as a Windows service | HTTPS only with HSTS, under NCSC's TLS profiles in \<System and Communications Protection Management\>, section 4.3; data protection key rings protected with DPAPI; each application under its own low-privilege account | Each service's configuration | Decided on 13 November 2026: each application runs as a Windows service, under its own service account (D-PL-10, D-AC-19). Not built, as the servers are not built |
 | .NET runtime | Microsoft ASP.NET Core security guidance | Production environment; detailed errors off; API documentation off | Environment values | Met in Docker (C08, C11) |
-| Application security settings | \<Access Control Management\>, \<Control Implementation Register\> (IA) and \<Control Implementation Register\> (SC) | Session time-outs, the trust in AD FS, cookie flags, content security policy and allowed origins, at the values in those documents | Settings files at tag v1.0 | As assessed in the AC, IA and SC assessments |
+| Application security settings | \<Access Control Management\>, \<Identification and Authentication Management\> and \<System and Communications Protection Management\> | Session time-outs, the trust in AD FS, cookie flags, content security policy and allowed origins, at the values in those documents | Settings files at tag v1.0 | As assessed in the AC, IA and SC assessments |
 
 Each departure from the guidance is recorded on TPL-6 with a reason, and approved by the system owner (PRO-CM-3). Some Windows settings are set by ABC Technologies' Group Policy as part of its corporate configuration: account lockout, the logon banner and the screen lock. \<DocuView\> accepts the corporate standard for those (D-AC-21).
 
@@ -309,7 +313,7 @@ The security officer answers each question on the change before the board decide
 | Does it touch personal data? | If so, the legal adviser joins the decision |
 | Does it add or change a connection or component? | Connections need \<Assessment, Authorization, and Monitoring Management\>, section 4.7; components need section 4.5 and a vulnerability check on TPL-7 |
 | Is it a significant change? | The test in \<Assessment, Authorization, and Monitoring Management\>, section 4.9 |
-| How will it be tested? | The test scripts in `DV_Workspace/tests` that apply, on a separate stack, and what proves the affected controls still work |
+| How will it be tested? | The test scripts in the test scripts folder that apply, on a separate stack, and what proves the affected controls still work |
 | How is it undone? | The back-out plan |
 | What must be updated? | This plan, \<System Security Plan\> and any family document the change affects |
 
@@ -362,7 +366,7 @@ Nobody approves a change they requested or made. Every change by any of these pe
 | Item | Detail |
 | --- | --- |
 | Configuration library | Git repositories for code and deployment files; an image registry holding images by digest, \[registry to be chosen when the VMs are built\]; the restricted document store for documents; release records with their bill of materials |
-| Tools | Git and its tags; Docker; Jira for changes (PA-53); CIS-CAT or an equivalent scanner (PA-80); `Test-ConfigurationManagement.ps1`; ABC Technologies' discovery tools (EV-CM-02) |
+| Tools | Git and its tags; Docker; Jira for changes (PA-53); CIS-CAT or an equivalent scanner (PA-80); Test-ConfigurationManagement.ps1; ABC Technologies' discovery tools (EV-CM-02) |
 | Monitoring | Monthly drift check under PRO-CM-7, reported on TPL-8 to the security officer, and included in the monthly measures in \<Assessment, Authorization, and Monitoring Management\>, section 4.8 |
 | Retention | Change records for 3 years; the 3 previous configurations, each with tag, digests, settings and bill of materials; superseded documents for 3 years |
 | Disposal | Removed configurations are deleted from the library only after their retention period, with the system owner's approval |
@@ -1062,11 +1066,11 @@ NIST does not select these at Moderate, so they are not assessed. Some of the de
 | Control | What it adds | \<DocuView\>'s position |
 | --- | --- | --- |
 | CM-3(1) Automated Documentation, Notification, and Prohibition of Changes | A workflow that records each change, tells the approvers, and blocks a change until approved | Not required. Done in part once the Jira workflow is built (PA-53) |
-| CM-3(6) Cryptography Management | Cryptographic mechanisms under configuration management | Not required. Keys and certificates are in the key register (\<Control Implementation Register\>, section SC.3), and a new key or certificate goes through change control |
+| CM-3(6) Cryptography Management | Cryptographic mechanisms under configuration management | Not required. Keys and certificates are in the key register (\<System and Communications Protection Management\>, section 4.4), and a new key or certificate goes through change control |
 | CM-4(1) Separate Test Environments | Changes analysed in a separate test environment | Not required. Done: appendix C |
 | CM-5(1) Automated Access Enforcement and Audit Records | Automated enforcement of who may change the system, with audit records | Not required. Done in part: Windows and database permissions enforce it, and their logs record it |
 | CM-6(1), CM-6(2) Automated Management and Verification; Respond to Unauthorized Changes | Automated checking of settings, and a set response to an unauthorised change | Not required. Done in part in design: the monthly benchmark scan, and the drift procedure (PA-80) |
 | CM-7(4) Unauthorized Software, Deny-by-exception | A list of software that must not run | Not required. \<DocuView\> uses the stricter alternative, CM-7(5), an approved list, though it is not enforced by the system |
 | CM-8(2), CM-8(4) Automated Maintenance; Accountability Information | An inventory kept by automated means, naming who is accountable for each component | Not required. Each entry names an owner. The bill of materials will keep the software list by automated means (PA-78) |
-| CM-13 Data Action Mapping | A map of what the system does with personal data | In no security baseline. The personal data inventory is in \<Control Implementation Register\>, section PT.3 |
+| CM-13 Data Action Mapping | A map of what the system does with personal data | In no security baseline. The personal data inventory is in \<PII Processing Management\>, section 4.3 |
 | CM-14 Signed Components | Components installed only if signed with an approved certificate | In no baseline. Release tags are to be signed, and packages checked for their signature (PA-91, PA-94) |

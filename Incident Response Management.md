@@ -56,6 +56,7 @@
 
 | Version | Date | Change |
 | --- | --- | --- |
+| \<ver\> | 18 November 2026 | References to the supply chain plan follow its new sections, as it is rebuilt in the family form and renamed Supply Chain Risk Management (D-SR-14) |
 | \<ver\> | 17 November 2026 | The system owner's decisions on the cross-check (D-IR-12): the playbook for a document in the wrong place is adopted; the targets stay in clock hours, with a route outside working hours to be agreed with ABC Technologies; and Report Fraud is confirmed in place of Action Fraud |
 | \<ver\> | 17 November 2026 | Cross-check against NIST's guidance for the family: Report Fraud replaces Action Fraud, which closed in December 2025; a step to assess and reduce the harm of a personal data breach; a proposed playbook for a document in the wrong place; a definition of an event and an incident; who may speak to the press; cover outside working hours and a copy of the plan for use when the document store is down, both shown as not yet arranged; a stale section number and three unclear sentences corrected; and the IR controls outside the Moderate baseline listed in a new appendix C |
 | \<ver\> | 17 November 2026 | The system owner's decisions on the review (D-IR-11): the playbook for a compromise at ABC Technologies is adopted; ABC Technologies is asked, with EV-IR-01, to confirm that the old AD FS secret of INC-2026-001 is revoked; and whether an outside forensic firm is kept on call is recorded as a decision still to be made |
@@ -534,7 +535,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
-| All | Give incident information to the provider of the product or service, and to others in the supply chain | The security officer tells ABC Technologies' security contact, and any other supplier whose product or service is involved, using the supplier register (\<Supply Chain Risk Management Plan\>, section 5). ABC Technologies in turn reports a compromise on its side to the security officer within 24 hours | Not yet used. ABC Technologies' terms are not seen (EV-IR-01, EV-SR-01) |
+| All | Give incident information to the provider of the product or service, and to others in the supply chain | The security officer tells ABC Technologies' security contact, and any other supplier whose product or service is involved, using the supplier register (\<Supply Chain Risk Management\>, section 4.5). ABC Technologies in turn reports a compromise on its side to the security officer within 24 hours | Not yet used. ABC Technologies' terms are not seen (EV-IR-01, EV-SR-01) |
 
 **Table 33: IR-6(3) responsibility and evidence**
 

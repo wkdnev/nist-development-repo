@@ -54,6 +54,10 @@
 
 | Version | Date | Change |
 | --- | --- | --- |
+| \<ver\> | 18 November 2026 | No code references: page addresses, setting names, folder paths and file paths are described in plain words, and names of groups, scripts and releases are shown as plain text. No value, finding or decision is changed. Whole-set review: folder paths, page addresses and code terms are replaced by plain words. No value, finding or decision is changed |
+| \<ver\> | 18 November 2026 | References to the communications protection design point to \<System and Communications Protection Management\>, where it is now held (D-SC-09) |
+| \<ver\> | 17 November 2026 | AC-2(3): in addition to ABC Technologies' standard for unused Active Directory accounts, each group's owner removes members who have not signed in to \<DocuView\> for 90 days, checked monthly (D-PS-11) |
+| \<ver\> | 12 November 2026 | No document sends the reader to the application's code: source file, class and setting names are replaced by what they stand for, stated in plain words. No value, finding or decision is changed |
 | \<ver\> | 12 November 2026 | Final pass after a full read: section 4.8 and the review schedule brought into line with sign-in through AD FS; the sign-in flow F11 added to the flows; the system use notice placed on each app's first page; who provides and is responsible corrected for six controls; records and test wording corrected; the parameter register dated; the earlier change history folded |
 | \<ver\> | 12 November 2026 | Sign-in and authorisation are rewritten as the system owner stated them (D-AC-23): AD FS authenticates every user, with multi-factor authentication; roles and project access come from AD groups, as group claims; the system holds no accounts or passwords of its own. Sections 2, 4.1 to 4.7 and 4.13, eleven controls in section 5 and the appendices follow. The tests of the earlier build are marked for repeating |
 | \<ver\> | 12 November 2026 | Version numbers are shown as a placeholder, as the system owner asked (D-GEN-28). No other change |
@@ -81,7 +85,7 @@ An assessor examines the design, the settings and the records, interviews the pe
 
 On 12 November 2026 the system owner stated how sign-in and authorisation work (D-AC-23): ABC Technologies' AD FS authenticates every user, with multi-factor authentication, and \<DocuView\> takes each user's roles and project access from their Active Directory groups, sent as group claims. \<DocuView\> holds no accounts or passwords of its own. Both are corporate systems that \<DocuView\> uses as they stand. The design in sections 4 and 5 is written on that basis.
 
-\<DocuView\> is not yet built on its servers, so "today" means the tested v1.0 code in the Docker test environment. That build signed in with its own passwords and held its groups in its own database, so its tests do not yet show AD FS sign-in or AD groups working. Where that matters, the "Today" column and the "Tests" row say so. Test results are in `docs/evidence/ac`. Values that NIST asks the organisation to define are stated in the design and listed in full in appendix B.
+\<DocuView\> is not yet built on its servers, so "today" means the tested v1.0 code in the Docker test environment. That build signed in with its own passwords and held its groups in its own database, so its tests do not yet show AD FS sign-in or AD groups working. Where that matters, the "Today" column and the "Tests" row say so. Test results are in the AC evidence. Values that NIST asks the organisation to define are stated in the design and listed in full in appendix B.
 
 **Table 4: Status values**
 
@@ -195,10 +199,10 @@ Every person signs in with their Active Directory account, through AD FS. The ty
 | --- | --- | --- | --- |
 | Reader | Read documents in a project | The project's read group, an AD group | The owner of the project's data: its project access approver |
 | Editor | Add, manage and export documents in a project | The project's edit group, an AD group | The same |
-| Administrator | Use the administration dashboard | AD group `DocViewer_Admins` | System owner |
-| Auditor | Read audit logs | AD group `DocViewer_Auditors` | System owner |
-| Security officer | Read security information | AD group `DocViewer_Security` | System owner |
-| Global administrator | Manage projects, the AD groups each project uses, and sessions | AD group `DocViewer_GlobalAdmins` | System owner |
+| Administrator | Use the administration dashboard | AD group DocViewer\_Admins | System owner |
+| Auditor | Read audit logs | AD group DocViewer\_Auditors | System owner |
+| Security officer | Read security information | AD group DocViewer\_Security | System owner |
+| Global administrator | Manage projects, the AD groups each project uses, and sessions | AD group DocViewer\_GlobalAdmins | System owner |
 
 The people who hold each role are named in \<Roles and Responsibilities\>. The group names are those the tested build used, and are to be confirmed when the groups are created in Active Directory.
 
@@ -287,7 +291,7 @@ The system owner decided on 12 November 2026 that only the API connects to the d
 | API service account, \[name to be set at build\] | DV\_API only. Headless: no person signs in with it | Read and write application data. Add audit records | Be a superuser. Create, alter or drop tables. Change or delete audit records. Connect from anywhere but the application server |
 | Schema owner account, \[name to be set at build\] | The database administrator, at a release, under an approved change | Create and alter the tables | Be used by any app, or for everyday work |
 | Database administrators' own accounts | Each database administrator, by name | Administer PostgreSQL, for approved maintenance | Be shared |
-| Built-in `postgres` superuser | Nobody, over the network | Be used on the database server itself, in an emergency, by a database administrator | Connect over the network |
+| Built-in postgres superuser | Nobody, over the network | Be used on the database server itself, in an emergency, by a database administrator | Connect over the network |
 
 These rules follow from it:
 
@@ -401,7 +405,7 @@ The P-AC numbers are the access control settings used across the document set. P
 | P-AC-05 | AC-2 | Who decides access: the person's line manager approves, then the group's owner authorises and adds them to the AD group. The owner is the system owner for a role group, and the project access approver for a project group (section 4.13) | Approved; a rule for people, carried out in Active Directory |
 | P-AC-06 | AC-2 | A leaver's AD account is disabled by ABC Technologies at once, which ends their access to \<DocuView\>. Each group's owner removes the membership within 5 working days. Owners are told of a role change within 1 working day | Approved; no notice from ABC Technologies yet (PA-32) |
 | P-AC-07 | AC-2, AC-6(7) | Access review: global administrators and privileged groups every 3 months, all other accounts every 12 months | Approved; no review held yet (PA-16) |
-| P-AC-08 | AC-2(3) | Unused AD accounts are disabled under ABC Technologies' corporate standard, which \<DocuView\> accepts. An account no longer required or in breach of policy is disabled by ABC Technologies on notice | ABC Technologies' standard is to be supplied |
+| P-AC-08 | AC-2(3) | Unused AD accounts are disabled under ABC Technologies' corporate standard, which \<DocuView\> accepts. An account no longer required or in breach of policy is disabled by ABC Technologies on notice. In addition, each month, the owner of each group removes any member who has not signed in to \<DocuView\> for 90 days, from the sign-in dates in the audit records that a global administrator provides (D-PS-11) | ABC Technologies' standard is to be supplied |
 | P-AC-09 | AC-2(2) | Temporary and emergency accounts: not allowed until the system can expire them | Approved; a rule for people, nothing to build |
 | P-AC-10 | AC-2(5), AC-12 | Sign out after 30 minutes of inactivity | Approved; built |
 | P-AC-11 | AC-12 | End every session after 8 hours, whatever the activity | Approved; built |
@@ -451,7 +455,7 @@ Only the privileged roles in Table 6 may use these. Their use must be logged.
 | --- | --- | --- | --- |
 | The four role groups | Every 3 months | System owner, auditor; Head of Cyber as an extra check, for global administrators | PRO-AC-7 |
 | Project groups | Every 12 months | Project access approvers | PRO-AC-7 |
-| Members who no longer use \<DocuView\> | At each access review | Each group's owner, with last sign-in dates from the global administrator | PRO-AC-8 |
+| Members who have not signed in for 90 days | Monthly | Each group's owner, with the sign-in dates a global administrator provides | PRO-AC-8 |
 | Audit logs | Weekly | Auditor | \<Security Operating Procedures\> |
 | Actions allowed without signing in | Every 12 months, and after a change | System owner | PRO-AC-14 |
 | This document | Every 12 months, and after a significant change | System owner | PRO-AC-14 |
@@ -521,7 +525,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | Responsible | System owner, Head of Cyber |
 | Enforced by | Not a system function. The documents are under version control, and each review is recorded in the change history and on TPL-4 |
 | Rules and procedures | Policy rule R1 to R14 (\<Policy\>, section AC.4); PRO-AC-14, PRO-AC-15 (\<Procedures\> (AC)) |
-| Tests | None. Examined from the documents and the code |
+| Tests | None. Found by review of the documents and the v1.0 build |
 | Records an assessor will ask for | The policy and procedures with their approvals; proof they were shared; TPL-4 walk-through records; review records. Approvals exist; the rest do not yet |
 | Status | Partially implemented |
 | Risk decision | NC-01, rated Medium: approve |
@@ -543,7 +547,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | h | Tell account managers within a set time when an account is no longer needed, a user leaves or moves, or their need changes | Within 1 working day in each case, to the owners of the groups the person belongs to and the system owner. The notice comes as a prompt from ABC Technologies' Starters/Leavers system (P-AC-06) | Approved. The route does not exist yet (PA-32) |
 | i | Grant access only on a valid authorisation and intended use | Access comes only from membership of an AD group: a project's read or edit group, or a role group (Tables 7 and 8). Each membership traces to an approved request | The tested build took access from groups held in its own database (T11) |
 | j | Review accounts on a schedule | Each group's owner reviews its members: role groups every 3 months, project groups every 12 months (P-AC-07, procedure PRO-AC-7, record TPL-3) | No review has been held (PA-16) |
-| k | Change shared account passwords when someone leaves the group | Not applicable: shared and group accounts are prohibited (TR-AC-02), and \<DocuView\> holds no passwords to change | The only generic account, `admin`, was sample data in the tested build (D-AC-13) |
+| k | Change shared account passwords when someone leaves the group | Not applicable: shared and group accounts are prohibited (TR-AC-02), and \<DocuView\> holds no passwords to change | The only generic account, admin, was sample data in the tested build (D-AC-13) |
 | l | Align account management with the leaver and transfer processes | Aligned by design: \<DocuView\> uses the same AD account that ABC Technologies' leaver and transfer processes act on. Disabling it ends access to \<DocuView\>. The Starters/Leavers system prompts the group owners to remove memberships (PRO-AC-2, PRO-AC-3) | ABC Technologies' processes are not evidenced, and the prompt is not set up (PA-32) |
 
 **Table 24: AC-2 responsibility and evidence**
@@ -554,7 +558,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | Responsible | ABC Technologies; system owner; project access approvers; global administrator |
 | Enforced by | Active Directory holds the accounts and the groups, and AD FS puts each user's groups in the sign-in token. \<DocuView\>'s admin portal sets which AD groups open each project. \<DocuView\> holds no accounts. Windows and PostgreSQL accounts are managed by their administrators through ABC Technologies' Jira process |
 | Rules and procedures | Policy rule R1, R2, R3, R10 (\<Policy\>, section AC.4); PRO-AC-1, PRO-AC-2, PRO-AC-3, PRO-AC-6, PRO-AC-7, PRO-AC-12 (\<Procedures\> (AC)); \<Security Operating Procedures\>: A9; B5, B7; C3, C9, C15, C19, C36; section 5.4 |
-| Tests | 1 check on the v1.0 code, 8 November 2026: 1 passed, 0 showed a gap. Passed: T10, a new account has no session until its temporary password is changed. These checks ran on a build that used its own passwords and groups. They are to be repeated with AD FS sign-in and AD groups (D-AC-23) |
+| Tests | 1 check on the v1.0 build, 8 November 2026: 1 passed, 0 showed a gap. Passed: T10, a new account has no session until its temporary password is changed. These checks ran on a build that used its own passwords and groups. They are to be repeated with AD FS sign-in and AD groups (D-AC-23) |
 | Evidence asked of ABC Technologies | EV-AC-01, EV-AC-02 (\<Evidence Requests\>). Not yet sent |
 | Records an assessor will ask for | The members of each \<DocuView\> AD group; recently disabled AD accounts of \<DocuView\> users; the Jira requests and their approvals; leaver and mover records; review records (TPL-3). None exist yet |
 | Status | Partially implemented |
@@ -614,7 +618,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | a | Disable accounts that have expired | AD accounts with an end date are disabled by Active Directory on that date | ABC Technologies' practice is not evidenced |
 | b | Disable accounts no longer tied to a person | A leaver's AD account is disabled by ABC Technologies at once (P-AC-06) | Not evidenced (EV-AC-01) |
 | c | Disable accounts that breach policy | ABC Technologies disables the AD account on notice: within 1 hour for a high-risk individual (PRO-AC-4) | Approved, not yet used |
-| d | Disable accounts unused for a set period | Unused AD accounts are disabled under ABC Technologies' corporate standard, which \<DocuView\> accepts (P-AC-08) | ABC Technologies' standard is to be supplied. In the tested build an account unused for 400 days still worked (T43) |
+| d | Disable accounts unused for a set period | Unused AD accounts are disabled under ABC Technologies' corporate standard, which \<DocuView\> accepts (P-AC-08). In addition, each month, the owner of each group removes any member who has not signed in to \<DocuView\> for 90 days, from the sign-in dates in the audit records that a global administrator provides, so that an unused membership ends even while the Active Directory account stays in use for other work (D-PS-11) | ABC Technologies' standard is to be supplied. In the tested build an account unused for 400 days still worked (T43). The monthly removal is not yet in use |
 
 **Table 30: AC-2(3) responsibility and evidence**
 
@@ -624,7 +628,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | Responsible | ABC Technologies; global administrator, for ending sessions |
 | Enforced by | Active Directory: a disabled account cannot sign in through AD FS, so it cannot reach \<DocuView\>. A session already open lasts until it times out or a global administrator ends it |
 | Rules and procedures | Policy rule R3 (\<Policy\>, section AC.4); PRO-AC-3, PRO-AC-8 (\<Procedures\> (AC)) |
-| Tests | 2 checks on the v1.0 code, 8 November 2026: 1 passed, 1 showed a gap. Passed: T42, a disabled account cannot sign in. Expected but not met: T43, an account unused for 400 days is disabled automatically. These checks ran on a build that used its own passwords and groups. They are to be repeated with AD FS sign-in and AD groups (D-AC-23) |
+| Tests | 2 checks on the v1.0 build, 8 November 2026: 1 passed, 1 showed a gap. Passed: T42, a disabled account cannot sign in. Expected but not met: T43, an account unused for 400 days is disabled automatically. These checks ran on a build that used its own passwords and groups. They are to be repeated with AD FS sign-in and AD groups (D-AC-23) |
 | Records an assessor will ask for | ABC Technologies' list of disabled Active Directory accounts of \<DocuView\> users, with dates (EV-AC-01); TPL-14 and TPL-3 records. None exist yet |
 | Status | Partially implemented |
 | Risk decision | NC-05, rated Medium: remediate |
@@ -650,7 +654,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | Responsible | ABC Technologies; developers |
 | Enforced by | Active Directory's audit of account and group changes, held by ABC Technologies. \<DocuView\>'s audit log, for changes to projects and the groups each uses, and for each sign-in it accepts |
 | Rules and procedures | Policy rule R9 (\<Policy\>, section AC.4) |
-| Tests | 1 check on the v1.0 code, 8 November 2026: 1 passed, 0 showed a gap. Passed: T39, sign-in and failed sign-in are audited. These checks ran on a build that used its own passwords and groups. They are to be repeated with AD FS sign-in and AD groups (D-AC-23) |
+| Tests | 1 check on the v1.0 build, 8 November 2026: 1 passed, 0 showed a gap. Passed: T39, sign-in and failed sign-in are audited. These checks ran on a build that used its own passwords and groups. They are to be repeated with AD FS sign-in and AD groups (D-AC-23) |
 | Records an assessor will ask for | Audit records of each account event. Sign-in events only, in the test environment (T39) |
 | Status | Partially implemented |
 | Risk decision | NC-06, rated Medium: remediate |
@@ -672,7 +676,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | Responsible | Developers |
 | Enforced by | The session idle limit, 30 minutes, in the session settings. The server checks it on every request, so it does not depend on the browser |
 | Rules and procedures | Policy rule R11 (\<Policy\>, section AC.4) |
-| Tests | 1 check on the v1.0 code, 8 November 2026: 1 passed, 0 showed a gap. Passed: T44, a session idle for 31 minutes stops working |
+| Tests | 1 check on the v1.0 build, 8 November 2026: 1 passed, 0 showed a gap. Passed: T44, a session idle for 31 minutes stops working |
 | Records an assessor will ask for | The session settings; a test result; the Group Policy report for the servers (EV-AC-05 to EV-AC-07) |
 | Status | Partially implemented |
 | Risk decision | NC-07, rated Low: approved |
@@ -694,7 +698,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | Responsible | ABC Technologies' service desk; global administrator; security officer |
 | Enforced by | Active Directory, for the account. \<DocuView\>'s session service, which a global administrator uses to end every session of a user |
 | Rules and procedures | Policy rule R3 (\<Policy\>, section AC.4); PRO-AC-4 (\<Procedures\> (AC)) |
-| Tests | 2 checks on the v1.0 code, 8 November 2026: 2 passed, 0 showed a gap. Passed: T40, disabling an account ends API access immediately; T41, disabling an account ends DV\_Web access immediately. These checks ran on a build that used its own passwords and groups. They are to be repeated with AD FS sign-in and AD groups (D-AC-23) |
+| Tests | 2 checks on the v1.0 build, 8 November 2026: 2 passed, 0 showed a gap. Passed: T40, disabling an account ends API access immediately; T41, disabling an account ends DV\_Web access immediately. These checks ran on a build that used its own passwords and groups. They are to be repeated with AD FS sign-in and AD groups (D-AC-23) |
 | Evidence asked of ABC Technologies | EV-AC-01 (\<Evidence Requests\>). Not yet sent |
 | Records an assessor will ask for | TPL-14 records showing the notice time and the times the account was disabled and the sessions ended; ABC Technologies' record of the disable; \<DocuView\>'s audit record of the ended sessions. None exist yet |
 | Status | Partially implemented |
@@ -717,7 +721,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | Responsible | Developers |
 | Enforced by | The access control library (access-control-toolkit 0.2.0), built into all three apps, makes the session and project decisions. Role policies on each page and controller make the function decisions. The user app and admin portal refuse anything not marked as open; the API has no such default, which is why some of its functions are open |
 | Rules and procedures | Policy rule R5 (\<Policy\>, section AC.4); PRO-AC-5 (\<Procedures\> (AC)) |
-| Tests | 23 checks on the v1.0 code, 8 November 2026: 23 passed, 0 showed a gap. Passed: T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T56, T22, T57, T58, T59, T63, T64, T23, T60, T61, T62, T48. These checks ran on a build that used its own passwords and groups. They are to be repeated with AD FS sign-in and AD groups (D-AC-23). The project and function checks themselves do not depend on how the user signed in |
+| Tests | 23 checks on the v1.0 build, 8 November 2026: 23 passed, 0 showed a gap. Passed: T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T56, T22, T57, T58, T59, T63, T64, T23, T60, T61, T62, T48. These checks ran on a build that used its own passwords and groups. They are to be repeated with AD FS sign-in and AD groups (D-AC-23). The project and function checks themselves do not depend on how the user signed in |
 | Records an assessor will ask for | The list of approved authorisations (the AD groups and their members); the test results; audit records. On the servers: Windows and PostgreSQL permissions, not yet available |
 | Status | Partially implemented |
 | Risk decision | NC-09, rated High: remediate |
@@ -739,7 +743,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | Responsible | Developers, ABC Technologies |
 | Enforced by | ABC Technologies' firewalls, whose rules its corporate network team alone controls (section 4.6.4). \<DocuView\>'s part is in its own apps: the API on the loopback address only, HTTPS on each listener, and the API's list of allowed origins. The flows are listed in \<Security Architecture\>, Table 5 |
 | Rules and procedures | Policy rule R12 (\<Policy\>, section AC.4) |
-| Tests | None. Examined from the documents and the code |
+| Tests | None. Found by review of the documents and the v1.0 build |
 | Evidence asked of ABC Technologies | EV-AC-03 (\<Evidence Requests\>). Not yet sent |
 | Records an assessor will ask for | The flow list (section 4.6.4); ABC Technologies' firewall rule sets for the two servers and its change process (EV-AC-03); \<DocuView\>'s TLS settings. Only the flow list exists |
 | Status | Partially implemented |
@@ -763,7 +767,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | Responsible | System owner |
 | Enforced by | The AD role groups: the administrator, auditor and security officer groups each open only their own pages, and only the system owner can change their members. In the tested build the global administrator setting opened all of those pages (PA-15) |
 | Rules and procedures | Policy rule R8 (\<Policy\>, section AC.4); \<Security Operating Procedures\>: B6, B8 |
-| Tests | 1 check on the v1.0 code, 8 November 2026: 0 passed, 1 showed a gap. Expected but not met: T75, a global administrator cannot read the audit logs they would review themselves |
+| Tests | 1 check on the v1.0 build, 8 November 2026: 0 passed, 1 showed a gap. Expected but not met: T75, a global administrator cannot read the audit logs they would review themselves |
 | Records an assessor will ask for | The list of separated duties (section 4.5, Table 9); the role assignments (\<Roles and Responsibilities\>); the members of each AD group; the 3-monthly check record |
 | Status | Partially implemented |
 | Risk decision | NC-11, rated Medium: accepted |
@@ -785,7 +789,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | Responsible | Developers, database administrator |
 | Enforced by | Project groups and role policies for people. Database roles and Windows service accounts for processes |
 | Rules and procedures | Policy rule R6 (\<Policy\>, section AC.4); PRO-AC-5 (\<Procedures\> (AC)); \<Security Operating Procedures\>: A17; B2, B3, B10; C3, C16 |
-| Tests | None. Examined from the documents and the code |
+| Tests | None. Found by review of the documents and the v1.0 build |
 | Records an assessor will ask for | The list of assigned access (access groups and members); the database roles and their rights; the service accounts on the servers. The last two do not exist yet |
 | Status | Partially implemented |
 | Risk decision | NC-12, rated High: remediate |
@@ -808,7 +812,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | Responsible | Developers |
 | Enforced by | Role policies on the admin portal's pages; database rights; file permissions on the servers; ABC Technologies' own access lists for the hosts and network |
 | Rules and procedures | Policy rule R6 (\<Policy\>, section AC.4) |
-| Tests | 4 checks on the v1.0 code, 8 November 2026: 4 passed, 0 showed a gap. Passed: T71, ordinary user cannot open /sysadmin/audit-logs; T72, ordinary user cannot open /sysadmin/security-audit; T73, an auditor can open the audit logs; T74, an auditor cannot manage users |
+| Tests | 4 checks on the v1.0 build, 8 November 2026: 4 passed, 0 showed a gap. Passed: T71, ordinary user cannot open the audit log page; T72, ordinary user cannot open the security audit page; T73, an auditor can open the audit logs; T74, an auditor cannot manage users |
 | Evidence asked of ABC Technologies | EV-AC-04 (\<Evidence Requests\>). Not yet sent |
 | Records an assessor will ask for | The list of security functions and information (section 4.8); who is authorised (\<Roles and Responsibilities\>); ABC Technologies' named roles and access lists (EV-AC-04) |
 | Status | Partially implemented |
@@ -831,7 +835,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | Responsible | System owner |
 | Enforced by | A rule for people. The system does not enforce it |
 | Rules and procedures | Policy rule R7 (\<Policy\>, section AC.4); \<Security Operating Procedures\>: B2, B3 |
-| Tests | None. Examined from the documents and the code |
+| Tests | None. Found by review of the documents and the v1.0 build |
 | Records an assessor will ask for | The account list showing two accounts for each privileged person. Not yet issued |
 | Status | Not implemented |
 | Risk decision | NC-14, rated Low: accepted |
@@ -853,7 +857,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | Responsible | System owner, database administrator |
 | Enforced by | Membership of the four privileged AD groups, which only the system owner can change; Windows administrator group membership and PostgreSQL roles on the servers |
 | Rules and procedures | Policy rule R2, R6 (\<Policy\>, section AC.4); PRO-AC-6 (\<Procedures\> (AC)); \<Security Operating Procedures\>: B4, B7, B8 |
-| Tests | 1 check on the v1.0 code, 8 November 2026: 0 passed, 1 showed a gap. Expected but not met: T55, apps use a database role without superuser rights |
+| Tests | 1 check on the v1.0 build, 8 November 2026: 0 passed, 1 showed a gap. Expected but not met: T55, apps use a database role without superuser rights |
 | Evidence asked of ABC Technologies | EV-AC-02 (\<Evidence Requests\>). Not yet sent |
 | Records an assessor will ask for | The members of the four privileged AD groups; the list of administrators (\<Roles and Responsibilities\>); the Jira requests that authorised them; the Windows administrator group for the servers (EV-AC-02) |
 | Status | Partially implemented |
@@ -877,7 +881,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | Responsible | System owner, auditor |
 | Enforced by | A manual review of the members of each AD group, by its owner |
 | Rules and procedures | Policy rule R10 (\<Policy\>, section AC.4); PRO-AC-7 (\<Procedures\> (AC)); \<Security Operating Procedures\>: C15, C19 |
-| Tests | None. Examined from the documents and the code |
+| Tests | None. Found by review of the documents and the v1.0 build |
 | Records an assessor will ask for | Completed TPL-3 forms, and Active Directory's record of any member removed. None exist yet |
 | Status | Not implemented |
 | Risk decision | NC-16, rated Medium: remediate |
@@ -899,7 +903,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | Responsible | Developers |
 | Enforced by | The application audit log and its audit service. On the servers, Windows and PostgreSQL logging |
 | Rules and procedures | Policy rule R9 (\<Policy\>, section AC.4); \<Security Operating Procedures\>: B12; C3, C16 |
-| Tests | 1 check on the v1.0 code, 8 November 2026: 0 passed, 1 showed a gap. Expected but not met: T37, ending a user's sessions as admin is audited |
+| Tests | 1 check on the v1.0 build, 8 November 2026: 0 passed, 1 showed a gap. Expected but not met: T37, ending a user's sessions as admin is audited |
 | Records an assessor will ask for | The list of privileged functions (section 4.8); the list of audited events; audit records. Partial, in the test environment |
 | Status | Partially implemented |
 | Risk decision | NC-17, rated Medium: remediate |
@@ -921,7 +925,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | Responsible | Developers |
 | Enforced by | Role policies on every admin portal page and API controller. The diagnostic pages carry a build guard that does not work, so they are present in the release build |
 | Rules and procedures | Policy rule R6 (\<Policy\>, section AC.4) |
-| Tests | 19 checks on the v1.0 code, 8 November 2026: 6 passed, 13 showed a gap. Passed: T24, ordinary user cannot list all sessions; T25, ordinary user cannot end another user's sessions; T26, ordinary user cannot open user management in the admin portal; T27, ordinary user cannot open session administration in DV\_Web; T28, ordinary user cannot open /sysadmin/schema-migration in the admin portal; T29, ordinary user cannot open /sysadmin/blob-setup in the admin portal. Expected but not met: T30, T31, T32, T33, T34, T35, T36, T65, T66, T67, T68, T69, T70 |
+| Tests | 19 checks on the v1.0 build, 8 November 2026: 6 passed, 13 showed a gap. Passed: T24, ordinary user cannot list all sessions; T25, ordinary user cannot end another user's sessions; T26, ordinary user cannot open user management in the admin portal; T27, ordinary user cannot open session administration in DV\_Web; T28, ordinary user cannot open the schema migration page in the admin portal; T29, ordinary user cannot open the storage set-up page in the admin portal. Expected but not met: T30, T31, T32, T33, T34, T35, T36, T65, T66, T67, T68, T69, T70 |
 | Records an assessor will ask for | The list of privileged functions and who may run each (section 4.8, Table 8); the test results |
 | Status | Partially implemented |
 | Risk decision | NC-18, rated High: remediate |
@@ -944,7 +948,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | Responsible | ABC Technologies |
 | Enforced by | AD FS and Active Directory, for users. ABC Technologies' Group Policy, for sign-in to the servers. PostgreSQL accepts connections only from the application server. All are ABC Technologies' corporate configuration, which \<DocuView\> accepts as it stands (section 4.6.5) |
 | Rules and procedures | Policy rule R11 (\<Policy\>, section AC.4); PRO-AC-9 (\<Procedures\> (AC)); \<Security Operating Procedures\>: A14; C3 |
-| Tests | 2 checks on the v1.0 code, 8 November 2026: 2 passed, 0 showed a gap. Passed: T49, after 5 failures the correct password is refused; T50, sign-in works again after the lockout ends. These checks ran on a build that used its own passwords and groups. They are to be repeated with AD FS sign-in and AD groups (D-AC-23) |
+| Tests | 2 checks on the v1.0 build, 8 November 2026: 2 passed, 0 showed a gap. Passed: T49, after 5 failures the correct password is refused; T50, sign-in works again after the lockout ends. These checks ran on a build that used its own passwords and groups. They are to be repeated with AD FS sign-in and AD groups (D-AC-23) |
 | Evidence asked of ABC Technologies | EV-AC-05 (\<Evidence Requests\>). Not yet sent |
 | Records an assessor will ask for | ABC Technologies' lockout settings for AD FS and Active Directory, and for the servers (EV-AC-05); its records of lockouts |
 | Status | Partially implemented |
@@ -969,7 +973,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | Responsible | Developers, Windows server administrator |
 | Enforced by | Text on the first page of the user app and of the admin portal, changed only through an approved change (PRO-AC-13). On the servers, the Windows logon banner, which is ABC Technologies' corporate configuration (section 4.6.5) |
 | Rules and procedures | Policy rule R11 (\<Policy\>, section AC.4); PRO-AC-13 (\<Procedures\> (AC)); \<Security Operating Procedures\>: A6, A7, A8 |
-| Tests | 2 checks on the v1.0 code, 8 November 2026: 0 passed, 2 showed a gap. Expected but not met: T51, DV\_Web sign-in page shows a system use notice; T52, admin portal sign-in page shows a system use notice |
+| Tests | 2 checks on the v1.0 build, 8 November 2026: 0 passed, 2 showed a gap. Expected but not met: T51, DV\_Web sign-in page shows a system use notice; T52, admin portal sign-in page shows a system use notice |
 | Evidence asked of ABC Technologies | EV-AC-06 (\<Evidence Requests\>). Not yet sent |
 | Records an assessor will ask for | The approved wording and its approval; a screenshot of the first page of each app; the Windows banner setting (EV-AC-06) |
 | Status | Not implemented |
@@ -993,7 +997,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | Responsible | Developers, ABC Technologies |
 | Enforced by | A session timeout script in both apps. The device lock is ABC Technologies' corporate configuration, set by Group Policy or device management (section 4.6.5) |
 | Rules and procedures | Policy rule R11 (\<Policy\>, section AC.4); \<Security Operating Procedures\>: A36 |
-| Tests | 1 check on the v1.0 code, 8 November 2026: 1 passed, 0 showed a gap. Passed: T53, the session lock script is served (behaviour read from code, not driven here) |
+| Tests | 1 check on the v1.0 build, 8 November 2026: 1 passed, 0 showed a gap. Passed: T53, the session lock script is served (behaviour found by code review, not driven here) |
 | Evidence asked of ABC Technologies | EV-AC-07 (\<Evidence Requests\>). Not yet sent |
 | Records an assessor will ask for | The script and its settings; ABC Technologies' screen lock settings (EV-AC-07) |
 | Status | Partially implemented |
@@ -1016,7 +1020,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | Responsible | Developers |
 | Enforced by | The same session timeout script; ABC Technologies' device lock |
 | Rules and procedures | Policy rule R11 (\<Policy\>, section AC.4); \<Security Operating Procedures\>: A36 |
-| Tests | None. Examined from the documents and the code |
+| Tests | None. Found by review of the documents and the v1.0 build |
 | Evidence asked of ABC Technologies | EV-AC-07 (\<Evidence Requests\>). Not yet sent |
 | Records an assessor will ask for | A screenshot of the locked page; ABC Technologies' settings (EV-AC-07) |
 | Status | Partially implemented |
@@ -1039,7 +1043,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | Responsible | Developers |
 | Enforced by | Session settings: idle limit 30 minutes, total limit 8 hours, 3 sessions for each user. Sessions are held on the server, and each request checks the session, so a token cannot outlive it. The token itself lasts 480 minutes |
 | Rules and procedures | Policy rule R11 (\<Policy\>, section AC.4); PRO-AC-11 (\<Procedures\> (AC)); \<Security Operating Procedures\>: A36 |
-| Tests | 4 checks on the v1.0 code, 8 November 2026: 4 passed, 0 showed a gap. Passed: T38, an admin can end a user's sessions and the token stops working; T45, a session past its 8-hour limit stops working; T46, sign-out ends the session; T47, a revoked session's token stops working |
+| Tests | 4 checks on the v1.0 build, 8 November 2026: 4 passed, 0 showed a gap. Passed: T38, an admin can end a user's sessions and the token stops working; T45, a session past its 8-hour limit stops working; T46, sign-out ends the session; T47, a revoked session's token stops working |
 | Records an assessor will ask for | The session settings; the list of conditions; the test results; audit records of session ends |
 | Status | Partially implemented |
 | Risk decision | NC-23, rated Low: approved |
@@ -1062,7 +1066,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | Responsible | Developers |
 | Enforced by | The user app and admin portal refuse anything not marked as open. The API has no such default, so an unmarked function is open; this is the root cause of the gaps |
 | Rules and procedures | Policy rule R5 (\<Policy\>, section AC.4) |
-| Tests | 9 checks on the v1.0 code, 8 November 2026: 6 passed, 3 showed a gap. Passed: T01, sign-in page is available without signing in; T02, DV\_Web home redirects anonymous users to sign-in; T03, admin portal page redirects anonymous users to sign-in; T04, API refuses an anonymous session request; T05, API ignores a forged X-Forwarded-User header; T06, API /health is anonymous and reveals only a status word. Expected but not met: T07, anonymous user cannot read cache statistics; T08, anonymous user cannot clear the API cache; T09, no test page is reachable without signing in. These checks ran on a build that used its own passwords and groups. They are to be repeated with AD FS sign-in and AD groups (D-AC-23) |
+| Tests | 9 checks on the v1.0 build, 8 November 2026: 6 passed, 3 showed a gap. Passed: T01, sign-in page is available without signing in; T02, DV\_Web home redirects anonymous users to sign-in; T03, admin portal page redirects anonymous users to sign-in; T04, API refuses an anonymous session request; T05, API ignores a forged X-Forwarded-User header; T06, API /health is anonymous and reveals only a status word. Expected but not met: T07, anonymous user cannot read cache statistics; T08, anonymous user cannot clear the API cache; T09, no test page is reachable without signing in. These checks ran on a build that used its own passwords and groups. They are to be repeated with AD FS sign-in and AD groups (D-AC-23) |
 | Records an assessor will ask for | The list (this section and appendix A, section A.6); the test results and the anonymous probe of 5 November 2026 |
 | Status | Partially implemented |
 | Risk decision | NC-24, rated Medium: remediate |
@@ -1129,9 +1133,9 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | --- | --- |
 | Provided by | Shared: partly \<DocuView\>, partly people or ABC Technologies |
 | Responsible | ABC Technologies, Windows server administrator |
-| Enforced by | ABC Technologies' VPN; the TLS settings of each app and of PostgreSQL (\<Control Implementation Register\> (SC)) |
+| Enforced by | ABC Technologies' VPN; the TLS settings of each app and of PostgreSQL (\<System and Communications Protection Management\>) |
 | Rules and procedures | Policy rule R12 (\<Policy\>, section AC.4); \<Security Operating Procedures\>: A39, A40 |
-| Tests | 1 check on the v1.0 code, 8 November 2026: 0 passed, 1 showed a gap. Expected but not met: T54, the stack as run in Docker encrypts traffic |
+| Tests | 1 check on the v1.0 build, 8 November 2026: 0 passed, 1 showed a gap. Expected but not met: T54, the stack as run in Docker encrypts traffic |
 | Evidence asked of ABC Technologies | EV-AC-10 (\<Evidence Requests\>). Not yet sent |
 | Records an assessor will ask for | The VPN's protocol and cipher settings (EV-AC-10); \<DocuView\>'s TLS settings once built |
 | Status | Not implemented |
@@ -1388,7 +1392,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | Responsible | Project access approvers |
 | Enforced by | Project groups control sharing inside \<DocuView\>. Sharing outside is a manual decision |
 | Rules and procedures | Policy rule R14 (\<Policy\>, section AC.4); PRO-AC-16 (\<Procedures\> (AC)); \<Security Operating Procedures\>: A22, A25 |
-| Tests | None. Examined from the documents and the code |
+| Tests | None. Found by review of the documents and the v1.0 build |
 | Records an assessor will ask for | The list of project access approvers (\<Roles and Responsibilities\>); TPL-2 sharing decisions. None exist yet |
 | Status | Not implemented |
 | Risk decision | NC-38, rated Low: accepted |
@@ -1438,24 +1442,24 @@ This appendix records the v1.0 build as tested between 5 and 8 November 2026, fo
 
 The API's page upload address also differs: it needs the administrator role as well as project edit access, while the model gives upload to editors. Neither UI calls it, so it is recorded as unused under PA-25. The model also lets global administrators reach every project, and the system owner should decide whether their duties need that (PA-15).
 
-Other differences: Export to Folder still exists (PA-26), browsers load code from an outside service (PA-34), and the sample data has a generic `admin` account and project roles such as `DataOwner` that are not in this catalogue.
+Other differences: Export to Folder still exists (PA-26), browsers load code from an outside service (PA-34), and the sample data has a generic admin account and project roles such as DataOwner that are not in this catalogue.
 
 ### A.2 How an access decision is made
 
 **Table 100: How an access decision is made**
 
-| Step | What happens | Code |
+| Step | What happens | Part of the system |
 | --- | --- | --- |
-| 1. Password | DV\_API checks it against PBKDF2-SHA512 hashes, 600,000 iterations | `DV_API/Services/CredentialService.cs` |
-| 2. Session | access-control-toolkit 0.2.0 opens a session in `ac.Sessions` | `DV_API/Controllers/TokenController.cs`, `DV_Shared/AccessControl/` |
-| 3. Credentials issued | The API returns a JWT, and the UI makes a cookie with the same session ID and the user's roles | `DV_Web/Controllers/AuthController.cs`, `DV_Admin_UI/Controllers/AuthController.cs` |
-| 4. Each request | The cookie or JWT is checked, then the toolkit session and the account's current state | `Program.cs` in each app, `AccessSessionValidator` |
-| 5. Project decision | `HasProjectAccessAsync` and `HasProjectEditAccessAsync` call the toolkit's `AccessGuard` | `DV_Shared/AccessControl/ProjectAccessPolicyProvider.cs` |
-| 6. Page decision | Role policies on pages and controllers, using roles set at sign-in | `@attribute [Authorize]`, `Program.cs` |
+| 1. Password | DV\_API checks it against PBKDF2-SHA512 hashes, 600,000 iterations | The API's password service |
+| 2. Session | The access control component, version 0.2.0, opens a session record | The API's sign-in service |
+| 3. Credentials issued | The API returns a signed token, and the UI makes a cookie with the same session ID and the user's roles | The sign-in service of each UI |
+| 4. Each request | The cookie or token is checked, then the session and the account's current state | Each app, on every request |
+| 5. Project decision | The project read check and the project edit check ask the access control component for a decision | The shared project access component |
+| 6. Page decision | A role requirement on each page and API function, using the roles set at sign-in | Each page and API function |
 
-The toolkit makes the decisions in steps 2, 4 and 5 only. Document pages, tiles, exports and bad file reports now all reach step 5. Page addresses take the form page/{project schema}/{page number}, because page numbers restart in each project. Export jobs can only be used by their owner or a global administrator.
+The access control component makes the decisions in steps 2, 4 and 5 only. Document pages, tiles, exports and bad file reports now all reach step 5. Page addresses take the form page/{project schema}/{page number}, because page numbers restart in each project. Export jobs can only be used by their owner or a global administrator.
 
-A user's roles are held in the cookie and JWT from sign-in. Changing a user's groups, status or password changes their security version, which ends their sessions, so old roles cannot carry on.
+A user's roles are held in the cookie and token from sign-in. Changing a user's groups, status or password changes their security version, which ends their sessions, so old roles cannot carry on.
 
 ### A.3 Roles and groups
 
@@ -1463,31 +1467,31 @@ A user's roles are held in the cookie and JWT from sign-in. Changing a user's gr
 
 | Role or group | Source | Grants |
 | --- | --- | --- |
-| `DocViewer_GlobalAdmins` | `ApplicationUser.IsGlobalAdmin` | Every project (toolkit rule `global-admin`), and all `GlobalAdminOnly` pages |
-| `DocViewer_Admins` | Access group of that name | `AdminPolicy` pages; `CanUploadDocuments` in the API |
-| `DocViewer_Auditors` | Access group of that name | `AuditorPolicy` pages, including audit logs |
-| `DocViewer_Security` | Access group of that name | `SecurityPolicy` pages |
-| Project read group | Access group named in `Project.ReadPrincipal` | Read that project |
-| Project edit group | Access group named in `Project.EditPrincipal` | Read and edit that project |
-| Project roles | `UserProjectRole` | Active role choice in `RoleContextService` |
+| DocViewer\_GlobalAdmins | A global administrator flag on the user's account | Every project, and all pages reserved for global administrators |
+| DocViewer\_Admins | Access group of that name | The administrator pages; uploading documents through the API |
+| DocViewer\_Auditors | Access group of that name | The auditor pages, including audit logs |
+| DocViewer\_Security | Access group of that name | The security officer pages |
+| Project read group | The access group named as the project's read group | Read that project |
+| Project edit group | The access group named as the project's edit group | Read and edit that project |
+| Project roles | A project role record for each user | The role the user has chosen to act in |
 
-Seeded project groups: `Invoices_Read`, `Invoices_Edit`, `Correspondence_Read`, `Correspondence_Edit`, `HR_Read` and `HR_Edit`. Group names match regardless of upper or lower case.
+Seeded project groups: Invoices\_Read, Invoices\_Edit, Correspondence\_Read, Correspondence\_Edit, HR\_Read and HR\_Edit. Group names match regardless of upper or lower case.
 
 ### A.4 Settings
 
 **Table 102: Settings as built**
 
-| Setting | Value | Where |
+| Setting | Value | Where it is set |
 | --- | --- | --- |
-| Failed sign-ins before lockout | 5 consecutive | `CredentialService.MaxFailedAttempts` |
-| Lockout length | 15 minutes | `CredentialService.LockoutMinutes` |
-| Minimum password length | 12 | `CredentialService.MinPasswordLength` |
-| Idle timeout | 30 minutes | `SessionConfig.IdleTimeoutMinutes` |
-| Session limit | 8 hours | `SessionConfig.AbsoluteTimeoutHours` |
-| Sessions per user | 3 | `SessionConfig.MaxConcurrentSessionsPerUser` |
-| Screen lock | 25 minutes, warning at 25 | `wwwroot/js/session-timeout.js` |
-| JWT lifetime | 480 minutes | `Jwt:ExpiryMinutes` |
-| Policy cache | 5 seconds | `ProjectAccessPolicyProvider` |
+| Failed sign-ins before lockout | 5 consecutive | Built into the API's password service |
+| Lockout length | 15 minutes | Built into the API's password service |
+| Minimum password length | 12 | Built into the API's password service |
+| Idle timeout | 30 minutes | Each app's session settings |
+| Session limit | 8 hours | Each app's session settings |
+| Sessions per user | 3 | Each app's session settings |
+| Screen lock | 25 minutes, warning at 25 | A script served with each page |
+| Token lifetime | 480 minutes | The API's token settings |
+| Policy cache | 5 seconds | Built into the shared project access component |
 
 ### A.5 Database access
 
@@ -1495,14 +1499,14 @@ Seeded project groups: `Invoices_Read`, `Invoices_Edit`, `Correspondence_Read`, 
 
 | Item | Value |
 | --- | --- |
-| Database and engine | `doc_db`, PostgreSQL 18 |
-| Role used by all three apps | `docuview`, a superuser in Docker (PA-10) |
-| Application accounts | `dbo.ApplicationUser`, `dbo.UserCredential` |
-| Groups | `dbo.AccessGroup`, `dbo.AccessGroupMember` |
-| Toolkit sessions | `ac.Sessions` |
-| Exposed port | `127.0.0.1:15433` on the host |
+| Database and engine | the \<DocuView\> database, PostgreSQL 18 |
+| Role used by all three apps | docuview, a superuser in Docker (PA-10) |
+| Application accounts | The user account table and the credential table |
+| Groups | The access group table and the group member table |
+| Sessions | The session table |
+| Exposed port | A local address on the test PC only on the host |
 
-The committed `appsettings*.json` files still name a remote database at `185.249.75.32` and contain secrets (PA-19). Docker overrides them with environment variables.
+The applications' committed settings files still name a remote database at a public address and contain secrets (PA-19). Docker overrides them with environment variables.
 
 ### A.6 Endpoints reachable without signing in
 
@@ -1510,16 +1514,16 @@ The committed `appsettings*.json` files still name a remote database at `185.249
 
 | Endpoint | Purpose | Result | Item |
 | --- | --- | --- | --- |
-| `/auth/login`, `/auth/login-password` | Sign in | Expected |  |
-| `/auth/change-password` | Forced password change; needs the temporary state from sign-in | Expected |  |
-| `/auth/logged-out`, `/auth/session-expired`, `/logout` | Sign-out pages | Expected |  |
-| `/access-denied` | Admin portal message | Expected |  |
-| `POST /api/auth/token` | Sign in, for the UIs | Expected |  |
-| API `/health` | Returns a status word only | Expected |  |
-| API `/api/Cache/stats`, `clear-permissions`, `clear-all` | Cache management | **Should need sign-in** | PA-03 |
-| API `/api/Test/auth` | Diagnostic | **Should be removed** | PA-07 |
-| API `/api/SecurityTest`/health, which returns the environment name | Diagnostic | **Should be removed** | PA-07 |
-| `/test-icons` in DV\_Web | Test page | **Should be removed** | PA-07 |
+| The sign-in pages of the tested build | Sign in | Expected |  |
+| The change password page of the tested build | Forced password change; needs the temporary state from sign-in | Expected |  |
+| The signed-out, session expired and sign-out pages | Sign-out pages | Expected |  |
+| The access denied page | Admin portal message | Expected |  |
+| The API's sign-in function | Sign in, for the UIs | Expected |  |
+| The API's health check | Returns a status word only | Expected |  |
+| The API's cache statistics and cache clearing functions | Cache management | **Should need sign-in** | PA-03 |
+| The API's test sign-in function | Diagnostic | **Should be removed** | PA-07 |
+| The API's security test health function, which returns the environment name | Diagnostic | **Should be removed** | PA-07 |
+| The icon test page in DV\_Web | Test page | **Should be removed** | PA-07 |
 
 Static files in DV\_Web and the admin portal are also served without signing in. DV\_Web and the admin portal deny by default through a fallback policy. DV\_API does not have one, which is why missing attributes leave endpoints open.
 
@@ -1533,16 +1537,16 @@ The tested build used flows F1 to F8 in \<Security Architecture\>. \<DocuView\> 
 
 ### A.9 Evidence index
 
-Results are in `DV_Workspace/docs/evidence/ac/ac-test-results-2026-11-05-after-ac3.csv`, from `DV_Workspace/tests/Test-AccessControl.ps1`. After the AC-3 fixes there are 64 checks: 48 passed and 16 showed a gap. The AC-6(10) and AC-6(1) assessments added 11 more, with no code changes, for 75 checks: 52 passed and 23 gaps, in ac-test-results-2026-11-05-ac6-1.csv. The baseline before any fixes was 55 checks, 34 passed and 21 gaps. The stack was a separate throwaway Docker project, removed afterwards.
+Results are in ac-test-results-2026-11-05-after-ac3.csv, in the AC evidence, from Test-AccessControl.ps1. After the AC-3 fixes there are 64 checks: 48 passed and 16 showed a gap. The AC-6(10) and AC-6(1) assessments added 11 more, with no code changes, for 75 checks: 52 passed and 23 gaps, in ac-test-results-2026-11-05-ac6-1.csv. The baseline before any fixes was 55 checks, 34 passed and 21 gaps. The stack was a separate throwaway Docker project, removed afterwards.
 
-On 8 November 2026 the tests were run again on the tagged v1.0 code, on a fresh throwaway stack: `ac-test-results-2026-11-08-v1.0.csv`, 75 checks, 52 passed and 23 gaps, the same as on 5 November. `MANIFEST.md` in the same folder records a SHA-256 hash for every evidence file, with the commits, containers and environment of that run. T45 passed in that run and in four repeats, and is closed as not reproduced; the folder's README explains why.
+On 8 November 2026 the tests were run again on the tagged v1.0 build, on a fresh throwaway stack: ac-test-results-2026-11-08-v1.0.csv, 75 checks, 52 passed and 23 gaps, the same as on 5 November. MANIFEST.md in the same folder records a SHA-256 hash for every evidence file, with the commits, containers and environment of that run. T45 passed in that run and in four repeats, and is closed as not reproduced; the folder's README explains why.
 
 The tests for each control, with their results, are listed with the control in section 5.
 
 ### A.10 Known limits of this evidence
 
 - Tests ran on one PC with sample data, not on the Windows Server 2025 VMs. Windows accounts and PostgreSQL on Windows are not covered yet.
-- The lock screen was read from the code, not exercised in a browser.
+- The lock screen was found by code review, not exercised in a browser.
 - Disabling an account was tested by changing the database row, not by using the admin page.
 
 | **APPENDIX B** |
@@ -1578,7 +1582,7 @@ NIST SP 800-53A identifies the values an organisation must define for each contr
 | AC-02(02)\_ODP\[01\] | Remove or disable | Disable | P-AC-09 | Proposed | Not applicable (TR-AC-01) |
 | AC-02(02)\_ODP\[02\] | Time before disabling | Not applicable while temporary and emergency accounts are prohibited | P-AC-09 | Proposed | Not applicable (TR-AC-01) |
 | AC-02(03)\_ODP\[01\] | Time to disable an account | A leaver's Active Directory account: at once, by ABC Technologies; their group memberships within 5 working days. Otherwise within 1 working day of the condition being found | New in this register | Proposed | Stated by the system owner (D-AC-23) |
-| AC-02(03)\_ODP\[02\] | Inactivity period | ABC Technologies' corporate standard for unused AD accounts, to be supplied | P-AC-08 | Proposed, not built (PA-13) | Corporate standard accepted (D-AC-23) |
+| AC-02(03)\_ODP\[02\] | Inactivity period | ABC Technologies' corporate standard for unused AD accounts, to be supplied. In addition, 90 days without signing in to \<DocuView\>: the person is removed from \<DocuView\>'s groups | P-AC-08 | Proposed, not built (PA-13) | Corporate standard accepted (D-AC-23); 90 days in \<DocuView\>'s groups added (D-PS-11) |
 | AC-02(05)\_ODP | When users must log out | After 30 minutes of inactivity | P-AC-10 | As built, not approved | Approved (D-AC-P06); built |
 | AC-02(13)\_ODP\[01\] | Time to disable a high-risk individual | Within 1 hour of notice | P-AC-13 | Proposed | Approved (D-AC-P07) |
 | AC-02(13)\_ODP\[02\] | Risks that trigger it | Notice from management or ABC Technologies' security contact of misconduct, compromised credentials or a hostile departure | New in this register | Proposed | Approved (D-AC-P07) |

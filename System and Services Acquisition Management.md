@@ -288,7 +288,7 @@ The process is NIST SSDF \<ver\> (section 4.2). The standards are SSDF, OWASP AS
 | .NET SDK and ASP.NET Core | 10.0, long-term support | Release builds. The package audit is turned off in the image build (PA-92) |
 | Docker | Desktop on the developer PC, for the build and the test stacks | The .NET SDK and runtime base images, not pinned (PA-77). In production each application runs as a Windows service on the application server, not in a container (D-PL-10) |
 | Git and GitHub | Private repositories under one account | No branch protection, required review or alerts (PA-91) |
-| Offline NuGet feed | The in-house offline package repository | Packages are checked before they enter the feed (\<Supply Chain Risk Management Plan\>). Only the in-house OfflineModules packages come through it today (PA-94) |
+| Offline NuGet feed | The in-house offline package repository | Packages are checked before they enter the feed (\<Supply Chain Risk Management\>). Only the in-house OfflineModules packages come through it today (PA-94) |
 | PowerShell 7 | Runs the test scripts | Run by hand. 10 scripts were not under version control (PA-91) |
 | GitHub CLI | Used by Test-Development.ps1 | Read-only calls to GitHub |
 
@@ -416,7 +416,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | e | The contract includes security and privacy documentation requirements | The administrator and user documentation the supplier must provide (SA-5) | Contract not seen (EV-SA-01) |
 | f | The contract includes requirements for protecting that documentation | The documentation is restricted, and handled as \<DocuView\>'s own documents are | Contract not seen (EV-SA-01) |
 | g | The contract describes the development environment and the environment the system will run in | How the product is built, and ABC Technologies' environment it will run in | Contract not seen (EV-SA-01) |
-| h | The contract allocates responsibility for security, privacy and supply chain risk | Each party's responsibilities, including reporting a compromise to the security officer (\<Supply Chain Risk Management Plan\>) | Contract not seen (EV-SA-01) |
+| h | The contract allocates responsibility for security, privacy and supply chain risk | Each party's responsibilities, including reporting a compromise to the security officer (\<Supply Chain Risk Management\>) | Contract not seen (EV-SA-01) |
 | i | The contract includes acceptance criteria | The tests or evidence that must pass before ABC Technologies accepts the product or service | Contract not seen (EV-SA-01) |
 
 **Table 20: SA-4 responsibility and evidence**

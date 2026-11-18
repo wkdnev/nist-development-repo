@@ -54,9 +54,10 @@
 
 | Version | Date | Change |
 | --- | --- | --- |
+| \<ver\> | 18 November 2026 | The system owner's decisions on the cross-check (D-PT-24): privacy requests and complaints are kept for 3 years after they close, for the legal adviser to confirm (rows A10 and A11); SI-18 rests on the new policy rule R11, which awaits the Head of Cyber |
 | \<ver\> | 18 November 2026 | Cross-check against NIST's guidance and UK data protection law: rights to restrict, object and portability, the time limit and telling recipients of a correction added; no automated decisions stated; retention rows for privacy requests and complaints added as placeholders; the missing accuracy rule shown; and the related enhancements listed in a new appendix B |
 | \<ver\> | 18 November 2026 | The system owner's decisions on the review (D-PT-23): row A1 of the retention schedule, for names held from sign-in, is confirmed |
-| \<ver\> | 18 November 2026 | First draft |
+| \<ver\> | 18 November 2026 | Issued into the set as a draft for review |
 | \<ver\> | 18 November 2026 | First draft, at the system owner's request (D-PT-22). The personal data chapter of \<Control Implementation Register\> moved here in full, so that this design is held only in this document, and each control is set out part by part. The inventory and the retention schedule follow sign-in through AD FS: \<DocuView\> holds no accounts (D-AC-23). The audit and log periods already set elsewhere are entered in the retention schedule. No agreed value is changed |
 
 | **SECTION 2** |
@@ -218,8 +219,8 @@ Until \<DocuView\> can search every project for one person in one step, each pro
 | A7 | Signed rules of behaviour (TPL-21) and the register of signatures | While the person has access, and 3 years after | Access ended | PL-4, as set in \<Planning Management\>, section 4.5 (D-PL-14) | Delete |
 | A8 | Personnel security register entries | While the person has access, and 3 years after | Access ended | PS-3, as set in \<Personnel Security Management\>, section 4.9 (D-PS-12) | Delete |
 | A9 | Leaver and mover records (TPL-14) | 3 years | Record completed | PS-4, PS-5, as set in \<Personnel Security Management\>, section 4.9 (D-PS-12) | Delete |
-| A10 | Privacy requests (TPL-15) | \[Period\] | Request closed | \[Reason\] | Delete |
-| A11 | Data protection complaints (TPL-22) | \[Period\] | Complaint closed | \[Reason\] | Delete |
+| A10 | Privacy requests (TPL-15) | 3 years | Request closed | Covers a complaint to the ICO about how a request was handled, and matches the other records. Set by the system owner (D-PT-24), for the legal adviser to confirm | Delete |
+| A11 | Data protection complaints (TPL-22) | 3 years | Complaint closed | Covers a complaint to the ICO about how a complaint was handled, and matches the other records. Set by the system owner (D-PT-24), for the legal adviser to confirm | Delete |
 
 ### 4.8 Impact assessment and changes in processing
 
@@ -706,7 +707,7 @@ The controls are in NIST order: the PT controls first, then the other privacy ba
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
-| a | Check the accuracy, relevance, timeliness and completeness of personal data at a defined frequency | Every 12 months each project access approver checks their project's personal data, and records it on TPL-3 (PRO-PT-5) | Not yet used. No policy rule requires it: only the procedure does |
+| a | Check the accuracy, relevance, timeliness and completeness of personal data at a defined frequency | Every 12 months each project access approver checks their project's personal data, and records it on TPL-3 (PRO-PT-5) | Not yet used. Policy rule R11 requires it, and awaits the Head of Cyber with the later version of the policy (D-PT-18) |
 | b | Correct or delete personal data that is inaccurate or out of date | The project access approver or an administrator corrects or deletes it, and each correction and deletion is audited | Corrections and deletions in the admin portal write no audit record (Q03, Q10; PA-89) |
 
 **Table 50: SI-18 responsibility and evidence**
@@ -716,7 +717,7 @@ The controls are in NIST order: the PT controls first, then the other privacy ba
 | Provided by | People, following the procedures |
 | Responsible | Project access approvers |
 | Enforced by | Not a system function today |
-| Rules and procedures | Principle P3; PRO-PT-5 (\<Procedures\>) |
+| Rules and procedures | Policy rule R11 (\<Policy\>, section PT.4); principle P3; PRO-PT-5 (\<Procedures\>) |
 | Tests | Checks Q03 and Q10 (Test-PersonalData.ps1 on the v1.0 build, 11 November 2026): corrections and deletions are not audited |
 | Records an assessor will ask for | TPL-3 records of the yearly check; audit records of corrections |
 | Status | Not implemented |

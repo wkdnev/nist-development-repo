@@ -54,11 +54,13 @@
 
 | Version | Date | Change |
 | --- | --- | --- |
+| \<ver\> | 18 November 2026 | References to the integrity design point to \<System and Information Integrity Management\>, where it is now held (D-SI-10) |
+| \<ver\> | 17 November 2026 | References to the physical and environmental protection design point to \<Physical and Environmental Protection Management\>, where it is now held (D-PE-11) |
 | \<ver\> | 17 November 2026 | Maintenance records are kept for 3 years, as the system owner decided (D-MP-11) |
 | \<ver\> | 17 November 2026 | References to the media protection design point to \<Media Protection Management\>, where it is now held (D-MP-09) |
 | \<ver\> | 17 November 2026 | Cross-check against NIST's guidance for the family: the maintenance record also holds the inspection of the tools and the scan of any media; the retention of maintenance records is shown as not yet set; and the MA controls outside the Moderate baseline are listed in a new appendix B |
 | \<ver\> | 17 November 2026 | The system owner's decisions on the review (D-MA-10): the container engine is confirmed as no longer a security-critical component, and ABC Technologies is asked for notice of its own maintenance that affects \<DocuView\> |
-| \<ver\> | 17 November 2026 | First draft |
+| \<ver\> | 17 November 2026 | Issued into the set as a draft for review |
 | \<ver\> | 17 November 2026 | First draft, at the system owner's request (D-MA-09). The maintenance chapter of \<Control Implementation Register\> moved here in full, so that this design is held only in this document, and each control is set out part by part. The lists follow the decision that the applications run as Windows services on the servers (D-PL-10): the container tools and image base are shown as belonging to the test environment only. No agreed value is changed |
 
 | **SECTION 2** |
@@ -68,7 +70,7 @@
 
 This document shows how \<DocuView\> is maintained, for each of the 9 Maintenance (MA) controls and enhancements in the NIST SP 800-53 Rev 5 Moderate baseline. Section 4 sets out the design: who maintains what, how a job is controlled from approval to review, the routes for remote maintenance, the approved tools and people, what may leave and how, the components whose support matters, and what ABC Technologies provides. Section 5 takes each control in turn. Appendix A lists every value NIST asks the organisation to define, and appendix B the MA controls NIST does not select at Moderate.
 
-This is the only place this design is held. Other documents point here. The policy is in \<Policy\> (MA), and the steps people follow are in \<Procedures\> (MA). Fixing flaws and releasing new versions follow their own designs, in \<Control Implementation Register\> (SI) and \<Configuration Management\>, and use the same change records.
+This is the only place this design is held. Other documents point here. The policy is in \<Policy\> (MA), and the steps people follow are in \<Procedures\> (MA). Fixing flaws and releasing new versions follow their own designs, in \<System and Information Integrity Management\> and \<Configuration Management\>, and use the same change records.
 
 An assessor examines the maintenance records, the lists of approved tools and people, the remote maintenance routes and their session logs; interviews those who maintain the system; and may watch a remote session being set up and ended (NIST SP 800-53A). So for each control section 5 gives:
 
@@ -526,7 +528,7 @@ NIST does not select these at Moderate, so they are not assessed. Some of the de
 | MA-4(6), MA-4(7) Cryptographic Protection; Disconnect Verification | Remote sessions encrypted, and their end verified | Not required. Done in part: the VPN and TLS protect the session. The end of a session is not verified separately |
 | MA-5(1) Individuals Without Appropriate Access | Rules for maintenance people who lack the access authorisations | Not required. Done in part: they are escorted and supervised, have a temporary account, and have no access to \<DocuView\>'s data |
 | MA-5(2), MA-5(3), MA-5(4) Security Clearances; Citizenship; Foreign Nationals | Clearance and nationality rules for classified systems | Not required. \<DocuView\> holds no classified information |
-| MA-5(5) Non-system Maintenance | Rules for people who maintain the building and its services near the system | Not required. ABC Technologies controls its data centres (\<Control Implementation Register\> (PE)) |
+| MA-5(5) Non-system Maintenance | Rules for people who maintain the building and its services near the system | Not required. ABC Technologies controls its data centres (\<Physical and Environmental Protection Management\>) |
 | MA-6(1), MA-6(2), MA-6(3) Preventive Maintenance; Predictive Maintenance; Automated Support for Predictive Maintenance | Maintenance done before a failure, by schedule or by prediction | Not required. Done in design for preventive work: the schedule in \<Procedures\>, PRO-MA-6. Nothing is predictive |
 | MA-7 Field Maintenance | Limits on maintenance done away from a trusted facility | Not required. The servers stay at ABC Technologies' data centres |
 | MA-2(1), MA-4(2) | Withdrawn by NIST | Not applicable |

@@ -54,10 +54,11 @@
 
 | Version | Date | Change |
 | --- | --- | --- |
+| \<ver\> | 17 November 2026 | References to the physical and environmental protection design point to \<Physical and Environmental Protection Management\>, where it is now held (D-PE-11) |
 | \<ver\> | 17 November 2026 | The system owner's decisions on the cross-check (D-MP-11): media records are kept for 3 years, and the two further additions to the media inventory are confirmed |
 | \<ver\> | 17 November 2026 | Cross-check against NIST's guidance for the family: managed printers and the approved locations for users' copies are added to the media inventory; cryptographic erase destroys every copy of a key and is used only where the media were encrypted from the start; the sanitising record holds the tool and the verification; the retention of media records is shown as not yet set; and the MP controls outside the Moderate baseline are listed in a new appendix B |
 | \<ver\> | 17 November 2026 | The system owner's decisions on the review (D-MP-10): the four additions to the media inventory are confirmed, and the export folder is checked each working day in place of weekly |
-| \<ver\> | 17 November 2026 | First draft |
+| \<ver\> | 17 November 2026 | Issued into the set as a draft for review |
 | \<ver\> | 17 November 2026 | First draft, at the system owner's request (D-MP-09). The media protection chapter of \<Control Implementation Register\> moved here in full, so that this design is held only in this document, and each control is set out part by part. Four places that hold \<DocuView\> information are added to the media inventory: the audit archive, the secret store, incident evidence, and the document set itself. No agreed value is changed |
 
 | **SECTION 2** |
@@ -447,7 +448,7 @@ NIST does not select these at Moderate, so they are not assessed. Some of the de
 
 | Control | What it adds | \<DocuView\>'s position |
 | --- | --- | --- |
-| MP-4(2) Automated Restricted Access | Access to media storage areas restricted and logged by automated means | Not required. ABC Technologies is asked how access to its data centres is controlled (\<Control Implementation Register\> (PE)) |
+| MP-4(2) Automated Restricted Access | Access to media storage areas restricted and logged by automated means | Not required. ABC Technologies is asked how access to its data centres is controlled (\<Physical and Environmental Protection Management\>) |
 | MP-5(3) Custodians | A named custodian for media in transport | Not required. Done in part: the system owner approves each move, and an authorised courier carries it with tracking |
 | MP-6(1) Review, Approve, Track, Document, and Verify | Sanitising and disposal reviewed, approved, tracked, documented and verified | Not required. Done in part: each action is recorded on TPL-13 with its verification, and the system owner checks a sample of certificates every 12 months |
 | MP-6(2) Equipment Testing | Sanitising equipment and procedures tested on a schedule | Not required. ABC Technologies is asked how each action is verified (EV-MP-02) |

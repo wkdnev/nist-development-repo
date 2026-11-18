@@ -56,6 +56,7 @@
 
 | Version | Date | Change |
 | --- | --- | --- |
+| \<ver\> | 17 November 2026 | References to the maintenance design point to \<Maintenance Management\>, where it is now held (D-MA-09) |
 | \<ver\> | 16 November 2026 | Cross-check against NIST's guidance for the family: the servers' identification to each other is stated; multi-factor sign-in covers the administrators' route to the servers; and the IA controls outside the Moderate baseline are listed in a new appendix C |
 | \<ver\> | 16 November 2026 | The system owner's decisions on the review (D-IA-12): federation assurance level 2 is the target; section 4.3 stands as the design; and the trust settings not yet known are asked of ABC Technologies with EV-IA-04 |
 | \<ver\> | 15 November 2026 | Issued with the set: no change to the content |
@@ -341,7 +342,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
-| All | Use multi-factor authentication for access to privileged accounts | AD FS requires a second factor from every user, so every privileged user has one. The application roles are AD groups, and nobody reaches an administration page without signing in through AD FS. The named Windows server and database administrators reach the servers only through ABC Technologies' managed route, which also requires a second factor (\<Control Implementation Register\>, section MA.4) | Stated by the system owner (D-AC-23); not yet tested or evidenced (PA-95). The tested build had password-only sign-in, which the authorising official accepted to 6 May 2027 with no production documents held (NC-IA-03). The route to the servers is not evidenced (EV-MA-02) |
+| All | Use multi-factor authentication for access to privileged accounts | AD FS requires a second factor from every user, so every privileged user has one. The application roles are AD groups, and nobody reaches an administration page without signing in through AD FS. The named Windows server and database administrators reach the servers only through ABC Technologies' managed route, which also requires a second factor (\<Maintenance Management\>, section 4.4) | Stated by the system owner (D-AC-23); not yet tested or evidenced (PA-95). The tested build had password-only sign-in, which the authorising official accepted to 6 May 2027 with no production documents held (NC-IA-03). The route to the servers is not evidenced (EV-MA-02) |
 
 **Table 18: IA-2(1) responsibility and evidence**
 

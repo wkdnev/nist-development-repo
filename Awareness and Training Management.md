@@ -52,6 +52,11 @@
 
 | Version | Date | Change |
 | --- | --- | --- |
+| \<ver\> | 18 November 2026 | References to the communications protection design point to \<System and Communications Protection Management\>, where it is now held (D-SC-09). References to the integrity design point to \<System and Information Integrity Management\>, where it is now held (D-SI-10) |
+| \<ver\> | 18 November 2026 | References to the acquisition design point to \<System and Services Acquisition Management\>, where it is now held (D-SA-19) |
+| \<ver\> | 18 November 2026 | References to the risk assessment design point to \<Risk Assessment Management\>, where it is now held (D-RA-11) |
+| \<ver\> | 18 November 2026 | References to the personal data design point to \<PII Processing Management\>, where it is now held (D-PT-22) |
+| \<ver\> | 12 November 2026 | References to the audit design point to \<Audit and Accountability Management\>, where it is now held (D-AU-10) |
 | \<ver\> | 12 November 2026 | Cross-check against NIST's guidance for the family: the status table states what is missing for each control and where it is registered (PA-96 to PA-100); privacy training (M9) goes to every administrator, as policy rule R5 requires; the briefing covers the forms of social engineering, social mining and NIST's insider threat signs, with a view for line managers; the audience table matches the matrix; and the roles with no role modules are stated as a gap |
 | \<ver\> | 12 November 2026 | The system owner's answers to the review (D-AT-10): every privileged user is trained for the role, so the system owner joins the training matrix and register; the briefing gains part B7 for line managers; and the live register moves to the records store when that exists |
 | \<ver\> | 12 November 2026 | Issued with the set: no change to the content |
@@ -167,13 +172,13 @@ Each module ends with a short check of at least 10 questions, with a pass mark o
 | --- | --- | --- | --- | --- |
 | M1 Privileged access | Use privileged accounts only for privileged tasks; manage projects, the groups each uses, and sessions safely; recognise misuse | \<Procedures\> (AC); \<Security Operating Procedures\>, Part B | 60 minutes | Security officer |
 | M2 Approving access | Authorise least access; add and remove members of an AD group correctly; carry out access reviews | \<Procedures\>, PRO-AC-1, PRO-AC-5 to PRO-AC-7; \<Access Control Management\>, section 4.13 | 30 minutes | Security officer |
-| M3 Configuration and change | Make changes only through change control; keep to the baseline | \<Procedures\> (CM); \<Configuration Management Plan\> | 45 minutes | Security officer |
-| M4 Servers and database | Harden, patch to the timetable, scan, back up and protect keys | \<Procedures\>, PRO-SI-1; \<Control Implementation Register\>, section RA.3; \<Procedures\> (CP); \<Control Implementation Register\> (SC) | 90 minutes | Security officer |
-| M5 Secure development | Secure coding to ASVS 5.0 Level 2; bring components in through PRO-SR-1; keep secrets out of code; review changes | \<Control Implementation Register\> (SA); \<Procedures\> (SA); \<Procedures\> (SR) | 90 minutes | Security officer |
-| M6 Monitoring and audit review | Review audit records and alerts; use the detection use cases | \<Control Implementation Register\> (AU); \<Control Implementation Register\>, section SI.5 | 60 minutes | Head of Cyber |
-| M7 Incident response (IR-2) | Recognise, report, contain and record an incident; know your part in the playbooks | \<Incident Response Plan\>; \<Procedures\> (IR) | 60 minutes | Security officer |
-| M8 Contingency (CP-3) | Know your part in recovery; restore from backup | \<Contingency Plan\>; \<Procedures\> (CP) | 45 minutes | System owner |
-| M9 Personal data (AT-3(5)) | Lawful use of HR data; requests and complaints; breaches | \<Control Implementation Register\> (PT); \<Procedures\> (PT) | 45 minutes | Legal adviser |
+| M3 Configuration and change | Make changes only through change control; keep to the baseline | \<Procedures\> (CM); \<Configuration Management\> | 45 minutes | Security officer |
+| M4 Servers and database | Harden, patch to the timetable, scan, back up and protect keys | \<Procedures\>, PRO-SI-1; \<Risk Assessment Management\>, section 4.6; \<Procedures\> (CP); \<System and Communications Protection Management\> | 90 minutes | Security officer |
+| M5 Secure development | Secure coding to ASVS 5.0 Level 2; bring components in through PRO-SR-1; keep secrets out of code; review changes | \<System and Services Acquisition Management\>; \<Procedures\> (SA); \<Procedures\> (SR) | 90 minutes | Security officer |
+| M6 Monitoring and audit review | Review audit records and alerts; use the detection use cases | \<Audit and Accountability Management\>; \<System and Information Integrity Management\>, section 4.4 | 60 minutes | Head of Cyber |
+| M7 Incident response (IR-2) | Recognise, report, contain and record an incident; know your part in the playbooks | \<Incident Response Management\>; \<Procedures\> (IR) | 60 minutes | Security officer |
+| M8 Contingency (CP-3) | Know your part in recovery; restore from backup | \<Contingency Planning Management\>; \<Procedures\> (CP) | 45 minutes | System owner |
+| M9 Personal data (AT-3(5)) | Lawful use of HR data; requests and complaints; breaches | \<PII Processing Management\>; \<Procedures\> (PT) | 45 minutes | Legal adviser |
 
 ### 4.5 Training matrix
 
@@ -195,7 +200,7 @@ Every role must complete awareness, the briefing and the SyOps signature before 
 | Auditor | Yes | Parts A and B | M6 | M7 |
 | Everyone who handles HR documents | Yes | Part A | M9 | None |
 
-The matrix carries out AT-2, AT-3, AT-3(5) (\<Control Implementation Register\> (PT)), IR-2 (\<Procedures\>, PRO-IR-3), CP-3 (\<Procedures\>, PRO-CP-4) and PL-4 (\<Security Operating Procedures\>).
+The matrix carries out AT-2, AT-3, AT-3(5) (\<PII Processing Management\>), IR-2 (\<Procedures\>, PRO-IR-3), CP-3 (\<Procedures\>, PRO-CP-4) and PL-4 (\<Security Operating Procedures\>).
 
 **Roles with no role modules.** Role training is for privileged users, meaning everyone who is not a standard user (D-AT-10). The Head of Cyber, the legal adviser and the authorising official have no access to \<DocuView\>, so they are not in the matrix, although each has a security or privacy duty: approving the policy, delivering modules M6 and M9, and deciding risk. NIST's guidance on AT-3 names senior security and privacy officers, authorising officials and system owners among those who may need role training. The system owner is in the matrix. For the other three, the design relies on ABC Technologies' own training and their professional standing, and neither is evidenced. This is registered as a gap (PA-100).
 
@@ -436,7 +441,7 @@ These are NIST's organisation-defined values for the 6 AT entries: 21 in total. 
 | AT-02\_ODP\[06\] | Content update frequency | Every 12 months | Content reviewed 12 November 2026 |
 | AT-02\_ODP\[07\] | Events requiring content update | A significant incident, exercise or change | Not yet used |
 | AT-03\_ODP\[01\] | Roles trained for security | The roles in the training matrix (section 4.5): system owner, global administrator, administrator, Windows server administrator, database administrator, developers, security officer, auditor and project access approvers | Curriculum set (section 4.4); module content not yet written |
-| AT-03\_ODP\[02\] | Roles trained for privacy | The same roles, and everyone who handles HR documents (\<Control Implementation Register\> (PT), AT-3(5)) | Curriculum set; not yet given |
+| AT-03\_ODP\[02\] | Roles trained for privacy | The same roles, and everyone who handles HR documents (\<PII Processing Management\>, AT-3(5)) | Curriculum set; not yet given |
 | AT-03\_ODP\[03\] | Training frequency | Every 12 months | No one trained yet |
 | AT-03\_ODP\[04\] | Content update frequency | Every 12 months | Curriculum set 12 November 2026 |
 | AT-03\_ODP\[05\] | Events requiring content update | A significant incident, exercise or change | Not yet used |

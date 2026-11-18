@@ -54,6 +54,8 @@
 
 | Version | Date | Change |
 | --- | --- | --- |
+| \<ver\> | 18 November 2026 | References to the integrity design point to \<System and Information Integrity Management\>, where it is now held (D-SI-10) |
+| \<ver\> | 18 November 2026 | The system owner's decisions on the cross-check (D-RA-14): the two added critical components and the five functions, the web application scan and scanner requirements 5 and 6 are confirmed; reporters are asked to allow 90 days; scan findings go to the developers, the Windows server administrator and, where they may affect its other systems, ABC Technologies (RA-05_ODP[04] changed). The authorising official is asked about the overtaken acceptance (D-RA-15) |
 | \<ver\> | 18 November 2026 | Cross-check against NIST's RA catalogue and guidance: the risk assessment and supply chain review shown as not reviewed after the changes to sign-in and hosting, with the changes listed; \<DocuView\>'s own applications and server settings added to what is monitored; sharing with ABC Technologies and the terms of the public reporting route added; the application server and the bulk export folder added as critical components, and the critical functions listed; and the related controls outside the baseline set out in a new appendix B |
 | \<ver\> | 18 November 2026 | The system owner's decisions on the review (D-RA-12): the critical components list, with AD FS and Active Directory, and the four things the scanner must do are confirmed; the risk decision on PA-56, if it is not fixed by 20 November 2026, is put to the authorising official (D-RA-13) |
 | \<ver\> | 18 November 2026 | Issued into the set as a draft for review |
@@ -68,7 +70,7 @@ This document shows how \<DocuView\> assesses risk and responds to it, for each 
 
 Section 4 sets out the design: the categorisation, the risk assessment, the supply chain review, what is monitored for vulnerabilities, the vulnerability timetable, how findings are analysed, shared and reported, how risk is responded to, the critical components, how monitoring stands today, and what ABC Technologies provides. Section 5 takes each control in turn. Appendix A lists every value NIST asks the organisation to define, and appendix B the related controls and enhancements NIST does not select at Moderate.
 
-This is the only place this design is held. Other documents point here. The policy is in \<Policy\> (RA), and the steps people follow are in \<Procedures\> (RA). Three records sit beside this one: the risks, and the method that rates them, are in the Risk List, \<Risk List\>; the categorisation is in \<System Security Plan\>, section 4.3, as RA-2 requires; and the suppliers are managed under the supply chain plan, \<Supply Chain Risk Management Plan\>.
+This is the only place this design is held. Other documents point here. The policy is in \<Policy\> (RA), and the steps people follow are in \<Procedures\> (RA). Three records sit beside this one: the risks, and the method that rates them, are in the Risk List, \<Risk List\>; the categorisation is in \<System Security Plan\>, section 4.3, as RA-2 requires; and the suppliers are managed under the supply chain plan, \<Supply Chain Risk Management\>.
 
 An assessor examines the risk assessment, the categorisation, the scan reports and the record of each finding, the supply chain review and the critical components; interviews the system owner, the security officer and the Windows server administrator; and tests the scanning and how quickly what it finds is fixed (NIST SP 800-53A). So for each control section 5 gives:
 
@@ -106,7 +108,7 @@ Of the 10 controls, 2 are implemented, 5 are partially implemented and 3 are not
 | RA-5(5) | Privileged Access | Not implemented | The VMs are not built, and no scanner is chosen | NC-RA-06; PA-62 |
 | RA-5(11) | Public Disclosure Program | Not implemented | The route is not agreed with ABC Technologies, nor published with its terms | NC-RA-07; PA-127, EV-RA-01 |
 | RA-7 | Risk Response | Partially implemented | No monitoring or audit finding has yet been responded to | NC-RA-08; PA-127 |
-| RA-9 | Criticality Analysis | Implemented | Nothing. Two components added by the cross-check await the system owner's confirmation | NC-RA-09 (met) |
+| RA-9 | Criticality Analysis | Implemented | Nothing | NC-RA-09 (met) |
 
 Two things matter most. Nothing scans the VMs or the images, and no scanner has been chosen (PA-62, rated Medium), so vulnerability monitoring rests on the package check alone. And seven package advisories are open, five of them High (PA-56, rated High). The timetable requires them to be fixed by 20 November 2026; if they are not, a risk decision is needed (\<Policy\>, section RA.7), and the authorising official has been asked for it in advance (D-RA-13).
 
@@ -166,13 +168,13 @@ The categorisation is reviewed with the risk assessment, and whenever an informa
 | When a risk needs a decision | Decided by the person its rating calls for | System owner or authorising official | \<Decision Register\> |
 | At each review | The categorisation is checked against the information \<DocuView\> holds, and any change goes to the authorising official (section 4.2) | System owner | TPL-23 |
 
-Two significant changes were made in November 2026: sign-in moved to AD FS with multi-factor authentication (D-AC-23), and each application now runs as a Windows service on the servers (D-PL-10). Risk entries were reworded as each family was reviewed, but the risk assessment has not been reviewed as a whole since, as RA-3 and PRO-RA-1 require after a significant change. The acceptance of password-only sign-in (D-GEN-13), which the move to AD FS overtakes, is still recorded, and the authorising official is still to be told. The review is registered as PA-127.
+Two significant changes were made in November 2026: sign-in moved to AD FS with multi-factor authentication (D-AC-23), and each application now runs as a Windows service on the servers (D-PL-10). Risk entries were reworded as each family was reviewed, but the risk assessment has not been reviewed as a whole since, as RA-3 and PRO-RA-1 require after a significant change. The acceptance of password-only sign-in (D-GEN-13), which the move to AD FS overtakes, is still recorded; the authorising official is asked to note it, and to keep it until AD FS sign-in is shown to work (D-RA-15). The review is registered as PA-127, and a draft of it has been prepared for the system owner to check.
 
 ### 4.4 Supply chain risk assessment
 
-Every 12 months, before a new supplier or a new kind of component is added, and after a significant change to the system or where it runs, the system owner and the developers review each item in the supply chain for its origin, support, known problems and end of support (PRO-RA-2). They use the supplier register in \<Supply Chain Risk Management Plan\>, the latest package and image check, and the bill of materials once it is produced (PA-78). Each review is recorded on TPL-23, and any new risk goes into the Risk List. The supply chain plan, \<Supply Chain Risk Management Plan\>, holds the suppliers and how they are managed; this section holds the risk assessment.
+Every 12 months, before a new supplier or a new kind of component is added, and after a significant change to the system or where it runs, the system owner and the developers review each item in the supply chain for its origin, support, known problems and end of support (PRO-RA-2). They use the supplier register in \<Supply Chain Risk Management\>, the latest package and image check, and the bill of materials once it is produced (PA-78). Each review is recorded on TPL-23, and any new risk goes into the Risk List. The supply chain plan, \<Supply Chain Risk Management\>, holds the suppliers and how they are managed; this section holds the risk assessment.
 
-The first review was held on 11 November 2026 and approved by the system owner (D-RA-09). It used \<Supply Chain Risk Management Plan\>, Test-Vulnerability.ps1 and the configuration management findings. It stands as the first record; each later review is recorded on TPL-23.
+The first review was held on 11 November 2026 and approved by the system owner (D-RA-09). It used \<Supply Chain Risk Management\>, Test-Vulnerability.ps1 and the configuration management findings. It stands as the first record; each later review is recorded on TPL-23.
 
 **Table 8: First supply chain review**
 
@@ -223,7 +225,7 @@ The scanner is still to be chosen (PA-62). The system owner confirmed on 18 Nove
 5. find ports, protocols and services that should not be reachable, against the allowed flows in \<Access Control Management\>, section 4.6;
 6. scan \<DocuView\>'s three applications at each release, as section 4.5 sets out.
 
-Items 5 and 6 were added by the RA cross-check on 18 November 2026, from NIST's guidance on RA-5, for the system owner to confirm.
+Items 5 and 6 were added by the RA cross-check on 18 November 2026, from NIST's guidance on RA-5, and confirmed by the system owner the same day (D-RA-14).
 
 ### 4.6 Vulnerability timetable
 
@@ -247,7 +249,7 @@ The clock starts when the fix is released, or when \<DocuView\>'s use of the fla
 2. **False positives.** A finding that does not apply, such as a flaw in a feature \<DocuView\> does not call, is marked as a false positive on TPL-7 with the reason, and checked again at the next scan.
 3. **Fixing.** The people responsible fix or mitigate each finding within its time, as a change (\<Configuration Management\>). An exploited flaw is fixed or mitigated as an emergency change, and the security officer confirms it and tells the system owner (PRO-RA-4).
 4. **Sharing.** After each scan the security officer shares each finding that applies with the developers and the Windows server administrator, so that the same flaw is fixed wherever it occurs. A finding that may affect ABC Technologies' other systems also goes to its security contact, so that it can be removed there too (PRO-RA-5).
-5. **Reports from anyone.** Anyone may report a vulnerability in \<DocuView\> to ABC Technologies' security contact, which passes the report to the security officer, who records it on TPL-7 and handles it as a scan finding (D-RA-05). NIST asks for a public channel, so the contact must be published where people outside ABC Technologies can find it, for example in a security.txt file on its website (RFC 9116): \[Where the contact is published, once agreed with ABC Technologies\] (EV-RA-01). Its published terms must authorise research in good faith, and may ask the reporter to allow a set time for a fix before disclosing the flaw, but must not require it to be kept secret for ever: \[Time asked for before disclosure, for example 90 days, once agreed with ABC Technologies\].
+5. **Reports from anyone.** Anyone may report a vulnerability in \<DocuView\> to ABC Technologies' security contact, which passes the report to the security officer, who records it on TPL-7 and handles it as a scan finding (D-RA-05). NIST asks for a public channel, so the contact must be published where people outside ABC Technologies can find it, for example in a security.txt file on its website (RFC 9116): \[Where the contact is published, once agreed with ABC Technologies\] (EV-RA-01). Its published terms must authorise research in good faith, and may ask the reporter to allow a set time for a fix before disclosing the flaw, but must not require it to be kept secret for ever. The time asked for is 90 days, as the system owner decided (D-RA-14), once ABC Technologies agrees it (EV-RA-01).
 6. **Flaws in other parties' components.** A flaw found in another party's package or image is reported to its maintainer through their published route, and noted on TPL-7.
 
 ### 4.8 Risk response
@@ -286,7 +288,7 @@ A monitoring finding, such as a scan result, is first recorded on TPL-7 (section
 | Data protection key rings | Protect each app's cookies and tokens | Sign-in cookies can be forged or read | Built |
 | AD FS, with Active Directory (ABC Technologies) | Authenticate every user with multi-factor authentication, and carry the AD groups that decide each role and each project's access (D-AC-23) | Anyone could sign in as another user, or be given any role or project | Inherited from ABC Technologies; added on 18 November 2026 |
 
-The first review was held on 11 November 2026, for the RA pack review, and approved by the system owner (D-RA-09). On 18 November 2026 the rows for the database server, DV\_API, DV\_Web and DV\_Admin\_UI were reworded, and AD FS with Active Directory was added, because since sign-in moved to AD FS \<DocuView\> holds no accounts and relies on ABC Technologies to authenticate every user (D-AC-23). The system owner confirmed the list on 18 November 2026 (D-RA-12). The RA cross-check the same day added the application server VM and the bulk export working folder, as each gives a path to the documents that goes round the other controls; the system owner is asked to confirm them.
+The first review was held on 11 November 2026, for the RA pack review, and approved by the system owner (D-RA-09). On 18 November 2026 the rows for the database server, DV\_API, DV\_Web and DV\_Admin\_UI were reworded, and AD FS with Active Directory was added, because since sign-in moved to AD FS \<DocuView\> holds no accounts and relies on ABC Technologies to authenticate every user (D-AC-23). The system owner confirmed the list on 18 November 2026 (D-RA-12). The RA cross-check the same day added the application server VM and the bulk export working folder, as each gives a path to the documents that goes round the other controls; the system owner confirmed them the same day (D-RA-14).
 
 **Critical functions.** NIST asks for critical functions as well as components. Five functions would expose or lose the documents if they failed: signing in and deciding access (AD FS with Active Directory, DV\_API, the key store and the data protection key rings); storing and showing documents (the database server, the application server, DV\_API and DV\_Web); administering projects and access (DV\_Admin\_UI); recording who did what (the audit records); and recovering documents (the backup store).
 
@@ -545,7 +547,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
-| All | Identify critical components and functions by a criticality analysis of defined items at defined decision points | Every component in the authorisation boundary, and the outside services it relies on, judged by the method in section 4.9 at each major release and significant change | Eleven critical components and five critical functions. Eight components were reviewed and approved on 11 November 2026 (D-RA-09); AD FS and Active Directory were added, and the list confirmed by the system owner, on 18 November 2026 (D-RA-12); the application server VM and the bulk export working folder were added by the cross-check the same day, for the system owner to confirm |
+| All | Identify critical components and functions by a criticality analysis of defined items at defined decision points | Every component in the authorisation boundary, and the outside services it relies on, judged by the method in section 4.9 at each major release and significant change | Eleven critical components and five critical functions. Eight components were reviewed and approved on 11 November 2026 (D-RA-09); AD FS and Active Directory were added, and the list confirmed by the system owner, on 18 November 2026 (D-RA-12); the application server VM and the bulk export working folder were added by the cross-check and confirmed by the system owner the same day (D-RA-14) |
 
 **Table 34: RA-9 responsibility and evidence**
 
@@ -559,7 +561,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | Records an assessor will ask for | The critical components list and its method; TPL-23 records of each review |
 | Status | Implemented |
 | Risk decision | NC-RA-09, rated Low: approve; now satisfied |
-| Open items | The system owner confirms the two components added by the cross-check |
+| Open items | None |
 
 | **APPENDIX A** |
 | --- |
@@ -590,7 +592,7 @@ These are NIST's organisation-defined values for the 10 RA entries: 25 in total.
 | RA-05\_ODP\[01\] | Monitoring frequency | Monthly and at each release; exploited flaws checked weekly | Package check only (V01) |
 | RA-05\_ODP\[02\] | Scan frequency | Monthly and at each release | No scanner (PA-62) |
 | RA-05\_ODP\[03\] | Response times | As in section 4.6 | Not met: 5 High advisories open (PA-56) |
-| RA-05\_ODP\[04\] | Who receives results | Security officer | Met by procedure |
+| RA-05\_ODP\[04\] | Who receives results | The developers, the Windows server administrator, and ABC Technologies' security contact for findings that may affect its other systems (D-RA-14) | Met by procedure; not yet in use |
 | RA-05(02)\_ODP\[01\] | When the list is updated | Before each new scan | No scanner (PA-62) |
 | RA-05(02)\_ODP\[02\] | Frequency | Not applicable; updated before each scan | Not applicable |
 | RA-05(05)\_ODP\[01\] | Components | Both VMs | VMs not yet built |
@@ -610,7 +612,7 @@ NIST does not select these at Moderate, so they are not assessed. Some of the de
 | Control | What it adds | \<DocuView\>'s position |
 | --- | --- | --- |
 | RA-2(1) Impact-level Prioritization | Ranks systems within one impact level | Not required. \<DocuView\> is one system |
-| RA-3(2) Use of All-source Intelligence | Draws on all sources of threat intelligence | Not required. ABC Technologies' threat awareness programme (PM-16) and the advisory sources in \<Control Implementation Register\>, section SI.4, feed the risk assessment |
+| RA-3(2) Use of All-source Intelligence | Draws on all sources of threat intelligence | Not required. ABC Technologies' threat awareness programme (PM-16) and the advisory sources in \<System and Information Integrity Management\>, section 4.3, feed the risk assessment |
 | RA-3(3) Dynamic Threat Awareness | Assesses the current threat continuously | Not required. Done in part: CISA's exploited list and ABC Technologies' alerts are checked weekly (PRO-RA-4) |
 | RA-3(4) Predictive Cyber Analytics | Uses advanced analytics to predict threats | Not required |
 | RA-5(3) Breadth and Depth of Coverage | Defines how widely and deeply scans look | Not required. Done in part in design: section 4.5 says which components are checked, how and how often |

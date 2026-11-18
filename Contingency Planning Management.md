@@ -61,6 +61,8 @@
 
 | Version | Date | Change |
 | --- | --- | --- |
+| \<ver\> | 18 November 2026 | No code references: page addresses, setting names, folder paths and file paths are described in plain words, and names of groups, scripts and releases are shown as plain text. No value, finding or decision is changed |
+| \<ver\> | 18 November 2026 | References to the communications protection design point to \<System and Communications Protection Management\>, where it is now held (D-SC-09) |
 | \<ver\> | 15 November 2026 | Cross-check against NIST's guidance for the family: reconstitution restarts monitoring and sends a significant change to the authorising official; each backup's SHA-256 value is recorded; the documentation is shown to have one copy only; and the CP controls outside the Moderate baseline are listed in a new appendix E |
 | \<ver\> | 15 November 2026 | The system owner's decisions on the review (D-CP-15): section 4 with appendices C and D is the plan, and the offline copy; ABC Technologies' recovery time for AD FS and Active Directory is asked for with EV-CP-01 |
 | \<ver\> | 15 November 2026 | Rebuilt in the form of the other family documents, at the system owner's request (D-CP-14), and renamed from Contingency Plan to Contingency Planning Management. Section 4 is the contingency plan that CP-2 requires, and each control is set out part by part in section 5. The plan follows sign-in through AD FS: AD FS is a dependency of recovery, and group members, not accounts, are checked before users return (D-AC-23). The recovery objectives, order of recovery, roles and backup rules are unchanged |
@@ -845,7 +847,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
-| All | Use cryptography to stop backups being read or changed without authority | Every backup is encrypted before it leaves the database server. The key is held apart from the backups, where only the system owner and the administrators can reach it, and is listed in the key register (\<Control Implementation Register\>, section SC.3) | Not built. The default PostgreSQL backup is a plain archive that anyone holding it can read (R02; PA-64) |
+| All | Use cryptography to stop backups being read or changed without authority | Every backup is encrypted before it leaves the database server. The key is held apart from the backups, where only the system owner and the administrators can reach it, and is listed in the key register (\<System and Communications Protection Management\>, section 4.4) | Not built. The default PostgreSQL backup is a plain archive that anyone holding it can read (R02; PA-64) |
 
 **Table 55: CP-9(8) responsibility and evidence**
 
@@ -912,7 +914,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 The Docker stack keeps data in named volumes and has no backup or restore tooling, and PostgreSQL's transaction logs are not archived.
 
-On 9 November 2026 `tests/Test-BackupRestore.ps1` showed, on a throwaway stack at the v1.0 tag, that a full database backup restores to a fresh server in about 4 seconds with every row, document page checksum and audit hash intact. It also showed two gaps: the default backup is unencrypted (R02), and transaction logs are not archived (R09). Both are part of PA-64. The evidence is in `DV_Workspace/docs/evidence/cp`. It proves the procedure, not a backup of the VMs.
+On 9 November 2026 Test-BackupRestore.ps1 showed, on a throwaway stack at the v1.0 tag, that a full database backup restores to a fresh server in about 4 seconds with every row, document page checksum and audit hash intact. It also showed two gaps: the default backup is unencrypted (R02), and transaction logs are not archived (R09). Both are part of PA-64. The evidence is in the CP evidence. It proves the procedure, not a backup of the VMs.
 
 | **APPENDIX B** |
 | --- |
@@ -990,7 +992,7 @@ These are NIST's organisation-defined values for the 23 CP entries: 38 in total.
 
 | Plan or record | Owner | How it relates |
 | --- | --- | --- |
-| \<Incident Response Plan\> Incident response plan | Security officer | Leads when an outage may be an incident (section 4.6.2); exercised together (CP-4(1)) |
+| \<Incident Response Management\> Incident response plan | Security officer | Leads when an outage may be an incident (section 4.6.2); exercised together (CP-4(1)) |
 | ABC Technologies' disaster recovery and business continuity plans \[names to add\] | ABC Technologies | Provide the network, second site and telecommunications (EV-CP-01, EV-CP-02) |
 | \<Configuration Management\>, the configuration management plan | System owner | The baseline the VMs and applications are rebuilt to |
 | \<Security Operating Procedures\> Security Operating Procedures | System owner | The routine backup and check steps (C2, C6, C8, C18, C21) and planned shutdown |

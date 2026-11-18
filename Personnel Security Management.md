@@ -57,7 +57,7 @@
 | \<ver\> | 17 November 2026 | The system owner's decisions on the cross-check (D-PS-12): the security assessor is higher risk; register entries are kept while the person has access and for 3 years after, and leaver and mover records for 3 years |
 | \<ver\> | 17 November 2026 | Cross-check against NIST's guidance for the family: the independent assessors are covered as external people and entered in the register; the retention of the register and of leaver records is shown as not yet set; the basic criminal record check is explained for the United Kingdom; PS-6 is shown as in the privacy baseline too; and the PS controls outside the Moderate baseline are listed in a new appendix B |
 | \<ver\> | 17 November 2026 | The system owner's decisions on the review (D-PS-11): the leaver row notes the monthly removal of members who have not signed in for 90 days |
-| \<ver\> | 17 November 2026 | First draft |
+| \<ver\> | 17 November 2026 | Issued into the set as a draft for review |
 | \<ver\> | 17 November 2026 | First draft, at the system owner's request (D-PS-10). The personnel security chapter of \<Control Implementation Register\> moved here in full, so that this design is held only in this document, and each control is set out part by part. Joiners, movers and leavers follow sign-in through AD FS: \<DocuView\> holds no accounts, and a leaver's access ends when ABC Technologies disables their Active Directory account (D-AC-23). No agreed value is changed |
 
 | **SECTION 2** |

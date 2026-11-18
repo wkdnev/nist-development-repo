@@ -54,6 +54,7 @@
 
 | Version | Date | Change |
 | --- | --- | --- |
+| \<ver\> | 18 November 2026 | References to the risk assessment design point to \<Risk Assessment Management\>, where it is now held (D-RA-11) |
 | \<ver\> | 13 November 2026 | Finalised with the system owner's decisions (D-CA-13): two monitoring measures added, on open incidents and on vulnerabilities past their fix time; and the legal adviser's privacy review before authorisation adopted |
 | \<ver\> | 13 November 2026 | Cross-check against NIST's guidance for the family: Level 1 is stated as not independent; the authorising official accepts each independence statement; the package includes the privacy plan and impact assessment, with the legal adviser's review; the decision record is set out field by field; a new exchange is a significant change; and the strategy is mapped to NIST SP 800-137. Two measures are proposed |
 | \<ver\> | 12 November 2026 | Completed with the system owner's decisions (D-CA-12): the list of 65 inherited controls goes to the authorising official; the AD FS agreement is asked for with EV-CA-02; the analysis and response steps of monitoring are confirmed; and a penetration test is to be commissioned before go-live, beyond the baseline |
@@ -282,7 +283,7 @@ This strategy follows NIST SP 800-137. Monitoring starts at go-live. Nothing bel
 | Personal data incidents | Privacy | None | Any | TPL-10 | Monthly | Security officer |
 | Configuration drift from the baseline | Change | None unapproved | Any | PRO-CM-7; TPL-8 | Monthly | Windows server administrator |
 | Security incidents open past their time limit | Effectiveness | None | Any | TPL-10 | Monthly | Security officer |
-| Vulnerabilities past their fix time | Effectiveness | None | Any Critical or High past its time | TPL-7; the timetable in \<Control Implementation Register\>, section RA.3 | Monthly | Windows server administrator, developers |
+| Vulnerabilities past their fix time | Effectiveness | None | Any Critical or High past its time | TPL-7; the timetable in \<Risk Assessment Management\>, section 4.6 | Monthly | Windows server administrator, developers |
 
 The last two measures, on open incidents and on vulnerabilities past their fix time, were added by the system owner on 13 November 2026 (D-CA-13).
 

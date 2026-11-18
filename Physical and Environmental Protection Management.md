@@ -57,7 +57,7 @@
 | \<ver\> | 17 November 2026 | The system owner's decisions on the cross-check (D-PE-13): the emergency shut-down step is adopted, and every person who works from home completes the yearly checklist |
 | \<ver\> | 17 November 2026 | Cross-check against NIST's guidance for the family: the home working rules name the VPN, public computers, use from abroad and lost devices, as the rules of behaviour do; every home worker completes the yearly checklist; a clear desk is part of protecting output; both data centres are inspected; what happens when a site moves to backup power is set out; the privacy control PE-8(3) is shown; and the PE controls outside the Moderate baseline are listed in a new appendix B |
 | \<ver\> | 17 November 2026 | The system owner's decisions on the review (D-PE-12): no \<DocuView\> role enters a data centre; the emergency shutoff must be guarded; ABC Technologies tells the security officer of a physical incident within 24 hours; and a SOC 2 report must cover the availability criteria |
-| \<ver\> | 17 November 2026 | First draft |
+| \<ver\> | 17 November 2026 | Issued into the set as a draft for review |
 | \<ver\> | 17 November 2026 | First draft, at the system owner's request (D-PE-11). The physical and environmental protection chapter of \<Control Implementation Register\> moved here in full, so that this design is held only in this document, and each control is set out part by part. The inheritance matrix names four more ISO/IEC 27001 controls as closing evidence, and a SOC 2 report is asked to cover the availability criteria as well as physical access. No agreed value is changed |
 
 | **SECTION 2** |

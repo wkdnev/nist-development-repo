@@ -54,6 +54,25 @@
 
 | Version | Date | Change |
 | --- | --- | --- |
+| \<ver\> | 18 November 2026 | The register of plans in force shows the current version of each plan |
+| \<ver\> | 18 November 2026 | The register of plans in force shows the current version of each plan |
+| \<ver\> | 18 November 2026 | The register of plans in force shows the current version of each plan |
+| \<ver\> | 18 November 2026 | The register of plans in force shows the current version of each plan |
+| \<ver\> | 18 November 2026 | The register of plans in force shows the current version of each plan |
+| \<ver\> | 18 November 2026 | The register of plans in force shows the current version of each plan |
+| \<ver\> | 18 November 2026 | The register of plans in force shows the current version of each plan |
+| \<ver\> | 18 November 2026 | The register of plans in force shows the current version of each plan |
+| \<ver\> | 18 November 2026 | The register of plans in force shows the current version of each plan |
+| \<ver\> | 18 November 2026 | The register of plans in force shows the current version of each plan |
+| \<ver\> | 18 November 2026 | The register of plans in force shows the current version of each plan |
+| \<ver\> | 18 November 2026 | References to the risk assessment design point to \<Risk Assessment Management\>, where it is now held (D-RA-11). The register of plans in force shows the current version of each plan |
+| \<ver\> | 18 November 2026 | The register of plans in force shows the current version of each plan |
+| \<ver\> | 18 November 2026 | The register of plans in force shows the current version of each plan |
+| \<ver\> | 18 November 2026 | The register of plans in force shows the current version of each plan |
+| \<ver\> | 17 November 2026 | The register of plans in force shows the current version of each plan |
+| \<ver\> | 17 November 2026 | The register of plans in force shows the current version of each plan |
+| \<ver\> | 17 November 2026 | The register of plans in force shows the current version of each plan |
+| \<ver\> | 17 November 2026 | The register of plans in force shows the current version of each plan |
 | \<ver\> | 17 November 2026 | The register of plans in force shows the current version of each plan |
 | \<ver\> | 17 November 2026 | The register of plans in force shows the current version of each plan |
 | \<ver\> | 17 November 2026 | The system owner's decisions on the cross-check (D-PL-14): signed rules of behaviour are kept while the person has access and for 3 years after, and the wording of the declaration is confirmed. The register of plans in force shows the current version of each plan |
@@ -139,7 +158,7 @@ Every plan and planning record in force, with its owner, version, approver and n
 | System security plan | \<System Security Plan\> | \<ver\> | System owner | Version \<ver\> by the system owner, accepted by the authorising official as an accurate record; 2.1 by the system owner (D-GEN-19); later versions await the system owner. The Head of Cyber's concurrence is pending (D-PL-06) | November 2027, and after a significant change |
 | Privacy plan | \<Privacy Plan\> | \<ver\> | Legal adviser | Version \<ver\> by the legal adviser and authorising official (D-PT-05); 1.1 legally reviewed; 1.2 factual update; later versions references only | November 2027 |
 | Data protection impact assessment | \<Data Protection Impact Assessment\> | \<ver\> | Legal adviser | Draft; completion and approval by the legal adviser pending (D-PT-20) | Before production, and after a significant change in processing |
-| Supply chain risk management plan | \<Supply Chain Risk Management Plan\> | \<ver\> | System owner | System owner | November 2027 |
+| Supply chain risk management plan | \<Supply Chain Risk Management\> | \<ver\> | System owner | System owner | November 2027 |
 | Configuration management plan | \<Configuration Management\> | \<ver\> | System owner | System owner, for version \<ver\> (D-CM-12, D-SC-07). The version rebuilt on 13 November 2026 awaits approval | November 2027 |
 | Contingency plan | \<Contingency Planning Management\> | \<ver\> | System owner | System owner and authorising official, for version \<ver\> (D-CP-11). The version rebuilt on 15 November 2026 awaits both | November 2027, and after a test or activation |
 | Incident response plan | \<Incident Response Management\> | \<ver\> | Security officer | Version \<ver\> by the Head of Cyber; later versions pending (D-IR-07) | November 2027, and after an incident or exercise |
@@ -345,7 +364,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | a.3 | Both describe how they fit into and support the enterprise architecture | \<Security Architecture\>, sections 5 and 7.3: what is inherited from ABC Technologies, and where the trust zones meet its network | Written. ABC Technologies' own architecture standards have not been seen (EV-PL-01) |
 | a.4 | Both describe their assumptions about, and dependencies on, external systems and services | \<Security Architecture\>, section 7.6, and \<Privacy Plan\>, section 9 | Met |
 | b | Review and update the architectures on a schedule, to reflect changes in the enterprise architecture | Every 12 months, and after a significant change, the system owner reviews the architecture against the system as built | The first yearly review falls due in November 2027 |
-| c | Carry planned changes to the architecture into the plans, the concept of operations, the criticality analysis, the procedures and procurement | Each change is carried into the security plan, the privacy plan, the concept of operations, the list of critical components (\<Control Implementation Register\>, section RA.4), the procedures and any procurement, and each is noted in the review log (PRO-PL-5) | Done for the documents at each change. There has been no procurement |
+| c | Carry planned changes to the architecture into the plans, the concept of operations, the criticality analysis, the procedures and procurement | Each change is carried into the security plan, the privacy plan, the concept of operations, the list of critical components (\<Risk Assessment Management\>, section 4.9), the procedures and any procurement, and each is noted in the review log (PRO-PL-5) | Done for the documents at each change. There has been no procurement |
 
 **Table 20: PL-8 responsibility and evidence**
 
