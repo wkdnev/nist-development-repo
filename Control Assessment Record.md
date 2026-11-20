@@ -1298,7 +1298,7 @@ There is one finding for each CSS determination statement, including those about
 | Boundary | Audit records in dbo.AuditLog, the application logs, and the PostgreSQL and Windows logs on both VMs. \<Organisation\>'s central monitoring and time service are inherited |
 | Order of assessment | A, record generation and content (AU-12, AU-2, AU-3, AU-3(1)); B, protection (AU-9, AU-9(4)); C, failure, capacity and retention (AU-5, AU-4, AU-11); D, review and reporting (AU-6, AU-6(1), AU-6(3), AU-7, AU-7(1)); E, time (AU-8); F, policy (AU-1). Generation comes first because every other result depends on records existing |
 | Needed from \<Organisation\> | EV-AU-01 to EV-AU-05 in \<Evidence Requests\>: central monitoring, the time source, storage and backup, the Windows audit policy, and AD FS and Active Directory audit records |
-| Evidence retained | The AU and IA evidence, with its manifest; \<Audit and Accountability Management\>, appendix A and section 4 |
+| Evidence retained | The AU and IA evidence, with its manifest; \<Audit and Accountability Management\>, section 4 |
 
 The authorising official approved this plan (D-GEN-18), as confirmed by the system owner on 8 November 2026. The independent assessor's team, schedule, and depth and coverage are added once agreed. For the Level 2 assessment, the assessor should repeat the tests on the VMs, hold the interviews, examine \<Organisation\>'s evidence and re-determine every statement in section AU.4.
 
@@ -1835,7 +1835,7 @@ There is one finding for each CSS determination statement, including those about
 | CP-02a.03\[03\] | The plan addresses people and contacts | S | \<Contingency Planning Management\>, section 3.4 |
 | CP-02a.04 | The plan addresses continuing functions in failure | S | \<Contingency Planning Management\>, section 3.6.3: no manual alternative exists, so a reduced service is restored first with the authorising official's agreement |
 | CP-02a.05 | The plan addresses full restoration | S | \<Contingency Planning Management\>, section 3.7 |
-| CP-02a.06 | The plan addresses sharing information | S | \<Contingency Planning Management\>, section 3.5.3 and appendix C: the call tree, daily user updates and contacts. Phone numbers are still to be added |
+| CP-02a.06 | The plan addresses sharing information | S | \<Contingency Planning Management\>, section 3.5.3 and appendix B: the call tree, daily user updates and contacts. Phone numbers are still to be added |
 | CP-02a.07\[01\] | The plan is reviewed | S | Version \<ver\> reviewed by the system owner and authorising official (D-CP-03); version \<ver\> reviewed by both on 9 November 2026 (D-CP-11) |
 | CP-02a.07\[02\] | The plan is approved | S | Version \<ver\> approved by the system owner and authorising official (D-CP-03); version \<ver\> approved by both on 9 November 2026 (D-CP-11) |
 | CP-02b.\[01\] | Copies go to personnel | O-D | Not yet shared |
@@ -2118,7 +2118,7 @@ There is one finding for each CSS determination statement, including those about
 | Boundary | \<System Name\>'s sign-in, accounts, authenticators and secrets. \<Organisation\>'s identity proofing and device identification are inherited |
 | Order of assessment | A, authenticators (IA-5 and enhancements, IA-6, IA-7); B, sign-in and multi-factor (IA-2 and enhancements, IA-11); C, identifiers (IA-4); D, inherited proofing and devices (IA-3, IA-12); E, policy (IA-1). Authenticators come first because sign-in depends on them |
 | Needed from \<Organisation\> | EV-IA-01 to EV-IA-04 in \<Evidence Requests\>: device identification, identity proofing, cryptographic modules, and sign-in through AD FS |
-| Evidence retained | The AU and IA evidence, with its manifest; \<Identification and Authentication Management\>, sections 3.4 to 3.6 and appendix A |
+| Evidence retained | The AU and IA evidence, with its manifest; \<Identification and Authentication Management\>, sections 3.4 to 3.6 |
 
 The authorising official approved this plan (D-GEN-18), as confirmed by the system owner on 8 November 2026. The independent assessor's team, schedule, and depth and coverage are added once agreed. For the Level 2 assessment, the assessor should repeat the checks on the VMs, test multi-factor sign-in once built, hold the interviews, examine \<Organisation\>'s evidence and re-determine every statement in section IA.4.
 

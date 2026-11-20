@@ -65,7 +65,7 @@ A deputy acts only while the holder is away, and holds the same screening, train
 
 ## 6 Contact details
 
-This is the list of contact details for the set. Other documents name the role and point here. \<Contingency Planning Management\> and \<Incident Response Management\> keep their own lists in appendix A, because each must work when nothing else can be reached, and they are filled in from this one. Only business contact details are recorded. Items in square brackets are placeholders for the system owner to complete.
+This is the list of contact details for the set. Other documents name the role and point here. \<Contingency Planning Management\> and \<Incident Response Management\> keep their own lists in appendix B, because each must work when nothing else can be reached, and they are filled in from this one. Only business contact details are recorded. Items in square brackets are placeholders for the system owner to complete.
 
 **Table 5: Contact details**
 

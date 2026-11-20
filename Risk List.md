@@ -142,7 +142,7 @@ These thresholds are \<System Name\>'s own. They are to be confirmed against \<O
 | --- | --- | --- |
 | Accept | The risk is understood and tolerated, and the non-compliance remains | Section 3 of this document, and the control's line in \<System Security Plan\>, section 7 |
 | Remediate | The non-compliance is to be fixed, on a plan and not immediately | \<Plan of Action and Milestones\>, with milestones |
-| Approve | The mechanism exists or no mechanism is needed, and only a decision or value is outstanding | \<Access Control Management\>, appendix B |
+| Approve | The mechanism exists or no mechanism is needed, and only a decision or value is outstanding | \<Access Control Management\>, appendix A |
 | Evidence | The control is expected to be inherited, and \<Organisation\> must supply the evidence | \<Evidence Requests\> and the control's line in \<System Security Plan\>, section 7, then rated when the evidence is seen |
 | Tailor | The control or part is proposed as not applicable, with a rationale | \<System Security Plan\>, section 5 |
 

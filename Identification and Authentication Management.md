@@ -2,7 +2,7 @@
 
 ## 1 Purpose
 
-This document shows how people and services are identified and authenticated in \<System Name\>, for each of the 24 Identification and Authentication (IA) controls and enhancements in the CSS Moderate baseline. Section 3 sets out the design: who is identified and how, sign-in through AD FS, the assurance levels, the authenticators, the settings against CSS, sessions, and identity proofing. Section 4 takes each control in turn. Appendix A records how the tested build worked. Appendix B lists every value CSS asks the organisation to define. Appendix C lists the IA controls CSS does not select at Moderate.
+This document shows how people and services are identified and authenticated in \<System Name\>, for each of the 24 Identification and Authentication (IA) controls and enhancements in the CSS Moderate baseline. Section 3 sets out the design: who is identified and how, sign-in through AD FS, the assurance levels, the authenticators, the settings against CSS, sessions, and identity proofing. Section 4 takes each control in turn. Appendix A lists every value CSS asks the organisation to define. Appendix B lists the IA controls CSS does not select at Moderate.
 
 The policy is in \<Policy\> (IA), and the steps people follow are in \<Procedures\> (IA). Who may do what once signed in is in \<Access Control Management\>.
 
@@ -703,33 +703,11 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 | Risk decision | NC-IA-18, rated Low: obtain evidence |
 | Open items | PA-116 |
 
-## Appendix A How identity was built in the tested build
-
-This records the build labelled v1.0 as tested. It signed in with its own passwords, which the design no longer uses (D-AC-23), so the rows on sign-in, storage, password rules, temporary passwords, changing a password, feedback and lockout describe that build only.
-
-Checks A01 to A35 ran on 6 November 2026 and were repeated on the v1.0 tag on 8 November with the same results; I01 to I11 ran on 9 November.
-
-**Table 57: How identity was built in the tested build**
-
-| Part | What happens today | Where |
-| --- | --- | --- |
-| Sign-in | Username and password, with no second factor (A11, A12) | PA-23 |
-| Storage | PBKDF2-SHA512, 600,000 iterations, with a random salt per password (A02) | The API's password service |
-| Password rules | 12 to 128 characters, with any characters, checked against a 15-entry list (A05, A06, I02 to I06). A commonly used password outside the list is accepted (A33) | PA-45, PA-82 |
-| Temporary passwords | Must be changed before giving access (A01). An administrator's reset forces the same | The API's password service |
-| Changing a password | The page opens only at a forced change, so a signed-in user cannot change their own (A34). A change ends the user's other sessions (I07) | PA-44 |
-| Feedback | The same response for a wrong password and an unknown user (A07), and a masked field (A08) | The API's sign-in service; sign-in pages |
-| Identifiers | Usernames are unique (A09). Deleting an account frees its username, and no status field exists | PA-47 |
-| Tokens | HMAC-SHA256, signed with a key of at least 256 bits, bound to a session and lasting under 8 hours (I08, I09). A token still works from another client (A13) | PA-46 |
-| Lockout | Locked for 15 minutes after 5 failures (I10) | P-AC-14 |
-| Transport | Plain HTTP in Docker (A14) | PA-18 |
-| Secrets | The signing key and database password are committed in the applications' settings files | PA-19 |
-
-## Appendix B Parameter register
+## Appendix A Parameter register
 
 These are the CSS organisation-defined values for the 24 IA entries: 22 in total. They were agreed on 5 and 6 November 2026 (D-IA-P01), and revised on 12 November 2026 for sign-in through AD FS (D-AC-23).
 
-**Table 58: IA parameter register**
+**Table 57: IA parameter register**
 
 | CSS identifier | What must be defined | Value | State now |
 | --- | --- | --- | --- |
@@ -756,11 +734,11 @@ These are the CSS organisation-defined values for the 24 IA entries: 22 in total
 | IA-12(03)\_ODP | Validation and verification | Evidence checked by \<Organisation\>'s HR during pre-employment checks | Inherited, unconfirmed (EV-IA-02) |
 | IA-12(05)\_ODP | Address confirmation | Notice of proofing | Inherited, unconfirmed (EV-IA-02) |
 
-## Appendix C IA controls outside the Moderate baseline
+## Appendix B IA controls outside the Moderate baseline
 
-CSS does not select these at Moderate, so they are not assessed. Some bear on the design, and Table 59 says how.
+CSS does not select these at Moderate, so they are not assessed. Some bear on the design, and Table 58 says how.
 
-**Table 59: IA controls not selected at Moderate**
+**Table 58: IA controls not selected at Moderate**
 
 | Control | What it adds | \<System Name\>'s position |
 | --- | --- | --- |

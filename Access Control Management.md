@@ -2,13 +2,13 @@
 
 ## 1 Purpose
 
-This document shows how \<System Name\> is designed and configured for each of the 39 Access Control (AC) controls and enhancements in the CSS Moderate baseline. Section 3 sets out the access control model: the account types, roles, permissions, separation of duties, access routes, settings, rules and the access request workflow, and the design for ending access, sign-in and sessions, the system use notice, actions allowed without signing in, audit, remote, wireless and mobile access, and the policy and procedures. Section 4 is an index that shows where in section 3 each part of each control is met. Appendix A records how the system is built today, and appendix B every value CSS asks the organisation to define.
+This document shows how \<System Name\> is designed and configured for each of the 39 Access Control (AC) controls and enhancements in the CSS Moderate baseline. Section 3 sets out the access control model: the account types, roles, permissions, separation of duties, access routes, settings, rules and the access request workflow, and the design for ending access, sign-in and sessions, the system use notice, actions allowed without signing in, audit, remote, wireless and mobile access, and the policy and procedures. Section 4 is an index that shows where in section 3 each part of each control is met.
 
 An assessor examines the design, the settings and the records, interviews the people named, and tests the mechanisms (CSS). This document gives the design that meets each part of each control, the mechanisms that enforce it, and their settings. Who provides and is responsible for each control, its status and its assessment result are in \<System Security Plan\>, section 7.1 (Table 10). The tests run, with their results, and the records an assessor will ask for are in \<Control Assessment Record\> (AC). Each control's risk is in \<Risk List\>, and what is still open, with the fix, is in \<Plan of Action and Milestones\>.
 
 As \<System Description\> sets out, \<Organisation\>'s PingFederate authenticates every user, with multi-factor authentication, and \<System Name\>'s API reads each user's Active Directory groups directly from Active Directory over LDAPS, to give their roles and schema access (D-AC-23). \<System Name\> holds no accounts or passwords of its own, and has no session management: how long a sign-in lasts is set by PingFederate, and an unattended screen is locked by \<Organisation\>'s managed devices. Both are corporate services that \<System Name\> uses as they stand. The design in section 3 is written on that basis.
 
-\<System Name\> is not yet built on its servers, so "today" means the tested v1.0 code in the test environment. That build signed in with its own passwords, held its groups and sessions in its own database and used PostgreSQL, so its tests do not show PingFederate sign-in, Active Directory groups or SQL Server working. Where that matters, the "Today" columns and notes in section 3 say so. Its findings are kept where they still apply to the reference design. Test results are in the AC evidence. Values that CSS asks the organisation to define are in Appendix B.
+\<System Name\> is not yet built on its servers, so "today" means the tested v1.0 code in the test environment. That build signed in with its own passwords, held its groups and sessions in its own database and used PostgreSQL, so its tests do not show PingFederate sign-in, Active Directory groups or SQL Server working. Where that matters, the "Today" columns and notes in section 3 say so. Its findings are kept where they still apply to the reference design. Test results are in the AC evidence. Values that CSS asks the organisation to define are in Appendix A.
 
 The policy is in \<Policy\> (AC), and the steps people follow are in \<Procedures\> (AC).
 
@@ -29,7 +29,7 @@ The implementation status of each control, how it is met, who is responsible, it
 7. **\<Organisation\>'s single sign-on proves who the user is.** PingFederate authenticates every user, with multi-factor authentication, and gives \<System Name\> a signed OpenID Connect response that names them. \<System Name\> never sees a password (D-AC-23).
 8. **No session management in the application.** \<System Name\> holds no session records and has no idle lock, idle timeout, session limit, sign-out or screen for ending sessions. The sign-in lasts as long as PingFederate allows, and the device screen lock hides an unattended screen.
 
-Figure 1 shows the checks every request passes. Every request passes four checks in order: sign-in through PingFederate, which authenticates the user with multi-factor authentication, shown by the app's valid authentication cookie; the user's AD groups, read from Active Directory by the API over LDAPS; the schema decision, read or edit, from those groups; and the role group needed for the page or function. Anything not granted is refused. Appendix A, section A.2, shows how the tested build made them.
+Figure 1 shows the checks every request passes. Every request passes four checks in order: sign-in through PingFederate, which authenticates the user with multi-factor authentication, shown by the app's valid authentication cookie; the user's AD groups, read from Active Directory by the API over LDAPS; the schema decision, read or edit, from those groups; and the role group needed for the page or function. Anything not granted is refused.
 
 The access control library, built into all three apps, makes the schema decisions. Role policies on each page and controller make the function decisions. The UI app and the Admin app refuse anything not marked as open; the API has no such default, which is why some of its functions are open (section 3.17). Page addresses name the schema, because page numbers restart in each schema. Item content is sent so that it is not kept in shared caches.
 
@@ -429,7 +429,7 @@ Only these actions are allowed without signing in (P-AC-25):
 
 Each is needed before a person can identify themselves, and none returns business data. The API health check supports monitoring. The list and the reasons are also stated in \<System Security Plan\>. The list is reviewed every 12 months and after a change (PRO-AC-14).
 
-The UI app and the Admin application refuse anything not marked as open. The API has no such default, so an unmarked API function is open; this is the root cause of the gaps (Appendix A, section A.6).
+The UI app and the Admin application refuse anything not marked as open. The API has no such default, so an unmarked API function is open.
 
 ### 3.18 Audit of accounts and privileged actions
 
@@ -545,137 +545,11 @@ Each part of each control is met by the design in section 3. Table 17 shows, for
 | AC-21 | b | 3.10 | P-AC-23 |
 | AC-22 Publicly Accessible Content | All | 3.10 | P-AC-24 |
 
-## Appendix A How it is built today
-
-This appendix records the v1.0 build as tested between 5 and 8 November 2026, for comparison with the design in section 3. That build signed in with its own passwords, held its groups and sessions in its own database, and ran on PostgreSQL in containers. The reference design in \<System Description\> uses PingFederate, groups read from Active Directory, SQL Server 2022 and no session management, so sections A.2 to A.5 and the sign-in and session rows of A.6 describe the tested build and not the design.
-
-### A.1 Where today's system differs
-
-**Table 18: Where today's system differs**
-
-| Model | Today | Item |
-| --- | --- | --- |
-| Only auditors read audit logs, and only security officers read security information | Administrators can read both | PA-15 |
-| Ordinary users reach only their own functions | Some session, notification, audit-writing and diagnostic functions are open to them | PA-02, PA-06, PA-07, PA-29 |
-| Nothing works without signing in, except the approved list | Cache and diagnostic endpoints are open | PA-03, PA-07, PA-28 |
-| Only the API connects to the database, with an account that is not a sysadmin, and no destructive maintenance pages are in production | All three share one sysadmin, and maintenance pages remain | PA-10, PA-31 |
-| Service accounts on Windows are limited | Not built; the VMs do not exist yet | PA-18 |
-| Every user signs in through PingFederate, and access comes from AD groups | The tested build signed in with its own passwords and held its accounts and groups in its own database | PA-95 |
-
-The API's page upload address also differs: it needs the administrator role as well as schema edit access, while the model gives upload to editors. Neither UI calls it, so it is recorded as unused under PA-25. The model also lets administrators reach every schema, and the system owner should decide whether their duties need that (PA-15).
-
-Other differences: Export to Folder still exists (PA-26), browsers load code from an outside service (PA-34), and the sample data has a generic admin account and schema roles such as DataOwner that are not in this catalogue.
-
-### A.2 How an access decision is made
-
-**Table 19: How an access decision is made**
-
-| Step | What happens | Part of the system |
-| --- | --- | --- |
-| 1. Password | API checks it against PBKDF2-SHA512 hashes, 600,000 iterations | The API's password service |
-| 2. Session | The access control component, version 0.2.0, opens a session record | The API's sign-in service |
-| 3. Credentials issued | The API returns a signed token, and the UI makes a cookie with the same session ID and the user's roles | The sign-in service of each UI |
-| 4. Each request | The cookie or token is checked, then the session and the account's current state | Each app, on every request |
-| 5. Schema decision | The schema read check and the schema edit check ask the access control component for a decision | The shared schema access component |
-| 6. Page decision | A role requirement on each page and API function, using the roles set at sign-in | Each page and API function |
-
-The access control component makes the decisions in steps 2, 4 and 5 only. Document pages, tiles, exports and bad file reports now all reach step 5. Page addresses take the form page/{schema}/{page number}, because page numbers restart in each schema. Export jobs can only be used by their owner or an administrator.
-
-A user's roles are held in the cookie and token from sign-in. Changing a user's groups, status or password changes their security version, which ends their sessions, so old roles cannot carry on.
-
-### A.3 Roles and groups
-
-**Table 20: Roles and groups as built**
-
-| Role or group | Source | Grants |
-| --- | --- | --- |
-| \<Code\>\_GlobalAdmins | An administrator flag on the user's account | Every schema, and all pages reserved for administrators |
-| \<Code\>\_Admins | Access group of that name | The administrator pages; uploading documents through the API |
-| \<Code\>\_Auditors | Access group of that name | The auditor pages, including audit logs |
-| \<Code\>\_Security | Access group of that name | The security officer pages |
-| Schema read group | The access group named as the schema's read group | Read that schema |
-| Schema edit group | The access group named as the schema's edit group | Read and edit that schema |
-| Schema roles | A schema role record for each user | The role the user has chosen to act in |
-
-Seeded schema groups: Invoices\_Read, Invoices\_Edit, Correspondence\_Read, Correspondence\_Edit, HR\_Read and HR\_Edit. Group names match regardless of upper or lower case.
-
-### A.4 Settings
-
-**Table 21: Settings as built**
-
-| Setting | Value | Where it is set |
-| --- | --- | --- |
-| Failed sign-ins before lockout | 5 consecutive | Built into the API's password service |
-| Lockout length | 15 minutes | Built into the API's password service |
-| Minimum password length | 12 | Built into the API's password service |
-| Idle timeout | 30 minutes | Each app's session settings |
-| Session limit | 8 hours | Each app's session settings |
-| Sessions per user | 3 | Each app's session settings |
-| Screen lock | 25 minutes, warning at 25 | A script served with each page |
-| Token lifetime | 480 minutes | The API's token settings |
-| Policy cache | 5 seconds | Built into the shared schema access component |
-
-### A.5 Database access
-
-**Table 22: Database access as built**
-
-| Item | Value |
-| --- | --- |
-| Database and engine | the \<System Name\> database, SQL Server 2022 |
-| Role used by all three apps | docuview, a sysadmin in Docker (PA-10) |
-| Application accounts | The user account table and the credential table |
-| Groups | The access group table and the group member table |
-| Sessions | The session table |
-| Exposed port | A local address on the test PC only on the host |
-
-The applications' committed settings files still name a remote database at a public address and contain secrets (PA-19). Docker overrides them with environment variables.
-
-### A.6 Endpoints reachable without signing in
-
-**Table 23: Endpoints reachable without signing in**
-
-| Endpoint | Purpose | Result | Item |
-| --- | --- | --- | --- |
-| The sign-in pages of the tested build | Sign in | Expected |  |
-| The change password page of the tested build | Forced password change; needs the temporary state from sign-in | Expected |  |
-| The signed-out, session expired and sign-out pages | Sign-out pages | Expected |  |
-| The access denied page | Admin application message | Expected |  |
-| The API's sign-in function | Sign in, for the UIs | Expected |  |
-| The API's health check | Returns a status word only | Expected |  |
-| The API's cache statistics and cache clearing functions | Cache management | **Should need sign-in** | PA-03 |
-| The API's test sign-in function | Diagnostic | **Should be removed** | PA-07 |
-| The API's security test health function, which returns the environment name | Diagnostic | **Should be removed** | PA-07 |
-| The icon test page in UI application | Test page | **Should be removed** | PA-07 |
-
-Static files in UI application and the Admin application are also served without signing in. UI application and the Admin application deny by default through a fallback policy. API does not have one, which is why missing attributes leave endpoints open.
-
-### A.7 Service accounts
-
-There are no service accounts in the application. The apps connect to the database with the role above. Setup jobs use the same role.
-
-### A.8 Network flows
-
-The tested build used flows F1 to F8 in \<Security Architecture\>. \<System Name\> will run on an application server VM and a database server VM, both Windows Server 2025, on \<Organisation\>'s network. Firewall rules between them and the remote access route are not set up yet (PA-18).
-
-### A.9 Evidence index
-
-Results are in ac-test-results-2026-11-05-after-ac3.csv, in the AC evidence, from Test-AccessControl.ps1. After the AC-3 fixes there are 64 checks: 48 passed and 16 showed a gap. The AC-6(10) and AC-6(1) assessments added 11 more, with no code changes, for 75 checks: 52 passed and 23 gaps, in ac-test-results-2026-11-05-ac6-1.csv. The baseline before any fixes was 55 checks, 34 passed and 21 gaps. The stack was a separate throwaway Docker schema, removed afterwards.
-
-On 8 November 2026 the tests were run again on the tagged v1.0 build, on a fresh throwaway stack: ac-test-results-2026-11-08-v1.0.csv, 75 checks, 52 passed and 23 gaps, the same as on 5 November. MANIFEST.md in the same folder records a SHA-256 hash for every evidence file, with the commits, containers and environment of that run. T45 passed in that run and in four repeats, and is closed as not reproduced; the folder's README explains why.
-
-The tests for each control, with their results, are recorded in \<Control Assessment Record\> (AC).
-
-### A.10 Known limits of this evidence
-
-- Tests ran on one PC with sample data, not on the Windows Server 2025 VMs. Windows accounts and SQL Server on Windows are not covered yet.
-- The lock screen was found by code review, not exercised in a browser.
-- Disabling an account was tested by changing the database row, not by using the admin page.
-
-## Appendix B Parameter register
+## Appendix A Parameter register
 
 CSS identifies the values an organisation must define for each control. This register records every such value for the 39 AC entries, using the CSS identifiers: 62 in total. "Proposed" means the value awaits approval. "As built, not approved" means the running system uses the value, but nobody has approved it. "Open" means someone must decide it. **The State before approval column shows the position of the tested build, and the State now column shows it against the reference design in \<System Description\>. None of the values has yet been approved. \<Organisation\>'s security contact is asked to confirm AC-06(01)\_ODP\[02\] and \[04\] (its network and infrastructure teams) and AC-18(01)\_ODP (users and devices). The values for AC-02(02), AC-17(04), AC-19(05) and AC-22 are not applicable under \<Tailoring Register\>.**
 
-**Table 24: Parameter register**
+**Table 18: Parameter register**
 
 | CSS identifier | What must be defined | Value | Source | State before approval | State now |
 | --- | --- | --- | --- | --- | --- |
@@ -697,7 +571,7 @@ CSS identifies the values an organisation must define for each control. This reg
 | AC-02\_ODP\[08\] | Notice when need changes | Leaver: within 5 working days, on the condition in P-AC-06. Transfer: within 1 working day | P-AC-06 | Proposed; route not agreed (PA-32) | Proposed (D-AC-P02), not yet approved; route not yet built (PA-32) |
 | AC-02\_ODP\[09\] | Attributes that authorise access | Schema read or edit group, and role, as in sections 3.3 and 3.4 | Section 3.4 | Proposed | Proposed (D-AC-P02), not yet approved |
 | AC-02\_ODP\[10\] | Account review frequency | Privileged accounts every 3 months; all others every 12 months | P-AC-07 | Proposed, not built | Proposed (D-AC-P02), not yet approved; no review yet held |
-| AC-02(01)\_ODP | Automated mechanisms | Active Directory, PingFederate and the Starters/Leavers system, for accounts and sign-in; \<System Name\>'s API, for reading and applying AD groups | Appendix A | As built, not approved | Proposed, not yet approved |
+| AC-02(01)\_ODP | Automated mechanisms | Active Directory, PingFederate and the Starters/Leavers system, for accounts and sign-in; \<System Name\>'s API, for reading and applying AD groups | Section 3.1 | As built, not approved | Proposed, not yet approved |
 | AC-02(02)\_ODP\[01\] | Remove or disable | Disable | P-AC-09 | Proposed | Not applicable (TR-AC-01) |
 | AC-02(02)\_ODP\[02\] | Time before disabling | Not applicable while temporary and emergency accounts are prohibited | P-AC-09 | Proposed | Not applicable (TR-AC-01) |
 | AC-02(03)\_ODP\[01\] | Time to disable an account | A leaver's Active Directory account: at once, by \<Organisation\>; their group memberships within 5 working days. Otherwise within 1 working day of the condition being found | New in this register | Proposed | Stated by the system owner (D-AC-23) |

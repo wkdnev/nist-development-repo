@@ -2,7 +2,7 @@
 
 ## 1 Purpose
 
-This document shows how \<System Name\>'s configuration is recorded, controlled and changed, for each of the 24 Configuration Management (CM) controls and enhancements in the CSS Moderate baseline. It is also the Configuration Management Plan that CM-9 requires, and follows the outline in CSS, Appendix D. Section 3 sets out the design: roles and processes, the configuration items, the baseline, the software components, the secure settings, change control, impact analysis, least functionality, who may change what, the inventory, and the library. Section 4 takes each control in turn. Appendix A records how configuration was built in the tested build. Appendix B lists every value CSS asks the organisation to define. Appendix C sets out the development, test and production environments. Appendix D lists the CM controls CSS does not select at Moderate.
+This document shows how \<System Name\>'s configuration is recorded, controlled and changed, for each of the 24 Configuration Management (CM) controls and enhancements in the CSS Moderate baseline. It is also the Configuration Management Plan that CM-9 requires, and follows the outline in CSS, Appendix D. Section 3 sets out the design: roles and processes, the configuration items, the baseline, the software components, the secure settings, change control, impact analysis, least functionality, who may change what, the inventory, and the library. Section 4 takes each control in turn. Appendix A lists every value CSS asks the organisation to define. Appendix B sets out the development, test and production environments. Appendix C lists the CM controls CSS does not select at Moderate.
 
 The policy is in \<Policy\> (CM), and the steps people follow are in \<Procedures\> (CM).
 
@@ -717,7 +717,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
-| a | A plan that covers roles, responsibilities, and configuration management processes and procedures | This document is the plan. Roles and processes are in section 3.2, the route a change follows in section 3.7, the environments in appendix C, and the procedures are \<Procedures\> (CM) | Written |
+| a | A plan that covers roles, responsibilities, and configuration management processes and procedures | This document is the plan. Roles and processes are in section 3.2, the route a change follows in section 3.7, the environments in appendix B, and the procedures are \<Procedures\> (CM) | Written |
 | b | It sets how configuration items are identified through the life of the system, and how their configuration is managed | Section 3.2: an item is identified when it enters the baseline, named by its component and version, and managed through the change procedure for its whole life | Written |
 | c | It defines the configuration items and places them under configuration management | Section 3.3 | Written |
 | d | It is reviewed and approved by defined people | The system owner | Version \<ver\> was approved (D-CM-12, D-SC-07). This restructured version awaits the system owner's approval |
@@ -831,25 +831,11 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 | Risk decision | NC-CM-24, rated Low: approve |
 | Open items | PA-112: confirm the tools with \<Organisation\> (EV-CM-02) |
 
-## Appendix A How configuration was built in the tested build
-
-This records the position of the build labelled v1.0 when it was examined and tested in Docker on 6 and 8 November 2026. It is the basis of the Today columns.
-
-**Table 62: How configuration was built in the tested build**
-
-| Part | What happens today | Where |
-| --- | --- | --- |
-| Baseline | Code and Docker files tagged v1.0. No baseline for the VMs, which are not built | workspace repository |
-| Change control | Git commits only. ServiceNow is planned | PA-53 |
-| Least functionality | The API documentation page is off outside development (B06), the database is local only (B07), and the application does not run as root (B08). Diagnostic and maintenance pages remain | PA-07, PA-31 |
-| Software list | Not yet written, and not technically enforced, by decision | PA-55 |
-| Inventory | Servers in \<System Security Plan\>, section 3.4; software components in section 3.5 (C04) | PA-54 |
-
-## Appendix B Parameter register
+## Appendix A Parameter register
 
 These are the CSS organisation-defined values for the 24 CM entries: 57 in total. State now says whether each value is met today. Forty-six were agreed in the meeting of 6 November 2026, and the other 11 by the system owner later the same day (D-CM-P01, D-CM-P02). Four were extended on 8 November 2026 (D-CM-08).
 
-**Table 63: CM parameter register**
+**Table 62: CM parameter register**
 
 | CSS identifier | What must be defined | Value | State now |
 | --- | --- | --- | --- |
@@ -911,11 +897,11 @@ These are the CSS organisation-defined values for the 24 CM entries: 57 in total
 | CM-12(01)\_ODP\[01\] | Information by type | Restricted documents, by project | Met |
 | CM-12(01)\_ODP\[02\] | Components | Both VMs, using \<Organisation\>'s tools if available | Not yet: tools to be confirmed (EV-CM-02) |
 
-## Appendix C Environments
+## Appendix B Environments
 
 The CSS guidance on CM-9 asks the plan to say how the development, test and operational environments are controlled. \<System Name\> has three, and nothing moves from one to the next except as a tagged release.
 
-**Table 64: Environments**
+**Table 63: Environments**
 
 | Environment | What it is | What it may hold | Who may change it | Today |
 | --- | --- | --- | --- | --- |
@@ -925,17 +911,17 @@ The CSS guidance on CM-9 asks the plan to say how the development, test and oper
 
 A release is tested in the test environment before it reaches production (section 3.7, step 4). CSS asks for a separate test environment only at High, as CM-4(1); \<System Name\> has one already. The tests are to be repeated on the production servers once they are built, because the test environment differs from them.
 
-## Appendix D CM controls outside the Moderate baseline
+## Appendix C CM controls outside the Moderate baseline
 
-CSS does not select these at Moderate, so they are not assessed. Some of the design goes further than the baseline, and Table 65 says where.
+CSS does not select these at Moderate, so they are not assessed. Some of the design goes further than the baseline, and Table 64 says where.
 
-**Table 65: CM controls not selected at Moderate**
+**Table 64: CM controls not selected at Moderate**
 
 | Control | What it adds | \<System Name\>'s position |
 | --- | --- | --- |
 | CM-3(1) Automated Documentation, Notification, and Prohibition of Changes | A workflow that records each change, tells the approvers, and blocks a change until approved | Not required. Done in part once the ServiceNow workflow is built (PA-53) |
 | CM-3(6) Cryptography Management | Cryptographic mechanisms under configuration management | Not required. Keys and certificates are in the key register (\<System and Communications Protection Management\>, section 3.4), and a new key or certificate goes through change control |
-| CM-4(1) Separate Test Environments | Changes analysed in a separate test environment | Not required. Done: appendix C |
+| CM-4(1) Separate Test Environments | Changes analysed in a separate test environment | Not required. Done: appendix B |
 | CM-5(1) Automated Access Enforcement and Audit Records | Automated enforcement of who may change the system, with audit records | Not required. Done in part: Windows and database permissions enforce it, and their logs record it |
 | CM-6(1), CM-6(2) Automated Management and Verification; Respond to Unauthorized Changes | Automated checking of settings, and a set response to an unauthorised change | Not required. Done in part in design: the monthly benchmark scan, and the drift procedure (PA-80) |
 | CM-7(4) Unauthorized Software, Deny-by-exception | A list of software that must not run | Not required. \<System Name\> uses the stricter alternative, CM-7(5), an approved list, though it is not enforced by the system |

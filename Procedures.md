@@ -679,7 +679,7 @@ These procedures carry out \<Policy\> (CP) and \<Contingency Planning Management
 1. Whoever finds a failure tells \<Organisation\>'s IT service desk and the security officer. **Manual**
 2. Within 4 hours the database and Windows server administrators assess the outage: cause, damage, expected duration, possible data loss and whether it may be a security incident. If it may be, the security officer starts the incident response plan. **Manual**
 3. The system owner, or their deputy, invokes \<Contingency Planning Management\> if any criterion in its section 5.1 is met, and records the decision and time. **Manual**
-4. The system owner tells the people in \<Contingency Planning Management\>, section 3.4, and \<Organisation\>'s IT service desk, by phone and then in writing, using appendix A. **Manual**
+4. The system owner tells the people in \<Contingency Planning Management\>, section 3.4, and \<Organisation\>'s IT service desk, by phone and then in writing, using its contact list (appendix B). **Manual**
 5. The system owner tells users through \<Organisation\>'s usual staff channel, and updates them at least daily. **Manual**
 6. The security officer keeps an activity log of decisions and actions, with times, until deactivation. **Manual**
 
