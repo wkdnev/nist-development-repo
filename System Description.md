@@ -27,10 +27,11 @@ It is a summary. The detail of each control family is held once, in the design d
 
 1. **Complete the application profile** in section 3: its name, purpose, owners, users, information types and its own functions.
 2. **Confirm the parameters** in section 4. Keep the reference value, or record a different value with the reason.
-3. **Item each departure** from the reference design in section 3.6, with the risk it brings and the control that answers it. A departure is decided by the system owner and recorded in \<Decision Register\>.
-4. **Categorise the application** from its information types, under CSS. If it comes out above Moderate in any objective, the Moderate baseline in this set is not enough and the system owner must decide how to proceed before going further.
-5. **Carry the profile into the set.** Replace the placeholders throughout, fill in the square brackets, and confirm each control in \<Control Implementation Register\>.
-6. **Build to the design, then assess.** The application is tested against the requirements in section 5, and any shortfall becomes an item in \<Plan of Action and Milestones\>.
+3. **Check the family settings against the corporate values.** Each setting in the family design documents should match \<Organisation\>'s corporate value. Where one does not, change it in the family document.
+4. **Record each departure** from the reference design in section 3.6, with the risk it brings and the control that answers it. A departure is decided by the system owner and recorded in \<Decision Register\>.
+5. **Categorise the application** from its information types, under CSS. If it comes out above Moderate in any objective, the Moderate baseline in this set is not enough and the system owner must decide how to proceed before going further.
+6. **Carry the profile into the set.** Replace the placeholders throughout, fill in the square brackets, and confirm each control in \<Control Implementation Register\>.
+7. **Build to the design, then assess.** The application is tested against the requirements in section 5, and any shortfall becomes an item in \<Plan of Action and Milestones\>.
 
 ### 1.3 Rules for anyone answering questions from this document, human or AI
 
