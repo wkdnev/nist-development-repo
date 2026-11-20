@@ -2,39 +2,27 @@
 
 ## 1 Purpose
 
-This document shows how \<System Name\> makes sure the people who use and run it are trustworthy, and stay so, for each of the 9 Personnel Security (PS) controls in the CSS Moderate baseline. Section 3 sets out the design: the risk designation of every role, the minimum screening, the access agreements, what happens when people join, move and leave, the time limits, external people, sanctions, the personnel security register, and what \<Organisation\> provides. Section 4 takes each control in turn. Values CSS asks the organisation to define are set at corporate level by \<Organisation\>. Appendix A the PS controls CSS does not select at Moderate.
+This document sets out how \<System Name\> makes sure the people who use and run it are trustworthy, and stay so, to meet the 9 Personnel Security (PS) controls in the CSS Moderate baseline.
 
-The policy is in \<Policy\> (PS), and the steps people follow are in \<Procedures\> (PS). How access is requested, granted and removed is in \<Access Control Management\>, and the duties of each role are in \<Roles and Responsibilities\>.
+Section 3 is the design: the principles, the risk designation of every role, the minimum screening, the access agreements, what happens when people join, move and leave, the time limits, external people, sanctions, the personnel security register, what \<Organisation\> provides, role duties in job descriptions, and the policy and procedures. Each subsection names the controls it helps to meet. Appendix A lists the PS controls CSS does not select at Moderate.
 
-Screening, HR and disciplinary processes belong to \<Organisation\>. \<System Name\> sets the minimum it requires of them, records only that each check was confirmed and when, and relies on \<Organisation\>'s evidence for the rest.
+Screening, HR and disciplinary processes belong to \<Organisation\>. \<System Name\> sets the minimum it requires of them, records only that each check was confirmed and when, and relies on \<Organisation\>'s evidence for the rest. How access is requested, granted and removed is in \<Access Control Management\>, and the duties of each role are in \<Roles and Responsibilities\>.
 
-An assessor examines the designations, the screening confirmations, the signed agreements and the leaver and mover records; follows one leaver and one mover from notice to the change in access; and interviews those who act on them (CSS). So for each control section 4 gives:
+Other documents hold the rest. Who provides and is responsible for each control, its status and its assessment result are in \<System Security Plan\>, section 7.13 (Table 22). The tests, their results and the records an assessor will ask for are in \<Control Assessment Record\> (PS). Each control's risk is in \<Risk List\>, and what is still open is in \<Plan of Action and Milestones\>. The policy is in \<Policy\> (PS), and the steps people follow are in \<Procedures\> (PS).
 
-- **each part of the control**, as CSS letters them, with the design that meets it and the position today;
-- **who provides it**, and who is responsible;
-- **what enforces it**, the rules and procedures that apply, and the tests run;
-- **the records an assessor will ask for**, and whether they exist yet;
-- **its status**, the risk decision, and what is still open.
+Values that CSS asks the organisation to define are set at corporate level by \<Organisation\>. The values in section 3, such as the time limits, the rescreening interval and how long records are kept, should match those corporate values. Where one does not, it is changed in this document.
 
-**Table 1: Status values**
-
-| Status | Meaning |
-| --- | --- |
-| Implemented | The design is in place and working |
-| Partially implemented | Some of the design is in place; the open items say what is missing |
-| Not implemented | None of the design is in place yet, or it is not evidenced |
+Where section 3 notes what "today" is, it means the tested v1.0 build, which nobody yet has access to.
 
 ## 2 Summary
 
-The implementation status of each control, how it is met, who is responsible, its assessment result and the risk and plan entries for its gaps are recorded in \<System Security Plan\>, section 7.13 (Table 22). This section gives only the overall position.
-
-No control in the baseline is missing from the design. Every gap is registered in the Risk List (\<Risk List\>) and the Plan of Action and Milestones (\<Plan of Action and Milestones\>).
-
-What \<System Name\> decides for itself is defined: a designation for every role, the minimum screening, the agreements, the time limits and the register. Nobody has access yet, so nothing is in use. What remains is \<Organisation\>'s evidence of its screening, HR and disciplinary processes (PA-125), the prompt from its Starters/Leavers system that tells the group owners of a mover or leaver (PA-32, rated Medium), and the first signatures.
+The implementation status of each control, how it is met, who is responsible, its assessment result and the risk and plan entries for its gaps are recorded in \<System Security Plan\>, section 7.13 (Table 22).
 
 ## 3 The design
 
 ### 3.1 Principles
+
+Controls met here: PS-2, PS-3, PS-4, PS-5, PS-6.
 
 1. **Check first.** People are screened and sign their agreements before they get access.
 2. **Match the risk.** Roles with more power carry a higher risk designation, and more is asked of them.
@@ -45,9 +33,11 @@ These carry out the principles and rules of \<Policy\>, sections PS.3 and PS.4.
 
 ### 3.2 Risk designations
 
+Controls met here: PS-2, PS-3.
+
 Every role in \<Roles and Responsibilities\> has a designation. A role is higher risk if it has privileged technical access, or can see or change security records. The plan consistency test (check L17) confirms that no role is missed.
 
-**Table 2: Risk designations**
+**Table 1: Risk designations**
 
 | Role | Designation | Why |
 | --- | --- | --- |
@@ -75,9 +65,11 @@ A higher risk role adds three things: screening is confirmed again before the ro
 
 ### 3.3 Screening standard
 
+Controls met here: PS-2, PS-3.
+
 \<Organisation\> screens its staff. \<System Name\> relies on that screening, and sets the minimum it must cover before anyone is given access. The four checks are those of the HMG Baseline Personnel Security Standard.
 
-**Table 3: Minimum screening before \<System Name\> access**
+**Table 2: Minimum screening before \<System Name\> access**
 
 | Check | What it confirms | \<Organisation\>'s practice |
 | --- | --- | --- |
@@ -92,12 +84,18 @@ In the United Kingdom a basic criminal record check is made through the Disclosu
 
 ### 3.4 Access agreements
 
+Controls met here: PS-6.
+
 Two agreements are signed before access, and again every 12 months and after a material change. CSS places PS-6 in its privacy baseline as well as the Moderate baseline, so the agreements cover privacy too: the rules on personal data are A23 to A29.
 
 1. **\<Organisation\>'s confidentiality agreement,** signed on employment or engagement.
 2. **The rules of behaviour,** \<Security Operating Procedures\>: Part A for everyone, and Part B, the privileged rules, for administrators as well. Each person signs a declaration on TPL-21 that they have read and understood the rules and agree to follow them, and the signature is recorded in the register of signatures (\<Planning Management\>, section 3.5).
 
+Each person signs both before being added to any \<System Name\> group. The access request checks the register of signatures, and is not approved without a signature in it. The system owner reviews and updates the agreements every 12 months.
+
 ### 3.5 Joiners, movers and leavers
+
+Controls met here: PS-3, PS-4, PS-5, PS-6.
 
 \<System Name\> holds no accounts. A person signs in through AD FS with their Active Directory account, and their access is their membership of \<System Name\>'s AD groups (\<Access Control Management\>). So joining means being added to a group, and leaving means \<Organisation\> disabling the Active Directory account.
 
@@ -105,7 +103,7 @@ Two agreements are signed before access, and again every 12 months and after a m
 
 **Figure 1: From joining to leaving**
 
-**Table 4: Joiners, movers and leavers**
+**Table 3: Joiners, movers and leavers**
 
 | Event | What happens | Who | Within | Record |
 | --- | --- | --- | --- | --- |
@@ -114,9 +112,15 @@ Two agreements are signed before access, and again every 12 months and after a m
 | Leaver | \<Organisation\> disables the Active Directory account at once, which ends access. Its Starters/Leavers system tells the group owners, who remove the memberships. A global administrator ends any open session. Any service secret the person knew is changed, and exported files and printouts are recovered or destroyed. Separately, anyone who has not signed in for 90 days is removed from \<System Name\>'s groups each month (\<Access Control Management\>, section 3.14) | \<Organisation\>; the group owners; global administrator; system owner | At once, and memberships within 5 working days | TPL-14 |
 | Higher-risk leaver, dismissal or suspected misuse | \<Organisation\>'s service desk disables the Active Directory account, and a global administrator ends the person's sessions and confirms none remains | \<Organisation\>'s service desk; global administrator | 1 hour of notice | TPL-14; TPL-10 if it is an incident |
 
+**Leavers.** Disabling the Active Directory account revokes the person's password and second factor. Any service secret the person knew is changed (\<Procedures\>, PRO-IA-4). \<Organisation\> holds an exit interview, which covers the person's continuing confidentiality duties and the return of equipment, and recovers their laptop, phone, pass and any other equipment. Exported files and printouts are recovered or destroyed (\<Security Operating Procedures\>, section 4.4). Documents belong to projects, not to people, so a leaver's documents stay with the project and its members. The system owner confirms this on TPL-14.
+
+**Movers.** Each group owner removes the memberships the person no longer needs, and adds any the new role needs through an access request. A change to a person's groups takes effect at their next sign-in, and a global administrator can end their sessions to bring it in at once (\<Identification and Authentication Management\>, section 3.7). No \<System Name\> role gives physical access to the servers (\<Physical and Environmental Protection Management\>, section 3.2), so a move changes logical access only.
+
 ### 3.6 Time limits
 
-**Table 5: Personnel security time limits**
+Controls met here: PS-2, PS-3, PS-4, PS-5, PS-6, PS-7, PS-8.
+
+**Table 4: Personnel security time limits**
 
 | Event | Limit | Who acts | Record |
 | --- | --- | --- | --- |
@@ -132,19 +136,25 @@ Two agreements are signed before access, and again every 12 months and after a m
 
 ### 3.7 External people
 
-People who are not \<Organisation\>'s staff, such as contracted developers or a supplier's engineer, may hold a \<System Name\> role only on the same terms as staff: screened to the minimum in section 3.3, signed up to the agreements in section 3.4, and designated by their role. Each contract states their security duties, and requires the supplier to tell the system owner within 1 working day when one of its people moves or leaves.
+Controls met here: PS-7.
+
+People who are not \<Organisation\>'s staff, such as contracted developers or a supplier's engineer, may hold a \<System Name\> role only on the same terms as staff: screened to the minimum in section 3.3, signed up to the agreements in section 3.4, and designated by their role. Each contract states these requirements and their security duties, requires the supplier and its people to comply with \<Policy\> (PS) and \<Procedures\> (PS), and requires the supplier to tell the system owner within 1 working day when one of its people moves or leaves.
 
 The same applies to the independent assessors who carry out the Level 2 assessment, as they see the whole document set and its evidence, which describe \<System Name\>'s weaknesses. Any member of the team who is not \<Organisation\>'s staff is screened, signs a confidentiality agreement and Part A of the rules of behaviour, and is entered in the register, before the evidence is shared: \[whether the assessment team are \<Organisation\>'s staff or external\] (PA-125). The system owner checks each supplier's compliance every 12 months, and records it on TPL-16.
 
 ### 3.8 Sanctions
 
+Controls met here: PS-8.
+
 A breach of the rules is handled through \<Organisation\>'s disciplinary process, and the rules of behaviour tell each person so. \<Organisation\> tells the system owner within 1 working day when a formal sanction involves \<System Name\>. If the breach is a security incident, the security officer records it on TPL-10, and the system owner decides whether the person's access must end at once.
 
 ### 3.9 Personnel security register
 
+Controls met here: PS-3, PS-6.
+
 The system owner keeps this register for everyone who has, or will have, access to \<System Name\> or its Restricted documents: the system owner, the operating roles in \<Roles and Responsibilities\> and the security assessor. Each user is added when their access is requested. It holds dates only. Entries are kept while the person has access, and for 3 years after it ends. Leaver and mover records on TPL-14 are kept for 3 years. The system owner set both on 17 November 2026 (D-PS-12). Signatures of the rules of behaviour are recorded in the register of signatures (\<Planning Management\>, section 3.5).
 
-**Table 6: Personnel security register**
+**Table 5: Personnel security register**
 
 | Person | Role | Designation | Screening confirmed by \<Organisation\> | Agreements signed | Next review |
 | --- | --- | --- | --- | --- | --- |
@@ -163,7 +173,9 @@ The system owner keeps this register for everyone who has, or will have, access 
 
 ### 3.10 What \<Organisation\> provides
 
-**Table 7: Asked of \<Organisation\>**
+Controls met here: PS-2, PS-3, PS-4, PS-5, PS-6, PS-7, PS-8, PS-9.
+
+**Table 6: Asked of \<Organisation\>**
 
 | Provided | Controls | What \<System Name\> relies on | Evidence asked | State |
 | --- | --- | --- | --- | --- |
@@ -175,235 +187,27 @@ The system owner keeps this register for everyone who has, or will have, access 
 
 **Today:** no request has been sent, and none of this is evidenced (PA-125).
 
-## 4 Each control and enhancement
+### 3.11 Role duties in job descriptions
 
-The controls are in CSS order. Each has two tables. The first takes each part of the control and gives what CSS requires, the design that meets it, and the position today. The second says who provides and is responsible for the control, what enforces it, the rules and procedures that apply, the tests run, the records an assessor will ask for, its status, the risk decision, and what is still open.
+Controls met here: PS-9.
 
-### 4.1 PS-1 Policy and Procedures
+The security and privacy duties of every \<System Name\> role are stated in \<Roles and Responsibilities\>. \<Organisation\>'s job descriptions for those roles refer to them (EV-PS-02).
 
-**Table 8: PS-1 design**
+### 3.12 Policy and procedures
 
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| a.1 | A personnel security policy, shared with defined people, covering purpose, scope, roles, responsibilities, management commitment, coordination and compliance, and consistent with the law | \<Policy\> (PS): a system-level policy, shared with everyone who administers \<System Name\> and every line manager of a \<System Name\> user. The legal adviser reviews it | Version \<ver\> approved by the Head of Cyber (D-PS-01) and legally reviewed on 12 November 2026. The later version awaits the Head of Cyber (D-PS-08). Not yet shared (PA-20) |
-| a.2 | Procedures that carry out the policy, shared with defined people | \<Procedures\> (PS): seven procedures, PRO-PS-1 to PRO-PS-7. Shared with the same people | Approved by the system owner (D-PS-09). Not yet shared or walked through |
-| b | A named official manages the policy and procedures | The system owner | \[Name\] is named in \<Roles and Responsibilities\> |
-| c.1 | The policy is reviewed on a schedule and after set events | Every 12 months, and after a significant incident, audit finding or system change | Reviewed on 12 November 2026. The first yearly review falls due in November 2027 |
-| c.2 | The procedures are reviewed on a schedule and after set events | Every 12 months, and after a change to the steps | As the policy |
+Controls met here: PS-1.
 
-**Table 9: PS-1 responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | People, following the procedures |
-| Responsible | System owner, Head of Cyber |
-| Enforced by | Not a system function. The documents are under version control |
-| Rules and procedures | The whole policy (\<Policy\>, section PS.4); PRO-PS-7 (\<Procedures\>) |
-| Tests | None. Examined from the documents |
-| Records an assessor will ask for | The policy and procedures with their approvals; proof they were shared; review records. The approvals exist |
-| Status | Partially implemented |
-| Risk decision | NC-PS-01, rated Low: approve |
-| Open items | PA-20: share the policy and procedures. The Head of Cyber's approval of the later version (D-PS-08) |
-
-### 4.2 PS-2 Position Risk Designation
-
-**Table 10: PS-2 design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| a | Assign a risk designation to every organisational position | Every role in \<Roles and Responsibilities\> is designated higher risk or standard (section 3.2). A role is higher risk if it has privileged technical access, or can see or change security records | Done for all 19 roles (D-PS-07). The plan consistency test confirms that none is missed (check L17). The security assessor was made higher risk on 17 November 2026 (D-PS-12) |
-| b | Set screening criteria for the people who fill each position | Every person: identity, right to work, employment history and a basic criminal record check, before access (section 3.3). Higher risk roles: the same, confirmed again before the role is granted and every 5 years | Set. \<Organisation\>'s own criteria have not been seen (EV-PS-01) |
-| c | Review and update the designations on a schedule | Every 12 months, and when a role's access changes | Reviewed on 12 November 2026. The first yearly review falls due in November 2027 |
-
-**Table 11: PS-2 responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | People, following the procedures |
-| Responsible | System owner |
-| Enforced by | Not a system function |
-| Rules and procedures | Policy rule R1 (\<Policy\>, section PS.4); PRO-PS-1, PRO-PS-4 (\<Procedures\>) |
-| Tests | The plan consistency test, check L17: every role in \<Roles and Responsibilities\> has a designation. It passes |
-| Records an assessor will ask for | The designations, and the record of their review on TPL-3 |
-| Status | Not implemented |
-| Risk decision | NC-PS-02, rated Low: approve |
-| Open items | PA-125: obtain \<Organisation\>'s screening criteria (EV-PS-01) |
-
-### 4.3 PS-3 Personnel Screening
-
-**Table 12: PS-3 design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| a | Screen people before giving them access to the system | \<Organisation\> screens each person before employment. Before anyone is added to a \<System Name\> group, the system owner has \<Organisation\> confirm that the person passed, and that the screening covered the minimum in section 3.3. Only the confirmation and its date are recorded (section 3.9) | Nobody has access yet. \<Organisation\>'s screening has not been evidenced (EV-PS-01), and the screening dates in the register are placeholders |
-| b | Rescreen people under defined conditions and at a defined frequency | Before someone moves into a higher risk role, and every 5 years for anyone in one | Not yet used. \<Organisation\>'s practice has not been seen (EV-PS-01) |
-
-**Table 13: PS-3 responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | \<Organisation\> |
-| Responsible | \<Organisation\> |
-| Enforced by | Not a system function. \<Organisation\>'s pre-employment checks |
-| Rules and procedures | Policy rules R2, R3, R4 (\<Policy\>, section PS.4); PRO-PS-1 (\<Procedures\>) |
-| Tests | None |
-| Records an assessor will ask for | \<Organisation\>'s screening standard, and its confirmation, with the date only, for each person with \<System Name\> access (EV-PS-01); the personnel security register |
-| Status | Not implemented |
-| Risk decision | NC-PS-03, rated Low: obtain evidence |
-| Open items | PA-125: obtain \<Organisation\>'s evidence, and fill in the screening dates |
-
-### 4.4 PS-4 Personnel Termination
-
-**Table 14: PS-4 design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| a | Disable system access within a defined time of a person leaving | \<System Name\> holds no accounts of its own: a person reaches it with their Active Directory account. \<Organisation\> disables that account at once, which ends their access to \<System Name\>. The owners of the person's groups remove the memberships within 5 working days. For a higher-risk leaver, a dismissal or suspected misuse, the account is disabled and the person's sessions ended within 1 hour of notice (section 3.5) | Not in use. The prompt from \<Organisation\>'s Starters/Leavers system is not set up (PA-32) |
-| b | Terminate or revoke the authenticators and credentials the person held | Disabling the Active Directory account revokes the password and the second factor. A global administrator ends any session still open. Any service secret the person knew is changed (\<Procedures\>, PRO-IA-4) | Not in use. The service secrets are in settings files today (PA-19) |
-| c | Hold an exit interview that covers defined information security topics | \<Organisation\> holds the exit interview. It covers the person's continuing confidentiality duties, and returning equipment | Not evidenced (EV-PS-02) |
-| d | Retrieve all security-related property | \<Organisation\> recovers the person's laptop, phone, pass and any other equipment. Any exported files or printouts are recovered or destroyed (\<Security Operating Procedures\>, section 4.4) | Not evidenced (EV-PS-02) |
-| e | Keep access to the information and systems the person controlled | Documents belong to projects, not to people, so a leaver's documents stay with the project and its members. The system owner confirms this on TPL-14 | Not yet used |
-
-**Table 15: PS-4 responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | Shared: \<System Name\> and \<Organisation\> |
-| Responsible | Global administrator, \<Organisation\> |
-| Enforced by | Active Directory: a disabled account cannot sign in through AD FS. \<System Name\>'s session service, which a global administrator uses to end sessions |
-| Rules and procedures | Policy rules R5, R6 (\<Policy\>, section PS.4); PRO-PS-2, with PRO-AC-3 and PRO-AC-4 (\<Procedures\>) |
-| Tests | None for this family. Ending a person's sessions was shown in the test environment under the incident response drill (D01) |
-| Records an assessor will ask for | TPL-14 for a sample of leavers, with the times compared with \<Organisation\>'s record of disabling the account and \<System Name\>'s audit records; \<Organisation\>'s exit process (EV-PS-02). None exist yet |
-| Status | Not implemented |
-| Risk decision | NC-PS-04, rated Low: remediate |
-| Open items | PA-32: the Starters/Leavers prompt. PA-125: \<Organisation\>'s exit process. PA-19: move the service secrets out of the settings files |
-
-### 4.5 PS-5 Personnel Transfer
-
-**Table 16: PS-5 design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| a | When someone is reassigned, review and confirm their continuing need for their current logical and physical access | The line manager tells the system owner and the owners of the person's groups. Each owner confirms whether the person still needs that group. No \<System Name\> role gives physical access to the servers (\<Physical and Environmental Protection Management\>, section 3.2) | Not in use (PA-32) |
-| b | Start defined transfer actions within a defined time | A review of access, and any change needed, within 1 working day. If the new role is higher risk, screening is confirmed again before it is granted | Not in use (PA-32) |
-| c | Change access as needed to match the new role | The owners remove the memberships no longer needed, and add any the new role needs through an access request. A change to a person's groups takes effect at their next sign-in, and a global administrator can end their sessions to bring it in at once (\<Identification and Authentication Management\>, section 3.7) | Not yet used |
-| d | Tell defined people within a defined time | The system owner, within 1 working day | Not in use (PA-32) |
-
-**Table 17: PS-5 responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | People, following the procedures |
-| Responsible | System owner, global administrator |
-| Enforced by | Not a system function. Active Directory groups, changed only by their owners |
-| Rules and procedures | Policy rule R7 (\<Policy\>, section PS.4); PRO-PS-3, with PRO-AC-2 (\<Procedures\>) |
-| Tests | None |
-| Records an assessor will ask for | TPL-14 for a sample of movers, with the changes to their groups. None exist yet |
-| Status | Not implemented |
-| Risk decision | NC-PS-05, rated Low: remediate |
-| Open items | PA-32: the Starters/Leavers prompt |
-
-### 4.6 PS-6 Access Agreements
-
-**Table 18: PS-6 design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| a | Develop and document access agreements | Two agreements (section 3.4): \<Organisation\>'s confidentiality agreement, and the rules of behaviour in \<Security Operating Procedures\>, Part A for everyone and Part B for administrators. They cover privacy as well as security, as PS-6 is in the privacy baseline too | The rules of behaviour are approved (D-PL-05). \<Organisation\>'s confidentiality agreement has not been seen (EV-PS-02) |
-| b | Review and update the agreements on a schedule | Every 12 months | The first review falls due in November 2027 |
-| c.1 | Verify that people sign the agreements before they are given access | Each person signs before being added to any \<System Name\> group. Their signature of the rules is recorded on TPL-21 and in the register of signatures (\<Planning Management\>, section 3.5), which the access request checks | Nobody has signed yet (PA-123) |
-| c.2 | Verify that people sign again when the agreements change, or at a defined frequency | Every 12 months, and after a material change to the rules: a new or stricter rule, a changed consequence, new monitoring or a new privileged duty | Nobody has signed yet |
-
-**Table 19: PS-6 responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | Shared: \<System Name\> and \<Organisation\> |
-| Responsible | System owner, everyone |
-| Enforced by | Not a system function. An access request is not approved without a signature in the register |
-| Rules and procedures | Policy rule R8 (\<Policy\>, section PS.4); PRO-PS-1, PRO-PS-4 (\<Procedures\>) |
-| Tests | None |
-| Records an assessor will ask for | Both agreements; signed TPL-21 forms, checked against the register of signatures and the access requests. None signed yet |
-| Status | Partially implemented |
-| Risk decision | NC-PS-06, rated Low: approve |
-| Open items | PA-123: take the first signatures. PA-125: see \<Organisation\>'s confidentiality agreement |
-
-### 4.7 PS-7 External Personnel Security
-
-**Table 20: PS-7 design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| a | Set personnel security requirements, with security roles and responsibilities, for external providers | External people with a \<System Name\> role, such as contracted developers or a supplier's engineer, meet the same requirements as staff: screening to the minimum in section 3.3, the agreements in section 3.4, and the rules of behaviour (section 3.7). The independent assessors are covered in the same way, if they are not \<Organisation\>'s staff | Not evidenced (EV-PS-03). Whether the assessment team are external is not recorded |
-| b | Require external providers to comply with the organisation's personnel security policies and procedures | Each contract requires it | Contract terms not seen (EV-PS-03) |
-| c | Document the requirements | In each contract, and in this document | Contract terms not seen (EV-PS-03) |
-| d | Require providers to report the transfer or departure of any of their people who hold credentials or access, within a defined time | To the system owner, within 1 working day | Contract terms not seen (EV-PS-03) |
-| e | Monitor provider compliance | The system owner checks each supplier every 12 months, and records it on TPL-16 | Not yet started |
-
-**Table 21: PS-7 responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | Shared: \<System Name\> and \<Organisation\> |
-| Responsible | System owner, \<Organisation\> |
-| Enforced by | Not a system function |
-| Rules and procedures | Policy rule R9 (\<Policy\>, section PS.4); PRO-PS-5 (\<Procedures\>) |
-| Tests | None |
-| Records an assessor will ask for | Standard contract terms (EV-PS-03); the yearly check on TPL-16. None exist yet |
-| Status | Not implemented |
-| Risk decision | NC-PS-07, rated Low: obtain evidence |
-| Open items | PA-125: obtain the contract terms (EV-PS-03) |
-
-### 4.8 PS-8 Personnel Sanctions
-
-**Table 22: PS-8 design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| a | Use a formal sanctions process for people who fail to comply with the security and privacy policies and procedures | \<Organisation\>'s disciplinary process. The rules of behaviour tell each person that a breach may lead to it | Not evidenced (EV-PS-02) |
-| b | Tell defined people within a defined time when a formal sanction starts, naming the person and the reason | \<Organisation\> tells the system owner within 1 working day when a sanction involves \<System Name\>. If the breach is a security incident, the security officer records it, and the system owner decides whether access must end at once (section 3.8) | Not yet used |
-
-**Table 23: PS-8 responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | \<Organisation\> |
-| Responsible | \<Organisation\> |
-| Enforced by | Not a system function. \<Organisation\>'s HR |
-| Rules and procedures | Policy rule R10 (\<Policy\>, section PS.4); PRO-PS-6 (\<Procedures\>) |
-| Tests | None |
-| Records an assessor will ask for | \<Organisation\>'s disciplinary process (EV-PS-02); any notice to the system owner |
-| Status | Not implemented |
-| Risk decision | NC-PS-08, rated Low: obtain evidence |
-| Open items | PA-125: obtain \<Organisation\>'s evidence (EV-PS-02) |
-
-### 4.9 PS-9 Position Descriptions
-
-**Table 24: PS-9 design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| All | Include security and privacy roles and responsibilities in position descriptions | The security and privacy duties of every \<System Name\> role are stated in \<Roles and Responsibilities\>. \<Organisation\>'s job descriptions for those roles refer to them | \<Roles and Responsibilities\> states them. \<Organisation\>'s job descriptions have not been seen (EV-PS-02) |
-
-**Table 25: PS-9 responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | Shared: \<System Name\> and \<Organisation\> |
-| Responsible | System owner, \<Organisation\> |
-| Enforced by | Not a system function |
-| Rules and procedures | Policy rule R11 (\<Policy\>, section PS.4); PRO-PS-4 (\<Procedures\>) |
-| Tests | None |
-| Records an assessor will ask for | \<Roles and Responsibilities\>; a sample of \<Organisation\>'s job descriptions (EV-PS-02) |
-| Status | Not implemented |
-| Risk decision | NC-PS-09, rated Low: obtain evidence |
-| Open items | PA-125: obtain \<Organisation\>'s evidence (EV-PS-02) |
+1. **Policy.** \<Policy\> (PS) is a system-level policy. Its purpose and scope are in section PS.1, responsibilities in PS.5, and commitment, coordination and compliance in PS.6. It is shared with everyone who administers \<System Name\> and every line manager of a \<System Name\> user. The legal adviser reviews it.
+2. **Procedures.** \<Procedures\> (PS) holds seven procedures, PRO-PS-1 to PRO-PS-7. They are shared with the same people.
+3. **Owner.** The system owner manages the policy and procedures.
+4. **Review.** The policy is reviewed every 12 months, and after a significant incident, audit finding or system change. The procedures are reviewed every 12 months, and after a change to the steps.
+5. **Records.** The documents are under version control, and each review is recorded in the change record.
 
 ## Appendix A PS controls outside the Moderate baseline
 
-CSS does not select these at Moderate, so they are not assessed. Some of the design goes further than the baseline, and Table 26 says where.
+CSS does not select these at Moderate, so they are not assessed. Some of the design goes further than the baseline, and Table 7 says where.
 
-**Table 26: PS controls not selected at Moderate**
+**Table 7: PS controls not selected at Moderate**
 
 | Control | What it adds | \<System Name\>'s position |
 | --- | --- | --- |

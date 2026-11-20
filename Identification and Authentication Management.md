@@ -2,40 +2,29 @@
 
 ## 1 Purpose
 
-This document shows how people and services are identified and authenticated in \<System Name\>, for each of the 24 Identification and Authentication (IA) controls and enhancements in the CSS Moderate baseline. Section 3 sets out the design: who is identified and how, sign-in through AD FS, the assurance levels, the authenticators, the settings against CSS, sessions, and identity proofing. Section 4 takes each control in turn. Values CSS asks the organisation to define are set at corporate level by \<Organisation\>. Appendix A lists the IA controls CSS does not select at Moderate.
+This document sets out how \<System Name\> is designed and configured to meet the 24 Identification and Authentication (IA) controls and enhancements in the CSS Moderate baseline.
 
-The policy is in \<Policy\> (IA), and the steps people follow are in \<Procedures\> (IA). Who may do what once signed in is in \<Access Control Management\>.
+Section 3 is the design: who and what is identified, sign-in through AD FS, the assurance levels, the authenticators, the authentication settings against CSS, sessions and signing in again, identity proofing, what \<Organisation\> provides, and the policy and procedures. Each subsection names the controls it helps to meet.
 
-An assessor examines the authenticator settings and inventory, the identity proofing records and the trust with the sign-in service; interviews those who issue and reset authenticators; and tests sign-in, including what happens with a wrong password, a replayed token and an idle session (CSS). So for each control section 4 gives:
+Other documents hold the rest. Who provides and is responsible for each control, its status and its assessment result are in \<System Security Plan\>, section 7.7 (Table 16). The tests, their results and the records an assessor will ask for are in \<Control Assessment Record\> (IA). Each control's risk is in \<Risk List\>, and what is still open is in \<Plan of Action and Milestones\>. The policy is in \<Policy\> (IA), and the steps people follow are in \<Procedures\> (IA). Who may do what once signed in is in \<Access Control Management\>.
 
-- **each part of the control**, as CSS letters them, with the design that meets it and the position today;
-- **who provides it**, and who is responsible;
-- **what enforces it**, the rules and procedures that apply, and the tests run;
-- **the records an assessor will ask for**, and whether they exist yet;
-- **its status**, the risk decision, and what is still open.
+Every user signs in through \<Organisation\>'s AD FS, with multi-factor authentication, and \<System Name\> holds no accounts or passwords of its own (D-AC-23).
 
-**Design and today.** On 12 November 2026 the system owner stated that every user signs in through \<Organisation\>'s AD FS, with multi-factor authentication, and that \<System Name\> holds no accounts or passwords of its own (D-AC-23). The Design column is written on that basis. The Today column is what was found in the build labelled v1.0, tested between 6 and 9 November 2026. That build signed in with its own passwords, so its results describe that build and not this design, and the tests are to be repeated with AD FS (PA-95).
+Values that CSS asks the organisation to define are set at corporate level by \<Organisation\>. The settings in section 3 should match those corporate values. Where one does not, it is changed in this document.
 
-**Table 1: Status values**
+\<System Name\> is not yet built on its servers. Where section 3 notes what "today" is, it means the tested v1.0 build, which signed in with its own passwords. Those notes show where that build differs from the design.
 
-| Status | Meaning |
-| --- | --- |
-| Implemented | The design is in place and working |
-| Partially implemented | Some of the design is in place; the open items say what is missing |
-| Not implemented | None of the design is in place yet |
-| Not applicable | The control does not apply, by a recorded tailoring decision |
+Appendix A lists the IA controls CSS does not select at Moderate.
 
 ## 2 Summary
 
-The implementation status of each control, how it is met, who is responsible, its assessment result and the risk and plan entries for its gaps are recorded in \<System Security Plan\>, section 7.7 (Table 16). This section gives only the overall position.
-
-No control in the baseline is missing from the design. Every gap is registered in the Risk List (\<Risk List\>) and the Plan of Action and Milestones (\<Plan of Action and Milestones\>).
-
-Two gaps matter most. Nothing yet shows sign-in through AD FS working, with its second factor (PA-95, rated High as a proposal). And the signing key and database password are in settings files in the source repositories (PA-19, rated High). Most of what remains is \<Organisation\>'s to evidence: of the 18 controls that apply, 15 are provided wholly or partly by its Active Directory, AD FS, network and HR.
+The implementation status of each control, how it is met, who is responsible, its assessment result and the risk and plan entries for its gaps are recorded in \<System Security Plan\>, section 7.7 (Table 16).
 
 ## 3 The design
 
 ### 3.1 Principles
+
+Controls met here: IA-2, IA-2(1), IA-2(2), IA-4, IA-5, IA-5(6), IA-12.
 
 1. **Unique.** Each person has one named identifier, which is never reused.
 2. **Proven.** A person's identity is established before they have an account.
@@ -48,7 +37,9 @@ These carry out the principles and rules of \<Policy\>, sections IA.3 and IA.4.
 
 ### 3.2 Who and what is identified
 
-**Table 2: Identifiers**
+Controls met here: IA-2, IA-2(12), IA-3, IA-4, IA-4(4), IA-8, IA-8(1), IA-8(2), IA-8(4).
+
+**Table 1: Identifiers**
 
 | Who or what | Identifier | Issued by | Authenticated by | Reused |
 | --- | --- | --- | --- | --- |
@@ -62,13 +53,23 @@ These carry out the principles and rules of \<Policy\>, sections IA.3 and IA.4.
 
 There are no shared, guest, anonymous or local accounts, and nobody outside \<Organisation\>'s staff and contractors may use \<System Name\> (\<Access Control Management\>, section 3.2).
 
+**Issuing identifiers.** \<Organisation\> authorises each Active Directory account through its starters process, and assigns it to the person its HR has checked. \<System Name\>'s part is membership of its groups, which the group's owner authorises through the ServiceNow workflow (\<Access Control Management\>, section 3.13). Service accounts are named for the application they run. Active Directory accounts are never reused, under \<Organisation\>'s rule. \<System Name\> issues no identifiers, so it has none to reuse.
+
+**User status.** Active Directory shows whether a person is staff or a contractor, and the group's owner sees it when authorising a request.
+
+**Devices.** \<Organisation\>'s network access control identifies each managed device before it joins the network, and unmanaged devices are kept off it. \<System Name\> does not identify devices itself: it is reached only from that network or the VPN.
+
+**Users from outside \<Organisation\>.** Only \<Organisation\>'s staff and contractors, with an Active Directory account, may use \<System Name\>, so the controls for non-organisational users do not apply (TR-IA-03 to TR-IA-06 in \<Tailoring Register\>). PIV is a United States federal credential, and no \<System Name\> user holds one, so PIV credentials are not accepted (TR-IA-01).
+
 ### 3.3 Sign-in through AD FS
+
+Controls met here: IA-2, IA-2(1), IA-2(2), IA-2(8), IA-6, IA-11.
 
 ![Figure 1: How a person signs in](figures/iam-figure-1.png)
 
 **Figure 1: How a person signs in**
 
-**Table 3: Steps of a sign-in**
+**Table 2: Steps of a sign-in**
 
 | Step | What happens | Who does it |
 | --- | --- | --- |
@@ -79,7 +80,7 @@ There are no shared, guest, anonymous or local accounts, and nobody outside \<Or
 | 5 | \<System Name\> opens a session for that person, with the roles and project access their groups give, and records the sign-in | \<System Name\> |
 | 6 | The session ends after 30 minutes idle, after 8 hours, at sign-out, or when a global administrator ends it. The person then signs in again | \<System Name\> |
 
-**Table 4: The trust between AD FS and \<System Name\>**
+**Table 3: The trust between AD FS and \<System Name\>**
 
 | Setting | Design | Today |
 | --- | --- | --- |
@@ -89,18 +90,26 @@ There are no shared, guest, anonymous or local accounts, and nobody outside \<Or
 | Token life | Short: \[minutes to be agreed with \<Organisation\>\] | Not built |
 | What the token carries | The person's account name and their AD groups, and nothing more than \<System Name\> needs | Not built |
 | Certificate renewal | \<System Name\> picks up AD FS's new certificate when \<Organisation\> renews it | Not built |
-| Federation assurance level | Level 2 of CSS. The system owner set this as the target on 16 November 2026 (D-IA-12): a signed token that only \<System Name\> can use. It is to be agreed with \<Organisation\> | Not agreed (PA-117) |
+| Federation assurance level | Level 2 of CSS. The system owner set this as the target (D-IA-12): a signed token that only \<System Name\> can use. It is to be agreed with \<Organisation\> | Not agreed (PA-117) |
 | If AD FS is unavailable | Nobody can sign in. There is no local sign-in to fall back on | By design (\<Contingency Planning Management\>, section 3.3.3) |
+
+**Second factor.** AD FS requires a second factor from every user, privileged or not, under the same authentication policy for \<System Name\>. The application roles are AD groups, and nobody reaches an administration page without signing in through AD FS. The named Windows server and database administrators reach the servers only through \<Organisation\>'s managed route, which also requires a second factor (\<Maintenance Management\>, section 3.4).
+
+**Replay resistance.** For privileged and non-privileged accounts alike, sign-in tokens from AD FS are signed, short-lived, issued for \<System Name\> only and used once. Everything travels over TLS. \<System Name\>'s own session token is tied to one session and ends with it.
+
+**What the person sees.** Passwords and second factors are entered on AD FS's page, which masks them and does not say whether an account exists. \<System Name\> shows no sign-in form.
 
 The steps and the trust are the design, from the system owner's statement of how \<System Name\> works (D-AC-23, D-IA-12). The settings shown as placeholders are asked of \<Organisation\> with EV-IA-04, and are filled in when it answers (PA-117). None of it has been tested or evidenced (PA-95).
 
 ### 3.4 Assurance levels
 
-This follows CSS, section 3, and the federal acceptance statement template. It was proposed by the system owner on 9 November 2026 and accepted by the authorising official the same day, as confirmed by the system owner (D-IA-08). The statement was revised on 12 November 2026 for sign-in through AD FS (D-AC-23), and the revision awaits the authorising official.
+Controls met here: IA-2, IA-2(1), IA-2(2), IA-5, IA-12.
+
+This follows CSS, section 3, and the federal acceptance statement template (D-IA-08). The statement is revised for sign-in through AD FS (D-AC-23).
 
 Identity assurance is how sure we are that a person is who they claim. Authenticator assurance is how sure we are that the person signing in holds the account. Federation assurance applies when another system, here AD FS, vouches for the person.
 
-**Table 5: Assurance levels by user group**
+**Table 4: Assurance levels by user group**
 
 | User group | Harm if impersonated | Identity assurance | Authenticator assurance: target | Authenticator assurance: today | Federation | Until the target is met |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -113,7 +122,9 @@ Identity assurance is how sure we are that a person is who they claim. Authentic
 
 ### 3.5 Authenticators
 
-**Table 6: Authenticator inventory**
+Controls met here: IA-5, IA-5(1), IA-5(2), IA-5(6), IA-7.
+
+**Table 5: Authenticator inventory**
 
 | Authenticator | Used by | Held or stored | Changed | If lost or exposed | Today |
 | --- | --- | --- | --- | --- | --- |
@@ -133,11 +144,22 @@ Identity assurance is how sure we are that a person is who they claim. Authentic
 
 Only the API connects to PostgreSQL, with one service account that is not a superuser (D-AC-18). The system owner and security officer review the inventory every 12 months (PRO-IA-7).
 
+1. **First issue.** For people, \<Organisation\>'s service desk issues authenticators after HR's pre-employment checks (PRO-IA-2), with first content under \<Organisation\>'s corporate standard. Service secrets and the signing key are set by the named administrators, generated randomly. Service account passwords are set by Windows.
+2. **Lost, compromised or revoked.** \<Organisation\>'s service desk issues, resets and revokes, and a global administrator ends the person's \<System Name\> sessions at once (PRO-IA-2, PRO-IA-3, PRO-IA-6). After account recovery, \<Organisation\>'s service desk process requires a new password at once.
+3. **No defaults.** \<System Name\> ships with no default account or password. The PostgreSQL superuser's password is set when the database server is built, and no vendor default is left on either server.
+4. **Protection.** User passwords stay in Active Directory and never reach \<System Name\>: they are typed into AD FS over TLS, and never into \<System Name\>. The information is rated Moderate, and the database password and the signing key open the whole database, so they are held in a protected store, outside the source repositories and settings files, that only the named administrators and the API's service account can read, with a protected copy at the second site. Windows permissions protect each application's settings (\<Access Control Management\>, section 3.6.3). Everything travels over TLS.
+5. **What people do.** The rules of behaviour require people never to share a password or second factor, and to report a loss at once (\<Security Operating Procedures\>, Part A). Managed devices encrypt their disks.
+6. **Group accounts.** There are no shared, group or role accounts (TR-AC-02 in \<Tailoring Register\>). Service secrets are changed when an administrator who knew them leaves.
+7. **Certificates.** No person or service signs in to \<System Name\> with a certificate, so public key authentication does not apply (TR-IA-02 in \<Tailoring Register\>). If \<Organisation\>'s AD FS uses a public key second factor, such as a security key, it applies again, and falls to \<Organisation\>.
+8. **Cryptographic modules.** \<System Name\> uses the cryptographic modules of Windows Server 2025 and .NET. No person signs in to a module directly: the applications reach them through their service accounts. \<Organisation\> is asked which modules and mode the servers use (EV-IA-03).
+
 ### 3.6 Settings against CSS
+
+Controls met here: IA-2(1), IA-2(2), IA-2(8), IA-5, IA-5(1), IA-6, IA-11.
 
 \<System Name\> sets no password rule of its own. \<Organisation\>'s corporate standard applies, and is to be compared with CSS and NCSC password guidance when \<Organisation\> supplies it (EV-IA-04).
 
-**Table 7: Authentication settings at authenticator assurance level 2**
+**Table 6: Authentication settings at authenticator assurance level 2**
 
 | Requirement | CSS | \<System Name\> | Evidence | State |
 | --- | --- | --- | --- | --- |
@@ -159,6 +181,8 @@ Only the API connects to PostgreSQL, with one service account that is not a supe
 
 ### 3.7 Sessions and signing in again
 
+Controls met here: IA-2, IA-11.
+
 1. A session ends after 30 minutes without activity, and after 8 hours whatever the activity.
 2. The page locks after 25 minutes, 5 minutes before the session ends (\<Access Control Management\>, section 3.7).
 3. A change to a person's AD groups takes effect at their next sign-in.
@@ -167,11 +191,15 @@ Only the API connects to PostgreSQL, with one service account that is not a supe
 
 ### 3.8 Identity proofing
 
-\<Organisation\>'s HR proves who each person is, once, in its pre-employment checks, before the person has an Active Directory account. As stated by \<Organisation\>, that is photo identification and a right-to-work check for staff, and the same through the agency for contractors, with a notice of proofing sent to the person. \<System Name\> does not repeat it. Before adding anyone to a group, the group's owner confirms the request came from that person and their line manager (PRO-IA-1).
+Controls met here: IA-12, IA-12(2), IA-12(3), IA-12(5).
+
+\<Organisation\>'s HR proves who each person is, once, in its pre-employment checks, before the person has an Active Directory account. As stated by \<Organisation\>, that is photo identification and a right-to-work check for staff, and the same through the agency for contractors, with a notice of proofing sent to the person. HR sees the evidence, and validates and verifies it, in those checks, and each identity resolves to one person, with one Active Directory account. \<System Name\> does not repeat it. Before adding anyone to a group, the group's owner confirms the request came from that person and their line manager (PRO-IA-1).
 
 ### 3.9 What \<Organisation\> provides
 
-**Table 8: Asked of \<Organisation\>**
+Controls met here: IA-2, IA-2(1), IA-2(2), IA-2(8), IA-3, IA-4, IA-4(4), IA-5, IA-5(1), IA-6, IA-7, IA-12, IA-12(2), IA-12(3), IA-12(5).
+
+**Table 7: Asked of \<Organisation\>**
 
 | Provided | Controls | What \<System Name\> relies on | As stated by \<Organisation\> | Evidence asked |
 | --- | --- | --- | --- | --- |
@@ -183,531 +211,21 @@ Only the API connects to PostgreSQL, with one service account that is not a supe
 
 **Today:** no request has been sent, and none of this is evidenced.
 
-## 4 Each control and enhancement
-
-The controls are in CSS order. Each has two tables. The first takes each part of the control and gives what CSS requires, the design that meets it, and the position today. The second says who provides and is responsible for the control, what enforces it, the rules and procedures that apply, the tests run, the records an assessor will ask for, its status, the risk decision, and what is still open. Six controls are not applicable, and each says why.
-
-### 4.1 IA-1 Policy and Procedures
-
-**Table 9: IA-1 design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| a.1 | An identification and authentication policy, shared with defined people, covering purpose, scope, roles, responsibilities, management commitment, coordination and compliance, and consistent with the law | \<Policy\> (IA): a system-level policy, shared with everyone who uses or administers \<System Name\>. The legal adviser reviews it | Version \<ver\> approved by the Head of Cyber (D-IA-09) and legally reviewed on 9 November 2026. The rules rewritten for AD FS on 12 November 2026 await the Head of Cyber. Not yet shared (PA-20) |
-| a.2 | Procedures that carry out the policy, shared with defined people | \<Procedures\> (IA): eight procedures, PRO-IA-1 to PRO-IA-8. Shared with the same people | Approved by the system owner (D-IA-10), and rewritten for AD FS on 12 November 2026. Not yet shared or walked through |
-| b | A named official manages the policy and procedures | The system owner | \[Name\] is named in \<Roles and Responsibilities\> |
-| c.1 | The policy is reviewed on a schedule and after set events | Every 12 months, and after a significant incident, audit finding or system change | Reviewed on 9 and 12 November 2026. The first yearly review falls due in November 2027 |
-| c.2 | The procedures are reviewed on a schedule and after set events | Every 12 months, and after a change to the steps | As the policy |
-
-**Table 10: IA-1 responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | People, following the procedures |
-| Responsible | System owner, Head of Cyber |
-| Enforced by | Not a system function. The documents are under version control |
-| Rules and procedures | The whole policy (\<Policy\>, section IA.4); all eight procedures (\<Procedures\> (IA)) |
-| Tests | None. Examined from the documents |
-| Records an assessor will ask for | The policy and procedures with their approvals; proof they were shared; review records. The approvals of version \<ver\> exist |
-| Status | Partially implemented |
-| Risk decision | NC-IA-01, rated Low: approve |
-| Open items | PA-20: share the policy and procedures. The Head of Cyber's approval of the rules rewritten for AD FS |
-
-### 4.2 IA-2 Identification and Authentication (Organizational Users)
-
-**Table 11: IA-2 design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| All | Identify and authenticate each organisational user uniquely, and tie that identity to the processes acting for them | Every person signs in through \<Organisation\>'s AD FS with their own Active Directory account (section 3.3). \<System Name\> holds no accounts or passwords. It accepts a sign-in only on a token AD FS has signed, takes the person's name and groups from it, and ties every request and every audit record to that person through the session. Shared accounts are prohibited | Stated by the system owner (D-AC-23). Not yet tested or evidenced (PA-95). The tested build identified each user uniquely with its own accounts (A09, A10) |
-
-**Table 12: IA-2 responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | Shared: \<System Name\> and \<Organisation\> |
-| Responsible | Developers |
-| Enforced by | AD FS, which authenticates; \<System Name\>'s check of the token, and its session |
-| Rules and procedures | Policy rules R1, R2 (\<Policy\>, section IA.4); PRO-IA-1 (\<Procedures\> (IA)) |
-| Tests | Checks A09 and A10 on the v1.0 build, 6 November 2026: both passed. These checks ran on a build that used its own passwords, and are to be repeated on the AD FS build (PA-95) |
-| Records an assessor will ask for | The trust settings between AD FS and \<System Name\>; a sign-in shown end to end; audit records naming the person. None exist yet for AD FS |
-| Status | Partially implemented |
-| Risk decision | NC-IA-02, rated Low: obtain evidence |
-| Open items | PA-95: test sign-in through AD FS. PA-117: agree the federation settings with \<Organisation\> |
-
-### 4.3 IA-2(1) Multi-factor Authentication to Privileged Accounts
-
-**Table 13: IA-2(1) design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| All | Use multi-factor authentication for access to privileged accounts | AD FS requires a second factor from every user, so every privileged user has one. The application roles are AD groups, and nobody reaches an administration page without signing in through AD FS. The named Windows server and database administrators reach the servers only through \<Organisation\>'s managed route, which also requires a second factor (\<Maintenance Management\>, section 3.4) | Stated by the system owner (D-AC-23); not yet tested or evidenced (PA-95). The tested build had password-only sign-in, which the authorising official accepted to 6 May 2027 with no production documents held (NC-IA-03). The route to the servers is not evidenced (EV-MA-02) |
-
-**Table 14: IA-2(1) responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | Shared: \<System Name\> and \<Organisation\> |
-| Responsible | \<Organisation\>, developers |
-| Enforced by | AD FS's authentication policy for \<System Name\> |
-| Rules and procedures | Policy rule R6 (\<Policy\>, section IA.4); PRO-IA-6 (\<Procedures\> (IA)) |
-| Tests | Checks A11 and A12 on the v1.0 build showed no second factor. These checks ran on a build that used its own passwords, and are to be repeated on the AD FS build (PA-95) |
-| Records an assessor will ask for | AD FS's policy for \<System Name\>, showing the factors required (EV-IA-04); a sign-in shown with the second factor |
-| Status | Not implemented |
-| Risk decision | NC-IA-03, rated High: accepted to 6 May 2027 |
-| Open items | PA-95. PA-23 is closed once PA-95 shows it working |
-
-### 4.4 IA-2(2) Multi-factor Authentication to Non-privileged Accounts
-
-**Table 15: IA-2(2) design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| All | Use multi-factor authentication for access to non-privileged accounts | The same AD FS policy applies to every user | As IA-2(1). The acceptance for ordinary users is NC-IA-04, to 6 May 2027 |
-
-**Table 16: IA-2(2) responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | Shared: \<System Name\> and \<Organisation\> |
-| Responsible | \<Organisation\>, developers |
-| Enforced by | AD FS's authentication policy for \<System Name\> |
-| Rules and procedures | Policy rule R6 (\<Policy\>, section IA.4); PRO-IA-6 (\<Procedures\> (IA)) |
-| Tests | As IA-2(1) |
-| Records an assessor will ask for | As IA-2(1) |
-| Status | Not implemented |
-| Risk decision | NC-IA-04, rated Medium: accepted to 6 May 2027 |
-| Open items | PA-95 |
-
-### 4.5 IA-2(8) Access to Accounts, Replay Resistant
-
-**Table 17: IA-2(8) design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| All | Use replay-resistant authentication for defined accounts | For privileged and non-privileged accounts alike. Sign-in tokens from AD FS are signed, short-lived, issued for \<System Name\> only and used once. Everything travels over TLS. \<System Name\>'s own session token is tied to one session and ends with it | Not met in the tested build: a session token still worked from another client (A13), and traffic was plain HTTP (A14). To be assessed again with AD FS and TLS (PA-18, PA-46, PA-95) |
-
-**Table 18: IA-2(8) responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | Shared: \<System Name\> and \<Organisation\> |
-| Responsible | Developers, Windows server administrator |
-| Enforced by | TLS; AD FS's token settings; \<System Name\>'s session |
-| Rules and procedures | Policy rule R10 (\<Policy\>, section IA.4); no procedure of its own (\<Procedures\> (IA)) |
-| Tests | Checks A13 and A14 on the v1.0 build showed the gap |
-| Records an assessor will ask for | The token lifetime and audience settings; a replay test; the TLS settings |
-| Status | Not implemented |
-| Risk decision | NC-IA-05, rated Medium: remediate |
-| Open items | PA-18: TLS on every route. PA-46: stop a session token working from another client. PA-117: agree the token settings |
-
-### 4.6 IA-2(12) Acceptance of PIV Credentials
-
-**Table 19: IA-2(12) design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| All | Accept and check Personal Identity Verification credentials | Not applicable: PIV is a United States federal credential, and no \<System Name\> user holds one (TR-IA-01 in \<Tailoring Register\>) | Not applicable. The independent assessor may test the tailoring decision |
-
-**Table 20: IA-2(12) responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | Not applicable |
-| Status | Not applicable |
-| Tailoring decision | TR-IA-01, agreed by the system owner (D-IA-05) |
-
-### 4.7 IA-3 Device Identification and Authentication
-
-**Table 21: IA-3 design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| All | Identify and authenticate defined devices before they connect | \<Organisation\>'s network access control identifies each managed device before it joins the network, and unmanaged devices are kept off it. \<System Name\> does not identify devices itself: it is reached only from that network or the VPN | Not evidenced (EV-IA-01, PA-116) |
-
-**Table 22: IA-3 responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | \<Organisation\> |
-| Responsible | \<Organisation\> |
-| Enforced by | \<Organisation\>'s network access control |
-| Rules and procedures | No policy rule of its own (\<Policy\>, section IA.4); no procedure of its own (\<Procedures\> (IA)) |
-| Tests | None |
-| Records an assessor will ask for | \<Organisation\>'s description of its network access control (EV-IA-01). Not yet asked for |
-| Status | Not implemented |
-| Risk decision | NC-IA-06, rated Low: obtain evidence |
-| Open items | PA-116: obtain \<Organisation\>'s evidence |
-
-### 4.8 IA-4 Identifier Management
-
-**Table 23: IA-4 design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| a | Get authorisation from defined people before an identifier is assigned | \<Organisation\> authorises each Active Directory account through its starters process. \<System Name\>'s part is membership of its groups, authorised by the group's owner through the ServiceNow workflow (\<Access Control Management\>, section 3.13) | The ServiceNow workflow is not set up (PA-20). \<Organisation\>'s process is not evidenced (EV-AC-01) |
-| b | Choose an identifier that identifies one person, group, role, service or device | The person's Active Directory account name. Service accounts are named for the application they run | Not evidenced |
-| c | Assign the identifier to the intended person or thing | By \<Organisation\>, to the person its HR has checked | Not evidenced |
-| d | Prevent reuse of an identifier for a defined time | Never reused: \<Organisation\>'s rule for Active Directory accounts. \<System Name\> issues no identifiers, so it has none to reuse | To be evidenced by \<Organisation\>. The tested build freed a username when an account was deleted (PA-47, overtaken) |
-
-**Table 24: IA-4 responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | Shared: \<System Name\> and \<Organisation\> |
-| Responsible | System owner, global administrator |
-| Enforced by | Active Directory; the access request workflow |
-| Rules and procedures | Policy rule R2 (\<Policy\>, section IA.4); PRO-IA-1 (\<Procedures\> (IA)) |
-| Tests | Check A09 on the v1.0 build: usernames were unique. These checks ran on a build that used its own passwords, and are to be repeated on the AD FS build (PA-95) |
-| Records an assessor will ask for | \<Organisation\>'s account naming and reuse rule (EV-AC-01); the ServiceNow requests |
-| Status | Partially implemented |
-| Risk decision | NC-IA-07, rated Low: remediate |
-| Open items | PA-20: the ServiceNow workflow. PA-47 is closed once PA-95 shows AD FS working |
-
-### 4.9 IA-4(4) Identify User Status
-
-**Table 25: IA-4(4) design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| All | Show each person's status in their identifier, as defined | Active Directory shows whether a person is staff or a contractor. The group's owner sees it when authorising a request | To be evidenced by \<Organisation\>. The tested build had no such field (PA-47, overtaken) |
-
-**Table 26: IA-4(4) responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | \<System Name\>: built into the system |
-| Responsible | Developers, global administrator |
-| Enforced by | Active Directory |
-| Rules and procedures | Policy rule R2 (\<Policy\>, section IA.4); PRO-IA-1 (\<Procedures\> (IA)) |
-| Tests | None |
-| Records an assessor will ask for | A directory entry showing the status (EV-AC-01) |
-| Status | Not implemented |
-| Risk decision | NC-IA-08, rated Low: remediate |
-| Open items | PA-95; evidence from \<Organisation\> |
-
-### 4.10 IA-5 Authenticator Management
-
-**Table 27: IA-5 design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| a | Check who a person or thing is before first giving it an authenticator | People: \<Organisation\>'s service desk, after HR's pre-employment checks (PRO-IA-2). Service secrets: set by the named administrators | Not evidenced for people |
-| b | Set the first content of each authenticator | People: under \<Organisation\>'s corporate standard. Service secrets and the signing key: generated randomly by the administrator. Service accounts: set by Windows | Secrets in the tested build were typed into settings files (PA-19) |
-| c | Make sure authenticators are strong enough for their use | Section 3.6 compares each setting with CSS at authenticator assurance level 2 | \<Organisation\>'s standard is to be supplied and compared |
-| d | Have procedures for first issue, for lost, compromised or damaged authenticators, and for revoking them | PRO-IA-2, PRO-IA-3 and PRO-IA-6: \<Organisation\>'s service desk issues, resets and revokes; a global administrator ends the person's \<System Name\> sessions at once | Written. Not yet used |
-| e | Change default authenticators before first use | \<System Name\> ships with no default account or password. The PostgreSQL superuser's password is set when the database server is built, and no vendor default is left on either server | The tested build seeded a sample administrator account, in the test environment only (D-AC-13) |
-| f | Change or refresh authenticators on a schedule by type, and when defined events occur | User passwords: \<Organisation\>'s corporate standard, and on suspected compromise. Service secrets and the signing key: every 12 months, and when an administrator leaves (PRO-IA-4) | Secrets have never been changed (PA-19) |
-| g | Protect authenticator content from disclosure and change | User passwords stay in Active Directory and never reach \<System Name\>. Service secrets and the signing key are held in a protected store, outside the source repositories and settings files. Everything travels over TLS | Secrets are in settings files in the source repositories (PA-19). Plain HTTP in the test environment (PA-18) |
-| h | Require people, and have devices apply, defined controls to protect authenticators | The rules of behaviour: never share a password or second factor, and report a loss at once (\<Security Operating Procedures\>, Part A). Managed devices encrypt their disks | Rules written; not yet signed. Devices not evidenced (EV-IA-01) |
-| i | Change the authenticators of group or role accounts when their membership changes | Not applicable: there are no shared, group or role accounts (TR-AC-02 in \<Tailoring Register\>). Service secrets are changed when an administrator who knew them leaves | Not yet used |
-
-**Table 28: IA-5 responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | Shared: \<System Name\> and \<Organisation\> |
-| Responsible | Global administrator, developers |
-| Enforced by | Active Directory and AD FS for people; the secret store and procedure PRO-IA-4 for services |
-| Rules and procedures | Policy rules R4, R5, R9 (\<Policy\>, section IA.4); PRO-IA-2 to PRO-IA-4, PRO-IA-7 (\<Procedures\> (IA)) |
-| Tests | Checks A01, A34 and I07 on the v1.0 build. These checks ran on a build that used its own passwords, and are to be repeated on the AD FS build (PA-95) |
-| Records an assessor will ask for | \<Organisation\>'s password standard; the authenticator inventory and its yearly review; records of each change of a service secret (TPL-6). The inventory exists |
-| Status | Partially implemented |
-| Risk decision | NC-IA-09, rated High: remediate |
-| Open items | PA-19: move the secrets out of source and change them. PA-44 is closed once PA-95 shows AD FS working |
-
-### 4.11 IA-5(1) Password-based Authentication
-
-**Table 29: IA-5(1) design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| a | Keep a list of common, expected and compromised passwords, and update it on a schedule and after a compromise | \<Organisation\>'s corporate standard for Active Directory, which \<System Name\> accepts (D-AC-23) | To be supplied by \<Organisation\> and compared with CSS (EV-IA-04) |
-| b | Check new and changed passwords against the list | The same | To be supplied |
-| c | Send passwords only over encrypted channels | Passwords are typed into AD FS over TLS, and never into \<System Name\> | To be evidenced |
-| d | Store passwords with an approved salted key derivation function | Active Directory stores them. \<System Name\> stores none | To be evidenced |
-| e | Require a new password at once after account recovery | \<Organisation\>'s service desk process | To be supplied |
-| f | Allow long passwords and passphrases, with spaces and all printable characters | \<Organisation\>'s corporate standard | To be supplied |
-| g | Give users automated help to choose a strong password | \<Organisation\>'s corporate standard | To be supplied |
-| h | Enforce defined composition and complexity rules | \<Organisation\>'s corporate standard. \<System Name\> sets none of its own | To be supplied |
-
-**Table 30: IA-5(1) responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | \<Organisation\> |
-| Responsible | \<Organisation\> |
-| Enforced by | Active Directory and AD FS |
-| Rules and procedures | Policy rule R3 (\<Policy\>, section IA.4); PRO-IA-5 (\<Procedures\> (IA)) |
-| Tests | Checks A02, A05, A06, A33 and I01 to I06 on the v1.0 build tested its own passwords, which the design no longer uses |
-| Records an assessor will ask for | \<Organisation\>'s password standard and settings (EV-IA-04) |
-| Status | Partially implemented |
-| Risk decision | NC-IA-10, rated Medium: remediate |
-| Open items | PA-95: obtain \<Organisation\>'s standard and compare it. PA-45, PA-49 and PA-82 are closed once PA-95 shows AD FS working |
-
-### 4.12 IA-5(2) Public Key-based Authentication
-
-**Table 31: IA-5(2) design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| All | Check certificates and map them to accounts, where public key authentication is used | Not applicable: no person or service signs in to \<System Name\> with a certificate (TR-IA-02 in \<Tailoring Register\>). If \<Organisation\>'s AD FS uses a public key second factor, such as a security key, the control applies again, and falls to \<Organisation\> | Not applicable. The independent assessor may test the tailoring decision |
-
-**Table 32: IA-5(2) responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | Not applicable |
-| Status | Not applicable |
-| Tailoring decision | TR-IA-02, agreed by the system owner (D-IA-05) |
-
-### 4.13 IA-5(6) Protection of Authenticators
-
-**Table 33: IA-5(6) design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| All | Protect authenticators to the level of the information they give access to | The information is rated Moderate. User passwords are protected by Active Directory. The database password and the signing key, which open the whole database, are held in a protected store that only the named administrators and the API's service account can read, with a protected copy at the second site | Not met: the signing key and database password are in settings files in the source repositories (C07; PA-19) |
-
-**Table 34: IA-5(6) responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | \<System Name\>: built into the system |
-| Responsible | Developers, administrators |
-| Enforced by | The secret store; Windows permissions on each application's settings (\<Access Control Management\>, section 3.6.3) |
-| Rules and procedures | Policy rule R5 (\<Policy\>, section IA.4); PRO-IA-4 (\<Procedures\> (IA)) |
-| Tests | Check C07 on the v1.0 build showed the gap |
-| Records an assessor will ask for | Where each secret is held and who can read it |
-| Status | Partially implemented |
-| Risk decision | NC-IA-11, rated High: remediate |
-| Open items | PA-19 |
-
-### 4.14 IA-6 Authentication Feedback
-
-**Table 35: IA-6 design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| All | Hide authentication information as it is entered, so that it cannot be seen or used by others | Passwords and second factors are entered on AD FS's page, which masks them and does not say whether an account exists. \<System Name\> shows no sign-in form | To be evidenced by \<Organisation\>. The tested build's own page masked the password and gave the same answer for a wrong password and an unknown user (A07, A08) |
-
-**Table 36: IA-6 responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | \<Organisation\> |
-| Responsible | \<Organisation\> |
-| Enforced by | AD FS's sign-in page |
-| Rules and procedures | Policy rule R10 (\<Policy\>, section IA.4); no procedure of its own (\<Procedures\> (IA)) |
-| Tests | Checks A07 and A08 on the v1.0 build: both passed. These checks ran on a build that used its own passwords, and are to be repeated on the AD FS build (PA-95) |
-| Records an assessor will ask for | A sign-in shown on AD FS's page |
-| Status | Partially implemented |
-| Risk decision | NC-IA-12, rated Low: obtain evidence |
-| Open items | PA-95 |
-
-### 4.15 IA-7 Cryptographic Module Authentication
-
-**Table 37: IA-7 design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| All | Authenticate to a cryptographic module in a way that meets the applicable laws and standards | \<System Name\> uses the cryptographic modules of Windows Server 2025 and .NET. No person signs in to a module directly: the applications reach them through their service accounts. \<Organisation\> is asked which modules and mode the servers use | Not confirmed. As stated by \<Organisation\>: standard Windows modules, not in CSS-approved cryptographic mode (EV-IA-03, PA-48) |
-
-**Table 38: IA-7 responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | \<Organisation\> |
-| Responsible | Windows server administrator, \<Organisation\> |
-| Enforced by | Windows Server |
-| Rules and procedures | Policy rule R10 (\<Policy\>, section IA.4); no procedure of its own (\<Procedures\> (IA)) |
-| Tests | None |
-| Records an assessor will ask for | The servers' cryptographic settings (EV-IA-03) |
-| Status | Not implemented |
-| Risk decision | NC-IA-13, rated Low: obtain evidence |
-| Open items | PA-48: confirm the modules and mode on the servers |
-
-### 4.16 IA-8 Identification and Authentication (Non-organizational Users)
-
-**Table 39: IA-8 design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| All | Identify and authenticate non-organisational users | Not applicable: only \<Organisation\>'s staff and contractors, with an Active Directory account, may use \<System Name\> (TR-IA-03 in \<Tailoring Register\>) | Not applicable. The independent assessor may test the tailoring decision |
-
-**Table 40: IA-8 responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | Not applicable |
-| Status | Not applicable |
-| Tailoring decision | TR-IA-03, agreed by the system owner (D-IA-05) |
-
-### 4.17 IA-8(1) Acceptance of PIV Credentials from Other Agencies
-
-**Table 41: IA-8(1) design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| All | Accept PIV credentials from other federal agencies | Not applicable: there are no non-organisational users (TR-IA-04 in \<Tailoring Register\>) | Not applicable. The independent assessor may test the tailoring decision |
-
-**Table 42: IA-8(1) responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | Not applicable |
-| Status | Not applicable |
-| Tailoring decision | TR-IA-04, agreed by the system owner (D-IA-05) |
-
-### 4.18 IA-8(2) Acceptance of External Authenticators
-
-**Table 43: IA-8(2) design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| All | Accept only external authenticators that meet the CSS guidance | Not applicable: there are no non-organisational users (TR-IA-05 in \<Tailoring Register\>) | Not applicable. The independent assessor may test the tailoring decision |
-
-**Table 44: IA-8(2) responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | Not applicable |
-| Status | Not applicable |
-| Tailoring decision | TR-IA-05, agreed by the system owner (D-IA-05) |
-
-### 4.19 IA-8(4) Use of Defined Profiles
-
-**Table 45: IA-8(4) design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| All | Conform to defined identity management profiles | Not applicable: there are no non-organisational users (TR-IA-06 in \<Tailoring Register\>) | Not applicable. The independent assessor may test the tailoring decision |
-
-**Table 46: IA-8(4) responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | Not applicable |
-| Status | Not applicable |
-| Tailoring decision | TR-IA-06, agreed by the system owner (D-IA-05) |
-
-### 4.20 IA-11 Re-authentication
-
-**Table 47: IA-11 design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| All | Require users to sign in again in defined circumstances | After 30 minutes idle, and after 8 hours whatever the activity. A change to a person's groups takes effect at their next sign-in, and a global administrator can end a person's sessions at once, which forces one (section 3.7) | Met in the tested build: idle sessions ended at 30 minutes (T44) and all sessions at 8 hours (I08, I11). The servers are not assessable |
-
-**Table 48: IA-11 responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | Shared: \<System Name\> and \<Organisation\> |
-| Responsible | Developers |
-| Enforced by | \<System Name\>'s session limits |
-| Rules and procedures | Policy rule R7 (\<Policy\>, section IA.4); no procedure of its own (\<Procedures\> (IA)) |
-| Tests | Checks T44, I08 and I11 on the v1.0 build: all passed |
-| Records an assessor will ask for | The session settings; the test results |
-| Status | Partially implemented |
-| Risk decision | NC-IA-14, rated Low: obtain evidence |
-| Open items | None for the application. The checks are repeated on the servers (PA-95) |
-
-### 4.21 IA-12 Identity Proofing
-
-**Table 49: IA-12 design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| a | Prove the identity of users who need an account, to the assurance level required | \<Organisation\>'s HR proves each person's identity in its pre-employment checks, once, before the Active Directory account exists. \<System Name\> does not repeat it | Not evidenced (EV-IA-02, PA-116) |
-| b | Resolve each identity to one person | One Active Directory account for each person | Not evidenced |
-| c | Collect, validate and verify identity evidence | As stated by \<Organisation\>: photo identification and right-to-work checks for staff, and the same through the agency for contractors | Not evidenced |
-
-**Table 50: IA-12 responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | \<Organisation\> |
-| Responsible | \<Organisation\>, system owner |
-| Enforced by | \<Organisation\>'s HR process |
-| Rules and procedures | Policy rules R1, R8 (\<Policy\>, section IA.4); PRO-IA-1 (\<Procedures\> (IA)) |
-| Tests | None |
-| Records an assessor will ask for | \<Organisation\>'s HR process and a blank record (EV-IA-02). Not yet asked for |
-| Status | Not implemented |
-| Risk decision | NC-IA-15, rated Low: obtain evidence |
-| Open items | PA-116: obtain \<Organisation\>'s evidence |
-
-### 4.22 IA-12(2) Identity Evidence
-
-**Table 51: IA-12(2) design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| All | Require identity evidence to be presented to the registration authority | \<Organisation\>'s HR sees the evidence in its pre-employment checks | Not evidenced (EV-IA-02) |
-
-**Table 52: IA-12(2) responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | \<Organisation\> |
-| Responsible | \<Organisation\> |
-| Enforced by | \<Organisation\>'s HR process |
-| Rules and procedures | Policy rules R1, R8 (\<Policy\>, section IA.4); PRO-IA-1 (\<Procedures\> (IA)) |
-| Tests | None |
-| Records an assessor will ask for | \<Organisation\>'s HR process and a blank record (EV-IA-02). Not yet asked for |
-| Status | Not implemented |
-| Risk decision | NC-IA-16, rated Low: obtain evidence |
-| Open items | PA-116 |
-
-### 4.23 IA-12(3) Identity Evidence Validation and Verification
-
-**Table 53: IA-12(3) design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| All | Validate and verify the evidence by defined methods | HR checks the evidence during pre-employment checks | Not evidenced (EV-IA-02) |
-
-**Table 54: IA-12(3) responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | \<Organisation\> |
-| Responsible | \<Organisation\> |
-| Enforced by | \<Organisation\>'s HR process |
-| Rules and procedures | Policy rules R1, R8 (\<Policy\>, section IA.4); PRO-IA-1 (\<Procedures\> (IA)) |
-| Tests | None |
-| Records an assessor will ask for | \<Organisation\>'s HR process and a blank record (EV-IA-02). Not yet asked for |
-| Status | Not implemented |
-| Risk decision | NC-IA-17, rated Low: obtain evidence |
-| Open items | PA-116 |
-
-### 4.24 IA-12(5) Address Confirmation
-
-**Table 55: IA-12(5) design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| All | Send a registration code or a notice of proofing by a separate channel, to confirm the address on record | A notice of proofing, sent by \<Organisation\>'s HR | Not evidenced (EV-IA-02) |
-
-**Table 56: IA-12(5) responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | \<Organisation\> |
-| Responsible | \<Organisation\> |
-| Enforced by | \<Organisation\>'s HR process |
-| Rules and procedures | Policy rules R1, R8 (\<Policy\>, section IA.4); PRO-IA-1 (\<Procedures\> (IA)) |
-| Tests | None |
-| Records an assessor will ask for | \<Organisation\>'s HR process and a blank record (EV-IA-02). Not yet asked for |
-| Status | Not implemented |
-| Risk decision | NC-IA-18, rated Low: obtain evidence |
-| Open items | PA-116 |
+### 3.10 Policy and procedures
+
+Controls met here: IA-1.
+
+1. **Policy.** \<Policy\> (IA) is a system-level policy, shared with everyone who uses or administers \<System Name\>. The legal adviser reviews it.
+2. **Procedures.** \<Procedures\> (IA) holds eight procedures, PRO-IA-1 to PRO-IA-8. They are shared with the same people.
+3. **Owner.** The system owner manages the policy and procedures.
+4. **Review.** The policy is reviewed every 12 months, and after a significant incident, audit finding or system change. The procedures are reviewed every 12 months, and after a change to the steps.
+5. **Records.** The documents are under version control.
 
 ## Appendix A IA controls outside the Moderate baseline
 
-CSS does not select these at Moderate, so they are not assessed. Some bear on the design, and Table 57 says how.
+CSS does not select these at Moderate, so they are not assessed. Some bear on the design, and Table 8 says how.
 
-**Table 57: IA controls not selected at Moderate**
+**Table 8: IA controls not selected at Moderate**
 
 | Control | What it adds | \<System Name\>'s position |
 | --- | --- | --- |

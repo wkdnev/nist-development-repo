@@ -2,27 +2,15 @@
 
 ## 1 Purpose
 
-This document shows how \<System Name\> is recovered after a failure, for each of the 23 Contingency Planning (CP) controls and enhancements in the CSS Moderate baseline. Section 3 is the contingency plan that CP-2 requires: the business impact analysis, the roles, and the three phases of activation and notification, recovery, and reconstitution, with backups, the second site, and testing and training. It can be used on its own in an emergency. Section 4 takes each control in turn. Values CSS asks the organisation to define are set at corporate level by \<Organisation\>. Appendix A holds the contacts, and appendix B the associated plans. Appendix C lists the CP controls CSS does not select at Moderate.
+This document sets out how \<System Name\> is recovered after a failure, and the design that meets the 23 Contingency Planning (CP) controls and enhancements in the CSS Moderate baseline.
 
-The policy is in \<Policy\> (CP), and the steps people follow are in \<Procedures\> (CP).
+Section 3 is the design, and is the contingency plan that CP-2 requires: the principles, scope and assumptions, the business impact analysis, the roles, the three phases of activation and notification, recovery and reconstitution, the backups, the second site and telecommunications, testing, training and exercises, what \<Organisation\> provides, keeping the plan current, coordination with related plans, and the policy and procedures. With appendix A, which holds the contacts, and appendix B, which lists the associated plans, it can be used on its own in an emergency. Each subsection names the controls it helps to meet. Appendix C lists the CP controls CSS does not select at Moderate.
 
-An assessor examines the plan, the business impact analysis, the backup and restore records, and the test and training records; interviews the people with contingency roles; and may ask to see a restore (CSS). So for each control section 4 gives:
+Other documents hold the rest. Who provides and is responsible for each control, its status and its assessment result are in \<System Security Plan\>, section 7.6 (Table 15). The tests, their results and the records an assessor will ask for are in \<Control Assessment Record\> (CP). Each control's risk is in \<Risk List\>, and what is still open is in \<Plan of Action and Milestones\>. The policy is in \<Policy\> (CP), and the steps people follow are in \<Procedures\> (CP).
 
-- **each part of the control**, as CSS letters them, with the design that meets it and the position today;
-- **who provides it**, and who is responsible;
-- **what enforces it**, the rules and procedures that apply, and the tests run;
-- **the records an assessor will ask for**, and whether they exist yet;
-- **its status**, the risk decision, and what is still open.
+Values that CSS asks the organisation to define are set at corporate level by \<Organisation\>. The values in section 3, such as the recovery objectives, the backup retention and the intervals for testing and training, should match those corporate values. Where one does not, it is changed in this document.
 
-**Nothing in the plan can yet be carried out.** There are no servers, no backups and no confirmed second site (PA-64, PA-66). The restore procedure has been shown to work in the test environment only.
-
-**Table 1: Status values**
-
-| Status | Meaning |
-| --- | --- |
-| Implemented | The design is in place and working |
-| Partially implemented | Some of the design is in place; the open items say what is missing |
-| Not implemented | None of the design is in place yet |
+\<System Name\> is not yet built on its servers, and has no backups and no confirmed second site (PA-64, PA-66). Where section 3 notes what "today" is, it means the tested v1.0 build.
 
 ### 1.1 Distribution and protection
 
@@ -32,15 +20,13 @@ The document is Restricted. It is kept in the restricted document store with the
 
 ## 2 Summary
 
-The implementation status of each control, how it is met, who is responsible, its assessment result and the risk and plan entries for its gaps are recorded in \<System Security Plan\>, section 7.6 (Table 15). This section gives only the overall position.
-
-No control in the baseline is missing from the design. Every gap is registered in the Risk List (\<Risk List\>) and the Plan of Action and Milestones (\<Plan of Action and Milestones\>).
-
-The most serious gap is that \<System Name\> has no backups, so nothing could be recovered today (PA-64, rated Medium, to be in place before production). Ten of the 23 controls are \<Organisation\>'s to provide, and none of them is confirmed (PA-66, PA-115).
+The implementation status of each control, how it is met, who is responsible, its assessment result and the risk and plan entries for its gaps are recorded in \<System Security Plan\>, section 7.6 (Table 15).
 
 ## 3 The contingency plan
 
 ### 3.1 Principles
+
+Controls met here: CP-2, CP-2(1), CP-4, CP-6, CP-9, CP-9(1), CP-9(8), CP-10.
 
 1. **Know what matters.** Recovery objectives come from a business impact analysis, not a guess.
 2. **Keep copies apart.** Encrypted backups are held away from the main site, with one copy that an attacker on the network cannot change.
@@ -52,6 +38,8 @@ The most serious gap is that \<System Name\> has no backups, so nothing could be
 These carry out the principles and rules of \<Policy\>, sections CP.3 and CP.4.
 
 ### 3.2 Scope and assumptions
+
+Controls met here: CP-2, CP-2(8).
 
 The plan recovers \<System Name\> in three phases: activation and notification, recovery, and reconstitution. Figure 1 shows them against the time allowed.
 
@@ -71,11 +59,15 @@ The plan recovers \<System Name\> in three phases: activation and notification, 
 
 ### 3.3 Business impact analysis
 
+Controls met here: CP-2, CP-2(3), CP-2(8).
+
 This analysis follows CSS, Appendix B. \<System Name\>'s availability is rated Low: an outage delays work, but no service to the public stops. Losing documents or audit records cannot be tolerated.
 
 #### 3.3.1 Impact over time
 
-**Table 2: Impact of an outage, by function**
+Controls met here: CP-2.
+
+**Table 1: Impact of an outage, by function**
 
 | Function | 24 hours | 72 hours | 1 week | 2 weeks |
 | --- | --- | --- | --- | --- |
@@ -88,7 +80,9 @@ While \<System Name\> is down nobody can use it, so an outage does not leave lea
 
 #### 3.3.2 Recovery objectives
 
-**Table 3: Recovery objectives**
+Controls met here: CP-2, CP-2(3), CP-10.
+
+**Table 2: Recovery objectives**
 
 | Function | Maximum tolerable downtime | Recovery time objective | Recovery point objective | Priority |
 | --- | --- | --- | --- | --- |
@@ -101,7 +95,9 @@ The recovery time objective includes reconstitution (section 3.7), so users retu
 
 #### 3.3.3 Components, dependencies and order of recovery
 
-**Table 4: Order of recovery**
+Controls met here: CP-2, CP-2(8).
+
+**Table 3: Order of recovery**
 
 | Order | Component | Needed for | Depends on | Recovered from |
 | --- | --- | --- | --- | --- |
@@ -116,7 +112,9 @@ The recovery time objective includes reconstitution (section 3.7), so users retu
 
 #### 3.3.4 Essential assets
 
-**Table 5: Essential assets (CP-2(8))**
+Controls met here: CP-2(8).
+
+**Table 4: Essential assets (CP-2(8))**
 
 | Asset | Why it is essential | Recovery |
 | --- | --- | --- |
@@ -129,7 +127,9 @@ The ASP.NET Data Protection keys are not essential. They protect sign-in cookies
 
 ### 3.4 Roles
 
-**Table 6: Contingency roles**
+Controls met here: CP-2.
+
+**Table 5: Contingency roles**
 
 | Role | Holder | Deputy | Part in recovery |
 | --- | --- | --- | --- |
@@ -144,7 +144,11 @@ Deputies were agreed on 6 November 2026 (D-CP-09). Contact details are in append
 
 ### 3.5 Activation and notification
 
+Controls met here: CP-2.
+
 #### 3.5.1 When the plan is invoked
+
+Controls met here: CP-2, CP-2(3).
 
 The system owner, or their deputy, invokes this plan when any of these is true:
 
@@ -157,9 +161,13 @@ Shorter outages are handled as normal operations or incidents. Invoking at 24 ho
 
 #### 3.5.2 Outage assessment
 
+Controls met here: CP-2.
+
 Within 4 hours of a report, the database and Windows server administrators assess the outage and tell the system owner: the cause if known, what is damaged, the expected duration, whether data may be lost or altered, and whether it may be a security incident. If it may be, the security officer starts the incident response plan at the same time.
 
 #### 3.5.3 Notification
+
+Controls met here: CP-2.
 
 1. Whoever finds the failure tells \<Organisation\>'s IT service desk and the security officer.
 2. The security officer tells the system owner, and starts the activity log.
@@ -168,7 +176,11 @@ Within 4 hours of a report, the database and Windows server administrators asses
 
 ### 3.6 Recovery
 
+Controls met here: CP-2, CP-7, CP-10.
+
 #### 3.6.1 Order of recovery
+
+Controls met here: CP-2, CP-7, CP-10, CP-10(2).
 
 Recovery follows PRO-CP-3 in the order of recovery in section 3.3.3, at the second site if the main one is lost:
 
@@ -181,24 +193,32 @@ Recovery follows PRO-CP-3 in the order of recovery in section 3.3.3, at the seco
 
 #### 3.6.2 Recovery during a security incident
 
+Controls met here: CP-2, CP-10.
+
 If the outage may be an incident, the incident response plan leads and this plan supports it. Evidence is kept before anything is rebuilt. The restore uses a backup taken before the compromise, and every secret is changed.
 
 #### 3.6.3 Running in a reduced state
+
+Controls met here: CP-2.
 
 There is no manual alternative for reading documents. If full recovery would take longer than 72 hours, the system owner may restore sign-in, finding and reading first, with uploads and administration turned off, once the authorising official accepts the risk. Security controls stay in force throughout.
 
 #### 3.6.4 Escalation
 
+Controls met here: CP-2, CP-2(3).
+
 If the database has not been restored 48 hours after the plan is invoked, the system owner tells the authorising official, with a new estimate and the options.
 
 ### 3.7 Reconstitution
+
+Controls met here: CP-2, CP-7, CP-9(1), CP-10.
 
 Users return only when every step below is done.
 
 1. **Validate the data:** the database administrator runs the checks in PRO-CP-2: row counts against the last known counts, each document page against its stored checksum, and the audit records' stored hashes against the export taken with the backup. The newest audit record shows how much data was lost, against the recovery point objective.
 2. **Validate the functions:** sign in, find and read a document, upload a test document to a test project and remove it, and sign in to Admin application. Audit records must be written for each.
 3. **Confirm the controls:** the security officer checks that the controls match the main site, including encryption in transit, the members of \<System Name\>'s AD groups against current staff, and audit logging.
-4. **Declare recovery:** the system owner declares \<System Name\> recovered, and tells users and the people in section 4.
+4. **Declare recovery:** the system owner declares \<System Name\> recovered, and tells users and the people in section 3.4.
 5. **Back up at once:** a full backup is taken and confirmed at the second site before normal work resumes.
 6. **Clean up:** temporary access is removed. If running at the second site, the return to the main site is a planned change under \<Configuration Management\>.
 7. **Deactivate and learn:** the system owner closes the plan's activation. Within 10 working days an after-action report is written on TPL-11, and this plan is updated (CP-2g).
@@ -206,7 +226,9 @@ Users return only when every step below is done.
 
 ### 3.8 Backups
 
-**Table 7: Backups**
+Controls met here: CP-6, CP-9, CP-9(1), CP-9(8), CP-10, CP-10(2).
+
+**Table 6: Backups**
 
 | What | How often | Kept | Where | Protection |
 | --- | --- | --- | --- | --- |
@@ -219,17 +241,34 @@ Users return only when every step below is done.
 
 A failed backup alerts the database administrator and the security officer, and the week's backups are checked under \<Security Operating Procedures\>, duty C8. Restores are tested every 6 months (PRO-CP-2), and after a change to the database or the backup method. None of this exists yet (PA-64).
 
+Every backup is encrypted before it leaves the database server, so that nobody who holds a copy, including the second site's staff, can read or change it. The key is held apart from the backups, where only the system owner and the administrators can reach it, and is listed in the key register (\<System and Communications Protection Management\>, section 3.4). The SHA-256 value recorded when a backup is taken is checked before it is restored.
+
+PostgreSQL's transaction logs are archived continuously to the second site, so that a restore can be brought forward to the last consistent point before the failure (section 3.6.1). That gives a recovery point of minutes.
+
+The system documentation, including this plan and the other security and privacy documents, is under version control, and each change is kept in the restricted document store (D-GEN-15).
+
 ### 3.9 Second site and telecommunications
 
-\<Organisation\> is expected to provide a second site, far enough from the main one not to share its hazards, that holds encrypted backups and can run rebuilt VMs with equivalent controls. It is also expected to provide priority of service and separate telecommunications without a shared single point of failure. If a wide-area disruption makes the second site hard to reach, \<Organisation\>'s plans say how it is reached (CP-6(3), CP-7(2)).
+Controls met here: CP-6, CP-6(1), CP-6(3), CP-7, CP-7(1), CP-7(2), CP-7(3), CP-8, CP-8(1), CP-8(2).
+
+**Second site.** \<Organisation\> is expected to provide a second site, far enough from the main one not to share its hazards, such as flood, power supply or a single building. The same site serves for storing backups and for processing.
+
+- **Storage.** It holds the encrypted backups, with one copy offline or immutable (D-CP-06), under the same physical and access controls as the main site. Backups are encrypted before they leave the database server, so the site's staff cannot read them.
+- **Processing.** If the main site is lost, both servers are rebuilt there, on virtual servers that \<Organisation\> provides, and the essential functions resume within 72 hours (D-CP-07; section 3.6.1). \<System Name\> needs nothing else there but its backups, its secrets and the tagged release. The servers are rebuilt to the same baseline (\<Configuration Management\>, section 3.4), and the security officer confirms the controls before users return (section 3.7).
+- **Priority.** \<Organisation\> is asked what priority \<System Name\> has at the second site. Availability is rated Low, with 72 hours to recover, so a modest priority is enough.
+- **Reaching it.** If a wide-area disruption makes the second site hard to reach, \<Organisation\>'s plans say how the site and its backups are reached. \<System Name\> asks for that part of its plans.
+
+**Telecommunications.** Alternate telecommunications are inherited from \<Organisation\> (D-CP-08). Its network connects users to both sites. It is asked what alternate service exists, how quickly it takes over, and what priority its main and alternate agreements give. The alternate service must not share a route, a building entry or a provider with the main one. Telecommunications Service Priority is a United States scheme, so \<Organisation\> is asked whether it uses any UK equivalent.
 
 None of this is confirmed (EV-CP-01, EV-CP-02, PA-66). If it is not available, the system owner takes the risk to the authorising official.
 
 ### 3.10 Testing, training and exercises
 
+Controls met here: CP-2, CP-3, CP-4, CP-4(1), CP-9(1).
+
 This follows CSS. The first restore test and tabletop exercise take place within 30 days of the VMs being built, and before production (D-CP-10, PA-81).
 
-**Table 8: Test, training and exercise schedule**
+**Table 7: Test, training and exercise schedule**
 
 | Activity | When | Who | Objective | Record |
 | --- | --- | --- | --- | --- |
@@ -238,13 +277,15 @@ This follows CSS. The first restore test and tabletop exercise take place within
 | Tabletop exercise, with the incident response plan | First within 30 days of the VMs being built; then every 12 months | Everyone in section 3.4, and \<Organisation\>'s IT service desk | Walk through one scenario from activation to deactivation | TPL-11 |
 | Plan review | Every 12 months, and after each test or activation | System owner and authorising official | Keep the plan current and build in what was learned | Change record |
 
-Tabletop scenarios rotate through: ransomware on the database VM; loss of the main site; a backup that fails its checks; a key person being unavailable; and AD FS being unavailable. Training content covers the activation criteria, the call tree, each role's steps and the checks before return; it is reviewed every 12 months and after a plan change, test or activation.
+Tabletop scenarios rotate through: ransomware on the database VM; loss of the main site; a backup that fails its checks; a key person being unavailable; and AD FS being unavailable. Training content covers the activation criteria, the call tree, each role's steps and the checks before return; it is reviewed every 12 months and after a plan change, test or activation. Role training is module M8 of the role curriculum (\<Awareness and Training Management\>, section 3.4), and the training register shows who is trained (\<Awareness and Training Management\>, section 3.8). After a change to the plan that alters a person's steps, that person is briefed on the change.
 
-Each test or activation ends with an after-action report on TPL-11: the objectives, what happened, the time to recover and data lost against the objectives, what went wrong, the actions with owners and dates, and the changes made to this plan.
+Each test has objectives and a scenario set beforehand. Each test or activation ends with an after-action report on TPL-11, written within 10 working days: the objectives, what happened, the time to recover and data lost against the objectives, what went wrong, the actions with owners and dates, and the changes made to this plan and to the training content. An action that is not done within the month becomes an item in \<Plan of Action and Milestones\>.
 
 ### 3.11 What \<Organisation\> provides
 
-**Table 9: Asked of \<Organisation\>**
+Controls met here: CP-2(1), CP-4(1), CP-6, CP-6(1), CP-6(3), CP-7, CP-7(1), CP-7(2), CP-7(3), CP-8, CP-8(1), CP-8(2).
+
+**Table 8: Asked of \<Organisation\>**
 
 | Provided | Controls | What \<System Name\> relies on | Evidence asked | State |
 | --- | --- | --- | --- | --- |
@@ -252,548 +293,34 @@ Each test or activation ends with an after-action report on TPL-11: the objectiv
 | Alternate telecommunications | CP-8, CP-8(1), CP-8(2) | An alternate service with no single point of failure shared with the main one, and a stated priority | EV-CP-02 | Not sent |
 | Its own disaster recovery and business continuity plans | CP-2(1), CP-4(1) | Who declares a disaster, and the recovery times of the network, AD FS, Active Directory, name resolution and time | EV-CP-01 | Not sent |
 
-## 4 Each control and enhancement
+### 3.12 Keeping the plan current
 
-The controls are in CSS order. Each has two tables. The first takes each part of the control and gives what CSS requires, the design that meets it, and the position today. The second says who provides and is responsible for the control, what enforces it, the rules and procedures that apply, the tests run, the records an assessor will ask for, its status, the risk decision, and what is still open.
+Controls met here: CP-2.
 
-### 4.1 CP-1 Policy and Procedures
+1. **Review and approval.** The system owner and the authorising official review the plan every 12 months, and after each test or activation, and approve each new version.
+2. **Update.** A change to the system that affects recovery updates the plan as part of the change (\<Configuration Management\>, section 3.9). Each after-action report lists the changes made to the plan (section 3.10).
+3. **Telling people.** The people who hold copies (section 1.1) are told of each change, with a note of what changed from the change record (PRO-CP-7).
+4. **Record.** The plan is under version control, which records every change.
 
-**Table 10: CP-1 design**
+### 3.13 Coordination with related plans
 
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| a.1 | A contingency planning policy, shared with defined people, covering purpose, scope, roles, responsibilities, management commitment, coordination and compliance, and consistent with the law | \<Policy\> (CP): a system-level policy. Purpose and scope are in section CP.1, responsibilities in CP.5, and commitment, coordination and compliance in CP.6. It is shared with everyone who administers \<System Name\>. The legal adviser reviews it | Version \<ver\> approved by the Head of Cyber (D-CP-12). Legally reviewed on 9 November 2026. Not yet shared (PA-20) |
-| a.2 | Procedures that carry out the policy, shared with defined people | \<Procedures\> (CP): seven procedures, PRO-CP-1 to PRO-CP-7, each naming who acts, when and the record. Shared with the same people | Approved by the system owner (D-CP-13). Not yet shared or walked through |
-| b | A named official manages the policy and procedures | The system owner | \[Name\] is named in \<Roles and Responsibilities\> |
-| c.1 | The policy is reviewed on a schedule and after set events | Every 12 months, and after a significant incident, audit finding or system change | Reviewed on 9 November 2026. The first yearly review falls due in November 2027 |
-| c.2 | The procedures are reviewed on a schedule and after set events | Every 12 months, and after a change to the steps | As the policy |
+Controls met here: CP-2(1), CP-4(1).
 
-**Table 11: CP-1 responsibility and evidence**
+Appendix B lists the related plans. This plan and the incident response plan were written together, and each cites the other. Their tabletop exercise is held together, and \<Organisation\>'s IT service desk takes part (section 3.10). \<Organisation\>'s disaster recovery and business continuity plans provide the network, AD FS, the second site and telecommunications. The system owner agrees with \<Organisation\> how the plans fit: who declares a disaster, and the recovery times of the services \<System Name\> depends on (section 3.3.3).
 
-| | |
-| --- | --- |
-| Provided by | People, following the procedures |
-| Responsible | System owner, Head of Cyber |
-| Enforced by | Not a system function. The documents are under version control, and each review is recorded in the change record |
-| Rules and procedures | The whole policy (\<Policy\>, section CP.4); all seven procedures (\<Procedures\> (CP)) |
-| Tests | None. Examined from the documents |
-| Records an assessor will ask for | The policy and procedures with their approvals; proof they were shared; walk-through records on TPL-4; review records. The approvals exist; the rest do not yet |
-| Status | Partially implemented |
-| Risk decision | NC-CP-01, rated Low: approve |
-| Open items | PA-20: share the policy and procedures, and walk through each procedure |
+### 3.14 Policy and procedures
 
-### 4.2 CP-2 Contingency Plan
+Controls met here: CP-1.
 
-**Table 12: CP-2 design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| a.1 | A plan that identifies the essential functions and the contingency needs that go with them | Section 3.3.1: four functions, of which signing in, finding and reading documents is essential | Written |
-| a.2 | It gives recovery objectives, the order of restoration, and measures | Section 3.3.2 gives the maximum tolerable downtime, recovery time and recovery point for each function, and its priority. Section 3.3.3 gives the order. Each test and activation measures the time to recover and the data lost against them (section 3.10) | Written, and agreed by the system owner (D-CP-10) |
-| a.3 | It gives the contingency roles and responsibilities, and the people with their contact details | Section 3.4 names each role, its holder and deputy. Appendix A holds the contact details | Roles and deputies are named (D-CP-09). Every phone number and email is still a placeholder (PA-114) |
-| a.4 | It says how the essential functions are kept going despite a disruption | There is no manual alternative for reading documents. Section 3.6.3 allows a reduced service: sign-in, finding and reading first, with uploads and administration off, once the authorising official accepts the risk | Written |
-| a.5 | It provides for full restoration in the end, with the planned controls still in force | Section 3.7: users return only when the data, the functions and the controls have all been checked, and a full backup is taken at once | Written |
-| a.6 | It says how contingency information is shared | Section 3.5.3: who tells whom, by phone first and then in writing, and daily updates to users | Written |
-| a.7 | It is reviewed and approved by defined people | The system owner and the authorising official | Version \<ver\> approved by both (D-CP-11). This restructured version awaits their approval |
-| b | Copies go to defined key people and parts of the organisation | Section 1.1: the role holders and the authorising official receive the whole plan; \<Organisation\>'s IT service desk receives the parts it needs to act | Not yet shared (PA-114) |
-| c | Contingency planning is coordinated with incident handling | An outage that may be an incident is led by the incident response plan, with this plan in support (section 3.6.2). The two are exercised together | Written into both plans. Not yet exercised (PA-81) |
-| d | The plan is reviewed on a schedule | Every 12 months, and after each test or activation | Reviewed on 9 November 2026 and 15 November 2026 |
-| e | The plan is updated for changes to the system and for problems met in use or testing | A change to the system that affects recovery updates the plan as part of the change (\<Configuration Management\>, section 3.9). Each after-action report lists the changes made to the plan | Updated on 15 November 2026 for sign-in through AD FS and the service accounts. No test or activation has yet been held |
-| f | Changes are told to defined key people and parts of the organisation | The same people as part b, with the change record (PRO-CP-7) | Not yet shared (PA-114) |
-| g | Lessons from testing, training and real events are built into testing and training | Each after-action report, on TPL-11, ends with actions and the changes made to the plan and to the training content (section 3.10) | Not yet used |
-| h | The plan is protected from unauthorised disclosure and change | It is Restricted, kept in the restricted document store where only the people in part b can read it and only the system owner can change it. The system owner and security officer each keep a current offline copy | Not yet in the restricted store (PA-88). No offline copy has been placed (PA-114) |
-
-**Table 13: CP-2 responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | People, following the procedures |
-| Responsible | System owner, authorising official |
-| Enforced by | Not a system function. Version control records every change to the plan |
-| Rules and procedures | Policy rules R1, R8 (\<Policy\>, section CP.4); PRO-CP-3, PRO-CP-5, PRO-CP-7 (\<Procedures\> (CP)) |
-| Tests | None for the plan itself. The restore test of 9 November 2026 tested its recovery steps in the test environment (R01 to R09) |
-| Records an assessor will ask for | The plan with its approvals; the distribution record; the offline copies; review records; after-action reports. The plan and approvals of version \<ver\> exist |
-| Status | Partially implemented |
-| Risk decision | NC-CP-02, rated Low: approve |
-| Open items | PA-114: share the plan, fill in the contacts, place the offline copies and coordinate with \<Organisation\>'s plans. PA-88: move the document set to the restricted store |
-
-### 4.3 CP-2(1) Coordinate with Related Plans
-
-**Table 14: CP-2(1) design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| All | Develop the plan together with those responsible for related plans | Appendix B lists the related plans. This plan and the incident response plan were written together, and each cites the other. \<Organisation\>'s disaster recovery and business continuity plans provide the network, AD FS, the second site and telecommunications, and the system owner agrees with \<Organisation\> how the plans fit: who declares a disaster, and the recovery times of the services \<System Name\> depends on | The incident response plan is aligned. \<Organisation\>'s plans have not been seen, and their names are placeholders (PA-114) |
-
-**Table 15: CP-2(1) responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | People, following the procedures |
-| Responsible | System owner, security officer |
-| Enforced by | Not a system function |
-| Rules and procedures | Policy rule R6 (\<Policy\>, section CP.4); PRO-CP-7 (\<Procedures\> (CP)) |
-| Tests | None |
-| Records an assessor will ask for | The related plans; a record of the agreement with \<Organisation\>; joint exercise reports |
-| Status | Not implemented |
-| Risk decision | NC-CP-03, rated Low: approve |
-| Open items | PA-114: obtain \<Organisation\>'s plans and recovery times, and record how the plans fit |
-
-### 4.4 CP-2(3) Resume Mission and Business Functions
-
-**Table 16: CP-2(3) design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| All | Plan to resume defined functions within a defined time of the plan being invoked | The essential functions resume within 72 hours, including reconstitution, within a maximum tolerable downtime of 120 hours (section 3.3.2). The other functions resume within 7 days | Met as a plan (D-CP-10). It cannot be achieved until backups exist (PA-64) |
-
-**Table 17: CP-2(3) responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | People, following the procedures |
-| Responsible | System owner |
-| Enforced by | Not a system function |
-| Rules and procedures | Policy rule R1 (\<Policy\>, section CP.4); PRO-CP-3 (\<Procedures\> (CP)) |
-| Tests | The restore test showed a restore in seconds in the test environment (R04). It does not show the 72 hours on servers |
-| Records an assessor will ask for | The business impact analysis; test reports showing the time taken |
-| Status | Implemented |
-| Risk decision | NC-CP-04, rated Low: approve; now satisfied as a plan |
-| Open items | PA-64: backups. PA-81: the first restore test on the servers |
-
-### 4.5 CP-2(8) Identify Critical Assets
-
-**Table 18: CP-2(8) design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| All | Identify the system assets that the defined functions depend on | Section 3.3.4: the database, the application server, the backups and transaction logs, and the secrets. Section 3.3.3 adds what they depend on from \<Organisation\>, including AD FS | Met |
-
-**Table 19: CP-2(8) responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | People, following the procedures |
-| Responsible | System owner |
-| Enforced by | Not a system function |
-| Rules and procedures | Policy rule R1 (\<Policy\>, section CP.4); no procedure of its own (\<Procedures\> (CP)) |
-| Tests | None |
-| Records an assessor will ask for | The list of essential assets, and its review with the business impact analysis |
-| Status | Implemented |
-| Risk decision | NC-CP-05, rated Low: approve; now satisfied |
-| Open items | None |
-
-### 4.6 CP-3 Contingency Training
-
-**Table 20: CP-3 design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| a.1 | Train people in their contingency role within a defined time of taking it | Within 30 days. Everyone in section 3.4 learns the plan, their own steps, the call tree and where the offline copy is. It is module M8 of the role curriculum (\<Awareness and Training Management\>, section 3.4) | No training has been given (PA-81) |
-| a.2 | Train them again when the system changes | After a change to the plan that alters a person's steps, that person is briefed on the change | Not yet used |
-| a.3 | Train them again on a schedule | Every 12 months | Not yet due |
-| b | Review and update the training content on a schedule and after defined events | Every 12 months, and after a plan change, a test or an activation | Content is outlined in section 3.10. None is written |
-
-**Table 21: CP-3 responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | People, following the procedures |
-| Responsible | System owner |
-| Enforced by | Not a system function. The training register shows who is trained (\<Awareness and Training Management\>, section 3.8) |
-| Rules and procedures | Policy rule R7 (\<Policy\>, section CP.4); PRO-CP-4 (\<Procedures\> (CP)) |
-| Tests | None |
-| Records an assessor will ask for | The training content; completion records on TPL-9 for each role holder. None exist yet |
-| Status | Not implemented |
-| Risk decision | NC-CP-06, rated Low: approve; NC-CP-24, rated Low: remediate (system owner, Low) |
-| Open items | PA-81: train the role holders. PA-97: write module M8 |
-
-### 4.7 CP-4 Contingency Plan Testing
-
-**Table 22: CP-4 design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| a | Test the plan on a schedule, with defined tests, to judge how well it works and how ready people are | A restore test every 6 months and a tabletop exercise every 12 months, the first of each within 30 days of the servers being built and before production (section 3.10). Each has objectives and a scenario set beforehand | No test of the plan has been held (PA-81). The restore procedure was shown in the test environment on 9 November 2026 |
-| b | Review the results | Each test ends with an after-action report on TPL-11 within 10 working days: objectives, what happened, time to recover and data lost against the objectives, and what went wrong | Not yet used |
-| c | Start corrective action where needed | Each action has an owner and a date. One that is not done within the month becomes an item in \<Plan of Action and Milestones\> | Not yet used |
-
-**Table 23: CP-4 responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | People, following the procedures |
-| Responsible | System owner, database administrator |
-| Enforced by | Not a system function |
-| Rules and procedures | Policy rules R6, R11 (\<Policy\>, section CP.4); PRO-CP-4 (\<Procedures\> (CP)) |
-| Tests | Checks R01 to R09 on the v1.0 build, 9 November 2026: a full backup restored to a fresh server with every row, document page checksum and audit hash intact. Two gaps: the default backup is unencrypted (R02), and transaction logs are not archived (R09) |
-| Records an assessor will ask for | Test plans; after-action reports on TPL-11; the actions raised. One test record exists, from the test environment |
-| Status | Not implemented |
-| Risk decision | NC-CP-07, rated Low: approve; NC-CP-24, rated Low: remediate (system owner, Low) |
-| Open items | PA-81: hold the first restore test and tabletop exercise |
-
-### 4.8 CP-4(1) Coordinate with Related Plans
-
-**Table 24: CP-4(1) design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| All | Test the plan together with those responsible for related plans | The tabletop exercise is held with the incident response plan, and \<Organisation\>'s IT service desk takes part | Not held (PA-81) |
-
-**Table 25: CP-4(1) responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | People, following the procedures |
-| Responsible | System owner, security officer |
-| Enforced by | Not a system function |
-| Rules and procedures | Policy rule R6 (\<Policy\>, section CP.4); PRO-CP-4 (\<Procedures\> (CP)) |
-| Tests | None |
-| Records an assessor will ask for | The exercise report naming who took part |
-| Status | Not implemented |
-| Risk decision | NC-CP-08, rated Low: approve; NC-CP-24, rated Low: remediate (system owner, Low) |
-| Open items | PA-81 |
-
-### 4.9 CP-6 Alternate Storage Site
-
-**Table 26: CP-6 design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| a | Set up a second site for storing backups, with the agreements needed to store and retrieve them | Encrypted backups are held at a second \<Organisation\> site, with one copy offline or immutable (D-CP-06) | Not confirmed: \<Organisation\> has not been asked (EV-CP-01, PA-66) |
-| b | The second site gives controls equal to the main site's | The same physical and access controls as the main site. Backups are encrypted before they leave the database server, so the site's staff cannot read them | Not confirmed |
-
-**Table 27: CP-6 responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | \<Organisation\> |
-| Responsible | \<Organisation\> |
-| Enforced by | \<Organisation\>'s site and agreement |
-| Rules and procedures | Policy rule R3 (\<Policy\>, section CP.4); no procedure of its own (\<Procedures\> (CP)) |
-| Tests | None |
-| Records an assessor will ask for | \<Organisation\>'s description of the site and its agreement (EV-CP-01). Not yet asked for |
-| Status | Not implemented |
-| Risk decision | NC-CP-09, rated Low: obtain evidence |
-| Open items | PA-66: confirm the site with \<Organisation\>, or take the risk to the authorising official |
-
-### 4.10 CP-6(1) Separation from Primary Site
-
-**Table 28: CP-6(1) design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| All | The second site is far enough from the main one not to share its threats | \<Organisation\> is asked to show that the two sites do not share the same hazards, such as flood, power supply or a single building | Not confirmed (EV-CP-01) |
-
-**Table 29: CP-6(1) responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | \<Organisation\> |
-| Responsible | \<Organisation\> |
-| Enforced by | \<Organisation\> |
-| Rules and procedures | Policy rule R3 (\<Policy\>, section CP.4); no procedure of its own (\<Procedures\> (CP)) |
-| Tests | None |
-| Records an assessor will ask for | \<Organisation\>'s description of the site and its agreement (EV-CP-01). Not yet asked for |
-| Status | Not implemented |
-| Risk decision | NC-CP-10, rated Low: obtain evidence |
-| Open items | PA-66 |
-
-### 4.11 CP-6(3) Accessibility
-
-**Table 30: CP-6(3) design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| All | Identify what could make the second site hard to reach in a wide-area disruption, and say what would be done | \<Organisation\>'s plans say how the site and its backups are reached if the area is disrupted. \<System Name\> asks for that part of its plans | Not confirmed (EV-CP-01) |
-
-**Table 31: CP-6(3) responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | \<Organisation\> |
-| Responsible | \<Organisation\> |
-| Enforced by | \<Organisation\> |
-| Rules and procedures | Policy rule R3 (\<Policy\>, section CP.4); no procedure of its own (\<Procedures\> (CP)) |
-| Tests | None |
-| Records an assessor will ask for | \<Organisation\>'s description of the site and its agreement (EV-CP-01). Not yet asked for |
-| Status | Not implemented |
-| Risk decision | NC-CP-11, rated Low: obtain evidence |
-| Open items | PA-66 |
-
-### 4.12 CP-7 Alternate Processing Site
-
-**Table 32: CP-7 design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| a | Set up a second site for processing, with the agreements needed to move and resume defined operations within a defined time | If the main site is lost, both servers are rebuilt at the second \<Organisation\> site, and the essential functions resume within 72 hours (D-CP-07; section 3.6.1) | Not confirmed (EV-CP-01, PA-66) |
-| b | The equipment and supplies needed are at the site, or contracts are in place to deliver them in time | \<Organisation\> provides the virtual servers. \<System Name\> needs nothing else there but its backups, its secrets and the tagged release | Not confirmed |
-| c | The second site gives controls equal to the main site's | The servers are rebuilt to the same baseline (\<Configuration Management\>, section 3.4), and the security officer confirms the controls before users return (section 3.7) | Not confirmed |
-
-**Table 33: CP-7 responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | \<Organisation\> |
-| Responsible | \<Organisation\>, Windows server administrator |
-| Enforced by | \<Organisation\>'s site and agreement; the baseline |
-| Rules and procedures | Policy rule R5 (\<Policy\>, section CP.4); PRO-CP-3 (\<Procedures\> (CP)) |
-| Tests | None |
-| Records an assessor will ask for | \<Organisation\>'s description of the site and its agreement (EV-CP-01). Not yet asked for |
-| Status | Not implemented |
-| Risk decision | NC-CP-12, rated Low: obtain evidence |
-| Open items | PA-66 |
-
-### 4.13 CP-7(1) Separation from Primary Site
-
-**Table 34: CP-7(1) design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| All | The second processing site is far enough from the main one not to share its threats | As CP-6(1): the same site holds the backups and runs the rebuilt servers | Not confirmed (EV-CP-01) |
-
-**Table 35: CP-7(1) responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | \<Organisation\> |
-| Responsible | \<Organisation\> |
-| Enforced by | \<Organisation\> |
-| Rules and procedures | Policy rule R5 (\<Policy\>, section CP.4); PRO-CP-3 (\<Procedures\> (CP)) |
-| Tests | None |
-| Records an assessor will ask for | \<Organisation\>'s description of the site and its agreement (EV-CP-01). Not yet asked for |
-| Status | Not implemented |
-| Risk decision | NC-CP-13, rated Low: obtain evidence |
-| Open items | PA-66 |
-
-### 4.14 CP-7(2) Accessibility
-
-**Table 36: CP-7(2) design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| All | Identify what could make the second processing site hard to reach in a wide-area disruption, and say what would be done | As CP-6(3) | Not confirmed (EV-CP-01) |
-
-**Table 37: CP-7(2) responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | \<Organisation\> |
-| Responsible | \<Organisation\> |
-| Enforced by | \<Organisation\> |
-| Rules and procedures | Policy rule R5 (\<Policy\>, section CP.4); PRO-CP-3 (\<Procedures\> (CP)) |
-| Tests | None |
-| Records an assessor will ask for | \<Organisation\>'s description of the site and its agreement (EV-CP-01). Not yet asked for |
-| Status | Not implemented |
-| Risk decision | NC-CP-14, rated Low: obtain evidence |
-| Open items | PA-66 |
-
-### 4.15 CP-7(3) Priority of Service
-
-**Table 38: CP-7(3) design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| All | The agreement for the second site gives priority of service that matches the availability needed | \<Organisation\> is asked what priority \<System Name\> has at the second site. Availability is rated Low, with 72 hours to recover, so a modest priority is enough | Not confirmed (EV-CP-01) |
-
-**Table 39: CP-7(3) responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | \<Organisation\> |
-| Responsible | \<Organisation\> |
-| Enforced by | \<Organisation\> |
-| Rules and procedures | Policy rule R5 (\<Policy\>, section CP.4); PRO-CP-3 (\<Procedures\> (CP)) |
-| Tests | None |
-| Records an assessor will ask for | \<Organisation\>'s description of the site and its agreement (EV-CP-01). Not yet asked for |
-| Status | Not implemented |
-| Risk decision | NC-CP-15, rated Low: obtain evidence |
-| Open items | PA-66 |
-
-### 4.16 CP-8 Telecommunications Services
-
-**Table 40: CP-8 design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| All | Set up alternate telecommunications, with the agreements needed to resume defined operations within a defined time when the main service fails | Inherited from \<Organisation\> (D-CP-08): its network connects users to both sites, and it is asked what alternate service exists and how quickly it takes over | Not confirmed (EV-CP-02, PA-115) |
-
-**Table 41: CP-8 responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | \<Organisation\> |
-| Responsible | \<Organisation\> |
-| Enforced by | \<Organisation\> |
-| Rules and procedures | No policy rule of its own (\<Policy\>, section CP.4); no procedure of its own (\<Procedures\> (CP)) |
-| Tests | None |
-| Records an assessor will ask for | \<Organisation\>'s service agreements (EV-CP-02). Not yet asked for |
-| Status | Not implemented |
-| Risk decision | NC-CP-16, rated Low: obtain evidence |
-| Open items | PA-115: obtain \<Organisation\>'s evidence (EV-CP-02) |
-
-### 4.17 CP-8(1) Priority of Service Provisions
-
-**Table 42: CP-8(1) design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| a | The main and alternate service agreements give priority of service that matches the availability needed | \<Organisation\> is asked what priority its agreements give | Not confirmed (EV-CP-02) |
-| b | Ask for Telecommunications Service Priority where a common carrier provides the service | Telecommunications Service Priority is a United States scheme. \<Organisation\> is asked whether it uses any UK equivalent | Not confirmed (EV-CP-02) |
-
-**Table 43: CP-8(1) responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | \<Organisation\> |
-| Responsible | \<Organisation\> |
-| Enforced by | \<Organisation\> |
-| Rules and procedures | No policy rule of its own (\<Policy\>, section CP.4); no procedure of its own (\<Procedures\> (CP)) |
-| Tests | None |
-| Records an assessor will ask for | \<Organisation\>'s service agreements (EV-CP-02) |
-| Status | Not implemented |
-| Risk decision | NC-CP-17, rated Low: obtain evidence |
-| Open items | PA-115 |
-
-### 4.18 CP-8(2) Single Points of Failure
-
-**Table 44: CP-8(2) design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| All | The alternate service does not share a single point of failure with the main one | \<Organisation\> is asked to show that the two do not share a route, a building entry or a provider | Not confirmed (EV-CP-02) |
-
-**Table 45: CP-8(2) responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | \<Organisation\> |
-| Responsible | \<Organisation\> |
-| Enforced by | \<Organisation\> |
-| Rules and procedures | No policy rule of its own (\<Policy\>, section CP.4); no procedure of its own (\<Procedures\> (CP)) |
-| Tests | None |
-| Records an assessor will ask for | \<Organisation\>'s service agreements and network description (EV-CP-02) |
-| Status | Not implemented |
-| Risk decision | NC-CP-18, rated Low: obtain evidence |
-| Open items | PA-115 |
-
-### 4.19 CP-9 System Backup
-
-**Table 46: CP-9 design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| a | Back up user-level information on defined components on a schedule | The database, which holds the documents and audit records, is backed up in full every day, and its transaction logs are archived continuously (section 3.8) | No backups exist (PA-64) |
-| b | Back up system-level information on a schedule | Each server's system configuration, weekly. The secrets, at each change | No backups exist |
-| c | Back up the system documentation, including the security and privacy documents, on a schedule | At each change: the document set is under version control, and moves to the restricted document store | One copy only: a private local records repository on the system owner's computer, with every change recorded. There is no second copy, so the documentation could be lost with that computer (PA-64, PA-88) |
-| d | Protect the confidentiality, integrity and availability of the backups | Backups are encrypted, with the key held apart from them. The SHA-256 value of each backup is recorded when it is taken and checked before it is restored. They are kept at the second site, with one copy offline or immutable. 14 daily, 8 weekly and 12 monthly copies are kept. A failed backup alerts the database administrator and the security officer | Nothing exists. The default PostgreSQL backup is unencrypted (R02) |
-
-**Table 47: CP-9 responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | Shared: \<System Name\> and \<Organisation\> |
-| Responsible | Database and Windows server administrators |
-| Enforced by | The backup jobs and their alerts; the weekly check (\<Security Operating Procedures\>, duty C8) |
-| Rules and procedures | Policy rules R2, R9 (\<Policy\>, section CP.4); PRO-CP-1 (\<Procedures\> (CP)) |
-| Tests | Checks R01 to R09, as CP-4. They test the restore procedure in the test environment, not backups of the servers |
-| Records an assessor will ask for | Backup job logs; the retention of copies; the alert on a failed job; the weekly checks on TPL-8. None exist yet |
-| Status | Not implemented |
-| Risk decision | NC-CP-19, rated Medium: remediate before production |
-| Open items | PA-64: encrypted backups with archived transaction logs, in place before production |
-
-### 4.20 CP-9(1) Testing for Reliability and Integrity
-
-**Table 48: CP-9(1) design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| All | Test the backups on a schedule, to show the media are reliable and the information intact | Every 6 months, and after a change to the database or the backup method, the database administrator restores the latest backup to a separate server and checks it: row counts against the last known counts, each document page against its stored checksum, and the audit records' hashes against the export taken with the backup (PRO-CP-2). The security officer observes | Shown in the test environment on 9 November 2026: the restore worked (R03, R04) and the data was intact (R05 to R07). There are no backups of the servers to test (PA-64) |
-
-**Table 49: CP-9(1) responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | Shared: \<System Name\> and \<Organisation\> |
-| Responsible | Database administrator |
-| Enforced by | The restore test |
-| Rules and procedures | Policy rule R4 (\<Policy\>, section CP.4); PRO-CP-2 (\<Procedures\> (CP)) |
-| Tests | Checks R03 to R07 passed |
-| Records an assessor will ask for | Restore test reports on TPL-11. One exists, from the test environment |
-| Status | Not implemented |
-| Risk decision | NC-CP-20, rated Medium: remediate before production |
-| Open items | PA-64, then PA-81: the first restore test on the servers |
-
-### 4.21 CP-9(8) Cryptographic Protection
-
-**Table 50: CP-9(8) design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| All | Use cryptography to stop backups being read or changed without authority | Every backup is encrypted before it leaves the database server. The key is held apart from the backups, where only the system owner and the administrators can reach it, and is listed in the key register (\<System and Communications Protection Management\>, section 3.4) | Not built. The default PostgreSQL backup is a plain archive that anyone holding it can read (R02; PA-64) |
-
-**Table 51: CP-9(8) responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | Shared: \<System Name\> and \<Organisation\> |
-| Responsible | Database administrator |
-| Enforced by | The backup tool's encryption; the key store |
-| Rules and procedures | Policy rules R3, R10 (\<Policy\>, section CP.4); PRO-CP-1 (\<Procedures\> (CP)) |
-| Tests | Check R02 showed the gap |
-| Records an assessor will ask for | The backup settings showing encryption; the key register entry; who can reach the key |
-| Status | Not implemented |
-| Risk decision | NC-CP-21, rated Medium: remediate before production |
-| Open items | PA-64 |
-
-### 4.22 CP-10 System Recovery and Reconstitution
-
-**Table 52: CP-10 design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| All | Recover the system and bring it back to a known state within a defined time after a disruption, compromise or failure | Sections 3.6 and 3.7. The servers are rebuilt to the baseline, the latest good backup is restored, and users return only when the data, the functions and the controls have been checked. Monitoring is restarted, and a recovery that amounts to a significant change goes to the authorising official. Recovery and reconstitution together take no more than 72 hours, losing no more than 24 hours of data | \<System Name\> cannot be recovered today: there are no servers and no backups. The restore itself took seconds in the test environment (R04) |
-
-**Table 53: CP-10 responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | Shared: \<System Name\> and \<Organisation\> |
-| Responsible | Administrators, system owner |
-| Enforced by | The backups; the baseline; the checks before users return |
-| Rules and procedures | Policy rules R1, R11 (\<Policy\>, section CP.4); PRO-CP-3, PRO-CP-6 (\<Procedures\> (CP)) |
-| Tests | Checks R04 to R07 passed in the test environment |
-| Records an assessor will ask for | Activity logs and after-action reports of any recovery or test. None exist for the servers |
-| Status | Not implemented |
-| Risk decision | NC-CP-22, rated Medium: remediate before production |
-| Open items | PA-64: backups. PA-81: the first test on the servers |
-
-### 4.23 CP-10(2) Transaction Recovery
-
-**Table 54: CP-10(2) design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| All | Provide transaction recovery for systems that are based on transactions | PostgreSQL's transaction logs are archived continuously to the second site, so that a restore can be brought forward to the last consistent point before the failure. That gives a recovery point of minutes | Not built: the logs are not archived (R09; PA-64) |
-
-**Table 55: CP-10(2) responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | Shared: \<System Name\> and \<Organisation\> |
-| Responsible | Database administrator |
-| Enforced by | PostgreSQL's log archiving |
-| Rules and procedures | Policy rule R2 (\<Policy\>, section CP.4); PRO-CP-3 (\<Procedures\> (CP)) |
-| Tests | Check R09 showed the gap |
-| Records an assessor will ask for | The archiving settings; a restore test that replays the logs |
-| Status | Not implemented |
-| Risk decision | NC-CP-23, rated Medium: remediate before production |
-| Open items | PA-64 |
+1. **Policy.** \<Policy\> (CP) is a system-level policy. Its purpose and scope are in section CP.1, responsibilities in CP.5, and commitment, coordination and compliance in CP.6. It is shared with everyone who administers \<System Name\>. The legal adviser reviews it.
+2. **Procedures.** \<Procedures\> (CP) holds seven procedures, PRO-CP-1 to PRO-CP-7, each naming who acts, when and the record. They are shared with the same people.
+3. **Owner.** The system owner manages the policy and procedures.
+4. **Review.** The policy is reviewed every 12 months, and after a significant incident, audit finding or system change. The procedures are reviewed every 12 months, and after a change to the steps.
+5. **Records.** The documents are under version control, and each review is recorded in the change record. Each procedure is walked through with the people who carry it out, and the walk-through is recorded on TPL-4.
 
 ## Appendix A Contacts
 
-**Table 56: Contacts**
+**Table 9: Contacts**
 
 | Role | Name | Phone | Email |
 | --- | --- | --- | --- |
@@ -807,7 +334,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ## Appendix B Associated plans and records
 
-**Table 57: Associated plans**
+**Table 10: Associated plans**
 
 | Plan or record | Owner | How it relates |
 | --- | --- | --- |
@@ -820,9 +347,9 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ## Appendix C CP controls outside the Moderate baseline
 
-CSS does not select these at Moderate, so they are not assessed. Some of the design goes further than the baseline, and Table 58 says where.
+CSS does not select these at Moderate, so they are not assessed. Some of the design goes further than the baseline, and Table 11 says where.
 
-**Table 58: CP controls not selected at Moderate**
+**Table 11: CP controls not selected at Moderate**
 
 | Control | What it adds | \<System Name\>'s position |
 | --- | --- | --- |

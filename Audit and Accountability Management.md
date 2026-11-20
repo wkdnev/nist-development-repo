@@ -2,41 +2,25 @@
 
 ## 1 Purpose
 
-This document shows how audit logging and accountability are designed for \<System Name\>, for each of the 16 Audit and Accountability (AU) controls and enhancements in the CSS Moderate baseline. Section 3 sets out the design: where audit records come from, which events are logged and why, what a record holds, how records are stored and protected, time, retention, review, and alerts. Section 4 takes each control in turn. Values CSS asks the organisation to define are set at corporate level by \<Organisation\>. Appendix A gives the logging settings for the database server. Appendix B shows the logging that other controls require, and the AU controls CSS does not select at Moderate. The design follows the good practice in CSS.
+This document sets out how \<System Name\> is designed and configured to meet the 16 Audit and Accountability (AU) controls and enhancements in the CSS Moderate baseline.
 
-The policy is in \<Policy\> (AU), and the steps people follow are in \<Procedures\> (AU) and \<Security Operating Procedures\>, section 4.2.
+Section 3 is the design: where audit records come from, which events are logged and why, what a record holds, how records are stored and protected, time, retention and capacity, review, analysis and reporting, failures and alerts, the application logs, what \<Organisation\> provides, and the policy and procedures. Each subsection names the controls it helps to meet. Appendix A gives the logging settings for the database server, and Appendix B shows the logging that other controls require and the AU controls CSS does not select at Moderate. The design follows the good practice in CSS.
 
-An assessor examines the list of events, the record content, the settings that protect and keep the records, and the review records. They interview the auditor, the administrators and the system owner, and test that the system logs what the design says (CSS). So for each control section 4 gives:
+Other documents hold the rest. Who provides and is responsible for each control, its status and its assessment result are in \<System Security Plan\>, section 7.3 (Table 12). The tests, their results and the records an assessor will ask for are in \<Control Assessment Record\> (AU). Each control's risk is in \<Risk List\>, and what is still open is in \<Plan of Action and Milestones\>. The policy is in \<Policy\> (AU), and the steps people follow are in \<Procedures\> (AU) and \<Security Operating Procedures\>, section 4.2.
 
-- **each part of the control**, as CSS letters them, with the design that meets it and the position today;
-- **who provides it**, and who is responsible;
-- **what enforces it**, the rules and procedures that apply, and the tests run;
-- **the records an assessor will ask for**, and whether they exist yet;
-- **its status**, the risk decision, and what is still open.
+Values that CSS asks the organisation to define are set at corporate level by \<Organisation\>. The settings in section 3 should match those corporate values. Where one does not, it is changed in this document.
 
-**Design and today.** The Design column is what the system owner has agreed. The Today column is what was found in the build labelled v1.0, tested in Docker between 5 and 9 November 2026, and the position of the servers, which are not yet built. That build signed in with its own passwords. \<System Name\> signs in through \<Organisation\>'s AD FS (D-AC-23), so the tests are to be repeated on that build (PA-95).
-
-**Table 1: Status values**
-
-| Status | Meaning |
-| --- | --- |
-| Implemented | The design is in place and working |
-| Partially implemented | Some of the design is in place; the open items say what is missing |
-| Not implemented | None of the design is in place yet |
+Where section 3 notes what "today" is, it means the tested v1.0 build, and the position of the servers, which are not yet built. That build signed in with its own passwords. \<System Name\> signs in through \<Organisation\>'s AD FS (D-AC-23), so the tests are to be repeated on that build (PA-95).
 
 ## 2 Summary
 
-The implementation status of each control, how it is met, who is responsible, its assessment result and the risk and plan entries for its gaps are recorded in \<System Security Plan\>, section 7.3 (Table 12). This section gives only the overall position.
-
-No control in the baseline is missing from the design. Every gap is registered in the Risk List (\<Risk List\>) and the Plan of Action and Milestones (\<Plan of Action and Milestones\>).
-
-AU-3(3), limiting personal data in audit records, is in the privacy baseline and is assessed with the PT family (NC-PT-09; PA-71, PA-75). Section 3.4 holds its design.
-
-The two most serious gaps are both in AU-9. The application's database account can change and delete audit records (PA-36, rated High), and the chain hash that should reveal a change has no key and cannot be recomputed (PA-73, PA-74). Until they are fixed, the audit log cannot be relied on as evidence (R-AU-01).
+The implementation status of each control, how it is met, who is responsible, its assessment result and the risk and plan entries for its gaps are recorded in \<System Security Plan\>, section 7.3 (Table 12).
 
 ## 3 The audit design
 
 ### 3.1 Principles
+
+Controls met here: AU-2, AU-3, AU-6, AU-9, AU-11, AU-12.
 
 1. **Complete.** The agreed events are recorded every time they occur.
 2. **Attributable.** Each record shows what happened, when, where, from where, the outcome and who was involved. The person is the one AD FS authenticated.
@@ -50,36 +34,40 @@ These carry out the principles and rules of \<Policy\>, sections AU.3 and AU.4.
 
 ### 3.2 Where audit records come from
 
+Controls met here: AU-2, AU-12.
+
 An investigation must be able to follow an action from the network to the database. So records come from six sources. \<System Name\>'s team controls the first three. \<Organisation\> controls the rest, as part of its corporate configuration (D-AC-21, D-AC-23).
 
 ![Figure 1: Where audit records come from, and who reads them](figures/aum-figure-1.png)
 
 **Figure 1: Where audit records come from, and who reads them**
 
-**Table 2: Sources of audit records**
+**Table 1: Sources of audit records**
 
 | Source | Events to log | Held in | Set by | Today |
 | --- | --- | --- | --- | --- |
-| UI application, Admin application and API | The events in Table 3 | The audit log: the audit log table in the \<System Name\> database | The system owner, in Table 3; built by \<System Name\>'s developers through a release | Partly logged (Table 3) |
+| UI application, Admin application and API | The events in Table 2 | The audit log: the audit log table in the \<System Name\> database | The system owner, in Table 2; built by \<System Name\>'s developers through a release | Partly logged (Table 2) |
 | The three applications' own logs | Errors, start-up and shut-down, and logging failures. No audit details | Log files on the application server, kept 30 days | \<System Name\>'s developers | They also repeat usernames, IP addresses and session IDs (A38, PA-75) |
 | PostgreSQL | Connections and failed connections; role and permission changes; schema changes; any change to or deletion of audit records; changes to logging settings | The PostgreSQL log on the database server | Database administrator | Statement and connection logging are off (A30, PA-43) |
 | Windows Server 2025, both servers | Sign-ins and failed sign-ins (events 4624, 4625); account and group changes (4720, 4722 to 4726, 4728, 4732, 4756); use of special privileges (4672); audit policy changes (4719); security log cleared (1102); services installed (7045); system time changed (4616) | The Windows Security and System logs on each server, forwarded to \<Organisation\>'s central monitoring if confirmed (D-AU-07) | \<Organisation\>'s Group Policy. \<System Name\> states the events it needs (EV-AU-04) | Not assessable: the servers are not built (PA-43) |
 | AD FS and Active Directory | Every sign-in attempt, failed sign-in, lockout and second-factor result for \<System Name\>; every change to an account; every change to the members of \<System Name\>'s groups | \<Organisation\>'s own logs | \<Organisation\> | Not evidenced. No arrangement yet gives \<System Name\>'s auditor these records (PA-101, EV-AU-05) |
 | \<Organisation\>'s network services | Firewall and VPN events, and the time service | \<Organisation\>'s central monitoring | \<Organisation\> | Inherited; to be confirmed (D-AU-07, EV-AU-01) |
 
-Each source logs at every occurrence. The system owner selects the events and reviews the list every 12 months (PRO-AU-5).
+Each source logs at every occurrence. The system owner selects the events, reviews the list every 12 months and on any change, and records the decision in \<Decision Register\> (PRO-AU-5).
 
 ### 3.3 Application events
 
-Table 3 lists every event type \<System Name\>'s applications log, the actions recorded under each, and what an investigator learns from it. That is the reason each is selected (AU-2, part d).
+Controls met here: AU-2, AU-12.
 
-**Table 3: Application events logged**
+Table 2 lists every event type \<System Name\>'s applications log, the actions recorded under each, and what an investigator learns from it. That is the reason each is selected (AU-2, part d). Together they answer who signed in, what they saw or changed, what they were refused, who changed access or settings, and when nothing could be logged.
+
+**Table 2: Application events logged**
 
 | Event type | Actions recorded | What is covered | Why it is needed to investigate an incident | Logged today? |
 | --- | --- | --- | --- | --- |
-| Sign-in | Sign-in accepted; sign-in token refused; sign-out | Sign-ins and sign-outs. \<System Name\> records each sign-in it accepts and each sign-in token it refuses. Failed passwords and second factors are recorded by AD FS (Table 2) | Shows who entered the system, and any attempt to enter without the right | Yes, in the tested build, for its own sign-in and failed sign-in (A15, A16). To be repeated with AD FS (PA-95) |
+| Sign-in | Sign-in accepted; sign-in token refused; sign-out | Sign-ins and sign-outs. \<System Name\> records each sign-in it accepts and each sign-in token it refuses. Failed passwords and second factors are recorded by AD FS (Table 1) | Shows who entered the system, and any attempt to enter without the right | Yes, in the tested build, for its own sign-in and failed sign-in (A15, A16). To be repeated with AD FS (PA-95) |
 | Session | Session created; session ended by the user; session timed out; session ended by an administrator | Session creation, ending and time-outs | Links activity to one sign-in | Partly: ending all of a user's sessions is not logged (PA-14) |
-| Project and group administration | Project created, changed or removed; a project's read or edit group changed; a role mapping changed | Changes to projects, to the AD groups each project uses, and to role mappings | Shows who was given a route to information, and by whom. Changes to the members of a group are recorded by Active Directory (Table 2) | Partly: most changes in the admin portal are not logged (PA-14) |
+| Project and group administration | Project created, changed or removed; a project's read or edit group changed; a role mapping changed | Changes to projects, to the AD groups each project uses, and to role mappings | Shows who was given a route to information, and by whom. Changes to the members of a group are recorded by Active Directory (Table 1) | Partly: most changes in the admin portal are not logged (PA-14) |
 | Access decision | Access to a page or function refused; access to a project refused; unauthorised attempt | Denied access | Shows attempts to reach restricted information | Yes (A18) |
 | Document access; Export | Document viewed; document downloaded; document details viewed; documents searched; documents exported | Document views, downloads, exports and searches | Shows who saw which information | Yes (A17) |
 | Data change | Document uploaded; document corrected; document deleted | Document corrections and deletions | Shows who changed or removed a record about a person | No (PA-89) |
@@ -92,15 +80,17 @@ Table 3 lists every event type \<System Name\>'s applications log, the actions r
 | Security event | Suspicious activity; a breach of a security rule | Events the applications judge to be an attack or misuse, such as a forged request | Shows attempts to defeat the controls | Not confirmed by any test (PA-103) |
 | Faulty document report | A user reports a document or page as faulty | Reports made from the viewer | Shows who reported what, as these reports name documents | Not confirmed by any test (PA-103) |
 
-This table is the full list of event types and actions that \<System Name\>'s applications must be able to log (AU-2, part a). It is the design: a release may add to it only after the system owner has changed this table (PRO-AU-5).
+This table is the full list of event types and actions that \<System Name\>'s applications must be able to log (AU-2, part a). It is the design: a release may add to it only after the system owner has changed this table (PRO-AU-5). Application events are built into each release, so developers make any change to them through a release. A release is reviewed, tested and recorded, so nobody can switch an event off quietly.
 
 \<System Name\> holds no passwords, so it logs no password change or reset (D-AC-23). Those are recorded in Active Directory.
 
 ### 3.4 What a record holds
 
-Every application record has the same fields. Table 4 shows which part of AU-3 each meets.
+Controls met here: AU-3, AU-3(1), AU-3(3), AU-8, AU-9, AU-12.
 
-**Table 4: Audit record content**
+Every application record has the same fields, in one record format that all three applications use. Every event in sections 3.2 and 3.3 writes a record with this content. Table 3 shows which part of AU-3 each meets.
+
+**Table 3: Audit record content**
 
 | Field | Holds | Meets |
 | --- | --- | --- |
@@ -121,7 +111,9 @@ Every application record has the same fields. Table 4 shows which part of AU-3 e
 
 ### 3.5 How records are stored and protected
 
-**Table 5: Where audit information is held, and who can reach it**
+Controls met here: AU-9, AU-9(4).
+
+**Table 4: Where audit information is held, and who can reach it**
 
 | Store | Written by | Read by | Changed or deleted by | Today |
 | --- | --- | --- | --- | --- |
@@ -134,13 +126,13 @@ Every application record has the same fields. Table 4 shows which part of AU-3 e
 
 **The chain hash.** Each record holds a hash of its own fields and the previous record's hash, so a changed or removed record breaks the chain. The design uses a keyed hash, HMAC-SHA-256, with the key held outside the database where the applications' accounts cannot read it (key K11 in \<System and Communications Protection Management\>, section 3.4). The newest hash is copied each day to a store the applications cannot write to, so that removing the newest records is also revealed. The time is rounded to the microsecond before hashing, so that a stored hash can be recomputed. The key is listed in the key register (\<System and Communications Protection Management\>, section 3.4).
 
-**The chain check.** The check runs on a schedule and at each start-up (PRO-AU-2, PRO-SI-6). A break alerts the security officer and the auditor, who preserve the evidence before anything is changed and raise an incident.
+**The chain check.** The check runs on a schedule and at each start-up (PRO-AU-2, PRO-SI-6). A break alerts the security officer and the auditor (detection use case U2), who preserve the evidence before anything is changed and raise an incident.
 
-**Table 6: Who may manage audit logging**
+**Table 5: Who may manage audit logging**
 
 | Function | Who | How it is limited |
 | --- | --- | --- |
-| Read and search audit records | Auditors | AD group DocViewer\_Auditors, owned by the system owner. An auditor holds no administration role (PRO-AU-6) |
+| Read and search audit records | Auditors | AD group DocViewer\_Auditors, the only group that opens the audit pages. It is owned by the system owner, who alone adds members. An auditor holds no administration role (PRO-AU-6) |
 | Change or delete an audit record | Nobody | The database account cannot; rule B12 forbids it |
 | Select which application events are logged | System owner | Decided on the record; made by developers through a release (PRO-AU-5) |
 | Change PostgreSQL logging settings | Database administrator | A recorded change (\<Configuration Management\>) |
@@ -148,11 +140,13 @@ Every application record has the same fields. Table 4 shows which part of AU-3 e
 | Archive records, and delete them after 24 months | Database administrator | Deletion only with the system owner's recorded approval (PRO-AU-4) |
 | Run the chain check and receive its alerts | Auditor and security officer | PRO-AU-2 |
 
-Global administrators and administrators have none of these functions. They are the people whose actions the auditor reviews (\<Access Control Management\>, section 3.5).
+Global administrators and administrators have none of these functions. They are the people whose actions the auditor reviews (\<Access Control Management\>, section 3.5). Rule B12 of \<Security Operating Procedures\> forbids anyone to alter, delete or disable audit records or logging.
 
 ### 3.6 Time
 
-1. Every record's time is in UTC, to the nearest second or finer.
+Controls met here: AU-6(3), AU-8.
+
+1. Each record takes its time from the clock of the server that writes it. Every record's time is in UTC, to the nearest second or finer.
 2. Each server takes its time from \<Organisation\>'s time service, \[Organisation time source\], and stays within 1 second of UTC.
 3. Each month the Windows server administrator checks both servers, records the result on TPL-8, and reports any drift over 5 seconds to the security officer (PRO-AU-4).
 4. A change to a server's clock is itself a Windows event (4616).
@@ -163,7 +157,9 @@ CSS no longer asks for clock synchronisation under AU-8. In Revision 5 it moved 
 
 ### 3.7 Retention and capacity
 
-**Table 7: Retention**
+Controls met here: AU-4, AU-11.
+
+**Table 6: Retention**
 
 | Information | Kept | Then |
 | --- | --- | --- |
@@ -177,16 +173,22 @@ CSS no longer asks for clock synchronisation under AU-8. In Revision 5 it moved 
 
 Storage is sized for the full 24 months: 12 months in the database, and the same again for the archive. The size is the number of records each day, \[records per day, to be measured\], times the average size of a record, \[bytes per record, to be measured\], times 365 days, plus half as much again for growth. Both figures are measured in the test environment before the request goes to \<Organisation\>, and again in the first month of use (D-AU-11). The database administrator checks free space and the size of the audit table each month, and asks for more before records are at risk (PRO-AU-4). The audit log is backed up with the database (\<Contingency Planning Management\>).
 
+The periods are those of \<System Name\>'s retention schedule (\<System and Information Integrity Management\>, section 3.7, and \<PII Processing Management\>, section 3.7). The database administrator archives records each month, and applies the rules for incident evidence and legal holds (PRO-AU-4, PRO-AU-7).
+
 ### 3.8 Review, analysis and reporting
 
-1. **Weekly review.** The auditor reviews the records since the last review, following \<Security Operating Procedures\>, section 4.2, which lists the unusual activity to look for (PRO-AU-1).
-2. **Across stores.** The auditor compares the application records with the PostgreSQL and Windows logs and \<Organisation\>'s record of sign-ins and group changes, by time and username. This is done by hand, which the system owner has accepted to 6 November 2027 (NC-AU-08).
-3. **Against requests.** Every change to access is checked against its approved ServiceNow request (\<Access Control Management\>, section 3.13).
-4. **Report.** Findings go to the security officer and system owner on TPL-8. Anything unexplained is raised as a security incident.
-5. **More review when risk rises.** After an incident or new threat information, the system owner sets a more frequent or closer review.
-6. **A second look at the most powerful.** The Head of Cyber checks the global administrators' actions (\<Security Operating Procedures\>, duty C16).
+Controls met here: AU-6, AU-6(1), AU-6(3), AU-7, AU-7(1).
 
-**Table 8: Search and sort on the audit page**
+1. **Weekly review.** The auditor reviews the records since the last review, following \<Security Operating Procedures\>, section 4.2, which lists the unusual activity to look for (PRO-AU-1; duty C3). The auditor judges what each finding could lead to. The auditor holds no administration role, so nobody reviews their own actions.
+2. **Across stores.** The auditor compares the application records with the PostgreSQL and Windows logs and \<Organisation\>'s record of sign-ins and group changes, lining them up by UTC time and username. This is done by hand, which is proportionate for one system, which the system owner has accepted to 6 November 2027 (NC-AU-08).
+3. **Against requests.** Every change to access is checked against its approved ServiceNow request (\<Access Control Management\>, section 3.13).
+4. **Report.** Findings go to the security officer and system owner on TPL-8, with the date, the period covered, the reviewer and the result. Anything unexplained is raised as a security incident.
+5. **More review when risk rises.** After an incident or new threat information, the system owner sets a more frequent or closer review (PRO-AU-1, step 5).
+6. **A second look at the most powerful.** The Head of Cyber checks the global administrators' actions (\<Security Operating Procedures\>, duty C16).
+7. **Automated support.** Two means join up review, analysis and reporting. The admin portal's audit page filters and summarises the records for the auditor. \<Organisation\>'s central monitoring, if it is confirmed to take \<System Name\>'s logs, raises the alerts in the detection use cases U1 to U8 (\<System and Information Integrity Management\>, section 3.4).
+8. **Reports and exports.** The audit page, open only to the auditor group, filters the records and shows a summary. An export gives the auditor the filtered records as a file, for a report or an investigation. Records are always shown with their stored time.
+
+**Table 7: Search and sort on the audit page**
 
 | Field | Design | Today |
 | --- | --- | --- |
@@ -198,11 +200,13 @@ Storage is sized for the full 24 months: 12 months in the database, and the same
 | Document | Search and sort | Neither (PA-41) |
 | Export of the filtered records | Yes | No (PA-41) |
 
-The page only reads. It cannot change a record or its order.
+The page only reads. It cannot change a record or its order, and an export is a copy.
 
 ### 3.9 Failures and alerts
 
-**Table 9: Alerts**
+Controls met here: AU-5, AU-6(1), AU-9.
+
+**Table 8: Alerts**
 
 | Event | Alert to | Within | Then | Today |
 | --- | --- | --- | --- | --- |
@@ -211,11 +215,17 @@ The page only reads. It cannot change a record or its order.
 | A server clock more than 5 seconds from UTC | Security officer | At the monthly check | The Windows server administrator corrects it with \<Organisation\> | Not built |
 | Audit storage running low | Database administrator | At the monthly check | More storage is raised before records are at risk (PRO-AU-4) | Not built |
 
-A full disk is a logging failure like any other: if the audit log cannot be written because storage has run out, the first alert in Table 9 applies. The CSS separate warning before storage fills, AU-5(1), is not in the Moderate baseline; the monthly check stands in for it.
+The logging failure alert goes through \<Organisation\>'s central monitoring if that is confirmed; otherwise by \[alert route to be set at build\], which must not depend on \<System Name\> itself being healthy.
+
+\<System Name\> keeps running when logging fails. The system owner chose this (D-AU-11): staff must still be able to reach HR records, a stop would let a logging fault take the whole service down, and the failure is alerted within 1 hour and the gap recorded. The Windows server and database administrators find the cause and restore logging. The security officer records the period with no records and tells the system owner. If records may be lost or changed, the evidence is preserved first (PRO-AU-3).
+
+A full disk is a logging failure like any other: if the audit log cannot be written because storage has run out, the first alert in Table 8 applies. The CSS separate warning before storage fills, AU-5(1), is not in the Moderate baseline; the monthly check stands in for it.
 
 Alerts are raised by the detection use cases in \<System and Information Integrity Management\>, section 3.4, of which U2 and U7 concern audit. None is built yet (PA-59).
 
 ### 3.10 The application logs
+
+Controls met here: AU-9, AU-11.
 
 Each application also keeps its own log of errors, start-up and shut-down. In the tested build that log repeats every audit event, with the username, IP address and session ID (A38). Until that is fixed (PA-75), an interim rule applies, approved by the authorising official (D-AU-06):
 
@@ -228,404 +238,39 @@ Once PA-75 is fixed, the application logs hold no audit details, personal data o
 
 ### 3.11 What \<Organisation\> provides
 
+Controls met here: AU-2, AU-4, AU-5, AU-6, AU-6(1), AU-6(3), AU-8, AU-11, AU-12.
+
 \<Organisation\> sets these as part of its corporate configuration. The \<System Name\> team has no control over them (D-AC-21, D-AC-23). \<System Name\> states what it relies on, and asks for the evidence. What is expected below is the system owner's understanding, not evidence.
 
-**Table 10: Provided by \<Organisation\>**
+**Table 9: Provided by \<Organisation\>**
 
 | Provided | Controls | What \<System Name\> relies on | Expected, not confirmed | Evidence asked |
 | --- | --- | --- | --- | --- |
 | Central log monitoring | AU-6(1), AU-6(3), AU-5 | It takes the Windows and PostgreSQL logs, and \<System Name\>'s alerts, and tells the security officer | A central service takes the Windows and PostgreSQL logs. Open (D-AU-07) | EV-AU-01 |
 | Time service | AU-8 | Both servers stay within 1 second of UTC | The domain controllers provide time | EV-AU-02 |
 | Storage and backup | AU-4, AU-11 | Room for 12 months of records online, backed up daily, and somewhere to hold the offline archive | Storage is sized for 12 months, with daily backups | EV-AU-03 |
-| Windows audit policy | AU-2, AU-12 | The Windows events in Table 2 are logged on both servers and kept | Group Policy sets the audit policy, and logs are kept for 12 months | EV-AU-04 |
+| Windows audit policy | AU-2, AU-12 | The Windows events in Table 1 are logged on both servers and kept | Group Policy sets the audit policy, and logs are kept for 12 months | EV-AU-04 |
 | AD FS and Active Directory audit | AU-2, AU-6, AU-6(3), AU-12 | Every sign-in attempt for \<System Name\>, and every change to \<System Name\>'s groups and their members, is recorded, kept for at least 12 months, and sent to \<System Name\>'s auditor as a weekly report, by \[route to be agreed with \<Organisation\>\]. Read access for the auditor would also meet this (D-AU-11) | Not yet asked | EV-AU-05 |
 
-The five requests, EV-AU-01 to EV-AU-05, are sent together, and central monitoring (D-AU-07) is to be settled with \<Organisation\>'s security contact before the servers are built (D-AU-11).
+The system owner agrees two things with \<Organisation\>'s security contact, and records them: which logs \<Organisation\>'s monitoring needs from \<System Name\> and its servers; and which of \<Organisation\>'s own records, of AD FS, Active Directory, the network and the VPN, \<System Name\>'s auditor receives. The five requests, EV-AU-01 to EV-AU-05, are sent together, and central monitoring (D-AU-07) is to be settled with \<Organisation\>'s security contact before the servers are built (D-AU-11).
 
 **Today:** no request has been sent, and none of this is evidenced.
 
-## 4 Each control and enhancement
-
-The controls are in CSS order. Each has two tables. The first takes each part of the control and gives what CSS requires, the design that meets it, and the position today. The second says who provides and is responsible for the control, what enforces it, the rules and procedures that apply, the tests run, the records an assessor will ask for, its status, the risk decision, and what is still open.
-
-### 4.1 AU-1 Policy and Procedures
-
-**Table 11: AU-1 design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| a.1 | An audit and accountability policy, shared with defined people, covering purpose, scope, roles, responsibilities, management commitment, coordination and compliance, and consistent with the law | \<Policy\> (AU): a system-level policy. Purpose and scope are in section AU.1, responsibilities in AU.5, and commitment, coordination and compliance in AU.6. It is shared with everyone who administers or reviews \<System Name\>. The legal adviser reviews it | Version \<ver\> approved by the Head of Cyber (D-AU-08). Legally reviewed on 12 November 2026. Not yet shared (PA-20) |
-| a.2 | Procedures that carry out the policy, shared with defined people | \<Procedures\> (AU): seven procedures, PRO-AU-1 to PRO-AU-7, each naming who acts, how often and the record. Shared with the same people | Approved by the system owner (D-AU-09). Not yet shared or walked through |
-| b | A named official manages the policy and procedures | The system owner | \[Name\] is named in \<Roles and Responsibilities\> |
-| c.1 | The policy is reviewed on a schedule and after set events | Every 12 months, and after a significant incident, audit finding or system change | Reviewed after the audit review of 8 November 2026. The first yearly review falls due in November 2027 |
-| c.2 | The procedures are reviewed on a schedule and after set events | Every 12 months, and after a change to the steps | As the policy |
-
-**Table 12: AU-1 responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | People, following the procedures |
-| Responsible | System owner, Head of Cyber |
-| Enforced by | Not a system function. The documents are under version control, and each review is recorded in the change record |
-| Rules and procedures | The whole policy (\<Policy\>, sections AU.3 and AU.4); all seven procedures (\<Procedures\> (AU)) |
-| Tests | None. Examined from the documents |
-| Records an assessor will ask for | The policy and procedures with their approvals; proof they were shared; walk-through and review records. The approvals exist; the rest do not yet |
-| Status | Partially implemented |
-| Risk decision | NC-AU-01, rated Low: approve |
-| Open items | PA-20: share the policy and procedures, and walk through each procedure |
-
-### 4.2 AU-2 Event Logging
-
-**Table 13: AU-2 design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| a | Identify the types of event the system can log | For the applications, the event types and actions in Table 3. For the servers, the events PostgreSQL and Windows Server 2025 log, in Table 2 and appendix A. For \<Organisation\>'s services, the events in Table 2 | The tested build can log the event types in Table 3, except those the table marks as not logged |
-| b | Coordinate event logging with the other parts of the organisation that need audit information | The system owner agrees with \<Organisation\>'s security contact two things, and records them: which logs \<Organisation\>'s monitoring needs from \<System Name\> and its servers; and which of \<Organisation\>'s own records, of AD FS, Active Directory, the network and the VPN, \<System Name\>'s auditor receives (section 3.11) | Not done. The request has not been sent (EV-AU-01, EV-AU-05), and whether central monitoring will take \<System Name\>'s logs is open (D-AU-07) |
-| c | Select the event types to log, and how often | The events in section 3.3 for the applications, and in section 3.2 for PostgreSQL, Windows and \<Organisation\>'s services. Each is logged at every occurrence | Partly. Most account, group and role changes in the admin portal are not logged (PA-14). Reading the audit log, start-up and shut-down, and changes to logging are not logged (PA-76). Whether configuration changes are logged is not confirmed (PA-103). PostgreSQL logging is off, and Windows is not built (PA-43) |
-| d | Say why the selected events are enough to investigate an incident | Table 3 gives, for each event, what an investigator learns from it. Together they answer who signed in, what they saw or changed, what they were refused, who changed access or settings, and when nothing could be logged | Written and approved (D-AU-03, D-AU-09) |
-| e | Review and update the selected events on a schedule | The system owner reviews the list every 12 months and on any change, and records the decision in \<Decision Register\> (PRO-AU-5) | Reviewed on 8 November 2026, and again on 12 November 2026 for sign-in through AD FS |
-
-**Table 14: AU-2 responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | \<System Name\>: built into the system |
-| Responsible | System owner, developers |
-| Enforced by | The application's audit service, which writes a record at each event; PostgreSQL and Windows logging settings on the servers |
-| Rules and procedures | Policy principle P1; rule R1 (\<Policy\>, sections AU.3 and AU.4); PRO-AU-5 (\<Procedures\> (AU)) |
-| Tests | Checks A15 to A18 on the v1.0 build (Test-AuditAndAuth.ps1), 6 November 2026: sign-in and failed sign-in, document views and refused access each wrote a record. These checks ran on a build that used its own passwords and groups, and are to be repeated on the AD FS build (PA-95) |
-| Records an assessor will ask for | The list of events and its yearly review record; the record of what was agreed with \<Organisation\>; sample audit records for each event. The list exists; samples exist only from the test environment |
-| Status | Partially implemented |
-| Risk decision | NC-AU-02, rated Medium: remediate; NC-AU-17, rated Low: remediate (system owner, Low) |
-| Open items | PA-14: log every change made in the admin portal. PA-76: log reading of the audit log, start-up and shut-down, and changes to logging. PA-101: agree with \<Organisation\> how its AD FS and Active Directory records reach the auditor. PA-103: confirm that configuration changes are logged |
-
-### 4.3 AU-3 Content of Audit Records
-
-**Table 15: AU-3 design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| a | What type of event occurred | Event type and Action (Table 4) | Present in every record tested (A19) |
-| b | When it occurred | Time, in UTC | Present, in UTC (A22) |
-| c | Where it occurred | Source component: the app that raised the event | Present |
-| d | The source of the event | IP address and browser of the person's device | Present |
-| e | The outcome | Result: success, failure or refused | Present |
-| f | The identity of the people and things involved | Username and user ID of the person, taken from the AD FS token; the project and document acted on | Present. But some records written by the API name "System" where a person acted (PA-14) |
-
-**Table 16: AU-3 responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | \<System Name\>: built into the system |
-| Responsible | Developers |
-| Enforced by | One record format, set out in Table 4, which all three applications use |
-| Rules and procedures | Policy principle P2 (\<Policy\>, sections AU.3 and AU.4). No procedure: it is built into the system |
-| Tests | Check A19 on the v1.0 build, 6 November 2026: every record held the six kinds of content. These checks ran on a build that used its own passwords and groups, and are to be repeated on the AD FS build (PA-95) |
-| Records an assessor will ask for | The record definition; sample records showing each field. Samples exist only from the test environment |
-| Status | Partially implemented |
-| Risk decision | NC-AU-03, rated Low: remediate |
-| Open items | PA-14: name the real person on every record |
-
-### 4.4 AU-3(1) Additional Audit Information
-
-**Table 17: AU-3(1) design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| All | Records also hold defined extra information | A session reference, which is a hash of the session ID and never the ID itself, the browser, the project and the document (Table 4) | The four fields are present in the tested build (A20, A21). Whether its session field holds the live ID or a reference has not been checked (PA-104) |
-
-**Table 18: AU-3(1) responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | \<System Name\>: built into the system |
-| Responsible | Developers |
-| Enforced by | The same record definition |
-| Rules and procedures | Policy principle P2 (\<Policy\>, sections AU.3 and AU.4). No procedure: it is built into the system |
-| Tests | Checks A20 and A21 on the v1.0 build, 6 November 2026: both passed. These checks ran on a build that used its own passwords and groups, and are to be repeated on the AD FS build (PA-95) |
-| Records an assessor will ask for | Sample records showing the four fields |
-| Status | Partially implemented |
-| Risk decision | None: no finding |
-| Open items | PA-104: confirm that the session field holds a hash and not the live session ID, and change it if not. The checks are to be repeated on the AD FS build (PA-95) |
-
-### 4.5 AU-4 Audit Log Storage Capacity
-
-**Table 19: AU-4 design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| All | Set aside enough storage for the audit records that must be kept | Storage for 24 months of records: 12 months in the database, and 12 months in the offline archive. The database administrator sizes it by the method in section 3.7: records each day, times their average size, times 365, plus half as much again. Each month they check free space and the size of the audit table, and ask for more before records are at risk (PRO-AU-4) | Not planned: the servers are not built (PA-42). \<Organisation\>'s storage and backup are not evidenced (EV-AU-03) |
-
-**Table 20: AU-4 responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | Shared: \<System Name\> and \<Organisation\> |
-| Responsible | Database administrator |
-| Enforced by | The database server's storage, provided by \<Organisation\>; the monthly check |
-| Rules and procedures | Policy rule R2 (\<Policy\>, sections AU.3 and AU.4); PRO-AU-4 (\<Procedures\> (AU)) |
-| Tests | None: there is nothing to test until the servers are built |
-| Records an assessor will ask for | The capacity calculation; the monthly check records on TPL-8; \<Organisation\>'s storage and backup description (EV-AU-03). None exist yet |
-| Status | Not implemented |
-| Risk decision | NC-AU-04, rated Low: obtain evidence |
-| Open items | PA-42: size the storage and confirm backups on the servers |
-
-### 4.6 AU-5 Response to Audit Logging Process Failures
-
-**Table 21: AU-5 design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| a | Alert defined people within a defined time when logging fails | A failed audit write raises an alert to the Windows server administrator and the security officer within 1 hour (detection use case U7 in \<System and Information Integrity Management\>, section 3.4). The alert goes through \<Organisation\>'s central monitoring if that is confirmed; otherwise by \[alert route to be set at build\], which must not depend on \<System Name\> itself being healthy | Not built. A failed write goes to the application log as a critical line, and nobody is told (A31, A35; PA-38) |
-| b | Take defined further action | \<System Name\> keeps running. The system owner chose this (D-AU-11): staff must still be able to reach HR records, a stop would let a logging fault take the whole service down, and the failure is alerted within 1 hour and the gap recorded. The Windows server and database administrators find the cause and restore logging. The security officer records the period with no records and tells the system owner. If records may be lost or changed, the evidence is preserved first (PRO-AU-3) | The tested build keeps running when a write fails (A32). The procedure has not been used |
-
-**Table 22: AU-5 responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | Shared: \<System Name\> and \<Organisation\> |
-| Responsible | Windows server administrator, security officer |
-| Enforced by | The audit service's failure handling; the alert route, when built |
-| Rules and procedures | Policy rule R6 (\<Policy\>, sections AU.3 and AU.4); PRO-AU-3 (\<Procedures\> (AU)) |
-| Tests | Checks A31, A32 and A35 on the v1.0 build, 6 and 8 November 2026. A31 and A32 passed: a failed write is logged as critical and the action carries on. A35 showed the gap: no alert reaches anyone |
-| Records an assessor will ask for | The alert configuration; a sample alert and the response record on TPL-8. None exist yet |
-| Status | Partially implemented |
-| Risk decision | NC-AU-05, rated Medium: remediate |
-| Open items | PA-38: send logging failures to the Windows server administrator and security officer within 1 hour |
-
-### 4.7 AU-6 Audit Record Review, Analysis and Reporting
-
-**Table 23: AU-6 design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| a | Review and analyse audit records on a schedule, for signs of defined unusual activity | The auditor reviews the records every week (PRO-AU-1), for the activity listed in \<Security Operating Procedures\>, section 4.2: repeated failed sign-ins and lockouts, refused access, sign-ins at unusual times, changes to access, large exports, configuration changes, reading of the audit log, gaps in the records, and records under unknown names. The auditor judges what each finding could lead to. The auditor holds no administration role, so nobody reviews their own actions | Not started: \<System Name\> is not in use (PA-40) |
-| b | Report findings to defined people | To the security officer and the system owner, on TPL-8, with the date, the period covered, the reviewer and the result. Anything unexplained is raised as a security incident | Not started |
-| c | Change the level of review when the risk changes | After an incident or new threat information, the system owner sets a more frequent or closer review (PRO-AU-1, step 5) | Not yet used |
-
-**Table 24: AU-6 responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | People, following the procedures |
-| Responsible | Auditor, security officer |
-| Enforced by | Not a system function. The auditor's weekly duty C3 in \<Security Operating Procedures\>, checked by the Head of Cyber for global administrators' actions (duty C16) |
-| Rules and procedures | Policy principle P4; rule R5 (\<Policy\>, sections AU.3 and AU.4); PRO-AU-1 (\<Procedures\> (AU)) |
-| Tests | None: a procedure, to be examined from its records |
-| Records an assessor will ask for | The weekly review records on TPL-8; the reports made; any incident raised from a review. None exist yet |
-| Status | Not implemented |
-| Risk decision | NC-AU-06, rated Medium: remediate |
-| Open items | PA-40: start the weekly review at go-live |
-
-### 4.8 AU-6(1) Automated Process Integration
-
-**Table 25: AU-6(1) design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| All | Join up review, analysis and reporting using automated means | Two means. The admin portal's audit page, which filters and summarises the records for the auditor. And \<Organisation\>'s central monitoring, if it is confirmed to take \<System Name\>'s logs, which would raise the alerts in the detection use cases U1 to U8 (\<System and Information Integrity Management\>, section 3.4) | The audit page only. Whether central monitoring will take the logs is open (D-AU-07), and no alert is built (PA-59) |
-
-**Table 26: AU-6(1) responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | Shared: \<System Name\> and \<Organisation\> |
-| Responsible | Auditor, \<Organisation\> |
-| Enforced by | The audit page; \<Organisation\>'s central monitoring, if confirmed |
-| Rules and procedures | Policy rule R5 (\<Policy\>, sections AU.3 and AU.4); PRO-AU-1 (\<Procedures\> (AU)) |
-| Tests | None |
-| Records an assessor will ask for | \<Organisation\>'s description of its monitoring and what it takes from \<System Name\> (EV-AU-01); the alert rules. None exist yet |
-| Status | Not implemented |
-| Risk decision | NC-AU-07, rated Low: obtain evidence |
-| Open items | PA-40: confirm \<Organisation\>'s central monitoring (D-AU-07, EV-AU-01) |
-
-### 4.9 AU-6(3) Correlate Audit Record Repositories
-
-**Table 27: AU-6(3) design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| All | Analyse records from different stores together, to see the whole picture | Each week the auditor compares the application audit log with the PostgreSQL log, the Windows logs, and \<Organisation\>'s record of AD FS sign-ins and Active Directory group changes for \<System Name\>, lining them up by UTC time and username. This is done by hand. The system owner accepted that as proportionate for one system (NC-AU-08), to 6 November 2027 | Only the application audit log can be reviewed today. The other logs are off, not built, or not yet shared with the auditor (PA-43, PA-101) |
-
-**Table 28: AU-6(3) responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | Shared: \<System Name\> and \<Organisation\> |
-| Responsible | Auditor, \<Organisation\> |
-| Enforced by | Not a system function: a weekly comparison by the auditor |
-| Rules and procedures | Policy rule R5 (\<Policy\>, sections AU.3 and AU.4); PRO-AU-1 (\<Procedures\> (AU)) |
-| Tests | None |
-| Records an assessor will ask for | The weekly review records showing each store compared; the acceptance of the manual method (\<Risk List\>). The acceptance exists |
-| Status | Not implemented |
-| Risk decision | NC-AU-08, rated Low: accepted |
-| Open items | PA-40: start the review. PA-43: turn on database and Windows logging. PA-101: obtain \<Organisation\>'s AD FS and Active Directory records |
-
-### 4.10 AU-7 Audit Record Reduction and Report Generation
-
-**Table 29: AU-7 design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| a | Provide a way to cut records down and make reports, for review on demand and for investigation after the event | The admin portal's audit page filters the records and shows a summary. An export gives the auditor the filtered records as a file for a report or an investigation | The page filters by date, event type, result and username (A23, A24). There is no export and no report (PA-41) |
-| b | Do not change the content or time order of the records | The page only reads. It cannot change a record, and an export is a copy. Records are always shown with their stored time | The page changes nothing (A23, A24) |
-
-**Table 30: AU-7 responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | \<System Name\>: built into the system |
-| Responsible | Developers |
-| Enforced by | The audit page, open only to the auditor group |
-| Rules and procedures | Policy principle P4 (\<Policy\>, sections AU.3 and AU.4); PRO-AU-1 (\<Procedures\> (AU)) |
-| Tests | Checks A23 and A24 on the v1.0 build, 6 November 2026: both passed. These checks ran on a build that used its own passwords and groups, and are to be repeated on the AD FS build (PA-95) |
-| Records an assessor will ask for | A demonstration of the page; a sample report or export. No export exists yet |
-| Status | Partially implemented |
-| Risk decision | NC-AU-09, rated Low: remediate |
-| Open items | PA-41: add an export |
-
-### 4.11 AU-7(1) Automatic Processing
-
-**Table 31: AU-7(1) design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| All | Sort and search records on defined fields | Search and sort on six fields: date, event type, result, username, project and document | Search on four of the six: date, event type, result and username. No search by project or document, and no choice of sort order (PA-41) |
-
-**Table 32: AU-7(1) responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | \<System Name\>: built into the system |
-| Responsible | Developers |
-| Enforced by | The audit page |
-| Rules and procedures | Policy principle P4 (\<Policy\>, sections AU.3 and AU.4); PRO-AU-1 (\<Procedures\> (AU)) |
-| Tests | None separate: examined with A23 and A24 |
-| Records an assessor will ask for | A demonstration of search and sort on each field |
-| Status | Partially implemented |
-| Risk decision | NC-AU-10, rated Low: remediate |
-| Open items | PA-41: add search by project and document, and a choice of sort order |
-
-### 4.12 AU-8 Time Stamps
-
-**Table 33: AU-8 design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| a | Use the system's own clocks to make time stamps | Each record takes its time from the clock of the server that writes it. Both servers set their clocks from \<Organisation\>'s time service, \[Organisation time source\], and stay within 1 second of UTC. Each month the Windows server administrator checks this, and reports any drift over 5 seconds to the security officer (PRO-AU-4) | The applications use the server clock. The servers are not built, and the time service is not evidenced (EV-AU-02, PA-102) |
-| b | Record time to a defined precision, in UTC or with the offset from it | UTC, to the nearest second or finer | The applications record UTC (A22), stored to the microsecond |
-
-**Table 34: AU-8 responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | Shared: \<System Name\> and \<Organisation\> |
-| Responsible | Developers, \<Organisation\> |
-| Enforced by | The application, which records UTC; the Windows time service on each server, set by \<Organisation\> |
-| Rules and procedures | Policy rule R3 (\<Policy\>, sections AU.3 and AU.4); PRO-AU-4 (\<Procedures\> (AU)) |
-| Tests | Check A22 on the v1.0 build, 6 November 2026: passed, records are in UTC |
-| Records an assessor will ask for | The servers' time settings; the monthly drift checks on TPL-8; \<Organisation\>'s time service configuration (EV-AU-02). None exist yet |
-| Status | Partially implemented |
-| Risk decision | NC-AU-11, rated Low: obtain evidence |
-| Open items | PA-102: set and evidence time synchronisation on the servers (EV-AU-02) |
-
-### 4.13 AU-9 Protection of Audit Information
-
-**Table 35: AU-9 design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| a | Protect audit information and audit tools from unauthorised access, change and deletion | Section 3.5 sets it out. Only API writes records, through a database account that can add them but not change or delete them (D-AC-18). Only the auditor group opens the audit pages. Each record carries a keyed chain hash, with the key held outside the database, and the newest hash is copied each day to a store the applications cannot write to. Application logs are readable only by the Windows server administrators and the auditor. The archive is offline, and its hash is recorded. Rule B12 of \<Security Operating Procedures\> forbids anyone to alter, delete or disable audit records or logging | An ordinary user cannot open the audit pages (T71), and records are chained. But the application's database account can change, delete and empty the table (A26 to A28; PA-36). The chain has no key, so it can be rewritten, and the newest records can be removed without trace (A36; PA-73). Stored hashes cannot be recomputed (A37; PA-74). Ordinary users can add records (PA-29). The application log repeats usernames, IP addresses and session IDs (A38; PA-75) |
-| b | Alert defined people when unauthorised access, change or deletion is detected | The chain check runs on a schedule and at each start-up. A break alerts the security officer and the auditor (detection use case U2), who preserve the evidence and raise an incident (PRO-AU-2) | Not built. The tested build contains a chain check, but nothing runs it or alerts (PA-37), and until PA-73 and PA-74 are fixed it cannot be relied on |
-
-**Table 36: AU-9 responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | \<System Name\>: built into the system |
-| Responsible | Developers, database administrator |
-| Enforced by | Database permissions; the application's role check on the audit pages; the chain hash and its check; Windows file permissions on the logs |
-| Rules and procedures | Policy principle P3; rules R4, R7 to R9 (\<Policy\>, sections AU.3 and AU.4); PRO-AU-2, PRO-AU-7 (\<Procedures\> (AU)) |
-| Tests | Checks A26 to A29 and A36 to A38 on the v1.0 build, 6 and 8 November 2026. A29 passed: each record holds a chain hash. The rest showed gaps: the application account could update, delete and empty the audit table (A26 to A28); the chain could be rewritten and cut short (A36); stored hashes did not recompute (A37); and the application log repeated audit details (A38) |
-| Records an assessor will ask for | Database permissions on the audit table; chain check results; the daily copy of the newest hash; file permissions on the logs; any tampering alert and its incident record. None exist yet in the form designed |
-| Status | Partially implemented |
-| Risk decision | NC-AU-12, rated High: remediate; NC-AU-16, rated Medium: remediate (D-AU-06) |
-| Open items | PA-36: give the API an account that can only add and read records. PA-37: run the chain check and alert. PA-73: key the chain hash. PA-74: make stored hashes recompute. PA-75: take audit details out of the application log. PA-29: stop ordinary users adding records |
-
-### 4.14 AU-9(4) Access by Subset of Privileged Users
-
-**Table 37: AU-9(4) design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| All | Allow only a defined few privileged users to manage audit logging | Table 6. Auditors read the records, and nobody can change them. Global administrators and administrators have no access to the audit pages, because their actions are what is reviewed. The auditor group, DocViewer\_Auditors, is owned by the system owner, who alone adds members (PRO-AU-6). Logging settings change only through a release or a recorded change | An auditor can read the records and cannot manage users (A23, A24; T73, T74). But a global administrator can also read them (A25; PA-39) |
-
-**Table 38: AU-9(4) responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | \<System Name\>: built into the system |
-| Responsible | System owner, developers |
-| Enforced by | The AD group DocViewer\_Auditors, the only group that opens the audit pages; change control for logging settings |
-| Rules and procedures | Policy principle P3; rule R4 (\<Policy\>, sections AU.3 and AU.4); PRO-AU-6 (\<Procedures\> (AU)) |
-| Tests | Checks A23 to A25 on the v1.0 build, 6 November 2026. A23 and A24 passed. A25 showed the gap: a global administrator can read the audit records. These checks ran on a build that used its own passwords and groups, and are to be repeated on the AD FS build (PA-95) |
-| Records an assessor will ask for | The members of the auditor group, and the ServiceNow requests behind them; the quarterly access review record; the test results. No members or reviews exist yet |
-| Status | Partially implemented |
-| Risk decision | NC-AU-13, rated Medium: remediate |
-| Open items | PA-39: remove the global administrator from the audit pages |
-
-### 4.15 AU-11 Audit Record Retention
-
-**Table 39: AU-11 design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| All | Keep audit records for a defined time, to support investigation and meet legal and organisational needs | Audit records are kept 12 months in the database, then 12 months in an offline archive whose SHA-256 hash is recorded. After 24 months they may be deleted, only with the system owner's recorded approval. Application logs are kept for 30 days. The periods are those of \<System Name\>'s retention schedule (\<System and Information Integrity Management\>, section 3.7, and \<PII Processing Management\>, section 3.7). Records held as evidence of an incident, or under a legal hold, are kept until the incident is closed or the legal adviser releases them (PRO-AU-4, PRO-AU-7) | Nothing removes or archives records, and there is no backup or capacity behind the rule yet (PA-42). Application logs are not yet controlled (PA-75) |
-
-**Table 40: AU-11 responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | Shared: \<System Name\> and \<Organisation\> |
-| Responsible | Database administrator |
-| Enforced by | The database administrator's monthly archive step; backups of the database server |
-| Rules and procedures | Policy principle P5; rule R2 (\<Policy\>, sections AU.3 and AU.4); PRO-AU-4, PRO-AU-7 (\<Procedures\> (AU)) |
-| Tests | None: there is nothing to test until the servers are built |
-| Records an assessor will ask for | The archive files and their recorded hashes; approvals of any deletion; backup records. None exist yet |
-| Status | Not implemented |
-| Risk decision | NC-AU-14, rated Low: obtain evidence |
-| Open items | PA-42: confirm storage and backups for 12 months online and 12 months archived |
-
-### 4.16 AU-12 Audit Record Generation
-
-**Table 41: AU-12 design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| a | Provide audit record generation, for the events the system can log, on defined components | Five components generate records: API, UI application, Admin application, PostgreSQL and Windows Server 2025 on both servers (section 3.2) | The three applications generate records (A15 to A18). PostgreSQL statement and connection logging are off (A30), and Windows is not built (PA-43) |
-| b | Let defined people select which events each component logs | The system owner selects the events. Application events are built into each release, so developers make a change through a release (PRO-AU-5). A release is reviewed, tested and recorded, so nobody can switch an event off quietly. PostgreSQL settings are changed by the database administrator, and the Windows audit policy by \<Organisation\>'s Group Policy, each through a recorded change | The system owner has selected the events (D-AU-P01). But no setting lets an event be turned on or off for a component: every change needs a release. The assessment found this a gap (statement AU-12b), and it is registered as PA-105 |
-| c | Generate records for the selected events, with the content AU-3 requires | Every event in sections 3.2 and 3.3 writes a record with the content in Table 4 | Partly: the events in PA-14 and PA-76 write no record |
-
-**Table 42: AU-12 responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | Shared: \<System Name\> and \<Organisation\> |
-| Responsible | Developers, administrators |
-| Enforced by | The audit service in each application; PostgreSQL and Windows logging settings |
-| Rules and procedures | Policy rule R1 (\<Policy\>, sections AU.3 and AU.4); PRO-AU-5 (\<Procedures\> (AU)) |
-| Tests | Checks A15 to A18 and A30 on the v1.0 build, 6 November 2026. A15 to A18 passed. A30 showed the gap: PostgreSQL logging is off. These checks ran on a build that used its own passwords and groups, and are to be repeated on the AD FS build (PA-95) |
-| Records an assessor will ask for | Sample records from each of the five components; the PostgreSQL logging settings; the Windows audit policy (EV-AU-04). Application samples exist only from the test environment |
-| Status | Partially implemented |
-| Risk decision | NC-AU-15, rated Medium: remediate; NC-AU-17, rated Low: remediate (system owner, Low) |
-| Open items | PA-14, PA-76: log the missing events. PA-43: set database logging, and collect Windows logs. PA-105: the system owner recommends that selection by release is accepted, as the events change rarely and a release is reviewed, tested and recorded (D-AU-12). The decision is the authorising official's. If it is not accepted, a setting is added |
+### 3.12 Policy and procedures
+
+Controls met here: AU-1.
+
+1. **Policy.** \<Policy\> (AU) is a system-level policy. Its purpose and scope are in section AU.1, responsibilities in AU.5, and commitment, coordination and compliance in AU.6. It is shared with everyone who administers or reviews \<System Name\>. The legal adviser reviews it.
+2. **Procedures.** \<Procedures\> (AU) holds seven procedures, PRO-AU-1 to PRO-AU-7, each naming who acts, how often and the record. They are shared with the same people.
+3. **Owner.** The system owner manages the policy and procedures.
+4. **Review.** The policy is reviewed every 12 months, and after a significant incident, audit finding or system change. The procedures are reviewed every 12 months, and after a change to the steps.
+5. **Records.** The documents are under version control, and each review is recorded in the change record.
 
 ## Appendix A Server logging settings
 
-These are the settings for PostgreSQL on the database server, so that it logs the events in Table 2 with the content AU-3 requires. The system owner adopted them as the design on 12 November 2026 (D-AU-12). The database administrator applies them at build and records any value that has to differ, with the reason. None is applied yet (PA-43). The Windows audit policy is \<Organisation\>'s Group Policy, and its settings are asked for under EV-AU-04.
+These are the settings for PostgreSQL on the database server, so that it logs the events in Table 1 with the content AU-3 requires. The system owner adopted them as the design on 12 November 2026 (D-AU-12). The database administrator applies them at build and records any value that has to differ, with the reason. None is applied yet (PA-43). The Windows audit policy is \<Organisation\>'s Group Policy, and its settings are asked for under EV-AU-04.
 
-**Table 43: PostgreSQL logging settings**
+**Table 10: PostgreSQL logging settings**
 
 | Setting | Value | What it gives |
 | --- | --- | --- |
@@ -645,26 +290,26 @@ Changing any of these is itself a change to logging: it is made through a record
 
 ### B.1 Logging that other controls require
 
-The CSS guidance on AU-2 points out that other controls ask for particular events to be logged. Table 44 shows where each of those in the Moderate baseline is met.
+The CSS guidance on AU-2 points out that other controls ask for particular events to be logged. Table 11 shows where each of those in the Moderate baseline is met.
 
-**Table 44: Logging required by other controls**
+**Table 11: Logging required by other controls**
 
 | Control | What it asks to be logged | Met by |
 | --- | --- | --- |
 | AC-2(4) Automated Audit Actions | Creating, changing, enabling, disabling and removing accounts | Active Directory, for accounts and group members (EV-AU-05). \<System Name\>'s audit log, for projects and the groups each uses |
-| AC-6(9) Log Use of Privileged Functions | Each use of a privileged function | The privileged functions row of Table 3 |
+| AC-6(9) Log Use of Privileged Functions | Each use of a privileged function | The privileged functions row of Table 2 |
 | AC-17(1) Monitoring and Control | Remote access sessions | \<Organisation\>'s VPN and gateway logs (EV-AC-08 to EV-AC-11) |
 | CM-3, CM-5 Change Control and Access Restrictions | Changes to the system, and who made them | The change record in ServiceNow; Windows events for installed services and policy changes; PostgreSQL logging of schema changes |
 | MA-4 Nonlocal Maintenance | Remote maintenance sessions | Windows sign-in events on the servers; \<Organisation\>'s record of the administration route |
 | PE-3 Physical Access Control | Entry to the rooms that hold the servers | \<Organisation\>'s physical access logs, inherited (\<Physical and Environmental Protection Management\>) |
 | SI-4 System Monitoring | Events that show an attack or misuse | The detection use cases U1 to U8 (\<System and Information Integrity Management\>, section 3.4) |
-| PM-21 Accounting of Disclosures | Disclosures of personal data | The export and download records of Table 3 |
+| PM-21 Accounting of Disclosures | Disclosures of personal data | The export and download records of Table 2 |
 
 ### B.2 AU controls outside the Moderate baseline
 
-CSS does not select these at Moderate, so they are not assessed. Some of the design goes further than the baseline, and Table 45 says where.
+CSS does not select these at Moderate, so they are not assessed. Some of the design goes further than the baseline, and Table 12 says where.
 
-**Table 45: AU controls not selected at Moderate**
+**Table 12: AU controls not selected at Moderate**
 
 | Control | What it adds | \<System Name\>'s position |
 | --- | --- | --- |

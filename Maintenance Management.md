@@ -2,39 +2,25 @@
 
 ## 1 Purpose
 
-This document shows how \<System Name\> is maintained, for each of the 9 Maintenance (MA) controls and enhancements in the CSS Moderate baseline. Section 3 sets out the design: who maintains what, how a job is controlled from approval to review, the routes for remote maintenance, the approved tools and people, what may leave and how, the components whose support matters, and what \<Organisation\> provides. Section 4 takes each control in turn. Values CSS asks the organisation to define are set at corporate level by \<Organisation\>. Appendix A the MA controls CSS does not select at Moderate.
+This document sets out how \<System Name\> is designed to be maintained, to meet the 9 Maintenance (MA) controls and enhancements in the CSS Moderate baseline.
 
-The policy is in \<Policy\> (MA), and the steps people follow are in \<Procedures\> (MA). Fixing flaws and releasing new versions follow their own designs, in \<System and Information Integrity Management\> and \<Configuration Management\>, and use the same change records.
+Section 3 is the design: the principles, who maintains what, how a job is controlled from approval to review, the routes for remote maintenance, the approved tools and people, what may leave and how, the components whose support matters, what \<Organisation\> provides, and the policy and procedures. Each subsection names the controls it helps to meet.
 
-An assessor examines the maintenance records, the lists of approved tools and people, the remote maintenance routes and their session logs; interviews those who maintain the system; and may watch a remote session being set up and ended (CSS). So for each control section 4 gives:
+Other documents hold the rest. Who provides and is responsible for each control, its status and its assessment result are in \<System Security Plan\>, section 7.9 (Table 18). The tests, their results and the records an assessor will ask for are in \<Control Assessment Record\> (MA). Each control's risk is in \<Risk List\>, and what is still open is in \<Plan of Action and Milestones\>. The policy is in \<Policy\> (MA), and the steps people follow are in \<Procedures\> (MA). Fixing flaws and releasing new versions follow their own designs, in \<System and Information Integrity Management\> and \<Configuration Management\>, and use the same change records.
 
-- **each part of the control**, as CSS letters them, with the design that meets it and the position today;
-- **who provides it**, and who is responsible;
-- **what enforces it**, the rules and procedures that apply, and the tests run;
-- **the records an assessor will ask for**, and whether they exist yet;
-- **its status**, the risk decision, and what is still open.
+Values that CSS asks the organisation to define are set at corporate level by \<Organisation\>. Any settings in section 3 should match those corporate values. Where one does not, it is changed in this document.
 
-**Design and today.** The Design column is how maintenance is meant to work on the two servers at \<Organisation\>. The Today column is what was found in the build labelled v1.0, tested in the test environment on 10 November 2026. No maintenance has taken place on the servers, as they are not built.
-
-**Table 1: Status values**
-
-| Status | Meaning |
-| --- | --- |
-| Implemented | The design is in place and working |
-| Partially implemented | Some of the design is in place; the open items say what is missing |
-| Not implemented | None of the design is in place yet |
+\<System Name\> is not yet built on its servers, and no maintenance has taken place on them. Where section 3 notes what is in place "now", it means the tested v1.0 build, in the test environment. Those notes show where that build differs from the design.
 
 ## 2 Summary
 
-The implementation status of each control, how it is met, who is responsible, its assessment result and the risk and plan entries for its gaps are recorded in \<System Security Plan\>, section 7.9 (Table 18). This section gives only the overall position.
-
-No control in the baseline is missing from the design. Every gap is registered in the Risk List (\<Risk List\>) and the Plan of Action and Milestones (\<Plan of Action and Milestones\>).
-
-Most of this family is a process that has not started, because the servers are not built. Three gaps are in the system itself: maintenance pages built into the admin portal that can change or delete data and write no audit record (PA-31), an admin portal open to every network in the tested build (PA-83), and schema changes that leave no record (PA-84). The rest waits on \<Organisation\>, which maintains the hardware and provides the route administrators use: none of its part is evidenced (PA-120).
+The implementation status of each control, how it is met, who is responsible, its assessment result and the risk and plan entries for its gaps are recorded in \<System Security Plan\>, section 7.9 (Table 18).
 
 ## 3 The design
 
 ### 3.1 Principles
+
+Controls met here: MA-2, MA-3, MA-5.
 
 1. **Approve first.** No maintenance happens without approval.
 2. **Known people, tools and routes.** Only those on the approved lists are used.
@@ -47,7 +33,9 @@ Maintenance means preventive and corrective work, repair and replacement, done o
 
 ### 3.2 Who maintains what
 
-**Table 2: Who maintains what**
+Controls met here: MA-2, MA-5.
+
+**Table 1: Who maintains what**
 
 | Part | Maintained by | Route | Record |
 | --- | --- | --- | --- |
@@ -60,11 +48,13 @@ Maintenance means preventive and corrective work, repair and replacement, done o
 
 ### 3.3 How a maintenance job is controlled
 
+Controls met here: MA-2, MA-5.
+
 ![Figure 1: How a maintenance job is controlled](figures/mam-figure-1.png)
 
 **Figure 1: How a maintenance job is controlled**
 
-**Table 3: Steps of a maintenance job**
+**Table 2: Steps of a maintenance job**
 
 | Step | What happens | Who | Record |
 | --- | --- | --- | --- |
@@ -77,15 +67,17 @@ Maintenance means preventive and corrective work, repair and replacement, done o
 
 **The check after maintenance** confirms that: the services answer; anonymous access is refused; sign-in works and is audited; the audit records are intact; the documents are intact; Defender is running; backups still run; the time is right; and the settings are unchanged. The method and the expected result of each are in \<Procedures\>, PRO-MA-1.
 
-**The maintenance record** holds: the date and time; the component; what was done; who did it, their organisation and contact; any escort; whether on site or remote, with the route and session reference; the tools used; parts removed or replaced, with any case or return number; data taken away; the inspection of the tools and the scan of any media; and the check afterwards with its reviewer. Form TPL-12 in \<Record Templates\> has a field for each. Maintenance records are kept for 3 years, as the system owner decided on 17 November 2026 (D-MP-11). That matches the training records, and covers a full authorisation cycle.
+**The maintenance record** holds: the date and time; the component; what was done; who did it, their organisation and contact; any escort; whether on site or remote, with the route and session reference; the tools used; parts removed or replaced, with any case or return number; data taken away; the inspection of the tools and the scan of any media; and the check afterwards with its reviewer. Form TPL-12 in \<Record Templates\> has a field for each. Each change to the database schema is also recorded, with its version, date and release. Maintenance records are kept for 3 years, as the system owner decided on 17 November 2026 (D-MP-11). That matches the training records, and covers a full authorisation cycle.
 
 **Routine work** follows the preventive schedule in \<Procedures\>, PRO-MA-6: database upkeep, disk space, updates, certificates, old logs and support dates, each with its owner and how often.
 
 ### 3.4 Remote maintenance routes
 
+Controls met here: MA-4.
+
 MA-4 requires every route used for remote maintenance to be documented in the security plan. \<System Security Plan\>, section 3.7, points here. All administration of the servers is remote, as they are at \<Organisation\>'s data centre.
 
-**Table 4: Remote maintenance routes**
+**Table 3: Remote maintenance routes**
 
 | Route | Used by | Tool | Network path | Sign-in | Logged in | How it ends | State now |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -95,13 +87,17 @@ MA-4 requires every route used for remote maintenance to be documented in the se
 | R4 Application releases | Developers | Release package | No direct route; the Windows server administrator installs the release over R1 | Not applicable | Change record (TPL-6) | Not applicable | Planned (PA-53) |
 | R5 Hardware and hypervisor | \<Organisation\> | \<Organisation\>'s tools | \<Organisation\>'s internal management network | \<Organisation\>'s controls | \<Organisation\>'s records | \<Organisation\>'s process | Inherited; not evidenced (EV-MA-01) |
 
-For each session the logs must show the start and end time, the account, the source address, the route, and the actions where the tool records them. The security officer reviews them weekly.
+The system owner approves remote work in the change record, which names the route. An administrator watches a supplier's session. For each session the logs must show the start and end time, the account, the source address, the route, and the actions where the tool records them, and the session reference goes on TPL-12. The security officer reviews the logs weekly.
 
 ### 3.5 Approved maintenance tools
 
-This list is provisional until the servers are built (PA-67). The Windows server administrator keeps it, and the system owner approves changes. When the servers are built, the version, publisher and file hash of each tool are added, so that a tool can be inspected against them before use.
+Controls met here: MA-2, MA-3, MA-3(1), MA-3(2), MA-4.
 
-**Table 5: Approved maintenance tools**
+This list is provisional until the servers are built (PA-67). The Windows server administrator keeps it and reviews it with the system owner every 12 months, and the system owner approves changes. When the servers are built, the version, publisher and file hash of each tool are added. Before use, each tool's version, publisher and file hash are compared with the list (PRO-MA-3), and the result is recorded on TPL-12.
+
+Microsoft Defender scans any media, and any file copied onto a server for maintenance, before it is used. The servers are virtual, so removable media are used rarely. The scan is recorded on TPL-12.
+
+**Table 4: Approved maintenance tools**
 
 | Tool | Use | Where | Who | State now |
 | --- | --- | --- | --- | --- |
@@ -116,13 +112,17 @@ This list is provisional until the servers are built (PA-67). The Windows server
 
 Not approved on the servers: any shell or package manager carried inside a release, as the tested build's container images carry (PA-85), and any tool not in this table.
 
-**The built-in maintenance pages.** The tested build has five pages in the admin portal that change the database schema or repair data. They can delete data, and they write no audit record. The design is that they are removed from production builds and replaced by controlled set-up steps (PA-31). Until then, a page is used only under an approved change record that names it, by a global administrator with the security officer or the system owner present, after a checked backup, and the use is recorded on TPL-12.
+**The built-in maintenance pages.** The tested build has five pages in the admin portal that change the database schema or repair data. They can delete data, and they write no audit record. The design is that they are removed from production builds and replaced by controlled set-up steps (PA-31). Until then, a page is used only under an approved change record that names it, by a global administrator with the security officer or the system owner present, after a checked backup. Each use is written to the audit log (PA-31) and recorded on TPL-12.
 
 ### 3.6 Approved maintenance people
 
-This list is provisional until the servers are built (PA-67). The system owner approves it.
+Controls met here: MA-5.
 
-**Table 6: Approved maintenance people**
+This list is provisional until the servers are built (PA-67). The system owner approves it. The Windows server administrator checks it when someone leaves, and every 12 months (PRO-MA-5).
+
+Before giving access, the administrator checks that the person is on the list, is screened, has signed Part B of the rules of behaviour, and has a named account. The Windows server administrator or the database administrator escorts and supervises anyone not on the list. A supplier has a temporary account, limited to the job and disabled afterwards, and no access to \<System Name\>'s data.
+
+**Table 5: Approved maintenance people**
 
 | Person or organisation | Role | Maintains | Screened | Part B signed | Account | Escort needed |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -135,19 +135,23 @@ This list is provisional until the servers are built (PA-67). The system owner a
 
 ### 3.7 Equipment and data that leave
 
-**Table 7: What may leave, and how**
+Controls met here: MA-2, MA-3(3).
+
+**Table 6: What may leave, and how**
 
 | What | Rule | Approved by | Record |
 | --- | --- | --- | --- |
-| Hardware or a disk beneath the servers | \<Organisation\> sanitises it first, by the method in \<Media Protection Management\>, section 3.6, and confirms it with a certificate | System owner, in the change record | TPL-12, TPL-13 |
-| Equipment used for maintenance, such as an engineer's laptop or a drive | Checked to hold no \<System Name\> information. If it does, it is sanitised, or it stays on site | System owner | TPL-12 |
-| A copy of data, a database dump, a log or a screenshot, sent for maintenance or support | Kept to the minimum, with personal data removed where possible; encrypted; sent by an approved route; and the receiver confirms deletion when it is no longer needed | System owner | TPL-12 or TPL-13 |
+| Hardware or a disk beneath the servers | \<Organisation\> first sanitises it of all \<System Name\> information, including configuration and secrets, by the method in \<Media Protection Management\>, section 3.6, and confirms it with a certificate | System owner, in the change record | TPL-12, TPL-13 |
+| Equipment used for maintenance, such as an engineer's laptop or a drive | The administrator checks that it holds no \<System Name\> information. If it does, \<Organisation\> sanitises it by the same method, or it stays at \<Organisation\>'s site | System owner | TPL-12 |
+| A copy of data, a database dump, a log or a screenshot, sent for maintenance or support | Kept to the minimum, with personal data removed where possible; encrypted; sent by an approved route; and the receiver confirms deletion when it is no longer needed (PRO-MA-7) | System owner | TPL-12 or TPL-13 |
 
 ### 3.8 Security-critical components and support
 
-These are the components that \<System Name\>'s security depends on (MA-06\_ODP\[01\]). Support dates are checked each month against the vendors' published lifecycles. On the servers each application runs as a Windows service (D-PL-10); the tested build ran in containers, so the image base applies to the test environment only, and the container engine is no longer a component of the servers. The system owner confirmed this on 17 November 2026 (D-MA-10).
+Controls met here: MA-6.
 
-**Table 8: Security-critical components**
+These are the components that \<System Name\>'s security depends on (MA-06\_ODP\[01\]). Support dates are checked each month against the vendors' published lifecycles. \<Organisation\> provides support and parts for the hardware and the hypervisor within 24 hours of a failure, so that a restore fits the 72-hour recovery time objective. Software is kept on supported versions, and a replacement is planned at least 6 months before support ends. On the servers each application runs as a Windows service (D-PL-10); the tested build ran in containers, so the image base applies to the test environment only, and the container engine is no longer a component of the servers. The system owner confirmed this on 17 November 2026 (D-MA-10).
+
+**Table 7: Security-critical components**
 
 | Component | Version seen | Support ends | Support or parts within | Who |
 | --- | --- | --- | --- | --- |
@@ -160,7 +164,9 @@ These are the components that \<System Name\>'s security depends on (MA-06\_ODP\
 
 ### 3.9 What \<Organisation\> provides
 
-**Table 9: Asked of \<Organisation\>**
+Controls met here: MA-2, MA-3(3), MA-4, MA-6.
+
+**Table 8: Asked of \<Organisation\>**
 
 | Provided | Controls | What \<System Name\> relies on | Evidence asked | State |
 | --- | --- | --- | --- | --- |
@@ -172,232 +178,21 @@ These are the components that \<System Name\>'s security depends on (MA-06\_ODP\
 
 **Today:** no request has been sent, and none of this is evidenced (PA-120).
 
-## 4 Each control and enhancement
+### 3.10 Policy and procedures
 
-The controls are in CSS order. Each has two tables. The first takes each part of the control and gives what CSS requires, the design that meets it, and the position today. The second says who provides and is responsible for the control, what enforces it, the rules and procedures that apply, the tests run, the records an assessor will ask for, its status, the risk decision, and what is still open.
+Controls met here: MA-1.
 
-### 4.1 MA-1 Policy and Procedures
-
-**Table 10: MA-1 design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| a.1 | A maintenance policy, shared with defined people, covering purpose, scope, roles, responsibilities, management commitment, coordination and compliance, and consistent with the law | \<Policy\> (MA): a system-level policy, shared with everyone who maintains \<System Name\>. The legal adviser reviews it | Version \<ver\> approved by the Head of Cyber (D-MA-01) and legally reviewed on 10 November 2026. The later version awaits the Head of Cyber (D-MA-07). Not yet shared (PA-20) |
-| a.2 | Procedures that carry out the policy, shared with defined people | \<Procedures\> (MA): seven procedures, PRO-MA-1 to PRO-MA-7. Shared with the same people | Approved by the system owner (D-MA-08). Not yet shared or walked through |
-| b | A named official manages the policy and procedures | The system owner | \[Name\] is named in \<Roles and Responsibilities\> |
-| c.1 | The policy is reviewed on a schedule and after set events | Every 12 months, and after a significant incident, audit finding or system change | Reviewed on 10 November 2026. The first yearly review falls due in November 2027 |
-| c.2 | The procedures are reviewed on a schedule and after set events | Every 12 months, and after a change to the steps | As the policy |
-
-**Table 11: MA-1 responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | People, following the procedures |
-| Responsible | System owner, Head of Cyber |
-| Enforced by | Not a system function. The documents are under version control |
-| Rules and procedures | The whole policy (\<Policy\>, section MA.4); all seven procedures (\<Procedures\> (MA)) |
-| Tests | None. Examined from the documents |
-| Records an assessor will ask for | The policy and procedures with their approvals; proof they were shared; review records. The approvals exist |
-| Status | Partially implemented |
-| Risk decision | NC-MA-01, rated Low: approve |
-| Open items | PA-20: share the policy and procedures. The Head of Cyber's approval of the later version (D-MA-07) |
-
-### 4.2 MA-2 Controlled Maintenance
-
-**Table 12: MA-2 design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| a | Schedule, document and review records of maintenance, repair and replacement, to the maker's specification or the organisation's own requirements | Every job is planned in a change record. Routine work follows the preventive schedule (PRO-MA-6). Each job is recorded on TPL-12, and the security officer reviews every record against its change record each month (section 3.3) | Written. No maintenance has taken place on the servers, which are not built |
-| b | Approve and monitor all maintenance, on site or remote, whether the item is serviced in place or taken away | The change is approved before work starts. Emergency work follows the emergency change rule and is recorded within 1 working day. An administrator watches work by anyone not on the approved list, remote sessions are logged (section 3.4), and each use of a built-in maintenance page is audited | Not in use. The built-in maintenance pages write no audit record (M03; PA-31) |
-| c | Require defined people to approve the removal of the system or its parts for maintenance, repair or replacement elsewhere | The system owner, in the change record. The servers are virtual: the hardware beneath them is \<Organisation\>'s, and leaves only under its process (section 3.7) | Not yet used |
-| d | Sanitise equipment to remove defined information before it leaves | All \<System Name\> information, including configuration and secrets. \<Organisation\> sanitises by the method in \<Media Protection Management\>, section 3.6, and confirms it with a certificate | Not evidenced (EV-MA-01) |
-| e | Check that every control the work could have affected still works afterwards | A nine-point checklist (section 3.3). The administrator runs it, and the security officer reviews and signs the result within 1 working day | The first three checks passed in the test environment after a simulated restart (M06 to M08). Not used on the servers |
-| f | Include defined information in the maintenance records | The fields in section 3.3, on TPL-12. Each change to the database schema is recorded with its version, date and release | TPL-12 holds the fields. Not yet used. Schema changes leave no record in the database (M09; PA-84) |
-
-**Table 13: MA-2 responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | Shared: \<System Name\> and \<Organisation\> |
-| Responsible | Administrators, security officer, \<Organisation\> |
-| Enforced by | Not a system function, apart from the audit of the built-in pages. Change control (\<Configuration Management\>, section 3.7) |
-| Rules and procedures | Policy rules R1, R2, R3, R8, R11 (\<Policy\>, section MA.4); PRO-MA-1, PRO-MA-2, PRO-MA-6 (\<Procedures\> (MA)) |
-| Tests | Checks M03 and M06 to M09 on the v1.0 build, 10 November 2026: the check after maintenance worked; the built-in pages and schema changes left no record |
-| Records an assessor will ask for | Change records and TPL-12 records for a sample of jobs; the monthly review; the preventive schedule; sanitising certificates. None exist yet |
-| Status | Not implemented |
-| Risk decision | NC-MA-02, rated Low: remediate |
-| Open items | PA-120: bring controlled maintenance into use, with \<Organisation\>'s part evidenced. PA-31: the built-in pages. PA-84: record schema changes |
-
-### 4.3 MA-3 Maintenance Tools
-
-**Table 14: MA-3 design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| a | Approve, control and monitor the use of maintenance tools | Only the tools in section 3.5 are used, and the system owner approves each addition. The maintenance pages built into the tested build are removed from production builds. Until they are, each use needs an approved change record and a second person, and is recorded on TPL-12 (PRO-MA-7) | The list is provisional (PA-67). Five built-in pages remain, open to global administrators, and write no audit record (M01, M03; PA-31). The tested build's container images hold a shell and a package manager (M10; PA-85) |
-| b | Review the approved tools on a schedule | Every 12 months, by the Windows server administrator with the system owner | The first review is when the servers are built |
-
-**Table 15: MA-3 responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | People, following the procedures |
-| Responsible | Windows server administrator |
-| Enforced by | The approved list; \<System Name\>'s roles, which limit the built-in pages to global administrators |
-| Rules and procedures | Policy rules R4, R5 (\<Policy\>, section MA.4); PRO-MA-3, PRO-MA-7 (\<Procedures\> (MA)) |
-| Tests | Checks M01, M02 and M10 on the v1.0 build, 10 November 2026 showed the gaps |
-| Records an assessor will ask for | The approved tool list and its yearly review; TPL-12 records naming the tools used |
-| Status | Not implemented |
-| Risk decision | NC-MA-03, rated Low: remediate |
-| Open items | PA-67: confirm the list when the servers are built. PA-31: remove the built-in pages. PA-85: releases without a shell or package manager |
-
-### 4.4 MA-3(1) Inspect Tools
-
-**Table 16: MA-3(1) design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| All | Inspect the tools maintenance people use for improper or unauthorised changes | Before use, the version, publisher and file hash of each tool are compared with the approved list (PRO-MA-3), and the result is recorded on TPL-12 | Not in use. The list does not yet give a version, publisher and hash for each tool to be compared with: they are recorded when the servers are built (PA-67) |
-
-**Table 17: MA-3(1) responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | People, following the procedures |
-| Responsible | Windows server administrator |
-| Enforced by | Not a system function |
-| Rules and procedures | Policy rule R4 (\<Policy\>, section MA.4); PRO-MA-3 (\<Procedures\> (MA)) |
-| Tests | None |
-| Records an assessor will ask for | The list with each tool's version, publisher and hash; a record of an inspection on TPL-12 |
-| Status | Not implemented |
-| Risk decision | NC-MA-04, rated Low: approve |
-| Open items | PA-120: bring inspection into use. PA-67: record the versions and hashes |
-
-### 4.5 MA-3(2) Inspect Media
-
-**Table 18: MA-3(2) design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| All | Check media that hold diagnostic and test programs for malicious code before they are used | Microsoft Defender scans any media, and any file copied onto a server for maintenance, before it is used. The servers are virtual, so removable media are used rarely. The scan is recorded on TPL-12 | Defender is not yet on the servers (PA-58) |
-
-**Table 19: MA-3(2) responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | People, following the procedures |
-| Responsible | Windows server administrator |
-| Enforced by | Microsoft Defender on both servers |
-| Rules and procedures | Policy rule R4 (\<Policy\>, section MA.4); PRO-MA-3 (\<Procedures\> (MA)) |
-| Tests | None |
-| Records an assessor will ask for | Defender's settings and a scan record |
-| Status | Not implemented |
-| Risk decision | NC-MA-05, rated Low: obtain evidence |
-| Open items | PA-58: Defender on the servers |
-
-### 4.6 MA-3(3) Prevent Unauthorized Removal
-
-**Table 20: MA-3(3) design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| a | Prevent the removal of maintenance equipment holding the organisation's information, by checking that it holds none | Before any equipment used for maintenance leaves, such as an engineer's laptop or a drive, the administrator checks that it holds no \<System Name\> information (section 3.7) | Not yet used |
-| b | Or by sanitising or destroying it | If it does, \<Organisation\> sanitises it by the method in \<Media Protection Management\>, section 3.6 | Not yet used; sanitising is not evidenced (EV-MA-01) |
-| c | Or by keeping it within the facility | Or it stays at \<Organisation\>'s site | Not yet used |
-| d | Or by an exemption from defined people that explicitly allows the removal | Only the system owner may allow equipment or data to leave. That includes any copy of data, database dump, log or screenshot sent for support: kept to the minimum, encrypted, recorded, and deleted when no longer needed (PRO-MA-7) | Not yet used |
-
-**Table 21: MA-3(3) responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | People, following the procedures |
-| Responsible | System owner |
-| Enforced by | Not a system function |
-| Rules and procedures | Policy rules R8, R9 (\<Policy\>, section MA.4); PRO-MA-2, PRO-MA-7 (\<Procedures\> (MA)) |
-| Tests | None |
-| Records an assessor will ask for | TPL-12 and TPL-13 records showing each approval and each deletion |
-| Status | Not implemented |
-| Risk decision | NC-MA-06, rated Low: approve |
-| Open items | PA-120: bring removal control into use |
-
-### 4.7 MA-4 Nonlocal Maintenance
-
-**Table 22: MA-4 design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| a | Approve and monitor maintenance and diagnostic work done remotely | The system owner approves remote work in the change record, which names the route. Each session is logged, a supplier's session is watched by an administrator, and the security officer reviews the session logs weekly (section 3.4) | Not in use |
-| b | Allow remote maintenance tools only as policy says and as the security plan documents | The five routes in section 3.4 and the tools in section 3.5, which \<System Security Plan\>, section 3.7, points to. The admin portal is reachable only through \<Organisation\>'s managed route | Not met for the admin portal: the tested build publishes it on every network interface (M04; PA-83) |
-| c | Use strong authentication to set up remote sessions | Routes R1 and R2: the VPN with multi-factor sign-in, then a named account. Route R3: sign-in through AD FS, with multi-factor authentication (D-AC-23) | \<Organisation\>'s route is not evidenced (EV-MA-02). The tested build's admin portal was password-only (PA-23, PA-95) |
-| d | Keep records of remote maintenance and diagnostic work | TPL-12, with the session reference. The logs show the start and end time, the account, the source address, the route, and the actions where the tool records them | Not in use |
-| e | End the session and the network connection when the work is finished | The person signs out and disconnects, and any temporary account is disabled. Signing out of the admin portal ends its session | Signing out of the admin portal ended the session in the tested build (M12). \<Organisation\>'s route is not evidenced (EV-MA-02) |
-
-**Table 23: MA-4 responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | Shared: \<System Name\> and \<Organisation\> |
-| Responsible | Administrators, \<Organisation\> |
-| Enforced by | \<Organisation\>'s managed route and VPN; AD FS; \<System Name\>'s session |
-| Rules and procedures | Policy rules R6, R12 (\<Policy\>, section MA.4); PRO-MA-4 (\<Procedures\> (MA)) |
-| Tests | Checks M04, M05 and M12 on the v1.0 build, 10 November 2026: the portal was open to every network and the settings pointed at a public database address; sign-out ended the session |
-| Records an assessor will ask for | The route settings and sample session logs (EV-MA-02); change records approving remote work; TPL-12 records with session references |
-| Status | Not implemented |
-| Risk decision | NC-MA-07, rated Medium: remediate, proposed by the system owner; awaits the authorising official |
-| Open items | PA-83: limit the admin portal to the managed route. PA-120: bring remote maintenance into use, with the route evidenced. PA-19, PA-23: secrets and multi-factor sign-in |
-
-### 4.8 MA-5 Maintenance Personnel
-
-**Table 24: MA-5 design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| a | Have a process for authorising maintenance people, and keep a list of the organisations and people authorised | The system owner approves the list in section 3.6. The Windows server administrator checks it when someone leaves, and every 12 months (PRO-MA-5) | The process is approved (D-MA-02). The list is provisional (PA-67) |
-| b | Check that people who maintain the system unescorted hold the access authorisations required | Before giving access, the administrator checks that the person is on the list, is screened, has signed Part B of the rules of behaviour, and has a named account | The screening and signing dates are placeholders in section 3.6 |
-| c | Name people with the authorisations and the technical skill to supervise those who lack them | The Windows server administrator or the database administrator escorts and supervises anyone not on the list. A supplier has a temporary account, limited to the job and disabled afterwards, and no access to \<System Name\>'s data | Not yet used |
-
-**Table 25: MA-5 responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | People, following the procedures |
-| Responsible | System owner |
-| Enforced by | Not a system function. Named accounts on the servers and in PostgreSQL |
-| Rules and procedures | Policy rule R7 (\<Policy\>, section MA.4); PRO-MA-5 (\<Procedures\> (MA)) |
-| Tests | None |
-| Records an assessor will ask for | The approved list with screening and signing dates; a TPL-12 record naming an escort |
-| Status | Not implemented |
-| Risk decision | NC-MA-08, rated Low: approve |
-| Open items | PA-67: confirm the list and fill in the dates when the servers are built |
-
-### 4.9 MA-6 Timely Maintenance
-
-**Table 26: MA-6 design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| All | Obtain maintenance support or spare parts for defined components within a defined time of a failure | The components in section 3.8. \<Organisation\> provides support and parts for the hardware and the hypervisor within 24 hours, so that a restore fits the 72-hour recovery time objective. Software is kept on supported versions, with a replacement planned at least 6 months before support ends, and the support dates are checked each month | Not evidenced for the hardware (EV-MA-01). The software versions seen in the tested build are supported (M11) |
-
-**Table 27: MA-6 responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | \<Organisation\> |
-| Responsible | \<Organisation\> |
-| Enforced by | \<Organisation\>'s service agreement; the monthly check of support dates |
-| Rules and procedures | Policy rule R10 (\<Policy\>, section MA.4); PRO-MA-6 (\<Procedures\> (MA)) |
-| Tests | Check M11 on the v1.0 build, 10 November 2026: supported versions |
-| Records an assessor will ask for | \<Organisation\>'s service agreement (EV-MA-01); the monthly check records on TPL-7 |
-| Status | Not implemented |
-| Risk decision | NC-MA-09, rated Low: obtain evidence |
-| Open items | PA-120: obtain \<Organisation\>'s evidence (EV-MA-01) |
+1. **Policy.** \<Policy\> (MA) is a system-level policy, shared with everyone who maintains \<System Name\>. The legal adviser reviews it.
+2. **Procedures.** \<Procedures\> (MA) holds seven procedures, PRO-MA-1 to PRO-MA-7. They are shared with the same people.
+3. **Owner.** The system owner manages the policy and procedures.
+4. **Review.** The policy is reviewed every 12 months, and after a significant incident, audit finding or system change. The procedures are reviewed every 12 months, and after a change to the steps.
+5. **Records.** The documents are under version control.
 
 ## Appendix A MA controls outside the Moderate baseline
 
-CSS does not select these at Moderate, so they are not assessed. Some of the design goes further than the baseline, and Table 28 says where.
+CSS does not select these at Moderate, so they are not assessed. Some of the design goes further than the baseline, and Table 9 says where.
 
-**Table 28: MA controls not selected at Moderate**
+**Table 9: MA controls not selected at Moderate**
 
 | Control | What it adds | \<System Name\>'s position |
 | --- | --- | --- |

@@ -2,39 +2,25 @@
 
 ## 1 Purpose
 
-This document shows how \<System Name\> is assessed, authorised to operate and monitored afterwards, and how its connections to other systems are approved, for each of the 10 Assessment, Authorization, and Monitoring (CA) controls and enhancements in the CSS Moderate baseline. Section 3 sets out the design: the cycle, assessment, the plan of action, authorisation, inherited controls, information exchanges, continuous monitoring and significant change. Section 4 takes each control in turn. Values CSS asks the organisation to define are set at corporate level by \<Organisation\>. Appendix A lists the CA controls CSS does not select at Moderate.
+This document sets out how \<System Name\> is assessed, authorised to operate and monitored afterwards, and how its connections to other systems are approved, to meet the 10 Assessment, Authorization, and Monitoring (CA) controls and enhancements in the CSS Moderate baseline.
 
-The policy is in \<Policy\> (CA), and the steps people follow are in \<Procedures\> (CA). The design follows CSS for assessment and authorisation, CSS for monitoring, and CSS for information exchanges.
+Section 3 is the design: the cycle, assessment, the plan of action, authorisation, inherited controls, information exchanges and internal connections, continuous monitoring, significant change, what \<Organisation\> provides, and the policy and procedures. Each subsection names the controls it helps to meet.
 
-This family is about processes that people carry out, so an assessor examines documents and records and interviews the people named: the system owner, the authorising official, the security officer and the assessor (CSS). There is nothing in the system to test. So for each control section 4 gives:
+Other documents hold the rest. Who provides and is responsible for each control, its status and its assessment result are in \<System Security Plan\>, section 7.4 (Table 13). The tests, their results and the records an assessor will ask for are in \<Control Assessment Record\> (CA). Each control's risk is in \<Risk List\>, and what is still open is in \<Plan of Action and Milestones\>. The policy is in \<Policy\> (CA), and the steps people follow are in \<Procedures\> (CA).
 
-- **each part of the control**, as CSS letters them, with the design that meets it and the position today;
-- **who provides it**, and who is responsible;
-- **what enforces it**, and the rules and procedures that apply;
-- **the records an assessor will ask for**, and whether they exist yet;
-- **its status**, the risk decision, and what is still open.
+Values that CSS asks the organisation to define are set at corporate level by \<Organisation\>. The settings in section 3 should match those corporate values. Where one does not, it is changed in this document.
 
-\<System Name\> is not authorised and is not in use. The Level 1 self-assessment is complete. The independent assessment, the authorisation decision and monitoring have not started.
-
-**Table 1: Status values**
-
-| Status | Meaning |
-| --- | --- |
-| Implemented | The design is in place and working |
-| Partially implemented | Some of the design is in place; the open items say what is missing |
-| Not implemented | None of the design is in place yet |
+Appendix A lists the CA controls CSS does not select at Moderate.
 
 ## 2 Summary
 
-The implementation status of each control, how it is met, who is responsible, its assessment result and the risk and plan entries for its gaps are recorded in \<System Security Plan\>, section 7.4 (Table 13). This section gives only the overall position.
-
-No control in the baseline is missing from the design. Every gap is registered in the Risk List (\<Risk List\>) and the Plan of Action and Milestones (\<Plan of Action and Milestones\>).
-
-None of the gaps is a fault in the system. Each is a step that has not yet been taken, because \<System Name\> is not built on its servers and is not in use.
+The implementation status of each control, how it is met, who is responsible, its assessment result and the risk and plan entries for its gaps are recorded in \<System Security Plan\>, section 7.4 (Table 13).
 
 ## 3 The design
 
 ### 3.1 Principles
+
+Controls met here: CA-2, CA-2(1), CA-3, CA-5, CA-6, CA-7, CA-9.
 
 1. **Two levels of assessment.** The system owner self-assesses at Level 1. An independent team assesses at Level 2.
 2. **Authorise knowingly.** The authorising official accepts the remaining risk by name, in writing, for no more than 12 months at a time.
@@ -47,11 +33,13 @@ These carry out the principles and rules of \<Policy\>, sections CA.3 and CA.4.
 
 ### 3.2 The cycle
 
+Controls met here: CA-2, CA-5, CA-6, CA-7, CA-7(1).
+
 ![Figure 1: From assessment to authorisation to monitoring](figures/cam-figure-1.png)
 
 **Figure 1: From assessment to authorisation to monitoring**
 
-**Table 2: Who does what in the cycle**
+**Table 1: Who does what in the cycle**
 
 | Step | Who | Record | How often |
 | --- | --- | --- | --- |
@@ -65,15 +53,17 @@ These carry out the principles and rules of \<Policy\>, sections CA.3 and CA.4.
 
 ### 3.3 Assessment
 
+Controls met here: CA-2, CA-2(1), CA-7(1).
+
 **Levels.** Level 1 is the system owner's self-assessment, carried out by Claude, an AI assistant, for the system owner. It is not independent: the same assistant drafted the documents and assessed them. It shows the system owner where \<System Name\> stands, and prepares the ground for Level 2. Level 2 is the independent assessment by \[Name\]'s team, which also makes the yearly independent check of monitoring.
 
 **Independence.** A member of the team counts as independent once they have completed TPL-19, confirming that they have had no part in designing, building, running or administering \<System Name\>, that they report to no one responsible for it, and declaring any other interest. The authorising official accepts each statement before the assessment starts.
 
 **Method.** Each control is assessed with the procedures of CSS: every determination statement is given a finding of satisfied or other than satisfied, with the basis for it. The methods are examine, interview and test.
 
-**Plan.** Each family's chapter of \<Control Assessment Record\> has a plan: scope, procedures, assessor, dates, site, what is examined, tested and whom is interviewed, with depth and coverage, the boundary, and what is needed from \<Organisation\>. The authorising official approves it before the assessment.
+**Plan.** Each family's chapter of \<Control Assessment Record\> has a plan: scope, procedures, assessor, dates, site, what is examined, tested and whom is interviewed, with depth and coverage, the boundary, and what is needed from \<Organisation\>. The authorising official approves it before the assessment (PRO-CA-1, step 1).
 
-**Report and results.** The findings are brought together in \<Security Assessment Report\>, which goes to the system owner, the authorising official and the Head of Cyber.
+**Report and results.** The findings are brought together in \<Security Assessment Report\>, which goes to the system owner, the authorising official and the Head of Cyber. No authorisation is given without an approved plan and a report (PRO-CA-4).
 
 **Frequency.** Every 12 months, and after a significant change (section 3.9).
 
@@ -81,9 +71,11 @@ These carry out the principles and rules of \<Policy\>, sections CA.3 and CA.4.
 
 ### 3.4 Plan of action and milestones
 
-Every weakness that needs a fix has one item in \<Plan of Action and Milestones\>. The Risk List rates the weakness and records the decision; only those to be fixed, or to be evidenced, go to the plan.
+Controls met here: CA-5.
 
-**Table 3: Time allowed to fix an item**
+Every weakness that needs a fix has one item in \<Plan of Action and Milestones\>, with its control, source, fix, owner, resources, milestone, due time and state. The Risk List rates the weakness and records the decision; only those to be fixed, or to be evidenced, go to the plan.
+
+**Table 2: Time allowed to fix an item**
 
 | Rating | Fixed within | Decided by |
 | --- | --- | --- |
@@ -96,11 +88,15 @@ Every weakness that needs a fix has one item in \<Plan of Action and Milestones\
 3. An item is closed only when the fix has been tested, the evidence is recorded against the item, and the system owner agrees. An item fixed in the test environment is tested again on the servers before it closes.
 4. Each quarter the system owner reports overdue items, with the reason for each, to the authorising official.
 
+A consistency test checks that every item named in the Risk List exists in the plan, and that \<Security Assessment Report\> gives the plan's counts.
+
 The steps are in \<Procedures\>, PRO-CA-3.
 
 ### 3.5 Authorisation
 
-**Table 4: Who authorises**
+Controls met here: CA-6.
+
+**Table 3: Who authorises**
 
 | Role | Who | Decides |
 | --- | --- | --- |
@@ -108,7 +104,7 @@ The steps are in \<Procedures\>, PRO-CA-3.
 | Authorising official for \<Organisation\>'s common controls | \[Organisation common control official\] | That the controls \<System Name\> inherits are authorised for use |
 | System owner | \[Name\] | Puts the package to the authorising official, and keeps it current |
 
-**Table 5: Authorisation package**
+**Table 4: Authorisation package**
 
 | Item | Document |
 | --- | --- |
@@ -122,17 +118,19 @@ The steps are in \<Procedures\>, PRO-CA-3.
 | Assessor independence | TPL-19 |
 | Decision | TPL-18, with terms, conditions, accepted risks, inherited controls accepted and an end date no more than 12 months away |
 
-**Privacy review.** The system owner adopted this step on 13 November 2026 (D-CA-13); the legal adviser confirms its wording at the next review of the policy. \<System Name\> holds HR records, so before the decision the legal adviser reviews the privacy plan and the impact assessment, and their view goes to the authorising official with the package.
+**Privacy review.** \<System Name\> holds HR records, so before the decision the legal adviser reviews the privacy plan and the impact assessment, and their view goes to the authorising official with the package (D-CA-13). The legal adviser confirms the wording of this step at the next review of the policy.
 
-**The decision.** The authorising official records the decision on TPL-18. It is one of three types: a first authorisation, a re-authorisation, or the withdrawal of an authorisation. The record gives the package received, with versions; the decision, to authorise or not; the terms and conditions, such as items to fix by a date or limits on use; each remaining risk accepted, by its Risk List entry; the inherited controls accepted; and an end date no more than 12 months away. It is copied to the system owner and the Head of Cyber. The authorisation is reviewed every 12 months and after a significant change.
+**The decision.** The authorising official records the decision on TPL-18. It is one of three types: a first authorisation, a re-authorisation, or the withdrawal of an authorisation. The record gives the package received, with versions; the decision, to authorise or not; the terms and conditions, such as items to fix by a date or limits on use; each remaining risk accepted, by its Risk List entry; the inherited controls accepted; and an end date no more than 12 months away (PRO-CA-4). It is copied to the system owner and the Head of Cyber. \<System Name\> holds no production documents until the authorising official has authorised it. The authorisation is reviewed every 12 months and after a significant change.
 
 **Current state.** \<System Name\> is not authorised and holds no production documents. \<Security Assessment Report\>, section 6, lists the conditions to meet first.
 
 ### 3.6 Inherited controls
 
-These 65 entries are provided wholly by \<Organisation\>, and the system owner relies on them (\<System Security Plan\>, section 7). The authorising official accepts them on TPL-18 before \<System Name\> operates, once \<Organisation\>'s evidence has been received (\<Evidence Requests\>). The system owner reviews the list every 12 months with \<Organisation\>'s security contact (PRO-CA-7).
+Controls met here: CA-6.
 
-**Table 6: Inherited controls**
+These 65 entries are provided wholly by \<Organisation\>, and the system owner relies on them (\<System Security Plan\>, section 7). The authorising official accepts them on TPL-18 before \<System Name\> operates, once \<Organisation\>'s evidence has been received (\<Evidence Requests\>). The system owner reviews the list every 12 months with \<Organisation\>'s security contact (PRO-CA-7). \<Organisation\>'s authorising official for its common controls authorises them for use, and \<System Name\> holds the record of that authorisation.
+
+**Table 5: Inherited controls**
 
 | Family | Entries | Controls |
 | --- | --- | --- |
@@ -155,9 +153,11 @@ The authorising official accepted an earlier list of 66 as a list (D-CA-08). Sin
 
 ### 3.7 Information exchanges and internal connections
 
-This is the single record of \<System Name\>'s connections. Each has an agreement type chosen under CSS. None is in use yet. The system owner approves each before it is built, reviews each every 12 months with the owner of the other system, and records the date a connection ends (PRO-CA-2).
+Controls met here: CA-3, CA-9.
 
-**Table 7: Interface record**
+This is the single record of \<System Name\>'s connections. Each has an agreement type chosen under CSS. None is in use yet. The system owner approves each before it is built, reviews each every 12 months with the owner of the other system, and records the date a connection ends (PRO-CA-2). Each agreement repeats what the interface record holds for its exchange: the interface, the security and privacy needs, the controls, the responsibilities and the impact level.
+
+**Table 6: Interface record**
 
 | Connection | Type | Information | Security and privacy needs | Responsibilities | Impact | Agreement | Agreed, review and end | State |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -170,11 +170,13 @@ This is the single record of \<System Name\>'s connections. Each has an agreemen
 | \<Organisation\>'s time service | External (CA-3) | Time | Authenticated NTP where available | \<Organisation\> | Low | \<Organisation\>'s hosting and services agreement | As above | Stated, not evidenced (EV-AU-02) |
 | \<Organisation\>'s backup site | External (CA-3) | Encrypted database backups | Encrypted before leaving the database VM | Database administrator; \<Organisation\> | Moderate | \<Organisation\>'s hosting and services agreement | As above | Planned (PA-64, PA-66) |
 
-Every connection uses TLS. A connection ends when it is no longer needed, or when a server is rebuilt. A new or changed external exchange is a significant change (section 3.9), so the authorising official weighs its risk before it is built.
+Every connection uses TLS. A connection ends when it is no longer needed, or when a server is rebuilt: the Windows server administrator removes it, and the system owner records the end date (PRO-CA-2, step 3). The API listens only on the loopback address and accepts only the two apps, and the database accepts only the application server (\<Access Control Management\>, section 3.6). A new or changed external exchange is a significant change (section 3.9), so the authorising official weighs its risk before it is built.
 
 Users' and administrators' devices are outside the boundary. They connect by browser, as a class and not one by one: \<Organisation\>'s managed devices, over HTTPS, in the office or on the VPN (\<Access Control Management\>, section 3.6). \<Organisation\>'s firewall allows only the flows \<System Name\> has asked for (\<Access Control Management\>, section 3.6.4).
 
 ### 3.8 Continuous monitoring
+
+Controls met here: CA-7, CA-7(1), CA-7(4).
 
 This strategy follows CSS. Monitoring starts at go-live. Nothing below is running yet.
 
@@ -182,7 +184,7 @@ This strategy follows CSS. Monitoring starts at go-live. Nothing below is runnin
 
 **What is measured.** The measures cover effectiveness (do the controls work), compliance (are the procedures followed) and change (has the system changed), with two for privacy.
 
-**Table 8: Monitoring measures**
+**Table 7: Monitoring measures**
 
 | Measure | Kind | Target | Threshold for action | Source | Frequency | Owner |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -201,9 +203,9 @@ This strategy follows CSS. Monitoring starts at go-live. Nothing below is runnin
 | Security incidents open past their time limit | Effectiveness | None | Any | TPL-10 | Monthly | Security officer |
 | Vulnerabilities past their fix time | Effectiveness | None | Any Critical or High past its time | TPL-7; the timetable in \<Risk Assessment Management\>, section 3.6 | Monthly | Windows server administrator, developers |
 
-The last two measures, on open incidents and on vulnerabilities past their fix time, were added by the system owner on 13 November 2026 (D-CA-13).
+The last two measures, on open incidents and on vulnerabilities past their fix time, were added by the system owner (D-CA-13).
 
-**Table 9: The strategy against CSS**
+**Table 8: The strategy against CSS**
 
 | Step in CSS | Where it is met |
 | --- | --- |
@@ -214,19 +216,21 @@ The last two measures, on open incidents and on vulnerabilities past their fix t
 | Respond | Response, below; \<Plan of Action and Milestones\> |
 | Review and update | Review of this strategy, below |
 
-**Analysis.** The system owner confirmed the analysis and response steps on 12 November 2026 (D-CA-12). Each month the security officer reads the measures together with the audit review findings, the vulnerability results and the incident records, and looks for a trend across three months.
+**Analysis.** The analysis and response steps are those the system owner confirmed (D-CA-12, PRO-CA-5). Each month the security officer reads the measures together with the audit review findings, the vulnerability results and the incident records, and looks for a trend across three months. The system owner also reviews the Risk List each month for new or changed risks.
 
 **Response.** A measure past its threshold is acted on in the month, and the action is recorded on TPL-8. One not put right in the month becomes an item in \<Plan of Action and Milestones\>.
 
 **Reporting.** The security officer reports the measures monthly to the system owner on TPL-8. Each quarter the system owner reports them to the authorising official, with overdue POA&M items, changes in risk, significant changes and incidents.
 
-**Independent check.** Each year an independent assessor checks a sample of the monitoring.
+**Independent check.** Each year an independent assessor, who has completed TPL-19, checks a sample of the monitoring: that the measures were collected, are accurate, and were acted on (PRO-CA-5, step 3).
 
 **What forces a re-assessment.** A significant change (section 3.9), a measure past its threshold for three months running, a serious incident, or a new High risk. The authorising official then decides whether \<System Name\> must be re-authorised.
 
 **Review of this strategy.** Every 12 months with the policy, and after a re-authorisation.
 
 ### 3.9 Significant change
+
+Controls met here: CA-2, CA-3, CA-6, CA-7.
 
 A significant change is one likely to alter \<System Name\>'s security or privacy risk. It must be assessed before it is made (PRO-CA-6), and the authorising official decides whether \<System Name\> must be re-assessed or re-authorised. These always count as significant:
 
@@ -242,7 +246,9 @@ Routine patches within the time limits of \<Security Operating Procedures\>, and
 
 ### 3.10 What \<Organisation\> provides
 
-**Table 10: Asked of \<Organisation\>**
+Controls met here: CA-3, CA-6.
+
+**Table 9: Asked of \<Organisation\>**
 
 | Provided | Controls | What \<System Name\> relies on | Evidence asked | State |
 | --- | --- | --- | --- | --- |
@@ -250,263 +256,21 @@ Routine patches within the time limits of \<Security Operating Procedures\>, and
 | The agreements for the exchanges | CA-3 | A hosting and services agreement covering AD FS, central logging, the time service and the backup site; information exchange agreements for ServiceNow and the Starters/Leavers system | EV-CA-02 | Not sent. To go in the first batch |
 | Evidence for each inherited control | CA-6, and each control's own family | Each control's evidence request in \<Evidence Requests\> | By family | None sent |
 
-## 4 Each control and enhancement
+### 3.11 Policy and procedures
 
-The controls are in CSS order. Each has two tables. The first takes each part of the control and gives what CSS requires, the design that meets it, and the position today. The second says who provides and is responsible for the control, what enforces it, the rules and procedures that apply, the records an assessor will ask for, its status, the risk decision, and what is still open.
+Controls met here: CA-1.
 
-### 4.1 CA-1 Policy and Procedures
-
-**Table 11: CA-1 design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| a.1 | An assessment, authorisation and monitoring policy, shared with defined people, covering purpose, scope, roles, responsibilities, management commitment, coordination and compliance, and consistent with the law | \<Policy\> (CA): a system-level policy. Purpose and scope are in section CA.1, responsibilities in CA.5, and commitment, coordination and compliance in CA.6. It is shared with everyone who administers \<System Name\>. The legal adviser reviews it | Version \<ver\> approved by the Head of Cyber (D-CA-09). Legally reviewed on 12 November 2026. Not yet shared (PA-20) |
-| a.2 | Procedures that carry out the policy, shared with defined people | \<Procedures\> (CA): seven procedures, PRO-CA-1 to PRO-CA-7, each naming who acts, how often and the record. Shared with the same people | Approved by the system owner (D-CA-10). Not yet shared or walked through |
-| b | A named official manages the policy and procedures | The system owner | \[Name\] is named in \<Roles and Responsibilities\> |
-| c.1 | The policy is reviewed on a schedule and after set events | Every 12 months, and after a significant incident, audit finding or system change | Reviewed on 8 November 2026. The first yearly review falls due in November 2027 |
-| c.2 | The procedures are reviewed on a schedule and after set events | Every 12 months, and after a change to the steps | As the policy |
-
-**Table 12: CA-1 responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | People, following the procedures |
-| Responsible | System owner, Head of Cyber |
-| Enforced by | Not a system function. The documents are under version control, and each review is recorded in the change record |
-| Rules and procedures | The whole policy (\<Policy\>, sections CA.3 and CA.4); all seven procedures (\<Procedures\> (CA)) |
-| Tests | None. Examined from the documents |
-| Records an assessor will ask for | The policy and procedures with their approvals; proof they were shared; walk-through records on TPL-4; review records. The approvals exist; the rest do not yet |
-| Status | Partially implemented |
-| Risk decision | NC-CA-01, rated Low: approve |
-| Open items | PA-20: share the policy and procedures, and walk through each procedure |
-
-### 4.2 CA-2 Control Assessments
-
-**Table 13: CA-2 design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| a | Choose an assessor or team suited to the assessment | Two levels (section 3.3). Level 1 is the system owner's self-assessment. Level 2 is by an independent team led by \[Name\] | Level 1 was carried out by Claude, an AI assistant, for the system owner. \[Name\]'s team is chosen for Level 2 (D-CA-05) |
-| b | Write an assessment plan: the controls in scope, the procedures, and the environment, team and roles | Each family has a plan in \<Control Assessment Record\>, giving the scope, CSS procedures, site, assessor, methods, depth and coverage, and what is needed from \<Organisation\> | All 19 plans are written |
-| c | The authorising official approves the plan before the assessment | The authorising official approves each plan (PRO-CA-1, step 1) | All 19 plans approved (D-GEN-18) |
-| d | Assess the controls on a schedule, to see whether they are in place, work as intended and give the result wanted | Every 12 months, and after a significant change. Every determination statement in CSS is given a finding | Level 1 done for all 19 families, between 5 and 12 November 2026. Level 2 has not been held (PA-106) |
-| e | Write a report of the results | \<Security Assessment Report\>, the Security Assessment Report, which brings together the 19 family chapters of \<Control Assessment Record\> | Issued for Level 1. The Level 2 report will replace it |
-| f | Give the results to defined people | The system owner, the authorising official and the Head of Cyber | \<Security Assessment Report\> was given to all three on 8 November 2026 (D-CA-10) |
-
-**Table 14: CA-2 responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | People, following the procedures |
-| Responsible | System owner, security assessor |
-| Enforced by | Not a system function. No authorisation is given without an approved plan and a report (PRO-CA-4) |
-| Rules and procedures | Policy principle P1; rule R1 (\<Policy\>, sections CA.3 and CA.4); PRO-CA-1 (\<Procedures\> (CA)) |
-| Tests | None: this control is examined from documents and records. There is no system mechanism to test |
-| Records an assessor will ask for | The approved plans; the assessment record and report; proof the report was given to the three recipients; the evidence each finding rests on. All exist for Level 1; none for Level 2 |
-| Status | Partially implemented |
-| Risk decision | NC-CA-02, rated Low: approve |
-| Open items | PA-106: hold the Level 2 assessment. PA-109: commission a penetration test before go-live, which goes beyond the baseline |
-
-### 4.3 CA-2(1) Independent Assessors
-
-**Table 15: CA-2(1) design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| All | Use assessors who are independent | \[Name\]'s team carries out Level 2. A member counts as independent if they have had no part in designing, building, running or administering \<System Name\>, and each confirms it on TPL-19 before starting (policy rule R2) | The team is chosen (D-CA-05). No member has completed TPL-19, and Level 2 has not been held (PA-106) |
-
-**Table 16: CA-2(1) responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | People, following the procedures |
-| Responsible | Security assessor |
-| Enforced by | Not a system function. The authorising official accepts each TPL-19 before the assessment starts |
-| Rules and procedures | Policy principle P1; rule R2 (\<Policy\>, sections CA.3 and CA.4); PRO-CA-1 (\<Procedures\> (CA)) |
-| Tests | None: this control is examined from documents and records. There is no system mechanism to test |
-| Records an assessor will ask for | A completed TPL-19 for each assessor; the Level 2 plan naming the team. None exist yet |
-| Status | Not implemented |
-| Risk decision | NC-CA-03, rated Low: approve |
-| Open items | PA-106: obtain each assessor's independence statement on TPL-19, then hold Level 2 |
-
-### 4.4 CA-3 Information Exchange
-
-**Table 17: CA-3 design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| a | Approve and manage each exchange with another system, using a defined kind of agreement | Every exchange is recorded in the interface record (section 3.7) with its agreement type, chosen under CSS, and the system owner approves it before it is used (PRO-CA-2). Exchanges with \<Organisation\>'s own services rest on its hosting and services agreement; the ServiceNow and Starters/Leavers exchanges each have an information exchange agreement | Six external exchanges are recorded. None is approved or in use, and no agreement is signed (PA-63). The agreements have not been asked for (EV-CA-02) |
-| b | Record, in each agreement, the interface, the security and privacy needs, the controls, the responsibilities and the impact level | The interface record holds all of these for each exchange, and each agreement repeats them | Recorded for all six. No agreement yet holds them |
-| c | Review and update the agreements on a schedule | Every 12 months, by the system owner with the owner of the other system. An exchange no longer needed is ended | Not yet due: nothing is signed |
-
-**Table 18: CA-3 responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | Shared: \<System Name\> and \<Organisation\> |
-| Responsible | System owner, \<Organisation\> |
-| Enforced by | The system owner's approval before a connection is built; \<Organisation\>'s firewall, which allows only the flows \<System Name\> has asked for (\<Access Control Management\>, section 3.6.4) |
-| Rules and procedures | Policy principle P4; rule R3 (\<Policy\>, sections CA.3 and CA.4); PRO-CA-2 (\<Procedures\> (CA)) |
-| Tests | None: this control is examined from documents and records. There is no system mechanism to test |
-| Records an assessor will ask for | The interface record; each signed agreement, with its date and review date; the yearly review records. Only the interface record exists |
-| Status | Not implemented |
-| Risk decision | NC-CA-04, rated Low: approve |
-| Open items | PA-63: approve each exchange when it is built, and sign the agreements (EV-CA-02) |
-
-### 4.5 CA-5 Plan of Action and Milestones
-
-**Table 19: CA-5 design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| a | Keep a plan of action and milestones that records the planned fixes for weaknesses found in assessments | \<Plan of Action and Milestones\>. Every weakness that needs a fix has one item, with its control, source, fix, owner, resources, milestone, due time and state. Each open item must be fixed within the time for its rating (section 3.4) | The plan exists and is current to 12 November 2026 |
-| b | Update it on a schedule, from assessments, audits and monitoring | Monthly, by the system owner. An item closes only when the fix is tested and the evidence recorded. Overdue items go to the authorising official each quarter (PRO-CA-3) | Updated as each review has found items. The monthly cycle and calendar dates start when development is scheduled (PA-108) |
-
-**Table 20: CA-5 responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | People, following the procedures |
-| Responsible | System owner |
-| Enforced by | Not a system function. The consistency test checks that every item named in the Risk List exists in the plan, and that the report gives the plan's counts |
-| Rules and procedures | Policy principle P3; rule R4 (\<Policy\>, sections CA.3 and CA.4); PRO-CA-3 (\<Procedures\> (CA)) |
-| Tests | Checks of the consistency test on the plan's item counts and links pass. They test the documents, not the process |
-| Records an assessor will ask for | The plan and its change record; the monthly update records; the quarterly reports of overdue items; evidence for each closed item. The plan and history exist; no monthly or quarterly record yet |
-| Status | Partially implemented |
-| Risk decision | NC-CA-05, rated Low: approve |
-| Open items | PA-108: start the monthly updates and quarterly reports |
-
-### 4.6 CA-6 Authorization
-
-**Table 21: CA-6 design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| a | Name a senior official as the authorising official for the system | The authorising official, \[Name\] | Assigned (D-GEN-02) |
-| b | Name a senior official as the authorising official for the common controls the system inherits | \<Organisation\>'s official for its common controls, \[Organisation common control official\] | Not named: asked of \<Organisation\> (EV-CA-01), not yet sent |
-| c.1 | Before operation, the system's authorising official accepts the use of the inherited common controls | The authorising official accepts the 65 inherited controls in section 3.6 on TPL-18, once \<Organisation\>'s evidence is in (PRO-CA-7) | An earlier list of 66 was accepted as a list (D-CA-08). The list has since changed, and no control is accepted for operation (PA-107) |
-| c.2 | Before operation, the authorising official authorises the system | \<System Name\> holds no production documents until the authorising official has authorised it, from the package in section 3.5, accepting the remaining risk by name on TPL-18, with terms, conditions and an end date no more than 12 months away (PRO-CA-4) | Not authorised. \<Security Assessment Report\>, section 6, lists the conditions to meet first |
-| d | The common controls' authorising official authorises them for use | \<Organisation\>'s official authorises its common controls, and \<System Name\> holds the record | Not evidenced (EV-CA-01) |
-| e | Update the authorisations on a schedule | Every 12 months, and after a significant change (section 3.9) | Not yet due: nothing is authorised |
-
-**Table 22: CA-6 responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | People, following the procedures |
-| Responsible | Authorising official |
-| Enforced by | Policy: no production documents before authorisation. The decision is recorded on TPL-18 |
-| Rules and procedures | Policy principle P2; rules R5, R7 to R9 (\<Policy\>, sections CA.3 and CA.4); PRO-CA-4, PRO-CA-6, PRO-CA-7 (\<Procedures\> (CA)) |
-| Tests | None: this control is examined from documents and records. There is no system mechanism to test |
-| Records an assessor will ask for | The authorisation package; the signed TPL-18 decision, with its terms and end date; \<Organisation\>'s authorisation of its common controls; each yearly update. The package is defined, and most of it exists; no decision exists |
-| Status | Partially implemented |
-| Risk decision | NC-CA-06, rated Medium: decide before production |
-| Open items | PA-107: obtain \<Organisation\>'s evidence and its official's name (EV-CA-01), have the inherited controls accepted again, and put the package to the authorising official |
-
-### 4.7 CA-7 Continuous Monitoring
-
-**Table 23: CA-7 design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| a | Set the measures to be monitored | The 14 measures in section 3.8, each with a target, a threshold for action, a source, a frequency and an owner | Twelve set and approved on 6 and 8 November 2026 (D-CA-03, D-CA-10); two added on 13 November 2026 (D-CA-13) |
-| b | Set how often to monitor, and how often to assess controls | Measures monthly, with each duty in the \<Security Operating Procedures\> operating calendar at its own frequency. Control assessment every 12 months | Set |
-| c | Keep assessing controls, as the strategy says | Each control is checked at the frequency of its duty in the operating calendar; those with no duty are checked at the yearly assessment | Not started: \<System Name\> is not in use (PA-108) |
-| d | Keep monitoring the measures | The security officer collects the measures each month on TPL-8 | Not started |
-| e | Bring together and analyse what the assessments and monitoring produce | Each month the security officer reads the measures together with the audit review findings, the vulnerability results and the incident records, and looks for a trend across three months | Not started |
-| f | Act on the results | A measure past its threshold is acted on in the month and the action recorded on TPL-8. One not put right in the month becomes a POA&M item. Three months past a threshold, a serious incident or a new High risk forces a re-assessment | Not started |
-| g | Report the security and privacy state to defined people on a schedule | Monthly to the system owner, and quarterly to the authorising official, with overdue POA&M items, changes in risk, significant changes and incidents. Privacy measures are in the same report | Not started |
-
-**Table 24: CA-7 responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | People, following the procedures |
-| Responsible | Security officer, system owner |
-| Enforced by | Not a system function. The duties are in the \<Security Operating Procedures\> operating calendar, and each names its record |
-| Rules and procedures | Policy rule R6 (\<Policy\>, sections CA.3 and CA.4); PRO-CA-5 (\<Procedures\> (CA)) |
-| Tests | None: this control is examined from documents and records. There is no system mechanism to test |
-| Records an assessor will ask for | The strategy; the monthly reports on TPL-8; the quarterly reports to the authorising official; records of action on any measure past its threshold. The strategy exists; no report yet |
-| Status | Not implemented |
-| Risk decision | NC-CA-07, rated Low: approve |
-| Open items | PA-108: start monitoring and reporting at go-live. PA-80: compare the servers with the baseline each month |
-
-### 4.8 CA-7(1) Independent Assessment
-
-**Table 25: CA-7(1) design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| All | Use independent assessors to monitor the controls on a continuing basis | Each year an independent assessor, who has completed TPL-19, checks a sample of the monitoring: that the measures were collected, are accurate, and were acted on (PRO-CA-5, step 3) | Not started (PA-108) |
-
-**Table 26: CA-7(1) responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | People, following the procedures |
-| Responsible | Security assessor |
-| Enforced by | Not a system function |
-| Rules and procedures | Policy rules R2, R6 (\<Policy\>, sections CA.3 and CA.4); PRO-CA-5 (\<Procedures\> (CA)) |
-| Tests | None: this control is examined from documents and records. There is no system mechanism to test |
-| Records an assessor will ask for | The assessor's TPL-19; the report of each yearly check. None exist yet |
-| Status | Not implemented |
-| Risk decision | NC-CA-08, rated Low: approve |
-| Open items | PA-108: hold the first independent check within 12 months of go-live |
-
-### 4.9 CA-7(4) Risk Monitoring
-
-**Table 27: CA-7(4) design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| a | Monitor whether the controls are effective | Six of the measures are of effectiveness: updates applied in time, failed sign-ins and lockouts, logging failures, backups with restore tests, incidents past their time limit, and vulnerabilities past their fix time (section 3.8) | Defined. Not started (PA-108) |
-| b | Monitor compliance | Four of the measures are of compliance: overdue POA&M items, audit reviews completed, access reviews on time, and unused group members | Defined. Not started |
-| c | Monitor change | Two of the measures are of change: significant changes assessed before they were made, and drift from the baseline. The system owner also reviews the Risk List each month for new or changed risks | Defined. Not started |
-
-**Table 28: CA-7(4) responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | People, following the procedures |
-| Responsible | System owner |
-| Enforced by | Not a system function |
-| Rules and procedures | Policy rule R6 (\<Policy\>, sections CA.3 and CA.4); PRO-CA-5 (\<Procedures\> (CA)) |
-| Tests | None: this control is examined from documents and records. There is no system mechanism to test |
-| Records an assessor will ask for | The monthly reports showing each kind of measure; the Risk List's review dates. None exist yet |
-| Status | Not implemented |
-| Risk decision | NC-CA-09, rated Low: approve |
-| Open items | PA-108: start monitoring at go-live |
-
-### 4.10 CA-9 Internal Connections
-
-**Table 29: CA-9 design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| a | Authorise the internal connections of defined components | Two internal connections, between the components on the application server and the database server: the two user-facing apps to the API, and the API to the database. The system owner authorises each in the interface record before it is built (section 3.7) | Both are recorded as planned. Neither is authorised, as the servers are not built (PA-63) |
-| b | Record, for each, the interface, the security and privacy needs and the information carried | The interface record holds all three for each | Recorded |
-| c | End a connection after defined conditions | When it is no longer needed, or a server is rebuilt. The Windows server administrator removes it, and the system owner records the end date (PRO-CA-2, step 3) | Not yet used |
-| d | Review the continued need on a schedule | Every 12 months, with the external exchanges | Not yet due |
-
-**Table 30: CA-9 responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | Shared: \<System Name\> and \<Organisation\> |
-| Responsible | Windows server and database administrators |
-| Enforced by | The API listens only on the loopback address and accepts only the two apps; the database accepts only the application server (\<Access Control Management\>, section 3.6) |
-| Rules and procedures | Policy principle P4; rule R3 (\<Policy\>, sections CA.3 and CA.4); PRO-CA-2 (\<Procedures\> (CA)) |
-| Tests | None for this control. The tests of the connections themselves are under AC-4 and SC-8, in the tested build |
-| Records an assessor will ask for | The interface record with the system owner's authorisation of each connection; the yearly review. Only the record exists |
-| Status | Not implemented |
-| Risk decision | NC-CA-10, rated Low: approve |
-| Open items | PA-63: authorise each connection when the servers are built |
+1. **Policy.** \<Policy\> (CA) is a system-level policy. Its purpose and scope are in section CA.1, responsibilities in CA.5, and commitment, coordination and compliance in CA.6. It is shared with everyone who administers \<System Name\>. The legal adviser reviews it.
+2. **Procedures.** \<Procedures\> (CA) holds seven procedures, PRO-CA-1 to PRO-CA-7, each naming who acts, how often and the record. They are shared with the same people.
+3. **Owner.** The system owner manages the policy and procedures.
+4. **Review.** The policy is reviewed every 12 months, and after a significant incident, audit finding or system change. The procedures are reviewed every 12 months, and after a change to the steps.
+5. **Records.** The documents are under version control, and each review is recorded in the change record. Each procedure is walked through, and the walk-through recorded on TPL-4.
 
 ## Appendix A CA controls outside the Moderate baseline
 
 CSS does not select these at Moderate, so they are not assessed.
 
-**Table 31: CA controls not selected at Moderate**
+**Table 10: CA controls not selected at Moderate**
 
 | Control | What it adds | \<System Name\>'s position |
 | --- | --- | --- |

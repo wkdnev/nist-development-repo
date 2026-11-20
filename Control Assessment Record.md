@@ -1227,7 +1227,7 @@ There is one finding for each CSS determination statement, including those about
 | AU-02\_ODP\[02\] | Event types to log are defined | S | \<Audit and Accountability Management\>, sections 3.2 and 3.3 |
 | AU-02\_ODP\[03\] | How often they are logged is defined | S | Every occurrence |
 | AU-02\_ODP\[04\] | Review of selected events is defined | S | Every 12 months |
-| AU-02a. | Event types are identified | S | \<Audit and Accountability Management\>, Table 3 |
+| AU-02a. | Event types are identified | S | \<Audit and Accountability Management\>, Table 2 |
 | AU-02b. | Logging is coordinated with other entities | O-D | Not yet agreed with \<Organisation\> (EV-AU-01) |
 | AU-02c.\[01\] | Event types are specified for logging | S | \<Audit and Accountability Management\>, sections 3.2 and 3.3 |
 | AU-02c.\[02\] | They are logged at the set frequency | O-G | Most account, group and role changes are not logged (PA-14), nor are reading the audit log, start-up and shut-down, or logging changes (PA-76) |
@@ -1298,7 +1298,7 @@ There is one finding for each CSS determination statement, including those about
 | Boundary | Audit records in dbo.AuditLog, the application logs, and the PostgreSQL and Windows logs on both VMs. \<Organisation\>'s central monitoring and time service are inherited |
 | Order of assessment | A, record generation and content (AU-12, AU-2, AU-3, AU-3(1)); B, protection (AU-9, AU-9(4)); C, failure, capacity and retention (AU-5, AU-4, AU-11); D, review and reporting (AU-6, AU-6(1), AU-6(3), AU-7, AU-7(1)); E, time (AU-8); F, policy (AU-1). Generation comes first because every other result depends on records existing |
 | Needed from \<Organisation\> | EV-AU-01 to EV-AU-05 in \<Evidence Requests\>: central monitoring, the time source, storage and backup, the Windows audit policy, and AD FS and Active Directory audit records |
-| Evidence retained | The AU and IA evidence, with its manifest; \<Audit and Accountability Management\>, section 4 |
+| Evidence retained | The AU and IA evidence, with its manifest; \<Audit and Accountability Management\>, section 3 |
 
 The authorising official approved this plan (D-GEN-18), as confirmed by the system owner on 8 November 2026. The independent assessor's team, schedule, and depth and coverage are added once agreed. For the Level 2 assessment, the assessor should repeat the tests on the VMs, hold the interviews, examine \<Organisation\>'s evidence and re-determine every statement in section AU.4.
 

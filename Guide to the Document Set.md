@@ -102,7 +102,7 @@ RA-5, Vulnerability Monitoring and Scanning, shows the chain at work. It is part
 | --- | --- | --- |
 | The control | \<System Security Plan\>, section 7.15 | One line: packages are checked, nothing scans the servers, the status is partially implemented, and the gap is registered as NC-RA-04, PA-56 and PA-62 |
 | The rule | \<Policy\> (RA), rules R6 to R9 | Scans monthly and at each release, the time allowed for each severity, exploited flaws first, and how reports are received |
-| The design | \<Risk Assessment Management\>, sections 3.5 to 3.7 and 4.5 | What is checked, how and how often; the vulnerability timetable; how findings are analysed and shared; and each of the six parts of RA-5 with the position today |
+| The design | \<Risk Assessment Management\>, sections 3.5 to 3.7 | What is checked, how and how often; the vulnerability timetable; how findings are analysed and shared; and each of the six parts of RA-5 with the position today |
 | The steps | \<Procedures\>, PRO-RA-3 to PRO-RA-5; \<Security Operating Procedures\>, duties C10 and C50 | Who scans, who reviews the results within 5 working days, and what happens when a flaw is being exploited |
 | The record | TPL-7 in \<Record Templates\> | Each finding, its severity, its due date and its fix |
 | The finding | \<Control Assessment Record\> (RA) | Four of fourteen statements satisfied, with the reason for each of the others |
@@ -168,7 +168,7 @@ Four design documents are also the plan that CSS requires for their family, in t
 | \<Media Protection Management\> | Plans and descriptions | The media protection design | Whoever works in, or assesses, that family |
 | \<Maintenance Management\> | Plans and descriptions | The maintenance design | Whoever works in, or assesses, that family |
 | \<Incident Response Management\> | Plans and descriptions | The incident response design, and the plan IR-8 requires | Whoever works in, or assesses, that family |
-| \<Supply Chain Risk Management\> | Plans and descriptions | The supply chain risk management plan that SR-2 requires: the system context, the team, the risks at each stage, the supplier register, the risk tolerance and how components come in, with each of the 12 SR controls and the parameter values | Whoever works in, or assesses, that family |
+| \<Supply Chain Risk Management\> | Plans and descriptions | The supply chain risk management plan that SR-2 requires: the system context, the team, the risks at each stage, the supplier register, the risk tolerance and how components come in | Whoever works in, or assesses, that family |
 | \<Data Protection Impact Assessment\> | Plans and descriptions | The data protection impact assessment, drafted for the legal adviser to complete | The legal adviser |
 | \<Policy\> | Rules and how they are carried out | The security and privacy policy: one chapter of rules for each of the 19 families | Everyone bound by the rules |
 | \<Procedures\> | Rules and how they are carried out | The procedures that carry out the policy: one chapter for each family, each step naming who acts and the record kept | Whoever carries out a duty |

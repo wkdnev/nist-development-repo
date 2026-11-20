@@ -2,42 +2,27 @@
 
 ## 1 Purpose
 
-This document shows how \<System Name\> protects its communications, its boundary, its keys and the information it holds, for each of the 25 System and Communications Protection (SC) controls in the CSS Moderate baseline.
+This document sets out how \<System Name\> is designed and configured to meet the 25 System and Communications Protection (SC) controls and enhancements in the CSS Moderate baseline.
 
-Section 3 sets out the design: the boundary and the allowed flows, with each server's host firewall; transport encryption and sessions; the cryptographic and key register and certificates; the page policy for mobile code; information at rest; denial of service, shared resources and process isolation; name resolution; how protection stands today; and what \<Organisation\> provides. Section 4 takes each control in turn. Values CSS asks the organisation to define are set at corporate level by \<Organisation\>.
+Section 3 is the design: the principles, the boundary and the allowed flows, with each server's host firewall; transport encryption and sessions; the cryptographic and key register and certificates; the page policy for mobile code; information at rest; denial of service, shared resources and process isolation; name resolution; how protection stands today; what \<Organisation\> provides; and the policy and procedures. Each subsection names the controls it helps to meet.
 
-The policy is in \<Policy\> (SC), and the steps people follow are in \<Procedures\> (SC). The flows themselves are in \<System Security Plan\>, section 3.7, and the trust zones and layers of defence in \<Security Architecture\>.
+Other documents hold the rest. Who provides and is responsible for each control, its status and its assessment result are in \<System Security Plan\>, section 7.17 (Table 26). The tests, their results and the records an assessor will ask for are in \<Control Assessment Record\> (SC). Each control's risk is in \<Risk List\>, and what is still open is in \<Plan of Action and Milestones\>. The policy is in \<Policy\> (SC), and the steps people follow are in \<Procedures\> (SC). The flows themselves are in \<System Security Plan\>, section 3.7, and the trust zones and layers of defence in \<Security Architecture\>.
 
 Much of this family is \<Organisation\>'s network: firewalls, the VPN, the proxy, DNS and the certificate authority. \<System Name\>'s own part is its listening addresses, host firewalls, TLS, keys, pages and the protection of what it stores.
 
-An assessor examines the register, the allow-lists, the TLS settings and the page policy; interviews the Windows server administrator, the database administrator, the developers and \<Organisation\>'s security contact; and tests the boundary, the encryption and the headers on the servers (CSS). So for each control section 4 gives:
+Values that CSS asks the organisation to define are set at corporate level by \<Organisation\>. Any settings in section 3 should match those corporate values. Where one does not, it is changed in this document.
 
-- **each part of the control**, as CSS letters them, with the design that meets it and the position today;
-- **who provides it**, and who is responsible;
-- **what enforces it**, the rules and procedures that apply, and the tests run;
-- **the records an assessor will ask for**, and whether they exist yet;
-- **its status**, the risk decision, and what is still open.
-
-**Table 1: Status values**
-
-| Status | Meaning |
-| --- | --- |
-| Implemented | The design is in place and working |
-| Partially implemented | Some of the design is in place; the open items say what is missing |
-| Not implemented | None of the design is in place yet |
-| Not applicable | The control does not apply, by a recorded decision |
+\<System Name\> is not yet built on its servers. Where section 3 notes what is in place "today" or "now", it means the tested v1.0 build, which ran in its Docker test stack. Those notes show where that build differs from the design.
 
 ## 2 Summary
 
-The implementation status of each control, how it is met, who is responsible, its assessment result and the risk and plan entries for its gaps are recorded in \<System Security Plan\>, section 7.17 (Table 26). This section gives only the overall position.
-
-No control in the Moderate baseline is missing from the design. Every gap is registered in the Risk List (\<Risk List\>) and the Plan of Action and Milestones (\<Plan of Action and Milestones\>).
-
-Three things matter most. Every flow is plain today: web, API and database traffic is not encrypted (PA-18, rated High). The token signing key and the database password are held in the source code (PA-19, High). And the key rings that protect the session cookies are unencrypted (PA-93, Medium). The authorising official decided that all three must be fixed before production (NC-SC-10, NC-SC-11, NC-SC-13).
+The implementation status of each control, how it is met, who is responsible, its assessment result and the risk and plan entries for its gaps are recorded in \<System Security Plan\>, section 7.17 (Table 26).
 
 ## 3 The design
 
 ### 3.1 Principles
+
+Controls met here: SC-2, SC-7, SC-7(5), SC-8, SC-12.
 
 1. **Deny by default.** Only the agreed flows are allowed, at \<Organisation\>'s firewalls and on each server.
 2. **Encrypt everything that moves.** Every flow uses TLS, including those that stay inside a server.
@@ -52,7 +37,9 @@ These carry out the principles and rules of \<Policy\>, sections SC.3 and SC.4.
 
 ### 3.2 Boundary and allowed flows
 
-\<System Name\> has no publicly accessible component and no connection of its own to an outside network. Users reach it from \<Organisation\>'s network, administrators over \<Organisation\>'s managed administration route, and everything outside is reached through \<Organisation\>'s managed interfaces and authenticated proxy (SC-7, SC-7(3), SC-7(8)). The flows are in \<System Security Plan\>, section 3.7, Table 7, and \<Security Architecture\>, Table 2.
+Controls met here: SC-2, SC-7, SC-7(3), SC-7(4), SC-7(5), SC-7(7), SC-7(8), SC-15.
+
+\<System Name\> has no publicly accessible component and no connection of its own to an outside network. Users reach it from \<Organisation\>'s network, administrators over \<Organisation\>'s managed administration route, and everything outside is reached through \<Organisation\>'s managed interfaces and authenticated proxy (SC-7, SC-7(3), SC-7(8)), as \<Security Architecture\> sets out. Its only external connections are \<Organisation\>'s managed gateways, and all outbound traffic from the servers goes through the proxy or is blocked. \<System Name\> has no collaborative computing devices or applications, so SC-15 is tailored out (\<Tailoring Register\>, TR-SC-01). The flows are in \<System Security Plan\>, section 3.7, Table 7, and \<Security Architecture\>, Table 2.
 
 \<System Name\>'s own part is how each application listens and each server's host firewall:
 
@@ -63,7 +50,7 @@ These carry out the principles and rules of \<Policy\>, sections SC.3 and SC.4.
 
 Each server's host firewall denies everything not listed below (SC-7(5)). \<Organisation\>'s firewalls apply the same flows at the network edge (EV-SC-02). A new flow, port or listening address goes through change control and updates these lists first (PRO-SC-4); a temporary exception is recorded on TPL-17 with an end date, and exceptions are reviewed every 12 months (PRO-SC-8). Split tunnelling is not allowed: \<Organisation\>'s VPN prevents it on every remote device (SC-7(7)).
 
-**Table 2: Application server, inbound**
+**Table 1: Application server, inbound**
 
 | Rule | Port | From | Flow |
 | --- | --- | --- | --- |
@@ -72,14 +59,14 @@ Each server's host firewall denies everything not listed below (SC-7(5)). \<Orga
 | A3 | Windows administration \[tool and port, EV-MA-02\] | Z2 only | Not numbered |
 | None | API | Not reachable from the network: loopback only | F3, F4 |
 
-**Table 3: Database server, inbound**
+**Table 2: Database server, inbound**
 
 | Rule | Port | From | Flow |
 | --- | --- | --- | --- |
 | D1 | TCP 5432 | Application VM address only | F5 to F7 |
 | D2 | Windows administration \[tool and port, EV-MA-02\] | Z2 only | Not numbered |
 
-**Table 4: Both servers, outbound**
+**Table 3: Both servers, outbound**
 
 | Rule | Port | To | Purpose |
 | --- | --- | --- | --- |
@@ -91,9 +78,11 @@ Each server's host firewall denies everything not listed below (SC-7(5)). \<Orga
 
 ### 3.3 Transport encryption and sessions
 
+Controls met here: SC-7(4), SC-8, SC-8(1), SC-10, SC-13, SC-23.
+
 Every flow uses this profile, from NCSC's guidance (updated 15 October 2026). It covers F1 to F7, including the API calls that stay on the application server, and F11, sign-in through AD FS, which \<Organisation\> protects.
 
-**Table 5: TLS profile**
+**Table 4: TLS profile**
 
 | Setting | Required value | State now |
 | --- | --- | --- |
@@ -111,9 +100,11 @@ Sessions are checked on the server on every request. A new session identifier is
 
 ### 3.4 Cryptographic and key register
 
-Every key and cryptographic use in \<System Name\> is listed here (SC-12, SC-13). Cryptoperiods follow CSS. Values are never recorded, only where they are kept. United States CSS validation is not required: NCSC's profiles and these algorithms are used instead (D-SC-P02).
+Controls met here: SC-12, SC-13, SC-17.
 
-**Table 6: Cryptographic and key register**
+Every key and cryptographic use in \<System Name\> is listed here (SC-12, SC-13). Each key is generated randomly, held in a protected store outside the source code, and owned. It is changed at its cryptoperiod, when a holder leaves, and at once if compromise is suspected. Cryptoperiods follow CSS. Values are never recorded, only where they are kept. United States CSS validation is not required: NCSC's profiles and these algorithms are used instead (D-SC-P02).
+
+**Table 5: Cryptographic and key register**
 
 | Item | Purpose | Algorithm and size | Stored in | Owner | Cryptoperiod | State now |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -135,9 +126,11 @@ Certificates come from \<Organisation\>'s certificate authority, under its certi
 
 ### 3.5 Mobile code and the page policy
 
+Controls met here: SC-18.
+
 Acceptable mobile code is JavaScript and WebAssembly served by \<System Name\> itself. Anything else is unacceptable, including scripts from outside services, unless the system owner approves it (SC-18). Each application sends this page policy, and developers check page code at each release (PRO-SC-5).
 
-**Table 7: Page policy**
+**Table 6: Page policy**
 
 | Directive | Required | Configured today | Sent today |
 | --- | --- | --- | --- |
@@ -155,6 +148,8 @@ The pages load 12 stylesheets and 2 scripts from cdn.jsdelivr.net, with no integ
 
 ### 3.6 Information at rest
 
+Controls met here: SC-4, SC-28, SC-28(1).
+
 The information protected at rest is the documents and pages in PostgreSQL, the database files, the backups, the bulk export copies and the data protection key rings (SC-28).
 
 1. **The servers' disks.** BitLocker with XTS-AES 256 and the TPM on both servers. Recovery keys are held in \<Organisation\>'s protected store, and one is tested every 12 months (PRO-SC-7; PA-52).
@@ -165,12 +160,16 @@ The information protected at rest is the documents and pages in PostgreSQL, the 
 
 ### 3.7 Denial of service, shared resources and process isolation
 
+Controls met here: SC-2, SC-4, SC-5, SC-39.
+
 1. **Denial of service** (SC-5). \<System Name\> limits the effects of network flooding, request flooding and resource exhaustion. \<Organisation\>'s network protections come first; each application limits its request rates (PA-50); and AD FS locks an account after repeated failed sign-ins. When the service slows or fails under traffic, the security officer and \<Organisation\>'s service desk respond (PRO-SC-6).
 2. **Shared resources** (SC-4). Windows Server clears memory and storage between processes and users. Each application runs as its own Windows service under its own account (D-PL-10). Export copies are removed, as above.
 3. **Process isolation** (SC-39). Windows Server gives each process its own address space.
-4. **Separation of functions** (SC-2). The admin portal is a separate application and process from the user application.
+4. **Separation of functions** (SC-2). The admin portal, Admin application, is a separate application and process from the user application, UI application, and is reached only over \<Organisation\>'s managed administration route (section 3.2).
 
 ### 3.8 Name resolution
+
+Controls met here: SC-20, SC-21, SC-22.
 
 \<System Name\> uses \<Organisation\>'s DNS, which provides signed authoritative answers, validating resolvers, and fault-tolerant servers with internal and external roles kept apart (SC-20, SC-21, SC-22). \<System Name\> runs no DNS service of its own. None of this is evidenced yet (EV-SC-05).
 
@@ -178,7 +177,7 @@ The information protected at rest is the documents and pages in PostgreSQL, the 
 
 Test-Protection.ps1 ran on 12 November 2026 on the build tagged v1.0, in the test stack: 12 checks, 1 passed and 11 gaps. Its results, with their hashes, are kept with the SC evidence. The test sent its requests to the sign-in pages of that build, which used \<System Name\>'s own passwords; \<System Name\> now has no sign-in page of its own (D-AC-23), so the checks are to be run again on the servers.
 
-**Table 8: How protection is built today**
+**Table 7: How protection is built today**
 
 | Part | What happens today | Check | Item |
 | --- | --- | --- | --- |
@@ -198,12 +197,14 @@ Test-Protection.ps1 ran on 12 November 2026 on the build tagged v1.0, in the tes
 
 ### 3.10 What \<Organisation\> provides
 
-**Table 9: Asked of \<Organisation\>**
+Controls met here: SC-5, SC-7, SC-7(3), SC-7(4), SC-7(5), SC-7(7), SC-7(8), SC-10, SC-17, SC-20, SC-21, SC-22.
+
+**Table 8: Asked of \<Organisation\>**
 
 | Provided | Controls | What \<System Name\> relies on | Evidence asked | State |
 | --- | --- | --- | --- | --- |
 | Denial-of-service protection and network session disconnect | SC-5, SC-10 | Network flooding is limited, and network sessions end after 30 minutes idle | EV-SC-01 | Not sent |
-| Managed interfaces, flow policy and exceptions | SC-7, SC-7(3), SC-7(4) | Only \<System Name\>'s flows are allowed at the network edge, and the address ranges and ports for the allow-lists | EV-SC-02 | Not sent |
+| Managed interfaces, flow policy and exceptions | SC-7, SC-7(3), SC-7(4) | Only \<System Name\>'s flows are allowed at the network edge, and the address ranges and ports for the allow-lists. Each interface protects what crosses it, and prevents, filters and publishes information about unauthorised control plane traffic from outside networks | EV-SC-02 | Not sent |
 | The firewall rules | SC-7(5) | They deny by default and allow \<System Name\>'s flows only | EV-AC-03 | Not sent |
 | The VPN and the authenticated proxy | SC-7(7), SC-7(8) | No split tunnelling, and outbound traffic from the servers goes through the proxy | EV-SC-03 | Not sent |
 | The certificate authority and trust anchors | SC-17 | Certificates with the required keys and lifetimes, and a list of approved trust anchors | EV-SC-04 | Not sent |
@@ -211,577 +212,21 @@ Test-Protection.ps1 ran on 12 November 2026 on the build tagged v1.0, in the tes
 
 **Today:** no request has been sent, and none of this is evidenced.
 
-## 4 Each control and enhancement
-
-The controls are in CSS order. Each has two tables. The first takes each part of the control and gives what CSS requires, the design that meets it, and the position today. The second says who provides and is responsible for the control, what enforces it, the rules and procedures that apply, the tests run, the records an assessor will ask for, its status, the risk decision, and what is still open.
-
-### 4.1 SC-1 Policy and Procedures
-
-**Table 10: SC-1 design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| a.1 | A system and communications protection policy, shared with defined people, covering purpose, scope, roles, responsibilities, management commitment, coordination and compliance, and consistent with the law | \<Policy\> (SC): a system-level policy, shared with everyone who administers or develops \<System Name\>. The legal adviser reviewed it on 12 November 2026 | Version \<ver\> approved by the Head of Cyber (D-SC-01). The later version awaits the Head of Cyber (D-SC-06). Not yet shared (PA-20) |
-| a.2 | Procedures that carry out the policy, shared with defined people | \<Procedures\> (SC): eight procedures, PRO-SC-1 to PRO-SC-8. Shared with the same people | Version \<ver\> approved by the system owner (D-SC-08). Not yet shared |
-| b | A named official manages the policy and procedures | The system owner | \[Name\] is named in \<Roles and Responsibilities\> |
-| c.1 | The policy is reviewed on a schedule and after set events | Every 12 months, and after a significant incident, audit finding or system change | Reviewed on 12 November 2026 after the SC pack review. The first yearly review falls due in November 2027 |
-| c.2 | The procedures are reviewed on a schedule and after set events | Every 12 months, and after a change to the steps | Reviewed on 12 November 2026. The first yearly review falls due in November 2027 |
-
-**Table 11: SC-1 responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | People, following the procedures |
-| Responsible | System owner, Head of Cyber |
-| Enforced by | Not a system function. The documents are under version control |
-| Rules and procedures | The whole policy; all eight procedures (\<Procedures\>) |
-| Tests | None. Examined from the documents |
-| Records an assessor will ask for | The policy and procedures with their approvals; proof they were shared; review records. The approvals exist |
-| Status | Partially implemented |
-| Risk decision | NC-SC-01, rated Low: approve |
-| Open items | PA-20: share the policy and procedures. The Head of Cyber's approval of the later version (D-SC-06) |
-
-### 4.2 SC-2 Separation of System and User Functionality
-
-**Table 12: SC-2 design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| All | Separate user functionality, including user interface services, from system management functionality | The admin portal, Admin application, is a separate application and process from the user application, UI application, reached only over \<Organisation\>'s managed administration route (section 3.2) | Separate application and process (B09). The administration route is not yet enforced (PA-83) |
-
-**Table 13: SC-2 responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | \<System Name\>: built into the system |
-| Responsible | Developers |
-| Enforced by | The applications' design |
-| Rules and procedures | Policy rule R2 (\<Policy\>, section SC.4); PRO-SC-4 (\<Procedures\>) |
-| Tests | Check B09, 6 November 2026: the admin portal is a separate application and process. It passed |
-| Records an assessor will ask for | The design in \<Security Architecture\>; the running processes on the application server |
-| Status | Implemented |
-| Risk decision | None needed |
-| Open items | PA-83: limit the admin portal to the administration route |
-
-### 4.3 SC-4 Information in Shared System Resources
-
-**Table 14: SC-4 design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| All | Prevent unauthorised and unintended transfer of information through shared system resources | Windows Server clears memory and storage between processes and users. Each application runs as its own Windows service under its own account (D-PL-10), and bulk export copies are deleted once downloaded (section 3.6) | Not assessable until the servers exist. Bulk export leaves copies in a shared temporary folder (PA-86) |
-
-**Table 15: SC-4 responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | \<Organisation\> |
-| Responsible | Windows server administrator, developers |
-| Enforced by | Windows Server, and the applications' clean-up of export copies |
-| Rules and procedures | Policy rule R9 (\<Policy\>, section SC.4); PRO-SC-7 (\<Procedures\>) |
-| Tests | None. Not testable until the servers exist |
-| Records an assessor will ask for | The servers' configuration; proof that export copies are removed |
-| Status | Not implemented |
-| Risk decision | NC-SC-02, rated Low: obtain evidence |
-| Open items | PA-54: the servers' secure settings. PA-86: remove export copies |
-
-### 4.4 SC-5 Denial-of-service Protection
-
-**Table 16: SC-5 design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| a | Protect against or limit the effects of defined denial-of-service events | Limit the effects of network flooding, request flooding and resource exhaustion | Not evidenced (EV-SC-01) |
-| b | Use defined controls to do so | \<Organisation\>'s network protections; a request rate limit in each application; and sign-in lockout, which AD FS applies (section 3.7) | The rate limits are switched off in the code (N12; PA-50). \<Organisation\>'s protections not seen (EV-SC-01) |
-
-**Table 17: SC-5 responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | Shared: \<System Name\> and \<Organisation\> |
-| Responsible | Developers, \<Organisation\> |
-| Enforced by | \<Organisation\>'s network; each application's rate limit, once on |
-| Rules and procedures | Policy rule R11 (\<Policy\>, section SC.4); PRO-SC-6 (\<Procedures\>) |
-| Tests | Check N12 (Test-Protection.ps1 on the v1.0 build, 12 November 2026): no rate limiter |
-| Records an assessor will ask for | \<Organisation\>'s service description; the applications' rate limit settings |
-| Status | Partially implemented |
-| Risk decision | NC-SC-03, rated Low: obtain evidence |
-| Open items | PA-50: decide and turn on the rate limits. EV-SC-01. PA-129 |
-
-### 4.5 SC-7 Boundary Protection
-
-**Table 18: SC-7 design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| a | Monitor and control communications at the external managed interfaces and at key internal managed interfaces | \<Organisation\>'s firewalls at the network edge, and each server's host firewall, allow only the flows in section 3.2 | Not built. The applications listen on every interface in Docker (N07; PA-83). \<Organisation\>'s firewalls not seen (EV-SC-02) |
-| b | Separate publicly accessible components from internal networks, physically or logically | \<System Name\> has no publicly accessible component. Users reach it only from \<Organisation\>'s network | No public component |
-| c | Connect to external networks only through managed interfaces arranged by the security architecture | Only through \<Organisation\>'s managed interfaces, as \<Security Architecture\> sets out | Not evidenced (EV-SC-02) |
-
-**Table 19: SC-7 responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | Shared: \<System Name\> and \<Organisation\> |
-| Responsible | \<Organisation\>, Windows server administrator |
-| Enforced by | \<Organisation\>'s firewalls; each server's host firewall, once built |
-| Rules and procedures | Policy rules R1, R2, R12 (\<Policy\>, section SC.4); PRO-SC-4, PRO-SC-8 (\<Procedures\>) |
-| Tests | Check N07 (Test-Protection.ps1 on the v1.0 build, 12 November 2026): the applications listen on every interface |
-| Records an assessor will ask for | \<Organisation\>'s network diagram and rules; each server's host firewall rules |
-| Status | Not implemented |
-| Risk decision | NC-SC-04, rated Low: obtain evidence |
-| Open items | PA-83: the listening addresses and host firewalls. EV-SC-02 |
-
-### 4.6 SC-7(3) Access Points
-
-**Table 20: SC-7(3) design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| All | Limit the number of external network connections to the system | \<System Name\> has no connection of its own to an outside network. Its only external connections are \<Organisation\>'s managed gateways | Not evidenced (EV-SC-02) |
-
-**Table 21: SC-7(3) responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | \<Organisation\> |
-| Responsible | \<Organisation\> |
-| Enforced by | \<Organisation\>'s gateways |
-| Rules and procedures | Policy rule R1 (\<Policy\>, section SC.4); PRO-SC-8 (\<Procedures\>) |
-| Tests | None |
-| Records an assessor will ask for | \<Organisation\>'s list of managed interfaces |
-| Status | Not implemented |
-| Risk decision | NC-SC-05, rated Low: obtain evidence |
-| Open items | EV-SC-02. PA-129 |
-
-### 4.7 SC-7(4) External Telecommunications Services
-
-**Table 22: SC-7(4) design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| a | A managed interface for each external telecommunications service | Provided by \<Organisation\> | Not evidenced (EV-SC-02) |
-| b | A traffic flow policy for each managed interface | \<Organisation\>'s flow policy, which allows \<System Name\>'s flows in section 3.2 | Not evidenced (EV-SC-02) |
-| c | Protect the confidentiality and integrity of what crosses each interface | \<Organisation\>'s encryption, and \<System Name\>'s own TLS on every flow (section 3.3) | \<System Name\>'s TLS not built (PA-18) |
-| d | Document each exception to the flow policy, with its business need and how long it lasts | Each exception is recorded on TPL-17 with an end date (PRO-SC-4) | None yet |
-| e | Review exceptions at a defined frequency, and remove those no longer needed | Every 12 months (PRO-SC-8) | Not yet held |
-| f | Prevent unauthorised exchange of control plane traffic with external networks | Provided by \<Organisation\> | Not evidenced (EV-SC-02) |
-| g | Publish information so remote networks can detect unauthorised control plane traffic | Provided by \<Organisation\> | Not evidenced (EV-SC-02) |
-| h | Filter unauthorised control plane traffic from external networks | Provided by \<Organisation\> | Not evidenced (EV-SC-02) |
-
-**Table 23: SC-7(4) responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | \<Organisation\> |
-| Responsible | \<Organisation\> |
-| Enforced by | \<Organisation\>'s managed interfaces |
-| Rules and procedures | Policy rules R1, R12 (\<Policy\>, section SC.4); PRO-SC-4, PRO-SC-8 (\<Procedures\>) |
-| Tests | None |
-| Records an assessor will ask for | \<Organisation\>'s interfaces, flow policies and exception list; TPL-17 records |
-| Status | Not implemented |
-| Risk decision | NC-SC-06, rated Low: obtain evidence |
-| Open items | EV-SC-02. PA-129 |
-
-### 4.8 SC-7(5) Deny by Default, Allow by Exception
-
-**Table 24: SC-7(5) design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| All | Deny network traffic by default, and allow it by exception, at managed interfaces or for defined systems | At \<Organisation\>'s managed interfaces and at each server's host firewall, with the allow-lists in section 3.2 | Allow-lists set, but not built (PA-83). \<Organisation\>'s rules not seen (EV-AC-03) |
-
-**Table 25: SC-7(5) responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | Shared: \<System Name\> and \<Organisation\> |
-| Responsible | \<Organisation\>, Windows server administrator |
-| Enforced by | \<Organisation\>'s firewalls; each server's host firewall |
-| Rules and procedures | Policy rule R1 (\<Policy\>, section SC.4); PRO-SC-4 (\<Procedures\>) |
-| Tests | Check N07 (Test-Protection.ps1 on the v1.0 build, 12 November 2026): the applications listen on every interface |
-| Records an assessor will ask for | Each host firewall's rules against the allow-lists; \<Organisation\>'s rule set |
-| Status | Not implemented |
-| Risk decision | NC-SC-07, rated Low: obtain evidence |
-| Open items | PA-83: the host firewalls and listening addresses. EV-AC-03 |
-
-### 4.9 SC-7(7) Split Tunneling for Remote Devices
-
-**Table 26: SC-7(7) design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| All | Prevent split tunnelling for remote devices unless it is securely provisioned with defined safeguards | \<Organisation\>'s VPN prevents split tunnelling on every remote device | Not evidenced (EV-SC-03) |
-
-**Table 27: SC-7(7) responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | \<Organisation\> |
-| Responsible | \<Organisation\> |
-| Enforced by | \<Organisation\>'s VPN |
-| Rules and procedures | Policy rule R11 (\<Policy\>, section SC.4); PRO-SC-8 (\<Procedures\>) |
-| Tests | None |
-| Records an assessor will ask for | The VPN configuration |
-| Status | Not implemented |
-| Risk decision | NC-SC-08, rated Low: obtain evidence |
-| Open items | EV-SC-03. PA-129 |
-
-### 4.10 SC-7(8) Route Traffic to Authenticated Proxy Servers
-
-**Table 28: SC-7(8) design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| All | Route defined internal traffic to defined external networks through authenticated proxy servers | All outbound traffic from the servers goes through \<Organisation\>'s authenticated proxy, or is blocked (rule O3 in section 3.2) | Not evidenced (EV-SC-03) |
-
-**Table 29: SC-7(8) responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | \<Organisation\> |
-| Responsible | \<Organisation\> |
-| Enforced by | \<Organisation\>'s proxy; each server's outbound rules |
-| Rules and procedures | Policy rule R11 (\<Policy\>, section SC.4); PRO-SC-8 (\<Procedures\>) |
-| Tests | None |
-| Records an assessor will ask for | The proxy configuration; the servers' outbound rules |
-| Status | Not implemented |
-| Risk decision | NC-SC-09, rated Low: obtain evidence |
-| Open items | EV-SC-03. PA-129 |
-
-### 4.11 SC-8 Transmission Confidentiality and Integrity
-
-**Table 30: SC-8 design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| All | Protect the confidentiality and integrity of transmitted information | TLS on every flow, F1 to F7 and F11, including those that stay inside a server, under the profile in section 3.3 | Plain HTTP on every application and on the internal API calls, and database TLS off (N01, N06; PA-18) |
-
-**Table 31: SC-8 responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | Shared: \<System Name\> and \<Organisation\> |
-| Responsible | Windows server administrator, database administrator, developers |
-| Enforced by | TLS settings on the servers, the applications and PostgreSQL, once set |
-| Rules and procedures | Policy rules R3, R4, R5 (\<Policy\>, section SC.4); PRO-SC-1 (\<Procedures\>) |
-| Tests | Checks N01, N02, N03 and N06 (Test-Protection.ps1 on the v1.0 build, 12 November 2026): all showed gaps |
-| Records an assessor will ask for | An outside TLS scan of the web address; Test-Protection.ps1 results on the servers; certificate records |
-| Status | Not implemented |
-| Risk decision | NC-SC-10, rated High: remediate |
-| Open items | PA-18: TLS on every flow |
-
-### 4.12 SC-8(1) Cryptographic Protection
-
-**Table 32: SC-8(1) design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| All | Use cryptography to prevent unauthorised disclosure, and detect changes, during transmission | TLS under NCSC's profiles, with authenticated encryption (AES-GCM) (section 3.3) | Not in place (PA-18) |
-
-**Table 33: SC-8(1) responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | Shared: \<System Name\> and \<Organisation\> |
-| Responsible | Windows server administrator, database administrator |
-| Enforced by | TLS, once set |
-| Rules and procedures | Policy rules R3, R6 (\<Policy\>, section SC.4); PRO-SC-1 (\<Procedures\>) |
-| Tests | As SC-8 |
-| Records an assessor will ask for | As SC-8 |
-| Status | Not implemented |
-| Risk decision | NC-SC-11, rated High: remediate |
-| Open items | PA-18 |
-
-### 4.13 SC-10 Network Disconnect
-
-**Table 34: SC-10 design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| All | End the network connection at the end of a session, or after a defined period of inactivity | Application sessions end after 30 minutes idle and after 8 hours. \<Organisation\> ends network and remote access sessions after 30 minutes idle | Application sessions end as set. The network side is not evidenced (EV-SC-01) |
-
-**Table 35: SC-10 responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | Shared: \<System Name\> and \<Organisation\> |
-| Responsible | Developers, \<Organisation\> |
-| Enforced by | The applications' session settings; \<Organisation\>'s network and remote access service |
-| Rules and procedures | Policy rule R4 (\<Policy\>, section SC.4); PRO-SC-1 (\<Procedures\>) |
-| Tests | The access control tests of session ending (\<Access Control Management\>) |
-| Records an assessor will ask for | The applications' session settings; \<Organisation\>'s network settings |
-| Status | Partially implemented |
-| Risk decision | NC-SC-12, rated Low: obtain evidence |
-| Open items | EV-SC-01. PA-129 |
-
-### 4.14 SC-12 Cryptographic Key Establishment and Management
-
-**Table 36: SC-12 design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| All | Establish and manage cryptographic keys under defined key management requirements | Each key in the register (section 3.4) is generated randomly, held in a protected store outside source code, owned, and changed at its cryptoperiod, which follows CSS, when a holder leaves, and at once if compromise is suspected | The token signing key and database password are in source (N09; PA-19). The key rings are unencrypted (N08; PA-93) |
-
-**Table 37: SC-12 responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | Shared: \<System Name\> and \<Organisation\> |
-| Responsible | Developers, administrators |
-| Enforced by | The key store, once chosen; Windows DPAPI for the key rings |
-| Rules and procedures | Policy rule R7 (\<Policy\>, section SC.4); PRO-SC-3, PRO-SC-8 (\<Procedures\>) |
-| Tests | Checks N08, N09 and N11 (Test-Protection.ps1 on the v1.0 build, 12 November 2026): N08 and N09 showed gaps |
-| Records an assessor will ask for | The register; TPL-6 records of each key change; the key store's access list |
-| Status | Not implemented |
-| Risk decision | NC-SC-13, rated High: remediate |
-| Open items | PA-19: move keys to the key store. PA-93: protect the key rings |
-
-### 4.15 SC-13 Cryptographic Protection
-
-**Table 38: SC-13 design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| a | Determine the cryptographic uses | TLS, token signing, cookie and antiforgery protection, disk encryption, backup encryption and integrity checks (section 3.4) | Done |
-| b | Use the defined types of cryptography for each use | NCSC's TLS profiles, XTS-AES 256, HMAC-SHA256, AES-256 with HMAC-SHA256, and SHA-256. United States CSS validation is not required (D-SC-P02) | Token signing in place. TLS, disk and key ring encryption not set up. Document checksums use MD5 (PA-61) |
-
-**Table 39: SC-13 responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | Shared: \<System Name\> and \<Organisation\> |
-| Responsible | Developers, administrators |
-| Enforced by | Each use's settings |
-| Rules and procedures | Policy rule R6 (\<Policy\>, section SC.4); PRO-SC-1, PRO-SC-8 (\<Procedures\>) |
-| Tests | Checks N06, N08 and N11 (Test-Protection.ps1 on the v1.0 build, 12 November 2026) |
-| Records an assessor will ask for | The register; the settings of each cryptographic use |
-| Status | Partially implemented |
-| Risk decision | NC-SC-14, rated Medium: remediate |
-| Open items | PA-18, PA-52, PA-61, PA-93 |
-
-### 4.16 SC-15 Collaborative Computing Devices and Applications
-
-**Table 40: SC-15 design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| All | Prohibit remote activation of collaborative devices, and show when they are in use | Not applicable: \<System Name\> has no collaborative computing devices or applications (\<Tailoring Register\>, TR-SC-01) | Not applicable |
-
-**Table 41: SC-15 responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | Not applicable |
-| Status | Not applicable |
-| Decision | TR-SC-01 |
-
-### 4.17 SC-17 Public Key Infrastructure Certificates
-
-**Table 42: SC-17 design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| a | Issue certificates under a defined certificate policy, or obtain them from an approved provider | From \<Organisation\>'s certificate authority, under its certificate policy, using ECDSA P-256 or RSA 2048-bit with SHA-256 (section 3.4) | Not issued; the policy is not seen (EV-SC-04) |
-| b | Include only approved trust anchors in the trust stores | Only \<Organisation\>'s approved trust anchors | Not evidenced (EV-SC-04) |
-
-**Table 43: SC-17 responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | \<Organisation\> |
-| Responsible | \<Organisation\>, Windows server administrator |
-| Enforced by | \<Organisation\>'s certificate authority |
-| Rules and procedures | Policy rule R8 (\<Policy\>, section SC.4); PRO-SC-2 (\<Procedures\>) |
-| Tests | None |
-| Records an assessor will ask for | The certificate policy; the trust store list; certificate records |
-| Status | Not implemented |
-| Risk decision | NC-SC-15, rated Low: obtain evidence |
-| Open items | EV-SC-04. PA-129 |
-
-### 4.18 SC-18 Mobile Code
-
-**Table 44: SC-18 design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| a | Define acceptable and unacceptable mobile code and mobile code technologies | Acceptable: JavaScript and WebAssembly served by \<System Name\> itself. Anything else, including scripts from outside services, is unacceptable unless the system owner approves it (section 3.5) | Defined and approved |
-| b | Authorise, monitor and control the use of mobile code | Each application sends the page policy in section 3.5. Developers check page code at each release (PRO-SC-5) | UI application and Admin application send no page policy, and the configured policy allows inline scripts and outside hosts (N04, N10; PA-34, PA-51) |
-
-**Table 45: SC-18 responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | \<System Name\>: built into the system |
-| Responsible | Developers |
-| Enforced by | Each application's page policy |
-| Rules and procedures | Policy rule R10 (\<Policy\>, section SC.4); PRO-SC-5 (\<Procedures\>) |
-| Tests | Checks N04, N05 and N10 (Test-Protection.ps1 on the v1.0 build, 12 November 2026): all showed gaps |
-| Records an assessor will ask for | The page policy each application sends; release check records |
-| Status | Partially implemented |
-| Risk decision | NC-SC-16, rated Medium: remediate |
-| Open items | PA-34: serve scripts from \<System Name\>. PA-51: turn on and tighten the page policy |
-
-### 4.19 SC-20 Secure Name/Address Resolution Service (Authoritative Source)
-
-**Table 46: SC-20 design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| a | Provide data origin and integrity artefacts with authoritative name resolution responses | Provided by \<Organisation\>'s DNS (section 3.8) | Not evidenced (EV-SC-05) |
-| b | Indicate the security status of child zones, and enable a chain of trust | Provided by \<Organisation\>'s DNS | Not evidenced (EV-SC-05) |
-
-**Table 47: SC-20 responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | \<Organisation\> |
-| Responsible | \<Organisation\> |
-| Enforced by | \<Organisation\>'s DNS |
-| Rules and procedures | Policy rule R11 (\<Policy\>, section SC.4); PRO-SC-8 (\<Procedures\>) |
-| Tests | None |
-| Records an assessor will ask for | \<Organisation\>'s DNS service description and settings |
-| Status | Not implemented |
-| Risk decision | NC-SC-17, rated Low: obtain evidence |
-| Open items | EV-SC-05. PA-129 |
-
-### 4.20 SC-21 Secure Name/Address Resolution Service (Recursive or Caching Resolver)
-
-**Table 48: SC-21 design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| All | Request and verify data origin authentication and integrity on the name resolution responses received | Provided by \<Organisation\>'s resolvers (section 3.8) | Not evidenced (EV-SC-05) |
-
-**Table 49: SC-21 responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | \<Organisation\> |
-| Responsible | \<Organisation\> |
-| Enforced by | \<Organisation\>'s DNS |
-| Rules and procedures | Policy rule R11 (\<Policy\>, section SC.4); PRO-SC-8 (\<Procedures\>) |
-| Tests | None |
-| Records an assessor will ask for | \<Organisation\>'s DNS service description and settings |
-| Status | Not implemented |
-| Risk decision | NC-SC-18, rated Low: obtain evidence |
-| Open items | EV-SC-05. PA-129 |
-
-### 4.21 SC-22 Architecture and Provisioning for Name/Address Resolution Service
-
-**Table 50: SC-22 design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| All | Make the name resolution service fault-tolerant, with internal and external role separation | Provided by \<Organisation\> (section 3.8) | Not evidenced (EV-SC-05) |
-
-**Table 51: SC-22 responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | \<Organisation\> |
-| Responsible | \<Organisation\> |
-| Enforced by | \<Organisation\>'s DNS |
-| Rules and procedures | Policy rule R11 (\<Policy\>, section SC.4); PRO-SC-8 (\<Procedures\>) |
-| Tests | None |
-| Records an assessor will ask for | \<Organisation\>'s DNS architecture |
-| Status | Not implemented |
-| Risk decision | NC-SC-19, rated Low: obtain evidence |
-| Open items | EV-SC-05. PA-129 |
-
-### 4.22 SC-23 Session Authenticity
-
-**Table 52: SC-23 design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| All | Protect the authenticity of communications sessions | Sessions are checked on the server on every request, and carried only over TLS in cookies marked Secure, HttpOnly and SameSite, with HSTS (section 3.3). A new session identifier at each sign-in; only identifiers \<System Name\> issued accepted; sessions ended on the server at sign-out and time-out | Sessions are checked on the server. Cookies are not Secure over HTTP, and there is no HSTS (N02, N03; PA-18). Session handling not yet tested with sign-in through AD FS (PA-95) |
-
-**Table 53: SC-23 responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | \<System Name\>: built into the system |
-| Responsible | Developers |
-| Enforced by | The applications' session handling; TLS, once set |
-| Rules and procedures | Policy rule R4 (\<Policy\>, section SC.4); PRO-SC-1 (\<Procedures\>) |
-| Tests | Checks N02 and N03 (Test-Protection.ps1 on the v1.0 build, 12 November 2026): both showed gaps |
-| Records an assessor will ask for | Cookie and header settings; Test-Protection.ps1 results on the servers |
-| Status | Partially implemented |
-| Risk decision | NC-SC-20, rated Medium: remediate |
-| Open items | PA-18 |
-
-### 4.23 SC-28 Protection of Information at Rest
-
-**Table 54: SC-28 design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| All | Protect the confidentiality and integrity of defined information at rest | Documents and pages in PostgreSQL, the database files, backups, export copies and the data protection key rings, by the means in section 3.6 | Nothing is encrypted at rest in Docker. The servers are not built (PA-52, PA-86, PA-93) |
-
-**Table 55: SC-28 responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | Shared: \<System Name\> and \<Organisation\> |
-| Responsible | Windows server administrator, database administrator |
-| Enforced by | BitLocker, encrypted backups and DPAPI, once set |
-| Rules and procedures | Policy rule R9 (\<Policy\>, section SC.4); PRO-SC-7 (\<Procedures\>) |
-| Tests | None. Not testable until the servers exist |
-| Records an assessor will ask for | BitLocker status on both servers; the backup encryption setting; TPL-11 records of recovery key tests |
-| Status | Not implemented |
-| Risk decision | NC-SC-21, rated Medium, provisional: remediate |
-| Open items | PA-52, PA-86, PA-93 |
-
-### 4.24 SC-28(1) Cryptographic Protection
-
-**Table 56: SC-28(1) design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| All | Use cryptography to prevent unauthorised disclosure and change of defined information at rest on defined components | BitLocker with XTS-AES 256 and the TPM on both servers, encrypted backups, and the key ring folders protected with DPAPI (section 3.6) | The servers are not built (PA-52) |
-
-**Table 57: SC-28(1) responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | Shared: \<System Name\> and \<Organisation\> |
-| Responsible | Windows server administrator |
-| Enforced by | BitLocker, encrypted backups and DPAPI, once set |
-| Rules and procedures | Policy rule R9 (\<Policy\>, section SC.4); PRO-SC-7 (\<Procedures\>) |
-| Tests | None. Not testable until the servers exist |
-| Records an assessor will ask for | As SC-28 |
-| Status | Not implemented |
-| Risk decision | NC-SC-22, rated Medium, provisional: remediate |
-| Open items | PA-52 |
-
-### 4.25 SC-39 Process Isolation
-
-**Table 58: SC-39 design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| All | Keep a separate execution domain for each running process | Windows Server gives each process its own address space, and each application runs as its own Windows service under its own account (D-PL-10) | Not assessable until the servers exist |
-
-**Table 59: SC-39 responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | \<Organisation\> |
-| Responsible | Windows server administrator |
-| Enforced by | Windows Server |
-| Rules and procedures | Policy rule R2 (\<Policy\>, section SC.4); no procedure of its own |
-| Tests | None |
-| Records an assessor will ask for | The servers' configuration |
-| Status | Not implemented |
-| Risk decision | NC-SC-23, rated Low: obtain evidence |
-| Open items | PA-54: the servers' secure settings |
+### 3.11 Policy and procedures
+
+Controls met here: SC-1.
+
+1. **Policy.** \<Policy\> (SC) is a system-level policy, shared with everyone who administers or develops \<System Name\>. The legal adviser reviews it.
+2. **Procedures.** \<Procedures\> (SC) holds eight procedures, PRO-SC-1 to PRO-SC-8. They are shared with the same people.
+3. **Owner.** The system owner manages the policy and procedures.
+4. **Review.** The policy is reviewed every 12 months, and after a significant incident, audit finding or system change. The procedures are reviewed every 12 months, and after a change to the steps.
+5. **Records.** The documents are under version control.
 
 ## Appendix A Communications protection controls outside the Moderate baseline
 
-CSS does not select these at Moderate, so they are not assessed. SC-15 is tailored out (TR-SC-01), and SC-7(24) is a privacy baseline control set out in \<PII Processing Management\>. Table 60 says where the design goes some way towards them.
+CSS does not select these at Moderate, so they are not assessed. SC-15 is tailored out (TR-SC-01), and SC-7(24) is a privacy baseline control set out in \<PII Processing Management\>. Table 9 says where the design goes some way towards them.
 
-**Table 60: Related controls and enhancements not selected**
+**Table 9: Related controls and enhancements not selected**
 
 | Control | What it adds | \<System Name\>'s position |
 | --- | --- | --- |

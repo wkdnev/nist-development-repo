@@ -2,40 +2,25 @@
 
 ## 1 Purpose
 
-This document shows how \<System Name\> keeps its software and information sound, for each of the 18 System and Information Integrity (SI) controls in the CSS Moderate baseline: fixing flaws, malicious code protection, monitoring, advisories, integrity checks, input validation, error handling, retention and memory protection.
+This document sets out how \<System Name\> is designed and configured to keep its software and information sound, to meet the 18 System and Information Integrity (SI) controls and enhancements in the CSS Moderate baseline.
 
-Section 3 sets out the design: the upload checks and malware scanning; flaw remediation and advisories; monitoring and the detection use cases; the integrity baseline and checks; error handling and memory protection; retention; how integrity stands today; and what \<Organisation\> provides. Section 4 takes each control in turn. Values CSS asks the organisation to define are set at corporate level by \<Organisation\>.
+Section 3 is the design: the upload checks and malware scanning; flaw remediation and advisories; monitoring and the detection use cases; the integrity baseline and checks; error handling and memory protection; retention; how integrity stands today; what \<Organisation\> provides; email and spam protection; and the policy and procedures. Each subsection names the controls it helps to meet. Appendix A lists the related controls and enhancements CSS does not select at Moderate.
 
-The policy is in \<Policy\> (SI), and the steps people follow are in \<Procedures\> (SI). The vulnerability timetable is in \<Risk Assessment Management\>, section 3.6, the retention schedule in \<PII Processing Management\>, section 3.7, and the audit design in \<Audit and Accountability Management\>. The privacy controls SI-12(1) to SI-12(3), SI-18, SI-18(4) and SI-19 are set out in \<PII Processing Management\>.
+Other documents hold the rest. Who provides and is responsible for each control, its status and its assessment result are in \<System Security Plan\>, section 7.18 (Table 27). The tests, their results and the records an assessor will ask for are in \<Control Assessment Record\> (SI). Each control's risk is in \<Risk List\>, and what is still open is in \<Plan of Action and Milestones\>. The policy is in \<Policy\> (SI), and the steps people follow are in \<Procedures\> (SI). The vulnerability timetable is in \<Risk Assessment Management\>, section 3.6, the retention schedule in \<PII Processing Management\>, section 3.7, and the audit design in \<Audit and Accountability Management\>. The privacy controls SI-12(1) to SI-12(3), SI-18, SI-18(4) and SI-19 are set out in \<PII Processing Management\>.
 
-An assessor examines the use cases, the baseline, the advisory records and the test results; interviews the security officer, the developers and the Windows server administrator; and tests the upload checks, the error messages, the malware scan and the alerts (CSS). So for each control section 4 gives:
+Values that CSS asks the organisation to define are set at corporate level by \<Organisation\>. The settings in section 3 should match those corporate values. Where one does not, it is changed in this document.
 
-- **each part of the control**, as CSS letters them, with the design that meets it and the position today;
-- **who provides it**, and who is responsible;
-- **what enforces it**, the rules and procedures that apply, and the tests run;
-- **the records an assessor will ask for**, and whether they exist yet;
-- **its status**, the risk decision, and what is still open.
-
-**Table 1: Status values**
-
-| Status | Meaning |
-| --- | --- |
-| Implemented | The design is in place and working |
-| Partially implemented | Some of the design is in place; the open items say what is missing |
-| Not implemented | None of the design is in place yet |
-| Not applicable | The control does not apply, by a recorded decision |
+Where section 3 notes what "today" is, or the state now, it means the tested v1.0 build. Those notes show where that build differs from the design.
 
 ## 2 Summary
 
-The implementation status of each control, how it is met, who is responsible, its assessment result and the risk and plan entries for its gaps are recorded in \<System Security Plan\>, section 7.18 (Table 27). This section gives only the overall position.
-
-No control in the Moderate baseline is missing from the design. Every gap is registered in the Risk List (\<Risk List\>) and the Plan of Action and Milestones (\<Plan of Action and Milestones\>).
-
-Three things matter most. Seven package advisories are open, five of them High, and are due by 20 November 2026 (PA-56, rated High). Nothing scans uploads for malware, and documents in the database are out of Defender's sight (PA-58, Medium). And nothing raises an alert, so an attack would go unnoticed (PA-59, Medium).
+The implementation status of each control, how it is met, who is responsible, its assessment result and the risk and plan entries for its gaps are recorded in \<System Security Plan\>, section 7.18 (Table 27).
 
 ## 3 The design
 
 ### 3.1 Principles
+
+Controls met here: SI-2, SI-3, SI-4, SI-7, SI-10.
 
 1. **Fix flaws on time.** Every flaw is fixed to the one timetable.
 2. **Check what comes in.** Every upload and input is checked on the server, and every upload is scanned before it is stored.
@@ -50,9 +35,11 @@ These carry out the principles and rules of \<Policy\>, sections SI.3 and SI.4.
 
 ### 3.2 Upload checks and malware scanning
 
+Controls met here: SI-3, SI-10.
+
 Every upload passes these checks on the server before it is stored (SI-3, SI-10). Documents are held in PostgreSQL and never written to disk, so Defender's file scan cannot see them; \<System Name\> must ask Defender to scan each one first. All API inputs and search terms are validated on the server too, and database queries use parameters.
 
-**Table 2: Upload checks**
+**Table 1: Upload checks**
 
 | Check | How | State now |
 | --- | --- | --- |
@@ -63,13 +50,15 @@ Every upload passes these checks on the server before it is stored (SI-3, SI-10)
 | Malware scan | The bytes are passed to Defender through AMSI before storing; a flagged file is refused, audited and reported | Not built (H08; PA-58) |
 | Proof | The EICAR test file, built in memory on the test stack, must be refused | Not possible until the scan exists |
 
-Microsoft Defender runs on both servers, with real-time protection, daily updates and a weekly full scan. What it finds is quarantined, and the Windows server administrator and the security officer are alerted (PRO-SI-2). When the upload scan is first turned on, every document already stored is scanned once, as none was scanned when it was uploaded (PA-58). Exports and downloads are of documents already scanned, so no further scan is needed on the way out.
+Microsoft Defender, which is signature and behaviour based, runs on both servers, with real-time protection, daily updates under configuration management and a weekly full scan. What it finds is blocked and quarantined, and the Windows server administrator and the security officer are alerted (PRO-SI-2). A flagged upload is refused and recorded in the audit trail. Each false positive is recorded on TPL-10 with how it was resolved (PRO-SI-2, step 4). When the upload scan is first turned on, every document already stored is scanned once, as none was scanned when it was uploaded (PA-58). Exports and downloads are of documents already scanned, so no further scan is needed on the way out.
 
 ### 3.3 Flaw remediation and advisories
 
-Flaws are fixed to the one timetable in \<Risk Assessment Management\>, section 3.6 (D-RA-P02), which replaced the 14-day and 30-day limits of version \<ver\>. Each update is tested on a separate test stack, then installed through change control (PRO-SI-1). Update status is checked monthly and at each release by Test-Vulnerability.ps1, the repositories' dependency alerts and the Windows Update reports from both servers (SI-2(2)).
+Controls met here: SI-2, SI-2(2), SI-5.
 
-**Table 3: Advisory sources**
+Flaws come from the package check, the advisories in Table 2, scans and tests. Each is recorded on TPL-7 and fixed to the one timetable in \<Risk Assessment Management\>, section 3.6 (D-RA-P02; PRO-SI-1). Each update is tested on a separate test stack, then installed through change control (\<Configuration Management\>; PRO-SI-1, step 3). Update status is checked monthly and at each release by Test-Vulnerability.ps1, the repositories' dependency alerts and the Windows Update reports from both servers (SI-2(2)).
+
+**Table 2: Advisory sources**
 
 | Source | What it covers | How often | State now |
 | --- | --- | --- | --- |
@@ -80,15 +69,17 @@ Flaws are fixed to the one timetable in \<Risk Assessment Management\>, section 
 | GitHub advisories and dependency alerts | NuGet packages | As raised | Alerts off (PA-91) |
 | PostgreSQL security | The database | As published | Not started |
 
-An internal advisory is a security officer's note on TPL-7, naming the flaw, the components affected, the deadline under the timetable and who acts. A directive that applies is carried out to the timetable; if it cannot be, the issuer is told (SI-5).
+An internal advisory is a security officer's note on TPL-7, naming the flaw, the components affected, the deadline under the timetable and who acts. The security officer passes alerts and advisories to the administrators and developers. A directive that applies is carried out to the timetable, through change control; if it cannot be, the issuer is told (SI-5).
 
 ### 3.4 Monitoring and detection use cases
 
-Application, Windows and PostgreSQL logs, and the audit trail, are forwarded to \<Organisation\>'s central logging \[service to be confirmed, EV-SI-01\]; if none is available, CISA's Logging Made Easy is the fallback. The security officer reviews them weekly (PRO-SI-3), and these events must raise an alert (SI-4, SI-4(2), SI-4(5)). None is built yet (H12; PA-59).
+Controls met here: SI-4, SI-4(2), SI-4(4), SI-4(5).
 
-Since sign-in moved to AD FS (D-AC-23), failed sign-ins and changes to administrator groups happen in \<Organisation\>'s systems, not in \<System Name\>. Use cases U1 and U4 therefore need those events from \<Organisation\> (EV-SI-01). The system owner confirmed this on 18 November 2026 (D-SR-15).
+Application, Windows and PostgreSQL logs, and the audit trail, are forwarded to \<Organisation\>'s central logging \[service to be confirmed, EV-SI-01\]; if none is available, CISA's Logging Made Easy is the fallback. Alert rules in the central logging service analyse the events in near real time. The aim is to detect attacks, misuse and unauthorised local, network and remote connections. The security officer receives the logs and alerts and reviews them weekly (PRO-SI-3), and these events must raise an alert to the security officer (SI-4, SI-4(2), SI-4(5)). The system owner raises the level of monitoring when risk rises (PRO-SI-3, step 3). None is built yet (H12; PA-59).
 
-**Table 4: Detection use cases**
+Since sign-in moved to AD FS (D-AC-23), failed sign-ins and changes to administrator groups happen in \<Organisation\>'s systems, not in \<System Name\>. Use cases U1 and U4 therefore need those events, including the AD FS sign-in logs, from \<Organisation\> (EV-SI-01; D-SR-15).
+
+**Table 3: Detection use cases**
 
 | ID | Event | Source | Threshold | Alert to | Response |
 | --- | --- | --- | --- | --- | --- |
@@ -101,13 +92,15 @@ Since sign-in moved to AD FS (D-AC-23), failed sign-ins and changes to administr
 | U7 | Audit logging failure | Application log (AU-5) | Any | Security officer | PRO-SI-4 |
 | U8 | Unexpected software change | Integrity check (PRO-SI-6) | Any | Security officer | Incident |
 
-\<Organisation\> monitors traffic into and out of the network continuously, against the agreed flows (SI-4(4)). Users are monitored only after the legal adviser's opinion (D-SI-07), only as far as needed, and with staff told what is monitored and why.
+\<Organisation\> monitors traffic into and out of the network continuously, against the allowed flows (\<System and Communications Protection Management\>, section 3.2). Unusual or unauthorised traffic is traffic outside those flows, and, outbound, unusually large transfers (SI-4(4)). Users are monitored only after the legal adviser's opinion (D-SI-07), only as far as needed, and with staff told what is monitored and why.
 
 ### 3.5 Integrity baseline and checks
 
-The known-good v1.0 release was recorded by Test-Integrity.ps1 on 12 November 2026. Later checks compare against these SHA-256 values (SI-7, SI-7(1)). The full values are kept with the SI evidence. The test images apply to the test environment only; the release packages for the servers get their own baseline when they are built (D-PL-10; PA-61).
+Controls met here: SI-7, SI-7(1), SI-7(7).
 
-**Table 5: Integrity baseline, v1.0**
+The known-good v1.0 release was recorded by Test-Integrity.ps1. Later checks compare against these SHA-256 values (SI-7, SI-7(1)). The full values are kept with the SI evidence. The test images apply to the test environment only; the release packages for the servers get their own baseline when they are built (D-PL-10; PA-61).
+
+**Table 4: Integrity baseline, v1.0**
 
 | Item | SHA-256 (first 16 characters) |
 | --- | --- |
@@ -119,17 +112,21 @@ The known-good v1.0 release was recorded by Test-Integrity.ps1 on 12 November 20
 | Admin application application file | fc79003538bbbc75 |
 | shared library library file (the same in all three) | 45df38576a5804b9 |
 
-Release packages, stored documents and audit records are checked at start-up, at each release and monthly; \<Organisation\> checks the servers' firmware. An unexpected change is handled as an incident, and the item is restored from a trusted copy or backup (SI-7(7); PRO-SI-6).
+Release packages and stored documents are checked with SHA-256, and audit records with the audit chain, at start-up, at each release and monthly. \<Organisation\> checks the servers' firmware monthly and at a change to the hosting. An unexpected change to software, stored documents or audit records is handled as an incident (\<Incident Response Management\>), and the item is restored from a trusted copy or backup (SI-7(7); PRO-SI-6, step 3). For firmware, \<Organisation\>'s security contact is told.
 
 ### 3.6 Error handling and memory protection
+
+Controls met here: SI-11, SI-16.
 
 Users and API callers see a general error message; the detail goes only to the logs, for administrators and developers (SI-11; PA-60). Memory is protected by .NET managed memory and by Windows data execution prevention and address randomisation on the servers (SI-16).
 
 ### 3.7 Information retention
 
+Controls met here: SI-12.
+
 Information is kept and disposed of under \<System Name\>'s retention schedule, which is held in \<PII Processing Management\>, section 3.7 (SI-12). This table summarises the periods that other designs set.
 
-**Table 6: Retention**
+**Table 5: Retention**
 
 | Information | Kept for | Source | State now |
 | --- | --- | --- | --- |
@@ -141,13 +138,13 @@ Information is kept and disposed of under \<System Name\>'s retention schedule, 
 
 ### 3.8 How integrity stands today
 
-Test-Integrity.ps1 ran on 12 November 2026 on the build tagged v1.0, in the test stack: 12 checks, 7 passed and 5 gaps. Its results, with their hashes, are kept with the SI evidence.
+Test-Integrity.ps1 ran on the build tagged v1.0, in the test stack: 12 checks, 7 passed and 5 gaps. Its results, with their hashes, are kept with the SI evidence.
 
-**Table 7: How integrity is built today**
+**Table 6: How integrity is built today**
 
 | Part | What happens today | Check | Item |
 | --- | --- | --- | --- |
-| Packages | 7 advisories in two packages, 5 High (11 November) | RA V01 | PA-56 |
+| Packages | 7 advisories in two packages, 5 High | RA V01 | PA-56 |
 | Error detail | A malformed upload returns the exception message; about 29 API responses do so | H01 | PA-60 |
 | Read endpoints | Bad identifiers return 404 with no detail | H02 | None |
 | Injection-style input | Refused cleanly, with no server errors or database text | H03 | None |
@@ -161,7 +158,9 @@ Test-Integrity.ps1 ran on 12 November 2026 on the build tagged v1.0, in the test
 
 ### 3.9 What \<Organisation\> provides
 
-**Table 8: Asked of \<Organisation\>**
+Controls met here: SI-2, SI-4, SI-4(2), SI-4(4), SI-5, SI-7, SI-7(1).
+
+**Table 7: Asked of \<Organisation\>**
 
 | Provided | Controls | What \<System Name\> relies on | Evidence asked | State |
 | --- | --- | --- | --- | --- |
@@ -171,423 +170,27 @@ Test-Integrity.ps1 ran on 12 November 2026 on the build tagged v1.0, in the test
 
 **Today:** no request has been sent, and none of this is evidenced.
 
-## 4 Each control and enhancement
+### 3.10 Email and spam protection
 
-The controls are in CSS order. Each has two tables. The first takes each part of the control and gives what CSS requires, the design that meets it, and the position today. The second says who provides and is responsible for the control, what enforces it, the rules and procedures that apply, the tests run, the records an assessor will ask for, its status, the risk decision, and what is still open.
+Controls met here: SI-8, SI-8(2).
 
-### 4.1 SI-1 Policy and Procedures
+\<System Name\> sends and receives no email, so it has no spam protection of its own to set or update (\<Tailoring Register\>, TR-SI-01).
 
-**Table 9: SI-1 design**
+### 3.11 Policy and procedures
 
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| a.1 | A system and information integrity policy, shared with defined people, covering purpose, scope, roles, responsibilities, management commitment, coordination and compliance, and consistent with the law | \<Policy\> (SI): a system-level policy, shared with everyone who administers or develops \<System Name\>. The legal adviser reviewed it on 12 November 2026 | Version \<ver\> approved by the Head of Cyber (D-SI-01). The later version awaits the Head of Cyber (D-SI-06). Not yet shared (PA-20) |
-| a.2 | Procedures that carry out the policy, shared with defined people | \<Procedures\> (SI): eight procedures, PRO-SI-1 to PRO-SI-8. Shared with the same people | Version \<ver\> approved by the system owner (D-SI-09). Not yet shared |
-| b | A named official manages the policy and procedures | The system owner | \[Name\] is named in \<Roles and Responsibilities\> |
-| c.1 | The policy is reviewed on a schedule and after set events | Every 12 months, and after a significant incident, audit finding or system change | Reviewed on 12 November 2026 after the SI pack review. The first yearly review falls due in November 2027 |
-| c.2 | The procedures are reviewed on a schedule and after set events | Every 12 months, and after a change to the steps | Reviewed on 12 November 2026. The first yearly review falls due in November 2027 |
+Controls met here: SI-1.
 
-**Table 10: SI-1 responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | People, following the procedures |
-| Responsible | System owner, Head of Cyber |
-| Enforced by | Not a system function. The documents are under version control |
-| Rules and procedures | The whole policy; all eight procedures (\<Procedures\>) |
-| Tests | None. Examined from the documents |
-| Records an assessor will ask for | The policy and procedures with their approvals; proof they were shared; review records. The approvals exist |
-| Status | Partially implemented |
-| Risk decision | NC-SI-01, rated Low: approve |
-| Open items | PA-20: share the policy and procedures. The Head of Cyber's approval of the later version (D-SI-06) |
-
-### 4.2 SI-2 Flaw Remediation
-
-**Table 11: SI-2 design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| a | Identify, report and correct system flaws | Flaws come from the package check, the advisories in section 3.3, scans and tests. Each is recorded on TPL-7 and fixed (PRO-SI-1) | 7 package advisories open, 5 of them High (V01; PA-56) |
-| b | Test updates for effectiveness and side effects before installing them | On a separate test stack first (PRO-SI-1, step 3) | Approved. Not yet in use |
-| c | Install security-relevant updates within a defined time of their release | The one timetable in \<Risk Assessment Management\>, section 3.6: 3 days if exploited; 14 days for Critical and High; 30 for Medium; 90 for Low, or 30 once a fix exists | Not met for the 7 package advisories (PA-56) |
-| d | Make flaw remediation part of configuration management | Each fix goes through change control (\<Configuration Management\>) | Approved. The change workflow is not set up (PA-53) |
-
-**Table 12: SI-2 responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | Shared: \<System Name\> and \<Organisation\> |
-| Responsible | Developers, Windows server administrator |
-| Enforced by | The package check; the change process |
-| Rules and procedures | Policy rule R1 (\<Policy\>, section SI.4); PRO-SI-1 (\<Procedures\>) |
-| Tests | Check V01 of Test-Vulnerability.ps1, 11 November 2026: 7 advisories, 5 of them High |
-| Records an assessor will ask for | TPL-7 records with due dates and fixes; change records |
-| Status | Partially implemented |
-| Risk decision | NC-SI-02, rated High: remediate |
-| Open items | PA-56: update the packages, or the authorising official decides (D-RA-13) |
-
-### 4.3 SI-2(2) Automated Flaw Remediation Status
-
-**Table 13: SI-2(2) design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| All | Check with automated means, at a defined frequency, whether components have their security updates | Test-Vulnerability.ps1, repository dependency alerts and Windows Update reports, monthly and at each release | The script exists but is run by hand (PA-57); dependency alerts are off (PA-91) |
-
-**Table 14: SI-2(2) responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | Shared: \<System Name\> and \<Organisation\> |
-| Responsible | Developers |
-| Enforced by | Test-Vulnerability.ps1; GitHub dependency alerts; Windows Update |
-| Rules and procedures | Policy rule R2 (\<Policy\>, section SI.4); PRO-SI-1, step 1 (\<Procedures\>) |
-| Tests | Check V01 of Test-Vulnerability.ps1 |
-| Records an assessor will ask for | Scheduled results; the alert settings; Windows Update reports |
-| Status | Not implemented |
-| Risk decision | NC-SI-03, rated Medium: remediate |
-| Open items | PA-57: schedule the check. PA-91: turn on dependency alerts |
-
-### 4.4 SI-3 Malicious Code Protection
-
-**Table 15: SI-3 design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| a | Use signature-based or non-signature-based malicious code protection at entry and exit points | Microsoft Defender, signature and behaviour based, on both servers, and every upload passed to Defender through AMSI before it is stored (section 3.2). Documents stored before the scan exists are scanned once when it is turned on | Not built: no scanner call in the upload path (H08; PA-58). The servers are not built |
-| b | Update the protection automatically as new releases are available | Defender updates daily, under configuration management | Not built (PA-58) |
-| c.1 | Scan periodically, and in real time as files from outside are downloaded, opened or run | A weekly full scan, real-time protection on both servers, and each upload scanned before it is stored | Not built (PA-58) |
-| c.2 | Block or quarantine malicious code, and alert defined people | Block and quarantine; refuse the upload and record it in the audit trail; alert the Windows server administrator and the security officer | Not built (PA-58, PA-59) |
-| d | Deal with false positives and their effect on availability | Each false positive is recorded on TPL-10 with how it was resolved (PRO-SI-2, step 4) | Not yet in use |
-
-**Table 16: SI-3 responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | Shared: \<System Name\> and \<Organisation\> |
-| Responsible | Windows server administrator, developers |
-| Enforced by | Microsoft Defender and AMSI, once set |
-| Rules and procedures | Policy rules R3, R4 (\<Policy\>, section SI.4); PRO-SI-2 (\<Procedures\>) |
-| Tests | Check H08 (Test-Integrity.ps1 on the v1.0 build, 12 November 2026): no scanner call in the upload path |
-| Records an assessor will ask for | Defender's status on both servers; a refused EICAR test file; TPL-10 records |
-| Status | Not implemented |
-| Risk decision | NC-SI-04, rated Medium: remediate |
-| Open items | PA-58: scan uploads through AMSI and set up Defender |
-
-### 4.5 SI-4 System Monitoring
-
-**Table 17: SI-4 design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| a.1 | Monitor to detect attacks and indicators of attack, against defined objectives | Detect attacks, misuse and unauthorised connections, through the detection use cases in section 3.4 | Use cases set. Nothing raises an alert (H12; PA-59) |
-| a.2 | Monitor to detect unauthorised local, network and remote connections | \<Organisation\>'s network monitoring, and the allowed flows (\<System and Communications Protection Management\>, section 3.2) | Not evidenced (EV-SI-01) |
-| b | Identify unauthorised use by defined techniques | Log forwarding to \<Organisation\>'s central logging, the detection use cases, the audit records and \<Organisation\>'s network monitoring | No forwarding or alerts (PA-59) |
-| c | Place monitoring strategically, and at ad hoc locations for transactions of interest | Application, Windows and PostgreSQL logs, and the audit trail; AD FS sign-in logs from \<Organisation\> | Logs written; not forwarded |
-| d | Analyse detected events and anomalies | The security officer reviews the logs and alerts weekly (PRO-SI-3) | Not started (PA-130) |
-| e | Adjust monitoring when risk changes | The system owner raises monitoring when risk rises (PRO-SI-3, step 3) | Not yet in use |
-| f | Obtain a legal opinion on monitoring | The legal adviser's opinion on monitoring users, before monitoring starts (D-SI-07) | Not given (D-SI-07) |
-| g | Provide monitoring information to defined people at a defined frequency | Application, Windows and PostgreSQL logs to the security officer, weekly | Not started (PA-130) |
-
-**Table 18: SI-4 responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | Shared: \<System Name\> and \<Organisation\> |
-| Responsible | Security officer, \<Organisation\> |
-| Enforced by | Central logging and alert rules, once built; the weekly review |
-| Rules and procedures | Policy rules R5, R6 (\<Policy\>, section SI.4); PRO-SI-3, PRO-SI-4 (\<Procedures\>) |
-| Tests | Checks H11 and H12 (Test-Integrity.ps1 on the v1.0 build, 12 November 2026): failed sign-ins were recorded by the v1.0 build; nothing raises an alert |
-| Records an assessor will ask for | TPL-8 records of weekly reviews; alerts and their responses; the legal opinion |
-| Status | Partially implemented |
-| Risk decision | NC-SI-05, rated Low: obtain evidence |
-| Open items | PA-59: forward logs and build the alerts. PA-130: start the reviews. D-SI-07: the legal opinion |
-
-### 4.6 SI-4(2) Automated Tools and Mechanisms for Real-time Analysis
-
-**Table 19: SI-4(2) design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| All | Use automated tools to support near real-time analysis of events | \<Organisation\>'s central logging, or CISA's Logging Made Easy if none is available, with alert rules for the detection use cases | No forwarding or automated analysis (H12; PA-59) |
-
-**Table 20: SI-4(2) responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | Shared: \<System Name\> and \<Organisation\> |
-| Responsible | Security officer |
-| Enforced by | Central logging, once connected |
-| Rules and procedures | Policy rule R5 (\<Policy\>, section SI.4); PRO-SI-3 (\<Procedures\>) |
-| Tests | Check H12 (Test-Integrity.ps1 on the v1.0 build, 12 November 2026): nothing raises an alert |
-| Records an assessor will ask for | The forwarding connection; the alert rules |
-| Status | Not implemented |
-| Risk decision | NC-SI-06, rated Medium: remediate |
-| Open items | PA-59 |
-
-### 4.7 SI-4(4) Inbound and Outbound Communications Traffic
-
-**Table 21: SI-4(4) design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| a | Set criteria for unusual or unauthorised inbound and outbound traffic | Traffic outside the agreed flows; and outbound, unusually large transfers | Defined |
-| b | Monitor inbound and outbound traffic at a defined frequency for that activity | Continuously, by \<Organisation\> | Not evidenced (EV-SI-01) |
-
-**Table 22: SI-4(4) responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | \<Organisation\> |
-| Responsible | \<Organisation\> |
-| Enforced by | \<Organisation\>'s network monitoring |
-| Rules and procedures | Policy rule R5 (\<Policy\>, section SI.4); PRO-SI-3 (\<Procedures\>) |
-| Tests | None |
-| Records an assessor will ask for | \<Organisation\>'s monitoring description and a sample report |
-| Status | Not implemented |
-| Risk decision | NC-SI-07, rated Low: obtain evidence |
-| Open items | EV-SI-01. PA-130 |
-
-### 4.8 SI-4(5) System-generated Alerts
-
-**Table 23: SI-4(5) design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| All | Alert defined people when defined indications of compromise occur | The security officer, for each detection use case in section 3.4 | Nothing raises an alert (H12; PA-59) |
-
-**Table 24: SI-4(5) responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | \<System Name\>: built into the system |
-| Responsible | Developers, security officer |
-| Enforced by | Alert rules, once built |
-| Rules and procedures | Policy rule R5 (\<Policy\>, section SI.4); PRO-SI-4 (\<Procedures\>) |
-| Tests | Check H12 (Test-Integrity.ps1 on the v1.0 build, 12 November 2026): nothing raises an alert |
-| Records an assessor will ask for | The alert rules; alerts raised and their responses |
-| Status | Not implemented |
-| Risk decision | NC-SI-08, rated Medium: remediate |
-| Open items | PA-59 |
-
-### 4.9 SI-5 Security Alerts, Advisories, and Directives
-
-**Table 25: SI-5 design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| a | Receive alerts, advisories and directives from defined external organisations on an ongoing basis | NCSC, including Early Warning; CISA's Known Exploited Vulnerabilities catalogue, weekly; Microsoft; .NET and GitHub; and PostgreSQL (section 3.3) | Not started. Early Warning not registered (EV-SI-03) |
-| b | Generate internal alerts and advisories as needed | The security officer's note on TPL-7, naming the flaw, the components affected, the deadline and who acts | Not yet in use |
-| c | Pass them to defined people | The security officer, administrators and developers | Not yet in use |
-| d | Carry out security directives in time, or tell the issuer how far they are not met | Directives that apply are carried out to the timetable, through change control; the issuer is told if one cannot be met | None received yet |
-
-**Table 26: SI-5 responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | People, following the procedures |
-| Responsible | Security officer |
-| Enforced by | Not a system function |
-| Rules and procedures | Policy rule R7 (\<Policy\>, section SI.4); PRO-SI-5 (\<Procedures\>) |
-| Tests | None |
-| Records an assessor will ask for | TPL-7 records of advisories and what was done |
-| Status | Not implemented |
-| Risk decision | NC-SI-09, rated Low: approve |
-| Open items | PA-130: start receiving the advisories. EV-SI-03 |
-
-### 4.10 SI-7 Software, Firmware, and Information Integrity
-
-**Table 27: SI-7 design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| a | Use integrity verification tools to detect unauthorised changes to defined software, firmware and information | SHA-256 for the release packages and stored documents, the audit chain for audit records, and \<Organisation\> for the servers' firmware (section 3.5) | Baseline recorded. Documents use MD5 (H09; PA-61); the audit chain cannot be recomputed (H10; PA-74) |
-| b | Take defined actions when unauthorised changes are detected | Treat it as an incident, and restore from a trusted copy or backup; for firmware, tell \<Organisation\>'s security contact | Defined |
-
-**Table 28: SI-7 responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | Shared: \<System Name\> and \<Organisation\> |
-| Responsible | Developers, security officer |
-| Enforced by | SHA-256 checks and the audit chain, once corrected |
-| Rules and procedures | Policy rule R8 (\<Policy\>, section SI.4); PRO-SI-6 (\<Procedures\>) |
-| Tests | Checks H09 and H10 (Test-Integrity.ps1 on the v1.0 build, 12 November 2026): both showed gaps |
-| Records an assessor will ask for | The baseline file; TPL-8 records of each check |
-| Status | Partially implemented |
-| Risk decision | NC-SI-10, rated Low: remediate |
-| Open items | PA-61: SHA-256 and release checksums. PA-74: a verifiable audit chain |
-
-### 4.11 SI-7(1) Integrity Checks
-
-**Table 29: SI-7(1) design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| All | Check integrity at start-up, at defined events and at a defined frequency | At start-up, at each release and monthly; firmware monthly and at a change to the hosting, by \<Organisation\> | No scheduled check (PA-61) |
-
-**Table 30: SI-7(1) responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | Shared: \<System Name\> and \<Organisation\> |
-| Responsible | Security officer |
-| Enforced by | Checks, once built |
-| Rules and procedures | Policy rule R8 (\<Policy\>, section SI.4); PRO-SI-6 (\<Procedures\>) |
-| Tests | None. The baseline was recorded on 12 November 2026 |
-| Records an assessor will ask for | TPL-8 records of each check |
-| Status | Not implemented |
-| Risk decision | NC-SI-11, rated Low: remediate |
-| Open items | PA-61. EV-SI-02 for firmware |
-
-### 4.12 SI-7(7) Integration of Detection and Response
-
-**Table 31: SI-7(7) design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| All | Bring the detection of defined unauthorised changes into incident response | Any unexpected change to software, stored documents or audit records is handled as an incident (PRO-SI-6, step 3; \<Incident Response Management\>) | Defined and approved |
-
-**Table 32: SI-7(7) responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | People, following the procedures |
-| Responsible | Security officer |
-| Enforced by | Not a system function |
-| Rules and procedures | Policy rule R8 (\<Policy\>, section SI.4); PRO-SI-6 (\<Procedures\>) |
-| Tests | None |
-| Records an assessor will ask for | Incident records of integrity events |
-| Status | Implemented |
-| Risk decision | NC-SI-12, rated Low: approve; now satisfied |
-| Open items | None |
-
-### 4.13 SI-8 Spam Protection
-
-**Table 33: SI-8 design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| All | Use spam protection at entry and exit points, and update it | Not applicable: \<System Name\> sends and receives no email (\<Tailoring Register\>, TR-SI-01) | Not applicable |
-
-**Table 34: SI-8 responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | Not applicable |
-| Status | Not applicable |
-| Decision | TR-SI-01 |
-
-### 4.14 SI-8(2) Automatic Updates
-
-**Table 35: SI-8(2) design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| All | Update spam protection automatically | Not applicable: \<System Name\> sends and receives no email (\<Tailoring Register\>, TR-SI-01) | Not applicable |
-
-**Table 36: SI-8(2) responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | Not applicable |
-| Status | Not applicable |
-| Decision | TR-SI-01 |
-
-### 4.15 SI-10 Information Input Validation
-
-**Table 37: SI-10 design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| All | Check the validity of defined inputs | All API inputs, uploads (type, signature, size and name) and search terms, on the server, with parameterised database queries (section 3.2) | Tested: refused or rejected (H03 to H07) |
-
-**Table 38: SI-10 responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | \<System Name\>: built into the system |
-| Responsible | Developers |
-| Enforced by | The applications' validation and upload checks |
-| Rules and procedures | Policy rules R4, R9 (\<Policy\>, section SI.4); PRO-SI-8 (\<Procedures\>) |
-| Tests | Checks H02 to H07 (Test-Integrity.ps1 on the v1.0 build, 12 November 2026): all passed |
-| Records an assessor will ask for | The test results |
-| Status | Implemented |
-| Risk decision | NC-SI-13, rated Low: none; now satisfied |
-| Open items | None |
-
-### 4.16 SI-11 Error Handling
-
-**Table 39: SI-11 design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| a | Give error messages that help put things right, without revealing what could be exploited | Users and callers see a general message; the detail goes to the log | About 29 API responses return the exception message (H01; PA-60) |
-| b | Show error detail only to defined people | Administrators and developers, through the logs | Not met while the API returns the detail (PA-60) |
-
-**Table 40: SI-11 responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | \<System Name\>: built into the system |
-| Responsible | Developers |
-| Enforced by | The applications' error handling |
-| Rules and procedures | Policy rule R10 (\<Policy\>, section SI.4); PRO-SI-8 (\<Procedures\>) |
-| Tests | Check H01 (Test-Integrity.ps1 on the v1.0 build, 12 November 2026): showed the gap |
-| Records an assessor will ask for | Test results; the log entries for errors |
-| Status | Partially implemented |
-| Risk decision | NC-SI-14, rated Medium: remediate |
-| Open items | PA-60: return general messages |
-
-### 4.17 SI-12 Information Management and Retention
-
-**Table 41: SI-12 design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| All | Manage and keep information, and outputs, as laws, policies and operational needs require | \<System Name\>'s retention schedule (\<PII Processing Management\>, section 3.7), with the periods in section 3.7 of this document | Set, with placeholders. Not applied: no retention or disposal is built (PA-70) |
-
-**Table 42: SI-12 responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | Shared: \<System Name\> and \<Organisation\> |
-| Responsible | System owner |
-| Enforced by | \<System Name\>, once retention and disposal are built |
-| Rules and procedures | Policy rule R11 (\<Policy\>, section SI.4); PRO-SI-7 (\<Procedures\>) |
-| Tests | Checks Q03 and Q08 of Test-PersonalData.ps1, 11 November 2026: both showed gaps |
-| Records an assessor will ask for | The schedule; disposal records on TPL-13 and in the audit trail |
-| Status | Not implemented |
-| Risk decision | NC-SI-15, rated Low: approve |
-| Open items | PA-70: build retention and disposal. PA-42: audit record retention |
-
-### 4.18 SI-16 Memory Protection
-
-**Table 43: SI-16 design**
-
-| Part | CSS requires | Design | Today |
-| --- | --- | --- | --- |
-| All | Use defined controls to protect memory from unauthorised code execution | Windows data execution prevention and address randomisation, and .NET managed memory | .NET managed memory in place. Data execution prevention and address randomisation to confirm on the servers (PA-54) |
-
-**Table 44: SI-16 responsibility and evidence**
-
-| | |
-| --- | --- |
-| Provided by | Shared: \<System Name\> and \<Organisation\> |
-| Responsible | Windows server administrator |
-| Enforced by | Windows Server and .NET |
-| Rules and procedures | Policy rule R9 (\<Policy\>, section SI.4); no procedure of its own |
-| Tests | None. Not testable until the servers exist |
-| Records an assessor will ask for | The servers' settings |
-| Status | Partially implemented |
-| Risk decision | NC-SI-16, rated Low: obtain evidence |
-| Open items | PA-54 |
+1. **Policy.** \<Policy\> (SI) is a system-level policy. It is shared with everyone who administers or develops \<System Name\>. The legal adviser reviews it.
+2. **Procedures.** \<Procedures\> (SI) holds eight procedures, PRO-SI-1 to PRO-SI-8. They are shared with the same people.
+3. **Owner.** The system owner manages the policy and procedures.
+4. **Review.** The policy is reviewed every 12 months, and after a significant incident, audit finding or system change. The procedures are reviewed every 12 months, and after a change to the steps.
+5. **Records.** The documents are under version control.
 
 ## Appendix A Integrity controls outside the Moderate baseline
 
-CSS does not select these at Moderate, so they are not assessed. SI-8 and SI-8(2) are tailored out (TR-SI-01), and SI-12(1) to SI-12(3), SI-18, SI-18(4) and SI-19 are privacy baseline controls set out in \<PII Processing Management\>. Table 45 says where the design goes some way towards them.
+CSS does not select these at Moderate, so they are not assessed. SI-8 and SI-8(2) are tailored out (TR-SI-01), and SI-12(1) to SI-12(3), SI-18, SI-18(4) and SI-19 are privacy baseline controls set out in \<PII Processing Management\>. Table 8 says where the design goes some way towards them.
 
-**Table 45: Related controls and enhancements not selected**
+**Table 8: Related controls and enhancements not selected**
 
 | Control | What it adds | \<System Name\>'s position |
 | --- | --- | --- |

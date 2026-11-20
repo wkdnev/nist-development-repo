@@ -457,7 +457,7 @@ These procedures define how audit records are reviewed, protected and retained. 
 #### PRO-AU-5 Changing the logged events
 
 1. The system owner decides on any change to the logged events, and reviews the list every 12 months. **Manual**
-2. Developers make the change through the normal release process, because the events are built into each release. The list of events is \<Audit and Accountability Management\>, Table 3, and it is changed there first.
+2. Developers make the change through the normal release process, because the events are built into each release. The list of events is \<Audit and Accountability Management\>, Table 2, and it is changed there first.
 
 #### PRO-AU-6 Auditor access
 
@@ -1545,7 +1545,7 @@ These procedures carry out \<Policy\> (SR). Steps marked **Manual** rely on peop
 2. The developer adds the package and everything it pulls in to the offline feed, which records its SHA-256 value, and restores only from the feed. **Not built** (PA-94)
 3. The developer updates the project's lock file, and confirms the restore passes the signed-package trust policy and NuGet's audit. **Not built** (PA-94, PA-92)
 4. An image is pinned by digest, and a browser file is served by \<System Name\> or carries an integrity check. **Not built** (PA-77, PA-34)
-5. The developer records the change on TPL-6, and the system owner adds any new supplier to the register in \<Supply Chain Risk Management\>, section 4. **Manual**
+5. The developer records the change on TPL-6, and the system owner adds any new supplier to the register in \<Supply Chain Risk Management\>, section 3.5. **Manual**
 
 #### PRO-SR-2 Reviewing suppliers and the plan
 
