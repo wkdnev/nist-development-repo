@@ -73,7 +73,7 @@ Table 2 gives, for each family, the chapter or section of every document that ho
 
 | Family | Policy and procedures | Register or plan | Control index | \<System Security Plan\> | Assessment | \<Risk List\> | \<Decision Register\> | \<Evidence Requests\> | \<Interview Guide\> | Evidence |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| AC Access Control | \<Policy\> (AC) and \<Procedures\> (AC) | \<Access Control Management\> | \<Access Control Management\>, section 4 | Section 7.1 | \<Control Assessment Record\> (AC) | Section 5.1 | Section 3 | Section 3 | Section 3 | \<evidence\> |
+| AC Access Control | \<Policy\> (AC) and \<Procedures\> (AC) | \<Access Control Management\> | \<Access Control Management\>, section 3 | Section 7.1 | \<Control Assessment Record\> (AC) | Section 5.1 | Section 3 | Section 3 | Section 3 | \<evidence\> |
 | AT Awareness and Training | \<Policy\> (AT) and \<Procedures\> (AT) | \<Awareness and Training Management\> | \<Awareness and Training Management\>, section 4 | Section 7.2 | \<Control Assessment Record\> (AT) | Section 5.2 | Section 4 | Section 4 | Section 4 | \<evidence\> |
 | AU Audit and Accountability | \<Policy\> (AU) and \<Procedures\> (AU) | \<Audit and Accountability Management\> | \<Audit and Accountability Management\>, section 4 | Section 7.3 | \<Control Assessment Record\> (AU) | Section 5.3 | Section 5 | Section 5 | Section 5 | \<evidence\> |
 | CA Assessment, Authorization, and Monitoring | \<Policy\> (CA) and \<Procedures\> (CA) | \<Assessment, Authorization, and Monitoring Management\> | \<Assessment, Authorization, and Monitoring Management\>, section 4 | Section 7.4 | \<Control Assessment Record\> (CA) | Section 5.4 | Section 6 | Section 6 | Section 6 | \<evidence\> |

@@ -4,8 +4,7 @@
 
 This document sets out how \<System Name\> is designed and configured to meet the 39 Access Control (AC) controls and enhancements in the CSS Moderate baseline.
 
-- **Section 3** is the design: the account types, roles, permissions, separation of duties, access routes, settings and rules, the access request workflow, and the design for ending access, sign-in lifetime and device lock, the system use notice, actions allowed without signing in, audit, remote, wireless and mobile access, and the policy and procedures.
-- **Section 4** is an index that shows where in section 3 each part of each control is met, and which settings apply.
+Section 3 is the design: the account types, roles, permissions, separation of duties, access routes, settings and rules, the access request workflow, and the design for ending access, sign-in lifetime and device lock, the system use notice, actions allowed without signing in, audit, remote, wireless and mobile access, and the policy and procedures. Each subsection names the controls it helps to meet, and the settings table in section 3.7 names the control each setting serves.
 
 Other documents hold the rest. Who provides and is responsible for each control, its status and its assessment result are in \<System Security Plan\>, section 7.1 (Table 10). The tests, their results and the records an assessor will ask for are in \<Control Assessment Record\> (AC). Each control's risk is in \<Risk List\>, and what is still open is in \<Plan of Action and Milestones\>. The policy is in \<Policy\> (AC), and the steps people follow are in \<Procedures\> (AC).
 
@@ -22,6 +21,9 @@ The implementation status of each control, how it is met, who is responsible, it
 ## 3 The access control model
 
 ### 3.1 Principles
+
+Controls met here: AC-2, AC-2(1), AC-3.
+
 
 1. **Deny by default.** Nothing is allowed unless a role or group grants it. A schema with no group is open only to administrators.
 2. **One person, one account.** Each person uses their own Active Directory account. Accounts are never shared, and \<System Name\> holds no accounts or passwords of its own.
@@ -41,6 +43,9 @@ The access control library, built into all three apps, makes the schema decision
 **Figure 1: How an access decision is made**
 
 ### 3.2 Account types
+
+Controls met here: AC-2, AC-2(2), AC-6(5).
+
 
 Every person signs in with their Active Directory account, through PingFederate. The types below are the kinds of access an account may hold.
 
@@ -66,6 +71,9 @@ Shared and group accounts are prohibited (TR-AC-02), and \<System Name\> holds n
 
 ### 3.3 Roles
 
+Controls met here: AC-2, AC-3, AC-6, AC-6(5).
+
+
 **Table 2: Roles**
 
 | Role | Purpose | Granted through | Group owner, who authorises and manages its members |
@@ -86,6 +94,9 @@ The administrator, auditor and security officer groups are privileged. The syste
 
 ### 3.4 Permissions
 
+Controls met here: AC-2, AC-3, AC-5, AC-6, AC-6(10).
+
+
 **Table 3: Permissions by role**
 
 | Function | Reader | Editor | Administrator | Auditor | Security officer |
@@ -101,6 +112,9 @@ The administrator, auditor and security officer groups are privileged. The syste
 | Read security information | No | No | No | No | Yes |
 
 ### 3.5 Separation of duties
+
+Controls met here: AC-5.
+
 
 1. Nobody approves their own access or privilege.
 2. Nobody reviews their own access or their own privileged actions.
@@ -126,6 +140,9 @@ Table 4 shows each pair of duties that one person must not hold together, the ro
 **Today:** in the tested build an administrator can do everything, including reading audit logs and security information and reviewing their own actions. This is proposed for acceptance for 12 months as a Medium risk (PA-15).
 
 ### 3.6 Access routes
+
+Controls met here: AC-4, AC-6.
+
 
 Figure 2 shows \<System Name\>'s boundary and the routes into and inside it. It is the boundary figure of \<Security Architecture\>.
 
@@ -181,6 +198,9 @@ These rules follow from it:
 
 #### 3.6.1 Windows service accounts
 
+Controls met here: AC-6.
+
+
 Each app runs under its own Windows account (D-AC-19), so a fault in one app cannot reach another's files.
 
 **Table 8: Windows service accounts**
@@ -195,6 +215,9 @@ Each app runs under its own Windows account (D-AC-19), so a fault in one app can
 
 #### 3.6.2 Who may sign in to the servers
 
+Controls met here: AC-2, AC-6(5).
+
+
 **Table 9: Sign-in to the servers**
 
 | Server | May sign in | How | May not |
@@ -205,6 +228,9 @@ Each app runs under its own Windows account (D-AC-19), so a fault in one app can
 The holders are named in \<Roles and Responsibilities\>. \<Organisation\> creates and removes these accounts through its ServiceNow process, with the system owner's approval (EV-AC-02).
 
 #### 3.6.3 File permissions on the application server
+
+Controls met here: AC-6, AC-6(1).
+
 
 **Table 10: File permissions**
 
@@ -221,6 +247,9 @@ Item files are held in the SQL Server database, each schema in its own database 
 **Today:** the servers are not built, so none of this exists. In the test environment the apps run as an ordinary user, not as root (PA-18, PA-30).
 
 #### 3.6.4 Firewall rules
+
+Controls met here: AC-4.
+
 
 \<Organisation\>'s corporate network team writes, holds and changes every firewall rule, through its own change process. The \<System Name\> team has no control over them and cannot see or change a rule (D-AC-20). So \<System Name\> does not design the rules. It states the flows it needs, in Table 11, and asks \<Organisation\> to allow those and nothing else. The rules themselves are \<Organisation\>'s evidence (EV-AC-03).
 
@@ -245,6 +274,9 @@ What \<System Name\> itself controls is limited to its own apps: the API listens
 **Today:** no rule exists, as the servers are not built, and the request has not been sent (PA-18).
 
 #### 3.6.5 What \<Organisation\>'s corporate configuration provides
+
+Controls met here: AC-2, AC-2(1), AC-2(5), AC-7, AC-11, AC-11(1), AC-17, AC-17(1), AC-17(2), AC-17(3), AC-17(4), AC-18(1), AC-18(3), AC-19, AC-20, AC-20(2).
+
 
 ![Figure 3: Who provides each part of access control](figures/acm-figure-3.png)
 
@@ -303,6 +335,9 @@ The P-AC numbers are the access control settings used across the document set. P
 
 ### 3.8 Privileged functions and security information
 
+Controls met here: AC-6, AC-6(1), AC-6(2), AC-6(9), AC-6(10).
+
+
 **Privileged functions:** managing schemas and the AD groups each uses; changing settings; reading audit logs; database maintenance; and cache management. Managing the members of \<System Name\>'s AD groups is also privileged, and is done in Active Directory by each group's owner.
 
 **Security-relevant information:** secrets and security settings, PingFederate's signing keys, access groups and schema access rules, audit logs, firewall rules and certificates.
@@ -320,6 +355,9 @@ These rules apply:
 
 ### 3.9 Export and download rules
 
+Controls met here: AC-3, AC-4, AC-21.
+
+
 1. Only editors of a schema and administrators may bulk export its items.
 2. An export job can be seen, downloaded or cancelled only by the person who started it.
 3. Exports are delivered as downloads. Writing exports to a server folder is not allowed (PA-26).
@@ -327,6 +365,9 @@ These rules apply:
 5. Every export is recorded in the audit log.
 
 ### 3.10 Information sharing rules
+
+Controls met here: AC-20, AC-20(1), AC-20(2), AC-21, AC-22.
+
 
 1. Sharing outside a schema needs a decision by that schema's access approver, its Data Owner (P-AC-23), through the manual process in PRO-AC-16.
 2. The approver checks that the recipient is authorised for the information, and the decision is recorded on TPL-2. Exported documents stay under the schema's rules.
@@ -337,6 +378,9 @@ These rules apply:
 7. \<System Name\> holds and serves no public content (P-AC-24, D-AC-11). Every document needs sign-in, and the sign-in requirement on every page that returns content enforces this.
 
 ### 3.11 Review schedules
+
+Controls met here: AC-2, AC-2(3), AC-6(7), AC-14.
+
 
 **Table 14: Review schedules**
 
@@ -360,6 +404,9 @@ In each access review, the group's owner checks its members against the ServiceN
 5. Steps are in PRO-AC-15.
 
 ### 3.13 Access request workflow
+
+Controls met here: AC-2, AC-2(1), AC-2(13).
+
 
 ![Figure 4: Access request workflow](figures/acm-figure-4.png)
 
@@ -394,6 +441,9 @@ These rules apply:
 
 ### 3.14 Disabling accounts and ending access
 
+Controls met here: AC-2, AC-2(3), AC-2(13).
+
+
 \<Organisation\> disables Active Directory accounts. A disabled account cannot sign in through PingFederate, so it cannot reach \<System Name\>. A sign-in already open lasts until PingFederate's sign-in lifetime ends, but any removed group membership is refused at the next Active Directory lookup. \<System Name\>'s API refuses a person whose account is disabled or whose groups cannot be read. Table 16 shows when access is ended.
 
 **Table 16: When access is ended**
@@ -408,6 +458,9 @@ These rules apply:
 
 ### 3.15 Sign-in lifetime, failed sign-ins and device lock
 
+Controls met here: AC-2(5), AC-7, AC-11, AC-11(1), AC-12.
+
+
 \<System Name\> has no session management (section 3.1), so it does not sign users out, lock a page or limit sessions itself. These are \<Organisation\>'s corporate configuration, which \<System Name\> accepts as it stands (section 3.6.5).
 
 1. **Sign-in lifetime.** A user's sign-in ends when PingFederate's sign-in lifetime for \<System Name\> ends (P-AC-10), or when \<Organisation\> ends their PingFederate sign-in or disables their account. \<System Name\> holds the sign-in only in its authentication cookie, whose lifetime is no longer than PingFederate's. It reads the person's groups from Active Directory at sign-in, so a change to their groups takes effect at their next sign-in.
@@ -417,11 +470,17 @@ These rules apply:
 
 ### 3.16 System use notice
 
+Controls met here: AC-8.
+
+
 Each app shows the notice on its first page, before it sends the user to PingFederate to sign in. The wording is: "This system is for authorised use only. Activity is monitored and recorded. Unauthorised use may lead to disciplinary or legal action. By signing in you accept these terms." (P-AC-16). The notice names \<Organisation\>, not the U.S. Government (TR-AC-03).
 
 The notice stays until the user chooses to continue to sign-in, which is the acceptance. It is text on the first page of the UI app and of the Admin application, changed only through an approved change (PRO-AC-13). \<System Name\> is not public, so no conditions for public systems apply (TR-AC-04). On the servers, the Windows logon banner, which is \<Organisation\>'s corporate configuration, gives a system use notice before an administrator signs in (section 3.6.5).
 
 ### 3.17 Actions allowed without signing in
+
+Controls met here: AC-14.
+
 
 Only these actions are allowed without signing in (P-AC-25):
 
@@ -436,6 +495,9 @@ The UI app and the Admin application refuse anything not marked as open. The API
 
 ### 3.18 Audit of accounts and privileged actions
 
+Controls met here: AC-2, AC-2(4), AC-6(9).
+
+
 1. **Account events.** Active Directory audits the creation of every account, every change to an account and to the members of a group, and enabling, including unlocking, disabling and removal. \<Organisation\> holds these records.
 2. **Sign-ins.** \<System Name\> audits every sign-in it accepts, with the person and the time. PingFederate records every sign-in attempt.
 3. **Schema settings.** \<System Name\>'s audit log records changes to schemas and to which AD groups open each schema.
@@ -443,6 +505,9 @@ The UI app and the Admin application refuse anything not marked as open. The API
 5. **Review.** The auditor reviews privileged actions weekly (\<Security Operating Procedures\>, duty C3; Table 14).
 
 ### 3.19 Remote, wireless and mobile access
+
+Controls met here: AC-17, AC-17(1), AC-17(2), AC-17(3), AC-17(4), AC-18, AC-18(1), AC-18(3), AC-19, AC-19(5).
+
 
 These are provided by \<Organisation\>'s corporate network and device configuration, over which the \<System Name\> team has no control (section 3.6.5). \<System Name\> has no remote access or wireless function of its own.
 
@@ -458,92 +523,12 @@ These are provided by \<Organisation\>'s corporate network and device configurat
 
 ### 3.20 Policy and procedures
 
+Controls met here: AC-1.
+
+
 1. **Policy.** \<Policy\> (AC) is a system-level policy within \<Organisation\>'s organisational policies. Its purpose and scope are in section AC.1, responsibilities in AC.5, and commitment, coordination and compliance in AC.6. It is shared with everyone who uses or administers \<System Name\>. The legal adviser reviews it.
 2. **Procedures.** \<Procedures\> (AC) holds 17 procedures, PRO-AC-1 to PRO-AC-17, each naming who acts, the time limit and the record. They are shared with the same people.
 3. **Owner.** The system owner manages the policy and procedures (P-AC-01).
 4. **Review.** The policy is reviewed every 12 months, and after a significant incident, audit finding or system change (P-AC-02). The procedures are reviewed every 12 months, and after a change to the steps (P-AC-03). The steps are in PRO-AC-14.
 5. **Records.** The documents are under version control, and each review is recorded in the change record and on TPL-4.
 
-## 4 Control index
-
-Each part of each control is met by the design in section 3. Table 17 shows, for each control and enhancement in CSS order, the section 3 subsections that meet each part, and the settings that apply. Each control's status, responsibility and assessment result are in \<System Security Plan\>, section 7.1 (Table 10), its risk in \<Risk List\>, and its open items in \<Plan of Action and Milestones\>.
-
-**Table 17: Control index**
-
-| Control | Part | Where it is met | Settings |
-| --- | --- | --- | --- |
-| AC-1 Policy and Procedures | a.1 | 3.20 | None |
-| AC-1 | a.2 | 3.20 | None |
-| AC-1 | b | 3.20 | P-AC-01 |
-| AC-1 | c.1 | 3.20 | P-AC-02 |
-| AC-1 | c.2 | 3.20 | P-AC-03 |
-| AC-2 Account Management | a | 3.2 | P-AC-04 |
-| AC-2 | b | 3.3, 3.6.5 | None |
-| AC-2 | c | 3.13 | P-AC-05 |
-| AC-2 | d | 3.3, 3.13 | None |
-| AC-2 | e | 3.13 | P-AC-05 |
-| AC-2 | f | 3.3, 3.6.2, 3.6.5 | None |
-| AC-2 | g | 3.11, 3.18 | None |
-| AC-2 | h | 3.13 | P-AC-06 |
-| AC-2 | i | 3.1, 3.3, 3.4 | None |
-| AC-2 | j | 3.11 | P-AC-07 |
-| AC-2 | k | 3.2 | None |
-| AC-2 | l | 3.13, 3.14 | P-AC-06 |
-| AC-2(1) Automated System Account Management | All | 3.1, 3.6.5, 3.13 | None |
-| AC-2(2) Automated Temporary and Emergency Account Management | All | 3.2 | P-AC-09 |
-| AC-2(3) Disable Accounts | a | 3.14 | None |
-| AC-2(3) | b | 3.14 | P-AC-06 |
-| AC-2(3) | c | 3.14 | P-AC-08, P-AC-13 |
-| AC-2(3) | d | 3.11, 3.14 | P-AC-08 |
-| AC-2(4) Automated Audit Actions | Creation | 3.18 | None |
-| AC-2(4) | Modification | 3.18 | None |
-| AC-2(4) | Enabling | 3.18 | None |
-| AC-2(4) | Disabling | 3.18 | None |
-| AC-2(4) | Removal | 3.18 | None |
-| AC-2(5) Inactivity Logout | All | 3.6.5, 3.15 | P-AC-10, P-AC-15 |
-| AC-2(13) Disable Accounts for High-risk Individuals | All | 3.13, 3.14 | P-AC-13 |
-| AC-3 Access Enforcement | All | 3.1, 3.3, 3.4, 3.9 | None |
-| AC-4 Information Flow Enforcement | All | 3.6, 3.6.4, 3.9 | None |
-| AC-5 Separation of Duties | a | 3.5 | None |
-| AC-5 | b | 3.4, 3.5 | None |
-| AC-6 Least Privilege | All | 3.3, 3.4, 3.6, 3.6.1, 3.6.3, 3.8 | None |
-| AC-6(1) Authorize Access to Security Functions | a | 3.8 | P-AC-17 |
-| AC-6(1) | b | 3.6.3, 3.8 | P-AC-17 |
-| AC-6(2) Non-privileged Access for Nonsecurity Functions | All | 3.8 | P-AC-18 |
-| AC-6(5) Privileged Accounts | All | 3.2, 3.3, 3.6.2 | None |
-| AC-6(7) Review of User Privileges | a | 3.11 | P-AC-07 |
-| AC-6(7) | b | 3.11 | None |
-| AC-6(9) Log Use of Privileged Functions | All | 3.8, 3.18 | P-AC-19 |
-| AC-6(10) Prohibit Non-privileged Users from Executing Privileged Functions | All | 3.4, 3.8 | P-AC-17 |
-| AC-7 Unsuccessful Logon Attempts | a | 3.6.5, 3.15 | P-AC-14 |
-| AC-7 | b | 3.6.5, 3.15 | P-AC-14 |
-| AC-8 System Use Notification | a | 3.16 | P-AC-16 |
-| AC-8 | b | 3.16 | P-AC-16 |
-| AC-8 | c | 3.16 | None |
-| AC-11 Device Lock | a | 3.6.5, 3.15 | P-AC-15 |
-| AC-11 | b | 3.6.5, 3.15 | P-AC-15 |
-| AC-11(1) Pattern-hiding Displays | All | 3.6.5, 3.15 | None |
-| AC-12 Session Termination | All | 3.15 | P-AC-10, P-AC-11, P-AC-12 |
-| AC-14 Permitted Actions Without Identification or Authentication | a | 3.11, 3.17 | P-AC-25 |
-| AC-14 | b | 3.17 | P-AC-25 |
-| AC-17 Remote Access | a | 3.6.5, 3.19 | P-AC-20 |
-| AC-17 | b | 3.19 | P-AC-20 |
-| AC-17(1) Monitoring and Control | All | 3.6.5, 3.19 | None |
-| AC-17(2) Protection of Confidentiality and Integrity Using Encryption | All | 3.6.5, 3.19 | None |
-| AC-17(3) Managed Access Control Points | All | 3.6.5, 3.19 | None |
-| AC-17(4) Privileged Commands and Access | a | 3.6.5, 3.19 | None |
-| AC-17(4) | b | 3.19 | None |
-| AC-18 Wireless Access | a | 3.19 | P-AC-21 |
-| AC-18 | b | 3.19 | P-AC-21 |
-| AC-18(1) Authentication and Encryption | All | 3.6.5, 3.19 | P-AC-21 |
-| AC-18(3) Disable Wireless Networking | All | 3.6.5, 3.19 | None |
-| AC-19 Access Control for Mobile Devices | a | 3.6.5, 3.19 | P-AC-21 |
-| AC-19 | b | 3.19 | P-AC-21 |
-| AC-19(5) Full Device or Container-based Encryption | All | 3.19 | P-AC-21 |
-| AC-20 Use of External Systems | a | 3.10 | P-AC-22 |
-| AC-20 | b | 3.6.5, 3.10 | None |
-| AC-20(1) Limits on Authorized Use | All | 3.10 | P-AC-22 |
-| AC-20(2) Portable Storage Devices: Restricted Use | All | 3.6.5, 3.10 | P-AC-22 |
-| AC-21 Information Sharing | a | 3.9, 3.10 | P-AC-23 |
-| AC-21 | b | 3.10 | P-AC-23 |
-| AC-22 Publicly Accessible Content | All | 3.10 | P-AC-24 |
