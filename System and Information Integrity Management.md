@@ -1,4 +1,4 @@
-# \<DocuView\> System and Information Integrity Management
+# \<System Name\> System and Information Integrity Management
 
 **\<ref\> | Version \<ver\> | Draft for the system owner's approval**
 
@@ -30,7 +30,7 @@
 | Item | Detail |
 | --- | --- |
 | Reference | \<ref\> |
-| Title | \<DocuView\> System and Information Integrity Management |
+| Title | \<System Name\> System and Information Integrity Management |
 | Version | \<ver\> |
 | Status | Draft for the system owner's approval |
 | Date | 18 November 2026 |
@@ -46,7 +46,7 @@
 
 | Role | Name | Decision | Date |
 | --- | --- | --- | --- |
-| System owner | Neil Ramsbottom | Pending | Pending |
+| System owner | \[Name\] | Pending | Pending |
 
 ### 1.3 Change history
 
@@ -55,18 +55,18 @@
 | Version | Date | Change |
 | --- | --- | --- |
 | \<ver\> | 18 November 2026 | Cross-check against NIST's SI catalogue and guidance: documents stored before the malware scan exists are scanned once when it is turned on; the related controls outside the baseline in a new appendix B |
-| \<ver\> | 18 November 2026 | The system owner confirmed that use cases U1 and U4 take their events from ABC Technologies' AD FS and Active Directory (D-SR-15) |
+| \<ver\> | 18 November 2026 | The system owner confirmed that use cases U1 and U4 take their events from \<Organisation\>'s AD FS and Active Directory (D-SR-15) |
 | \<ver\> | 18 November 2026 | Issued into the set as a draft for review |
-| \<ver\> | 18 November 2026 | First draft, at the system owner's request (D-SI-10). The integrity chapter of \<Control Implementation Register\> moved here in full, so that this design is held only in this document, and each control is set out part by part. The detection use cases follow sign-in through AD FS: failed sign-ins and administrator group changes now come from ABC Technologies (D-AC-23). The integrity baseline names the release files in plain words. No agreed value is changed |
+| \<ver\> | 18 November 2026 | First draft, at the system owner's request (D-SI-10). The integrity chapter of \<Control Implementation Register\> moved here in full, so that this design is held only in this document, and each control is set out part by part. The detection use cases follow sign-in through AD FS: failed sign-ins and administrator group changes now come from \<Organisation\> (D-AC-23). The integrity baseline names the release files in plain words. No agreed value is changed |
 
 | **SECTION 2** |
 | --- |
 
 ## 2 Purpose
 
-This document shows how \<DocuView\> keeps its software and information sound, for each of the 18 System and Information Integrity (SI) controls in NIST's Moderate baseline: fixing flaws, malicious code protection, monitoring, advisories, integrity checks, input validation, error handling, retention and memory protection.
+This document shows how \<System Name\> keeps its software and information sound, for each of the 18 System and Information Integrity (SI) controls in NIST's Moderate baseline: fixing flaws, malicious code protection, monitoring, advisories, integrity checks, input validation, error handling, retention and memory protection.
 
-Section 4 sets out the design: the upload checks and malware scanning; flaw remediation and advisories; monitoring and the detection use cases; the integrity baseline and checks; error handling and memory protection; retention; how integrity stands today; and what ABC Technologies provides. Section 5 takes each control in turn. Appendix A lists every value NIST asks the organisation to define.
+Section 4 sets out the design: the upload checks and malware scanning; flaw remediation and advisories; monitoring and the detection use cases; the integrity baseline and checks; error handling and memory protection; retention; how integrity stands today; and what \<Organisation\> provides. Section 5 takes each control in turn. Appendix A lists every value NIST asks the organisation to define.
 
 This is the only place this design is held. Other documents point here. The policy is in \<Policy\> (SI), and the steps people follow are in \<Procedures\> (SI). The vulnerability timetable is in \<Risk Assessment Management\>, section 4.6, the retention schedule in \<PII Processing Management\>, section 4.7, and the audit design in \<Audit and Accountability Management\>. The privacy controls SI-12(1) to SI-12(3), SI-18, SI-18(4) and SI-19 are set out in \<PII Processing Management\>.
 
@@ -139,7 +139,7 @@ These carry out the principles and rules of \<Policy\>, sections SI.3 and SI.4.
 
 ### 4.2 Upload checks and malware scanning
 
-Every upload passes these checks on the server before it is stored (SI-3, SI-10). Documents are held in PostgreSQL and never written to disk, so Defender's file scan cannot see them; \<DocuView\> must ask Defender to scan each one first. All API inputs and search terms are validated on the server too, and database queries use parameters.
+Every upload passes these checks on the server before it is stored (SI-3, SI-10). Documents are held in PostgreSQL and never written to disk, so Defender's file scan cannot see them; \<System Name\> must ask Defender to scan each one first. All API inputs and search terms are validated on the server too, and database queries use parameters.
 
 **Table 6: Upload checks**
 
@@ -163,7 +163,7 @@ Flaws are fixed to the one timetable in \<Risk Assessment Management\>, section 
 | Source | What it covers | How often | State now |
 | --- | --- | --- | --- |
 | NCSC alerts and advisories | UK threats and vulnerabilities | As published | Not started |
-| NCSC Early Warning | Incidents, abuse and vulnerable services on \<DocuView\>'s addresses | As raised | ABC Technologies to register (EV-SI-03) |
+| NCSC Early Warning | Incidents, abuse and vulnerable services on \<System Name\>'s addresses | As raised | \<Organisation\> to register (EV-SI-03) |
 | CISA Known Exploited Vulnerabilities | Flaws being exploited | Weekly (SyOps C50) | Not started |
 | Microsoft Security Response Center | Windows Server, .NET and IIS | Monthly and out of band | Not started |
 | GitHub advisories and dependency alerts | NuGet packages | As raised | Alerts off (PA-91) |
@@ -173,24 +173,24 @@ An internal advisory is a security officer's note on TPL-7, naming the flaw, the
 
 ### 4.4 Monitoring and detection use cases
 
-Application, Windows and PostgreSQL logs, and the audit trail, are forwarded to ABC Technologies' central logging \[service to be confirmed, EV-SI-01\]; if none is available, CISA's Logging Made Easy is the fallback. The security officer reviews them weekly (PRO-SI-3), and these events must raise an alert (SI-4, SI-4(2), SI-4(5)). None is built yet (H12; PA-59).
+Application, Windows and PostgreSQL logs, and the audit trail, are forwarded to \<Organisation\>'s central logging \[service to be confirmed, EV-SI-01\]; if none is available, CISA's Logging Made Easy is the fallback. The security officer reviews them weekly (PRO-SI-3), and these events must raise an alert (SI-4, SI-4(2), SI-4(5)). None is built yet (H12; PA-59).
 
-Since sign-in moved to AD FS (D-AC-23), failed sign-ins and changes to administrator groups happen in ABC Technologies' systems, not in \<DocuView\>. Use cases U1 and U4 therefore need those events from ABC Technologies (EV-SI-01). The system owner confirmed this on 18 November 2026 (D-SR-15).
+Since sign-in moved to AD FS (D-AC-23), failed sign-ins and changes to administrator groups happen in \<Organisation\>'s systems, not in \<System Name\>. Use cases U1 and U4 therefore need those events from \<Organisation\> (EV-SI-01). The system owner confirmed this on 18 November 2026 (D-SR-15).
 
 **Table 8: Detection use cases**
 
 | ID | Event | Source | Threshold | Alert to | Response |
 | --- | --- | --- | --- | --- | --- |
-| U1 | Failed sign-ins | AD FS sign-in logs, from ABC Technologies (D-AC-23) | 5 for one account, or 20 in total, in 15 minutes | Security officer | PRO-SI-4 |
+| U1 | Failed sign-ins | AD FS sign-in logs, from \<Organisation\> (D-AC-23) | 5 for one account, or 20 in total, in 15 minutes | Security officer | PRO-SI-4 |
 | U2 | Audit chain break | Chain check (PA-37) | Any | Security officer, auditor | Incident (\<Incident Response Management\>) |
 | U3 | Malware detected | Defender, and the AMSI upload scan | Any | Security officer, Windows server administrator | Incident |
-| U4 | Privilege change | Changes to the membership of \<DocuView\>'s AD administrator groups, from ABC Technologies (D-AC-23) | Any person added to an administrator group | Security officer | Check against the approved request (TPL-2) |
+| U4 | Privilege change | Changes to the membership of \<System Name\>'s AD administrator groups, from \<Organisation\> (D-AC-23) | Any person added to an administrator group | Security officer | Check against the approved request (TPL-2) |
 | U5 | Bulk export | Audit trail | More than \[number\] documents by one user in a day | Security officer | PRO-SI-4 |
 | U6 | Administrator session out of hours | Audit trail: a session started under an administrator role | Outside \[hours\] | Security officer | PRO-SI-4 |
 | U7 | Audit logging failure | Application log (AU-5) | Any | Security officer | PRO-SI-4 |
 | U8 | Unexpected software change | Integrity check (PRO-SI-6) | Any | Security officer | Incident |
 
-ABC Technologies monitors traffic into and out of the network continuously, against the agreed flows (SI-4(4)). Users are monitored only after the legal adviser's opinion (D-SI-07), only as far as needed, and with staff told what is monitored and why.
+\<Organisation\> monitors traffic into and out of the network continuously, against the agreed flows (SI-4(4)). Users are monitored only after the legal adviser's opinion (D-SI-07), only as far as needed, and with staff told what is monitored and why.
 
 ### 4.5 Integrity baseline and checks
 
@@ -200,15 +200,15 @@ The known-good v1.0 release was recorded by Test-Integrity.ps1 on 12 November 20
 
 | Item | SHA-256 (first 16 characters) |
 | --- | --- |
-| DV\_API test image | 11b7371a90fccf04 |
-| DV\_Web test image | 9eac4536e411e28a |
-| DV\_Admin\_UI test image | 3caa545ce84f4bcc |
-| DV\_API application file | c6dac084e27ee7f9 |
-| DV\_Web application file | c73de21d2294b15d |
-| DV\_Admin\_UI application file | fc79003538bbbc75 |
-| DV\_Shared library file (the same in all three) | 45df38576a5804b9 |
+| API test image | 11b7371a90fccf04 |
+| UI application test image | 9eac4536e411e28a |
+| Admin application test image | 3caa545ce84f4bcc |
+| API file | c6dac084e27ee7f9 |
+| UI application application file | c73de21d2294b15d |
+| Admin application application file | fc79003538bbbc75 |
+| shared library library file (the same in all three) | 45df38576a5804b9 |
 
-Release packages, stored documents and audit records are checked at start-up, at each release and monthly; ABC Technologies checks the servers' firmware. An unexpected change is handled as an incident, and the item is restored from a trusted copy or backup (SI-7(7); PRO-SI-6).
+Release packages, stored documents and audit records are checked at start-up, at each release and monthly; \<Organisation\> checks the servers' firmware. An unexpected change is handled as an incident, and the item is restored from a trusted copy or backup (SI-7(7); PRO-SI-6).
 
 ### 4.6 Error handling and memory protection
 
@@ -216,7 +216,7 @@ Users and API callers see a general error message; the detail goes only to the l
 
 ### 4.7 Information retention
 
-Information is kept and disposed of under \<DocuView\>'s retention schedule, which is held in \<PII Processing Management\>, section 4.7 (SI-12). This table summarises the periods that other designs set.
+Information is kept and disposed of under \<System Name\>'s retention schedule, which is held in \<PII Processing Management\>, section 4.7 (SI-12). This table summarises the periods that other designs set.
 
 **Table 10: Retention**
 
@@ -248,15 +248,15 @@ Test-Integrity.ps1 ran on 12 November 2026 on the build tagged v1.0, in the test
 | Alerts | Nothing raises one | H12 | PA-59 |
 | Memory | .NET managed memory; the test containers run as a non-root user (C08). On the servers each application runs as a Windows service under its own account (D-PL-10) | Code review | None |
 
-### 4.9 What ABC Technologies provides
+### 4.9 What \<Organisation\> provides
 
-**Table 12: Asked of ABC Technologies**
+**Table 12: Asked of \<Organisation\>**
 
-| Provided | Controls | What \<DocuView\> relies on | Evidence asked | State |
+| Provided | Controls | What \<System Name\> relies on | Evidence asked | State |
 | --- | --- | --- | --- | --- |
-| Network monitoring and central logging | SI-4, SI-4(2), SI-4(4) | Traffic is monitored, \<DocuView\>'s logs can be forwarded, and AD FS sign-in and AD group change events reach the security officer | EV-SI-01 | Not sent |
+| Network monitoring and central logging | SI-4, SI-4(2), SI-4(4) | Traffic is monitored, \<System Name\>'s logs can be forwarded, and AD FS sign-in and AD group change events reach the security officer | EV-SI-01 | Not sent |
 | Firmware updates and integrity checks for the hosting | SI-2, SI-7, SI-7(1) | Firmware is kept up to date and checked | EV-SI-02 | Not sent |
-| NCSC Early Warning and alert forwarding | SI-5 | ABC Technologies is registered, and alerts that affect \<DocuView\> reach the security officer | EV-SI-03 | Not sent |
+| NCSC Early Warning and alert forwarding | SI-5 | \<Organisation\> is registered, and alerts that affect \<System Name\> reach the security officer | EV-SI-03 | Not sent |
 
 **Today:** no request has been sent, and none of this is evidenced.
 
@@ -273,9 +273,9 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
-| a.1 | A system and information integrity policy, shared with defined people, covering purpose, scope, roles, responsibilities, management commitment, coordination and compliance, and consistent with the law | \<Policy\> (SI): a system-level policy, shared with everyone who administers or develops \<DocuView\>. The legal adviser reviewed it on 12 November 2026 | Version \<ver\> approved by the Head of Cyber (D-SI-01). The later version awaits the Head of Cyber (D-SI-06). Not yet shared (PA-20) |
+| a.1 | A system and information integrity policy, shared with defined people, covering purpose, scope, roles, responsibilities, management commitment, coordination and compliance, and consistent with the law | \<Policy\> (SI): a system-level policy, shared with everyone who administers or develops \<System Name\>. The legal adviser reviewed it on 12 November 2026 | Version \<ver\> approved by the Head of Cyber (D-SI-01). The later version awaits the Head of Cyber (D-SI-06). Not yet shared (PA-20) |
 | a.2 | Procedures that carry out the policy, shared with defined people | \<Procedures\> (SI): eight procedures, PRO-SI-1 to PRO-SI-8. Shared with the same people | Version \<ver\> approved by the system owner (D-SI-09). Not yet shared |
-| b | A named official manages the policy and procedures | The system owner | Neil Ramsbottom is named in \<Roles and Responsibilities\> |
+| b | A named official manages the policy and procedures | The system owner | \[Name\] is named in \<Roles and Responsibilities\> |
 | c.1 | The policy is reviewed on a schedule and after set events | Every 12 months, and after a significant incident, audit finding or system change | Reviewed on 12 November 2026 after the SI pack review. The first yearly review falls due in November 2027 |
 | c.2 | The procedures are reviewed on a schedule and after set events | Every 12 months, and after a change to the steps | Reviewed on 12 November 2026. The first yearly review falls due in November 2027 |
 
@@ -308,7 +308,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 | | |
 | --- | --- |
-| Provided by | Shared: \<DocuView\> and ABC Technologies |
+| Provided by | Shared: \<System Name\> and \<Organisation\> |
 | Responsible | Developers, Windows server administrator |
 | Enforced by | The package check; the change process |
 | Rules and procedures | Policy rule R1 (\<Policy\>, section SI.4); PRO-SI-1 (\<Procedures\>) |
@@ -330,7 +330,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 | | |
 | --- | --- |
-| Provided by | Shared: \<DocuView\> and ABC Technologies |
+| Provided by | Shared: \<System Name\> and \<Organisation\> |
 | Responsible | Developers |
 | Enforced by | Test-Vulnerability.ps1; GitHub dependency alerts; Windows Update |
 | Rules and procedures | Policy rule R2 (\<Policy\>, section SI.4); PRO-SI-1, step 1 (\<Procedures\>) |
@@ -356,7 +356,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 | | |
 | --- | --- |
-| Provided by | Shared: \<DocuView\> and ABC Technologies |
+| Provided by | Shared: \<System Name\> and \<Organisation\> |
 | Responsible | Windows server administrator, developers |
 | Enforced by | Microsoft Defender and AMSI, once set |
 | Rules and procedures | Policy rules R3, R4 (\<Policy\>, section SI.4); PRO-SI-2 (\<Procedures\>) |
@@ -373,9 +373,9 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
 | a.1 | Monitor to detect attacks and indicators of attack, against defined objectives | Detect attacks, misuse and unauthorised connections, through the detection use cases in section 4.4 | Use cases set. Nothing raises an alert (H12; PA-59) |
-| a.2 | Monitor to detect unauthorised local, network and remote connections | ABC Technologies' network monitoring, and the allowed flows (\<System and Communications Protection Management\>, section 4.2) | Not evidenced (EV-SI-01) |
-| b | Identify unauthorised use by defined techniques | Log forwarding to ABC Technologies' central logging, the detection use cases, the audit records and ABC Technologies' network monitoring | No forwarding or alerts (PA-59) |
-| c | Place monitoring strategically, and at ad hoc locations for transactions of interest | Application, Windows and PostgreSQL logs, and the audit trail; AD FS sign-in logs from ABC Technologies | Logs written; not forwarded |
+| a.2 | Monitor to detect unauthorised local, network and remote connections | \<Organisation\>'s network monitoring, and the allowed flows (\<System and Communications Protection Management\>, section 4.2) | Not evidenced (EV-SI-01) |
+| b | Identify unauthorised use by defined techniques | Log forwarding to \<Organisation\>'s central logging, the detection use cases, the audit records and \<Organisation\>'s network monitoring | No forwarding or alerts (PA-59) |
+| c | Place monitoring strategically, and at ad hoc locations for transactions of interest | Application, Windows and PostgreSQL logs, and the audit trail; AD FS sign-in logs from \<Organisation\> | Logs written; not forwarded |
 | d | Analyse detected events and anomalies | The security officer reviews the logs and alerts weekly (PRO-SI-3) | Not started (PA-130) |
 | e | Adjust monitoring when risk changes | The system owner raises monitoring when risk rises (PRO-SI-3, step 3) | Not yet in use |
 | f | Obtain a legal opinion on monitoring | The legal adviser's opinion on monitoring users, before monitoring starts (D-SI-07) | Not given (D-SI-07) |
@@ -385,8 +385,8 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 | | |
 | --- | --- |
-| Provided by | Shared: \<DocuView\> and ABC Technologies |
-| Responsible | Security officer, ABC Technologies |
+| Provided by | Shared: \<System Name\> and \<Organisation\> |
+| Responsible | Security officer, \<Organisation\> |
 | Enforced by | Central logging and alert rules, once built; the weekly review |
 | Rules and procedures | Policy rules R5, R6 (\<Policy\>, section SI.4); PRO-SI-3, PRO-SI-4 (\<Procedures\>) |
 | Tests | Checks H11 and H12 (Test-Integrity.ps1 on the v1.0 build, 12 November 2026): failed sign-ins were recorded by the v1.0 build; nothing raises an alert |
@@ -401,13 +401,13 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
-| All | Use automated tools to support near real-time analysis of events | ABC Technologies' central logging, or CISA's Logging Made Easy if none is available, with alert rules for the detection use cases | No forwarding or automated analysis (H12; PA-59) |
+| All | Use automated tools to support near real-time analysis of events | \<Organisation\>'s central logging, or CISA's Logging Made Easy if none is available, with alert rules for the detection use cases | No forwarding or automated analysis (H12; PA-59) |
 
 **Table 24: SI-4(2) responsibility and evidence**
 
 | | |
 | --- | --- |
-| Provided by | Shared: \<DocuView\> and ABC Technologies |
+| Provided by | Shared: \<System Name\> and \<Organisation\> |
 | Responsible | Security officer |
 | Enforced by | Central logging, once connected |
 | Rules and procedures | Policy rule R5 (\<Policy\>, section SI.4); PRO-SI-3 (\<Procedures\>) |
@@ -424,18 +424,18 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Set criteria for unusual or unauthorised inbound and outbound traffic | Traffic outside the agreed flows; and outbound, unusually large transfers | Defined |
-| b | Monitor inbound and outbound traffic at a defined frequency for that activity | Continuously, by ABC Technologies | Not evidenced (EV-SI-01) |
+| b | Monitor inbound and outbound traffic at a defined frequency for that activity | Continuously, by \<Organisation\> | Not evidenced (EV-SI-01) |
 
 **Table 26: SI-4(4) responsibility and evidence**
 
 | | |
 | --- | --- |
-| Provided by | ABC Technologies |
-| Responsible | ABC Technologies |
-| Enforced by | ABC Technologies' network monitoring |
+| Provided by | \<Organisation\> |
+| Responsible | \<Organisation\> |
+| Enforced by | \<Organisation\>'s network monitoring |
 | Rules and procedures | Policy rule R5 (\<Policy\>, section SI.4); PRO-SI-3 (\<Procedures\>) |
 | Tests | None |
-| Records an assessor will ask for | ABC Technologies' monitoring description and a sample report |
+| Records an assessor will ask for | \<Organisation\>'s monitoring description and a sample report |
 | Status | Not implemented |
 | Risk decision | NC-SI-07, rated Low: obtain evidence |
 | Open items | EV-SI-01. PA-130 |
@@ -452,7 +452,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 | | |
 | --- | --- |
-| Provided by | \<DocuView\>: built into the system |
+| Provided by | \<System Name\>: built into the system |
 | Responsible | Developers, security officer |
 | Enforced by | Alert rules, once built |
 | Rules and procedures | Policy rule R5 (\<Policy\>, section SI.4); PRO-SI-4 (\<Procedures\>) |
@@ -493,14 +493,14 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
-| a | Use integrity verification tools to detect unauthorised changes to defined software, firmware and information | SHA-256 for the release packages and stored documents, the audit chain for audit records, and ABC Technologies for the servers' firmware (section 4.5) | Baseline recorded. Documents use MD5 (H09; PA-61); the audit chain cannot be recomputed (H10; PA-74) |
-| b | Take defined actions when unauthorised changes are detected | Treat it as an incident, and restore from a trusted copy or backup; for firmware, tell ABC Technologies' security contact | Defined |
+| a | Use integrity verification tools to detect unauthorised changes to defined software, firmware and information | SHA-256 for the release packages and stored documents, the audit chain for audit records, and \<Organisation\> for the servers' firmware (section 4.5) | Baseline recorded. Documents use MD5 (H09; PA-61); the audit chain cannot be recomputed (H10; PA-74) |
+| b | Take defined actions when unauthorised changes are detected | Treat it as an incident, and restore from a trusted copy or backup; for firmware, tell \<Organisation\>'s security contact | Defined |
 
 **Table 32: SI-7 responsibility and evidence**
 
 | | |
 | --- | --- |
-| Provided by | Shared: \<DocuView\> and ABC Technologies |
+| Provided by | Shared: \<System Name\> and \<Organisation\> |
 | Responsible | Developers, security officer |
 | Enforced by | SHA-256 checks and the audit chain, once corrected |
 | Rules and procedures | Policy rule R8 (\<Policy\>, section SI.4); PRO-SI-6 (\<Procedures\>) |
@@ -516,13 +516,13 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
-| All | Check integrity at start-up, at defined events and at a defined frequency | At start-up, at each release and monthly; firmware monthly and at a change to the hosting, by ABC Technologies | No scheduled check (PA-61) |
+| All | Check integrity at start-up, at defined events and at a defined frequency | At start-up, at each release and monthly; firmware monthly and at a change to the hosting, by \<Organisation\> | No scheduled check (PA-61) |
 
 **Table 34: SI-7(1) responsibility and evidence**
 
 | | |
 | --- | --- |
-| Provided by | Shared: \<DocuView\> and ABC Technologies |
+| Provided by | Shared: \<System Name\> and \<Organisation\> |
 | Responsible | Security officer |
 | Enforced by | Checks, once built |
 | Rules and procedures | Policy rule R8 (\<Policy\>, section SI.4); PRO-SI-6 (\<Procedures\>) |
@@ -560,7 +560,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
-| All | Use spam protection at entry and exit points, and update it | Not applicable: \<DocuView\> sends and receives no email (\<Tailoring Register\>, TR-SI-01) | Not applicable |
+| All | Use spam protection at entry and exit points, and update it | Not applicable: \<System Name\> sends and receives no email (\<Tailoring Register\>, TR-SI-01) | Not applicable |
 
 **Table 38: SI-8 responsibility and evidence**
 
@@ -576,7 +576,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
-| All | Update spam protection automatically | Not applicable: \<DocuView\> sends and receives no email (\<Tailoring Register\>, TR-SI-01) | Not applicable |
+| All | Update spam protection automatically | Not applicable: \<System Name\> sends and receives no email (\<Tailoring Register\>, TR-SI-01) | Not applicable |
 
 **Table 40: SI-8(2) responsibility and evidence**
 
@@ -598,7 +598,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 | | |
 | --- | --- |
-| Provided by | \<DocuView\>: built into the system |
+| Provided by | \<System Name\>: built into the system |
 | Responsible | Developers |
 | Enforced by | The applications' validation and upload checks |
 | Rules and procedures | Policy rules R4, R9 (\<Policy\>, section SI.4); PRO-SI-8 (\<Procedures\>) |
@@ -621,7 +621,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 | | |
 | --- | --- |
-| Provided by | \<DocuView\>: built into the system |
+| Provided by | \<System Name\>: built into the system |
 | Responsible | Developers |
 | Enforced by | The applications' error handling |
 | Rules and procedures | Policy rule R10 (\<Policy\>, section SI.4); PRO-SI-8 (\<Procedures\>) |
@@ -637,15 +637,15 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
-| All | Manage and keep information, and outputs, as laws, policies and operational needs require | \<DocuView\>'s retention schedule (\<PII Processing Management\>, section 4.7), with the periods in section 4.7 of this document | Set, with placeholders. Not applied: no retention or disposal is built (PA-70) |
+| All | Manage and keep information, and outputs, as laws, policies and operational needs require | \<System Name\>'s retention schedule (\<PII Processing Management\>, section 4.7), with the periods in section 4.7 of this document | Set, with placeholders. Not applied: no retention or disposal is built (PA-70) |
 
 **Table 46: SI-12 responsibility and evidence**
 
 | | |
 | --- | --- |
-| Provided by | Shared: \<DocuView\> and ABC Technologies |
+| Provided by | Shared: \<System Name\> and \<Organisation\> |
 | Responsible | System owner |
-| Enforced by | \<DocuView\>, once retention and disposal are built |
+| Enforced by | \<System Name\>, once retention and disposal are built |
 | Rules and procedures | Policy rule R11 (\<Policy\>, section SI.4); PRO-SI-7 (\<Procedures\>) |
 | Tests | Checks Q03 and Q08 of Test-PersonalData.ps1, 11 November 2026: both showed gaps |
 | Records an assessor will ask for | The schedule; disposal records on TPL-13 and in the audit trail |
@@ -665,7 +665,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 | | |
 | --- | --- |
-| Provided by | Shared: \<DocuView\> and ABC Technologies |
+| Provided by | Shared: \<System Name\> and \<Organisation\> |
 | Responsible | Windows server administrator |
 | Enforced by | Windows Server and .NET |
 | Rules and procedures | Policy rule R9 (\<Policy\>, section SI.4); no procedure of its own |
@@ -680,14 +680,14 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 ## Appendix A Parameter register
 
-These are NIST's organisation-defined values for the 18 SI entries: 57 in total. They were agreed on 6 November 2026 (D-SI-P01), and those changed on 12 November 2026 in D-SI-P02. **State now** says whether \<DocuView\> meets the value today.
+These are NIST's organisation-defined values for the 18 SI entries: 57 in total. They were agreed on 6 November 2026 (D-SI-P01), and those changed on 12 November 2026 in D-SI-P02. **State now** says whether \<System Name\> meets the value today.
 
 **Table 49: SI parameter register**
 
 | NIST identifier | What must be defined | Value | State now |
 | --- | --- | --- | --- |
-| SI-01\_ODP\[01\] | Who receives the policy | Everyone who administers or develops \<DocuView\> | Not yet shared |
-| SI-01\_ODP\[02\] | Who receives the procedures | Everyone who administers or develops \<DocuView\> | Not yet shared |
+| SI-01\_ODP\[01\] | Who receives the policy | Everyone who administers or develops \<System Name\> | Not yet shared |
+| SI-01\_ODP\[02\] | Who receives the procedures | Everyone who administers or develops \<System Name\> | Not yet shared |
 | SI-01\_ODP\[03\] | Level of the policy | System level | In place |
 | SI-01\_ODP\[04\] | Official who manages them | System owner | In place |
 | SI-01\_ODP\[05\] | Policy review frequency | Every 12 months | First review due November 2027 |
@@ -704,14 +704,14 @@ These are NIST's organisation-defined values for the 18 SI entries: 57 in total.
 | SI-03\_ODP\[05\] | Other action | Refuse the upload and record it in the audit trail | Not built (PA-58) |
 | SI-03\_ODP\[06\] | Who is alerted | Windows server administrator and security officer | Not built (PA-59) |
 | SI-04\_ODP\[01\] | Monitoring objectives | Detect attacks, misuse and unauthorised connections | Defined |
-| SI-04\_ODP\[02\] | Techniques and methods | Log forwarding to ABC Technologies' central logging, the detection use cases in section 4.4, audit records and ABC Technologies' network monitoring | No forwarding or alerts (H12; PA-59) |
-| SI-04\_ODP\[03\] | Monitoring information | Application, Windows and PostgreSQL logs | Failed sign-ins are recorded by AD FS since sign-in moved there (D-AC-23); \<DocuView\>'s logs are not forwarded |
+| SI-04\_ODP\[02\] | Techniques and methods | Log forwarding to \<Organisation\>'s central logging, the detection use cases in section 4.4, audit records and \<Organisation\>'s network monitoring | No forwarding or alerts (H12; PA-59) |
+| SI-04\_ODP\[03\] | Monitoring information | Application, Windows and PostgreSQL logs | Failed sign-ins are recorded by AD FS since sign-in moved there (D-AC-23); \<System Name\>'s logs are not forwarded |
 | SI-04\_ODP\[04\] | Who receives it | Security officer | Defined |
 | SI-04\_ODP\[05\] | When it is provided | At the set frequency | Defined |
 | SI-04\_ODP\[06\] | Frequency | Weekly | Reviews not started |
-| SI-04(04)\_ODP\[01\] | Inbound monitoring frequency | Continuous, by ABC Technologies | Not evidenced (EV-SI-01) |
+| SI-04(04)\_ODP\[01\] | Inbound monitoring frequency | Continuous, by \<Organisation\> | Not evidenced (EV-SI-01) |
 | SI-04(04)\_ODP\[02\] | Unusual inbound activity | Traffic outside the agreed flows | Defined |
-| SI-04(04)\_ODP\[03\] | Outbound monitoring frequency | Continuous, by ABC Technologies | Not evidenced (EV-SI-01) |
+| SI-04(04)\_ODP\[03\] | Outbound monitoring frequency | Continuous, by \<Organisation\> | Not evidenced (EV-SI-01) |
 | SI-04(04)\_ODP\[04\] | Unusual outbound activity | Traffic outside the agreed flows, or unusually large transfers | Defined |
 | SI-04(05)\_ODP\[01\] | Who is alerted | Security officer | Defined |
 | SI-04(05)\_ODP\[02\] | Compromise indicators | The detection use cases in section 4.4 | No alerts (H12; PA-59) |
@@ -720,11 +720,11 @@ These are NIST's organisation-defined values for the 18 SI entries: 57 in total.
 | SI-05\_ODP\[03\] | Personnel | Security officer, administrators and developers | Defined |
 | SI-05\_ODP\[04\] | Elements | Not applicable; personnel are selected | Defined |
 | SI-05\_ODP\[05\] | External organisations | Not applicable; personnel are selected | Defined |
-| SI-07\_ODP\[01\] | Software | DV\_Web, DV\_Admin\_UI and DV\_API release packages | Baseline recorded (section 4.5); checks not built (PA-61) |
-| SI-07\_ODP\[02\] | Firmware | VM firmware, through ABC Technologies | Defined |
+| SI-07\_ODP\[01\] | Software | UI application, Admin application and API release packages | Baseline recorded (section 4.5); checks not built (PA-61) |
+| SI-07\_ODP\[02\] | Firmware | VM firmware, through \<Organisation\> | Defined |
 | SI-07\_ODP\[03\] | Information | Stored documents and audit records, protected with SHA-256 | Documents use MD5 (H09; PA-61); chain does not verify (H10; PA-74) |
 | SI-07\_ODP\[04\] | Action for software | Treat as an incident, and restore from a trusted copy | Defined |
-| SI-07\_ODP\[05\] | Action for firmware | Tell ABC Technologies' security contact | Defined |
+| SI-07\_ODP\[05\] | Action for firmware | Tell \<Organisation\>'s security contact | Defined |
 | SI-07\_ODP\[06\] | Action for information | Treat as an incident, and restore from backup | Defined |
 | SI-07(01)\_ODP\[01\] | Software checked | As SI-07\_ODP\[01\] | Defined |
 | SI-07(01)\_ODP\[02\] | When | At startup, at set events and at a set frequency | Defined |
@@ -733,7 +733,7 @@ These are NIST's organisation-defined values for the 18 SI entries: 57 in total.
 | SI-07(01)\_ODP\[05\] | Firmware checked | As SI-07\_ODP\[02\] | Defined |
 | SI-07(01)\_ODP\[06\] | When | At startup, at set events and at a set frequency | Defined |
 | SI-07(01)\_ODP\[07\] | Events | A change to the hosting | Defined |
-| SI-07(01)\_ODP\[08\] | Frequency | Monthly, by ABC Technologies | Defined |
+| SI-07(01)\_ODP\[08\] | Frequency | Monthly, by \<Organisation\> | Defined |
 | SI-07(01)\_ODP\[09\] | Information checked | As SI-07\_ODP\[03\] | Defined |
 | SI-07(01)\_ODP\[10\] | When | At startup, at set events and at a set frequency | Defined |
 | SI-07(01)\_ODP\[11\] | Events | Each release | Defined |
@@ -753,11 +753,11 @@ NIST does not select these at Moderate, so they are not assessed. SI-8 and SI-8(
 
 **Table 50: Related controls and enhancements not selected**
 
-| Control | What it adds | \<DocuView\>'s position |
+| Control | What it adds | \<System Name\>'s position |
 | --- | --- | --- |
 | SI-2(5), SI-2(6) | Automatic updates; removing previous versions after an update | Not required. Done in part: updates go through change control (section 4.3) |
 | SI-3(8), SI-3(10) | Detecting unauthorised commands; analysing malicious code | Not required |
-| SI-4(1), SI-4(10), SI-4(11) | System-wide intrusion detection; visibility of encrypted traffic; analysis of outbound traffic | Not required. Done in part: ABC Technologies' network monitoring (section 4.4) |
+| SI-4(1), SI-4(10), SI-4(11) | System-wide intrusion detection; visibility of encrypted traffic; analysis of outbound traffic | Not required. Done in part: \<Organisation\>'s network monitoring (section 4.4) |
 | SI-4(12), SI-4(14), SI-4(20) | Automated organisation alerts; wireless intrusion detection; privileged user monitoring | Not required: selected at High only, or not applicable. Done in part: use cases U4 and U6 watch privileged changes and sessions |
 | SI-4(22), SI-4(23) | Unauthorised network services; host-based monitoring | Not required. Done in part: Defender on both servers |
 | SI-6 Security and Privacy Function Verification | Checks that security functions work | Not required: selected at High only. Done in part: the test scripts (\<System and Services Acquisition Management\>, section 4.9) |

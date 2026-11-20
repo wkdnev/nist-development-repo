@@ -1,4 +1,4 @@
-# \<DocuView\> Review Guide
+# \<System Name\> Review Guide
 
 This guide lists the 44 documents in the set and suggests the order in which to review them. Start with the [Guide to the Document Set](Guide%20to%20the%20Document%20Set.md), which shows how the documents relate and gives a route through them, and the [System Description](System%20Description.md), which describes the whole system in one place. It is a working aid for reviewers. It is not a controlled document, and nothing else in the set depends on it.
 
@@ -27,7 +27,7 @@ A script, `tests\Test-PlanConsistency.ps1`, checks 24 things every time the set 
 
 What only a person can judge:
 
-- **Is it true?** Does the document describe \<DocuView\> and ABC Technologies as they really are?
+- **Is it true?** Does the document describe \<System Name\> and \<Organisation\> as they really are?
 - **Is it workable?** Could the named person carry out the step, in the time given, with the record named?
 - **Is it complete?** Is anything a reviewer would expect missing?
 - **Is it clear?** Would a new reader understand it?
@@ -43,7 +43,7 @@ Read these straight through. They are short, and everything else assumes them.
 | Order | Document | Size | Why now | Look for |
 | --- | --- | --- | --- | --- |
 | 1 | [Documentation Map](Documentation%20Map.md), sections 1 to 4 | 2,500 of 5,500 | It lists every document and says where each family's material is | Whether the set looks complete for what you expect |
-| 2 | [Concept of Operations](Concept%20of%20Operations.md) | 2,700 | Why \<DocuView\> exists, who uses it and how | Whether the business picture is right. Several business facts are still placeholders |
+| 2 | [Concept of Operations](Concept%20of%20Operations.md) | 2,700 | Why \<System Name\> exists, who uses it and how | Whether the business picture is right. Several business facts are still placeholders |
 | 3 | [Security Architecture](Security%20Architecture.md) | 3,400 | The boundary, the components and the eight data flows | Whether the boundary and flows match what will be built |
 | 4 | [Roles and Responsibilities](Roles%20and%20Responsibilities.md) | 2,500 | Every other document names roles, and this one names the people | Whether each holder is right, and the two deputies still to be named |
 
@@ -80,7 +80,7 @@ For Physical and Environmental Protection, read [Physical and Environmental Prot
 
 For Planning, read [Planning Management](Planning%20Management.md) (6,800 words) in the same way. It holds the register of plans in force and the register of signatures.
 
-For Program Management, read [Program Management](Program%20Management.md) (4,700 words). It is shorter than the others, because these controls are ABC Technologies' to provide: it shows who provides each, and what DocuView adds.
+For Program Management, read [Program Management](Program%20Management.md) (4,700 words). It is shorter than the others, because these controls are \<Organisation\>'s to provide: it shows who provides each, and what \<System Name\> adds.
 
 For Personnel Security, read [Personnel Security Management](Personnel%20Security%20Management.md) (7,300 words) in the same way. It holds the risk designations, the screening standard and the personnel security register.
 
@@ -104,10 +104,10 @@ A good order for the families puts the ones others depend on first:
 | --- | --- | --- |
 | A | PL Planning, PS Personnel Security, AT Awareness and Training | People and plans. Short, and they introduce the rules of behaviour and the training everyone else relies on |
 | B | AC Access Control, IA Identification and Authentication, AU Audit and Accountability | Who can get in, how they prove who they are, and what is recorded. AC is the largest chapter in every document |
-| C | CM Configuration Management, MA Maintenance, SA System and Services Acquisition, SR Supply Chain Risk Management | How \<DocuView\> is built, changed and supplied |
+| C | CM Configuration Management, MA Maintenance, SA System and Services Acquisition, SR Supply Chain Risk Management | How \<System Name\> is built, changed and supplied |
 | D | SC System and Communications Protection, SI System and Information Integrity, RA Risk Assessment | Technical protection, flaws and risk |
 | E | IR Incident Response, CP Contingency Planning | What happens when something goes wrong |
-| F | MP Media Protection, PE Physical and Environmental Protection | Mostly provided by ABC Technologies |
+| F | MP Media Protection, PE Physical and Environmental Protection | Mostly provided by \<Organisation\> |
 | G | PT Personally Identifiable Information Processing and Transparency | Personal data. Best reviewed with the legal adviser |
 | H | CA Assessment, Authorization, and Monitoring | How the set itself is assessed and kept current. Easier once the rest is known |
 
@@ -150,7 +150,7 @@ Look things up in these. Reading them end to end is poor use of a reviewer's tim
 | Document | Size | Use it to |
 | --- | --- | --- |
 | [Decision Register](Decision%20Register.md) | 27,100 | Check who decided something and when. Each approver should review only the decisions in their own name, against their sign-off sheet |
-| [Evidence Requests](Evidence%20Requests.md) | 7,900 | See what ABC Technologies is asked for. ABC Technologies should review this one in full |
+| [Evidence Requests](Evidence%20Requests.md) | 7,900 | See what \<Organisation\> is asked for. \<Organisation\> should review this one in full |
 | [Interview Guide](Interview%20Guide.md) | 12,700 | Prepare the Level 2 interviews. The security assessor should review it |
 | [Risk List](Risk%20List.md), section 6 | 12,500 | Find the entry for one control that is not met |
 
@@ -174,7 +174,7 @@ One person need not review everything. Splitting by role is faster, and puts eac
 | Business and information owner | Concept of Operations, the retention schedule in the Register (section PT.4) | Contingency Planning Management, for the recovery times |
 | Developers | Security Architecture, Access Control Management, Administrator Guide, User Guide, the CM, SA, SC and SI chapters of the Register | Plan of Action and Milestones, for the fixes that are theirs |
 | Security officer | Incident Response Management, Security Operating Procedures Part C, the AU, IR and SI chapters of Procedures | Record Templates |
-| ABC Technologies' security contact | Evidence Requests | The inherited controls in the Register (section CA.7) |
+| \<Organisation\>'s security contact | Evidence Requests | The inherited controls in the Register (section CA.7) |
 | Security assessor | Control Assessment Record, Interview Guide, Security Assessment Report | System Security Plan section 8 |
 
 ## 5 Three shorter paths

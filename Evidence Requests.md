@@ -1,4 +1,4 @@
-# \<DocuView\> Provider Evidence Request and Responsibility Matrix
+# \<System Name\> Provider Evidence Request and Responsibility Matrix
 
 **\<ref\> | Version \<ver\> | Issued by the system owner, live document; not yet sent**
 
@@ -64,9 +64,9 @@
 | Item | Detail |
 | --- | --- |
 | Reference | \<ref\> |
-| Title | \<DocuView\> Provider Evidence Request and Responsibility Matrix |
+| Title | \<System Name\> Provider Evidence Request and Responsibility Matrix |
 | Version | \<ver\> |
-| Status | Issued by the system owner as version \<ver\> on 12 November 2026 (D-GEN-19). A live document. Not yet sent to ABC Technologies |
+| Status | Issued by the system owner as version \<ver\> on 12 November 2026 (D-GEN-19). A live document. Not yet sent to \<Organisation\> |
 | Date | 5 November 2026 |
 | Owner | System owner |
 | Applies to | All control families; AC, AU, IA, SC, CM, SI, RA, CA, IR, CP, AT, MA, MP, PE, PL, PS, PT, SA and SR assessed in this version |
@@ -76,7 +76,7 @@
 
 ### 1.2 Approval
 
-The system owner approves each request before it is sent, and records who at ABC Technologies agreed each responsibility.
+The system owner approves each request before it is sent, and records who at \<Organisation\> agreed each responsibility.
 
 ### 1.3 Change history
 
@@ -86,29 +86,29 @@ The system owner approves each request before it is sent, and records who at ABC
 | --- | --- | --- |
 | \<ver\> | 18 November 2026 | EV-SI-01 also asks for AD FS failed sign-in events and AD administrator group changes, which detection use cases U1 and U4 now need (D-SI-10) |
 | \<ver\> | 18 November 2026 | References to the communications protection design point to \<System and Communications Protection Management\>, where it is now held (D-SC-09). References to the integrity design point to \<System and Information Integrity Management\>, where it is now held (D-SI-10). References to the supply chain plan follow its new sections, as it is rebuilt in the family form and renamed Supply Chain Risk Management (D-SR-14) |
-| \<ver\> | 18 November 2026 | EV-SA-02 also asks for the service levels of ABC Technologies' services, how they are measured, and the remedies |
+| \<ver\> | 18 November 2026 | EV-SA-02 also asks for the service levels of \<Organisation\>'s services, how they are measured, and the remedies |
 | \<ver\> | 18 November 2026 | EV-RA-01 proposes 90 days as the time a reporter is asked to wait before disclosing (D-RA-14) |
 | \<ver\> | 18 November 2026 | EV-SA-02 also asks for the controls, functions, ports, protocols and services of AD FS, Active Directory and the Starters/Leavers system |
-| \<ver\> | 18 November 2026 | EV-RA-01 also asks where the security contact is published and on what terms, and whether findings that may affect ABC Technologies' other systems should go to it |
+| \<ver\> | 18 November 2026 | EV-RA-01 also asks where the security contact is published and on what terms, and whether findings that may affect \<Organisation\>'s other systems should go to it |
 | \<ver\> | 17 November 2026 | EV-PS-03 also asks for the terms that bind the independent assessors, if they are external |
-| \<ver\> | 17 November 2026 | References to the personnel security design point to \<Personnel Security Management\>, where it is now held (D-PS-10). EV-PS-02 also asks for ABC Technologies' confidentiality agreement, one of the two access agreements |
-| \<ver\> | 17 November 2026 | EV-PM-01 asks first for ABC Technologies' ISO/IEC 27001 certificate and scope, as evidence of the programme |
-| \<ver\> | 17 November 2026 | EV-PM-01 asks ABC Technologies to name the senior accountable official for risk management |
-| \<ver\> | 17 November 2026 | References to the Program Management controls \<DocuView\> inherits point to \<Program Management\>, where the list is now held (D-PM-05). EV-PM-01, EV-PM-04 and EV-PL-01 name the three PM enhancements and the architecture controls they also serve |
+| \<ver\> | 17 November 2026 | References to the personnel security design point to \<Personnel Security Management\>, where it is now held (D-PS-10). EV-PS-02 also asks for \<Organisation\>'s confidentiality agreement, one of the two access agreements |
+| \<ver\> | 17 November 2026 | EV-PM-01 asks first for \<Organisation\>'s ISO/IEC 27001 certificate and scope, as evidence of the programme |
+| \<ver\> | 17 November 2026 | EV-PM-01 asks \<Organisation\> to name the senior accountable official for risk management |
+| \<ver\> | 17 November 2026 | References to the Program Management controls \<System Name\> inherits point to \<Program Management\>, where the list is now held (D-PM-05). EV-PM-01, EV-PM-04 and EV-PL-01 name the three PM enhancements and the architecture controls they also serve |
 | \<ver\> | 17 November 2026 | EV-PE-02 asks how long backup power lasts and how the administrators are warned |
 | \<ver\> | 17 November 2026 | References to the physical and environmental protection design point to \<Physical and Environmental Protection Management\>, where it is now held (D-PE-11). EV-PE-01 asks that a SOC 2 report cover the availability criteria as well as physical access, how soon a physical incident is reported, and for the name of each site. EV-PE-02 asks how the emergency shutoff is guarded |
-| \<ver\> | 17 November 2026 | EV-MP-03 also asks how print jobs are held and cleared on ABC Technologies' managed printers |
+| \<ver\> | 17 November 2026 | EV-MP-03 also asks how print jobs are held and cleared on \<Organisation\>'s managed printers |
 | \<ver\> | 17 November 2026 | EV-MP-01 also asks where the audit archive and the copy of the secrets are held, and what its offices provide for printouts |
-| \<ver\> | 17 November 2026 | References to the maintenance design point to \<Maintenance Management\>, where it is now held (D-MA-09). EV-MA-01 also asks how ABC Technologies' engineers are screened, and for notice of its maintenance that affects \<DocuView\> |
-| \<ver\> | 17 November 2026 | EV-IR-01 asks for everything the incident response plan relies on ABC Technologies for |
-| \<ver\> | 17 November 2026 | EV-IR-01 also asks ABC Technologies to confirm that the old AD FS secret of INC-2026-001 is revoked |
-| \<ver\> | 16 November 2026 | EV-IA-04 also asks for the trust settings between AD FS and \<DocuView\> |
-| \<ver\> | 15 November 2026 | EV-CP-01 also asks for ABC Technologies' recovery plans and its recovery times for the services \<DocuView\> depends on, including AD FS |
+| \<ver\> | 17 November 2026 | References to the maintenance design point to \<Maintenance Management\>, where it is now held (D-MA-09). EV-MA-01 also asks how \<Organisation\>'s engineers are screened, and for notice of its maintenance that affects \<System Name\> |
+| \<ver\> | 17 November 2026 | EV-IR-01 asks for everything the incident response plan relies on \<Organisation\> for |
+| \<ver\> | 17 November 2026 | EV-IR-01 also asks \<Organisation\> to confirm that the old AD FS secret of INC-2026-001 is revoked |
+| \<ver\> | 16 November 2026 | EV-IA-04 also asks for the trust settings between AD FS and \<System Name\> |
+| \<ver\> | 15 November 2026 | EV-CP-01 also asks for \<Organisation\>'s recovery plans and its recovery times for the services \<System Name\> depends on, including AD FS |
 | \<ver\> | 15 November 2026 | References to the contingency design follow the new section numbers of \<Contingency Planning Management\> (D-CP-14) |
 | \<ver\> | 13 November 2026 | References to the configuration management design follow the new section numbers of \<Configuration Management\> (D-CM-13) |
 | \<ver\> | 12 November 2026 | EV-CA-02 also asks for the agreement that covers AD FS and Active Directory |
 | \<ver\> | 12 November 2026 | References to the assessment, authorisation and monitoring design point to \<Assessment, Authorization, and Monitoring Management\>, where it is now held (D-CA-11) |
-| \<ver\> | 12 November 2026 | EV-AU-05 added: AD FS and Active Directory audit records for \<DocuView\>, and how the auditor receives them |
+| \<ver\> | 12 November 2026 | EV-AU-05 added: AD FS and Active Directory audit records for \<System Name\>, and how the auditor receives them |
 | \<ver\> | 12 November 2026 | EV-AC-01 and EV-IA-04 now ask for evidence of Active Directory and AD FS (D-AC-23) |
 | \<ver\> | 12 November 2026 | Version numbers are shown as a placeholder, as the system owner asked (D-GEN-28). No other change |
 | \<ver\> | 12 November 2026 | The document number is replaced by a placeholder on the line under the title and in the details table, as the system owner asked (D-GEN-27). No other change |
@@ -117,7 +117,7 @@ The system owner approves each request before it is sent, and records who at ABC
 | \<ver\> | 12 November 2026 | The steps for adding a control family are removed, as all 19 families are now in the document; the numbering rule they held is kept in section 2 |
 | \<ver\> | 12 November 2026 | References to the register, the policy and the assessment record follow their new section and table numbers (D-GEN-24) |
 | \<ver\> | 12 November 2026 | Documents are cited by name in angle brackets, in place of their numbers, as the system owner asked (D-GEN-23). No other change |
-| \<ver\> | 12 November 2026 | EV-PS-01 asks for the screening standard and whether it covers the four checks \<DocuView\> expects (D-PS-07). The AC procedures are cited as PRO-AC-1 to PRO-AC-16 (WS-D11). Whole-set review (WS-D8): family sections are in NIST order, with the answers given on 6 November 2026 after them as section 24; sections and tables renumbered. No request changed. Whole-set review (WS-F12): section 2.2, a covering request, with the recipient, the reply date as a placeholder and how to reply. Issued as version \<ver\>. Not yet sent. The combined documents are cited by their new numbers and chapters (D-GEN-21). The document standard is cited as \<Documentation Map\>, section 5. The contents list is rebuilt so that its links work in Markdown |
+| \<ver\> | 12 November 2026 | EV-PS-01 asks for the screening standard and whether it covers the four checks \<System Name\> expects (D-PS-07). The AC procedures are cited as PRO-AC-1 to PRO-AC-16 (WS-D11). Whole-set review (WS-D8): family sections are in NIST order, with the answers given on 6 November 2026 after them as section 24; sections and tables renumbered. No request changed. Whole-set review (WS-F12): section 2.2, a covering request, with the recipient, the reply date as a placeholder and how to reply. Issued as version \<ver\>. Not yet sent. The combined documents are cited by their new numbers and chapters (D-GEN-21). The document standard is cited as \<Documentation Map\>, section 5. The contents list is rebuilt so that its links work in Markdown |
 | \<ver\> to \<ver\> | 5 to 12 November 2026 | The earlier versions. Their history is kept in the change record (\<Documentation Map\>, section 5.1) |
 
 | **SECTION 2** |
@@ -125,13 +125,13 @@ The system owner approves each request before it is sent, and records who at ABC
 
 ## 2 Purpose
 
-\<DocuView\> depends on ABC Technologies for its network, devices, hosting and staff processes. NIST SP 800-37 Rev 2 expects the plan to show which parts of a control the provider delivers, and the provider's own details must be available. This document lists the evidence needed and who is responsible for what. Cyber Essentials Plus supports these claims, but it is a different scheme and does not prove a NIST control, so each request asks for the specific service and evidence.
+\<System Name\> depends on \<Organisation\> for its network, devices, hosting and staff processes. NIST SP 800-37 Rev 2 expects the plan to show which parts of a control the provider delivers, and the provider's own details must be available. This document lists the evidence needed and who is responsible for what. Cyber Essentials Plus supports these claims, but it is a different scheme and does not prove a NIST control, so each request asks for the specific service and evidence.
 
-Evidence is enough when it names the service, shows that it covers the two \<DocuView\> VMs or the relevant users, is current, and comes from someone accountable for the service. A verbal assurance or a general policy statement is recorded but is not enough on its own.
+Evidence is enough when it names the service, shows that it covers the two \<System Name\> VMs or the relevant users, is current, and comes from someone accountable for the service. A verbal assurance or a general policy statement is recorded but is not enough on its own.
 
 Status values are **Not sent**, **Sent**, **Received**, **Accepted**, **Rejected** and **Not needed**.
 
-Requests are numbered EV-XX-nn, where XX is the family code. A request in section 3 is reused wherever it already answers the need, so that ABC Technologies is not asked twice.
+Requests are numbered EV-XX-nn, where XX is the family code. A request in section 3 is reused wherever it already answers the need, so that \<Organisation\> is not asked twice.
 
 **Table 3: Family coverage**
 
@@ -160,10 +160,10 @@ Requests are numbered EV-XX-nn, where XX is the family code. A request in sectio
 
 ### 2.2 Covering request
 
-The requests go to ABC Technologies as one pack, with this covering note. The pack has not yet been sent.
+The requests go to \<Organisation\> as one pack, with this covering note. The pack has not yet been sent.
 
-1. **To:** Linda Cooper, ABC Technologies' security contact, with Belinda Smith as deputy.
-2. **From:** Neil Ramsbottom, system owner.
+1. **To:** \[Name\], \<Organisation\>'s security contact, with \[Name\] as deputy.
+2. **From:** \[Name\], system owner.
 3. **Date sent:** \[Date\].
 4. **Reply needed by:** \[Date\]. The records and the list of applicable policies promised on 6 November 2026 are due by 20 November 2026 (section 24).
 5. **What is asked:** the 74 requests in sections 3 to 23. Each has an ID, what is needed and the evidence that is acceptable.
@@ -181,11 +181,11 @@ The requests go to ABC Technologies as one pack, with this covering note. The pa
 
 | ID | What is needed | Acceptable evidence | Status | Received | Reference |
 | --- | --- | --- | --- | --- | --- |
-| EV-GEN-01 | Linda Cooper is the security contact; Belinda Smith is the deputy | Name, role and contact details | Not sent |  |  |
+| EV-GEN-01 | \[Name\] is the security contact; \[Name\] is the deputy | Name, role and contact details | Not sent |  |  |
 | EV-GEN-02 | Cyber Essentials Plus status and scope | Current certificate, with a statement of whether the scope includes the two VMs and their hosting | Not sent |  |  |
 | EV-GEN-03 | The VM hosting service | Service description, who administers the hypervisor and physical hosts, and where they are | Not sent |  |  |
-| EV-GEN-04 | The ABC Technologies policies that apply to \<DocuView\> | A list with owners and versions, and copies of the relevant sections | Not sent |  |  |
-| EV-GEN-05 | Any NIST-based control statements ABC Technologies already holds | Existing common control or responsibility documents, or confirmation that none exists | Not sent |  |  |
+| EV-GEN-04 | The \<Organisation\> policies that apply to \<System Name\> | A list with owners and versions, and copies of the relevant sections | Not sent |  |  |
+| EV-GEN-05 | Any NIST-based control statements \<Organisation\> already holds | Existing common control or responsibility documents, or confirmation that none exists | Not sent |  |  |
 
 | **SECTION 4** |
 | --- |
@@ -198,7 +198,7 @@ The requests go to ABC Technologies as one pack, with this covering note. The pa
 
 | ID | Controls | What is needed | Acceptable evidence | Status | Received | Reference |
 | --- | --- | --- | --- | --- | --- | --- |
-| EV-AC-01 | AC-2h, AC-2l, AC-2(13) | How Active Directory accounts are created, changed and disabled for starters, movers and leavers, and how quickly; who owns each \<DocuView\> AD group and how a change to its members is recorded; and how \<DocuView\>'s system owner is told about leavers, movers and high-risk individuals | Process document; the Starters/Leavers prompt and Jira workflow set up for \<DocuView\>; proof that corporate network accounts are disabled immediately, and that \<DocuView\> cannot be reached without one | Not sent |  |  |
+| EV-AC-01 | AC-2h, AC-2l, AC-2(13) | How Active Directory accounts are created, changed and disabled for starters, movers and leavers, and how quickly; who owns each \<System Name\> AD group and how a change to its members is recorded; and how \<System Name\>'s system owner is told about leavers, movers and high-risk individuals | Process document; the Starters/Leavers prompt and ServiceNow workflow set up for \<System Name\>; proof that corporate network accounts are disabled immediately, and that \<System Name\> cannot be reached without one | Not sent |  |  |
 | EV-AC-02 | AC-2, AC-6(5) | How Windows administrator accounts on the VMs are created, approved and removed | Process, and the group membership for the VMs once built | Not sent |  |  |
 | EV-AC-03 | AC-4 | Firewall and network controls for flows F1 to F7, and how changes are approved | Rule set or export for the VMs; change process | Not sent |  |  |
 | EV-AC-04 | AC-6(1) | Who holds security functions on the network, hypervisor and firmware | Named roles and access lists | Not sent |  |  |
@@ -212,17 +212,17 @@ The requests go to ABC Technologies as one pack, with this covering note. The pa
 | EV-AC-12 | AC-17(4) | Whether the VMs' administration ports can be reached from external networks, and the approved administration route | Firewall rules and a written confirmation | Not sent |  |  |
 | EV-AC-13 | AC-18, AC-18(1) | Wireless network requirements, authorisation, authentication and encryption | Wireless policy and configuration | Not sent |  |  |
 | EV-AC-14 | AC-18(3) | That the VMs and standard builds have wireless disabled when not needed | Build standard; check on the built VMs | Not sent |  |  |
-| EV-AC-15 | AC-19, AC-19(5) | Mobile device rules and encryption, and whether a phone or tablet could reach \<DocuView\> | Mobile policy; device management settings | Not sent |  |  |
+| EV-AC-15 | AC-19, AC-19(5) | Mobile device rules and encryption, and whether a phone or tablet could reach \<System Name\> | Mobile policy; device management settings | Not sent |  |  |
 | EV-AC-16 | AC-20 | How unmanaged or personal devices are prevented from reaching internal systems | Network access control or policy, with its enforcement | Not sent |  |  |
 | EV-AC-17 | AC-20(2) | USB and portable storage controls | Device control settings or policy | Not sent |  |  |
 
 ### 4.2 Responsibility matrix
 
-This matrix is proposed and has not been agreed with ABC Technologies.
+This matrix is proposed and has not been agreed with \<Organisation\>.
 
 **Table 6: AC responsibility matrix**
 
-| Control | \<DocuView\> application | Organisation (system owner and role holders) | ABC Technologies | Request |
+| Control | \<System Name\> application | Organisation (system owner and role holders) | \<Organisation\> | Request |
 | --- | --- | --- | --- | --- |
 | AC-1 | None | Policy, procedures and review | Coordination on inherited controls | EV-GEN-04 |
 | AC-2 | Account functions | Approval, review and role holders | Leaver and mover notice; Windows accounts | EV-AC-01, EV-AC-02 |
@@ -273,7 +273,7 @@ This matrix is proposed and has not been agreed with ABC Technologies.
 
 | ID | Control | What we need to know | Evidence to provide | Status | Received | Result |
 | --- | --- | --- | --- | --- | --- | --- |
-| EV-AT-01 | AT-2, AT-2(2), AT-2(3), AT-3, AT-4 | What ABC Technologies' security training covers, including privacy, insider threat and social engineering, how often it is taken, how it is updated, and who has completed it; and the role training ABC Technologies gives its own administrators of the \<DocuView\> servers, with its records | Training content showing the insider threat and social engineering parts, and sample completion records for users and administrators | Not sent |  |  |
+| EV-AT-01 | AT-2, AT-2(2), AT-2(3), AT-3, AT-4 | What \<Organisation\>'s security training covers, including privacy, insider threat and social engineering, how often it is taken, how it is updated, and who has completed it; and the role training \<Organisation\> gives its own administrators of the \<System Name\> servers, with its records | Training content showing the insider threat and social engineering parts, and sample completion records for users and administrators | Not sent |  |  |
 
 | **SECTION 6** |
 | --- |
@@ -284,11 +284,11 @@ This matrix is proposed and has not been agreed with ABC Technologies.
 
 | ID | Control | What we need to know | Evidence to provide | Status | Received | Result |
 | --- | --- | --- | --- | --- | --- | --- |
-| EV-AU-01 | AU-2, AU-6(1), AU-6(3) | Whether ABC Technologies has central log monitoring, and what it needs from \<DocuView\> and the VMs | Service description and scope | Not sent |  |  |
+| EV-AU-01 | AU-2, AU-6(1), AU-6(3) | Whether \<Organisation\> has central log monitoring, and what it needs from \<System Name\> and the VMs | Service description and scope | Not sent |  |  |
 | EV-AU-02 | AU-8 | The time source for the VMs, and evidence that they stay within 1 second of UTC | Time service configuration | Not sent |  |  |
 | EV-AU-03 | AU-4, AU-11 | Storage and backup for the VMs, to hold 12 months of records online and 12 months in an offline archive | Service description and backup schedule | Not sent |  |  |
 | EV-AU-04 | AU-12 | Which Windows Server events are logged and kept on the VMs | Audit policy and a sample log | Not sent |  |  |
-| EV-AU-05 | AU-2, AU-6, AU-6(3), AU-12 | Which AD FS and Active Directory events are logged for \<DocuView\>: sign-in attempts, failed sign-ins, lockouts, and changes to \<DocuView\>'s groups and their members. How long they are kept, and how \<DocuView\>'s auditor receives them each week or on request | Audit settings, a sample record and the agreed route | Not sent |  |  |
+| EV-AU-05 | AU-2, AU-6, AU-6(3), AU-12 | Which AD FS and Active Directory events are logged for \<System Name\>: sign-in attempts, failed sign-ins, lockouts, and changes to \<System Name\>'s groups and their members. How long they are kept, and how \<System Name\>'s auditor receives them each week or on request | Audit settings, a sample record and the agreed route | Not sent |  |  |
 
 | **SECTION 7** |
 | --- |
@@ -299,8 +299,8 @@ This matrix is proposed and has not been agreed with ABC Technologies.
 
 | ID | Control | What we need to know | Evidence to provide | Status | Received | Result |
 | --- | --- | --- | --- | --- | --- | --- |
-| EV-CA-01 | CA-6 | Who authorises the common controls \<DocuView\> inherits | Name, and the authorisation record | Not sent |  |  |
-| EV-CA-02 | CA-3, CA-6 | The agreements for the exchanges in \<Assessment, Authorization, and Monitoring Management\>, section 4.7: the hosting and services agreement covering AD FS and Active Directory, central logging, the time service and the backup site, and information exchange agreements for Jira and the Starters/Leavers system | Each agreement, with its date and review date | Not sent | None | None |
+| EV-CA-01 | CA-6 | Who authorises the common controls \<System Name\> inherits | Name, and the authorisation record | Not sent |  |  |
+| EV-CA-02 | CA-3, CA-6 | The agreements for the exchanges in \<Assessment, Authorization, and Monitoring Management\>, section 4.7: the hosting and services agreement covering AD FS and Active Directory, central logging, the time service and the backup site, and information exchange agreements for ServiceNow and the Starters/Leavers system | Each agreement, with its date and review date | Not sent | None | None |
 
 | **SECTION 8** |
 | --- |
@@ -313,7 +313,7 @@ This matrix is proposed and has not been agreed with ABC Technologies.
 | --- | --- | --- | --- | --- | --- | --- |
 | EV-CM-01 | CM-5 | Physical and logical restrictions on changing the VMs and hosting | Access lists and change process | Not sent |  |  |
 | EV-CM-02 | CM-8(3), CM-12(1) | Tools that detect unauthorised components, and any that locate information | Tool names, and a sample report | Not sent |  |  |
-| EV-CM-03 | CM-10 | Licences for the software on the VMs and hosting, and peer-to-peer controls. \<DocuView\>'s own components are recorded in \<Configuration Management\>, section 4.5 | Licence record and policy | Not sent |  |  |
+| EV-CM-03 | CM-10 | Licences for the software on the VMs and hosting, and peer-to-peer controls. \<System Name\>'s own components are recorded in \<Configuration Management\>, section 4.5 | Licence record and policy | Not sent |  |  |
 
 | **SECTION 9** |
 | --- |
@@ -324,7 +324,7 @@ This matrix is proposed and has not been agreed with ABC Technologies.
 
 | ID | Control | What we need to know | Evidence to provide | Status | Received | Result |
 | --- | --- | --- | --- | --- | --- | --- |
-| EV-CP-01 | CP-6, CP-6(1), CP-6(3), CP-7, CP-7(1), CP-7(2), CP-7(3) | Whether a second site is available and separate from the main one, with room for 14 daily, 8 weekly and 12 monthly encrypted backups and one offline or immutable copy (\<Contingency Planning Management\>, section 4.8), whether it can hold encrypted backups and run rebuilt VMs with equivalent controls, how it is reached in a wide-area failure, and what priority of service applies. Also ABC Technologies' disaster recovery and business continuity plans: who declares a disaster, and the recovery times of the network, AD FS, Active Directory, name resolution and time, on which \<DocuView\>'s 72 hours depends | Site details, and the service agreement | Not sent |  |  |
+| EV-CP-01 | CP-6, CP-6(1), CP-6(3), CP-7, CP-7(1), CP-7(2), CP-7(3) | Whether a second site is available and separate from the main one, with room for 14 daily, 8 weekly and 12 monthly encrypted backups and one offline or immutable copy (\<Contingency Planning Management\>, section 4.8), whether it can hold encrypted backups and run rebuilt VMs with equivalent controls, how it is reached in a wide-area failure, and what priority of service applies. Also \<Organisation\>'s disaster recovery and business continuity plans: who declares a disaster, and the recovery times of the network, AD FS, Active Directory, name resolution and time, on which \<System Name\>'s 72 hours depends | Site details, and the service agreement | Not sent |  |  |
 | EV-CP-02 | CP-8, CP-8(1), CP-8(2) | What alternate telecommunications exist, what priority of service applies, and whether main and alternate services share a single point of failure | Service agreements | Not sent |  |  |
 
 | **SECTION 10** |
@@ -336,10 +336,10 @@ This matrix is proposed and has not been agreed with ABC Technologies.
 
 | ID | Control | What we need to know | Evidence to provide | Status | Received | Result |
 | --- | --- | --- | --- | --- | --- | --- |
-| EV-IA-01 | IA-3, IA-5h | How devices are identified on ABC Technologies' network, and how they protect credentials | Network access control description and build standard | Not sent |  |  |
+| EV-IA-01 | IA-3, IA-5h | How devices are identified on \<Organisation\>'s network, and how they protect credentials | Network access control description and build standard | Not sent |  |  |
 | EV-IA-02 | IA-12, IA-12(2), IA-12(3), IA-12(5) | What identity evidence HR collects and checks in pre-employment checks, for staff and contractors, and how people are told | HR process and a blank record | Not sent |  |  |
 | EV-IA-03 | IA-7 | Whether the VMs use validated cryptographic modules | Build standard and settings | Not sent |  |  |
-| EV-IA-04 | IA-2(1), IA-2(2), IA-2(8) | How AD FS signs users in to \<DocuView\>: the multi-factor methods it requires, its lockout and password standard, how the token is signed, and that it carries the user's Active Directory groups. Also the trust settings for \<DocuView\>: the federation protocol, the life of a token, what it carries, how the signing certificate is renewed, and whether the settings meet federation assurance level 2 of NIST SP 800-63C | Service description; the relying party settings for \<DocuView\>; the password and lockout policy | Not sent |  |  |
+| EV-IA-04 | IA-2(1), IA-2(2), IA-2(8) | How AD FS signs users in to \<System Name\>: the multi-factor methods it requires, its lockout and password standard, how the token is signed, and that it carries the user's Active Directory groups. Also the trust settings for \<System Name\>: the federation protocol, the life of a token, what it carries, how the signing certificate is renewed, and whether the settings meet federation assurance level 2 of NIST SP 800-63C | Service description; the relying party settings for \<System Name\>; the password and lockout policy | Not sent |  |  |
 
 | **SECTION 11** |
 | --- |
@@ -350,7 +350,7 @@ This matrix is proposed and has not been agreed with ABC Technologies.
 
 | ID | Control | What we need to know | Evidence to provide | Status | Received | Result |
 | --- | --- | --- | --- | --- | --- | --- |
-| EV-IR-01 | IR-3(2), IR-4, IR-6, IR-6(3), IR-7, IR-7(1) | ABC Technologies' incident process, how the security contact takes reports from \<DocuView\>, and what help it gives: monitoring, forensic help, isolating a server, disabling an account, and locking or wiping a device. How it is reached outside working hours. How soon it tells \<DocuView\> of a compromise on its side; 24 hours is asked. Who speaks to the press. Whether it will take part in the yearly exercise. Also confirmation, with its date, that the old AD FS secret found in the source repositories has been revoked (INC-2026-001) | The process, and the contact route | Not sent |  |  |
+| EV-IR-01 | IR-3(2), IR-4, IR-6, IR-6(3), IR-7, IR-7(1) | \<Organisation\>'s incident process, how the security contact takes reports from \<System Name\>, and what help it gives: monitoring, forensic help, isolating a server, disabling an account, and locking or wiping a device. How it is reached outside working hours. How soon it tells \<System Name\> of a compromise on its side; 24 hours is asked. Who speaks to the press. Whether it will take part in the yearly exercise. Also confirmation, with its date, that the old AD FS secret found in the source repositories has been revoked (INC-2026-001) | The process, and the contact route | Not sent |  |  |
 
 | **SECTION 12** |
 | --- |
@@ -361,7 +361,7 @@ This matrix is proposed and has not been agreed with ABC Technologies.
 
 | ID | Control | What we need to know | Evidence to provide | Status | Received | Result |
 | --- | --- | --- | --- | --- | --- | --- |
-| EV-MA-01 | MA-2, MA-3(3), MA-5, MA-6 | How hardware and the hypervisor are maintained, how equipment is sanitised before it leaves, with sanitising certificates, and whether support and parts for the hardware and hypervisor arrive within 24 hours (D-MA-P02). How its engineers are screened. Whether it tells the system owner before work on the hosts, AD FS, Active Directory, the network, the time service or the backup store that affects \<DocuView\> | Maintenance process, and the service agreement | Not sent |  |  |
+| EV-MA-01 | MA-2, MA-3(3), MA-5, MA-6 | How hardware and the hypervisor are maintained, how equipment is sanitised before it leaves, with sanitising certificates, and whether support and parts for the hardware and hypervisor arrive within 24 hours (D-MA-P02). How its engineers are screened. Whether it tells the system owner before work on the hosts, AD FS, Active Directory, the network, the time service or the backup store that affects \<System Name\> | Maintenance process, and the service agreement | Not sent |  |  |
 | EV-MA-02 | MA-4 | The tool and protocol used over the managed route (route R1 in \<Maintenance Management\>), whether it uses multi-factor sign-in, what each session logs, whether sessions and connections end when finished, and the firewall rule that limits the admin portal to the route (PA-83) | Route settings and sample logs | Not sent |  |  |
 
 | **SECTION 13** |
@@ -386,8 +386,8 @@ This matrix is proposed and has not been agreed with ABC Technologies.
 
 | ID | Control | What we need to know | Evidence to provide | Status | Received | Result |
 | --- | --- | --- | --- | --- | --- | --- |
-| EV-PE-01 | PE-2, PE-3, PE-4, PE-6, PE-6(1), PE-8 | Who can enter the data centre, how entry is controlled and logged, how visitors, keys and lines are managed, how access is monitored, and how incidents reach \<DocuView\>'s security officer. Also confirm the values in \<Physical and Environmental Protection Management\>. First choice of evidence: ABC Technologies' ISO/IEC 27001 certificate, Statement of Applicability and latest audit findings for Annex A.7, or a SOC 2 report covering physical access (CC6.4) and the availability criteria (A1.2), for both the main data centre and the second site (\<Physical and Environmental Protection Management\>, section 4.3). How soon the security contact tells \<DocuView\>'s security officer of a physical incident; 24 hours is asked. The name, address and facilities contact of each site | Physical security policy, and audit or certification report | Not sent |  |  |
-| EV-PE-02 | PE-9, PE-10, PE-11, PE-12 | How power is protected, whether there is an emergency shutoff, whether backup power allows an orderly shutdown, and what emergency lighting exists, and how the shutoff is guarded against accidental or unauthorised use. How long the backup power lasts, and how \<DocuView\>'s administrators are warned that a site is on backup power | Facilities description, and maintenance records | Not sent |  |  |
+| EV-PE-01 | PE-2, PE-3, PE-4, PE-6, PE-6(1), PE-8 | Who can enter the data centre, how entry is controlled and logged, how visitors, keys and lines are managed, how access is monitored, and how incidents reach \<System Name\>'s security officer. Also confirm the values in \<Physical and Environmental Protection Management\>. First choice of evidence: \<Organisation\>'s ISO/IEC 27001 certificate, Statement of Applicability and latest audit findings for Annex A.7, or a SOC 2 report covering physical access (CC6.4) and the availability criteria (A1.2), for both the main data centre and the second site (\<Physical and Environmental Protection Management\>, section 4.3). How soon the security contact tells \<System Name\>'s security officer of a physical incident; 24 hours is asked. The name, address and facilities contact of each site | Physical security policy, and audit or certification report | Not sent |  |  |
+| EV-PE-02 | PE-9, PE-10, PE-11, PE-12 | How power is protected, whether there is an emergency shutoff, whether backup power allows an orderly shutdown, and what emergency lighting exists, and how the shutoff is guarded against accidental or unauthorised use. How long the backup power lasts, and how \<System Name\>'s administrators are warned that a site is on backup power | Facilities description, and maintenance records | Not sent |  |  |
 | EV-PE-03 | PE-13, PE-13(1), PE-14, PE-15 | What fire detection and suppression exist, who they notify, what temperature and humidity levels apply, how they are monitored, and how water damage is prevented | Facilities description, and maintenance records | Not sent |  |  |
 | EV-PE-04 | PE-16 | How hardware and media are authorised and recorded when entering or leaving | Process, and sample records | Not sent |  |  |
 | EV-PE-05 | PE-5, PE-17 | What office controls protect printers and screens, which managed printers have secure (pull) print release, and what controls apply to managed devices and the route at home | Office security rules, and remote working policy | Not sent |  |  |
@@ -401,23 +401,23 @@ This matrix is proposed and has not been agreed with ABC Technologies.
 
 | ID | Control | What we need to know | Evidence to provide | Status | Received | Result |
 | --- | --- | --- | --- | --- | --- | --- |
-| EV-PL-01 | PL-2, PL-8, PM-7, PM-7(1) | Whether ABC Technologies has an enterprise architecture that \<DocuView\>'s plan must fit; and whether ABC Technologies runs the VM hypervisor, and whether it is inside the Cyber Essentials Plus scope (D-PL-11) | The relevant architecture standards; the hypervisor's owner and the CE+ scope statement | Not sent |  |  |
+| EV-PL-01 | PL-2, PL-8, PM-7, PM-7(1) | Whether \<Organisation\> has an enterprise architecture that \<System Name\>'s plan must fit; and whether \<Organisation\> runs the VM hypervisor, and whether it is inside the Cyber Essentials Plus scope (D-PL-11) | The relevant architecture standards; the hypervisor's owner and the CE+ scope statement | Not sent |  |  |
 
 | **SECTION 16** |
 | --- |
 
 ## 16 Program Management (PM)
 
-PM is outside \<DocuView\>'s baseline (TR-PM-01), but \<DocuView\> inherits PM controls as common controls. These requests ask ABC Technologies to show the programme exists. The full list of PM controls and what relies on each is in \<Program Management\>, section 4.3 (D-PM-02).
+PM is outside \<System Name\>'s baseline (TR-PM-01), but \<System Name\> inherits PM controls as common controls. These requests ask \<Organisation\> to show the programme exists. The full list of PM controls and what relies on each is in \<Program Management\>, section 4.3 (D-PM-02).
 
 **Table 18: PM evidence requests**
 
 | ID | Control | What we need to know | Evidence to provide | Status | Received | Result |
 | --- | --- | --- | --- | --- | --- | --- |
-| EV-PM-01 | PM-1, PM-2, PM-3, PM-8, PM-9, PM-11, PM-12, PM-13, PM-15, PM-16, PM-16(1), PM-28, PM-29, PM-32 | Whether ABC Technologies has an information security programme plan, a risk management strategy with a stated risk appetite, and named programme leaders. Who the senior accountable official for risk management is (PM-29). First choice of evidence: ABC Technologies' ISO/IEC 27001 certificate, with its scope statement and Statement of Applicability, showing that the services \<DocuView\> uses are within scope | The programme plan, risk management strategy and risk appetite statement, and the roles that lead them | Not sent |  |  |
-| EV-PM-02 | PM-5, PM-5(1) | Whether \<DocuView\> is in ABC Technologies' system inventory, and its HR personal data in a personal data inventory or record of processing | The inventory entries for \<DocuView\>, and the record of processing (UK GDPR, Article 30) | Not sent |  |  |
-| EV-PM-03 | PM-6, PM-10, PM-14, PM-30, PM-31 | How ABC Technologies authorises systems, tests and monitors them, measures performance, and manages supply chain risk | The authorisation process, continuous monitoring strategy, supply chain risk management strategy and performance measures | Not sent |  |  |
-| EV-PM-04 | PM-18 to PM-23, PM-20(1), PM-25 to PM-27 | Whether ABC Technologies has a privacy programme, who leads it, and whether a data protection officer is appointed | The privacy programme plan, the data protection officer's name or the reason none is required, and the complaint and reporting processes | Not sent |  |  |
+| EV-PM-01 | PM-1, PM-2, PM-3, PM-8, PM-9, PM-11, PM-12, PM-13, PM-15, PM-16, PM-16(1), PM-28, PM-29, PM-32 | Whether \<Organisation\> has an information security programme plan, a risk management strategy with a stated risk appetite, and named programme leaders. Who the senior accountable official for risk management is (PM-29). First choice of evidence: \<Organisation\>'s ISO/IEC 27001 certificate, with its scope statement and Statement of Applicability, showing that the services \<System Name\> uses are within scope | The programme plan, risk management strategy and risk appetite statement, and the roles that lead them | Not sent |  |  |
+| EV-PM-02 | PM-5, PM-5(1) | Whether \<System Name\> is in \<Organisation\>'s system inventory, and its HR personal data in a personal data inventory or record of processing | The inventory entries for \<System Name\>, and the record of processing (UK GDPR, Article 30) | Not sent |  |  |
+| EV-PM-03 | PM-6, PM-10, PM-14, PM-30, PM-31 | How \<Organisation\> authorises systems, tests and monitors them, measures performance, and manages supply chain risk | The authorisation process, continuous monitoring strategy, supply chain risk management strategy and performance measures | Not sent |  |  |
+| EV-PM-04 | PM-18 to PM-23, PM-20(1), PM-25 to PM-27 | Whether \<Organisation\> has a privacy programme, who leads it, and whether a data protection officer is appointed | The privacy programme plan, the data protection officer's name or the reason none is required, and the complaint and reporting processes | Not sent |  |  |
 
 | **SECTION 17** |
 | --- |
@@ -428,9 +428,9 @@ PM is outside \<DocuView\>'s baseline (TR-PM-01), but \<DocuView\> inherits PM c
 
 | ID | Control | What we need to know | Evidence to provide | Status | Received | Result |
 | --- | --- | --- | --- | --- | --- | --- |
-| EV-PS-01 | PS-2, PS-3 | What pre-employment screening is done, against what standard, whether it covers identity, right to work, employment history and a basic criminal record check (\<Personnel Security Management\>, section 4.3), whether it is repeated, and when | Screening policy or standard, and confirmation, with the date only, for each person with \<DocuView\> access | Not sent |  |  |
+| EV-PS-01 | PS-2, PS-3 | What pre-employment screening is done, against what standard, whether it covers identity, right to work, employment history and a basic criminal record check (\<Personnel Security Management\>, section 4.3), whether it is repeated, and when | Screening policy or standard, and confirmation, with the date only, for each person with \<System Name\> access | Not sent |  |  |
 | EV-PS-02 | PS-4, PS-6, PS-8, PS-9 | How exit interviews, returned equipment and disciplinary action work, and whether job descriptions refer to security duties. A copy of the confidentiality agreement each person signs, and when it is signed | HR processes, and sample job descriptions | Not sent |  |  |
-| EV-PS-03 | PS-7 | What contracts require of external people, and how suppliers report leavers and movers, and, if the independent assessment team are not ABC Technologies' staff, the terms of their engagement | Standard contract terms | Not sent |  |  |
+| EV-PS-03 | PS-7 | What contracts require of external people, and how suppliers report leavers and movers, and, if the independent assessment team are not \<Organisation\>'s staff, the terms of their engagement | Standard contract terms | Not sent |  |  |
 
 | **SECTION 18** |
 | --- |
@@ -441,7 +441,7 @@ PM is outside \<DocuView\>'s baseline (TR-PM-01), but \<DocuView\> inherits PM c
 
 | ID | Control | What we need to know | Evidence to provide | Status | Received | Result |
 | --- | --- | --- | --- | --- | --- | --- |
-| EV-PT-01 | PT-3, PT-5 | Whether the employee privacy notice names \<DocuView\> and its purposes, how people get it, and how often it is reviewed | The notice, and how it is given to employees | Not sent |  |  |
+| EV-PT-01 | PT-3, PT-5 | Whether the employee privacy notice names \<System Name\> and its purposes, how people get it, and how often it is reviewed | The notice, and how it is given to employees | Not sent |  |  |
 | EV-PT-02 | PE-8(3) | What personal data visitor records hold | A blank visitor record | Not sent |  |  |
 
 | **SECTION 19** |
@@ -453,7 +453,7 @@ PM is outside \<DocuView\>'s baseline (TR-PM-01), but \<DocuView\> inherits PM c
 
 | ID | Control | What we need to know | Evidence to provide | Status | Received | Result |
 | --- | --- | --- | --- | --- | --- | --- |
-| EV-RA-01 | RA-3, RA-5(11) | Agreement to use the security contact for vulnerability reports about \<DocuView\>, and whether ABC Technologies offers a shared scanning service or a list of exploited flaws it tracks. How organisational risk feeds into system risk is asked in EV-PM-01. Where the security contact is published, and its terms: that research in good faith is authorised, how long a reporter is asked to wait for a fix before disclosing (\<DocuView\> proposes 90 days, D-RA-14), and that indefinite secrecy is not required (NIST RA-5(11)). Whether findings that may affect ABC Technologies' other systems should be sent to the security contact (RA-5e) | Risk statement, and written agreement; the published contact and its terms | Not sent |  |  |
+| EV-RA-01 | RA-3, RA-5(11) | Agreement to use the security contact for vulnerability reports about \<System Name\>, and whether \<Organisation\> offers a shared scanning service or a list of exploited flaws it tracks. How organisational risk feeds into system risk is asked in EV-PM-01. Where the security contact is published, and its terms: that research in good faith is authorised, how long a reporter is asked to wait for a fix before disclosing (\<System Name\> proposes 90 days, D-RA-14), and that indefinite secrecy is not required (NIST RA-5(11)). Whether findings that may affect \<Organisation\>'s other systems should be sent to the security contact (RA-5e) | Risk statement, and written agreement; the published contact and its terms | Not sent |  |  |
 
 | **SECTION 20** |
 | --- |
@@ -465,8 +465,8 @@ PM is outside \<DocuView\>'s baseline (TR-PM-01), but \<DocuView\> inherits PM c
 | ID | Control | What we need to know | Evidence to provide | Status | Received | Result |
 | --- | --- | --- | --- | --- | --- | --- |
 | EV-SA-01 | SA-4 | What the standard contract says about security and privacy requirements, documentation, responsibilities and acceptance | Standard contract terms | Not sent |  |  |
-| EV-SA-02 | SA-9, SA-9(2) | What controls ABC Technologies' hosting, network, Jira, AD FS, Active Directory and Starters/Leavers services use, and which functions, ports, protocols and services they rely on. \<DocuView\> relies on them for running, changes, sign-in and access (D-AC-22, D-AC-23). The service levels for each, how they are measured, and the remedies when they are missed | Service descriptions, and a list of ports and services | Not sent |  |  |
-| EV-SA-03 | SA-9, SA-9(2) | What security controls GitHub applies to private repositories, and what plan and settings \<DocuView\>'s account has (branch protection, alerts and secret scanning depend on the plan) | GitHub's published security and compliance reports, and the account's plan and settings | Not sent |  |  |
+| EV-SA-02 | SA-9, SA-9(2) | What controls \<Organisation\>'s hosting, network, ServiceNow, AD FS, Active Directory and Starters/Leavers services use, and which functions, ports, protocols and services they rely on. \<System Name\> relies on them for running, changes, sign-in and access (D-AC-22, D-AC-23). The service levels for each, how they are measured, and the remedies when they are missed | Service descriptions, and a list of ports and services | Not sent |  |  |
+| EV-SA-03 | SA-9, SA-9(2) | What security controls GitHub applies to private repositories, and what plan and settings \<System Name\>'s account has (branch protection, alerts and secret scanning depend on the plan) | GitHub's published security and compliance reports, and the account's plan and settings | Not sent |  |  |
 
 | **SECTION 21** |
 | --- |
@@ -492,9 +492,9 @@ PM is outside \<DocuView\>'s baseline (TR-PM-01), but \<DocuView\> inherits PM c
 
 | ID | Control | What we need to know | Evidence to provide | Status | Received | Result |
 | --- | --- | --- | --- | --- | --- | --- |
-| EV-SI-01 | SI-4, SI-4(2), SI-4(4) | Network monitoring, its criteria, and how it is reported; whether central logging can receive \<DocuView\>'s audit and Windows logs, and how they are sent (\<System and Information Integrity Management\>, section 4.4). Since sign-in is through AD FS, whether AD FS failed sign-in events and changes to \<DocuView\>'s AD administrator groups can be sent to the security officer, for detection use cases U1 and U4 (\<System and Information Integrity Management\>, section 4.4) | Service description and a sample report; the central logging connection details | Not sent |  |  |
+| EV-SI-01 | SI-4, SI-4(2), SI-4(4) | Network monitoring, its criteria, and how it is reported; whether central logging can receive \<System Name\>'s audit and Windows logs, and how they are sent (\<System and Information Integrity Management\>, section 4.4). Since sign-in is through AD FS, whether AD FS failed sign-in events and changes to \<System Name\>'s AD administrator groups can be sent to the security officer, for detection use cases U1 and U4 (\<System and Information Integrity Management\>, section 4.4) | Service description and a sample report; the central logging connection details | Not sent |  |  |
 | EV-SI-02 | SI-2, SI-7, SI-7(1) | Firmware updates and integrity checks for the VM hosting | Process and a sample record | Not sent |  |  |
-| EV-SI-03 | SI-5 | Whether ABC Technologies is registered for the NCSC Early Warning service and receives CISA or NCSC alerts for its networks, and how alerts that affect \<DocuView\> reach the security officer (\<System and Information Integrity Management\>, section 4.3) | Registration confirmation and the forwarding route | Not sent |  |  |
+| EV-SI-03 | SI-5 | Whether \<Organisation\> is registered for the NCSC Early Warning service and receives CISA or NCSC alerts for its networks, and how alerts that affect \<System Name\> reach the security officer (\<System and Information Integrity Management\>, section 4.3) | Registration confirmation and the forwarding route | Not sent |  |  |
 
 | **SECTION 23** |
 | --- |
@@ -505,7 +505,7 @@ PM is outside \<DocuView\>'s baseline (TR-PM-01), but \<DocuView\> inherits PM c
 
 | ID | Control | What we need to know | Evidence to provide | Status | Received | Result |
 | --- | --- | --- | --- | --- | --- | --- |
-| EV-SR-01 | SR-2(1), SR-3, SR-6, SR-8 | Who the approved suppliers are, and how they report a compromise; confirmation that the IT service desk sits on \<DocuView\>'s supply chain team and will take part in the yearly supplier review (\<Supply Chain Risk Management\>, section 4.5); the contract term for reporting a compromise to the security officer within 24 hours | The approved supplier list, and notification terms | Not sent |  |  |
+| EV-SR-01 | SR-2(1), SR-3, SR-6, SR-8 | Who the approved suppliers are, and how they report a compromise; confirmation that the IT service desk sits on \<System Name\>'s supply chain team and will take part in the yearly supplier review (\<Supply Chain Risk Management\>, section 4.5); the contract term for reporting a compromise to the security officer within 24 hours | The approved supplier list, and notification terms | Not sent |  |  |
 | EV-SR-02 | SR-10, SR-11(1), SR-11(2), SR-12 | How hardware is inspected, how buyers are trained, how equipment is controlled during repair, and how it is disposed of | Procedures, a training record and a sample disposal record | Not sent |  |  |
 
 | **SECTION 24** |
@@ -513,28 +513,28 @@ PM is outside \<DocuView\>'s baseline (TR-PM-01), but \<DocuView\> inherits PM c
 
 ## 24 Answers given on 6 November 2026
 
-Linda Cooper and Belinda Smith agreed these proposed answers in a meeting, as reported by the system owner. Several began as best guesses. They are statements, not evidence, so findings do not change until the records arrive. Linda Cooper is to send the records and the list of applicable policies by 20 November 2026. These replace the "Not sent" status above.
+\[Name\] and \[Name\] agreed these proposed answers in a meeting, as reported by the system owner. Several began as best guesses. They are statements, not evidence, so findings do not change until the records arrive. \[Name\] is to send the records and the list of applicable policies by 20 November 2026. These replace the "Not sent" status above.
 
-**Table 26: ABC Technologies' stated answers**
+**Table 26: \<Organisation\>'s stated answers**
 
 | Requests | Answer stated |
 | --- | --- |
 | EV-GEN-02 | Cyber Essentials Plus is held, and the VMs get added to scope when built |
-| EV-GEN-03 | ABC Technologies' own UK virtual platform, run by its infrastructure team |
+| EV-GEN-03 | \<Organisation\>'s own UK virtual platform, run by its infrastructure team |
 | EV-GEN-05 | No NIST-based control statements exist |
-| EV-AC-01 | Corporate accounts are disabled immediately for leavers, and \<DocuView\> cannot be reached without one |
-| EV-AC-02 | Windows administrator accounts are requested through Jira, approved by the system owner and held in a named group |
-| EV-AC-03, EV-AC-04 | ABC Technologies' network and infrastructure teams hold firewalls and security functions, with changes through its change process |
+| EV-AC-01 | Corporate accounts are disabled immediately for leavers, and \<System Name\> cannot be reached without one |
+| EV-AC-02 | Windows administrator accounts are requested through ServiceNow, approved by the system owner and held in a named group |
+| EV-AC-03, EV-AC-04 | \<Organisation\>'s network and infrastructure teams hold firewalls and security functions, with changes through its change process |
 | EV-AC-05 to 07 | Group policy sets the approved lockout, banner and screen lock values, and screen locks hide the display |
-| EV-AC-08 to 11 | ABC Technologies' VPN with MFA, encrypted, logged and monitored, through one managed gateway |
+| EV-AC-08 to 11 | \<Organisation\>'s VPN with MFA, encrypted, logged and monitored, through one managed gateway |
 | EV-AC-12 | Administration ports are blocked from external networks |
 | EV-AC-13, EV-AC-14 | Corporate wireless authenticates users and devices with encryption, and is disabled on the VMs |
-| EV-AC-15 to 17 | Mobile devices are managed and cannot reach \<DocuView\>, unmanaged devices are blocked, and USB is blocked unless approved |
-| EV-AU-01 | ABC Technologies' central service takes the Windows and PostgreSQL logs |
-| EV-AU-02 | ABC Technologies' domain controllers provide time |
+| EV-AC-15 to 17 | Mobile devices are managed and cannot reach \<System Name\>, unmanaged devices are blocked, and USB is blocked unless approved |
+| EV-AU-01 | \<Organisation\>'s central service takes the Windows and PostgreSQL logs |
+| EV-AU-02 | \<Organisation\>'s domain controllers provide time |
 | EV-AU-03 | Storage is sized for 12 months of records, with daily backups |
 | EV-AU-04 | Group policy sets the Windows audit policy, and logs are kept for 12 months |
 | EV-IA-01 | Network access control with device certificates, and disk encryption on managed devices |
 | EV-IA-02 | Photo ID and right-to-work checks for staff, and the same through the agency for contractors |
 | EV-IA-03 | Standard Windows modules, not in FIPS mode |
-| EV-IA-04 | \\\[Expected answer to be confirmed with ABC Technologies\\\] |
+| EV-IA-04 | \\\[Expected answer to be confirmed with \<Organisation\>\\\] |

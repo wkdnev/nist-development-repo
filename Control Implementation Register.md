@@ -1,4 +1,4 @@
-# \<DocuView\> Control Implementation Register
+# \<System Name\> Control Implementation Register
 
 **\<ref\> | Version \<ver\> | The layout introduced in version \<ver\> awaits the system owner's approval; the content of every chapter is unchanged**
 
@@ -50,7 +50,7 @@
 | Item | Detail |
 | --- | --- |
 | Reference | \<ref\> |
-| Title | \<DocuView\> Control Implementation Register |
+| Title | \<System Name\> Control Implementation Register |
 | Version | \<ver\> |
 | Status | Version \<ver\> has one status, approval and change history for the whole document, as the system owner asked on 12 November 2026 (D-GEN-24), and that layout awaits the system owner's approval. No rule, value, finding or decision changed, so each chapter stands as it was approved (Table 4) |
 | Date | 13 November 2026 |
@@ -66,7 +66,7 @@
 
 | Role | Name | Decision | Date |
 | --- | --- | --- | --- |
-| System owner | Neil Ramsbottom | The layout introduced in version \<ver\> awaits approval. The approval of each chapter's content is in Table 4 | Pending |
+| System owner | \[Name\] | The layout introduced in version \<ver\> awaits approval. The approval of each chapter's content is in Table 4 | Pending |
 
 ### 1.3 Change history
 
@@ -173,7 +173,7 @@ Until version \<ver\> each chapter carried its own version, approval and change 
 
 ## 2 How to use this document
 
-This document was the register of how each control family is implemented in \<DocuView\>: the approved decisions, the values of NIST's parameters, the registers and lists the controls call for, and an index from each control to where it is met. Since 18 November 2026 every family's design is held in a document of its own, in the same form, as the system owner asked, and this register holds none of it. Each chapter is kept as a pointer to the document that now holds its family's design, so that the decisions and records that cite a chapter still lead to it. The system owner decided on 18 November 2026 to keep it as an index until the next whole-set review, when it may be retired (D-SR-15). Table 4 records what each chapter was approved as. The rules are in \<Policy\>, the steps people follow are in \<Procedures\>, and \<Documentation Map\>, section 3.2, lists where each family is documented.
+This document was the register of how each control family is implemented in \<System Name\>: the approved decisions, the values of NIST's parameters, the registers and lists the controls call for, and an index from each control to where it is met. Since 18 November 2026 every family's design is held in a document of its own, in the same form, as the system owner asked, and this register holds none of it. Each chapter is kept as a pointer to the document that now holds its family's design, so that the decisions and records that cite a chapter still lead to it. The system owner decided on 18 November 2026 to keep it as an index until the next whole-set review, when it may be retired (D-SR-15). Table 4 records what each chapter was approved as. The rules are in \<Policy\>, the steps people follow are in \<Procedures\>, and \<Documentation Map\>, section 3.2, lists where each family is documented.
 
 - **Chapters.** Each chapter is named by its family code, and says which document now holds its family's design.
 - **Versions.** The document has one version. A change to any chapter is a new version of the document.
@@ -207,7 +207,7 @@ The audit design is held in \<Audit and Accountability Management\>: the sources
 ## CA Assessment, Authorization, and Monitoring
 
 
-The design for assessing, authorising and monitoring \<DocuView\> is held in \<Assessment, Authorization, and Monitoring Management\>: assessment, the plan of action, authorisation, the inherited controls, the interface record, the monitoring strategy, significant change and the parameter values. It is not repeated here.
+The design for assessing, authorising and monitoring \<System Name\> is held in \<Assessment, Authorization, and Monitoring Management\>: assessment, the plan of action, authorisation, the inherited controls, the interface record, the monitoring strategy, significant change and the parameter values. It is not repeated here.
 
 | **CHAPTER IA** |
 | --- |
@@ -239,7 +239,7 @@ The media protection design is held in \<Media Protection Management\>: the medi
 ## PE Physical and Environmental Protection
 
 
-The physical and environmental protection design is held in \<Physical and Environmental Protection Management\>: the sites, the inheritance matrix, how ABC Technologies' evidence is checked, the rules for offices and home working, and the parameter values. It is not repeated here.
+The physical and environmental protection design is held in \<Physical and Environmental Protection Management\>: the sites, the inheritance matrix, how \<Organisation\>'s evidence is checked, the rules for offices and home working, and the parameter values. It is not repeated here.
 
 | **CHAPTER PL** |
 | --- |
@@ -279,7 +279,7 @@ The risk assessment design is held in \<Risk Assessment Management\>: the vulner
 ## SA System and Services Acquisition
 
 
-The acquisition design is held in \<System and Services Acquisition Management\>: the development framework, the external services, the developer test plan, the tools and their configuration, how \<DocuView\> is built today, and the parameter values. It is not repeated here.
+The acquisition design is held in \<System and Services Acquisition Management\>: the development framework, the external services, the developer test plan, the tools and their configuration, how \<System Name\> is built today, and the parameter values. It is not repeated here.
 
 | **CHAPTER SC** |
 | --- |

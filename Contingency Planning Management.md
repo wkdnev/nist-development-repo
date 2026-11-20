@@ -1,4 +1,4 @@
-# \<DocuView\> Contingency Planning Management
+# \<System Name\> Contingency Planning Management
 
 **\<ref\> | Version \<ver\> | Draft for the approval of the system owner and the authorising official**
 
@@ -36,7 +36,7 @@
 | Item | Detail |
 | --- | --- |
 | Reference | \<ref\> |
-| Title | \<DocuView\> Contingency Planning Management |
+| Title | \<System Name\> Contingency Planning Management |
 | Version | \<ver\> |
 | Status | Draft for the approval of the system owner and the authorising official. Until 15 November 2026 this was the Contingency Plan, whose version \<ver\> both approved on 9 November 2026 (D-CP-11). It has been rebuilt in the form of the other family documents. The recovery objectives, the order of recovery, the roles and the backup rules are unchanged |
 | Date | 15 November 2026 |
@@ -52,8 +52,8 @@
 
 | Role | Name | Decision | Date |
 | --- | --- | --- | --- |
-| System owner | Neil Ramsbottom | Pending for this version. Version \<ver\> approved (D-CP-11) | 9 November 2026 |
-| Authorising official | Bob Jones | Pending for this version. Version \<ver\> approved, as confirmed by the system owner (D-CP-11). Version \<ver\> approved (D-CP-03) | Pending |
+| System owner | \[Name\] | Pending for this version. Version \<ver\> approved (D-CP-11) | 9 November 2026 |
+| Authorising official | \[Name\] | Pending for this version. Version \<ver\> approved, as confirmed by the system owner (D-CP-11). Version \<ver\> approved (D-CP-03) | Pending |
 
 ### 1.3 Change history
 
@@ -64,7 +64,7 @@
 | \<ver\> | 18 November 2026 | No code references: page addresses, setting names, folder paths and file paths are described in plain words, and names of groups, scripts and releases are shown as plain text. No value, finding or decision is changed |
 | \<ver\> | 18 November 2026 | References to the communications protection design point to \<System and Communications Protection Management\>, where it is now held (D-SC-09) |
 | \<ver\> | 15 November 2026 | Cross-check against NIST's guidance for the family: reconstitution restarts monitoring and sends a significant change to the authorising official; each backup's SHA-256 value is recorded; the documentation is shown to have one copy only; and the CP controls outside the Moderate baseline are listed in a new appendix E |
-| \<ver\> | 15 November 2026 | The system owner's decisions on the review (D-CP-15): section 4 with appendices C and D is the plan, and the offline copy; ABC Technologies' recovery time for AD FS and Active Directory is asked for with EV-CP-01 |
+| \<ver\> | 15 November 2026 | The system owner's decisions on the review (D-CP-15): section 4 with appendices C and D is the plan, and the offline copy; \<Organisation\>'s recovery time for AD FS and Active Directory is asked for with EV-CP-01 |
 | \<ver\> | 15 November 2026 | Rebuilt in the form of the other family documents, at the system owner's request (D-CP-14), and renamed from Contingency Plan to Contingency Planning Management. Section 4 is the contingency plan that CP-2 requires, and each control is set out part by part in section 5. The plan follows sign-in through AD FS: AD FS is a dependency of recovery, and group members, not accounts, are checked before users return (D-AC-23). The recovery objectives, order of recovery, roles and backup rules are unchanged |
 | \<ver\> | 13 November 2026 | The associated plans table names the configuration management document by its new title |
 | \<ver\> | 13 November 2026 | References to the configuration management design follow the new section numbers of \<Configuration Management\> (D-CM-13) |
@@ -80,16 +80,16 @@
 
 ### 1.4 Distribution and protection
 
-Copies go to the people in section 4.4 and the authorising official. ABC Technologies' IT service desk receives sections 4.5, 4.6 and 4.9 and appendix C, which it needs to act (CP-02\_ODP\[04\]). The same people are told of every change, with the change history (CP-2f).
+Copies go to the people in section 4.4 and the authorising official. \<Organisation\>'s IT service desk receives sections 4.5, 4.6 and 4.9 and appendix C, which it needs to act (CP-02\_ODP\[04\]). The same people are told of every change, with the change history (CP-2f).
 
-The document is Restricted. It is kept in the restricted document store with the other records (D-GEN-15), where only the people above can read it and only the system owner can change it (CP-2h). The system owner and security officer each keep a current offline copy, so that the plan can be used when \<DocuView\> and the document store are down. The offline copy is section 4 with appendices C and D, which together are the whole plan: the system owner decided against a separate plan document (D-CP-15).
+The document is Restricted. It is kept in the restricted document store with the other records (D-GEN-15), where only the people above can read it and only the system owner can change it (CP-2h). The system owner and security officer each keep a current offline copy, so that the plan can be used when \<System Name\> and the document store are down. The offline copy is section 4 with appendices C and D, which together are the whole plan: the system owner decided against a separate plan document (D-CP-15).
 
 | **SECTION 2** |
 | --- |
 
 ## 2 Purpose
 
-This document shows how \<DocuView\> is recovered after a failure, for each of the 23 Contingency Planning (CP) controls and enhancements in the NIST SP 800-53 Rev 5 Moderate baseline. Section 4 is the contingency plan that CP-2 requires: the business impact analysis, the roles, and the three phases of activation and notification, recovery, and reconstitution, with backups, the second site, and testing and training. It can be used on its own in an emergency. Section 5 takes each control in turn. Appendix A records what the tested build showed. Appendix B lists every value NIST asks the organisation to define. Appendix C holds the contacts, and appendix D the associated plans. Appendix E lists the CP controls NIST does not select at Moderate.
+This document shows how \<System Name\> is recovered after a failure, for each of the 23 Contingency Planning (CP) controls and enhancements in the NIST SP 800-53 Rev 5 Moderate baseline. Section 4 is the contingency plan that CP-2 requires: the business impact analysis, the roles, and the three phases of activation and notification, recovery, and reconstitution, with backups, the second site, and testing and training. It can be used on its own in an emergency. Section 5 takes each control in turn. Appendix A records what the tested build showed. Appendix B lists every value NIST asks the organisation to define. Appendix C holds the contacts, and appendix D the associated plans. Appendix E lists the CP controls NIST does not select at Moderate.
 
 This is the only place the contingency design is held. Other documents point here. The policy is in \<Policy\> (CP), and the steps people follow are in \<Procedures\> (CP).
 
@@ -124,7 +124,7 @@ Of the 23 controls, 2 are implemented, 2 are partially implemented and 19 are no
 | --- | --- | --- | --- | --- |
 | CP-1 | Policy and Procedures | Partially implemented | The policy and procedures are not yet shared or walked through | NC-CP-01; PA-20 |
 | CP-2 | Contingency Plan | Partially implemented | The plan is not shared, its contacts are placeholders, and no offline copy is placed | NC-CP-02; PA-88, PA-114 |
-| CP-2(1) | Coordinate with Related Plans | Not implemented | ABC Technologies' plans have not been seen | NC-CP-03; PA-114 |
+| CP-2(1) | Coordinate with Related Plans | Not implemented | \<Organisation\>'s plans have not been seen | NC-CP-03; PA-114 |
 | CP-2(3) | Resume Mission and Business Functions | Implemented | Nothing as a plan. It cannot be achieved until backups exist | NC-CP-04; PA-64 |
 | CP-2(8) | Identify Critical Assets | Implemented | Nothing | NC-CP-05 |
 | CP-3 | Contingency Training | Not implemented | No training has been given, and the content is not written | NC-CP-06, NC-CP-24; PA-81, PA-97 |
@@ -143,10 +143,10 @@ Of the 23 controls, 2 are implemented, 2 are partially implemented and 19 are no
 | CP-9 | System Backup | Not implemented | There are no backups | NC-CP-19; PA-64 |
 | CP-9(1) | Testing for Reliability and Integrity | Not implemented | There are no backups to test | NC-CP-20; PA-64 |
 | CP-9(8) | Cryptographic Protection | Not implemented | The default backup is unencrypted | NC-CP-21; PA-64 |
-| CP-10 | System Recovery and Reconstitution | Not implemented | \<DocuView\> cannot be recovered today | NC-CP-22; PA-64 |
+| CP-10 | System Recovery and Reconstitution | Not implemented | \<System Name\> cannot be recovered today | NC-CP-22; PA-64 |
 | CP-10(2) | Transaction Recovery | Not implemented | Transaction logs are not archived | NC-CP-23; PA-64 |
 
-The most serious gap is that \<DocuView\> has no backups, so nothing could be recovered today (PA-64, rated Medium, to be in place before production). Ten of the 23 controls are ABC Technologies' to provide, and none of them is confirmed (PA-66, PA-115).
+The most serious gap is that \<System Name\> has no backups, so nothing could be recovered today (PA-64, rated Medium, to be in place before production). Ten of the 23 controls are \<Organisation\>'s to provide, and none of them is confirmed (PA-66, PA-115).
 
 | **SECTION 4** |
 | --- |
@@ -159,24 +159,24 @@ The most serious gap is that \<DocuView\> has no backups, so nothing could be re
 2. **Keep copies apart.** Encrypted backups are held away from the main site, with one copy that an attacker on the network cannot change.
 3. **Test recovery.** A backup counts only once it has been restored and checked.
 4. **Plan ahead.** People know their part, and how to reach each other, before anything fails.
-5. **Coordinate.** This plan works with the incident response plan and ABC Technologies' plans.
+5. **Coordinate.** This plan works with the incident response plan and \<Organisation\>'s plans.
 6. **Return only when safe.** Users come back when the data, the functions and the controls have all been checked.
 
 These carry out the principles and rules of \<Policy\>, sections CP.3 and CP.4.
 
 ### 4.2 Scope and assumptions
 
-The plan recovers \<DocuView\> in three phases: activation and notification, recovery, and reconstitution. Figure 1 shows them against the time allowed.
+The plan recovers \<System Name\> in three phases: activation and notification, recovery, and reconstitution. Figure 1 shows them against the time allowed.
 
 ![Figure 1: The three phases of recovery](figures/cpm-figure-1.png)
 
 **Figure 1: The three phases of recovery**
 
-**Scope:** DV\_Web, DV\_Admin\_UI, DV\_API, the PostgreSQL database that holds every document page and audit record, the secrets they need, and the two Windows Server 2025 VMs at ABC Technologies. ABC Technologies' own sites, network and services, including AD FS and Active Directory, are covered by its plans (appendix D).
+**Scope:** UI application, Admin application, API, the PostgreSQL database that holds every document page and audit record, the secrets they need, and the two Windows Server 2025 VMs at \<Organisation\>. \<Organisation\>'s own sites, network and services, including AD FS and Active Directory, are covered by its plans (appendix D).
 
 **Assumptions:**
 
-1. ABC Technologies provides a second site, network, sign-in through AD FS, directory, name resolution and time (EV-CP-01, EV-CP-02). Unconfirmed.
+1. \<Organisation\> provides a second site, network, sign-in through AD FS, directory, name resolution and time (EV-CP-01, EV-CP-02). Unconfirmed.
 2. The latest good backup, its transaction logs and the protected copy of the secrets are at the second site.
 3. The tagged release and the baseline in \<Configuration Management\>, section 4.4, can be reached to rebuild the applications.
 4. At least one holder or deputy of each role in section 4.4 is available.
@@ -184,7 +184,7 @@ The plan recovers \<DocuView\> in three phases: activation and notification, rec
 
 ### 4.3 Business impact analysis
 
-This analysis follows NIST SP 800-34 Rev. 1, Appendix B. \<DocuView\>'s availability is rated Low: an outage delays work, but no service to the public stops. Losing documents or audit records cannot be tolerated.
+This analysis follows NIST SP 800-34 Rev. 1, Appendix B. \<System Name\>'s availability is rated Low: an outage delays work, but no service to the public stops. Losing documents or audit records cannot be tolerated.
 
 #### 4.3.1 Impact over time
 
@@ -194,10 +194,10 @@ This analysis follows NIST SP 800-34 Rev. 1, Appendix B. \<DocuView\>'s availabi
 | --- | --- | --- | --- | --- |
 | Sign in, find and read documents (essential) | Staff wait or use paper copies where they exist | HR and finance requests are delayed | Requests with legal deadlines, such as subject access, are at risk | Deadlines are missed |
 | Upload and index documents | New documents queue | Backlog grows | Backlog takes days to clear | Records are incomplete |
-| Administration: projects and the groups each uses | None while \<DocuView\> is down | None while \<DocuView\> is down | Starters wait for access | Starters wait for access |
+| Administration: projects and the groups each uses | None while \<System Name\> is down | None while \<System Name\> is down | Starters wait for access | Starters wait for access |
 | Reports and bulk export | None | None | Planned reports are late | Planned reports are late |
 
-While \<DocuView\> is down nobody can use it, so an outage does not leave leavers with access. The members of \<DocuView\>'s AD groups are checked against current staff before users return (section 4.7).
+While \<System Name\> is down nobody can use it, so an outage does not leave leavers with access. The members of \<System Name\>'s AD groups are checked against current staff before users return (section 4.7).
 
 #### 4.3.2 Recovery objectives
 
@@ -218,14 +218,14 @@ The recovery time objective includes reconstitution (section 4.7), so users retu
 
 | Order | Component | Needed for | Depends on | Recovered from |
 | --- | --- | --- | --- | --- |
-| 1 | ABC Technologies' network, AD FS sign-in, directory, name resolution, time and certificates | Everything | ABC Technologies | ABC Technologies' plans (appendix D) |
+| 1 | \<Organisation\>'s network, AD FS sign-in, directory, name resolution, time and certificates | Everything | \<Organisation\> | \<Organisation\>'s plans (appendix D) |
 | 2 | Database VM and PostgreSQL 18.6 | Every function | 1 | \<Configuration Management\> baseline, then the latest good backup and transaction logs |
-| 3 | Secrets: the database password and the token signing key | Starting DV\_API | 1 | The protected copy at the second site (section 4.8) |
-| 4 | Application VM: DV\_API | Every function | 2, 3 | The tagged release and \<Configuration Management\> |
-| 5 | DV\_Web | Finding and reading documents | 4 | The tagged release |
-| 6 | DV\_Admin\_UI | Administration | 4 | The tagged release |
+| 3 | Secrets: the database password and the token signing key | Starting API | 1 | The protected copy at the second site (section 4.8) |
+| 4 | Application VM: API | Every function | 2, 3 | The tagged release and \<Configuration Management\> |
+| 5 | UI application | Finding and reading documents | 4 | The tagged release |
+| 6 | Admin application | Administration | 4 | The tagged release |
 
-\<DocuView\> cannot be used while AD FS is unavailable, because nobody can sign in. ABC Technologies' recovery time for AD FS and Active Directory therefore sets a floor under \<DocuView\>'s own. It is not yet known, and is asked for with EV-CP-01 (D-CP-15, PA-114). If it is longer than 72 hours, the system owner takes the recovery objectives back to the authorising official.
+\<System Name\> cannot be used while AD FS is unavailable, because nobody can sign in. \<Organisation\>'s recovery time for AD FS and Active Directory therefore sets a floor under \<System Name\>'s own. It is not yet known, and is asked for with EV-CP-01 (D-CP-15, PA-114). If it is longer than 72 hours, the system owner takes the recovery objectives back to the authorising official.
 
 #### 4.3.4 Essential assets
 
@@ -234,9 +234,9 @@ The recovery time objective includes reconstitution (section 4.7), so users retu
 | Asset | Why it is essential | Recovery |
 | --- | --- | --- |
 | The database | Holds every document page, project, group mapping and audit record | Rebuild the VM, then restore the latest good backup and transaction logs |
-| The application VM | Runs DV\_API, DV\_Web and DV\_Admin\_UI | Rebuild from the tagged release and \<Configuration Management\> |
+| The application VM | Runs API, UI application and Admin application | Rebuild from the tagged release and \<Configuration Management\> |
 | Backups and transaction logs | The only way back after a loss | Held encrypted at the second site, with one offline or immutable copy |
-| Secrets | Without them DV\_API cannot start or reach the database | A protected copy held apart from the backups. Today they are in the settings files (PA-19) |
+| Secrets | Without them API cannot start or reach the database | A protected copy held apart from the backups. Today they are in the settings files (PA-19) |
 
 The ASP.NET Data Protection keys are not essential. They protect sign-in cookies and forms only: if they are lost, users simply sign in again. They are not restored.
 
@@ -246,12 +246,12 @@ The ASP.NET Data Protection keys are not essential. They protect sign-in cookies
 
 | Role | Holder | Deputy | Part in recovery |
 | --- | --- | --- | --- |
-| Decides to invoke | Neil Ramsbottom, system owner | James Preston | Invokes this plan, tells the people below, and declares recovery complete |
-| Risk decision | Bob Jones, authorising official | None | Decides on running in a reduced state, or beyond the recovery time objective |
-| Coordination | James Preston, security officer | Neil Ramsbottom | Keeps the activity log, coordinates with any incident, and confirms controls before users return |
-| Database | Richard McCaron, database administrator | Jake Howard | Restores backups and transaction logs, and runs the data checks |
-| Servers | Jake Howard, Windows server administrator | Richard McCaron | Rebuilds the VMs and restores the secrets |
-| Service | ABC Technologies' IT service desk | Its own rota | Provides the second site and connectivity |
+| Decides to invoke | \[Name\], system owner | \[Name\] | Invokes this plan, tells the people below, and declares recovery complete |
+| Risk decision | \[Name\], authorising official | None | Decides on running in a reduced state, or beyond the recovery time objective |
+| Coordination | \[Name\], security officer | \[Name\] | Keeps the activity log, coordinates with any incident, and confirms controls before users return |
+| Database | Richard McCaron, database administrator | \[Name\] | Restores backups and transaction logs, and runs the data checks |
+| Servers | \[Name\], Windows server administrator | Richard McCaron | Rebuilds the VMs and restores the secrets |
+| Service | \<Organisation\>'s IT service desk | Its own rota | Provides the second site and connectivity |
 
 Deputies were agreed on 6 November 2026 (D-CP-09). Contact details are in appendix C.
 
@@ -264,7 +264,7 @@ The system owner, or their deputy, invokes this plan when any of these is true:
 1. The essential functions have been unavailable for 24 hours, or are expected to be.
 2. The database or its backups are lost, damaged, or cannot be trusted, including after ransomware or a compromise.
 3. The main site, or a VM, is lost or unusable.
-4. ABC Technologies declares a disaster that affects the VMs.
+4. \<Organisation\> declares a disaster that affects the VMs.
 
 Shorter outages are handled as normal operations or incidents. Invoking at 24 hours leaves time to recover within the 72-hour objective.
 
@@ -274,10 +274,10 @@ Within 4 hours of a report, the database and Windows server administrators asses
 
 #### 4.5.3 Notification
 
-1. Whoever finds the failure tells ABC Technologies' IT service desk and the security officer.
+1. Whoever finds the failure tells \<Organisation\>'s IT service desk and the security officer.
 2. The security officer tells the system owner, and starts the activity log.
-3. The system owner decides whether to invoke, and tells the database and Windows server administrators, the authorising official and ABC Technologies' IT service desk, by phone first and then in writing.
-4. The system owner tells users that \<DocuView\> is unavailable and when it is expected back, through ABC Technologies' usual staff channel, and updates them at least daily.
+3. The system owner decides whether to invoke, and tells the database and Windows server administrators, the authorising official and \<Organisation\>'s IT service desk, by phone first and then in writing.
+4. The system owner tells users that \<System Name\> is unavailable and when it is expected back, through \<Organisation\>'s usual staff channel, and updates them at least daily.
 
 ### 4.6 Recovery
 
@@ -285,11 +285,11 @@ Within 4 hours of a report, the database and Windows server administrators asses
 
 Recovery follows PRO-CP-3 in the order of recovery in section 4.3.3, at the second site if the main one is lost:
 
-1. Confirm ABC Technologies' services and the site are available, including AD FS, without which nobody can sign in.
+1. Confirm \<Organisation\>'s services and the site are available, including AD FS, without which nobody can sign in.
 2. Rebuild the database VM to the baseline in \<Configuration Management\>, sections 4.4 and 4.6.
 3. Restore the latest good backup, then apply the archived transaction logs up to the last consistent point (CP-10(2)). If a backup fails its checks, use the one before it.
 4. Restore the secrets from their protected copy. Change them if a compromise is suspected.
-5. Rebuild the application VM from the tagged release, with each application under its own service account, and start DV\_API, then DV\_Web, then DV\_Admin\_UI.
+5. Rebuild the application VM from the tagged release, with each application under its own service account, and start API, then UI application, then Admin application.
 6. Move to reconstitution (section 4.7).
 
 #### 4.6.2 Recovery during a security incident
@@ -309,13 +309,13 @@ If the database has not been restored 48 hours after the plan is invoked, the sy
 Users return only when every step below is done.
 
 1. **Validate the data:** the database administrator runs the checks in PRO-CP-2: row counts against the last known counts, each document page against its stored checksum, and the audit records' stored hashes against the export taken with the backup. The newest audit record shows how much data was lost, against the recovery point objective.
-2. **Validate the functions:** sign in, find and read a document, upload a test document to a test project and remove it, and sign in to DV\_Admin\_UI. Audit records must be written for each.
-3. **Confirm the controls:** the security officer checks that the controls match the main site, including encryption in transit, the members of \<DocuView\>'s AD groups against current staff, and audit logging.
-4. **Declare recovery:** the system owner declares \<DocuView\> recovered, and tells users and the people in section 5.
+2. **Validate the functions:** sign in, find and read a document, upload a test document to a test project and remove it, and sign in to Admin application. Audit records must be written for each.
+3. **Confirm the controls:** the security officer checks that the controls match the main site, including encryption in transit, the members of \<System Name\>'s AD groups against current staff, and audit logging.
+4. **Declare recovery:** the system owner declares \<System Name\> recovered, and tells users and the people in section 5.
 5. **Back up at once:** a full backup is taken and confirmed at the second site before normal work resumes.
 6. **Clean up:** temporary access is removed. If running at the second site, the return to the main site is a planned change under \<Configuration Management\>.
 7. **Deactivate and learn:** the system owner closes the plan's activation. Within 10 working days an after-action report is written on TPL-11, and this plan is updated (CP-2g).
-8. **Restart monitoring, and check the authorisation:** the security officer confirms that the monitoring duties have restarted. If the recovery changed the system in a way that counts as a significant change, such as a move to the second site, the authorising official decides whether \<DocuView\> must be assessed or authorised again (\<Assessment, Authorization, and Monitoring Management\>, section 4.9).
+8. **Restart monitoring, and check the authorisation:** the security officer confirms that the monitoring duties have restarted. If the recovery changed the system in a way that counts as a significant change, such as a move to the second site, the authorising official decides whether \<System Name\> must be assessed or authorised again (\<Assessment, Authorization, and Monitoring Management\>, section 4.9).
 
 ### 4.8 Backups
 
@@ -334,7 +334,7 @@ A failed backup alerts the database administrator and the security officer, and 
 
 ### 4.9 Second site and telecommunications
 
-ABC Technologies is expected to provide a second site, far enough from the main one not to share its hazards, that holds encrypted backups and can run rebuilt VMs with equivalent controls. It is also expected to provide priority of service and separate telecommunications without a shared single point of failure. If a wide-area disruption makes the second site hard to reach, ABC Technologies' plans say how it is reached (CP-6(3), CP-7(2)).
+\<Organisation\> is expected to provide a second site, far enough from the main one not to share its hazards, that holds encrypted backups and can run rebuilt VMs with equivalent controls. It is also expected to provide priority of service and separate telecommunications without a shared single point of failure. If a wide-area disruption makes the second site hard to reach, \<Organisation\>'s plans say how it is reached (CP-6(3), CP-7(2)).
 
 None of this is confirmed (EV-CP-01, EV-CP-02, PA-66). If it is not available, the system owner takes the risk to the authorising official.
 
@@ -348,18 +348,18 @@ This follows NIST SP 800-84. The first restore test and tabletop exercise take p
 | --- | --- | --- | --- | --- |
 | Role training | Within 30 days of taking a role, and every 12 months | Everyone in section 4.4 | Each person knows this plan, their steps in PRO-CP, the call tree and where the offline copy is | TPL-9 |
 | Restore test | First within 30 days of the VMs being built; then every 6 months | Database administrator, observed by the security officer | Restore the latest backup to a separate server within the recovery time objective, and pass the checks in PRO-CP-2 | TPL-11 |
-| Tabletop exercise, with the incident response plan | First within 30 days of the VMs being built; then every 12 months | Everyone in section 4.4, and ABC Technologies' IT service desk | Walk through one scenario from activation to deactivation | TPL-11 |
+| Tabletop exercise, with the incident response plan | First within 30 days of the VMs being built; then every 12 months | Everyone in section 4.4, and \<Organisation\>'s IT service desk | Walk through one scenario from activation to deactivation | TPL-11 |
 | Plan review | Every 12 months, and after each test or activation | System owner and authorising official | Keep the plan current and build in what was learned | Change history |
 
 Tabletop scenarios rotate through: ransomware on the database VM; loss of the main site; a backup that fails its checks; a key person being unavailable; and AD FS being unavailable. Training content covers the activation criteria, the call tree, each role's steps and the checks before return; it is reviewed every 12 months and after a plan change, test or activation.
 
 Each test or activation ends with an after-action report on TPL-11: the objectives, what happened, the time to recover and data lost against the objectives, what went wrong, the actions with owners and dates, and the changes made to this plan.
 
-### 4.11 What ABC Technologies provides
+### 4.11 What \<Organisation\> provides
 
-**Table 13: Asked of ABC Technologies**
+**Table 13: Asked of \<Organisation\>**
 
-| Provided | Controls | What \<DocuView\> relies on | Evidence asked | State |
+| Provided | Controls | What \<System Name\> relies on | Evidence asked | State |
 | --- | --- | --- | --- | --- |
 | A second site for backups and for rebuilt servers | CP-6, CP-6(1), CP-6(3), CP-7, CP-7(1), CP-7(2), CP-7(3) | A site that does not share the main site's hazards, holds the encrypted backups with one offline or immutable copy, can run both servers within 72 hours, and can be reached in a wide-area disruption | EV-CP-01 | Not sent |
 | Alternate telecommunications | CP-8, CP-8(1), CP-8(2) | An alternate service with no single point of failure shared with the main one, and a stated priority | EV-CP-02 | Not sent |
@@ -378,9 +378,9 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
-| a.1 | A contingency planning policy, shared with defined people, covering purpose, scope, roles, responsibilities, management commitment, coordination and compliance, and consistent with the law | \<Policy\> (CP): a system-level policy. Purpose and scope are in section CP.1, responsibilities in CP.5, and commitment, coordination and compliance in CP.6. It is shared with everyone who administers \<DocuView\>. The legal adviser reviews it | Version \<ver\> approved by the Head of Cyber (D-CP-12). Legally reviewed on 9 November 2026. Not yet shared (PA-20) |
+| a.1 | A contingency planning policy, shared with defined people, covering purpose, scope, roles, responsibilities, management commitment, coordination and compliance, and consistent with the law | \<Policy\> (CP): a system-level policy. Purpose and scope are in section CP.1, responsibilities in CP.5, and commitment, coordination and compliance in CP.6. It is shared with everyone who administers \<System Name\>. The legal adviser reviews it | Version \<ver\> approved by the Head of Cyber (D-CP-12). Legally reviewed on 9 November 2026. Not yet shared (PA-20) |
 | a.2 | Procedures that carry out the policy, shared with defined people | \<Procedures\> (CP): seven procedures, PRO-CP-1 to PRO-CP-7, each naming who acts, when and the record. Shared with the same people | Approved by the system owner (D-CP-13). Not yet shared or walked through |
-| b | A named official manages the policy and procedures | The system owner | Neil Ramsbottom is named in \<Roles and Responsibilities\> |
+| b | A named official manages the policy and procedures | The system owner | \[Name\] is named in \<Roles and Responsibilities\> |
 | c.1 | The policy is reviewed on a schedule and after set events | Every 12 months, and after a significant incident, audit finding or system change | Reviewed on 9 November 2026. The first yearly review falls due in November 2027 |
 | c.2 | The procedures are reviewed on a schedule and after set events | Every 12 months, and after a change to the steps | As the policy |
 
@@ -411,7 +411,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | a.5 | It provides for full restoration in the end, with the planned controls still in force | Section 4.7: users return only when the data, the functions and the controls have all been checked, and a full backup is taken at once | Written |
 | a.6 | It says how contingency information is shared | Section 4.5.3: who tells whom, by phone first and then in writing, and daily updates to users | Written |
 | a.7 | It is reviewed and approved by defined people | The system owner and the authorising official | Version \<ver\> approved by both (D-CP-11). This restructured version awaits their approval |
-| b | Copies go to defined key people and parts of the organisation | Section 1.4: the role holders and the authorising official receive the whole plan; ABC Technologies' IT service desk receives the parts it needs to act | Not yet shared (PA-114) |
+| b | Copies go to defined key people and parts of the organisation | Section 1.4: the role holders and the authorising official receive the whole plan; \<Organisation\>'s IT service desk receives the parts it needs to act | Not yet shared (PA-114) |
 | c | Contingency planning is coordinated with incident handling | An outage that may be an incident is led by the incident response plan, with this plan in support (section 4.6.2). The two are exercised together | Written into both plans. Not yet exercised (PA-81) |
 | d | The plan is reviewed on a schedule | Every 12 months, and after each test or activation | Reviewed on 9 November 2026 and 15 November 2026 |
 | e | The plan is updated for changes to the system and for problems met in use or testing | A change to the system that affects recovery updates the plan as part of the change (\<Configuration Management\>, section 4.9). Each after-action report lists the changes made to the plan | Updated on 15 November 2026 for sign-in through AD FS and the service accounts. No test or activation has yet been held |
@@ -431,7 +431,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | Records an assessor will ask for | The plan with its approvals; the distribution record; the offline copies; review records; after-action reports. The plan and approvals of version \<ver\> exist |
 | Status | Partially implemented |
 | Risk decision | NC-CP-02, rated Low: approve |
-| Open items | PA-114: share the plan, fill in the contacts, place the offline copies and coordinate with ABC Technologies' plans. PA-88: move the document set to the restricted store |
+| Open items | PA-114: share the plan, fill in the contacts, place the offline copies and coordinate with \<Organisation\>'s plans. PA-88: move the document set to the restricted store |
 
 ### 5.3 CP-2(1) Coordinate with Related Plans
 
@@ -439,7 +439,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
-| All | Develop the plan together with those responsible for related plans | Appendix D lists the related plans. This plan and the incident response plan were written together, and each cites the other. ABC Technologies' disaster recovery and business continuity plans provide the network, AD FS, the second site and telecommunications, and the system owner agrees with ABC Technologies how the plans fit: who declares a disaster, and the recovery times of the services \<DocuView\> depends on | The incident response plan is aligned. ABC Technologies' plans have not been seen, and their names are placeholders (PA-114) |
+| All | Develop the plan together with those responsible for related plans | Appendix D lists the related plans. This plan and the incident response plan were written together, and each cites the other. \<Organisation\>'s disaster recovery and business continuity plans provide the network, AD FS, the second site and telecommunications, and the system owner agrees with \<Organisation\> how the plans fit: who declares a disaster, and the recovery times of the services \<System Name\> depends on | The incident response plan is aligned. \<Organisation\>'s plans have not been seen, and their names are placeholders (PA-114) |
 
 **Table 19: CP-2(1) responsibility and evidence**
 
@@ -450,10 +450,10 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | Enforced by | Not a system function |
 | Rules and procedures | Policy rule R6 (\<Policy\>, section CP.4); PRO-CP-7 (\<Procedures\> (CP)) |
 | Tests | None |
-| Records an assessor will ask for | The related plans; a record of the agreement with ABC Technologies; joint exercise reports |
+| Records an assessor will ask for | The related plans; a record of the agreement with \<Organisation\>; joint exercise reports |
 | Status | Not implemented |
 | Risk decision | NC-CP-03, rated Low: approve |
-| Open items | PA-114: obtain ABC Technologies' plans and recovery times, and record how the plans fit |
+| Open items | PA-114: obtain \<Organisation\>'s plans and recovery times, and record how the plans fit |
 
 ### 5.4 CP-2(3) Resume Mission and Business Functions
 
@@ -483,7 +483,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
-| All | Identify the system assets that the defined functions depend on | Section 4.3.4: the database, the application server, the backups and transaction logs, and the secrets. Section 4.3.3 adds what they depend on from ABC Technologies, including AD FS | Met |
+| All | Identify the system assets that the defined functions depend on | Section 4.3.4: the database, the application server, the backups and transaction logs, and the secrets. Section 4.3.3 adds what they depend on from \<Organisation\>, including AD FS | Met |
 
 **Table 23: CP-2(8) responsibility and evidence**
 
@@ -554,7 +554,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
-| All | Test the plan together with those responsible for related plans | The tabletop exercise is held with the incident response plan, and ABC Technologies' IT service desk takes part | Not held (PA-81) |
+| All | Test the plan together with those responsible for related plans | The tabletop exercise is held with the incident response plan, and \<Organisation\>'s IT service desk takes part | Not held (PA-81) |
 
 **Table 29: CP-4(1) responsibility and evidence**
 
@@ -576,22 +576,22 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
-| a | Set up a second site for storing backups, with the agreements needed to store and retrieve them | Encrypted backups are held at a second ABC Technologies site, with one copy offline or immutable (D-CP-06) | Not confirmed: ABC Technologies has not been asked (EV-CP-01, PA-66) |
+| a | Set up a second site for storing backups, with the agreements needed to store and retrieve them | Encrypted backups are held at a second \<Organisation\> site, with one copy offline or immutable (D-CP-06) | Not confirmed: \<Organisation\> has not been asked (EV-CP-01, PA-66) |
 | b | The second site gives controls equal to the main site's | The same physical and access controls as the main site. Backups are encrypted before they leave the database server, so the site's staff cannot read them | Not confirmed |
 
 **Table 31: CP-6 responsibility and evidence**
 
 | | |
 | --- | --- |
-| Provided by | ABC Technologies |
-| Responsible | ABC Technologies |
-| Enforced by | ABC Technologies' site and agreement |
+| Provided by | \<Organisation\> |
+| Responsible | \<Organisation\> |
+| Enforced by | \<Organisation\>'s site and agreement |
 | Rules and procedures | Policy rule R3 (\<Policy\>, section CP.4); no procedure of its own (\<Procedures\> (CP)) |
 | Tests | None |
-| Records an assessor will ask for | ABC Technologies' description of the site and its agreement (EV-CP-01). Not yet asked for |
+| Records an assessor will ask for | \<Organisation\>'s description of the site and its agreement (EV-CP-01). Not yet asked for |
 | Status | Not implemented |
 | Risk decision | NC-CP-09, rated Low: obtain evidence |
-| Open items | PA-66: confirm the site with ABC Technologies, or take the risk to the authorising official |
+| Open items | PA-66: confirm the site with \<Organisation\>, or take the risk to the authorising official |
 
 ### 5.10 CP-6(1) Separation from Primary Site
 
@@ -599,18 +599,18 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
-| All | The second site is far enough from the main one not to share its threats | ABC Technologies is asked to show that the two sites do not share the same hazards, such as flood, power supply or a single building | Not confirmed (EV-CP-01) |
+| All | The second site is far enough from the main one not to share its threats | \<Organisation\> is asked to show that the two sites do not share the same hazards, such as flood, power supply or a single building | Not confirmed (EV-CP-01) |
 
 **Table 33: CP-6(1) responsibility and evidence**
 
 | | |
 | --- | --- |
-| Provided by | ABC Technologies |
-| Responsible | ABC Technologies |
-| Enforced by | ABC Technologies |
+| Provided by | \<Organisation\> |
+| Responsible | \<Organisation\> |
+| Enforced by | \<Organisation\> |
 | Rules and procedures | Policy rule R3 (\<Policy\>, section CP.4); no procedure of its own (\<Procedures\> (CP)) |
 | Tests | None |
-| Records an assessor will ask for | ABC Technologies' description of the site and its agreement (EV-CP-01). Not yet asked for |
+| Records an assessor will ask for | \<Organisation\>'s description of the site and its agreement (EV-CP-01). Not yet asked for |
 | Status | Not implemented |
 | Risk decision | NC-CP-10, rated Low: obtain evidence |
 | Open items | PA-66 |
@@ -621,18 +621,18 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
-| All | Identify what could make the second site hard to reach in a wide-area disruption, and say what would be done | ABC Technologies' plans say how the site and its backups are reached if the area is disrupted. \<DocuView\> asks for that part of its plans | Not confirmed (EV-CP-01) |
+| All | Identify what could make the second site hard to reach in a wide-area disruption, and say what would be done | \<Organisation\>'s plans say how the site and its backups are reached if the area is disrupted. \<System Name\> asks for that part of its plans | Not confirmed (EV-CP-01) |
 
 **Table 35: CP-6(3) responsibility and evidence**
 
 | | |
 | --- | --- |
-| Provided by | ABC Technologies |
-| Responsible | ABC Technologies |
-| Enforced by | ABC Technologies |
+| Provided by | \<Organisation\> |
+| Responsible | \<Organisation\> |
+| Enforced by | \<Organisation\> |
 | Rules and procedures | Policy rule R3 (\<Policy\>, section CP.4); no procedure of its own (\<Procedures\> (CP)) |
 | Tests | None |
-| Records an assessor will ask for | ABC Technologies' description of the site and its agreement (EV-CP-01). Not yet asked for |
+| Records an assessor will ask for | \<Organisation\>'s description of the site and its agreement (EV-CP-01). Not yet asked for |
 | Status | Not implemented |
 | Risk decision | NC-CP-11, rated Low: obtain evidence |
 | Open items | PA-66 |
@@ -643,20 +643,20 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
-| a | Set up a second site for processing, with the agreements needed to move and resume defined operations within a defined time | If the main site is lost, both servers are rebuilt at the second ABC Technologies site, and the essential functions resume within 72 hours (D-CP-07; section 4.6.1) | Not confirmed (EV-CP-01, PA-66) |
-| b | The equipment and supplies needed are at the site, or contracts are in place to deliver them in time | ABC Technologies provides the virtual servers. \<DocuView\> needs nothing else there but its backups, its secrets and the tagged release | Not confirmed |
+| a | Set up a second site for processing, with the agreements needed to move and resume defined operations within a defined time | If the main site is lost, both servers are rebuilt at the second \<Organisation\> site, and the essential functions resume within 72 hours (D-CP-07; section 4.6.1) | Not confirmed (EV-CP-01, PA-66) |
+| b | The equipment and supplies needed are at the site, or contracts are in place to deliver them in time | \<Organisation\> provides the virtual servers. \<System Name\> needs nothing else there but its backups, its secrets and the tagged release | Not confirmed |
 | c | The second site gives controls equal to the main site's | The servers are rebuilt to the same baseline (\<Configuration Management\>, section 4.4), and the security officer confirms the controls before users return (section 4.7) | Not confirmed |
 
 **Table 37: CP-7 responsibility and evidence**
 
 | | |
 | --- | --- |
-| Provided by | ABC Technologies |
-| Responsible | ABC Technologies, Windows server administrator |
-| Enforced by | ABC Technologies' site and agreement; the baseline |
+| Provided by | \<Organisation\> |
+| Responsible | \<Organisation\>, Windows server administrator |
+| Enforced by | \<Organisation\>'s site and agreement; the baseline |
 | Rules and procedures | Policy rule R5 (\<Policy\>, section CP.4); PRO-CP-3 (\<Procedures\> (CP)) |
 | Tests | None |
-| Records an assessor will ask for | ABC Technologies' description of the site and its agreement (EV-CP-01). Not yet asked for |
+| Records an assessor will ask for | \<Organisation\>'s description of the site and its agreement (EV-CP-01). Not yet asked for |
 | Status | Not implemented |
 | Risk decision | NC-CP-12, rated Low: obtain evidence |
 | Open items | PA-66 |
@@ -673,12 +673,12 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 | | |
 | --- | --- |
-| Provided by | ABC Technologies |
-| Responsible | ABC Technologies |
-| Enforced by | ABC Technologies |
+| Provided by | \<Organisation\> |
+| Responsible | \<Organisation\> |
+| Enforced by | \<Organisation\> |
 | Rules and procedures | Policy rule R5 (\<Policy\>, section CP.4); PRO-CP-3 (\<Procedures\> (CP)) |
 | Tests | None |
-| Records an assessor will ask for | ABC Technologies' description of the site and its agreement (EV-CP-01). Not yet asked for |
+| Records an assessor will ask for | \<Organisation\>'s description of the site and its agreement (EV-CP-01). Not yet asked for |
 | Status | Not implemented |
 | Risk decision | NC-CP-13, rated Low: obtain evidence |
 | Open items | PA-66 |
@@ -695,12 +695,12 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 | | |
 | --- | --- |
-| Provided by | ABC Technologies |
-| Responsible | ABC Technologies |
-| Enforced by | ABC Technologies |
+| Provided by | \<Organisation\> |
+| Responsible | \<Organisation\> |
+| Enforced by | \<Organisation\> |
 | Rules and procedures | Policy rule R5 (\<Policy\>, section CP.4); PRO-CP-3 (\<Procedures\> (CP)) |
 | Tests | None |
-| Records an assessor will ask for | ABC Technologies' description of the site and its agreement (EV-CP-01). Not yet asked for |
+| Records an assessor will ask for | \<Organisation\>'s description of the site and its agreement (EV-CP-01). Not yet asked for |
 | Status | Not implemented |
 | Risk decision | NC-CP-14, rated Low: obtain evidence |
 | Open items | PA-66 |
@@ -711,18 +711,18 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
-| All | The agreement for the second site gives priority of service that matches the availability needed | ABC Technologies is asked what priority \<DocuView\> has at the second site. Availability is rated Low, with 72 hours to recover, so a modest priority is enough | Not confirmed (EV-CP-01) |
+| All | The agreement for the second site gives priority of service that matches the availability needed | \<Organisation\> is asked what priority \<System Name\> has at the second site. Availability is rated Low, with 72 hours to recover, so a modest priority is enough | Not confirmed (EV-CP-01) |
 
 **Table 43: CP-7(3) responsibility and evidence**
 
 | | |
 | --- | --- |
-| Provided by | ABC Technologies |
-| Responsible | ABC Technologies |
-| Enforced by | ABC Technologies |
+| Provided by | \<Organisation\> |
+| Responsible | \<Organisation\> |
+| Enforced by | \<Organisation\> |
 | Rules and procedures | Policy rule R5 (\<Policy\>, section CP.4); PRO-CP-3 (\<Procedures\> (CP)) |
 | Tests | None |
-| Records an assessor will ask for | ABC Technologies' description of the site and its agreement (EV-CP-01). Not yet asked for |
+| Records an assessor will ask for | \<Organisation\>'s description of the site and its agreement (EV-CP-01). Not yet asked for |
 | Status | Not implemented |
 | Risk decision | NC-CP-15, rated Low: obtain evidence |
 | Open items | PA-66 |
@@ -733,21 +733,21 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
-| All | Set up alternate telecommunications, with the agreements needed to resume defined operations within a defined time when the main service fails | Inherited from ABC Technologies (D-CP-08): its network connects users to both sites, and it is asked what alternate service exists and how quickly it takes over | Not confirmed (EV-CP-02, PA-115) |
+| All | Set up alternate telecommunications, with the agreements needed to resume defined operations within a defined time when the main service fails | Inherited from \<Organisation\> (D-CP-08): its network connects users to both sites, and it is asked what alternate service exists and how quickly it takes over | Not confirmed (EV-CP-02, PA-115) |
 
 **Table 45: CP-8 responsibility and evidence**
 
 | | |
 | --- | --- |
-| Provided by | ABC Technologies |
-| Responsible | ABC Technologies |
-| Enforced by | ABC Technologies |
+| Provided by | \<Organisation\> |
+| Responsible | \<Organisation\> |
+| Enforced by | \<Organisation\> |
 | Rules and procedures | No policy rule of its own (\<Policy\>, section CP.4); no procedure of its own (\<Procedures\> (CP)) |
 | Tests | None |
-| Records an assessor will ask for | ABC Technologies' service agreements (EV-CP-02). Not yet asked for |
+| Records an assessor will ask for | \<Organisation\>'s service agreements (EV-CP-02). Not yet asked for |
 | Status | Not implemented |
 | Risk decision | NC-CP-16, rated Low: obtain evidence |
-| Open items | PA-115: obtain ABC Technologies' evidence (EV-CP-02) |
+| Open items | PA-115: obtain \<Organisation\>'s evidence (EV-CP-02) |
 
 ### 5.17 CP-8(1) Priority of Service Provisions
 
@@ -755,19 +755,19 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
-| a | The main and alternate service agreements give priority of service that matches the availability needed | ABC Technologies is asked what priority its agreements give | Not confirmed (EV-CP-02) |
-| b | Ask for Telecommunications Service Priority where a common carrier provides the service | Telecommunications Service Priority is a United States scheme. ABC Technologies is asked whether it uses any UK equivalent | Not confirmed (EV-CP-02) |
+| a | The main and alternate service agreements give priority of service that matches the availability needed | \<Organisation\> is asked what priority its agreements give | Not confirmed (EV-CP-02) |
+| b | Ask for Telecommunications Service Priority where a common carrier provides the service | Telecommunications Service Priority is a United States scheme. \<Organisation\> is asked whether it uses any UK equivalent | Not confirmed (EV-CP-02) |
 
 **Table 47: CP-8(1) responsibility and evidence**
 
 | | |
 | --- | --- |
-| Provided by | ABC Technologies |
-| Responsible | ABC Technologies |
-| Enforced by | ABC Technologies |
+| Provided by | \<Organisation\> |
+| Responsible | \<Organisation\> |
+| Enforced by | \<Organisation\> |
 | Rules and procedures | No policy rule of its own (\<Policy\>, section CP.4); no procedure of its own (\<Procedures\> (CP)) |
 | Tests | None |
-| Records an assessor will ask for | ABC Technologies' service agreements (EV-CP-02) |
+| Records an assessor will ask for | \<Organisation\>'s service agreements (EV-CP-02) |
 | Status | Not implemented |
 | Risk decision | NC-CP-17, rated Low: obtain evidence |
 | Open items | PA-115 |
@@ -778,18 +778,18 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
-| All | The alternate service does not share a single point of failure with the main one | ABC Technologies is asked to show that the two do not share a route, a building entry or a provider | Not confirmed (EV-CP-02) |
+| All | The alternate service does not share a single point of failure with the main one | \<Organisation\> is asked to show that the two do not share a route, a building entry or a provider | Not confirmed (EV-CP-02) |
 
 **Table 49: CP-8(2) responsibility and evidence**
 
 | | |
 | --- | --- |
-| Provided by | ABC Technologies |
-| Responsible | ABC Technologies |
-| Enforced by | ABC Technologies |
+| Provided by | \<Organisation\> |
+| Responsible | \<Organisation\> |
+| Enforced by | \<Organisation\> |
 | Rules and procedures | No policy rule of its own (\<Policy\>, section CP.4); no procedure of its own (\<Procedures\> (CP)) |
 | Tests | None |
-| Records an assessor will ask for | ABC Technologies' service agreements and network description (EV-CP-02) |
+| Records an assessor will ask for | \<Organisation\>'s service agreements and network description (EV-CP-02) |
 | Status | Not implemented |
 | Risk decision | NC-CP-18, rated Low: obtain evidence |
 | Open items | PA-115 |
@@ -809,7 +809,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 | | |
 | --- | --- |
-| Provided by | Shared: \<DocuView\> and ABC Technologies |
+| Provided by | Shared: \<System Name\> and \<Organisation\> |
 | Responsible | Database and Windows server administrators |
 | Enforced by | The backup jobs and their alerts; the weekly check (\<Security Operating Procedures\>, duty C8) |
 | Rules and procedures | Policy rules R2, R9 (\<Policy\>, section CP.4); PRO-CP-1 (\<Procedures\> (CP)) |
@@ -831,7 +831,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 | | |
 | --- | --- |
-| Provided by | Shared: \<DocuView\> and ABC Technologies |
+| Provided by | Shared: \<System Name\> and \<Organisation\> |
 | Responsible | Database administrator |
 | Enforced by | The restore test |
 | Rules and procedures | Policy rule R4 (\<Policy\>, section CP.4); PRO-CP-2 (\<Procedures\> (CP)) |
@@ -853,7 +853,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 | | |
 | --- | --- |
-| Provided by | Shared: \<DocuView\> and ABC Technologies |
+| Provided by | Shared: \<System Name\> and \<Organisation\> |
 | Responsible | Database administrator |
 | Enforced by | The backup tool's encryption; the key store |
 | Rules and procedures | Policy rules R3, R10 (\<Policy\>, section CP.4); PRO-CP-1 (\<Procedures\> (CP)) |
@@ -869,13 +869,13 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
-| All | Recover the system and bring it back to a known state within a defined time after a disruption, compromise or failure | Sections 4.6 and 4.7. The servers are rebuilt to the baseline, the latest good backup is restored, and users return only when the data, the functions and the controls have been checked. Monitoring is restarted, and a recovery that amounts to a significant change goes to the authorising official. Recovery and reconstitution together take no more than 72 hours, losing no more than 24 hours of data | \<DocuView\> cannot be recovered today: there are no servers and no backups. The restore itself took seconds in the test environment (R04) |
+| All | Recover the system and bring it back to a known state within a defined time after a disruption, compromise or failure | Sections 4.6 and 4.7. The servers are rebuilt to the baseline, the latest good backup is restored, and users return only when the data, the functions and the controls have been checked. Monitoring is restarted, and a recovery that amounts to a significant change goes to the authorising official. Recovery and reconstitution together take no more than 72 hours, losing no more than 24 hours of data | \<System Name\> cannot be recovered today: there are no servers and no backups. The restore itself took seconds in the test environment (R04) |
 
 **Table 57: CP-10 responsibility and evidence**
 
 | | |
 | --- | --- |
-| Provided by | Shared: \<DocuView\> and ABC Technologies |
+| Provided by | Shared: \<System Name\> and \<Organisation\> |
 | Responsible | Administrators, system owner |
 | Enforced by | The backups; the baseline; the checks before users return |
 | Rules and procedures | Policy rules R1, R11 (\<Policy\>, section CP.4); PRO-CP-3, PRO-CP-6 (\<Procedures\> (CP)) |
@@ -897,7 +897,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 | | |
 | --- | --- |
-| Provided by | Shared: \<DocuView\> and ABC Technologies |
+| Provided by | Shared: \<System Name\> and \<Organisation\> |
 | Responsible | Database administrator |
 | Enforced by | PostgreSQL's log archiving |
 | Rules and procedures | Policy rule R2 (\<Policy\>, section CP.4); PRO-CP-3 (\<Procedures\> (CP)) |
@@ -927,8 +927,8 @@ These are NIST's organisation-defined values for the 23 CP entries: 38 in total.
 
 | NIST identifier | What must be defined | Value | State now |
 | --- | --- | --- | --- |
-| CP-01\_ODP\[01\] | Who receives the policy | Everyone who administers \<DocuView\> | Not yet shared |
-| CP-01\_ODP\[02\] | Who receives the procedures | Everyone who administers \<DocuView\> | Not yet shared |
+| CP-01\_ODP\[01\] | Who receives the policy | Everyone who administers \<System Name\> | Not yet shared |
+| CP-01\_ODP\[02\] | Who receives the procedures | Everyone who administers \<System Name\> | Not yet shared |
 | CP-01\_ODP\[03\] | Level of the policy | System level | Met |
 | CP-01\_ODP\[04\] | Official who manages them | System owner | Met |
 | CP-01\_ODP\[05\] | Policy review frequency | Every 12 months | Met: reviewed 9 November 2026 |
@@ -938,7 +938,7 @@ These are NIST's organisation-defined values for the 23 CP entries: 38 in total.
 | CP-02\_ODP\[01\] | Who reviews the plan | System owner and authorising official | Met: version \<ver\> approved 9 November 2026 |
 | CP-02\_ODP\[02\] | Who approves the plan | System owner and authorising official | Met: version \<ver\> approved 9 November 2026 |
 | CP-02\_ODP\[03\] | Key personnel who receive copies | System owner, administrators and security officer | Not yet shared |
-| CP-02\_ODP\[04\] | Elements who receive copies | ABC Technologies' IT service desk | Not yet shared |
+| CP-02\_ODP\[04\] | Elements who receive copies | \<Organisation\>'s IT service desk | Not yet shared |
 | CP-02\_ODP\[05\] | Review frequency | Every 12 months | Met |
 | CP-02\_ODP\[06\] | Key personnel told of changes | As CP-02\_ODP\[03\] | Not yet shared |
 | CP-02\_ODP\[07\] | Elements told of changes | As CP-02\_ODP\[04\] | Not yet shared |
@@ -956,7 +956,7 @@ These are NIST's organisation-defined values for the 23 CP entries: 38 in total.
 | CP-07\_ODP\[02\] | Time to transfer | Within 72 hours | Second site unconfirmed (PA-66) |
 | CP-08\_ODP\[01\] | Operations resumed | Essential functions | Unconfirmed (EV-CP-02) |
 | CP-08\_ODP\[02\] | Time to resume | Within 72 hours | Unconfirmed (EV-CP-02) |
-| CP-09\_ODP\[01\] | Components backed up | The database, which holds the documents and audit records; each VM's system configuration; and the secrets needed to run \<DocuView\> (D-CP-P02) | No backups (PA-64) |
+| CP-09\_ODP\[01\] | Components backed up | The database, which holds the documents and audit records; each VM's system configuration; and the secrets needed to run \<System Name\> (D-CP-P02) | No backups (PA-64) |
 | CP-09\_ODP\[02\] | User-level backup frequency | Daily, with transaction logs archived continuously | No backups (PA-64) |
 | CP-09\_ODP\[03\] | System-level backup frequency | Weekly | No backups (PA-64) |
 | CP-09\_ODP\[04\] | Documentation backup frequency | At each change | Library copy only; moves to SharePoint (D-GEN-15) |
@@ -975,13 +975,13 @@ These are NIST's organisation-defined values for the 23 CP entries: 38 in total.
 
 | Role | Name | Phone | Email |
 | --- | --- | --- | --- |
-| System owner | Neil Ramsbottom | \[phone to add\] | \[email to add\] |
-| Authorising official | Bob Jones | \[phone to add\] | \[email to add\] |
-| Security officer | James Preston | \[phone to add\] | \[email to add\] |
+| System owner | \[Name\] | \[phone to add\] | \[email to add\] |
+| Authorising official | \[Name\] | \[phone to add\] | \[email to add\] |
+| Security officer | \[Name\] | \[phone to add\] | \[email to add\] |
 | Database administrator | Richard McCaron | \[phone to add\] | \[email to add\] |
-| Windows server administrator | Jake Howard | \[phone to add\] | \[email to add\] |
-| ABC Technologies' IT service desk | \[name to add\] | \[phone to add\] | \[email to add\] |
-| ABC Technologies' security contact | \[name to add\] | \[phone to add\] | \[email to add\] |
+| Windows server administrator | \[Name\] | \[phone to add\] | \[email to add\] |
+| \<Organisation\>'s IT service desk | \[name to add\] | \[phone to add\] | \[email to add\] |
+| \<Organisation\>'s security contact | \[name to add\] | \[phone to add\] | \[email to add\] |
 
 | **APPENDIX D** |
 | --- |
@@ -993,7 +993,7 @@ These are NIST's organisation-defined values for the 23 CP entries: 38 in total.
 | Plan or record | Owner | How it relates |
 | --- | --- | --- |
 | \<Incident Response Management\> Incident response plan | Security officer | Leads when an outage may be an incident (section 4.6.2); exercised together (CP-4(1)) |
-| ABC Technologies' disaster recovery and business continuity plans \[names to add\] | ABC Technologies | Provide the network, second site and telecommunications (EV-CP-01, EV-CP-02) |
+| \<Organisation\>'s disaster recovery and business continuity plans \[names to add\] | \<Organisation\> | Provide the network, second site and telecommunications (EV-CP-01, EV-CP-02) |
 | \<Configuration Management\>, the configuration management plan | System owner | The baseline the VMs and applications are rebuilt to |
 | \<Security Operating Procedures\> Security Operating Procedures | System owner | The routine backup and check steps (C2, C6, C8, C18, C21) and planned shutdown |
 | TPL-9 and TPL-11 in \<Record Templates\> | System owner | Training records, test records and after-action reports |
@@ -1008,7 +1008,7 @@ NIST does not select these at Moderate, so they are not assessed. Some of the de
 
 **Table 63: CP controls not selected at Moderate**
 
-| Control | What it adds | \<DocuView\>'s position |
+| Control | What it adds | \<System Name\>'s position |
 | --- | --- | --- |
 | CP-2(2) Capacity Planning | Capacity planned for processing, telecommunications and support during a contingency | Not required. The second site is asked to run both servers at their normal size (EV-CP-01) |
 | CP-2(5) Continue Mission and Business Functions | Functions continue with little or no loss of continuity | Not required. Availability is rated Low, and 72 hours is accepted |
@@ -1016,6 +1016,6 @@ NIST does not select these at Moderate, so they are not assessed. Some of the de
 | CP-4(2) Alternate Processing Site | Testing the plan at the second site | Not required, and not planned. The first restore test is on the main servers |
 | CP-6(2) Recovery Time and Recovery Point Objectives | The storage site set up to meet the recovery objectives | Not required. Done in design: transaction logs go to the second site continuously, for a recovery point of minutes |
 | CP-7(4) Preparation for Use | The second site kept ready to use | Not required. The servers are rebuilt there when needed |
-| CP-8(3), CP-8(4) Separation of Providers; Provider Contingency Plan | Alternate services from a separate provider, who has a contingency plan | Not required. ABC Technologies' plans are asked for with EV-CP-01 |
+| CP-8(3), CP-8(4) Separation of Providers; Provider Contingency Plan | Alternate services from a separate provider, who has a contingency plan | Not required. \<Organisation\>'s plans are asked for with EV-CP-01 |
 | CP-9(2), CP-9(3), CP-9(5) Test Restoration Using Sampling; Separate Storage for Critical Information; Transfer to Alternate Storage Site | Further assurance for backups | Not required. Done in design: every restore test restores the whole database; one copy is offline or immutable; backups and logs go to the second site |
 | CP-10(4) Restore Within Time Period | Components restored from configuration-controlled images within a set time | Not required. Done in design: the servers are rebuilt from the baseline and the tagged release (\<Configuration Management\>, section 4.4) |

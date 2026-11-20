@@ -1,4 +1,4 @@
-# \<DocuView\> Security Operating Procedures
+# \<System Name\> Security Operating Procedures
 
 **\<ref\> | Version \<ver\> | Approved by the system owner**
 
@@ -36,7 +36,7 @@
 | Item | Detail |
 | --- | --- |
 | Reference | \<ref\> |
-| Title | \<DocuView\> Security Operating Procedures |
+| Title | \<System Name\> Security Operating Procedures |
 | Version | \<ver\> |
 | Status | Version \<ver\> approved by the system owner on 8 November 2026; version \<ver\>, changing rule A10 only, approved by the system owner on 9 November 2026. The legal adviser's review of A4, A8 and section 3.5 is pending |
 | Date | 8 November 2026 |
@@ -52,7 +52,7 @@
 
 | Role | Name | Decision | Date |
 | --- | --- | --- | --- |
-| System owner | Neil Ramsbottom | Version \<ver\> approved | 7 November 2026 |
+| System owner | \[Name\] | Version \<ver\> approved | 7 November 2026 |
 
 ### 1.3 Change history
 
@@ -64,13 +64,13 @@
 | \<ver\> | 18 November 2026 | No code references: page addresses, setting names, folder paths and file paths are described in plain words, and names of groups, scripts and releases are shown as plain text. No value, finding or decision is changed. Citations of other documents brought up to their current versions |
 | \<ver\> | 18 November 2026 | References to the integrity design point to \<System and Information Integrity Management\>, where it is now held (D-SI-10). Citations of other documents brought up to their current versions |
 | \<ver\> | 18 November 2026 | References to the acquisition design point to \<System and Services Acquisition Management\>, where it is now held (D-SA-19). Check C40: the developer test plan has 15 scripts, and the results are named without a folder path (D-SA-19). Citations of other documents brought up to their current versions |
-| \<ver\> | 18 November 2026 | Section 5.3: \<DocuView\>'s own applications and the server settings added to the components checked, as in \<Risk Assessment Management\>, section 4.5. Citations of other documents brought up to their current versions |
+| \<ver\> | 18 November 2026 | Section 5.3: \<System Name\>'s own applications and the server settings added to the components checked, as in \<Risk Assessment Management\>, section 4.5. Citations of other documents brought up to their current versions |
 | \<ver\> | 18 November 2026 | References to the risk assessment design point to \<Risk Assessment Management\>, where it is now held (D-RA-11). Section 5.3: the components checked and the time limits are summaries of \<Risk Assessment Management\>, which holds them (D-RA-11). Citations of other documents brought up to their current versions |
 | \<ver\> | 18 November 2026 | Rule A27 covers every request a person may make about their data, including to restrict or object. Nobody has signed the rules yet. Citations of other documents brought up to their current versions |
 | \<ver\> | 17 November 2026 | Duty C23: the system owner keeps the register of signatures, as the planning design says. Duty C36: access is changed by the groups' owners. Citations of other documents brought up to their current versions |
-| \<ver\> | 17 November 2026 | Duty C9 and section 5.4: members who have not signed in for 90 days are removed from \<DocuView\>'s groups, as \<DocuView\> holds no accounts to disable (D-PS-11). Citations of other documents brought up to their current versions |
-| \<ver\> | 17 November 2026 | Section 5.4: movers and leavers follow sign-in through AD FS, as \<DocuView\> holds no accounts (D-AC-23). The time limits are unchanged. Citations of other documents brought up to their current versions |
-| \<ver\> | 17 November 2026 | Part A: "you" is anyone who uses \<DocuView\>, as \<DocuView\> holds no accounts (D-AC-23). No rule is changed. Citations of other documents brought up to their current versions |
+| \<ver\> | 17 November 2026 | Duty C9 and section 5.4: members who have not signed in for 90 days are removed from \<System Name\>'s groups, as \<System Name\> holds no accounts to disable (D-PS-11). Citations of other documents brought up to their current versions |
+| \<ver\> | 17 November 2026 | Section 5.4: movers and leavers follow sign-in through AD FS, as \<System Name\> holds no accounts (D-AC-23). The time limits are unchanged. Citations of other documents brought up to their current versions |
+| \<ver\> | 17 November 2026 | Part A: "you" is anyone who uses \<System Name\>, as \<System Name\> holds no accounts (D-AC-23). No rule is changed. Citations of other documents brought up to their current versions |
 | \<ver\> | 17 November 2026 | Section 5.6 gains the emergency shut-down that PE-11 relies on, when a data centre moves to backup power. The traceability table names every rule that serves PE-5 and PE-17. Citations of other documents brought up to their current versions |
 | \<ver\> | 17 November 2026 | Duty C49: the export folder is checked each working day in place of weekly (D-MP-10). Citations of other documents brought up to their current versions |
 | \<ver\> | 17 November 2026 | References to the media protection design point to \<Media Protection Management\>, where it is now held (D-MP-09). Citations of other documents brought up to their current versions |
@@ -84,7 +84,7 @@
 | \<ver\> | 12 November 2026 | References to the assessment, authorisation and monitoring design point to \<Assessment, Authorization, and Monitoring Management\>, where it is now held (D-CA-11). Citations of other documents brought up to their current versions |
 | \<ver\> | 12 November 2026 | No document sends the reader to the application's code: source file, class and setting names are replaced by what they stand for, stated in plain words. No value, finding or decision is changed. Citations of other documents brought up to their current versions |
 | \<ver\> | 12 November 2026 | The audit review (section 5.2) also looks for configuration changes, reading of the audit log and gaps in the records. Citations of other documents brought up to their current versions |
-| \<ver\> | 12 November 2026 | References to the audit design point to \<Audit and Accountability Management\>, where it is now held (D-AU-10). The audit review (section 5.2) also checks ABC Technologies' record of AD FS sign-ins and AD group changes (D-AC-23). Citations of other documents brought up to their current versions |
+| \<ver\> | 12 November 2026 | References to the audit design point to \<Audit and Accountability Management\>, where it is now held (D-AU-10). The audit review (section 5.2) also checks \<Organisation\>'s record of AD FS sign-ins and AD group changes (D-AC-23). Citations of other documents brought up to their current versions |
 | \<ver\> | 12 November 2026 | References to the training design point to \<Awareness and Training Management\>, where it is now held (D-AT-09). Citations of other documents brought up to their current versions |
 | \<ver\> | 12 November 2026 | Rules A10, A13, A14, B7 and B9 and the joiner steps follow D-AC-23: single sign-on, and group owners managing access. These rules change, so the document awaits the system owner's approval. Citations of other documents brought up to their current versions |
 | \<ver\> | 12 November 2026 | Version numbers are shown as a placeholder, as the system owner asked (D-GEN-28). No other change. Citations of other documents brought up to their current versions |
@@ -102,21 +102,21 @@
 
 ## 2 Purpose and how to use this document
 
-These are the security operating procedures (SyOps) for \<DocuView\>. They have three parts:
+These are the security operating procedures (SyOps) for \<System Name\>. They have three parts:
 
 - **Part A** (section 3) holds the rules of behaviour that everyone must read and sign before getting access, as NIST SP 800-53 Rev 5 control PL-4 requires.
 - **Part B** (section 4) adds the rules for privileged users.
-- **Part C** (section 5) sets out how \<DocuView\>'s security is operated: each duty, who does it, how often, and the record that proves it was done.
+- **Part C** (section 5) sets out how \<System Name\>'s security is operated: each duty, who does it, how often, and the record that proves it was done.
 
 Sections 6 to 10 cover exceptions, contacts, definitions, the link from each rule to its NIST control, and acknowledgement.
 
-\<DocuView\> is not yet in production, so nothing in Part C is in practice yet. Frequencies and time limits are those approved in the family documents, and the values are in each family's parameter register. Role holders are named in \<Roles and Responsibilities\>. Items in square brackets are placeholders for the system owner to complete.
+\<System Name\> is not yet in production, so nothing in Part C is in practice yet. Frequencies and time limits are those approved in the family documents, and the values are in each family's parameter register. Role holders are named in \<Roles and Responsibilities\>. Items in square brackets are placeholders for the system owner to complete.
 
 **Table 4: Who reads which part**
 
 | Who | Reads and signs | When |
 | --- | --- | --- |
-| Everyone with a \<DocuView\> account | Part A | Before access, every 12 months, and when the rules change |
+| Everyone with a \<System Name\> account | Part A | Before access, every 12 months, and when the rules change |
 | Global administrators, administrators, auditors, the security officer, Windows server and database administrators, and developers with access to a live system | Parts A and B | Before privileged access, every 12 months, and when the rules change |
 | Holders of the roles in Part C | Their duties in Part C | Covered by role-based training (AT-3), with no separate signature |
 
@@ -125,47 +125,47 @@ Sections 6 to 10 cover exceptions, contacts, definitions, the link from each rul
 
 ## 3 Part A: rules for everyone
 
-"You" means anyone who uses \<DocuView\>. The rules are numbered A1 to A55 so that each can be traced to its NIST control in section 9.
+"You" means anyone who uses \<System Name\>. The rules are numbered A1 to A55 so that each can be traced to its NIST control in section 9.
 
 ### 3.1 Your responsibilities and the law
 
-**A1.** Follow these rules, ABC Technologies' information security policies, and the \<DocuView\> policies and procedures that apply to your role.
+**A1.** Follow these rules, \<Organisation\>'s information security policies, and the \<System Name\> policies and procedures that apply to your role.
 
 **A2.** You are accountable for everything done with your account.
 
 **A3.** Do not try to get round, disable or test any security control, and do not try to reach anything you have not been given access to.
 
-**A4.** Breaking these rules may lead to loss of access and to disciplinary action under ABC Technologies' disciplinary policy. Misuse can also be a criminal offence. This includes unauthorised access to or modification of computer material under the Computer Misuse Act 1990, and knowingly or recklessly obtaining or disclosing personal data without the controller's consent under section 170 of the Data Protection Act 2018. \[Legal adviser to confirm this wording.\]
+**A4.** Breaking these rules may lead to loss of access and to disciplinary action under \<Organisation\>'s disciplinary policy. Misuse can also be a criminal offence. This includes unauthorised access to or modification of computer material under the Computer Misuse Act 1990, and knowingly or recklessly obtaining or disclosing personal data without the controller's consent under section 170 of the Data Protection Act 2018. \[Legal adviser to confirm this wording.\]
 
 **A5.** If a rule is unclear, or you cannot follow it, ask the security officer before you act. Exceptions are granted only in writing (section 6).
 
 ### 3.2 Monitoring and privacy
 
-**A6.** Before you sign in, \<DocuView\> shows this notice: "This system is for authorised use only. Activity is monitored and recorded. Unauthorised use may lead to disciplinary or legal action. By signing in you accept these terms."
+**A6.** Before you sign in, \<System Name\> shows this notice: "This system is for authorised use only. Activity is monitored and recorded. Unauthorised use may lead to disciplinary or legal action. By signing in you accept these terms."
 
-**A7.** Everything you do in \<DocuView\> is recorded, including sign-ins, searches, documents opened, changes and exports. Authorised auditors review these records and report what they find to the security officer and system owner. The records may be used in investigations, and in disciplinary or legal proceedings.
+**A7.** Everything you do in \<System Name\> is recorded, including sign-ins, searches, documents opened, changes and exports. Authorised auditors review these records and report what they find to the security officer and system owner. The records may be used in investigations, and in disciplinary or legal proceedings.
 
-**A8.** You have no expectation of privacy in your use of \<DocuView\>. By signing these rules you agree to this monitoring. It is carried out only for security, audit and legal compliance.
+**A8.** You have no expectation of privacy in your use of \<System Name\>. By signing these rules you agree to this monitoring. It is carried out only for security, audit and legal compliance.
 
 ### 3.3 Your account and password
 
 **A9.** Use only your own account. Never share your password, let anyone else use your session, or use someone else's account.
 
-**A10.** Sign in to \<DocuView\> with your ABC Technologies account, through single sign-on with multi-factor authentication. \<DocuView\> has no password of its own. Follow ABC Technologies' rules for that account's password (\<Policy\> (IA), R3).
+**A10.** Sign in to \<System Name\> with your \<Organisation\> account, through single sign-on with multi-factor authentication. \<System Name\> has no password of its own. Follow \<Organisation\>'s rules for that account's password (\<Policy\> (IA), R3).
 
-**A11.** Do not write your password down, keep it in a file, email or chat, or let a browser save it. An ABC Technologies approved password manager may be used.
+**A11.** Do not write your password down, keep it in a file, email or chat, or let a browser save it. An \<Organisation\> approved password manager may be used.
 
 **A12.** Nobody, including administrators and the service desk, will ever ask for your password. Never give it to anyone.
 
-**A13.** If you think anyone else knows your password, or you lose your second factor, tell ABC Technologies' IT service desk and the security officer at once.
+**A13.** If you think anyone else knows your password, or you lose your second factor, tell \<Organisation\>'s IT service desk and the security officer at once.
 
-**A14.** Repeated failed sign-ins lock your ABC Technologies account. Report any lockout you did not cause.
+**A14.** Repeated failed sign-ins lock your \<Organisation\> account. Report any lockout you did not cause.
 
-**A15.** When working remotely, connect through ABC Technologies' VPN with multi-factor authentication. Never approve a sign-in prompt you did not start.
+**A15.** When working remotely, connect through \<Organisation\>'s VPN with multi-factor authentication. Never approve a sign-in prompt you did not start.
 
-### 3.4 Using \<DocuView\> and its documents
+### 3.4 Using \<System Name\> and its documents
 
-**A16.** Use \<DocuView\> only for ABC Technologies business. Personal use is not allowed.
+**A16.** Use \<System Name\> only for \<Organisation\> business. Personal use is not allowed.
 
 **A17.** Open, search for and download only the documents your current work needs, even if you can see more.
 
@@ -175,13 +175,13 @@ Sections 6 to 10 cover exceptions, contacts, definitions, the link from each rul
 
 **A20.** Use **Report Bad File** for a corrupt or wrong document.
 
-**A21.** Do not use \<DocuView\> to store, view or share anything illegal, offensive, harassing or discriminatory, or anything you have no right to use under copyright or licence.
+**A21.** Do not use \<System Name\> to store, view or share anything illegal, offensive, harassing or discriminatory, or anything you have no right to use under copyright or licence.
 
-**A22.** Do not share documents outside their project, or with anyone outside ABC Technologies, unless the project access approver has agreed and the recipient has a business need.
+**A22.** Do not share documents outside their project, or with anyone outside \<Organisation\>, unless the project access approver has agreed and the recipient has a business need.
 
 ### 3.5 Personal data
 
-\<DocuView\> holds personal data, chiefly in HR documents. UK GDPR, the Data Protection Act 2018 and the Data (Use and Access) Act 2025 apply, and the privacy plan is \<Privacy Plan\>.
+\<System Name\> holds personal data, chiefly in HR documents. UK GDPR, the Data Protection Act 2018 and the Data (Use and Access) Act 2025 apply, and the privacy plan is \<Privacy Plan\>.
 
 **A23.** Look at personal data only when your current task needs it, and use it only for the purposes it is held for: HR administration and managing project documents.
 
@@ -195,53 +195,53 @@ Sections 6 to 10 cover exceptions, contacts, definitions, the link from each rul
 
 **A28.** Delete exported or printed personal data securely once you no longer need it, and within 30 days at the latest.
 
-**A29.** Report any loss, theft, misdirected message or unauthorised access involving personal data to the security officer at once, and within 1 hour. The legal adviser decides whether to report it to the ICO, which must be done within 72 hours of ABC Technologies becoming aware.
+**A29.** Report any loss, theft, misdirected message or unauthorised access involving personal data to the security officer at once, and within 1 hour. The legal adviser decides whether to report it to the ICO, which must be done within 72 hours of \<Organisation\> becoming aware.
 
 ### 3.6 Exports, printing, copies and removable media
 
 **A30.** Export, download or print only when your work needs it. Bulk export is only for the roles allowed it.
 
-**A31.** Save exported files only in approved ABC Technologies locations: \[approved locations\]. Never save them on personal devices, in personal cloud storage or in personal email.
+**A31.** Save exported files only in approved \<Organisation\> locations: \[approved locations\]. Never save them on personal devices, in personal cloud storage or in personal email.
 
-**A32.** Do not copy \<DocuView\> information to USB drives or other removable media. USB storage is blocked on managed devices. Where there is a business need, ask for an exception (section 6), and use only encrypted media issued by ABC Technologies.
+**A32.** Do not copy \<System Name\> information to USB drives or other removable media. USB storage is blocked on managed devices. Where there is a business need, ask for an exception (section 6), and use only encrypted media issued by \<Organisation\>.
 
-**A33.** Print \<DocuView\> documents only on ABC Technologies' managed printers with secure release, and mark them RESTRICTED. Collect them from the printer straight away, lock them away when not in use, do not take them off site, and cross-cut shred them when finished, to DIN 66399 level P-4 or better.
+**A33.** Print \<System Name\> documents only on \<Organisation\>'s managed printers with secure release, and mark them RESTRICTED. Collect them from the printer straight away, lock them away when not in use, do not take them off site, and cross-cut shred them when finished, to DIN 66399 level P-4 or better.
 
-**A34.** Do not email \<DocuView\> documents outside ABC Technologies, and do not set up automatic forwarding of work email to any outside address.
+**A34.** Do not email \<System Name\> documents outside \<Organisation\>, and do not set up automatic forwarding of work email to any outside address.
 
 ### 3.7 Devices, remote working and travel
 
-**A35.** Use \<DocuView\> only on a device managed by ABC Technologies. Do not use personal computers, phones or tablets. Phones and tablets cannot reach \<DocuView\>.
+**A35.** Use \<System Name\> only on a device managed by \<Organisation\>. Do not use personal computers, phones or tablets. Phones and tablets cannot reach \<System Name\>.
 
-**A36.** Lock your screen whenever you leave your device, even briefly, and sign out of \<DocuView\> when you finish. \<DocuView\> locks the page after 25 minutes idle and signs you out after 30.
+**A36.** Lock your screen whenever you leave your device, even briefly, and sign out of \<System Name\> when you finish. \<System Name\> locks the page after 25 minutes idle and signs you out after 30.
 
 **A37.** Keep your desk clear of printed documents and notes, and place your screen so that others cannot read it.
 
-**A38.** Work remotely only from home, unless the system owner has approved another place in writing. Do not print \<DocuView\> documents at home, unless the system owner has approved it in writing.
+**A38.** Work remotely only from home, unless the system owner has approved another place in writing. Do not print \<System Name\> documents at home, unless the system owner has approved it in writing.
 
-**A39.** When remote, connect to ABC Technologies' VPN before opening \<DocuView\>. Do not disable the VPN or send traffic around it.
+**A39.** When remote, connect to \<Organisation\>'s VPN before opening \<System Name\>. Do not disable the VPN or send traffic around it.
 
 **A40.** Use public Wi-Fi only with the VPN connected before anything else. Never use public or shared computers.
 
-**A41.** Do not use \<DocuView\> from outside the UK, or take a device that can reach it abroad, without written approval from the system owner and security officer first (section 6).
+**A41.** Do not use \<System Name\> from outside the UK, or take a device that can reach it abroad, without written approval from the system owner and security officer first (section 6).
 
-**A42.** Report a lost or stolen device to ABC Technologies' service desk and the security officer at once, and within 1 hour.
+**A42.** Report a lost or stolen device to \<Organisation\>'s service desk and the security officer at once, and within 1 hour.
 
 ### 3.8 Email, social media, external sites and AI
 
-**A43.** Do not post or discuss \<DocuView\> information, documents or how the system works on social media, forums or any public website.
+**A43.** Do not post or discuss \<System Name\> information, documents or how the system works on social media, forums or any public website.
 
-**A44.** Do not use your work email address or username to create accounts on outside sites or services, except those ABC Technologies has approved for business use. Never reuse a work password on them.
+**A44.** Do not use your work email address or username to create accounts on outside sites or services, except those \<Organisation\> has approved for business use. Never reuse a work password on them.
 
-**A45.** Do not put \<DocuView\> information into any generative AI tool, translation site, file converter or other outside service unless the system owner has approved that tool in writing (section 6).
+**A45.** Do not put \<System Name\> information into any generative AI tool, translation site, file converter or other outside service unless the system owner has approved that tool in writing (section 6).
 
 **A46.** Be wary of emails, messages or calls that ask for documents, passwords or system details, or press you to act fast. Do not click links or open attachments you did not expect. Check the sender by a separate route, and report suspected phishing.
 
 ### 3.9 Software and changes
 
-**A47.** Do not install software, browser extensions or plug-ins, or change security settings, on the device you use for \<DocuView\> unless ABC Technologies has approved them.
+**A47.** Do not install software, browser extensions or plug-ins, or change security settings, on the device you use for \<System Name\> unless \<Organisation\> has approved them.
 
-**A48.** Do not connect unapproved hardware to an ABC Technologies device or network.
+**A48.** Do not connect unapproved hardware to an \<Organisation\> device or network.
 
 **A49.** Do not use tools that scan, test or bypass security, or that hide your activity, such as anonymising services.
 
@@ -255,10 +255,10 @@ Sections 6 to 10 cover exceptions, contacts, definitions, the link from each rul
 - a lost or stolen device
 - unexpected pop-ups, slowness or software installing itself
 - a request for passwords or documents from someone you cannot verify
-- someone using \<DocuView\> who should not be
+- someone using \<System Name\> who should not be
 - any breach of these rules
 
-**A51.** Report by phone or email to the security officer: \[business phone and email\]. Use Jira Service Desk once it is set up. If the security officer cannot be reached, contact the deputy or ABC Technologies' security contact (section 7).
+**A51.** Report by phone or email to the security officer: \[business phone and email\]. Use ServiceNow once it is set up. If the security officer cannot be reached, contact the deputy or \<Organisation\>'s security contact (section 7).
 
 **A52.** Do not investigate yourself, delete evidence or warn anyone involved. Leave anything relevant as it is.
 
@@ -266,7 +266,7 @@ Sections 6 to 10 cover exceptions, contacts, definitions, the link from each rul
 
 ### 3.11 Training
 
-**A54.** Complete ABC Technologies' security and privacy awareness training before you get access and every 12 months, together with the \<DocuView\> briefing on these rules (\<Awareness and Training Management\>, section 4.3). Answer the 5-question check at the end of the briefing.
+**A54.** Complete \<Organisation\>'s security and privacy awareness training before you get access and every 12 months, together with the \<System Name\> briefing on these rules (\<Awareness and Training Management\>, section 4.3). Answer the 5-question check at the end of the briefing.
 
 **A55.** Read these rules again and sign them again every 12 months, and after a material change: a new or stricter rule, a changed consequence, new monitoring or a new privileged duty. The system owner tells you when, and each signature is recorded on TPL-21 (\<Policy\> (PL), R6 and R7).
 
@@ -297,7 +297,7 @@ Part B applies, in addition to Part A, to global administrators, administrators,
 
 **B8.** Never raise your own privileges. Another approved person must make any change to your own access, and nobody's privileges may be raised without approval.
 
-**B9.** Confirm a person's identity by a separate route before you restore any access. Password resets and unlocks are done by ABC Technologies' IT service desk, not in \<DocuView\>.
+**B9.** Confirm a person's identity by a separate route before you restore any access. Password resets and unlocks are done by \<Organisation\>'s IT service desk, not in \<System Name\>.
 
 **B10.** Do not open documents just because your role allows it. Open them only for a task that needs it, and note the reason when it is not obvious.
 
@@ -307,7 +307,7 @@ Part B applies, in addition to Part A, to global administrators, administrators,
 
 **B12.** Never alter, delete or disable audit records or logging. Report any failure of auditing at once. Treat application and server logs that repeat audit details as audit records: read them only when your role needs it, and never copy them off the VMs except as incident evidence.
 
-**B13.** Change \<DocuView\>, its VMs, its database or its settings only through an approved change (section 5.5).
+**B13.** Change \<System Name\>, its VMs, its database or its settings only through an approved change (section 5.5).
 
 **B14.** Do not change security settings, firewall rules, certificates or keys without an approved change.
 
@@ -323,9 +323,9 @@ Part B applies, in addition to Part A, to global administrators, administrators,
 
 ### 4.4 Maintenance and incidents
 
-**B20.** Use only approved maintenance tools, and connect for remote maintenance only through ABC Technologies' approved route (section 5.7).
+**B20.** Use only approved maintenance tools, and connect for remote maintenance only through \<Organisation\>'s approved route (section 5.7).
 
-**B21.** Escort and supervise anyone doing maintenance who does not hold \<DocuView\> access.
+**B21.** Escort and supervise anyone doing maintenance who does not hold \<System Name\> access.
 
 **B22.** Report any suspected security incident, including one you caused, to the security officer at once.
 
@@ -334,7 +334,7 @@ Part B applies, in addition to Part A, to global administrators, administrators,
 
 ## 5 Part C: operating procedures
 
-Part C sets out how \<DocuView\>'s security is run. Each duty has a reference, C1 to C53, so that it can be traced to its NIST control in section 9. Each names the record that proves it was done. Records use the forms in \<Record Templates\>. Once the Jira workflow is in use, a Jira record holding the same fields may replace a form. Records are kept for 3 years in \[the restricted records location\], unless a longer period applies. Audit records stay in \<DocuView\> for 12 months and then in an offline archive for 12 more; application logs are kept for 30 days (\<Audit and Accountability Management\>).
+Part C sets out how \<System Name\>'s security is run. Each duty has a reference, C1 to C53, so that it can be traced to its NIST control in section 9. Each names the record that proves it was done. Records use the forms in \<Record Templates\>. Once the ServiceNow workflow is in use, a ServiceNow record holding the same fields may replace a form. Records are kept for 3 years in \[the restricted records location\], unless a longer period applies. Audit records stay in \<System Name\> for 12 months and then in an offline archive for 12 more; application logs are kept for 30 days (\<Audit and Accountability Management\>).
 
 The system does not yet raise alerts, so all monitoring is by hand for now. The detection use cases U1 to U8 in \<System and Information Integrity Management\>, section 4.4, say what will raise an alert, including repeated failed sign-ins, a break in the audit chain and a Defender detection, and \<Procedures\>, PRO-SI-4, says how to respond (PA-59).
 
@@ -350,12 +350,12 @@ The system does not yet raise alerts, so all monitoring is by hand for now. The 
 | **Weekly** |  |  |  |  |  |
 | C3 | Review failed sign-ins, lockouts and privileged actions | Auditor | Section 5.2 | TPL-8 | AC-2, AC-6(9), AC-7, AU-6 |
 | C4 | Review logs and any alerts | Security officer | \<Procedures\>, PRO-SI-3 and PRO-SI-4 | TPL-8 | SI-4, AU-6 |
-| C5 | Check Windows and PostgreSQL logs, or ABC Technologies' report on them | Windows server and database administrators | To be confirmed with ABC Technologies | TPL-8 | AU-6, AU-6(3), SI-4 |
+| C5 | Check Windows and PostgreSQL logs, or \<Organisation\>'s report on them | Windows server and database administrators | To be confirmed with \<Organisation\> | TPL-8 | AU-6, AU-6(3), SI-4 |
 | C6 | Back up system configuration | Windows server administrator | \<Procedures\>, PRO-CP-1 | Backup job log, checked at C8 | CP-9 |
 | C7 | Act on security advisories as they arrive, and confirm none were missed | Security officer | \<Procedures\>, PRO-SI-5 | TPL-7 | SI-5 |
 | C8 | Check every backup job in the week succeeded | Database administrator | Backup job logs | TPL-8 | CP-9 |
 | **Monthly** |  |  |  |  |  |
-| C9 | List the members of \<DocuView\>'s groups who have not signed in for 90 days, and have the groups' owners remove them | Global administrator; the groups' owners | \<Procedures\>, PRO-AC-8 | TPL-3 | AC-2(3) |
+| C9 | List the members of \<System Name\>'s groups who have not signed in for 90 days, and have the groups' owners remove them | Global administrator; the groups' owners | \<Procedures\>, PRO-AC-8 | TPL-3 | AC-2(3) |
 | C10 | Scan for vulnerabilities and review patches | Windows server administrator, security officer | \<Procedures\>, PRO-RA-3 (PA-62) | TPL-7 | RA-5, SI-2 |
 | C11 | Check packages, lock files, the offline feed's index and support dates, and run Test-SupplyChain.ps1 at each release | Developers | \<Procedures\>, PRO-SR-1 and PRO-SR-3; \<Procedures\>, PRO-SA-5 | TPL-7 | SI-2, SA-22, SR-3 |
 | C12 | Check release packages, document checksums and the audit chain | Windows server administrator, security officer | \<Procedures\>, PRO-SI-6 | TPL-8 | SI-7, SI-7(1), AU-9 |
@@ -366,7 +366,7 @@ The system does not yet raise alerts, so all monitoring is by hand for now. The 
 | C47 | Check the running configuration against the baseline, and report any drift | Windows server and database administrators | \<Procedures\>, PRO-CM-7 (PA-80) | TPL-8 | CM-2, CM-6, CA-7 |
 | C48 | Review every maintenance record against its change record; raise any maintenance without one as an incident | Security officer | \<Procedures\>, PRO-MA-1 | TPL-12 | MA-2, MA-4 |
 | C49 | Check the export folder on the application VM, and delete any export copy older than 24 hours (each working day, until PA-86 is fixed) | Windows server administrator | \<Procedures\>, PRO-MP-5 | TPL-8 | MP-4, MP-6 |
-| C50 | Each week, check CISA's Known Exploited Vulnerabilities catalogue and ABC Technologies' alerts against \<DocuView\>'s components; fix or mitigate any match within 3 days | Security officer | \<Procedures\>, PRO-RA-4 | TPL-7 | RA-5, SI-2, SI-5 |
+| C50 | Each week, check CISA's Known Exploited Vulnerabilities catalogue and \<Organisation\>'s alerts against \<System Name\>'s components; fix or mitigate any match within 3 days | Security officer | \<Procedures\>, PRO-RA-4 | TPL-7 | RA-5, SI-2, SI-5 |
 | **Every 3 months** |  |  |  |  |  |
 | C15 | Review privileged access | System owner, auditor | \<Procedures\>, PRO-AC-7 | TPL-3 | AC-2, AC-6(7) |
 | C16 | Check the global administrators' actions | Head of Cyber | Audit records | TPL-8 | AC-6(9), AU-6 |
@@ -380,18 +380,18 @@ The system does not yet raise alerts, so all monitoring is by hand for now. The 
 | C22 | Complete awareness and role training | Everyone; the security officer keeps records | \<Procedures\>, PRO-AT-1 to PRO-AT-5 | TPL-9 | AT-2, AT-3, AT-4 |
 | C23 | Re-sign Parts A and B | Everyone; the system owner keeps the register of signatures | Section 10 | TPL-21; the register of signatures (\<Planning Management\>, section 4.5) | PL-4, PS-6 |
 | C24 | Review functions, ports, software and services | Windows server administrator, developers | \<Procedures\>, PRO-CM-5 | TPL-3 | CM-7(1) |
-| C25 | Review the boundary and connections | System owner, ABC Technologies' security contact | \<Procedures\>, PRO-SC-8; \<Procedures\>, PRO-CA-2 | TPL-3 | SC-7, CA-3, CA-9 |
+| C25 | Review the boundary and connections | System owner, \<Organisation\>'s security contact | \<Procedures\>, PRO-SC-8; \<Procedures\>, PRO-CA-2 | TPL-3 | SC-7, CA-3, CA-9 |
 | C26 | Review the supply chain, external services and suppliers | System owner, developers | \<Procedures\>, PRO-RA-2; \<Procedures\>, PRO-SA-3; \<Procedures\>, PRO-SR-2 | TPL-16 | RA-3(1), SA-9, SR-6 |
 | C27 | Review development tools and standards | Developers, security officer | \<Procedures\>, PRO-SA-6 | TPL-23 | SA-15 |
 | C28 | Review maintenance tools and people | Windows server administrator, system owner | \<Procedures\>, PRO-MA-3 and PRO-MA-5 (PA-67) | TPL-12 | MA-3, MA-5 |
-| C29 | Check ABC Technologies' physical security evidence | System owner | \<Procedures\>, PRO-PE-1 | Response logged in \<Evidence Requests\> | PE-2 to PE-16 |
+| C29 | Check \<Organisation\>'s physical security evidence | System owner | \<Procedures\>, PRO-PE-1 | Response logged in \<Evidence Requests\> | PE-2 to PE-16 |
 | C30 | Assess home working controls | Security officer | \<Procedures\>, PRO-PE-4 | TPL-4 | PE-17 |
 | C31 | Review risk designations and access agreements | System owner | \<Procedures\>, PRO-PS-4 | TPL-3 | PS-2, PS-6 |
 | C32 | Check personal data is accurate, relevant and still needed | Project access approvers | \<Procedures\>, PRO-PT-5 | TPL-3 | SI-18, PT-3 |
-| C33 | Check the privacy notice names \<DocuView\> | System owner | \<Procedures\>, PRO-PT-3 | TPL-4 | PT-5 |
+| C33 | Check the privacy notice names \<System Name\> | System owner | \<Procedures\>, PRO-PT-3 | TPL-4 | PT-5 |
 | C34 | Review exceptions | System owner | Section 6 | Exception register, TPL-17 | PL-4, CA-5 |
 | C35 | Review these SyOps and the other security documents | System owner | Each document's change history | Document change history | PL-4c, PL-2 |
-| C52 | Review the cryptographic and key register, the host firewall allow-lists, external services and exceptions; schedule keys and certificates due for change | System owner, security officer, ABC Technologies | \<Procedures\>, PRO-SC-8 | TPL-23 | SC-7(4), SC-12, SC-13 |
+| C52 | Review the cryptographic and key register, the host firewall allow-lists, external services and exceptions; schedule keys and certificates due for change | System owner, security officer, \<Organisation\> | \<Procedures\>, PRO-SC-8 | TPL-23 | SC-7(4), SC-12, SC-13 |
 | C53 | Check BitLocker is on for both VMs and that a recovery key works; check backups are encrypted | Windows server administrator, database administrator | \<Procedures\>, PRO-SC-7 | TPL-11 | SC-28, SC-28(1) |
 | **When an event occurs** |  |  |  |  |  |
 | C36 | Grant, change or remove access | The groups' owners; a global administrator ends sessions | Section 5.4 | TPL-2, TPL-14 | AC-2, PS-4, PS-5 |
@@ -400,7 +400,7 @@ The system does not yet raise alerts, so all monitoring is by hand for now. The 
 | C39 | Renew certificates before they expire | Windows server administrator | \<Procedures\>, PRO-SC-2 (PA-18) | TPL-6 | SC-8, SC-17 |
 | C40 | Repeat the security tests at each release and after a significant change | Developers | The developer test plan in \<System and Services Acquisition Management\>, section 4.9 (15 scripts, including Test-Protection.ps1 for \<Procedures\>, PRO-SC-1), on a separate test stack; \<Procedures\>, PRO-SA-2 | Results, with a manifest, in the evidence for each family | CA-2, CM-4(2), SA-11 |
 | C41 | Carry out maintenance | Administrators | Sections 5.6 and 5.7 | TPL-12 | MA-2, MA-4 |
-| C42 | Transport, sanitise or dispose of media | ABC Technologies, administrators | Section 5.8 | TPL-13 | MP-5, MP-6 |
+| C42 | Transport, sanitise or dispose of media | \<Organisation\>, administrators | Section 5.8 | TPL-13 | MP-5, MP-6 |
 | C43 | Handle a security incident or personal data breach | Security officer | Section 5.9 | TPL-10 | IR-4, IR-5, IR-6 |
 | C44 | Handle a request or complaint from a person about their data | Legal adviser | \<Procedures\>, PRO-PT-1 and PRO-PT-2 | TPL-15, TPL-22 | AC-3(14), SI-18(4) |
 | C51 | Have every code change reviewed by another developer and merged through the protected default branch, and sign each release tag. Until GitHub enforces this (PA-91), the reviewer records the review on the change | Developers | \<Procedures\>, PRO-SA-1; Test-Development.ps1 at each release | Pull request or change record, TPL-6 | SA-10, CM-3 |
@@ -410,7 +410,7 @@ The system does not yet raise alerts, so all monitoring is by hand for now. The 
 1. The auditor opens the audit log page in the admin portal and filters to the period since the last review.
 2. They look for repeated failed sign-ins, lockouts, refused access, sign-ins at unusual times, account, group and privilege changes, password resets, large exports, configuration changes, reading of the audit log, gaps in the records, and records under unknown names or "System".
 3. They compare account and privilege changes with the approved requests (TPL-2).
-4. They check the Windows and PostgreSQL logs, and ABC Technologies' record of AD FS sign-ins and of changes to \<DocuView\>'s AD groups, or get ABC Technologies' report on them.
+4. They check the Windows and PostgreSQL logs, and \<Organisation\>'s record of AD FS sign-ins and of changes to \<System Name\>'s AD groups, or get \<Organisation\>'s report on them.
 5. They run the audit chain check (\<Procedures\>, PRO-AU-2) once it is built. If tampering is suspected, they preserve the evidence before anything is changed (PRO-AU-2, step 3), and raise it, and anything else unexplained, as a security incident (section 5.9).
 6. They record the date, the period covered, the reviewer and the result on TPL-8.
 
@@ -427,9 +427,9 @@ The audit log cannot yet be fully relied on. Many privileged actions are not log
 | .NET and NuGet packages, from nuget.org and the offline feed (PA-94) | Package vulnerability report at each build | Developers | Each build, and monthly |
 | Browser libraries | Vendor security announcements | Developers | Monthly |
 | Container images and their operating system packages | Test-Vulnerability.ps1; no image scanner yet (PA-62) | Developers | Each release |
-| \<DocuView\>'s own applications | Web application scan; no scanner yet (PA-62) | Developers | Each release |
+| \<System Name\>'s own applications | Web application scan; no scanner yet (PA-62) | Developers | Each release |
 | Server and database settings | Configuration scan against the baseline (PA-80) | Windows server administrator, database administrator | Monthly |
-| All components, for exploited flaws | CISA's Known Exploited Vulnerabilities catalogue and ABC Technologies' alerts, \<Procedures\>, PRO-RA-4 | Security officer | Weekly (C50) |
+| All components, for exploited flaws | CISA's Known Exploited Vulnerabilities catalogue and \<Organisation\>'s alerts, \<Procedures\>, PRO-RA-4 | Security officer | Weekly (C50) |
 
 **Table 7: Time limits for fixes, summarised from \<Risk Assessment Management\>, section 4.6**
 
@@ -444,37 +444,37 @@ A fix that cannot be made in time goes through PRO-AC-15 and into \<Plan of Acti
 
 ### 5.4 Joiners, movers and leavers (C36)
 
-1. **Joiner.** The person asks for access in Jira. Their line manager approves it, and the group's owner authorises it: the system owner for a role, or the project access approver for a project. Before the person is added to a group, they complete training (A54), sign Part A, and Part B if privileged. The owner adds them to the fewest AD groups the role needs. No \<DocuView\> account is created.
+1. **Joiner.** The person asks for access in ServiceNow. Their line manager approves it, and the group's owner authorises it: the system owner for a role, or the project access approver for a project. Before the person is added to a group, they complete training (A54), sign Part A, and Part B if privileged. The owner adds them to the fewest AD groups the role needs. No \<System Name\> account is created.
 2. **Mover.** The person's manager tells the system owner and the owners of the person's groups within 1 working day of a role change. Access no longer needed is removed and recorded on TPL-14.
-3. **Leaver.** ABC Technologies disables the person's Active Directory account at once, which ends their access, and the owners of their groups remove the memberships within 5 working days. Any exported files or paper are recovered or destroyed, and recorded on TPL-14.
-4. **High-risk leaver or misuse.** ABC Technologies' service desk disables the Active Directory account, and a global administrator ends the person's sessions, within 1 hour of notice (\<Procedures\>, PRO-AC-4).
-5. **Inactive members.** Members of \<DocuView\>'s groups who have not signed in for 90 days are removed from them each month (C9). ABC Technologies disables unused Active Directory accounts under its own standard.
+3. **Leaver.** \<Organisation\> disables the person's Active Directory account at once, which ends their access, and the owners of their groups remove the memberships within 5 working days. Any exported files or paper are recovered or destroyed, and recorded on TPL-14.
+4. **High-risk leaver or misuse.** \<Organisation\>'s service desk disables the Active Directory account, and a global administrator ends the person's sessions, within 1 hour of notice (\<Procedures\>, PRO-AC-4).
+5. **Inactive members.** Members of \<System Name\>'s groups who have not signed in for 90 days are removed from them each month (C9). \<Organisation\> disables unused Active Directory accounts under its own standard.
 
 ### 5.5 Change control (C38)
 
-1. **Normal change.** It is raised on TPL-6, or in Jira once that is set up (PA-53). The security officer assesses its security impact, and it is tested on a separate stack. The change control board approves it: the system owner, the security officer and the Windows server administrator. After it is made, it is checked to confirm the security functions still work. The documents it affects are updated.
+1. **Normal change.** It is raised on TPL-6, or in ServiceNow once that is set up (PA-53). The security officer assesses its security impact, and it is tested on a separate stack. The change control board approves it: the system owner, the security officer and the Windows server administrator. After it is made, it is checked to confirm the security functions still work. The documents it affects are updated.
 2. **Emergency change.** This is allowed only to stop or limit an incident or an outage. The system owner, or their deputy, approves it by phone or in person before it is made. It is recorded on TPL-6 within 1 working day, and reviewed by the change control board at its next meeting (PRO-CM-8).
 3. **Prohibited.** There are no changes without a record, no changes by anyone outside the approved roles, and no changes that switch off auditing or security functions.
 
-The security officer analyses each change's impact against the criteria in \<Configuration Management\>, section 4.9, and the change control board decides under its charter in \<Configuration Management\>, section 4.8. The system owner also checks every change against the list of significant changes in \<Assessment, Authorization, and Monitoring Management\>, section 4.9 (\<Procedures\>, PRO-CA-6). A significant change goes to the authorising official before it is made, who decides whether \<DocuView\> must be re-assessed or re-authorised. The full process is in \<Procedures\> (CM) and \<Configuration Management\>.
+The security officer analyses each change's impact against the criteria in \<Configuration Management\>, section 4.9, and the change control board decides under its charter in \<Configuration Management\>, section 4.8. The system owner also checks every change against the list of significant changes in \<Assessment, Authorization, and Monitoring Management\>, section 4.9 (\<Procedures\>, PRO-CA-6). A significant change goes to the authorising official before it is made, who decides whether \<System Name\> must be re-assessed or re-authorised. The full process is in \<Procedures\> (CM) and \<Configuration Management\>.
 
 ### 5.6 Secure start-up, shut-down and recovery (C41)
 
 1. **Start-up.** Start the database VM first, then the application VM. Confirm the time is synchronised, run the start-up checks of release packages, document checksums and the audit chain (\<Procedures\>, PRO-SI-6), then confirm every service is healthy (C1).
-2. **Shut-down.** A planned shut-down is an approved change. Tell users at least 2 working days beforehand, confirm the latest backups succeeded, stop DV\_Web and DV\_Admin\_UI, then DV\_API, then PostgreSQL, and record it.
-3. **Emergency shut-down.** If ABC Technologies warns that the data centre is on backup power, the Windows server and database administrators shut down at once in the same order, without the notice, and before the backup power runs out. It is recorded on TPL-10 as a physical incident.
+2. **Shut-down.** A planned shut-down is an approved change. Tell users at least 2 working days beforehand, confirm the latest backups succeeded, stop UI application and Admin application, then API, then PostgreSQL, and record it.
+3. **Emergency shut-down.** If \<Organisation\> warns that the data centre is on backup power, the Windows server and database administrators shut down at once in the same order, without the notice, and before the backup power runs out. It is recorded on TPL-10 as a physical incident.
 4. **Recovery.** Follow \<Contingency Planning Management\>. Restore from the latest good backup, run the checks in PRO-CP-2 (row counts, document checksums and the audit records' stored hashes) and \<Contingency Planning Management\>, section 4.7, and change secrets if a compromise is suspected. Confirm the security functions work before users return, and record the recovery on TPL-11, or on TPL-10 if it followed an incident.
 
 ### 5.7 Remote maintenance (C41)
 
-1. Remote maintenance is done only over a route in \<Maintenance Management\>, section 4.4, through ABC Technologies' approved route, with multi-factor authentication, for an approved change or an incident.
+1. Remote maintenance is done only over a route in \<Maintenance Management\>, section 4.4, through \<Organisation\>'s approved route, with multi-factor authentication, for an approved change or an incident.
 2. The session is logged, limited to the task, and ended as soon as it is finished.
 3. Afterwards the administrator runs the checklist after maintenance (\<Procedures\>, Table MA-2) and records the session on TPL-12, with the session log reference. The security officer reviews and signs the result within 1 working day.
-4. Outside maintenance staff work only under the supervision of a \<DocuView\> administrator (B21).
+4. Outside maintenance staff work only under the supervision of a \<System Name\> administrator (B21).
 
 ### 5.8 Media sanitisation and disposal (C42)
 
-1. Media are sanitised before reuse or disposal by the method for their type in \<Media Protection Management\>, section 4.6, following NIST SP 800-88 Revision 2 and IEEE 2883-2022: cryptographic erase for encrypted virtual disks and backups, and purge or destruction with a certificate for ABC Technologies' physical disks.
+1. Media are sanitised before reuse or disposal by the method for their type in \<Media Protection Management\>, section 4.6, following NIST SP 800-88 Revision 2 and IEEE 2883-2022: cryptographic erase for encrypted virtual disks and backups, and purge or destruction with a certificate for \<Organisation\>'s physical disks.
 2. Paper is cross-cut shredded to DIN 66399 level P-4 or better. Exported files are deleted securely from wherever they were saved.
 3. Transport, sanitising and any exception are recorded on TPL-13.
 
@@ -484,9 +484,9 @@ The security officer analyses each change's impact against the criteria in \<Con
 
 | Severity | Examples | Security officer starts work within | Who is told |
 | --- | --- | --- | --- |
-| Critical | Personal data breach likely to harm people; ransomware; compromise of a privileged account | 1 hour | System owner, authorising official, legal adviser, ABC Technologies' security contact |
-| High | Compromised user account; exposed secret; access to documents someone should not see | 4 hours | System owner, ABC Technologies' security contact; legal adviser if personal data is involved |
-| Medium | Malware stopped by Defender; repeated failed sign-ins; a supplier advisory affecting \<DocuView\> | 1 working day | System owner |
+| Critical | Personal data breach likely to harm people; ransomware; compromise of a privileged account | 1 hour | System owner, authorising official, legal adviser, \<Organisation\>'s security contact |
+| High | Compromised user account; exposed secret; access to documents someone should not see | 4 hours | System owner, \<Organisation\>'s security contact; legal adviser if personal data is involved |
+| Medium | Malware stopped by Defender; repeated failed sign-ins; a supplier advisory affecting \<System Name\> | 1 working day | System owner |
 | Low | A single policy breach with no data exposed | 5 working days | Recorded only |
 
 **Table 9: First actions**
@@ -497,12 +497,12 @@ The security officer analyses each change's impact against the criteria in \<Con
 | Exposed password or secret | Change it and report it to the security officer | Whoever finds it |
 | Access to data someone should not see | Stop, and report to the security officer | Whoever finds it |
 | Personal data breach | Report to the security officer at once. The security officer tells the legal adviser, who decides on telling the ICO within 72 hours of becoming aware and the people affected, and records every breach (\<Incident Response Management\>, section 4.8) | Whoever finds it; security officer; legal adviser |
-| Lost or stolen device | Report to the service desk and security officer; ABC Technologies locks or wipes it | Whoever loses it |
-| Supplier compromise or advisory | Assess the effect on \<DocuView\>, and report to the security officer; tell ABC Technologies' security contact | Developers, security officer |
+| Lost or stolen device | Report to the service desk and security officer; \<Organisation\> locks or wipes it | Whoever loses it |
+| Supplier compromise or advisory | Assess the effect on \<System Name\>, and report to the security officer; tell \<Organisation\>'s security contact | Developers, security officer |
 | Audit or service failure | Report to the security officer | Administrator |
-| Suspected malware or attack | Report to the security officer, who tells ABC Technologies' security contact | Whoever finds it |
+| Suspected malware or attack | Report to the security officer, who tells \<Organisation\>'s security contact | Whoever finds it |
 
-1. **Report:** tell the security officer within 1 hour. The security officer tells ABC Technologies' security contact and any affected supplier. If personal data is involved, the security officer tells the legal adviser at once.
+1. **Report:** tell the security officer within 1 hour. The security officer tells \<Organisation\>'s security contact and any affected supplier. If personal data is involved, the security officer tells the legal adviser at once.
 2. **Contain:** limit the harm, for example by disabling accounts or ending sessions.
 3. **Preserve:** keep logs and evidence, and do not clean up first.
 4. **Investigate:** establish what happened, when, and what data was involved.
@@ -535,13 +535,13 @@ The phone number and email of each contact are in \<Roles and Responsibilities\>
 
 | For | Who |
 | --- | --- |
-| Reporting incidents, and questions on these rules | James Preston, security officer |
-| When the security officer is away | Neil Ramsbottom, system owner, as deputy (\<Roles and Responsibilities\>, Table 7) |
-| Exceptions, and decisions on access | Neil Ramsbottom, system owner |
-| Personal data, breaches and requests from individuals | Adrian Solicitor, legal adviser |
-| Accounts and access in \<DocuView\> | Talha Chris, global administrator |
-| Devices, VPN, lost devices and passwords for the network | ABC Technologies' IT service desk |
-| ABC Technologies' security team | Linda Cooper; deputy Belinda Smith |
+| Reporting incidents, and questions on these rules | \[Name\], security officer |
+| When the security officer is away | \[Name\], system owner, as deputy (\<Roles and Responsibilities\>, Table 7) |
+| Exceptions, and decisions on access | \[Name\], system owner |
+| Personal data, breaches and requests from individuals | \[Name\], legal adviser |
+| Accounts and access in \<System Name\> | \[Name\], global administrator |
+| Devices, VPN, lost devices and passwords for the network | \<Organisation\>'s IT service desk |
+| \<Organisation\>'s security team | \[Name\]; deputy \[Name\] |
 
 | **SECTION 8** |
 | --- |
@@ -553,18 +553,18 @@ The phone number and email of each contact are in \<Roles and Responsibilities\>
 | Term | Meaning |
 | --- | --- |
 | Approved change | A change raised, assessed, tested and approved under section 5.5 |
-| Audit record | \<DocuView\>'s record of an action, such as a sign-in, document view, change or export |
+| Audit record | \<System Name\>'s record of an action, such as a sign-in, document view, change or export |
 | Exception | Written permission to depart from a rule for a set period (section 6) |
-| Export | Any copy of \<DocuView\> information taken out of \<DocuView\>, including downloads, bulk exports, screenshots and prints |
+| Export | Any copy of \<System Name\> information taken out of \<System Name\>, including downloads, bulk exports, screenshots and prints |
 | Generative AI tool | Any service that produces text, images or code from what you give it, such as chat assistants and AI writing or translation tools |
-| Managed device | A computer that ABC Technologies issues and controls, with disk encryption, screen lock and USB blocking |
+| Managed device | A computer that \<Organisation\> issues and controls, with disk encryption, screen lock and USB blocking |
 | Personal data | Information about a living person who can be identified, as defined in UK GDPR |
 | Personal data breach | A breach of security that leads to personal data being lost, destroyed, changed, disclosed or accessed without authority |
 | Privileged user | Anyone whose access lets them change accounts, settings, security functions, servers or the database, or read audit records (Part B) |
 | Removable media | USB drives, external disks, memory cards and similar storage |
-| RESTRICTED | ABC Technologies' marking for \<DocuView\> information and printouts |
-| Security incident | Anything that harms, or could harm, the confidentiality, integrity or availability of \<DocuView\> or its information, or that breaks these rules |
-| VPN | ABC Technologies' virtual private network, used to reach the corporate network from outside the office |
+| RESTRICTED | \<Organisation\>'s marking for \<System Name\> information and printouts |
+| Security incident | Anything that harms, or could harm, the confidentiality, integrity or availability of \<System Name\> or its information, or that breaks these rules |
+| VPN | \<Organisation\>'s virtual private network, used to reach the corporate network from outside the office |
 
 | **SECTION 9** |
 | --- |

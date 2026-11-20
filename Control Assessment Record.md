@@ -1,4 +1,4 @@
-# \<DocuView\> Control Assessment Record
+# \<System Name\> Control Assessment Record
 
 **\<ref\> | Version \<ver\> | The layout introduced in version \<ver\> awaits the system owner's approval; the content of every chapter is unchanged**
 
@@ -58,7 +58,7 @@
 | Item | Detail |
 | --- | --- |
 | Reference | \<ref\> |
-| Title | \<DocuView\> Control Assessment Record |
+| Title | \<System Name\> Control Assessment Record |
 | Version | \<ver\> |
 | Status | Version \<ver\> has one status, approval and change history for the whole document, as the system owner asked on 12 November 2026 (D-GEN-24), and that layout awaits the system owner's approval. No rule, value, finding or decision changed, so each chapter stands as it was approved (Table 4) |
 | Date | 13 November 2026 |
@@ -74,7 +74,7 @@
 
 | Role | Name | Decision | Date |
 | --- | --- | --- | --- |
-| System owner | Neil Ramsbottom | The layout introduced in version \<ver\> awaits approval. The approval of each chapter's content is in Table 4 | Pending |
+| System owner | \[Name\] | The layout introduced in version \<ver\> awaits approval. The approval of each chapter's content is in Table 4 | Pending |
 
 ### 1.3 Change history
 
@@ -198,7 +198,7 @@ Until version \<ver\> each chapter carried its own version, approval and change 
 
 ## 2 How to use this document
 
-This document is the record of the Level 1 self-assessment of \<DocuView\> against NIST SP 800-53A Rev 5. It has one chapter for each of the 19 control families assessed, in NIST order, and each chapter gives a finding for every determination statement. The totals across all chapters are in \<Security Assessment Report\>, which is generated from this record.
+This document is the record of the Level 1 self-assessment of \<System Name\> against NIST SP 800-53A Rev 5. It has one chapter for each of the 19 control families assessed, in NIST order, and each chapter gives a finding for every determination statement. The totals across all chapters are in \<Security Assessment Report\>, which is generated from this record.
 
 Level 1 is a self-assessment and is not independent. Each chapter holds its own assessment plan, and all 19 plans were approved by the authorising official (D-GEN-18).
 
@@ -218,7 +218,7 @@ Findings follow NIST SP 800-53A. Each determination statement gets one of these.
 | N/A | Not applicable. It is counted in the chapter's statements, but not as satisfied |
 | O-D | Other than satisfied: a decision or approval is outstanding, or the control has not yet started to operate |
 | O-G | Other than satisfied: a gap in the system |
-| O-E | Other than satisfied: evidence from the VMs or ABC Technologies is not available |
+| O-E | Other than satisfied: evidence from the VMs or \<Organisation\> is not available |
 
 The AC chapter was assessed first and uses the result scale in its Table AC-1.
 
@@ -230,10 +230,10 @@ Each chapter ends with its assessment plan. These parts are the same for every f
 
 | Item | Detail |
 | --- | --- |
-| System | \<DocuView\> v1.0, at the commits in \<System Security Plan\>, section 3 |
+| System | \<System Name\> v1.0, at the commits in \<System Security Plan\>, section 3 |
 | Security categorisation | Moderate, confirmed by the authorising official |
-| Assessor | Level 1: Claude, an AI assistant, working for the system owner. Level 2: an independent team led by Josh Leak, which meets CA-2(1) at Moderate once TPL-19 is completed |
-| Level 2 team and schedule | Josh Leak's team: \[members, dates and the depth and coverage to be agreed with the independent assessor\] |
+| Assessor | Level 1: Claude, an AI assistant, working for the system owner. Level 2: an independent team led by \[Name\], which meets CA-2(1) at Moderate once TPL-19 is completed |
+| Level 2 team and schedule | \[Name\]'s team: \[members, dates and the depth and coverage to be agreed with the independent assessor\] |
 | Approval | Approved by the authorising official (D-GEN-18), as confirmed by the system owner on 8 November 2026 |
 
 | **CHAPTER AC** |
@@ -245,13 +245,13 @@ Each chapter ends with its assessment plan. These parts are the same for every f
 
 ### AC.1 Purpose
 
-This records the initial self-assessment of \<DocuView\> against each Moderate baseline AC control and enhancement. Section AC.3 is the executive summary, section AC.5 holds the finding for each NIST statement, and section AC.6 is the assessment plan.
+This records the initial self-assessment of \<System Name\> against each Moderate baseline AC control and enhancement. Section AC.3 is the executive summary, section AC.5 holds the finding for each NIST statement, and section AC.6 is the assessment plan.
 
 ### AC.2 How to read this record
 
-**Change since this assessment.** On 12 November 2026 the system owner stated that \<DocuView\> signs users in through ABC Technologies' AD FS, with multi-factor authentication, takes roles and project access from Active Directory groups, and holds no accounts or passwords of its own (D-AC-23). This chapter assessed the v1.0 build, which signed in with its own passwords and held its accounts and groups in its own database. Its findings are a true record of that build and are not changed. The findings on sign-in, passwords, lockout, accounts and group membership are to be made again with AD FS sign-in, when the tests are repeated and ABC Technologies' evidence is in (PA-95).
+**Change since this assessment.** On 12 November 2026 the system owner stated that \<System Name\> signs users in through \<Organisation\>'s AD FS, with multi-factor authentication, takes roles and project access from Active Directory groups, and holds no accounts or passwords of its own (D-AC-23). This chapter assessed the v1.0 build, which signed in with its own passwords and held its accounts and groups in its own database. Its findings are a true record of that build and are not changed. The findings on sign-in, passwords, lockout, accounts and group membership are to be made again with AD FS sign-in, when the tests are repeated and \<Organisation\>'s evidence is in (PA-95).
 
-This is the Level 1 self-assessment, and it makes no fixes. An independent team led by Josh Leak will use it for the Level 2 assessment. A finding does not by itself require a fix: each non-compliance is rated and decided in \<Risk List\>, and only those to be remediated go to \<Plan of Action and Milestones\>. The AC-3 fixes were made before this approach was agreed and are kept, so AC-3 describes the system with them in place.
+This is the Level 1 self-assessment, and it makes no fixes. An independent team led by \[Name\] will use it for the Level 2 assessment. A finding does not by itself require a fix: each non-compliance is rated and decided in \<Risk List\>, and only those to be remediated go to \<Plan of Action and Milestones\>. The AC-3 fixes were made before this approach was agreed and are kept, so AC-3 describes the system with them in place.
 
 Each entry follows the NIST SP 800-53A approach: the objectives come from NIST, and each gets one of these results.
 
@@ -261,12 +261,12 @@ Each entry follows the NIST SP 800-53A approach: the objectives come from NIST, 
 | --- | --- |
 | Satisfied | The evidence shows the objective is met |
 | Other than satisfied | The evidence shows a gap, or an approval is outstanding |
-| Other than satisfied (E) | NIST has no separate result for missing evidence. This marks objectives where the VMs or ABC Technologies' evidence are not available |
+| Other than satisfied (E) | NIST has no separate result for missing evidence. This marks objectives where the VMs or \<Organisation\>'s evidence are not available |
 | Not applicable | The system owner decided the objective does not apply, with a reason and any condition recorded in \<Tailoring Register\>. This is an organisation's tailoring decision, not a result under NIST SP 800-53A, and the independent assessor may test it |
 
-The three methods are **Examine** (documents, code and configuration), **Test** (running the mechanism) and **Interview** (asking the people responsible). The system owner has answered INT-AC-01 to 34 in writing (\<Interview Guide\>, section 23.1). No records were seen, so these answers change no finding, and the role holders and ABC Technologies have not been interviewed.
+The three methods are **Examine** (documents, code and configuration), **Test** (running the mechanism) and **Interview** (asking the people responsible). The system owner has answered INT-AC-01 to 34 in writing (\<Interview Guide\>, section 23.1). No records were seen, so these answers change no finding, and the role holders and \<Organisation\> have not been interviewed.
 
-**Limit of the current evidence:** \<DocuView\> ran in Docker on one PC with sample data. The 75 checks were re-run on the tagged v1.0 build on 8 November 2026 and gave the same results (ac-test-results-2026-11-08-v1.0.csv, with hashes in MANIFEST.md). The Windows Server 2025 VMs, PostgreSQL on Windows and ABC Technologies' services have not been examined.
+**Limit of the current evidence:** \<System Name\> ran in Docker on one PC with sample data. The 75 checks were re-run on the tagged v1.0 build on 8 November 2026 and gave the same results (ac-test-results-2026-11-08-v1.0.csv, with hashes in MANIFEST.md). The Windows Server 2025 VMs, PostgreSQL on Windows and \<Organisation\>'s services have not been examined.
 
 ### AC.3 Executive summary
 
@@ -283,9 +283,9 @@ The three methods are **Examine** (documents, code and configuration), **Test** 
 
 | Control | Result | Statements satisfied | Summary | Finding |
 | --- | --- | --- | --- | --- |
-| AC-1 | Other than satisfied | 21 of 25 | The policy is approved by the Head of Cyber and the procedures by the system owner (D-AC-01, D-AC-02). They are not yet shared, and coordination with ABC Technologies is not yet agreed | NC-01, PA-20 |
-| AC-2 | Other than satisfied | 14 of 36 | The system can create, change, disable and remove accounts, and disabling works at once. The rules and procedures are approved (D-AC-02, D-AC-03), but they are not yet walked through or in use: no approval is enforced in the system, no review has happened, and accounts are not linked to ABC Technologies' staff processes | NC-02, PA-16, PA-20, PA-32 |
-| AC-2(1) | Other than satisfied | 1 of 2 | The system automates parts of account management, and the mechanisms are approved (D-AC-03). But accounts sit apart from ABC Technologies' directory, and there are no account reports | NC-03, PA-13, PA-16, PA-32 |
+| AC-1 | Other than satisfied | 21 of 25 | The policy is approved by the Head of Cyber and the procedures by the system owner (D-AC-01, D-AC-02). They are not yet shared, and coordination with \<Organisation\> is not yet agreed | NC-01, PA-20 |
+| AC-2 | Other than satisfied | 14 of 36 | The system can create, change, disable and remove accounts, and disabling works at once. The rules and procedures are approved (D-AC-02, D-AC-03), but they are not yet walked through or in use: no approval is enforced in the system, no review has happened, and accounts are not linked to \<Organisation\>'s staff processes | NC-02, PA-16, PA-20, PA-32 |
+| AC-2(1) | Other than satisfied | 1 of 2 | The system automates parts of account management, and the mechanisms are approved (D-AC-03). But accounts sit apart from \<Organisation\>'s directory, and there are no account reports | NC-03, PA-13, PA-16, PA-32 |
 | AC-2(2) | Not applicable | None applies | Temporary and emergency accounts are not allowed until the system can expire them (P-AC-09, TR-AC-01). The system cannot expire any account (PA-13), so the Level 2 assessor should check that none exist | TR-AC-01 |
 | AC-2(3) | Other than satisfied | 2 of 6 | A disabled account stops working at once, and the time limits are approved (D-AC-03). But nothing disables accounts automatically, and the procedures have not yet been walked through | NC-05, PA-13 |
 | AC-2(4) | Other than satisfied | 0 of 5 | Most account changes made in the admin portal have no audit call, and the API's records name "System" instead of the person | NC-06, PA-14 |
@@ -304,26 +304,26 @@ The three methods are **Examine** (documents, code and configuration), **Test** 
 | AC-7 | Other than satisfied | 4 of 8 | The application mechanism works as tested: five failures lock the account for 15 minutes, and it unlocks afterwards. The values are approved (D-AC-03) | NC-19, PA-20, PA-30, PA-35 |
 | AC-8 | Other than satisfied | 1 of 11 | No notice is shown on either sign-in page. The wording in P-AC-16 is approved by the system owner, subject to legal review (D-AC-06), but it is not built (PA-11) | NC-20, PA-11 |
 | AC-11 | Other than satisfied | 2 of 4 | A browser overlay appears after 25 minutes, but "Continue Session" removes it without a password, so it is not a true lock. The overlay runs in the browser, so it does not by itself stop a browser user reaching the page behind it | NC-21, PA-12, PA-21 |
-| AC-11(1) | Other than satisfied | 0 of 1 | The code draws a dark overlay at 92% opacity, but this has not been seen on screen, so there is no evidence yet that it fully hides what was displayed. Workstation lock screens depend on ABC Technologies | NC-22, PA-21 |
+| AC-11(1) | Other than satisfied | 0 of 1 | The code draws a dark overlay at 92% opacity, but this has not been seen on screen, so there is no evidence yet that it fully hides what was displayed. Workstation lock screens depend on \<Organisation\> | NC-22, PA-21 |
 | AC-12 | Other than satisfied | 1 of 2 | Sessions end after idling, at the 8-hour limit, on sign-out and when revoked. The values are approved (D-AC-03), but one unexplained test result needs resolving (PA-33), and the VMs are not available | NC-23, PA-20, PA-30, PA-33 |
 | AC-14 | Other than satisfied | 3 of 4 | The list of what works without signing in is approved (D-AC-12), and the SSP gives its rationale. The result stays open because other endpoints still answer without signing in (PA-03, PA-07), and Windows and PostgreSQL are not yet examined | NC-24, PA-03, PA-07, PA-28 |
 | AC-17 | Other than satisfied | 0 of 4 | The remote access route is not named, and no restrictions are written down | NC-25, PA-18 |
-| AC-17(1) | Other than satisfied | 0 of 2 | Expected from ABC Technologies, with no evidence yet | NC-26, PA-18, PA-21 |
+| AC-17(1) | Other than satisfied | 0 of 2 | Expected from \<Organisation\>, with no evidence yet | NC-26, PA-18, PA-21 |
 | AC-17(2) | Other than satisfied | 0 of 1 | The stack as run in Docker uses plain HTTP, and HTTPS and database TLS are not set up. The apps do include HTTPS redirection and HSTS settings, but these are not in effect in the tested configuration | NC-27, PA-18 |
-| AC-17(3) | Other than satisfied | 0 of 1 | Expected from ABC Technologies, with no evidence yet | NC-28, PA-18, PA-21 |
-| AC-17(4) | Not applicable | None applies | Administrators may not work through external networks, and administer the VMs only from inside ABC Technologies' network (D-AC-08, TR-AC-05) | TR-AC-05 |
-| AC-18 | Other than satisfied | 0 of 4 | \<DocuView\> provides no wireless access of its own | NC-30, PA-21 |
-| AC-18(1) | Other than satisfied | 1 of 3 | Expected from ABC Technologies, with no evidence yet | NC-31, PA-21 |
+| AC-17(3) | Other than satisfied | 0 of 1 | Expected from \<Organisation\>, with no evidence yet | NC-28, PA-18, PA-21 |
+| AC-17(4) | Not applicable | None applies | Administrators may not work through external networks, and administer the VMs only from inside \<Organisation\>'s network (D-AC-08, TR-AC-05) | TR-AC-05 |
+| AC-18 | Other than satisfied | 0 of 4 | \<System Name\> provides no wireless access of its own | NC-30, PA-21 |
+| AC-18(1) | Other than satisfied | 1 of 3 | Expected from \<Organisation\>, with no evidence yet | NC-31, PA-21 |
 | AC-18(3) | Other than satisfied | 0 of 1 | Server VMs normally have no wireless adapter, but this needs confirming on the built VMs | NC-32, PA-21 |
-| AC-19 | Not applicable | None applies | Phones and tablets may not use \<DocuView\> in the first release (D-AC-09, TR-AC-06). The system does not identify the device, so the rule depends on ABC Technologies' network access control | TR-AC-06 |
+| AC-19 | Not applicable | None applies | Phones and tablets may not use \<System Name\> in the first release (D-AC-09, TR-AC-06). The system does not identify the device, so the rule depends on \<Organisation\>'s network access control | TR-AC-06 |
 | AC-19(5) | Not applicable | None applies | As AC-19 (TR-AC-06) | TR-AC-06 |
-| AC-20 | Other than satisfied | 5 of 7 | The rule is approved: no external systems or portable storage without the system owner's approval (D-AC-10). Enforcement depends on ABC Technologies, because the system cannot tell whether a browser is on an approved device | NC-35, PA-21 |
+| AC-20 | Other than satisfied | 5 of 7 | The rule is approved: no external systems or portable storage without the system owner's approval (D-AC-10). Enforcement depends on \<Organisation\>, because the system cannot tell whether a browser is on an approved device | NC-35, PA-21 |
 | AC-20(1) | Not applicable | None applies | External use is forbidden, so there is nothing to verify or agree (TR-AC-07) | TR-AC-07 |
-| AC-20(2) | Other than satisfied | 1 of 2 | Downloads and bulk export can reach any device the user has, so this depends on ABC Technologies' USB and device controls | NC-37, PA-21 |
-| AC-21 | Other than satisfied | 3 of 4 | Nothing helps users judge whether sharing a document outside a project is allowed, and project groups control access only inside \<DocuView\> | NC-38, PA-22 |
-| AC-22 | Not applicable | None applies | \<DocuView\> holds no public content (D-AC-11, TR-AC-08) | TR-AC-08 |
+| AC-20(2) | Other than satisfied | 1 of 2 | Downloads and bulk export can reach any device the user has, so this depends on \<Organisation\>'s USB and device controls | NC-37, PA-21 |
+| AC-21 | Other than satisfied | 3 of 4 | Nothing helps users judge whether sharing a document outside a project is allowed, and project groups control access only inside \<System Name\> | NC-38, PA-22 |
+| AC-22 | Not applicable | None applies | \<System Name\> holds no public content (D-AC-11, TR-AC-08) | TR-AC-08 |
 
-\<DocuView\> does not yet fully satisfy any of the 39 entries, because each has at least one statement outstanding or is not applicable. At statement level the position is clearer. Of NIST's 189 statements, 74 are satisfied, 29 are not applicable under \<Tailoring Register\>, 22 await a decision or approval, 39 show a gap in the system, 21 await evidence from the VMs or ABC Technologies, and 4 are parameters not selected.
+\<System Name\> does not yet fully satisfy any of the 39 entries, because each has at least one statement outstanding or is not applicable. At statement level the position is clearer. Of NIST's 189 statements, 74 are satisfied, 29 are not applicable under \<Tailoring Register\>, 22 await a decision or approval, 39 show a gap in the system, 21 await evidence from the VMs or \<Organisation\>, and 4 are parameters not selected.
 
 The organisation takes a risk-based approach, and does not require every control to be met. Every entry therefore has a non-compliance record in \<Risk List\>, with a risk rating and a proposed treatment: accept, remediate, approve, obtain evidence or tailor. The system owner decided the Low items on 5 November 2026; the Medium and High items await the authorising official. The most serious gaps are the High items in \<Plan of Action and Milestones\>, and \<Plan of Action and Milestones\>, section 6, gives the recommended order of work. This assessment made no fixes, apart from the AC-3 fixes already kept.
 
@@ -357,7 +357,7 @@ Find a control: [AC-1](#ac439-ac-1-policy-and-procedures) | [AC-2](#ac410-ac-2-a
 | Policy | The policy this control refers to is approved by the Head of Cyber (D-AC-01); it was legally reviewed on 12 November 2026 | \<Policy\> (AC) (PA-20) |
 | Windows and PostgreSQL permissions on the VMs | Other than satisfied (E) | VMs not available |
 
-**Examined:** draft policy and procedures, code for all three apps and DV\_Shared, configuration, and test results. **Tested:** 23 AC-3 checks, all passing, plus a browser check; these check the mechanisms already fixed, not the items above. **Interviewed:** nobody yet. **Not covered:** every action on every Blazor page was not exercised.
+**Examined:** draft policy and procedures, code for all three apps and shared library, configuration, and test results. **Tested:** 23 AC-3 checks, all passing, plus a browser check; these check the mechanisms already fixed, not the items above. **Interviewed:** nobody yet. **Not covered:** every action on every Blazor page was not exercised.
 
 #### AC.4.2 AC-14 Permitted Actions Without Identification or Authentication
 
@@ -376,23 +376,23 @@ Find a control: [AC-1](#ac439-ac-1-policy-and-procedures) | [AC-2](#ac410-ac-2-a
 
 ##### AC.4.2.1 What works without signing in
 
-Every route without parameters in DV\_Web (35) and DV\_Admin\_UI (51) was requested without signing in, along with 18 API addresses and some static files. All other routes redirected to sign-in or were refused.
+Every route without parameters in UI application (35) and Admin application (51) was requested without signing in, along with 18 API addresses and some static files. All other routes redirected to sign-in or were refused.
 
 **Table AC-6: Actions that work without signing in**
 
 | Action | Where | Result | Proposed rationale | Assessment |
 | --- | --- | --- | --- | --- |
-| See the sign-in page and sign in | DV\_Web, DV\_Admin\_UI, the API sign-in function | 200 | Needed before anyone can identify themselves | Acceptable |
-| See the signed-out and session-expired pages | DV\_Web, DV\_Admin\_UI | 200 | Shows the result of ending a session; holds no data | Acceptable |
+| See the sign-in page and sign in | UI application, Admin application, the API sign-in function | 200 | Needed before anyone can identify themselves | Acceptable |
+| See the signed-out and session-expired pages | UI application, Admin application | 200 | Shows the result of ending a session; holds no data | Acceptable |
 | Change an expired temporary password | the change password page | Redirects to sign-in unless a correct password was just entered | Part of signing in | Acceptable |
-| See the access denied page | DV\_Admin\_UI | 200 | Explains a refusal; holds no data | Acceptable |
-| Load scripts, styles and images | Static files in DV\_Web and DV\_Admin\_UI | 200 | Needed to draw the sign-in page; holds no business data | Acceptable; contents not reviewed file by file |
+| See the access denied page | Admin application | 200 | Explains a refusal; holds no data | Acceptable |
+| Load scripts, styles and images | Static files in UI application and Admin application | 200 | Needed to draw the sign-in page; holds no business data | Acceptable; contents not reviewed file by file |
 | Check service health | The API's health check | 200, one status word | Monitoring | Acceptable if the organisation agrees |
 | Read cache statistics | API the cache statistics function | 200 | None | Finding (PA-03) |
 | Clear the API cache | API the cache clearing function, the permission cache clearing function | 200 in test | None | Finding (PA-03) |
 | Read diagnostic health, including the environment name | API the security test health function | 200 | None | Finding (PA-07) |
 | Call a diagnostic endpoint | The API's test sign-in function | 500 | None | Finding (PA-07) |
-| Open a test page | DV\_Web the icon test page | 200 | None | Finding (PA-07) |
+| Open a test page | UI application the icon test page | 200 | None | Finding (PA-07) |
 
 The UIs deny anything not marked as open, through a fallback policy. The API does not, which is the root cause of its open endpoints. Swagger is not exposed in the Production configuration.
 
@@ -419,21 +419,21 @@ The UIs deny anything not marked as open, through a fallback policy. The API doe
 | Part of the stack | Finding | Evidence |
 | --- | --- | --- |
 | Managing users, groups, projects, roles and credentials | All 30 admin portal pages require a role or policy. A reader was refused each one tested | T26, T28, T29; code |
-| Listing and ending other users' sessions | Refused for ordinary users in the API and DV\_Web | T24, T25, T27 |
+| Listing and ending other users' sessions | Refused for ordinary users in the API and UI application | T24, T25, T27 |
 | Session role and session records | Any signed-in user can change another user's session role and create session records for them | T33, T34 (PA-02) |
 | Notifications | Any signed-in user can notify anyone and run clean-up. The code comment says "Admin only", but nothing enforces it | T35, T36 (PA-06) |
 | API cache | Anyone can clear it, without signing in | T07, T08 (PA-03) |
 | Audit log | A reader wrote audit records from diagnostic pages, one of them under the name of a diagnostic tool, not a person | Browser check (PA-29) |
 | Database changes | A reader could press Apply Security Migrations and Force Create AuditLog Table. Neither changed anything, because no migrations were pending and the second has a syntax error on PostgreSQL. No access check stopped them | Browser check (PA-29) |
-| Becoming an administrator | A reader pressed Fix Global Admin Status and stayed a reader, because that method does nothing in DV\_Web. The page wrongly reported success. This is an accident of the code and not a control | Browser check; code review (PA-29) |
-| Assigning roles from diagnostic pages | The method called throws an error in DV\_Web, so nothing is assigned. the test user set-up page would create a ReadOnly role if it were missing | Code review (PA-29) |
+| Becoming an administrator | A reader pressed Fix Global Admin Status and stayed a reader, because that method does nothing in UI application. The page wrongly reported success. This is an accident of the code and not a control | Browser check; code review (PA-29) |
+| Assigning roles from diagnostic pages | The method called throws an error in UI application, so nothing is assigned. the test user set-up page would create a ReadOnly role if it were missing | Code review (PA-29) |
 | Diagnostic pages and API | Any signed-in user can open them and read all users, their administrator flags and all projects. the role debugging page fails with a server error, not a refusal | T30 to T32, T65 to T70 (PA-07) |
 | Build guard | These pages carry a marker meant to leave them out of a release, but the build does not honour it. The pages are in the release build and display the marker as text | Browser check; compiled DLL (PA-07, PA-29) |
 | Database | The apps connect as a superuser, so application checks are the only barrier if one is missed | T55 (PA-10) |
 | List of privileged functions | The proposed list and role assignments are in \<Access Control Management\> and P-AC-17, and neither is approved | PA-20 |
 | Windows and PostgreSQL privileged functions on the VMs | Other than satisfied (E) | VMs not available |
 
-**Examined:** authorisation on every API controller and every page in all three apps, the code behind each diagnostic page, the compiled DV\_Web DLL, draft policy, access control model and SSP.
+**Examined:** authorisation on every API controller and every page in all three apps, the code behind each diagnostic page, the compiled UI application DLL, draft policy, access control model and SSP.
 
 **Tested:** T24 to T36 and T65 to T70 as demo.reader (ac-test-results-2026-11-05-ac6-10.csv), and actions on the diagnostic pages in a browser (ac-6-10-browser-check-2026-11-05.csv). All of it ran on a throwaway stack.
 
@@ -452,9 +452,9 @@ The UIs deny anything not marked as open, through a fallback policy. The API doe
 | Objective | Result | Basis |
 | --- | --- | --- |
 | AC-06(01)\_ODP\[01\]: individuals and roles are defined | Satisfied | Roles approved in \<Access Control Management\> (D-AC-03), with holders named in \<Roles and Responsibilities\> |
-| AC-06(01)(a)\[01\]: access to security functions in hardware is authorised | Other than satisfied (E) | VMs not available; the physical hosts depend on ABC Technologies |
+| AC-06(01)(a)\[01\]: access to security functions in hardware is authorised | Other than satisfied (E) | VMs not available; the physical hosts depend on \<Organisation\> |
 | AC-06(01)(a)\[02\]: access to security functions in software is authorised | Other than satisfied | Enforced for the main functions, with the exceptions below |
-| AC-06(01)(a)\[03\]: access to security functions in firmware is authorised | Other than satisfied (E) | VMs not available; firmware depends on ABC Technologies |
+| AC-06(01)(a)\[03\]: access to security functions in firmware is authorised | Other than satisfied (E) | VMs not available; firmware depends on \<Organisation\> |
 | AC-06(01)(b): access to security-relevant information is authorised | Other than satisfied | See below |
 
 **Table AC-10: AC-6(1) findings**
@@ -469,7 +469,7 @@ The UIs deny anything not marked as open, through a fallback policy. The API doe
 | Signing key and database password | Both are committed in the applications' settings files, so anyone who can read the repositories can read them. The files also name a remote database | Code review (PA-19) |
 | Password hashes, sessions and access groups in the database | All three apps can reach these through one superuser role | T55 (PA-10) |
 | Definition of security-relevant information | The drafts had none. A proposed list is now in P-AC-17 | \<Access Control Management\> (PA-20) |
-| Windows, PostgreSQL, firewall rules, certificates, hypervisor and network | Other than satisfied (E). Nobody is named for these, and any part inherited from ABC Technologies needs a named service and evidence | PA-30 |
+| Windows, PostgreSQL, firewall rules, certificates, hypervisor and network | Other than satisfied (E). Nobody is named for these, and any part inherited from \<Organisation\> needs a named service and evidence | PA-30 |
 
 **Examined:** authorisation on admin portal pages, role and policy definitions, tracked settings files by name and earlier code review, draft policy, access control model, and roles document.
 
@@ -606,7 +606,7 @@ The UIs deny anything not marked as open, through a fallback policy. The API doe
 
 #### AC.4.10 AC-2 Account Management
 
-**Result: Other than satisfied.** The system can create, change, disable and remove accounts, and disabling works at once. The rules and procedures are approved (D-AC-02, D-AC-03), but they are not yet walked through or in use: no approval is enforced in the system, no review has happened, and accounts are not linked to ABC Technologies' staff processes.
+**Result: Other than satisfied.** The system can create, change, disable and remove accounts, and disabling works at once. The rules and procedures are approved (D-AC-02, D-AC-03), but they are not yet walked through or in use: no approval is enforced in the system, no review has happened, and accounts are not linked to \<Organisation\>'s staff processes.
 
 **What it requires:** a managed account lifecycle: defined account types, named account managers, approval, monitoring, timely notification when people leave or move, and periodic review.
 
@@ -615,18 +615,18 @@ The UIs deny anything not marked as open, through a fallback policy. The API doe
 | Objective | Result | Basis |
 | --- | --- | --- |
 | AC-02a\[01\], a\[02\]: allowed and prohibited account types are defined | Satisfied | Approved in P-AC-04 (D-AC-03) |
-| AC-02b: account managers are assigned | Satisfied | Talha Chris is named in \<Roles and Responsibilities\> |
+| AC-02b: account managers are assigned | Satisfied | \[Name\] is named in \<Roles and Responsibilities\> |
 | AC-02c: prerequisites for group and role membership are required | Other than satisfied | PRO-AC-1 and PRO-AC-5 are drafted, and nothing in the system requires them (PA-20) |
 | AC-02d.01, d.02, d.03\[01\]: authorised users, membership and privileges are specified | Other than satisfied | Held per account in the database, but with no approved source to compare against |
 | AC-02d.03\[02\]: other account attributes are specified | Other than satisfied | None defined; no expiry attribute exists (PA-13) |
-| AC-02e: approval is required to create accounts | Other than satisfied | P-AC-05 approved (D-AC-03); the system has no approval step, and the Jira workflow is not yet set up (PA-20) |
+| AC-02e: approval is required to create accounts | Other than satisfied | P-AC-05 approved (D-AC-03); the system has no approval step, and the ServiceNow workflow is not yet set up (PA-20) |
 | AC-02f\[01\] to f\[05\]: accounts are created, enabled, modified, disabled and removed under procedure | Other than satisfied | The functions exist and T40 to T42 pass, and PRO-AC-1 to PRO-AC-4 are approved (D-AC-02), but not yet walked through (PA-20) |
 | AC-02g: account use is monitored | Other than satisfied | Sign-ins are audited and last sign-in is stored (T39), but no monitoring has been done |
 | AC-02h.01 to h.03: account managers are told when accounts or need change | Other than satisfied | P-AC-06 proposes 1 working day, and no route exists yet (PA-32) |
 | AC-02i.01 to i.03: access is based on valid authorisation and intended use | Other than satisfied | Enforced from groups (T11), but with no approved authorisation behind them |
 | AC-02j: accounts are reviewed | Other than satisfied | No review exists (PA-16) |
 | AC-02k\[01\], k\[02\]: authenticators change when someone leaves a shared account | Other than satisfied | P-AC-04 proposes no shared accounts, which would remove the need once approved. The generic admin account would need a named owner |
-| AC-02l\[01\], l\[02\]: account management aligns with leaver and transfer processes | Other than satisfied (E) | ABC Technologies' processes are not available (PA-32) |
+| AC-02l\[01\], l\[02\]: account management aligns with leaver and transfer processes | Other than satisfied (E) | \<Organisation\>'s processes are not available (PA-32) |
 
 **Windows and PostgreSQL accounts:** evidence is not available, because the VMs are not available (PA-30).
 
@@ -636,7 +636,7 @@ The UIs deny anything not marked as open, through a fallback policy. The API doe
 
 #### AC.4.11 AC-2(1) Automated System Account Management
 
-**Result: Other than satisfied.** The system automates parts of account management, and the mechanisms are approved (D-AC-03). But accounts sit apart from ABC Technologies' directory, and there are no account reports.
+**Result: Other than satisfied.** The system automates parts of account management, and the mechanisms are approved (D-AC-03). But accounts sit apart from \<Organisation\>'s directory, and there are no account reports.
 
 **Table AC-22: AC-2(1) objective**
 
@@ -650,7 +650,7 @@ The UIs deny anything not marked as open, through a fallback policy. The API doe
 | --- | --- | --- |
 | Forced password change, lockout, ending sessions when disabled | Automated | T10, T40, T41, T49 |
 | Disabling for inactivity, expiry, access reports | Not automated | T43; code (PA-13, PA-16) |
-| Link to ABC Technologies' directory or HR | None, because \<DocuView\> uses its own accounts after SSO was removed. A leaver at ABC keeps their \<DocuView\> account until someone acts | Code review (PA-32) |
+| Link to \<Organisation\>'s directory or HR | None, because \<System Name\> uses its own accounts after SSO was removed. A leaver at \<Organisation\> keeps their \<System Name\> account until someone acts | Code review (PA-32) |
 
 #### AC.4.12 AC-2(3) Disable Accounts
 
@@ -738,10 +738,10 @@ T40 changed the database row and did not use the admin page. Windows and databas
 | --- | --- | --- |
 | AC-08a.01 to a.04: the notice states the required conditions | Other than satisfied | No notice (T51, T52, PA-11) |
 | AC-08b: the notice stays until acknowledged | Other than satisfied | No notice or acknowledgement (PA-11) |
-| AC-08c.01 to c.03: conditions for publicly accessible systems | Not applicable if P-AC-24 is approved | \<DocuView\> is not intended to be public |
-| Windows logon banner on the VMs | Other than satisfied (E) | Depends on ABC Technologies (PA-30) |
+| AC-08c.01 to c.03: conditions for publicly accessible systems | Not applicable if P-AC-24 is approved | \<System Name\> is not intended to be public |
+| Windows logon banner on the VMs | Other than satisfied (E) | Depends on \<Organisation\> (PA-30) |
 
-AC-08a.01 is written for U.S. Government systems. The system owner needs to decide how it applies to ABC Technologies, and record the decision alongside the wording.
+AC-08a.01 is written for U.S. Government systems. The system owner needs to decide how it applies to \<Organisation\>, and record the decision alongside the wording.
 
 #### AC.4.19 AC-2(5) Inactivity Logout
 
@@ -776,13 +776,13 @@ AC-08a.01 is written for U.S. Government systems. The system owner needs to deci
 | --- | --- | --- |
 | AC-11a: further access is prevented by a lock | Other than satisfied | Browser overlay only (T53, code, PA-12) |
 | AC-11b: the lock stays until the user signs in again | Other than satisfied | No password is asked for (code, PA-12) |
-| Workstation and server locks | Other than satisfied (E) | Depends on ABC Technologies' builds (PA-21, PA-30) |
+| Workstation and server locks | Other than satisfied (E) | Depends on \<Organisation\>'s builds (PA-21, PA-30) |
 
 The lock was found by code review and has not been exercised in a browser.
 
 #### AC.4.22 AC-11(1) Pattern-hiding Displays
 
-**Result: Other than satisfied.** The code draws a dark overlay at 92% opacity, but this has not been seen on screen, so there is no evidence yet that it fully hides what was displayed. Workstation lock screens depend on ABC Technologies.
+**Result: Other than satisfied.** The code draws a dark overlay at 92% opacity, but this has not been seen on screen, so there is no evidence yet that it fully hides what was displayed. Workstation lock screens depend on \<Organisation\>.
 
 **Table AC-34: AC-11(1) objective**
 
@@ -808,7 +808,7 @@ The lock was found by code review and has not been exercised in a browser.
 | API port in Docker | The compose file publishes the web, admin and API ports on all network interfaces. The database port is limited to the local machine | Compose file (PA-18) |
 | Cross-origin requests | The API allows only named origins, and they name localhost | Code review |
 | Between the VMs, and to the network | Firewall rules do not exist yet | VMs not available (PA-18) |
-| ABC Technologies' firewalls | Other than satisfied (E) | PA-18, PA-21 |
+| \<Organisation\>'s firewalls | Other than satisfied (E) | PA-18, PA-21 |
 | Data leaving through export | Editors can export documents, and Folder output can write anywhere the service can reach | Code review (PA-26) |
 
 #### AC.4.24 AC-17 Remote Access
@@ -819,8 +819,8 @@ The lock was found by code review and has not been exercised in a browser.
 
 | Objective | Result | Basis |
 | --- | --- | --- |
-| AC-17a\[01\] to a\[03\]: restrictions, requirements and guidance are documented | Other than satisfied | P-AC-20 only says ABC's service, name to be confirmed (PA-18) |
-| AC-17b: remote access is authorised before connecting | Other than satisfied (E) | Depends on ABC Technologies (PA-18) |
+| AC-17a\[01\] to a\[03\]: restrictions, requirements and guidance are documented | Other than satisfied | P-AC-20 only says \<Organisation\>'s service, name to be confirmed (PA-18) |
+| AC-17b: remote access is authorised before connecting | Other than satisfied (E) | Depends on \<Organisation\> (PA-18) |
 
 #### AC.4.25 AC-17(1) Monitoring and Control
 
@@ -830,7 +830,7 @@ The lock was found by code review and has not been exercised in a browser.
 
 | Objective | Result | Basis |
 | --- | --- | --- |
-| AC-17(01)\[01\], \[02\]: remote access is monitored and controlled automatically | Other than satisfied (E) | Expected from ABC Technologies, with no evidence yet (PA-18, PA-21) |
+| AC-17(01)\[01\], \[02\]: remote access is monitored and controlled automatically | Other than satisfied (E) | Expected from \<Organisation\>, with no evidence yet (PA-18, PA-21) |
 
 #### AC.4.26 AC-17(2) Protection of Confidentiality and Integrity Using Encryption
 
@@ -850,11 +850,11 @@ The lock was found by code review and has not been exercised in a browser.
 
 | Objective | Result | Basis |
 | --- | --- | --- |
-| AC-17(03): remote access goes through managed access points | Other than satisfied (E) | Expected from ABC Technologies, with no evidence yet (PA-18, PA-21) |
+| AC-17(03): remote access goes through managed access points | Other than satisfied (E) | Expected from \<Organisation\>, with no evidence yet (PA-18, PA-21) |
 
 #### AC.4.28 AC-17(4) Privileged Commands and Access
 
-**Result: Not applicable.** Administrators may not work through external networks, and administer the VMs only from inside ABC Technologies' network (D-AC-08, TR-AC-05).
+**Result: Not applicable.** Administrators may not work through external networks, and administer the VMs only from inside \<Organisation\>'s network (D-AC-08, TR-AC-05).
 
 **Table AC-41: AC-17(4) objectives**
 
@@ -866,13 +866,13 @@ The lock was found by code review and has not been exercised in a browser.
 
 #### AC.4.29 AC-18 Wireless Access
 
-**Result: Other than satisfied (E).** \<DocuView\> provides no wireless access of its own.
+**Result: Other than satisfied (E).** \<System Name\> provides no wireless access of its own.
 
 **Table AC-42: AC-18 objectives**
 
 | Objective | Result | Basis |
 | --- | --- | --- |
-| AC-18a\[01\] to a\[03\], b: wireless requirements, guidance and authorisation | Other than satisfied (E) | Expected from ABC Technologies (P-AC-21, PA-21) |
+| AC-18a\[01\] to a\[03\], b: wireless requirements, guidance and authorisation | Other than satisfied (E) | Expected from \<Organisation\> (P-AC-21, PA-21) |
 
 #### AC.4.30 AC-18(1) Authentication and Encryption
 
@@ -882,7 +882,7 @@ The lock was found by code review and has not been exercised in a browser.
 
 | Objective | Result | Basis |
 | --- | --- | --- |
-| AC-18(01)\[01\], \[02\]: wireless access is authenticated and encrypted | Other than satisfied (E) | Expected from ABC Technologies (PA-21) |
+| AC-18(01)\[01\], \[02\]: wireless access is authenticated and encrypted | Other than satisfied (E) | Expected from \<Organisation\> (PA-21) |
 
 #### AC.4.31 AC-18(3) Disable Wireless Networking
 
@@ -892,11 +892,11 @@ The lock was found by code review and has not been exercised in a browser.
 
 | Objective | Result | Basis |
 | --- | --- | --- |
-| AC-18(03): unused wireless is disabled before deployment | Other than satisfied (E) | VMs not available; ABC Technologies' builds (PA-21) |
+| AC-18(03): unused wireless is disabled before deployment | Other than satisfied (E) | VMs not available; \<Organisation\>'s builds (PA-21) |
 
 #### AC.4.32 AC-19 Access Control for Mobile Devices
 
-**Result: Not applicable.** Phones and tablets may not use \<DocuView\> in the first release (D-AC-09, TR-AC-06). The system does not identify the device, so the rule depends on ABC Technologies' network access control.
+**Result: Not applicable.** Phones and tablets may not use \<System Name\> in the first release (D-AC-09, TR-AC-06). The system does not identify the device, so the rule depends on \<Organisation\>'s network access control.
 
 **Table AC-45: AC-19 objectives**
 
@@ -916,14 +916,14 @@ The lock was found by code review and has not been exercised in a browser.
 
 #### AC.4.34 AC-20 Use of External Systems
 
-**Result: Other than satisfied (E).** The rule is approved: no external systems or portable storage without the system owner's approval (D-AC-10). Enforcement depends on ABC Technologies, because the system cannot tell whether a browser is on an approved device.
+**Result: Other than satisfied (E).** The rule is approved: no external systems or portable storage without the system owner's approval (D-AC-10). Enforcement depends on \<Organisation\>, because the system cannot tell whether a browser is on an approved device.
 
 **Table AC-47: AC-20 objectives**
 
 | Objective | Result | Basis |
 | --- | --- | --- |
 | AC-20a.01, a.02: external access and processing follow agreed terms | Satisfied | P-AC-22 approved: no use without the system owner's approval (D-AC-10) |
-| AC-20b: prohibited external system types are prohibited | Other than satisfied (E) | Approved rule; enforcement depends on ABC Technologies (PA-21) |
+| AC-20b: prohibited external system types are prohibited | Other than satisfied (E) | Approved rule; enforcement depends on \<Organisation\> (PA-21) |
 
 #### AC.4.35 AC-20(1) Limits on Authorized Use
 
@@ -937,17 +937,17 @@ The lock was found by code review and has not been exercised in a browser.
 
 #### AC.4.36 AC-20(2) Portable Storage Devices
 
-**Result: Other than satisfied (E).** Downloads and bulk export can reach any device the user has, so this depends on ABC Technologies' USB and device controls.
+**Result: Other than satisfied (E).** Downloads and bulk export can reach any device the user has, so this depends on \<Organisation\>'s USB and device controls.
 
 **Table AC-49: AC-20(2) objective**
 
 | Objective | Result | Basis |
 | --- | --- | --- |
-| AC-20(02): portable storage is restricted on external systems | Other than satisfied (E) | Expected from ABC Technologies (PA-21) |
+| AC-20(02): portable storage is restricted on external systems | Other than satisfied (E) | Expected from \<Organisation\> (PA-21) |
 
 #### AC.4.37 AC-21 Information Sharing
 
-**Result: Other than satisfied.** Nothing helps users judge whether sharing a document outside a project is allowed, and project groups control access only inside \<DocuView\>.
+**Result: Other than satisfied.** Nothing helps users judge whether sharing a document outside a project is allowed, and project groups control access only inside \<System Name\>.
 
 **Table AC-50: AC-21 objectives**
 
@@ -958,7 +958,7 @@ The lock was found by code review and has not been exercised in a browser.
 
 #### AC.4.38 AC-22 Publicly Accessible Content
 
-**Result: Not applicable.** \<DocuView\> holds no public content (D-AC-11, TR-AC-08).
+**Result: Not applicable.** \<System Name\> holds no public content (D-AC-11, TR-AC-08).
 
 **Table AC-51: AC-22 objectives**
 
@@ -968,7 +968,7 @@ The lock was found by code review and has not been exercised in a browser.
 
 #### AC.4.39 AC-1 Policy and Procedures
 
-**Result: Other than satisfied.** The policy is approved by the Head of Cyber and the procedures by the system owner (D-AC-01, D-AC-02). They are not yet shared, and coordination with ABC Technologies is not yet agreed. The policy was legally reviewed on 12 November 2026.
+**Result: Other than satisfied.** The policy is approved by the Head of Cyber and the procedures by the system owner (D-AC-01, D-AC-02). They are not yet shared, and coordination with \<Organisation\> is not yet agreed. The policy was legally reviewed on 12 November 2026.
 
 **Table AC-52: AC-1 objectives**
 
@@ -977,18 +977,18 @@ The lock was found by code review and has not been exercised in a browser.
 | AC-01a\[01\], a\[03\]: policy and procedures are developed and documented | Satisfied | \<Policy\> (AC) \<ver\> approved by the Head of Cyber (D-AC-16) and \<Procedures\> (AC) \<ver\> approved (D-AC-17); the later versions, \<ver\> and \<ver\>, make editorial changes only |
 | AC-01a\[02\], a\[04\]: they are shared with defined people | Other than satisfied | Recipients defined in \<Access Control Management\>; not yet shared (PA-20) |
 | AC-01a.01(a)\[01\] to \[05\], \[07\]: the policy addresses purpose, scope, roles, responsibilities, commitment and compliance | Satisfied | \<Policy\>, sections AC.1, AC.5 and AC.6, approved |
-| AC-01a.01(a)\[06\]: the policy addresses coordination between organisations | Satisfied | Noted in \<Policy\>, section AC.6; not yet agreed with ABC Technologies (PA-20) |
+| AC-01a.01(a)\[06\]: the policy addresses coordination between organisations | Satisfied | Noted in \<Policy\>, section AC.6; not yet agreed with \<Organisation\> (PA-20) |
 | AC-01a.01(b): the policy is consistent with laws, standards and guidance | Satisfied | Legally reviewed on 12 November 2026, as confirmed by the system owner |
 | AC-01b: an official manages policy and procedures | Satisfied | Neil is named as system owner, who manages both documents |
 | AC-01c.01, c.02: both are reviewed at set times and after set events | Other than satisfied | Reviewed after set events: the AC pack review on 8 November 2026, approved. Reviews at set times are not yet due |
 
-**Examined for this group:** code, compose file, draft policy, procedures, SSP and architecture. **Tested:** T02, T03, T54. **Interviewed:** nobody yet. ABC Technologies' evidence has not been requested.
+**Examined for this group:** code, compose file, draft policy, procedures, SSP and architecture. **Tested:** T02, T03, T54. **Interviewed:** nobody yet. \<Organisation\>'s evidence has not been requested.
 
 ### AC.5 Findings by determination statement
 
 This section records one finding for each NIST SP 800-53A determination statement, including those about organisation-defined parameters, in control order. It is current, and it takes precedence over the grouped objectives in section AC.4, which record what was examined and tested before the system owner's decisions of 5 November 2026. Statement wording is condensed, and the identifiers are NIST's. Findings are dated 5 November 2026 unless the basis or the change history says otherwise.
 
-Findings: **S** satisfied. **O-D** other than satisfied, because a decision or approval is outstanding. **O-G** other than satisfied, because of a gap in the system. **O-E** other than satisfied, because evidence from the VMs or ABC Technologies is not available. **N/S** the parameter applies only if selected, and is not selected. N/A not applicable, as decided in \<Tailoring Register\>.
+Findings: **S** satisfied. **O-D** other than satisfied, because a decision or approval is outstanding. **O-G** other than satisfied, because of a gap in the system. **O-E** other than satisfied, because evidence from the VMs or \<Organisation\> is not available. **N/S** the parameter applies only if selected, and is not selected. N/A not applicable, as decided in \<Tailoring Register\>.
 
 **Table AC-53: Finding for each determination statement**
 
@@ -997,7 +997,7 @@ Findings: **S** satisfied. **O-D** other than satisfied, because a decision or a
 | AC-01\_ODP\[01\] | Who receives the policy is defined | S | D-AC-P01 |
 | AC-01\_ODP\[02\] | Who receives the procedures is defined | S | D-AC-P01 |
 | AC-01\_ODP\[03\] | Policy level is selected | S | D-AC-P01 |
-| AC-01\_ODP\[04\] | Managing official is defined | S | P-AC-01; Neil Ramsbottom is the system owner |
+| AC-01\_ODP\[04\] | Managing official is defined | S | P-AC-01; \[Name\] is the system owner |
 | AC-01\_ODP\[05\] | Policy review frequency is defined | S | D-AC-P01 |
 | AC-01\_ODP\[06\] | Policy review events are defined | S | D-AC-P01 |
 | AC-01\_ODP\[07\] | Procedures review frequency is defined | S | D-AC-P01 |
@@ -1011,10 +1011,10 @@ Findings: **S** satisfied. **O-D** other than satisfied, because a decision or a
 | AC-01a.01(a)\[03\] | Policy addresses roles | S | \<Policy\>, section AC.5 |
 | AC-01a.01(a)\[04\] | Policy addresses responsibilities | S | \<Policy\>, section AC.5 |
 | AC-01a.01(a)\[05\] | Policy addresses management commitment | S | \<Policy\>, section AC.6 |
-| AC-01a.01(a)\[06\] | Policy addresses coordination | S | \<Policy\>, section AC.6. Not yet agreed with ABC Technologies |
+| AC-01a.01(a)\[06\] | Policy addresses coordination | S | \<Policy\>, section AC.6. Not yet agreed with \<Organisation\> |
 | AC-01a.01(a)\[07\] | Policy addresses compliance | S | \<Policy\>, section AC.6 |
 | AC-01a.01(b) | Policy is consistent with laws and standards | S | Legally reviewed on 12 November 2026, as confirmed by the system owner |
-| AC-01b. | Official is designated | S | Neil Ramsbottom is the system owner |
+| AC-01b. | Official is designated | S | \[Name\] is the system owner |
 | AC-01c.01\[01\] | Policy is reviewed at the set frequency | O-D | Frequency approved; first review not yet due |
 | AC-01c.01\[02\] | Policy is reviewed after set events | S | Reviewed on 8 November 2026 after the AC pack review; version \<ver\> approved (D-AC-16) |
 | AC-01c.02\[01\] | Procedures are reviewed at the set frequency | O-D | Frequency approved; first review not yet due |
@@ -1031,13 +1031,13 @@ Findings: **S** satisfied. **O-D** other than satisfied, because a decision or a
 | AC-02\_ODP\[10\] | Account review frequency is defined | S | D-AC-P02 |
 | AC-02a.\[01\] | Allowed account types are documented | S | Approved (D-AC-03) |
 | AC-02a.\[02\] | Prohibited account types are documented | S | Approved (D-AC-03) |
-| AC-02b. | Account managers are assigned | S | Talha Chris, global administrator |
+| AC-02b. | Account managers are assigned | S | \[Name\], global administrator |
 | AC-02c. | Membership prerequisites are required | O-G | Not required by the system; manual process approved, not yet operated |
 | AC-02d.01 | Authorised users are specified | O-D | Approved access list not yet built (D-AC-14) |
 | AC-02d.02 | Group and role membership are specified | O-D | Approved access list not yet built (D-AC-14) |
 | AC-02d.03\[01\] | Privileges are specified per account | O-D | Approved access list not yet built (D-AC-14) |
 | AC-02d.03\[02\] | Attributes are specified per account | O-G | No expiry attribute (PA-13) |
-| AC-02e. | Approval is required to create accounts | O-G | No step in \<DocuView\>; Jira approval workflow planned, not yet set up (PA-20) |
+| AC-02e. | Approval is required to create accounts | O-G | No step in \<System Name\>; ServiceNow approval workflow planned, not yet set up (PA-20) |
 | AC-02f.\[01\] | Accounts are created under procedure | O-D | Function exists; PRO-AC-1 approved, not walked through |
 | AC-02f.\[02\] | Accounts are enabled under procedure | O-D | Function exists; procedure approved, not walked through |
 | AC-02f.\[03\] | Accounts are modified under procedure | O-D | Function exists; PRO-AC-2 approved, not walked through |
@@ -1046,15 +1046,15 @@ Findings: **S** satisfied. **O-D** other than satisfied, because a decision or a
 | AC-02g. | Account use is monitored | O-G | Recorded (T39), but not monitored |
 | AC-02h.01 | Notice when an account is not required | O-G | Starters/Leavers prompt planned, not yet set up (PA-32) |
 | AC-02h.02 | Notice when a user leaves or transfers | O-G | Starters/Leavers prompt planned, not yet set up (PA-32) |
-| AC-02h.03 | Notice when need changes | O-G | Jira change request planned, not yet set up (PA-32) |
+| AC-02h.03 | Notice when need changes | O-G | ServiceNow change request planned, not yet set up (PA-32) |
 | AC-02i.01 | Access rests on a valid authorisation | O-D | Enforced (T11); approved access list not yet built |
 | AC-02i.02 | Access rests on intended usage | O-D | Not recorded until TPL-2 is used |
 | AC-02i.03 | Access rests on the set attributes | O-D | Attributes approved; approved access list not yet built |
 | AC-02j. | Accounts are reviewed | O-G | No review exists (PA-16) |
 | AC-02k.\[01\] | Shared authenticator process is established | S | Shared accounts are prohibited, so no process is needed (D-AC-03, TR-AC-02) |
 | AC-02k.\[02\] | Shared authenticator process is implemented | O-D | Docker seeds a generic admin; a named first administrator on the VMs avoids it (PRO-AC-12, TR-AC-02) |
-| AC-02l.\[01\] | Aligned with termination processes | O-E | ABC Technologies' processes not available (PA-32) |
-| AC-02l.\[02\] | Aligned with transfer processes | O-E | ABC Technologies' processes not available (PA-32) |
+| AC-02l.\[01\] | Aligned with termination processes | O-E | \<Organisation\>'s processes not available (PA-32) |
+| AC-02l.\[02\] | Aligned with transfer processes | O-E | \<Organisation\>'s processes not available (PA-32) |
 | AC-02(01)\_ODP | Automated mechanisms are defined | S | D-AC-P03 |
 | AC-02(01) | Accounts are managed with those mechanisms | O-G | Part automated; no directory link or reports |
 | AC-02(02)\_ODP\[01\] | Remove or disable is selected | N/A | TR-AC-01 |
@@ -1084,9 +1084,9 @@ Findings: **S** satisfied. **O-D** other than satisfied, because a decision or a
 | AC-05b. | Authorisations support separation | O-G | Global administrator holds all rights (T75, PA-15) |
 | AC-06 | Least privilege is employed | O-G | Readers and editors yes; database and open functions no (PA-10) |
 | AC-06(01)\_ODP\[01\] | Authorised individuals and roles are defined | S | D-AC-P10; holders named |
-| AC-06(01)\_ODP\[02\] | Hardware security functions are defined | S | Stated by Linda Cooper (D-AC-P10) |
+| AC-06(01)\_ODP\[02\] | Hardware security functions are defined | S | Stated by \[Name\] (D-AC-P10) |
 | AC-06(01)\_ODP\[03\] | Software security functions are defined | S | D-AC-P10 |
-| AC-06(01)\_ODP\[04\] | Firmware security functions are defined | S | Stated by Linda Cooper (D-AC-P10) |
+| AC-06(01)\_ODP\[04\] | Firmware security functions are defined | S | Stated by \[Name\] (D-AC-P10) |
 | AC-06(01)\_ODP\[05\] | Security-relevant information is defined | S | D-AC-P10 |
 | AC-06(01)(a)\[01\] | Access to hardware functions is authorised | O-E | VMs not available |
 | AC-06(01)(a)\[02\] | Access to software functions is authorised | O-G | Main functions yes; others open (PA-02, PA-03, PA-06) |
@@ -1135,11 +1135,11 @@ Findings: **S** satisfied. **O-D** other than satisfied, because a decision or a
 | AC-17a.\[01\] | Usage restrictions are documented | O-D | None written (PA-18) |
 | AC-17a.\[02\] | Connection requirements are documented | O-D | None written (PA-18) |
 | AC-17a.\[03\] | Implementation guidance is documented | O-D | None written (PA-18) |
-| AC-17b. | Remote access is authorised first | O-E | Depends on ABC Technologies (PA-18) |
-| AC-17(01)\[01\] | Remote access is monitored automatically | O-E | ABC Technologies; no evidence (PA-21) |
-| AC-17(01)\[02\] | Remote access is controlled automatically | O-E | ABC Technologies; no evidence (PA-21) |
+| AC-17b. | Remote access is authorised first | O-E | Depends on \<Organisation\> (PA-18) |
+| AC-17(01)\[01\] | Remote access is monitored automatically | O-E | \<Organisation\>; no evidence (PA-21) |
+| AC-17(01)\[02\] | Remote access is controlled automatically | O-E | \<Organisation\>; no evidence (PA-21) |
 | AC-17(02) | Remote sessions are encrypted | O-G | Plain HTTP (T54, PA-18) |
-| AC-17(03) | Routed through managed points | O-E | ABC Technologies; no evidence (PA-21) |
+| AC-17(03) | Routed through managed points | O-E | \<Organisation\>; no evidence (PA-21) |
 | AC-17(04)\_ODP\[01\] | Needs for remote commands are defined | N/A | TR-AC-05 |
 | AC-17(04)\_ODP\[02\] | Needs for remote security information are defined | N/A | TR-AC-05 |
 | AC-17(04)(a)\[01\] | Remote commands leave assessable evidence | N/A | TR-AC-05 |
@@ -1147,13 +1147,13 @@ Findings: **S** satisfied. **O-D** other than satisfied, because a decision or a
 | AC-17(04)(a)\[03\] | Remote commands only for defined needs | N/A | TR-AC-05 |
 | AC-17(04)(a)\[04\] | Remote information only for defined needs | N/A | TR-AC-05 |
 | AC-17(04)(b) | Rationale is in the security plan | N/A | TR-AC-05 |
-| AC-18a.\[01\] | Wireless configuration requirements exist | O-E | ABC Technologies (PA-21) |
-| AC-18a.\[02\] | Wireless connection requirements exist | O-E | ABC Technologies (PA-21) |
-| AC-18a.\[03\] | Wireless guidance exists | O-E | ABC Technologies (PA-21) |
-| AC-18b. | Wireless is authorised first | O-E | ABC Technologies (PA-21) |
+| AC-18a.\[01\] | Wireless configuration requirements exist | O-E | \<Organisation\> (PA-21) |
+| AC-18a.\[02\] | Wireless connection requirements exist | O-E | \<Organisation\> (PA-21) |
+| AC-18a.\[03\] | Wireless guidance exists | O-E | \<Organisation\> (PA-21) |
+| AC-18b. | Wireless is authorised first | O-E | \<Organisation\> (PA-21) |
 | AC-18(01)\_ODP | Users, devices or both are selected | S | Users and devices (D-AC-P20) |
-| AC-18(01)\[01\] | Wireless is authenticated | O-E | ABC Technologies (PA-21) |
-| AC-18(01)\[02\] | Wireless is encrypted | O-E | ABC Technologies (PA-21) |
+| AC-18(01)\[01\] | Wireless is authenticated | O-E | \<Organisation\> (PA-21) |
+| AC-18(01)\[02\] | Wireless is encrypted | O-E | \<Organisation\> (PA-21) |
 | AC-18(03) | Unused wireless is disabled | O-E | VMs not available (PA-21) |
 | AC-19a.\[01\] | Mobile configuration requirements exist | N/A | TR-AC-06 |
 | AC-19a.\[02\] | Mobile connection requirements exist | N/A | TR-AC-06 |
@@ -1168,11 +1168,11 @@ Findings: **S** satisfied. **O-D** other than satisfied, because a decision or a
 | AC-20\_ODP\[04\] | Prohibited external systems are defined | S | D-AC-P22 |
 | AC-20a.01 | Terms cover access from external systems | S | Approved (D-AC-10) |
 | AC-20a.02 | Terms cover processing on external systems | S | Approved (D-AC-10) |
-| AC-20b. | Prohibited systems are prohibited | O-E | Enforcement depends on ABC Technologies (PA-21) |
+| AC-20b. | Prohibited systems are prohibited | O-E | Enforcement depends on \<Organisation\> (PA-21) |
 | AC-20(01)(a) | Controls are verified before external use | N/A | TR-AC-07 |
 | AC-20(01)(b) | Agreements are retained | N/A | TR-AC-07 |
 | AC-20(02)\_ODP | Portable storage restrictions are defined | S | D-AC-P23 |
-| AC-20(02) | Portable storage is restricted | O-E | ABC Technologies (PA-21) |
+| AC-20(02) | Portable storage is restricted | O-E | \<Organisation\> (PA-21) |
 | AC-21\_ODP\[01\] | Sharing circumstances are defined | S | D-AC-P24 |
 | AC-21\_ODP\[02\] | Assisting process is defined | S | D-AC-P24 |
 | AC-21a. | Users can determine a match | O-G | No restrictions recorded on documents (PA-22); risk accepted (NC-38) |
@@ -1194,20 +1194,20 @@ This records how the assessment was planned and carried out, following NIST SP 8
 | --- | --- |
 | Scope | The 39 AC entries in the SP 800-53B Moderate baseline, with 189 determination statements |
 | Procedures | SP 800-53A Rev 5, using NIST's published statements and identifiers (catalog release 5.2.0) |
-| Assessor | Level 1: Claude, an AI assistant, working for the system owner. Level 2: an independent team led by Josh Leak, which meets CA-2(1) at Moderate once TPL-19 is completed |
+| Assessor | Level 1: Claude, an AI assistant, working for the system owner. Level 2: an independent team led by \[Name\], which meets CA-2(1) at Moderate once TPL-19 is completed |
 | Dates | 5 November 2026; the 75 checks re-run on the tagged v1.0 build on 8 November 2026 with the same results |
 | Site | One PC, using a separate throwaway Docker stack with sample data, and the running local stack for read-only checks. The Windows Server 2025 VMs are not built |
 | Examine | Policies, procedures, the SSP, code in all repositories, configuration and test results. Depth: focused. Coverage: focused, on the functions each control concerns |
 | Test | 75 repeatable checks, a browser check and an anonymous probe. Depth: focused. Coverage: focused. Every action on every page was not exercised |
-| Interview | System owner's written answers to INT-AC-01 to 34 only. Account managers, administrators and ABC Technologies' security contact are to be interviewed. The people are named in \<Roles and Responsibilities\> |
+| Interview | System owner's written answers to INT-AC-01 to 34 only. Account managers, administrators and \<Organisation\>'s security contact are to be interviewed. The people are named in \<Roles and Responsibilities\> |
 | Previous results reused | None |
-| Boundary | The whole stack: the application and database VMs, with Windows accounts, PostgreSQL roles and service accounts as well as application users. ABC Technologies' network, remote access, devices and directory are inherited, and Cyber Essentials Plus supports but does not prove them |
+| Boundary | The whole stack: the application and database VMs, with Windows accounts, PostgreSQL roles and service accounts as well as application users. \<Organisation\>'s network, remote access, devices and directory are inherited, and Cyber Essentials Plus supports but does not prove them |
 | Order of assessment | A, access enforcement (AC-3, AC-14, AC-6(10), AC-6(1)); B, privilege (AC-6, AC-6(5), AC-5, AC-6(2), AC-6(9)); C, account lifecycle (AC-2 and its enhancements, AC-6(7)); D, sign-in and sessions (AC-7, AC-8, AC-2(5), AC-12, AC-11, AC-11(1)); E, network and devices (AC-4, AC-17, AC-18 and AC-19 families); F, organisation (AC-20 family, AC-21, AC-22, AC-1). Access enforcement comes first because the other results depend on it |
-| Needed from ABC Technologies | Evidence for the inherited parts of AC-4, AC-17, AC-18, AC-19, AC-20 and AC-6(9), as requested in \<Evidence Requests\> |
+| Needed from \<Organisation\> | Evidence for the inherited parts of AC-4, AC-17, AC-18, AC-19, AC-20 and AC-6(9), as requested in \<Evidence Requests\> |
 | Approval | Approved by the authorising official (D-GEN-18), as confirmed by the system owner on 8 November 2026 |
 | Evidence retained | \<Access Control Management\>, section A.9, and the AC evidence, with its manifest |
 
-The authorising official approved this plan (D-GEN-18), as confirmed by the system owner on 8 November 2026. For the Level 2 assessment, the assessor should repeat the tests on the VMs, hold the interviews, examine ABC Technologies' evidence and re-determine every statement in section AC.5.
+The authorising official approved this plan (D-GEN-18), as confirmed by the system owner on 8 November 2026. For the Level 2 assessment, the assessor should repeat the tests on the VMs, hold the interviews, examine \<Organisation\>'s evidence and re-determine every statement in section AC.5.
 
 | **CHAPTER AT** |
 | --- |
@@ -1218,7 +1218,7 @@ The authorising official approved this plan (D-GEN-18), as confirmed by the syst
 
 ### AT.1 Purpose
 
-This records the Level 1 self-assessment of the 6 AT entries in the NIST SP 800-53 Rev 5 Moderate baseline, using catalog release 5.2.0. AT-3(5) is a privacy baseline control, assessed with the PT family (\<Control Assessment Record\> (PT)). An independent team led by Josh Leak will use this record for the Level 2 assessment. It makes no fixes.
+This records the Level 1 self-assessment of the 6 AT entries in the NIST SP 800-53 Rev 5 Moderate baseline, using catalog release 5.2.0. AT-3(5) is a privacy baseline control, assessed with the PT family (\<Control Assessment Record\> (PT)). An independent team led by \[Name\] will use this record for the Level 2 assessment. It makes no fixes.
 
 ### AT.2 How to read this record
 
@@ -1238,15 +1238,15 @@ The method was **Examine** (documents). This family has no code to test. No trai
 | Control | Result | Statements satisfied | Main reason | Finding |
 | --- | --- | --- | --- | --- |
 | AT-1 | Other than satisfied | 21 of 25 | Not yet shared; Head of Cyber's re-approval (D-AT-07) outstanding; legally reviewed | NC-AT-01 |
-| AT-2 | Other than satisfied | 7 of 17 | \<DocuView\> briefing not yet given; ABC Technologies' course not seen | NC-AT-02 |
+| AT-2 | Other than satisfied | 7 of 17 | \<System Name\> briefing not yet given; \<Organisation\>'s course not seen | NC-AT-02 |
 | AT-2(2) | Other than satisfied | 0 of 2 | As AT-2 | NC-AT-03 |
 | AT-2(3) | Other than satisfied | 0 of 4 | As AT-2 | NC-AT-04 |
 | AT-3 | Other than satisfied | 5 of 14 | Curriculum set; content not yet written or given | NC-AT-05 |
 | AT-4 | Other than satisfied | 1 of 4 | No training yet | NC-AT-06 |
 
-Of NIST's 66 statements, 34 are satisfied, 17 await a decision or approval, none shows a gap in the system and 15 await evidence from ABC Technologies.
+Of NIST's 66 statements, 34 are satisfied, 17 await a decision or approval, none shows a gap in the system and 15 await evidence from \<Organisation\>.
 
-The programme is now fully defined: who needs what, the role curriculum, the briefing outline, one training matrix, the register and the measures. What remains is training actually being given, and ABC Technologies' evidence.
+The programme is now fully defined: who needs what, the role curriculum, the briefing outline, one training matrix, the register and the measures. What remains is training actually being given, and \<Organisation\>'s evidence.
 
 ### AT.4 Findings by determination statement
 
@@ -1276,7 +1276,7 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | AT-01a.01(a)\[06\] | Policy addresses coordination | S | \<Policy\> (AT) \<ver\>, section AT.6 |
 | AT-01a.01(a)\[07\] | Policy addresses compliance | S | \<Policy\> (AT) \<ver\>, section AT.6 |
 | AT-01a.01(b) | Policy is consistent with laws and standards | S | Legally reviewed on 12 November 2026, as confirmed by the system owner |
-| AT-01b. | Official is designated | S | Neil Ramsbottom is the system owner |
+| AT-01b. | Official is designated | S | \[Name\] is the system owner |
 | AT-01c.01\[01\] | Policy is reviewed at the set frequency | O-D | First review not yet due |
 | AT-01c.01\[02\] | Policy is reviewed after set events | S | Reviewed on 12 November 2026 after the AT pack review (D-AT-06) |
 | AT-01c.02\[01\] | Procedures are reviewed at the set frequency | O-D | First review not yet due |
@@ -1288,22 +1288,22 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | AT-02\_ODP\[05\] | Awareness techniques are defined | S | \<Awareness and Training Management\> \<ver\>, appendix A |
 | AT-02\_ODP\[06\] | Content update frequency is defined | S | \<Awareness and Training Management\> \<ver\>, appendix A |
 | AT-02\_ODP\[07\] | Content update events are defined | S | \<Awareness and Training Management\> \<ver\>, appendix A |
-| AT-02a.01\[01\] | New users get security training | O-E | \<DocuView\> briefing outlined (\<Awareness and Training Management\>, section 4.3), not yet given; ABC Technologies' course not seen (EV-AT-01) |
-| AT-02a.01\[02\] | New users get privacy training | O-E | \<DocuView\> briefing outlined (\<Awareness and Training Management\>, section 4.3), not yet given; ABC Technologies' course not seen (EV-AT-01) |
-| AT-02a.01\[03\] | Users get security training at the set frequency | O-E | \<DocuView\> briefing outlined (\<Awareness and Training Management\>, section 4.3), not yet given; ABC Technologies' course not seen (EV-AT-01) |
-| AT-02a.01\[04\] | Users get privacy training at the set frequency | O-E | \<DocuView\> briefing outlined (\<Awareness and Training Management\>, section 4.3), not yet given; ABC Technologies' course not seen (EV-AT-01) |
-| AT-02a.02\[01\] | Security training follows changes and events | O-E | \<DocuView\> briefing outlined (\<Awareness and Training Management\>, section 4.3), not yet given; ABC Technologies' course not seen (EV-AT-01) |
-| AT-02a.02\[02\] | Privacy training follows changes and events | O-E | \<DocuView\> briefing outlined (\<Awareness and Training Management\>, section 4.3), not yet given; ABC Technologies' course not seen (EV-AT-01) |
-| AT-02b. | Awareness techniques are used | O-E | \<DocuView\> briefing outlined (\<Awareness and Training Management\>, section 4.3), not yet given; ABC Technologies' course not seen (EV-AT-01) |
-| AT-02c.\[01\] | Content is updated at the set frequency | O-E | \<DocuView\> briefing outlined (\<Awareness and Training Management\>, section 4.3), not yet given; ABC Technologies' course not seen (EV-AT-01) |
-| AT-02c.\[02\] | Content is updated after set events | O-E | \<DocuView\> briefing outlined (\<Awareness and Training Management\>, section 4.3), not yet given; ABC Technologies' course not seen (EV-AT-01) |
+| AT-02a.01\[01\] | New users get security training | O-E | \<System Name\> briefing outlined (\<Awareness and Training Management\>, section 4.3), not yet given; \<Organisation\>'s course not seen (EV-AT-01) |
+| AT-02a.01\[02\] | New users get privacy training | O-E | \<System Name\> briefing outlined (\<Awareness and Training Management\>, section 4.3), not yet given; \<Organisation\>'s course not seen (EV-AT-01) |
+| AT-02a.01\[03\] | Users get security training at the set frequency | O-E | \<System Name\> briefing outlined (\<Awareness and Training Management\>, section 4.3), not yet given; \<Organisation\>'s course not seen (EV-AT-01) |
+| AT-02a.01\[04\] | Users get privacy training at the set frequency | O-E | \<System Name\> briefing outlined (\<Awareness and Training Management\>, section 4.3), not yet given; \<Organisation\>'s course not seen (EV-AT-01) |
+| AT-02a.02\[01\] | Security training follows changes and events | O-E | \<System Name\> briefing outlined (\<Awareness and Training Management\>, section 4.3), not yet given; \<Organisation\>'s course not seen (EV-AT-01) |
+| AT-02a.02\[02\] | Privacy training follows changes and events | O-E | \<System Name\> briefing outlined (\<Awareness and Training Management\>, section 4.3), not yet given; \<Organisation\>'s course not seen (EV-AT-01) |
+| AT-02b. | Awareness techniques are used | O-E | \<System Name\> briefing outlined (\<Awareness and Training Management\>, section 4.3), not yet given; \<Organisation\>'s course not seen (EV-AT-01) |
+| AT-02c.\[01\] | Content is updated at the set frequency | O-E | \<System Name\> briefing outlined (\<Awareness and Training Management\>, section 4.3), not yet given; \<Organisation\>'s course not seen (EV-AT-01) |
+| AT-02c.\[02\] | Content is updated after set events | O-E | \<System Name\> briefing outlined (\<Awareness and Training Management\>, section 4.3), not yet given; \<Organisation\>'s course not seen (EV-AT-01) |
 | AT-02d. | Lessons from incidents are built in | O-D | PRO-AT-3 \<ver\> approved; not yet in use |
-| AT-02(02)\[01\] | Training covers recognising insider threat | O-E | \<DocuView\> briefing outlined (\<Awareness and Training Management\>, section 4.3, B4), not yet given; ABC Technologies' course not seen (EV-AT-01) |
-| AT-02(02)\[02\] | Training covers reporting insider threat | O-E | \<DocuView\> briefing outlined (\<Awareness and Training Management\>, section 4.3, B4 and B5), not yet given; ABC Technologies' course not seen (EV-AT-01) |
-| AT-02(03)\[01\] | Training covers recognising social engineering | O-E | \<DocuView\> briefing outlined (\<Awareness and Training Management\>, section 4.3, B3), not yet given; ABC Technologies' course not seen (EV-AT-01) |
-| AT-02(03)\[02\] | Training covers reporting social engineering | O-E | \<DocuView\> briefing outlined (\<Awareness and Training Management\>, section 4.3, B5), not yet given; ABC Technologies' course not seen (EV-AT-01) |
-| AT-02(03)\[03\] | Training covers recognising social mining | O-E | \<DocuView\> briefing outlined (\<Awareness and Training Management\>, section 4.3, B3), not yet given; ABC Technologies' course not seen (EV-AT-01) |
-| AT-02(03)\[04\] | Training covers reporting social mining | O-E | \<DocuView\> briefing outlined (\<Awareness and Training Management\>, section 4.3, B5), not yet given; ABC Technologies' course not seen (EV-AT-01) |
+| AT-02(02)\[01\] | Training covers recognising insider threat | O-E | \<System Name\> briefing outlined (\<Awareness and Training Management\>, section 4.3, B4), not yet given; \<Organisation\>'s course not seen (EV-AT-01) |
+| AT-02(02)\[02\] | Training covers reporting insider threat | O-E | \<System Name\> briefing outlined (\<Awareness and Training Management\>, section 4.3, B4 and B5), not yet given; \<Organisation\>'s course not seen (EV-AT-01) |
+| AT-02(03)\[01\] | Training covers recognising social engineering | O-E | \<System Name\> briefing outlined (\<Awareness and Training Management\>, section 4.3, B3), not yet given; \<Organisation\>'s course not seen (EV-AT-01) |
+| AT-02(03)\[02\] | Training covers reporting social engineering | O-E | \<System Name\> briefing outlined (\<Awareness and Training Management\>, section 4.3, B5), not yet given; \<Organisation\>'s course not seen (EV-AT-01) |
+| AT-02(03)\[03\] | Training covers recognising social mining | O-E | \<System Name\> briefing outlined (\<Awareness and Training Management\>, section 4.3, B3), not yet given; \<Organisation\>'s course not seen (EV-AT-01) |
+| AT-02(03)\[04\] | Training covers reporting social mining | O-E | \<System Name\> briefing outlined (\<Awareness and Training Management\>, section 4.3, B5), not yet given; \<Organisation\>'s course not seen (EV-AT-01) |
 | AT-03\_ODP\[01\] | Roles for security training are defined | S | \<Awareness and Training Management\> \<ver\>, appendix A |
 | AT-03\_ODP\[02\] | Roles for privacy training are defined | S | \<Awareness and Training Management\> \<ver\>, appendix A |
 | AT-03\_ODP\[03\] | Training frequency is defined | S | \<Awareness and Training Management\> \<ver\>, appendix A |
@@ -1335,7 +1335,7 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | Examine | \<Policy\> (AT), \<Procedures\> (AT) and the awareness and training chapter of \<Control Implementation Register\> at \<ver\>, now in \<Awareness and Training Management\>; \<Security Operating Procedures\>; \<Procedures\> (AC); PRO-IR-3; PRO-CP-4; \<PII Processing Management\>. Depth: focused. Coverage: focused |
 | Test | Not applicable to this family. Check L14 of Test-PlanConsistency.ps1 (the PL evidence) |
 | Interview | None held. The system owner, the security officer, one person from each role in the matrix and a sample of users remain |
-| Boundary | \<DocuView\>'s own briefing, role training and records. ABC Technologies' general course and its administrators' training are provider evidence (EV-AT-01) |
+| Boundary | \<System Name\>'s own briefing, role training and records. \<Organisation\>'s general course and its administrators' training are provider evidence (EV-AT-01) |
 | Order of assessment | A, the programme (AT-1, \<Awareness and Training Management\>, section 4.2); B, awareness (AT-2, AT-2(2), AT-2(3)); C, role training (AT-3); D, records (AT-4) |
 | Needed from providers | EV-AT-01 in \<Evidence Requests\> |
 | Evidence retained | TPL-9 and TPL-21 records; the training register in \<Awareness and Training Management\>, section 4.8; the monthly measures on TPL-8; the PL evidence |
@@ -1356,15 +1356,15 @@ For the Level 2 assessment, the assessor should:
 
 ### AU.1 Purpose
 
-This records the Level 1 self-assessment of the 16 AU entries in the NIST SP 800-53 Rev 5 Moderate baseline, using catalog release 5.2.0. An independent team led by Josh Leak will use it for the Level 2 assessment. It makes no fixes: each non-compliance is rated and decided in \<Risk List\>, and only those to be remediated go to \<Plan of Action and Milestones\>.
+This records the Level 1 self-assessment of the 16 AU entries in the NIST SP 800-53 Rev 5 Moderate baseline, using catalog release 5.2.0. An independent team led by \[Name\] will use it for the Level 2 assessment. It makes no fixes: each non-compliance is rated and decided in \<Risk List\>, and only those to be remediated go to \<Plan of Action and Milestones\>.
 
 ### AU.2 How to read this record
 
-**Change since this assessment.** On 12 November 2026 the system owner stated that \<DocuView\> signs in through ABC Technologies' AD FS and takes its groups from Active Directory (D-AC-23), that only the API reaches the database (D-AC-18), and that an audit record's session field holds a hash of the session ID (D-AU-11). This chapter assessed the v1.0 build. Its findings are a true record of that build and are not changed. Since then five items have been added for gaps the review of the design found: PA-101 to PA-105. The findings are to be made again when the tests are repeated on the AD FS build (PA-95).
+**Change since this assessment.** On 12 November 2026 the system owner stated that \<System Name\> signs in through \<Organisation\>'s AD FS and takes its groups from Active Directory (D-AC-23), that only the API reaches the database (D-AC-18), and that an audit record's session field holds a hash of the session ID (D-AU-11). This chapter assessed the v1.0 build. Its findings are a true record of that build and are not changed. Since then five items have been added for gaps the review of the design found: PA-101 to PA-105. The findings are to be made again when the tests are repeated on the AD FS build (PA-95).
 
 The methods were **Examine** (code and configuration), **Test** (Test-AuditAndAuth.ps1, checks A01 to A38, results of 6 and 8 November 2026 in the AU and IA evidence) and read-only database checks. The system owner answered INT-AU-01 to 06 in writing, as proposed answers (\<Interview Guide\>). No records were seen, so these change no finding, and the role holders have not been interviewed.
 
-**Limit of the current evidence:** \<DocuView\> ran in Docker on one PC with sample data, in the build labelled v1.0. The Windows Server 2025 VMs, PostgreSQL on Windows and ABC Technologies' services have not been examined.
+**Limit of the current evidence:** \<System Name\> ran in Docker on one PC with sample data, in the build labelled v1.0. The Windows Server 2025 VMs, PostgreSQL on Windows and \<Organisation\>'s services have not been examined.
 
 ### AU.3 Executive summary
 
@@ -1381,7 +1381,7 @@ The methods were **Examine** (code and configuration), **Test** (Test-AuditAndAu
 | Control | Result | Statements satisfied | Main reason | Finding and POA&M |
 | --- | --- | --- | --- | --- |
 | AU-1 | Other than satisfied | 21 of 25 | Policy and procedures not yet shared; first reviews outstanding; legally reviewed | NC-AU-01; PA-20 |
-| AU-2 | Other than satisfied | 7 of 10 | Most account, group and role changes and the PA-76 events not logged; coordination with ABC Technologies not agreed | NC-AU-02, NC-AU-17; PA-14, PA-76 |
+| AU-2 | Other than satisfied | 7 of 10 | Most account, group and role changes and the PA-76 events not logged; coordination with \<Organisation\> not agreed | NC-AU-02, NC-AU-17; PA-14, PA-76 |
 | AU-3 | Other than satisfied | 0 of 6 | Application records are complete except some named "System"; VMs not available | NC-AU-03; PA-14 |
 | AU-3(1) | Satisfied | 2 of 2 | Session, browser, project and document recorded (A20, A21) | None |
 | AU-4 | Other than satisfied | 1 of 2 | No storage planned, as the VMs are not built | NC-AU-04; PA-42 |
@@ -1397,7 +1397,7 @@ The methods were **Examine** (code and configuration), **Test** (Test-AuditAndAu
 | AU-11 | Other than satisfied | 1 of 2 | No retention or archive in place; VMs not built | NC-AU-14; PA-42 |
 | AU-12 | Other than satisfied | 2 of 5 | PostgreSQL logging off; Windows not assessed; events built into each release | NC-AU-15; PA-14, PA-43 |
 
-Of NIST's 81 statements, 48 are satisfied, 8 await a decision or approval, 15 show a gap in the system and 10 await evidence from the VMs or ABC Technologies.
+Of NIST's 81 statements, 48 are satisfied, 8 await a decision or approval, 15 show a gap in the system and 10 await evidence from the VMs or \<Organisation\>.
 
 The application records the right detail for most events, in UTC, with a chain hash on each record. The most serious gap is protection: the application's database account can change, delete or empty the audit table, and nothing checks the chain. The chain itself has no key, cannot show that the newest records were removed, and as stored cannot be recomputed (A36, A37). Every audit event is also repeated in the unprotected application log with the username, IP address and session ID (A38). Global administrators can also read the records, against the agreed value. Nobody is alerted when logging fails, and no review has started.
 
@@ -1426,10 +1426,10 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | AU-01a.01(a)\[03\] | Policy addresses roles | S | \<Policy\>, section AU.5 |
 | AU-01a.01(a)\[04\] | Policy addresses responsibilities | S | \<Policy\>, section AU.5 |
 | AU-01a.01(a)\[05\] | Policy addresses management commitment | S | \<Policy\>, section AU.6 |
-| AU-01a.01(a)\[06\] | Policy addresses coordination | S | \<Policy\>, section AU.6. Not yet agreed with ABC Technologies |
+| AU-01a.01(a)\[06\] | Policy addresses coordination | S | \<Policy\>, section AU.6. Not yet agreed with \<Organisation\> |
 | AU-01a.01(a)\[07\] | Policy addresses compliance | S | \<Policy\>, section AU.6 |
 | AU-01a.01(b) | Policy is consistent with laws and standards | S | Legally reviewed on 12 November 2026, as confirmed by the system owner |
-| AU-01b. | Official is designated | S | Neil Ramsbottom is the system owner |
+| AU-01b. | Official is designated | S | \[Name\] is the system owner |
 | AU-01c.01\[01\] | Policy is reviewed at the set frequency | O-D | First review not yet due |
 | AU-01c.01\[02\] | Policy is reviewed after set events | S | Reviewed on 8 November 2026 after the AU pack review; version \<ver\> approved (D-AU-08) |
 | AU-01c.02\[01\] | Procedures are reviewed at the set frequency | O-D | First review not yet due |
@@ -1439,7 +1439,7 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | AU-02\_ODP\[03\] | How often they are logged is defined | S | Every occurrence |
 | AU-02\_ODP\[04\] | Review of selected events is defined | S | Every 12 months |
 | AU-02a. | Event types are identified | S | \<Audit and Accountability Management\>, Table 7 |
-| AU-02b. | Logging is coordinated with other entities | O-D | Not yet agreed with ABC Technologies (EV-AU-01) |
+| AU-02b. | Logging is coordinated with other entities | O-D | Not yet agreed with \<Organisation\> (EV-AU-01) |
 | AU-02c.\[01\] | Event types are specified for logging | S | \<Audit and Accountability Management\>, sections 4.2 and 4.3 |
 | AU-02c.\[02\] | They are logged at the set frequency | O-G | Most account, group and role changes are not logged (PA-14), nor are reading the audit log, start-up and shut-down, or logging changes (PA-76) |
 | AU-02d. | Rationale is provided | S | the audit chapter of \<Control Implementation Register\>, version \<ver\> approved (D-AU-03); version \<ver\> approved (D-AU-09) |
@@ -1466,7 +1466,7 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | AU-06b. | Findings are reported | O-G | No review has started (PA-40) |
 | AU-06c. | Review is adjusted when risk changes | O-D | PRO-AU-1 approved, not walked through |
 | AU-06(01)\_ODP | Automated mechanisms are defined | S | \<Audit and Accountability Management\> |
-| AU-06(01) | Processes are integrated using them | O-G | No integration exists; ABC Technologies' monitoring unconfirmed (PA-40) |
+| AU-06(01) | Processes are integrated using them | O-G | No integration exists; \<Organisation\>'s monitoring unconfirmed (PA-40) |
 | AU-06(03) | Records are correlated across repositories | O-G | Only the application table is reviewable (PA-40) |
 | AU-07a.\[01\] | Reduction and reporting capability is provided | S | Audit page filters and statistics |
 | AU-07a.\[02\] | It meets on-demand and investigation needs | O-G | No export or report (PA-41) |
@@ -1499,19 +1499,19 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | --- | --- |
 | Scope | The 16 AU entries in the SP 800-53B Moderate baseline, with 81 determination statements. AU-3(3), which limits personal data in records, is assessed with the PT family |
 | Procedures | SP 800-53A Rev 5, using NIST's published statements and identifiers (catalog release 5.2.0) |
-| Assessor | Level 1: Claude, an AI assistant, working for the system owner. Level 2: an independent team led by Josh Leak, which meets CA-2(1) at Moderate once TPL-19 is completed |
+| Assessor | Level 1: Claude, an AI assistant, working for the system owner. Level 2: an independent team led by \[Name\], which meets CA-2(1) at Moderate once TPL-19 is completed |
 | Dates | 6 November 2026; evidence re-run on the tagged v1.0 build on 8 November 2026 |
 | Site | One PC, using a separate throwaway Docker stack with sample data. The Windows Server 2025 VMs are not built |
 | Examine | The audit service, the audit record format, the audit page, the database's grants and settings, and \<Policy\> (AU), \<Procedures\> (AU) and \<Audit and Accountability Management\>. Depth: focused. Coverage: focused, on the functions each control concerns |
 | Test | Test-AuditAndAuth.ps1: checks A15 to A32 and A35 to A38 cover AU, and A01 to A14, A33 and A34 cover IA. Results of 6 November and of 8 November 2026 (au-ia-test-results-2026-11-08-v1.0.csv, with hashes in MANIFEST.md). Depth: focused. Coverage: focused. Windows and PostgreSQL logging on the VMs not tested |
-| Interview | System owner's written answers to INT-AU-01 to 06 only. The auditor, security officer, Windows server and database administrators and ABC Technologies' security contact remain. The people are named in \<Roles and Responsibilities\> |
+| Interview | System owner's written answers to INT-AU-01 to 06 only. The auditor, security officer, Windows server and database administrators and \<Organisation\>'s security contact remain. The people are named in \<Roles and Responsibilities\> |
 | Previous results reused | None |
-| Boundary | Audit records in dbo.AuditLog, the application logs, and the PostgreSQL and Windows logs on both VMs. ABC Technologies' central monitoring and time service are inherited |
+| Boundary | Audit records in dbo.AuditLog, the application logs, and the PostgreSQL and Windows logs on both VMs. \<Organisation\>'s central monitoring and time service are inherited |
 | Order of assessment | A, record generation and content (AU-12, AU-2, AU-3, AU-3(1)); B, protection (AU-9, AU-9(4)); C, failure, capacity and retention (AU-5, AU-4, AU-11); D, review and reporting (AU-6, AU-6(1), AU-6(3), AU-7, AU-7(1)); E, time (AU-8); F, policy (AU-1). Generation comes first because every other result depends on records existing |
-| Needed from ABC Technologies | EV-AU-01 to EV-AU-05 in \<Evidence Requests\>: central monitoring, the time source, storage and backup, the Windows audit policy, and AD FS and Active Directory audit records |
+| Needed from \<Organisation\> | EV-AU-01 to EV-AU-05 in \<Evidence Requests\>: central monitoring, the time source, storage and backup, the Windows audit policy, and AD FS and Active Directory audit records |
 | Evidence retained | The AU and IA evidence, with its manifest; \<Audit and Accountability Management\>, appendix A and section 5 |
 
-The authorising official approved this plan (D-GEN-18), as confirmed by the system owner on 8 November 2026. The independent assessor's team, schedule, and depth and coverage are added once agreed. For the Level 2 assessment, the assessor should repeat the tests on the VMs, hold the interviews, examine ABC Technologies' evidence and re-determine every statement in section AU.4.
+The authorising official approved this plan (D-GEN-18), as confirmed by the system owner on 8 November 2026. The independent assessor's team, schedule, and depth and coverage are added once agreed. For the Level 2 assessment, the assessor should repeat the tests on the VMs, hold the interviews, examine \<Organisation\>'s evidence and re-determine every statement in section AU.4.
 
 | **CHAPTER CA** |
 | --- |
@@ -1522,7 +1522,7 @@ The authorising official approved this plan (D-GEN-18), as confirmed by the syst
 
 ### CA.1 Purpose
 
-This records the Level 1 self-assessment of the 10 CA entries in the NIST SP 800-53 Rev 5 Moderate baseline, using catalog release 5.2.0. An independent team led by Josh Leak will use it for the Level 2 assessment. It makes no fixes.
+This records the Level 1 self-assessment of the 10 CA entries in the NIST SP 800-53 Rev 5 Moderate baseline, using catalog release 5.2.0. An independent team led by \[Name\] will use it for the Level 2 assessment. It makes no fixes.
 
 ### CA.2 How to read this record
 
@@ -1554,9 +1554,9 @@ The method was **Examine** (the assessment, plan and decision documents). No int
 | CA-7(4) | Other than satisfied | 1 of 4 | Risk monitoring starts at go-live | NC-CA-09 |
 | CA-9 | Other than satisfied | 7 of 10 | Internal connection planned; not yet reviewed | NC-CA-10; PA-63 |
 
-Of NIST's 93 statements, 64 are satisfied, 27 await a decision or approval, none shows a gap in the system and 2 await evidence from ABC Technologies.
+Of NIST's 93 statements, 64 are satisfied, 27 await a decision or approval, none shows a gap in the system and 2 await evidence from \<Organisation\>.
 
-The assessments, plans, assessment report and plan of action exist, and all 19 assessment plans are approved. Level 2, authorisation and monitoring have not started, as \<DocuView\> is not live.
+The assessments, plans, assessment report and plan of action exist, and all 19 assessment plans are approved. Level 2, authorisation and monitoring have not started, as \<System Name\> is not live.
 
 ### CA.4 Findings by determination statement
 
@@ -1586,14 +1586,14 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | CA-01a.01(a)\[06\] | Policy addresses coordination | S | \<Policy\>, section CA.6 |
 | CA-01a.01(a)\[07\] | Policy addresses compliance | S | \<Policy\>, section CA.6 |
 | CA-01a.01(b) | Policy is consistent with laws and standards | S | Legally reviewed on 12 November 2026, as confirmed by the system owner |
-| CA-01b. | Official is designated | S | Neil Ramsbottom is the system owner |
+| CA-01b. | Official is designated | S | \[Name\] is the system owner |
 | CA-01c.01\[01\] | Policy is reviewed at the set frequency | O-D | First review not yet due |
 | CA-01c.01\[02\] | Policy is reviewed after set events | S | Reviewed on 8 November 2026 after the CA pack review; version \<ver\> approved (D-CA-06) |
 | CA-01c.02\[01\] | Procedures are reviewed at the set frequency | O-D | First review not yet due |
 | CA-01c.02\[02\] | Procedures are reviewed after set events | S | Reviewed on 8 November 2026 after the CA pack review; version \<ver\> approved (D-CA-06) |
 | CA-02\_ODP\[01\] | Assessment frequency is defined | S | \<Assessment, Authorization, and Monitoring Management\> |
 | CA-02\_ODP\[02\] | Who receives results is defined | S | \<Assessment, Authorization, and Monitoring Management\> |
-| CA-02a. | An assessor is selected | S | Josh Leak's team |
+| CA-02a. | An assessor is selected | S | \[Name\]'s team |
 | CA-02b.01 | The plan describes scope | S | Each family assessment's plan, section 6 (section 7 for AC) |
 | CA-02b.02 | The plan describes procedures | S | Each family assessment's plan, section 6 (section 7 for AC) |
 | CA-02b.03\[01\] | The plan describes the environment | S | Each family assessment, sections 3 and 6 (3 and 7 for AC) |
@@ -1620,11 +1620,11 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | CA-05a. | A plan of action and milestones exists | S | \<Plan of Action and Milestones\> |
 | CA-05b. | The plan is updated at the set frequency | O-D | Monthly updates not started |
 | CA-06\_ODP | Update frequency is defined | S | \<Assessment, Authorization, and Monitoring Management\> |
-| CA-06a. | An authorising official is assigned | S | Bob Jones (D-GEN-02) |
-| CA-06b. | An official for common controls is assigned | O-E | ABC Technologies (EV-CA-01) |
+| CA-06a. | An authorising official is assigned | S | \[Name\] (D-GEN-02) |
+| CA-06b. | An official for common controls is assigned | O-E | \<Organisation\> (EV-CA-01) |
 | CA-06c.01 | Common controls are accepted before operation | O-D | Not yet decided |
-| CA-06c.02 | The system is authorised before operation | O-D | \<DocuView\> is not authorised |
-| CA-06d. | Common controls are authorised for use | O-E | ABC Technologies (EV-CA-01) |
+| CA-06c.02 | The system is authorised before operation | O-D | \<System Name\> is not authorised |
+| CA-06d. | Common controls are authorised for use | O-E | \<Organisation\> (EV-CA-01) |
 | CA-06e. | Authorisations are updated | O-D | Not yet authorised |
 | CA-07\_ODP\[01\] | Metrics are defined | S | \<Assessment, Authorization, and Monitoring Management\> |
 | CA-07\_ODP\[02\] | Monitoring frequency is defined | S | \<Assessment, Authorization, and Monitoring Management\> |
@@ -1674,9 +1674,9 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | Test | Not applicable to this family at Level 1 |
 | Interview | None held. The system owner, authorising official, security officer and security assessor remain |
 | Previous results reused | None |
-| Boundary | The assessment, authorisation and monitoring processes for \<DocuView\>, and the connections in \<Assessment, Authorization, and Monitoring Management\>, section 4.7 |
+| Boundary | The assessment, authorisation and monitoring processes for \<System Name\>, and the connections in \<Assessment, Authorization, and Monitoring Management\>, section 4.7 |
 | Order of assessment | A, plan and assessment (CA-2, CA-2(1)); B, remediation (CA-5); C, authorisation and inherited controls (CA-6); D, connections (CA-3, CA-9); E, monitoring (CA-7, CA-7(1), CA-7(4)); F, policy (CA-1). Assessment comes first because every other CA result depends on it |
-| Needed from ABC Technologies | EV-CA-01 in \<Evidence Requests\>, for the inherited controls in \<Assessment, Authorization, and Monitoring Management\>, section 4.6; and the agreements in \<Assessment, Authorization, and Monitoring Management\>, section 4.7 |
+| Needed from \<Organisation\> | EV-CA-01 in \<Evidence Requests\>, for the inherited controls in \<Assessment, Authorization, and Monitoring Management\>, section 4.6; and the agreements in \<Assessment, Authorization, and Monitoring Management\>, section 4.7 |
 | Evidence retained | The documents above, at the versions in their change histories |
 
 The authorising official approved this plan (D-GEN-18), as confirmed by the system owner on 8 November 2026. The independent assessor's team, schedule, and depth and coverage are added once agreed. For the Level 2 assessment, the assessor should confirm their independence, examine the monitoring reports once started, hold the interviews and re-determine every statement in section CA.4.
@@ -1690,7 +1690,7 @@ The authorising official approved this plan (D-GEN-18), as confirmed by the syst
 
 ### CM.1 Purpose
 
-This records the Level 1 self-assessment of the 24 CM entries in the NIST SP 800-53 Rev 5 Moderate baseline, using catalog release 5.2.0. An independent team led by Josh Leak will use it for the Level 2 assessment. It makes no fixes.
+This records the Level 1 self-assessment of the 24 CM entries in the NIST SP 800-53 Rev 5 Moderate baseline, using catalog release 5.2.0. An independent team led by \[Name\] will use it for the Level 2 assessment. It makes no fixes.
 
 ### CM.2 How to read this record
 
@@ -1698,7 +1698,7 @@ This records the Level 1 self-assessment of the 24 CM entries in the NIST SP 800
 
 The methods were **Examine** (code and configuration) and **Test** (checks B06 to B08 on 6 November 2026, and C01 to C11 by \Test-ConfigurationManagement.ps1 on the tagged v1.0 build on 8 November 2026, with hashes in MANIFEST.md, in the SC and CM evidence, on a throwaway stack). The system owner answered the interview questions at Level 1 (\<Interview Guide\>, Table 34). Those answers changed no finding, and the role holders have not been interviewed.
 
-**Limit of the current evidence:** \<DocuView\> ran in Docker on one PC with sample data, in the build tagged v1.0. The Windows Server 2025 VMs and ABC Technologies' services have not been examined.
+**Limit of the current evidence:** \<System Name\> ran in Docker on one PC with sample data, in the build tagged v1.0. The Windows Server 2025 VMs and \<Organisation\>'s services have not been examined.
 
 ### CM.3 Executive summary
 
@@ -1719,12 +1719,12 @@ The methods were **Examine** (code and configuration) and **Test** (checks B06 t
 | CM-2(2) | Other than satisfied | 1 of 5 | Not yet in use on the VMs | NC-CM-03; PA-53, PA-77 |
 | CM-2(3) | Other than satisfied | 1 of 2 | Only v1.0 exists | NC-CM-04 |
 | CM-2(7) | Satisfied | 5 of 5 | No device is issued for travel | None |
-| CM-3 | Other than satisfied | 6 of 15 | Jira change workflow not set up | NC-CM-06; PA-53 |
+| CM-3 | Other than satisfied | 6 of 15 | ServiceNow change workflow not set up | NC-CM-06; PA-53 |
 | CM-3(2) | Other than satisfied | 0 of 3 | No release test gate | NC-CM-07; PA-53 |
 | CM-3(4) | Satisfied | 5 of 5 | Security and privacy representatives named | None |
 | CM-4 | Other than satisfied | 0 of 2 | Impact analysis defined; not yet in use | NC-CM-09; PA-53 |
 | CM-4(2) | Other than satisfied | 0 of 6 | Verification defined; not yet in use | NC-CM-10; PA-53 |
-| CM-5 | Other than satisfied | 2 of 6 | Physical restrictions with ABC Technologies; VMs not built | NC-CM-11; EV-CM-01 |
+| CM-5 | Other than satisfied | 2 of 6 | Physical restrictions with \<Organisation\>; VMs not built | NC-CM-11; EV-CM-01 |
 | CM-6 | Other than satisfied | 3 of 9 | VMs not built; hosting not decided | NC-CM-12; PA-54, PA-80 |
 | CM-7 | Other than satisfied | 6 of 12 | Diagnostic pages remain; unused packages | NC-CM-13, NC-CM-27; PA-07, PA-31, PA-79 |
 | CM-7(1) | Other than satisfied | 6 of 12 | First review not yet held | NC-CM-14 |
@@ -1732,16 +1732,16 @@ The methods were **Examine** (code and configuration) and **Test** (checks B06 t
 | CM-7(5) | Other than satisfied | 2 of 5 | List not yet written; not enforced, risk accepted | NC-CM-16; PA-55 |
 | CM-8 | Other than satisfied | 2 of 8 | Software listed; servers when built | NC-CM-17, NC-CM-26; PA-54, PA-78 |
 | CM-8(1) | Other than satisfied | 0 of 3 | Updating at each change not yet in use | NC-CM-18; PA-78 |
-| CM-8(3) | Other than satisfied | 6 of 12 | ABC Technologies' detection not evidenced | NC-CM-19; EV-CM-02 |
+| CM-8(3) | Other than satisfied | 6 of 12 | \<Organisation\>'s detection not evidenced | NC-CM-19; EV-CM-02 |
 | CM-9 | Other than satisfied | 10 of 13 | Not yet in use; moves to the protected store later | NC-CM-20; D-GEN-15 |
-| CM-10 | Other than satisfied | 0 of 3 | ABC Technologies' licences not evidenced | NC-CM-21; EV-CM-03 |
+| CM-10 | Other than satisfied | 0 of 3 | \<Organisation\>'s licences not evidenced | NC-CM-21; EV-CM-03 |
 | CM-11 | Other than satisfied | 4 of 6 | VMs not built; first check not yet due | NC-CM-22 |
 | CM-12 | Other than satisfied | 4 of 8 | Approved access list not yet built | NC-CM-23 |
 | CM-12(1) | Other than satisfied | 2 of 3 | Tools not yet confirmed | NC-CM-24; EV-CM-02 |
 
-Of NIST's 178 statements, 90 are satisfied, 41 await a decision or approval, 16 show a gap in the system and 31 await evidence from the VMs or ABC Technologies.
+Of NIST's 178 statements, 90 are satisfied, 41 await a decision or approval, 16 show a gap in the system and 31 await evidence from the VMs or \<Organisation\>.
 
-Most of this family is a process that has not started, because \<DocuView\> is not live. The gaps are that the Jira change workflow is not set up, diagnostic and maintenance pages remain in production builds, and software is not technically restricted, by decision.
+Most of this family is a process that has not started, because \<System Name\> is not live. The gaps are that the ServiceNow change workflow is not set up, diagnostic and maintenance pages remain in production builds, and software is not technically restricted, by decision.
 
 ### CM.4 Findings by determination statement
 
@@ -1771,7 +1771,7 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | CM-01a.01(a)\[06\] | Policy addresses coordination | S | \<Policy\>, section CM.6 |
 | CM-01a.01(a)\[07\] | Policy addresses compliance | S | \<Policy\>, section CM.6 |
 | CM-01a.01(b) | Policy is consistent with laws and standards | S | Legally reviewed on 12 November 2026, as confirmed by the system owner |
-| CM-01b. | Official is designated | S | Neil Ramsbottom is the system owner |
+| CM-01b. | Official is designated | S | \[Name\] is the system owner |
 | CM-01c.01\[01\] | Policy is reviewed at the set frequency | O-D | First review not yet due |
 | CM-01c.01\[02\] | Policy is reviewed after set events | S | Reviewed on 8 November 2026 after the CM pack review; version \<ver\> approved by the Head of Cyber on 8 November 2026 (D-CM-11) |
 | CM-01c.02\[01\] | Procedures are reviewed at the set frequency | O-D | First review not yet due |
@@ -1801,13 +1801,13 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | CM-03\_ODP\[04\] | Frequency is defined | S | \<Configuration Management\> |
 | CM-03\_ODP\[05\] | Conditions are defined | S | \<Configuration Management\> |
 | CM-03a. | Change types are determined | S | \<Configuration Management\> (D-CM-03) |
-| CM-03b.\[01\] | Changes are reviewed | O-G | Jira workflow not set up (PA-53) |
-| CM-03b.\[02\] | Changes are approved or refused | O-G | Jira workflow not set up (PA-53) |
-| CM-03c. | Decisions are documented | O-G | Jira workflow not set up (PA-53) |
-| CM-03d. | Approved changes are implemented | O-G | Jira workflow not set up (PA-53) |
-| CM-03e. | Records are retained | O-G | Jira workflow not set up (PA-53) |
-| CM-03f.\[01\] | Change activities are monitored | O-G | Jira workflow not set up (PA-53) |
-| CM-03f.\[02\] | Change activities are reviewed | O-G | Jira workflow not set up (PA-53) |
+| CM-03b.\[01\] | Changes are reviewed | O-G | ServiceNow workflow not set up (PA-53) |
+| CM-03b.\[02\] | Changes are approved or refused | O-G | ServiceNow workflow not set up (PA-53) |
+| CM-03c. | Decisions are documented | O-G | ServiceNow workflow not set up (PA-53) |
+| CM-03d. | Approved changes are implemented | O-G | ServiceNow workflow not set up (PA-53) |
+| CM-03e. | Records are retained | O-G | ServiceNow workflow not set up (PA-53) |
+| CM-03f.\[01\] | Change activities are monitored | O-G | ServiceNow workflow not set up (PA-53) |
+| CM-03f.\[02\] | Change activities are reviewed | O-G | ServiceNow workflow not set up (PA-53) |
 | CM-03g.\[01\] | Activities are coordinated by the element | O-G | Not yet operating (PA-53) |
 | CM-03g.\[02\] | The element convenes | O-G | Not yet operating (PA-53) |
 | CM-03(02)\[01\] | Changes are tested first | O-G | Test scripts exist; no release gate (PA-53) |
@@ -1826,9 +1826,9 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | CM-04(02)\[04\] | Controls operate for privacy | O-D | PRO-CM-1 approved; not yet in use |
 | CM-04(02)\[05\] | Controls meet the outcome for security | O-D | PRO-CM-1 approved; not yet in use |
 | CM-04(02)\[06\] | Controls meet the outcome for privacy | O-D | PRO-CM-1 approved; not yet in use |
-| CM-05\[01\] | Physical restrictions are defined | O-E | ABC Technologies (EV-CM-01) |
-| CM-05\[02\] | Physical restrictions are documented | O-E | ABC Technologies (EV-CM-01) |
-| CM-05\[03\] | Physical restrictions are enforced | O-E | ABC Technologies (EV-CM-01) |
+| CM-05\[01\] | Physical restrictions are defined | O-E | \<Organisation\> (EV-CM-01) |
+| CM-05\[02\] | Physical restrictions are documented | O-E | \<Organisation\> (EV-CM-01) |
+| CM-05\[03\] | Physical restrictions are enforced | O-E | \<Organisation\> (EV-CM-01) |
 | CM-05\[04\] | Logical restrictions are defined | S | \<Configuration Management\> (D-CM-03) |
 | CM-05\[05\] | Logical restrictions are documented | S | \<Configuration Management\> (D-CM-03) |
 | CM-05\[06\] | Logical restrictions are enforced | O-E | VMs not built |
@@ -1884,18 +1884,18 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | CM-08(01)\[01\] | Updated at installation | O-D | PRO-CM-1 approved; not yet in use |
 | CM-08(01)\[02\] | Updated at removal | O-D | PRO-CM-1 approved; not yet in use |
 | CM-08(01)\[03\] | Updated at system updates | O-D | PRO-CM-1 approved; not yet in use |
-| CM-08(03)\_ODP\[01\] | Hardware mechanism is defined | S | ABC Technologies' tools |
-| CM-08(03)\_ODP\[02\] | Software mechanism is defined | S | ABC Technologies' tools |
-| CM-08(03)\_ODP\[03\] | Firmware mechanism is defined | S | ABC Technologies' tools |
+| CM-08(03)\_ODP\[01\] | Hardware mechanism is defined | S | \<Organisation\>'s tools |
+| CM-08(03)\_ODP\[02\] | Software mechanism is defined | S | \<Organisation\>'s tools |
+| CM-08(03)\_ODP\[03\] | Firmware mechanism is defined | S | \<Organisation\>'s tools |
 | CM-08(03)\_ODP\[04\] | Frequency is defined | S | Monthly |
 | CM-08(03)\_ODP\[05\] | Action is selected | S | \<Configuration Management\> |
 | CM-08(03)\_ODP\[06\] | Who is told is defined | S | Windows server administrator |
-| CM-08(03)(a)\[01\] | Unauthorised hardware is detected | O-E | ABC Technologies (EV-CM-02) |
-| CM-08(03)(a)\[02\] | Unauthorised software is detected | O-E | ABC Technologies (EV-CM-02) |
-| CM-08(03)(a)\[03\] | Unauthorised firmware is detected | O-E | ABC Technologies (EV-CM-02) |
-| CM-08(03)(b)\[01\] | Action is taken on hardware | O-E | ABC Technologies (EV-CM-02) |
-| CM-08(03)(b)\[02\] | Action is taken on software | O-E | ABC Technologies (EV-CM-02) |
-| CM-08(03)(b)\[03\] | Action is taken on firmware | O-E | ABC Technologies (EV-CM-02) |
+| CM-08(03)(a)\[01\] | Unauthorised hardware is detected | O-E | \<Organisation\> (EV-CM-02) |
+| CM-08(03)(a)\[02\] | Unauthorised software is detected | O-E | \<Organisation\> (EV-CM-02) |
+| CM-08(03)(a)\[03\] | Unauthorised firmware is detected | O-E | \<Organisation\> (EV-CM-02) |
+| CM-08(03)(b)\[01\] | Action is taken on hardware | O-E | \<Organisation\> (EV-CM-02) |
+| CM-08(03)(b)\[02\] | Action is taken on software | O-E | \<Organisation\> (EV-CM-02) |
+| CM-08(03)(b)\[03\] | Action is taken on firmware | O-E | \<Organisation\> (EV-CM-02) |
 | CM-09\_ODP | Who approves the plan is defined | S | System owner |
 | CM-09\[01\] | A plan is developed and documented | S | \<Configuration Management\> (D-CM-03) |
 | CM-09\[02\] | The plan is implemented | O-D | Not yet in use |
@@ -1909,9 +1909,9 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | CM-09d. | It is reviewed and approved | S | Approved (D-CM-03) |
 | CM-09e.\[01\] | It is protected from disclosure | O-D | Moves to SharePoint when all families are done (D-GEN-15) |
 | CM-09e.\[02\] | It is protected from modification | O-D | Moves to SharePoint when all families are done (D-GEN-15) |
-| CM-10a. | Software follows contracts and copyright | O-E | \<DocuView\>'s components reviewed (\<Configuration Management\>, section 4.5), with ImageSharp under its community licence (D-CM-09); ABC Technologies' licences not evidenced (EV-CM-03) |
-| CM-10b. | Quantity licences are tracked | O-E | ABC Technologies (EV-CM-03) |
-| CM-10c. | Peer-to-peer use is controlled | O-E | ABC Technologies (EV-CM-03) |
+| CM-10a. | Software follows contracts and copyright | O-E | \<System Name\>'s components reviewed (\<Configuration Management\>, section 4.5), with ImageSharp under its community licence (D-CM-09); \<Organisation\>'s licences not evidenced (EV-CM-03) |
+| CM-10b. | Quantity licences are tracked | O-E | \<Organisation\> (EV-CM-03) |
+| CM-10c. | Peer-to-peer use is controlled | O-E | \<Organisation\> (EV-CM-03) |
 | CM-11\_ODP\[01\] | Installation policy is defined | S | \<Configuration Management\> |
 | CM-11\_ODP\[02\] | Enforcement is defined | S | \<Configuration Management\> |
 | CM-11\_ODP\[03\] | Monitoring frequency is defined | S | \<Configuration Management\> |
@@ -1942,14 +1942,14 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | Site | One PC, using a separate throwaway Docker stack with sample data. The VMs are not built |
 | Examine | The image build file, compose file, project files, settings files, the start-up configuration and the repositories at tag v1.0; \<Policy\> (CM), \<Procedures\> (CM) and \<Configuration Management\>. Depth: focused. Coverage: focused |
 | Test | B06 to B08 by hand on 6 November 2026; C01 to C11 by Test-ConfigurationManagement.ps1 on 8 November 2026 (cm-test-results-2026-11-08-v1.0.csv, with the component inventory and MANIFEST.md). Depth: focused. Coverage: focused. The VMs, CIS settings and drift were not tested |
-| Interview | System owner's written answers only. Developers, the Windows server and database administrators, and ABC Technologies' security contact remain |
+| Interview | System owner's written answers only. Developers, the Windows server and database administrators, and \<Organisation\>'s security contact remain |
 | Previous results reused | None |
-| Boundary | The code, images, components and settings of \<DocuView\> v1.0, and the Windows Server and PostgreSQL configuration of both VMs. ABC Technologies' discovery tools and licences are inherited |
+| Boundary | The code, images, components and settings of \<System Name\> v1.0, and the Windows Server and PostgreSQL configuration of both VMs. \<Organisation\>'s discovery tools and licences are inherited |
 | Order of assessment | A, baseline and inventory (CM-2, CM-8, CM-10); B, change control (CM-3, CM-4, CM-5); C, secure settings and least functionality (CM-6, CM-7 and enhancements, CM-11); D, the plan and information location (CM-9, CM-12); E, policy (CM-1). The baseline comes first because every other result is judged against it |
-| Needed from ABC Technologies | EV-CM-01 to EV-CM-03 in \<Evidence Requests\>: physical change restrictions, discovery tools, and licences |
+| Needed from \<Organisation\> | EV-CM-01 to EV-CM-03 in \<Evidence Requests\>: physical change restrictions, discovery tools, and licences |
 | Evidence retained | The SC and CM evidence, with its manifest; \<Configuration Management\>, sections 4.4 to 4.6 |
 
-The authorising official approved this plan (D-GEN-18), as confirmed by the system owner on 8 November 2026. The independent assessor's team, schedule, and depth and coverage are added once agreed. For the Level 2 assessment, the assessor should repeat the checks on the VMs, hold the interviews, examine ABC Technologies' evidence and re-determine every statement in section CM.4.
+The authorising official approved this plan (D-GEN-18), as confirmed by the system owner on 8 November 2026. The independent assessor's team, schedule, and depth and coverage are added once agreed. For the Level 2 assessment, the assessor should repeat the checks on the VMs, hold the interviews, examine \<Organisation\>'s evidence and re-determine every statement in section CM.4.
 
 | **CHAPTER CP** |
 | --- |
@@ -1960,7 +1960,7 @@ The authorising official approved this plan (D-GEN-18), as confirmed by the syst
 
 ### CP.1 Purpose
 
-This records the Level 1 self-assessment of the 23 CP entries in the NIST SP 800-53 Rev 5 Moderate baseline, using catalog release 5.2.0. An independent team led by Josh Leak will use it for the Level 2 assessment. It makes no fixes.
+This records the Level 1 self-assessment of the 23 CP entries in the NIST SP 800-53 Rev 5 Moderate baseline, using catalog release 5.2.0. An independent team led by \[Name\] will use it for the Level 2 assessment. It makes no fixes.
 
 ### CP.2 How to read this record
 
@@ -1968,7 +1968,7 @@ This records the Level 1 self-assessment of the 23 CP entries in the NIST SP 800
 
 The methods were **Examine** (documents and the Docker configuration) and **Test** (R01 to R09 by Test-BackupRestore.ps1 on the tagged v1.0 build on 9 November 2026, with hashes in MANIFEST.md, in the CP evidence, on a throwaway stack). The system owner answered the interview questions at Level 1 (\<Interview Guide\>).
 
-**Limit of the current evidence:** the restore test proves the procedure in Docker with sample data. There are no backups of the VMs, and the second site and ABC Technologies' services have not been examined.
+**Limit of the current evidence:** the restore test proves the procedure in Docker with sample data. There are no backups of the VMs, and the second site and \<Organisation\>'s services have not been examined.
 
 ### CP.3 Executive summary
 
@@ -2008,9 +2008,9 @@ The methods were **Examine** (documents and the Docker configuration) and **Test
 | CP-10 | Other than satisfied | 2 of 4 | No backups, so no recovery today; restore shown in Docker in 4.5 seconds | NC-CP-22; PA-64 |
 | CP-10(2) | Other than satisfied | 0 of 1 | Transaction logs are not archived (R09) | NC-CP-23; PA-64 |
 
-Of NIST's 124 statements, 65 are satisfied, 28 await a decision or approval, 12 show a gap in the system and 19 await evidence from the VMs or ABC Technologies.
+Of NIST's 124 statements, 65 are satisfied, 28 await a decision or approval, 12 show a gap in the system and 19 await evidence from the VMs or \<Organisation\>.
 
-The plan now follows NIST SP 800-34 Rev. 1, with a business impact analysis and its three phases, but it has not been tested on the VMs. The restore test shows the procedure works: a backup restored to a fresh server in 4.5 seconds with every row, document checksum and audit hash intact. The gaps are that \<DocuView\> has no backups, the default backup is unencrypted and transaction logs are not archived, so nothing could be recovered today. The second site is unconfirmed.
+The plan now follows NIST SP 800-34 Rev. 1, with a business impact analysis and its three phases, but it has not been tested on the VMs. The restore test shows the procedure works: a backup restored to a fresh server in 4.5 seconds with every row, document checksum and audit hash intact. The gaps are that \<System Name\> has no backups, the default backup is unencrypted and transaction logs are not archived, so nothing could be recovered today. The second site is unconfirmed.
 
 ### CP.4 Findings by determination statement
 
@@ -2040,7 +2040,7 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | CP-01a.01(a)\[06\] | Policy addresses coordination | S | \<Policy\>, section CP.6 |
 | CP-01a.01(a)\[07\] | Policy addresses compliance | S | \<Policy\>, section CP.6 |
 | CP-01a.01(b) | Policy is consistent with laws and standards | S | Reviewed by the legal adviser on 9 November 2026, as confirmed by the system owner |
-| CP-01b. | Official is designated | S | Neil Ramsbottom is the system owner |
+| CP-01b. | Official is designated | S | \[Name\] is the system owner |
 | CP-01c.01\[01\] | Policy is reviewed at the set frequency | O-D | First review not yet due |
 | CP-01c.01\[02\] | Policy is reviewed after set events | S | Reviewed on 9 November 2026 after the CP pack review; version \<ver\> approved by the Head of Cyber on 9 November 2026 (D-CP-12) |
 | CP-01c.02\[01\] | Procedures are reviewed at the set frequency | O-D | First review not yet due |
@@ -2100,29 +2100,29 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | CP-04b. | Results are reviewed | O-D | No test yet held |
 | CP-04c. | Corrective actions are started | O-D | No test yet held |
 | CP-04(01) | Testing is coordinated with related plans | O-D | No test yet held |
-| CP-06a.\[01\] | An alternate storage site exists | O-E | ABC Technologies (EV-CP-01) |
-| CP-06a.\[02\] | Agreements allow storage and retrieval | O-E | ABC Technologies (EV-CP-01) |
-| CP-06b. | Controls match the main site | O-E | ABC Technologies (EV-CP-01) |
-| CP-06(01) | It is separate from the main site | O-E | ABC Technologies (EV-CP-01) |
-| CP-06(03)\[01\] | Access problems are identified | O-E | ABC Technologies (EV-CP-01) |
-| CP-06(03)\[02\] | Actions to address them are set | O-E | ABC Technologies (EV-CP-01) |
+| CP-06a.\[01\] | An alternate storage site exists | O-E | \<Organisation\> (EV-CP-01) |
+| CP-06a.\[02\] | Agreements allow storage and retrieval | O-E | \<Organisation\> (EV-CP-01) |
+| CP-06b. | Controls match the main site | O-E | \<Organisation\> (EV-CP-01) |
+| CP-06(01) | It is separate from the main site | O-E | \<Organisation\> (EV-CP-01) |
+| CP-06(03)\[01\] | Access problems are identified | O-E | \<Organisation\> (EV-CP-01) |
+| CP-06(03)\[02\] | Actions to address them are set | O-E | \<Organisation\> (EV-CP-01) |
 | CP-07\_ODP\[01\] | Operations are defined | S | \<Contingency Planning Management\> |
 | CP-07\_ODP\[02\] | Time is defined | S | \<Contingency Planning Management\> |
-| CP-07a. | An alternate processing site exists | O-E | ABC Technologies (EV-CP-01) |
-| CP-07b.\[01\] | Equipment is available to transfer | O-E | ABC Technologies (EV-CP-01) |
-| CP-07b.\[02\] | Equipment is available to resume | O-E | ABC Technologies (EV-CP-01) |
-| CP-07c. | Controls match the main site | O-E | ABC Technologies (EV-CP-01) |
-| CP-07(01) | It is separate from the main site | O-E | ABC Technologies (EV-CP-01) |
-| CP-07(02)\[01\] | Access problems are identified | O-E | ABC Technologies (EV-CP-01) |
-| CP-07(02)\[02\] | Actions to address them are set | O-E | ABC Technologies (EV-CP-01) |
-| CP-07(03) | Agreements give priority of service | O-E | ABC Technologies (EV-CP-01) |
+| CP-07a. | An alternate processing site exists | O-E | \<Organisation\> (EV-CP-01) |
+| CP-07b.\[01\] | Equipment is available to transfer | O-E | \<Organisation\> (EV-CP-01) |
+| CP-07b.\[02\] | Equipment is available to resume | O-E | \<Organisation\> (EV-CP-01) |
+| CP-07c. | Controls match the main site | O-E | \<Organisation\> (EV-CP-01) |
+| CP-07(01) | It is separate from the main site | O-E | \<Organisation\> (EV-CP-01) |
+| CP-07(02)\[01\] | Access problems are identified | O-E | \<Organisation\> (EV-CP-01) |
+| CP-07(02)\[02\] | Actions to address them are set | O-E | \<Organisation\> (EV-CP-01) |
+| CP-07(03) | Agreements give priority of service | O-E | \<Organisation\> (EV-CP-01) |
 | CP-08\_ODP\[01\] | Operations are defined | S | \<Contingency Planning Management\> |
 | CP-08\_ODP\[02\] | Time is defined | S | \<Contingency Planning Management\> |
-| CP-08 | Alternate telecommunications exist | O-E | ABC Technologies (EV-CP-02) |
-| CP-08(01)(a)\[01\] | Main agreements give priority | O-E | ABC Technologies (EV-CP-02) |
-| CP-08(01)(a)\[02\] | Alternate agreements give priority | O-E | ABC Technologies (EV-CP-02) |
-| CP-08(01)(b) | Priority service is requested where needed | O-E | ABC Technologies (EV-CP-02) |
-| CP-08(02) | No single point of failure is shared | O-E | ABC Technologies (EV-CP-02) |
+| CP-08 | Alternate telecommunications exist | O-E | \<Organisation\> (EV-CP-02) |
+| CP-08(01)(a)\[01\] | Main agreements give priority | O-E | \<Organisation\> (EV-CP-02) |
+| CP-08(01)(a)\[02\] | Alternate agreements give priority | O-E | \<Organisation\> (EV-CP-02) |
+| CP-08(01)(b) | Priority service is requested where needed | O-E | \<Organisation\> (EV-CP-02) |
+| CP-08(02) | No single point of failure is shared | O-E | \<Organisation\> (EV-CP-02) |
 | CP-09\_ODP\[01\] | Components are defined | S | \<Contingency Planning Management\> |
 | CP-09\_ODP\[02\] | User-level frequency is defined | S | \<Contingency Planning Management\> |
 | CP-09\_ODP\[03\] | System-level frequency is defined | S | \<Contingency Planning Management\> |
@@ -2157,14 +2157,14 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | Site | One PC, using a separate throwaway Docker stack with sample data. The VMs, backups and second site do not exist yet |
 | Examine | \<Policy\> (CP), \<Procedures\> (CP) and \<Contingency Planning Management\> \<ver\>; the test stack's compose file for backup support and volumes; where documents and audit records are stored. Depth: focused. Coverage: focused |
 | Test | R01 to R09 by Test-BackupRestore.ps1 on 9 November 2026 (cp-test-results-2026-11-09-v1.0.csv and MANIFEST.md): backup, restore to a fresh server, and checks of rows, document checksums and audit hashes. Depth: focused. Coverage: focused. Backups on the VMs, the second site and a tabletop exercise were not tested |
-| Interview | System owner's written answers only. The database and Windows server administrators and ABC Technologies' IT service desk remain |
+| Interview | System owner's written answers only. The database and Windows server administrators and \<Organisation\>'s IT service desk remain |
 | Previous results reused | None |
-| Boundary | \<DocuView\>'s database, applications, secrets and the two VMs. ABC Technologies' second site, network and telecommunications are inherited |
+| Boundary | \<System Name\>'s database, applications, secrets and the two VMs. \<Organisation\>'s second site, network and telecommunications are inherited |
 | Order of assessment | A, recovery objectives and the plan (CP-2 and enhancements); B, backups and recovery (CP-9, CP-10 and enhancements); C, training and testing (CP-3, CP-4); D, inherited sites and telecommunications (CP-6 to CP-8); E, policy (CP-1). The objectives come first because every other result is judged against them |
-| Needed from ABC Technologies | EV-CP-01 and EV-CP-02 in \<Evidence Requests\>: the second site, and telecommunications |
+| Needed from \<Organisation\> | EV-CP-01 and EV-CP-02 in \<Evidence Requests\>: the second site, and telecommunications |
 | Evidence retained | The CP evidence, with its manifest; \<Contingency Planning Management\>, sections 4.3 and 4.8 |
 
-The authorising official approved this plan (D-GEN-18), as confirmed by the system owner on 8 November 2026. The independent assessor's team, schedule, and depth and coverage are added once agreed. For the Level 2 assessment, the assessor should repeat the restore test on the VMs with encrypted backups at the second site, observe a tabletop exercise, hold the interviews, examine ABC Technologies' evidence and re-determine every statement in section CP.4.
+The authorising official approved this plan (D-GEN-18), as confirmed by the system owner on 8 November 2026. The independent assessor's team, schedule, and depth and coverage are added once agreed. For the Level 2 assessment, the assessor should repeat the restore test on the VMs with encrypted backups at the second site, observe a tabletop exercise, hold the interviews, examine \<Organisation\>'s evidence and re-determine every statement in section CP.4.
 
 | **CHAPTER IA** |
 | --- |
@@ -2175,17 +2175,17 @@ The authorising official approved this plan (D-GEN-18), as confirmed by the syst
 
 ### IA.1 Purpose
 
-This records the Level 1 self-assessment of the 24 IA entries in the NIST SP 800-53 Rev 5 Moderate baseline, using catalog release 5.2.0. An independent team led by Josh Leak will use it for the Level 2 assessment. It makes no fixes: each non-compliance is rated and decided in \<Risk List\>, and only those to be remediated go to \<Plan of Action and Milestones\>.
+This records the Level 1 self-assessment of the 24 IA entries in the NIST SP 800-53 Rev 5 Moderate baseline, using catalog release 5.2.0. An independent team led by \[Name\] will use it for the Level 2 assessment. It makes no fixes: each non-compliance is rated and decided in \<Risk List\>, and only those to be remediated go to \<Plan of Action and Milestones\>.
 
 ### IA.2 How to read this record
 
-**Change since this assessment.** On 12 November 2026 the system owner stated that \<DocuView\> signs users in through ABC Technologies' AD FS, with multi-factor authentication, takes roles and project access from Active Directory groups, and holds no accounts or passwords of its own (D-AC-23). This chapter assessed the v1.0 build, which signed in with its own passwords and held its accounts and groups in its own database. Its findings are a true record of that build and are not changed. The findings on sign-in, passwords, lockout, accounts and group membership are to be made again with AD FS sign-in, when the tests are repeated and ABC Technologies' evidence is in (PA-95). On 15 November 2026 the design moved to \<Identification and Authentication Management\> (D-IA-11), and two items were added for gaps found in its review: PA-116 and PA-117.
+**Change since this assessment.** On 12 November 2026 the system owner stated that \<System Name\> signs users in through \<Organisation\>'s AD FS, with multi-factor authentication, takes roles and project access from Active Directory groups, and holds no accounts or passwords of its own (D-AC-23). This chapter assessed the v1.0 build, which signed in with its own passwords and held its accounts and groups in its own database. Its findings are a true record of that build and are not changed. The findings on sign-in, passwords, lockout, accounts and group membership are to be made again with AD FS sign-in, when the tests are repeated and \<Organisation\>'s evidence is in (PA-95). On 15 November 2026 the design moved to \<Identification and Authentication Management\> (D-IA-11), and two items were added for gaps found in its review: PA-116 and PA-117.
 
 **N/A** means not applicable, as decided in \<Tailoring Register\>. This is the organisation's tailoring decision, not a result under NIST SP 800-53A, and the independent assessor may test it.
 
 The methods were **Examine** (code and configuration) and **Test**: Test-AuditAndAuth.ps1 checks A01 to A35 on 6 November 2026, repeated with A36 to A38 on the tagged v1.0 build on 8 November with the same IA results; Test-Identification.ps1 checks I01 to I11 against NIST SP 800-63B Revision 4 on 9 November; and the AC session checks T38 and T44 to T47. Results and hash manifests are in the AU and IA evidence. The system owner answered INT-IA-01 to 06 in writing.
 
-**Limit of the current evidence:** \<DocuView\> ran in Docker on one PC with sample data, in the build labelled v1.0. The Windows Server 2025 VMs, PostgreSQL on Windows and ABC Technologies' services have not been examined.
+**Limit of the current evidence:** \<System Name\> ran in Docker on one PC with sample data, in the build labelled v1.0. The Windows Server 2025 VMs, PostgreSQL on Windows and \<Organisation\>'s services have not been examined.
 
 ### IA.3 Executive summary
 
@@ -2209,7 +2209,7 @@ The methods were **Examine** (code and configuration) and **Test**: Test-AuditAn
 | IA-2(8) | Other than satisfied | 1 of 2 | Tokens replay from another client; plain HTTP | NC-IA-05; PA-18, PA-46 |
 | IA-2(12) | Not applicable | Not applicable | No PIV credentials (TR-IA-01) | None |
 | IA-3 | Other than satisfied | 2 of 3 | Device identification not evidenced | NC-IA-06; EV-IA-01 |
-| IA-4 | Other than satisfied | 4 of 6 | Jira not set up; deletion frees a username | NC-IA-07; PA-20, PA-47 |
+| IA-4 | Other than satisfied | 4 of 6 | ServiceNow not set up; deletion frees a username | NC-IA-07; PA-20, PA-47 |
 | IA-4(4) | Other than satisfied | 1 of 2 | No staff or contractor status | NC-IA-08; PA-47 |
 | IA-5 | Other than satisfied | 4 of 11 | Users cannot change their own password; secrets committed and never changed | NC-IA-09; PA-19, PA-44 |
 | IA-5(1) | Other than satisfied | 5 of 10 | 12 to 14 characters accepted; short blocklist; plain HTTP; no strength tool | NC-IA-10; PA-18, PA-45, PA-49, PA-82 |
@@ -2222,12 +2222,12 @@ The methods were **Examine** (code and configuration) and **Test**: Test-AuditAn
 | IA-8(2) | Not applicable | Not applicable | TR-IA-05 | None |
 | IA-8(4) | Not applicable | Not applicable | TR-IA-06 | None |
 | IA-11 | Other than satisfied | 1 of 2 | Met in the application (T44, I08, I11); VMs not assessable | NC-IA-14 |
-| IA-12 | Other than satisfied | 0 of 5 | Identity proofing by ABC Technologies' HR, not evidenced | NC-IA-15; EV-IA-02 |
+| IA-12 | Other than satisfied | 0 of 5 | Identity proofing by \<Organisation\>'s HR, not evidenced | NC-IA-15; EV-IA-02 |
 | IA-12(2) | Other than satisfied | 0 of 1 | As IA-12 | NC-IA-16; EV-IA-02 |
 | IA-12(3) | Other than satisfied | 1 of 2 | As IA-12 | NC-IA-17; EV-IA-02 |
 | IA-12(5) | Other than satisfied | 1 of 2 | As IA-12 | NC-IA-18; EV-IA-02 |
 
-Of NIST's 92 statements, 41 are satisfied, 14 are not applicable, 7 await a decision or approval, 15 show a gap in the system and 15 await evidence from the VMs or ABC Technologies.
+Of NIST's 92 statements, 41 are satisfied, 14 are not applicable, 7 await a decision or approval, 15 show a gap in the system and 15 await evidence from the VMs or \<Organisation\>.
 
 Password storage, sign-in feedback, lockout, session limits and forced change of temporary passwords work as agreed, and the session limits are stricter than NIST SP 800-63B Revision 4 requires. The most serious gaps are password-only sign-in, including for global administrators, accepted to 6 May 2027 with an agreed end state (D-IA-07), and secrets committed in source code. Passwords of 12 to 14 characters are still accepted where 800-63B-4 requires 15 while sign-in is password-only (PA-82), users cannot change their own password, and the blocked list is short. The assurance levels in \<Identification and Authentication Management\>, section 4.4, were accepted by the authorising official (D-IA-08).
 
@@ -2256,10 +2256,10 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | IA-01a.01(a)\[03\] | Policy addresses roles | S | \<Policy\>, section IA.5 |
 | IA-01a.01(a)\[04\] | Policy addresses responsibilities | S | \<Policy\>, section IA.5 |
 | IA-01a.01(a)\[05\] | Policy addresses management commitment | S | \<Policy\>, section IA.6 |
-| IA-01a.01(a)\[06\] | Policy addresses coordination | S | \<Policy\>, section IA.6. Not yet agreed with ABC Technologies |
+| IA-01a.01(a)\[06\] | Policy addresses coordination | S | \<Policy\>, section IA.6. Not yet agreed with \<Organisation\> |
 | IA-01a.01(a)\[07\] | Policy addresses compliance | S | \<Policy\>, section IA.6 |
 | IA-01a.01(b) | Policy is consistent with laws and standards | S | Reviewed by the legal adviser on 9 November 2026, as confirmed by the system owner |
-| IA-01b. | Official is designated | S | Neil Ramsbottom is the system owner |
+| IA-01b. | Official is designated | S | \[Name\] is the system owner |
 | IA-01c.01\[01\] | Policy is reviewed at the set frequency | O-D | First review not yet due |
 | IA-01c.01\[02\] | Policy is reviewed after set events | S | Reviewed on 9 November 2026 after the IA pack review; version \<ver\> approved by the Head of Cyber on 9 November 2026 (D-IA-09) |
 | IA-01c.02\[01\] | Procedures are reviewed at the set frequency | O-D | First review not yet due |
@@ -2273,10 +2273,10 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | IA-02(12) | PIV credentials are accepted | N/A | TR-IA-01 |
 | IA-03\_ODP\[01\] | Devices are defined | S | \<Identification and Authentication Management\> |
 | IA-03\_ODP\[02\] | Connection type is selected | S | Network |
-| IA-03 | Devices are identified before connecting | O-E | Inherited from ABC Technologies (EV-IA-01) |
+| IA-03 | Devices are identified before connecting | O-E | Inherited from \<Organisation\> (EV-IA-01) |
 | IA-04\_ODP\[01\] | Who authorises identifiers is defined | S | \<Identification and Authentication Management\> |
 | IA-04\_ODP\[02\] | Reuse period is defined | S | Never reused |
-| IA-04a. | Authorisation is received before assigning | O-G | Jira workflow planned, not yet set up (PA-20) |
+| IA-04a. | Authorisation is received before assigning | O-G | ServiceNow workflow planned, not yet set up (PA-20) |
 | IA-04b. | An identifier is selected for the person or role | S | Named accounts; PRO-AC-1 |
 | IA-04c. | It is assigned to the intended person | S | PRO-AC-1, PRO-IA-1 |
 | IA-04d. | Reuse is prevented | O-G | Deleting an account frees its username (PA-47) |
@@ -2292,7 +2292,7 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | IA-05f. | Authenticators are changed as set | O-G | Users cannot change their own (A34, PA-44); secrets never rotated (PA-19). A change by reset ends other sessions (I07) |
 | IA-05g. | Content is protected | O-G | Secrets committed in source (PA-19) |
 | IA-05h.\[01\] | Individuals must protect authenticators | O-D | \<Security Operating Procedures\> approved; not yet signed |
-| IA-05h.\[02\] | Devices must protect authenticators | O-E | ABC Technologies (EV-IA-01) |
+| IA-05h.\[02\] | Devices must protect authenticators | O-E | \<Organisation\> (EV-IA-01) |
 | IA-05i. | Shared authenticators change with membership | N/A | Shared accounts prohibited (TR-AC-02) |
 | IA-05(01)\_ODP\[01\] | List refresh frequency is defined | S | Every 12 months |
 | IA-05(01)\_ODP\[02\] | Composition rules are defined | S | \<Identification and Authentication Management\> |
@@ -2321,16 +2321,16 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | IA-08(04) | Profiles are followed | N/A | TR-IA-06 |
 | IA-11\_ODP | When to sign in again is defined | S | \<Identification and Authentication Management\> |
 | IA-11 | Users must sign in again then | O-E | Application yes: idle limit (T44), tokens under 8 hours (I08), and the 8-hour limit passed five times in a row (I11, closing PA-33); VMs not available |
-| IA-12a. | Users are identity proofed | O-E | ABC Technologies' pre-employment checks (EV-IA-02) |
-| IA-12b. | Identities resolve to one person | O-E | ABC Technologies (EV-IA-02) |
-| IA-12c.\[01\] | Evidence is collected | O-E | ABC Technologies (EV-IA-02) |
-| IA-12c.\[02\] | Evidence is validated | O-E | ABC Technologies (EV-IA-02) |
-| IA-12c.\[03\] | Evidence is verified | O-E | ABC Technologies (EV-IA-02) |
-| IA-12(02) | Evidence is presented | O-E | ABC Technologies (EV-IA-02) |
+| IA-12a. | Users are identity proofed | O-E | \<Organisation\>'s pre-employment checks (EV-IA-02) |
+| IA-12b. | Identities resolve to one person | O-E | \<Organisation\> (EV-IA-02) |
+| IA-12c.\[01\] | Evidence is collected | O-E | \<Organisation\> (EV-IA-02) |
+| IA-12c.\[02\] | Evidence is validated | O-E | \<Organisation\> (EV-IA-02) |
+| IA-12c.\[03\] | Evidence is verified | O-E | \<Organisation\> (EV-IA-02) |
+| IA-12(02) | Evidence is presented | O-E | \<Organisation\> (EV-IA-02) |
 | IA-12(03)\_ODP | Methods are defined | S | \<Identification and Authentication Management\> |
-| IA-12(03) | Evidence is validated by those methods | O-E | ABC Technologies (EV-IA-02) |
+| IA-12(03) | Evidence is validated by those methods | O-E | \<Organisation\> (EV-IA-02) |
 | IA-12(05)\_ODP | Confirmation method is selected | S | Notice of proofing |
-| IA-12(05) | Address is confirmed by that method | O-E | ABC Technologies (EV-IA-02) |
+| IA-12(05) | Address is confirmed by that method | O-E | \<Organisation\> (EV-IA-02) |
 
 ### IA.5 Assessment plan
 
@@ -2344,14 +2344,14 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | Site | One PC, using a separate throwaway Docker stack with sample data. The VMs are not built |
 | Examine | The API's password service, the API's sign-in service, the sign-in service of each UI, the security data model, the settings files and the database, at tag v1.0; \<Policy\> (IA), \<Procedures\> (IA) and \<Identification and Authentication Management\>. Depth: focused. Coverage: focused |
 | Test | A01 to A38 by Test-AuditAndAuth.ps1 (6 and 8 November); I01 to I11 by Test-Identification.ps1 (9 November); T38 and T44 to T47 from the AC tests. Each run has a hash manifest. Depth: focused. Coverage: focused. Windows logon, device identification and cryptographic modules were not tested |
-| Interview | System owner's written answers only. Global administrators, ABC Technologies' security contact and HR remain |
+| Interview | System owner's written answers only. Global administrators, \<Organisation\>'s security contact and HR remain |
 | Previous results reused | The AC session checks from 5 November 2026 |
-| Boundary | \<DocuView\>'s sign-in, accounts, authenticators and secrets. ABC Technologies' identity proofing and device identification are inherited |
+| Boundary | \<System Name\>'s sign-in, accounts, authenticators and secrets. \<Organisation\>'s identity proofing and device identification are inherited |
 | Order of assessment | A, authenticators (IA-5 and enhancements, IA-6, IA-7); B, sign-in and multi-factor (IA-2 and enhancements, IA-11); C, identifiers (IA-4); D, inherited proofing and devices (IA-3, IA-12); E, policy (IA-1). Authenticators come first because sign-in depends on them |
-| Needed from ABC Technologies | EV-IA-01 to EV-IA-04 in \<Evidence Requests\>: device identification, identity proofing, cryptographic modules, and sign-in through AD FS |
+| Needed from \<Organisation\> | EV-IA-01 to EV-IA-04 in \<Evidence Requests\>: device identification, identity proofing, cryptographic modules, and sign-in through AD FS |
 | Evidence retained | The AU and IA evidence, with its manifest; \<Identification and Authentication Management\>, sections 4.4 to 4.6 and appendix A |
 
-The authorising official approved this plan (D-GEN-18), as confirmed by the system owner on 8 November 2026. The independent assessor's team, schedule, and depth and coverage are added once agreed. For the Level 2 assessment, the assessor should repeat the checks on the VMs, test multi-factor sign-in once built, hold the interviews, examine ABC Technologies' evidence and re-determine every statement in section IA.4.
+The authorising official approved this plan (D-GEN-18), as confirmed by the system owner on 8 November 2026. The independent assessor's team, schedule, and depth and coverage are added once agreed. For the Level 2 assessment, the assessor should repeat the checks on the VMs, test multi-factor sign-in once built, hold the interviews, examine \<Organisation\>'s evidence and re-determine every statement in section IA.4.
 
 | **CHAPTER IR** |
 | --- |
@@ -2362,15 +2362,15 @@ The authorising official approved this plan (D-GEN-18), as confirmed by the syst
 
 ### IR.1 Purpose
 
-This records the Level 1 self-assessment of the 13 IR entries in the NIST SP 800-53 Rev 5 Moderate baseline, using catalog release 5.2.0. An independent team led by Josh Leak will use it for the Level 2 assessment. It makes no fixes.
+This records the Level 1 self-assessment of the 13 IR entries in the NIST SP 800-53 Rev 5 Moderate baseline, using catalog release 5.2.0. An independent team led by \[Name\] will use it for the Level 2 assessment. It makes no fixes.
 
 ### IR.2 How to read this record
 
-**Change since this assessment.** On 17 November 2026 the Incident Response Plan was rebuilt as \<Incident Response Management\> in the form of the other family documents, with the plan as its section 4 and each control set out part by part (D-IR-10). A playbook for a compromise at ABC Technologies was added, as sign-in now goes through AD FS (D-AC-23). Two items were added for gaps this chapter found: PA-118 and PA-119. The section numbers cited for IR-8 follow the rebuilt document. The findings below are a true record of 6 and 10 November 2026 and are not changed.
+**Change since this assessment.** On 17 November 2026 the Incident Response Plan was rebuilt as \<Incident Response Management\> in the form of the other family documents, with the plan as its section 4 and each control set out part by part (D-IR-10). A playbook for a compromise at \<Organisation\> was added, as sign-in now goes through AD FS (D-AC-23). Two items were added for gaps this chapter found: PA-118 and PA-119. The section numbers cited for IR-8 follow the rebuilt document. The findings below are a true record of 6 and 10 November 2026 and are not changed.
 
-The methods were **Examine** (documents and code) and **Test**: the containment and evidence drill D01 to D08 by Test-IncidentReadiness.ps1 on the tagged v1.0 build on 10 November 2026, with hashes in MANIFEST.md, in the IR evidence, on a throwaway stack. The system owner answered INT-IR-01 to 04 in writing. \<DocuView\> has had no operational incidents, as it is not live; INC-2026-001 records the secrets found in git history.
+The methods were **Examine** (documents and code) and **Test**: the containment and evidence drill D01 to D08 by Test-IncidentReadiness.ps1 on the tagged v1.0 build on 10 November 2026, with hashes in MANIFEST.md, in the IR evidence, on a throwaway stack. The system owner answered INT-IR-01 to 04 in writing. \<System Name\> has had no operational incidents, as it is not live; INC-2026-001 records the secrets found in git history.
 
-**Limit of the current evidence:** the drill shows the containment steps work in Docker. No tabletop exercise has been held, and the VMs and ABC Technologies' services have not been examined.
+**Limit of the current evidence:** the drill shows the containment steps work in Docker. No tabletop exercise has been held, and the VMs and \<Organisation\>'s services have not been examined.
 
 ### IR.3 Executive summary
 
@@ -2391,18 +2391,18 @@ The methods were **Examine** (documents and code) and **Test**: the containment 
 | IR-3 | Other than satisfied | 2 of 3 | No tabletop yet; containment shown in Docker (D01, D03) | NC-IR-03; PA-81 |
 | IR-3(2) | Other than satisfied | 0 of 1 | No tabletop with the contingency plan yet | NC-IR-04; PA-81 |
 | IR-4 | Other than satisfied | 0 of 13 | Plan and playbooks written; handling not yet in use | NC-IR-05 |
-| IR-4(1) | Other than satisfied | 1 of 2 | Jira not set up for incidents | NC-IR-06; PA-65 |
-| IR-5 | Other than satisfied | 0 of 2 | Register in \<Incident Response Management\> with INC-2026-001; Jira not in use | NC-IR-07; PA-65 |
-| IR-6 | Other than satisfied | 2 of 4 | Reporting not yet in use; ABC Technologies' route unconfirmed | NC-IR-08; EV-IR-01 |
-| IR-6(1) | Other than satisfied | 1 of 2 | Jira not set up for incidents | NC-IR-09; PA-65 |
+| IR-4(1) | Other than satisfied | 1 of 2 | ServiceNow not set up for incidents | NC-IR-06; PA-65 |
+| IR-5 | Other than satisfied | 0 of 2 | Register in \<Incident Response Management\> with INC-2026-001; ServiceNow not in use | NC-IR-07; PA-65 |
+| IR-6 | Other than satisfied | 2 of 4 | Reporting not yet in use; \<Organisation\>'s route unconfirmed | NC-IR-08; EV-IR-01 |
+| IR-6(1) | Other than satisfied | 1 of 2 | ServiceNow not set up for incidents | NC-IR-09; PA-65 |
 | IR-6(3) | Other than satisfied | 0 of 1 | Supplier reporting not yet in use | NC-IR-10 |
 | IR-7 | Other than satisfied | 0 of 2 | Assistance not yet in use | NC-IR-11; EV-IR-01 |
-| IR-7(1) | Other than satisfied | 1 of 2 | Jira not set up for incidents | NC-IR-12; PA-65 |
+| IR-7(1) | Other than satisfied | 1 of 2 | ServiceNow not set up for incidents | NC-IR-12; PA-65 |
 | IR-8 | Other than satisfied | 17 of 24 | Version \<ver\> awaits the Head of Cyber; not yet shared or protected | NC-IR-13; D-IR-07, D-GEN-15 |
 
 Of NIST's 90 statements, 49 are satisfied, 38 await a decision or approval, 3 show a gap in the system and none awaits evidence.
 
-The plan now follows NIST SP 800-61 Revision 3, with severity targets, breach steps, playbooks and evidence handling, but has not been exercised. The drill shows containment works: a suspect user's sessions ended and a disabled account was locked out at once, and audit records exported with a repeatable hash. The gaps are that Jira Service Desk is not set up for incidents, ending sessions is not audited (D02, PA-14), and the application log repeats personal data (D08, PA-75).
+The plan now follows NIST SP 800-61 Revision 3, with severity targets, breach steps, playbooks and evidence handling, but has not been exercised. The drill shows containment works: a suspect user's sessions ended and a disabled account was locked out at once, and audit records exported with a repeatable hash. The gaps are that ServiceNow is not set up for incidents, ending sessions is not audited (D02, PA-14), and the application log repeats personal data (D08, PA-75).
 
 ### IR.4 Findings by determination statement
 
@@ -2432,7 +2432,7 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | IR-01a.01(a)\[06\] | Policy addresses coordination | S | \<Policy\>, section IR.6 |
 | IR-01a.01(a)\[07\] | Policy addresses compliance | S | \<Policy\>, section IR.6 |
 | IR-01a.01(b) | Policy is consistent with laws and standards | S | Reviewed by the legal adviser on 10 November 2026, as confirmed by the system owner |
-| IR-01b. | Official is designated | S | Neil Ramsbottom is the system owner |
+| IR-01b. | Official is designated | S | \[Name\] is the system owner |
 | IR-01c.01\[01\] | Policy is reviewed at the set frequency | O-D | First review not yet due |
 | IR-01c.01\[02\] | Policy is reviewed after set events | S | Reviewed on 10 November 2026 after the IR pack review; version \<ver\> awaits the Head of Cyber (D-IR-07) |
 | IR-01c.02\[01\] | Procedures are reviewed at the set frequency | O-D | First review not yet due |
@@ -2464,7 +2464,7 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | IR-04d.\[03\] | Scope is consistent | O-D | Plan approved; not yet in use |
 | IR-04d.\[04\] | Results are consistent | O-D | Plan approved; not yet in use |
 | IR-04(01)\_ODP | Mechanisms are defined | S | \<Incident Response Management\> |
-| IR-04(01) | Handling is supported automatically | O-G | Jira not set up for incidents (PA-65) |
+| IR-04(01) | Handling is supported automatically | O-G | ServiceNow not set up for incidents (PA-65) |
 | IR-05\[01\] | Incidents are tracked | O-D | PRO-IR-2 approved; not yet in use |
 | IR-05\[02\] | Incidents are documented | O-D | PRO-IR-2 approved; not yet in use |
 | IR-06\_ODP\[01\] | Time to report is defined | S | \<Incident Response Management\> |
@@ -2472,12 +2472,12 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | IR-06a. | People must report within the set time | O-D | Policy approved; not yet in use |
 | IR-06b. | Incidents are reported to the authorities | O-D | PRO-IR-1 approved; not yet in use |
 | IR-06(01)\_ODP | Mechanisms are defined | S | \<Incident Response Management\> |
-| IR-06(01) | Reporting uses those mechanisms | O-G | Jira not set up for incidents (PA-65) |
+| IR-06(01) | Reporting uses those mechanisms | O-G | ServiceNow not set up for incidents (PA-65) |
 | IR-06(03) | Suppliers are told | O-D | PRO-IR-1 approved; not yet in use |
 | IR-07\[01\] | A support resource exists | O-D | PRO-IR-4 approved; not yet in use |
 | IR-07\[02\] | It gives advice and help to users | O-D | PRO-IR-4 approved; not yet in use |
 | IR-07(01)\_ODP | Mechanisms are defined | S | \<Incident Response Management\> |
-| IR-07(01) | Support is made more available automatically | O-G | Jira not set up for incidents (PA-65) |
+| IR-07(01) | Support is made more available automatically | O-G | ServiceNow not set up for incidents (PA-65) |
 | IR-08\_ODP\[01\] | Who approves the plan is defined | S | \<Incident Response Management\> |
 | IR-08\_ODP\[02\] | Review frequency is defined | S | \<Incident Response Management\> |
 | IR-08\_ODP\[03\] | Who designates responsibility is defined | S | \<Incident Response Management\> |
@@ -2488,7 +2488,7 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | IR-08a.01 | The plan gives a roadmap | S | \<Incident Response Management\>, section 4 |
 | IR-08a.02 | The plan describes the structure | S | \<Incident Response Management\>, section 4.3 |
 | IR-08a.03 | The plan gives the approach | S | \<Incident Response Management\>, section 4.2 |
-| IR-08a.04 | The plan meets \<DocuView\>'s needs | S | \<Incident Response Management\>, sections 4.2, 4.6, 4.8 and 4.9: severity set for Restricted and HR documents, the personal data breach steps, and playbooks for \<DocuView\>'s likely incidents |
+| IR-08a.04 | The plan meets \<System Name\>'s needs | S | \<Incident Response Management\>, sections 4.2, 4.6, 4.8 and 4.9: severity set for Restricted and HR documents, the personal data breach steps, and playbooks for \<System Name\>'s likely incidents |
 | IR-08a.05 | The plan defines reportable incidents | S | \<Incident Response Management\>, section 4.11 |
 | IR-08a.06 | The plan gives measures | S | \<Incident Response Management\>, section 4.12: measures with targets, reported monthly |
 | IR-08a.07 | The plan defines resources and support | S | \<Incident Response Management\>, section 4.12 |
@@ -2515,14 +2515,14 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | Site | One PC, using a separate throwaway Docker stack with sample data. The VMs are not built |
 | Examine | \<Policy\> (IR), \<Procedures\> (IR) and \<Incident Response Management\> \<ver\>; TPL-10 and TPL-11; SyOps section 5.9; the session and audit code. Depth: focused. Coverage: focused |
 | Test | D01 to D08 by Test-IncidentReadiness.ps1 on 10 November 2026 (ir-test-results-2026-11-10-v1.0.csv, the evidence export and MANIFEST.md). Depth: focused. Coverage: focused. No tabletop exercise has been held |
-| Interview | System owner's written answers only. The security officer, legal adviser and ABC Technologies' security contact remain |
+| Interview | System owner's written answers only. The security officer, legal adviser and \<Organisation\>'s security contact remain |
 | Previous results reused | The AC session checks T37, T38 and T40 to T42 from 5 November 2026 |
-| Boundary | \<DocuView\>'s incident handling, records and evidence. ABC Technologies' monitoring, incident process and forensic help are inherited |
+| Boundary | \<System Name\>'s incident handling, records and evidence. \<Organisation\>'s monitoring, incident process and forensic help are inherited |
 | Order of assessment | A, the plan and its approval (IR-8); B, handling and records (IR-4, IR-4(1), IR-5); C, reporting (IR-6 and enhancements); D, training and testing (IR-2, IR-3, IR-3(2)); E, assistance (IR-7, IR-7(1)); F, policy (IR-1). The plan comes first because every other result is judged against it |
-| Needed from ABC Technologies | EV-IR-01 in \<Evidence Requests\>: its incident process and contact route |
+| Needed from \<Organisation\> | EV-IR-01 in \<Evidence Requests\>: its incident process and contact route |
 | Evidence retained | The IR evidence, with its manifest; \<Incident Response Management\>, sections 4.9, 4.10 and 4.14 |
 
-The authorising official approved this plan (D-GEN-18), as confirmed by the system owner on 8 November 2026. The independent assessor's team, schedule, and depth and coverage are added once agreed. For the Level 2 assessment, the assessor should observe the first tabletop exercise, repeat the drill on the VMs, examine the incident register and TPL-10 records, hold the interviews, examine ABC Technologies' evidence and re-determine every statement in section IR.4.
+The authorising official approved this plan (D-GEN-18), as confirmed by the system owner on 8 November 2026. The independent assessor's team, schedule, and depth and coverage are added once agreed. For the Level 2 assessment, the assessor should observe the first tabletop exercise, repeat the drill on the VMs, examine the incident register and TPL-10 records, hold the interviews, examine \<Organisation\>'s evidence and re-determine every statement in section IR.4.
 
 | **CHAPTER MA** |
 | --- |
@@ -2533,7 +2533,7 @@ The authorising official approved this plan (D-GEN-18), as confirmed by the syst
 
 ### MA.1 Purpose
 
-This records the Level 1 self-assessment of the 9 MA entries in the NIST SP 800-53 Rev 5 Moderate baseline, using catalog release 5.2.0. An independent team led by Josh Leak will use it for the Level 2 assessment. It makes no fixes.
+This records the Level 1 self-assessment of the 9 MA entries in the NIST SP 800-53 Rev 5 Moderate baseline, using catalog release 5.2.0. An independent team led by \[Name\] will use it for the Level 2 assessment. It makes no fixes.
 
 ### MA.2 How to read this record
 
@@ -2541,7 +2541,7 @@ This records the Level 1 self-assessment of the 9 MA entries in the NIST SP 800-
 
 The methods were **Examine** (documents and code) and **Test**: checks M01 to M12 by Test-Maintenance.ps1 on the tagged v1.0 build on 10 November 2026, with hashes in MANIFEST.md, in the MA evidence, on a throwaway stack. The system owner answered INT-MA-01 to 04 in writing. No maintenance has taken place on the target VMs, as they are not built.
 
-**Limit of the current evidence:** the tests show how the code and images behave in Docker. They are not evidence of maintenance on the VMs, or of ABC Technologies' maintenance, routes and support.
+**Limit of the current evidence:** the tests show how the code and images behave in Docker. They are not evidence of maintenance on the VMs, or of \<Organisation\>'s maintenance, routes and support.
 
 ### MA.3 Executive summary
 
@@ -2563,13 +2563,13 @@ The methods were **Examine** (documents and code) and **Test**: checks M01 to M1
 | MA-3(1) | Other than satisfied | 0 of 1 | Inspection not yet in use | NC-MA-04 |
 | MA-3(2) | Other than satisfied | 0 of 1 | Defender not on the VMs | NC-MA-05; PA-58 |
 | MA-3(3) | Other than satisfied | 1 of 5 | Removal control not yet in use | NC-MA-06 |
-| MA-4 | Other than satisfied | 1 of 8 | Admin portal open to every network and password-only (M04); ABC Technologies' route not evidenced | NC-MA-07; PA-83, PA-23, EV-MA-02 |
+| MA-4 | Other than satisfied | 1 of 8 | Admin portal open to every network and password-only (M04); \<Organisation\>'s route not evidenced | NC-MA-07; PA-83, PA-23, EV-MA-02 |
 | MA-5 | Other than satisfied | 2 of 4 | Provisional list; screening dates to come | NC-MA-08; PA-67 |
 | MA-6 | Other than satisfied | 2 of 3 | Support within 24 hours not evidenced; software versions supported (M11) | NC-MA-09; EV-MA-01 |
 
-Of NIST's 64 statements, 32 are satisfied, 23 await a decision or approval, 4 show a gap in the system and 5 await evidence from the VMs or ABC Technologies.
+Of NIST's 64 statements, 32 are satisfied, 23 await a decision or approval, 4 show a gap in the system and 5 await evidence from the VMs or \<Organisation\>.
 
-The approach is approved but not yet in use. The tests show that the check after maintenance works and that an admin session ends at sign-out. The gaps are in \<DocuView\> itself: five maintenance pages that write no audit record, an admin portal open to every network, and a package manager in the images.
+The approach is approved but not yet in use. The tests show that the check after maintenance works and that an admin session ends at sign-out. The gaps are in \<System Name\> itself: five maintenance pages that write no audit record, an admin portal open to every network, and a package manager in the images.
 
 ### MA.4 Findings by determination statement
 
@@ -2599,7 +2599,7 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | MA-01a.01(a)\[06\] | Policy addresses coordination | S | \<Policy\>, section MA.6 |
 | MA-01a.01(a)\[07\] | Policy addresses compliance | S | \<Policy\>, section MA.6 |
 | MA-01a.01(b) | Policy is consistent with laws and standards | S | Reviewed by the legal adviser on 10 November 2026, as confirmed by the system owner |
-| MA-01b. | Official is designated | S | Neil Ramsbottom is the system owner |
+| MA-01b. | Official is designated | S | \[Name\] is the system owner |
 | MA-01c.01\[01\] | Policy is reviewed at the set frequency | O-D | First review not yet due |
 | MA-01c.01\[02\] | Policy is reviewed after set events | S | Reviewed on 10 November 2026 after the MA pack review (D-MA-06) |
 | MA-01c.02\[01\] | Procedures are reviewed at the set frequency | O-D | First review not yet due |
@@ -2613,7 +2613,7 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | MA-02b.\[01\] | All maintenance is approved | O-D | PRO-MA-1 approved; not yet in use |
 | MA-02b.\[02\] | All maintenance is monitored | O-D | PRO-MA-1 and PRO-MA-4; not yet in use. The built-in maintenance pages leave no audit record (M03, PA-31) |
 | MA-02c. | Removal is explicitly approved | O-D | PRO-MA-2 approved; not yet in use |
-| MA-02d. | Equipment is sanitised before removal | O-E | ABC Technologies (EV-MA-01) |
+| MA-02d. | Equipment is sanitised before removal | O-E | \<Organisation\> (EV-MA-01) |
 | MA-02e. | Controls are checked afterwards | O-D | Checklist in PRO-MA-1 (\<Procedures\>, Table MA-2); the first three checks passed in Docker after a simulated restart (M06 to M08); not yet in use on the VMs |
 | MA-02f. | Information is in maintenance records | O-D | TPL-12 holds the fields; not yet in use. Schema changes leave no record in the database (M09, PA-84) |
 | MA-03\_ODP | Tool review frequency is defined | S | \<Maintenance Management\> |
@@ -2632,17 +2632,17 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | MA-04a.\[02\] | Remote maintenance is monitored | O-D | PRO-MA-4 approved; not yet in use |
 | MA-04b.\[01\] | Tools are allowed only as policy says | O-G | The admin portal, route R3, is published on every network interface, not only the managed route (M04, PA-83) |
 | MA-04b.\[02\] | Tools are documented in the security plan | S | Routes and tools in \<Maintenance Management\>, sections 4.4 and 4.5, referenced from \<System Security Plan\>, section 4.7. SSP Appendix L is superseded |
-| MA-04c. | Strong authentication is used | O-G | The admin portal is password-only (PA-23); ABC Technologies' route is not evidenced (EV-MA-02) |
+| MA-04c. | Strong authentication is used | O-G | The admin portal is password-only (PA-23); \<Organisation\>'s route is not evidenced (EV-MA-02) |
 | MA-04d. | Records are kept | O-D | TPL-12 with the session reference (PRO-MA-4); not yet in use |
-| MA-04e.\[01\] | Sessions end when finished | O-E | Signing out of the admin portal ends the session (M12); ABC Technologies' route not evidenced (EV-MA-02) |
-| MA-04e.\[02\] | Network connections end when finished | O-E | ABC Technologies' route (EV-MA-02) |
+| MA-04e.\[01\] | Sessions end when finished | O-E | Signing out of the admin portal ends the session (M12); \<Organisation\>'s route not evidenced (EV-MA-02) |
+| MA-04e.\[02\] | Network connections end when finished | O-E | \<Organisation\>'s route (EV-MA-02) |
 | MA-05a.\[01\] | An authorisation process exists | S | PRO-MA-5, approved (D-MA-02) |
 | MA-05a.\[02\] | A list is kept | S | Provisional list in \<Maintenance Management\>, section 4.6, approved by the system owner (D-MA-08); to be confirmed at VM build (PA-67) |
 | MA-05b. | Unescorted people have the access needed | O-D | Screening and Part B dates are placeholders in \<Maintenance Management\>, section 4.6 |
 | MA-05c. | Others are supervised | O-D | PRO-MA-5 approved; not yet in use |
 | MA-06\_ODP\[01\] | Components are defined | S | \<Maintenance Management\>, section 4.8 (D-MA-P02) |
 | MA-06\_ODP\[02\] | Time is defined | S | 24 hours for hardware and the hypervisor (D-MA-P02) |
-| MA-06 | Support and parts arrive within the time | O-E | ABC Technologies (EV-MA-01). .NET 10 and PostgreSQL 18 are supported versions (M11) |
+| MA-06 | Support and parts arrive within the time | O-E | \<Organisation\> (EV-MA-01). .NET 10 and PostgreSQL 18 are supported versions (M11) |
 
 ### MA.5 Assessment plan
 
@@ -2656,14 +2656,14 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | Site | One PC, using a separate throwaway Docker stack with sample data. The VMs are not built |
 | Examine | \<Policy\> (MA), \<Procedures\> (MA) and the MA chapter of \<Control Implementation Register\> at \<ver\>, now in \<Maintenance Management\>; TPL-12; SyOps sections 5.6 and 5.7; the admin portal maintenance pages, the test stack's compose file and the image build file. Depth: focused. Coverage: focused |
 | Test | M01 to M12 by Test-Maintenance.ps1 on 10 November 2026 (ma-test-results-2026-11-10-v1.0.csv and MANIFEST.md). Depth: focused. Coverage: focused |
-| Interview | System owner's written answers only. The Windows server administrator, database administrator, global administrator and ABC Technologies' IT service desk remain |
+| Interview | System owner's written answers only. The Windows server administrator, database administrator, global administrator and \<Organisation\>'s IT service desk remain |
 | Previous results reused | AC checks T03, T26 and T38 (5 November 2026); IA check A11 (global administrator password-only); CM checks C09 and C10 |
-| Boundary | Maintenance of the VMs, database and applications, and \<DocuView\>'s built-in maintenance functions. Hardware and hypervisor maintenance, the managed route and support are inherited from ABC Technologies |
+| Boundary | Maintenance of the VMs, database and applications, and \<System Name\>'s built-in maintenance functions. Hardware and hypervisor maintenance, the managed route and support are inherited from \<Organisation\> |
 | Order of assessment | A, tools and built-in functions (MA-3 and enhancements); B, remote routes (MA-4); C, controlled maintenance and records (MA-2); D, people (MA-5); E, timely maintenance (MA-6); F, policy (MA-1). Tools come first because the largest gaps are there |
-| Needed from ABC Technologies | EV-MA-01 and EV-MA-02 in \<Evidence Requests\>: its maintenance process, sanitising, service agreement, and the managed route's settings and logs |
+| Needed from \<Organisation\> | EV-MA-01 and EV-MA-02 in \<Evidence Requests\>: its maintenance process, sanitising, service agreement, and the managed route's settings and logs |
 | Evidence retained | The MA evidence, with its manifest; \<Maintenance Management\>, sections 4.4 to 4.8 |
 
-For the Level 2 assessment, the assessor should repeat the tests on the VMs, examine TPL-12 records and change records for real maintenance, observe a remote session over the managed route, hold the interviews, examine ABC Technologies' evidence and re-determine every statement in section MA.4.
+For the Level 2 assessment, the assessor should repeat the tests on the VMs, examine TPL-12 records and change records for real maintenance, observe a remote session over the managed route, hold the interviews, examine \<Organisation\>'s evidence and re-determine every statement in section MA.4.
 
 | **CHAPTER MP** |
 | --- |
@@ -2674,7 +2674,7 @@ For the Level 2 assessment, the assessor should repeat the tests on the VMs, exa
 
 ### MP.1 Purpose
 
-This records the Level 1 self-assessment of the 7 MP entries in the NIST SP 800-53 Rev 5 Moderate baseline, using catalog release 5.2.0. An independent team led by Josh Leak will use it for the Level 2 assessment. It makes no fixes.
+This records the Level 1 self-assessment of the 7 MP entries in the NIST SP 800-53 Rev 5 Moderate baseline, using catalog release 5.2.0. An independent team led by \[Name\] will use it for the Level 2 assessment. It makes no fixes.
 
 ### MP.2 How to read this record
 
@@ -2684,7 +2684,7 @@ The Not applicable statement is counted in the 71 but not as satisfied.
 
 The methods were **Examine** (documents and code) and **Test**: checks P01 to P09 by Test-MediaProtection.ps1 on the tagged v1.0 build on 10 November 2026, with hashes in MANIFEST.md, in the MP evidence, on a throwaway stack. The system owner answered INT-MP-01 to 03 in writing.
 
-**Limit of the current evidence:** the tests show how \<DocuView\>'s exports, marking and storage behave in Docker. They are not evidence of how ABC Technologies stores, moves or sanitises disks and backup media, or of USB blocking.
+**Limit of the current evidence:** the tests show how \<System Name\>'s exports, marking and storage behave in Docker. They are not evidence of how \<Organisation\> stores, moves or sanitises disks and backup media, or of USB blocking.
 
 ### MP.3 Executive summary
 
@@ -2701,16 +2701,16 @@ The methods were **Examine** (documents and code) and **Test**: checks P01 to P0
 | Control | Result | Statements satisfied | Main reason | Finding and POA&M |
 | --- | --- | --- | --- | --- |
 | MP-1 | Other than satisfied | 21 of 25 | Not yet shared; first scheduled reviews outstanding | NC-MP-01; PA-20 |
-| MP-2 | Other than satisfied | 4 of 6 | Exports limited to editors (P01); ABC Technologies' media access not evidenced | NC-MP-02; EV-MP-01 |
-| MP-3 | Other than satisfied | 2 of 4, 1 not applicable | Nothing \<DocuView\> produces is marked (P04, P07) | NC-MP-03; PA-87 |
+| MP-2 | Other than satisfied | 4 of 6 | Exports limited to editors (P01); \<Organisation\>'s media access not evidenced | NC-MP-02; EV-MP-01 |
+| MP-3 | Other than satisfied | 2 of 4, 1 not applicable | Nothing \<System Name\> produces is marked (P04, P07) | NC-MP-03; PA-87 |
 | MP-4 | Other than satisfied | 6 of 11 | Export copies left unencrypted on the server (P02 to P06, P09) | NC-MP-04; PA-86, PA-52 |
 | MP-5 | Other than satisfied | 3 of 9 | Physical transport by exception, not evidenced; backups not yet encrypted | NC-MP-05; PA-64, EV-MP-01 |
 | MP-6 | Other than satisfied | 6 of 10 | Methods set; sanitising not evidenced | NC-MP-06; EV-MP-02 |
 | MP-7 | Other than satisfied | 4 of 6 | USB blocking not evidenced | NC-MP-07; EV-MP-03 |
 
-Of NIST's 71 statements, 46 are satisfied, 1 is not applicable, 7 await a decision or approval, 3 show a gap in the system and 14 await evidence from the VMs or ABC Technologies.
+Of NIST's 71 statements, 46 are satisfied, 1 is not applicable, 7 await a decision or approval, 3 show a gap in the system and 14 await evidence from the VMs or \<Organisation\>.
 
-The approach is approved and the media are now all listed. The gaps are in \<DocuView\> itself: export copies left unencrypted on the server, and no marking on anything it shows or produces.
+The approach is approved and the media are now all listed. The gaps are in \<System Name\> itself: export copies left unencrypted on the server, and no marking on anything it shows or produces.
 
 ### MP.4 Findings by determination statement
 
@@ -2740,7 +2740,7 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | MP-01a.01(a)\[06\] | Policy addresses coordination | S | \<Policy\>, section MP.6 |
 | MP-01a.01(a)\[07\] | Policy addresses compliance | S | \<Policy\>, section MP.6 |
 | MP-01a.01(b) | Policy is consistent with laws and standards | S | Reviewed by the legal adviser on 10 November 2026, as confirmed by the system owner |
-| MP-01b. | Official is designated | S | Neil Ramsbottom is the system owner |
+| MP-01b. | Official is designated | S | \[Name\] is the system owner |
 | MP-01c.01\[01\] | Policy is reviewed at the set frequency | O-D | First review not yet due |
 | MP-01c.01\[02\] | Policy is reviewed after set events | S | Reviewed on 10 November 2026 after the MP pack review (D-MP-06) |
 | MP-01c.02\[01\] | Procedures are reviewed at the set frequency | O-D | First review not yet due |
@@ -2749,11 +2749,11 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | MP-02\_ODP\[02\] | Who may access them is defined | S | \<Media Protection Management\>, appendix A (D-MP-P02) |
 | MP-02\_ODP\[03\] | Non-digital media are defined | S | \<Media Protection Management\> |
 | MP-02\_ODP\[04\] | Who may access them is defined | S | \<Media Protection Management\> |
-| MP-02\[01\] | Digital media access is restricted | O-E | Exports limited to editors (P01); disks, volumes and backups with ABC Technologies (EV-MP-01) |
+| MP-02\[01\] | Digital media access is restricted | O-E | Exports limited to editors (P01); disks, volumes and backups with \<Organisation\> (EV-MP-01) |
 | MP-02\[02\] | Non-digital media access is restricted | O-D | PRO-MP-1 approved; not yet in use |
 | MP-03\_ODP\[01\] | Exempt media are defined | S | \<Media Protection Management\>: none |
 | MP-03\_ODP\[02\] | Controlled areas are defined | S | \<Media Protection Management\> |
-| MP-03a. | Media are marked | O-G | Nothing \<DocuView\> shows or produces is marked: exports (P04) and viewer and printouts (P07); manual marking only (PA-87) |
+| MP-03a. | Media are marked | O-G | Nothing \<System Name\> shows or produces is marked: exports (P04) and viewer and printouts (P07); manual marking only (PA-87) |
 | MP-03b. | Exempt media stay in controlled areas | N/A | No media is exempt |
 | MP-04\_ODP\[01\] | Digital media controlled are defined | S | \<Media Protection Management\> |
 | MP-04\_ODP\[02\] | Non-digital media controlled are defined | S | \<Media Protection Management\> |
@@ -2761,7 +2761,7 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | MP-04\_ODP\[04\] | Non-digital media stored are defined | S | \<Media Protection Management\> |
 | MP-04\_ODP\[05\] | Controlled areas are defined | S | \<Media Protection Management\> |
 | MP-04\_ODP\[06\] | Controlled areas are defined | S | \<Media Protection Management\> |
-| MP-04a.\[01\] | Digital media are physically controlled | O-E | ABC Technologies (EV-MP-01) |
+| MP-04a.\[01\] | Digital media are physically controlled | O-E | \<Organisation\> (EV-MP-01) |
 | MP-04a.\[02\] | Non-digital media are physically controlled | O-D | PRO-MP-1 approved; not yet in use |
 | MP-04a.\[03\] | Digital media are securely stored | O-G | Export copies are left unencrypted on the application server after download and after a restart (P02, P05, P06, P09; PA-86) |
 | MP-04a.\[04\] | Non-digital media are securely stored | O-D | PRO-MP-1 approved; not yet in use |
@@ -2769,28 +2769,28 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | MP-05\_ODP\[01\] | Media transported are defined | S | \<Media Protection Management\>: physical transport only by exception (D-MP-P02) |
 | MP-05\_ODP\[02\] | Protection is defined | S | \<Media Protection Management\> |
 | MP-05\_ODP\[03\] | Control is defined | S | \<Media Protection Management\> (D-MP-P02) |
-| MP-05a.\[01\] | Media are protected in transport | O-E | ABC Technologies (EV-MP-01) |
-| MP-05a.\[02\] | Media are controlled in transport | O-E | ABC Technologies (EV-MP-01) |
-| MP-05b. | Accountability is kept | O-E | ABC Technologies (EV-MP-01) |
-| MP-05c. | Transport is documented | O-E | ABC Technologies (EV-MP-01) |
-| MP-05d.\[01\] | Authorised people are identified | O-E | ABC Technologies (EV-MP-01) |
-| MP-05d.\[02\] | Transport is limited to them | O-E | ABC Technologies (EV-MP-01) |
+| MP-05a.\[01\] | Media are protected in transport | O-E | \<Organisation\> (EV-MP-01) |
+| MP-05a.\[02\] | Media are controlled in transport | O-E | \<Organisation\> (EV-MP-01) |
+| MP-05b. | Accountability is kept | O-E | \<Organisation\> (EV-MP-01) |
+| MP-05c. | Transport is documented | O-E | \<Organisation\> (EV-MP-01) |
+| MP-05d.\[01\] | Authorised people are identified | O-E | \<Organisation\> (EV-MP-01) |
+| MP-05d.\[02\] | Transport is limited to them | O-E | \<Organisation\> (EV-MP-01) |
 | MP-06\_ODP\[01\] | Media for disposal are defined | S | \<Media Protection Management\> |
 | MP-06\_ODP\[02\] | Media for release are defined | S | \<Media Protection Management\> |
 | MP-06\_ODP\[03\] | Media for reuse are defined | S | \<Media Protection Management\> |
 | MP-06\_ODP\[04\] | Technique for disposal is defined | S | \<Media Protection Management\>, section 4.6: NIST SP 800-88 Revision 2 and IEEE 2883-2022 (D-MP-P02) |
 | MP-06\_ODP\[05\] | Technique for release is defined | S | \<Media Protection Management\>, section 4.6 (D-MP-P02) |
 | MP-06\_ODP\[06\] | Technique for reuse is defined | S | \<Media Protection Management\>, section 4.6 (D-MP-P02) |
-| MP-06a.\[01\] | Media are sanitised before disposal | O-E | ABC Technologies (EV-MP-02) |
-| MP-06a.\[02\] | Media are sanitised before release | O-E | ABC Technologies (EV-MP-02) |
-| MP-06a.\[03\] | Media are sanitised before reuse | O-E | ABC Technologies (EV-MP-02) |
+| MP-06a.\[01\] | Media are sanitised before disposal | O-E | \<Organisation\> (EV-MP-02) |
+| MP-06a.\[02\] | Media are sanitised before release | O-E | \<Organisation\> (EV-MP-02) |
+| MP-06a.\[03\] | Media are sanitised before reuse | O-E | \<Organisation\> (EV-MP-02) |
 | MP-06b. | Mechanisms match the classification | O-E | Methods by media type set in \<Media Protection Management\>, section 4.6, including cryptographic erase; not evidenced (EV-MP-02, PA-52) |
 | MP-07\_ODP\[01\] | Media types are defined | S | \<Media Protection Management\> |
 | MP-07\_ODP\[02\] | Restrict or prohibit is selected | S | \<Media Protection Management\> |
 | MP-07\_ODP\[03\] | Systems are defined | S | \<Media Protection Management\> |
 | MP-07\_ODP\[04\] | Controls are defined | S | \<Media Protection Management\> |
-| MP-07a. | Use of the media is restricted | O-E | ABC Technologies (EV-AC-17, EV-MP-03) |
-| MP-07b. | Portable devices with no owner are prohibited | O-E | Rule R11 and PRO-MP-4 written; ABC Technologies' device control not evidenced (EV-MP-03) |
+| MP-07a. | Use of the media is restricted | O-E | \<Organisation\> (EV-AC-17, EV-MP-03) |
+| MP-07b. | Portable devices with no owner are prohibited | O-E | Rule R11 and PRO-MP-4 written; \<Organisation\>'s device control not evidenced (EV-MP-03) |
 
 ### MP.5 Assessment plan
 
@@ -2802,16 +2802,16 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | Procedures | SP 800-53A Rev 5, using NIST's published statements and identifiers (catalog release 5.2.0), with NIST SP 800-88 Revision 2 as the reference for sanitising |
 | Dates | 6 November 2026; updated on 10 November 2026 after the MP pack review |
 | Site | One PC, using a separate throwaway Docker stack with sample data. The VMs are not built |
-| Examine | \<Policy\> (MP), \<Procedures\> (MP) and the MP chapter of \<Control Implementation Register\> at \<ver\>, now in \<Media Protection Management\>; TPL-13; SyOps A28, A30 to A35 and section 5.8; the export code and DV\_Web pages. Depth: focused. Coverage: focused |
+| Examine | \<Policy\> (MP), \<Procedures\> (MP) and the MP chapter of \<Control Implementation Register\> at \<ver\>, now in \<Media Protection Management\>; TPL-13; SyOps A28, A30 to A35 and section 5.8; the export code and UI application pages. Depth: focused. Coverage: focused |
 | Test | P01 to P09 by Test-MediaProtection.ps1 on 10 November 2026 (mp-test-results-2026-11-10-v1.0.csv and MANIFEST.md). Depth: focused. Coverage: focused |
-| Interview | System owner's written answers only. The database administrator, a sample of users and ABC Technologies' IT service desk remain |
+| Interview | System owner's written answers only. The database administrator, a sample of users and \<Organisation\>'s IT service desk remain |
 | Previous results reused | AC check T62 (export ownership); CP check R02 (unencrypted backup); AU check A38 (personal data in the log) |
-| Boundary | \<DocuView\>'s exports, marking, users' copies and printouts. Storage, transport and sanitising of physical disks and backup media, and device control, are inherited from ABC Technologies |
+| Boundary | \<System Name\>'s exports, marking, users' copies and printouts. Storage, transport and sanitising of physical disks and backup media, and device control, are inherited from \<Organisation\> |
 | Order of assessment | A, the media inventory (MP-2, MP-4); B, export copies (MP-4, MP-6); C, marking (MP-3); D, sanitising (MP-6); E, transport (MP-5); F, portable storage (MP-7); G, policy (MP-1). The inventory comes first because every other result depends on it |
-| Needed from ABC Technologies | EV-MP-01 to EV-MP-03 in \<Evidence Requests\>: media handling, sanitising certificates and device control |
+| Needed from \<Organisation\> | EV-MP-01 to EV-MP-03 in \<Evidence Requests\>: media handling, sanitising certificates and device control |
 | Evidence retained | The MP evidence, with its manifest; \<Media Protection Management\>, sections 4.2 to 4.6 |
 
-For the Level 2 assessment, the assessor should repeat the tests on the VMs, examine the export folder and a sample of users' devices, examine TPL-13 records and ABC Technologies' certificates, test USB blocking, hold the interviews and re-determine every statement in section MP.4.
+For the Level 2 assessment, the assessor should repeat the tests on the VMs, examine the export folder and a sample of users' devices, examine TPL-13 records and \<Organisation\>'s certificates, test USB blocking, hold the interviews and re-determine every statement in section MP.4.
 
 | **CHAPTER PE** |
 | --- |
@@ -2822,15 +2822,15 @@ For the Level 2 assessment, the assessor should repeat the tests on the VMs, exa
 
 ### PE.1 Purpose
 
-This records the Level 1 self-assessment of the 18 PE entries in the NIST SP 800-53 Rev 5 Moderate baseline, using catalog release 5.2.0. An independent team led by Josh Leak will use it for the Level 2 assessment. It makes no fixes.
+This records the Level 1 self-assessment of the 18 PE entries in the NIST SP 800-53 Rev 5 Moderate baseline, using catalog release 5.2.0. An independent team led by \[Name\] will use it for the Level 2 assessment. It makes no fixes.
 
 ### PE.2 How to read this record
 
 **Change since this assessment.** On 17 November 2026 the physical and environmental protection design was cut from \<Control Implementation Register\> into \<Physical and Environmental Protection Management\>, with each control set out part by part (D-PE-11). A SOC 2 report is now accepted only if it covers the availability criteria as well as physical access, the emergency shutoff must be guarded, and a physical incident is to be reported within 24 hours (D-PE-12). Both data centres are inspected at Level 2. One item was added for the gaps this chapter found: PA-122. The findings below are a true record of 6 and 10 November 2026 and are not changed.
 
-The method was **Examine** (documents). Fifteen of the 18 controls are inherited from ABC Technologies' data centres, and the inheritance matrix in \<Physical and Environmental Protection Management\>, section 4.3, shows the evidence that closes each one. Nothing more in PE can be tested in Docker: \<DocuView\>'s own part, the screen lock, was tested under AC-11, and output marking under MP-3. No site has been visited.
+The method was **Examine** (documents). Fifteen of the 18 controls are inherited from \<Organisation\>'s data centres, and the inheritance matrix in \<Physical and Environmental Protection Management\>, section 4.3, shows the evidence that closes each one. Nothing more in PE can be tested in Docker: \<System Name\>'s own part, the screen lock, was tested under AC-11, and output marking under MP-3. No site has been visited.
 
-**Limit of the current evidence:** none of ABC Technologies' evidence (EV-PE-01 to EV-PE-05) has been received, so every inherited statement stays O-E.
+**Limit of the current evidence:** none of \<Organisation\>'s evidence (EV-PE-01 to EV-PE-05) has been received, so every inherited statement stays O-E.
 
 ### PE.3 Executive summary
 
@@ -2865,9 +2865,9 @@ The method was **Examine** (documents). Fifteen of the 18 controls are inherited
 | PE-16 | Other than satisfied | 2 of 7 | Inherited; not evidenced | NC-PE-17 |
 | PE-17 | Other than satisfied | 3 of 6 | Yearly check not yet held; contacts are placeholders | NC-PE-18 |
 
-Of NIST's 121 statements, 54 are satisfied, 6 await a decision or approval, none shows a gap in the system and 61 await evidence from ABC Technologies.
+Of NIST's 121 statements, 54 are satisfied, 6 await a decision or approval, none shows a gap in the system and 61 await evidence from \<Organisation\>.
 
-The approach is approved and every inherited control is mapped to the evidence that would close it. Nothing can move further until ABC Technologies' certification or facility evidence arrives, and the site is inspected at Level 2.
+The approach is approved and every inherited control is mapped to the evidence that would close it. Nothing can move further until \<Organisation\>'s certification or facility evidence arrives, and the site is inspected at Level 2.
 
 ### PE.4 Findings by determination statement
 
@@ -2897,18 +2897,18 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | PE-01a.01(a)\[06\] | Policy addresses coordination | S | \<Policy\>, section PE.6 |
 | PE-01a.01(a)\[07\] | Policy addresses compliance | S | \<Policy\>, section PE.6 |
 | PE-01a.01(b) | Policy is consistent with laws and standards | S | Reviewed by the legal adviser on 10 November 2026, as confirmed by the system owner |
-| PE-01b. | Official is designated | S | Neil Ramsbottom is the system owner |
+| PE-01b. | Official is designated | S | \[Name\] is the system owner |
 | PE-01c.01\[01\] | Policy is reviewed at the set frequency | O-D | First review not yet due |
 | PE-01c.01\[02\] | Policy is reviewed after set events | S | Reviewed on 10 November 2026 after the PE pack review (D-PE-08) |
 | PE-01c.02\[01\] | Procedures are reviewed at the set frequency | O-D | First review not yet due |
 | PE-01c.02\[02\] | Procedures are reviewed after set events | S | Reviewed and approved as version \<ver\> on 10 November 2026 (D-PE-10) |
 | PE-02\_ODP | Review frequency is defined | S | \<Physical and Environmental Protection Management\> |
-| PE-02a.\[01\] | An access list is developed | O-E | ABC Technologies (EV-PE-01) |
-| PE-02a.\[02\] | The list is approved | O-E | ABC Technologies (EV-PE-01) |
-| PE-02a.\[03\] | The list is maintained | O-E | ABC Technologies (EV-PE-01) |
-| PE-02b. | Credentials are issued | O-E | ABC Technologies (EV-PE-01) |
-| PE-02c. | The list is reviewed | O-E | ABC Technologies (EV-PE-01) |
-| PE-02d. | People are removed when no longer needed | O-E | ABC Technologies (EV-PE-01) |
+| PE-02a.\[01\] | An access list is developed | O-E | \<Organisation\> (EV-PE-01) |
+| PE-02a.\[02\] | The list is approved | O-E | \<Organisation\> (EV-PE-01) |
+| PE-02a.\[03\] | The list is maintained | O-E | \<Organisation\> (EV-PE-01) |
+| PE-02b. | Credentials are issued | O-E | \<Organisation\> (EV-PE-01) |
+| PE-02c. | The list is reviewed | O-E | \<Organisation\> (EV-PE-01) |
+| PE-02d. | People are removed when no longer needed | O-E | \<Organisation\> (EV-PE-01) |
 | PE-03\_ODP\[01\] | Entry and exit points are defined | S | \<Physical and Environmental Protection Management\> |
 | PE-03\_ODP\[02\] | How entry is controlled is selected | S | \<Physical and Environmental Protection Management\> |
 | PE-03\_ODP\[03\] | Systems or devices are defined | S | \<Physical and Environmental Protection Management\> |
@@ -2919,83 +2919,83 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | PE-03\_ODP\[08\] | Inventory frequency is defined | S | \<Physical and Environmental Protection Management\> |
 | PE-03\_ODP\[09\] | Combination frequency is defined | S | \<Physical and Environmental Protection Management\> |
 | PE-03\_ODP\[10\] | Key frequency is defined | S | \<Physical and Environmental Protection Management\> |
-| PE-03a.01 | Authorisation is verified at entry | O-E | ABC Technologies (EV-PE-01) |
-| PE-03a.02 | Entry and exit are controlled | O-E | ABC Technologies (EV-PE-01) |
-| PE-03b. | Access logs are kept | O-E | ABC Technologies (EV-PE-01) |
-| PE-03c. | Public areas are controlled | O-E | ABC Technologies (EV-PE-01) |
-| PE-03d.\[01\] | Visitors are escorted | O-E | ABC Technologies (EV-PE-01) |
-| PE-03d.\[02\] | Visitor activity is controlled | O-E | ABC Technologies (EV-PE-01) |
-| PE-03e.\[01\] | Keys are secured | O-E | ABC Technologies (EV-PE-01) |
-| PE-03e.\[02\] | Combinations are secured | O-E | ABC Technologies (EV-PE-01) |
-| PE-03e.\[03\] | Other access devices are secured | O-E | ABC Technologies (EV-PE-01) |
-| PE-03f. | Access devices are inventoried | O-E | ABC Technologies (EV-PE-01) |
-| PE-03g.\[01\] | Combinations are changed | O-E | ABC Technologies (EV-PE-01) |
-| PE-03g.\[02\] | Keys are changed | O-E | ABC Technologies (EV-PE-01) |
+| PE-03a.01 | Authorisation is verified at entry | O-E | \<Organisation\> (EV-PE-01) |
+| PE-03a.02 | Entry and exit are controlled | O-E | \<Organisation\> (EV-PE-01) |
+| PE-03b. | Access logs are kept | O-E | \<Organisation\> (EV-PE-01) |
+| PE-03c. | Public areas are controlled | O-E | \<Organisation\> (EV-PE-01) |
+| PE-03d.\[01\] | Visitors are escorted | O-E | \<Organisation\> (EV-PE-01) |
+| PE-03d.\[02\] | Visitor activity is controlled | O-E | \<Organisation\> (EV-PE-01) |
+| PE-03e.\[01\] | Keys are secured | O-E | \<Organisation\> (EV-PE-01) |
+| PE-03e.\[02\] | Combinations are secured | O-E | \<Organisation\> (EV-PE-01) |
+| PE-03e.\[03\] | Other access devices are secured | O-E | \<Organisation\> (EV-PE-01) |
+| PE-03f. | Access devices are inventoried | O-E | \<Organisation\> (EV-PE-01) |
+| PE-03g.\[01\] | Combinations are changed | O-E | \<Organisation\> (EV-PE-01) |
+| PE-03g.\[02\] | Keys are changed | O-E | \<Organisation\> (EV-PE-01) |
 | PE-04\_ODP\[01\] | Lines are defined | S | \<Physical and Environmental Protection Management\> |
 | PE-04\_ODP\[02\] | Controls are defined | S | \<Physical and Environmental Protection Management\> |
-| PE-04 | Access to lines is controlled | O-E | ABC Technologies (EV-PE-01) |
+| PE-04 | Access to lines is controlled | O-E | \<Organisation\> (EV-PE-01) |
 | PE-05\_ODP | Output devices are defined | S | \<Physical and Environmental Protection Management\>: managed printers with secure release, and screens (D-PE-P02) |
-| PE-05 | Access to output is controlled | O-E | Managed printers with secure release not yet listed or evidenced (EV-PE-05); \<DocuView\> locks the page after 25 minutes (AC-11) |
+| PE-05 | Access to output is controlled | O-E | Managed printers with secure release not yet listed or evidenced (EV-PE-05); \<System Name\> locks the page after 25 minutes (AC-11) |
 | PE-06\_ODP\[01\] | Review frequency is defined | S | \<Physical and Environmental Protection Management\> |
 | PE-06\_ODP\[02\] | Review events are defined | S | \<Physical and Environmental Protection Management\> |
-| PE-06a. | Access is monitored | O-E | ABC Technologies (EV-PE-01) |
-| PE-06b.\[01\] | Logs are reviewed at the set frequency | O-E | ABC Technologies (EV-PE-01) |
-| PE-06b.\[02\] | Logs are reviewed after set events | O-E | ABC Technologies (EV-PE-01) |
-| PE-06c.\[01\] | Review results go to incident response | O-E | Physical incident playbook in \<Incident Response Management\> \<ver\>; ABC Technologies' reporting not evidenced (EV-PE-01) |
-| PE-06c.\[02\] | Investigation results go to incident response | O-E | Physical incident playbook in \<Incident Response Management\> \<ver\>; ABC Technologies' reporting not evidenced (EV-PE-01) |
-| PE-06(01)\[01\] | Intrusion alarms are used | O-E | ABC Technologies (EV-PE-01) |
-| PE-06(01)\[02\] | Surveillance equipment is used | O-E | ABC Technologies (EV-PE-01) |
+| PE-06a. | Access is monitored | O-E | \<Organisation\> (EV-PE-01) |
+| PE-06b.\[01\] | Logs are reviewed at the set frequency | O-E | \<Organisation\> (EV-PE-01) |
+| PE-06b.\[02\] | Logs are reviewed after set events | O-E | \<Organisation\> (EV-PE-01) |
+| PE-06c.\[01\] | Review results go to incident response | O-E | Physical incident playbook in \<Incident Response Management\> \<ver\>; \<Organisation\>'s reporting not evidenced (EV-PE-01) |
+| PE-06c.\[02\] | Investigation results go to incident response | O-E | Physical incident playbook in \<Incident Response Management\> \<ver\>; \<Organisation\>'s reporting not evidenced (EV-PE-01) |
+| PE-06(01)\[01\] | Intrusion alarms are used | O-E | \<Organisation\> (EV-PE-01) |
+| PE-06(01)\[02\] | Surveillance equipment is used | O-E | \<Organisation\> (EV-PE-01) |
 | PE-08\_ODP\[01\] | Retention is defined | S | \<Physical and Environmental Protection Management\> |
 | PE-08\_ODP\[02\] | Review frequency is defined | S | \<Physical and Environmental Protection Management\> |
 | PE-08\_ODP\[03\] | Who gets anomalies is defined | S | \<Physical and Environmental Protection Management\> |
-| PE-08a. | Visitor records are kept | O-E | ABC Technologies (EV-PE-01) |
-| PE-08b. | Visitor records are reviewed | O-E | ABC Technologies (EV-PE-01) |
-| PE-08c. | Anomalies are reported | O-E | ABC Technologies (EV-PE-01) |
-| PE-09\[01\] | Power equipment is protected | O-E | ABC Technologies (EV-PE-02) |
-| PE-09\[02\] | Power cabling is protected | O-E | ABC Technologies (EV-PE-02) |
+| PE-08a. | Visitor records are kept | O-E | \<Organisation\> (EV-PE-01) |
+| PE-08b. | Visitor records are reviewed | O-E | \<Organisation\> (EV-PE-01) |
+| PE-08c. | Anomalies are reported | O-E | \<Organisation\> (EV-PE-01) |
+| PE-09\[01\] | Power equipment is protected | O-E | \<Organisation\> (EV-PE-02) |
+| PE-09\[02\] | Power cabling is protected | O-E | \<Organisation\> (EV-PE-02) |
 | PE-10\_ODP\[01\] | What can be shut off is defined | S | \<Physical and Environmental Protection Management\> |
 | PE-10\_ODP\[02\] | Switch location is defined | S | \<Physical and Environmental Protection Management\> |
-| PE-10a. | Power can be shut off in an emergency | O-E | ABC Technologies (EV-PE-02) |
-| PE-10b. | Switches are safely reachable | O-E | ABC Technologies (EV-PE-02) |
-| PE-10c. | Shutoff is protected from misuse | O-E | ABC Technologies (EV-PE-02) |
+| PE-10a. | Power can be shut off in an emergency | O-E | \<Organisation\> (EV-PE-02) |
+| PE-10b. | Switches are safely reachable | O-E | \<Organisation\> (EV-PE-02) |
+| PE-10c. | Shutoff is protected from misuse | O-E | \<Organisation\> (EV-PE-02) |
 | PE-11\_ODP | What backup power allows is selected | S | \<Physical and Environmental Protection Management\> |
-| PE-11 | An uninterruptible supply is provided | O-E | ABC Technologies (EV-PE-02) |
-| PE-12\[01\] | Emergency lighting activates in an outage | O-E | ABC Technologies (EV-PE-02) |
-| PE-12\[02\] | Emergency lighting activates in a disruption | O-E | ABC Technologies (EV-PE-02) |
-| PE-12\[03\] | Lighting covers emergency exits | O-E | ABC Technologies (EV-PE-02) |
-| PE-12\[04\] | Lighting covers evacuation routes | O-E | ABC Technologies (EV-PE-02) |
-| PE-13\[01\] | Fire detection is used | O-E | ABC Technologies (EV-PE-03) |
-| PE-13\[02\] | Detection has its own power | O-E | ABC Technologies (EV-PE-03) |
-| PE-13\[03\] | Detection is maintained | O-E | ABC Technologies (EV-PE-03) |
-| PE-13\[04\] | Fire suppression is used | O-E | ABC Technologies (EV-PE-03) |
-| PE-13\[05\] | Suppression has its own power | O-E | ABC Technologies (EV-PE-03) |
-| PE-13\[06\] | Suppression is maintained | O-E | ABC Technologies (EV-PE-03) |
+| PE-11 | An uninterruptible supply is provided | O-E | \<Organisation\> (EV-PE-02) |
+| PE-12\[01\] | Emergency lighting activates in an outage | O-E | \<Organisation\> (EV-PE-02) |
+| PE-12\[02\] | Emergency lighting activates in a disruption | O-E | \<Organisation\> (EV-PE-02) |
+| PE-12\[03\] | Lighting covers emergency exits | O-E | \<Organisation\> (EV-PE-02) |
+| PE-12\[04\] | Lighting covers evacuation routes | O-E | \<Organisation\> (EV-PE-02) |
+| PE-13\[01\] | Fire detection is used | O-E | \<Organisation\> (EV-PE-03) |
+| PE-13\[02\] | Detection has its own power | O-E | \<Organisation\> (EV-PE-03) |
+| PE-13\[03\] | Detection is maintained | O-E | \<Organisation\> (EV-PE-03) |
+| PE-13\[04\] | Fire suppression is used | O-E | \<Organisation\> (EV-PE-03) |
+| PE-13\[05\] | Suppression has its own power | O-E | \<Organisation\> (EV-PE-03) |
+| PE-13\[06\] | Suppression is maintained | O-E | \<Organisation\> (EV-PE-03) |
 | PE-13(01)\_ODP\[01\] | Who is notified is defined | S | \<Physical and Environmental Protection Management\> |
 | PE-13(01)\_ODP\[02\] | Responders are defined | S | \<Physical and Environmental Protection Management\> |
-| PE-13(01)\[01\] | Detection activates automatically | O-E | ABC Technologies (EV-PE-03) |
-| PE-13(01)\[02\] | Detection notifies the named people | O-E | ABC Technologies (EV-PE-03) |
-| PE-13(01)\[03\] | Detection notifies responders | O-E | ABC Technologies (EV-PE-03) |
+| PE-13(01)\[01\] | Detection activates automatically | O-E | \<Organisation\> (EV-PE-03) |
+| PE-13(01)\[02\] | Detection notifies the named people | O-E | \<Organisation\> (EV-PE-03) |
+| PE-13(01)\[03\] | Detection notifies responders | O-E | \<Organisation\> (EV-PE-03) |
 | PE-14\_ODP\[01\] | Levels are selected | S | \<Physical and Environmental Protection Management\> |
 | PE-14\_ODP\[02\] | Controls are defined | S | \<Physical and Environmental Protection Management\> |
 | PE-14\_ODP\[03\] | Acceptable levels are defined | S | \<Physical and Environmental Protection Management\>: the ASHRAE TC 9.9 recommended envelope (D-PE-P02) |
 | PE-14\_ODP\[04\] | Monitoring frequency is defined | S | \<Physical and Environmental Protection Management\> |
-| PE-14a. | Levels are maintained | O-E | ABC Technologies (EV-PE-03) |
-| PE-14b. | Levels are monitored | O-E | ABC Technologies (EV-PE-03) |
-| PE-15\[01\] | Shutoff valves protect against leaks | O-E | ABC Technologies (EV-PE-03) |
-| PE-15\[02\] | Valves are accessible | O-E | ABC Technologies (EV-PE-03) |
-| PE-15\[03\] | Valves work | O-E | ABC Technologies (EV-PE-03) |
-| PE-15\[04\] | Key people know about them | O-E | ABC Technologies (EV-PE-03) |
+| PE-14a. | Levels are maintained | O-E | \<Organisation\> (EV-PE-03) |
+| PE-14b. | Levels are monitored | O-E | \<Organisation\> (EV-PE-03) |
+| PE-15\[01\] | Shutoff valves protect against leaks | O-E | \<Organisation\> (EV-PE-03) |
+| PE-15\[02\] | Valves are accessible | O-E | \<Organisation\> (EV-PE-03) |
+| PE-15\[03\] | Valves work | O-E | \<Organisation\> (EV-PE-03) |
+| PE-15\[04\] | Key people know about them | O-E | \<Organisation\> (EV-PE-03) |
 | PE-16\_ODP\[01\] | Items entering are defined | S | \<Physical and Environmental Protection Management\> |
 | PE-16\_ODP\[02\] | Items leaving are defined | S | \<Physical and Environmental Protection Management\> |
-| PE-16a.\[01\] | Items entering are authorised | O-E | ABC Technologies (EV-PE-04) |
-| PE-16a.\[02\] | Items entering are controlled | O-E | ABC Technologies (EV-PE-04) |
-| PE-16a.\[03\] | Items leaving are authorised | O-E | ABC Technologies (EV-PE-04) |
-| PE-16a.\[04\] | Items leaving are controlled | O-E | ABC Technologies (EV-PE-04) |
-| PE-16b. | Records are kept | O-E | ABC Technologies (EV-PE-04) |
+| PE-16a.\[01\] | Items entering are authorised | O-E | \<Organisation\> (EV-PE-04) |
+| PE-16a.\[02\] | Items entering are controlled | O-E | \<Organisation\> (EV-PE-04) |
+| PE-16a.\[03\] | Items leaving are authorised | O-E | \<Organisation\> (EV-PE-04) |
+| PE-16a.\[04\] | Items leaving are controlled | O-E | \<Organisation\> (EV-PE-04) |
+| PE-16b. | Records are kept | O-E | \<Organisation\> (EV-PE-04) |
 | PE-17\_ODP\[01\] | Work sites are defined | S | \<Physical and Environmental Protection Management\> |
 | PE-17\_ODP\[02\] | Controls are defined | S | \<Physical and Environmental Protection Management\> |
 | PE-17a. | Controls at work sites are determined | S | \<Physical and Environmental Protection Management\>, approved (D-PE-03) |
-| PE-17b. | Those controls are used | O-E | ABC Technologies (EV-PE-05) |
+| PE-17b. | Those controls are used | O-E | \<Organisation\> (EV-PE-05) |
 | PE-17c. | Their effectiveness is assessed | O-D | Yearly checklist (PRO-PE-4, C30, TPL-4); not yet assessed |
 | PE-17d. | People can reach security staff | O-D | Security officer named in \<Security Operating Procedures\>, section 7; the contact details in \<Roles and Responsibilities\>, section 7, are still placeholders |
 
@@ -3011,15 +3011,15 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | Site | No site visited. The data centre and second site are \[to be named\] in \<Physical and Environmental Protection Management\>, section 4.2 |
 | Examine | \<Policy\> (PE), \<Procedures\> (PE) and the PE chapter of \<Control Implementation Register\> at \<ver\>, now in \<Physical and Environmental Protection Management\>, with the inheritance matrix; SyOps A33, A36 to A38; \<Incident Response Management\>, section 4.9. Depth: focused. Coverage: focused |
 | Test | None for PE. The screen lock was tested under AC-11, and output marking under MP-3 (P07) |
-| Interview | System owner's written answers only. The security officer, a sample of home workers and ABC Technologies' facilities contact remain |
-| Site inspection | Once at Level 2, using TPL-20, by the independent assessor or ABC Technologies' auditor (PRO-PE-5) |
+| Interview | System owner's written answers only. The security officer, a sample of home workers and \<Organisation\>'s facilities contact remain |
+| Site inspection | Once at Level 2, using TPL-20, by the independent assessor or \<Organisation\>'s auditor (PRO-PE-5) |
 | Previous results reused | AC checks of the screen lock and sign-out (AC-11, AC-12); MP check P07 (no marking) |
-| Boundary | Physical and environmental protection of the data centre and second site is inherited from ABC Technologies. \<DocuView\> provides the policy, the printer and screen rules, home working rules, and incident handling |
+| Boundary | Physical and environmental protection of the data centre and second site is inherited from \<Organisation\>. \<System Name\> provides the policy, the printer and screen rules, home working rules, and incident handling |
 | Order of assessment | A, inherited evidence against the matrix (PE-2 to PE-16); B, the site inspection; C, output devices (PE-5); D, home working (PE-17); E, policy (PE-1). The inherited evidence comes first because it closes most statements |
-| Needed from ABC Technologies | EV-PE-01 to EV-PE-05 in \<Evidence Requests\>: first its ISO/IEC 27001 certificate and Statement of Applicability for Annex A.7, or a SOC 2 report, for both sites |
+| Needed from \<Organisation\> | EV-PE-01 to EV-PE-05 in \<Evidence Requests\>: first its ISO/IEC 27001 certificate and Statement of Applicability for Annex A.7, or a SOC 2 report, for both sites |
 | Evidence retained | \<Physical and Environmental Protection Management\>, sections 4.2 and 4.3; \<Evidence Requests\>; completed TPL-20 |
 
-For the Level 2 assessment, the assessor should examine ABC Technologies' certificate, Statement of Applicability or SOC 2 report against the inheritance matrix, inspect the data centre with TPL-20, interview the security officer and a sample of home workers, and re-determine every statement in section PE.4.
+For the Level 2 assessment, the assessor should examine \<Organisation\>'s certificate, Statement of Applicability or SOC 2 report against the inheritance matrix, inspect the data centre with TPL-20, interview the security officer and a sample of home workers, and re-determine every statement in section PE.4.
 
 | **CHAPTER PL** |
 | --- |
@@ -3030,7 +3030,7 @@ For the Level 2 assessment, the assessor should examine ABC Technologies' certif
 
 ### PL.1 Purpose
 
-This records the Level 1 self-assessment of the 7 PL entries in the NIST SP 800-53 Rev 5 Moderate baseline, using catalog release 5.2.0. An independent team led by Josh Leak will use it for the Level 2 assessment. It makes no fixes.
+This records the Level 1 self-assessment of the 7 PL entries in the NIST SP 800-53 Rev 5 Moderate baseline, using catalog release 5.2.0. An independent team led by \[Name\] will use it for the Level 2 assessment. It makes no fixes.
 
 ### PL.2 How to read this record
 
@@ -3055,14 +3055,14 @@ The plans are compared with NIST SP 800-18 Rev 2 (June 2026), which sets out wha
 | Control | Result | Statements satisfied | Main reason | Finding |
 | --- | --- | --- | --- | --- |
 | PL-1 | Other than satisfied | 21 of 25 | Not yet shared; re-approval (D-PL-07) and first scheduled reviews outstanding | NC-PL-01 |
-| PL-2 | Other than satisfied | 31 of 41 | Not yet shared or in the restricted store; privacy risk results and ABC Technologies' architecture outstanding | NC-PL-02, NC-PL-06 |
+| PL-2 | Other than satisfied | 31 of 41 | Not yet shared or in the restricted store; privacy risk results and \<Organisation\>'s architecture outstanding | NC-PL-02, NC-PL-06 |
 | PL-4 | Other than satisfied | 5 of 8 | Rules approved; none signed yet | NC-PL-03 |
 | PL-4(1) | Satisfied | 3 of 3 | Rules A43 and A44 | NC-PL-04 |
 | PL-8 | Other than satisfied | 12 of 14 | First yearly review not due; no procurement yet | NC-PL-05 |
 | PL-10 | Satisfied | 1 of 1 | Moderate, approved | Met |
 | PL-11 | Satisfied | 1 of 1 | Tailoring register 1.0 | Met |
 
-Of NIST's 93 statements, 74 are satisfied, 17 await a decision or approval, none shows a gap in the system and 2 await evidence from ABC Technologies.
+Of NIST's 93 statements, 74 are satisfied, 17 await a decision or approval, none shows a gap in the system and 2 await evidence from \<Organisation\>.
 
 The plans are complete and agree with each other: the plan-consistency test passed all 12 checks after this review's corrections. What remains is to sign the rules, share the plans, move them to the restricted store, and let the first yearly reviews fall due.
 
@@ -3094,7 +3094,7 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | PL-01a.01(a)\[06\] | Policy addresses coordination | S | \<Policy\>, section PL.6 |
 | PL-01a.01(a)\[07\] | Policy addresses compliance | S | \<Policy\>, section PL.6 |
 | PL-01a.01(b) | Policy is consistent with laws and standards | S | Reviewed by the legal adviser on 11 November 2026, as confirmed by the system owner |
-| PL-01b. | Official is designated | S | Neil Ramsbottom is the system owner |
+| PL-01b. | Official is designated | S | \[Name\] is the system owner |
 | PL-01c.01\[01\] | Policy is reviewed at the set frequency | O-D | First review not yet due |
 | PL-01c.01\[02\] | Policy is reviewed after set events | S | Reviewed on 11 November 2026 after the PL pack review (D-PL-06) |
 | PL-01c.02\[01\] | Procedures are reviewed at the set frequency | O-D | First review not yet due |
@@ -3102,8 +3102,8 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | PL-02\_ODP\[01\] | Who planning is coordinated with is defined | S | \<Planning Management\> |
 | PL-02\_ODP\[02\] | Who receives copies is defined | S | \<Planning Management\> |
 | PL-02\_ODP\[03\] | Review frequency is defined | S | \<Planning Management\> |
-| PL-02a.01\[01\] | Security plan fits the enterprise architecture | O-E | ABC Technologies' architecture not seen (EV-PL-01) |
-| PL-02a.01\[02\] | Privacy plan fits the enterprise architecture | O-E | ABC Technologies' architecture not seen (EV-PL-01) |
+| PL-02a.01\[01\] | Security plan fits the enterprise architecture | O-E | \<Organisation\>'s architecture not seen (EV-PL-01) |
+| PL-02a.01\[02\] | Privacy plan fits the enterprise architecture | O-E | \<Organisation\>'s architecture not seen (EV-PL-01) |
 | PL-02a.02\[01\] | Security plan defines the boundary | S | \<System Security Plan\>, section 4.1; \<Security Architecture\>, section 3 |
 | PL-02a.02\[02\] | Privacy plan defines the boundary | S | \<Privacy Plan\>, section 3 |
 | PL-02a.03\[01\] | Security plan describes the operational context | S | \<System Security Plan\>, \<Concept of Operations\> |
@@ -3112,7 +3112,7 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | PL-02a.04\[02\] | Privacy plan identifies people in roles | S | \<Privacy Plan\>, section 4 |
 | PL-02a.05\[01\] | Security plan identifies information types | S | \<System Security Plan\>, Table 7 |
 | PL-02a.05\[02\] | Privacy plan identifies information types | S | \<Privacy Plan\>, section 5 |
-| PL-02a.06\[01\] | Security plan gives the categorisation | S | \<System Security Plan\>, approved by Bob Jones |
+| PL-02a.06\[01\] | Security plan gives the categorisation | S | \<System Security Plan\>, approved by \[Name\] |
 | PL-02a.06\[02\] | Privacy plan gives the categorisation | S | \<Privacy Plan\>, section 5 |
 | PL-02a.07\[01\] | Security plan describes threats | S | \<System Security Plan\>, \<Risk List\> |
 | PL-02a.07\[02\] | Privacy plan describes threats | S | \<Privacy Plan\>, section 6 |
@@ -3130,8 +3130,8 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | PL-02a.13\[02\] | Privacy plan includes risk determinations | S | \<Privacy Plan\>, section 6; \<Decision Register\> |
 | PL-02a.14\[01\] | Security plan includes activities to coordinate | S | \<Security Operating Procedures\>, Table 8, \<Plan of Action and Milestones\> |
 | PL-02a.14\[02\] | Privacy plan includes activities to coordinate | S | \<Privacy Plan\>, section 8 |
-| PL-02a.15\[01\] | Security plan is reviewed and approved | S | Approved by the system owner and accepted by Bob Jones as an accurate record at version \<ver\> of the plan; later versions await his acceptance (D-GEN-20); the Head of Cyber's concurrence requested (D-PL-06) |
-| PL-02a.15\[02\] | Privacy plan is reviewed and approved | S | Approved by Adrian Solicitor and Bob Jones (D-PT-05) |
+| PL-02a.15\[01\] | Security plan is reviewed and approved | S | Approved by the system owner and accepted by \[Name\] as an accurate record at version \<ver\> of the plan; later versions await his acceptance (D-GEN-20); the Head of Cyber's concurrence requested (D-PL-06) |
+| PL-02a.15\[02\] | Privacy plan is reviewed and approved | S | Approved by \[Name\] and \[Name\] (D-PT-05) |
 | PL-02b.\[01\] | Copies are distributed | O-D | Not yet shared; each issue to be recorded in the plan review log (PRO-PL-2) |
 | PL-02b.\[02\] | Changes are communicated | O-D | Not yet shared; each issue to be recorded in the plan review log (PRO-PL-2) |
 | PL-02c. | Plans are reviewed | O-D | First yearly review not yet due; plan review log started on 11 November 2026 |
@@ -3165,7 +3165,7 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | PL-08c.\[04\] | Changes are in the criticality analysis | S | Critical components in \<Risk Assessment Management\>, section 4.9; changes carried there by PRO-PL-5 |
 | PL-08c.\[05\] | Changes are in procedures | S | Each family's procedures; PRO-PL-5 |
 | PL-08c.\[06\] | Changes are in procurements | O-D | PRO-SA-3 approved; no procurement yet |
-| PL-10 | A baseline is selected | S | Moderate, approved by Bob Jones (D-GEN-06) |
+| PL-10 | A baseline is selected | S | Moderate, approved by \[Name\] (D-GEN-06) |
 | PL-11 | The baseline is tailored | S | \<Tailoring Register\> \<ver\>, approved by the system owner (D-PL-09, D-PM-02) |
 
 ### PL.5 Assessment plan
@@ -3183,7 +3183,7 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | Previous results reused | The privacy plan's approval (D-PT-05); the critical components list from the RA assessment |
 | Boundary | Planning is organisational. The only technical element is where the plans are kept (PA-88) |
 | Order of assessment | A, the register of plans and the SSP (PL-2); B, the rules and signatures (PL-4, PL-4(1)); C, the architecture (PL-8); D, the baseline and tailoring (PL-10, PL-11); E, policy (PL-1). The SSP comes first because every other family relies on it |
-| Needed from ABC Technologies | EV-PL-01 in \<Evidence Requests\>: the enterprise architecture standards that \<DocuView\> must fit, and the hypervisor question (D-PL-11) |
+| Needed from \<Organisation\> | EV-PL-01 in \<Evidence Requests\>: the enterprise architecture standards that \<System Name\> must fit, and the hypervisor question (D-PL-11) |
 | Evidence retained | the PL evidence (results, README and MANIFEST); the plan review log in \<System Security Plan\>; TPL-21 forms and the register of signatures, once signed |
 
 For the Level 2 assessment, the assessor should run Test-PlanConsistency.ps1 on the issued set, sample signed TPL-21 forms against the register and the access requests, check the restricted store's access list, interview the Head of Cyber and a sample of users, and re-determine every statement in section PL.4.
@@ -3197,13 +3197,13 @@ For the Level 2 assessment, the assessor should run Test-PlanConsistency.ps1 on 
 
 ### PS.1 Purpose
 
-This records the Level 1 self-assessment of the 9 PS entries in the NIST SP 800-53 Rev 5 Moderate baseline, using catalog release 5.2.0. An independent team led by Josh Leak will use it for the Level 2 assessment. It makes no fixes.
+This records the Level 1 self-assessment of the 9 PS entries in the NIST SP 800-53 Rev 5 Moderate baseline, using catalog release 5.2.0. An independent team led by \[Name\] will use it for the Level 2 assessment. It makes no fixes.
 
 ### PS.2 How to read this record
 
-**Change since this assessment.** On 17 November 2026 the personnel security design was cut from \<Control Implementation Register\> into \<Personnel Security Management\>, with each control set out part by part (D-PS-10). Since sign-in moved to AD FS (D-AC-23), \<DocuView\> holds no accounts: a person's access is their membership of \<DocuView\>'s groups, and a leaver's access ends when ABC Technologies disables their Active Directory account. Members who have not signed in for 90 days are removed each month (D-PS-11). One item was added for the gaps this chapter found: PA-125. The findings below are a true record of 6 and 12 November 2026 and are not changed.
+**Change since this assessment.** On 17 November 2026 the personnel security design was cut from \<Control Implementation Register\> into \<Personnel Security Management\>, with each control set out part by part (D-PS-10). Since sign-in moved to AD FS (D-AC-23), \<System Name\> holds no accounts: a person's access is their membership of \<System Name\>'s groups, and a leaver's access ends when \<Organisation\> disables their Active Directory account. Members who have not signed in for 90 days are removed each month (D-PS-11). One item was added for the gaps this chapter found: PA-125. The findings below are a true record of 6 and 12 November 2026 and are not changed.
 
-The method was **Examine** (documents). This family has no code to test: the leaver and mover route depends on ABC Technologies' Starters/Leavers system, which is not yet connected (PA-32). Nobody has yet been given an account, so no agreement is signed and no record exists. No interviews have been held. Check L17 of Test-PlanConsistency.ps1 confirms that every role has a risk designation (the PL evidence).
+The method was **Examine** (documents). This family has no code to test: the leaver and mover route depends on \<Organisation\>'s Starters/Leavers system, which is not yet connected (PA-32). Nobody has yet been given an account, so no agreement is signed and no record exists. No interviews have been held. Check L17 of Test-PlanConsistency.ps1 confirms that every role has a risk designation (the PL evidence).
 
 ### PS.3 Executive summary
 
@@ -3219,18 +3219,18 @@ The method was **Examine** (documents). This family has no code to test: the lea
 | Control | Result | Statements satisfied | Main reason | Finding |
 | --- | --- | --- | --- | --- |
 | PS-1 | Other than satisfied | 21 of 25 | Not yet shared; version \<ver\> of the policy awaits the Head of Cyber and the legal adviser (D-PS-08) | NC-PS-01 |
-| PS-2 | Other than satisfied | 2 of 4 | Every role is designated; ABC Technologies' screening criteria not seen | NC-PS-02 |
-| PS-3 | Other than satisfied | 2 of 5 | ABC Technologies' screening not evidenced | NC-PS-03 |
+| PS-2 | Other than satisfied | 2 of 4 | Every role is designated; \<Organisation\>'s screening criteria not seen | NC-PS-02 |
+| PS-3 | Other than satisfied | 2 of 5 | \<Organisation\>'s screening not evidenced | NC-PS-03 |
 | PS-4 | Other than satisfied | 2 of 7 | Leaver route not built; exit process not evidenced | NC-PS-04 |
 | PS-5 | Other than satisfied | 4 of 8 | Mover route not built | NC-PS-05 |
 | PS-6 | Other than satisfied | 3 of 6 | Agreements exist; none signed | NC-PS-06 |
 | PS-7 | Other than satisfied | 2 of 7 | Contract terms not evidenced | NC-PS-07 |
 | PS-8 | Other than satisfied | 2 of 4 | Sanctions process not evidenced | NC-PS-08 |
-| PS-9 | Other than satisfied | 0 of 2 | \<DocuView\>'s role duties are in \<Roles and Responsibilities\>; ABC Technologies' job descriptions not seen | NC-PS-09 |
+| PS-9 | Other than satisfied | 0 of 2 | \<System Name\>'s role duties are in \<Roles and Responsibilities\>; \<Organisation\>'s job descriptions not seen | NC-PS-09 |
 
-Of NIST's 68 statements, 38 are satisfied, 17 await a decision or approval, none shows a gap in the system and 13 await evidence from ABC Technologies.
+Of NIST's 68 statements, 38 are satisfied, 17 await a decision or approval, none shows a gap in the system and 13 await evidence from \<Organisation\>.
 
-What \<DocuView\> itself decides is now defined: a designation for every role, the minimum screening it expects, the time limits, and the register. What remains is ABC Technologies' evidence of its screening, HR and disciplinary processes, the leaver and mover route (PA-32), and the first people signing their agreements.
+What \<System Name\> itself decides is now defined: a designation for every role, the minimum screening it expects, the time limits, and the register. What remains is \<Organisation\>'s evidence of its screening, HR and disciplinary processes, the leaver and mover route (PA-32), and the first people signing their agreements.
 
 ### PS.4 Findings by determination statement
 
@@ -3260,26 +3260,26 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | PS-01a.01(a)\[06\] | Policy addresses coordination | S | \<Policy\> (PS) \<ver\>, section PS.6 |
 | PS-01a.01(a)\[07\] | Policy addresses compliance | S | \<Policy\> (PS) \<ver\>, section PS.6 |
 | PS-01a.01(b) | Policy is consistent with laws and standards | S | Version \<ver\> legally reviewed on 12 November 2026, as confirmed by the system owner; version \<ver\> goes to the legal adviser with its approval (D-PS-08) |
-| PS-01b. | Official is designated | S | Neil Ramsbottom is the system owner |
+| PS-01b. | Official is designated | S | \[Name\] is the system owner |
 | PS-01c.01\[01\] | Policy is reviewed at the set frequency | O-D | First review not yet due |
 | PS-01c.01\[02\] | Policy is reviewed after set events | S | Reviewed on 12 November 2026 after the whole-set review (D-PS-07) |
 | PS-01c.02\[01\] | Procedures are reviewed at the set frequency | O-D | First review not yet due |
 | PS-01c.02\[02\] | Procedures are reviewed after set events | S | Reviewed and approved as version \<ver\> on 12 November 2026 (D-PS-09) |
 | PS-02\_ODP | Review frequency is defined | S | \<Personnel Security Management\>, appendix A |
 | PS-02a. | Positions have a risk designation | S | All 19 roles in \<Roles and Responsibilities\> are designated in \<Personnel Security Management\>, section 4.2 (D-PS-07; check L17) |
-| PS-02b. | Screening criteria are set | O-E | Minimum set in \<Personnel Security Management\>, section 4.3; ABC Technologies' criteria not seen (EV-PS-01) |
+| PS-02b. | Screening criteria are set | O-E | Minimum set in \<Personnel Security Management\>, section 4.3; \<Organisation\>'s criteria not seen (EV-PS-01) |
 | PS-02c. | Designations are reviewed | O-D | Reviewed and updated on 12 November 2026; first scheduled review not yet due |
 | PS-03\_ODP\[01\] | Rescreening conditions are defined | S | \<Personnel Security Management\>, appendix A |
 | PS-03\_ODP\[02\] | Rescreening frequency is defined | S | \<Personnel Security Management\>, appendix A |
-| PS-03a. | People are screened before access | O-E | ABC Technologies (EV-PS-01) |
-| PS-03b.\[01\] | People are rescreened under the conditions | O-E | ABC Technologies (EV-PS-01) |
-| PS-03b.\[02\] | People are rescreened at the frequency | O-E | ABC Technologies (EV-PS-01) |
+| PS-03a. | People are screened before access | O-E | \<Organisation\> (EV-PS-01) |
+| PS-03b.\[01\] | People are rescreened under the conditions | O-E | \<Organisation\> (EV-PS-01) |
+| PS-03b.\[02\] | People are rescreened at the frequency | O-E | \<Organisation\> (EV-PS-01) |
 | PS-04\_ODP\[01\] | Time to disable is defined | S | \<Personnel Security Management\>, appendix A |
 | PS-04\_ODP\[02\] | Exit interview topics are defined | S | \<Personnel Security Management\>, appendix A |
 | PS-04a. | Access is disabled within the time | O-D | PRO-PS-2 \<ver\> approved, with 1 hour for a higher-risk leaver; route not built (PA-32) |
 | PS-04b. | Credentials are revoked | O-D | PRO-PS-2 \<ver\> approved; not yet in use |
-| PS-04c. | Exit interviews are held | O-E | ABC Technologies (EV-PS-02) |
-| PS-04d. | Equipment is recovered | O-E | ABC Technologies (EV-PS-02) |
+| PS-04c. | Exit interviews are held | O-E | \<Organisation\> (EV-PS-02) |
+| PS-04d. | Equipment is recovered | O-E | \<Organisation\> (EV-PS-02) |
 | PS-04e. | Access to information is retained | O-D | PRO-PS-2 \<ver\> approved; not yet in use |
 | PS-05\_ODP\[01\] | Transfer actions are defined | S | \<Personnel Security Management\>, appendix A |
 | PS-05\_ODP\[02\] | Time to start is defined | S | \<Personnel Security Management\>, appendix A |
@@ -3297,17 +3297,17 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | PS-06c.02 | People re-sign | O-D | None signed yet |
 | PS-07\_ODP\[01\] | Who suppliers notify is defined | S | \<Personnel Security Management\>, appendix A |
 | PS-07\_ODP\[02\] | Time to notify is defined | S | \<Personnel Security Management\>, appendix A |
-| PS-07a. | Requirements are set for external people | O-E | ABC Technologies (EV-PS-03) |
-| PS-07b. | Providers must comply | O-E | ABC Technologies (EV-PS-03) |
-| PS-07c. | Requirements are documented | O-E | ABC Technologies (EV-PS-03) |
-| PS-07d. | Providers must report leavers and movers | O-E | ABC Technologies (EV-PS-03) |
+| PS-07a. | Requirements are set for external people | O-E | \<Organisation\> (EV-PS-03) |
+| PS-07b. | Providers must comply | O-E | \<Organisation\> (EV-PS-03) |
+| PS-07c. | Requirements are documented | O-E | \<Organisation\> (EV-PS-03) |
+| PS-07d. | Providers must report leavers and movers | O-E | \<Organisation\> (EV-PS-03) |
 | PS-07e. | Compliance is monitored | O-D | PRO-PS-5 \<ver\> approved; not yet in use |
 | PS-08\_ODP\[01\] | Who is told is defined | S | \<Personnel Security Management\>, appendix A |
 | PS-08\_ODP\[02\] | Time to tell them is defined | S | \<Personnel Security Management\>, appendix A |
-| PS-08a. | A sanctions process is used | O-E | ABC Technologies (EV-PS-02) |
+| PS-08a. | A sanctions process is used | O-E | \<Organisation\> (EV-PS-02) |
 | PS-08b. | People are told within the time | O-D | PRO-PS-6 \<ver\> approved; not yet in use |
-| PS-09\[01\] | Job descriptions include security duties | O-E | \<Roles and Responsibilities\> \<ver\> states the security duties of each \<DocuView\> role; ABC Technologies' job descriptions not seen (EV-PS-02) |
-| PS-09\[02\] | Job descriptions include privacy duties | O-E | \<Roles and Responsibilities\> \<ver\> states the privacy duties of each \<DocuView\> role; ABC Technologies' job descriptions not seen (EV-PS-02) |
+| PS-09\[01\] | Job descriptions include security duties | O-E | \<Roles and Responsibilities\> \<ver\> states the security duties of each \<System Name\> role; \<Organisation\>'s job descriptions not seen (EV-PS-02) |
+| PS-09\[02\] | Job descriptions include privacy duties | O-E | \<Roles and Responsibilities\> \<ver\> states the privacy duties of each \<System Name\> role; \<Organisation\>'s job descriptions not seen (EV-PS-02) |
 
 ### PS.5 Assessment plan
 
@@ -3320,8 +3320,8 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | Dates | 6 November 2026; updated on 12 November 2026 after the whole-set review |
 | Examine | \<Policy\> (PS), \<Procedures\> (PS) and the PS chapter of \<Control Implementation Register\> at \<ver\>, now in \<Personnel Security Management\>; \<Roles and Responsibilities\>; \<Security Operating Procedures\>, sections 5.4 and 10; \<Procedures\>, PRO-AC-3 and PRO-AC-4. Depth: focused. Coverage: focused |
 | Test | Not applicable to this family today. Check L17 of Test-PlanConsistency.ps1 (the PL evidence). The leaver and mover route is tested once it is built (PA-32) |
-| Interview | None held. The system owner, the global administrator, a line manager and ABC Technologies' HR remain (INT-PS-01 to INT-PS-05) |
-| Boundary | \<DocuView\>'s own designations, agreements, time limits and register. ABC Technologies' screening, HR and disciplinary processes are provider evidence (EV-PS-01 to EV-PS-03) |
+| Interview | None held. The system owner, the global administrator, a line manager and \<Organisation\>'s HR remain (INT-PS-01 to INT-PS-05) |
+| Boundary | \<System Name\>'s own designations, agreements, time limits and register. \<Organisation\>'s screening, HR and disciplinary processes are provider evidence (EV-PS-01 to EV-PS-03) |
 | Order of assessment | A, designations (PS-2); B, screening (PS-3); C, agreements (PS-6); D, leavers and movers (PS-4, PS-5); E, external people (PS-7); F, sanctions and role descriptions (PS-8, PS-9); G, policy (PS-1) |
 | Needed from providers | EV-PS-01, EV-PS-02 and EV-PS-03 in \<Evidence Requests\> |
 | Evidence retained | TPL-2, TPL-14 and TPL-21 records; the personnel security register in \<Personnel Security Management\>, section 4.9; the PL evidence |
@@ -3342,11 +3342,11 @@ For the Level 2 assessment, the assessor should:
 
 ### PT.1 Purpose
 
-This records the Level 1 self-assessment of personal data handling in \<DocuView\>, against NIST SP 800-53 Rev 5 catalog release 5.2.0. It covers 6 PT controls and the 16 privacy baseline controls that are outside the Moderate baseline (D-PT-01, D-PT-07). An independent team led by Josh Leak will use it for the Level 2 assessment. It makes no fixes.
+This records the Level 1 self-assessment of personal data handling in \<System Name\>, against NIST SP 800-53 Rev 5 catalog release 5.2.0. It covers 6 PT controls and the 16 privacy baseline controls that are outside the Moderate baseline (D-PT-01, D-PT-07). An independent team led by \[Name\] will use it for the Level 2 assessment. It makes no fixes.
 
 ### PT.2 How to read this record
 
-**Change since this assessment.** On 18 November 2026 the personal data design was cut from \<Control Implementation Register\> into \<PII Processing Management\>, with each control set out part by part, the inventory and the retention schedule (D-PT-22). Since sign-in moved to AD FS (D-AC-23), \<DocuView\> holds no accounts and has no sign-in page of its own, so the inventory and the notice were reworded. The request route now covers every right a person has, and recipients are told of a correction. One item was added for the gaps this chapter found: PA-126. The findings below are a true record of 6 and 11 November 2026 and are not changed.
+**Change since this assessment.** On 18 November 2026 the personal data design was cut from \<Control Implementation Register\> into \<PII Processing Management\>, with each control set out part by part, the inventory and the retention schedule (D-PT-22). Since sign-in moved to AD FS (D-AC-23), \<System Name\> holds no accounts and has no sign-in page of its own, so the inventory and the notice were reworded. The request route now covers every right a person has, and recipients are told of a correction. One item was added for the gaps this chapter found: PA-126. The findings below are a true record of 6 and 11 November 2026 and are not changed.
 
 **N/A** means the statement does not apply.
 
@@ -3390,7 +3390,7 @@ The methods were **Examine** (documents and code) and **Test**. The test is Test
 | SI-18(4) | Other than satisfied | 0 of 1 | Corrections not audited (Q10) | NC-PT-21, NC-PT-22 |
 | SI-19 | Not applicable | None of 4 applies | No dataset is de-identified | Met |
 
-Of NIST's 109 statements, 58 are satisfied, 4 do not apply, 31 await a decision or approval, 9 show a gap in the system and 7 await evidence from ABC Technologies.
+Of NIST's 109 statements, 58 are satisfied, 4 do not apply, 31 await a decision or approval, 9 show a gap in the system and 7 await evidence from \<Organisation\>.
 
 The largest concerns are the impact assessment and lawful bases, which are drafted for the legal adviser but not decided, and the system's limits in serving people's rights: no search across projects, unaudited corrections and deletions, and no retention.
 
@@ -3422,7 +3422,7 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | PT-01a.01(a)\[06\] | Policy addresses coordination | S | \<Policy\>, section PT.6 |
 | PT-01a.01(a)\[07\] | Policy addresses compliance | S | \<Policy\>, section PT.6 |
 | PT-01a.01(b) | Policy is consistent with laws and standards | S | Legally reviewed on 11 November 2026, as confirmed by the system owner |
-| PT-01b. | Official is designated | S | Neil Ramsbottom is the system owner |
+| PT-01b. | Official is designated | S | \[Name\] is the system owner |
 | PT-01c.01\[01\] | Policy is reviewed at the set frequency | O-D | First review not yet due |
 | PT-01c.01\[02\] | Policy is reviewed after set events | S | Reviewed on 11 November 2026 after the PT pack review (D-PT-17) |
 | PT-01c.02\[01\] | Procedures are reviewed at the set frequency | O-D | First review not yet due |
@@ -3437,7 +3437,7 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | PT-03\_ODP\[03\] | How changes are controlled is defined | S | \<PII Processing Management\> |
 | PT-03\_ODP\[04\] | Requirements for changes are defined | S | \<PII Processing Management\> |
 | PT-03a. | Purposes are identified and documented | S | Stated in \<Policy\> (PT), approved (D-PT-02) |
-| PT-03b.\[01\] | Purposes are in the privacy notice | O-E | EV-PT-01: ABC Technologies' notice not seen |
+| PT-03b.\[01\] | Purposes are in the privacy notice | O-E | EV-PT-01: \<Organisation\>'s notice not seen |
 | PT-03b.\[02\] | Purposes are in policies | S | \<Policy\> (PT), approved (D-PT-02) |
 | PT-03c. | Processing is limited to what fits the purposes | O-D | Rule approved; not yet in use; nothing limits what is uploaded, and HR documents are not marked (Q01) |
 | PT-03d.\[01\] | Changes in processing are monitored | O-D | PRO-PT-3 approved; not yet in use |
@@ -3468,10 +3468,10 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | IR-08(01)(b) | Plan assesses harm to individuals, and how to reduce it | S | \<Incident Response Management\> \<ver\>, section 4.8: harm to people and telling them |
 | IR-08(01)(c) | Plan identifies privacy requirements | S | \<Incident Response Management\> \<ver\>, section 4.8: the 72-hour ICO report and the breach register |
 | PE-08(03)\_ODP | Personal data allowed in visitor records is defined | S | \<PII Processing Management\> |
-| PE-08(03) | Visitor records hold only that personal data | O-E | EV-PT-02: ABC Technologies' records not seen |
+| PE-08(03) | Visitor records hold only that personal data | O-E | EV-PT-02: \<Organisation\>'s records not seen |
 | PL-09\_ODP | What is centrally managed is defined | S | \<PII Processing Management\> |
 | PL-09 | Those items are centrally managed | O-D | This document set awaits moving to the restricted store (PA-88) |
-| RA-08a. | Impact assessment before developing or buying | O-D | Draft \<Data Protection Impact Assessment\> \<ver\> prepared; the legal adviser completes it (D-PT-20, PA-72); \<DocuView\> is already built |
+| RA-08a. | Impact assessment before developing or buying | O-D | Draft \<Data Protection Impact Assessment\> \<ver\> prepared; the legal adviser completes it (D-PT-20, PA-72); \<System Name\> is already built |
 | RA-08b.\[01\] | Impact assessment before collecting personal data | O-D | Draft \<Data Protection Impact Assessment\> \<ver\> prepared; the legal adviser completes it (D-PT-20, PA-72) |
 | RA-08b.\[02\] | Impact assessment before collecting contact details | O-D | Draft \<Data Protection Impact Assessment\> \<ver\> prepared; the legal adviser completes it (D-PT-20, PA-72) |
 | SA-08(33)\_ODP | How minimisation is done is defined | S | \<PII Processing Management\> |
@@ -3526,9 +3526,9 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | Test | Test-PersonalData.ps1, checks Q01 to Q10, on a fresh throwaway stack (evidence in the PT evidence) |
 | Interview | System owner's written answers only. The legal adviser, the business owner, the data protection officer and an administrator who would handle a request remain |
 | Previous results reused | AU checks on audit records; IR readiness drill (D02, D08) for the application log; MP export checks (P02 to P06) for export copies |
-| Boundary | \<DocuView\>'s handling of personal data. ABC Technologies' notice, record of processing and privacy programme are inherited (EV-PT-01, EV-PM-02, EV-PM-04) |
+| Boundary | \<System Name\>'s handling of personal data. \<Organisation\>'s notice, record of processing and privacy programme are inherited (EV-PT-01, EV-PM-02, EV-PM-04) |
 | Order of assessment | A, the impact assessment and lawful bases (RA-8, PT-2, PT-7); B, people's rights (AC-3(14), SI-18(4)); C, retention (SI-12(3)); D, transparency (PT-5); E, logs (AU-3(3)); F, policy (PT-1). The impact assessment comes first because most other findings depend on it |
-| Needed from ABC Technologies | EV-PT-01, EV-PT-02, EV-PM-02 and EV-PM-04 in \<Evidence Requests\> |
+| Needed from \<Organisation\> | EV-PT-01, EV-PT-02, EV-PM-02 and EV-PM-04 in \<Evidence Requests\> |
 | Evidence retained | the PT evidence (results, README and MANIFEST); completed TPL-15 and TPL-22 records; the approved \<Data Protection Impact Assessment\> |
 
 For the Level 2 assessment, the assessor should examine the completed impact assessment and the lawful bases, run Test-PersonalData.ps1 on the built VMs, walk through a sample subject access request and complaint with the legal adviser, interview the business owner on retention, and re-determine every statement in section PT.4.
@@ -3542,15 +3542,15 @@ For the Level 2 assessment, the assessor should examine the completed impact ass
 
 ### RA.1 Purpose
 
-This records the Level 1 self-assessment of the 10 RA entries in the NIST SP 800-53 Rev 5 Moderate baseline, using catalog release 5.2.0. An independent team led by Josh Leak will use it for the Level 2 assessment. It makes no fixes.
+This records the Level 1 self-assessment of the 10 RA entries in the NIST SP 800-53 Rev 5 Moderate baseline, using catalog release 5.2.0. An independent team led by \[Name\] will use it for the Level 2 assessment. It makes no fixes.
 
 ### RA.2 How to read this record
 
-**Change since this assessment.** On 18 November 2026 the risk assessment design was cut from \<Control Implementation Register\> into \<Risk Assessment Management\>, with each control set out part by part (D-RA-11). Since sign-in moved to AD FS (D-AC-23), \<DocuView\> holds no accounts, so the critical components were reworded and AD FS with Active Directory, the application server and the bulk export folder added. The cross-check found that the risk assessment and the supply chain review have not been reviewed after the changes to sign-in and hosting, that nothing scans \<DocuView\>'s own applications, and that the public reporting route has no published terms; PA-62 and PA-127 cover them. The findings below are a true record of 6 and 11 November 2026 and are not changed.
+**Change since this assessment.** On 18 November 2026 the risk assessment design was cut from \<Control Implementation Register\> into \<Risk Assessment Management\>, with each control set out part by part (D-RA-11). Since sign-in moved to AD FS (D-AC-23), \<System Name\> holds no accounts, so the critical components were reworded and AD FS with Active Directory, the application server and the bulk export folder added. The cross-check found that the risk assessment and the supply chain review have not been reviewed after the changes to sign-in and hosting, that nothing scans \<System Name\>'s own applications, and that the public reporting route has no published terms; PA-62 and PA-127 cover them. The findings below are a true record of 6 and 11 November 2026 and are not changed.
 
 The methods were **Examine** (the risk documents) and **Test**. The test is Test-Vulnerability.ps1, run on 11 November 2026 on the tagged v1.0 build and the throwaway stack's images (checks V01 to V09). It checks the packages, the images and their operating system packages, and whether the risk list, decisions, acceptances, critical components and POA&M agree. The results and their hashes are in the RA evidence. No interviews have been held.
 
-**Limit of the current evidence:** the Windows Server 2025 VMs and ABC Technologies' services have not been examined.
+**Limit of the current evidence:** the Windows Server 2025 VMs and \<Organisation\>'s services have not been examined.
 
 ### RA.3 Executive summary
 
@@ -3568,16 +3568,16 @@ The methods were **Examine** (the risk documents) and **Test**. The test is Test
 | --- | --- | --- | --- | --- |
 | RA-1 | Other than satisfied | 21 of 25 | Not yet shared; first scheduled reviews outstanding | NC-RA-01 |
 | RA-2 | Satisfied | 3 of 3 | Categorised and approved; availability rationale for confirmation (D-RA-07) | Met |
-| RA-3 | Other than satisfied | 9 of 13 | First scheduled review not due; not shared with the Head of Cyber; ABC Technologies' risk appetite not seen | NC-RA-02 |
+| RA-3 | Other than satisfied | 9 of 13 | First scheduled review not due; not shared with the Head of Cyber; \<Organisation\>'s risk appetite not seen | NC-RA-02 |
 | RA-3(1) | Other than satisfied | 3 of 4 | First review held; yearly update not yet due | NC-RA-03 |
 | RA-5 | Other than satisfied | 4 of 14 | No scanner for the images or VMs; 5 High advisories open (V01, V02) | NC-RA-04 |
 | RA-5(2) | Other than satisfied | 2 of 3 | No scanner | NC-RA-05 |
 | RA-5(5) | Other than satisfied | 2 of 3 | VMs not yet built | NC-RA-06 |
-| RA-5(11) | Other than satisfied | 0 of 1 | Route not yet confirmed with ABC Technologies | NC-RA-07 |
+| RA-5(11) | Other than satisfied | 0 of 1 | Route not yet confirmed with \<Organisation\> | NC-RA-07 |
 | RA-7 | Other than satisfied | 2 of 4 | No monitoring or audit findings yet | NC-RA-08 |
 | RA-9 | Satisfied | 3 of 3 | \<Risk Assessment Management\>, section 4.9, reviewed | Met |
 
-Of NIST's 73 statements, 49 are satisfied, 13 await a decision or approval, 9 show a gap in the system and 2 await evidence from the VMs or ABC Technologies.
+Of NIST's 73 statements, 49 are satisfied, 13 await a decision or approval, 9 show a gap in the system and 2 await evidence from the VMs or \<Organisation\>.
 
 The risk method, categorisation and risk response are in place. The gaps are that nothing scans the images or VMs, and that five High package advisories are open. The test also found the base images unpinned (V03, PA-77).
 
@@ -3609,14 +3609,14 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | RA-01a.01(a)\[06\] | Policy addresses coordination | S | \<Policy\> (RA) \<ver\>, section RA.6 |
 | RA-01a.01(a)\[07\] | Policy addresses compliance | S | \<Policy\> (RA) \<ver\>, section RA.6 |
 | RA-01a.01(b) | Policy is consistent with laws and standards | S | Legally reviewed on 11 November 2026, as confirmed by the system owner |
-| RA-01b. | Official is designated | S | Neil Ramsbottom is the system owner |
+| RA-01b. | Official is designated | S | \[Name\] is the system owner |
 | RA-01c.01\[01\] | Policy is reviewed at the set frequency | O-D | First review not yet due |
 | RA-01c.01\[02\] | Policy is reviewed after set events | S | Reviewed on 11 November 2026 after the RA pack review (D-RA-08) |
 | RA-01c.02\[01\] | Procedures are reviewed at the set frequency | O-D | First review not yet due |
 | RA-01c.02\[02\] | Procedures are reviewed after set events | S | Reviewed and approved as version \<ver\> on 11 November 2026 (D-RA-09) |
 | RA-02a. | The system and its information are categorised | S | \<System Security Plan\>, section 4.3; availability rationale awaits the information owner and authorising official (D-RA-07) |
 | RA-02b. | Results and rationale are documented | S | \<System Security Plan\>, section 4.3 |
-| RA-02c. | The authorising official approves the categorisation | S | Bob Jones (D-GEN-06) |
+| RA-02c. | The authorising official approves the categorisation | S | \[Name\] (D-GEN-06) |
 | RA-03\_ODP\[01\] | Where results go is selected | S | \<Risk Assessment Management\> |
 | RA-03\_ODP\[02\] | Document is defined | S | \<Risk List\> |
 | RA-03\_ODP\[03\] | Review frequency is defined | S | \<Risk Assessment Management\> |
@@ -3625,7 +3625,7 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | RA-03a.01 | Threats and vulnerabilities are identified | S | \<Risk List\> \<ver\>: threat sources in section 5, Table 6c; causes in section 3 |
 | RA-03a.02 | Likelihood and magnitude of harm are determined | S | \<Risk List\> \<ver\>, section 5: scales in Tables 6a and 6b, matrix in Table 6 |
 | RA-03a.03 | Likelihood and impact on privacy are determined | S | \<Risk List\>, R-PT-01 and R-AU-02, rated by the same method; \<Data Protection Impact Assessment\> drafted |
-| RA-03b. | Results are integrated with higher-level decisions | O-E | ABC Technologies' risk appetite and organisational risk not seen (EV-RA-01, EV-PM-01, D-PM-03) |
+| RA-03b. | Results are integrated with higher-level decisions | O-E | \<Organisation\>'s risk appetite and organisational risk not seen (EV-RA-01, EV-PM-01, D-PM-03) |
 | RA-03c. | Results are documented | S | \<Risk List\> |
 | RA-03d. | Results are reviewed | O-D | First review not yet due |
 | RA-03e. | Results are shared | O-D | Not yet shared with the Head of Cyber |
@@ -3645,7 +3645,7 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | RA-05b.02 | Tools report flaws in a common format | O-G | No scanner for the images or VMs (V02, PA-62) |
 | RA-05b.03 | Tools measure the effect of vulnerabilities | O-G | No scanner for the images or VMs (V02, PA-62) |
 | RA-05c. | Results are analysed | O-D | PRO-RA-3 \<ver\> approved, with analysis and false positives on TPL-7; not yet in use |
-| RA-05d. | Real vulnerabilities are fixed in time | O-G | 7 advisories open, 5 of them High, in DV\_API and DV\_Web (V01, PA-56) |
+| RA-05d. | Real vulnerabilities are fixed in time | O-G | 7 advisories open, 5 of them High, in API and UI application (V01, PA-56) |
 | RA-05e. | Information is shared to remove similar flaws | O-D | PRO-RA-5 \<ver\> approved; not yet in use |
 | RA-05f. | Tools can update what they scan for | O-G | No scanner for the images or VMs (V02, PA-62) |
 | RA-05(02)\_ODP\[01\] | When the list is updated is selected | S | \<Risk Assessment Management\> |
@@ -3654,7 +3654,7 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | RA-05(05)\_ODP\[01\] | Components are defined | S | \<Risk Assessment Management\> |
 | RA-05(05)\_ODP\[02\] | Scanning activities are defined | S | \<Risk Assessment Management\> |
 | RA-05(05) | Privileged access is used for scans | O-E | On the VMs |
-| RA-05(11) | A channel for reports exists | O-D | Route agreed (D-RA-05) and set in PRO-RA-5; not yet confirmed with ABC Technologies (EV-RA-01) |
+| RA-05(11) | A channel for reports exists | O-D | Route agreed (D-RA-05) and set in PRO-RA-5; not yet confirmed with \<Organisation\> (EV-RA-01) |
 | RA-07\[01\] | Assessment findings are responded to | S | \<Risk List\>, \<Decision Register\> and \<Plan of Action and Milestones\> |
 | RA-07\[02\] | Privacy assessment findings are responded to | S | PT assessment findings answered in \<Risk List\>, section 6.14, and \<Plan of Action and Milestones\> (PA-70 to PA-72, PA-89, PA-90) |
 | RA-07\[03\] | Monitoring findings are responded to | O-D | Monitoring not started; PRO-RA-1 reviews new test results |
@@ -3674,11 +3674,11 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | Dates | 6 November 2026; updated on 11 November 2026 after the RA pack review |
 | Examine | \<Policy\> (RA), \<Procedures\> (RA) and the RA chapter of \<Control Implementation Register\> at \<ver\>, now in \<Risk Assessment Management\>; \<Risk List\> \<ver\>; \<System Security Plan\>, section 4; \<Supply Chain Risk Management\>; \<Decision Register\>; \<Plan of Action and Milestones\>. Depth: focused. Coverage: focused |
 | Test | Test-Vulnerability.ps1, checks V01 to V09, on the v1.0 tag and the images the throwaway stack runs (evidence in the RA evidence) |
-| Interview | None held. The system owner, the security officer, the Windows server administrator and ABC Technologies' security contact remain |
+| Interview | None held. The system owner, the security officer, the Windows server administrator and \<Organisation\>'s security contact remain |
 | Previous results reused | CM checks on image tags and the bill of materials (C01 to C11); MA check M10 for package managers in the images |
-| Boundary | \<DocuView\>'s risk assessment and vulnerability management. ABC Technologies' risk strategy, scanning services and the VMs are inherited or not yet built (EV-RA-01, EV-PM-01) |
+| Boundary | \<System Name\>'s risk assessment and vulnerability management. \<Organisation\>'s risk strategy, scanning services and the VMs are inherited or not yet built (EV-RA-01, EV-PM-01) |
 | Order of assessment | A, vulnerabilities (RA-5, RA-5(2), RA-5(5)); B, risk method and register (RA-3, RA-7); C, supply chain and critical components (RA-3(1), RA-9); D, categorisation (RA-2); E, policy (RA-1) |
-| Needed from ABC Technologies | EV-RA-01 and EV-PM-01 in \<Evidence Requests\> |
+| Needed from \<Organisation\> | EV-RA-01 and EV-PM-01 in \<Evidence Requests\> |
 | Evidence retained | the RA evidence (results, README and MANIFEST); the 6 November package check in the SI, RA and CA evidence; completed TPL-7 and TPL-23 records |
 
 For the Level 2 assessment, the assessor should run Test-Vulnerability.ps1 and a credentialed scan on the built VMs, sample TPL-7 records against the timetable, interview the security officer on an exploited flaw, and re-determine every statement in section RA.4.
@@ -3692,7 +3692,7 @@ For the Level 2 assessment, the assessor should run Test-Vulnerability.ps1 and a
 
 ### SA.1 Purpose
 
-This records the Level 1 self-assessment of the 17 SA entries in the NIST SP 800-53 Rev 5 Moderate baseline, using catalog release 5.2.0. SA-4(10) is tailored out (\<Tailoring Register\>, TR-SA-01), so 16 are assessed. An independent team led by Josh Leak will use it for the Level 2 assessment. It makes no fixes.
+This records the Level 1 self-assessment of the 17 SA entries in the NIST SP 800-53 Rev 5 Moderate baseline, using catalog release 5.2.0. SA-4(10) is tailored out (\<Tailoring Register\>, TR-SA-01), so 16 are assessed. An independent team led by \[Name\] will use it for the Level 2 assessment. It makes no fixes.
 
 ### SA.2 How to read this record
 
@@ -3763,7 +3763,7 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | SA-01a.01(a)\[06\] | Policy addresses coordination | S | \<Policy\> (SA) \<ver\>, section SA.6 |
 | SA-01a.01(a)\[07\] | Policy addresses compliance | S | \<Policy\> (SA) \<ver\>, section SA.6 |
 | SA-01a.01(b) | Policy is consistent with laws and standards | S | Legally reviewed on 11 November 2026, as confirmed by the system owner |
-| SA-01b. | Official is designated | S | Neil Ramsbottom is the system owner |
+| SA-01b. | Official is designated | S | \[Name\] is the system owner |
 | SA-01c.01\[01\] | Policy is reviewed at the set frequency | O-D | First review not yet due |
 | SA-01c.01\[02\] | Policy is reviewed after set events | S | Reviewed on 11 November 2026 after the SA pack review (D-SA-17) |
 | SA-01c.02\[01\] | Procedures are reviewed at the set frequency | O-D | First review not yet due |
@@ -3914,9 +3914,9 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | Dates | 6 November 2026; updated on 11 November 2026 after the SA pack review |
 | Examine | \<Policy\> (SA), \<Procedures\> (SA) and the SA chapter of \<Control Implementation Register\> at \<ver\>, now in \<System and Services Acquisition Management\>; \<Security Architecture\> \<ver\>; \<System Security Plan\>, sections 4, 5 and 8; \<Risk Assessment Management\>; \<Maintenance Management\>; the draft guides; the test evidence folders. Depth: focused. Coverage: focused |
 | Test | Test-Development.ps1, checks S01 to S10, read-only, against the six GitHub repositories, the v1.0 history and the build files (evidence in the SA evidence) |
-| Interview | None held. The developers, the system owner and ABC Technologies' contract owner remain |
+| Interview | None held. The developers, the system owner and \<Organisation\>'s contract owner remain |
 | Previous results reused | All family test evidence as the developer test results (\<System and Services Acquisition Management\>, section 4.9); RA checks V01 to V04 on packages and images; MA check M11 on component versions |
-| Boundary | \<DocuView\>'s development and acquisition. ABC Technologies' contracts and services, and GitHub's own controls, are provider evidence (EV-SA-01 to EV-SA-03) |
+| Boundary | \<System Name\>'s development and acquisition. \<Organisation\>'s contracts and services, and GitHub's own controls, are provider evidence (EV-SA-01 to EV-SA-03) |
 | Order of assessment | A, change control (SA-10); B, developer testing (SA-11); C, process and tools (SA-3, SA-15); D, documentation (SA-5); E, external services and contracts (SA-4, SA-9); F, policy and resources (SA-1, SA-2) |
 | Needed from providers | EV-SA-01, EV-SA-02 and EV-SA-03 in \<Evidence Requests\> |
 | Evidence retained | the SA evidence (results, README and MANIFEST); the other evidence folders; completed TPL-6, TPL-16 and TPL-23 records |
@@ -3932,19 +3932,19 @@ For the Level 2 assessment, the assessor should run Test-Development.ps1 again a
 
 ### SC.1 Purpose
 
-This records the Level 1 self-assessment of the 25 SC entries in the NIST SP 800-53 Rev 5 Moderate baseline, using catalog release 5.2.0. SC-15 is tailored out (\<Tailoring Register\>, TR-SC-01), so 24 are assessed. An independent team led by Josh Leak will use it for the Level 2 assessment. It makes no fixes.
+This records the Level 1 self-assessment of the 25 SC entries in the NIST SP 800-53 Rev 5 Moderate baseline, using catalog release 5.2.0. SC-15 is tailored out (\<Tailoring Register\>, TR-SC-01), so 24 are assessed. An independent team led by \[Name\] will use it for the Level 2 assessment. It makes no fixes.
 
 ### SC.2 How to read this record
 
-**Change since this assessment.** On 18 November 2026 the communications protection design was cut from \<Control Implementation Register\> into \<System and Communications Protection Management\>, with each control set out part by part (D-SC-09). Since sign-in moved to AD FS (D-AC-23), \<DocuView\> has no sign-in pages, so the checks that used them are to be run again. The cross-check added the audit chain key and the AD FS token-signing certificate to the key register, and set out session handling; PA-74 and PA-95 cover them. The findings below are a true record of their dates and are not changed.
+**Change since this assessment.** On 18 November 2026 the communications protection design was cut from \<Control Implementation Register\> into \<System and Communications Protection Management\>, with each control set out part by part (D-SC-09). Since sign-in moved to AD FS (D-AC-23), \<System Name\> has no sign-in pages, so the checks that used them are to be run again. The cross-check added the audit chain key and the AD FS token-signing certificate to the key register, and set out session handling; PA-74 and PA-95 cover them. The findings below are a true record of their dates and are not changed.
 
 **N/A** means not applicable, as decided in \<Tailoring Register\>, which the independent assessor may test.
 
 The methods were **Examine** (code, settings and documents) and **Test**. The test is Test-Protection.ps1, run on 12 November 2026 (checks N01 to N12) against the throwaway docuview-test stack built from the build tagged v1.0, then removed. It sends GET requests to the sign-in pages, runs read-only queries in the database container, and reads the code and settings, printing counts and lengths only. The results and their hashes are in the SC evidence. Check B09 from 6 November is still used for SC-2.
 
-**Correction:** the 6 November hand check B04 recorded that a page policy was set. Test-Protection.ps1 found that DV\_Web and DV\_Admin\_UI send none, because their security headers are switched off in the code; only DV\_API sends one. SC-18 findings now reflect this.
+**Correction:** the 6 November hand check B04 recorded that a page policy was set. Test-Protection.ps1 found that UI application and Admin application send none, because their security headers are switched off in the code; only API sends one. SC-18 findings now reflect this.
 
-**Limit of the current evidence:** \<DocuView\> ran in Docker on one PC with sample data. The Windows Server 2025 VMs, PostgreSQL on Windows and ABC Technologies' services have not been examined.
+**Limit of the current evidence:** \<System Name\> ran in Docker on one PC with sample data. The Windows Server 2025 VMs, PostgreSQL on Windows and \<Organisation\>'s services have not been examined.
 
 ### SC.3 Executive summary
 
@@ -3964,32 +3964,32 @@ The methods were **Examine** (code, settings and documents) and **Test**. The te
 | SC-1 | Other than satisfied | 21 of 25 | Not yet shared; Head of Cyber's re-approval (D-SC-06) outstanding | NC-SC-01 |
 | SC-2 | Satisfied | 1 of 1 | Separate admin application | Met |
 | SC-4 | Other than satisfied | 0 of 2 | VMs not available; export copies in a shared folder | NC-SC-02 |
-| SC-5 | Other than satisfied | 3 of 5 | ABC Technologies not evidenced; rate limiter switched off | NC-SC-03 |
-| SC-7 | Other than satisfied | 1 of 7 | ABC Technologies not evidenced | NC-SC-04 |
-| SC-7(3) | Other than satisfied | 0 of 1 | ABC Technologies not evidenced | NC-SC-05 |
-| SC-7(4) | Other than satisfied | 1 of 11 | ABC Technologies not evidenced | NC-SC-06 |
+| SC-5 | Other than satisfied | 3 of 5 | \<Organisation\> not evidenced; rate limiter switched off | NC-SC-03 |
+| SC-7 | Other than satisfied | 1 of 7 | \<Organisation\> not evidenced | NC-SC-04 |
+| SC-7(3) | Other than satisfied | 0 of 1 | \<Organisation\> not evidenced | NC-SC-05 |
+| SC-7(4) | Other than satisfied | 1 of 11 | \<Organisation\> not evidenced | NC-SC-06 |
 | SC-7(5) | Other than satisfied | 2 of 4 | Host firewalls not built; apps listen on every interface (N07) | NC-SC-07 |
-| SC-7(7) | Other than satisfied | 1 of 2 | ABC Technologies not evidenced | NC-SC-08 |
-| SC-7(8) | Other than satisfied | 2 of 3 | ABC Technologies not evidenced | NC-SC-09 |
+| SC-7(7) | Other than satisfied | 1 of 2 | \<Organisation\> not evidenced | NC-SC-08 |
+| SC-7(8) | Other than satisfied | 2 of 3 | \<Organisation\> not evidenced | NC-SC-09 |
 | SC-8 | Other than satisfied | 1 of 2 | Plain HTTP and database TLS off (N01, N06) | NC-SC-10 |
 | SC-8(1) | Other than satisfied | 1 of 2 | As SC-8 | NC-SC-11 |
 | SC-10 | Other than satisfied | 1 of 2 | Network side not evidenced | NC-SC-12 |
 | SC-12 | Other than satisfied | 1 of 3 | Keys in source; key rings unencrypted (N08, N09) | NC-SC-13 |
 | SC-13 | Other than satisfied | 3 of 4 | TLS, disk and key ring encryption not in place | NC-SC-14 |
 | SC-15 | Not applicable | 0 of 3 | TR-SC-01 | None |
-| SC-17 | Other than satisfied | 1 of 3 | ABC Technologies not evidenced | NC-SC-15 |
-| SC-18 | Other than satisfied | 5 of 7 | No page policy on DV\_Web and DV\_Admin\_UI (N04) | NC-SC-16 |
-| SC-20 | Other than satisfied | 0 of 4 | ABC Technologies not evidenced | NC-SC-17 |
-| SC-21 | Other than satisfied | 0 of 4 | ABC Technologies not evidenced | NC-SC-18 |
-| SC-22 | Other than satisfied | 0 of 3 | ABC Technologies not evidenced | NC-SC-19 |
+| SC-17 | Other than satisfied | 1 of 3 | \<Organisation\> not evidenced | NC-SC-15 |
+| SC-18 | Other than satisfied | 5 of 7 | No page policy on UI application and Admin application (N04) | NC-SC-16 |
+| SC-20 | Other than satisfied | 0 of 4 | \<Organisation\> not evidenced | NC-SC-17 |
+| SC-21 | Other than satisfied | 0 of 4 | \<Organisation\> not evidenced | NC-SC-18 |
+| SC-22 | Other than satisfied | 0 of 3 | \<Organisation\> not evidenced | NC-SC-19 |
 | SC-23 | Other than satisfied | 0 of 1 | Cookies not Secure; no HSTS (N02, N03) | NC-SC-20 |
 | SC-28 | Other than satisfied | 2 of 3 | VMs not built; nothing encrypted at rest in Docker | NC-SC-21 |
 | SC-28(1) | Other than satisfied | 2 of 4 | As SC-28 | NC-SC-22 |
 | SC-39 | Other than satisfied | 0 of 1 | Windows Server not available | NC-SC-23 |
 
-Of NIST's 107 statements, 49 are satisfied, 3 are not applicable, 4 await a decision or approval, 10 show a gap in the system and 41 await evidence from the VMs or ABC Technologies.
+Of NIST's 107 statements, 49 are satisfied, 3 are not applicable, 4 await a decision or approval, 10 show a gap in the system and 41 await evidence from the VMs or \<Organisation\>.
 
-The gaps within \<DocuView\> are plain traffic on every flow, keys in source and unencrypted key rings, no page policy on the two web apps, and apps listening on every interface. Most of the rest depends on ABC Technologies' network and the VMs.
+The gaps within \<System Name\> are plain traffic on every flow, keys in source and unencrypted key rings, no page policy on the two web apps, and apps listening on every interface. Most of the rest depends on \<Organisation\>'s network and the VMs.
 
 ### SC.4 Findings by determination statement
 
@@ -4019,7 +4019,7 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | SC-01a.01(a)\[06\] | Policy addresses coordination | S | \<Policy\> (SC) \<ver\>, section SC.6 |
 | SC-01a.01(a)\[07\] | Policy addresses compliance | S | \<Policy\> (SC) \<ver\>, section SC.6 |
 | SC-01a.01(b) | Policy is consistent with laws and standards | S | Legally reviewed on 12 November 2026, as confirmed by the system owner |
-| SC-01b. | Official is designated | S | Neil Ramsbottom is the system owner |
+| SC-01b. | Official is designated | S | \[Name\] is the system owner |
 | SC-01c.01\[01\] | Policy is reviewed at the set frequency | O-D | First review not yet due |
 | SC-01c.01\[02\] | Policy is reviewed after set events | S | Reviewed on 12 November 2026 after the SC pack review (D-SC-07) |
 | SC-01c.02\[01\] | Procedures are reviewed at the set frequency | O-D | First review not yet due |
@@ -4030,36 +4030,36 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | SC-05\_ODP\[01\] | Denial-of-service events are defined | S | \<System and Communications Protection Management\>, appendix A |
 | SC-05\_ODP\[02\] | Protect or limit is selected | S | Limit |
 | SC-05\_ODP\[03\] | Controls are defined | S | \<System and Communications Protection Management\>, appendix A |
-| SC-05a. | The effects are limited | O-E | ABC Technologies (EV-SC-01). No rate limiter; the rate limit is switched off in the code (N12, PA-50) |
+| SC-05a. | The effects are limited | O-E | \<Organisation\> (EV-SC-01). No rate limiter; the rate limit is switched off in the code (N12, PA-50) |
 | SC-05b. | The controls are employed | O-E | Lockout tested; network not available |
 | SC-07\_ODP | Separation is selected | S | Logical |
-| SC-07a.\[01\] | External interfaces are monitored | O-E | ABC Technologies (EV-SC-02) |
-| SC-07a.\[02\] | External interfaces are controlled | O-E | ABC Technologies (EV-SC-02) |
-| SC-07a.\[03\] | Key internal interfaces are monitored | O-E | ABC Technologies (EV-SC-02) |
-| SC-07a.\[04\] | Key internal interfaces are controlled | O-E | ABC Technologies (EV-SC-02) |
+| SC-07a.\[01\] | External interfaces are monitored | O-E | \<Organisation\> (EV-SC-02) |
+| SC-07a.\[02\] | External interfaces are controlled | O-E | \<Organisation\> (EV-SC-02) |
+| SC-07a.\[03\] | Key internal interfaces are monitored | O-E | \<Organisation\> (EV-SC-02) |
+| SC-07a.\[04\] | Key internal interfaces are controlled | O-E | \<Organisation\> (EV-SC-02) |
 | SC-07b. | Public subnetworks are separated | O-E | No public component planned; network not available |
-| SC-07c. | External connections use managed interfaces | O-E | ABC Technologies (EV-SC-02) |
-| SC-07(03) | External connections are limited | O-E | ABC Technologies (EV-SC-02) |
+| SC-07c. | External connections use managed interfaces | O-E | \<Organisation\> (EV-SC-02) |
+| SC-07(03) | External connections are limited | O-E | \<Organisation\> (EV-SC-02) |
 | SC-07(04)\_ODP | Exception review is defined | S | Every 12 months |
-| SC-07(04)(a) | Each telecoms service has a managed interface | O-E | ABC Technologies (EV-SC-02) |
-| SC-07(04)(b) | A flow policy exists for each interface | O-E | ABC Technologies (EV-SC-02) |
-| SC-07(04)(c)\[01\] | Confidentiality across interfaces is protected | O-E | ABC Technologies (EV-SC-02) |
-| SC-07(04)(c)\[02\] | Integrity across interfaces is protected | O-E | ABC Technologies (EV-SC-02) |
-| SC-07(04)(d) | Exceptions are documented | O-E | ABC Technologies (EV-SC-02) |
-| SC-07(04)(e)\[01\] | Exceptions are reviewed | O-E | ABC Technologies (EV-SC-02) |
-| SC-07(04)(e)\[02\] | Unneeded exceptions are removed | O-E | ABC Technologies (EV-SC-02) |
-| SC-07(04)(f) | Unauthorised control plane traffic is prevented | O-E | ABC Technologies (EV-SC-02) |
-| SC-07(04)(g) | Information is published for remote networks | O-E | ABC Technologies (EV-SC-02) |
-| SC-07(04)(h) | Unauthorised control plane traffic is filtered | O-E | ABC Technologies (EV-SC-02) |
+| SC-07(04)(a) | Each telecoms service has a managed interface | O-E | \<Organisation\> (EV-SC-02) |
+| SC-07(04)(b) | A flow policy exists for each interface | O-E | \<Organisation\> (EV-SC-02) |
+| SC-07(04)(c)\[01\] | Confidentiality across interfaces is protected | O-E | \<Organisation\> (EV-SC-02) |
+| SC-07(04)(c)\[02\] | Integrity across interfaces is protected | O-E | \<Organisation\> (EV-SC-02) |
+| SC-07(04)(d) | Exceptions are documented | O-E | \<Organisation\> (EV-SC-02) |
+| SC-07(04)(e)\[01\] | Exceptions are reviewed | O-E | \<Organisation\> (EV-SC-02) |
+| SC-07(04)(e)\[02\] | Unneeded exceptions are removed | O-E | \<Organisation\> (EV-SC-02) |
+| SC-07(04)(f) | Unauthorised control plane traffic is prevented | O-E | \<Organisation\> (EV-SC-02) |
+| SC-07(04)(g) | Information is published for remote networks | O-E | \<Organisation\> (EV-SC-02) |
+| SC-07(04)(h) | Unauthorised control plane traffic is filtered | O-E | \<Organisation\> (EV-SC-02) |
 | SC-07(05)\_ODP\[01\] | Where deny by default applies is selected | S | At managed interfaces and each host firewall (\<System and Communications Protection Management\>, appendix A) |
 | SC-07(05)\_ODP\[02\] | Systems are defined | S | The two VMs |
-| SC-07(05)\[01\] | Traffic is denied by default | O-G | Allow-lists set (\<System and Communications Protection Management\>, section 4.2) but not built; the apps listen on every interface (N07, PA-83); ABC Technologies (EV-AC-03) |
+| SC-07(05)\[01\] | Traffic is denied by default | O-G | Allow-lists set (\<System and Communications Protection Management\>, section 4.2) but not built; the apps listen on every interface (N07, PA-83); \<Organisation\> (EV-AC-03) |
 | SC-07(05)\[02\] | Traffic is allowed by exception | O-G | As SC-07(05)\[01\] |
-| SC-07(07)\_ODP | Safeguards are defined | S | ABC Technologies' VPN prevents split tunnelling (\<System and Communications Protection Management\>, appendix A; D-SC-P02) |
-| SC-07(07) | Split tunnelling is prevented | O-E | ABC Technologies (EV-SC-03) |
+| SC-07(07)\_ODP | Safeguards are defined | S | \<Organisation\>'s VPN prevents split tunnelling (\<System and Communications Protection Management\>, appendix A; D-SC-P02) |
+| SC-07(07) | Split tunnelling is prevented | O-E | \<Organisation\> (EV-SC-03) |
 | SC-07(08)\_ODP\[01\] | Traffic is defined | S | Outbound from the VMs |
 | SC-07(08)\_ODP\[02\] | External networks are defined | S | All |
-| SC-07(08) | Traffic is routed through authenticated proxies | O-E | ABC Technologies (EV-SC-03) |
+| SC-07(08) | Traffic is routed through authenticated proxies | O-E | \<Organisation\> (EV-SC-03) |
 | SC-08\_ODP | Protection is selected | S | Confidentiality and integrity |
 | SC-08 | Transmitted information is protected | O-G | Plain HTTP on every app and the internal API calls; database TLS off (N01, N06; PA-18) |
 | SC-08(01)\_ODP | Purpose is selected | S | \<System and Communications Protection Management\>, section 4.3 and appendix A |
@@ -4077,26 +4077,26 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | SC-15a. | Remote activation is prohibited | N/A | TR-SC-01 |
 | SC-15b. | Use is indicated to those present | N/A | TR-SC-01 |
 | SC-17\_ODP | Certificate policy is defined | S | \<System and Communications Protection Management\>, appendix A |
-| SC-17a. | Certificates are issued under the policy | O-E | ABC Technologies (EV-SC-04) |
-| SC-17b. | Only approved trust anchors are used | O-E | ABC Technologies (EV-SC-04) |
+| SC-17a. | Certificates are issued under the policy | O-E | \<Organisation\> (EV-SC-04) |
+| SC-17b. | Only approved trust anchors are used | O-E | \<Organisation\> (EV-SC-04) |
 | SC-18a.\[01\] | Acceptable mobile code is defined | S | \<System and Communications Protection Management\>, section 4.5 (D-SC-03) |
 | SC-18a.\[02\] | Unacceptable mobile code is defined | S | \<System and Communications Protection Management\>, section 4.5 (D-SC-03) |
 | SC-18a.\[03\] | Acceptable technologies are defined | S | \<System and Communications Protection Management\>, section 4.5 (D-SC-03) |
 | SC-18a.\[04\] | Unacceptable technologies are defined | S | \<System and Communications Protection Management\>, section 4.5 (D-SC-03) |
 | SC-18b.\[01\] | Use is authorised | S | Approved in \<System and Communications Protection Management\>, section 4.5 (D-SC-03) |
 | SC-18b.\[02\] | Use is monitored | O-G | Nothing monitors it; checked only by Test-Protection.ps1 at release (N04, N10; PA-51) |
-| SC-18b.\[03\] | Use is controlled | O-G | DV\_Web and DV\_Admin\_UI send no page policy; the configured policy allows inline scripts, eval and outside hosts (N04, N10, N12; PA-34, PA-51) |
-| SC-20a.\[01\] | Origin authentication comes with DNS answers | O-E | ABC Technologies (EV-SC-05) |
-| SC-20a.\[02\] | Integrity artefacts come with DNS answers | O-E | ABC Technologies (EV-SC-05) |
-| SC-20b.\[01\] | Child zone security status is shown | O-E | ABC Technologies (EV-SC-05) |
-| SC-20b.\[02\] | Chain of trust can be verified | O-E | ABC Technologies (EV-SC-05) |
-| SC-21\[01\] | Origin authentication is requested | O-E | ABC Technologies (EV-SC-05) |
-| SC-21\[02\] | Origin authentication is performed | O-E | ABC Technologies (EV-SC-05) |
-| SC-21\[03\] | Integrity verification is requested | O-E | ABC Technologies (EV-SC-05) |
-| SC-21\[04\] | Integrity verification is performed | O-E | ABC Technologies (EV-SC-05) |
-| SC-22\[01\] | DNS systems are fault tolerant | O-E | ABC Technologies (EV-SC-05) |
-| SC-22\[02\] | Internal and external roles are separated | O-E | ABC Technologies (EV-SC-05) |
-| SC-22\[03\] | Roles are separated by exposure | O-E | ABC Technologies (EV-SC-05) |
+| SC-18b.\[03\] | Use is controlled | O-G | UI application and Admin application send no page policy; the configured policy allows inline scripts, eval and outside hosts (N04, N10, N12; PA-34, PA-51) |
+| SC-20a.\[01\] | Origin authentication comes with DNS answers | O-E | \<Organisation\> (EV-SC-05) |
+| SC-20a.\[02\] | Integrity artefacts come with DNS answers | O-E | \<Organisation\> (EV-SC-05) |
+| SC-20b.\[01\] | Child zone security status is shown | O-E | \<Organisation\> (EV-SC-05) |
+| SC-20b.\[02\] | Chain of trust can be verified | O-E | \<Organisation\> (EV-SC-05) |
+| SC-21\[01\] | Origin authentication is requested | O-E | \<Organisation\> (EV-SC-05) |
+| SC-21\[02\] | Origin authentication is performed | O-E | \<Organisation\> (EV-SC-05) |
+| SC-21\[03\] | Integrity verification is requested | O-E | \<Organisation\> (EV-SC-05) |
+| SC-21\[04\] | Integrity verification is performed | O-E | \<Organisation\> (EV-SC-05) |
+| SC-22\[01\] | DNS systems are fault tolerant | O-E | \<Organisation\> (EV-SC-05) |
+| SC-22\[02\] | Internal and external roles are separated | O-E | \<Organisation\> (EV-SC-05) |
+| SC-22\[03\] | Roles are separated by exposure | O-E | \<Organisation\> (EV-SC-05) |
 | SC-23 | Session authenticity is protected | O-G | Sessions are checked on the server, but cookies are not Secure, there is no HSTS and traffic is plain HTTP (N02, N03; PA-18); key rings unencrypted (PA-93) |
 | SC-28\_ODP\[01\] | Protection is selected | S | Confidentiality and integrity |
 | SC-28\_ODP\[02\] | Information is defined | S | \<System and Communications Protection Management\>, appendix A |
@@ -4118,9 +4118,9 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | Dates | 6 November 2026; updated on 12 November 2026 after the SC pack review |
 | Examine | \<Policy\> (SC), \<Procedures\> (SC) and the SC chapter of \<Control Implementation Register\> at \<ver\>, now in \<System and Communications Protection Management\>; \<Security Architecture\> \<ver\>; \<System Security Plan\>, sections 4.7, 5 and 8; the start-up configuration, the security headers component, the API's sign-in service, the API's password service, the settings files and the test stack's compose file at tag v1.0. Depth: focused. Coverage: focused |
 | Test | Test-Protection.ps1, checks N01 to N12, on the throwaway docuview-test stack (evidence in the SC evidence); B09 by hand on 6 November 2026 |
-| Interview | None held. The Windows server administrator, database administrator, developers and ABC Technologies' security contact remain |
+| Interview | None held. The Windows server administrator, database administrator, developers and \<Organisation\>'s security contact remain |
 | Previous results reused | CM checks C07 to C10 (secrets, listening addresses, non-root); MP checks on export copies (PA-86); MA check M04 on the admin portal (PA-83) |
-| Boundary | \<DocuView\>'s apps, database, keys and the two VMs. ABC Technologies' network, VPN, proxy, DNS and certificate authority are provider evidence (EV-SC-01 to EV-SC-05) |
+| Boundary | \<System Name\>'s apps, database, keys and the two VMs. \<Organisation\>'s network, VPN, proxy, DNS and certificate authority are provider evidence (EV-SC-01 to EV-SC-05) |
 | Order of assessment | A, transport and sessions (SC-8, SC-8(1), SC-23); B, keys and cryptography (SC-12, SC-13); C, page code (SC-18); D, boundary (SC-7 and enhancements); E, data at rest (SC-28); F, inherited services (SC-17, SC-20 to SC-22, SC-39); G, policy (SC-1) |
 | Needed from providers | EV-SC-01 to EV-SC-05 and EV-AC-03 in \<Evidence Requests\> |
 | Evidence retained | the SC evidence (results, README and MANIFEST); the SC and CM evidence; completed TPL-6, TPL-8, TPL-11 and TPL-23 records |
@@ -4136,17 +4136,17 @@ For the Level 2 assessment, the assessor should run Test-Protection.ps1 against 
 
 ### SI.1 Purpose
 
-This records the Level 1 self-assessment of the 18 SI entries in the NIST SP 800-53 Rev 5 Moderate baseline, using catalog release 5.2.0. SI-8 and SI-8(2) are tailored out (\<Tailoring Register\>, TR-SI-01), so 16 are assessed. An independent team led by Josh Leak will use it for the Level 2 assessment. It makes no fixes.
+This records the Level 1 self-assessment of the 18 SI entries in the NIST SP 800-53 Rev 5 Moderate baseline, using catalog release 5.2.0. SI-8 and SI-8(2) are tailored out (\<Tailoring Register\>, TR-SI-01), so 16 are assessed. An independent team led by \[Name\] will use it for the Level 2 assessment. It makes no fixes.
 
 ### SI.2 How to read this record
 
-**Change since this assessment.** On 18 November 2026 the integrity design was cut from \<Control Implementation Register\> into \<System and Information Integrity Management\>, with each control set out part by part (D-SI-10). Detection use cases U1 and U4 now take their events from ABC Technologies' AD FS and Active Directory (D-SR-15). The cross-check added a one-off scan of documents already stored (PA-58). The findings below are a true record of their dates and are not changed.
+**Change since this assessment.** On 18 November 2026 the integrity design was cut from \<Control Implementation Register\> into \<System and Information Integrity Management\>, with each control set out part by part (D-SI-10). Detection use cases U1 and U4 now take their events from \<Organisation\>'s AD FS and Active Directory (D-SR-15). The cross-check added a one-off scan of documents already stored (PA-58). The findings below are a true record of their dates and are not changed.
 
 **N/A** means not applicable, as decided in \<Tailoring Register\>, which the independent assessor may test.
 
 The methods were **Examine** (code, settings and documents) and **Test**. The test is Test-Integrity.ps1, run on 12 November 2026 (checks H01 to H12) against the throwaway docuview-test stack built from the build tagged v1.0, then removed. Upload checks used the API's dry-run endpoint, which stores nothing. The results, the integrity baseline and their hashes are in the SI evidence. Package findings come from Test-Vulnerability.ps1 (RA, 11 November 2026).
 
-**Limit of the current evidence:** \<DocuView\> ran in Docker on one PC with sample data. The Windows Server 2025 VMs, Defender, PostgreSQL on Windows and ABC Technologies' services have not been examined.
+**Limit of the current evidence:** \<System Name\> ran in Docker on one PC with sample data. The Windows Server 2025 VMs, Defender, PostgreSQL on Windows and \<Organisation\>'s services have not been examined.
 
 ### SI.3 Executive summary
 
@@ -4167,9 +4167,9 @@ The methods were **Examine** (code, settings and documents) and **Test**. The te
 | SI-2 | Other than satisfied | 4 of 11 | 7 package advisories open (PA-56) | NC-SI-02 |
 | SI-2(2) | Other than satisfied | 2 of 3 | Checks run by hand (PA-57) | NC-SI-03 |
 | SI-3 | Other than satisfied | 6 of 14 | Uploads not scanned (H08) | NC-SI-04 |
-| SI-4 | Other than satisfied | 6 of 18 | Reviews not started; ABC Technologies not evidenced | NC-SI-05 |
+| SI-4 | Other than satisfied | 6 of 18 | Reviews not started; \<Organisation\> not evidenced | NC-SI-05 |
 | SI-4(2) | Other than satisfied | 0 of 1 | No automated analysis (H12) | NC-SI-06 |
-| SI-4(4) | Other than satisfied | 4 of 8 | ABC Technologies not evidenced | NC-SI-07 |
+| SI-4(4) | Other than satisfied | 4 of 8 | \<Organisation\> not evidenced | NC-SI-07 |
 | SI-4(5) | Other than satisfied | 2 of 3 | No alerts (H12) | NC-SI-08 |
 | SI-5 | Other than satisfied | 5 of 9 | Not yet in use | NC-SI-09 |
 | SI-7 | Other than satisfied | 6 of 12 | MD5 checksums; chain does not verify (H09, H10) | NC-SI-10 |
@@ -4182,9 +4182,9 @@ The methods were **Examine** (code, settings and documents) and **Test**. The te
 | SI-12 | Other than satisfied | 0 of 4 | Retention schedule not applied | NC-SI-15 |
 | SI-16 | Other than satisfied | 1 of 2 | Windows protections on the VMs | NC-SI-16 |
 
-Of NIST's 139 statements, 74 are satisfied, 7 are not applicable, 22 await a decision or approval, 13 show a gap in the system and 23 await evidence from the VMs or ABC Technologies.
+Of NIST's 139 statements, 74 are satisfied, 7 are not applicable, 22 await a decision or approval, 13 show a gap in the system and 23 await evidence from the VMs or \<Organisation\>.
 
-The gaps within \<DocuView\> are open package advisories, no malware scan of uploads, no alerting, MD5 document checksums and an audit chain that cannot be recomputed, and exception detail returned by the API. Input validation and the upload type checks work.
+The gaps within \<System Name\> are open package advisories, no malware scan of uploads, no alerting, MD5 document checksums and an audit chain that cannot be recomputed, and exception detail returned by the API. Input validation and the upload type checks work.
 
 ### SI.4 Findings by determination statement
 
@@ -4214,7 +4214,7 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | SI-01a.01(a)\[06\] | Policy addresses coordination | S | \<Policy\> (SI) \<ver\>, section SI.6 |
 | SI-01a.01(a)\[07\] | Policy addresses compliance | S | \<Policy\> (SI) \<ver\>, section SI.6 |
 | SI-01a.01(b) | Policy is consistent with laws and standards | S | Legally reviewed on 12 November 2026, as confirmed by the system owner |
-| SI-01b. | Official is designated | S | Neil Ramsbottom is the system owner |
+| SI-01b. | Official is designated | S | \[Name\] is the system owner |
 | SI-01c.01\[01\] | Policy is reviewed at the set frequency | O-D | First review not yet due |
 | SI-01c.01\[02\] | Policy is reviewed after set events | S | Reviewed on 12 November 2026 after the SI pack review (D-SI-08) |
 | SI-01c.02\[01\] | Procedures are reviewed at the set frequency | O-D | First review not yet due |
@@ -4225,10 +4225,10 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | SI-02a.\[03\] | Flaws are corrected | O-G | 7 advisories open, 5 High (PA-56) |
 | SI-02b.\[01\] | Software updates are tested for effect | O-D | PRO-SI-1 \<ver\> approved; not yet in use |
 | SI-02b.\[02\] | Software updates are tested for side effects | O-D | PRO-SI-1 \<ver\> approved; not yet in use |
-| SI-02b.\[03\] | Firmware updates are tested for effect | O-E | ABC Technologies (EV-SI-02) |
-| SI-02b.\[04\] | Firmware updates are tested for side effects | O-E | ABC Technologies (EV-SI-02) |
+| SI-02b.\[03\] | Firmware updates are tested for effect | O-E | \<Organisation\> (EV-SI-02) |
+| SI-02b.\[04\] | Firmware updates are tested for side effects | O-E | \<Organisation\> (EV-SI-02) |
 | SI-02c.\[01\] | Software updates are installed in time | O-G | Advisories not fixed within the timetable (PA-56) |
-| SI-02c.\[02\] | Firmware updates are installed in time | O-E | ABC Technologies (EV-SI-02) |
+| SI-02c.\[02\] | Firmware updates are installed in time | O-E | \<Organisation\> (EV-SI-02) |
 | SI-02d. | Flaw fixing is part of configuration management | S | PRO-SI-1 \<ver\>, through \<Procedures\> (CM) (D-SI-09) |
 | SI-02(02)\_ODP\[01\] | Mechanisms are defined | S | \<System and Information Integrity Management\>, appendix A |
 | SI-02(02)\_ODP\[02\] | Frequency is defined | S | \<System and Information Integrity Management\>, appendix A |
@@ -4253,10 +4253,10 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | SI-04\_ODP\[04\] | Who receives it is defined | S | \<System and Information Integrity Management\>, appendix A |
 | SI-04\_ODP\[05\] | When it is provided is selected | S | \<System and Information Integrity Management\>, appendix A |
 | SI-04\_ODP\[06\] | Frequency is defined | S | \<System and Information Integrity Management\>, appendix A |
-| SI-04a.01 | Attacks are monitored for | O-E | ABC Technologies (EV-SI-01) |
+| SI-04a.01 | Attacks are monitored for | O-E | \<Organisation\> (EV-SI-01) |
 | SI-04a.02\[01\] | Unauthorised local connections are monitored for | O-E | On the VMs |
-| SI-04a.02\[02\] | Unauthorised network connections are monitored for | O-E | ABC Technologies (EV-SI-01) |
-| SI-04a.02\[03\] | Unauthorised remote connections are monitored for | O-E | ABC Technologies (EV-SI-01) |
+| SI-04a.02\[02\] | Unauthorised network connections are monitored for | O-E | \<Organisation\> (EV-SI-01) |
+| SI-04a.02\[03\] | Unauthorised remote connections are monitored for | O-E | \<Organisation\> (EV-SI-01) |
 | SI-04b. | Unauthorised use is identified | O-D | PRO-SI-3 \<ver\> approved; reviews not started |
 | SI-04c.01 | Monitoring is placed to collect key information | O-E | On the VMs |
 | SI-04c.02 | Monitoring is placed to track specific transactions | O-E | On the VMs |
@@ -4264,16 +4264,16 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | SI-04d.\[02\] | Anomalies are analysed | O-D | Reviews not started |
 | SI-04e. | Monitoring level changes when risk changes | O-D | PRO-SI-3 \<ver\> approved; not yet in use |
 | SI-04f. | A legal opinion on monitoring is obtained | O-D | Legal adviser's opinion on monitoring users requested (D-SI-07) |
-| SI-04g. | Monitoring information is provided | O-E | Reviews not started; ABC Technologies (EV-SI-01) |
+| SI-04g. | Monitoring information is provided | O-E | Reviews not started; \<Organisation\> (EV-SI-01) |
 | SI-04(02) | Automated tools support near real-time analysis | O-G | No log forwarding or alerting (H12; PA-59) |
 | SI-04(04)\_ODP\[01\] | Inbound monitoring frequency is defined | S | \<System and Information Integrity Management\>, appendix A |
 | SI-04(04)\_ODP\[02\] | Unusual inbound activity is defined | S | \<System and Information Integrity Management\>, appendix A |
 | SI-04(04)\_ODP\[03\] | Outbound monitoring frequency is defined | S | \<System and Information Integrity Management\>, appendix A |
 | SI-04(04)\_ODP\[04\] | Unusual outbound activity is defined | S | \<System and Information Integrity Management\>, appendix A |
-| SI-04(04)(a)\[01\] | Inbound criteria are determined | O-E | ABC Technologies (EV-SI-01) |
-| SI-04(04)(a)\[02\] | Outbound criteria are determined | O-E | ABC Technologies (EV-SI-01) |
-| SI-04(04)(b)\[01\] | Inbound traffic is monitored | O-E | ABC Technologies (EV-SI-01) |
-| SI-04(04)(b)\[02\] | Outbound traffic is monitored | O-E | ABC Technologies (EV-SI-01) |
+| SI-04(04)(a)\[01\] | Inbound criteria are determined | O-E | \<Organisation\> (EV-SI-01) |
+| SI-04(04)(a)\[02\] | Outbound criteria are determined | O-E | \<Organisation\> (EV-SI-01) |
+| SI-04(04)(b)\[01\] | Inbound traffic is monitored | O-E | \<Organisation\> (EV-SI-01) |
+| SI-04(04)(b)\[02\] | Outbound traffic is monitored | O-E | \<Organisation\> (EV-SI-01) |
 | SI-04(05)\_ODP\[01\] | Who is alerted is defined | S | \<System and Information Integrity Management\>, appendix A |
 | SI-04(05)\_ODP\[02\] | Compromise indicators are defined | S | \<System and Information Integrity Management\>, appendix A |
 | SI-04(05) | Alerts are raised on those indicators | O-G | Nothing raises an alert on the use cases in \<System and Information Integrity Management\>, section 4.4 (H12; PA-59) |
@@ -4293,10 +4293,10 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | SI-07\_ODP\[05\] | Actions for firmware are defined | S | \<System and Information Integrity Management\>, appendix A |
 | SI-07\_ODP\[06\] | Actions for information are defined | S | \<System and Information Integrity Management\>, appendix A |
 | SI-07a.\[01\] | Tools detect changes to software | O-G | Baseline recorded (\<System and Information Integrity Management\>, section 4.5); no check runs (PA-61) |
-| SI-07a.\[02\] | Tools detect changes to firmware | O-E | ABC Technologies (EV-SI-02) |
+| SI-07a.\[02\] | Tools detect changes to firmware | O-E | \<Organisation\> (EV-SI-02) |
 | SI-07a.\[03\] | Tools detect changes to information | O-G | Documents use MD5 (H09); only 1 of 15 audit hashes recompute (H10; PA-61, PA-74) |
 | SI-07b.\[01\] | Actions are taken on software changes | O-D | PRO-SI-6 \<ver\> approved; not yet in use |
-| SI-07b.\[02\] | Actions are taken on firmware changes | O-E | ABC Technologies (EV-SI-02) |
+| SI-07b.\[02\] | Actions are taken on firmware changes | O-E | \<Organisation\> (EV-SI-02) |
 | SI-07b.\[03\] | Actions are taken on information changes | O-D | PRO-SI-6 \<ver\> approved; not yet in use |
 | SI-07(01)\_ODP\[01\] | Software checked is defined | S | \<System and Information Integrity Management\>, appendix A |
 | SI-07(01)\_ODP\[02\] | When it is checked is selected | S | \<System and Information Integrity Management\>, appendix A |
@@ -4311,7 +4311,7 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | SI-07(01)\_ODP\[11\] | Events are defined | S | \<System and Information Integrity Management\>, appendix A |
 | SI-07(01)\_ODP\[12\] | Frequency is defined | S | \<System and Information Integrity Management\>, appendix A |
 | SI-07(01)\[01\] | Software is checked | O-G | Not built (PA-61) |
-| SI-07(01)\[02\] | Firmware is checked | O-E | ABC Technologies (EV-SI-02) |
+| SI-07(01)\[02\] | Firmware is checked | O-E | \<Organisation\> (EV-SI-02) |
 | SI-07(01)\[03\] | Information is checked | O-G | Not built (PA-37, PA-61, PA-74) |
 | SI-07(07)\_ODP | Changes for incident response are defined | S | \<System and Information Integrity Management\>, appendix A |
 | SI-07(07) | Detected changes go to incident response | S | PRO-SI-6 \<ver\>, approved (D-SI-09) |
@@ -4345,9 +4345,9 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | Dates | 6 November 2026; updated on 12 November 2026 after the SI pack review |
 | Examine | \<Policy\> (SI), \<Procedures\> (SI) and the SI chapter of \<Control Implementation Register\> at \<ver\>, now in \<System and Information Integrity Management\>; \<Risk Assessment Management\>, section 4.6; \<PII Processing Management\>, section 4.7; the upload, validation, audit and error-handling code at tag v1.0. Depth: focused. Coverage: focused |
 | Test | Test-Integrity.ps1, checks H01 to H12, on the throwaway docuview-test stack (evidence in the SI evidence); Test-Vulnerability.ps1 (the RA evidence) |
-| Interview | None held. The security officer, Windows server administrator and ABC Technologies' security contact remain |
+| Interview | None held. The security officer, Windows server administrator and \<Organisation\>'s security contact remain |
 | Previous results reused | RA check V01 (packages); AU checks A36 and A37 (audit chain); CM check C08 (non-root containers) |
-| Boundary | \<DocuView\>'s apps, database and records. ABC Technologies' network monitoring, firmware and logging are provider evidence (EV-SI-01 to EV-SI-03) |
+| Boundary | \<System Name\>'s apps, database and records. \<Organisation\>'s network monitoring, firmware and logging are provider evidence (EV-SI-01 to EV-SI-03) |
 | Order of assessment | A, flaws (SI-2); B, malicious code and uploads (SI-3, SI-10); C, monitoring and alerts (SI-4); D, integrity (SI-7); E, errors (SI-11); F, advisories, retention and memory (SI-5, SI-12, SI-16); G, policy (SI-1) |
 | Needed from providers | EV-SI-01, EV-SI-02 and EV-SI-03 in \<Evidence Requests\> |
 | Evidence retained | the SI evidence (results, baseline, README and MANIFEST); the RA evidence; completed TPL-7, TPL-8 and TPL-10 records |
@@ -4363,7 +4363,7 @@ For the Level 2 assessment, the assessor should run Test-Integrity.ps1 and Test-
 
 ### SR.1 Purpose
 
-This records the Level 1 self-assessment of the 12 SR entries in the NIST SP 800-53 Rev 5 Moderate baseline, using catalog release 5.2.0. An independent team led by Josh Leak will use it for the Level 2 assessment. It makes no fixes.
+This records the Level 1 self-assessment of the 12 SR entries in the NIST SP 800-53 Rev 5 Moderate baseline, using catalog release 5.2.0. An independent team led by \[Name\] will use it for the Level 2 assessment. It makes no fixes.
 
 ### SR.2 How to read this record
 
@@ -4371,7 +4371,7 @@ This records the Level 1 self-assessment of the 12 SR entries in the NIST SP 800
 
 The methods were **Examine** (code, settings and documents) and **Test**. The test is Test-SupplyChain.ps1, run on 12 November 2026 (checks U01 to U10) on the build tagged v1.0 and the images built from it, with no running stack. The results and their hashes are in the SR evidence.
 
-**Limit of the current evidence:** the VMs are not built, and ABC Technologies' supplier, hardware and disposal processes have not been examined.
+**Limit of the current evidence:** the VMs are not built, and \<Organisation\>'s supplier, hardware and disposal processes have not been examined.
 
 ### SR.3 Executive summary
 
@@ -4389,20 +4389,20 @@ The methods were **Examine** (code, settings and documents) and **Test**. The te
 | --- | --- | --- | --- | --- |
 | SR-1 | Other than satisfied | 21 of 25 | Not yet shared; Head of Cyber's re-approval (D-SR-12) outstanding; legally reviewed | NC-SR-01 |
 | SR-2 | Other than satisfied | 11 of 14 | Not yet reviewed or in the restricted store | NC-SR-02 |
-| SR-2(1) | Other than satisfied | 2 of 3 | Team not confirmed by ABC Technologies | NC-SR-03 |
+| SR-2(1) | Other than satisfied | 2 of 3 | Team not confirmed by \<Organisation\> | NC-SR-03 |
 | SR-3 | Other than satisfied | 6 of 9 | Only OfflineModules packages use the offline feed (U01) | NC-SR-04 |
 | SR-5 | Other than satisfied | 2 of 4 | Packages acquired from nuget.org unchecked (U01) | NC-SR-05 |
 | SR-6 | Other than satisfied | 1 of 2 | No supplier review held | NC-SR-06 |
-| SR-8 | Other than satisfied | 2 of 3 | ABC Technologies' terms not seen | NC-SR-07 |
+| SR-8 | Other than satisfied | 2 of 3 | \<Organisation\>'s terms not seen | NC-SR-07 |
 | SR-10 | Other than satisfied | 4 of 5 | No release checksums or bill of materials | NC-SR-08 |
 | SR-11 | Other than satisfied | 3 of 8 | Not yet in use | NC-SR-09 |
 | SR-11(1) | Other than satisfied | 1 of 2 | Training not seen | NC-SR-10 |
 | SR-11(2) | Other than satisfied | 1 of 3 | Repair process not seen | NC-SR-11 |
 | SR-12 | Other than satisfied | 2 of 3 | Disposal not seen | NC-SR-12 |
 
-Of NIST's 81 statements, 56 are satisfied, 16 await a decision or approval, 4 show a gap in the system and 5 await evidence from ABC Technologies.
+Of NIST's 81 statements, 56 are satisfied, 16 await a decision or approval, 4 show a gap in the system and 5 await evidence from \<Organisation\>.
 
-The gaps within \<DocuView\> are that packages other than the in-house OfflineModules come straight from nuget.org with no lock file or signature policy, images are not pinned, and releases have no checksums or bill of materials. The offline feed itself is intact (U05), and the release images match the integrity baseline (U08).
+The gaps within \<System Name\> are that packages other than the in-house OfflineModules come straight from nuget.org with no lock file or signature policy, images are not pinned, and releases have no checksums or bill of materials. The offline feed itself is intact (U05), and the release images match the integrity baseline (U08).
 
 ### SR.4 Findings by determination statement
 
@@ -4432,7 +4432,7 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | SR-01a.01(a)\[06\] | Policy addresses coordination | S | \<Policy\> (SR) \<ver\>, section SR.6 |
 | SR-01a.01(a)\[07\] | Policy addresses compliance | S | \<Policy\> (SR) \<ver\>, section SR.6 |
 | SR-01a.01(b) | Policy is consistent with laws and standards | S | Legally reviewed on 12 November 2026, as confirmed by the system owner |
-| SR-01b. | Official is designated | S | Neil Ramsbottom is the system owner |
+| SR-01b. | Official is designated | S | \[Name\] is the system owner |
 | SR-01c.01\[01\] | Policy is reviewed at the set frequency | O-D | First review not yet due |
 | SR-01c.01\[02\] | Policy is reviewed after set events | S | Reviewed on 12 November 2026 after the SR pack review (D-SR-11) |
 | SR-01c.02\[01\] | Procedures are reviewed at the set frequency | O-D | First review not yet due |
@@ -4453,14 +4453,14 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | SR-02c.\[02\] | Plan is protected from modification | O-D | Restricted store not yet in use (PA-88) |
 | SR-02(01)\_ODP\[01\] | Team is defined | S | \<Supply Chain Risk Management\>, appendix A |
 | SR-02(01)\_ODP\[02\] | Team's activities are defined | S | \<Supply Chain Risk Management\>, appendix A |
-| SR-02(01) | Team is established | O-D | Named in \<Supply Chain Risk Management\> \<ver\>; ABC Technologies' part not confirmed; the team has not met |
+| SR-02(01) | Team is established | O-D | Named in \<Supply Chain Risk Management\> \<ver\>; \<Organisation\>'s part not confirmed; the team has not met |
 | SR-03\_ODP\[01\] | What is covered is defined | S | \<Supply Chain Risk Management\>, appendix A |
 | SR-03\_ODP\[02\] | Who is coordinated with is defined | S | \<Supply Chain Risk Management\>, appendix A |
 | SR-03\_ODP\[03\] | Controls are defined | S | \<Supply Chain Risk Management\>, appendix A |
 | SR-03\_ODP\[04\] | Where controls are documented is selected | S | \<Supply Chain Risk Management\>, appendix A |
 | SR-03\_ODP\[05\] | Other document is defined | S | \<Supply Chain Risk Management\>, appendix A |
 | SR-03a.\[01\] | Process to address weaknesses is established | O-D | PRO-SR-1 and PRO-SR-2 \<ver\> approved; not yet in use |
-| SR-03a.\[02\] | Process is coordinated | O-D | Not yet agreed with ABC Technologies |
+| SR-03a.\[02\] | Process is coordinated | O-D | Not yet agreed with \<Organisation\> |
 | SR-03b. | Controls are employed | O-G | Only OfflineModules packages use the offline feed; no lock files, trust policy or pinned images (U01 to U03, U06; PA-94, PA-77) |
 | SR-03c. | Controls are documented | S | \<Supply Chain Risk Management\>, sections 4.5 to 4.7, approved (D-SR-13) |
 | SR-05\_ODP | Strategies are defined | S | \<Supply Chain Risk Management\>, appendix A |
@@ -4471,7 +4471,7 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | SR-06 | Suppliers are assessed and reviewed | O-D | No supplier review yet held on TPL-16 (PRO-SR-2) |
 | SR-08\_ODP\[01\] | What is notified is selected | S | \<Supply Chain Risk Management\>, appendix A |
 | SR-08\_ODP\[02\] | Results shared are defined | S | \<Supply Chain Risk Management\>, appendix A |
-| SR-08 | Notification agreements are in place | O-E | ABC Technologies' terms not seen (EV-SR-01); open-source advisories watched (\<System and Information Integrity Management\>, section 4.3) |
+| SR-08 | Notification agreements are in place | O-E | \<Organisation\>'s terms not seen (EV-SR-01); open-source advisories watched (\<System and Information Integrity Management\>, section 4.3) |
 | SR-10\_ODP\[01\] | What is inspected is defined | S | \<Supply Chain Risk Management\>, appendix A |
 | SR-10\_ODP\[02\] | When is selected | S | \<Supply Chain Risk Management\>, appendix A |
 | SR-10\_ODP\[03\] | Frequency is defined | S | \<Supply Chain Risk Management\>, appendix A |
@@ -4505,11 +4505,11 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | Dates | 6 November 2026; updated on 12 November 2026 after the SR pack review |
 | Examine | \<Policy\> (SR), \<Procedures\> (SR) and \<Supply Chain Risk Management\> \<ver\>; \<Risk Assessment Management\>, sections 4.9 and 4.4; the four package source settings files, the image build file, the compose file, each app's restored package list and the offline feed index at tag v1.0. Depth: focused. Coverage: focused |
 | Test | Test-SupplyChain.ps1, checks U01 to U10, with no running stack (evidence in the SR evidence); Test-Vulnerability.ps1 (the RA evidence) |
-| Interview | None held. The developers, security officer and ABC Technologies' IT service desk remain |
+| Interview | None held. The developers, security officer and \<Organisation\>'s IT service desk remain |
 | Previous results reused | RA checks V01 and V03 (packages and image pinning); SI integrity baseline (the SI evidence); CM checks C04 and C05 (inventory and unused components) |
-| Boundary | \<DocuView\>'s code, build and release. ABC Technologies' suppliers, hardware, repair and disposal are provider evidence (EV-SR-01, EV-SR-02) |
+| Boundary | \<System Name\>'s code, build and release. \<Organisation\>'s suppliers, hardware, repair and disposal are provider evidence (EV-SR-01, EV-SR-02) |
 | Order of assessment | A, sources and acquisition (SR-3, SR-5); B, inspection (SR-10); C, suppliers and notices (SR-6, SR-8); D, authenticity (SR-11); E, plan and team (SR-2); F, disposal (SR-12); G, policy (SR-1) |
 | Needed from providers | EV-SR-01 and EV-SR-02 in \<Evidence Requests\> |
 | Evidence retained | the SR evidence (results, README and MANIFEST); the RA evidence; completed TPL-6, TPL-7, TPL-10 and TPL-16 records |
 
-For the Level 2 assessment, the assessor should run Test-SupplyChain.ps1 on the release to be deployed, check the bill of materials and release SHA-256 values once built, examine ABC Technologies' supplier, hardware and disposal evidence, hold the interviews, and re-determine every statement in section SR.4.
+For the Level 2 assessment, the assessor should run Test-SupplyChain.ps1 on the release to be deployed, check the bill of materials and release SHA-256 values once built, examine \<Organisation\>'s supplier, hardware and disposal evidence, hold the interviews, and re-determine every statement in section SR.4.

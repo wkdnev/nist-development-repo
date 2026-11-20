@@ -1,4 +1,4 @@
-# \<DocuView\> Privacy Plan
+# \<System Name\> Privacy Plan
 
 **\<ref\> | Version \<ver\> | References updated; version \<ver\> legally reviewed; version \<ver\> approved by the legal adviser and authorising official**
 
@@ -34,12 +34,12 @@
 | Item | Detail |
 | --- | --- |
 | Reference | \<ref\> |
-| Title | \<DocuView\> Privacy Plan |
+| Title | \<System Name\> Privacy Plan |
 | Version | \<ver\> |
 | Status | Version \<ver\> approved by the legal adviser and authorising official; version \<ver\> legally reviewed on 11 November 2026, as confirmed by the system owner; version \<ver\> makes factual updates only, with no change to any legal position. Later versions change references and numbering only, and the approvals of the earlier version stand (\<Documentation Map\>, section 5.5) |
 | Date | 11 November 2026 |
 | Owner | Legal adviser |
-| Applies to | Personal data in \<DocuView\> |
+| Applies to | Personal data in \<System Name\> |
 | Classification | Restricted |
 | Next review | Every 12 months, and after a significant change in processing |
 | Format | \<Documentation Map\>, section 5 |
@@ -50,8 +50,8 @@
 
 | Role | Name | Decision | Date |
 | --- | --- | --- | --- |
-| Legal adviser | Adrian Solicitor | Version \<ver\> approved; legal positions still to be confirmed. Version \<ver\> reviewed on 11 November 2026, as confirmed by the system owner | 7 November 2026 |
-| Authorising official | Bob Jones | Approved | 7 November 2026 |
+| Legal adviser | \[Name\] | Version \<ver\> approved; legal positions still to be confirmed. Version \<ver\> reviewed on 11 November 2026, as confirmed by the system owner | 7 November 2026 |
+| Authorising official | \[Name\] | Approved | 7 November 2026 |
 
 ### 1.3 Change history
 
@@ -81,14 +81,14 @@
 
 ## 2 Purpose
 
-This plan is the privacy counterpart to \<System Security Plan\>. It relies on that plan, and the documents it names, for the system's boundary, environment and architecture. Everything legal here is a proposal until Adrian Solicitor confirms it.
+This plan is the privacy counterpart to \<System Security Plan\>. It relies on that plan, and the documents it names, for the system's boundary, environment and architecture. Everything legal here is a proposal until \[Name\] confirms it.
 
 | **SECTION 3** |
 | --- |
 
 ## 3 Context and boundary
 
-The boundary, operational context and environment are as \<System Security Plan\> and \<Concept of Operations\> describe. ABC Technologies operates in the UK, and is the controller for its HR data. UK GDPR and the Data Protection Act 2018 apply.
+The boundary, operational context and environment are as \<System Security Plan\> and \<Concept of Operations\> describe. \<Organisation\> operates in the UK, and is the controller for its HR data. UK GDPR and the Data Protection Act 2018 apply.
 
 | **SECTION 4** |
 | --- |
@@ -99,12 +99,12 @@ The boundary, operational context and environment are as \<System Security Plan\
 
 | Role | Holder | Part |
 | --- | --- | --- |
-| Plan owner and privacy representative | Adrian Solicitor | Owns this plan, the impact assessment, individuals' requests and complaints, and reports to the ICO |
-| Data protection officer | \[Name, or the reason none is required\] | Leads ABC Technologies' privacy programme (PM-19; UK GDPR, Articles 37 to 39), advises on this plan and the impact assessment, and is the contact for individuals and the ICO. The legal adviser completes this row (D-PM-04) |
-| Risk decisions | Bob Jones | Decides on privacy risk |
-| Business and information owner | Tony Tilley | Decides what data projects hold, and how long for |
-| System owner | Neil Ramsbottom | Makes sure \<DocuView\> follows this plan |
-| Breach response | James Preston | Leads the response, following \<Incident Response Management\> |
+| Plan owner and privacy representative | \[Name\] | Owns this plan, the impact assessment, individuals' requests and complaints, and reports to the ICO |
+| Data protection officer | \[Name, or the reason none is required\] | Leads \<Organisation\>'s privacy programme (PM-19; UK GDPR, Articles 37 to 39), advises on this plan and the impact assessment, and is the contact for individuals and the ICO. The legal adviser completes this row (D-PM-04) |
+| Risk decisions | \[Name\] | Decides on privacy risk |
+| Business and information owner | \[Name\] | Decides what data projects hold, and how long for |
+| System owner | \[Name\] | Makes sure \<System Name\> follows this plan |
+| Breach response | \[Name\] | Leads the response, following \<Incident Response Management\> |
 
 | **SECTION 5** |
 | --- |
@@ -140,11 +140,11 @@ The requirements are UK GDPR and the Data Protection Act 2018. The baseline is N
 | Complete the impact assessment | Legal adviser, system owner, business owner | Before production, and after significant change |
 | Set retention periods | Business owner | Before production |
 | Build retention and disposal | Developers | Before production, if the authorising official agrees (PA-70) |
-| Check the privacy notice names \<DocuView\> | System owner, ABC Technologies | Before production, then every 12 months |
+| Check the privacy notice names \<System Name\> | System owner, \<Organisation\> | Before production, then every 12 months |
 
 | **SECTION 9** |
 | --- |
 
 ## 9 Architecture
 
-Privacy relies on the Security Architecture, \<Security Architecture\>. Personal data is in the database and audit records on the database VM. Project permissions limit who can read it. Encryption at rest is planned (PA-52). \<DocuView\> does not share data with other systems, apart from the planned Jira and Starters/Leavers connections, which carry names and account details only. The plan assumes ABC Technologies' notice and contracts cover employees' data.
+Privacy relies on the Security Architecture, \<Security Architecture\>. Personal data is in the database and audit records on the database VM. Project permissions limit who can read it. Encryption at rest is planned (PA-52). \<System Name\> does not share data with other systems, apart from the planned ServiceNow and Starters/Leavers connections, which carry names and account details only. The plan assumes \<Organisation\>'s notice and contracts cover employees' data.

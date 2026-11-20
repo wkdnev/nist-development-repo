@@ -1,4 +1,4 @@
-# \<DocuView\> Assessment, Authorization, and Monitoring Management
+# \<System Name\> Assessment, Authorization, and Monitoring Management
 
 **\<ref\> | Version \<ver\> | Draft for the system owner's approval**
 
@@ -30,7 +30,7 @@
 | Item | Detail |
 | --- | --- |
 | Reference | \<ref\> |
-| Title | \<DocuView\> Assessment, Authorization, and Monitoring Management |
+| Title | \<System Name\> Assessment, Authorization, and Monitoring Management |
 | Version | \<ver\> |
 | Status | Draft for the system owner's approval |
 | Date | 13 November 2026 |
@@ -46,7 +46,7 @@
 
 | Role | Name | Decision | Date |
 | --- | --- | --- | --- |
-| System owner | Neil Ramsbottom | Pending | Pending |
+| System owner | \[Name\] | Pending | Pending |
 
 ### 1.3 Change history
 
@@ -67,7 +67,7 @@
 
 ## 2 Purpose
 
-This document shows how \<DocuView\> is assessed, authorised to operate and monitored afterwards, and how its connections to other systems are approved, for each of the 10 Assessment, Authorization, and Monitoring (CA) controls and enhancements in the NIST SP 800-53 Rev 5 Moderate baseline. Section 4 sets out the design: the cycle, assessment, the plan of action, authorisation, inherited controls, information exchanges, continuous monitoring and significant change. Section 5 takes each control in turn. Appendix A lists every value NIST asks the organisation to define. Appendix B lists the CA controls NIST does not select at Moderate.
+This document shows how \<System Name\> is assessed, authorised to operate and monitored afterwards, and how its connections to other systems are approved, for each of the 10 Assessment, Authorization, and Monitoring (CA) controls and enhancements in the NIST SP 800-53 Rev 5 Moderate baseline. Section 4 sets out the design: the cycle, assessment, the plan of action, authorisation, inherited controls, information exchanges, continuous monitoring and significant change. Section 5 takes each control in turn. Appendix A lists every value NIST asks the organisation to define. Appendix B lists the CA controls NIST does not select at Moderate.
 
 This is the only place this design is held. Other documents point here. The policy is in \<Policy\> (CA), and the steps people follow are in \<Procedures\> (CA). The design follows NIST SP 800-37 Rev 2 for assessment and authorisation, SP 800-137 for monitoring, and SP 800-47 Rev 1 for information exchanges.
 
@@ -79,7 +79,7 @@ This family is about processes that people carry out, so an assessor examines do
 - **the records an assessor will ask for**, and whether they exist yet;
 - **its status**, the risk decision, and what is still open.
 
-\<DocuView\> is not authorised and is not in use. The Level 1 self-assessment is complete. The independent assessment, the authorisation decision and monitoring have not started.
+\<System Name\> is not authorised and is not in use. The Level 1 self-assessment is complete. The independent assessment, the authorisation decision and monitoring have not started.
 
 **Table 4: Status values**
 
@@ -105,13 +105,13 @@ Of the 10 controls, none is fully implemented, 4 are partially implemented and 6
 | CA-2(1) | Independent Assessors | Not implemented | No assessor has confirmed their independence on TPL-19 | NC-CA-03; PA-106 |
 | CA-3 | Information Exchange | Not implemented | No exchange is approved, and no agreement is signed | NC-CA-04; PA-63 |
 | CA-5 | Plan of Action and Milestones | Partially implemented | The monthly updates and quarterly reports have not started, and items have no calendar dates | NC-CA-05; PA-108 |
-| CA-6 | Authorization | Partially implemented | \<DocuView\> is not authorised. ABC Technologies' official for common controls is not named, and the inherited controls are not accepted for operation | NC-CA-06; PA-107, EV-CA-01 |
+| CA-6 | Authorization | Partially implemented | \<System Name\> is not authorised. \<Organisation\>'s official for common controls is not named, and the inherited controls are not accepted for operation | NC-CA-06; PA-107, EV-CA-01 |
 | CA-7 | Continuous Monitoring | Not implemented | Monitoring and reporting have not started | NC-CA-07; PA-80, PA-108 |
 | CA-7(1) | Independent Assessment | Not implemented | No independent check of monitoring has been held | NC-CA-08; PA-108 |
 | CA-7(4) | Risk Monitoring | Not implemented | Risk monitoring has not started | NC-CA-09; PA-108 |
 | CA-9 | Internal Connections | Not implemented | Neither internal connection is authorised, as the servers are not built | NC-CA-10; PA-63 |
 
-None of the gaps is a fault in the system. Each is a step that has not yet been taken, because \<DocuView\> is not built on its servers and is not in use.
+None of the gaps is a fault in the system. Each is a step that has not yet been taken, because \<System Name\> is not built on its servers and is not in use.
 
 | **SECTION 4** |
 | --- |
@@ -122,10 +122,10 @@ None of the gaps is a fault in the system. Each is a step that has not yet been 
 
 1. **Two levels of assessment.** The system owner self-assesses at Level 1. An independent team assesses at Level 2.
 2. **Authorise knowingly.** The authorising official accepts the remaining risk by name, in writing, for no more than 12 months at a time.
-3. **Nothing in production before authorisation.** \<DocuView\> holds no production documents until it is authorised.
+3. **Nothing in production before authorisation.** \<System Name\> holds no production documents until it is authorised.
 4. **Track what is open.** Every weakness stays on the plan of action until its fix is tested.
 5. **Know the connections.** Each connection to another system is recorded and approved before it is used.
-6. **Keep watching.** After authorisation, measures are collected and reported, and a significant change sends \<DocuView\> back to the authorising official.
+6. **Keep watching.** After authorisation, measures are collected and reported, and a significant change sends \<System Name\> back to the authorising official.
 
 These carry out the principles and rules of \<Policy\>, sections CA.3 and CA.4.
 
@@ -149,13 +149,13 @@ These carry out the principles and rules of \<Policy\>, sections CA.3 and CA.4.
 
 ### 4.3 Assessment
 
-**Levels.** Level 1 is the system owner's self-assessment, carried out by Claude, an AI assistant, for the system owner. It is not independent: the same assistant drafted the documents and assessed them. It shows the system owner where \<DocuView\> stands, and prepares the ground for Level 2. Level 2 is the independent assessment by Josh Leak's team, which also makes the yearly independent check of monitoring.
+**Levels.** Level 1 is the system owner's self-assessment, carried out by Claude, an AI assistant, for the system owner. It is not independent: the same assistant drafted the documents and assessed them. It shows the system owner where \<System Name\> stands, and prepares the ground for Level 2. Level 2 is the independent assessment by \[Name\]'s team, which also makes the yearly independent check of monitoring.
 
-**Independence.** A member of the team counts as independent once they have completed TPL-19, confirming that they have had no part in designing, building, running or administering \<DocuView\>, that they report to no one responsible for it, and declaring any other interest. The authorising official accepts each statement before the assessment starts.
+**Independence.** A member of the team counts as independent once they have completed TPL-19, confirming that they have had no part in designing, building, running or administering \<System Name\>, that they report to no one responsible for it, and declaring any other interest. The authorising official accepts each statement before the assessment starts.
 
 **Method.** Each control is assessed with the procedures of NIST SP 800-53A Rev 5: every determination statement is given a finding of satisfied or other than satisfied, with the basis for it. The methods are examine, interview and test.
 
-**Plan.** Each family's chapter of \<Control Assessment Record\> has a plan: scope, procedures, assessor, dates, site, what is examined, tested and whom is interviewed, with depth and coverage, the boundary, and what is needed from ABC Technologies. The authorising official approves it before the assessment.
+**Plan.** Each family's chapter of \<Control Assessment Record\> has a plan: scope, procedures, assessor, dates, site, what is examined, tested and whom is interviewed, with depth and coverage, the boundary, and what is needed from \<Organisation\>. The authorising official approves it before the assessment.
 
 **Report and results.** The findings are brought together in \<Security Assessment Report\>, which goes to the system owner, the authorising official and the Head of Cyber.
 
@@ -188,9 +188,9 @@ The steps are in \<Procedures\>, PRO-CA-3.
 
 | Role | Who | Decides |
 | --- | --- | --- |
-| Authorising official for \<DocuView\> | Bob Jones | Whether \<DocuView\> may operate; which remaining risks are accepted; whether a significant change needs a new assessment or authorisation |
-| Authorising official for ABC Technologies' common controls | \[ABC common control official\] | That the controls \<DocuView\> inherits are authorised for use |
-| System owner | Neil Ramsbottom | Puts the package to the authorising official, and keeps it current |
+| Authorising official for \<System Name\> | \[Name\] | Whether \<System Name\> may operate; which remaining risks are accepted; whether a significant change needs a new assessment or authorisation |
+| Authorising official for \<Organisation\>'s common controls | \[Organisation common control official\] | That the controls \<System Name\> inherits are authorised for use |
+| System owner | \[Name\] | Puts the package to the authorising official, and keeps it current |
 
 **Table 9: Authorisation package**
 
@@ -206,15 +206,15 @@ The steps are in \<Procedures\>, PRO-CA-3.
 | Assessor independence | TPL-19 |
 | Decision | TPL-18, with terms, conditions, accepted risks, inherited controls accepted and an end date no more than 12 months away |
 
-**Privacy review.** The system owner adopted this step on 13 November 2026 (D-CA-13); the legal adviser confirms its wording at the next review of the policy. \<DocuView\> holds HR records, so before the decision the legal adviser reviews the privacy plan and the impact assessment, and their view goes to the authorising official with the package.
+**Privacy review.** The system owner adopted this step on 13 November 2026 (D-CA-13); the legal adviser confirms its wording at the next review of the policy. \<System Name\> holds HR records, so before the decision the legal adviser reviews the privacy plan and the impact assessment, and their view goes to the authorising official with the package.
 
 **The decision.** The authorising official records the decision on TPL-18. It is one of three types: a first authorisation, a re-authorisation, or the withdrawal of an authorisation. The record gives the package received, with versions; the decision, to authorise or not; the terms and conditions, such as items to fix by a date or limits on use; each remaining risk accepted, by its Risk List entry; the inherited controls accepted; and an end date no more than 12 months away. It is copied to the system owner and the Head of Cyber. The authorisation is reviewed every 12 months and after a significant change.
 
-**Current state.** \<DocuView\> is not authorised and holds no production documents. \<Security Assessment Report\>, section 7, lists the conditions to meet first.
+**Current state.** \<System Name\> is not authorised and holds no production documents. \<Security Assessment Report\>, section 7, lists the conditions to meet first.
 
 ### 4.6 Inherited controls
 
-These 65 entries are provided wholly by ABC Technologies, and the system owner relies on them (\<System Security Plan\>, section 8). The authorising official accepts them on TPL-18 before \<DocuView\> operates, once ABC Technologies' evidence has been received (\<Evidence Requests\>). The system owner reviews the list every 12 months with ABC Technologies' security contact (PRO-CA-7).
+These 65 entries are provided wholly by \<Organisation\>, and the system owner relies on them (\<System Security Plan\>, section 8). The authorising official accepts them on TPL-18 before \<System Name\> operates, once \<Organisation\>'s evidence has been received (\<Evidence Requests\>). The system owner reviews the list every 12 months with \<Organisation\>'s security contact (PRO-CA-7).
 
 **Table 10: Inherited controls**
 
@@ -235,28 +235,28 @@ These 65 entries are provided wholly by ABC Technologies, and the system owner r
 | SR | 4 | SR-8, SR-11(1), SR-11(2), SR-12 |
 | **Total** | **65** |  |
 
-The authorising official accepted an earlier list of 66 as a list (D-CA-08). Since then five entries became shared between \<DocuView\> and ABC Technologies, and four were added when sign-in moved to AD FS (D-AC-23). The system owner puts the list of 65 to the authorising official for acceptance as a list now, with the other proposed ratings, and for acceptance for operation with the authorisation package, once ABC Technologies' evidence is in (D-CA-12, PA-107).
+The authorising official accepted an earlier list of 66 as a list (D-CA-08). Since then five entries became shared between \<System Name\> and \<Organisation\>, and four were added when sign-in moved to AD FS (D-AC-23). The system owner puts the list of 65 to the authorising official for acceptance as a list now, with the other proposed ratings, and for acceptance for operation with the authorisation package, once \<Organisation\>'s evidence is in (D-CA-12, PA-107).
 
 ### 4.7 Information exchanges and internal connections
 
-This is the single record of \<DocuView\>'s connections. Each has an agreement type chosen under NIST SP 800-47 Rev 1. None is in use yet. The system owner approves each before it is built, reviews each every 12 months with the owner of the other system, and records the date a connection ends (PRO-CA-2).
+This is the single record of \<System Name\>'s connections. Each has an agreement type chosen under NIST SP 800-47 Rev 1. None is in use yet. The system owner approves each before it is built, reviews each every 12 months with the owner of the other system, and records the date a connection ends (PRO-CA-2).
 
 **Table 11: Interface record**
 
 | Connection | Type | Information | Security and privacy needs | Responsibilities | Impact | Agreement | Agreed, review and end | State |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| DV\_Web and DV\_Admin\_UI to DV\_API | Internal (CA-9) | Every request the two user-facing apps make, including document content and audit events | HTTPS on the application server's own loopback address; the API accepts requests only from the two apps | Developers; Windows server administrator | Moderate | None needed: inside the boundary | Reviewed every 12 months; ends when a component is retired | Planned (PA-18) |
+| UI application and Admin application to API | Internal (CA-9) | Every request the two user-facing apps make, including document content and audit events | HTTPS on the application server's own loopback address; the API accepts requests only from the two apps | Developers; Windows server administrator | Moderate | None needed: inside the boundary | Reviewed every 12 months; ends when a component is retired | Planned (PA-18) |
 | Application VM to database VM | Internal (CA-9) | Documents, accounts and audit records, including personal data in HR documents | TLS; allowed only between these VMs | Windows server and database administrators | Moderate | None needed: inside the boundary | Reviewed every 12 months; ends when a VM is rebuilt | Planned (PA-18) |
-| ABC Technologies' AD FS and Active Directory | External (CA-3) | Sign-in tokens, carrying each user's identity and AD groups; the certificate that checks them | Tokens are signed and sent over TLS; \<DocuView\> trusts only ABC Technologies' AD FS | ABC Technologies, for authentication and the directory; system owner, for which groups \<DocuView\> uses | Moderate | ABC Technologies' hosting and services agreement | \[agreement name and date, asked for with EV-CA-02\]; reviewed every 12 months; ends if sign-in moves to another service | Stated by the system owner (D-AC-23); not evidenced (EV-IA-04, PA-95) |
-| Jira Service Desk | External (CA-3) | Access and change requests and approvals; names of requesters | TLS; approved accounts only | System owner; ABC Technologies' IT service desk | Moderate | Information exchange agreement with ABC Technologies' IT service desk | \[date agreed\]; reviewed every 12 months; ends if the workflow moves | Planned (PA-63) |
-| Starters/Leavers system | External (CA-3) | Prompts to add or remove access; staff names and leaving dates | TLS; approved accounts only | System owner; ABC Technologies | Moderate | Information exchange agreement with ABC Technologies | \[date agreed\]; reviewed every 12 months; ends if the process changes | Planned (PA-63) |
-| ABC Technologies' central logging | External (CA-3) | Windows and application security logs | Protected in transit; access limited to ABC Technologies' security team | ABC Technologies; Windows server administrator | Moderate | ABC Technologies' hosting and services agreement | \[agreement name and date\]; reviewed every 12 months | Stated, not evidenced (EV-AU-01) |
-| ABC Technologies' time service | External (CA-3) | Time | Authenticated NTP where available | ABC Technologies | Low | ABC Technologies' hosting and services agreement | As above | Stated, not evidenced (EV-AU-02) |
-| ABC Technologies' backup site | External (CA-3) | Encrypted database backups | Encrypted before leaving the database VM | Database administrator; ABC Technologies | Moderate | ABC Technologies' hosting and services agreement | As above | Planned (PA-64, PA-66) |
+| \<Organisation\>'s AD FS and Active Directory | External (CA-3) | Sign-in tokens, carrying each user's identity and AD groups; the certificate that checks them | Tokens are signed and sent over TLS; \<System Name\> trusts only \<Organisation\>'s AD FS | \<Organisation\>, for authentication and the directory; system owner, for which groups \<System Name\> uses | Moderate | \<Organisation\>'s hosting and services agreement | \[agreement name and date, asked for with EV-CA-02\]; reviewed every 12 months; ends if sign-in moves to another service | Stated by the system owner (D-AC-23); not evidenced (EV-IA-04, PA-95) |
+| ServiceNow | External (CA-3) | Access and change requests and approvals; names of requesters | TLS; approved accounts only | System owner; \<Organisation\>'s IT service desk | Moderate | Information exchange agreement with \<Organisation\>'s IT service desk | \[date agreed\]; reviewed every 12 months; ends if the workflow moves | Planned (PA-63) |
+| Starters/Leavers system | External (CA-3) | Prompts to add or remove access; staff names and leaving dates | TLS; approved accounts only | System owner; \<Organisation\> | Moderate | Information exchange agreement with \<Organisation\> | \[date agreed\]; reviewed every 12 months; ends if the process changes | Planned (PA-63) |
+| \<Organisation\>'s central logging | External (CA-3) | Windows and application security logs | Protected in transit; access limited to \<Organisation\>'s security team | \<Organisation\>; Windows server administrator | Moderate | \<Organisation\>'s hosting and services agreement | \[agreement name and date\]; reviewed every 12 months | Stated, not evidenced (EV-AU-01) |
+| \<Organisation\>'s time service | External (CA-3) | Time | Authenticated NTP where available | \<Organisation\> | Low | \<Organisation\>'s hosting and services agreement | As above | Stated, not evidenced (EV-AU-02) |
+| \<Organisation\>'s backup site | External (CA-3) | Encrypted database backups | Encrypted before leaving the database VM | Database administrator; \<Organisation\> | Moderate | \<Organisation\>'s hosting and services agreement | As above | Planned (PA-64, PA-66) |
 
 Every connection uses TLS. A connection ends when it is no longer needed, or when a server is rebuilt. A new or changed external exchange is a significant change (section 4.9), so the authorising official weighs its risk before it is built.
 
-Users' and administrators' devices are outside the boundary. They connect by browser, as a class and not one by one: ABC Technologies' managed devices, over HTTPS, in the office or on the VPN (\<Access Control Management\>, section 4.6). ABC Technologies' firewall allows only the flows \<DocuView\> has asked for (\<Access Control Management\>, section 4.6.4).
+Users' and administrators' devices are outside the boundary. They connect by browser, as a class and not one by one: \<Organisation\>'s managed devices, over HTTPS, in the office or on the VPN (\<Access Control Management\>, section 4.6). \<Organisation\>'s firewall allows only the flows \<System Name\> has asked for (\<Access Control Management\>, section 4.6.4).
 
 ### 4.8 Continuous monitoring
 
@@ -272,12 +272,12 @@ This strategy follows NIST SP 800-137. Monitoring starts at go-live. Nothing bel
 | --- | --- | --- | --- | --- | --- | --- |
 | POA&M items past their date | Compliance | None | Any | \<Plan of Action and Milestones\> | Monthly | System owner |
 | Security updates applied within the limits in \<Security Operating Procedures\>, Table 7 | Effectiveness | All | Any late critical or high update | TPL-7 | Monthly | Windows server administrator |
-| Failed sign-ins and lockouts | Effectiveness | Reviewed every week | More than 10 failures for one account in a day, or any for a disabled account | ABC Technologies' AD FS record, and \<DocuView\>'s audit log for refused tokens; TPL-8 | Weekly | Auditor |
+| Failed sign-ins and lockouts | Effectiveness | Reviewed every week | More than 10 failures for one account in a day, or any for a disabled account | \<Organisation\>'s AD FS record, and \<System Name\>'s audit log for refused tokens; TPL-8 | Weekly | Auditor |
 | Weekly audit reviews completed | Compliance | All | Any missed week | TPL-8 | Monthly | Security officer |
 | Audit logging failures | Effectiveness | None | Any | PRO-AU-3; TPL-8 | Monthly | Windows server administrator |
 | Backup jobs succeeded, and restore tested in the last 6 months | Effectiveness | All | Any failed job, or a restore test overdue | Backup logs; TPL-11 | Weekly | Database administrator |
 | Access and privileged access reviews on time | Compliance | All | Any overdue | TPL-3 | Quarterly | System owner |
-| Members of \<DocuView\>'s AD groups who have not signed in for 90 days | Compliance | None | Any | C9; TPL-3 | Monthly | System owner |
+| Members of \<System Name\>'s AD groups who have not signed in for 90 days | Compliance | None | Any | C9; TPL-3 | Monthly | System owner |
 | Significant changes made since the last report | Change | Each assessed before it was made | Any not assessed | TPL-6 | Monthly | System owner |
 | Requests from individuals about their data answered within one month | Privacy | All | Any late | TPL-15 | Monthly | Legal adviser |
 | Personal data incidents | Privacy | None | Any | TPL-10 | Monthly | Security officer |
@@ -306,13 +306,13 @@ The last two measures, on open incidents and on vulnerabilities past their fix t
 
 **Independent check.** Each year an independent assessor checks a sample of the monitoring.
 
-**What forces a re-assessment.** A significant change (section 4.9), a measure past its threshold for three months running, a serious incident, or a new High risk. The authorising official then decides whether \<DocuView\> must be re-authorised.
+**What forces a re-assessment.** A significant change (section 4.9), a measure past its threshold for three months running, a serious incident, or a new High risk. The authorising official then decides whether \<System Name\> must be re-authorised.
 
 **Review of this strategy.** Every 12 months with the policy, and after a re-authorisation.
 
 ### 4.9 Significant change
 
-A significant change is one likely to alter \<DocuView\>'s security or privacy risk. It must be assessed before it is made (PRO-CA-6), and the authorising official decides whether \<DocuView\> must be re-assessed or re-authorised. These always count as significant:
+A significant change is one likely to alter \<System Name\>'s security or privacy risk. It must be assessed before it is made (PRO-CA-6), and the authorising official decides whether \<System Name\> must be re-assessed or re-authorised. These always count as significant:
 
 1. A new or changed external connection, or a change to an agreement in section 4.7.
 2. A new hosting site, or a new major version of Windows Server, PostgreSQL or .NET.
@@ -324,14 +324,14 @@ A significant change is one likely to alter \<DocuView\>'s security or privacy r
 
 Routine patches within the time limits of \<Security Operating Procedures\>, and changes to content or users, are not significant.
 
-### 4.10 What ABC Technologies provides
+### 4.10 What \<Organisation\> provides
 
-**Table 14: Asked of ABC Technologies**
+**Table 14: Asked of \<Organisation\>**
 
-| Provided | Controls | What \<DocuView\> relies on | Evidence asked | State |
+| Provided | Controls | What \<System Name\> relies on | Evidence asked | State |
 | --- | --- | --- | --- | --- |
-| An authorising official for its common controls, and their authorisation | CA-6 | The 65 inherited controls are authorised and working | EV-CA-01 | Not sent. To go in the first batch of requests to ABC Technologies (D-CA-12) |
-| The agreements for the exchanges | CA-3 | A hosting and services agreement covering AD FS, central logging, the time service and the backup site; information exchange agreements for Jira and the Starters/Leavers system | EV-CA-02 | Not sent. To go in the first batch |
+| An authorising official for its common controls, and their authorisation | CA-6 | The 65 inherited controls are authorised and working | EV-CA-01 | Not sent. To go in the first batch of requests to \<Organisation\> (D-CA-12) |
+| The agreements for the exchanges | CA-3 | A hosting and services agreement covering AD FS, central logging, the time service and the backup site; information exchange agreements for ServiceNow and the Starters/Leavers system | EV-CA-02 | Not sent. To go in the first batch |
 | Evidence for each inherited control | CA-6, and each control's own family | Each control's evidence request in \<Evidence Requests\> | By family | None sent |
 
 | **SECTION 5** |
@@ -347,9 +347,9 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
-| a.1 | An assessment, authorisation and monitoring policy, shared with defined people, covering purpose, scope, roles, responsibilities, management commitment, coordination and compliance, and consistent with the law | \<Policy\> (CA): a system-level policy. Purpose and scope are in section CA.1, responsibilities in CA.5, and commitment, coordination and compliance in CA.6. It is shared with everyone who administers \<DocuView\>. The legal adviser reviews it | Version \<ver\> approved by the Head of Cyber (D-CA-09). Legally reviewed on 12 November 2026. Not yet shared (PA-20) |
+| a.1 | An assessment, authorisation and monitoring policy, shared with defined people, covering purpose, scope, roles, responsibilities, management commitment, coordination and compliance, and consistent with the law | \<Policy\> (CA): a system-level policy. Purpose and scope are in section CA.1, responsibilities in CA.5, and commitment, coordination and compliance in CA.6. It is shared with everyone who administers \<System Name\>. The legal adviser reviews it | Version \<ver\> approved by the Head of Cyber (D-CA-09). Legally reviewed on 12 November 2026. Not yet shared (PA-20) |
 | a.2 | Procedures that carry out the policy, shared with defined people | \<Procedures\> (CA): seven procedures, PRO-CA-1 to PRO-CA-7, each naming who acts, how often and the record. Shared with the same people | Approved by the system owner (D-CA-10). Not yet shared or walked through |
-| b | A named official manages the policy and procedures | The system owner | Neil Ramsbottom is named in \<Roles and Responsibilities\> |
+| b | A named official manages the policy and procedures | The system owner | \[Name\] is named in \<Roles and Responsibilities\> |
 | c.1 | The policy is reviewed on a schedule and after set events | Every 12 months, and after a significant incident, audit finding or system change | Reviewed on 8 November 2026. The first yearly review falls due in November 2027 |
 | c.2 | The procedures are reviewed on a schedule and after set events | Every 12 months, and after a change to the steps | As the policy |
 
@@ -373,8 +373,8 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
-| a | Choose an assessor or team suited to the assessment | Two levels (section 4.3). Level 1 is the system owner's self-assessment. Level 2 is by an independent team led by Josh Leak | Level 1 was carried out by Claude, an AI assistant, for the system owner. Josh Leak's team is chosen for Level 2 (D-CA-05) |
-| b | Write an assessment plan: the controls in scope, the procedures, and the environment, team and roles | Each family has a plan in \<Control Assessment Record\>, giving the scope, NIST SP 800-53A procedures, site, assessor, methods, depth and coverage, and what is needed from ABC Technologies | All 19 plans are written |
+| a | Choose an assessor or team suited to the assessment | Two levels (section 4.3). Level 1 is the system owner's self-assessment. Level 2 is by an independent team led by \[Name\] | Level 1 was carried out by Claude, an AI assistant, for the system owner. \[Name\]'s team is chosen for Level 2 (D-CA-05) |
+| b | Write an assessment plan: the controls in scope, the procedures, and the environment, team and roles | Each family has a plan in \<Control Assessment Record\>, giving the scope, NIST SP 800-53A procedures, site, assessor, methods, depth and coverage, and what is needed from \<Organisation\> | All 19 plans are written |
 | c | The authorising official approves the plan before the assessment | The authorising official approves each plan (PRO-CA-1, step 1) | All 19 plans approved (D-GEN-18) |
 | d | Assess the controls on a schedule, to see whether they are in place, work as intended and give the result wanted | Every 12 months, and after a significant change. Every determination statement in NIST SP 800-53A is given a finding | Level 1 done for all 19 families, between 5 and 12 November 2026. Level 2 has not been held (PA-106) |
 | e | Write a report of the results | \<Security Assessment Report\>, the Security Assessment Report, which brings together the 19 family chapters of \<Control Assessment Record\> | Issued for Level 1. The Level 2 report will replace it |
@@ -400,7 +400,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
-| All | Use assessors who are independent | Josh Leak's team carries out Level 2. A member counts as independent if they have had no part in designing, building, running or administering \<DocuView\>, and each confirms it on TPL-19 before starting (policy rule R2) | The team is chosen (D-CA-05). No member has completed TPL-19, and Level 2 has not been held (PA-106) |
+| All | Use assessors who are independent | \[Name\]'s team carries out Level 2. A member counts as independent if they have had no part in designing, building, running or administering \<System Name\>, and each confirms it on TPL-19 before starting (policy rule R2) | The team is chosen (D-CA-05). No member has completed TPL-19, and Level 2 has not been held (PA-106) |
 
 **Table 20: CA-2(1) responsibility and evidence**
 
@@ -422,7 +422,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
-| a | Approve and manage each exchange with another system, using a defined kind of agreement | Every exchange is recorded in the interface record (section 4.7) with its agreement type, chosen under NIST SP 800-47 Rev 1, and the system owner approves it before it is used (PRO-CA-2). Exchanges with ABC Technologies' own services rest on its hosting and services agreement; the Jira and Starters/Leavers exchanges each have an information exchange agreement | Six external exchanges are recorded. None is approved or in use, and no agreement is signed (PA-63). The agreements have not been asked for (EV-CA-02) |
+| a | Approve and manage each exchange with another system, using a defined kind of agreement | Every exchange is recorded in the interface record (section 4.7) with its agreement type, chosen under NIST SP 800-47 Rev 1, and the system owner approves it before it is used (PRO-CA-2). Exchanges with \<Organisation\>'s own services rest on its hosting and services agreement; the ServiceNow and Starters/Leavers exchanges each have an information exchange agreement | Six external exchanges are recorded. None is approved or in use, and no agreement is signed (PA-63). The agreements have not been asked for (EV-CA-02) |
 | b | Record, in each agreement, the interface, the security and privacy needs, the controls, the responsibilities and the impact level | The interface record holds all of these for each exchange, and each agreement repeats them | Recorded for all six. No agreement yet holds them |
 | c | Review and update the agreements on a schedule | Every 12 months, by the system owner with the owner of the other system. An exchange no longer needed is ended | Not yet due: nothing is signed |
 
@@ -430,9 +430,9 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 | | |
 | --- | --- |
-| Provided by | Shared: \<DocuView\> and ABC Technologies |
-| Responsible | System owner, ABC Technologies |
-| Enforced by | The system owner's approval before a connection is built; ABC Technologies' firewall, which allows only the flows \<DocuView\> has asked for (\<Access Control Management\>, section 4.6.4) |
+| Provided by | Shared: \<System Name\> and \<Organisation\> |
+| Responsible | System owner, \<Organisation\> |
+| Enforced by | The system owner's approval before a connection is built; \<Organisation\>'s firewall, which allows only the flows \<System Name\> has asked for (\<Access Control Management\>, section 4.6.4) |
 | Rules and procedures | Policy principle P4; rule R3 (\<Policy\>, sections CA.3 and CA.4); PRO-CA-2 (\<Procedures\> (CA)) |
 | Tests | None: this control is examined from documents and records. There is no system mechanism to test |
 | Records an assessor will ask for | The interface record; each signed agreement, with its date and review date; the yearly review records. Only the interface record exists |
@@ -469,11 +469,11 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
-| a | Name a senior official as the authorising official for the system | The authorising official, Bob Jones | Assigned (D-GEN-02) |
-| b | Name a senior official as the authorising official for the common controls the system inherits | ABC Technologies' official for its common controls, \[ABC common control official\] | Not named: asked of ABC Technologies (EV-CA-01), not yet sent |
-| c.1 | Before operation, the system's authorising official accepts the use of the inherited common controls | The authorising official accepts the 65 inherited controls in section 4.6 on TPL-18, once ABC Technologies' evidence is in (PRO-CA-7) | An earlier list of 66 was accepted as a list (D-CA-08). The list has since changed, and no control is accepted for operation (PA-107) |
-| c.2 | Before operation, the authorising official authorises the system | \<DocuView\> holds no production documents until the authorising official has authorised it, from the package in section 4.5, accepting the remaining risk by name on TPL-18, with terms, conditions and an end date no more than 12 months away (PRO-CA-4) | Not authorised. \<Security Assessment Report\>, section 7, lists the conditions to meet first |
-| d | The common controls' authorising official authorises them for use | ABC Technologies' official authorises its common controls, and \<DocuView\> holds the record | Not evidenced (EV-CA-01) |
+| a | Name a senior official as the authorising official for the system | The authorising official, \[Name\] | Assigned (D-GEN-02) |
+| b | Name a senior official as the authorising official for the common controls the system inherits | \<Organisation\>'s official for its common controls, \[Organisation common control official\] | Not named: asked of \<Organisation\> (EV-CA-01), not yet sent |
+| c.1 | Before operation, the system's authorising official accepts the use of the inherited common controls | The authorising official accepts the 65 inherited controls in section 4.6 on TPL-18, once \<Organisation\>'s evidence is in (PRO-CA-7) | An earlier list of 66 was accepted as a list (D-CA-08). The list has since changed, and no control is accepted for operation (PA-107) |
+| c.2 | Before operation, the authorising official authorises the system | \<System Name\> holds no production documents until the authorising official has authorised it, from the package in section 4.5, accepting the remaining risk by name on TPL-18, with terms, conditions and an end date no more than 12 months away (PRO-CA-4) | Not authorised. \<Security Assessment Report\>, section 7, lists the conditions to meet first |
+| d | The common controls' authorising official authorises them for use | \<Organisation\>'s official authorises its common controls, and \<System Name\> holds the record | Not evidenced (EV-CA-01) |
 | e | Update the authorisations on a schedule | Every 12 months, and after a significant change (section 4.9) | Not yet due: nothing is authorised |
 
 **Table 26: CA-6 responsibility and evidence**
@@ -485,10 +485,10 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | Enforced by | Policy: no production documents before authorisation. The decision is recorded on TPL-18 |
 | Rules and procedures | Policy principle P2; rules R5, R7 to R9 (\<Policy\>, sections CA.3 and CA.4); PRO-CA-4, PRO-CA-6, PRO-CA-7 (\<Procedures\> (CA)) |
 | Tests | None: this control is examined from documents and records. There is no system mechanism to test |
-| Records an assessor will ask for | The authorisation package; the signed TPL-18 decision, with its terms and end date; ABC Technologies' authorisation of its common controls; each yearly update. The package is defined, and most of it exists; no decision exists |
+| Records an assessor will ask for | The authorisation package; the signed TPL-18 decision, with its terms and end date; \<Organisation\>'s authorisation of its common controls; each yearly update. The package is defined, and most of it exists; no decision exists |
 | Status | Partially implemented |
 | Risk decision | NC-CA-06, rated Medium: decide before production |
-| Open items | PA-107: obtain ABC Technologies' evidence and its official's name (EV-CA-01), have the inherited controls accepted again, and put the package to the authorising official |
+| Open items | PA-107: obtain \<Organisation\>'s evidence and its official's name (EV-CA-01), have the inherited controls accepted again, and put the package to the authorising official |
 
 ### 5.7 CA-7 Continuous Monitoring
 
@@ -498,7 +498,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | --- | --- | --- | --- |
 | a | Set the measures to be monitored | The 14 measures in section 4.8, each with a target, a threshold for action, a source, a frequency and an owner | Twelve set and approved on 6 and 8 November 2026 (D-CA-03, D-CA-10); two added on 13 November 2026 (D-CA-13) |
 | b | Set how often to monitor, and how often to assess controls | Measures monthly, with each duty in the \<Security Operating Procedures\> operating calendar at its own frequency. Control assessment every 12 months | Set |
-| c | Keep assessing controls, as the strategy says | Each control is checked at the frequency of its duty in the operating calendar; those with no duty are checked at the yearly assessment | Not started: \<DocuView\> is not in use (PA-108) |
+| c | Keep assessing controls, as the strategy says | Each control is checked at the frequency of its duty in the operating calendar; those with no duty are checked at the yearly assessment | Not started: \<System Name\> is not in use (PA-108) |
 | d | Keep monitoring the measures | The security officer collects the measures each month on TPL-8 | Not started |
 | e | Bring together and analyse what the assessments and monitoring produce | Each month the security officer reads the measures together with the audit review findings, the vulnerability results and the incident records, and looks for a trend across three months | Not started |
 | f | Act on the results | A measure past its threshold is acted on in the month and the action recorded on TPL-8. One not put right in the month becomes a POA&M item. Three months past a threshold, a serious incident or a new High risk forces a re-assessment | Not started |
@@ -579,7 +579,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 | | |
 | --- | --- |
-| Provided by | Shared: \<DocuView\> and ABC Technologies |
+| Provided by | Shared: \<System Name\> and \<Organisation\> |
 | Responsible | Windows server and database administrators |
 | Enforced by | The API listens only on the loopback address and accepts only the two apps; the database accepts only the application server (\<Access Control Management\>, section 4.6) |
 | Rules and procedures | Policy principle P4; rule R3 (\<Policy\>, sections CA.3 and CA.4); PRO-CA-2 (\<Procedures\> (CA)) |
@@ -600,8 +600,8 @@ These are NIST's organisation-defined values for the 10 CA entries: 25 in total.
 
 | NIST identifier | What must be defined | Value | State now |
 | --- | --- | --- | --- |
-| CA-01\_ODP\[01\] | Who receives the policy | Everyone who administers \<DocuView\> | Not yet: shared when issued (PA-20) |
-| CA-01\_ODP\[02\] | Who receives the procedures | Everyone who administers \<DocuView\> | Not yet: shared when issued (PA-20) |
+| CA-01\_ODP\[01\] | Who receives the policy | Everyone who administers \<System Name\> | Not yet: shared when issued (PA-20) |
+| CA-01\_ODP\[02\] | Who receives the procedures | Everyone who administers \<System Name\> | Not yet: shared when issued (PA-20) |
 | CA-01\_ODP\[03\] | Level of the policy | System level | Met |
 | CA-01\_ODP\[04\] | Official who manages them | System owner | Met |
 | CA-01\_ODP\[05\] | Policy review frequency | Every 12 months | Met: set |
@@ -635,10 +635,10 @@ NIST does not select these at Moderate, so they are not assessed.
 
 **Table 36: CA controls not selected at Moderate**
 
-| Control | What it adds | \<DocuView\>'s position |
+| Control | What it adds | \<System Name\>'s position |
 | --- | --- | --- |
 | CA-2(2) Specialized Assessments | In-depth monitoring, scanning and testing as part of assessment | Not required. Vulnerability scanning is done under RA-5 |
-| CA-2(3) Leveraging Results from External Organizations | Accepting another organisation's assessment | Not required. ABC Technologies' evidence is examined, not accepted unseen |
+| CA-2(3) Leveraging Results from External Organizations | Accepting another organisation's assessment | Not required. \<Organisation\>'s evidence is examined, not accepted unseen |
 | CA-3(6), CA-3(7) Transfer Authorizations; Transitive Information Exchanges | Checks on what the other system may do with the information | Not required, and not done |
 | CA-7(3) Trend Analyses | Using trends to adjust monitoring | Not required. Done in part: the monthly analysis looks across three months |
 | CA-7(5), CA-7(6) Consistency Analysis; Automation Support | Further assurance and automation of monitoring | Not required, and not done |

@@ -1,4 +1,4 @@
-# \<DocuView\> Documentation Map
+# \<System Name\> Documentation Map
 
 **\<ref\> | Version \<ver\> | Issued by the system owner**
 
@@ -28,7 +28,7 @@
 | Item | Detail |
 | --- | --- |
 | Reference | \<ref\> |
-| Title | \<DocuView\> Documentation Map |
+| Title | \<System Name\> Documentation Map |
 | Version | \<ver\> |
 | Status | Version \<ver\> issued by the system owner on 12 November 2026, after the combined form of the set was confirmed. Version \<ver\> was issued earlier that day, and version \<ver\> was agreed on 8 November 2026 |
 | Date | 5 November 2026 |
@@ -44,7 +44,7 @@
 
 | Role | Name | Decision | Date |
 | --- | --- | --- | --- |
-| System owner | Neil Ramsbottom | Approved | 7 November 2026 |
+| System owner | \[Name\] | Approved | 7 November 2026 |
 
 ### 1.3 Change history
 
@@ -164,10 +164,10 @@
 
 ## 2 Scope and assumptions
 
-This set covers the 19 control families of NIST SP 800-53 Rev 5 that apply to \<DocuView\>: Access Control (AC), Awareness and Training (AT), Audit and Accountability (AU), Assessment, Authorization, and Monitoring (CA), Configuration Management (CM), Contingency Planning (CP), Identification and Authentication (IA), Incident Response (IR), Maintenance (MA), Media Protection (MP), Physical and Environmental Protection (PE), Planning (PL), Personnel Security (PS), Personally Identifiable Information Processing and Transparency (PT), Risk Assessment (RA), System and Services Acquisition (SA), System and Communications Protection (SC), System and Information Integrity (SI) and Supply Chain Risk Management (SR). The Moderate baseline applies, with NIST's privacy baseline for personal data, which makes 316 controls. Program Management (PM) is the twentieth family. It is outside the baseline for a single system, and \<DocuView\> inherits it from ABC Technologies (\<Tailoring Register\>, section 5). Wherever this set lists the families, it uses NIST order.
+This set covers the 19 control families of NIST SP 800-53 Rev 5 that apply to \<System Name\>: Access Control (AC), Awareness and Training (AT), Audit and Accountability (AU), Assessment, Authorization, and Monitoring (CA), Configuration Management (CM), Contingency Planning (CP), Identification and Authentication (IA), Incident Response (IR), Maintenance (MA), Media Protection (MP), Physical and Environmental Protection (PE), Planning (PL), Personnel Security (PS), Personally Identifiable Information Processing and Transparency (PT), Risk Assessment (RA), System and Services Acquisition (SA), System and Communications Protection (SC), System and Information Integrity (SI) and Supply Chain Risk Management (SR). The Moderate baseline applies, with NIST's privacy baseline for personal data, which makes 316 controls. Program Management (PM) is the twentieth family. It is outside the baseline for a single system, and \<System Name\> inherits it from \<Organisation\> (\<Tailoring Register\>, section 5). Wherever this set lists the families, it uses NIST order.
 
-- **System:** the \<DocuView\> application built from the DV\_API, DV\_Web, DV\_Admin\_UI, DV\_Shared and DV\_Workspace repositories. It is a separate product from the template-built \<DocuView\>; that product's documents were used only as a guide to document types and content.
-- **Version described:** \<DocuView\> v1.0, run in Docker for development and test only. The production system, two Windows Server 2025 VMs at ABC Technologies, is not yet built.
+- **System:** the \<System Name\> application built from the API, UI application, Admin application, shared library and workspace repository repositories. It is a separate product from the template-built \<System Name\>; that product's documents were used only as a guide to document types and content.
+- **Version described:** \<System Name\> v1.0, run in Docker for development and test only. The production system, two Windows Server 2025 VMs at \<Organisation\>, is not yet built.
 - **Baseline:** Moderate, confirmed by the authorising official.
 - **Evidence basis:** code read and tests run on one PC against a throwaway database, and the system owner's written answers. This is a Level 1 self-assessment. It is not independent, and nothing here is a claim of compliance.
 - **Master copy:** the documents are kept as Markdown. Section 5.1 says how they are controlled.
@@ -185,11 +185,11 @@ The set has 44 documents. \<Guide to the Document Set\> is the place to start. E
 
 | Reference | Document | Group | Purpose | Version | Status |
 | --- | --- | --- | --- | --- | --- |
-| \<ref\> | \<System Security Plan\> | Plans and descriptions | How \<DocuView\> implements each of the 316 controls, or does not yet, with the system description, architecture figures, inheritance and responsibilities | \<ver\> | The corrections made since version \<ver\> await the system owner's approval; version \<ver\> approved by the system owner |
-| \<ref\> | \<Privacy Plan\> | Plans and descriptions | How personal data in \<DocuView\> is governed: the privacy plan that PL-2 calls for | \<ver\> | References updated; version \<ver\> legally reviewed; version \<ver\> approved by the legal adviser and authorising official |
+| \<ref\> | \<System Security Plan\> | Plans and descriptions | How \<System Name\> implements each of the 316 controls, or does not yet, with the system description, architecture figures, inheritance and responsibilities | \<ver\> | The corrections made since version \<ver\> await the system owner's approval; version \<ver\> approved by the system owner |
+| \<ref\> | \<Privacy Plan\> | Plans and descriptions | How personal data in \<System Name\> is governed: the privacy plan that PL-2 calls for | \<ver\> | References updated; version \<ver\> legally reviewed; version \<ver\> approved by the legal adviser and authorising official |
 | \<ref\> | \<System Description\> | Plans and descriptions | One description of the whole system for a person or an AI without the source code: its purpose, users, high-level requirements, architecture, technologies and design, its security family by family, and how the design differs from what is built | \<ver\> | Draft for the system owner's approval |
-| \<ref\> | \<Security Architecture\> | Plans and descriptions | System boundary, components, data flows and what is inherited from ABC Technologies | \<ver\> | Approved by the system owner |
-| \<ref\> | \<Concept of Operations\> | Plans and descriptions | Why \<DocuView\> exists, who uses it, the business workflows it supports and its operational scenarios | \<ver\> | Approved by the system owner |
+| \<ref\> | \<Security Architecture\> | Plans and descriptions | System boundary, components, data flows and what is inherited from \<Organisation\> | \<ver\> | Approved by the system owner |
+| \<ref\> | \<Concept of Operations\> | Plans and descriptions | Why \<System Name\> exists, who uses it, the business workflows it supports and its operational scenarios | \<ver\> | Approved by the system owner |
 | \<ref\> | \<Roles and Responsibilities\> | Plans and descriptions | Who holds each role, so that other documents name roles and not people | \<ver\> | Approved by the system owner |
 | \<ref\> | \<Configuration Management\> | Plans and descriptions | The configuration management design, and the plan CM-9 requires: the configuration items, the baseline, the components, the secure settings, change control, least functionality and the inventory, each of the 24 CM controls, and the parameter values | \<ver\> | Draft for the system owner's approval |
 | \<ref\> | \<Contingency Planning Management\> | Plans and descriptions | The contingency design, and the contingency plan CP-2 requires: the business impact analysis, the roles, activation, recovery and reconstitution, backups, the second site, and testing and training, each of the 23 CP controls, and the parameter values | \<ver\> | Draft for the approval of the system owner and the authorising official |
@@ -199,9 +199,9 @@ The set has 44 documents. \<Guide to the Document Set\> is the place to start. E
 | \<ref\> | \<Risk Assessment Management\> | Plans and descriptions | The risk assessment design: the security categorisation, the risk assessment and its method, the supply chain review, what is monitored for vulnerabilities, the vulnerability timetable, how findings are analysed, shared and answered, the critical components, each of the 10 RA controls, and the parameter values | \<ver\> | Draft for the system owner's approval |
 | \<ref\> | \<PII Processing Management\> | Plans and descriptions | The personal data design: the authority, purposes and lawful basis, the personal data inventory, special category data, the privacy notice, people's rights, minimisation and the retention schedule, each of the 22 privacy baseline controls, and the parameter values | \<ver\> | Draft for the system owner's approval |
 | \<ref\> | \<Personnel Security Management\> | Plans and descriptions | The personnel security design: the risk designation of every role, the screening standard, the access agreements, joiners, movers and leavers, the time limits, the personnel security register, each of the 9 PS controls, and the parameter values | \<ver\> | Draft for the system owner's approval |
-| \<ref\> | \<Program Management\> | Plans and descriptions | How \<DocuView\> relies on ABC Technologies' security and privacy programme: who provides each of the 36 Program Management controls, what \<DocuView\> adds, and the evidence asked for | \<ver\> | Draft for the system owner's approval |
+| \<ref\> | \<Program Management\> | Plans and descriptions | How \<System Name\> relies on \<Organisation\>'s security and privacy programme: who provides each of the 36 Program Management controls, what \<System Name\> adds, and the evidence asked for | \<ver\> | Draft for the system owner's approval |
 | \<ref\> | \<Planning Management\> | Plans and descriptions | The planning design: the register of plans in force, what the plans hold, how they are approved, shared, reviewed and protected, the rules of behaviour and the register of signatures, each of the 7 PL controls, and the parameter values | \<ver\> | Draft for the system owner's approval |
-| \<ref\> | \<Physical and Environmental Protection Management\> | Plans and descriptions | The physical and environmental protection design: the sites, the inheritance matrix, how ABC Technologies' evidence is checked, the rules for offices and home working, each of the 18 PE controls, and the parameter values | \<ver\> | Draft for the system owner's approval |
+| \<ref\> | \<Physical and Environmental Protection Management\> | Plans and descriptions | The physical and environmental protection design: the sites, the inheritance matrix, how \<Organisation\>'s evidence is checked, the rules for offices and home working, each of the 18 PE controls, and the parameter values | \<ver\> | Draft for the system owner's approval |
 | \<ref\> | \<Media Protection Management\> | Plans and descriptions | The media protection design: the media inventory, the marking scheme, storage and export copies, transport, the sanitising methods and portable storage, each of the 7 MP controls, and the parameter values | \<ver\> | Draft for the system owner's approval |
 | \<ref\> | \<Maintenance Management\> | Plans and descriptions | The maintenance design: who maintains what, how a job is controlled, the remote maintenance routes, the approved tools and people, what may leave, the security-critical components, each of the 9 MA controls, and the parameter values | \<ver\> | Draft for the system owner's approval |
 | \<ref\> | \<Incident Response Management\> | Plans and descriptions | The incident response design, and the plan IR-8 requires: roles, detection, severity and targets, the steps of handling, personal data breaches, playbooks, evidence and the register, each of the 13 IR controls, and the parameter values | \<ver\> | Draft for approval by the Head of Cyber |
@@ -214,7 +214,7 @@ The set has 44 documents. \<Guide to the Document Set\> is the place to start. E
 | \<ref\> | \<Identification and Authentication Management\> | Rules and how they are carried out | The identification and authentication design: who is identified and how, sign-in through AD FS, the assurance levels, the authenticator inventory and the settings against NIST SP 800-63B, each of the 24 IA controls, and the parameter values | \<ver\> | Draft for the system owner's approval |
 | \<ref\> | \<Audit and Accountability Management\> | Rules and how they are carried out | The audit design: the sources of audit records, the events logged, what a record holds, storage and protection, time, retention, review and alerts, each of the 16 Audit and Accountability controls, and the parameter values | \<ver\> | Draft for the system owner's approval |
 | \<ref\> | \<Awareness and Training Management\> | Rules and how they are carried out | The training design: who needs what, the briefing, the role curriculum, the training matrix and register, each of the 6 Awareness and Training controls, and the parameter values | \<ver\> | Draft for the system owner's approval |
-| \<ref\> | \<Access Control Management\> | Rules and how they are carried out | The access control design: how \<DocuView\> is designed and configured for each of the 39 Access Control controls and enhancements, the status of each, the parameter values and the control index | \<ver\> | Draft for the system owner's approval |
+| \<ref\> | \<Access Control Management\> | Rules and how they are carried out | The access control design: how \<System Name\> is designed and configured for each of the 39 Access Control controls and enhancements, the status of each, the parameter values and the control index | \<ver\> | Draft for the system owner's approval |
 | \<ref\> | \<Security Operating Procedures\> | Rules and how they are carried out | Rules of behaviour for everyone and for privileged users, and how security is operated day to day, with the record that proves each duty | \<ver\> | Approved by the system owner |
 | \<ref\> | \<Record Templates\> | Rules and how they are carried out | The forms that show controls operating, TPL-1 to TPL-24 | \<ver\> | Approved by the system owner, live document |
 | \<ref\> | \<Tailoring Register\> | Rules and how they are carried out | The case for each control treated as not applicable, and the decision that Program Management is outside the baseline | \<ver\> | Approved by the system owner, live document |
@@ -223,11 +223,11 @@ The set has 44 documents. \<Guide to the Document Set\> is the place to start. E
 | \<ref\> | \<Risk List\> | Assessment and authorisation | Each risk with its rating, treatment and acceptance, and a non-compliance entry for every control that is not satisfied | \<ver\> | Approved by the system owner; risk decisions recorded |
 | \<ref\> | \<Plan of Action and Milestones\> | Assessment and authorisation | Each weakness with its fix, owner, milestone and latest completion, and the road to authorisation | \<ver\> | Approved by the system owner |
 | \<ref\> | \<Decision Register\> | Assessment and authorisation | Every approval and decision, who made it, when, and the evidence of it | \<ver\> | Issued by the system owner, live document |
-| \<ref\> | \<Evidence Requests\> | Assessment and authorisation | The evidence needed from ABC Technologies, and who does what for each control | \<ver\> | Issued by the system owner, live document; not yet sent |
+| \<ref\> | \<Evidence Requests\> | Assessment and authorisation | The evidence needed from \<Organisation\>, and who does what for each control | \<ver\> | Issued by the system owner, live document; not yet sent |
 | \<ref\> | \<Interview Guide\> | Assessment and authorisation | The interview questions by role, the statements each supports, and the answers given at Level 1 | \<ver\> | Issued by the system owner, live document |
 | \<ref\> | \<Guide to the Document Set\> | Guides and index | The place to start: how the documents relate, a route through them for an auditor, one control followed from end to end, and where each family is documented | \<ver\> | Draft for the system owner's approval |
-| \<ref\> | \<Administrator Guide\> | Guides and index | How administrators set up and run \<DocuView\> securely; a draft for the developers to confirm | \<ver\> | Draft for the developers to confirm |
-| \<ref\> | \<User Guide\> | Guides and index | How users work securely in \<DocuView\>; a draft for the developers to confirm | \<ver\> | Draft for the developers to confirm |
+| \<ref\> | \<Administrator Guide\> | Guides and index | How administrators set up and run \<System Name\> securely; a draft for the developers to confirm | \<ver\> | Draft for the developers to confirm |
+| \<ref\> | \<User Guide\> | Guides and index | How users work securely in \<System Name\>; a draft for the developers to confirm | \<ver\> | Draft for the developers to confirm |
 | \<ref\> | \<Documentation Map\> | Guides and index | This map: every document, where each family is documented, where each fact about a control is held, and the document standard | \<ver\> | Issued by the system owner |
 
 ### 3.2 Where each family is documented
@@ -250,7 +250,7 @@ Table 5 gives, for each family, the chapter or section of every document that ho
 | MP Media Protection | \<Policy\> (MP) and \<Procedures\> (MP) | \<Media Protection Management\> | \<Media Protection Management\>, section 5 | Section 8.10 | \<Control Assessment Record\> (MP) | Section 6.10 | Section 13 | Section 13 | Section 13 | \<evidence\> |
 | PE Physical and Environmental Protection | \<Policy\> (PE) and \<Procedures\> (PE) | \<Physical and Environmental Protection Management\> | \<Physical and Environmental Protection Management\>, section 5 | Section 8.11 | \<Control Assessment Record\> (PE) | Section 6.11 | Section 14 | Section 14 | Section 14 | \<evidence\> |
 | PL Planning | \<Policy\> (PL) and \<Procedures\> (PL) | \<Planning Management\> | \<Planning Management\>, section 5 | Section 8.12 | \<Control Assessment Record\> (PL) | Section 6.12 | Section 15 | Section 15 | Section 15 | \<evidence\> |
-| PM Program Management | None: inherited from ABC Technologies | \<Program Management\> | \<Program Management\>, section 5 | None: outside the baseline | Not assessed | None | Section 16 | Section 16 | INT-PM-01, in section 15 | \<evidence\> |
+| PM Program Management | None: inherited from \<Organisation\> | \<Program Management\> | \<Program Management\>, section 5 | None: outside the baseline | Not assessed | None | Section 16 | Section 16 | INT-PM-01, in section 15 | \<evidence\> |
 | PS Personnel Security | \<Policy\> (PS) and \<Procedures\> (PS) | \<Personnel Security Management\> | \<Personnel Security Management\>, section 5 | Section 8.13 | \<Control Assessment Record\> (PS) | Section 6.13 | Section 17 | Section 17 | Section 16 | \<evidence\> |
 | PT Personally Identifiable Information Processing and Transparency | \<Policy\> (PT) and \<Procedures\> (PT) | \<PII Processing Management\>, \<Privacy Plan\> and \<Data Protection Impact Assessment\> | \<PII Processing Management\>, section 5 | Section 8.14 | \<Control Assessment Record\> (PT) | Section 6.14 | Section 18 | Section 18 | Section 17 | \<evidence\> |
 | RA Risk Assessment | \<Policy\> (RA) and \<Procedures\> (RA) | \<Risk Assessment Management\> | \<Risk Assessment Management\>, section 5 | Section 8.15 | \<Control Assessment Record\> (RA) | Section 6.15 | Section 19 | Section 19 | Section 18 | \<evidence\> |
@@ -286,7 +286,7 @@ Each fact about a control is held in one document, and the others point to it. T
 | The finding for each determination statement | The family's chapter of \<Control Assessment Record\> |
 | What is not met, its cause, risk, rating and treatment | \<Risk List\>, section 6 |
 | The fix, its owner and its timing | \<Plan of Action and Milestones\>, section 4 |
-| Evidence asked of ABC Technologies | \<Evidence Requests\> |
+| Evidence asked of \<Organisation\> | \<Evidence Requests\> |
 | Why a control does not apply | \<Tailoring Register\> |
 | Who decided, and when | \<Decision Register\> |
 
@@ -295,13 +295,13 @@ Each fact about a control is held in one document, and the others point to it. T
 
 ## 5 Document standard
 
-Every \<DocuView\> document follows this standard, so that readers can navigate, cite and audit them in the same way. It was a separate document until 12 November 2026.
+Every \<System Name\> document follows this standard, so that readers can navigate, cite and audit them in the same way. It was a separate document until 12 November 2026.
 
 ### 5.1 Master copy and change record
 
 The documents are kept as Markdown, one file for each document, named by its title. That set is the master copy. Figures and the replaced documents are kept with it. No Word or PDF copies are issued. A copy in another format can be made when one is needed, but it is not a controlled copy.
 
-Every change to the documents and the test evidence is recorded in a private records repository on the system owner's computer. It has no remote copy and is separate from the code repositories. Each change is dated, and each issue of the set is marked, so any earlier state can be shown. The set moves to ABC Technologies' restricted store when that is set up (PA-88). Until then the repository is the change record, and a list of hashes fixes the content of each issue.
+Every change to the documents and the test evidence is recorded in a private records repository on the system owner's computer. It has no remote copy and is separate from the code repositories. Each change is dated, and each issue of the set is marked, so any earlier state can be shown. The set moves to \<Organisation\>'s restricted store when that is set up (PA-88). Until then the repository is the change record, and a list of hashes fixes the content of each issue.
 
 ### 5.2 Parts of every document
 
@@ -444,6 +444,6 @@ ISO 2145 and ISO/IEC 27001 were read through secondary summaries, because the st
 
 1. Is Moderate the right security categorisation? Answered: Moderate, confirmed by the authorising official.
 2. Who are the authorising official, global administrators, auditors and project access approvers? Answered: named in \<Roles and Responsibilities\>.
-3. Which ABC Technologies services and evidence cover the inherited controls, and does the Cyber Essentials Plus scope include these two VMs? Still open: the evidence requests in \<Evidence Requests\> have not been sent.
+3. Which \<Organisation\> services and evidence cover the inherited controls, and does the Cyber Essentials Plus scope include these two VMs? Still open: the evidence requests in \<Evidence Requests\> have not been sent.
 4. Will password-only sign-in stay? Answered: no. Sign-in is through AD FS, with multi-factor authentication (D-AC-23), which is still to be shown working (PA-95).
 5. What target dates should the open High POA&M items have? Answered: TLS and committed secrets before production, and the other High items within 6 months after production (\<Decision Register\>). The milestone dates themselves are still to be set (\<Plan of Action and Milestones\>, section 3.1).

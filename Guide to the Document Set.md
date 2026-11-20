@@ -1,4 +1,4 @@
-# \<DocuView\> Guide to the Document Set
+# \<System Name\> Guide to the Document Set
 
 **\<ref\> | Version \<ver\> | Draft for the system owner's approval**
 
@@ -36,7 +36,7 @@
 | Item | Detail |
 | --- | --- |
 | Reference | \<ref\> |
-| Title | \<DocuView\> Guide to the Document Set |
+| Title | \<System Name\> Guide to the Document Set |
 | Version | \<ver\> |
 | Status | Draft for the system owner's approval |
 | Date | 18 November 2026 |
@@ -52,7 +52,7 @@
 
 | Role | Name | Decision | Date |
 | --- | --- | --- | --- |
-| System owner | Neil Ramsbottom | Pending | Pending |
+| System owner | \[Name\] | Pending | Pending |
 
 ### 1.3 Change history
 
@@ -69,11 +69,11 @@
 
 ## 2 Purpose
 
-This guide is the place to start. It says what the \<DocuView\> document set is, how its 44 documents relate to each other, and how to find a way through them. It is written for someone who has not seen the set before: an external auditor, the independent assessment team, a new role holder, or the authorising official.
+This guide is the place to start. It says what the \<System Name\> document set is, how its 44 documents relate to each other, and how to find a way through them. It is written for someone who has not seen the set before: an external auditor, the independent assessment team, a new role holder, or the authorising official.
 
 It holds no facts about the system of its own. Each fact is held in one document only, and this guide says which. The full index is \<Documentation Map\>, which also says where each fact about a control is held (its section 4) and sets the standard every document follows (its section 5).
 
-The set is the evidence that \<DocuView\>, ABC Technologies' document management system, is designed and run to the NIST SP 800-53 Rev 5 Moderate baseline, with NIST's privacy baseline. It covers 20 control families and 316 controls. It is written before the system goes live, so it shows honestly what is built, what is planned and what is missing.
+The set is the evidence that \<System Name\>, \<Organisation\>'s document management system, is designed and run to the NIST SP 800-53 Rev 5 Moderate baseline, with NIST's privacy baseline. It covers 20 control families and 316 controls. It is written before the system goes live, so it shows honestly what is built, what is planned and what is missing.
 
 | **SECTION 3** |
 | --- |
@@ -90,7 +90,7 @@ The documents fall into four groups, and answer four questions in turn: what the
 
 | Group | Documents | The question it answers |
 | --- | --- | --- |
-| Plans and descriptions | 22 | What is \<DocuView\>, and how is each family of controls designed? |
+| Plans and descriptions | 22 | What is \<System Name\>, and how is each family of controls designed? |
 | Rules and how they are carried out | 11 | What must be true, who does what, and what record proves it? |
 | Assessment and authorisation | 7 | How well is each control met, what is the risk, and what is being done about it? |
 | Guides and index | 4 | Where is everything? |
@@ -115,7 +115,7 @@ Each control is carried through the set by the same chain. Table 5 gives the cha
 | --- | --- | --- |
 | 1 The control | \<System Security Plan\>, section 8 | How the control is met in brief, who is responsible, its status and its result |
 | 2 The rule | \<Policy\>, the family's chapter | What must be true, and who is accountable. Approved by the Head of Cyber |
-| 3 The design | The family's design document (section 7) | How \<DocuView\> meets each part of the control, what is in place today, the values NIST asks to be defined, and what ABC Technologies provides |
+| 3 The design | The family's design document (section 7) | How \<System Name\> meets each part of the control, what is in place today, the values NIST asks to be defined, and what \<Organisation\> provides |
 | 4 The steps | \<Procedures\>, the family's chapter; \<Security Operating Procedures\> for day-to-day duties and the rules people sign | Who does what, when, and the record kept |
 | 5 The record | The forms in \<Record Templates\> | What proves the step was done |
 | 6 The finding | \<Control Assessment Record\>, the family's chapter; brought together in \<Security Assessment Report\> | Whether each of NIST's determination statements is satisfied, and why |
@@ -129,12 +129,12 @@ Around the chain sit the documents that describe the system as a whole, and thos
 
 | If you want to know | Read |
 | --- | --- |
-| What \<DocuView\> is, as a whole, in one document | \<System Description\> |
-| What \<DocuView\> is, where it runs and where its boundary lies | \<System Security Plan\>, sections 3 to 5; \<Security Architecture\> |
+| What \<System Name\> is, as a whole, in one document | \<System Description\> |
+| What \<System Name\> is, where it runs and where its boundary lies | \<System Security Plan\>, sections 3 to 5; \<Security Architecture\> |
 | Why it exists and how it is used | \<Concept of Operations\> |
 | Who holds each role | \<Roles and Responsibilities\> |
 | Whether it is ready to be authorised | \<Security Assessment Report\>, sections 3 and 9 |
-| What ABC Technologies provides, and whether that is evidenced | \<Assessment, Authorization, and Monitoring Management\>, section 4.6; \<Evidence Requests\> |
+| What \<Organisation\> provides, and whether that is evidenced | \<Assessment, Authorization, and Monitoring Management\>, section 4.6; \<Evidence Requests\> |
 | Why a control is treated as not applicable | \<Tailoring Register\> |
 | What a role holder would be asked at interview | \<Interview Guide\> |
 | How personal data is governed | \<Privacy Plan\>; \<PII Processing Management\>; \<Data Protection Impact Assessment\> |
@@ -158,11 +158,11 @@ An auditor does not need to read every document from end to end. This route take
 | Step | Read | Look for |
 | --- | --- | --- |
 | 1 Get your bearings | This guide; \<Documentation Map\>, section 3 | The four groups, and the design document for each family |
-| 2 Understand the system | \<System Description\>; then \<System Security Plan\>, sections 3 to 7; \<Concept of Operations\>; \<Security Architecture\> | The boundary, the categorisation, the components, the data flows, what is inherited from ABC Technologies, and who is responsible |
+| 2 Understand the system | \<System Description\>; then \<System Security Plan\>, sections 3 to 7; \<Concept of Operations\>; \<Security Architecture\> | The boundary, the categorisation, the components, the data flows, what is inherited from \<Organisation\>, and who is responsible |
 | 3 See the overall result | \<Security Assessment Report\>; then \<System Security Plan\>, section 8 | How many controls and statements are satisfied, the top risks, the conditions before authorisation, and the line for each control |
 | 4 Take a family | Its design document; its chapter of \<Policy\> and of \<Procedures\>; its chapter of \<Control Assessment Record\> | The summary table of what is missing; then each control part by part; whether the rule, the design, the steps and the finding agree |
 | 5 Follow a gap | The entry in \<Risk List\>; the item in \<Plan of Action and Milestones\>; the decision in \<Decision Register\> | That the gap is rated, decided by the right person, planned with an owner and a date, and not described elsewhere as done |
-| 6 Test and ask | The test named in the design document, with its evidence; \<Interview Guide\>; \<Evidence Requests\>; completed forms from \<Record Templates\> | That a test can be repeated and gives the recorded result; that the people interviewed describe what the procedures say; that ABC Technologies' evidence exists |
+| 6 Test and ask | The test named in the design document, with its evidence; \<Interview Guide\>; \<Evidence Requests\>; completed forms from \<Record Templates\> | That a test can be repeated and gives the recorded result; that the people interviewed describe what the procedures say; that \<Organisation\>'s evidence exists |
 
 Steps 4 to 6 are repeated for each family chosen. A good first family is Access Control, as it is the largest, or Risk Assessment, as it shows how every gap in the other families is rated and answered.
 
@@ -195,7 +195,7 @@ RA-5, Vulnerability Monitoring and Scanning, shows the chain at work. It is part
 
 ## 7 Finding a family
 
-Each family has a policy chapter, a design document, a procedures chapter, a section of the security plan and an assessment chapter. Program Management is outside the baseline and is inherited from ABC Technologies, so it has a design document only.
+Each family has a policy chapter, a design document, a procedures chapter, a section of the security plan and an assessment chapter. Program Management is outside the baseline and is inherited from \<Organisation\>, so it has a design document only.
 
 **Table 9: Where each family is documented**
 
@@ -211,9 +211,9 @@ Each family has a policy chapter, a design document, a procedures chapter, a sec
 | IR Incident Response | \<Policy\> (IR) | \<Incident Response Management\> | \<Procedures\> (IR) | Section 8.8 | \<Control Assessment Record\> (IR) | Test-IncidentReadiness.ps1 |
 | MA Maintenance | \<Policy\> (MA) | \<Maintenance Management\> | \<Procedures\> (MA) | Section 8.9 | \<Control Assessment Record\> (MA) | Test-Maintenance.ps1 |
 | MP Media Protection | \<Policy\> (MP) | \<Media Protection Management\> | \<Procedures\> (MP) | Section 8.10 | \<Control Assessment Record\> (MP) | Test-MediaProtection.ps1 |
-| PE Physical and Environmental Protection | \<Policy\> (PE) | \<Physical and Environmental Protection Management\> | \<Procedures\> (PE) | Section 8.11 | \<Control Assessment Record\> (PE) | None: provided by ABC Technologies |
+| PE Physical and Environmental Protection | \<Policy\> (PE) | \<Physical and Environmental Protection Management\> | \<Procedures\> (PE) | Section 8.11 | \<Control Assessment Record\> (PE) | None: provided by \<Organisation\> |
 | PL Planning | \<Policy\> (PL) | \<Planning Management\> | \<Procedures\> (PL) | Section 8.12 | \<Control Assessment Record\> (PL) | Test-PlanConsistency.ps1 |
-| PM Program Management | ABC Technologies' policies | \<Program Management\> | None | Section 6 | Not assessed | None: outside the baseline |
+| PM Program Management | \<Organisation\>'s policies | \<Program Management\> | None | Section 6 | Not assessed | None: outside the baseline |
 | PS Personnel Security | \<Policy\> (PS) | \<Personnel Security Management\> | \<Procedures\> (PS) | Section 8.13 | \<Control Assessment Record\> (PS) | Test-PlanConsistency.ps1, check L17 |
 | PT PII Processing and Transparency | \<Policy\> (PT) | \<PII Processing Management\> | \<Procedures\> (PT) | Section 8.14 | \<Control Assessment Record\> (PT) | Test-PersonalData.ps1 |
 | RA Risk Assessment | \<Policy\> (RA) | \<Risk Assessment Management\> | \<Procedures\> (RA) | Section 8.15 | \<Control Assessment Record\> (RA) | Test-Vulnerability.ps1 |
@@ -233,11 +233,11 @@ Four design documents are also the plan that NIST requires for their family, in 
 
 | Document | Group | What it holds | Who reads it |
 | --- | --- | --- | --- |
-| \<System Security Plan\> | Plans and descriptions | How \<DocuView\> implements each of the 316 controls, or does not yet, with the system description, architecture figures, inheritance and responsibilities | Everyone, first |
-| \<Privacy Plan\> | Plans and descriptions | How personal data in \<DocuView\> is governed: the privacy plan that PL-2 calls for | The legal adviser; an auditor |
+| \<System Security Plan\> | Plans and descriptions | How \<System Name\> implements each of the 316 controls, or does not yet, with the system description, architecture figures, inheritance and responsibilities | Everyone, first |
+| \<Privacy Plan\> | Plans and descriptions | How personal data in \<System Name\> is governed: the privacy plan that PL-2 calls for | The legal adviser; an auditor |
 | \<System Description\> | Plans and descriptions | One description of the whole system, for a person or an AI without the source code | Anyone who needs to understand the system; an auditor, early |
-| \<Security Architecture\> | Plans and descriptions | System boundary, components, data flows and what is inherited from ABC Technologies | Developers, administrators, an auditor |
-| \<Concept of Operations\> | Plans and descriptions | Why \<DocuView\> exists, who uses it, the business workflows it supports and its operational scenarios | The business owner; an auditor, early |
+| \<Security Architecture\> | Plans and descriptions | System boundary, components, data flows and what is inherited from \<Organisation\> | Developers, administrators, an auditor |
+| \<Concept of Operations\> | Plans and descriptions | Why \<System Name\> exists, who uses it, the business workflows it supports and its operational scenarios | The business owner; an auditor, early |
 | \<Roles and Responsibilities\> | Plans and descriptions | Who holds each role, so that other documents name roles and not people | Anyone asking who holds a role |
 | \<Configuration Management\> | Plans and descriptions | The configuration management design, and the plan CM-9 requires | Whoever works in, or assesses, that family |
 | \<Contingency Planning Management\> | Plans and descriptions | The contingency design, and the contingency plan CP-2 requires | Whoever works in, or assesses, that family |
@@ -247,7 +247,7 @@ Four design documents are also the plan that NIST requires for their family, in 
 | \<Risk Assessment Management\> | Plans and descriptions | The risk assessment design | Whoever works in, or assesses, that family |
 | \<PII Processing Management\> | Plans and descriptions | The personal data design | Whoever works in, or assesses, that family |
 | \<Personnel Security Management\> | Plans and descriptions | The personnel security design | Whoever works in, or assesses, that family |
-| \<Program Management\> | Plans and descriptions | How \<DocuView\> relies on ABC Technologies' security and privacy programme | Whoever works in, or assesses, that family |
+| \<Program Management\> | Plans and descriptions | How \<System Name\> relies on \<Organisation\>'s security and privacy programme | Whoever works in, or assesses, that family |
 | \<Planning Management\> | Plans and descriptions | The planning design | Whoever works in, or assesses, that family |
 | \<Physical and Environmental Protection Management\> | Plans and descriptions | The physical and environmental protection design | Whoever works in, or assesses, that family |
 | \<Media Protection Management\> | Plans and descriptions | The media protection design | Whoever works in, or assesses, that family |
@@ -271,10 +271,10 @@ Four design documents are also the plan that NIST requires for their family, in 
 | \<Risk List\> | Assessment and authorisation | Each risk with its rating, treatment and acceptance, and a non-compliance entry for every control that is not satisfied | The authorising official and system owner |
 | \<Plan of Action and Milestones\> | Assessment and authorisation | Each weakness with its fix, owner, milestone and latest completion, and the road to authorisation | The system owner, monthly; an auditor |
 | \<Decision Register\> | Assessment and authorisation | Every approval and decision, who made it, when, and the evidence of it | Anyone checking who approved what |
-| \<Evidence Requests\> | Assessment and authorisation | The evidence needed from ABC Technologies, and who does what for each control | The system owner and ABC Technologies |
+| \<Evidence Requests\> | Assessment and authorisation | The evidence needed from \<Organisation\>, and who does what for each control | The system owner and \<Organisation\> |
 | \<Interview Guide\> | Assessment and authorisation | The interview questions by role, the statements each supports, and the answers given at Level 1 | An assessor, and the people interviewed |
-| \<Administrator Guide\> | Guides and index | How administrators set up and run \<DocuView\> securely | Administrators |
-| \<User Guide\> | Guides and index | How users work securely in \<DocuView\> | Users |
+| \<Administrator Guide\> | Guides and index | How administrators set up and run \<System Name\> securely | Administrators |
+| \<User Guide\> | Guides and index | How users work securely in \<System Name\> | Users |
 | \<Documentation Map\> | Guides and index | The index: every document, where each family is documented, where each fact about a control is held, and the document standard | Anyone looking for a document or a fact |
 | \<Guide to the Document Set\> | Guides and index | This guide: how the documents relate, and how to find a way through them | Anyone new to the set |
 
@@ -287,7 +287,7 @@ Four design documents are also the plan that NIST requires for their family, in 
 2. **Names, not numbers.** A document is cited by its name in angle brackets. A chapter of the Policy, the Procedures or the assessment record is cited with its family code, such as the Policy (RA), and a section in a chapter as section RA.4.
 3. **Design and today.** A design document gives, for each part of a control, the design that is agreed and the position today. The two are kept apart, so that a plan is never read as a fact.
 4. **Status.** A control is implemented, partially implemented, not implemented or not applicable. Its assessment result is satisfied or other than satisfied, as NIST SP 800-53A uses the terms.
-5. **Placeholders.** Text in square brackets is a fact that only someone else can supply, such as a date from ABC Technologies. They are counted by kind in \<Plan of Action and Milestones\>, section 6.7.
+5. **Placeholders.** Text in square brackets is a fact that only someone else can supply, such as a date from \<Organisation\>. They are counted by kind in \<Plan of Action and Milestones\>, section 6.7.
 6. **Drafts and approvals.** Nothing is shown as approved unless the person who approves it has done so. Every approval and decision is in \<Decision Register\>.
 
 **Table 11: Reference numbers**
@@ -299,7 +299,7 @@ Four design documents are also the plan that NIST requires for their family, in 
 | R- | A risk | \<Risk List\>, section 3 |
 | D- | A decision or approval | \<Decision Register\> |
 | TR- | A tailoring decision | \<Tailoring Register\> |
-| EV- | A request for evidence from ABC Technologies | \<Evidence Requests\> |
+| EV- | A request for evidence from \<Organisation\> | \<Evidence Requests\> |
 | INT- | An interview question | \<Interview Guide\> |
 | PRO- | A procedure | \<Procedures\> |
 | TPL- | A form | \<Record Templates\> |
@@ -312,11 +312,11 @@ Four design documents are also the plan that NIST requires for their family, in 
 
 ## 10 What the set does not yet show
 
-The set is written before \<DocuView\> goes live, and says so throughout. A reader should expect the following, each of which is tracked.
+The set is written before \<System Name\> goes live, and says so throughout. A reader should expect the following, each of which is tracked.
 
-1. **\<DocuView\> is not authorised, and holds no production documents.** The conditions before authorisation are in \<Security Assessment Report\>, section 9.
-2. **The servers are not built.** The tests ran on a test stack with sample data, and are to be repeated on the servers. Sign-in through ABC Technologies' AD FS is stated but not yet tested (PA-95).
-3. **ABC Technologies' controls are not evidenced.** The evidence requests in \<Evidence Requests\> have not been sent.
+1. **\<System Name\> is not authorised, and holds no production documents.** The conditions before authorisation are in \<Security Assessment Report\>, section 9.
+2. **The servers are not built.** The tests ran on a test stack with sample data, and are to be repeated on the servers. Sign-in through \<Organisation\>'s AD FS is stated but not yet tested (PA-95).
+3. **\<Organisation\>'s controls are not evidenced.** The evidence requests in \<Evidence Requests\> have not been sent.
 4. **Nothing has been seen in operation.** Reviews, training and exercises start with operation, so their records do not exist yet.
-5. **The assessment so far is a self-assessment.** The independent assessment, led by Josh Leak, has not started.
+5. **The assessment so far is a self-assessment.** The independent assessment, led by \[Name\], has not started.
 6. **Some documents are drafts.** Each says so in its status line, and \<Documentation Map\>, section 3.1, gives the state of every document.

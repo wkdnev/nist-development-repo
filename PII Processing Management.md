@@ -1,4 +1,4 @@
-# \<DocuView\> PII Processing Management
+# \<System Name\> PII Processing Management
 
 **\<ref\> | Version \<ver\> | Draft for the system owner's approval**
 
@@ -30,7 +30,7 @@
 | Item | Detail |
 | --- | --- |
 | Reference | \<ref\> |
-| Title | \<DocuView\> PII Processing Management |
+| Title | \<System Name\> PII Processing Management |
 | Version | \<ver\> |
 | Status | Draft for the system owner's approval |
 | Date | 18 November 2026 |
@@ -46,7 +46,7 @@
 
 | Role | Name | Decision | Date |
 | --- | --- | --- | --- |
-| System owner | Neil Ramsbottom | Pending | Pending |
+| System owner | \[Name\] | Pending | Pending |
 
 ### 1.3 Change history
 
@@ -58,22 +58,22 @@
 | \<ver\> | 18 November 2026 | Cross-check against NIST's guidance and UK data protection law: rights to restrict, object and portability, the time limit and telling recipients of a correction added; no automated decisions stated; retention rows for privacy requests and complaints added as placeholders; the missing accuracy rule shown; and the related enhancements listed in a new appendix B |
 | \<ver\> | 18 November 2026 | The system owner's decisions on the review (D-PT-23): row A1 of the retention schedule, for names held from sign-in, is confirmed |
 | \<ver\> | 18 November 2026 | Issued into the set as a draft for review |
-| \<ver\> | 18 November 2026 | First draft, at the system owner's request (D-PT-22). The personal data chapter of \<Control Implementation Register\> moved here in full, so that this design is held only in this document, and each control is set out part by part. The inventory and the retention schedule follow sign-in through AD FS: \<DocuView\> holds no accounts (D-AC-23). The audit and log periods already set elsewhere are entered in the retention schedule. No agreed value is changed |
+| \<ver\> | 18 November 2026 | First draft, at the system owner's request (D-PT-22). The personal data chapter of \<Control Implementation Register\> moved here in full, so that this design is held only in this document, and each control is set out part by part. The inventory and the retention schedule follow sign-in through AD FS: \<System Name\> holds no accounts (D-AC-23). The audit and log periods already set elsewhere are entered in the retention schedule. No agreed value is changed |
 
 | **SECTION 2** |
 | --- |
 
 ## 2 Purpose
 
-This document shows how \<DocuView\> processes personal data lawfully, openly and no more than it needs, for each of the 6 Personally Identifiable Information Processing and Transparency (PT) controls that apply and the 16 other controls of NIST's privacy baseline. NIST places none of the PT controls in the Moderate baseline. \<DocuView\> applies the privacy baseline because it holds HR documents with personal data, some of it special category data (D-PT-01, D-PT-07).
+This document shows how \<System Name\> processes personal data lawfully, openly and no more than it needs, for each of the 6 Personally Identifiable Information Processing and Transparency (PT) controls that apply and the 16 other controls of NIST's privacy baseline. NIST places none of the PT controls in the Moderate baseline. \<System Name\> applies the privacy baseline because it holds HR documents with personal data, some of it special category data (D-PT-01, D-PT-07).
 
-Section 4 sets out the design: the authority, purposes and lawful basis; every kind of personal data \<DocuView\> holds; special category data; the privacy notice; people's rights; minimisation, quality, retention and disposal; the impact assessment; where the privacy controls held in other documents are; and what ABC Technologies provides. Section 5 takes each control in turn. Appendix A lists every value NIST asks the organisation to define, and appendix B the related enhancements NIST does not select.
+Section 4 sets out the design: the authority, purposes and lawful basis; every kind of personal data \<System Name\> holds; special category data; the privacy notice; people's rights; minimisation, quality, retention and disposal; the impact assessment; where the privacy controls held in other documents are; and what \<Organisation\> provides. Section 5 takes each control in turn. Appendix A lists every value NIST asks the organisation to define, and appendix B the related enhancements NIST does not select.
 
 This is the only place this design is held. Other documents point here. The policy is in \<Policy\> (PT), and the steps people follow are in \<Procedures\> (PT). Two documents sit beside this one and are owned by the legal adviser: the privacy plan, \<Privacy Plan\>, which PL-2 calls for, and the data protection impact assessment, \<Data Protection Impact Assessment\>.
 
 UK law decides what is lawful. NIST's controls set out how it is shown. Where a value needs a legal decision, it is a placeholder for the legal adviser.
 
-An assessor examines the inventory and the lawful basis for each kind of data, the impact assessment, the notice, the retention schedule and the records of requests, complaints and disposals; interviews the legal adviser, the business owner and an administrator who would handle a request; and tests what \<DocuView\> holds, logs and keeps (NIST SP 800-53A). So for each control section 5 gives:
+An assessor examines the inventory and the lawful basis for each kind of data, the impact assessment, the notice, the retention schedule and the records of requests, complaints and disposals; interviews the legal adviser, the business owner and an administrator who would handle a request; and tests what \<System Name\> holds, logs and keeps (NIST SP 800-53A). So for each control section 5 gives:
 
 - **each part of the control**, as NIST letters them, with the design that meets it and the position today;
 - **who provides it**, and who is responsible;
@@ -105,14 +105,14 @@ Of the 29 controls, 1 is implemented, 8 are partially implemented, 12 are not im
 | PT-2 | Authority to Process Personally Identifiable Information | Not implemented | The lawful basis and conditions are not confirmed | NC-PT-02; PA-72 |
 | PT-3 | Personally Identifiable Information Processing Purposes | Not implemented | The purposes are not confirmed, and the notice has not been seen | NC-PT-03; PA-126, EV-PT-01 |
 | PT-4 | Consent | Not implemented | The position on consent is not confirmed | NC-PT-04; PA-126 |
-| PT-5 | Privacy Notice | Not implemented | The notice has not been seen, and \<DocuView\>'s pages do not link to it | NC-PT-05; PA-90, EV-PT-01 |
+| PT-5 | Privacy Notice | Not implemented | The notice has not been seen, and \<System Name\>'s pages do not link to it | NC-PT-05; PA-90, EV-PT-01 |
 | PT-7 | Specific Categories of Personally Identifiable Information | Partially implemented | The conditions are not confirmed, and documents cannot be marked | NC-PT-06; PA-72, PA-89 |
 | AC-3(14) | Individual Access | Partially implemented | No single search across projects for one person | NC-PT-07; PA-89 |
 | AT-3(5) | Processing Personally Identifiable Information | Not implemented | No privacy training given | NC-PT-08; PA-97 |
 | AU-3(3) | Limit Personally Identifiable Information Elements | Partially implemented | The application log repeats personal data | NC-PT-09; PA-71, PA-75 |
 | IR-2(3) | Breach | Not implemented | No breach training given | NC-PT-10; PA-81, PA-97 |
 | IR-8(1) | Breaches | Implemented | Nothing | NC-PT-11 |
-| PE-8(3) | Limit Personally Identifiable Information Elements | Not implemented | ABC Technologies' visitor records have not been seen | NC-PT-12; PA-122, EV-PT-02 |
+| PE-8(3) | Limit Personally Identifiable Information Elements | Not implemented | \<Organisation\>'s visitor records have not been seen | NC-PT-12; PA-122, EV-PT-02 |
 | PL-9 | Central Management | Partially implemented | The set is not yet in the restricted store | NC-PT-13; PA-88 |
 | RA-8 | Privacy Impact Assessments | Partially implemented | The impact assessment is a draft | NC-PT-14; PA-72 |
 | SA-8(33) | Minimization | Not implemented | Minimisation is not yet reviewed | NC-PT-15; PA-72 |
@@ -125,7 +125,7 @@ Of the 29 controls, 1 is implemented, 8 are partially implemented, 12 are not im
 | SI-19 | De-identification | Not applicable | Not applicable | Not applicable |
 | PT-5(2), PT-6, PT-6(1), PT-6(2), PT-7(1), PT-7(2), PT-8 | United States requirements | Not applicable | Not applicable | TR-PT-01 |
 
-Two things matter most. The legal adviser has not yet confirmed the lawful basis and conditions, or completed the impact assessment (PA-72, rated Medium), so the legal footing of the processing is drafted but not decided. And \<DocuView\> cannot yet serve people's rights in full: it cannot search every project for one person, it does not audit corrections and deletions in the admin portal (PA-89, Medium), and it cannot keep a document for a set period and then dispose of it (PA-70, Medium). The authorising official decided that both must be fixed before production or before real personal data is held (D-PT-14, D-PT-15).
+Two things matter most. The legal adviser has not yet confirmed the lawful basis and conditions, or completed the impact assessment (PA-72, rated Medium), so the legal footing of the processing is drafted but not decided. And \<System Name\> cannot yet serve people's rights in full: it cannot search every project for one person, it does not audit corrections and deletions in the admin portal (PA-89, Medium), and it cannot keep a document for a set period and then dispose of it (PA-70, Medium). The authorising official decided that both must be fixed before production or before real personal data is held (D-PT-14, D-PT-15).
 
 | **SECTION 4** |
 | --- |
@@ -135,15 +135,15 @@ Two things matter most. The legal adviser has not yet confirmed the lawful basis
 ### 4.1 Principles
 
 1. **Lawful and known purpose.** Personal data is processed only for a stated purpose, with a recorded lawful basis and, for special category data, a recorded condition.
-2. **Only what is needed, only as long as needed.** \<DocuView\> holds no more personal data than the purpose requires, for no longer than the retention schedule allows.
+2. **Only what is needed, only as long as needed.** \<System Name\> holds no more personal data than the purpose requires, for no longer than the retention schedule allows.
 3. **People's rights.** People can see, correct and ask to delete their data, and complain, as the law allows.
 4. **Assess before relying on it.** The impact assessment comes before production and before any significant change.
 
 These carry out the principles and rules of \<Policy\>, sections PT.3 and PT.4.
 
-![Figure 1: The life of personal data in \<DocuView\>](figures/ptm-figure-1.png)
+![Figure 1: The life of personal data in \<System Name\>](figures/ptm-figure-1.png)
 
-**Figure 1: The life of personal data in \<DocuView\>**
+**Figure 1: The life of personal data in \<System Name\>**
 
 ### 4.2 Authority, purposes and lawful basis
 
@@ -151,13 +151,13 @@ The authority is UK GDPR, the Data Protection Act 2018 and the Data (Use and Acc
 
 Each kind of personal data has an Article 6 lawful basis, and special category data an Article 9 condition and, where needed, a Schedule 1 condition. They are recorded in the inventory in section 4.3, and the legal adviser confirms each (D-PT-20). Where a Schedule 1, Part 1 condition is relied on, an appropriate policy document is put in place.
 
-Consent is not the lawful basis for employee data, because employees cannot freely refuse their employer (D-PT-10). So there is no consent tool. \<DocuView\> sets only strictly necessary cookies, which need no consent banner (check Q07).
+Consent is not the lawful basis for employee data, because employees cannot freely refuse their employer (D-PT-10). So there is no consent tool. \<System Name\> sets only strictly necessary cookies, which need no consent banner (check Q07).
 
-\<DocuView\> makes no decision about a person by automated means alone, and does no profiling, so UK GDPR Article 22 does not apply. Personal data is not sold, shared with third parties for their own purposes, or transferred outside the United Kingdom.
+\<System Name\> makes no decision about a person by automated means alone, and does no profiling, so UK GDPR Article 22 does not apply. Personal data is not sold, shared with third parties for their own purposes, or transferred outside the United Kingdom.
 
 ### 4.3 Personal data inventory
 
-One row for each kind of personal data. The legal adviser confirms each basis and condition (D-PT-20). No data is transferred outside the UK, and no processor outside ABC Technologies is used. The inventory must match ABC Technologies' record of processing (UK GDPR, Article 30; EV-PM-02).
+One row for each kind of personal data. The legal adviser confirms each basis and condition (D-PT-20). No data is transferred outside the UK, and no processor outside \<Organisation\> is used. The inventory must match \<Organisation\>'s record of processing (UK GDPR, Article 30; EV-PM-02).
 
 **Table 6: Personal data inventory**
 
@@ -167,17 +167,17 @@ One row for each kind of personal data. The legal adviser confirms each basis an
 | Health and other special category data | HR project documents | HR team uploads | HR administration | \[Legal adviser\] | \[Legal adviser; appropriate policy document if Schedule 1, Part 1 applies\] | HR project members only | Section 4.7, H5 |
 | Names and contact details | Other project documents | Project uploads | Managing project documents | \[Legal adviser\] | Not applicable | Project members | The project's period |
 | People who sign in: name and Active Directory account name, and the AD groups in the sign-in token | Each session; the audit records; document records such as who uploaded or last changed a document | AD FS, at each sign-in | Signing in and accountability | \[Legal adviser\] | Not applicable | Global administrators, auditors | Section 4.7, A1 |
-| Audit records: username, user ID, IP address, user agent, session ID | The audit log in the \<DocuView\> database (\<Audit and Accountability Management\>, section 4.5) | \<DocuView\> | Accountability and security | \[Legal adviser\] | Not applicable | Auditors, security officer | Section 4.7, A2 |
-| Application log | Each application's log on the application server (\<Audit and Accountability Management\>, section 4.10) | \<DocuView\> | Troubleshooting | \[Legal adviser\] | Not applicable | Administrators | Section 4.7, A3; personal data to be removed (PA-75) |
+| Audit records: username, user ID, IP address, user agent, session ID | The audit log in the \<System Name\> database (\<Audit and Accountability Management\>, section 4.5) | \<System Name\> | Accountability and security | \[Legal adviser\] | Not applicable | Auditors, security officer | Section 4.7, A2 |
+| Application log | Each application's log on the application server (\<Audit and Accountability Management\>, section 4.10) | \<System Name\> | Troubleshooting | \[Legal adviser\] | Not applicable | Administrators | Section 4.7, A3; personal data to be removed (PA-75) |
 | Export copies | Users' managed devices; server temporary folder | Bulk export | Sharing documents for work | As the source document | As the source document | The exporting user | 30 days at most (SyOps A28); server copies removed (PA-86) |
 
 ### 4.4 Special category data
 
-Health and other special category data may be held only in HR projects the business owner authorises, and only by the people approved for those projects. Each document that holds it is marked as special category data, so that it can be found and handled with care. \<DocuView\> cannot yet mark documents in this way (Q01; PA-89), and the conditions that allow the processing are placeholders for the legal adviser (PA-72).
+Health and other special category data may be held only in HR projects the business owner authorises, and only by the people approved for those projects. Each document that holds it is marked as special category data, so that it can be found and handled with care. \<System Name\> cannot yet mark documents in this way (Q01; PA-89), and the conditions that allow the processing are placeholders for the legal adviser (PA-72).
 
 ### 4.5 Transparency
 
-ABC Technologies' employee privacy notice tells people how their data is used. It must name \<DocuView\> and its two purposes, give the authority and lawful basis, be in plain language, and be reviewed every 12 months. People sign in on ABC Technologies' AD FS page, so \<DocuView\>'s own pages link to the notice, with a short statement of what \<DocuView\> records about its users: their name, the groups they belong to, and what they do (PA-90). The notice has not been seen (EV-PT-01).
+\<Organisation\>'s employee privacy notice tells people how their data is used. It must name \<System Name\> and its two purposes, give the authority and lawful basis, be in plain language, and be reviewed every 12 months. People sign in on \<Organisation\>'s AD FS page, so \<System Name\>'s own pages link to the notice, with a short statement of what \<System Name\> records about its users: their name, the groups they belong to, and what they do (PA-90). The notice has not been seen (EV-PT-01).
 
 ### 4.6 People's rights
 
@@ -192,14 +192,14 @@ ABC Technologies' employee privacy notice tells people how their data is used. I
 
 The time allowed starts once the person's identity is confirmed, and pauses while the legal adviser waits for any clarification the request needs, as the Data (Use and Access) Act 2025 allows. When data is corrected, deleted or restricted, the legal adviser tells anyone it was disclosed to, unless that is impossible or would take disproportionate effort (UK GDPR, Article 19).
 
-Until \<DocuView\> can search every project for one person in one step, each project is searched in turn and listed. Until the admin portal audits corrections and deletions, the administrator records the document, the field and the change on TPL-15 (PA-89).
+Until \<System Name\> can search every project for one person in one step, each project is searched in turn and listed. Until the admin portal audits corrections and deletions, the administrator records the document, the field and the change on TPL-15 (PA-89).
 
 ### 4.7 Minimisation, quality, retention and disposal
 
 1. **Minimisation.** What personal data is collected is reviewed at design, in each change record, and in the impact assessment. Each project holds only what its documents' purpose requires.
 2. **Quality.** Every 12 months each project access approver checks that their project's personal data is accurate, relevant, timely and complete, and records the check on TPL-3. Inaccurate or out-of-date data is corrected or deleted.
 3. **Retention.** Each kind of record is kept for the period below, then disposed of. The business owner sets each period with the legal adviser (D-PT-21), guided by the ICO's employment records guidance (February 2025). Row A1 was reworded for sign-in through AD FS and confirmed by the system owner on 18 November 2026 (D-PT-23); its period stays with the business owner.
-4. **Disposal.** At the end of its period a document is deleted, the deletion is audited, and the database is vacuumed afterwards so that no readable copy remains. \<DocuView\> cannot yet do this (Q03, Q08; PA-70).
+4. **Disposal.** At the end of its period a document is deleted, the deletion is audited, and the database is vacuumed afterwards so that no readable copy remains. \<System Name\> cannot yet do this (Q03, Q08; PA-70).
 
 **Table 8: Retention schedule**
 
@@ -245,14 +245,14 @@ Eight of the privacy baseline controls are assessed with this family, but part o
 | PL-9 Central Management | \<Planning Management\> | The one document set |
 | SC-7(24) PII | This document, section 5 | Processing rules and monitoring |
 
-### 4.10 What ABC Technologies provides
+### 4.10 What \<Organisation\> provides
 
-**Table 10: Asked of ABC Technologies**
+**Table 10: Asked of \<Organisation\>**
 
-| Provided | Controls | What \<DocuView\> relies on | Evidence asked | State |
+| Provided | Controls | What \<System Name\> relies on | Evidence asked | State |
 | --- | --- | --- | --- | --- |
-| The employee privacy notice | PT-3, PT-5 | It names \<DocuView\> and its purposes, and is reviewed every 12 months | EV-PT-01 | Not sent |
-| The record of processing | PT-2 | It lists \<DocuView\>'s HR personal data, matching section 4.3 | EV-PM-02 | Not sent |
+| The employee privacy notice | PT-3, PT-5 | It names \<System Name\> and its purposes, and is reviewed every 12 months | EV-PT-01 | Not sent |
+| The record of processing | PT-2 | It lists \<System Name\>'s HR personal data, matching section 4.3 | EV-PM-02 | Not sent |
 | The privacy programme and the data protection officer | PT-1, RA-8 | A data protection officer advises on the impact assessment, or the reason none is required is recorded (D-PM-04) | EV-PM-04 | Not sent |
 | Visitor records | PE-8(3) | They hold only name, organisation, and the date and time of the visit | EV-PT-02 | Not sent |
 
@@ -271,9 +271,9 @@ The controls are in NIST order: the PT controls first, then the other privacy ba
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
-| a.1 | A personal data processing and transparency policy, shared with defined people, covering purpose, scope, roles, responsibilities, management commitment, coordination and compliance, and consistent with the law | \<Policy\> (PT): a system-level policy, shared with everyone who administers \<DocuView\>. The legal adviser reviews it | Version \<ver\> approved by the Head of Cyber (D-PT-02) and legally reviewed on 11 November 2026. The later version awaits the Head of Cyber (D-PT-18). Not yet shared (PA-20) |
+| a.1 | A personal data processing and transparency policy, shared with defined people, covering purpose, scope, roles, responsibilities, management commitment, coordination and compliance, and consistent with the law | \<Policy\> (PT): a system-level policy, shared with everyone who administers \<System Name\>. The legal adviser reviews it | Version \<ver\> approved by the Head of Cyber (D-PT-02) and legally reviewed on 11 November 2026. The later version awaits the Head of Cyber (D-PT-18). Not yet shared (PA-20) |
 | a.2 | Procedures that carry out the policy, shared with defined people | \<Procedures\> (PT): six procedures, PRO-PT-1 to PRO-PT-6. Shared with the same people | Approved by the system owner (D-PT-19). Not yet shared or walked through |
-| b | A named official manages the policy and procedures | The system owner | Neil Ramsbottom is named in \<Roles and Responsibilities\> |
+| b | A named official manages the policy and procedures | The system owner | \[Name\] is named in \<Roles and Responsibilities\> |
 | c.1 | The policy is reviewed on a schedule and after set events | Every 12 months, and after a significant incident, audit finding, change in the law or system change | Reviewed on 11 November 2026. The first yearly review falls due in November 2027 |
 | c.2 | The procedures are reviewed on a schedule and after set events | Every 12 months, and after a change to the steps | As the policy |
 
@@ -306,7 +306,7 @@ The controls are in NIST order: the PT controls first, then the other privacy ba
 | --- | --- |
 | Provided by | People, following the procedures |
 | Responsible | Legal adviser |
-| Enforced by | Project permissions in \<DocuView\> |
+| Enforced by | Project permissions in \<System Name\> |
 | Rules and procedures | Policy rules R2, R3 (\<Policy\>, section PT.4); PRO-PT-3, PRO-PT-4 (\<Procedures\>) |
 | Tests | Check Q07 (Test-PersonalData.ps1 on the v1.0 build, 11 November 2026): only strictly necessary cookies are set before sign-in. It passed |
 | Records an assessor will ask for | Each lawful basis and condition, confirmed by the legal adviser; the completed impact assessment. Neither exists yet |
@@ -321,7 +321,7 @@ The controls are in NIST order: the PT controls first, then the other privacy ba
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Identify and document the purposes for processing personal data | HR administration, and managing project documents | Stated (D-PT-09). The legal adviser has not confirmed them |
-| b | Describe the purposes in public privacy notices and policies | ABC Technologies' employee privacy notice names \<DocuView\> and both purposes (section 4.5) | The notice has not been seen (EV-PT-01) |
+| b | Describe the purposes in public privacy notices and policies | \<Organisation\>'s employee privacy notice names \<System Name\> and both purposes (section 4.5) | The notice has not been seen (EV-PT-01) |
 | c | Restrict processing to what is compatible with those purposes | Project permissions, and the rules of behaviour on personal data (\<Security Operating Procedures\>, rules A23 to A29) | Project permissions work in the tested build. The rules are not yet signed |
 | d | Monitor changes in processing, and make sure they meet the requirements | Every change record says whether personal data is affected. The legal adviser reviews those that are, and decides whether the inventory, the notice or the impact assessment must change (PRO-PT-3) | Not yet used |
 
@@ -337,7 +337,7 @@ The controls are in NIST order: the PT controls first, then the other privacy ba
 | Records an assessor will ask for | The purposes; the notice (EV-PT-01); change records that say whether personal data is affected |
 | Status | Not implemented |
 | Risk decision | NC-PT-03, rated Low: approve |
-| Open items | PA-126: the legal adviser confirms the purposes, and ABC Technologies' notice is seen. PA-75: the application log |
+| Open items | PA-126: the legal adviser confirms the purposes, and \<Organisation\>'s notice is seen. PA-75: the application log |
 
 ### 5.4 PT-4 Consent
 
@@ -367,25 +367,25 @@ The controls are in NIST order: the PT controls first, then the other privacy ba
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
-| a | Give notice when people first interact with the organisation, and at a defined frequency | ABC Technologies gives its employee privacy notice on joining, and reviews it every 12 months. \<DocuView\>'s pages link to it | The notice has not been seen (EV-PT-01). No page of the tested build linked to it (Q06; PA-90) |
-| b | Make the notice clear, easy to understand and in plain language | ABC Technologies' notice, with a short statement on \<DocuView\>'s pages of what \<DocuView\> records about its users | Not seen. The statement is not written (PA-90) |
+| a | Give notice when people first interact with the organisation, and at a defined frequency | \<Organisation\> gives its employee privacy notice on joining, and reviews it every 12 months. \<System Name\>'s pages link to it | The notice has not been seen (EV-PT-01). No page of the tested build linked to it (Q06; PA-90) |
+| b | Make the notice clear, easy to understand and in plain language | \<Organisation\>'s notice, with a short statement on \<System Name\>'s pages of what \<System Name\> records about its users | Not seen. The statement is not written (PA-90) |
 | c | Identify the authority for the processing | The notice names UK GDPR and the lawful basis | Not seen (EV-PT-01) |
-| d | Identify the purposes | The notice names \<DocuView\> and its two purposes | Not seen (EV-PT-01) |
-| e | Include defined information | As ABC Technologies' notice, naming \<DocuView\> and its purposes | Not seen (EV-PT-01) |
+| d | Identify the purposes | The notice names \<System Name\> and its two purposes | Not seen (EV-PT-01) |
+| e | Include defined information | As \<Organisation\>'s notice, naming \<System Name\> and its purposes | Not seen (EV-PT-01) |
 
 **Table 20: PT-5 responsibility and evidence**
 
 | | |
 | --- | --- |
-| Provided by | ABC Technologies |
-| Responsible | ABC Technologies, system owner |
-| Enforced by | ABC Technologies' notice; a link from \<DocuView\>'s pages, once built |
+| Provided by | \<Organisation\> |
+| Responsible | \<Organisation\>, system owner |
+| Enforced by | \<Organisation\>'s notice; a link from \<System Name\>'s pages, once built |
 | Rules and procedures | Policy rule R8 (\<Policy\>, section PT.4); PRO-PT-3, step 3 (\<Procedures\>) |
 | Tests | Check Q06 (Test-PersonalData.ps1 on the v1.0 build, 11 November 2026): neither page linked to the notice |
-| Records an assessor will ask for | The notice (EV-PT-01); \<DocuView\>'s pages showing the link |
+| Records an assessor will ask for | The notice (EV-PT-01); \<System Name\>'s pages showing the link |
 | Status | Not implemented |
 | Risk decision | NC-PT-05, rated Low: obtain evidence |
-| Open items | PA-90: link the notice from \<DocuView\>'s pages. EV-PT-01: obtain the notice |
+| Open items | PA-90: link the notice from \<System Name\>'s pages. EV-PT-01: obtain the notice |
 
 ### 5.6 PT-7 Specific Categories of Personally Identifiable Information
 
@@ -399,7 +399,7 @@ The controls are in NIST order: the PT controls first, then the other privacy ba
 
 | | |
 | --- | --- |
-| Provided by | Shared: \<DocuView\> and ABC Technologies |
+| Provided by | Shared: \<System Name\> and \<Organisation\> |
 | Responsible | Business owner, legal adviser |
 | Enforced by | Project permissions; a document marking, once built |
 | Rules and procedures | Policy rules R2, R5 (\<Policy\>, section PT.4); PRO-PT-4 (\<Procedures\>) |
@@ -415,7 +415,7 @@ The controls are in NIST order: the PT controls first, then the other privacy ba
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
-| All | Give individuals a way to access their personal data | A request to the legal adviser, met within one month by a reasonable and proportionate search of every project and the audit records, recorded on TPL-15 (section 4.6) | The route is written. \<DocuView\> cannot search every project for one person in one step, so each project is searched in turn (Q02; PA-89) |
+| All | Give individuals a way to access their personal data | A request to the legal adviser, met within one month by a reasonable and proportionate search of every project and the audit records, recorded on TPL-15 (section 4.6) | The route is written. \<System Name\> cannot search every project for one person in one step, so each project is searched in turn (Q02; PA-89) |
 
 **Table 24: AC-3(14) responsibility and evidence**
 
@@ -465,9 +465,9 @@ The controls are in NIST order: the PT controls first, then the other privacy ba
 
 | | |
 | --- | --- |
-| Provided by | \<DocuView\>: built into the system |
+| Provided by | \<System Name\>: built into the system |
 | Responsible | Developers, auditor |
-| Enforced by | \<DocuView\>'s audit service |
+| Enforced by | \<System Name\>'s audit service |
 | Rules and procedures | The audit policy (\<Policy\> (AU)); no procedure of its own (\<Procedures\>) |
 | Tests | Checks Q04 and Q05 (Test-PersonalData.ps1 on the v1.0 build, 11 November 2026): Q04 passed; Q05 showed the gap |
 | Records an assessor will ask for | A sample of audit records and application log lines |
@@ -533,15 +533,15 @@ The controls are in NIST order: the PT controls first, then the other privacy ba
 
 | | |
 | --- | --- |
-| Provided by | ABC Technologies |
-| Responsible | ABC Technologies |
-| Enforced by | ABC Technologies' visitor records |
+| Provided by | \<Organisation\> |
+| Responsible | \<Organisation\> |
+| Enforced by | \<Organisation\>'s visitor records |
 | Rules and procedures | The physical protection policy (\<Policy\> (PE)); no procedure of its own (\<Procedures\>) |
 | Tests | None |
 | Records an assessor will ask for | A blank visitor record (EV-PT-02) |
 | Status | Not implemented |
 | Risk decision | NC-PT-12, rated Low: obtain evidence |
-| Open items | PA-122: obtain ABC Technologies' evidence |
+| Open items | PA-122: obtain \<Organisation\>'s evidence |
 
 ### 5.13 PL-9 Central Management
 
@@ -625,9 +625,9 @@ The controls are in NIST order: the PT controls first, then the other privacy ba
 
 | | |
 | --- | --- |
-| Provided by | \<DocuView\>: built into the system |
+| Provided by | \<System Name\>: built into the system |
 | Responsible | Developers, security officer |
-| Enforced by | \<DocuView\>'s project permissions and audit records |
+| Enforced by | \<System Name\>'s project permissions and audit records |
 | Rules and procedures | Policy rules R1, R2 (\<Policy\>, section PT.4); no procedure of its own (\<Procedures\>) |
 | Tests | None |
 | Records an assessor will ask for | The processing rules; the exception register; the monitoring the impact assessment calls for |
@@ -669,7 +669,7 @@ The controls are in NIST order: the PT controls first, then the other privacy ba
 
 | | |
 | --- | --- |
-| Provided by | Shared: \<DocuView\> and ABC Technologies |
+| Provided by | Shared: \<System Name\> and \<Organisation\> |
 | Responsible | Developers |
 | Enforced by | The sample data loaded into each test stack |
 | Rules and procedures | Policy rule R10 (\<Policy\>, section PT.4); PRO-PT-6 (\<Procedures\>) |
@@ -691,9 +691,9 @@ The controls are in NIST order: the PT controls first, then the other privacy ba
 
 | | |
 | --- | --- |
-| Provided by | \<DocuView\>: built into the system |
+| Provided by | \<System Name\>: built into the system |
 | Responsible | Developers, business owner |
-| Enforced by | \<DocuView\>, once retention and disposal are built |
+| Enforced by | \<System Name\>, once retention and disposal are built |
 | Rules and procedures | Policy rule R6 (\<Policy\>, section PT.4); PRO-PT-5 (\<Procedures\>) |
 | Tests | Checks Q03 and Q08 (Test-PersonalData.ps1 on the v1.0 build, 11 November 2026): both showed gaps |
 | Records an assessor will ask for | The retention schedule; audit records of each disposal |
@@ -768,7 +768,7 @@ The controls are in NIST order: the PT controls first, then the other privacy ba
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
-| All | As NIST sets out for the control | Not applicable: These rest on United States law and federal bodies: the Privacy Act, Federal Register notices, Social Security numbers, the First Amendment and computer matching. ABC Technologies operates in the United Kingdom (\<Tailoring Register\>, TR-PT-01) | Not applicable |
+| All | As NIST sets out for the control | Not applicable: These rest on United States law and federal bodies: the Privacy Act, Federal Register notices, Social Security numbers, the First Amendment and computer matching. \<Organisation\> operates in the United Kingdom (\<Tailoring Register\>, TR-PT-01) | Not applicable |
 
 **Table 56: United States requirements responsibility and evidence**
 
@@ -789,8 +789,8 @@ These are NIST's organisation-defined values for the 6 assessed PT entries and t
 
 | NIST identifier | What must be defined | Value |
 | --- | --- | --- |
-| PT-01\_ODP\[01\] | Who receives the policy | Everyone who administers \<DocuView\> |
-| PT-01\_ODP\[02\] | Who receives the procedures | Everyone who administers \<DocuView\> |
+| PT-01\_ODP\[01\] | Who receives the policy | Everyone who administers \<System Name\> |
+| PT-01\_ODP\[02\] | Who receives the procedures | Everyone who administers \<System Name\> |
 | PT-01\_ODP\[03\] | Level of the policy | System level |
 | PT-01\_ODP\[04\] | Official who manages them | System owner |
 | PT-01\_ODP\[05\] | Policy review frequency | Every 12 months |
@@ -806,10 +806,10 @@ These are NIST's organisation-defined values for the 6 assessed PT entries and t
 | PT-03\_ODP\[04\] | Requirements changes must meet | UK GDPR, \<Policy\> (PT) and \<Data Protection Impact Assessment\> |
 | PT-04\_ODP | Consent tools | None, as consent is not the lawful basis for employee data |
 | PT-05\_ODP\[01\] | Notice review frequency | Every 12 months |
-| PT-05\_ODP\[02\] | Information in the notice | As ABC Technologies' employee privacy notice, naming \<DocuView\> and its purposes, linked from \<DocuView\>'s pages, as people sign in on ABC Technologies' AD FS page (PA-90) |
+| PT-05\_ODP\[02\] | Information in the notice | As \<Organisation\>'s employee privacy notice, naming \<System Name\> and its purposes, linked from \<System Name\>'s pages, as people sign in on \<Organisation\>'s AD FS page (PA-90) |
 | PT-07\_ODP | Conditions for special categories | Only in projects the business owner authorises, with the Article 9 and Schedule 1 conditions in section 4.3 and the impact assessment |
 | AC-03(14)\_ODP\[01\] | How individuals get access | A request to the legal adviser, met by a reasonable and proportionate search of every project within one month; complaints acknowledged within 30 days (PRO-PT-1) |
-| AC-03(14)\_ODP\[02\] | What they can see | Their personal data in \<DocuView\> documents, document records and audit records |
+| AC-03(14)\_ODP\[02\] | What they can see | Their personal data in \<System Name\> documents, document records and audit records |
 | AT-03(05)\_ODP\[01\] | Who gets privacy training | Everyone who handles HR documents, and all administrators |
 | AT-03(05)\_ODP\[02\] | Frequency | Before access, and every 12 months |
 | AU-03(03)\_ODP | Personal data allowed in audit records | Username, user ID, IP address, user agent and session ID; none in the application log (PA-75) |
@@ -840,12 +840,12 @@ NIST does not select these enhancements in its privacy baseline, so they are not
 
 **Table 58: Related enhancements not selected**
 
-| Control | What it adds | \<DocuView\>'s position |
+| Control | What it adds | \<System Name\>'s position |
 | --- | --- | --- |
 | PT-2(1), PT-3(1), SI-18(2) Data Tagging; Data Tags | Tags on personal data that carry its permitted processing, purposes or quality | Not required. Done in part in design: HR documents are to be marked as personal or special category data (PA-89) |
 | PT-2(2), PT-3(2), SI-18(1) Automation; Automation Support | Processing limits and quality checks enforced by automated means | Not required. Project permissions limit who processes each project's documents |
 | PT-4(1), PT-4(2), PT-4(3) Tailored Consent; Just-in-time Consent; Revocation | Ways to give, refine and withdraw consent | Not required. Consent is not the lawful basis (D-PT-10) |
-| PT-5(1) Just-in-time Notice | Notice given at the moment data is collected | Not required. Done in part in design: the short statement on \<DocuView\>'s pages (PA-90) |
-| SI-18(3) Collection | Personal data collected directly from the person where possible | Not required. HR collects employees' data from them; \<DocuView\> stores the documents |
+| PT-5(1) Just-in-time Notice | Notice given at the moment data is collected | Not required. Done in part in design: the short statement on \<System Name\>'s pages (PA-90) |
+| SI-18(3) Collection | Personal data collected directly from the person where possible | Not required. HR collects employees' data from them; \<System Name\> stores the documents |
 | SI-18(5) Notice of Correction or Deletion | People to whom data was disclosed are told of a correction or deletion | Not required. Done in design: the legal adviser tells them, as UK GDPR Article 19 requires (section 4.6) |
 | SI-19(1) to SI-19(8) | Ways of de-identifying data | Not applicable. No dataset is de-identified (SI-19) |

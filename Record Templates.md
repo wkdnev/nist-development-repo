@@ -1,4 +1,4 @@
-# \<DocuView\> Record Templates
+# \<System Name\> Record Templates
 
 **\<ref\> | Version \<ver\> | Approved by the system owner, live document**
 
@@ -22,7 +22,7 @@
 | Item | Detail |
 | --- | --- |
 | Reference | \<ref\> |
-| Title | \<DocuView\> Record Templates |
+| Title | \<System Name\> Record Templates |
 | Version | \<ver\> |
 | Status | Approved by the system owner, live document |
 | Date | 5 November 2026 |
@@ -38,7 +38,7 @@
 
 | Role | Name | Decision | Date |
 | --- | --- | --- | --- |
-| System owner | Neil Ramsbottom | Approved | 7 November 2026 |
+| System owner | \[Name\] | Approved | 7 November 2026 |
 
 ### 1.3 Change history
 
@@ -46,7 +46,7 @@
 
 | Version | Date | Change |
 | --- | --- | --- |
-| \<ver\> | 18 November 2026 | Whole-set review: TPL-3 reviews group memberships, as \<DocuView\> holds no accounts (D-AC-23) |
+| \<ver\> | 18 November 2026 | Whole-set review: TPL-3 reviews group memberships, as \<System Name\> holds no accounts (D-AC-23) |
 | \<ver\> | 18 November 2026 | References to the supply chain plan follow its new sections, as it is rebuilt in the family form and renamed Supply Chain Risk Management (D-SR-14) |
 | \<ver\> | 18 November 2026 | TPL-16 records whether the service levels were met (SA-9) |
 | \<ver\> | 18 November 2026 | References to the acquisition design point to \<System and Services Acquisition Management\>, where it is now held (D-SA-19) |
@@ -91,15 +91,15 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | Template | Purpose | AC controls and procedures | Other families |
 | --- | --- | --- | --- |
 | TPL-1 Risk acceptance | Records a decision to accept a non-compliance | Any NC entry; PRO-AC-15, PRO-AC-17 | Any NC entry in AU, IA, SC, CM, SI, RA, CA, IR, CP, AT, MA, MP, PE, PL, PS, PT, SA or SR |
-| TPL-2 Access request | Records a request and approval before access changes. Once the Jira workflow is in use, the Jira request is this record and must hold these fields | AC-2c, AC-2e, AC-6(5); PRO-AC-1, PRO-AC-2, PRO-AC-5, PRO-AC-6 | IA-4, CM-5, PS-3; PRO-PS-1 |
+| TPL-2 Access request | Records a request and approval before access changes. Once the ServiceNow workflow is in use, the ServiceNow request is this record and must hold these fields | AC-2c, AC-2e, AC-6(5); PRO-AC-1, PRO-AC-2, PRO-AC-5, PRO-AC-6 | IA-4, CM-5, PS-3; PRO-PS-1 |
 | TPL-3 Access review | Records a periodic review of accounts or privileges | AC-2j, AC-6(7); PRO-AC-7, PRO-AC-8 | CM-7(1), SC-7(4), CA-3, CA-9; PS-2, PS-6; PRO-PS-4 |
 | TPL-4 Procedure walk-through | Shows that a procedure was tried and works | AC-1, AC-2f; all PRO procedures | AU-1, IA-1, SC-1, CM-1, SI-1, RA-1, CA-1, IR-1, CP-1, AT-1, MA-1, MP-1, PE-1, PL-1, PS-1, PT-1, SA-1, SR-1; all their procedures |
 | TPL-5 Approved access list | The approved baseline to compare the system against | AC-2d, AC-2i, AC-5, AC-6 | CM-7(5), CM-8, CM-12 |
-| TPL-6 Change record | Records a change, its impact, testing and approval. Once the Jira workflow is in use, the Jira record is this record and must hold these fields | None | CM-3, CM-3(2), CM-4, CM-4(2), SI-2, IA-5, IA-5(1), IA-5(6); PRO-CM-1, PRO-IA-4, PRO-IA-5 |
+| TPL-6 Change record | Records a change, its impact, testing and approval. Once the ServiceNow workflow is in use, the ServiceNow record is this record and must hold these fields | None | CM-3, CM-3(2), CM-4, CM-4(2), SI-2, IA-5, IA-5(1), IA-5(6); PRO-CM-1, PRO-IA-4, PRO-IA-5 |
 | TPL-7 Vulnerability and patch review | Records a scan or package check, what was found, and when it was fixed | None | SI-2, SI-2(2), SI-5, RA-5, RA-5(5); PRO-SI-1, PRO-SI-5, PRO-RA-3, PRO-RA-4, PRO-RA-5 |
 | TPL-8 Monitoring and integrity report | Records log reviews, integrity checks, configuration drift and the monthly measures | None | AU-6, SI-4, SI-7(1), CA-7; PRO-SI-3, PRO-SI-4, PRO-SI-6, PRO-CA-5 |
 | TPL-9 Training record | Records who was trained, on what and when. Kept for 3 years | None | AT-2, AT-3, AT-3(5), AT-4, IR-2, CP-3, PL-4; PRO-AT-1, PRO-AT-2 and PRO-AT-4 |
-| TPL-10 Incident record | Records an incident from report to lessons. Once the Jira workflow is in use, the Jira record is this record and must hold these fields | None | IR-4, IR-5, IR-6; PRO-IR-1, PRO-IR-2 |
+| TPL-10 Incident record | Records an incident from report to lessons. Once the ServiceNow workflow is in use, the ServiceNow record is this record and must hold these fields | None | IR-4, IR-5, IR-6; PRO-IR-1, PRO-IR-2 |
 | TPL-11 Exercise and restore test | Records a tabletop exercise, restore test or activation as an after-action report, the result and the actions | None | IR-3, IR-3(2), CP-4, CP-4(1), CP-9(1); PRO-IR-3, PRO-CP-2, PRO-CP-4 |
 | TPL-12 Maintenance record | Records maintenance, who did it and the check afterwards. Kept for 3 years | None | MA-2, MA-3, MA-3(3), MA-4, MA-5; PRO-MA-1 to PRO-MA-7 |
 | TPL-13 Media record | Records media transport, sanitising and exceptions. Kept for 3 years | None | MP-5, MP-6, MP-7; PRO-MP-1 to PRO-MP-4 |
@@ -108,7 +108,7 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | TPL-16 Supplier review | Records a yearly review of a supplier or external service | None | SA-9, SR-2, SR-6, SR-8; PRO-SA-3, PRO-SR-2 |
 | TPL-17 Exception request | Records a request to depart from a SyOps rule, the decision and its end date. The approved requests form the exception register | AC-20, AC-20(2); PRO-AC-15 | PL-4, CM-2(7), MP-7, PE-17; \<Security Operating Procedures\>, section 6 |
 | TPL-18 Authorisation decision | Records the authorising official's decision, its terms and conditions, the risks accepted and its end date | None | CA-6; PRO-CA-4, PRO-CA-7 |
-| TPL-19 Assessor independence statement | Records an assessor's confirmation that they had no part in building or running \<DocuView\> | None | CA-2(1), CA-7(1); PRO-CA-1, PRO-CA-5 |
+| TPL-19 Assessor independence statement | Records an assessor's confirmation that they had no part in building or running \<System Name\> | None | CA-2(1), CA-7(1); PRO-CA-1, PRO-CA-5 |
 | TPL-20 Site inspection checklist | Records a one-off inspection of a data centre's physical and environmental controls | None | PE-2 to PE-16; PRO-PE-5 |
 | TPL-21 Rules of behaviour acknowledgement | Records that a person has signed the rules of behaviour, which version and parts, and how. Kept while the person has access, and for 3 years after | AC-2 | PL-4, PL-4(1), PS-6; PRO-PL-3 |
 | TPL-22 Data protection complaint | Records a complaint about how personal data is handled, its acknowledgement within 30 days, the investigation and the outcome. Kept for 3 years after it is closed | None | PT-2, PM-26; PRO-PT-2 |
@@ -152,7 +152,7 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | Role, project or group |  |
 | Reason and intended use |  |
 | Prerequisites met, such as the signed rules of behaviour (TPL-21, checked against the register of signatures in \<Planning Management\>, section 4.5) |  |
-| Screening confirmed by ABC Technologies: by whom, and the date only (\<Procedures\>, PRO-PS-1) |  |
+| Screening confirmed by \<Organisation\>: by whom, and the date only (\<Procedures\>, PRO-PS-1) |  |
 | Requested by and date |  |
 | Approved by (name and role), decision and date |  |
 | Approver is not the person receiving access (yes or no) |  |
@@ -249,11 +249,11 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | Date, and who ran it |  |
 | What was scanned or checked, and the tool and definitions date |  |
 | Finding and severity |  |
-| Applies to \<DocuView\>: yes or no, and why |  |
+| Applies to \<System Name\>: yes or no, and why |  |
 | Fix due date |  |
 | Fixed: date and change record |  |
 | If not fixed in time: risk entry (NC) |  |
-| For an advisory (PRO-SI-5): the source, who was told inside \<DocuView\> and ABC Technologies, and the date |  |
+| For an advisory (PRO-SI-5): the source, who was told inside \<System Name\> and \<Organisation\>, and the date |  |
 | Reviewed by the security officer: date |  |
 
 ### 3.8 TPL-8 Monitoring and integrity report
@@ -282,7 +282,7 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | --- | --- |
 | Record number |  |
 | Name and role |  |
-| Training: \<DocuView\> briefing, awareness, role module (M1 to M9, \<Awareness and Training Management\>), incident or contingency |  |
+| Training: \<System Name\> briefing, awareness, role module (M1 to M9, \<Awareness and Training Management\>), incident or contingency |  |
 | Content and version |  |
 | Provided by |  |
 | Date completed, and next due |  |
@@ -303,7 +303,7 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | Personal data involved: yes or no. Legal adviser told: date and time |  |
 | ICO told: yes or no, date and time, and the reason if not |  |
 | People affected told: yes or no, date and how, and the reason if not. Breach register entry made (\<Incident Response Management\>, section 4.14) |  |
-| ABC Technologies' security contact and suppliers told: date and time |  |
+| \<Organisation\>'s security contact and suppliers told: date and time |  |
 | Evidence preserved: each item, its SHA-256 hash, who holds it, where, and each hand-over |  |
 | Containment, eradication and recovery: what was done, by whom, and when |  |
 | Timeline in UTC: noticed, reported, contained and recovered, against the targets |  |
@@ -377,14 +377,14 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | Name, and whether a leaver or mover |  |
 | Date and time notified, and by whom |  |
 | Access reviewed: by, and date |  |
-| Active Directory account disabled by ABC Technologies: date and time |  |
+| Active Directory account disabled by \<Organisation\>: date and time |  |
 | Group memberships removed or added: by each owner, and date |  |
 | Sessions ended by a global administrator: date and time |  |
 | Service secrets the person knew changed (\<Procedures\>, PRO-IA-4): by, and date |  |
 | Exported files and printouts recovered or destroyed: confirmed by |  |
 | Documents still available: confirmed by |  |
 | Rescreening needed: yes or no |  |
-| Exit interview and equipment confirmed by ABC Technologies: date |  |
+| Exit interview and equipment confirmed by \<Organisation\>: date |  |
 
 ### 3.15 TPL-15 Privacy request
 
@@ -411,7 +411,7 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | Record number |  |
 | Supplier or service |  |
 | Criticality, from the supplier register (\<Supply Chain Risk Management\>, section 4.5) |  |
-| What it provides to \<DocuView\> |  |
+| What it provides to \<System Name\> |  |
 | Controls the contract requires, and evidence seen |  |
 | Service levels: met or not, and any remedy used |  |
 | Compromises or problems since the last review |  |
@@ -468,15 +468,15 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | Record number |  |
 | Assessor's name and organisation |  |
 | Assessment or monitoring covered, and dates |  |
-| I have had no part in designing, building, running or administering \<DocuView\>: yes or no |  |
-| I report to no one responsible for \<DocuView\>: yes or no |  |
+| I have had no part in designing, building, running or administering \<System Name\>: yes or no |  |
+| I report to no one responsible for \<System Name\>: yes or no |  |
 | Any other interest that could affect my judgement |  |
 | Assessor's signature and date |  |
 | Accepted by the authorising official, and date |  |
 
 ### 3.20 TPL-20 Site inspection checklist
 
-For the Level 2 assessor or ABC Technologies' auditor, once per site (\<Procedures\>, PRO-PE-5). Each line is marked Seen, Evidenced by document, or Not seen.
+For the Level 2 assessor or \<Organisation\>'s auditor, once per site (\<Procedures\>, PRO-PE-5). Each line is marked Seen, Evidenced by document, or Not seen.
 
 **Table 26: TPL-20 Site inspection checklist**
 
@@ -517,7 +517,7 @@ Completed for each person before access, every 12 months, and after a material c
 
 ### 3.22 TPL-22 Data protection complaint
 
-Completed by the legal adviser for each complaint about how personal data in \<DocuView\> is handled (\<Procedures\>, PRO-PT-2; Data (Use and Access) Act 2025).
+Completed by the legal adviser for each complaint about how personal data in \<System Name\> is handled (\<Procedures\>, PRO-PT-2; Data (Use and Access) Act 2025).
 
 **Table 28: TPL-22 Data protection complaint**
 

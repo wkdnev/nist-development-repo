@@ -1,4 +1,4 @@
-# \<DocuView\> Awareness and Training Management
+# \<System Name\> Awareness and Training Management
 
 **\<ref\> | Version \<ver\> | Draft for the system owner's approval**
 
@@ -28,7 +28,7 @@
 | Item | Detail |
 | --- | --- |
 | Reference | \<ref\> |
-| Title | \<DocuView\> Awareness and Training Management |
+| Title | \<System Name\> Awareness and Training Management |
 | Version | \<ver\> |
 | Status | Draft for the system owner's approval |
 | Date | 12 November 2026 |
@@ -44,7 +44,7 @@
 
 | Role | Name | Decision | Date |
 | --- | --- | --- | --- |
-| System owner | Neil Ramsbottom | Pending | Pending |
+| System owner | \[Name\] | Pending | Pending |
 
 ### 1.3 Change history
 
@@ -67,7 +67,7 @@
 
 ## 2 Purpose
 
-This document shows how security and privacy awareness and training are designed for \<DocuView\>, for each of the 6 Awareness and Training (AT) controls and enhancements in the NIST SP 800-53 Rev 5 Moderate baseline. It is \<DocuView\>'s learning programme plan in the sense of NIST SP 800-50 Rev 1, and follows that publication's cycle: plan the programme, write the content, give the training, then measure and improve it (sections 4.7 and 4.9). Section 4 sets out the programme: who needs what, the briefing, the role curriculum, the training matrix, the register and the measures. Section 5 takes each control in turn. Appendix A lists every value NIST asks the organisation to define.
+This document shows how security and privacy awareness and training are designed for \<System Name\>, for each of the 6 Awareness and Training (AT) controls and enhancements in the NIST SP 800-53 Rev 5 Moderate baseline. It is \<System Name\>'s learning programme plan in the sense of NIST SP 800-50 Rev 1, and follows that publication's cycle: plan the programme, write the content, give the training, then measure and improve it (sections 4.7 and 4.9). Section 4 sets out the programme: who needs what, the briefing, the role curriculum, the training matrix, the register and the measures. Section 5 takes each control in turn. Appendix A lists every value NIST asks the organisation to define.
 
 This is the only place the training design is held. Other documents point here. The policy is in \<Policy\> (AT), and the steps people follow are in \<Procedures\> (AT).
 
@@ -79,7 +79,7 @@ An assessor examines the curriculum, the materials and the training records, and
 - **the records an assessor will ask for**, and whether they exist yet;
 - **its status**, the risk decision, and what is still open.
 
-Training is carried out by people, not by the system, so nothing here is built into \<DocuView\>. No training has yet been given, because \<DocuView\> is not in use and no one has been given access.
+Training is carried out by people, not by the system, so nothing here is built into \<System Name\>. No training has yet been given, because \<System Name\> is not in use and no one has been given access.
 
 **Table 4: Status values**
 
@@ -99,15 +99,15 @@ Training is carried out by people, not by the system, so nothing here is built i
 | Control | Title | Status | What is missing | Registered as |
 | --- | --- | --- | --- | --- |
 | AT-1 | Policy and Procedures | Partially implemented | The policy awaits the Head of Cyber's re-approval. The policy and procedures are not yet shared with the people they apply to | NC-AT-01; PA-20 |
-| AT-2 | Literacy Training and Awareness | Not implemented | The briefing material and its check are not written. Nobody has been briefed. The quarterly security note has not started. ABC Technologies' course has not been seen | NC-AT-02; PA-96, PA-99; EV-AT-01 |
-| AT-2(2) | Insider Threat | Not implemented | Briefing part B4 is an outline only, and is not given. ABC Technologies' content has not been seen | NC-AT-03; PA-96, PA-99; EV-AT-01 |
-| AT-2(3) | Social Engineering and Mining | Not implemented | Briefing part B3 is an outline only, and is not given. ABC Technologies' content has not been seen | NC-AT-04; PA-96, PA-99; EV-AT-01 |
-| AT-3 | Role-based Training | Not implemented | None of the nine modules is written, and nobody is trained. The training of ABC Technologies' own server administrators is not evidenced. The Head of Cyber, legal adviser and authorising official have no role training (section 4.5) | NC-AT-05; PA-97, PA-99, PA-100; EV-AT-01 |
+| AT-2 | Literacy Training and Awareness | Not implemented | The briefing material and its check are not written. Nobody has been briefed. The quarterly security note has not started. \<Organisation\>'s course has not been seen | NC-AT-02; PA-96, PA-99; EV-AT-01 |
+| AT-2(2) | Insider Threat | Not implemented | Briefing part B4 is an outline only, and is not given. \<Organisation\>'s content has not been seen | NC-AT-03; PA-96, PA-99; EV-AT-01 |
+| AT-2(3) | Social Engineering and Mining | Not implemented | Briefing part B3 is an outline only, and is not given. \<Organisation\>'s content has not been seen | NC-AT-04; PA-96, PA-99; EV-AT-01 |
+| AT-3 | Role-based Training | Not implemented | None of the nine modules is written, and nobody is trained. The training of \<Organisation\>'s own server administrators is not evidenced. The Head of Cyber, legal adviser and authorising official have no role training (section 4.5) | NC-AT-05; PA-97, PA-99, PA-100; EV-AT-01 |
 | AT-4 | Training Records | Not implemented | No training record exists. The register is a layout only, and the records store is not set up | NC-AT-06; PA-98 |
 
 Three training controls outside this family rest on the same curriculum, and are assessed in their own families: privacy training, AT-3(5) (module M9; NC-PT-08, PA-97); incident response training, IR-2 (module M7; NC-IR-02, PA-81); and contingency training, CP-3 (module M8; NC-CP-06, PA-81).
 
-The programme is fully defined, and no control in the family is missing from it. What remains is writing the briefing and module content, giving the training, starting the records, and ABC Technologies' evidence of its own course. Every gap above is registered in the Risk List (\<Risk List\>) and the Plan of Action and Milestones (\<Plan of Action and Milestones\>).
+The programme is fully defined, and no control in the family is missing from it. What remains is writing the briefing and module content, giving the training, starting the records, and \<Organisation\>'s evidence of its own course. Every gap above is registered in the Risk List (\<Risk List\>) and the Plan of Action and Milestones (\<Plan of Action and Milestones\>).
 
 | **SECTION 4** |
 | --- |
@@ -116,7 +116,7 @@ The programme is fully defined, and no control in the family is missing from it.
 
 ### 4.1 Principles
 
-1. **Trained before access.** Nobody is given access to \<DocuView\> until they have completed awareness training, the \<DocuView\> briefing and the rules of behaviour.
+1. **Trained before access.** Nobody is given access to \<System Name\> until they have completed awareness training, the \<System Name\> briefing and the rules of behaviour.
 2. **Every privileged user is trained for the role.** Anyone who is not a standard user completes the modules for their role before the access is given. That includes the system owner, who authorises privileged roles and manages the role groups (D-AT-10).
 3. **Repeated every 12 months.** All training is repeated yearly, and after a significant incident or change.
 4. **Kept current.** Content is reviewed every 12 months, and each lesson from an incident or exercise is added within 30 days.
@@ -135,32 +135,32 @@ Figure 1 shows the path a person follows.
 
 | Audience | Main risk they can cause or stop | Behaviours needed | Met by |
 | --- | --- | --- | --- |
-| All users | Disclosing an HR document to the wrong person; falling for a request that looks genuine | Check who is asking; export only when needed; report anything odd at once | ABC Technologies' course; the \<DocuView\> briefing |
+| All users | Disclosing an HR document to the wrong person; falling for a request that looks genuine | Check who is asking; export only when needed; report anything odd at once | \<Organisation\>'s course; the \<System Name\> briefing |
 | Project access approvers and the system owner | Granting access no one needs | Authorise least access; add and remove group members correctly; review access when due | Modules M2, M9, M7; M8 for the system owner |
-| Line managers | Approving a request the person does not need; missing the signs of an insider threat in their team | Confirm the need before approving; report movers and leavers at once; raise a concern early | The \<DocuView\> briefing, part B7 |
+| Line managers | Approving a request the person does not need; missing the signs of an insider threat in their team | Confirm the need before approving; report movers and leavers at once; raise a concern early | The \<System Name\> briefing, part B7 |
 | Global administrator and administrator | Misusing powerful accounts; weak account changes | Use privileged accounts only for privileged work; follow the joiner, mover and leaver steps | Modules M1, M3, M9, M7, M8 |
 | Windows server and database administrators | Unpatched or misconfigured servers; lost backups or keys | Follow the patch timetable, hardening and backup steps; protect keys | Modules M4, M3, M9, M7, M8 |
 | Developers | Vulnerable code or components; secrets in code | Secure coding; checked components; changes reviewed | Modules M5, M3, M7 |
 | Security officer and auditor | Missing an attack or a misuse | Review logs and alerts; respond to incidents | Modules M6, M7; M8 and M9 for the security officer |
 | Everyone who handles HR documents | Using personal data unlawfully | Use it only for its purpose; handle requests and complaints properly | Module M9 |
 
-### 4.3 Awareness and the \<DocuView\> briefing
+### 4.3 Awareness and the \<System Name\> briefing
 
-Awareness has two parts: ABC Technologies' general security and privacy course, and the \<DocuView\> briefing. The system owner gives this 20-minute briefing to every user before they are given access, together with the signature of \<Security Operating Procedures\>. It ends with a 5-question check, which the person must pass in full; a wrong answer is talked through and asked again. The briefing material and the check are not yet written (PA-96).
+Awareness has two parts: \<Organisation\>'s general security and privacy course, and the \<System Name\> briefing. The system owner gives this 20-minute briefing to every user before they are given access, together with the signature of \<Security Operating Procedures\>. It ends with a 5-question check, which the person must pass in full; a wrong answer is talked through and asked again. The briefing material and the check are not yet written (PA-96).
 
 **Table 7: Briefing outline**
 
 | Part | Content |
 | --- | --- |
-| B1 What \<DocuView\> holds | Restricted HR documents; who may see what; why projects and roles matter |
-| B2 Handling and export | When export is allowed; never forwarding or storing copies outside \<DocuView\>; locking the screen |
-| B3 Social engineering and social mining | The forms an attempt takes: phishing and targeted phishing, a false story or false identity (pretexting and impersonation), a reply inside a genuine email thread, bait such as a free download or a found USB stick, an offer of help in return for access, a contact through social media, and following someone through a door. Scenario: an email or call asking for an employee's file "for a tribunal" from someone you don't know. Scenario: an emailed sign-in link that looks like \<DocuView\>. Social mining: people gather facts about ABC Technologies, its staff and \<DocuView\> from social media, job adverts, out-of-office replies and casual calls, to make a later request convincing. Do not say what \<DocuView\> holds, who uses it or how it is reached. Check with the person through a known route, and report it |
+| B1 What \<System Name\> holds | Restricted HR documents; who may see what; why projects and roles matter |
+| B2 Handling and export | When export is allowed; never forwarding or storing copies outside \<System Name\>; locking the screen |
+| B3 Social engineering and social mining | The forms an attempt takes: phishing and targeted phishing, a false story or false identity (pretexting and impersonation), a reply inside a genuine email thread, bait such as a free download or a found USB stick, an offer of help in return for access, a contact through social media, and following someone through a door. Scenario: an email or call asking for an employee's file "for a tribunal" from someone you don't know. Scenario: an emailed sign-in link that looks like \<System Name\>. Social mining: people gather facts about \<Organisation\>, its staff and \<System Name\> from social media, job adverts, out-of-office replies and casual calls, to make a later request convincing. Do not say what \<System Name\> holds, who uses it or how it is reached. Check with the person through a known route, and report it |
 | B4 Insider threat | Scenario: a colleague exporting many files before leaving. Signs to notice, as NIST lists them: long-lasting and strong dissatisfaction with the job; trying to reach information the person does not need for their work; unexplained access to money; bullying or harassment of colleagues; violence at work; and other serious breaches of policy or rules. Seeing a sign is a reason to report through the route in B5, not to accuse. Access is recorded and monitored, as the SyOps explains |
 | B5 Reporting | How to report a suspicious message, a mistake or a lost device; reporting is thanked, never blamed |
 | B6 Privacy | Using personal data only for its purpose; where the privacy notice is |
 | B7 For line managers | Every access request from your people comes to you first. Approve it only if the person needs it for their work. Tell the group's owner at once when someone moves or leaves. The insider threat signs in B4 show first to a manager: raise a concern early with the security officer or HR |
 
-Between courses, awareness is kept up by the system use notice shown before sign-in, ABC Technologies' security messages, and a \<DocuView\> security note each quarter.
+Between courses, awareness is kept up by the system use notice shown before sign-in, \<Organisation\>'s security messages, and a \<System Name\> security note each quarter.
 
 ### 4.4 Role curriculum
 
@@ -202,7 +202,7 @@ Every role must complete awareness, the briefing and the SyOps signature before 
 
 The matrix carries out AT-2, AT-3, AT-3(5) (\<PII Processing Management\>), IR-2 (\<Procedures\>, PRO-IR-3), CP-3 (\<Procedures\>, PRO-CP-4) and PL-4 (\<Security Operating Procedures\>).
 
-**Roles with no role modules.** Role training is for privileged users, meaning everyone who is not a standard user (D-AT-10). The Head of Cyber, the legal adviser and the authorising official have no access to \<DocuView\>, so they are not in the matrix, although each has a security or privacy duty: approving the policy, delivering modules M6 and M9, and deciding risk. NIST's guidance on AT-3 names senior security and privacy officers, authorising officials and system owners among those who may need role training. The system owner is in the matrix. For the other three, the design relies on ABC Technologies' own training and their professional standing, and neither is evidenced. This is registered as a gap (PA-100).
+**Roles with no role modules.** Role training is for privileged users, meaning everyone who is not a standard user (D-AT-10). The Head of Cyber, the legal adviser and the authorising official have no access to \<System Name\>, so they are not in the matrix, although each has a security or privacy duty: approving the policy, delivering modules M6 and M9, and deciding risk. NIST's guidance on AT-3 names senior security and privacy officers, authorising officials and system owners among those who may need role training. The system owner is in the matrix. For the other three, the design relies on \<Organisation\>'s own training and their professional standing, and neither is evidenced. This is registered as a gap (PA-100).
 
 ### 4.6 When training happens
 
@@ -210,7 +210,7 @@ The matrix carries out AT-2, AT-3, AT-3(5) (\<PII Processing Management\>), IR-2
 
 | When | What | Who checks |
 | --- | --- | --- |
-| Before any access | ABC Technologies' course, the \<DocuView\> briefing and its check, and the signature of \<Security Operating Procedures\> | The security officer records it; the group's owner adds no one before it is recorded |
+| Before any access | \<Organisation\>'s course, the \<System Name\> briefing and its check, and the signature of \<Security Operating Procedures\> | The security officer records it; the group's owner adds no one before it is recorded |
 | Before privileged access | The role modules in the matrix, each with its check | The system owner checks the training register before authorising the role |
 | Within 30 days of taking a role | Incident response (M7) and contingency (M8) | Security officer |
 | Every 12 months | All of the above, repeated | Security officer, who asks each person |
@@ -234,15 +234,15 @@ The security officer keeps this register from the TPL-9 records. The system owne
 
 | Person | Role | Awareness and briefing | Role modules | Within 30 days | Next due | State now |
 | --- | --- | --- | --- | --- | --- | --- |
-| Talha Chris | Global administrator | \[date\] | \[dates\] | \[dates\] | \[date\] | Not started |
+| \[Name\] | Global administrator | \[date\] | \[dates\] | \[dates\] | \[date\] | Not started |
 | Alan Craig | Administrator | \[date\] | \[dates\] | \[dates\] | \[date\] | Not started |
-| Jake Howard | Windows server administrator | \[date\] | \[dates\] | \[dates\] | \[date\] | Not started |
+| \[Name\] | Windows server administrator | \[date\] | \[dates\] | \[dates\] | \[date\] | Not started |
 | Richard McCaron | Database administrator | \[date\] | \[dates\] | \[dates\] | \[date\] | Not started |
 | Lee Martin, Ryan Giggs, Joe Allen | Developers | \[dates\] | \[dates\] | \[dates\] | \[date\] | Not started |
-| James Preston | Security officer | \[date\] | \[dates\] | \[dates\] | \[date\] | Not started |
+| \[Name\] | Security officer | \[date\] | \[dates\] | \[dates\] | \[date\] | Not started |
 | Terry Hard | Auditor | \[date\] | \[dates\] | \[dates\] | \[date\] | Not started |
-| Neil Ramsbottom | System owner | \[date\] | \[dates\] | \[dates\] | \[date\] | Not started |
-| Tony Tilley | Project access approver | \[date\] | \[dates\] | \[dates\] | \[date\] | Not started |
+| \[Name\] | System owner | \[date\] | \[dates\] | \[dates\] | \[date\] | Not started |
+| \[Name\] | Project access approver | \[date\] | \[dates\] | \[dates\] | \[date\] | Not started |
 
 ### 4.9 Measures
 
@@ -252,7 +252,7 @@ The security officer reports these monthly with the continuous monitoring measur
 
 | Measure | Target | Today |
 | --- | --- | --- |
-| People trained before access | 100% | No one trained; \<DocuView\> not in use |
+| People trained before access | 100% | No one trained; \<System Name\> not in use |
 | First-attempt pass rate on checks | 90% | No checks yet |
 | People overdue for a refresher | 0 | None due |
 | Suspicious messages reported each month | Rising; reports, not clicks, are counted | No reports yet |
@@ -271,9 +271,9 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
-| a.1 | An awareness and training policy, shared with defined people, covering purpose, scope, roles, responsibilities, management commitment, coordination and compliance, and consistent with the law | \<Policy\> (AT): a system-level policy. It is shared with everyone who uses or administers \<DocuView\>. The legal adviser reviews it | Legally reviewed on 12 November 2026. Awaits the Head of Cyber's re-approval (D-AT-07). Not yet shared |
-| a.2 | Procedures that carry out the policy, shared with defined people | \<Procedures\> (AT): five procedures, PRO-AT-1 to PRO-AT-5, each naming who acts and the record. Shared with everyone who uses, administers or develops \<DocuView\> | Approved by the system owner. Not yet shared or walked through |
-| b | A named official manages the policy and procedures | The system owner | Neil Ramsbottom is named in \<Roles and Responsibilities\> |
+| a.1 | An awareness and training policy, shared with defined people, covering purpose, scope, roles, responsibilities, management commitment, coordination and compliance, and consistent with the law | \<Policy\> (AT): a system-level policy. It is shared with everyone who uses or administers \<System Name\>. The legal adviser reviews it | Legally reviewed on 12 November 2026. Awaits the Head of Cyber's re-approval (D-AT-07). Not yet shared |
+| a.2 | Procedures that carry out the policy, shared with defined people | \<Procedures\> (AT): five procedures, PRO-AT-1 to PRO-AT-5, each naming who acts and the record. Shared with everyone who uses, administers or develops \<System Name\> | Approved by the system owner. Not yet shared or walked through |
+| b | A named official manages the policy and procedures | The system owner | \[Name\] is named in \<Roles and Responsibilities\> |
 | c.1 | The policy is reviewed on a schedule and after set events | Every 12 months, and after a significant incident, audit finding or system change | Reviewed after the AT review of 12 November 2026. The first yearly review falls due in November 2027 |
 | c.2 | The procedures are reviewed on a schedule and after set events | Every 12 months, and after a change to the steps | As the policy |
 
@@ -297,26 +297,26 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
-| a.1 | Give security and privacy awareness training to every user, including managers and contractors, when they start and at a set frequency | Before anyone is given access, they complete ABC Technologies' security and privacy awareness course and the 20-minute \<DocuView\> briefing, which ends with a 5-question check (section 4.3). Both are repeated every 12 months. This covers every user, whatever their grade, and contractors | Nobody is trained yet, as \<DocuView\> is not in use. ABC Technologies' course has not been seen (EV-AT-01) |
+| a.1 | Give security and privacy awareness training to every user, including managers and contractors, when they start and at a set frequency | Before anyone is given access, they complete \<Organisation\>'s security and privacy awareness course and the 20-minute \<System Name\> briefing, which ends with a 5-question check (section 4.3). Both are repeated every 12 months. This covers every user, whatever their grade, and contractors | Nobody is trained yet, as \<System Name\> is not in use. \<Organisation\>'s course has not been seen (EV-AT-01) |
 | a.2 | Give it again when the system changes or after set events | After a significant incident or change, the briefing is updated and given again to those it affects (PRO-AT-3) | Not yet used |
-| b | Use defined techniques to raise awareness | Four techniques: the \<DocuView\> briefing; the system use notice shown before sign-in; ABC Technologies' security messages; and a \<DocuView\> security note every quarter, written by the security officer from recent advisories and reports | The briefing is outlined but not yet given. The notice is not yet shown (PA-11). ABC Technologies' messages have not been seen |
+| b | Use defined techniques to raise awareness | Four techniques: the \<System Name\> briefing; the system use notice shown before sign-in; \<Organisation\>'s security messages; and a \<System Name\> security note every quarter, written by the security officer from recent advisories and reports | The briefing is outlined but not yet given. The notice is not yet shown (PA-11). \<Organisation\>'s messages have not been seen |
 | c | Update the content at a set frequency and after set events | The security officer reviews the briefing every 12 months, and within 30 days of a significant incident, exercise or change. Each change is recorded and the content version goes up (PRO-AT-3) | The outline was reviewed on 12 November 2026 |
-| d | Build lessons from incidents and breaches into the content | The yearly review reads the incident records and exercise reports of the year, inside and outside ABC Technologies, and adds each lesson (PRO-AT-3) | Not yet used: no incident lesson has yet been added |
+| d | Build lessons from incidents and breaches into the content | The yearly review reads the incident records and exercise reports of the year, inside and outside \<Organisation\>, and adds each lesson (PRO-AT-3) | Not yet used: no incident lesson has yet been added |
 
 **Table 16: AT-2 responsibility and evidence**
 
 | | |
 | --- | --- |
-| Provided by | Shared: ABC Technologies gives its general course; the system owner gives the \<DocuView\> briefing |
-| Responsible | ABC Technologies, system owner |
-| Enforced by | Not a system function. The system owner gives the briefing, and no one is added to a \<DocuView\> group until the security officer has recorded it (PRO-AC-1) |
+| Provided by | Shared: \<Organisation\> gives its general course; the system owner gives the \<System Name\> briefing |
+| Responsible | \<Organisation\>, system owner |
+| Enforced by | Not a system function. The system owner gives the briefing, and no one is added to a \<System Name\> group until the security officer has recorded it (PRO-AC-1) |
 | Rules and procedures | Policy rules R1, R2, R6 (\<Policy\>, section AT.4); PRO-AT-1, PRO-AT-3 (\<Procedures\> (AT)) |
 | Tests | None: there is no system mechanism to test. Check L14 of the consistency test confirms that every operating role has its training in the matrix, and passes |
-| Evidence asked of ABC Technologies | EV-AT-01 (\<Evidence Requests\>). Not yet sent |
-| Records an assessor will ask for | The briefing outline and materials; ABC Technologies' course content; completion records for each user (TPL-9); the quarterly security notes. Only the outline exists |
+| Evidence asked of \<Organisation\> | EV-AT-01 (\<Evidence Requests\>). Not yet sent |
+| Records an assessor will ask for | The briefing outline and materials; \<Organisation\>'s course content; completion records for each user (TPL-9); the quarterly security notes. Only the outline exists |
 | Status | Not implemented |
 | Risk decision | NC-AT-02, rated Low: obtain evidence |
-| Open items | PA-96: write the briefing material and its check, give the briefing to the first users, and start the quarterly note. PA-99: obtain ABC Technologies' course content and records (EV-AT-01) |
+| Open items | PA-96: write the briefing material and its check, give the briefing to the first users, and start the quarterly note. PA-99: obtain \<Organisation\>'s course content and records (EV-AT-01) |
 
 ### 5.3 AT-2(2) Insider Threat
 
@@ -324,22 +324,22 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
-| All | Train users to recognise and report signs of insider threat | Briefing part B4: a scenario of a colleague exporting many files before leaving; the signs to notice, as NIST lists them; that a sign is a reason to report and not to accuse; and that access is recorded and monitored. Part B5 says how to report. Part B7 gives line managers their own view, as NIST advises that this training can be tailored for managers. ABC Technologies' course is expected to cover the general case | The outline exists. Not yet given. ABC Technologies' content has not been seen (EV-AT-01) |
+| All | Train users to recognise and report signs of insider threat | Briefing part B4: a scenario of a colleague exporting many files before leaving; the signs to notice, as NIST lists them; that a sign is a reason to report and not to accuse; and that access is recorded and monitored. Part B5 says how to report. Part B7 gives line managers their own view, as NIST advises that this training can be tailored for managers. \<Organisation\>'s course is expected to cover the general case | The outline exists. Not yet given. \<Organisation\>'s content has not been seen (EV-AT-01) |
 
 **Table 18: AT-2(2) responsibility and evidence**
 
 | | |
 | --- | --- |
-| Provided by | Shared: ABC Technologies gives its general course; the system owner gives the \<DocuView\> briefing |
-| Responsible | ABC Technologies, system owner |
+| Provided by | Shared: \<Organisation\> gives its general course; the system owner gives the \<System Name\> briefing |
+| Responsible | \<Organisation\>, system owner |
 | Enforced by | Not a system function |
 | Rules and procedures | Policy rules R2 (\<Policy\>, section AT.4); PRO-AT-1 (\<Procedures\> (AT)) |
 | Tests | None: there is no system mechanism to test |
-| Evidence asked of ABC Technologies | EV-AT-01 (\<Evidence Requests\>). Not yet sent |
-| Records an assessor will ask for | The briefing material for part B4; ABC Technologies' course content; completion records (TPL-9) |
+| Evidence asked of \<Organisation\> | EV-AT-01 (\<Evidence Requests\>). Not yet sent |
+| Records an assessor will ask for | The briefing material for part B4; \<Organisation\>'s course content; completion records (TPL-9) |
 | Status | Not implemented |
 | Risk decision | NC-AT-03, rated Low: obtain evidence |
-| Open items | PA-96: write and give briefing part B4. PA-99: obtain ABC Technologies' content (EV-AT-01) |
+| Open items | PA-96: write and give briefing part B4. PA-99: obtain \<Organisation\>'s content (EV-AT-01) |
 
 ### 5.4 AT-2(3) Social Engineering and Mining
 
@@ -347,22 +347,22 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
-| All | Train users to recognise and report social engineering and social mining | Briefing part B3: the forms an attempt takes, from phishing and pretexting to tailgating; how social mining gathers facts about ABC Technologies and \<DocuView\>, and what not to disclose; and two scenarios, a request for an employee's file from someone unknown, and an emailed sign-in link that looks like \<DocuView\>. Users check with the person through a known route, and report it. No phishing simulation is run unless HR and the legal adviser agree, and then nobody is penalised for clicking: reports are counted, not clicks | The outline exists. Not yet given. ABC Technologies' content has not been seen (EV-AT-01) |
+| All | Train users to recognise and report social engineering and social mining | Briefing part B3: the forms an attempt takes, from phishing and pretexting to tailgating; how social mining gathers facts about \<Organisation\> and \<System Name\>, and what not to disclose; and two scenarios, a request for an employee's file from someone unknown, and an emailed sign-in link that looks like \<System Name\>. Users check with the person through a known route, and report it. No phishing simulation is run unless HR and the legal adviser agree, and then nobody is penalised for clicking: reports are counted, not clicks | The outline exists. Not yet given. \<Organisation\>'s content has not been seen (EV-AT-01) |
 
 **Table 20: AT-2(3) responsibility and evidence**
 
 | | |
 | --- | --- |
-| Provided by | Shared: ABC Technologies gives its general course; the system owner gives the \<DocuView\> briefing |
-| Responsible | ABC Technologies, system owner |
+| Provided by | Shared: \<Organisation\> gives its general course; the system owner gives the \<System Name\> briefing |
+| Responsible | \<Organisation\>, system owner |
 | Enforced by | Not a system function |
 | Rules and procedures | Policy rules R2, R8 (\<Policy\>, section AT.4); PRO-AT-1 (\<Procedures\> (AT)) |
 | Tests | None: there is no system mechanism to test |
-| Evidence asked of ABC Technologies | EV-AT-01 (\<Evidence Requests\>). Not yet sent |
-| Records an assessor will ask for | The briefing material for part B3; ABC Technologies' course content; completion records (TPL-9); any agreement to a phishing simulation |
+| Evidence asked of \<Organisation\> | EV-AT-01 (\<Evidence Requests\>). Not yet sent |
+| Records an assessor will ask for | The briefing material for part B3; \<Organisation\>'s course content; completion records (TPL-9); any agreement to a phishing simulation |
 | Status | Not implemented |
 | Risk decision | NC-AT-04, rated Low: obtain evidence |
-| Open items | PA-96: write and give briefing part B3. PA-99: obtain ABC Technologies' content (EV-AT-01) |
+| Open items | PA-96: write and give briefing part B3. PA-99: obtain \<Organisation\>'s content (EV-AT-01) |
 
 ### 5.5 AT-3 Role-based Training
 
@@ -384,11 +384,11 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | Enforced by | Not a system function. The system owner checks the training register before authorising a privileged role, and adds nobody to a role group until its modules are complete (PRO-AC-6, PRO-AT-4) |
 | Rules and procedures | Policy rules R4, R5, R6 (\<Policy\>, section AT.4); PRO-AT-2, PRO-AT-3 (\<Procedures\> (AT)) |
 | Tests | None: there is no system mechanism to test. Check L14 of the consistency test confirms that every operating role has its training in the matrix, and passes |
-| Evidence asked of ABC Technologies | EV-AT-01 (\<Evidence Requests\>). Not yet sent |
+| Evidence asked of \<Organisation\> | EV-AT-01 (\<Evidence Requests\>). Not yet sent |
 | Records an assessor will ask for | The curriculum and module materials; the checks and their results; completion records for each role holder (TPL-9); the training register. The curriculum and an empty register exist |
 | Status | Not implemented |
 | Risk decision | NC-AT-05, rated Low: approve |
-| Open items | PA-97: the security officer writes the nine modules from the curriculum (PRO-AT-2), and each role holder completes theirs. PA-99: ABC Technologies evidences the training of its administrators of the servers (EV-AT-01). PA-100: evidence, or give, training for the Head of Cyber, legal adviser and authorising official |
+| Open items | PA-97: the security officer writes the nine modules from the curriculum (PRO-AT-2), and each role holder completes theirs. PA-99: \<Organisation\> evidences the training of its administrators of the servers (EV-AT-01). PA-100: evidence, or give, training for the Head of Cyber, legal adviser and authorising official |
 
 ### 5.6 AT-4 Training Records
 
@@ -397,7 +397,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Record and monitor training, both awareness and role-based | The security officer records each completion on TPL-9, with the content version, the check result and the next due date, and adds it to the training register (section 4.8). The measures in section 4.9 are reported every month. Anyone overdue is reminded, and privileged access is suspended after 30 days overdue (PRO-AT-5) | The register is set up, with every role holder named. No record exists yet |
-| b | Keep each person's training records for a set time | 3 years. ABC Technologies keeps its own course records and provides them on request | No records yet |
+| b | Keep each person's training records for a set time | 3 years. \<Organisation\> keeps its own course records and provides them on request | No records yet |
 
 **Table 24: AT-4 responsibility and evidence**
 
@@ -408,8 +408,8 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | Enforced by | Not a system function. The register is kept by the security officer, in this document until the records store is set up |
 | Rules and procedures | Policy rules R9 (\<Policy\>, section AT.4); PRO-AT-4 (\<Procedures\> (AT)) |
 | Tests | None: there is no system mechanism to test |
-| Evidence asked of ABC Technologies | EV-AT-01 (\<Evidence Requests\>). Not yet sent |
-| Records an assessor will ask for | TPL-9 records; the training register; the monthly measures on TPL-8; ABC Technologies' course records (EV-AT-01). None exist yet |
+| Evidence asked of \<Organisation\> | EV-AT-01 (\<Evidence Requests\>). Not yet sent |
+| Records an assessor will ask for | TPL-9 records; the training register; the monthly measures on TPL-8; \<Organisation\>'s course records (EV-AT-01). None exist yet |
 | Status | Not implemented |
 | Risk decision | NC-AT-06, rated Low: approve |
 | Open items | PA-98: bring the TPL-9 record and the training register into use, in the records store, from the first briefing |
@@ -425,8 +425,8 @@ These are NIST's organisation-defined values for the 6 AT entries: 21 in total. 
 
 | NIST identifier | What must be defined | Value | State now |
 | --- | --- | --- | --- |
-| AT-01\_ODP\[01\] | Who receives the policy | Everyone who uses or administers \<DocuView\> | Not yet shared |
-| AT-01\_ODP\[02\] | Who receives the procedures | Everyone who uses, administers or develops \<DocuView\> | Not yet shared |
+| AT-01\_ODP\[01\] | Who receives the policy | Everyone who uses or administers \<System Name\> | Not yet shared |
+| AT-01\_ODP\[02\] | Who receives the procedures | Everyone who uses, administers or develops \<System Name\> | Not yet shared |
 | AT-01\_ODP\[03\] | Level of the policy | System level | In place |
 | AT-01\_ODP\[04\] | Official who manages them | System owner | In place |
 | AT-01\_ODP\[05\] | Policy review frequency | Every 12 months | First review due November 2027 |
@@ -437,7 +437,7 @@ These are NIST's organisation-defined values for the 6 AT entries: 21 in total. 
 | AT-02\_ODP\[02\] | Privacy training frequency | Every 12 months | No one trained yet |
 | AT-02\_ODP\[03\] | Events requiring security training | A significant incident or change | Not yet used |
 | AT-02\_ODP\[04\] | Events requiring privacy training | A significant incident or change | Not yet used |
-| AT-02\_ODP\[05\] | Awareness techniques | The \<DocuView\> briefing, the system use notice, ABC Technologies' security messages and a quarterly \<DocuView\> security note | Briefing outlined (section 4.3); not yet given; ABC Technologies' messages not seen (EV-AT-01) |
+| AT-02\_ODP\[05\] | Awareness techniques | The \<System Name\> briefing, the system use notice, \<Organisation\>'s security messages and a quarterly \<System Name\> security note | Briefing outlined (section 4.3); not yet given; \<Organisation\>'s messages not seen (EV-AT-01) |
 | AT-02\_ODP\[06\] | Content update frequency | Every 12 months | Content reviewed 12 November 2026 |
 | AT-02\_ODP\[07\] | Events requiring content update | A significant incident, exercise or change | Not yet used |
 | AT-03\_ODP\[01\] | Roles trained for security | The roles in the training matrix (section 4.5): system owner, global administrator, administrator, Windows server administrator, database administrator, developers, security officer, auditor and project access approvers | Curriculum set (section 4.4); module content not yet written |

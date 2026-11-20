@@ -1,4 +1,4 @@
-# \<DocuView\> Administrator Security Guide
+# \<System Name\> Administrator Security Guide
 
 **\<ref\> | Version \<ver\> | Draft for the developers to confirm**
 
@@ -32,7 +32,7 @@
 | Item | Detail |
 | --- | --- |
 | Reference | \<ref\> |
-| Title | \<DocuView\> Administrator Security Guide |
+| Title | \<System Name\> Administrator Security Guide |
 | Version | \<ver\> |
 | Status | Draft prepared from the document set (D-SA-17); to be confirmed against the release by the developers before version \<ver\> (PA-69) |
 | Date | 11 November 2026 |
@@ -46,9 +46,9 @@
 
 | Role | Name | Decision | Date |
 | --- | --- | --- | --- |
-| Prepared by | Claude, an AI assistant, for the system owner, Neil Ramsbottom | Draft \<ver\>, from the approved document set | 11 November 2026 |
+| Prepared by | Claude, an AI assistant, for the system owner, \[Name\] | Draft \<ver\>, from the approved document set | 11 November 2026 |
 | Developers | \[Name\] | Pending: confirm each fact against the release |  |
-| System owner | Neil Ramsbottom | Drafts approved for confirmation (D-SA-18) | 11 November 2026 |
+| System owner | \[Name\] | Drafts approved for confirmation (D-SA-18) | 11 November 2026 |
 
 **Table 3: Change history**
 
@@ -80,7 +80,7 @@
 
 ## 2 Purpose and how to use this draft
 
-This guide tells administrators how to install, configure and run \<DocuView\> securely, how to use and maintain its security and privacy functions, and what to watch for in its privileged functions (SA-5a). It points to the approved document that holds each value rather than repeating it, so it stays correct when a value changes.
+This guide tells administrators how to install, configure and run \<System Name\> securely, how to use and maintain its security and privacy functions, and what to watch for in its privileged functions (SA-5a). It points to the approved document that holds each value rather than repeating it, so it stays correct when a value changes.
 
 It is a draft. Values in \[brackets\] are for the developers to fill or confirm. Until version \<ver\>, administrators follow the procedures named here.
 
@@ -89,11 +89,11 @@ It is a draft. Values in \[brackets\] are for the developers to fill or confirm.
 
 ## 3 Secure installation
 
-1. Build the two Windows Server 2025 VMs to ABC Technologies' hardened build and the baseline in \<Configuration Management\>; turn on full-disk encryption and Microsoft Defender before \<DocuView\> is installed (PA-52, PA-58).
+1. Build the two Windows Server 2025 VMs to \<Organisation\>'s hardened build and the baseline in \<Configuration Management\>; turn on full-disk encryption and Microsoft Defender before \<System Name\> is installed (PA-52, PA-58).
 2. Install the applications from a release tag only, and check the release checksums (PA-61). Never install from a working branch. Install each application as a Windows service, under its own service account (D-PL-10).
-3. Put the database connection string, the signing key and service secrets in the key store, never in a settings file or in Git (PA-19). Only DV\_API connects to the database, with one account that is not a superuser and cannot change the schema (D-AC-18, PA-10).
+3. Put the database connection string, the signing key and service secrets in the key store, never in a settings file or in Git (PA-19). Only API connects to the database, with one account that is not a superuser and cannot change the schema (D-AC-18, PA-10).
 4. Turn on TLS for every flow in \<System Security Plan\>, section 4.7, including the database connection (PA-18).
-5. Publish the admin portal only on ABC Technologies' managed administration route (route R3), never on every interface (PA-83).
+5. Publish the admin portal only on \<Organisation\>'s managed administration route (route R3), never on every interface (PA-83).
 6. Set up backups, encrypted, with transaction log archiving, as in \<Contingency Planning Management\> (PA-64).
 7. Run Test-AccessControl.ps1, Test-Identification.ps1 and Test-ConfigurationManagement.ps1 against the built VMs, and keep the results (\<System and Services Acquisition Management\>, section 4.9).
 
@@ -107,12 +107,12 @@ It is a draft. Values in \[brackets\] are for the developers to fill or confirm.
 | Setting | Where | Required value | Source |
 | --- | --- | --- | --- |
 | Page lock and sign-out | Each application's security settings | Lock after 25 minutes; sign out after 30 | \<Access Control Management\> |
-| Sign-in | The trust in ABC Technologies' AD FS | Password length, lockout and multi-factor authentication are set by ABC Technologies, not in \<DocuView\> (D-AC-23) | \<Policy\> (IA) |
-| Allowed origins | DV\_API's allowed origins | Only DV\_Web and DV\_Admin\_UI host names | \<System and Communications Protection Management\> |
-| Token signing | DV\_API's token settings | Key from the key store, rotated as in \<System and Communications Protection Management\> | \<System and Communications Protection Management\> |
+| Sign-in | The trust in \<Organisation\>'s AD FS | Password length, lockout and multi-factor authentication are set by \<Organisation\>, not in \<System Name\> (D-AC-23) | \<Policy\> (IA) |
+| Allowed origins | API's allowed origins | Only UI application and Admin application host names | \<System and Communications Protection Management\> |
+| Token signing | API's token settings | Key from the key store, rotated as in \<System and Communications Protection Management\> | \<System and Communications Protection Management\> |
 | Audit | Audit settings in each application | All events in \<Audit and Accountability Management\> on | \<Audit and Accountability Management\> |
 | Exports | Bulk export folder | Copies removed after download (PA-86) | \<Media Protection Management\> |
-| Browser libraries | Page templates | Served by \<DocuView\>, not a CDN (PA-34) | \<System and Communications Protection Management\> |
+| Browser libraries | Page templates | Served by \<System Name\>, not a CDN (PA-34) | \<System and Communications Protection Management\> |
 | Logging | Each application's logging settings | No personal data or session IDs in the application log (PA-75) | \<Audit and Accountability Management\> |
 
 Any change to these settings follows \<Procedures\> (CM), and is checked for drift monthly (SyOps C47).
@@ -147,7 +147,7 @@ Any change to these settings follows \<Procedures\> (CM), and is checked for dri
 | --- | --- | --- | --- |
 | Sign-in | Each person's Active Directory account, through AD FS with multi-factor authentication | Keep the trust in AD FS; never add a local account | Test-Identification.ps1 |
 | Project access | Checks the user's project role on every page and API call | Grant roles only through \<Procedures\> (AC); review every 3 months | Test-AccessControl.ps1 |
-| Global administrator | Full rights across \<DocuView\> | Keep holders to the named few; review every 3 months | Test-AccessControl.ps1 |
+| Global administrator | Full rights across \<System Name\> | Keep holders to the named few; review every 3 months | Test-AccessControl.ps1 |
 | Session control | Page lock and sign-out | Keep the timeouts in Table 4 | Test-AccessControl.ps1 |
 | Audit | Hash-chained records of security events | Run the chain check; keep records as in \<Policy\> (AU) | Test-AuditAndAuth.ps1 |
 | Exports | Bulk and single exports of documents | Check the export folder each working day; remove copies | Test-MediaProtection.ps1 |
@@ -158,7 +158,7 @@ Any change to these settings follows \<Procedures\> (CM), and is checked for dri
 
 ## 7 Privacy functions
 
-1. **Requests from individuals:** search every project for the person's documents and record what was found and changed on TPL-15 (\<Procedures\>, PRO-PT-1). Until \<DocuView\> can search all projects in one step, search each in turn (PA-89).
+1. **Requests from individuals:** search every project for the person's documents and record what was found and changed on TPL-15 (\<Procedures\>, PRO-PT-1). Until \<System Name\> can search all projects in one step, search each in turn (PA-89).
 2. **Corrections and deletions:** record each one on TPL-15, as the admin portal doesn't audit them yet (PA-89).
 3. **HR projects:** keep special category documents only in projects the business owner authorises (\<Policy\> (PT), R5).
 4. **Retention:** dispose of documents at the end of the period in \<PII Processing Management\>, section 4.7, once retention is built (PA-70).

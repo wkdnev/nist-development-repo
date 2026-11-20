@@ -1,4 +1,4 @@
-# \<DocuView\> Maintenance Management
+# \<System Name\> Maintenance Management
 
 **\<ref\> | Version \<ver\> | Draft for the system owner's approval**
 
@@ -30,7 +30,7 @@
 | Item | Detail |
 | --- | --- |
 | Reference | \<ref\> |
-| Title | \<DocuView\> Maintenance Management |
+| Title | \<System Name\> Maintenance Management |
 | Version | \<ver\> |
 | Status | Draft for the system owner's approval |
 | Date | 17 November 2026 |
@@ -46,7 +46,7 @@
 
 | Role | Name | Decision | Date |
 | --- | --- | --- | --- |
-| System owner | Neil Ramsbottom | Pending | Pending |
+| System owner | \[Name\] | Pending | Pending |
 
 ### 1.3 Change history
 
@@ -59,7 +59,7 @@
 | \<ver\> | 17 November 2026 | Maintenance records are kept for 3 years, as the system owner decided (D-MP-11) |
 | \<ver\> | 17 November 2026 | References to the media protection design point to \<Media Protection Management\>, where it is now held (D-MP-09) |
 | \<ver\> | 17 November 2026 | Cross-check against NIST's guidance for the family: the maintenance record also holds the inspection of the tools and the scan of any media; the retention of maintenance records is shown as not yet set; and the MA controls outside the Moderate baseline are listed in a new appendix B |
-| \<ver\> | 17 November 2026 | The system owner's decisions on the review (D-MA-10): the container engine is confirmed as no longer a security-critical component, and ABC Technologies is asked for notice of its own maintenance that affects \<DocuView\> |
+| \<ver\> | 17 November 2026 | The system owner's decisions on the review (D-MA-10): the container engine is confirmed as no longer a security-critical component, and \<Organisation\> is asked for notice of its own maintenance that affects \<System Name\> |
 | \<ver\> | 17 November 2026 | Issued into the set as a draft for review |
 | \<ver\> | 17 November 2026 | First draft, at the system owner's request (D-MA-09). The maintenance chapter of \<Control Implementation Register\> moved here in full, so that this design is held only in this document, and each control is set out part by part. The lists follow the decision that the applications run as Windows services on the servers (D-PL-10): the container tools and image base are shown as belonging to the test environment only. No agreed value is changed |
 
@@ -68,7 +68,7 @@
 
 ## 2 Purpose
 
-This document shows how \<DocuView\> is maintained, for each of the 9 Maintenance (MA) controls and enhancements in the NIST SP 800-53 Rev 5 Moderate baseline. Section 4 sets out the design: who maintains what, how a job is controlled from approval to review, the routes for remote maintenance, the approved tools and people, what may leave and how, the components whose support matters, and what ABC Technologies provides. Section 5 takes each control in turn. Appendix A lists every value NIST asks the organisation to define, and appendix B the MA controls NIST does not select at Moderate.
+This document shows how \<System Name\> is maintained, for each of the 9 Maintenance (MA) controls and enhancements in the NIST SP 800-53 Rev 5 Moderate baseline. Section 4 sets out the design: who maintains what, how a job is controlled from approval to review, the routes for remote maintenance, the approved tools and people, what may leave and how, the components whose support matters, and what \<Organisation\> provides. Section 5 takes each control in turn. Appendix A lists every value NIST asks the organisation to define, and appendix B the MA controls NIST does not select at Moderate.
 
 This is the only place this design is held. Other documents point here. The policy is in \<Policy\> (MA), and the steps people follow are in \<Procedures\> (MA). Fixing flaws and releasing new versions follow their own designs, in \<System and Information Integrity Management\> and \<Configuration Management\>, and use the same change records.
 
@@ -80,7 +80,7 @@ An assessor examines the maintenance records, the lists of approved tools and pe
 - **the records an assessor will ask for**, and whether they exist yet;
 - **its status**, the risk decision, and what is still open.
 
-**Design and today.** The Design column is how maintenance is meant to work on the two servers at ABC Technologies. The Today column is what was found in the build labelled v1.0, tested in the test environment on 10 November 2026. No maintenance has taken place on the servers, as they are not built.
+**Design and today.** The Design column is how maintenance is meant to work on the two servers at \<Organisation\>. The Today column is what was found in the build labelled v1.0, tested in the test environment on 10 November 2026. No maintenance has taken place on the servers, as they are not built.
 
 **Table 4: Status values**
 
@@ -107,11 +107,11 @@ Of the 9 controls, none is fully implemented, 1 is partially implemented and 8 a
 | MA-3(1) | Inspect Tools | Not implemented | Inspection is not in use, and the list holds no versions or hashes to inspect against | NC-MA-04; PA-67, PA-120 |
 | MA-3(2) | Inspect Media | Not implemented | Defender is not on the servers | NC-MA-05; PA-58 |
 | MA-3(3) | Prevent Unauthorized Removal | Not implemented | Removal control is not in use | NC-MA-06; PA-120 |
-| MA-4 | Nonlocal Maintenance | Not implemented | The admin portal is open to every network in the tested build. ABC Technologies' route is not evidenced | NC-MA-07; PA-19, PA-23, PA-83, PA-120, EV-MA-02 |
+| MA-4 | Nonlocal Maintenance | Not implemented | The admin portal is open to every network in the tested build. \<Organisation\>'s route is not evidenced | NC-MA-07; PA-19, PA-23, PA-83, PA-120, EV-MA-02 |
 | MA-5 | Maintenance Personnel | Not implemented | The list is provisional, with no screening or signing dates | NC-MA-08; PA-67 |
 | MA-6 | Timely Maintenance | Not implemented | Support and parts within 24 hours are not evidenced | NC-MA-09; PA-120, EV-MA-01 |
 
-Most of this family is a process that has not started, because the servers are not built. Three gaps are in the system itself: maintenance pages built into the admin portal that can change or delete data and write no audit record (PA-31), an admin portal open to every network in the tested build (PA-83), and schema changes that leave no record (PA-84). The rest waits on ABC Technologies, which maintains the hardware and provides the route administrators use: none of its part is evidenced (PA-120).
+Most of this family is a process that has not started, because the servers are not built. Three gaps are in the system itself: maintenance pages built into the admin portal that can change or delete data and write no audit record (PA-31), an admin portal open to every network in the tested build (PA-83), and schema changes that leave no record (PA-84). The rest waits on \<Organisation\>, which maintains the hardware and provides the route administrators use: none of its part is evidenced (PA-120).
 
 | **SECTION 4** |
 | --- |
@@ -122,12 +122,12 @@ Most of this family is a process that has not started, because the servers are n
 
 1. **Approve first.** No maintenance happens without approval.
 2. **Known people, tools and routes.** Only those on the approved lists are used.
-3. **Protect data.** Nothing leaves with \<DocuView\>'s information on it unless it is approved and protected.
+3. **Protect data.** Nothing leaves with \<System Name\>'s information on it unless it is approved and protected.
 4. **Check and record.** Controls are checked after the work, and every job is recorded and reviewed.
 
 These carry out the principles and rules of \<Policy\>, sections MA.3 and MA.4.
 
-Maintenance means preventive and corrective work, repair and replacement, done on site or remotely. \<DocuView\> runs on two virtual servers at ABC Technologies, so there is no \<DocuView\> hardware to repair: ABC Technologies maintains the hosts beneath them.
+Maintenance means preventive and corrective work, repair and replacement, done on site or remotely. \<System Name\> runs on two virtual servers at \<Organisation\>, so there is no \<System Name\> hardware to repair: \<Organisation\> maintains the hosts beneath them.
 
 ### 4.2 Who maintains what
 
@@ -135,12 +135,12 @@ Maintenance means preventive and corrective work, repair and replacement, done o
 
 | Part | Maintained by | Route | Record |
 | --- | --- | --- | --- |
-| Hardware and hypervisor | ABC Technologies | ABC Technologies' own process (EV-MA-01) | ABC Technologies' report |
-| Windows Server on both servers | Jake Howard, Windows server administrator | Change record, route R1 | TPL-12 |
+| Hardware and hypervisor | \<Organisation\> | \<Organisation\>'s own process (EV-MA-01) | \<Organisation\>'s report |
+| Windows Server on both servers | \[Name\], Windows server administrator | Change record, route R1 | TPL-12 |
 | PostgreSQL | Richard McCaron, database administrator | Change record, route R2 | TPL-12 |
-| \<DocuView\> set-up and data repair | Talha Chris, global administrator | Change record, route R3, PRO-MA-7 | TPL-12 |
+| \<System Name\> set-up and data repair | \[Name\], global administrator | Change record, route R3, PRO-MA-7 | TPL-12 |
 | Applications | Developers | Change record and release test, route R4 | TPL-6 |
-| The services \<DocuView\> depends on: AD FS, Active Directory, the network and firewall, the time service and the backup store | ABC Technologies | ABC Technologies' own process. It is asked to tell the system owner before work that affects \<DocuView\> (EV-MA-01), as the system owner decided on 17 November 2026 (D-MA-10) | ABC Technologies' notice |
+| The services \<System Name\> depends on: AD FS, Active Directory, the network and firewall, the time service and the backup store | \<Organisation\> | \<Organisation\>'s own process. It is asked to tell the system owner before work that affects \<System Name\> (EV-MA-01), as the system owner decided on 17 November 2026 (D-MA-10) | \<Organisation\>'s notice |
 
 ### 4.3 How a maintenance job is controlled
 
@@ -167,17 +167,17 @@ Maintenance means preventive and corrective work, repair and replacement, done o
 
 ### 4.4 Remote maintenance routes
 
-MA-4 requires every route used for remote maintenance to be documented in the security plan. \<System Security Plan\>, section 4.7, points here. All administration of the servers is remote, as they are at ABC Technologies' data centre.
+MA-4 requires every route used for remote maintenance to be documented in the security plan. \<System Security Plan\>, section 4.7, points here. All administration of the servers is remote, as they are at \<Organisation\>'s data centre.
 
 **Table 8: Remote maintenance routes**
 
 | Route | Used by | Tool | Network path | Sign-in | Logged in | How it ends | State now |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| R1 Windows administration | Windows server administrator; ABC Technologies' engineers | \[Remote desktop or PowerShell remoting, to be confirmed\] | ABC Technologies' managed route to the servers' management interface | VPN with multi-factor sign-in, then a named Windows account | Windows Security log and \[ABC Technologies' route log\] | Sign out and disconnect; temporary accounts disabled | Not evidenced (EV-MA-02) |
+| R1 Windows administration | Windows server administrator; \<Organisation\>'s engineers | \[Remote desktop or PowerShell remoting, to be confirmed\] | \<Organisation\>'s managed route to the servers' management interface | VPN with multi-factor sign-in, then a named Windows account | Windows Security log and \[\<Organisation\>'s route log\] | Sign out and disconnect; temporary accounts disabled | Not evidenced (EV-MA-02) |
 | R2 Database administration | Database administrator | psql, pg\_dump and pg\_restore | Route R1 to the database server, then PostgreSQL locally | As R1, then a named PostgreSQL account, not the application's | PostgreSQL log (A30) and route R1's logs | Close the session and disconnect | Planned |
-| R3 Admin portal | Global administrator, administrator | Browser | Managed route only, over HTTPS (PA-18) | Sign-in through AD FS, with multi-factor authentication (D-AC-23); the tested build used a password | \<DocuView\> audit log; the built-in maintenance pages are not audited (PA-31) | Sign out, which ends the session (M12) | Gap: published on every interface (M04, PA-83) |
+| R3 Admin portal | Global administrator, administrator | Browser | Managed route only, over HTTPS (PA-18) | Sign-in through AD FS, with multi-factor authentication (D-AC-23); the tested build used a password | \<System Name\> audit log; the built-in maintenance pages are not audited (PA-31) | Sign out, which ends the session (M12) | Gap: published on every interface (M04, PA-83) |
 | R4 Application releases | Developers | Release package | No direct route; the Windows server administrator installs the release over R1 | Not applicable | Change record (TPL-6) | Not applicable | Planned (PA-53) |
-| R5 Hardware and hypervisor | ABC Technologies | ABC Technologies' tools | ABC Technologies' internal management network | ABC Technologies' controls | ABC Technologies' records | ABC Technologies' process | Inherited; not evidenced (EV-MA-01) |
+| R5 Hardware and hypervisor | \<Organisation\> | \<Organisation\>'s tools | \<Organisation\>'s internal management network | \<Organisation\>'s controls | \<Organisation\>'s records | \<Organisation\>'s process | Inherited; not evidenced (EV-MA-01) |
 
 For each session the logs must show the start and end time, the account, the source address, the route, and the actions where the tool records them. The security officer reviews them weekly.
 
@@ -195,7 +195,7 @@ This list is provisional until the servers are built (PA-67). The Windows server
 | Docker command line | Start, stop and inspect containers | Test environment only | Developers | Approved for the test environment only |
 | psql, pg\_dump and pg\_restore, PostgreSQL 18 | Maintain, back up and restore the database | Database server | Database administrator | Provisional |
 | \[Database administration tool, if any\] | \[Use\] | \[Where\] | Database administrator | Placeholder |
-| \<DocuView\> built-in pages: Database Update, Fresh Start, Legacy Cleanup, Fix Duplicate Users and Seed Project Roles | Schema and data repair | Admin portal | Global administrator, under PRO-MA-7 only | Restricted until removed (PA-31) |
+| \<System Name\> built-in pages: Database Update, Fresh Start, Legacy Cleanup, Fix Duplicate Users and Seed Project Roles | Schema and data repair | Admin portal | Global administrator, under PRO-MA-7 only | Restricted until removed (PA-31) |
 | The test scripts | Checks on a test stack | Test environment only | Developers | Approved for the test environment only |
 
 Not approved on the servers: any shell or package manager carried inside a release, as the tested build's container images carry (PA-85), and any tool not in this table.
@@ -210,11 +210,11 @@ This list is provisional until the servers are built (PA-67). The system owner a
 
 | Person or organisation | Role | Maintains | Screened | Part B signed | Account | Escort needed |
 | --- | --- | --- | --- | --- | --- | --- |
-| Jake Howard | Windows server administrator | Both servers | \[Date\] | \[Date\] | Named Windows administrator account | No |
+| \[Name\] | Windows server administrator | Both servers | \[Date\] | \[Date\] | Named Windows administrator account | No |
 | Richard McCaron | Database administrator | PostgreSQL | \[Date\] | \[Date\] | Named PostgreSQL account | No |
-| Talha Chris | Global administrator | Built-in maintenance pages, under PRO-MA-7 | \[Date\] | \[Date\] | Their Active Directory account, in the global administrators group | No, but a second person is present |
+| \[Name\] | Global administrator | Built-in maintenance pages, under PRO-MA-7 | \[Date\] | \[Date\] | Their Active Directory account, in the global administrators group | No, but a second person is present |
 | \[Developers\] | Developers | Applications, through releases | \[Date\] | \[Date\] | No access to the servers | Not applicable |
-| ABC Technologies' engineers, \[names\] | Hardware and hypervisor | The hosts | ABC Technologies' screening (EV-MA-01) | Not applicable | ABC Technologies' own | Yes, on the \<DocuView\> servers |
+| \<Organisation\>'s engineers, \[names\] | Hardware and hypervisor | The hosts | \<Organisation\>'s screening (EV-MA-01) | Not applicable | \<Organisation\>'s own | Yes, on the \<System Name\> servers |
 | \[Supplier\] | \[Role\] | \[As contracted\] | \[Date\] | \[Date\] | Temporary, disabled after the job | Yes |
 
 ### 4.7 Equipment and data that leave
@@ -223,36 +223,36 @@ This list is provisional until the servers are built (PA-67). The system owner a
 
 | What | Rule | Approved by | Record |
 | --- | --- | --- | --- |
-| Hardware or a disk beneath the servers | ABC Technologies sanitises it first, by the method in \<Media Protection Management\>, section 4.6, and confirms it with a certificate | System owner, in the change record | TPL-12, TPL-13 |
-| Equipment used for maintenance, such as an engineer's laptop or a drive | Checked to hold no \<DocuView\> information. If it does, it is sanitised, or it stays on site | System owner | TPL-12 |
+| Hardware or a disk beneath the servers | \<Organisation\> sanitises it first, by the method in \<Media Protection Management\>, section 4.6, and confirms it with a certificate | System owner, in the change record | TPL-12, TPL-13 |
+| Equipment used for maintenance, such as an engineer's laptop or a drive | Checked to hold no \<System Name\> information. If it does, it is sanitised, or it stays on site | System owner | TPL-12 |
 | A copy of data, a database dump, a log or a screenshot, sent for maintenance or support | Kept to the minimum, with personal data removed where possible; encrypted; sent by an approved route; and the receiver confirms deletion when it is no longer needed | System owner | TPL-12 or TPL-13 |
 
 ### 4.8 Security-critical components and support
 
-These are the components that \<DocuView\>'s security depends on (MA-06\_ODP\[01\]). Support dates are checked each month against the vendors' published lifecycles. On the servers each application runs as a Windows service (D-PL-10); the tested build ran in containers, so the image base applies to the test environment only, and the container engine is no longer a component of the servers. The system owner confirmed this on 17 November 2026 (D-MA-10).
+These are the components that \<System Name\>'s security depends on (MA-06\_ODP\[01\]). Support dates are checked each month against the vendors' published lifecycles. On the servers each application runs as a Windows service (D-PL-10); the tested build ran in containers, so the image base applies to the test environment only, and the container engine is no longer a component of the servers. The system owner confirmed this on 17 November 2026 (D-MA-10).
 
 **Table 12: Security-critical components**
 
 | Component | Version seen | Support ends | Support or parts within | Who |
 | --- | --- | --- | --- | --- |
-| Hardware and hypervisor hosts | \[ABC Technologies\] | \[Per ABC Technologies' service agreement\] | 24 hours | ABC Technologies |
+| Hardware and hypervisor hosts | \[\<Organisation\>\] | \[Per \<Organisation\>'s service agreement\] | 24 hours | \<Organisation\> |
 | Windows Server 2025, both servers | 2025 | Mainstream to November 2029; extended to November 2034 | Vendor updates | Windows server administrator |
 | PostgreSQL | 18.6 (M11) | November 2030 | Community updates | Database administrator |
 | .NET and ASP.NET Core runtime | 10.0.14 (M11) | November 2028, long-term support | Vendor updates | Developers |
 | Application image base, Ubuntu, in the test environment only | 24.04.5 LTS (M11) | Standard support to May 2029 | Vendor updates | Developers |
 | Microsoft Defender | \[Version\] | While Windows Server is supported | Vendor updates | Windows server administrator |
 
-### 4.9 What ABC Technologies provides
+### 4.9 What \<Organisation\> provides
 
-**Table 13: Asked of ABC Technologies**
+**Table 13: Asked of \<Organisation\>**
 
-| Provided | Controls | What \<DocuView\> relies on | Evidence asked | State |
+| Provided | Controls | What \<System Name\> relies on | Evidence asked | State |
 | --- | --- | --- | --- | --- |
-| Maintenance of the hardware and the hypervisor | MA-2 | Approved, recorded maintenance by screened engineers, with notice to the system owner of work that affects \<DocuView\> | EV-MA-01 | Not sent |
+| Maintenance of the hardware and the hypervisor | MA-2 | Approved, recorded maintenance by screened engineers, with notice to the system owner of work that affects \<System Name\> | EV-MA-01 | Not sent |
 | Sanitising before equipment leaves | MA-2, MA-3(3) | Disks and equipment are sanitised to NIST SP 800-88 Revision 2, with a certificate | EV-MA-01 | Not sent |
 | Support and parts | MA-6 | Within 24 hours of a failure, for the hardware and the hypervisor | EV-MA-01 | Not sent |
 | The managed route administrators use | MA-4 | Multi-factor sign-in; a log of each session; sessions and connections that end when the work does; a firewall rule that limits the admin portal to the route | EV-MA-02 | Not sent |
-| Maintenance of the services \<DocuView\> depends on | MA-2 | Notice before work on AD FS, Active Directory, the network, the time service or the backup store that affects \<DocuView\> | EV-MA-01 | Not sent |
+| Maintenance of the services \<System Name\> depends on | MA-2 | Notice before work on AD FS, Active Directory, the network, the time service or the backup store that affects \<System Name\> | EV-MA-01 | Not sent |
 
 **Today:** no request has been sent, and none of this is evidenced (PA-120).
 
@@ -269,9 +269,9 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
-| a.1 | A maintenance policy, shared with defined people, covering purpose, scope, roles, responsibilities, management commitment, coordination and compliance, and consistent with the law | \<Policy\> (MA): a system-level policy, shared with everyone who maintains \<DocuView\>. The legal adviser reviews it | Version \<ver\> approved by the Head of Cyber (D-MA-01) and legally reviewed on 10 November 2026. The later version awaits the Head of Cyber (D-MA-07). Not yet shared (PA-20) |
+| a.1 | A maintenance policy, shared with defined people, covering purpose, scope, roles, responsibilities, management commitment, coordination and compliance, and consistent with the law | \<Policy\> (MA): a system-level policy, shared with everyone who maintains \<System Name\>. The legal adviser reviews it | Version \<ver\> approved by the Head of Cyber (D-MA-01) and legally reviewed on 10 November 2026. The later version awaits the Head of Cyber (D-MA-07). Not yet shared (PA-20) |
 | a.2 | Procedures that carry out the policy, shared with defined people | \<Procedures\> (MA): seven procedures, PRO-MA-1 to PRO-MA-7. Shared with the same people | Approved by the system owner (D-MA-08). Not yet shared or walked through |
-| b | A named official manages the policy and procedures | The system owner | Neil Ramsbottom is named in \<Roles and Responsibilities\> |
+| b | A named official manages the policy and procedures | The system owner | \[Name\] is named in \<Roles and Responsibilities\> |
 | c.1 | The policy is reviewed on a schedule and after set events | Every 12 months, and after a significant incident, audit finding or system change | Reviewed on 10 November 2026. The first yearly review falls due in November 2027 |
 | c.2 | The procedures are reviewed on a schedule and after set events | Every 12 months, and after a change to the steps | As the policy |
 
@@ -297,8 +297,8 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | --- | --- | --- | --- |
 | a | Schedule, document and review records of maintenance, repair and replacement, to the maker's specification or the organisation's own requirements | Every job is planned in a change record. Routine work follows the preventive schedule (PRO-MA-6). Each job is recorded on TPL-12, and the security officer reviews every record against its change record each month (section 4.3) | Written. No maintenance has taken place on the servers, which are not built |
 | b | Approve and monitor all maintenance, on site or remote, whether the item is serviced in place or taken away | The change is approved before work starts. Emergency work follows the emergency change rule and is recorded within 1 working day. An administrator watches work by anyone not on the approved list, remote sessions are logged (section 4.4), and each use of a built-in maintenance page is audited | Not in use. The built-in maintenance pages write no audit record (M03; PA-31) |
-| c | Require defined people to approve the removal of the system or its parts for maintenance, repair or replacement elsewhere | The system owner, in the change record. The servers are virtual: the hardware beneath them is ABC Technologies', and leaves only under its process (section 4.7) | Not yet used |
-| d | Sanitise equipment to remove defined information before it leaves | All \<DocuView\> information, including configuration and secrets. ABC Technologies sanitises by the method in \<Media Protection Management\>, section 4.6, and confirms it with a certificate | Not evidenced (EV-MA-01) |
+| c | Require defined people to approve the removal of the system or its parts for maintenance, repair or replacement elsewhere | The system owner, in the change record. The servers are virtual: the hardware beneath them is \<Organisation\>'s, and leaves only under its process (section 4.7) | Not yet used |
+| d | Sanitise equipment to remove defined information before it leaves | All \<System Name\> information, including configuration and secrets. \<Organisation\> sanitises by the method in \<Media Protection Management\>, section 4.6, and confirms it with a certificate | Not evidenced (EV-MA-01) |
 | e | Check that every control the work could have affected still works afterwards | A nine-point checklist (section 4.3). The administrator runs it, and the security officer reviews and signs the result within 1 working day | The first three checks passed in the test environment after a simulated restart (M06 to M08). Not used on the servers |
 | f | Include defined information in the maintenance records | The fields in section 4.3, on TPL-12. Each change to the database schema is recorded with its version, date and release | TPL-12 holds the fields. Not yet used. Schema changes leave no record in the database (M09; PA-84) |
 
@@ -306,15 +306,15 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 | | |
 | --- | --- |
-| Provided by | Shared: \<DocuView\> and ABC Technologies |
-| Responsible | Administrators, security officer, ABC Technologies |
+| Provided by | Shared: \<System Name\> and \<Organisation\> |
+| Responsible | Administrators, security officer, \<Organisation\> |
 | Enforced by | Not a system function, apart from the audit of the built-in pages. Change control (\<Configuration Management\>, section 4.7) |
 | Rules and procedures | Policy rules R1, R2, R3, R8, R11 (\<Policy\>, section MA.4); PRO-MA-1, PRO-MA-2, PRO-MA-6 (\<Procedures\> (MA)) |
 | Tests | Checks M03 and M06 to M09 on the v1.0 build, 10 November 2026: the check after maintenance worked; the built-in pages and schema changes left no record |
 | Records an assessor will ask for | Change records and TPL-12 records for a sample of jobs; the monthly review; the preventive schedule; sanitising certificates. None exist yet |
 | Status | Not implemented |
 | Risk decision | NC-MA-02, rated Low: remediate |
-| Open items | PA-120: bring controlled maintenance into use, with ABC Technologies' part evidenced. PA-31: the built-in pages. PA-84: record schema changes |
+| Open items | PA-120: bring controlled maintenance into use, with \<Organisation\>'s part evidenced. PA-31: the built-in pages. PA-84: record schema changes |
 
 ### 5.3 MA-3 Maintenance Tools
 
@@ -331,7 +331,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | --- | --- |
 | Provided by | People, following the procedures |
 | Responsible | Windows server administrator |
-| Enforced by | The approved list; \<DocuView\>'s roles, which limit the built-in pages to global administrators |
+| Enforced by | The approved list; \<System Name\>'s roles, which limit the built-in pages to global administrators |
 | Rules and procedures | Policy rules R4, R5 (\<Policy\>, section MA.4); PRO-MA-3, PRO-MA-7 (\<Procedures\> (MA)) |
 | Tests | Checks M01, M02 and M10 on the v1.0 build, 10 November 2026 showed the gaps |
 | Records an assessor will ask for | The approved tool list and its yearly review; TPL-12 records naming the tools used |
@@ -389,9 +389,9 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
-| a | Prevent the removal of maintenance equipment holding the organisation's information, by checking that it holds none | Before any equipment used for maintenance leaves, such as an engineer's laptop or a drive, the administrator checks that it holds no \<DocuView\> information (section 4.7) | Not yet used |
-| b | Or by sanitising or destroying it | If it does, ABC Technologies sanitises it by the method in \<Media Protection Management\>, section 4.6 | Not yet used; sanitising is not evidenced (EV-MA-01) |
-| c | Or by keeping it within the facility | Or it stays at ABC Technologies' site | Not yet used |
+| a | Prevent the removal of maintenance equipment holding the organisation's information, by checking that it holds none | Before any equipment used for maintenance leaves, such as an engineer's laptop or a drive, the administrator checks that it holds no \<System Name\> information (section 4.7) | Not yet used |
+| b | Or by sanitising or destroying it | If it does, \<Organisation\> sanitises it by the method in \<Media Protection Management\>, section 4.6 | Not yet used; sanitising is not evidenced (EV-MA-01) |
+| c | Or by keeping it within the facility | Or it stays at \<Organisation\>'s site | Not yet used |
 | d | Or by an exemption from defined people that explicitly allows the removal | Only the system owner may allow equipment or data to leave. That includes any copy of data, database dump, log or screenshot sent for support: kept to the minimum, encrypted, recorded, and deleted when no longer needed (PRO-MA-7) | Not yet used |
 
 **Table 25: MA-3(3) responsibility and evidence**
@@ -415,18 +415,18 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Approve and monitor maintenance and diagnostic work done remotely | The system owner approves remote work in the change record, which names the route. Each session is logged, a supplier's session is watched by an administrator, and the security officer reviews the session logs weekly (section 4.4) | Not in use |
-| b | Allow remote maintenance tools only as policy says and as the security plan documents | The five routes in section 4.4 and the tools in section 4.5, which \<System Security Plan\>, section 4.7, points to. The admin portal is reachable only through ABC Technologies' managed route | Not met for the admin portal: the tested build publishes it on every network interface (M04; PA-83) |
-| c | Use strong authentication to set up remote sessions | Routes R1 and R2: the VPN with multi-factor sign-in, then a named account. Route R3: sign-in through AD FS, with multi-factor authentication (D-AC-23) | ABC Technologies' route is not evidenced (EV-MA-02). The tested build's admin portal was password-only (PA-23, PA-95) |
+| b | Allow remote maintenance tools only as policy says and as the security plan documents | The five routes in section 4.4 and the tools in section 4.5, which \<System Security Plan\>, section 4.7, points to. The admin portal is reachable only through \<Organisation\>'s managed route | Not met for the admin portal: the tested build publishes it on every network interface (M04; PA-83) |
+| c | Use strong authentication to set up remote sessions | Routes R1 and R2: the VPN with multi-factor sign-in, then a named account. Route R3: sign-in through AD FS, with multi-factor authentication (D-AC-23) | \<Organisation\>'s route is not evidenced (EV-MA-02). The tested build's admin portal was password-only (PA-23, PA-95) |
 | d | Keep records of remote maintenance and diagnostic work | TPL-12, with the session reference. The logs show the start and end time, the account, the source address, the route, and the actions where the tool records them | Not in use |
-| e | End the session and the network connection when the work is finished | The person signs out and disconnects, and any temporary account is disabled. Signing out of the admin portal ends its session | Signing out of the admin portal ended the session in the tested build (M12). ABC Technologies' route is not evidenced (EV-MA-02) |
+| e | End the session and the network connection when the work is finished | The person signs out and disconnects, and any temporary account is disabled. Signing out of the admin portal ends its session | Signing out of the admin portal ended the session in the tested build (M12). \<Organisation\>'s route is not evidenced (EV-MA-02) |
 
 **Table 27: MA-4 responsibility and evidence**
 
 | | |
 | --- | --- |
-| Provided by | Shared: \<DocuView\> and ABC Technologies |
-| Responsible | Administrators, ABC Technologies |
-| Enforced by | ABC Technologies' managed route and VPN; AD FS; \<DocuView\>'s session |
+| Provided by | Shared: \<System Name\> and \<Organisation\> |
+| Responsible | Administrators, \<Organisation\> |
+| Enforced by | \<Organisation\>'s managed route and VPN; AD FS; \<System Name\>'s session |
 | Rules and procedures | Policy rules R6, R12 (\<Policy\>, section MA.4); PRO-MA-4 (\<Procedures\> (MA)) |
 | Tests | Checks M04, M05 and M12 on the v1.0 build, 10 November 2026: the portal was open to every network and the settings pointed at a public database address; sign-out ended the session |
 | Records an assessor will ask for | The route settings and sample session logs (EV-MA-02); change records approving remote work; TPL-12 records with session references |
@@ -442,7 +442,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | --- | --- | --- | --- |
 | a | Have a process for authorising maintenance people, and keep a list of the organisations and people authorised | The system owner approves the list in section 4.6. The Windows server administrator checks it when someone leaves, and every 12 months (PRO-MA-5) | The process is approved (D-MA-02). The list is provisional (PA-67) |
 | b | Check that people who maintain the system unescorted hold the access authorisations required | Before giving access, the administrator checks that the person is on the list, is screened, has signed Part B of the rules of behaviour, and has a named account | The screening and signing dates are placeholders in section 4.6 |
-| c | Name people with the authorisations and the technical skill to supervise those who lack them | The Windows server administrator or the database administrator escorts and supervises anyone not on the list. A supplier has a temporary account, limited to the job and disabled afterwards, and no access to \<DocuView\>'s data | Not yet used |
+| c | Name people with the authorisations and the technical skill to supervise those who lack them | The Windows server administrator or the database administrator escorts and supervises anyone not on the list. A supplier has a temporary account, limited to the job and disabled afterwards, and no access to \<System Name\>'s data | Not yet used |
 
 **Table 29: MA-5 responsibility and evidence**
 
@@ -464,21 +464,21 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
-| All | Obtain maintenance support or spare parts for defined components within a defined time of a failure | The components in section 4.8. ABC Technologies provides support and parts for the hardware and the hypervisor within 24 hours, so that a restore fits the 72-hour recovery time objective. Software is kept on supported versions, with a replacement planned at least 6 months before support ends, and the support dates are checked each month | Not evidenced for the hardware (EV-MA-01). The software versions seen in the tested build are supported (M11) |
+| All | Obtain maintenance support or spare parts for defined components within a defined time of a failure | The components in section 4.8. \<Organisation\> provides support and parts for the hardware and the hypervisor within 24 hours, so that a restore fits the 72-hour recovery time objective. Software is kept on supported versions, with a replacement planned at least 6 months before support ends, and the support dates are checked each month | Not evidenced for the hardware (EV-MA-01). The software versions seen in the tested build are supported (M11) |
 
 **Table 31: MA-6 responsibility and evidence**
 
 | | |
 | --- | --- |
-| Provided by | ABC Technologies |
-| Responsible | ABC Technologies |
-| Enforced by | ABC Technologies' service agreement; the monthly check of support dates |
+| Provided by | \<Organisation\> |
+| Responsible | \<Organisation\> |
+| Enforced by | \<Organisation\>'s service agreement; the monthly check of support dates |
 | Rules and procedures | Policy rule R10 (\<Policy\>, section MA.4); PRO-MA-6 (\<Procedures\> (MA)) |
 | Tests | Check M11 on the v1.0 build, 10 November 2026: supported versions |
-| Records an assessor will ask for | ABC Technologies' service agreement (EV-MA-01); the monthly check records on TPL-7 |
+| Records an assessor will ask for | \<Organisation\>'s service agreement (EV-MA-01); the monthly check records on TPL-7 |
 | Status | Not implemented |
 | Risk decision | NC-MA-09, rated Low: obtain evidence |
-| Open items | PA-120: obtain ABC Technologies' evidence (EV-MA-01) |
+| Open items | PA-120: obtain \<Organisation\>'s evidence (EV-MA-01) |
 
 | **APPENDIX A** |
 | --- |
@@ -491,8 +491,8 @@ These are NIST's organisation-defined values for the 9 MA entries: 15 in total. 
 
 | NIST identifier | What must be defined | Value | State now |
 | --- | --- | --- | --- |
-| MA-01\_ODP\[01\] | Who receives the policy | Everyone who maintains \<DocuView\> | Not yet shared (PA-20) |
-| MA-01\_ODP\[02\] | Who receives the procedures | Everyone who maintains \<DocuView\> | Not yet shared (PA-20) |
+| MA-01\_ODP\[01\] | Who receives the policy | Everyone who maintains \<System Name\> | Not yet shared (PA-20) |
+| MA-01\_ODP\[02\] | Who receives the procedures | Everyone who maintains \<System Name\> | Not yet shared (PA-20) |
 | MA-01\_ODP\[03\] | Level of the policy | System level | In place |
 | MA-01\_ODP\[04\] | Official who manages them | System owner | In place |
 | MA-01\_ODP\[05\] | Policy review frequency | Every 12 months | First review due November 2027 |
@@ -500,7 +500,7 @@ These are NIST's organisation-defined values for the 9 MA entries: 15 in total. 
 | MA-01\_ODP\[07\] | Procedures review frequency | Every 12 months | First review due November 2027 |
 | MA-01\_ODP\[08\] | Events requiring procedures review | A change to the steps | Reviewed after the MA pack review, 10 November 2026 |
 | MA-02\_ODP\[01\] | Who approves removal | System owner | Not yet used |
-| MA-02\_ODP\[02\] | Information removed before equipment leaves | All \<DocuView\> information, including configuration and secrets | Not yet used; sanitising not evidenced (EV-MA-01) |
+| MA-02\_ODP\[02\] | Information removed before equipment leaves | All \<System Name\> information, including configuration and secrets | Not yet used; sanitising not evidenced (EV-MA-01) |
 | MA-02\_ODP\[03\] | Information in maintenance records | Date and time; component; what was done; who did it, their organisation and contact; any escort; on site or remote, the route and session reference; tools used; parts removed or replaced, with any case or return number; data taken away; the check afterwards and its reviewer | TPL-12 extended (\<Record Templates\> \<ver\>); not yet used |
 | MA-03\_ODP | Tool review frequency | Every 12 months | Provisional list in section 4.5; first review at server build (C28) |
 | MA-03(03)\_ODP | Who may allow equipment or data to leave | System owner | Not yet used |
@@ -516,19 +516,19 @@ NIST does not select these at Moderate, so they are not assessed. Some of the de
 
 **Table 33: MA controls not selected at Moderate**
 
-| Control | What it adds | \<DocuView\>'s position |
+| Control | What it adds | \<System Name\>'s position |
 | --- | --- | --- |
-| MA-2(2) Automated Maintenance Activities | Maintenance scheduled, done and recorded by automated means | Not required. The change records move to Jira when it is set up (PA-53); the maintenance record stays a form |
+| MA-2(2) Automated Maintenance Activities | Maintenance scheduled, done and recorded by automated means | Not required. The change records move to ServiceNow when it is set up (PA-53); the maintenance record stays a form |
 | MA-3(4), MA-3(5) Restricted Tool Use; Execution with Privilege | Tools limited to authorised people, and their privileged use monitored | Not required. Done in part: each tool in section 4.5 is tied to a role, and the built-in pages are limited to global administrators |
 | MA-3(6) Software Updates and Patches | Maintenance tools kept up to date | Not required. Done in part: the Windows and PostgreSQL tools are updated with the servers |
 | MA-4(1) Logging and Review | Remote maintenance sessions logged, and the logs reviewed | Not required. Done in design: section 4.4 says what each session logs, and the security officer reviews the logs weekly |
-| MA-4(3) Comparable Security and Sanitization | Remote maintenance done only from a system as secure as the one maintained | Not required. Administrators use ABC Technologies' managed devices and route (EV-MA-02) |
-| MA-4(4) Authentication and Separation of Maintenance Sessions | Maintenance sessions kept apart from other network sessions | Not required. Done in part: the servers are administered through a management interface on ABC Technologies' managed route |
+| MA-4(3) Comparable Security and Sanitization | Remote maintenance done only from a system as secure as the one maintained | Not required. Administrators use \<Organisation\>'s managed devices and route (EV-MA-02) |
+| MA-4(4) Authentication and Separation of Maintenance Sessions | Maintenance sessions kept apart from other network sessions | Not required. Done in part: the servers are administered through a management interface on \<Organisation\>'s managed route |
 | MA-4(5) Approvals and Notifications | Each remote session approved by named people, who are told when it is planned | Not required. Done in design: the system owner approves remote work in the change record |
 | MA-4(6), MA-4(7) Cryptographic Protection; Disconnect Verification | Remote sessions encrypted, and their end verified | Not required. Done in part: the VPN and TLS protect the session. The end of a session is not verified separately |
-| MA-5(1) Individuals Without Appropriate Access | Rules for maintenance people who lack the access authorisations | Not required. Done in part: they are escorted and supervised, have a temporary account, and have no access to \<DocuView\>'s data |
-| MA-5(2), MA-5(3), MA-5(4) Security Clearances; Citizenship; Foreign Nationals | Clearance and nationality rules for classified systems | Not required. \<DocuView\> holds no classified information |
-| MA-5(5) Non-system Maintenance | Rules for people who maintain the building and its services near the system | Not required. ABC Technologies controls its data centres (\<Physical and Environmental Protection Management\>) |
+| MA-5(1) Individuals Without Appropriate Access | Rules for maintenance people who lack the access authorisations | Not required. Done in part: they are escorted and supervised, have a temporary account, and have no access to \<System Name\>'s data |
+| MA-5(2), MA-5(3), MA-5(4) Security Clearances; Citizenship; Foreign Nationals | Clearance and nationality rules for classified systems | Not required. \<System Name\> holds no classified information |
+| MA-5(5) Non-system Maintenance | Rules for people who maintain the building and its services near the system | Not required. \<Organisation\> controls its data centres (\<Physical and Environmental Protection Management\>) |
 | MA-6(1), MA-6(2), MA-6(3) Preventive Maintenance; Predictive Maintenance; Automated Support for Predictive Maintenance | Maintenance done before a failure, by schedule or by prediction | Not required. Done in design for preventive work: the schedule in \<Procedures\>, PRO-MA-6. Nothing is predictive |
-| MA-7 Field Maintenance | Limits on maintenance done away from a trusted facility | Not required. The servers stay at ABC Technologies' data centres |
+| MA-7 Field Maintenance | Limits on maintenance done away from a trusted facility | Not required. The servers stay at \<Organisation\>'s data centres |
 | MA-2(1), MA-4(2) | Withdrawn by NIST | Not applicable |

@@ -1,4 +1,4 @@
-# \<DocuView\> System and Services Acquisition Management
+# \<System Name\> System and Services Acquisition Management
 
 **\<ref\> | Version \<ver\> | Draft for the system owner's approval**
 
@@ -30,14 +30,14 @@
 | Item | Detail |
 | --- | --- |
 | Reference | \<ref\> |
-| Title | \<DocuView\> System and Services Acquisition Management |
+| Title | \<System Name\> System and Services Acquisition Management |
 | Version | \<ver\> |
 | Status | Draft for the system owner's approval |
 | Date | 18 November 2026 |
 | Owner | System owner |
 | Applies to | System and Services Acquisition family |
 | Classification | Restricted |
-| Next review | Every 12 months, and after a significant change to how \<DocuView\> is built or bought |
+| Next review | Every 12 months, and after a significant change to how \<System Name\> is built or bought |
 | Format | \<Documentation Map\>, section 5 |
 
 ### 1.2 Approval
@@ -46,7 +46,7 @@
 
 | Role | Name | Decision | Date |
 | --- | --- | --- | --- |
-| System owner | Neil Ramsbottom | Pending | Pending |
+| System owner | \[Name\] | Pending | Pending |
 
 ### 1.3 Change history
 
@@ -64,15 +64,15 @@
 
 ## 2 Purpose
 
-This document shows how \<DocuView\> is built and bought securely, for each of the 17 System and Services Acquisition (SA) controls in NIST's Moderate baseline: the lifecycle and resources, contracts, documentation, engineering principles, external services, developer configuration management and testing, the development process, criticality analysis and unsupported components.
+This document shows how \<System Name\> is built and bought securely, for each of the 17 System and Services Acquisition (SA) controls in NIST's Moderate baseline: the lifecycle and resources, contracts, documentation, engineering principles, external services, developer configuration management and testing, the development process, criticality analysis and unsupported components.
 
-Section 4 sets out the design: the development framework; the lifecycle, roles and resources; contracts and design information; documentation; engineering principles; external services; configuration management; the developer test plan; the process, standards and tools; criticality analysis; unsupported components; how \<DocuView\> is built today; and what ABC Technologies and the providers supply. Section 5 takes each control in turn. Appendix A lists every value NIST asks the organisation to define, and appendix B the related controls and enhancements NIST does not select at Moderate.
+Section 4 sets out the design: the development framework; the lifecycle, roles and resources; contracts and design information; documentation; engineering principles; external services; configuration management; the developer test plan; the process, standards and tools; criticality analysis; unsupported components; how \<System Name\> is built today; and what \<Organisation\> and the providers supply. Section 5 takes each control in turn. Appendix A lists every value NIST asks the organisation to define, and appendix B the related controls and enhancements NIST does not select at Moderate.
 
 This is the only place this design is held. Other documents point here. The policy is in \<Policy\> (SA), and the steps people follow are in \<Procedures\> (SA). Four records sit beside this one, each holding what NIST asks the system's own documents to hold: the engineering principles in \<Security Architecture\>, section 7.5; the functions, ports, protocols and services in \<System Security Plan\>, section 4.7; the critical components in \<Risk Assessment Management\>, section 4.9; and the component support dates in \<Maintenance Management\>, section 4.8.
 
-\<DocuView\> is built in-house, so its developers carry most of these duties. What is bought is ABC Technologies' hosting and services, and the outside services the developers use.
+\<System Name\> is built in-house, so its developers carry most of these duties. What is bought is \<Organisation\>'s hosting and services, and the outside services the developers use.
 
-An assessor examines the framework, the contracts, the guides, the external services, the repository settings and the test evidence; interviews the developers, the system owner and ABC Technologies' contract owner; and tests the repositories and the build (NIST SP 800-53A). So for each control section 5 gives:
+An assessor examines the framework, the contracts, the guides, the external services, the repository settings and the test evidence; interviews the developers, the system owner and \<Organisation\>'s contract owner; and tests the repositories and the build (NIST SP 800-53A). So for each control section 5 gives:
 
 - **each part of the control**, as NIST letters them, with the design that meets it and the position today;
 - **who provides it**, and who is responsible;
@@ -103,7 +103,7 @@ Of the 17 controls, 5 are implemented, 9 are partially implemented, 2 are not im
 | SA-1 | Policy and Procedures | Partially implemented | Not yet shared. The later version awaits the Head of Cyber | NC-SA-01; PA-20 |
 | SA-2 | Allocation of Resources | Partially implemented | Costs not yet raised in budgeting | NC-SA-02; PA-128 |
 | SA-3 | System Development Life Cycle | Partially implemented | The lifecycle is not yet in routine use | NC-SA-03; PA-128 |
-| SA-4 | Acquisition Process | Not implemented | ABC Technologies' contract terms have not been seen | NC-SA-04; PA-128, EV-SA-01 |
+| SA-4 | Acquisition Process | Not implemented | \<Organisation\>'s contract terms have not been seen | NC-SA-04; PA-128, EV-SA-01 |
 | SA-4(1) | Functional Properties of Controls | Implemented | Nothing | NC-SA-05 (met) |
 | SA-4(2) | Design and Implementation Information for Controls | Implemented | Nothing | NC-SA-06 (met) |
 | SA-4(9) | Functions, Ports, Protocols, and Services in Use | Implemented | Nothing | NC-SA-07 (met) |
@@ -134,17 +134,17 @@ Two things matter most. Nothing stops an unreviewed change reaching a release: n
 
 These carry out the principles and rules of \<Policy\>, sections SA.3 and SA.4.
 
-![Figure 1: How \<DocuView\> is built and bought](figures/sam-figure-1.png)
+![Figure 1: How \<System Name\> is built and bought](figures/sam-figure-1.png)
 
-**Figure 1: How \<DocuView\> is built and bought**
+**Figure 1: How \<System Name\> is built and bought**
 
 ### 4.2 Development framework
 
-\<DocuView\> is developed under NIST SSDF \<ver\> (SP 800-218, February 2022). Version \<ver\> is in draft (SP 800-218 Rev 1, December 2025), and is adopted when final. The table gives each of the 19 practices, how \<DocuView\> meets it, and the gap where it does not. The UK Software Security Code of Practice's principles 1.1 to 3.5 align with these practices. Its fourth theme, communication with customers, is for software that is sold, which \<DocuView\> is not.
+\<System Name\> is developed under NIST SSDF \<ver\> (SP 800-218, February 2022). Version \<ver\> is in draft (SP 800-218 Rev 1, December 2025), and is adopted when final. The table gives each of the 19 practices, how \<System Name\> meets it, and the gap where it does not. The UK Software Security Code of Practice's principles 1.1 to 3.5 align with these practices. Its fourth theme, communication with customers, is for software that is sold, which \<System Name\> is not.
 
 **Table 6: SSDF practices**
 
-| Practice | How \<DocuView\> meets it | Gap |
+| Practice | How \<System Name\> meets it | Gap |
 | --- | --- | --- |
 | PO.1 Define security requirements | NIST SP 800-53 Moderate and the privacy baseline; family policies; \<System Security Plan\> | None |
 | PO.2 Roles and responsibilities | \<Roles and Responsibilities\>; \<Policy\>, section SA.5; the stages in section 4.3 | Module M5, secure development, is not yet written or given (PA-97) |
@@ -156,7 +156,7 @@ These carry out the principles and rules of \<Policy\>, sections SA.3 and SA.4.
 | PS.3 Archive each release | Git tags, starting with v1.0 | No bill of materials (PA-78) |
 | PW.1 Design to meet requirements | Security approach and principles in \<Security Architecture\>, section 7 | None |
 | PW.2 Review the design | Security officer checks significant designs (PRO-SA-1) | Not yet in routine use |
-| PW.4 Reuse well-secured software | Sign-in through ABC Technologies' AD FS; ASP.NET Core data protection; the access-control toolkit | Two packages with advisories (PA-56) |
+| PW.4 Reuse well-secured software | Sign-in through \<Organisation\>'s AD FS; ASP.NET Core data protection; the access-control toolkit | Two packages with advisories (PA-56) |
 | PW.5 Secure coding practices | .NET defaults; parameterised queries | Raw SQL in the admin portal (PA-89); no written coding standard |
 | PW.6 Secure build settings | Release builds | Package audit off (PA-92); floating base images (PA-77) |
 | PW.7 Review code | Second developer reviews each change (PRO-SA-1) | One author, no reviewed merges (PA-91); no static analysis (PA-92) |
@@ -168,7 +168,7 @@ These carry out the principles and rules of \<Policy\>, sections SA.3 and SA.4.
 
 ### 4.3 Lifecycle, roles and resources
 
-\<DocuView\> goes through six stages, each with its security and privacy check (D-SA-05). The check at each stage, and the separate budget line, were confirmed by the system owner on 18 November 2026 (D-SA-20). The roles are in \<Roles and Responsibilities\>, and the privacy roles in \<Privacy Plan\>, section 4.
+\<System Name\> goes through six stages, each with its security and privacy check (D-SA-05). The check at each stage, and the separate budget line, were confirmed by the system owner on 18 November 2026 (D-SA-20). The roles are in \<Roles and Responsibilities\>, and the privacy roles in \<Privacy Plan\>, section 4.
 
 **Table 7: Lifecycle stages**
 
@@ -179,49 +179,49 @@ These carry out the principles and rules of \<Policy\>, sections SA.3 and SA.4.
 | 3 Build | Another developer reviews each change before it merges. A new third-party component is checked first (PRO-SA-7) | Developers | The merge review; TPL-6 |
 | 4 Test | The developer test plan runs at each release (section 4.9) | Developers, security officer | Results and manifest |
 | 5 Release | The release goes through change control, with the guides confirmed, a signed tag and recorded checksums | Developers, system owner | TPL-6; the release tag |
-| 6 Retire | A component is replaced before its support ends (section 4.12). When \<DocuView\> itself is retired, its documents and media are disposed of as \<Media Protection Management\> and \<PII Processing Management\> set out | Developers, system owner | TPL-7; disposal records |
+| 6 Retire | A component is replaced before its support ends (section 4.12). When \<System Name\> itself is retired, its documents and media are disposed of as \<Media Protection Management\> and \<PII Processing Management\> set out | Developers, system owner | TPL-7; disposal records |
 
-**Resources.** Every 12 months the system owner raises the cost of security and privacy in ABC Technologies' yearly budgeting, as a separate line in \<DocuView\>'s budget request, and records it on TPL-23 (PRO-SA-6). It has not yet been raised.
+**Resources.** Every 12 months the system owner raises the cost of security and privacy in \<Organisation\>'s yearly budgeting, as a separate line in \<System Name\>'s budget request, and records it on TPL-23 (PRO-SA-6). It has not yet been raised.
 
 ### 4.4 Contracts and design information
 
-\<DocuView\>'s software is written in-house. What is bought, now or later, uses ABC Technologies' standard contract, with security and privacy terms added for each of the nine things SA-4 asks a contract to hold: the functional requirements, the strength of mechanisms, assurance, the controls, documentation and its protection, the development and operating environments, who is responsible for security, privacy and supply chain risk, and acceptance criteria (D-SA-06; PRO-SA-3). Section 5.4 sets out each; the system owner confirmed them on 18 November 2026 (D-SA-20). The contract also states how and when the supplier gives notice of support, maintenance and updates, as NIST's guidance on SA-4 suggests. ABC Technologies' contract has not been seen (EV-SA-01).
+\<System Name\>'s software is written in-house. What is bought, now or later, uses \<Organisation\>'s standard contract, with security and privacy terms added for each of the nine things SA-4 asks a contract to hold: the functional requirements, the strength of mechanisms, assurance, the controls, documentation and its protection, the development and operating environments, who is responsible for security, privacy and supply chain risk, and acceptance criteria (D-SA-06; PRO-SA-3). Section 5.4 sets out each; the system owner confirmed them on 18 November 2026 (D-SA-20). The contract also states how and when the supplier gives notice of support, maintenance and updates, as NIST's guidance on SA-4 suggests. \<Organisation\>'s contract has not been seen (EV-SA-01).
 
-As the developer, \<DocuView\>'s team provides the design information NIST asks for:
+As the developer, \<System Name\>'s team provides the design information NIST asks for:
 
 1. **What each control does** (SA-4(1)): each family's design document, and the security plan, section 8.
 2. **How the controls are designed** (SA-4(2)): the security-relevant external interfaces and the high-level design in \<Security Architecture\> and the security plan, sections 4 and 5, and how each security function is built, in the family design documents.
 3. **The functions, ports, protocols and services in use** (SA-4(9)): the security plan, section 4.7, and the allowed flows in \<Access Control Management\>, section 4.6.
 
-PIV products (SA-4(10)) are not applicable, as \<DocuView\> does not use United States government identity cards (TR-SA-01).
+PIV products (SA-4(10)) are not applicable, as \<System Name\> does not use United States government identity cards (TR-SA-01).
 
 ### 4.5 Documentation
 
-Two guides are kept with the code: the Administrator Guide (\<Administrator Guide\>), on secure installation, configuration and operation, the security and privacy functions, and known weaknesses in privileged functions; and the User Guide (\<User Guide\>), on signing in, using \<DocuView\> securely, personal data and users' responsibilities. They are drafts until the developers confirm them against \<DocuView\> (PA-69), and are confirmed again at each release (PRO-SA-4). They go to administrators, the security officer and users. A supplier document that is missing is recorded and chased (D-SA-07).
+Two guides are kept with the code: the Administrator Guide (\<Administrator Guide\>), on secure installation, configuration and operation, the security and privacy functions, and known weaknesses in privileged functions; and the User Guide (\<User Guide\>), on signing in, using \<System Name\> securely, personal data and users' responsibilities. They are drafts until the developers confirm them against \<System Name\> (PA-69), and are confirmed again at each release (PRO-SA-4). They go to administrators, the security officer and users. A supplier document that is missing is recorded and chased (D-SA-07).
 
 ### 4.6 Engineering principles
 
-The NCSC secure design principles and NIST's privacy engineering objectives are mapped to \<DocuView\>'s specification and design in \<Security Architecture\>, section 7.5, which holds them (D-SA-08). The security officer checks each significant design against them (PRO-SA-1). Work before 11 November 2026 was not checked against them; each change is from now on.
+The NCSC secure design principles and NIST's privacy engineering objectives are mapped to \<System Name\>'s specification and design in \<Security Architecture\>, section 7.5, which holds them (D-SA-08). The security officer checks each significant design against them (PRO-SA-1). Work before 11 November 2026 was not checked against them; each change is from now on.
 
 ### 4.7 External services
 
-These are the services in SA-09(02)\_ODP. Each states its controls in its contract or service terms, and the system owner reviews each every 12 months on TPL-16 (PRO-SA-3). The rows for AD FS and Active Directory, and for the Starters/Leavers system, were added on 18 November 2026, as \<DocuView\> now relies on them for sign-in and access (D-AC-22, D-AC-23). The system owner confirmed them the same day (D-SA-20). The Docker Hub row was added by the SA cross-check, as the test stacks take their database image from it.
+These are the services in SA-09(02)\_ODP. Each states its controls in its contract or service terms, and the system owner reviews each every 12 months on TPL-16 (PRO-SA-3). The rows for AD FS and Active Directory, and for the Starters/Leavers system, were added on 18 November 2026, as \<System Name\> now relies on them for sign-in and access (D-AC-22, D-AC-23). The system owner confirmed them the same day (D-SA-20). The Docker Hub row was added by the SA cross-check, as the test stacks take their database image from it.
 
 **Table 8: External services**
 
-| Service | Provider | What it holds or does for \<DocuView\> | Basis of trust | Evidence |
+| Service | Provider | What it holds or does for \<System Name\> | Basis of trust | Evidence |
 | --- | --- | --- | --- | --- |
-| Hosting, network and hardware | ABC Technologies | Runs the two VMs and their network | ABC Technologies' service agreement, and its Cyber Essentials Plus certificate | EV-SA-02 |
-| Jira | ABC Technologies | Change, access and incident workflows | ABC Technologies' service agreement | EV-SA-02 |
-| AD FS and Active Directory | ABC Technologies | Authenticate every user with multi-factor authentication, and hold the groups that decide each role and each project's access (D-AC-23) | ABC Technologies' agreement covering AD FS (EV-CA-02) | EV-CA-02, EV-SA-02 |
-| Starters/Leavers system | ABC Technologies | Raises a leaver request automatically when someone leaves (D-AC-22) | ABC Technologies' service agreement | EV-SA-02 |
+| Hosting, network and hardware | \<Organisation\> | Runs the two VMs and their network | \<Organisation\>'s service agreement, and its Cyber Essentials Plus certificate | EV-SA-02 |
+| ServiceNow | \<Organisation\> | Change, access and incident workflows | \<Organisation\>'s service agreement | EV-SA-02 |
+| AD FS and Active Directory | \<Organisation\> | Authenticate every user with multi-factor authentication, and hold the groups that decide each role and each project's access (D-AC-23) | \<Organisation\>'s agreement covering AD FS (EV-CA-02) | EV-CA-02, EV-SA-02 |
+| Starters/Leavers system | \<Organisation\> | Raises a leaver request automatically when someone leaves (D-AC-22) | \<Organisation\>'s service agreement | EV-SA-02 |
 | Source code hosting | GitHub | Holds all source code, history and release tags | GitHub's published terms and security reports for the account's plan (EV-SA-03) | EV-SA-03 |
 | Package registry | nuget.org directly; only the in-house OfflineModules packages come through the offline feed (PA-94) | Supplies .NET packages | Package signatures, and the check made before a package is used (PRO-SA-7). No agreement | Package checks (V01) |
 | Container registry | Microsoft Container Registry | Supplies the .NET base images for the build and the test stacks | Microsoft's published images and terms. No agreement | Image checks (V03, V04) |
 | Image registry | Docker Hub | Supplies the PostgreSQL image for the test stacks | The official image's publisher. No agreement | Image checks (V03) |
-| Browser library CDN | jsDelivr | Serves bootstrap-icons and openseadragon to browsers, until served by \<DocuView\> (PA-34) | None: a public service with no agreement, which is why \<DocuView\> is to serve these files itself (PA-34) | None |
+| Browser library CDN | jsDelivr | Serves bootstrap-icons and openseadragon to browsers, until served by \<System Name\> (PA-34) | None: a public service with no agreement, which is why \<System Name\> is to serve these files itself (PA-34) | None |
 
-**Trust and service levels.** Each row says what \<DocuView\>'s trust in the service rests on, as NIST asks (SA-9). For ABC Technologies' services, the agreement should state the service levels, how they are measured, and the remedies when they are missed; these are asked for with EV-SA-02. The public services offer none, so \<DocuView\> relies on its own checks of what they supply. The authorising official keeps the risk of each external service.
+**Trust and service levels.** Each row says what \<System Name\>'s trust in the service rests on, as NIST asks (SA-9). For \<Organisation\>'s services, the agreement should state the service levels, how they are measured, and the remedies when they are missed; these are asked for with EV-SA-02. The public services offer none, so \<System Name\> relies on its own checks of what they supply. The authorising official keeps the risk of each external service.
 
 ### 4.8 Developer configuration management
 
@@ -239,7 +239,7 @@ Today items 2 to 5 are not in place (S01 to S05; PA-91), and the change workflow
 
 This is the developer security and privacy test plan (SA-11). Each script runs on a separate test stack or only reads, keeps its results with a README and a manifest of SHA-256 hashes in the evidence for its family, and is run at each release until a pipeline runs them (PA-68). The web applications are to be verified to OWASP ASVS 5.0 Level 2.
 
-The sign-in and access checks ran on the v1.0 build, which used \<DocuView\>'s own passwords and groups. They are to be run again with sign-in through AD FS and access by Active Directory groups (D-AC-23; PA-95).
+The sign-in and access checks ran on the v1.0 build, which used \<System Name\>'s own passwords and groups. They are to be run again with sign-in through AD FS and access by Active Directory groups (D-AC-23; PA-95).
 
 The scripts are one kind of analysis among several that NIST's guidance expects for software written in-house. Table 9 says when each is done, and where it stands.
 
@@ -300,7 +300,7 @@ The criticality analysis (SA-15(3)) is held in \<Risk Assessment Management\>, s
 
 Each component is replaced before its vendor's support ends, with the replacement planned at least 6 months before (D-SA-13). The monthly check compares each component with its support dates, which are held in \<Maintenance Management\>, section 4.8 (PRO-SA-5; \<Security Operating Procedures\>, C11). A package or browser library has no vendor support date. It counts as unsupported when its maintainers stop releasing fixes, or it is marked deprecated, or it has a known flaw with no fix. The developers check each one in the monthly package check; this is not yet in use (PA-128). If a component cannot be replaced in time, the other support allowed is in-house support, or a supplier's extended support by exception approved by the authorising official.
 
-### 4.13 How \<DocuView\> is built today
+### 4.13 How \<System Name\> is built today
 
 Test-Development.ps1 ran on 11 November 2026. Its results, with their hashes, are kept with the SA evidence.
 
@@ -309,15 +309,15 @@ Test-Development.ps1 ran on 11 November 2026. Its results, with their hashes, ar
 - **Build and tests:** the image build and two toolkit projects turn NuGet's audit off (S06). 10 of the then 12 test scripts were not in Git (S07), and the applications have no unit tests (S08).
 - **Components and guides:** no component is within 6 months of the end of its support (S09). The administrator and user guides exist only as drafts (S10).
 
-### 4.14 What ABC Technologies and the providers supply
+### 4.14 What \<Organisation\> and the providers supply
 
-**Table 12: Asked of ABC Technologies and the providers**
+**Table 12: Asked of \<Organisation\> and the providers**
 
-| Provided | Controls | What \<DocuView\> relies on | Evidence asked | State |
+| Provided | Controls | What \<System Name\> relies on | Evidence asked | State |
 | --- | --- | --- | --- | --- |
 | The standard contract, with security and privacy terms | SA-4 | Its terms cover the nine things in section 5.4 | EV-SA-01 | Not sent |
-| Hosting, network, Jira, AD FS, Active Directory and the Starters/Leavers system | SA-9, SA-9(2) | Each states its controls, and the functions, ports, protocols and services it needs | EV-SA-02; EV-CA-02 for the AD FS agreement | Not sent |
-| GitHub | SA-9, SA-9(2), SA-10 | Its controls for private repositories, and the plan and settings of \<DocuView\>'s account | EV-SA-03 | Not sent |
+| Hosting, network, ServiceNow, AD FS, Active Directory and the Starters/Leavers system | SA-9, SA-9(2) | Each states its controls, and the functions, ports, protocols and services it needs | EV-SA-02; EV-CA-02 for the AD FS agreement | Not sent |
+| GitHub | SA-9, SA-9(2), SA-10 | Its controls for private repositories, and the plan and settings of \<System Name\>'s account | EV-SA-03 | Not sent |
 
 **Today:** no request has been sent, and none of this is evidenced.
 
@@ -336,7 +336,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | --- | --- | --- | --- |
 | a.1 | An acquisition policy, shared with defined people, covering purpose, scope, roles, responsibilities, management commitment, coordination and compliance, and consistent with the law | \<Policy\> (SA): a system-level policy, shared with developers and administrators. The legal adviser reviewed it on 11 November 2026 | Version \<ver\> approved by the Head of Cyber (D-SA-01). The later version awaits the Head of Cyber (D-SA-16). Not yet shared (PA-20) |
 | a.2 | Procedures that carry out the policy, shared with defined people | \<Procedures\> (SA): seven procedures, PRO-SA-1 to PRO-SA-7. Shared with the same people | Version \<ver\> approved by the system owner (D-SA-18). Not yet shared |
-| b | A named official manages the policy and procedures | The system owner | Neil Ramsbottom is named in \<Roles and Responsibilities\> |
+| b | A named official manages the policy and procedures | The system owner | \[Name\] is named in \<Roles and Responsibilities\> |
 | c.1 | The policy is reviewed on a schedule and after set events | Every 12 months, and after a significant incident, audit finding or system change | Reviewed on 11 November 2026 after the SA pack review. The first yearly review falls due in November 2027 |
 | c.2 | The procedures are reviewed on a schedule and after set events | Every 12 months, and after a change to the steps | Reviewed and approved as version \<ver\> on 11 November 2026. The first yearly review falls due in November 2027 |
 
@@ -361,8 +361,8 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Determine the high-level security and privacy requirements in business process planning | The Moderate baseline and NIST's privacy baseline, chosen from the categorisation, with the privacy plan (\<Planning Management\>, section 4.7; \<Privacy Plan\>) | Done |
-| b | Determine, document and allocate the resources needed to protect the system, as part of capital planning and investment control | The system owner raises the cost of security and privacy in ABC Technologies' yearly budgeting, and records it on TPL-23 (section 4.3) | Not yet raised in budgeting |
-| c | Establish a separate line for security and privacy in programming and budgeting documents | Security and privacy are a separate line in \<DocuView\>'s budget request | Not yet raised in budgeting |
+| b | Determine, document and allocate the resources needed to protect the system, as part of capital planning and investment control | The system owner raises the cost of security and privacy in \<Organisation\>'s yearly budgeting, and records it on TPL-23 (section 4.3) | Not yet raised in budgeting |
+| c | Establish a separate line for security and privacy in programming and budgeting documents | Security and privacy are a separate line in \<System Name\>'s budget request | Not yet raised in budgeting |
 
 **Table 16: SA-2 responsibility and evidence**
 
@@ -414,18 +414,18 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | c | The contract includes security and privacy assurance requirements | The evidence the supplier must give that its controls work, such as test results, certifications or audit reports | Contract not seen (EV-SA-01) |
 | d | The contract includes the controls needed to meet the requirements | The controls the supplier must operate, stated or referenced | Contract not seen (EV-SA-01) |
 | e | The contract includes security and privacy documentation requirements | The administrator and user documentation the supplier must provide (SA-5) | Contract not seen (EV-SA-01) |
-| f | The contract includes requirements for protecting that documentation | The documentation is restricted, and handled as \<DocuView\>'s own documents are | Contract not seen (EV-SA-01) |
-| g | The contract describes the development environment and the environment the system will run in | How the product is built, and ABC Technologies' environment it will run in | Contract not seen (EV-SA-01) |
+| f | The contract includes requirements for protecting that documentation | The documentation is restricted, and handled as \<System Name\>'s own documents are | Contract not seen (EV-SA-01) |
+| g | The contract describes the development environment and the environment the system will run in | How the product is built, and \<Organisation\>'s environment it will run in | Contract not seen (EV-SA-01) |
 | h | The contract allocates responsibility for security, privacy and supply chain risk | Each party's responsibilities, including reporting a compromise to the security officer (\<Supply Chain Risk Management\>) | Contract not seen (EV-SA-01) |
-| i | The contract includes acceptance criteria | The tests or evidence that must pass before ABC Technologies accepts the product or service | Contract not seen (EV-SA-01) |
+| i | The contract includes acceptance criteria | The tests or evidence that must pass before \<Organisation\> accepts the product or service | Contract not seen (EV-SA-01) |
 
 **Table 20: SA-4 responsibility and evidence**
 
 | | |
 | --- | --- |
-| Provided by | ABC Technologies |
-| Responsible | System owner, ABC Technologies |
-| Enforced by | ABC Technologies' standard contract |
+| Provided by | \<Organisation\> |
+| Responsible | System owner, \<Organisation\> |
+| Enforced by | \<Organisation\>'s standard contract |
 | Rules and procedures | Policy rule R3 (\<Policy\>, section SA.4); PRO-SA-3, step 1 (\<Procedures\>) |
 | Tests | None |
 | Records an assessor will ask for | The standard contract, with the security and privacy terms added |
@@ -505,7 +505,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
-| All | Use only products on the approved list for PIV capability | Not applicable: It requires products on the United States government's list for PIV identity cards, which \<DocuView\> does not use (\<Tailoring Register\>, TR-SA-01) | Not applicable |
+| All | Use only products on the approved list for PIV capability | Not applicable: It requires products on the United States government's list for PIV identity cards, which \<System Name\> does not use (\<Tailoring Register\>, TR-SA-01) | Not applicable |
 
 **Table 28: SA-4(10) responsibility and evidence**
 
@@ -534,7 +534,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 | | |
 | --- | --- |
-| Provided by | \<DocuView\>'s developers, who write the guides |
+| Provided by | \<System Name\>'s developers, who write the guides |
 | Responsible | Developers |
 | Enforced by | Not a system function. The guides are kept with the code |
 | Rules and procedures | Policy rule R5 (\<Policy\>, section SA.4); PRO-SA-4 (\<Procedures\>) |
@@ -550,7 +550,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
-| All | Apply defined security and privacy engineering principles in the specification, design, development, implementation and modification of the system | The NCSC secure design principles and NIST's privacy engineering objectives, mapped to \<DocuView\> in \<Security Architecture\>, section 7.5 (section 4.6). The security officer checks each significant design against them (PRO-SA-1) | Applied to the specification and design. Work before 11 November 2026 was not checked against them; changes are checked from now on |
+| All | Apply defined security and privacy engineering principles in the specification, design, development, implementation and modification of the system | The NCSC secure design principles and NIST's privacy engineering objectives, mapped to \<System Name\> in \<Security Architecture\>, section 7.5 (section 4.6). The security officer checks each significant design against them (PRO-SA-1) | Applied to the specification and design. Work before 11 November 2026 was not checked against them; changes are checked from now on |
 
 **Table 32: SA-8 responsibility and evidence**
 
@@ -572,7 +572,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
-| a | Require providers of external services to meet the security and privacy requirements and use defined controls | The controls stated in each provider's contract or service terms (section 4.7). Each row records what the trust in the service rests on, and ABC Technologies' agreements are to state service levels and remedies | Terms not seen (EV-SA-02, EV-SA-03) |
+| a | Require providers of external services to meet the security and privacy requirements and use defined controls | The controls stated in each provider's contract or service terms (section 4.7). Each row records what the trust in the service rests on, and \<Organisation\>'s agreements are to state service levels and remedies | Terms not seen (EV-SA-02, EV-SA-03) |
 | b | Define and document oversight, and user roles and responsibilities, for external services | The system owner oversees each service. Section 4.7 and \<Roles and Responsibilities\> say who uses each | Done |
 | c | Monitor providers' compliance on an ongoing basis by defined means | The system owner's review of each service every 12 months, on TPL-16 (PRO-SA-3) | No review yet held |
 
@@ -580,8 +580,8 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 | | |
 | --- | --- |
-| Provided by | Shared: \<DocuView\> and its providers |
-| Responsible | System owner, ABC Technologies |
+| Provided by | Shared: \<System Name\> and its providers |
+| Responsible | System owner, \<Organisation\> |
 | Enforced by | Contracts and service terms |
 | Rules and procedures | Policy rule R9 (\<Policy\>, section SA.4); PRO-SA-3 (\<Procedures\>) |
 | Tests | None |
@@ -596,14 +596,14 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
-| All | Require providers of defined external services to identify the functions, ports, protocols and other services they need | Every service in section 4.7, including ABC Technologies' hosting, network, Jira, AD FS and Active Directory, and GitHub | Providers' lists not seen (EV-SA-02, EV-SA-03) |
+| All | Require providers of defined external services to identify the functions, ports, protocols and other services they need | Every service in section 4.7, including \<Organisation\>'s hosting, network, ServiceNow, AD FS and Active Directory, and GitHub | Providers' lists not seen (EV-SA-02, EV-SA-03) |
 
 **Table 36: SA-9(2) responsibility and evidence**
 
 | | |
 | --- | --- |
 | Provided by | The providers of external services |
-| Responsible | ABC Technologies |
+| Responsible | \<Organisation\> |
 | Enforced by | Contracts and service terms |
 | Rules and procedures | Policy rule R9 (\<Policy\>, section SA.4); PRO-SA-3, step 2 (\<Procedures\>) |
 | Tests | None |
@@ -628,7 +628,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 | | |
 | --- | --- |
-| Provided by | Shared: \<DocuView\>'s developers, on GitHub |
+| Provided by | Shared: \<System Name\>'s developers, on GitHub |
 | Responsible | Developers |
 | Enforced by | GitHub branch protection and signed tags, once set (PA-91) |
 | Rules and procedures | Policy rule R7 (\<Policy\>, section SA.4); PRO-SA-1 (\<Procedures\>) |
@@ -654,11 +654,11 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 | | |
 | --- | --- |
-| Provided by | Shared: \<DocuView\>'s developers, with the build tools |
+| Provided by | Shared: \<System Name\>'s developers, with the build tools |
 | Responsible | Developers |
 | Enforced by | The test scripts; a build pipeline, once built (PA-68) |
 | Rules and procedures | Policy rule R8 (\<Policy\>, section SA.4); PRO-SA-2 (\<Procedures\>) |
-| Tests | The 15 scripts in section 4.9. The sign-in and access checks ran on a build with \<DocuView\>'s own passwords and groups, and are to be run again with sign-in through AD FS (PA-95) |
+| Tests | The 15 scripts in section 4.9. The sign-in and access checks ran on a build with \<System Name\>'s own passwords and groups, and are to be run again with sign-in through AD FS (PA-95) |
 | Records an assessor will ask for | The results and manifest of each run; the pipeline's results, once built |
 | Status | Partially implemented |
 | Risk decision | NC-SA-13, rated Medium: remediate |
@@ -741,7 +741,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 ## Appendix A Parameter register
 
-These are NIST's organisation-defined values for the SA entries: 35 in total. SA-4(10) is tailored (\<Tailoring Register\>, TR-SA-01), and has no parameters. They were agreed on 6 November 2026, and restated as requirements on 11 November 2026 (D-SA-P01). **State now** says whether \<DocuView\> meets the value today.
+These are NIST's organisation-defined values for the SA entries: 35 in total. SA-4(10) is tailored (\<Tailoring Register\>, TR-SA-01), and has no parameters. They were agreed on 6 November 2026, and restated as requirements on 11 November 2026 (D-SA-P01). **State now** says whether \<System Name\> meets the value today.
 
 **Table 47: SA parameter register**
 
@@ -757,7 +757,7 @@ These are NIST's organisation-defined values for the SA entries: 35 in total. SA
 | SA-01\_ODP\[08\] | Events requiring procedures review | A change to the steps | Met: reviewed as version \<ver\> |
 | SA-03\_ODP | Lifecycle | NIST SSDF \<ver\>, as in section 4.2 | Mapped; not yet in routine use |
 | SA-04\_ODP\[01\] | Contract method | Standard contract language | Contract not seen (EV-SA-01) |
-| SA-04\_ODP\[02\] | Contract language | ABC Technologies' standard contract, with security and privacy requirements added | Contract not seen (EV-SA-01) |
+| SA-04\_ODP\[02\] | Contract language | \<Organisation\>'s standard contract, with security and privacy requirements added | Contract not seen (EV-SA-01) |
 | SA-04(02)\_ODP\[01\] | Design information level | Security-relevant external interfaces and high-level design | Met: \<Security Architecture\> and \<System Security Plan\>, sections 4 and 5 |
 | SA-04(02)\_ODP\[02\] | Other information | Implementation notes for security functions | Met: the design document of each family |
 | SA-04(02)\_ODP\[03\] | Level of detail | Enough for an assessor to judge each control | Met: SSP section 8 and the assessments |
@@ -792,7 +792,7 @@ NIST does not select these at Moderate, so they are not assessed. Some of the de
 
 **Table 48: Related controls and enhancements not selected**
 
-| Control | What it adds | \<DocuView\>'s position |
+| Control | What it adds | \<System Name\>'s position |
 | --- | --- | --- |
 | SA-3(1) Manage Preproduction Environment | Protects the development and test environments | Not required. Done in part: the test stacks are separate from production |
 | SA-3(2) Use of Live or Operational Data | Limits the use of real data in development and testing | Not required. Done in design: the test stacks hold sample data only (Q09; \<PII Processing Management\>) |
@@ -802,7 +802,7 @@ NIST does not select these at Moderate, so they are not assessed. Some of the de
 | SA-4(6), SA-4(7) Use of Information Assurance Products; NIAP-approved Protection Profiles | Uses United States government evaluated products | Not applicable |
 | SA-4(8) Continuous Monitoring Plan for Controls | Requires the developer to plan monitoring of the controls | Not required. The monitoring plan is in \<Assessment, Authorization, and Monitoring Management\>, section 4.8 |
 | SA-4(11) System of Records | Privacy Act terms for a United States system of records | Not applicable |
-| SA-4(12) Data Ownership | States that the organisation owns its data | Not required. ABC Technologies owns the data \<DocuView\> holds |
+| SA-4(12) Data Ownership | States that the organisation owns its data | Not required. \<Organisation\> owns the data \<System Name\> holds |
 | SA-8(1) to SA-8(32) | Individual security engineering principles | Not required. The NCSC secure design principles cover the same ground (section 4.6) |
 | SA-8(33) Minimization | The privacy principle of minimisation | In NIST's privacy baseline. Designed and assessed in \<PII Processing Management\> |
 | SA-9(1) Risk Assessments and Organizational Approvals | Assesses risk and approves before an external service is used | Not required. Done in part: a new supplier or component is reviewed before use (PRO-RA-2, PRO-SA-7) |
@@ -812,6 +812,6 @@ NIST does not select these at Moderate, so they are not assessed. Some of the de
 | SA-15 enhancements other than SA-15(3) | Quality metrics, tracking tools, attack surface reduction, continuous improvement, automated analysis and others | Not required. Done in part: the yearly process review (PRO-SA-6) |
 | SA-16 Developer-provided Training | Training from the developer on the controls | Not required: selected at High only. Administrators' training is in \<Awareness and Training Management\> |
 | SA-17 Developer Security and Privacy Architecture and Design | A formal security architecture from the developer | Not required: selected at High only. Done in part: \<Security Architecture\> |
-| SA-20 Customized Development of Critical Components | Builds critical components in-house | Not required. \<DocuView\>'s own applications are written in-house |
+| SA-20 Customized Development of Critical Components | Builds critical components in-house | Not required. \<System Name\>'s own applications are written in-house |
 | SA-21 Developer Screening | Screens the developers | Not required: selected at High only. Developers are screened as their risk designation requires (\<Personnel Security Management\>) |
 | SA-23 Specialization; SA-24 Design for Cyber Resiliency | Specialised components; designing to withstand and recover from attack | Not required |

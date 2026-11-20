@@ -1,4 +1,4 @@
-# \<DocuView\> Supply Chain Risk Management
+# \<System Name\> Supply Chain Risk Management
 
 **\<ref\> | Version \<ver\> | Draft for the system owner's approval**
 
@@ -30,7 +30,7 @@
 | Item | Detail |
 | --- | --- |
 | Reference | \<ref\> |
-| Title | \<DocuView\> Supply Chain Risk Management |
+| Title | \<System Name\> Supply Chain Risk Management |
 | Version | \<ver\> |
 | Status | Draft for the system owner's approval |
 | Date | 18 November 2026 |
@@ -46,7 +46,7 @@
 
 | Role | Name | Decision | Date |
 | --- | --- | --- | --- |
-| System owner | Neil Ramsbottom | Version \<ver\> approved (D-SR-03); version \<ver\> approved (D-SR-13). This rebuilt version awaits approval | Pending |
+| System owner | \[Name\] | Version \<ver\> approved (D-SR-03); version \<ver\> approved (D-SR-13). This rebuilt version awaits approval | Pending |
 
 ### 1.3 Change history
 
@@ -73,11 +73,11 @@
 
 ## 2 Purpose
 
-This document shows how \<DocuView\> manages the risk that it is harmed through what it is built from, where it is hosted and who supplies it, for each of the 12 Supply Chain Risk Management (SR) controls in NIST's Moderate baseline. Section 4 is the supply chain risk management plan that SR-2 requires, on the headings of NIST SP 800-161 Rev 1: the system context, the team, the risks at each stage, the supplier register, the risk tolerance, how components come in, and notices, inspection, authenticity and disposal. Section 5 takes each control in turn. Appendix A lists every value NIST asks the organisation to define.
+This document shows how \<System Name\> manages the risk that it is harmed through what it is built from, where it is hosted and who supplies it, for each of the 12 Supply Chain Risk Management (SR) controls in NIST's Moderate baseline. Section 4 is the supply chain risk management plan that SR-2 requires, on the headings of NIST SP 800-161 Rev 1: the system context, the team, the risks at each stage, the supplier register, the risk tolerance, how components come in, and notices, inspection, authenticity and disposal. Section 5 takes each control in turn. Appendix A lists every value NIST asks the organisation to define.
 
 This is the only place this design is held. Other documents point here. The policy is in \<Policy\> (SR), and the steps people follow are in \<Procedures\> (SR). The critical components are in \<Risk Assessment Management\>, section 4.9, the supply chain risk review in its section 4.4, the external services in \<System and Services Acquisition Management\>, section 4.7, and the integrity baseline in \<System and Information Integrity Management\>, section 4.5.
 
-An assessor examines the plan, the supplier register, the supplier reviews, the bill of materials and the release inspection records; interviews the system owner, the developers, the security officer and ABC Technologies' IT service desk; and tests where each component comes from and whether a release matches its record (NIST SP 800-53A). So for each control section 5 gives:
+An assessor examines the plan, the supplier register, the supplier reviews, the bill of materials and the release inspection records; interviews the system owner, the developers, the security officer and \<Organisation\>'s IT service desk; and tests where each component comes from and whether a release matches its record (NIST SP 800-53A). So for each control section 5 gives:
 
 - **each part of the control**, as NIST letters them, with the design that meets it and the position today;
 - **who provides it**, and who is responsible;
@@ -111,7 +111,7 @@ Of the 12 controls, none is implemented, 5 are partially implemented and 7 are n
 | SR-3 | Supply Chain Controls and Processes | Partially implemented | Packages bypass the offline feed; no lock files, trust policy, pinned images or bill of materials | NC-SR-04; PA-94 |
 | SR-5 | Acquisition Strategies, Tools, and Methods | Partially implemented | Packages acquired unchecked; NuGet's audit off | NC-SR-05; PA-92, PA-94 |
 | SR-6 | Supplier Assessments and Reviews | Not implemented | No supplier review held | NC-SR-06; PA-131 |
-| SR-8 | Notification Agreements | Not implemented | ABC Technologies' terms not seen | NC-SR-07; PA-131, EV-SR-01 |
+| SR-8 | Notification Agreements | Not implemented | \<Organisation\>'s terms not seen | NC-SR-07; PA-131, EV-SR-01 |
 | SR-10 | Inspection of Systems or Components | Partially implemented | No release checksums; hardware inspection not seen | NC-SR-08; PA-61, PA-77, PA-78 |
 | SR-11 | Component Authenticity | Not implemented | No trust policy; browser files unchecked | NC-SR-09; PA-34, PA-94 |
 | SR-11(1) | Anti-counterfeit Training | Not implemented | Not evidenced | NC-SR-10; PA-131, EV-SR-02 |
@@ -131,23 +131,23 @@ Two things matter most. Almost every package comes straight from nuget.org, with
 2. **One way in.** Every package comes through one checked source.
 3. **Fix and verify.** A release is built from exactly the components recorded for it, and can be shown to be so.
 4. **Hear about problems.** Suppliers and advisories tell us when something goes wrong.
-5. **Nothing left behind.** \<DocuView\> data is removed before anything leaves.
+5. **Nothing left behind.** \<System Name\> data is removed before anything leaves.
 
 These carry out the principles and rules of \<Policy\>, sections SR.3 and SR.4.
 
-![Figure 1: How components reach \<DocuView\>, and the checks on the way](figures/srm-figure-1.png)
+![Figure 1: How components reach \<System Name\>, and the checks on the way](figures/srm-figure-1.png)
 
-**Figure 1: How components reach \<DocuView\>, and the checks on the way**
+**Figure 1: How components reach \<System Name\>, and the checks on the way**
 
 ### 4.2 System context
 
-\<DocuView\> is three .NET 10 web applications and a PostgreSQL 18 database, to run as Windows services on two Windows Server 2025 servers hosted by ABC Technologies (D-PL-10). They are built and tested in container images. Its impact level is Moderate (D-GEN-06), and it is not yet in operation. Users sign in through ABC Technologies' AD FS, and access is decided by Active Directory groups (D-AC-23).
+\<System Name\> is three .NET 10 web applications and a PostgreSQL 18 database, to run as Windows services on two Windows Server 2025 servers hosted by \<Organisation\> (D-PL-10). They are built and tested in container images. Its impact level is Moderate (D-GEN-06), and it is not yet in operation. Users sign in through \<Organisation\>'s AD FS, and access is decided by Active Directory groups (D-AC-23).
 
-What it is built from: 59 packages for DV\_API, 40 for DV\_Web and 34 for DV\_Admin\_UI, counting those pulled in; two Microsoft base images and the PostgreSQL image; and two browser libraries loaded from jsDelivr. The values were agreed on 6 November 2026 and revised on 12 November 2026 (D-SR-P01).
+What it is built from: 59 packages for API, 40 for UI application and 34 for Admin application, counting those pulled in; two Microsoft base images and the PostgreSQL image; and two browser libraries loaded from jsDelivr. The values were agreed on 6 November 2026 and revised on 12 November 2026 (D-SR-P01).
 
 ### 4.3 The supply chain team
 
-The supply chain team is the system owner, the security officer, a developer and ABC Technologies' IT service desk (D-SR-05). It keeps this plan current, reviews the critical suppliers every 12 months and before a new critical supplier is used, and handles notices of compromise (PRO-SR-2, PRO-SR-5). The system owner leads it and approves the plan. ABC Technologies has not yet confirmed its part, and the team has not met (EV-SR-01).
+The supply chain team is the system owner, the security officer, a developer and \<Organisation\>'s IT service desk (D-SR-05). It keeps this plan current, reviews the critical suppliers every 12 months and before a new critical supplier is used, and handles notices of compromise (PRO-SR-2, PRO-SR-5). The system owner leads it and approves the plan. \<Organisation\> has not yet confirmed its part, and the team has not met (EV-SR-01).
 
 ### 4.4 Risks across the lifecycle
 
@@ -157,8 +157,8 @@ The supply chain team is the system owner, the security officer, a developer and
 | --- | --- | --- | --- |
 | Research and development | A harmful, vulnerable or look-alike package is added | PRO-SR-1 check, then into the offline feed | Packages come straight from nuget.org (PA-94) |
 | Design | A design relies on an unsuitable supplier | Supplier register; review before a new critical supplier | Register in place |
-| Manufacturing | Hardware is altered before arrival | ABC Technologies inspects | Not seen (EV-SR-02) |
-| Acquisition | A supplier makes no security commitment | ABC Technologies' contract; open-source security policies checked | Contract terms not seen (EV-SR-01) |
+| Manufacturing | Hardware is altered before arrival | \<Organisation\> inspects | Not seen (EV-SR-02) |
+| Acquisition | A supplier makes no security commitment | \<Organisation\>'s contract; open-source security policies checked | Contract terms not seen (EV-SR-01) |
 | Delivery | A package, image or release is altered in transit | Lock files, signed-package trust, image digests, release SHA-256 values | Not built (PA-94, PA-77, PA-61) |
 | Integration | A new component weakens a control | Release tests and Test-SupplyChain.ps1 | Release tests not built (PA-68) |
 | Operation and maintenance | A known flaw appears in a component | Monthly and release checks; \<Procedures\>, PRO-SI-1 | Test-Vulnerability.ps1 by hand; 7 advisories open (PA-56) |
@@ -170,9 +170,9 @@ Criticality follows the critical components in \<Risk Assessment Management\>, s
 
 **Table 7: Supplier register**
 
-| Supplier | What it supplies | Criticality | How it reaches \<DocuView\> | Evidence | Notification route | Last review | Next review |
+| Supplier | What it supplies | Criticality | How it reaches \<System Name\> | Evidence | Notification route | Last review | Next review |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| ABC Technologies | Hosting, network, hardware, service desk, central logging, and sign-in through AD FS and Active Directory (D-AC-23) | High | Contract | EV-SR-01, EV-SR-02 (not yet received) | Security contact to the security officer, within 24 hours (to confirm) | 11 November 2026 (\<Risk Assessment Management\>, section 4.4) | November 2027 |
+| \<Organisation\> | Hosting, network, hardware, service desk, central logging, and sign-in through AD FS and Active Directory (D-AC-23) | High | Contract | EV-SR-01, EV-SR-02 (not yet received) | Security contact to the security officer, within 24 hours (to confirm) | 11 November 2026 (\<Risk Assessment Management\>, section 4.4) | November 2027 |
 | Microsoft | .NET 10, ASP.NET Core and Entity Framework packages, Windows Server 2025 | High | nuget.org; the VM build | Published lifecycle and security advisories | Microsoft and .NET advisories | 11 November 2026 | November 2027 |
 | Microsoft container registry (mcr.microsoft.com) | .NET SDK and runtime base images | High | Pulled by tag at build (PA-77) | Published image digests | .NET advisories | 11 November 2026 | November 2027 |
 | nuget.org | The package registry for all other packages | High | Restored directly today (PA-94); vulnerability data only once fixed | Repository signatures on every package | GitHub Advisory Database | 12 November 2026 | November 2027 |
@@ -198,16 +198,16 @@ No critical component may be used without a known source and a SHA-256 record (D
 | OfflineModules packages | Offline feed only, by package source mapping | As today | None |
 | All other packages | Restored straight from nuget.org when the image is built; no lock file; any signature accepted | Mirrored into the offline feed after the PRO-SR-1 check; lock files in locked mode; trust policy for nuget.org's repository signature; NuGet's audit on | PA-94, PA-92 |
 | Base and database images, for the build and the test stacks | Pulled by floating tag | Pinned by digest | PA-77 |
-| Browser libraries | Loaded from jsDelivr, unchecked | Served by \<DocuView\> | PA-34 |
+| Browser libraries | Loaded from jsDelivr, unchecked | Served by \<System Name\> | PA-34 |
 | Releases | No checksum or bill of materials | SHA-256 values and a CycloneDX bill of materials, checked before installation | PA-61, PA-78 |
-| Hardware and hosting | Provided by ABC Technologies | Inspected, controlled under repair and disposed of by ABC Technologies, with evidence | EV-SR-02 |
+| Hardware and hosting | Provided by \<Organisation\> | Inspected, controlled under repair and disposed of by \<Organisation\>, with evidence | EV-SR-02 |
 
 ### 4.8 Notices, inspection, authenticity and disposal
 
-1. **Notices** (SR-8). ABC Technologies reports a supply chain compromise to the security officer within 24 hours, and shares assessment or audit results that affect \<DocuView\> (EV-SR-01). For open-source suppliers, their published advisories are the notice, through the sources in \<System and Information Integrity Management\>, section 4.3. Each notice that applies is recorded on TPL-7, and a compromise is handled as an incident (PRO-SR-5).
-2. **Inspection** (SR-10). Release packages, the test images and \<DocuView\>'s application files are checked against their recorded SHA-256 values at each release, before installation, and whenever tampering is suspected. A different value, an unexpected package source or damaged packaging is a sign of tampering. ABC Technologies inspects hardware (PRO-SR-3; EV-SR-02).
-3. **Authenticity** (SR-11). Package names are checked against look-alikes, and packages come only from the offline feed under a signed-package trust policy. A suspected counterfeit is refused and reported to the security officer, ABC Technologies, the package registry and, if serious, the NCSC. ABC Technologies trains its buyers every year, and keeps control of hardware sent for repair (PRO-SR-4).
-4. **Disposal** (SR-12). \<DocuView\> data is removed first (PRO-MP-3), and ABC Technologies disposes of the component and confirms in writing (PRO-SR-6).
+1. **Notices** (SR-8). \<Organisation\> reports a supply chain compromise to the security officer within 24 hours, and shares assessment or audit results that affect \<System Name\> (EV-SR-01). For open-source suppliers, their published advisories are the notice, through the sources in \<System and Information Integrity Management\>, section 4.3. Each notice that applies is recorded on TPL-7, and a compromise is handled as an incident (PRO-SR-5).
+2. **Inspection** (SR-10). Release packages, the test images and \<System Name\>'s application files are checked against their recorded SHA-256 values at each release, before installation, and whenever tampering is suspected. A different value, an unexpected package source or damaged packaging is a sign of tampering. \<Organisation\> inspects hardware (PRO-SR-3; EV-SR-02).
+3. **Authenticity** (SR-11). Package names are checked against look-alikes, and packages come only from the offline feed under a signed-package trust policy. A suspected counterfeit is refused and reported to the security officer, \<Organisation\>, the package registry and, if serious, the NCSC. \<Organisation\> trains its buyers every year, and keeps control of hardware sent for repair (PRO-SR-4).
+4. **Disposal** (SR-12). \<System Name\> data is removed first (PRO-MP-3), and \<Organisation\> disposes of the component and confirms in writing (PRO-SR-6).
 
 ### 4.9 How the plan is checked today
 
@@ -217,22 +217,22 @@ Test-SupplyChain.ps1 ran on the v1.0 build and its images on 12 November 2026, w
 
 | Check | Result | What it found |
 | --- | --- | --- |
-| U01 Package sources | Gap | DV\_API restores 50 of 59 packages, DV\_Web 34 of 40 and DV\_Admin\_UI 28 of 34 from outside the offline feed (PA-94) |
+| U01 Package sources | Gap | API restores 50 of 59 packages, UI application 34 of 40 and Admin application 28 of 34 from outside the offline feed (PA-94) |
 | U02 Lock files | Gap | No project has a lock file (PA-94) |
 | U03 Trust policy | Gap | Any signature is accepted (PA-94) |
 | U04 NuGet audit | Gap | Turned off in the image build (PA-92) |
 | U05 Feed index | Pass | All 1,688 indexed packages match their SHA-256 values |
 | U06 Image pinning | Gap | 3 images by floating tag (PA-77) |
 | U07 Bill of materials | Gap | None (PA-78) |
-| U08 Integrity baseline | Pass | The three test images and \<DocuView\>'s application files match \<System and Information Integrity Management\>, section 4.5 |
+| U08 Integrity baseline | Pass | The three test images and \<System Name\>'s application files match \<System and Information Integrity Management\>, section 4.5 |
 | U09 CDN files | Gap | 14 references to cdn.jsdelivr.net, none with an integrity check (PA-34) |
 | U10 Supplier register | Gap | Version \<ver\> of the plan named 3 of the 8 suppliers the code relies on; the register in section 4.5 now names all 8, with criticality |
 
-### 4.10 What ABC Technologies provides
+### 4.10 What \<Organisation\> provides
 
-**Table 10: Asked of ABC Technologies**
+**Table 10: Asked of \<Organisation\>**
 
-| Provided | Controls | What \<DocuView\> relies on | Evidence asked | State |
+| Provided | Controls | What \<System Name\> relies on | Evidence asked | State |
 | --- | --- | --- | --- | --- |
 | Approved suppliers, a seat on the supply chain team, and notice of a compromise within 24 hours | SR-2(1), SR-3, SR-5, SR-6, SR-8 | Its suppliers are approved, the IT service desk joins the team, and a compromise reaches the security officer within 24 hours | EV-SR-01 | Not sent |
 | Hardware inspection, buyers' training, control of equipment under repair, and disposal | SR-10, SR-11(1), SR-11(2), SR-12 | Each is done, with records | EV-SR-02 | Not sent |
@@ -254,7 +254,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | --- | --- | --- | --- |
 | a.1 | A supply chain risk management policy, shared with defined people, covering purpose, scope, roles, responsibilities, management commitment, coordination and compliance, and consistent with the law | \<Policy\> (SR): a system-level policy, shared with developers and administrators. The legal adviser reviewed it on 12 November 2026 | Version \<ver\> approved by the Head of Cyber (D-SR-01). The later version awaits the Head of Cyber (D-SR-12). Not yet shared (PA-20) |
 | a.2 | Procedures that carry out the policy, shared with defined people | \<Procedures\> (SR): six procedures, PRO-SR-1 to PRO-SR-6. Shared with the same people | Version \<ver\> approved by the system owner (D-SR-13). Not yet shared |
-| b | A named official manages the policy and procedures | The system owner | Neil Ramsbottom is named in \<Roles and Responsibilities\> |
+| b | A named official manages the policy and procedures | The system owner | \[Name\] is named in \<Roles and Responsibilities\> |
 | c.1 | The policy is reviewed on a schedule and after set events | Every 12 months, and after a significant incident, audit finding or system change | Reviewed on 12 November 2026 after the SR pack review. The first yearly review falls due in November 2027 |
 | c.2 | The procedures are reviewed on a schedule and after set events | Every 12 months, and after a change to the steps | Reviewed on 12 November 2026. The first yearly review falls due in November 2027 |
 
@@ -278,7 +278,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
-| a | Develop a plan for managing supply chain risk in research and development, design, manufacturing, acquisition, delivery, integration, operation and maintenance, and disposal of defined systems and components | Section 4 of this document is the plan. It covers \<DocuView\>, its software packages, container images, browser files, build tools, hosting and hardware, with the risk at each stage in section 4.4 | Approved as version \<ver\> (D-SR-13), and rebuilt in this form on 18 November 2026 (D-SR-14) |
+| a | Develop a plan for managing supply chain risk in research and development, design, manufacturing, acquisition, delivery, integration, operation and maintenance, and disposal of defined systems and components | Section 4 of this document is the plan. It covers \<System Name\>, its software packages, container images, browser files, build tools, hosting and hardware, with the risk at each stage in section 4.4 | Approved as version \<ver\> (D-SR-13), and rebuilt in this form on 18 November 2026 (D-SR-14) |
 | b | Review and update the plan at a defined frequency, and as threats, the organisation or the environment change | Every 12 months by the supply chain team, and after a significant change (PRO-SR-2) | The first yearly review falls due in November 2027. Not yet updated after the changes to sign-in and hosting (PA-127) |
 | c | Protect the plan from unauthorised disclosure and change | Restricted, under version control, and held in the restricted store | Not yet in the restricted store (PA-88) |
 
@@ -302,7 +302,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
-| All | Set up a supply chain risk management team of defined people, to lead and support defined activities | The system owner, the security officer, a developer and ABC Technologies' IT service desk. They keep this plan current, review suppliers and handle notices of compromise (section 4.3) | Named. ABC Technologies has not confirmed its part, and the team has not met (EV-SR-01) |
+| All | Set up a supply chain risk management team of defined people, to lead and support defined activities | The system owner, the security officer, a developer and \<Organisation\>'s IT service desk. They keep this plan current, review suppliers and handle notices of compromise (section 4.3) | Named. \<Organisation\> has not confirmed its part, and the team has not met (EV-SR-01) |
 
 **Table 16: SR-2(1) responsibility and evidence**
 
@@ -324,7 +324,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
-| a | Set up processes to find and address weaknesses in supply chain elements and processes, coordinated with defined people | Supplier reviews (PRO-SR-2), component checks before use (PRO-SR-1) and release inspection (PRO-SR-3), coordinated with ABC Technologies' IT service desk and the suppliers in section 4.5 | Approved. No supplier review held yet |
+| a | Set up processes to find and address weaknesses in supply chain elements and processes, coordinated with defined people | Supplier reviews (PRO-SR-2), component checks before use (PRO-SR-1) and release inspection (PRO-SR-3), coordinated with \<Organisation\>'s IT service desk and the suppliers in section 4.5 | Approved. No supplier review held yet |
 | b | Use defined controls to protect against supply chain risk and limit the harm of supply chain events | Approved suppliers; every package through the offline feed; lock files and signed-package trust; images pinned by digest; integrity checks on browser files; a bill of materials; and monthly and release checks (section 4.7) | Only the OfflineModules packages use the feed (U01; PA-94); no lock files or trust policy (U02, U03); images by floating tag (U06; PA-77); browser files unchecked (U09; PA-34); no bill of materials (U07; PA-78) |
 | c | Document the processes and controls in defined documents | This plan, and the security plan | Done |
 
@@ -332,7 +332,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 | | |
 | --- | --- |
-| Provided by | Shared: \<DocuView\> and ABC Technologies |
+| Provided by | Shared: \<System Name\> and \<Organisation\> |
 | Responsible | System owner, developers |
 | Enforced by | The offline feed; the build, once lock files and a trust policy are set |
 | Rules and procedures | Policy rules R2, R4 to R8 (\<Policy\>, section SR.4); PRO-SR-1, PRO-SR-3 (\<Procedures\>) |
@@ -354,12 +354,12 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 | | |
 | --- | --- |
-| Provided by | Shared: \<DocuView\> and ABC Technologies |
-| Responsible | Developers, ABC Technologies |
+| Provided by | Shared: \<System Name\> and \<Organisation\> |
+| Responsible | Developers, \<Organisation\> |
 | Enforced by | The offline feed and the build |
 | Rules and procedures | Policy rules R3, R4 (\<Policy\>, section SR.4); PRO-SR-1 (\<Procedures\>) |
 | Tests | Checks U01 and U04 (Test-SupplyChain.ps1 on the v1.0 build, 12 November 2026): both showed gaps |
-| Records an assessor will ask for | The feed index; the build settings; ABC Technologies' approved supplier list |
+| Records an assessor will ask for | The feed index; the build settings; \<Organisation\>'s approved supplier list |
 | Status | Partially implemented |
 | Risk decision | NC-SR-05, rated Low: remediate |
 | Open items | PA-94, PA-92. EV-SR-01 |
@@ -392,15 +392,15 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
-| All | Agree with those in the supply chain how compromises are notified, and assessment or audit results shared | ABC Technologies reports a supply chain compromise to the security officer within 24 hours, and shares assessment or audit results that affect \<DocuView\>. Open-source suppliers' advisories are treated as notice (section 4.8) | ABC Technologies' terms not seen (EV-SR-01). The advisories are not yet watched (PA-130) |
+| All | Agree with those in the supply chain how compromises are notified, and assessment or audit results shared | \<Organisation\> reports a supply chain compromise to the security officer within 24 hours, and shares assessment or audit results that affect \<System Name\>. Open-source suppliers' advisories are treated as notice (section 4.8) | \<Organisation\>'s terms not seen (EV-SR-01). The advisories are not yet watched (PA-130) |
 
 **Table 24: SR-8 responsibility and evidence**
 
 | | |
 | --- | --- |
-| Provided by | ABC Technologies |
-| Responsible | ABC Technologies, suppliers |
-| Enforced by | ABC Technologies' contract; the advisory sources |
+| Provided by | \<Organisation\> |
+| Responsible | \<Organisation\>, suppliers |
+| Enforced by | \<Organisation\>'s contract; the advisory sources |
 | Rules and procedures | Policy rule R10 (\<Policy\>, section SR.4); PRO-SR-5 (\<Procedures\>) |
 | Tests | None |
 | Records an assessor will ask for | The notification terms; TPL-7 records of notices |
@@ -414,18 +414,18 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
-| All | Inspect defined systems or components, at defined times or on signs of need, to detect tampering | Release packages, the test images and \<DocuView\>'s application files at each release and whenever tampering is suspected, against the recorded SHA-256 values; hardware by ABC Technologies (section 4.8) | The test images and application files match the baseline (U08). Release checksums not built (PA-61). Hardware inspection not seen (EV-SR-02) |
+| All | Inspect defined systems or components, at defined times or on signs of need, to detect tampering | Release packages, the test images and \<System Name\>'s application files at each release and whenever tampering is suspected, against the recorded SHA-256 values; hardware by \<Organisation\> (section 4.8) | The test images and application files match the baseline (U08). Release checksums not built (PA-61). Hardware inspection not seen (EV-SR-02) |
 
 **Table 26: SR-10 responsibility and evidence**
 
 | | |
 | --- | --- |
-| Provided by | Shared: \<DocuView\> and ABC Technologies |
-| Responsible | Developers, ABC Technologies |
+| Provided by | Shared: \<System Name\> and \<Organisation\> |
+| Responsible | Developers, \<Organisation\> |
 | Enforced by | Test-SupplyChain.ps1; release checksums, once built |
 | Rules and procedures | Policy rule R9 (\<Policy\>, section SR.4); PRO-SR-3 (\<Procedures\>) |
 | Tests | Checks U05 and U08 (Test-SupplyChain.ps1 on the v1.0 build, 12 November 2026): both passed |
-| Records an assessor will ask for | Test-SupplyChain.ps1 results; release records with SHA-256 values; ABC Technologies' inspection records |
+| Records an assessor will ask for | Test-SupplyChain.ps1 results; release records with SHA-256 values; \<Organisation\>'s inspection records |
 | Status | Partially implemented |
 | Risk decision | NC-SR-08, rated Low: remediate |
 | Open items | PA-61, PA-77, PA-78. EV-SR-02 |
@@ -436,8 +436,8 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
-| a | Develop and carry out anti-counterfeit policy and procedures, with the means to detect and prevent counterfeit components | Policy rule R11 and PRO-SR-4: package names checked against look-alikes, packages only from the offline feed with signed-package trust, and hardware inspected by ABC Technologies | Approved. No trust policy (U03; PA-94); browser files have no integrity check (U09; PA-34) |
-| b | Report counterfeit components to defined parties | The source, the security officer and ABC Technologies; for software, the package registry and, if serious, the NCSC | Approved. Not yet used |
+| a | Develop and carry out anti-counterfeit policy and procedures, with the means to detect and prevent counterfeit components | Policy rule R11 and PRO-SR-4: package names checked against look-alikes, packages only from the offline feed with signed-package trust, and hardware inspected by \<Organisation\> | Approved. No trust policy (U03; PA-94); browser files have no integrity check (U09; PA-34) |
+| b | Report counterfeit components to defined parties | The source, the security officer and \<Organisation\>; for software, the package registry and, if serious, the NCSC | Approved. Not yet used |
 
 **Table 28: SR-11 responsibility and evidence**
 
@@ -459,18 +459,18 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
-| All | Train defined people to detect counterfeit components | ABC Technologies trains its buyers every year | Not seen (EV-SR-02) |
+| All | Train defined people to detect counterfeit components | \<Organisation\> trains its buyers every year | Not seen (EV-SR-02) |
 
 **Table 30: SR-11(1) responsibility and evidence**
 
 | | |
 | --- | --- |
-| Provided by | ABC Technologies |
-| Responsible | ABC Technologies |
-| Enforced by | ABC Technologies |
+| Provided by | \<Organisation\> |
+| Responsible | \<Organisation\> |
+| Enforced by | \<Organisation\> |
 | Rules and procedures | Policy rule R11 (\<Policy\>, section SR.4); PRO-SR-4, step 3 (\<Procedures\>) |
 | Tests | None |
-| Records an assessor will ask for | ABC Technologies' training records |
+| Records an assessor will ask for | \<Organisation\>'s training records |
 | Status | Not implemented |
 | Risk decision | NC-SR-10, rated Low: obtain evidence |
 | Open items | EV-SR-02. PA-131 |
@@ -481,18 +481,18 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
-| All | Keep configuration control over components awaiting or returning from service or repair | Hardware away for service or repair stays under ABC Technologies' control | Not seen (EV-SR-02) |
+| All | Keep configuration control over components awaiting or returning from service or repair | Hardware away for service or repair stays under \<Organisation\>'s control | Not seen (EV-SR-02) |
 
 **Table 32: SR-11(2) responsibility and evidence**
 
 | | |
 | --- | --- |
-| Provided by | ABC Technologies |
-| Responsible | ABC Technologies |
-| Enforced by | ABC Technologies |
+| Provided by | \<Organisation\> |
+| Responsible | \<Organisation\> |
+| Enforced by | \<Organisation\> |
 | Rules and procedures | Policy rule R11 (\<Policy\>, section SR.4); PRO-SR-4, step 3 (\<Procedures\>) |
 | Tests | None |
-| Records an assessor will ask for | ABC Technologies' repair records |
+| Records an assessor will ask for | \<Organisation\>'s repair records |
 | Status | Not implemented |
 | Risk decision | NC-SR-11, rated Low: obtain evidence |
 | Open items | EV-SR-02. PA-131 |
@@ -503,18 +503,18 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
-| All | Dispose of defined data, documentation, tools or components by defined techniques | Hardware, media, data and documents: \<DocuView\> data is removed first (PRO-MP-3), and ABC Technologies disposes of the component and confirms in writing | PRO-MP-3 approved. ABC Technologies' disposal not seen (EV-SR-02) |
+| All | Dispose of defined data, documentation, tools or components by defined techniques | Hardware, media, data and documents: \<System Name\> data is removed first (PRO-MP-3), and \<Organisation\> disposes of the component and confirms in writing | PRO-MP-3 approved. \<Organisation\>'s disposal not seen (EV-SR-02) |
 
 **Table 34: SR-12 responsibility and evidence**
 
 | | |
 | --- | --- |
-| Provided by | ABC Technologies |
-| Responsible | ABC Technologies |
-| Enforced by | ABC Technologies; PRO-MP-3 |
+| Provided by | \<Organisation\> |
+| Responsible | \<Organisation\> |
+| Enforced by | \<Organisation\>; PRO-MP-3 |
 | Rules and procedures | Policy rule R12 (\<Policy\>, section SR.4); PRO-SR-6 (\<Procedures\>) |
 | Tests | None |
-| Records an assessor will ask for | Sanitisation records; ABC Technologies' disposal confirmations |
+| Records an assessor will ask for | Sanitisation records; \<Organisation\>'s disposal confirmations |
 | Status | Not implemented |
 | Risk decision | NC-SR-12, rated Low: obtain evidence |
 | Open items | EV-SR-02. PA-131 |
@@ -538,27 +538,27 @@ These are NIST's organisation-defined values for the 12 SR entries: 32 in total.
 | SR-01\_ODP\[06\] | Events requiring policy review | Significant incident, audit finding or system change | Reviewed after the SR pack review, 12 November 2026 |
 | SR-01\_ODP\[07\] | Procedures review frequency | Every 12 months | First review due November 2027 |
 | SR-01\_ODP\[08\] | Events requiring procedures review | A change to the steps | Reviewed after the SR pack review, 12 November 2026 |
-| SR-02\_ODP\[01\] | What the plan covers | \<DocuView\>, its software packages, container images, browser files, build tools, hosting and hardware | Defined |
+| SR-02\_ODP\[01\] | What the plan covers | \<System Name\>, its software packages, container images, browser files, build tools, hosting and hardware | Defined |
 | SR-02\_ODP\[02\] | Review frequency | Every 12 months | First review due November 2027 |
-| SR-02(01)\_ODP\[01\] | Team | System owner, security officer, a developer and ABC Technologies' IT service desk | Named; ABC Technologies not yet confirmed |
+| SR-02(01)\_ODP\[01\] | Team | System owner, security officer, a developer and \<Organisation\>'s IT service desk | Named; \<Organisation\> not yet confirmed |
 | SR-02(01)\_ODP\[02\] | What the team does | Keeps this plan current, reviews suppliers, and handles notices of compromise | Team has not met |
-| SR-03\_ODP\[01\] | What is covered | \<DocuView\> and every component in its supplier register | Defined |
-| SR-03\_ODP\[02\] | Who is coordinated with | ABC Technologies' IT service desk and the suppliers in section 5 | Defined |
+| SR-03\_ODP\[01\] | What is covered | \<System Name\> and every component in its supplier register | Defined |
+| SR-03\_ODP\[02\] | Who is coordinated with | \<Organisation\>'s IT service desk and the suppliers in section 5 | Defined |
 | SR-03\_ODP\[03\] | Controls | Approved suppliers; every package through the offline feed; lock files and signed-package trust; images pinned by digest; integrity checks on browser files; a bill of materials; monthly and release checks | Only OfflineModules packages use the feed (U01; PA-94); no lock files or trust policy (U02, U03); images floating (U06; PA-77); CDN files unchecked (U09; PA-34); no bill of materials (U07; PA-78) |
 | SR-03\_ODP\[04\] | Where controls are documented | Security and privacy plans, and this plan | Defined |
 | SR-03\_ODP\[05\] | Other document | This plan | Defined |
 | SR-05\_ODP | Strategies and methods | Approved suppliers; every package through the offline feed after the PRO-SR-1 check; lock files and signed-package trust; images pinned by digest; review before a new critical supplier | Packages come straight from nuget.org (U01; PA-94); NuGet audit off in the build (U04; PA-92) |
 | SR-06\_ODP | Review frequency | Every 12 months, and before a new critical supplier is used | No review held on TPL-16; first supply chain review held 11 November 2026 (\<Risk Assessment Management\>, section 4.4) |
-| SR-08\_ODP\[01\] | What is notified | A compromise in the supply chain, within 24 hours | ABC Technologies' terms not seen (EV-SR-01); open-source advisories watched (\<System and Information Integrity Management\>, section 4.3) |
-| SR-08\_ODP\[02\] | Other results shared | Assessment or audit results that affect \<DocuView\> | Not seen (EV-SR-01) |
-| SR-10\_ODP\[01\] | What is inspected | Release packages, container images, \<DocuView\> assemblies and hardware | Images and assemblies match the baseline (U08); release checksums not built (PA-61); hardware not seen (EV-SR-02) |
+| SR-08\_ODP\[01\] | What is notified | A compromise in the supply chain, within 24 hours | \<Organisation\>'s terms not seen (EV-SR-01); open-source advisories watched (\<System and Information Integrity Management\>, section 4.3) |
+| SR-08\_ODP\[02\] | Other results shared | Assessment or audit results that affect \<System Name\> | Not seen (EV-SR-01) |
+| SR-10\_ODP\[01\] | What is inspected | Release packages, container images, \<System Name\> assemblies and hardware | Images and assemblies match the baseline (U08); release checksums not built (PA-61); hardware not seen (EV-SR-02) |
 | SR-10\_ODP\[02\] | When | At each release, and when something suggests tampering | Defined |
 | SR-10\_ODP\[03\] | Frequency | Each release | Test-SupplyChain.ps1 run on v1.0, 12 November 2026 |
 | SR-10\_ODP\[04\] | Signs of tampering | A SHA-256 value that differs from the release record or baseline, an unexpected package source, or damaged packaging | Defined |
 | SR-11\_ODP\[01\] | Who is told | The source of the counterfeit, and the two below | Defined |
 | SR-11\_ODP\[02\] | External bodies told | The supplier, the package registry (NuGet or GitHub) and, if serious, the NCSC | Defined |
-| SR-11\_ODP\[03\] | Who is told | Security officer and ABC Technologies | Procedure approved; not yet used |
-| SR-11(01)\_ODP | Who is trained | ABC Technologies' buyers, yearly | Not seen (EV-SR-02) |
+| SR-11\_ODP\[03\] | Who is told | Security officer and \<Organisation\> | Procedure approved; not yet used |
+| SR-11(01)\_ODP | Who is trained | \<Organisation\>'s buyers, yearly | Not seen (EV-SR-02) |
 | SR-11(02)\_ODP | Components under control | Hardware away for service or repair | Not seen (EV-SR-02) |
 | SR-12\_ODP\[01\] | What is disposed of | Hardware, media, data and documents | Not seen (EV-SR-02) |
 | SR-12\_ODP\[02\] | How | \<Procedures\>, PRO-MP-3 | PRO-MP-3 approved; not yet used |
@@ -572,7 +572,7 @@ NIST does not select these at Moderate, so they are not assessed. Table 36 says 
 
 **Table 36: Related controls and enhancements not selected**
 
-| Control | What it adds | \<DocuView\>'s position |
+| Control | What it adds | \<System Name\>'s position |
 | --- | --- | --- |
 | SR-3(1) to SR-3(3) | Diverse supply base; limiting harm; flowing controls down to sub-tier suppliers | Not required. Done in part: the risk tolerance limits harm (section 4.6) |
 | SR-4 Provenance | Records where each component came from and every change to it | Not required. Done in part in design: the offline feed's SHA-256 records and the bill of materials (PA-78) |

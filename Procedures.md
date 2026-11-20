@@ -1,4 +1,4 @@
-# \<DocuView\> Security Procedures
+# \<System Name\> Security Procedures
 
 **\<ref\> | Version \<ver\> | The layout introduced in version \<ver\> awaits the system owner's approval; every procedure is as the system owner approved it**
 
@@ -60,7 +60,7 @@
 | Item | Detail |
 | --- | --- |
 | Reference | \<ref\> |
-| Title | \<DocuView\> Security Procedures |
+| Title | \<System Name\> Security Procedures |
 | Version | \<ver\> |
 | Status | Version \<ver\> is laid out for easier reading, as the system owner asked on 12 November 2026 (D-GEN-22), and that layout awaits the system owner's approval. No procedure, step, table or time limit changed, so each family's procedures stand as the system owner approved them (Table 4) |
 | Date | 12 November 2026 |
@@ -76,7 +76,7 @@
 
 | Role | Name | Decision | Date |
 | --- | --- | --- | --- |
-| System owner | Neil Ramsbottom | Approved each family's procedures, as Table 4 shows. The layout introduced in version \<ver\> awaits approval | Pending |
+| System owner | \[Name\] | Approved each family's procedures, as Table 4 shows. The layout introduced in version \<ver\> awaits approval | Pending |
 
 ### 1.3 Change history
 
@@ -86,22 +86,22 @@ From version \<ver\> the document has one version, one approval and one change h
 
 | Version | Date | Change |
 | --- | --- | --- |
-| \<ver\> | 18 November 2026 | Whole-set review: section 2 points to each family's design document; the joiner workflow and approval route follow sign-in through AD FS, as \<DocuView\> creates no accounts (D-AC-23) |
+| \<ver\> | 18 November 2026 | Whole-set review: section 2 points to each family's design document; the joiner workflow and approval route follow sign-in through AD FS, as \<System Name\> creates no accounts (D-AC-23) |
 | \<ver\> | 18 November 2026 | No procedure names code: page addresses, configuration file and setting names, and script paths are described in plain words (PRO-AC, PRO-AU, PRO-CM, PRO-CP, PRO-IR and PRO-SC). No step is changed |
 | \<ver\> | 18 November 2026 | References to the communications protection design point to \<System and Communications Protection Management\>, where it is now held (D-SC-09). References to the integrity design point to \<System and Information Integrity Management\>, where it is now held (D-SI-10). References to the supply chain plan follow its new sections, as it is rebuilt in the family form and renamed Supply Chain Risk Management (D-SR-14) |
 | \<ver\> | 18 November 2026 | Chapter SA, from the cross-check: PRO-SA-2 adds the OWASP ASVS verification; PRO-SA-3 asks for service levels and remedies; PRO-SA-5 checks that packages and browser libraries are still maintained |
 | \<ver\> | 18 November 2026 | References to the acquisition design point to \<System and Services Acquisition Management\>, where it is now held (D-SA-19). Chapter SA: PRO-SA-2 names where results are kept without a folder path |
-| \<ver\> | 18 November 2026 | Chapter RA, from the cross-check: PRO-RA-1 checks the categorisation at each review; PRO-RA-2 also runs after a significant change; PRO-RA-3 adds a web application scan at each release; PRO-RA-5 shares findings with ABC Technologies and publishes the reporting route with its terms |
+| \<ver\> | 18 November 2026 | Chapter RA, from the cross-check: PRO-RA-1 checks the categorisation at each review; PRO-RA-2 also runs after a significant change; PRO-RA-3 adds a web application scan at each release; PRO-RA-5 shares findings with \<Organisation\> and publishes the reporting route with its terms |
 | \<ver\> | 18 November 2026 | References to the risk assessment design point to \<Risk Assessment Management\>, where it is now held (D-RA-11) |
 | \<ver\> | 18 November 2026 | PRO-PT-1 covers every request a person may make about their data, the time limit, and telling recipients of a correction (UK GDPR, Articles 12 and 19; Data (Use and Access) Act 2025) |
-| \<ver\> | 18 November 2026 | References to the personal data design point to \<PII Processing Management\>, where it is now held (D-PT-22). PRO-PT-1: the search covers every project and the audit records, as \<DocuView\> holds no accounts (D-AC-23) |
+| \<ver\> | 18 November 2026 | References to the personal data design point to \<PII Processing Management\>, where it is now held (D-PT-22). PRO-PT-1: the search covers every project and the audit records, as \<System Name\> holds no accounts (D-AC-23) |
 | \<ver\> | 17 November 2026 | Chapter AC: PRO-AC-1 step 3 corrected in grammar, and the signature is recorded by the system owner on TPL-21. Chapter PS: the people who act on leavers and movers follow sign-in through AD FS, and PRO-PS-5 covers external assessors |
-| \<ver\> | 17 November 2026 | PRO-AC-8: each month, members who have not signed in for 90 days are removed from \<DocuView\>'s groups by the groups' owners (D-PS-11) |
-| \<ver\> | 17 November 2026 | References to the personnel security design point to \<Personnel Security Management\>, where it is now held (D-PS-10). Chapter PS: joiners, movers and leavers follow sign-in through AD FS, as \<DocuView\> holds no accounts (D-AC-23). Chapter AC: PRO-AC-1 no longer speaks of creating an account, and PRO-AC-4 names the session management page in plain words |
+| \<ver\> | 17 November 2026 | PRO-AC-8: each month, members who have not signed in for 90 days are removed from \<System Name\>'s groups by the groups' owners (D-PS-11) |
+| \<ver\> | 17 November 2026 | References to the personnel security design point to \<Personnel Security Management\>, where it is now held (D-PS-10). Chapter PS: joiners, movers and leavers follow sign-in through AD FS, as \<System Name\> holds no accounts (D-AC-23). Chapter AC: PRO-AC-1 no longer speaks of creating an account, and PRO-AC-4 names the session management page in plain words |
 | \<ver\> | 17 November 2026 | Chapter PL: the consistency test is named in plain words, and PRO-PL-3 says what the person signs |
 | \<ver\> | 17 November 2026 | References to the planning design point to \<Planning Management\>, where it is now held (D-PL-12) |
 | \<ver\> | 17 November 2026 | Chapter PE: both data centres are inspected; every home worker completes the yearly checklist; and a clear desk is part of protecting output, as rule A37 says |
-| \<ver\> | 17 November 2026 | PRO-PE-2: ABC Technologies tells the security officer of a physical incident within 24 hours (D-PE-12) |
+| \<ver\> | 17 November 2026 | PRO-PE-2: \<Organisation\> tells the security officer of a physical incident within 24 hours (D-PE-12) |
 | \<ver\> | 17 November 2026 | References to the physical and environmental protection design point to \<Physical and Environmental Protection Management\>, where it is now held (D-PE-11). PRO-PE-1: a SOC 2 report is asked to cover the availability criteria as well as physical access, so that it evidences power, fire and environment |
 | \<ver\> | 17 November 2026 | Chapter MP: printing is on managed printers with secure release, as rule A33 says; cryptographic erase destroys every copy of a key; and the sanitising record holds the tool used |
 | \<ver\> | 17 November 2026 | PRO-MP-5: the export folder is checked each working day in place of weekly (D-MP-10) |
@@ -117,11 +117,11 @@ From version \<ver\> the document has one version, one approval and one change h
 | \<ver\> | 12 November 2026 | References to the assessment, authorisation and monitoring design point to \<Assessment, Authorization, and Monitoring Management\>, where it is now held (D-CA-11) |
 | \<ver\> | 12 November 2026 | No document sends the reader to the application's code: source file, class and setting names are replaced by what they stand for, stated in plain words. No value, finding or decision is changed |
 | \<ver\> | 12 November 2026 | PRO-AU-4, step 3: records under a legal hold or held as incident evidence are not deleted until released |
-| \<ver\> | 12 November 2026 | References to the audit design point to \<Audit and Accountability Management\>, where it is now held (D-AU-10). PRO-AU-1 and PRO-AU-6 follow sign-in through AD FS: the system owner adds an auditor to the AD group, and the weekly review uses ABC Technologies' record of group changes (D-AC-23) |
+| \<ver\> | 12 November 2026 | References to the audit design point to \<Audit and Accountability Management\>, where it is now held (D-AU-10). PRO-AU-1 and PRO-AU-6 follow sign-in through AD FS: the system owner adds an auditor to the AD group, and the weekly review uses \<Organisation\>'s record of group changes (D-AC-23) |
 | \<ver\> | 12 November 2026 | References to the training design point to \<Awareness and Training Management\>, where it is now held (D-AT-09). PRO-AT-1 says "before access", as no account is created in the system (D-AC-23) |
 | \<ver\> | 12 November 2026 | PRO-AC-13 places the system use notice on the first page of each app, before sign-in through AD FS |
 | \<ver\> | 12 November 2026 | The index of procedures follows the new titles of PRO-IA-1, PRO-IA-2 and PRO-IA-5 |
-| \<ver\> | 12 November 2026 | The access control and identification procedures follow D-AC-23: group owners add and remove members in Active Directory, and ABC Technologies' service desk handles accounts, passwords, lockouts and second factors. PRO-AC-1 to PRO-AC-10, PRO-AC-12, PRO-IA-1 to PRO-IA-3, PRO-IA-5, PRO-IA-6 and PRO-IA-8 change |
+| \<ver\> | 12 November 2026 | The access control and identification procedures follow D-AC-23: group owners add and remove members in Active Directory, and \<Organisation\>'s service desk handles accounts, passwords, lockouts and second factors. PRO-AC-1 to PRO-AC-10, PRO-AC-12, PRO-IA-1 to PRO-IA-3, PRO-IA-5, PRO-IA-6 and PRO-IA-8 change |
 | \<ver\> | 12 November 2026 | Version numbers are shown as a placeholder, as the system owner asked (D-GEN-28). No other change |
 | \<ver\> | 12 November 2026 | The document number is replaced by a placeholder on the line under the title and in the details table, as the system owner asked (D-GEN-27). No other change |
 | \<ver\> | 12 November 2026 | The name of the system is shown as a placeholder, as the system owner asked (D-GEN-26). No other change |
@@ -167,13 +167,13 @@ Until version \<ver\> each chapter carried its own version, approval and change 
 
 ## 2 How to use this document
 
-This document holds the security and privacy procedures for \<DocuView\>: 139 procedures in 19 chapters, one chapter for each NIST SP 800-53 Rev 5 control family that applies, in NIST order. A procedure says who does what, when, and what record is kept. The rules the procedures carry out are in \<Policy\>, and the design, values and decisions they use are in each family's design document (\<Documentation Map\>, section 3.2).
+This document holds the security and privacy procedures for \<System Name\>: 139 procedures in 19 chapters, one chapter for each NIST SP 800-53 Rev 5 control family that applies, in NIST order. A procedure says who does what, when, and what record is kept. The rules the procedures carry out are in \<Policy\>, and the design, values and decisions they use are in each family's design document (\<Documentation Map\>, section 3.2).
 
 - **Finding a procedure.** Section 3 lists every procedure with a link to it. Each procedure is headed by its number, such as PRO-AC-3, which never changes.
 - **Reading a chapter.** Most chapters start with a table that summarises each procedure: what starts it, who acts, the time limit, the record and the controls it serves. The steps follow.
 - **Manual steps.** A step marked **Manual** has no support in the system yet, so a person must carry it out and record it. \<Plan of Action and Milestones\> holds the work to build that support.
-- **Records.** Records use the forms in \<Record Templates\>, TPL-1 to TPL-24, or a Jira record with the same fields once the Jira workflows are in use.
-- **Not yet in use.** \<DocuView\> is not live. The procedures are approved but have not been walked through, and each is walked through once on form TPL-4 before go-live.
+- **Records.** Records use the forms in \<Record Templates\>, TPL-1 to TPL-24, or a ServiceNow record with the same fields once the ServiceNow workflows are in use.
+- **Not yet in use.** \<System Name\> is not live. The procedures are approved but have not been walked through, and each is walked through once on form TPL-4 before go-live.
 - **Citing.** Cite a procedure by its number, as \<Procedures\>, PRO-AC-3. Cite a chapter as \<Procedures\> (AC), a section as \<Procedures\>, section AC.2, and a table as \<Procedures\>, Table AC-4.
 
 | **SECTION 3** |
@@ -202,7 +202,7 @@ This document holds the security and privacy procedures for \<DocuView\>: 139 pr
 | [PRO-AC-15](#pro-ac-15-exception-management) | Exception management | AC Access Control |
 | [PRO-AC-16](#pro-ac-16-sharing-and-export-requests) | Sharing and export requests | AC Access Control |
 | [PRO-AC-17](#pro-ac-17-non-compliance-and-risk-decisions) | Non-compliance and risk decisions | AC Access Control |
-| [PRO-AT-1](#pro-at-1-awareness-and-the-docuview-briefing) | Awareness and the \<DocuView\> briefing | AT Awareness and Training |
+| [PRO-AT-1](#pro-at-1-awareness-and-the-docuview-briefing) | Awareness and the \<System Name\> briefing | AT Awareness and Training |
 | [PRO-AT-2](#pro-at-2-role-training) | Role training | AT Awareness and Training |
 | [PRO-AT-3](#pro-at-3-keeping-content-current) | Keeping content current | AT Awareness and Training |
 | [PRO-AT-4](#pro-at-4-records-and-the-register) | Records and the register | AT Awareness and Training |
@@ -265,7 +265,7 @@ This document holds the security and privacy procedures for \<DocuView\>: 139 pr
 | [PRO-MP-4](#pro-mp-4-portable-storage-and-ownerless-devices) | Portable storage and ownerless devices | MP Media Protection |
 | [PRO-MP-5](#pro-mp-5-export-copies-and-users-copies) | Export copies and users' copies | MP Media Protection |
 | [PRO-MP-6](#pro-mp-6-media-inventory) | Media inventory | MP Media Protection |
-| [PRO-PE-1](#pro-pe-1-checking-abc-technologies-evidence) | Checking ABC Technologies' evidence | PE Physical and Environmental Protection |
+| [PRO-PE-1](#pro-pe-1-checking-abc-technologies-evidence) | Checking \<Organisation\>'s evidence | PE Physical and Environmental Protection |
 | [PRO-PE-2](#pro-pe-2-physical-incidents) | Physical incidents | PE Physical and Environmental Protection |
 | [PRO-PE-3](#pro-pe-3-screens-and-printers) | Screens and printers | PE Physical and Environmental Protection |
 | [PRO-PE-4](#pro-pe-4-working-from-home) | Working from home | PE Physical and Environmental Protection |
@@ -336,7 +336,7 @@ Procedures PRO-AC-1 to PRO-AC-17.
 
 ### AC.1 Purpose
 
-These procedures define how access control activities are performed: the workflows, approval routes, steps, reviews and exception handling. The values they use are in \<Access Control Management\>. The steps were drafted from the admin portal's pages and code and have not been walked through yet (PA-20). Steps marked **Manual** have no support in the system (see \<Plan of Action and Milestones\>). Jira Service Desk and the Starters/Leavers system are planned for go-live and are not yet set up for \<DocuView\>.
+These procedures define how access control activities are performed: the workflows, approval routes, steps, reviews and exception handling. The values they use are in \<Access Control Management\>. The steps were drafted from the admin portal's pages and code and have not been walked through yet (PA-20). Steps marked **Manual** have no support in the system (see \<Plan of Action and Milestones\>). ServiceNow and the Starters/Leavers system are planned for go-live and are not yet set up for \<System Name\>.
 
 Admin portal pages are under http://localhost:7004 in the current local stack.
 
@@ -362,9 +362,9 @@ Admin portal pages are under http://localhost:7004 in the current local stack.
 
 | Request | Raised by | Approved by | Carried out by | Record kept in |
 | --- | --- | --- | --- | --- |
-| First access, or a general group change | The person; their line manager approves | System owner authorises | Global administrator | Jira request |
-| Project read or edit access | The person; their line manager approves | Project access approver authorises | Global administrator | Jira request |
-| Global administrator, administrator, auditor or security officer | The person; their line manager approves | System owner authorises, and cannot authorise their own | Global administrator | Jira request and audit log |
+| First access, or a general group change | The person; their line manager approves | System owner authorises | Global administrator | ServiceNow request |
+| Project read or edit access | The person; their line manager approves | Project access approver authorises | Global administrator | ServiceNow request |
+| Global administrator, administrator, auditor or security officer | The person; their line manager approves | System owner authorises, and cannot authorise their own | Global administrator | ServiceNow request and audit log |
 | Sharing or export outside a project | Requesting user | Project access approver | Project editor | Sharing decision record |
 | External system or portable storage use | Requesting user | System owner | Requesting user | Exception record |
 | Exception to a rule | Whoever needs it | System owner, or authorising official if above their authority | Role concerned | \<Risk List\> |
@@ -386,24 +386,24 @@ Admin portal pages are under http://localhost:7004 in the current local stack.
 
 ### AC.5 Procedures
 
-Table AC-4 summarises each procedure: what starts it, who acts, its time limit, the record that proves it was followed, and the controls it serves. Records use the forms in \<Record Templates\>, or a Jira record holding the same fields once the Jira workflows are in use. Each procedure is walked through once on TPL-4 before go-live (D-AC-02).
+Table AC-4 summarises each procedure: what starts it, who acts, its time limit, the record that proves it was followed, and the controls it serves. Records use the forms in \<Record Templates\>, or a ServiceNow record holding the same fields once the ServiceNow workflows are in use. Each procedure is walked through once on TPL-4 before go-live (D-AC-02).
 
 **Table AC-4: Procedure summary**
 
 | Procedure | Starts when | Who acts | Time limit | Record | Controls |
 | --- | --- | --- | --- | --- | --- |
-| PRO-AC-1 Joiner | Access is requested | The person, line manager, the group's owner (P-AC-05), security officer | Training and signed SyOps before the person is added to a group | Jira request, TPL-9, TPL-21 and the register of signatures | AC-2, PL-4, PS-6, AT-2 |
+| PRO-AC-1 Joiner | Access is requested | The person, line manager, the group's owner (P-AC-05), security officer | Training and signed SyOps before the person is added to a group | ServiceNow request, TPL-9, TPL-21 and the register of signatures | AC-2, PL-4, PS-6, AT-2 |
 | PRO-AC-2 Mover | A role changes | Line manager, the groups' owners | Notified within 1 working day (P-AC-06) | TPL-2, TPL-14 | AC-2, PS-5 |
-| PRO-AC-3 Leaver | The Starters/Leavers system prompts | ABC Technologies disables the Active Directory account at once; the groups' owners; global administrator | Within 5 working days (P-AC-06) | TPL-14 | AC-2, AC-2(3), PS-4 |
-| PRO-AC-4 Urgent disable | A concern is raised | Anyone, ABC Technologies' service desk, global administrator, system owner | Within 1 hour (P-AC-13) | TPL-14, and TPL-10 if it is an incident | AC-2(13), IR-6 |
+| PRO-AC-3 Leaver | The Starters/Leavers system prompts | \<Organisation\> disables the Active Directory account at once; the groups' owners; global administrator | Within 5 working days (P-AC-06) | TPL-14 | AC-2, AC-2(3), PS-4 |
+| PRO-AC-4 Urgent disable | A concern is raised | Anyone, \<Organisation\>'s service desk, global administrator, system owner | Within 1 hour (P-AC-13) | TPL-14, and TPL-10 if it is an incident | AC-2(13), IR-6 |
 | PRO-AC-5 Project access | Access to a project is requested | The person, line manager, project access approver | Before access | TPL-2 | AC-3, AC-6 |
 | PRO-AC-6 Privileged access | A privileged role is requested | The person, line manager, system owner | Role modules M1 and M2 (\<Awareness and Training Management\>) passed and signed Part B before access | TPL-2, TPL-9 | AC-2, AC-6(5), AT-3 |
 | PRO-AC-7 Access review | The review falls due | The groups' owners, system owner, auditor | Every 3 months for privileged access, every 12 months for all other access (P-AC-07) | TPL-3 | AC-2, AC-6(7) |
-| PRO-AC-8 Inactive accounts | Monthly | ABC Technologies; global administrator; the groups' owners | 90 days without signing in; ABC Technologies' corporate standard for the Active Directory account (P-AC-08) | TPL-3 | AC-2(3) |
-| PRO-AC-9 Locked account | A user asks | ABC Technologies' IT service desk | ABC Technologies' corporate standard (P-AC-14) | ABC Technologies' record | AC-7 |
-| PRO-AC-10 Forgotten password | A user asks | ABC Technologies' IT service desk | After its identity check | ABC Technologies' record | IA-5 |
+| PRO-AC-8 Inactive accounts | Monthly | \<Organisation\>; global administrator; the groups' owners | 90 days without signing in; \<Organisation\>'s corporate standard for the Active Directory account (P-AC-08) | TPL-3 | AC-2(3) |
+| PRO-AC-9 Locked account | A user asks | \<Organisation\>'s IT service desk | \<Organisation\>'s corporate standard (P-AC-14) | \<Organisation\>'s record | AC-7 |
+| PRO-AC-10 Forgotten password | A user asks | \<Organisation\>'s IT service desk | After its identity check | \<Organisation\>'s record | IA-5 |
 | PRO-AC-11 Ending a session | A session must end | Global administrator | At once | Note of the reason; TPL-10 if it is an incident | AC-12 |
-| PRO-AC-12 First administrator | \<DocuView\> is first built | Windows server administrator, system owner | At build | TPL-6 | AC-2, IA-5 |
+| PRO-AC-12 First administrator | \<System Name\> is first built | Windows server administrator, system owner | At build | TPL-6 | AC-2, IA-5 |
 | PRO-AC-13 Use notice | The wording changes | System owner, legal adviser | Through an approved change | TPL-6 | AC-8 |
 | PRO-AC-14 Policy and procedure review | The review falls due, or an event | System owner | Every 12 months (P-AC-02, P-AC-03) | Change history; TPL-4 | AC-1 |
 | PRO-AC-15 Exception | A rule cannot be met | Requester, security officer, system owner or authorising official | End date no more than 12 months away | TPL-17; \<Risk List\> | AC-1, PL-4, CA-5 |
@@ -412,66 +412,66 @@ Table AC-4 summarises each procedure: what starts it, who acts, its time limit, 
 
 #### PRO-AC-1 New user (joiner)
 
-1. The person raises an access request in Jira Service Desk, naming the projects and level needed, and the reason. **Manual**
-2. Their line manager approves or refuses it. The system owner then authorises or refuses the role, and the project access approver each project named (P-AC-05). Nobody decides their own request. The Jira workflow keeps the record. **Manual**
-3. Before the person is added to any group, they complete security and privacy awareness training, receive the \<DocuView\> briefing from the system owner (\<Awareness and Training Management\>, section 4.3), and sign Part A of \<Security Operating Procedures\>, and Part B if the access is privileged. The security officer records the training on TPL-9, and the system owner records the signature on TPL-21 and in the register of signatures (\<Planning Management\>, section 4.5). No access is given until this is done.
-4. The owner who authorised the request adds the person to the approved AD groups, with ABC Technologies' AD tool. No \<DocuView\> account is created: the person's Active Directory account is their account. **Manual**
-5. The person signs in through AD FS, and \<DocuView\> applies the groups in their sign-in token.
-6. The owner records the groups granted and the date in the Jira request. **Manual**
+1. The person raises an access request in ServiceNow, naming the projects and level needed, and the reason. **Manual**
+2. Their line manager approves or refuses it. The system owner then authorises or refuses the role, and the project access approver each project named (P-AC-05). Nobody decides their own request. The ServiceNow workflow keeps the record. **Manual**
+3. Before the person is added to any group, they complete security and privacy awareness training, receive the \<System Name\> briefing from the system owner (\<Awareness and Training Management\>, section 4.3), and sign Part A of \<Security Operating Procedures\>, and Part B if the access is privileged. The security officer records the training on TPL-9, and the system owner records the signature on TPL-21 and in the register of signatures (\<Planning Management\>, section 4.5). No access is given until this is done.
+4. The owner who authorised the request adds the person to the approved AD groups, with \<Organisation\>'s AD tool. No \<System Name\> account is created: the person's Active Directory account is their account. **Manual**
+5. The person signs in through AD FS, and \<System Name\> applies the groups in their sign-in token.
+6. The owner records the groups granted and the date in the ServiceNow request. **Manual**
 
 #### PRO-AC-2 Role change (mover)
 
-1. The line manager raises a change request in Jira Service Desk within the time in P-AC-06. **Manual**
-2. The approver in P-AC-05 approves the new access in the Jira approval workflow.
+1. The line manager raises a change request in ServiceNow within the time in P-AC-06. **Manual**
+2. The approver in P-AC-05 approves the new access in the ServiceNow approval workflow.
 3. Each group's owner removes the old membership and adds any new one in Active Directory. The change takes effect when the person next signs in. If it must take effect at once, a global administrator ends the person's sessions. **Manual**
 
 #### PRO-AC-3 Leaver
 
-1. ABC Technologies disables the person's Active Directory account at once, which stops them signing in to \<DocuView\>. The Starters/Leavers system prompts the owners of the groups the person belongs to. **Manual**
+1. \<Organisation\> disables the person's Active Directory account at once, which stops them signing in to \<System Name\>. The Starters/Leavers system prompts the owners of the groups the person belongs to. **Manual**
 2. Each owner removes the person from their AD group within the time in P-AC-06. **Manual**
-3. A global administrator ends any session the person still has open, and the owner records the date in the Jira request.
+3. A global administrator ends any session the person still has open, and the owner records the date in the ServiceNow request.
 
 #### PRO-AC-4 Urgent disable (high-risk individual)
 
 1. Whoever raises the concern tells the system owner and a global administrator.
-2. Within the time in P-AC-13, ABC Technologies' service desk disables the person's Active Directory account, and the administrator ends the person's sessions on the session management page of the admin portal. **Manual**
+2. Within the time in P-AC-13, \<Organisation\>'s service desk disables the person's Active Directory account, and the administrator ends the person's sessions on the session management page of the admin portal. **Manual**
 3. The administrator confirms that no session remains.
 4. The system owner records the reason and informs anyone who needs to know.
 
 #### PRO-AC-5 Project access
 
 1. Each project names one read group and one edit group on the admin portal's project page.
-2. The person asks for the access in the Jira workflow. Their line manager approves it, and the project access approver, as owner of the project's data, authorises it. **Manual**
-3. The project access approver adds the person to the project's AD group, with ABC Technologies' AD tool. **Manual**
+2. The person asks for the access in the ServiceNow workflow. Their line manager approves it, and the project access approver, as owner of the project's data, authorises it. **Manual**
+3. The project access approver adds the person to the project's AD group, with \<Organisation\>'s AD tool. **Manual**
 
 A group's name must exactly match the project's principal, apart from upper and lower case. A project with no principal gives access only to global administrators.
 
 #### PRO-AC-6 Privileged access
 
-1. The person asks for the role in the Jira workflow. Their line manager approves it, and the system owner authorises any global administrator or membership of DocViewer\_Admins, DocViewer\_Auditors or DocViewer\_Security. The system owner cannot authorise their own. **Manual**
+1. The person asks for the role in the ServiceNow workflow. Their line manager approves it, and the system owner authorises any global administrator or membership of DocViewer\_Admins, DocViewer\_Auditors or DocViewer\_Security. The system owner cannot authorise their own. **Manual**
 2. The system owner adds the person to the AD group. **Manual**
-3. The system owner records the change in the Jira request. **Manual**
+3. The system owner records the change in the ServiceNow request. **Manual**
 
 #### PRO-AC-7 Access review
 
 1. At the intervals in P-AC-07, each group's owner lists its members from Active Directory. **Manual**
-2. The owner checks each member against the Jira requests, and removes anyone who no longer needs the access.
+2. The owner checks each member against the ServiceNow requests, and removes anyone who no longer needs the access.
 3. The system owner signs the result and keeps it as evidence, on TPL-3.
 
 #### PRO-AC-8 Inactive accounts
 
-1. ABC Technologies disables unused Active Directory accounts under its corporate standard (P-AC-08).
-2. Each month, a global administrator lists, from the audit records of sign-ins, the members of each \<DocuView\> group who have not signed in for 90 days, and sends each owner their list. **Manual**
+1. \<Organisation\> disables unused Active Directory accounts under its corporate standard (P-AC-08).
+2. Each month, a global administrator lists, from the audit records of sign-ins, the members of each \<System Name\> group who have not signed in for 90 days, and sends each owner their list. **Manual**
 3. The owner removes those members from the group, unless the person is on leave and still needs the access, and records the date on TPL-3. **Manual**
 
 #### PRO-AC-9 Locked account
 
-1. AD FS and Active Directory lock an account after repeated failed sign-ins, and release it, under ABC Technologies' corporate standard (P-AC-14). \<DocuView\> has no lock of its own.
-2. A user who is locked out asks ABC Technologies' IT service desk, which checks who they are. **Manual**
+1. AD FS and Active Directory lock an account after repeated failed sign-ins, and release it, under \<Organisation\>'s corporate standard (P-AC-14). \<System Name\> has no lock of its own.
+2. A user who is locked out asks \<Organisation\>'s IT service desk, which checks who they are. **Manual**
 
 #### PRO-AC-10 Forgotten password
 
-1. The user asks ABC Technologies' IT service desk, which checks who they are and resets their Active Directory password. \<DocuView\> holds no passwords. **Manual**
+1. The user asks \<Organisation\>'s IT service desk, which checks who they are and resets their Active Directory password. \<System Name\> holds no passwords. **Manual**
 
 #### PRO-AC-11 Ending a session
 
@@ -480,8 +480,8 @@ A group's name must exactly match the project's principal, apart from upper and 
 
 #### PRO-AC-12 First administrator on a new database
 
-1. No first administrator account is created, because \<DocuView\> holds no accounts.
-2. At build, the Windows server administrator sets \<DocuView\> to trust ABC Technologies' AD FS, and records it on TPL-6. **Manual**
+1. No first administrator account is created, because \<System Name\> holds no accounts.
+2. At build, the Windows server administrator sets \<System Name\> to trust \<Organisation\>'s AD FS, and records it on TPL-6. **Manual**
 3. The system owner adds the first global administrator to the AD group. **Manual**
 
 #### PRO-AC-13 Changing the system use notice
@@ -536,7 +536,7 @@ These procedures carry out \<Policy\> (AT). Steps marked **Manual** rely on peop
 
 | Procedure | When | Who | Record | Controls |
 | --- | --- | --- | --- | --- |
-| PRO-AT-1 Awareness and the \<DocuView\> briefing | Before access, and every 12 months | System owner, everyone | TPL-9; TPL-21 | AT-2, AT-2(2), AT-2(3), PL-4 |
+| PRO-AT-1 Awareness and the \<System Name\> briefing | Before access, and every 12 months | System owner, everyone | TPL-9; TPL-21 | AT-2, AT-2(2), AT-2(3), PL-4 |
 | PRO-AT-2 Role training | Before privileged access, or within 30 days for incident and contingency modules; then every 12 months | Security officer, Head of Cyber | TPL-9 | AT-3, AT-3(5), IR-2, CP-3 |
 | PRO-AT-3 Keeping content current | Every 12 months, and after a significant incident, exercise or change | Security officer, legal adviser | TPL-6 change record | AT-2c, AT-2d, AT-3b, AT-3c |
 | PRO-AT-4 Records and the register | At each completion, and before a role is granted | Security officer, system owner | TPL-9; training register | AT-4, AC-2 |
@@ -544,20 +544,20 @@ These procedures carry out \<Policy\> (AT). Steps marked **Manual** rely on peop
 
 ### AT.2 Procedures
 
-#### PRO-AT-1 Awareness and the \<DocuView\> briefing
+#### PRO-AT-1 Awareness and the \<System Name\> briefing
 
-1. Before a person is given access, they complete ABC Technologies' security and privacy awareness course. **Manual** (EV-AT-01)
-2. The system owner gives the \<DocuView\> briefing (\<Awareness and Training Management\>, section 4.3), and the user passes its short check. **Manual**
+1. Before a person is given access, they complete \<Organisation\>'s security and privacy awareness course. **Manual** (EV-AT-01)
+2. The system owner gives the \<System Name\> briefing (\<Awareness and Training Management\>, section 4.3), and the user passes its short check. **Manual**
 3. The user signs \<Security Operating Procedures\> Part A, and Part B if privileged, on TPL-21. **Manual**
 4. The security officer records the course, briefing and check on TPL-9, and every 12 months asks each user to repeat them. **Manual**
-5. Between courses, the security officer sends a quarterly \<DocuView\> security note, built from recent advisories and reports. **Manual**
+5. Between courses, the security officer sends a quarterly \<System Name\> security note, built from recent advisories and reports. **Manual**
 
 #### PRO-AT-2 Role training
 
 1. When a role is requested, the system owner looks up its modules in the training matrix (\<Awareness and Training Management\>, section 4.5). **Manual**
 2. The person completes the role modules before privileged access is granted, and the incident response and contingency modules within 30 days of taking the role. **Manual**
 3. The security officer delivers the modules, and the Head of Cyber delivers them to the security officer and auditor. Each ends with a check, with a pass mark of 80%; anyone below it repeats the module. **Manual**
-4. ABC Technologies' administrators complete the \<DocuView\> modules for their role. ABC Technologies evidences any general administrator training. **Manual** (EV-AT-01)
+4. \<Organisation\>'s administrators complete the \<System Name\> modules for their role. \<Organisation\> evidences any general administrator training. **Manual** (EV-AT-01)
 
 #### PRO-AT-3 Keeping content current
 
@@ -570,7 +570,7 @@ These procedures carry out \<Policy\> (AT). Steps marked **Manual** rely on peop
 1. The security officer records each completion on TPL-9: the content version, the check result and the next due date. **Manual**
 2. The security officer adds it to the training register (\<Awareness and Training Management\>, section 4.8). **Manual**
 3. Before granting a role, the system owner confirms in the register that its required modules are complete (\<Procedures\>, PRO-AC-6). **Manual**
-4. Records are kept for 3 years, as in \<DocuView\>'s retention schedule (\<PII Processing Management\>, section 4.7). ABC Technologies keeps its course records, and provides them on request. **Manual**
+4. Records are kept for 3 years, as in \<System Name\>'s retention schedule (\<PII Processing Management\>, section 4.7). \<Organisation\> keeps its course records, and provides them on request. **Manual**
 
 #### PRO-AT-5 Measures and checking
 
@@ -590,7 +590,7 @@ Procedures PRO-AU-1 to PRO-AU-7.
 
 ### AU.1 Purpose
 
-These procedures define how audit records are reviewed, protected and retained. The values they use are in \<Audit and Accountability Management\>. They have not been walked through, because \<DocuView\> is not live. Steps marked **Manual** have no support in the system, and steps marked **Not built** depend on an item in \<Plan of Action and Milestones\>.
+These procedures define how audit records are reviewed, protected and retained. The values they use are in \<Audit and Accountability Management\>. They have not been walked through, because \<System Name\> is not live. Steps marked **Manual** have no support in the system, and steps marked **Not built** depend on an item in \<Plan of Action and Milestones\>.
 
 ### AU.2 Procedure summary
 
@@ -603,7 +603,7 @@ These procedures define how audit records are reviewed, protected and retained. 
 | PRO-AU-3 | Respond to a logging failure | On any alert | Windows server administrator, security officer | TPL-8; incident record | AU-5 |
 | PRO-AU-4 | Check capacity, retention, the archive and time synchronisation | Monthly | Database administrator, Windows server administrator | TPL-8 | AU-4, AU-8, AU-11 |
 | PRO-AU-5 | Review and change the logged events | Every 12 months, and on change | System owner | Updated \<Audit and Accountability Management\>; \<Decision Register\> | AU-2, AU-12 |
-| PRO-AU-6 | Give or remove auditor access | On request, and at each quarterly access review | System owner | Jira request; access review record | AU-9(4), AC-2 |
+| PRO-AU-6 | Give or remove auditor access | On request, and at each quarterly access review | System owner | ServiceNow request; access review record | AU-9(4), AC-2 |
 | PRO-AU-7 | Handle the application log | Monthly check | Windows server administrator | TPL-8 | AU-9, AU-11, PT-3 |
 
 ### AU.3 Procedures
@@ -612,7 +612,7 @@ These procedures define how audit records are reviewed, protected and retained. 
 
 1. The auditor opens the audit log page in the admin portal and filters by date. **Manual**
 2. They follow the audit review procedure in \<Security Operating Procedures\>, section 5.2, including its list of unusual activity.
-3. They compare changes to projects and to the AD groups each uses, and ABC Technologies' record of changes to the members of \<DocuView\>'s groups, with the approved Jira requests. **Manual**
+3. They compare changes to projects and to the AD groups each uses, and \<Organisation\>'s record of changes to the members of \<System Name\>'s groups, with the approved ServiceNow requests. **Manual**
 4. They report findings to the security officer and system owner, and record the date, period, reviewer and result on TPL-8, Monitoring and integrity report, in \<Record Templates\>. **Manual**
 5. If risk rises, for example after an incident or new threat information, the system owner increases how often or how closely records are reviewed. **Manual**
 
@@ -635,7 +635,7 @@ These procedures define how audit records are reviewed, protected and retained. 
 1. Each month the database administrator checks the free space and the size of the audit table. **Manual**
 2. They raise more storage before records are at risk.
 3. Records older than 12 months are moved to an offline archive, and the archive's SHA-256 hash is recorded on TPL-8. Archived records older than 24 months may be deleted only with the system owner's recorded approval. **Manual** Records under a legal hold notified by the legal adviser, or held as incident evidence, are not deleted until released.
-4. Each month the Windows server administrator checks that both VMs are within 1 second of UTC from ABC Technologies' time source, \[ABC time source\], and reports any drift over 5 seconds to the security officer. The result is recorded on TPL-8. **Manual**
+4. Each month the Windows server administrator checks that both VMs are within 1 second of UTC from \<Organisation\>'s time source, \[Organisation time source\], and reports any drift over 5 seconds to the security officer. The result is recorded on TPL-8. **Manual**
 
 #### PRO-AU-5 Changing the logged events
 
@@ -644,8 +644,8 @@ These procedures define how audit records are reviewed, protected and retained. 
 
 #### PRO-AU-6 Auditor access
 
-1. Auditor access is requested through Jira, approved by the line manager and authorised by the system owner (\<Access Control Management\>, section 4.13). An auditor must not hold a global administrator or other administrator role. **Manual**
-2. The system owner, who owns the AD group DocViewer\_Auditors, adds the person to it and records the change against the Jira request.
+1. Auditor access is requested through ServiceNow, approved by the line manager and authorised by the system owner (\<Access Control Management\>, section 4.13). An auditor must not hold a global administrator or other administrator role. **Manual**
+2. The system owner, who owns the AD group DocViewer\_Auditors, adds the person to it and records the change against the ServiceNow request.
 3. Auditor access is removed when the person changes role or leaves, under \<Security Operating Procedures\>, section 5.4.
 4. The system owner confirms the list of auditors at each quarterly access review. **Manual**
 
@@ -679,14 +679,14 @@ These procedures carry out \<Policy\> (CA). Steps marked **Manual** have no syst
 | PRO-CA-4 | Authorise and re-authorise | Before operation; every 12 months; after a significant change | System owner, authorising official | TPL-18 | CA-6 |
 | PRO-CA-5 | Monitor and report | Monthly to the system owner; quarterly to the authorising official; yearly independent check | Security officer, system owner, security assessor | TPL-8; TPL-19 | CA-7, CA-7(1), CA-7(4) |
 | PRO-CA-6 | Decide whether a change is significant | Each change | System owner, security officer, authorising official | TPL-6; TPL-18 | CA-6, CA-7 |
-| PRO-CA-7 | List and accept inherited controls | Before operation; every 12 months | System owner, authorising official, ABC Technologies | \<Assessment, Authorization, and Monitoring Management\>, section 4.6; TPL-18 | CA-6 |
+| PRO-CA-7 | List and accept inherited controls | Before operation; every 12 months | System owner, authorising official, \<Organisation\> | \<Assessment, Authorization, and Monitoring Management\>, section 4.6; TPL-18 | CA-6 |
 
 ### CA.2 Procedures
 
 #### PRO-CA-1 Assessing controls
 
 1. Every 12 months the system owner agrees the assessment plan with the assessor, and the authorising official approves it. **Manual**
-2. The assessor confirms on TPL-19 that they have had no part in building or running \<DocuView\>. **Manual**
+2. The assessor confirms on TPL-19 that they have had no part in building or running \<System Name\>. **Manual**
 3. The assessor assesses the controls, records the results in each family assessment and brings them together in the Security Assessment Report, \<Security Assessment Report\>, which goes to the system owner, authorising official and Head of Cyber. **Manual**
 
 #### PRO-CA-2 Managing connections
@@ -704,7 +704,7 @@ These procedures carry out \<Policy\> (CA). Steps marked **Manual** have no syst
 
 #### PRO-CA-4 Authorising
 
-1. Before \<DocuView\> holds production documents, the system owner gives the authorising official the authorisation package listed in \<Assessment, Authorization, and Monitoring Management\>, section 4.5. **Manual**
+1. Before \<System Name\> holds production documents, the system owner gives the authorising official the authorisation package listed in \<Assessment, Authorization, and Monitoring Management\>, section 4.5. **Manual**
 2. The authorising official decides whether to authorise, accepts the remaining risk by name, and records the decision on TPL-18, with its terms, conditions and end date. **Manual**
 3. Every 12 months, and after a significant change, the authorising official reviews the authorisation. **Manual**
 
@@ -718,13 +718,13 @@ These procedures carry out \<Policy\> (CA). Steps marked **Manual** have no syst
 
 1. Every change is recorded on TPL-6, and the system owner checks it against the list of significant changes in \<Assessment, Authorization, and Monitoring Management\>, section 4.9. **Manual**
 2. If it is significant, the security officer assesses its effect on security and privacy before it is made. **Manual**
-3. The authorising official decides whether \<DocuView\> must be re-assessed or re-authorised, and records the decision on TPL-18. **Manual**
+3. The authorising official decides whether \<System Name\> must be re-assessed or re-authorised, and records the decision on TPL-18. **Manual**
 
 #### PRO-CA-7 Inherited controls
 
-1. The system owner keeps the list of controls inherited from ABC Technologies in \<Assessment, Authorization, and Monitoring Management\>, section 4.6, and requests ABC Technologies' evidence for them (\<Evidence Requests\>). **Manual**
-2. Before \<DocuView\> operates, the authorising official accepts the inherited controls on TPL-18, or records which are not accepted. **Manual**
-3. Every 12 months the system owner reviews the list with ABC Technologies' security contact. **Manual**
+1. The system owner keeps the list of controls inherited from \<Organisation\> in \<Assessment, Authorization, and Monitoring Management\>, section 4.6, and requests \<Organisation\>'s evidence for them (\<Evidence Requests\>). **Manual**
+2. Before \<System Name\> operates, the authorising official accepts the inherited controls on TPL-18, or records which are not accepted. **Manual**
+3. Every 12 months the system owner reviews the list with \<Organisation\>'s security contact. **Manual**
 
 | **CHAPTER CM** |
 | --- |
@@ -737,13 +737,13 @@ Procedures PRO-CM-1 to PRO-CM-9.
 
 ### CM.1 Purpose
 
-These procedures define how \<DocuView\>'s configuration is changed and recorded. The values are in \<Configuration Management\>. They have not been walked through, because the VMs and the Jira workflow are not yet set up. Steps marked **Manual** have no support in the system, and steps marked **Not built** depend on an item in \<Plan of Action and Milestones\>.
+These procedures define how \<System Name\>'s configuration is changed and recorded. The values are in \<Configuration Management\>. They have not been walked through, because the VMs and the ServiceNow workflow are not yet set up. Steps marked **Manual** have no support in the system, and steps marked **Not built** depend on an item in \<Plan of Action and Milestones\>.
 
 **Table CM-1: Procedure summary**
 
 | Procedure | Activity | How often | Who | Record | Controls |
 | --- | --- | --- | --- | --- | --- |
-| PRO-CM-1 | Make a change | Each change | Requester, security officer, change control board, developers or administrators | TPL-6, or the Jira change | CM-3, CM-3(2), CM-3(4), CM-4, CM-4(2), CM-5 |
+| PRO-CM-1 | Make a change | Each change | Requester, security officer, change control board, developers or administrators | TPL-6, or the ServiceNow change | CM-3, CM-3(2), CM-3(4), CM-4, CM-4(2), CM-5 |
 | PRO-CM-2 | Review the baseline and keep previous versions | Every 12 months and each release | System owner, Windows server administrator | TPL-6; the configuration library | CM-2, CM-2(2), CM-2(3) |
 | PRO-CM-3 | Apply secure settings | When built, and each change | Windows server, database administrators, developers | TPL-6 for each exception | CM-6 |
 | PRO-CM-4 | Approve software and components | On request, and every 12 months | System owner, Windows server administrator, developers | TPL-7; \<Configuration Management\>, section 4.5 | CM-7(2), CM-7(5), CM-8, CM-11 |
@@ -757,9 +757,9 @@ These procedures define how \<DocuView\>'s configuration is changed and recorded
 
 #### PRO-CM-1 Making a change
 
-1. Whoever needs the change raises a Jira change request, or TPL-6 until Jira is set up, stating the reason. **Not built** (PA-53)
+1. Whoever needs the change raises a ServiceNow change request, or TPL-6 until ServiceNow is set up, stating the reason. **Not built** (PA-53)
 2. The security officer assesses the security and privacy impact against the criteria in \<Configuration Management\>, section 4.9, including the significant change test in \<Assessment, Authorization, and Monitoring Management\>, section 4.9, and records it on the change. A significant change goes to the authorising official before it is made. **Manual**
-3. The system owner, security officer and Windows server administrator approve or refuse it in Jira, as the change control board under its charter in \<Configuration Management\>, section 4.8. **Not built** (PA-53)
+3. The system owner, security officer and Windows server administrator approve or refuse it in ServiceNow, as the change control board under its charter in \<Configuration Management\>, section 4.8. **Not built** (PA-53)
 4. Developers or administrators make the change, and test it before release, using the test scripts where they apply. **Manual**
 5. They check that the affected controls still work, and record the result. **Manual**
 6. They update the baseline and component inventory in \<Configuration Management\>, sections 4.4 and 4.5, tag the release, record the pinned image digests (PA-77) and produce the bill of materials (PA-78). They update \<System Security Plan\>, section 4.4, if a server changed. **Manual**
@@ -777,7 +777,7 @@ These procedures define how \<DocuView\>'s configuration is changed and recorded
 #### PRO-CM-4 Software
 
 1. The Windows server administrator keeps the approved software list and reviews it every 12 months. **Manual**
-2. A user who needs software on a VM raises a Jira request, and the system owner approves or refuses it. **Manual**
+2. A user who needs software on a VM raises a ServiceNow request, and the system owner approves or refuses it. **Manual**
 3. Before a new package, image or runtime enters the baseline, the developer records its supplier, version, licence and purpose in \<Configuration Management\>, section 4.5, and checks it on TPL-7 for known vulnerabilities. A licence that is not a standard open source licence goes to the system owner for a decision on \<Decision Register\>. **Manual**
 
 #### PRO-CM-5 Reviewing functions and ports
@@ -786,7 +786,7 @@ These procedures define how \<DocuView\>'s configuration is changed and recorded
 
 #### PRO-CM-6 Unauthorised components
 
-1. ABC Technologies' tools check monthly and alert the Windows server administrator.
+1. \<Organisation\>'s tools check monthly and alert the Windows server administrator.
 2. The Windows server administrator removes the component or disables its network access, tells the security officer, and records it on TPL-8. **Manual**
 
 #### PRO-CM-7 Monitoring for drift
@@ -807,7 +807,7 @@ These procedures define how \<DocuView\>'s configuration is changed and recorded
 
 1. At each release, the developer checks that every component in \<Configuration Management\>, section 4.5, still has the licence recorded there. **Manual**
 2. Every 12 months, the system owner confirms that each licence decision on \<Decision Register\> still applies, including the ImageSharp community licence (D-CM-09). **Manual**
-3. A component whose licence no longer permits \<DocuView\>'s use is replaced, or licensed, through PRO-CM-1. **Manual**
+3. A component whose licence no longer permits \<System Name\>'s use is replaced, or licensed, through PRO-CM-1. **Manual**
 
 | **CHAPTER CP** |
 | --- |
@@ -857,11 +857,11 @@ These procedures carry out \<Policy\> (CP) and \<Contingency Planning Management
 
 #### PRO-CP-3 Recovering
 
-1. The Windows server administrator confirms with ABC Technologies that the site, network and services are available, at the second site if the main one is lost. **Manual**
+1. The Windows server administrator confirms with \<Organisation\> that the site, network and services are available, at the second site if the main one is lost. **Manual**
 2. They rebuild the database VM to the baseline in \<Configuration Management\>, sections 4.4 and 4.6. **Manual**
 3. The database administrator restores the latest good backup and applies the archived transaction logs to the last consistent point. If a backup fails the checks in PRO-CP-2, they use the one before it. **Not built** (PA-64)
 4. The Windows server administrator restores the secrets from their protected copy, and changes them if a compromise is suspected. **Manual**
-5. They rebuild the application VM from the tagged release, and start DV\_API, then DV\_Web, then DV\_Admin\_UI. **Manual**
+5. They rebuild the application VM from the tagged release, and start API, then UI application, then Admin application. **Manual**
 6. If the database is not restored 48 hours after the plan was invoked, the system owner tells the authorising official. **Manual**
 
 #### PRO-CP-4 Training and testing
@@ -874,17 +874,17 @@ These procedures carry out \<Policy\> (CP) and \<Contingency Planning Management
 
 #### PRO-CP-5 Activation and notification
 
-1. Whoever finds a failure tells ABC Technologies' IT service desk and the security officer. **Manual**
+1. Whoever finds a failure tells \<Organisation\>'s IT service desk and the security officer. **Manual**
 2. Within 4 hours the database and Windows server administrators assess the outage: cause, damage, expected duration, possible data loss and whether it may be a security incident. If it may be, the security officer starts the incident response plan. **Manual**
 3. The system owner, or their deputy, invokes \<Contingency Planning Management\> if any criterion in its section 6.1 is met, and records the decision and time. **Manual**
-4. The system owner tells the people in \<Contingency Planning Management\>, section 4.4, and ABC Technologies' IT service desk, by phone and then in writing, using appendix A. **Manual**
-5. The system owner tells users through ABC Technologies' usual staff channel, and updates them at least daily. **Manual**
+4. The system owner tells the people in \<Contingency Planning Management\>, section 4.4, and \<Organisation\>'s IT service desk, by phone and then in writing, using appendix A. **Manual**
+5. The system owner tells users through \<Organisation\>'s usual staff channel, and updates them at least daily. **Manual**
 6. The security officer keeps an activity log of decisions and actions, with times, until deactivation. **Manual**
 
 #### PRO-CP-6 Reconstitution and deactivation
 
 1. The database administrator runs the checks in PRO-CP-2, step 3, on the recovered database, and records the newest record restored. **Manual**
-2. The administrators test the functions: sign in, find and read a document, upload and remove a test document in a test project, and sign in to DV\_Admin\_UI, checking that each writes an audit record. **Manual**
+2. The administrators test the functions: sign in, find and read a document, upload and remove a test document in a test project, and sign in to Admin application, checking that each writes an audit record. **Manual**
 3. The security officer confirms that the controls match the main site, including encryption in transit, accounts against current staff, and audit logging. **Manual**
 4. The system owner declares recovery, and tells users and the people in \<Contingency Planning Management\>, section 4.4. **Manual**
 5. The database administrator takes a full backup at once, and confirms it reached the second site. **Not built** (PA-64)
@@ -894,7 +894,7 @@ These procedures carry out \<Policy\> (CP) and \<Contingency Planning Management
 #### PRO-CP-7 Maintaining and sharing the plan
 
 1. The system owner reviews \<Contingency Planning Management\> every 12 months, and after a test, activation or significant change, with the authorising official. **Manual**
-2. They check it still agrees with the incident response plan and ABC Technologies' plans in its appendix B. **Manual**
+2. They check it still agrees with the incident response plan and \<Organisation\>'s plans in its appendix B. **Manual**
 3. Once approved, they send the plan to the people in its section 1.4, tell them what changed, and record who received it. **Manual**
 4. They make sure the offline copies held by the system owner and security officer are current. **Manual**
 
@@ -915,33 +915,33 @@ These procedures define how identifiers and authenticators are issued, changed a
 
 | Procedure | What it does | When | Who | Record | Controls |
 | --- | --- | --- | --- | --- | --- |
-| PRO-IA-1 | Identifiers | Each new person | ABC Technologies; the group's owner | Jira request | IA-2, IA-4, IA-4(4), IA-12 |
-| PRO-IA-2 | Passwords | Each new Active Directory account and reset | ABC Technologies' IT service desk | ABC Technologies' record | IA-5 |
-| PRO-IA-3 | Suspected compromise, role change, or a lost or stolen authenticator | When it happens | The person; ABC Technologies' service desk; global administrator; security officer | Jira request; incident record if needed | IA-5, IR-6 |
+| PRO-IA-1 | Identifiers | Each new person | \<Organisation\>; the group's owner | ServiceNow request | IA-2, IA-4, IA-4(4), IA-12 |
+| PRO-IA-2 | Passwords | Each new Active Directory account and reset | \<Organisation\>'s IT service desk | \<Organisation\>'s record | IA-5 |
+| PRO-IA-3 | Suspected compromise, role change, or a lost or stolen authenticator | When it happens | The person; \<Organisation\>'s service desk; global administrator; security officer | ServiceNow request; incident record if needed | IA-5, IR-6 |
 | PRO-IA-4 | Changing service secrets and the signing key | Every 12 months, and when an administrator leaves | Windows server and database administrators | TPL-6 | IA-5, IA-5(6) |
-| PRO-IA-5 | Password rules | Not done in \<DocuView\> | ABC Technologies | None | IA-5(1) |
-| PRO-IA-6 | Enrolling and resetting a second factor | When the person first uses AD FS; on loss | The person; ABC Technologies' service desk | ABC Technologies' record | IA-2(1), IA-2(2) |
+| PRO-IA-5 | Password rules | Not done in \<System Name\> | \<Organisation\> | None | IA-5(1) |
+| PRO-IA-6 | Enrolling and resetting a second factor | When the person first uses AD FS; on loss | The person; \<Organisation\>'s service desk | \<Organisation\>'s record | IA-2(1), IA-2(2) |
 | PRO-IA-7 | Reviewing authenticators and assurance levels | Every 12 months, and after a significant change | System owner, security officer | \<Identification and Authentication Management\> change history | IA-5, IA-12 |
-| PRO-IA-8 | Disabling unused identifiers | Under ABC Technologies' standard | ABC Technologies | ABC Technologies' record | AC-2(3), IA-4 |
+| PRO-IA-8 | Disabling unused identifiers | Under \<Organisation\>'s standard | \<Organisation\> | \<Organisation\>'s record | AC-2(3), IA-4 |
 
 ### IA.2 Procedures
 
 #### PRO-IA-1 Identifiers
 
-1. A person's Active Directory account is their identifier. ABC Technologies issues it after its pre-employment checks have proved who the person is. \<DocuView\> issues no identifiers. **Manual**
-2. The Jira approval in PRO-AC-1 authorises the person's membership of a \<DocuView\> group: the system owner for privileged roles, and the project access approver for project access. **Not built** (PA-20)
-3. Staff or contractor status is shown by ABC Technologies' directory.
-4. An identifier is never reused. This is ABC Technologies' rule, and is to be evidenced. **Manual**
+1. A person's Active Directory account is their identifier. \<Organisation\> issues it after its pre-employment checks have proved who the person is. \<System Name\> issues no identifiers. **Manual**
+2. The ServiceNow approval in PRO-AC-1 authorises the person's membership of a \<System Name\> group: the system owner for privileged roles, and the project access approver for project access. **Not built** (PA-20)
+3. Staff or contractor status is shown by \<Organisation\>'s directory.
+4. An identifier is never reused. This is \<Organisation\>'s rule, and is to be evidenced. **Manual**
 
 #### PRO-IA-2 Passwords
 
-1. \<DocuView\> issues no passwords, temporary or otherwise. Every user signs in through AD FS with their Active Directory account (D-AC-23).
-2. ABC Technologies' IT service desk issues and resets Active Directory passwords under its own procedure, after checking who the person is. **Manual**
+1. \<System Name\> issues no passwords, temporary or otherwise. Every user signs in through AD FS with their Active Directory account (D-AC-23).
+2. \<Organisation\>'s IT service desk issues and resets Active Directory passwords under its own procedure, after checking who the person is. **Manual**
 
 #### PRO-IA-3 Suspected compromise, role change, or a lost or stolen authenticator
 
-1. The person, or whoever notices, tells ABC Technologies' IT service desk and the security officer straight away. This includes a password written down or seen, and a lost phone or key used as a second factor. **Manual**
-2. The service desk resets the password or the second factor. A global administrator ends the person's \<DocuView\> sessions. **Manual**
+1. The person, or whoever notices, tells \<Organisation\>'s IT service desk and the security officer straight away. This includes a password written down or seen, and a lost phone or key used as a second factor. **Manual**
+2. The service desk resets the password or the second factor. A global administrator ends the person's \<System Name\> sessions. **Manual**
 3. The security officer decides whether this is a security incident, and if so raises it under \<Procedures\> (IR). **Manual**
 
 #### PRO-IA-4 Changing service secrets and the signing key
@@ -952,12 +952,12 @@ These procedures define how identifiers and authenticators are issued, changed a
 
 #### PRO-IA-5 Password rules
 
-1. \<DocuView\> sets no password rules and keeps no list of blocked passwords. Both belong to ABC Technologies' corporate standard for Active Directory, which \<DocuView\> accepts (D-AC-21, D-AC-23).
+1. \<System Name\> sets no password rules and keeps no list of blocked passwords. Both belong to \<Organisation\>'s corporate standard for Active Directory, which \<System Name\> accepts (D-AC-21, D-AC-23).
 
 #### PRO-IA-6 Enrolling and resetting a second factor
 
-1. Each person enrols their second factor with ABC Technologies, for AD FS, under its own procedure. **Manual**
-2. If a second factor is lost or replaced, the person tells ABC Technologies' IT service desk, which checks who they are and lets them enrol a new one. A global administrator ends the person's \<DocuView\> sessions. **Manual**
+1. Each person enrols their second factor with \<Organisation\>, for AD FS, under its own procedure. **Manual**
+2. If a second factor is lost or replaced, the person tells \<Organisation\>'s IT service desk, which checks who they are and lets them enrol a new one. A global administrator ends the person's \<System Name\> sessions. **Manual**
 
 #### PRO-IA-7 Reviewing authenticators and assurance levels
 
@@ -967,7 +967,7 @@ These procedures define how identifiers and authenticators are issued, changed a
 
 #### PRO-IA-8 Disabling unused identifiers
 
-1. ABC Technologies disables Active Directory accounts unused for the period in its corporate standard (\<Access Control Management\>, under AC-2(3)).
+1. \<Organisation\> disables Active Directory accounts unused for the period in its corporate standard (\<Access Control Management\>, under AC-2(3)).
 2. A disabled identifier is never deleted or reused (PRO-IA-1, step 4). **Manual**
 
 | **CHAPTER IR** |
@@ -990,7 +990,7 @@ These procedures carry out \<Policy\> (IR) and \<Incident Response Management\>.
 | PRO-IR-1 | Reporting an incident | Within 1 hour of noticing | Anyone; security officer | TPL-10 | IR-6, IR-6(1), IR-6(3) |
 | PRO-IR-2 | Handling an incident | Each incident, to the targets in \<Incident Response Management\>, section 4.6 | Security officer; administrators | TPL-10 | IR-4, IR-4(1), IR-5 |
 | PRO-IR-3 | Training and testing | Within 30 days of a role, every 12 months; tabletop every 12 months | Security officer | TPL-9; TPL-11 | IR-2, IR-3, IR-3(2) |
-| PRO-IR-4 | Getting help | As needed | Users; security officer | Jira request | IR-7, IR-7(1) |
+| PRO-IR-4 | Getting help | As needed | Users; security officer | ServiceNow request | IR-7, IR-7(1) |
 | PRO-IR-5 | Handling a personal data breach | When personal data may be involved | Security officer; legal adviser | TPL-10; \<Incident Response Management\>, section 4.14 | IR-6 |
 | PRO-IR-6 | Preserving evidence | Before anything is changed | Administrators | TPL-10 | IR-4, AU-9 |
 | PRO-IR-7 | Closing an incident and learning | Within 10 working days of containment | Security officer; system owner | TPL-10 | IR-4, IR-8 |
@@ -999,9 +999,9 @@ These procedures carry out \<Policy\> (IR) and \<Incident Response Management\>.
 
 #### PRO-IR-1 Reporting an incident
 
-1. Anyone who suspects an incident tells the security officer within 1 hour, by phone if Jira or email may be affected (\<Incident Response Management\>, appendix B). **Manual**
-2. The security officer opens a record on TPL-10, or a Jira Service Desk ticket once it exists, and sets the severity (\<Incident Response Management\>, section 4.6). **Not built** (PA-65)
-3. The security officer tells the people in the severity table, ABC Technologies' security contact, and any affected supplier. **Manual**
+1. Anyone who suspects an incident tells the security officer within 1 hour, by phone if ServiceNow or email may be affected (\<Incident Response Management\>, appendix B). **Manual**
+2. The security officer opens a record on TPL-10, or a ServiceNow ticket once it exists, and sets the severity (\<Incident Response Management\>, section 4.6). **Not built** (PA-65)
+3. The security officer tells the people in the severity table, \<Organisation\>'s security contact, and any affected supplier. **Manual**
 4. If personal data may be involved, the security officer starts PRO-IR-5 at once. **Manual**
 5. If a crime or a significant cyber attack is suspected, the system owner reports it to the NCSC or to Report Fraud, which replaced Action Fraud. **Manual**
 
@@ -1021,8 +1021,8 @@ These procedures carry out \<Policy\> (IR) and \<Incident Response Management\>.
 
 #### PRO-IR-4 Getting help
 
-1. Users get advice from the security officer, and through a Jira Service Desk request. **Not built** (PA-65)
-2. The security officer gets help from ABC Technologies' security contact. **Manual**
+1. Users get advice from the security officer, and through a ServiceNow request. **Not built** (PA-65)
+2. The security officer gets help from \<Organisation\>'s security contact. **Manual**
 
 #### PRO-IR-5 Handling a personal data breach
 
@@ -1034,7 +1034,7 @@ These procedures carry out \<Policy\> (IR) and \<Incident Response Management\>.
 #### PRO-IR-6 Preserving evidence
 
 1. Before anything is changed, the database administrator exports the audit records and records the SHA-256 hash, as check D07 of Test-IncidentReadiness.ps1 does. **Manual**
-2. The Windows server administrator copies the application, Windows and PostgreSQL logs, and records their hashes. For ransomware, the VM is isolated through ABC Technologies but not powered off. **Manual**
+2. The Windows server administrator copies the application, Windows and PostgreSQL logs, and records their hashes. For ransomware, the VM is isolated through \<Organisation\> but not powered off. **Manual**
 3. They note each system's clock against a trusted time source. **Manual**
 4. Each item is listed on TPL-10 with who holds it, where, and each hand-over. **Manual**
 
@@ -1064,11 +1064,11 @@ These procedures carry out \<Policy\> (MA), rules R1 to R12. The lists, routes a
 | Procedure | What it does | Who | When | Record | Controls |
 | --- | --- | --- | --- | --- | --- |
 | PRO-MA-1 | Schedules, approves, checks and records maintenance, and reviews the records | Administrators, security officer | Each job; records monthly (C48) | Change record, TPL-12 | MA-2 |
-| PRO-MA-2 | Removes equipment safely | System owner, ABC Technologies | When equipment leaves | TPL-12, TPL-13 | MA-2(c), MA-2(d) |
+| PRO-MA-2 | Removes equipment safely | System owner, \<Organisation\> | When equipment leaves | TPL-12, TPL-13 | MA-2(c), MA-2(d) |
 | PRO-MA-3 | Controls and inspects maintenance tools | Windows server administrator | Before use; list every 12 months (C28) | TPL-12 | MA-3, MA-3(1), MA-3(2) |
-| PRO-MA-4 | Runs remote maintenance over an approved route | Administrators, ABC Technologies | Each remote job; logs weekly | TPL-12, session log | MA-4 |
-| PRO-MA-5 | Controls who may maintain \<DocuView\> | System owner, Windows server administrator | Before access; list every 12 months (C28) | \<Maintenance Management\>, TPL-12 | MA-5 |
-| PRO-MA-6 | Runs preventive maintenance to a schedule | Administrators, developers, ABC Technologies | As in Table MA-3 | TPL-12, TPL-8 | MA-2(a), MA-6 |
+| PRO-MA-4 | Runs remote maintenance over an approved route | Administrators, \<Organisation\> | Each remote job; logs weekly | TPL-12, session log | MA-4 |
+| PRO-MA-5 | Controls who may maintain \<System Name\> | System owner, Windows server administrator | Before access; list every 12 months (C28) | \<Maintenance Management\>, TPL-12 | MA-5 |
+| PRO-MA-6 | Runs preventive maintenance to a schedule | Administrators, developers, \<Organisation\> | As in Table MA-3 | TPL-12, TPL-8 | MA-2(a), MA-6 |
 | PRO-MA-7 | Controls the built-in maintenance pages and data leaving for support | Global administrator, system owner | Each use | Change record, TPL-12, TPL-13 | MA-2, MA-3, MA-3(3) |
 
 ### MA.3 Procedures
@@ -1100,7 +1100,7 @@ These procedures carry out \<Policy\> (MA), rules R1 to R12. The lists, routes a
 #### PRO-MA-2 Removing equipment
 
 1. The system owner approves the removal of any equipment in the change record. **Manual**
-2. ABC Technologies sanitises it first by the method in \<Media Protection Management\>, section 4.6 (NIST SP 800-88 Revision 2 and IEEE 2883-2022), following \<Procedures\>, PRO-MP-3, and confirms in writing with a certificate (EV-MA-01). **Manual**
+2. \<Organisation\> sanitises it first by the method in \<Media Protection Management\>, section 4.6 (NIST SP 800-88 Revision 2 and IEEE 2883-2022), following \<Procedures\>, PRO-MP-3, and confirms in writing with a certificate (EV-MA-01). **Manual**
 3. The administrator records the removal, the approval and the certificate on TPL-12, and any media on TPL-13. **Manual**
 
 #### PRO-MA-3 Maintenance tools
@@ -1109,7 +1109,7 @@ These procedures carry out \<Policy\> (MA), rules R1 to R12. The lists, routes a
 2. Tools are inspected before use for changes that are not expected: the version, publisher and file hash are compared with the list, and the result is recorded on TPL-12. **Manual**
 3. Media holding diagnostic or test programs are scanned by Defender before use. **Not built** (PA-58)
 4. No shell or package manager carried inside a release is used on the servers (PA-85). **Manual**
-5. Equipment that holds \<DocuView\> data leaves only under PRO-MA-2, or PRO-MA-7 for data sent for support. **Manual**
+5. Equipment that holds \<System Name\> data leaves only under PRO-MA-2, or PRO-MA-7 for data sent for support. **Manual**
 
 #### PRO-MA-4 Remote maintenance
 
@@ -1124,7 +1124,7 @@ These procedures carry out \<Policy\> (MA), rules R1 to R12. The lists, routes a
 1. The system owner approves the list of maintenance organisations and people in \<Maintenance Management\>, section 4.6. **Manual**
 2. Before giving access, the administrator checks the person is on the list, is screened, has signed Part B of \<Security Operating Procedures\> and has a named account. **Manual**
 3. A supplier gets a temporary account limited to the job, disabled when the job ends. **Manual**
-4. Anyone not on the list is escorted and supervised by someone who is, and has no access to \<DocuView\>'s data. **Manual**
+4. Anyone not on the list is escorted and supervised by someone who is, and has no access to \<System Name\>'s data. **Manual**
 5. The Windows server administrator checks the list when someone leaves, and every 12 months (C28). **Manual**
 
 #### PRO-MA-6 Preventive maintenance schedule
@@ -1142,7 +1142,7 @@ Flaw fixes (SI-2) and releases (CM-3) follow their own procedures. They are list
 | Clear old application logs | Application VM | Windows server administrator | Monthly (C46) | TPL-8 |
 | Build each release on the patched .NET runtime (CM-3) | Applications | Developers | Each release, checked monthly (C11) | TPL-6 |
 | Check support end dates | Components in \<Maintenance Management\>, section 4.8 | Developers, Windows server administrator | Monthly (C11) | TPL-7 |
-| Maintain hardware and hypervisor | Hosts | ABC Technologies | ABC Technologies' schedule | ABC Technologies' report (EV-MA-01) |
+| Maintain hardware and hypervisor | Hosts | \<Organisation\> | \<Organisation\>'s schedule | \<Organisation\>'s report (EV-MA-01) |
 
 #### PRO-MA-7 Built-in maintenance pages and data leaving for support
 
@@ -1174,9 +1174,9 @@ These procedures carry out \<Policy\> (MP), rules R1 to R12. The media inventory
 | Procedure | What it does | Who | When | Record | Controls |
 | --- | --- | --- | --- | --- | --- |
 | PRO-MP-1 | Marks and protects printouts | Everyone | Each printout | None; shredding on TPL-13 if bulk | MP-2, MP-3, MP-4 |
-| PRO-MP-2 | Protects disks, volumes and backups, and moves them only by exception | ABC Technologies, administrators | Always; transport when approved | TPL-13 | MP-2, MP-4, MP-5 |
-| PRO-MP-3 | Sanitises media by the method for its type, and checks certificates | ABC Technologies, administrators, system owner | Before reuse, release or disposal; check every 12 months | TPL-13 | MP-6 |
-| PRO-MP-4 | Controls portable storage and ownerless devices | ABC Technologies, system owner, security officer | Always; exceptions when asked | TPL-17, TPL-13 | MP-7 |
+| PRO-MP-2 | Protects disks, volumes and backups, and moves them only by exception | \<Organisation\>, administrators | Always; transport when approved | TPL-13 | MP-2, MP-4, MP-5 |
+| PRO-MP-3 | Sanitises media by the method for its type, and checks certificates | \<Organisation\>, administrators, system owner | Before reuse, release or disposal; check every 12 months | TPL-13 | MP-6 |
+| PRO-MP-4 | Controls portable storage and ownerless devices | \<Organisation\>, system owner, security officer | Always; exceptions when asked | TPL-17, TPL-13 | MP-7 |
 | PRO-MP-5 | Controls export copies on the server and users' copies | Windows server administrator, everyone | Each working day (C49); each export | TPL-8 | MP-2, MP-4, MP-6 |
 | PRO-MP-6 | Keeps the media inventory up to date | System owner | Every 12 months, and after a change | \<Media Protection Management\> change history | MP-2, MP-4 |
 
@@ -1184,41 +1184,41 @@ These procedures carry out \<Policy\> (MP), rules R1 to R12. The media inventory
 
 #### PRO-MP-1 Printouts
 
-1. Anyone who prints a \<DocuView\> document uses only an ABC Technologies managed printer with secure release, and marks it RESTRICTED at the top and bottom of each page, with the document's own classification, until \<DocuView\> does this itself (PA-87). **Manual**
+1. Anyone who prints a \<System Name\> document uses only an \<Organisation\> managed printer with secure release, and marks it RESTRICTED at the top and bottom of each page, with the document's own classification, until \<System Name\> does this itself (PA-87). **Manual**
 2. They collect it at once, keep it locked away when not in use, and share it only with people authorised to read that project. **Manual**
 3. It does not leave the site without the system owner's approval (PRO-MP-2). **Manual**
 4. They cross-cut shred it to DIN 66399 level P-4 or better when it is no longer needed, and within 30 days if it holds personal data. **Manual**
 
 #### PRO-MP-2 Disks, volumes and backups
 
-1. VM disks and database and key volumes stay in ABC Technologies' data centres, encrypted with BitLocker (PA-52), reachable only by the roles in \<Media Protection Management\>. **Manual** (EV-MP-01)
+1. VM disks and database and key volumes stay in \<Organisation\>'s data centres, encrypted with BitLocker (PA-52), reachable only by the roles in \<Media Protection Management\>. **Manual** (EV-MP-01)
 2. Backups are encrypted before they leave the database VM, and copied to the second site over an encrypted connection (SC-8, CP-6). **Not built** (PA-64)
 3. Physical media are moved only by exception, with the system owner's approval, encrypted or sealed, by an authorised courier with tracking, and recorded on TPL-13. **Manual** (EV-MP-01)
 
 #### PRO-MP-3 Sanitising media
 
 1. Before any media is reused, released or disposed of, the person responsible sanitises it by the method set for its type in \<Media Protection Management\>, section 4.6, following NIST SP 800-88 Revision 2 and IEEE 2883-2022. **Manual** (EV-MP-02)
-2. For encrypted virtual disks and backups, every copy of the keys is destroyed, including recovery keys and the copy at the second site (cryptographic erase), and ABC Technologies deletes the volumes. Each copy of the key is listed on TPL-13. **Manual** (PA-52, PA-64)
-3. ABC Technologies purges or destroys physical disks and gives a certificate. **Manual** (EV-MP-02)
+2. For encrypted virtual disks and backups, every copy of the keys is destroyed, including recovery keys and the copy at the second site (cryptographic erase), and \<Organisation\> deletes the volumes. Each copy of the key is listed on TPL-13. **Manual** (PA-52, PA-64)
+3. \<Organisation\> purges or destroys physical disks and gives a certificate. **Manual** (EV-MP-02)
 4. Each action is recorded on TPL-13 with the item, serial, method, tool, verification and certificate. **Manual**
-5. Every 12 months, the system owner checks a sample of ABC Technologies' certificates against TPL-13. **Manual**
+5. Every 12 months, the system owner checks a sample of \<Organisation\>'s certificates against TPL-13. **Manual**
 
 #### PRO-MP-4 Portable storage and ownerless devices
 
 1. USB and other portable storage are blocked on users' devices, and no USB device is passed through to the VMs. **Manual** (EV-AC-17, EV-MP-03)
-2. The system owner approves any exception on TPL-17, for a stated purpose and time, using only encrypted media issued by ABC Technologies. **Manual**
+2. The system owner approves any exception on TPL-17, for a stated purpose and time, using only encrypted media issued by \<Organisation\>. **Manual**
 3. Anyone who finds portable storage with no identifiable owner does not use it, and hands it to the security officer, who records it on TPL-13. **Manual**
 
 #### PRO-MP-5 Export copies and users' copies
 
 1. Only editors in a project can create an export of it (test P01). **Built**
-2. Each working day, the Windows server administrator checks the export folder on the application VM and deletes anything older than 24 hours, recording it on TPL-8 (C49), until \<DocuView\> removes copies itself. **Manual** (PA-86)
-3. Users save exports and downloads only in approved ABC Technologies locations: \[approved locations\], on a managed device, and delete them within 30 days once no longer needed (\<Security Operating Procedures\>, A28 and A30 to A35). **Manual**
-4. Export files are named and marked RESTRICTED by the user who keeps them, until \<DocuView\> does this itself (PA-87). **Manual**
+2. Each working day, the Windows server administrator checks the export folder on the application VM and deletes anything older than 24 hours, recording it on TPL-8 (C49), until \<System Name\> removes copies itself. **Manual** (PA-86)
+3. Users save exports and downloads only in approved \<Organisation\> locations: \[approved locations\], on a managed device, and delete them within 30 days once no longer needed (\<Security Operating Procedures\>, A28 and A30 to A35). **Manual**
+4. Export files are named and marked RESTRICTED by the user who keeps them, until \<System Name\> does this itself (PA-87). **Manual**
 
 #### PRO-MP-6 Media inventory
 
-1. The system owner reviews the media inventory in \<Media Protection Management\>, section 4.2, every 12 months and after a change that creates a new copy of \<DocuView\> information. **Manual**
+1. The system owner reviews the media inventory in \<Media Protection Management\>, section 4.2, every 12 months and after a change that creates a new copy of \<System Name\> information. **Manual**
 2. Any new place is added, with its protection, access and sanitising method, before it is used. **Manual**
 
 | **CHAPTER PE** |
@@ -1240,17 +1240,17 @@ These procedures carry out \<Policy\> (PE), rules R1 to R10. The values, inherit
 
 | Procedure | What it does | Who | When | Record | Controls |
 | --- | --- | --- | --- | --- | --- |
-| PRO-PE-1 | Obtains and reviews ABC Technologies' evidence for both sites | System owner | Every 12 months, and after a change of site | \<Evidence Requests\>; \<Physical and Environmental Protection Management\>, section 4.3 | PE-2 to PE-16 |
-| PRO-PE-2 | Handles physical incidents | Security officer, ABC Technologies | When one occurs | TPL-10 | PE-6, IR-4 |
+| PRO-PE-1 | Obtains and reviews \<Organisation\>'s evidence for both sites | System owner | Every 12 months, and after a change of site | \<Evidence Requests\>; \<Physical and Environmental Protection Management\>, section 4.3 | PE-2 to PE-16 |
+| PRO-PE-2 | Handles physical incidents | Security officer, \<Organisation\> | When one occurs | TPL-10 | PE-6, IR-4 |
 | PRO-PE-3 | Protects screens and printouts | Everyone | Always | None | PE-5 |
 | PRO-PE-4 | Controls home working | Everyone, security officer | Always; checked every 12 months (C30) | TPL-4 | PE-17 |
-| PRO-PE-5 | Inspects the site once | Independent assessor or ABC Technologies' auditor | At Level 2, and after a change of site | TPL-20 | PE-2 to PE-16 |
+| PRO-PE-5 | Inspects the site once | Independent assessor or \<Organisation\>'s auditor | At Level 2, and after a change of site | TPL-20 | PE-2 to PE-16 |
 
 ### PE.3 Procedures
 
-#### PRO-PE-1 Checking ABC Technologies' evidence
+#### PRO-PE-1 Checking \<Organisation\>'s evidence
 
-1. The system owner asks ABC Technologies first for its ISO/IEC 27001 certificate, Statement of Applicability and latest audit findings for Annex A.7, or a SOC 2 report covering physical access (CC6.4) and the availability criteria (A1.2), for both the data centre and the second site (EV-PE-01). **Manual**
+1. The system owner asks \<Organisation\> first for its ISO/IEC 27001 certificate, Statement of Applicability and latest audit findings for Annex A.7, or a SOC 2 report covering physical access (CC6.4) and the availability criteria (A1.2), for both the data centre and the second site (EV-PE-01). **Manual**
 2. Where those do not cover a control, the system owner asks for the facility evidence in EV-PE-01 to EV-PE-05. **Manual**
 3. The system owner records what was received against each control in the inheritance matrix (\<Physical and Environmental Protection Management\>, section 4.3), and confirms the values in \<Physical and Environmental Protection Management\>, appendix A, are met. **Manual**
 4. Any shortfall is raised in \<Risk List\>. **Manual**
@@ -1259,25 +1259,25 @@ These procedures carry out \<Policy\> (PE), rules R1 to R10. The values, inherit
 #### PRO-PE-2 Physical incidents
 
 1. Anyone who loses a device or printout, or sees a physical security problem, reports it to the security officer at once. **Manual**
-2. ABC Technologies' security contact tells the security officer of any physical incident at a site that affects \<DocuView\>, including fire, flood and power loss, within 24 hours. **Manual** (EV-PE-01)
+2. \<Organisation\>'s security contact tells the security officer of any physical incident at a site that affects \<System Name\>, including fire, flood and power loss, within 24 hours. **Manual** (EV-PE-01)
 3. The security officer handles it with the physical incident playbook in \<Incident Response Management\>, section 4.9, and calls the contingency plan if a site is lost. **Manual**
 
 #### PRO-PE-3 Screens and printers
 
-1. Users print \<DocuView\> documents only on ABC Technologies' managed printers with secure release: \[managed printers\]. **Manual** (EV-PE-05)
+1. Users print \<System Name\> documents only on \<Organisation\>'s managed printers with secure release: \[managed printers\]. **Manual** (EV-PE-05)
 2. They release and collect printouts at once, and mark them RESTRICTED (\<Procedures\>, PRO-MP-1). **Manual**
-3. Users lock their screen when they leave it, place it so that others cannot read it, and keep their desk clear of printed documents. \<DocuView\> also locks the page after 25 minutes idle. **Manual**
+3. Users lock their screen when they leave it, place it so that others cannot read it, and keep their desk clear of printed documents. \<System Name\> also locks the page after 25 minutes idle. **Manual**
 
 #### PRO-PE-4 Working from home
 
-1. People work remotely only from home, unless the system owner has approved another place in writing, on ABC Technologies' managed devices and route. **Manual** (EV-PE-05)
-2. They do not print \<DocuView\> documents at home unless the system owner has approved it, and they work where others in the home cannot see the screen. **Manual**
+1. People work remotely only from home, unless the system owner has approved another place in writing, on \<Organisation\>'s managed devices and route. **Manual** (EV-PE-05)
+2. They do not print \<System Name\> documents at home unless the system owner has approved it, and they work where others in the home cannot see the screen. **Manual**
 3. Anyone working from home reports any concern or incident to the security officer at once, using the contacts in \<Security Operating Procedures\>, section 7. **Manual**
 4. Every 12 months, the security officer puts a short checklist to every person who works from home (managed device, VPN, screen privacy, no printing, reporting) and records the answers on TPL-4 (C30). **Manual**
 
 #### PRO-PE-5 Site inspection
 
-1. At Level 2, the independent assessor, or ABC Technologies' auditor if the assessor cannot visit, inspects each data centre once, the main site and the second site, using TPL-20. **Manual**
+1. At Level 2, the independent assessor, or \<Organisation\>'s auditor if the assessor cannot visit, inspects each data centre once, the main site and the second site, using TPL-20. **Manual**
 2. The inspection covers entry control and logs, visitors, keys and cards, cabling, power and emergency shutoff, lighting, fire, environment, water and deliveries. **Manual**
 3. The system owner records the result in the inheritance matrix and raises any shortfall in \<Risk List\>. The inspection is repeated after a change of site. **Manual**
 
@@ -1316,7 +1316,7 @@ These procedures carry out \<Policy\> (PL). Steps marked **Manual** have no syst
 
 #### PRO-PL-2 Sharing the plans
 
-1. When the SSP, privacy plan or supply chain plan is approved or changed, the system owner sends a link to the restricted copy to the Head of Cyber, administrators and ABC Technologies' security contact. **Manual**
+1. When the SSP, privacy plan or supply chain plan is approved or changed, the system owner sends a link to the restricted copy to the Head of Cyber, administrators and \<Organisation\>'s security contact. **Manual**
 2. The system owner records the recipients and the date in the plan review log. **Manual**
 
 #### PRO-PL-3 Signing the rules
@@ -1356,18 +1356,18 @@ Procedures PRO-PS-1 to PRO-PS-7.
 
 ### PS.1 Purpose
 
-These procedures carry out \<Policy\> (PS). Steps marked **Manual** rely on people, and none is yet in use. Steps marked **Not built** need the route from ABC Technologies' Starters/Leavers system (PA-32). The designations, screening standard, time limits and register are in \<Personnel Security Management\>.
+These procedures carry out \<Policy\> (PS). Steps marked **Manual** rely on people, and none is yet in use. Steps marked **Not built** need the route from \<Organisation\>'s Starters/Leavers system (PA-32). The designations, screening standard, time limits and register are in \<Personnel Security Management\>.
 
 **Table PS-1: Procedures at a glance**
 
 | Procedure | When | Who | Time limit | Record | Controls |
 | --- | --- | --- | --- | --- | --- |
-| PRO-PS-1 Before access | Access or a role is requested | System owner, ABC Technologies | Before access is given | TPL-2; TPL-21; personnel security register | PS-2, PS-3, PS-6 |
-| PRO-PS-2 Leavers | Someone leaves, or no longer needs \<DocuView\> | ABC Technologies, the groups' owners, global administrator, system owner | 5 working days; 1 hour for a higher-risk leaver | TPL-14 | PS-4 |
+| PRO-PS-1 Before access | Access or a role is requested | System owner, \<Organisation\> | Before access is given | TPL-2; TPL-21; personnel security register | PS-2, PS-3, PS-6 |
+| PRO-PS-2 Leavers | Someone leaves, or no longer needs \<System Name\> | \<Organisation\>, the groups' owners, global administrator, system owner | 5 working days; 1 hour for a higher-risk leaver | TPL-14 | PS-4 |
 | PRO-PS-3 Movers | Someone changes role | Line manager, system owner, the groups' owners | 1 working day | TPL-14 | PS-5 |
 | PRO-PS-4 Reviewing designations and agreements | Every 12 months, and when a role's access changes | System owner | Within the 12 months | TPL-3; TPL-21 | PS-2, PS-6 |
 | PRO-PS-5 External people | A contract is let or renewed; then every 12 months | System owner | 1 working day for supplier notices | TPL-16 | PS-7 |
-| PRO-PS-6 Sanctions | A formal sanction involves \<DocuView\> | ABC Technologies, system owner | 1 working day to tell the system owner | TPL-10 if it is an incident | PS-8 |
+| PRO-PS-6 Sanctions | A formal sanction involves \<System Name\> | \<Organisation\>, system owner | 1 working day to tell the system owner | TPL-10 if it is an incident | PS-8 |
 | PRO-PS-7 Checking | At each review | System owner | At each review | Test-PlanConsistency.ps1, check L17 | PS-1, PS-2 |
 
 ### PS.2 Procedures
@@ -1375,24 +1375,24 @@ These procedures carry out \<Policy\> (PS). Steps marked **Manual** rely on peop
 #### PRO-PS-1 Before access
 
 1. The system owner looks up the role's risk designation in \<Personnel Security Management\>, section 4.2. **Manual**
-2. The system owner asks ABC Technologies to confirm that the person has passed its screening, and that it covers the minimum in \<Personnel Security Management\>, section 4.3. For a higher risk role, the confirmation must be less than 5 years old. **Manual** (EV-PS-01)
+2. The system owner asks \<Organisation\> to confirm that the person has passed its screening, and that it covers the minimum in \<Personnel Security Management\>, section 4.3. For a higher risk role, the confirmation must be less than 5 years old. **Manual** (EV-PS-01)
 3. The system owner records the confirmation on TPL-2 and in the personnel security register: who confirmed it and the date only. No screening result is recorded. **Manual**
-4. The person signs ABC Technologies' confidentiality agreement, and \<Security Operating Procedures\> Part A, and Part B if privileged, on TPL-21. **Manual**
-5. Only then is the person added to the \<DocuView\> groups for their role (\<Procedures\>, PRO-AC-1). **Manual**
+4. The person signs \<Organisation\>'s confidentiality agreement, and \<Security Operating Procedures\> Part A, and Part B if privileged, on TPL-21. **Manual**
+5. Only then is the person added to the \<System Name\> groups for their role (\<Procedures\>, PRO-AC-1). **Manual**
 
 #### PRO-PS-2 Leavers
 
-1. ABC Technologies disables the person's Active Directory account at once, which ends their access to \<DocuView\>. The Starters/Leavers system tells the system owner and the owners of the person's groups, who remove the memberships within 5 working days (\<Procedures\>, PRO-AC-3). **Not built** (PA-32)
-2. For a higher-risk leaver, a dismissal or suspected misuse, anyone who knows tells the system owner and a global administrator. Within 1 hour, ABC Technologies' service desk disables the Active Directory account, and the global administrator ends the person's sessions and confirms that none remains (\<Procedures\>, PRO-AC-4). **Manual**
+1. \<Organisation\> disables the person's Active Directory account at once, which ends their access to \<System Name\>. The Starters/Leavers system tells the system owner and the owners of the person's groups, who remove the memberships within 5 working days (\<Procedures\>, PRO-AC-3). **Not built** (PA-32)
+2. For a higher-risk leaver, a dismissal or suspected misuse, anyone who knows tells the system owner and a global administrator. Within 1 hour, \<Organisation\>'s service desk disables the Active Directory account, and the global administrator ends the person's sessions and confirms that none remains (\<Procedures\>, PRO-AC-4). **Manual**
 3. Disabling the Active Directory account revokes the person's password and second factor. The system owner has any service secret the person knew changed (\<Procedures\>, PRO-IA-4). **Manual**
-4. ABC Technologies holds the exit interview, including confidentiality duties, and recovers equipment. **Manual** (EV-PS-02)
+4. \<Organisation\> holds the exit interview, including confidentiality duties, and recovers equipment. **Manual** (EV-PS-02)
 5. The system owner confirms that the documents the person managed stay available, and completes TPL-14. **Manual**
 
 #### PRO-PS-3 Movers
 
 1. The person's line manager tells the system owner within 1 working day. **Not built** (PA-32)
 2. The system owner reviews whether the current access is still needed, and asks the owners of the person's groups for any change, within 1 working day. **Manual**
-3. If the new role is higher risk, the system owner asks ABC Technologies to confirm screening again before the role is granted. **Manual**
+3. If the new role is higher risk, the system owner asks \<Organisation\> to confirm screening again before the role is granted. **Manual**
 4. The system owner records this on TPL-14 and updates the personnel security register. **Manual**
 
 #### PRO-PS-4 Reviewing designations and agreements
@@ -1404,19 +1404,19 @@ These procedures carry out \<Policy\> (PS). Steps marked **Manual** rely on peop
 #### PRO-PS-5 External people
 
 1. The system owner makes sure each contract states security duties, and that the supplier must report leavers and movers within 1 working day. **Manual** (EV-PS-03)
-2. External people, including any member of the independent assessment team who is not ABC Technologies' staff, are screened and sign the agreements as in PRO-PS-1 before any access, or before the evidence is shared with them. **Manual**
+2. External people, including any member of the independent assessment team who is not \<Organisation\>'s staff, are screened and sign the agreements as in PRO-PS-1 before any access, or before the evidence is shared with them. **Manual**
 3. The system owner checks each supplier's compliance every 12 months, and records it on TPL-16. **Manual**
 
 #### PRO-PS-6 Sanctions
 
-1. ABC Technologies follows its disciplinary process. **Manual** (EV-PS-02)
-2. ABC Technologies tells the system owner within 1 working day when a formal sanction involves \<DocuView\>. **Manual**
+1. \<Organisation\> follows its disciplinary process. **Manual** (EV-PS-02)
+2. \<Organisation\> tells the system owner within 1 working day when a formal sanction involves \<System Name\>. **Manual**
 3. If the breach is a security incident, the security officer records it on TPL-10 (\<Procedures\> (IR)). The system owner decides whether access must end at once under PRO-PS-2, step 2. **Manual**
 
 #### PRO-PS-7 Checking
 
 1. At each review, the system owner runs Test-PlanConsistency.ps1 and confirms that check L17 passes: every role in \<Roles and Responsibilities\> has a risk designation. **Manual**
-2. The system owner compares a sample of the members of \<DocuView\>'s groups with the personnel security register, and records the result with the review. **Manual**
+2. The system owner compares a sample of the members of \<System Name\>'s groups with the personnel security register, and records the result with the review. **Manual**
 
 | **CHAPTER PT** |
 | --- |
@@ -1448,7 +1448,7 @@ These procedures carry out \<Policy\> (PT). Steps marked **Manual** have no syst
 
 1. Anyone who receives a request from a person about their data passes it to the legal adviser at once. **Manual**
 2. The legal adviser logs it on TPL-15, confirms the person's identity, and sets the deadline: one month from that confirmation, extendable as the law allows, and paused while waiting for any clarification needed. **Manual**
-3. An administrator, named by the legal adviser, makes a reasonable and proportionate search of every project and the audit records, and lists what was found on TPL-15. Until \<DocuView\> can search all projects in one step, each project is searched in turn and listed (PA-89). **Manual**
+3. An administrator, named by the legal adviser, makes a reasonable and proportionate search of every project and the audit records, and lists what was found on TPL-15. Until \<System Name\> can search all projects in one step, each project is searched in turn and listed (PA-89). **Manual**
 4. Corrections and deletions are made by the project access approver or an administrator, and confirmed in writing on TPL-15. Until the admin portal audits them, the administrator records the document, field and change on TPL-15 (PA-89). **Manual**
 5. For a request to restrict processing, to object, or to receive the data in a portable form, the legal adviser decides whether the right applies and how it is met. **Manual**
 6. When data is corrected, deleted or restricted, the legal adviser tells anyone it was disclosed to, unless that is impossible or would take disproportionate effort, and records it on TPL-15. **Manual**
@@ -1456,7 +1456,7 @@ These procedures carry out \<Policy\> (PT). Steps marked **Manual** have no syst
 
 #### PRO-PT-2 Complaints
 
-1. Anyone who receives a complaint about how personal data in \<DocuView\> is handled passes it to the legal adviser at once. **Manual**
+1. Anyone who receives a complaint about how personal data in \<System Name\> is handled passes it to the legal adviser at once. **Manual**
 2. The legal adviser acknowledges it within 30 days, and records it on TPL-22. **Manual**
 3. The legal adviser investigates without undue delay, keeps the person informed, and tells them the outcome. **Manual**
 4. Any weakness found is raised in \<Risk List\>. **Manual**
@@ -1465,7 +1465,7 @@ These procedures carry out \<Policy\> (PT). Steps marked **Manual** have no syst
 
 1. Each change record (TPL-6) says whether the change affects personal data. **Manual**
 2. If it does, the legal adviser reviews it and decides whether the inventory (\<PII Processing Management\>, section 4.3), the privacy notice or the impact assessment must change. **Manual**
-3. The system owner asks ABC Technologies to keep the privacy notice current, and reviews it every 12 months (EV-PT-01). **Manual**
+3. The system owner asks \<Organisation\> to keep the privacy notice current, and reviews it every 12 months (EV-PT-01). **Manual**
 
 #### PRO-PT-4 Impact assessment
 
@@ -1504,7 +1504,7 @@ These procedures carry out \<Policy\> (RA). Steps marked **Manual** have no syst
 | PRO-RA-1 Reviewing risk | Every 12 months; after a significant change, incident or new test result | System owner, authorising official | TPL-23; \<Risk List\> and \<Decision Register\> updated | RA-3, RA-7 |
 | PRO-RA-2 Reviewing the supply chain | Every 12 months; before adding a supplier or a new kind of component | System owner, developers | TPL-23 | RA-3(1), SR-6 |
 | PRO-RA-3 Scanning and analysing | Monthly and at each release | Windows server administrator, developers, security officer | TPL-7 | RA-5, RA-5(2), RA-5(5), SI-2 |
-| PRO-RA-4 Responding to an exploited flaw | When a flaw affecting \<DocuView\> is listed in CISA's catalogue or confirmed exploited | Security officer, developers, system owner | TPL-7; TPL-6 emergency change | RA-5d, SI-2, CM-3 |
+| PRO-RA-4 Responding to an exploited flaw | When a flaw affecting \<System Name\> is listed in CISA's catalogue or confirmed exploited | Security officer, developers, system owner | TPL-7; TPL-6 emergency change | RA-5d, SI-2, CM-3 |
 | PRO-RA-5 Sharing results and receiving reports | After each scan; on any report | Security officer | TPL-7 | RA-5e, RA-5(11) |
 | PRO-RA-6 Reviewing critical components | At each major release and significant change | System owner, developers | \<Risk Assessment Management\>, section 4.9; TPL-23 | RA-9 |
 
@@ -1516,7 +1516,7 @@ These procedures carry out \<Policy\> (RA). Steps marked **Manual** have no syst
 2. They check that each acceptance in section 4 is within its review date, and that Medium and High risks have a decision. Test-Vulnerability.ps1, checks V05 to V07, does this mechanically. **Manual**
 3. They record the review on TPL-23 and share it with the authorising official and the Head of Cyber. **Manual**
 4. The system owner decides Low risks, and the authorising official decides Medium and High risks, recording them in \<Decision Register\>. **Manual**
-5. At each review the system owner checks that the categorisation in \<System Security Plan\>, section 4.3, still fits the information \<DocuView\> holds, and puts any change to the authorising official. **Manual**
+5. At each review the system owner checks that the categorisation in \<System Security Plan\>, section 4.3, still fits the information \<System Name\> holds, and puts any change to the authorising official. **Manual**
 
 #### PRO-RA-2 Reviewing the supply chain
 
@@ -1529,22 +1529,22 @@ These procedures carry out \<Policy\> (RA). Steps marked **Manual** have no syst
 1. The administrator updates the scanner's definitions before each scan. **Not built** (PA-62)
 2. Monthly and at each release, the Windows server administrator runs a credentialed scan of both VMs, using an account approved for that purpose. **Not built** (PA-62)
 3. At each release, developers run Test-Vulnerability.ps1, which checks the packages and the images' operating system packages. An image scanner is **Not built** (PA-62). **Manual**
-4. At each release, developers run a web application scan of DV\_Web, DV\_Admin\_UI and DV\_API. **Not built** (PA-62)
-5. Within 5 working days, the security officer reviews the results on TPL-7. For each finding they record its severity under \<Risk Assessment Management\>, section 4.6, whether \<DocuView\> uses the affected part, and the due date. **Manual**
-6. A finding that does not apply, such as a flaw in a feature \<DocuView\> does not call, is marked as a false positive on TPL-7 with the reason, and checked again at the next scan. **Manual**
+4. At each release, developers run a web application scan of UI application, Admin application and API. **Not built** (PA-62)
+5. Within 5 working days, the security officer reviews the results on TPL-7. For each finding they record its severity under \<Risk Assessment Management\>, section 4.6, whether \<System Name\> uses the affected part, and the due date. **Manual**
+6. A finding that does not apply, such as a flaw in a feature \<System Name\> does not call, is marked as a false positive on TPL-7 with the reason, and checked again at the next scan. **Manual**
 7. The people responsible fix or mitigate each finding within its time. A fix that cannot meet its time goes to a risk decision, with its compensating measure. **Manual**
 
 #### PRO-RA-4 Responding to an exploited flaw
 
-1. The security officer checks CISA's Known Exploited Vulnerabilities catalogue and ABC Technologies' alerts at least weekly against the components in \<System Security Plan\>, section 4.4. **Manual**
-2. A listed flaw in a \<DocuView\> component is recorded on TPL-7 the same day, with a due date 3 days away. **Manual**
+1. The security officer checks CISA's Known Exploited Vulnerabilities catalogue and \<Organisation\>'s alerts at least weekly against the components in \<System Security Plan\>, section 4.4. **Manual**
+2. A listed flaw in a \<System Name\> component is recorded on TPL-7 the same day, with a due date 3 days away. **Manual**
 3. Developers or the administrator apply the fix, or a mitigation such as disabling the feature or blocking its route, as an emergency change (\<Procedures\> (CM)). **Manual**
 4. The security officer confirms the fix or mitigation, and tells the system owner. If it cannot be done in 3 days, the authorising official decides at once. **Manual**
 
 #### PRO-RA-5 Sharing results and receiving reports
 
-1. After each scan the security officer shares the findings that apply with the developers and the Windows server administrator, so that the same flaw is fixed everywhere it occurs, and passes to ABC Technologies' security contact any that may affect its other systems (RA-5e). **Manual**
-2. ABC Technologies' security contact, published with terms that authorise research in good faith (EV-RA-01), passes any report about \<DocuView\> to the security officer, who records it on TPL-7 and handles it as in PRO-RA-3. **Manual**
+1. After each scan the security officer shares the findings that apply with the developers and the Windows server administrator, so that the same flaw is fixed everywhere it occurs, and passes to \<Organisation\>'s security contact any that may affect its other systems (RA-5e). **Manual**
+2. \<Organisation\>'s security contact, published with terms that authorise research in good faith (EV-RA-01), passes any report about \<System Name\> to the security officer, who records it on TPL-7 and handles it as in PRO-RA-3. **Manual**
 3. A flaw found in another party's package or image is reported to its maintainer through their published route, and noted on TPL-7. **Manual**
 
 #### PRO-RA-6 Reviewing critical components
@@ -1596,13 +1596,13 @@ These procedures carry out \<Policy\> (SA). Steps marked **Manual** have no syst
 
 #### PRO-SA-3 Buying a product or service
 
-1. The system owner uses ABC Technologies' standard contract, adding security and privacy requirements, documentation, responsibilities and acceptance criteria. **Manual** (EV-SA-01)
+1. The system owner uses \<Organisation\>'s standard contract, adding security and privacy requirements, documentation, responsibilities and acceptance criteria. **Manual** (EV-SA-01)
 2. The contract or service terms state the controls, the provider's functions, ports, protocols and services, and the service levels with how they are measured and the remedies when they are missed. **Manual** (EV-SA-02, EV-SA-03)
 3. Every 12 months the system owner reviews each external service in \<System and Services Acquisition Management\>, section 4.7, including GitHub and the registries, and records the review on TPL-16. **Manual**
 
 #### PRO-SA-4 Documentation
 
-1. At each release, developers confirm that \<Administrator Guide\> and \<User Guide\> still match \<DocuView\>, and update them. **Manual**
+1. At each release, developers confirm that \<Administrator Guide\> and \<User Guide\> still match \<System Name\>, and update them. **Manual**
 2. The guides are shared with administrators, the security officer and users. **Manual**
 3. The system owner records any missing supplier document, and chases it. **Manual**
 
@@ -1645,22 +1645,22 @@ These procedures carry out \<Policy\> (SC). The values, cryptographic register a
 | PRO-SC-3 Changing keys | At each key's cryptoperiod, when a holder leaves, and on suspected compromise | Windows server administrator, developers | TPL-6 |
 | PRO-SC-4 Changing the boundary | Before a new flow, port, service or listening address | System owner, Windows server administrator | TPL-6, TPL-17 |
 | PRO-SC-5 Checking page code | At each release | Developers | TPL-8 |
-| PRO-SC-6 Responding to denial of service | When service is degraded by traffic | Security officer, ABC Technologies | TPL-10 |
+| PRO-SC-6 Responding to denial of service | When service is degraded by traffic | Security officer, \<Organisation\> | TPL-10 |
 | PRO-SC-7 Testing encryption at rest | When a VM is built, and every 12 months | Windows server administrator, database administrator | TPL-11 |
-| PRO-SC-8 Reviewing the register and boundary | Every 12 months | System owner, security officer, ABC Technologies | TPL-23 |
+| PRO-SC-8 Reviewing the register and boundary | Every 12 months | System owner, security officer, \<Organisation\> | TPL-23 |
 
 ### SC.2 Procedures
 
 #### PRO-SC-1 Setting up and checking TLS
 
 1. The Windows server administrator installs the certificates (PRO-SC-2) and configures the apps to serve HTTPS only, with TLS 1.3 preferred, TLS 1.2 limited to NCSC's GCM profiles, and SSL, TLS 1.0, TLS 1.1, compression and 0-RTT off (\<System and Communications Protection Management\>, section 4.3). **Not built** (PA-18)
-2. Developers make sure each app redirects HTTP, sends HSTS for at least 1 year, marks every cookie Secure, and calls DV\_API on the loopback address over HTTPS. **Not built** (PA-18)
-3. The database administrator turns on TLS in PostgreSQL, changes every client rule so that it requires TLS, and sets the minimum to TLS 1.2. DV\_API connects with full certificate and host name checking. **Not built** (PA-18)
+2. Developers make sure each app redirects HTTP, sends HSTS for at least 1 year, marks every cookie Secure, and calls API on the loopback address over HTTPS. **Not built** (PA-18)
+3. The database administrator turns on TLS in PostgreSQL, changes every client rule so that it requires TLS, and sets the minimum to TLS 1.2. API connects with full certificate and host name checking. **Not built** (PA-18)
 4. Developers run Test-Protection.ps1 against the VMs, and an outside TLS check against the web address, and file the results on TPL-8. **Manual**
 
 #### PRO-SC-2 Managing certificates
 
-1. The Windows server administrator requests each certificate from ABC Technologies' certificate authority, using ECDSA P-256 or RSA 2048-bit with SHA-256, and records it in the register. **Manual**
+1. The Windows server administrator requests each certificate from \<Organisation\>'s certificate authority, using ECDSA P-256 or RSA 2048-bit with SHA-256, and records it in the register. **Manual**
 2. Renewal starts 30 days before expiry (SyOps C39), and the new certificate is installed through change control. **Manual**
 3. A certificate whose key may be compromised is revoked and replaced at once, and the event is handled as an incident. **Manual**
 
@@ -1675,28 +1675,28 @@ These procedures carry out \<Policy\> (SC). The values, cryptographic register a
 1. Anyone needing a new flow, port, external service or listening address raises a change on TPL-6, with its business need. **Manual**
 2. The system owner approves it, updates \<System Security Plan\>, section 4.7, \<Security Architecture\>, Table 5, and the allow-lists in \<System and Communications Protection Management\>, section 4.2, before the rule is made. **Manual**
 3. A temporary exception is recorded on TPL-17, with an end date, and removed when no longer needed. **Manual**
-4. The Windows server administrator applies the host firewall rule, and ABC Technologies applies any network rule. **Not built** (PA-83 for the admin portal)
+4. The Windows server administrator applies the host firewall rule, and \<Organisation\> applies any network rule. **Not built** (PA-83 for the admin portal)
 
 #### PRO-SC-5 Checking page code
 
-1. Developers serve every script and style from \<DocuView\> itself. **Not built** (PA-34)
+1. Developers serve every script and style from \<System Name\> itself. **Not built** (PA-34)
 2. Each app sends its security headers, with the page policy in \<System and Communications Protection Management\>, section 4.5. **Not built** (PA-51)
 3. At each release, developers run Test-Protection.ps1 (N04, N05, N10) and file the result on TPL-8. Any new mobile code needs the system owner's approval first. **Manual**
 
 #### PRO-SC-6 Responding to denial of service
 
-1. When the service slows or fails under traffic, the administrator on duty reports it to the security officer and to ABC Technologies' service desk. **Manual**
-2. ABC Technologies applies its network protections; the security officer records the incident on TPL-10 and checks the apps' rate limits. **Not built** (PA-50)
+1. When the service slows or fails under traffic, the administrator on duty reports it to the security officer and to \<Organisation\>'s service desk. **Manual**
+2. \<Organisation\> applies its network protections; the security officer records the incident on TPL-10 and checks the apps' rate limits. **Not built** (PA-50)
 
 #### PRO-SC-7 Testing encryption at rest
 
-1. The Windows server administrator turns on BitLocker with XTS-AES 256 and the TPM on both VMs, and stores the recovery keys in ABC Technologies' protected store. **Not built** (PA-52)
+1. The Windows server administrator turns on BitLocker with XTS-AES 256 and the TPM on both VMs, and stores the recovery keys in \<Organisation\>'s protected store. **Not built** (PA-52)
 2. The database administrator encrypts backups and confirms that export copies are deleted. **Not built** (PA-86)
 3. Every 12 months, the administrators check that BitLocker is on and that a recovery key opens a test volume, and record it on TPL-11. **Manual**
 
 #### PRO-SC-8 Reviewing the register and boundary
 
-1. Every 12 months the system owner, the security officer and ABC Technologies' security contact review the cryptographic register, the allow-lists, the external services and any exceptions, and record the result on TPL-23. **Manual**
+1. Every 12 months the system owner, the security officer and \<Organisation\>'s security contact review the cryptographic register, the allow-lists, the external services and any exceptions, and record the result on TPL-23. **Manual**
 2. Keys or certificates near the end of their cryptoperiod, and algorithms that NCSC no longer recommends, are scheduled for change. **Manual**
 
 | **CHAPTER SI** |
@@ -1737,7 +1737,7 @@ These procedures carry out \<Policy\> (SI). The values, detection use cases and 
 #### PRO-SI-2 Handling malicious code
 
 1. Defender updates daily, scans weekly and scans in real time on both VMs. **Not built** (PA-58)
-2. \<DocuView\> passes each upload to Defender through AMSI before storing it, and refuses and audits anything flagged. **Not built** (PA-58)
+2. \<System Name\> passes each upload to Defender through AMSI before storing it, and refuses and audits anything flagged. **Not built** (PA-58)
 3. Defender quarantines what it finds on disk and alerts the Windows server administrator and security officer, who follow PRO-SI-4. **Not built** (PA-58, PA-59)
 4. The Windows server administrator records false positives and how they were resolved on TPL-10. **Manual**
 
@@ -1755,7 +1755,7 @@ These procedures carry out \<Policy\> (SI). The values, detection use cases and 
 
 #### PRO-SI-5 Acting on advisories
 
-1. The security officer receives advisories from NCSC (including Early Warning, once ABC Technologies registers), Microsoft, .NET and GitHub, and PostgreSQL, and checks CISA's Known Exploited Vulnerabilities catalogue weekly (SyOps C50). **Manual**
+1. The security officer receives advisories from NCSC (including Early Warning, once \<Organisation\> registers), Microsoft, .NET and GitHub, and PostgreSQL, and checks CISA's Known Exploited Vulnerabilities catalogue weekly (SyOps C50). **Manual**
 2. For each one that applies, they write an internal advisory note on TPL-7 and pass it to the administrators and developers. **Manual**
 3. The fix follows PRO-SI-1. **Manual**
 
@@ -1767,7 +1767,7 @@ These procedures carry out \<Policy\> (SI). The values, detection use cases and 
 
 #### PRO-SI-7 Managing information
 
-1. The system owner applies \<DocuView\>'s retention schedule (\<PII Processing Management\>, section 4.7) to documents and outputs. **Not built** (PA-70)
+1. The system owner applies \<System Name\>'s retention schedule (\<PII Processing Management\>, section 4.7) to documents and outputs. **Not built** (PA-70)
 2. The database administrator keeps audit records for 12 months online and 12 months archived, and application logs for 30 days. **Not built** (PA-42)
 3. Disposal is recorded on TPL-13 and in the audit trail. **Manual**
 
@@ -1798,7 +1798,7 @@ These procedures carry out \<Policy\> (SR). Steps marked **Manual** rely on peop
 | PRO-SR-3 Inspecting a release | At each release, and when tampering is suspected | Developers, security officer | Test-SupplyChain.ps1 results; TPL-6 | SR-10, SR-3 |
 | PRO-SR-4 Authenticity and counterfeits | When a component is suspected | Anyone; security officer | TPL-10 incident record | SR-11, SR-11(1), SR-11(2) |
 | PRO-SR-5 Notices and advisories | When a supplier reports a compromise or publishes an advisory | Security officer | TPL-7 vulnerability and patch review | SR-8 |
-| PRO-SR-6 Disposal | Before a component leaves \<DocuView\>'s control | Windows server administrator; ABC Technologies | PRO-MP-3 sanitisation record; ABC Technologies' disposal confirmation | SR-12 |
+| PRO-SR-6 Disposal | Before a component leaves \<System Name\>'s control | Windows server administrator; \<Organisation\> | PRO-MP-3 sanitisation record; \<Organisation\>'s disposal confirmation | SR-12 |
 
 ### SR.2 Procedures
 
@@ -1807,13 +1807,13 @@ These procedures carry out \<Policy\> (SR). Steps marked **Manual** rely on peop
 1. A developer checks the component's origin, publisher, licence, maintainer activity, support period and known vulnerabilities, as \<Procedures\>, PRO-SA-7 requires, and checks the package ID against look-alikes. **Manual**
 2. The developer adds the package and everything it pulls in to the offline feed, which records its SHA-256 value, and restores only from the feed. **Not built** (PA-94)
 3. The developer updates the project's lock file, and confirms the restore passes the signed-package trust policy and NuGet's audit. **Not built** (PA-94, PA-92)
-4. An image is pinned by digest, and a browser file is served by \<DocuView\> or carries an integrity check. **Not built** (PA-77, PA-34)
+4. An image is pinned by digest, and a browser file is served by \<System Name\> or carries an integrity check. **Not built** (PA-77, PA-34)
 5. The developer records the change on TPL-6, and the system owner adds any new supplier to the register in \<Supply Chain Risk Management\>, section 5. **Manual**
 
 #### PRO-SR-2 Reviewing suppliers and the plan
 
 1. Every 12 months, and before a new critical supplier is used, the supply chain team reviews each critical supplier with TPL-16: the questions cover how it builds and protects what it supplies, how it reports problems, and its support period. **Manual**
-2. For ABC Technologies, the team uses the evidence in EV-SR-01 and EV-SR-02. For open-source suppliers, it uses their published security policy and advisory history. **Manual**
+2. For \<Organisation\>, the team uses the evidence in EV-SR-01 and EV-SR-02. For open-source suppliers, it uses their published security policy and advisory history. **Manual**
 3. The team updates the supplier register and the plan, and records any new risk in \<Risk List\>. **Manual**
 4. The system owner approves the updated plan and keeps it in the restricted store. **Manual** (PA-88)
 
@@ -1827,16 +1827,16 @@ These procedures carry out \<Policy\> (SR). Steps marked **Manual** rely on peop
 #### PRO-SR-4 Authenticity and counterfeits
 
 1. Anyone who suspects a counterfeit or look-alike component, hardware or software, stops using it and tells the security officer. **Manual**
-2. The security officer records it on TPL-10, tells ABC Technologies, and for software reports it to the package registry (NuGet or GitHub) and, if serious, to the NCSC. **Manual**
-3. ABC Technologies inspects hardware, trains its buyers yearly, and keeps control of equipment sent for repair. **Manual** (EV-SR-02)
+2. The security officer records it on TPL-10, tells \<Organisation\>, and for software reports it to the package registry (NuGet or GitHub) and, if serious, to the NCSC. **Manual**
+3. \<Organisation\> inspects hardware, trains its buyers yearly, and keeps control of equipment sent for repair. **Manual** (EV-SR-02)
 
 #### PRO-SR-5 Notices and advisories
 
-1. ABC Technologies reports a compromise to the security officer within 24 hours. **Manual** (EV-SR-01)
+1. \<Organisation\> reports a compromise to the security officer within 24 hours. **Manual** (EV-SR-01)
 2. For open-source suppliers, the security officer treats their published advisories as notice, through the sources in \<System and Information Integrity Management\>, section 4.3. **Manual**
 3. The security officer records each notice that applies on TPL-7, and follows \<Procedures\> (IR) for a compromise. **Manual**
 
 #### PRO-SR-6 Disposal
 
-1. \<DocuView\> data is removed following \<Procedures\>, PRO-MP-3, before anything leaves. **Manual**
-2. ABC Technologies disposes of the component, and confirms in writing. **Manual** (EV-SR-02)
+1. \<System Name\> data is removed following \<Procedures\>, PRO-MP-3, before anything leaves. **Manual**
+2. \<Organisation\> disposes of the component, and confirms in writing. **Manual** (EV-SR-02)

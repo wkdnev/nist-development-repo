@@ -1,4 +1,4 @@
-# \<DocuView\> Security Assessment Report
+# \<System Name\> Security Assessment Report
 
 **\<ref\> | Version \<ver\> | Version \<ver\> issued; the authorising official's acceptance is pending (D-GEN-20)**
 
@@ -36,7 +36,7 @@
 | Item | Detail |
 | --- | --- |
 | Reference | \<ref\> |
-| Title | \<DocuView\> Security Assessment Report |
+| Title | \<System Name\> Security Assessment Report |
 | Version | \<ver\> |
 | Status | Version \<ver\> issued by the system owner (D-GEN-19); the authorising official's acceptance of version \<ver\> is pending (D-GEN-20). Version \<ver\> was received by the authorising official on 8 November 2026 |
 | Date | 8 November 2026 |
@@ -52,10 +52,10 @@
 
 | Role | Name | Decision | Date |
 | --- | --- | --- | --- |
-| System owner | Neil Ramsbottom | Version \<ver\> issued on 8 November 2026; version \<ver\> issued on 12 November 2026 (D-GEN-19) | 12 November 2026 |
-| Authorising official | Bob Jones | Version \<ver\> received and accepted as an accurate record, as confirmed by the system owner. Version \<ver\> pending (D-GEN-20) | 8 November 2026 |
-| Head of Cyber | Alf Fairy | Version \<ver\> received, as confirmed by the system owner. Version \<ver\> not yet sent | 8 November 2026 |
-| Security assessor | Josh Leak | Replaces this report with the Level 2 report |  |
+| System owner | \[Name\] | Version \<ver\> issued on 8 November 2026; version \<ver\> issued on 12 November 2026 (D-GEN-19) | 12 November 2026 |
+| Authorising official | \[Name\] | Version \<ver\> received and accepted as an accurate record, as confirmed by the system owner. Version \<ver\> pending (D-GEN-20) | 8 November 2026 |
+| Head of Cyber | \[Name\] | Version \<ver\> received, as confirmed by the system owner. Version \<ver\> not yet sent | 8 November 2026 |
+| Security assessor | \[Name\] | Replaces this report with the Level 2 report |  |
 
 ### 1.3 Change history
 
@@ -104,23 +104,23 @@
 
 ## 2 Purpose and scope
 
-This report brings together the results of the Level 1 self-assessment of all 19 control families, so that the authorising official can see in one place how far \<DocuView\> meets the NIST SP 800-53 Rev 5 Moderate baseline, what the remaining risk is, and what must happen before it can be authorised. It is the assessment report in the authorisation package (NIST SP 800-37 Rev 2, tasks A-4 and R-1), and it meets CA-2e and CA-2f. It covers the privacy controls as well, so it is also the privacy assessment report.
+This report brings together the results of the Level 1 self-assessment of all 19 control families, so that the authorising official can see in one place how far \<System Name\> meets the NIST SP 800-53 Rev 5 Moderate baseline, what the remaining risk is, and what must happen before it can be authorised. It is the assessment report in the authorisation package (NIST SP 800-37 Rev 2, tasks A-4 and R-1), and it meets CA-2e and CA-2f. It covers the privacy controls as well, so it is also the privacy assessment report.
 
-It covers \<DocuView\> v1.0: DV\_Web, DV\_Admin\_UI, DV\_API and the \<DocuView\> database, on the two planned Windows Server 2025 VMs at ABC Technologies. The detail for each family is in its assessment, which takes precedence over this summary. The figures in this report are generated from the assessments, the risk list and the POA&M, and Test-PlanConsistency.ps1 checks that they agree.
+It covers \<System Name\> v1.0: UI application, Admin application, API and the \<System Name\> database, on the two planned Windows Server 2025 VMs at \<Organisation\>. The detail for each family is in its assessment, which takes precedence over this summary. The figures in this report are generated from the assessments, the risk list and the POA&M, and Test-PlanConsistency.ps1 checks that they agree.
 
 | **SECTION 3** |
 | --- |
 
 ## 3 Executive summary
 
-**\<DocuView\> is not ready to be authorised, and it holds no production documents.** That is the expected position for a system that is not yet built on its VMs: most of what is outstanding is a decision not yet carried out, evidence not yet available, or a code fix waiting for the development phase.
+**\<System Name\> is not ready to be authorised, and it holds no production documents.** That is the expected position for a system that is not yet built on its VMs: most of what is outstanding is a decision not yet carried out, evidence not yet available, or a code fix waiting for the development phase.
 
 - **Coverage:** all 316 entries in the Moderate baseline, and the privacy baseline outside PM, were assessed against 1,998 NIST SP 800-53A determination statements. The coverage and the statement counts were checked against NIST's catalogue, release 5.2.0, on 12 November 2026.
 - **Result:** 1,083 statements (54%) are satisfied, and 19 controls are fully satisfied. Every other statement is recorded with a reason, and every non-compliance is rated in \<Risk List\>.
-- **Why the rest are not satisfied:** 157 statements (8%) are gaps in the system itself; 306 (15%) await evidence from ABC Technologies or the VMs; 390 (20%) await a decision, or the start of operation; and 62 do not apply. Section 5.3 breaks these down.
+- **Why the rest are not satisfied:** 157 statements (8%) are gaps in the system itself; 306 (15%) await evidence from \<Organisation\> or the VMs; 390 (20%) await a decision, or the start of operation; and 62 do not apply. Section 5.3 breaks these down.
 - **Risk:** 24 risks are recorded. 5 are rated High: a user interferes with another user's session or abuses internal functions (R-AC-02); someone gains full database control (R-AC-04); credentials or documents are intercepted (R-AC-05); a stolen password gives full access (R-AC-10); a known flaw or malicious upload compromises the system (R-SI-01).
 - **Remediation:** \<Plan of Action and Milestones\> holds 131 items: 13 High, 55 Medium and 63 Low. 6 are fixed and waiting for a repeat test on the VMs, 2 are closed and 123 are open, 10 of them High.
-- **Inherited controls:** 65 entries depend wholly on ABC Technologies (\<Assessment, Authorization, and Monitoring Management\>, section 4.6). None of the 74 evidence requests in \<Evidence Requests\> has yet been sent.
+- **Inherited controls:** 65 entries depend wholly on \<Organisation\> (\<Assessment, Authorization, and Monitoring Management\>, section 4.6). None of the 74 evidence requests in \<Evidence Requests\> has yet been sent.
 
 **Recommendation to the authorising official:** do not authorise yet. Authorisation should wait for, at least, the conditions in section 9.
 
@@ -133,13 +133,13 @@ It covers \<DocuView\> v1.0: DV\_Web, DV\_Admin\_UI, DV\_API and the \<DocuView\
 
 | Item | Detail |
 | --- | --- |
-| Assessor | Level 1: Claude, an AI assistant, working for the system owner. Level 2: an independent team led by Josh Leak, which meets CA-2(1) once each member has completed TPL-19 |
+| Assessor | Level 1: Claude, an AI assistant, working for the system owner. Level 2: an independent team led by \[Name\], which meets CA-2(1) once each member has completed TPL-19 |
 | Independence | Level 1 is a self-assessment. The same assistant drafted the documents and assessed them, for the system owner, so it is not independent. Level 2 provides the independence |
 | Dates | 5 to 12 November 2026. Each family was assessed on 5 or 6 November, and reassessed after its pack review between 8 and 12 November |
 | Procedures | NIST SP 800-53A Rev 5, catalog release 5.2.0, one finding for every determination statement |
 | Methods | Examine (documents, code and configuration), Test (15 test scripts, with results and hash manifests in the evidence store; section 8) and Interview (the system owner's written answers only) |
 | Environment | A throwaway Docker stack on one PC with sample data, built from the code tagged v1.0 |
-| Limits | The VMs, PostgreSQL on Windows and ABC Technologies' services were not examined, and the role holders were not interviewed. Nothing has been seen in operation, because \<DocuView\> is not in use. Level 2 must repeat the tests on the VMs |
+| Limits | The VMs, PostgreSQL on Windows and \<Organisation\>'s services were not examined, and the role holders were not interviewed. Nothing has been seen in operation, because \<System Name\> is not in use. Level 2 must repeat the tests on the VMs |
 | Plans | Each family's assessment plan is in its chapter of \<Control Assessment Record\>, and all 19 were approved by the authorising official (D-GEN-18) |
 
 | **SECTION 5** |
@@ -198,7 +198,7 @@ A control counts as satisfied only when every one of its statements is satisfied
 
 | Cause | Statements | What closes it |
 | --- | --- | --- |
-| Evidence from ABC Technologies, or from the VMs once built | 306 | The answers to \<Evidence Requests\>, and the tests repeated on the VMs |
+| Evidence from \<Organisation\>, or from the VMs once built | 306 | The answers to \<Evidence Requests\>, and the tests repeated on the VMs |
 | Approved, but not yet operating; or a decision or approval is outstanding | 288 | Go-live: training, signatures, reviews, tests and exercises begin. The Head of Cyber's pending approvals |
 | A gap in the system | 157 | The fixes in \<Plan of Action and Milestones\>, in the development phase |
 | A first scheduled review that is not yet due | 57 | Time: the first yearly reviews fall due in November 2027. These are scored cautiously as other than satisfied |
@@ -228,7 +228,7 @@ A control counts as satisfied only when every one of its statements is satisfied
 | R-AT-01 Someone makes a mistake, or is deceived, because they were not trained | Medium | Fix: no access without the briefing, and no privileged role without its modules (\<Awareness and Training Management\>) | Open; proposed on 12 November 2026, and the rating awaits the authorising official (D-RA-10) |
 | R-AU-01 Audit records are changed or removed without detection | Medium | Fix (authorising official, D-AU-06) | Open; treatment in progress |
 | R-AU-02 Personal data and live session IDs are exposed through the application log | Medium | Fix (authorising official, D-AU-06). Until then the application log is treated as audit information (\<Audit and Accountability Management\>) | Open; treatment in progress |
-| R-CM-01 \<DocuView\> runs software or settings that differ from the approved baseline, and nobody notices | Medium | Fix (authorising official, D-CM-10) | Open; treatment in progress |
+| R-CM-01 \<System Name\> runs software or settings that differ from the approved baseline, and nobody notices | Medium | Fix (authorising official, D-CM-10) | Open; treatment in progress |
 | R-CP-01 Documents cannot be recovered after a failure | Medium | Fix | Open; treatment in progress |
 | R-IR-01 An incident is not contained or reported in time | Medium | Fix: train, exercise and set up tracking before go-live | Open; proposed on 12 November 2026, and the rating awaits the authorising official (D-RA-10) |
 | R-PT-01 Personal data is misused, kept too long, or relied on when wrong | Medium | Fix | Open; treatment in progress |
@@ -296,7 +296,7 @@ Each script can be run again, and each evidence folder holds a README and a mani
 2. Sign-in through AD FS, with multi-factor authentication, shown working for every user before any production documents are held (D-AC-23, PA-95; D-IA-07).
 3. Every other POA&M item whose latest completion is before go-live closed, including the packages with High advisories (PA-56) and backups (PA-64).
 4. The VMs built, and the tests repeated on them.
-5. ABC Technologies' evidence for the inherited controls received, and those controls accepted (\<Assessment, Authorization, and Monitoring Management\>, section 4.6).
+5. \<Organisation\>'s evidence for the inherited controls received, and those controls accepted (\<Assessment, Authorization, and Monitoring Management\>, section 4.6).
 6. The independent Level 2 assessment held, and this report replaced by its report.
 7. The authorisation decision recorded on TPL-18, with its terms, conditions and end date.
 
