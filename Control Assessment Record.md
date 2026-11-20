@@ -90,7 +90,7 @@ The three methods are **Examine** (documents, code and configuration), **Test** 
 | AC-2(4) | Other than satisfied | 0 of 5 | Most account changes made in the admin portal have no audit call, and the API's records name "System" instead of the person | NC-06, PA-14 |
 | AC-2(5) | Other than satisfied | 1 of 2 | The tested v1.0 build signed users out after 30 minutes idle. That value was approved (D-AC-03), but the rule cannot yet be assessed for server administrators on the VMs. The design has no idle sign-out: a sign-in lasts as long as PingFederate's sign-in lifetime allows (P-AC-10) | NC-07, PA-20, PA-30 |
 | AC-2(13) | Other than satisfied | 2 of 3 | The mechanism works: disabling ends API and web access immediately. The 1-hour limit and its triggers are approved (D-AC-03), but PRO-AC-4 has not yet been walked through or used | NC-08, PA-20 |
-| AC-3 | Other than satisfied | 0 of 1 | Project access is enforced and tested, but in the v1.0 build ordinary users could reach some session functions, which the design does not have, and the database role and secrets give too much access | NC-09, PA-02, PA-19, PA-25, PA-26 |
+| AC-3 | Other than satisfied | 0 of 1 | Project access is enforced and tested, but in the v1.0 build ordinary users could reach some session functions, which the design does not have, and the database role and secrets give too much access | NC-09, PA-19, PA-25, PA-26; PA-02 closed (not in the design) |
 | AC-4 | Other than satisfied | 1 of 2 | The target flows are drawn, but nothing enforces them yet, and browsers also fetch code from an outside service that was not in the design | NC-10, PA-18, PA-26, PA-34 |
 | AC-5 | Other than satisfied | 2 of 3 | Administrator, auditor and security roles exist, an auditor cannot manage users, and the split of duties is approved (D-AC-03). But a global administrator still holds all their rights | NC-11, PA-15 |
 | AC-6 | Other than satisfied | 0 of 1 | Readers and editors are limited to their projects, and the apps do not run as root in Docker. But the apps share a database superuser, global administrators reach everything, and some privileged functions are open to everyone | NC-12, PA-10, PA-19, PA-26, PA-31 |
@@ -99,12 +99,12 @@ The three methods are **Examine** (documents, code and configuration), **Test** 
 | AC-6(5) | Other than satisfied | 1 of 2 | Global administrator is limited to named accounts, and only one exists in the sample data. The privileged roles are approved (D-AC-03), but no approval is enforced in the system, the apps' database role is a superuser, and the VM accounts are not yet limited | NC-15, PA-10, PA-30 |
 | AC-6(7) | Other than satisfied | 2 of 4 | No review has happened. PRO-AC-7 and the review intervals are approved (D-AC-02, D-AC-03), and the Project Role Summary page shows assignments, but the system has no review record | NC-16, PA-16 |
 | AC-6(9) | Other than satisfied | 0 of 1 | Some privileged functions are logged, but many are not, some logs name the wrong actor, and the VM logs are not available | NC-17, PA-14, PA-29, PA-31 |
-| AC-6(10) | Other than satisfied | 0 of 1 | The main administration functions are protected, but ordinary users can still run some privileged functions. These include, in the v1.0 build, changing another user's session role (a function the design does not have), clearing the API cache, writing audit records and starting a database migration | NC-18, PA-02, PA-03, PA-06, PA-07, PA-29 |
+| AC-6(10) | Other than satisfied | 0 of 1 | The main administration functions are protected, but ordinary users can still run some privileged functions. These include, in the v1.0 build, changing another user's session role (a function the design does not have), clearing the API cache, writing audit records and starting a database migration | NC-18, PA-03, PA-06, PA-07, PA-29; PA-02 closed (not in the design) |
 | AC-7 | Other than satisfied | 4 of 8 | The application mechanism works as tested: five failures lock the account for 15 minutes, and it unlocks afterwards. The values are approved (D-AC-03) | NC-19, PA-20, PA-30, PA-35 |
 | AC-8 | Other than satisfied | 1 of 11 | No notice is shown on either sign-in page. The wording in P-AC-16 is approved by the system owner, subject to legal review (D-AC-06), but it is not built (PA-11) | NC-20, PA-11 |
-| AC-11 | Other than satisfied | 2 of 4 | The tested v1.0 build showed a browser overlay after 25 minutes, but its continue button removed it without a password, so it was not a true lock. The overlay ran in the browser, so it did not by itself stop a browser user reaching the page behind it. The design has no page lock: \<Organisation\>'s managed devices and the servers lock an unattended screen (P-AC-15) | NC-21, PA-12, PA-21 |
+| AC-11 | Other than satisfied | 2 of 4 | The tested v1.0 build showed a browser overlay after 25 minutes, but its continue button removed it without a password, so it was not a true lock. The overlay ran in the browser, so it did not by itself stop a browser user reaching the page behind it. The design has no page lock: \<Organisation\>'s managed devices and the servers lock an unattended screen (P-AC-15) | PA-21; NC-21 and PA-12 closed (not in the design) |
 | AC-11(1) | Other than satisfied | 0 of 1 | The v1.0 build's code drew a dark overlay at 92% opacity, but this was not seen on screen, so there is no evidence that it fully hid what was displayed. The design has no page lock, so the device and server lock screens conceal the display, and these depend on \<Organisation\> (P-AC-15) | NC-22, PA-21 |
-| AC-12 | Other than satisfied | 1 of 2 | In the tested v1.0 build, sessions ended after idling, at the 8-hour limit, on sign-out and when revoked. The values were approved (D-AC-03), but one unexplained test result needs resolving (PA-33), and the VMs are not available. The design has no sessions of its own: a sign-in ends when PingFederate's sign-in lifetime ends (P-AC-10) | NC-23, PA-20, PA-30, PA-33 |
+| AC-12 | Other than satisfied | 1 of 2 | In the tested v1.0 build, sessions ended after idling, at the 8-hour limit, on sign-out and when revoked. The values were approved (D-AC-03), one unexplained test result was later resolved (PA-33, closed), and the VMs are not available. The design has no sessions of its own: a sign-in ends when PingFederate's sign-in lifetime ends (P-AC-10) | NC-23, PA-20, PA-30; PA-33 closed (I11) |
 | AC-14 | Other than satisfied | 3 of 4 | The list of what works without signing in is approved (D-AC-12), and the SSP gives its rationale. The result stays open because other endpoints still answer without signing in (PA-03, PA-07), and Windows and PostgreSQL are not yet examined | NC-24, PA-03, PA-07, PA-28 |
 | AC-17 | Other than satisfied | 0 of 4 | The remote access route is not named, and no restrictions are written down | NC-25, PA-18 |
 | AC-17(1) | Other than satisfied | 0 of 2 | Expected from \<Organisation\>, with no evidence yet | NC-26, PA-18, PA-21 |
@@ -555,14 +555,14 @@ AC-08a.01 is written for U.S. Government systems. The system owner needs to deci
 
 #### AC.4.20 AC-12 Session Termination
 
-**Result: Other than satisfied.** In the tested v1.0 build, sessions ended after idling, at the 8-hour limit, on sign-out and when revoked. The values were approved (D-AC-03), but one unexplained test result needs resolving (PA-33), and the VMs are not available. The design has no sessions of its own: a sign-in ends when PingFederate's sign-in lifetime ends (P-AC-10).
+**Result: Other than satisfied.** In the tested v1.0 build, sessions ended after idling, at the 8-hour limit, on sign-out and when revoked. The values were approved (D-AC-03), one unexplained test result was later resolved (PA-33, closed), and the VMs are not available. The design has no sessions of its own: a sign-in ends when PingFederate's sign-in lifetime ends (P-AC-10).
 
 **Table AC-32: AC-12 objective**
 
 | Objective | Result | Basis |
 | --- | --- | --- |
 | AC-12: a session is automatically ended under set conditions | Other than satisfied | T38, T44 to T47 pass on the v1.0 build, including in its run of 8 November 2026; P-AC-10 to P-AC-12 were approved with that build's session values, and now set PingFederate's sign-in lifetime and no session limit in the application; T45's one failure on 5 November was not reproduced in five runs (PA-33); the VMs are not available |
-| Reliability of the v1.0 build's 8-hour limit | Other than satisfied | T45 returned 200 in one full run. It then returned 401 in 15 repeats on its own and in later full runs. The cause was not found (PA-33) |
+| Reliability of the v1.0 build's 8-hour limit | Other than satisfied | T45 returned 200 in one full run. It then returned 401 in 15 repeats on its own and in later full runs. The cause was not found (PA-33, since closed: I11) |
 | Windows and PostgreSQL sessions | Other than satisfied (E) | VMs not available (PA-30) |
 
 #### AC.4.21 AC-11 Device Lock
@@ -870,7 +870,7 @@ Findings: **S** satisfied. **O-D** other than satisfied, because a decision or a
 | AC-02(04)\[03\] | Enabling is audited | O-G | No audit call (PA-14) |
 | AC-02(04)\[04\] | Disabling is audited | O-G | Against "System" (PA-14) |
 | AC-02(04)\[05\] | Removal is audited | O-G | Against "System" (PA-14) |
-| AC-02(05)\_ODP | Logout condition is defined | S | D-AC-P06 |
+| AC-02(05)\_ODP | Logout condition is defined | S | D-AC-P06, superseded by P-AC-10 |
 | AC-02(05) | Users are logged out at that condition | O-E | v1.0 build yes (T44); the design relies on PingFederate's sign-in lifetime (P-AC-10); VM administration not available |
 | AC-02(13)\_ODP\[01\] | Time to disable is defined | S | D-AC-P07 |
 | AC-02(13)\_ODP\[02\] | Triggering risks are defined | S | D-AC-P07 |
@@ -920,12 +920,12 @@ Findings: **S** satisfied. **O-D** other than satisfied, because a decision or a
 | AC-08c.01 | Public systems: conditions are displayed | N/A | TR-AC-04 |
 | AC-08c.02 | Public systems: monitoring references | N/A | TR-AC-04 |
 | AC-08c.03 | Public systems: authorised uses | N/A | TR-AC-04 |
-| AC-11\_ODP\[01\] | How the lock starts is selected | S | D-AC-P16 |
-| AC-11\_ODP\[02\] | Inactivity period is defined | S | D-AC-P16 |
+| AC-11\_ODP\[01\] | How the lock starts is selected | S | D-AC-P16, superseded by P-AC-15 |
+| AC-11\_ODP\[02\] | Inactivity period is defined | S | D-AC-P16, superseded by P-AC-15 |
 | AC-11a. | Lock prevents further access | O-G | v1.0 build: browser overlay only (PA-12); the design has no page lock (P-AC-15) |
 | AC-11b. | Lock stays until re-authentication | O-G | v1.0 build: no password was asked for (PA-12) |
 | AC-11(01) | Lock conceals the display | O-E | Not observed on screen; workstations not available |
-| AC-12\_ODP | Termination conditions are defined | S | D-AC-P17 |
+| AC-12\_ODP | Termination conditions are defined | S | D-AC-P17, superseded by P-AC-10 to P-AC-12 |
 | AC-12 | Sessions end automatically | O-E | v1.0 build yes (T38, T44 to T47), and T45's one failure on 5 November not reproduced in five runs on 8 November (PA-33); the design has no sessions of its own and relies on PingFederate's sign-in lifetime (P-AC-10); VMs not available |
 | AC-14\_ODP | Actions without sign-in are defined | S | D-AC-P18 |
 | AC-14a. | Actions are identified | O-G | Identified, but other endpoints are open (PA-03, PA-07) |
@@ -1149,7 +1149,7 @@ This records the Level 1 self-assessment of the 16 AU entries in the CSS Moderat
 
 ### AU.2 How to read this record
 
-**Change since this assessment.** On 12 November 2026 the system owner stated that \<System Name\> signs in through \<Organisation\>'s PingFederate and reads its groups from Active Directory over LDAPS (D-AC-23), that only the API reaches the database (D-AC-18), and that an audit record links to one sign-in only through a hash, never the identifier itself (D-AU-11). This chapter assessed the v1.0 build. Its findings are a true record of that build and are not changed. Since then five items have been added for gaps the review of the design found: PA-101 to PA-105. The findings are to be made again when the tests are repeated on the PingFederate build (PA-95).
+**Change since this assessment.** On 12 November 2026 the system owner stated that \<System Name\> signs in through \<Organisation\>'s PingFederate and reads its groups from Active Directory over LDAPS (D-AC-23), that only the API reaches the database (D-AC-18), and that an audit record links to one sign-in only through a hash, never the identifier itself (D-AU-11). This chapter assessed the v1.0 build. Its findings are a true record of that build and are not changed. Since then five items have been added for gaps the review of the design found: PA-101 to PA-105. PA-104 has since been closed, as the design has no session management. The findings are to be made again when the tests are repeated on the PingFederate build (PA-95).
 
 The methods were **Examine** (code and configuration), **Test** (Test-AuditAndAuth.ps1, checks A01 to A38, results of 6 and 8 November 2026 in the AU and IA evidence) and read-only database checks. The system owner answered INT-AU-01 to 06 in writing, as proposed answers (\<Interview Guide\>). No records were seen, so these change no finding, and the role holders have not been interviewed.
 
@@ -2166,7 +2166,7 @@ The methods were **Examine** (documents and code) and **Test**: the containment 
 
 Of the CSS 90 statements, 49 are satisfied, 38 await a decision or approval, 3 show a gap in the system and none awaits evidence.
 
-The plan now follows CSS, with severity targets, breach steps, playbooks and evidence handling, but has not been exercised. The drill shows containment worked in the v1.0 build: a suspect user's sessions ended and a disabled account was locked out at once, and audit records exported with a repeatable hash. The gaps are that ServiceNow is not set up for incidents, ending the v1.0 build's sessions is not audited (D02, PA-14), and the application log repeats personal data (D08, PA-75). The design has no sessions of its own: a person's access is ended by disabling their AD account or removing their group membership, and ending their PingFederate sign-in (P-AC-13).
+The plan now follows CSS, with severity targets, breach steps, playbooks and evidence handling, but has not been exercised. The drill shows containment worked in the v1.0 build: a suspect user's sessions ended and a disabled account was locked out at once, and audit records exported with a repeatable hash. The gaps are that ServiceNow is not set up for incidents, and the application log repeats personal data (D08, PA-75). The design has no sessions of its own: a person's access is ended by disabling their AD account or removing their group membership, and ending their PingFederate sign-in (P-AC-13).
 
 ### IR.4 Findings by determination statement
 

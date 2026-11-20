@@ -13,8 +13,8 @@ It covers \<System Name\> v1.0: UI application, Admin application, API and the \
 - **Coverage:** all 316 entries in the Moderate baseline, and the privacy baseline outside PM, were assessed against 1,998 CSS determination statements. The coverage and the statement counts were checked against the CSS catalogue, release 5.2.0, on 12 November 2026.
 - **Result:** 1,083 statements (54%) are satisfied, and 19 controls are fully satisfied. Every other statement is recorded with a reason, and every non-compliance is rated in \<Risk List\>.
 - **Why the rest are not satisfied:** 157 statements (8%) are gaps in the system itself; 306 (15%) await evidence from \<Organisation\> or the VMs; 390 (20%) await a decision, or the start of operation; and 62 do not apply. Section 4.3 breaks these down.
-- **Risk:** 24 risks are recorded. 5 are rated High: a user interferes with another user's access or abuses internal functions (R-AC-02); someone gains full database control (R-AC-04); credentials or documents are intercepted (R-AC-05); a stolen password gives full access (R-AC-10); a known flaw or malicious upload compromises the system (R-SI-01).
-- **Remediation:** \<Plan of Action and Milestones\> holds 131 items: 13 High, 55 Medium and 63 Low. 6 are fixed and waiting for a repeat test on the VMs, 2 are closed and 123 are open, 10 of them High.
+- **Risk:** 24 risks are recorded, and one of them, R-AC-08, is closed, as the design has no session management. 5 are rated High: a user interferes with another user's access or abuses internal functions (R-AC-02); someone gains full database control (R-AC-04); credentials or documents are intercepted (R-AC-05); a stolen password gives full access (R-AC-10); a known flaw or malicious upload compromises the system (R-SI-01).
+- **Remediation:** \<Plan of Action and Milestones\> holds 131 items: 13 High, 55 Medium and 63 Low. 6 are fixed and waiting for a repeat test on the VMs, 5 are closed and 120 are open, 9 of them High.
 - **Inherited controls:** 65 entries depend wholly on \<Organisation\> (\<Assessment, Authorization, and Monitoring Management\>, section 3.6). None of the 74 evidence requests in \<Evidence Requests\> has yet been sent.
 
 **Recommendation to the authorising official:** do not authorise yet. Authorisation should wait for, at least, the conditions in section 8.
@@ -109,7 +109,7 @@ A control counts as satisfied only when every one of its statements is satisfied
 | R-AC-03 An outsider degrades the service without signing in | Medium | Fix | Open; treatment in progress |
 | R-AC-06 People keep access they no longer need | Medium | Fix | Open; treatment in progress |
 | R-AC-07 Administrator misuse goes unnoticed | Medium | Fix | Open; treatment in progress |
-| R-AC-08 An unattended signed-in screen is used by someone else | Medium | Fix | Open; treatment in progress |
+| R-AC-08 An unattended signed-in screen is used by someone else | Medium | Fix | Closed: the design has no session management. Sign-in lifetime is set by PingFederate (P-AC-10) and an unattended screen is locked by the device (P-AC-15) |
 | R-AC-11 The system cannot be authorised | Medium | Fix | Open; treatment in progress |
 | R-AT-01 Someone makes a mistake, or is deceived, because they were not trained | Medium | Fix: no access without the briefing, and no privileged role without its modules (\<Awareness and Training Management\>) | Open; proposed on 12 November 2026, and the rating awaits the authorising official (D-RA-10) |
 | R-AU-01 Audit records are changed or removed without detection | Medium | Fix (authorising official, D-AU-06) | Open; treatment in progress |
@@ -125,7 +125,7 @@ A control counts as satisfied only when every one of its statements is satisfied
 | R-PE-01 Someone reaches the VMs or disks physically, or the site fails | Low | Obtain evidence | Open; treatment in progress |
 | R-PS-01 Someone unsuitable holds access, or keeps it after moving or leaving | Low | Obtain evidence | Open; treatment in progress |
 
-The 301 non-compliances behind these risks are rated 17 High, 56 Medium and 228 Low. The full register, with causes, consequences and decisions, is \<Risk List\>.
+The 300 open non-compliances behind these risks are rated 17 High, 55 Medium and 228 Low. One more, NC-21, on the tested build's page lock, is closed, as the design has no page lock. The full register, with causes, consequences and decisions, is \<Risk List\>.
 
 ## 6 Weaknesses fixed or closed during the assessment
 
@@ -139,8 +139,11 @@ The 301 non-compliances behind these risks are rated 17 High, 56 Medium and 228 
 | PA-08 | Low | The API document endpoint refuses access with a server error, not 403 | Fixed on 5 November 2026 (T14); awaiting a repeat test on the VMs |
 | PA-09 | Medium | Document content is sent as publicly cacheable for an hour, so it can stay in shared caches and in the browser after use | Fixed on 5 November 2026 (T22); awaiting a repeat test on the VMs |
 | PA-27 | High | Export and upload checked access to the project named in a request but used a separately named schema, so an editor of one project could reach another | Fixed on 5 November 2026 (T63); awaiting a repeat test on the VMs |
+| PA-02 | High | In the tested build, any signed-in user could change another user's active role and create session records for them | Closed: not in the design. The design has no session management, so it has no session role or session records. Sign-in lifetime is set by PingFederate (P-AC-10) |
+| PA-12 | Medium | The tested build's page lock was browser-only, and its "Continue Session" button unlocked it without a password | Closed: not in the design. The design has no session management and no page lock. Sign-in lifetime is set by PingFederate (P-AC-10) and an unattended screen is locked by the device (P-AC-15) |
 | PA-24 | Low | The evidence describes uncommitted code on a local branch | Closed on 6 November 2026: committed and tagged v1.0 locally on 6 November 2026. Hashes are in \<System Security Plan\>, section 2 |
 | PA-33 | Low | The tested build's 8-hour session limit check gave 200 in one full test run, then passed every other time. The cause was not found, so a real intermittent fault cannot yet be ruled out | Closed on 9 November 2026: the full run was repeated and passed five times in a row (I11). T45 now records its set-up result |
+| PA-104 | Low | It is not checked whether the session field of an audit record in the tested build holds the live session ID. Policy rule R8 forbids session IDs in records | Closed: not in the design. The design has no session management, so it has no session ID to record; an audit record links to one sign-in only through a hash of the sign-in identifier (D-AU-11) |
 
 ## 7 Evidence
 
