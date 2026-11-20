@@ -21,14 +21,14 @@ This document holds the security and privacy procedures for \<System Name\>: 139
 | PRO-AC-2 | Role change (mover) | AC Access Control |
 | PRO-AC-3 | Leaver | AC Access Control |
 | PRO-AC-4 | Urgent disable (high-risk individual) | AC Access Control |
-| PRO-AC-5 | Project access | AC Access Control |
+| PRO-AC-5 | Schema access | AC Access Control |
 | PRO-AC-6 | Privileged access | AC Access Control |
 | PRO-AC-7 | Access review | AC Access Control |
 | PRO-AC-8 | Inactive accounts | AC Access Control |
 | PRO-AC-9 | Locked account | AC Access Control |
 | PRO-AC-10 | Forgotten password | AC Access Control |
 | PRO-AC-11 | Ending access at once | AC Access Control |
-| PRO-AC-12 | First administrator on a new database | AC Access Control |
+| PRO-AC-12 | First administrator on a new installation | AC Access Control |
 | PRO-AC-13 | Changing the system use notice | AC Access Control |
 | PRO-AC-14 | Policy and procedure review | AC Access Control |
 | PRO-AC-15 | Exception management | AC Access Control |
@@ -90,7 +90,7 @@ This document holds the security and privacy procedures for \<System Name\>: 139
 | PRO-MA-4 | Remote maintenance | MA Maintenance |
 | PRO-MA-5 | Maintenance people | MA Maintenance |
 | PRO-MA-6 | Preventive maintenance schedule | MA Maintenance |
-| PRO-MA-7 | Built-in maintenance pages and data leaving for support | MA Maintenance |
+| PRO-MA-7 | Built-in diagnostics and data leaving for support | MA Maintenance |
 | PRO-MP-1 | Printouts | MP Media Protection |
 | PRO-MP-2 | Disks, volumes and backups | MP Media Protection |
 | PRO-MP-3 | Sanitising media | MP Media Protection |
@@ -175,10 +175,10 @@ These procedures define how access control activities are performed: the workflo
 | Mover | Someone's role changes | Notify, approve new access, change groups, sign in again | PRO-AC-2 |
 | Leaver | Someone leaves or no longer needs access | Notify, deactivate, record | PRO-AC-3 |
 | Urgent disable | A concern is raised about someone | Report, deactivate, end the PingFederate sign-in, record | PRO-AC-4 |
-| Project access | Someone needs a project | Request, approve, change group | PRO-AC-5 |
+| Schema access | Someone needs a schema | Request, approve, change group | PRO-AC-5 |
 | Privileged access | Someone needs a privileged role | Request, approve, change role, record | PRO-AC-6 |
 | Exception | A rule cannot be met | Request, assess, approve, record, review, end | PRO-AC-15 |
-| Sharing or export | Information needs to leave a project | Request, check recipient, decide, deliver, record | PRO-AC-16 |
+| Sharing or export | Information needs to leave a schema | Request, check recipient, decide, deliver, record | PRO-AC-16 |
 | Non-compliance | A control or part is not met | Record, rate, decide, then accept or plan remediation | PRO-AC-17 |
 
 ### AC.3 Approval routes
@@ -187,13 +187,13 @@ These procedures define how access control activities are performed: the workflo
 
 | Request | Raised by | Approved by | Carried out by | Record kept in |
 | --- | --- | --- | --- | --- |
-| First access, or a general group change | The person; their line manager approves | System owner authorises | Global administrator | ServiceNow request |
-| Project read or edit access | The person; their line manager approves | Project access approver authorises | Global administrator | ServiceNow request |
-| Global administrator, administrator, auditor or security officer | The person; their line manager approves | System owner authorises, and cannot authorise their own | Global administrator | ServiceNow request and audit log |
-| Sharing or export outside a project | Requesting user | Project access approver | Project editor | Sharing decision record |
+| First access, or a role group change | The person; their line manager approves | System owner authorises | System owner, as owner of the role groups | ServiceNow request |
+| Schema read or edit access | The person; their line manager approves | Data Owner authorises | Data Owner, as owner of the schema's groups | ServiceNow request |
+| Administrator, auditor or security officer | The person; their line manager approves | System owner authorises, and cannot authorise their own | System owner, as owner of the role groups | ServiceNow request |
+| Sharing or export outside a schema | Requesting user | Data Owner | An editor of the schema | Sharing decision record |
 | External system or portable storage use | Requesting user | System owner | Requesting user | Exception record |
 | Exception to a rule | Whoever needs it | System owner, or authorising official if above their authority | Role concerned | \<Risk List\> |
-| Urgent disable | Anyone | No prior approval needed; system owner told at once | Global administrator | Incident record |
+| Urgent disable | Anyone | No prior approval needed; system owner told at once | \<Organisation\>'s service desk | Incident record |
 | Change to policy or procedures | Document owner | System owner | Document owner | Document change record |
 
 ### AC.4 Review activities
@@ -203,8 +203,8 @@ These procedures define how access control activities are performed: the workflo
 | Activity | How often | By | Output | Steps |
 | --- | --- | --- | --- | --- |
 | Privileged access review | Every 3 months | System owner, auditor | Signed review | PRO-AC-7 |
-| All other access review | Every 12 months | Project access approvers | Signed review | PRO-AC-7 |
-| Inactive members | Monthly | Global administrator; the groups' owners | Members who have not signed in for 90 days removed from their groups, date recorded | PRO-AC-8 |
+| All other access review | Every 12 months | Data Owners | Signed review | PRO-AC-7 |
+| Inactive members | Monthly | Auditor; the groups' owners | Members who have not signed in for 90 days removed from their groups, date recorded | PRO-AC-8 |
 | Open exceptions | With each access review | System owner | Exceptions ended or renewed | PRO-AC-15 |
 | Policy and procedures | Every 12 months, and after a change | System owner | Updated change record | PRO-AC-14 |
 | Audit logs | Weekly | Auditor | Review record | \<Security Operating Procedures\> |
@@ -219,26 +219,26 @@ Table AC-4 summarises each procedure: what starts it, who acts, its time limit, 
 | --- | --- | --- | --- | --- | --- |
 | PRO-AC-1 Joiner | Access is requested | The person, line manager, the group's owner (P-AC-05), security officer | Training and signed SyOps before the person is added to a group | ServiceNow request, TPL-9, TPL-21 and the register of signatures | AC-2, PL-4, PS-6, AT-2 |
 | PRO-AC-2 Mover | A role changes | Line manager, the groups' owners | Notified within 1 working day (P-AC-06) | TPL-2, TPL-14 | AC-2, PS-5 |
-| PRO-AC-3 Leaver | The Starters/Leavers system prompts | \<Organisation\> disables the Active Directory account at once; the groups' owners; global administrator | Within 5 working days (P-AC-06) | TPL-14 | AC-2, AC-2(3), PS-4 |
-| PRO-AC-4 Urgent disable | A concern is raised | Anyone, \<Organisation\>'s service desk, global administrator, system owner | Within 1 hour (P-AC-13) | TPL-14, and TPL-10 if it is an incident | AC-2(13), IR-6 |
-| PRO-AC-5 Project access | Access to a project is requested | The person, line manager, project access approver | Before access | TPL-2 | AC-3, AC-6 |
+| PRO-AC-3 Leaver | The starters and leavers process prompts | \<Organisation\> disables the Active Directory account at once; the groups' owners | Within 5 working days (P-AC-06; \<System Description\>, P-06) | TPL-14 | AC-2, AC-2(3), PS-4 |
+| PRO-AC-4 Urgent disable | A concern is raised | Anyone, \<Organisation\>'s service desk, system owner | Within 1 hour (P-AC-13) | TPL-14, and TPL-10 if it is an incident | AC-2(13), IR-6 |
+| PRO-AC-5 Schema access | Access to a schema is requested | The person, line manager, Data Owner | Before access | TPL-2 | AC-3, AC-6 |
 | PRO-AC-6 Privileged access | A privileged role is requested | The person, line manager, system owner | Role modules M1 and M2 (\<Awareness and Training Management\>) passed and signed Part B before access | TPL-2, TPL-9 | AC-2, AC-6(5), AT-3 |
-| PRO-AC-7 Access review | The review falls due | The groups' owners, system owner, auditor | Every 3 months for privileged access, every 12 months for all other access (P-AC-07) | TPL-3 | AC-2, AC-6(7) |
-| PRO-AC-8 Inactive accounts | Monthly | \<Organisation\>; global administrator; the groups' owners | 90 days without signing in; \<Organisation\>'s corporate standard for the Active Directory account (P-AC-08) | TPL-3 | AC-2(3) |
+| PRO-AC-7 Access review | The review falls due | The groups' owners, system owner, auditor | Every 3 months for privileged access, every 12 months for all other access (P-AC-07; \<System Description\>, P-04 and P-05) | TPL-3 | AC-2, AC-6(7) |
+| PRO-AC-8 Inactive accounts | Monthly | \<Organisation\>; auditor; the groups' owners | 90 days without signing in; \<Organisation\>'s corporate standard for the Active Directory account (P-AC-08) | TPL-3 | AC-2(3) |
 | PRO-AC-9 Locked account | A user asks | \<Organisation\>'s IT service desk | \<Organisation\>'s corporate standard (P-AC-14) | \<Organisation\>'s record | AC-7 |
 | PRO-AC-10 Forgotten password | A user asks | \<Organisation\>'s IT service desk | After its identity check | \<Organisation\>'s record | IA-5 |
 | PRO-AC-11 Ending access at once | A person's access must end at once | \<Organisation\>'s service desk; the groups' owners | At once | Note of the reason; TPL-10 if it is an incident | AC-12 |
-| PRO-AC-12 First administrator | \<System Name\> is first built | Windows server administrator, system owner | At build | TPL-6 | AC-2, IA-5 |
+| PRO-AC-12 First administrator | \<System Name\> is first built | Windows server administrator, database administrator, system owner | At build | TPL-6 | AC-2, IA-5 |
 | PRO-AC-13 Use notice | The wording changes | System owner, legal adviser | Through an approved change | TPL-6 | AC-8 |
 | PRO-AC-14 Policy and procedure review | The review falls due, or an event | System owner | Every 12 months (P-AC-02, P-AC-03) | Change record; TPL-4 | AC-1 |
 | PRO-AC-15 Exception | A rule cannot be met | Requester, security officer, system owner or authorising official | End date no more than 12 months away | TPL-17; \<Risk List\> | AC-1, PL-4, CA-5 |
-| PRO-AC-16 Sharing and export | Information must leave a project | Requester, project access approver, project editor | Before anything is shared | TPL-2, as the sharing decision | AC-21, AC-20(2) |
+| PRO-AC-16 Sharing and export | Information must leave a schema | Requester, Data Owner, an editor of the schema | Before anything is shared | TPL-2, as the sharing decision | AC-21, AC-20(2) |
 | PRO-AC-17 Non-compliance | A gap is found | System owner, authorising official | As set in \<Risk List\> | \<Risk List\>; TPL-1 for an acceptance | CA-5, RA-7 |
 
 #### PRO-AC-1 New user (joiner)
 
-1. The person raises an access request in ServiceNow, naming the projects and level needed, and the reason. **Manual**
-2. Their line manager approves or refuses it. The system owner then authorises or refuses the role, and the project access approver each project named (P-AC-05). Nobody decides their own request. The ServiceNow workflow keeps the record. **Manual**
+1. The person raises an access request in ServiceNow, naming the schemas and level needed, and the reason. **Manual**
+2. Their line manager approves or refuses it. The system owner then authorises or refuses the role, and the Data Owner each schema named (P-AC-05). Nobody decides their own request. The ServiceNow workflow keeps the record. **Manual**
 3. Before the person is added to any group, they complete security and privacy awareness training, receive the \<System Name\> briefing from the system owner (\<Awareness and Training Management\>, section 3.3), and sign Part A of \<Security Operating Procedures\>, and Part B if the access is privileged. The security officer records the training on TPL-9, and the system owner records the signature on TPL-21 and in the register of signatures (\<Planning Management\>, section 3.5). No access is given until this is done.
 4. The owner who authorised the request adds the person to the approved AD groups, with \<Organisation\>'s AD tool. No \<System Name\> account is created: the person's Active Directory account is their account. **Manual**
 5. The person signs in through PingFederate, and \<System Name\>'s API reads their groups from Active Directory over LDAPS.
@@ -252,28 +252,28 @@ Table AC-4 summarises each procedure: what starts it, who acts, its time limit, 
 
 #### PRO-AC-3 Leaver
 
-1. \<Organisation\> disables the person's Active Directory account at once, which stops them signing in to \<System Name\>. The Starters/Leavers system prompts the owners of the groups the person belongs to. **Manual**
+1. \<Organisation\> disables the person's Active Directory account at once, which stops them signing in to \<System Name\>. The starters and leavers process prompts the owners of the groups the person belongs to. **Manual**
 2. Each owner removes the person from their AD group within the time in P-AC-06. **Manual**
 3. \<Organisation\>'s service desk ends any PingFederate sign-in the person still has, and the owner records the date in the ServiceNow request. \<System Name\> has no sessions of its own to end.
 
 #### PRO-AC-4 Urgent disable (high-risk individual)
 
-1. Whoever raises the concern tells the system owner and a global administrator.
+1. Whoever raises the concern tells the system owner and \<Organisation\>'s service desk.
 2. Within the time in P-AC-13, \<Organisation\>'s service desk disables the person's Active Directory account and ends their PingFederate sign-in. \<System Name\> has no sessions of its own to end. **Manual**
-3. The administrator confirms with the service desk that the account is disabled and the PingFederate sign-in has ended.
+3. The system owner confirms with the service desk that the account is disabled and the PingFederate sign-in has ended.
 4. The system owner records the reason and informs anyone who needs to know.
 
-#### PRO-AC-5 Project access
+#### PRO-AC-5 Schema access
 
-1. Each project names one read group and one edit group on the admin portal's project page.
-2. The person asks for the access in the ServiceNow workflow. Their line manager approves it, and the project access approver, as owner of the project's data, authorises it. **Manual**
-3. The project access approver adds the person to the project's AD group, with \<Organisation\>'s AD tool. **Manual**
+1. Each schema names one read group and one edit group on its schema definition, which an Administrator sets in the Admin application.
+2. The person asks for the access in the ServiceNow workflow. Their line manager approves it, and the schema's Data Owner, as owner of the schema's data and its two groups, authorises it. **Manual**
+3. The Data Owner adds the person to the schema's read group or edit group in Active Directory, with \<Organisation\>'s AD tool. **Manual**
 
-A group's name must exactly match the project's principal, apart from upper and lower case. A project with no principal gives access only to global administrators.
+The API compares the group names on the schema definition with the person's Active Directory groups, which it reads from Active Directory over LDAPS. A schema with no group is closed to everyone but Administrators.
 
 #### PRO-AC-6 Privileged access
 
-1. The person asks for the role in the ServiceNow workflow. Their line manager approves it, and the system owner authorises any global administrator or membership of DocViewer\_Admins, DocViewer\_Auditors or DocViewer\_Security. The system owner cannot authorise their own. **Manual**
+1. The person asks for the role in the ServiceNow workflow. Their line manager approves it, and the system owner authorises any membership of \<Code\>\_Admins, \<Code\>\_Auditors or \<Code\>\_Security. The system owner cannot authorise their own. **Manual**
 2. The system owner adds the person to the AD group. **Manual**
 3. The system owner records the change in the ServiceNow request. **Manual**
 
@@ -286,7 +286,7 @@ A group's name must exactly match the project's principal, apart from upper and 
 #### PRO-AC-8 Inactive accounts
 
 1. \<Organisation\> disables unused Active Directory accounts under its corporate standard (P-AC-08).
-2. Each month, a global administrator lists, from the audit records of sign-ins, the members of each \<System Name\> group who have not signed in for 90 days, and sends each owner their list. **Manual**
+2. Each month, the auditor lists, from the audit records of sign-ins, the members of each \<System Name\> group who have not signed in for 90 days, and sends each owner their list. **Manual**
 3. The owner removes those members from the group, unless the person is on leave and still needs the access, and records the date on TPL-3. **Manual**
 
 #### PRO-AC-9 Locked account
@@ -303,15 +303,15 @@ A group's name must exactly match the project's principal, apart from upper and 
 1. \<Organisation\>'s service desk disables the person's Active Directory account, or the group's owner removes the membership, and the service desk ends the person's PingFederate sign-in. \<System Name\> has no sessions of its own to end. **Manual**
 2. Whoever asked for it records why. **Manual**
 
-#### PRO-AC-12 First administrator on a new database
+#### PRO-AC-12 First administrator on a new installation
 
-1. No first administrator account is created, because \<System Name\> holds no accounts.
+1. No first administrator account is created, because \<System Name\> holds no accounts and its database has no account or password table. The database administrator creates a SQL Server login for the API's group managed service account, using Windows authentication, so no database password is set.
 2. At build, the Windows server administrator configures \<System Name\>'s PingFederate connection, as an OpenID Connect client of \<Organisation\>'s PingFederate, and records it on TPL-6. **Manual**
-3. The system owner adds the first global administrator to the AD group. **Manual**
+3. The system owner adds the first Administrator to the \<Code\>\_Admins group in Active Directory. There is one Administrator role and no separate global administrator. **Manual**
 
 #### PRO-AC-13 Changing the system use notice
 
-The system owner approves the wording and a change request updates the first page of both apps, which is shown before the user is sent to PingFederate to sign in.
+The system owner approves the wording and a change request updates the system use notice page of the UI application and the Admin application. The page is shown after the person signs in through PingFederate, and they must accept it before going further; the acceptance is written to the audit log.
 
 #### PRO-AC-14 Policy and procedure review
 
@@ -328,9 +328,9 @@ The system owner approves the wording and a change request updates the first pag
 
 #### PRO-AC-16 Sharing and export requests
 
-1. The requester names the documents, recipient and reason. **Manual**
-2. The project access approver checks that the recipient is authorised for that information, and approves or refuses. Keep the record. **Manual**
-3. If approved, a project editor exports the documents as a download and delivers them by an approved route.
+1. The requester names the items, recipient and reason. **Manual**
+2. The schema's Data Owner checks that the recipient is authorised for that information, and approves or refuses. Keep the record. **Manual**
+3. If approved, an editor of the schema exports the items as a download and delivers them by an approved route.
 4. The editor records the date and what was sent. **Manual**
 
 #### PRO-AC-17 Non-compliance and risk decisions
@@ -425,9 +425,9 @@ These procedures define how audit records are reviewed, protected and retained. 
 
 #### PRO-AU-1 Weekly review
 
-1. The auditor opens the audit log page in the admin portal and filters by date. **Manual**
+1. The auditor opens the audit log page in the Admin application and filters by date. **Manual**
 2. They follow the audit review procedure in \<Security Operating Procedures\>, section 4.2, including its list of unusual activity.
-3. They compare changes to projects and to the AD groups each uses, and \<Organisation\>'s record of changes to the members of \<System Name\>'s groups, with the approved ServiceNow requests. **Manual**
+3. They compare changes to schemas and to the AD groups each uses, and \<Organisation\>'s record of changes to the members of \<System Name\>'s groups, with the approved ServiceNow requests. **Manual**
 4. They report findings to the security officer and system owner, and record the date, period, reviewer and result on TPL-8, Monitoring and integrity report, in \<Record Templates\>. **Manual**
 5. If risk rises, for example after an incident or new threat information, the system owner increases how often or how closely records are reviewed. **Manual**
 
@@ -459,16 +459,16 @@ These procedures define how audit records are reviewed, protected and retained. 
 
 #### PRO-AU-6 Auditor access
 
-1. Auditor access is requested through ServiceNow, approved by the line manager and authorised by the system owner (\<Access Control Management\>, section 3.13). An auditor must not hold a global administrator or other administrator role. **Manual**
-2. The system owner, who owns the AD group DocViewer\_Auditors, adds the person to it and records the change against the ServiceNow request.
+1. Auditor access is requested through ServiceNow, approved by the line manager and authorised by the system owner (\<Access Control Management\>, section 3.13). An auditor must not hold the Administrator role or any other administration role. **Manual**
+2. The system owner, who owns the AD group \<Code\>\_Auditors, adds the person to it and records the change against the ServiceNow request.
 3. Auditor access is removed when the person changes role or leaves, under \<Security Operating Procedures\>, section 4.4.
 4. The system owner confirms the list of auditors at each quarterly access review. **Manual**
 
 #### PRO-AU-7 Application log
 
-1. The application logs on the VMs are treated as audit information, because they can repeat details from audit records, under \<Policy\> (AU). Only administrators and auditors may read them. **Manual**
+1. The application logs on the VMs are treated as audit information, because they can repeat details from audit records, under \<Policy\> (AU). Only the server administrators and auditors may read them. **Manual**
 2. Application logs are kept for 30 days and then deleted. **Manual**
-3. They are not copied off the VMs, except as incident evidence under PRO-AU-2, step 3.
+3. They are forwarded to \<Organisation\>'s central logging, and are not otherwise copied off the VMs, except as incident evidence under PRO-AU-2, step 3.
 4. Each month the Windows server administrator checks who can read the logs and how old they are, and records the result on TPL-8. **Manual**
 
 ## CA Assessment, Authorization, and Monitoring
@@ -509,12 +509,12 @@ These procedures carry out \<Policy\> (CA). Steps marked **Manual** have no syst
 
 1. Each month the system owner updates \<Plan of Action and Milestones\> from assessments, monitoring and audits. **Manual**
 2. Once the development phase is scheduled, each open item gets a calendar date within the time limit for its rating in \<Policy\>, section CA.4. **Manual**
-3. An item is closed only when the fix has been tested, the evidence is recorded against the item, and the system owner agrees. Items fixed on the test stack are re-tested on the VMs before they close. **Manual**
+3. An item is closed only when the fix has been tested, the evidence is recorded against the item, and the system owner agrees. Items fixed in the test environment are re-tested on the production VMs before they close. **Manual**
 4. Each quarter the system owner reports overdue items, and the reason for each, to the authorising official. **Manual**
 
 #### PRO-CA-4 Authorising
 
-1. Before \<System Name\> holds production documents, the system owner gives the authorising official the authorisation package listed in \<Assessment, Authorization, and Monitoring Management\>, section 3.5. **Manual**
+1. Before \<System Name\> holds real data, the system owner gives the authorising official the authorisation package listed in \<Assessment, Authorization, and Monitoring Management\>, section 3.5. **Manual**
 2. The authorising official decides whether to authorise, accepts the remaining risk by name, and records the decision on TPL-18, with its terms, conditions and end date. **Manual**
 3. Every 12 months, and after a significant change, the authorising official reviews the authorisation. **Manual**
 
@@ -567,12 +567,12 @@ These procedures define how \<System Name\>'s configuration is changed and recor
 3. The system owner, security officer and Windows server administrator approve or refuse it in ServiceNow, as the change control board under its charter in \<Configuration Management\>, section 3.8.
 4. Developers or administrators make the change, and test it before release, using the test scripts where they apply. **Manual**
 5. They check that the affected controls still work, and record the result. **Manual**
-6. They update the baseline and component inventory in \<Configuration Management\>, sections 3.4 and 3.5, tag the release, record the pinned image digests and produce the bill of materials. They update \<System Security Plan\>, section 3.4, if a server changed. **Manual**
+6. They update the baseline and component inventory in \<Configuration Management\>, sections 3.4 and 3.5, tag the release, record the checksum of each package and produce the bill of materials. They update \<System Security Plan\>, section 3.4, if a server changed. **Manual**
 
 #### PRO-CM-2 Reviewing the baseline
 
 1. Every 12 months and at each release, the system owner and Windows server administrator review the baseline. **Manual**
-2. They keep the 3 previous configurations, each as its tagged code, pinned image digests, settings and bill of materials, in the configuration library (\<Configuration Management\>, section 3.13). **Manual**
+2. They keep the 3 previous configurations, each as its tagged code, package checksums, settings and bill of materials, in the configuration library (\<Configuration Management\>, section 3.13). **Manual**
 
 #### PRO-CM-3 Secure settings
 
@@ -583,7 +583,7 @@ These procedures define how \<System Name\>'s configuration is changed and recor
 
 1. The Windows server administrator keeps the approved software list and reviews it every 12 months. **Manual**
 2. A user who needs software on a VM raises a ServiceNow request, and the system owner approves or refuses it. **Manual**
-3. Before a new package, image or runtime enters the baseline, the developer records its supplier, version, licence and purpose in \<Configuration Management\>, section 3.5, and checks it on TPL-7 for known vulnerabilities. A licence that is not a standard open source licence goes to the system owner for a decision on \<Decision Register\>. **Manual**
+3. Before a new package, browser library or runtime enters the baseline, the developer records its supplier, version, licence and purpose in \<Configuration Management\>, section 3.5, and checks it on TPL-7 for known vulnerabilities. A licence that is not a standard open source licence goes to the system owner for a decision on \<Decision Register\>. **Manual**
 
 #### PRO-CM-5 Reviewing functions and ports
 
@@ -597,7 +597,7 @@ These procedures define how \<System Name\>'s configuration is changed and recor
 #### PRO-CM-7 Monitoring for drift
 
 1. Each month the Windows server administrator scans both VMs against the CIS Benchmarks with CIS-CAT or an equivalent tool, and runs Test-ConfigurationManagement.ps1.
-2. The database administrator compares the PostgreSQL settings with the baseline. **Manual**
+2. The database administrator compares the SQL Server settings with the baseline. **Manual**
 3. Any difference from \<Configuration Management\>, sections 3.4 to 3.6, is reported to the security officer on TPL-8. **Manual**
 4. The difference is put back, or raised as a change under PRO-CM-1 if it should stay. **Manual**
 
@@ -638,8 +638,8 @@ These procedures carry out \<Policy\> (CP) and \<Contingency Planning Management
 
 #### PRO-CP-1 Taking backups
 
-1. The database administrator takes a full, encrypted backup of the database every day, which includes every document page and audit record, and sends it to the second site.
-2. PostgreSQL's transaction logs are archived continuously, encrypted, to the second site.
+1. The database administrator takes a full, encrypted backup of the database every day, which includes every item, stored file and audit record, and sends it to the second site.
+2. SQL Server's transaction log is backed up between full backups, encrypted, and copied to the second site.
 3. The Windows server administrator backs up each VM's system configuration weekly, encrypted.
 4. Copies are kept as \<Contingency Planning Management\>, section 3.8: 14 daily, 8 weekly and 12 monthly, and one copy is offline or immutable.
 5. The backup encryption key and the protected copy of the secrets are held apart from the backups, and only the system owner and administrators can reach them.
@@ -651,7 +651,7 @@ These procedures carry out \<Policy\> (CP) and \<Contingency Planning Management
 
 1. Before the backup to be tested is taken, the database administrator exports the row counts of every table and the audit records' identifiers and stored hashes. **Manual**
 2. They restore that backup, and its transaction logs, to a separate server with no network access to production.
-3. They check that every table has the same row count, every document page matches its stored checksum, and the audit records and stored hashes match the export. Test-BackupRestore.ps1 makes these checks. **Manual**
+3. They check that every table has the same row count, every stored file matches its stored SHA-256 checksum, and the audit records and stored hashes match the export. Test-BackupRestore.ps1 makes these checks. **Manual**
 4. They record the time taken and the newest record restored, against the recovery time and point objectives, on TPL-11, then remove the test server. **Manual**
 5. They also run the audit chain check on the restored records. **Manual**
 
@@ -684,8 +684,8 @@ These procedures carry out \<Policy\> (CP) and \<Contingency Planning Management
 #### PRO-CP-6 Reconstitution and deactivation
 
 1. The database administrator runs the checks in PRO-CP-2, step 3, on the recovered database, and records the newest record restored. **Manual**
-2. The administrators test the functions: sign in, find and read a document, upload and remove a test document in a test project, and sign in to Admin application, checking that each writes an audit record. **Manual**
-3. The security officer confirms that the controls match the main site, including encryption in transit, accounts against current staff, and audit logging. **Manual**
+2. The administrators test the functions: sign in, find and read an item, upload and remove a test item in a test schema, and sign in to the Admin application, checking that each writes an audit record. **Manual**
+3. The security officer confirms that the controls match the main site, including encryption in transit, the members of \<System Name\>'s groups against current staff, and audit logging. **Manual**
 4. The system owner declares recovery, and tells users and the people in \<Contingency Planning Management\>, section 3.4. **Manual**
 5. The database administrator takes a full backup at once, and confirms it reached the second site.
 6. Temporary access is removed. A return from the second site to the main site is made as a planned change under \<Configuration Management\>. **Manual**
@@ -713,7 +713,7 @@ These procedures define how identifiers and authenticators are issued, changed a
 | PRO-IA-1 | Identifiers | Each new person | \<Organisation\>; the group's owner | ServiceNow request | IA-2, IA-4, IA-4(4), IA-12 |
 | PRO-IA-2 | Passwords | Each new Active Directory account and reset | \<Organisation\>'s IT service desk | \<Organisation\>'s record | IA-5 |
 | PRO-IA-3 | Suspected compromise, role change, or a lost or stolen authenticator | When it happens | The person; \<Organisation\>'s service desk; security officer | ServiceNow request; incident record if needed | IA-5, IR-6 |
-| PRO-IA-4 | Changing service secrets and the signing key | Every 12 months, and when an administrator leaves | Windows server and database administrators | TPL-6 | IA-5, IA-5(6) |
+| PRO-IA-4 | Changing service secrets and the signing key | Every 12 months, and when an administrator leaves | Windows server administrator | TPL-6 | IA-5, IA-5(6) |
 | PRO-IA-5 | Password rules | Not done in \<System Name\> | \<Organisation\> | None | IA-5(1) |
 | PRO-IA-6 | Enrolling and resetting a second factor | When the person first uses PingFederate; on loss | The person; \<Organisation\>'s service desk | \<Organisation\>'s record | IA-2(1), IA-2(2) |
 | PRO-IA-7 | Reviewing authenticators and assurance levels | Every 12 months, and after a significant change | System owner, security officer | \<Identification and Authentication Management\> change record | IA-5, IA-12 |
@@ -724,7 +724,7 @@ These procedures define how identifiers and authenticators are issued, changed a
 #### PRO-IA-1 Identifiers
 
 1. A person's Active Directory account is their identifier. \<Organisation\> issues it after its pre-employment checks have proved who the person is. \<System Name\> issues no identifiers. **Manual**
-2. The ServiceNow approval in PRO-AC-1 authorises the person's membership of a \<System Name\> group: the system owner for privileged roles, and the project access approver for project access.
+2. The ServiceNow approval in PRO-AC-1 authorises the person's membership of a \<System Name\> group: the system owner for privileged roles, and the Data Owner for schema access.
 3. Staff or contractor status is shown by \<Organisation\>'s directory.
 4. An identifier is never reused. This is \<Organisation\>'s rule, and is to be evidenced. **Manual**
 
@@ -741,9 +741,9 @@ These procedures define how identifiers and authenticators are issued, changed a
 
 #### PRO-IA-4 Changing service secrets and the signing key
 
-1. Every 12 months, and when an administrator leaves, the Windows server administrator and database administrator change the service account secrets, the database password and the signing key in \<Identification and Authentication Management\>, section 3.5.
+1. Every 12 months, and when an administrator leaves, the Windows server administrator changes the secrets in \<Identification and Authentication Management\>, section 3.5: the token signing key and the audit chain key. Each application runs under a group managed service account, whose password Windows sets and changes, and the API connects to SQL Server with Windows authentication, so there is no service account password or database password to change.
 2. They update the protected copy at the second site (\<Contingency Planning Management\>, section 3.8).
-3. They record the change on TPL-6: the date, who made it and which secret, never the value. Changing the signing key makes every user sign in again, so users are told first. **Manual**
+3. They record the change on TPL-6: the date, who made it and which secret, never the value. Changing the token signing key does not end users' sign-ins, because their cookies are protected by each application's key ring. **Manual**
 
 #### PRO-IA-5 Password rules
 
@@ -757,7 +757,7 @@ These procedures define how identifiers and authenticators are issued, changed a
 #### PRO-IA-7 Reviewing authenticators and assurance levels
 
 1. Every 12 months, and after a significant change, the system owner and security officer check that the authenticator inventory in \<Identification and Authentication Management\>, section 3.5, is complete and that each change period was met. **Manual**
-2. They confirm the assurance levels in \<Identification and Authentication Management\>, section 3.4, still fit the documents held, and take any change to the authorising official. **Manual**
+2. They confirm the assurance levels in \<Identification and Authentication Management\>, section 3.4, still fit the information held, and take any change to the authorising official. **Manual**
 3. The result is recorded in the change record of \<Identification and Authentication Management\>. **Manual**
 
 #### PRO-IA-8 Disabling unused identifiers
@@ -824,7 +824,7 @@ These procedures carry out \<Policy\> (IR) and \<Incident Response Management\>.
 #### PRO-IR-6 Preserving evidence
 
 1. Before anything is changed, the database administrator exports the audit records and records the SHA-256 hash. **Manual**
-2. The Windows server administrator copies the application, Windows and PostgreSQL logs, and records their hashes. For ransomware, the VM is isolated through \<Organisation\> but not powered off. **Manual**
+2. The Windows server administrator copies the application, Windows and SQL Server logs, and records their hashes. For ransomware, the VM is isolated through \<Organisation\> but not powered off. **Manual**
 3. They note each system's clock against a trusted time source. **Manual**
 4. Each item is listed on TPL-10 with who holds it, where, and each hand-over. **Manual**
 
@@ -854,7 +854,7 @@ These procedures carry out \<Policy\> (MA), rules R1 to R12. The lists, routes a
 | PRO-MA-4 | Runs remote maintenance over an approved route | Administrators, \<Organisation\> | Each remote job; logs weekly | TPL-12, session log | MA-4 |
 | PRO-MA-5 | Controls who may maintain \<System Name\> | System owner, Windows server administrator | Before access; list every 12 months (C28) | \<Maintenance Management\>, TPL-12 | MA-5 |
 | PRO-MA-6 | Runs preventive maintenance to a schedule | Administrators, developers, \<Organisation\> | As in Table MA-3 | TPL-12, TPL-8 | MA-2(a), MA-6 |
-| PRO-MA-7 | Controls the built-in maintenance pages and data leaving for support | Global administrator, system owner | Each use | Change record, TPL-12, TPL-13 | MA-2, MA-3, MA-3(3) |
+| PRO-MA-7 | Controls the built-in diagnostics and data leaving for support | Administrator, system owner | Each use | Change record, TPL-12, TPL-13 | MA-2, MA-3, MA-3(3) |
 
 ### MA.3 Procedures
 
@@ -864,7 +864,7 @@ These procedures carry out \<Policy\> (MA), rules R1 to R12. The lists, routes a
 2. The change is approved before work starts. Emergency maintenance follows the emergency change rule in \<Security Operating Procedures\>, section 4.5, and is recorded within 1 working day. **Manual**
 3. If users are affected, the system owner tells them at least 2 working days before planned maintenance. **Manual**
 4. The administrator watches any work done by someone who is not on the list of maintenance people (PRO-MA-5). **Manual**
-5. When the work is finished, the administrator runs the checklist in Table MA-2 and records the result on TPL-12. On a test stack, the maintenance test script runs the first three checks. **Manual**
+5. When the work is finished, the administrator runs the checklist in Table MA-2 and records the result on TPL-12. In the test environment, the maintenance test script runs the first three checks. **Manual**
 6. The security officer reviews and signs the checklist result within 1 working day. **Manual**
 7. Each month, the security officer reviews every TPL-12 against its change record (C48). Maintenance with no change record is raised as a security incident. **Manual**
 
@@ -873,10 +873,10 @@ These procedures carry out \<Policy\> (MA), rules R1 to R12. The lists, routes a
 | Check | How | Expected |
 | --- | --- | --- |
 | Services are healthy | The API health check and each application's start page (C1) | All answer |
-| Anonymous access is refused | An API call with no token, and an admin portal page | The call is refused, and the page sends the person to PingFederate to sign in |
+| Anonymous access is refused | An API call with no token, and an Admin application page | The call is refused, and the page sends the person to PingFederate to sign in |
 | Sign-in works and is audited | Sign in through PingFederate, then look at the audit log | A new sign-in record |
 | Audit records are intact | The audit chain check (\<Procedures\>, PRO-AU-2), and records without a hash | None broken; none without a hash |
-| Documents are intact | Document checksum check (\<Procedures\>, PRO-SI-6) | All match |
+| Items are intact | File checksum check (\<Procedures\>, PRO-SI-6) | All match |
 | Defender is running | Defender status on both VMs | On, and up to date |
 | Backups still run | The last backup job (C8) | Succeeded |
 | Time is right | Both VMs against UTC (C45) | Within 1 second |
@@ -893,13 +893,13 @@ These procedures carry out \<Policy\> (MA), rules R1 to R12. The lists, routes a
 1. The Windows server administrator keeps the approved tool list in \<Maintenance Management\>, section 3.5, and reviews it with the system owner every 12 months (C28). A new tool needs the system owner's approval before first use. **Manual**
 2. Tools are inspected before use for changes that are not expected: the version, publisher and file hash are compared with the list, and the result is recorded on TPL-12. **Manual**
 3. Media holding diagnostic or test programs are scanned by Defender before use.
-4. No shell or package manager carried inside a release is used on the servers **Manual**
+4. No tool outside the approved tool list is installed or used on the servers. **Manual**
 5. Equipment that holds \<System Name\> data leaves only under PRO-MA-2, or PRO-MA-7 for data sent for support. **Manual**
 
 #### PRO-MA-4 Remote maintenance
 
 1. The system owner approves remote work in the change record, naming the route from \<Maintenance Management\>, section 3.4. **Manual**
-2. The person connects only through that route, with multi-factor sign-in (EV-MA-02). The admin portal is reached only through the managed route.
+2. The person connects only through that route, with multi-factor sign-in (EV-MA-02). The Admin application is reached only through the managed administration route.
 3. A supplier's session is watched by an administrator. Each session is logged as set in \<Maintenance Management\>, section 3.4. **Manual**
 4. When the work is finished, the session and network connection are ended, and any temporary account is disabled. **Manual**
 5. The administrator records the job on TPL-12 with the session reference. The security officer reviews the session logs weekly (C3, C5). **Manual**
@@ -920,21 +920,21 @@ Flaw fixes (SI-2) and releases (CM-3) follow their own procedures. They are list
 
 | Task | Component | Who | How often | Record |
 | --- | --- | --- | --- | --- |
-| Vacuum, analyse and check indexes | PostgreSQL | Database administrator | Monthly | TPL-12 |
+| Check database integrity, update statistics and maintain indexes | SQL Server | Database administrator | Monthly | TPL-12 |
 | Check disk space and growth | Both VMs and the database | Windows server and database administrators | Monthly | TPL-8 |
-| Apply updates (SI-2) | Windows, PostgreSQL, .NET | As \<Security Operating Procedures\>, section 4.3 | Monthly, and within the fix times | TPL-7 |
+| Apply updates (SI-2) | Windows, SQL Server, .NET | As \<Security Operating Procedures\>, section 4.3 | Monthly, and within the fix times | TPL-7 |
 | Renew certificates | Both VMs | Windows server administrator | 30 days before expiry (C39) | TPL-6 |
 | Clear old application logs | Application VM | Windows server administrator | Monthly (C46) | TPL-8 |
 | Build each release on the patched .NET runtime (CM-3) | Applications | Developers | Each release, checked monthly (C11) | TPL-6 |
 | Check support end dates | Components in \<Maintenance Management\>, section 3.8 | Developers, Windows server administrator | Monthly (C11) | TPL-7 |
 | Maintain hardware and hypervisor | Hosts | \<Organisation\> | \<Organisation\>'s schedule | \<Organisation\>'s report (EV-MA-01) |
 
-#### PRO-MA-7 Built-in maintenance pages and data leaving for support
+#### PRO-MA-7 Built-in diagnostics and data leaving for support
 
-1. A built-in maintenance page (\<Maintenance Management\>, section 3.5) is used only under an approved change record that names the page and the reason. **Manual**
-2. The global administrator opens it with a second person present: the security officer or the system owner. **Manual**
-3. Before Fresh Start, Database Update or Legacy Cleanup, a backup is taken and checked (\<Procedures\>, PRO-CP-1). **Manual**
-4. The page, the action and the outcome are recorded on TPL-12. **Manual**
+1. The fixed diagnostics page in the Admin application (\<Maintenance Management\>, section 3.5), which reads no item content, is used only under an approved change record that names the reason. No other diagnostic or test page is included in a release. **Manual**
+2. An Administrator opens it with a second person present: the security officer or the system owner. **Manual**
+3. The database's structure is never changed from a page. Before a release changes it, which the database administrator applies under an approved change, a backup is taken and checked (\<Procedures\>, PRO-CP-1). **Manual**
+4. The diagnostics run, or the structure change, and the outcome are recorded on TPL-12. **Manual**
 5. Before any data, dump, log or screenshot is sent for maintenance or support, the system owner approves it. **Manual**
 6. It is cut to the minimum, with personal data removed where possible, encrypted, and sent by an approved route. **Manual**
 7. It is recorded on TPL-12 or TPL-13, and the receiver confirms deletion when it is no longer needed. **Manual**
@@ -964,8 +964,8 @@ These procedures carry out \<Policy\> (MP), rules R1 to R12. The media inventory
 
 #### PRO-MP-1 Printouts
 
-1. Anyone who prints a \<System Name\> document uses only an \<Organisation\> managed printer with secure release, and keeps the classification marking that \<System Name\> puts on each printed page. **Manual**
-2. They collect it at once, keep it locked away when not in use, and share it only with people authorised to read that project. **Manual**
+1. Anyone who prints an item from \<System Name\> uses only an \<Organisation\> managed printer with secure release, and keeps the classification marking that \<System Name\> puts on each printed page. **Manual**
+2. They collect it at once, keep it locked away when not in use, and share it only with people authorised to read that schema. **Manual**
 3. It does not leave the site without the system owner's approval (PRO-MP-2). **Manual**
 4. They cross-cut shred it to DIN 66399 level P-4 or better when it is no longer needed, and within 30 days if it holds personal data. **Manual**
 
@@ -991,8 +991,8 @@ These procedures carry out \<Policy\> (MP), rules R1 to R12. The media inventory
 
 #### PRO-MP-5 Export copies and users' copies
 
-1. Only editors in a project can create an export of it (test P01). **Built**
-2. \<System Name\> deletes each export copy after the download, and a background task removes any left past 24 hours. Each working day, the Windows server administrator checks the export folder on the application VM, deletes anything older than 24 hours, and records it on TPL-8 (C49). **Manual**
+1. Only an editor of a schema, or an Administrator, can export its items.
+2. \<System Name\> deletes each export copy after the download, and a background task removes any left past 24 hours. Each working day, the Windows server administrator checks the encrypted export working area on the application VM, deletes anything older than 24 hours, and records it on TPL-8 (C49). **Manual**
 3. Users save exports and downloads only in approved \<Organisation\> locations: \[approved locations\], on a managed device, and delete them within 30 days once no longer needed (\<Security Operating Procedures\>, A28 and A30 to A35). **Manual**
 4. Export files carry the classification marking that \<System Name\> applies, and the user who keeps them does not remove it. **Manual**
 
@@ -1039,14 +1039,14 @@ These procedures carry out \<Policy\> (PE), rules R1 to R10. The values, inherit
 
 #### PRO-PE-3 Screens and printers
 
-1. Users print \<System Name\> documents only on \<Organisation\>'s managed printers with secure release: \[managed printers\]. **Manual** (EV-PE-05)
-2. They release and collect printouts at once, and mark them RESTRICTED (\<Procedures\>, PRO-MP-1). **Manual**
-3. Users lock their screen when they leave it, place it so that others cannot read it, and keep their desk clear of printed documents. \<Organisation\>'s managed devices also lock the screen after the inactivity period in P-AC-15. **Manual**
+1. Users print items from \<System Name\> only on \<Organisation\>'s managed printers with secure release: \[managed printers\]. **Manual** (EV-PE-05)
+2. They release and collect printouts at once, and keep the classification marking that \<System Name\> prints on each page (\<Procedures\>, PRO-MP-1). **Manual**
+3. Users lock their screen when they leave it, place it so that others cannot read it, and keep their desk clear of printed documents. \<Organisation\>'s managed devices also lock the screen after the inactivity period in P-AC-15 (\<System Description\>, P-03). **Manual**
 
 #### PRO-PE-4 Working from home
 
 1. People work remotely only from home, unless the system owner has approved another place in writing, on \<Organisation\>'s managed devices and route. **Manual** (EV-PE-05)
-2. They do not print \<System Name\> documents at home unless the system owner has approved it, and they work where others in the home cannot see the screen. **Manual**
+2. They do not print items from \<System Name\> at home unless the system owner has approved it, and they work where others in the home cannot see the screen. **Manual**
 3. Anyone working from home reports any concern or incident to the security officer at once, using the contacts in \<Security Operating Procedures\>, section 6. **Manual**
 4. Every 12 months, the security officer puts a short checklist to every person who works from home (managed device, VPN, screen privacy, no printing, reporting) and records the answers on TPL-4 (C30). **Manual**
 
@@ -1128,7 +1128,7 @@ These procedures carry out \<Policy\> (PS). Steps marked **Manual** rely on peop
 | Procedure | When | Who | Time limit | Record | Controls |
 | --- | --- | --- | --- | --- | --- |
 | PRO-PS-1 Before access | Access or a role is requested | System owner, \<Organisation\> | Before access is given | TPL-2; TPL-21; personnel security register | PS-2, PS-3, PS-6 |
-| PRO-PS-2 Leavers | Someone leaves, or no longer needs \<System Name\> | \<Organisation\>, the groups' owners, global administrator, system owner | 5 working days; 1 hour for a higher-risk leaver | TPL-14 | PS-4 |
+| PRO-PS-2 Leavers | Someone leaves, or no longer needs \<System Name\> | \<Organisation\>, the groups' owners, system owner | 5 working days; 1 hour for a higher-risk leaver | TPL-14 | PS-4 |
 | PRO-PS-3 Movers | Someone changes role | Line manager, system owner, the groups' owners | 1 working day | TPL-14 | PS-5 |
 | PRO-PS-4 Reviewing designations and agreements | Every 12 months, and when a role's access changes | System owner | Within the 12 months | TPL-3; TPL-21 | PS-2, PS-6 |
 | PRO-PS-5 External people | A contract is let or renewed; then every 12 months | System owner | 1 working day for supplier notices | TPL-16 | PS-7 |
@@ -1147,11 +1147,11 @@ These procedures carry out \<Policy\> (PS). Steps marked **Manual** rely on peop
 
 #### PRO-PS-2 Leavers
 
-1. \<Organisation\> disables the person's Active Directory account at once, which ends their access to \<System Name\>. The Starters/Leavers system tells the system owner and the owners of the person's groups, who remove the memberships within 5 working days (\<Procedures\>, PRO-AC-3).
-2. For a higher-risk leaver, a dismissal or suspected misuse, anyone who knows tells the system owner and a global administrator. Within 1 hour, \<Organisation\>'s service desk disables the Active Directory account and ends the person's PingFederate sign-in, and the global administrator confirms that both are done (\<Procedures\>, PRO-AC-4). **Manual**
+1. \<Organisation\> disables the person's Active Directory account at once, which ends their access to \<System Name\>. The starters and leavers process tells the system owner and the owners of the person's groups, who remove the memberships within 5 working days (\<Procedures\>, PRO-AC-3).
+2. For a higher-risk leaver, a dismissal or suspected misuse, anyone who knows tells the system owner and \<Organisation\>'s service desk. Within 1 hour, the service desk disables the Active Directory account and ends the person's PingFederate sign-in, and the system owner confirms that both are done (\<Procedures\>, PRO-AC-4). **Manual**
 3. Disabling the Active Directory account revokes the person's password and second factor. The system owner has any service secret the person knew changed (\<Procedures\>, PRO-IA-4). **Manual**
 4. \<Organisation\> holds the exit interview, including confidentiality duties, and recovers equipment. **Manual** (EV-PS-02)
-5. The system owner confirms that the documents the person managed stay available, and completes TPL-14. **Manual**
+5. The system owner confirms that the items the person managed stay available, and completes TPL-14. **Manual**
 
 #### PRO-PS-3 Movers
 
@@ -1195,11 +1195,11 @@ These procedures carry out \<Policy\> (PT). Steps marked **Manual** have no syst
 
 | Procedure | When | Who | Record | Controls |
 | --- | --- | --- | --- | --- |
-| PRO-PT-1 Requests from individuals | A request about a person's data: to see, correct, delete, restrict, object or receive it in a portable form | Legal adviser, project access approvers, administrators | TPL-15 | AC-3(14), SI-18(4), PT-2 |
+| PRO-PT-1 Requests from individuals | A request about a person's data: to see, correct, delete, restrict, object or receive it in a portable form | Legal adviser and their delegate, auditor, editors, Administrators | TPL-15 | AC-3(14), SI-18(4), PT-2 |
 | PRO-PT-2 Complaints | A complaint about how data is handled | Legal adviser | TPL-22 | PT-2, PM-26 |
 | PRO-PT-3 Changes in processing | A change that affects personal data | System owner, legal adviser | TPL-6 change record | PT-3, SA-8(33) |
 | PRO-PT-4 Impact assessment | Before production; after a significant change; every 12 months | Legal adviser, system owner, business owner | \<Data Protection Impact Assessment\> | RA-8, PT-7 |
-| PRO-PT-5 Accuracy, retention and disposal | Every 12 months; at the end of each retention period | Business owner, project access approvers, administrators | TPL-3 review; audit record of each disposal | SI-12, SI-12(1), SI-12(3), SI-18 |
+| PRO-PT-5 Accuracy, retention and disposal | Every 12 months; at the end of each retention period | Business owner, Data Owners, Administrators | TPL-3 review; audit record of each disposal | SI-12, SI-12(1), SI-12(3), SI-18 |
 | PRO-PT-6 Training and test data | Before access and every 12 months; every test or training session | System owner, developers, trainers | TPL-9 | AT-3(5), IR-2(3), SI-12(2) |
 
 ### PT.2 Procedures
@@ -1208,8 +1208,8 @@ These procedures carry out \<Policy\> (PT). Steps marked **Manual** have no syst
 
 1. Anyone who receives a request from a person about their data passes it to the legal adviser at once. **Manual**
 2. The legal adviser logs it on TPL-15, confirms the person's identity, and sets the deadline: one month from that confirmation, extendable as the law allows, and paused while waiting for any clarification needed. **Manual**
-3. An administrator, named by the legal adviser, makes a reasonable and proportionate search of every project and the audit records, and lists what was found on TPL-15. **Manual**
-4. Corrections and deletions are made by the project access approver or an administrator, and confirmed in writing on TPL-15. **Manual**
+3. The legal adviser's delegate makes a reasonable and proportionate search of every schema with the search across schemas (\<System Description\>, FR-073), and an auditor searches the audit records. What was found is listed on TPL-15. **Manual**
+4. Corrections and deletions are made by an editor of the schema or an Administrator, on the legal adviser's instruction, and confirmed in writing on TPL-15. **Manual**
 5. For a request to restrict processing, to object, or to receive the data in a portable form, the legal adviser decides whether the right applies and how it is met. **Manual**
 6. When data is corrected, deleted or restricted, the legal adviser tells anyone it was disclosed to, unless that is impossible or would take disproportionate effort, and records it on TPL-15. **Manual**
 7. The legal adviser answers the person and closes TPL-15. **Manual**
@@ -1236,13 +1236,13 @@ These procedures carry out \<Policy\> (PT). Steps marked **Manual** have no syst
 #### PRO-PT-5 Accuracy, retention and disposal
 
 1. The business owner sets each retention period in \<PII Processing Management\>, section 3.7. **Manual**
-2. Every 12 months each project access approver checks that its personal data is accurate, relevant, timely and complete, and records the check on TPL-3. **Manual**
-3. Documents past their retention period are deleted, each deletion is audited, and the database is vacuumed afterwards.
+2. Every 12 months each Data Owner checks that their schema's personal data is accurate, relevant, timely and complete, and records the check on TPL-3. **Manual**
+3. A scheduled task lists the items past their retention period, which are deleted once the business owner approves, and each deletion is audited.
 
 #### PRO-PT-6 Training and test data
 
-1. Everyone who handles HR documents, and all administrators, complete privacy training before access and every 12 months. The module covers the purposes, the rules in SyOps A23 to A29, recognising and reporting a breach within an hour, requests and complaints. It is recorded on TPL-9. **Manual**
-2. Developers use only sample data for testing, and trainers use only sample data for training. Test-PersonalData.ps1 checks this on each test stack. **Manual**
+1. Everyone who handles items holding personal data, and all administrators, complete privacy training before access and every 12 months. The module covers the purposes, the rules in SyOps A23 to A29, recognising and reporting a breach within an hour, requests and complaints. It is recorded on TPL-9. **Manual**
+2. Developers use only invented data for testing, and trainers use only invented data for training. Real personal data is never used there. Test-PersonalData.ps1 checks this in each test environment. **Manual**
 
 ## RA Risk Assessment
 
@@ -1275,16 +1275,16 @@ These procedures carry out \<Policy\> (RA). Steps marked **Manual** have no syst
 
 #### PRO-RA-2 Reviewing the supply chain
 
-1. Every 12 months, before adding a supplier or a new kind of component, and after a significant change to the system or where it runs, the system owner and developers review packages, base images, suppliers and the VMs for origin, support, known problems and end of support. **Manual**
-2. They use \<Supply Chain Risk Management\>, section 3.4, the latest package and image check, and the CM bill of materials. **Manual**
+1. Every 12 months, before adding a supplier or a new kind of component, and after a significant change to the system or where it runs, the system owner and developers review packages, browser libraries, suppliers and the VMs for origin, support, known problems and end of support. **Manual**
+2. They use \<Supply Chain Risk Management\>, section 3.4, the latest package check, and the CM bill of materials. **Manual**
 3. They record the result on TPL-23, and any new risk in \<Risk List\>. **Manual**
 
 #### PRO-RA-3 Scanning and analysing
 
 1. The administrator updates the scanner's definitions before each scan.
 2. Monthly and at each release, the Windows server administrator runs a credentialed scan of both VMs, using an account approved for that purpose.
-3. At each release, developers run Test-Vulnerability.ps1, which checks the packages and the images' operating system packages. **Manual**
-4. At each release, developers run a web application scan of UI application, Admin application and API.
+3. At each release, developers run Test-Vulnerability.ps1, which checks the packages and browser libraries. **Manual**
+4. At each release, developers run a web application scan of the UI application, the Admin application and the API.
 5. Within 5 working days, the security officer reviews the results on TPL-7. For each finding they record its severity under \<Risk Assessment Management\>, section 3.6, whether \<System Name\> uses the affected part, and the due date. **Manual**
 6. A finding that does not apply, such as a flaw in a feature \<System Name\> does not call, is marked as a false positive on TPL-7 with the reason, and checked again at the next scan. **Manual**
 7. The people responsible fix or mitigate each finding within its time. A fix that cannot meet its time goes to a risk decision, with its compensating measure. **Manual**
@@ -1300,7 +1300,7 @@ These procedures carry out \<Policy\> (RA). Steps marked **Manual** have no syst
 
 1. After each scan the security officer shares the findings that apply with the developers and the Windows server administrator, so that the same flaw is fixed everywhere it occurs, and passes to \<Organisation\>'s security contact any that may affect its other systems (RA-5e). **Manual**
 2. \<Organisation\>'s security contact, published with terms that authorise research in good faith (EV-RA-01), passes any report about \<System Name\> to the security officer, who records it on TPL-7 and handles it as in PRO-RA-3. **Manual**
-3. A flaw found in another party's package or image is reported to its maintainer through their published route, and noted on TPL-7. **Manual**
+3. A flaw found in another party's package or browser library is reported to its maintainer through their published route, and noted on TPL-7. **Manual**
 
 #### PRO-RA-6 Reviewing critical components
 
@@ -1325,30 +1325,30 @@ These procedures carry out \<Policy\> (SA). Steps marked **Manual** have no syst
 | PRO-SA-4 Documentation | Each release | Developers, system owner | \<Administrator Guide\> and \<User Guide\> change record | SA-5 |
 | PRO-SA-5 Unsupported components | Monthly, and 6 months before support ends | Developers, authorising official | TPL-7; \<Maintenance Management\>, section 3.8 | SA-22, MA-6 |
 | PRO-SA-6 Budgeting and reviews | Every 12 months | System owner, developers, security officer | TPL-23 | SA-2, SA-15 |
-| PRO-SA-7 Adding a third-party component | Before a new package, image or script is added | Developers | TPL-6 change record | SA-4, SR-3, RA-3(1) |
+| PRO-SA-7 Adding a third-party component | Before a new package, browser library or script is added | Developers | TPL-6 change record | SA-4, SR-3, RA-3(1) |
 
 ### SA.2 Procedures
 
 #### PRO-SA-1 Developing a change
 
-1. Developers plan and design the change against the CSS practices in \<System and Services Acquisition Management\>, section 3.2, and note its security and privacy effect on TPL-6. **Manual**
+1. Developers plan and design the change under \<Organisation\>'s corporate SDLC, against the CSS practices in \<System and Services Acquisition Management\>, section 3.2, and note its security and privacy effect on TPL-6. **Manual**
 2. The security officer checks significant designs against the principles in \<Security Architecture\>, section 6.5, and developers update the critical components in \<Risk Assessment Management\>, section 3.9, at each major change. **Manual**
-3. Another developer reviews and approves the change before it merges into the default branch.
+3. Another developer reviews and approves the change before it merges through the protected branch.
 4. The change follows \<Procedures\> (CM).
 
 #### PRO-SA-2 Testing a release
 
 1. A build pipeline runs unit, integration and security tests at each release, with the package vulnerability audit on.
-2. Developers also run the test scripts in the developer test plan (\<System and Services Acquisition Management\>, section 3.9) on a separate test stack. **Manual**
+2. Developers also run the test scripts in the developer test plan (\<System and Services Acquisition Management\>, section 3.9) in the test environment, a throwaway copy of the whole system built from the tagged release with invented data. **Manual**
 3. Developers keep the results with a README and a manifest, in the evidence for the family, and raise each flaw in \<Risk List\> and \<Plan of Action and Milestones\>. **Manual**
 4. The security officer confirms that each fixed flaw passes when the test is run again. **Manual**
-5. Before go-live, and at each major release, the developers verify the web applications to OWASP ASVS 5.0 Level 2, and record the result.
+5. Before go-live, and at each major release, the developers verify the web applications to OWASP ASVS 5.0 Level 2 (\<System Description\>, P-28), and record the result.
 
 #### PRO-SA-3 Buying a product or service
 
 1. The system owner uses \<Organisation\>'s standard contract, adding security and privacy requirements, documentation, responsibilities and acceptance criteria. **Manual** (EV-SA-01)
 2. The contract or service terms state the controls, the provider's functions, ports, protocols and services, and the service levels with how they are measured and the remedies when they are missed. **Manual** (EV-SA-02, EV-SA-03)
-3. Every 12 months the system owner reviews each external service in \<System and Services Acquisition Management\>, section 3.7, including GitHub and the registries, and records the review on TPL-16. **Manual**
+3. Every 12 months the system owner reviews each external service in \<System and Services Acquisition Management\>, section 3.7, including the source repositories and the package feed, and records the review on TPL-16. **Manual**
 
 #### PRO-SA-4 Documentation
 
@@ -1369,8 +1369,8 @@ These procedures carry out \<Policy\> (SA). Steps marked **Manual** have no syst
 
 #### PRO-SA-7 Adding a third-party component
 
-1. Before adding a package, base image or script, a developer checks its origin, licence, maintainer activity, support period and known vulnerabilities. **Manual**
-2. The developer records the check on TPL-6, and pins the version (or digest for an image). **Manual**
+1. Before adding a package, browser library or script, a developer checks its origin, licence, maintainer activity, support period and known vulnerabilities. **Manual**
+2. The developer records the check on TPL-6, and pins the version in the lock file. **Manual**
 3. The component is added to \<System Security Plan\>, section 3.4, and to the bill of materials. **Manual**
 
 ## SC System and Communications Protection
@@ -1400,7 +1400,7 @@ These procedures carry out \<Policy\> (SC). The values, cryptographic register a
 
 1. The Windows server administrator installs the certificates (PRO-SC-2) and configures the apps to serve HTTPS only, with TLS 1.3 preferred, TLS 1.2 limited to NCSC's GCM profiles, and SSL, TLS 1.0, TLS 1.1, compression and 0-RTT off (\<System and Communications Protection Management\>, section 3.3).
 2. Developers make sure each app redirects HTTP, sends HSTS for at least 1 year, marks every cookie Secure, and calls API on the loopback address over HTTPS.
-3. The database administrator turns on TLS in PostgreSQL, changes every client rule so that it requires TLS, and sets the minimum to TLS 1.2. API connects with full certificate and host name checking.
+3. The database administrator sets SQL Server to strict encryption, with TLS 1.2 or later on TCP 1433, and to accept connections only from the application server. The API connects with Windows authentication, with full certificate and server name checking.
 4. Developers run Test-Protection.ps1 against the VMs, and an outside TLS check against the web address, and file the results on TPL-8. **Manual**
 
 #### PRO-SC-2 Managing certificates
@@ -1412,7 +1412,7 @@ These procedures carry out \<Policy\> (SC). The values, cryptographic register a
 #### PRO-SC-3 Changing keys
 
 1. The register lists each key's cryptoperiod. When one is due, when a holder leaves, or when compromise is suspected, the owner changes the key and records the date, never the value, on TPL-6. **Manual**
-2. The token signing key and service secrets are moved out of source into the protected store first.
+2. The token signing key and the audit chain key are held only in the key store, never in source code or settings files.
 3. Each app keeps its data protection key ring in its own folder, readable only by its service account and protected with Windows DPAPI at machine level. The folder is included in the server backup. Old keys are kept until every cookie they protected has expired.
 
 #### PRO-SC-4 Changing the boundary
@@ -1471,7 +1471,7 @@ These procedures carry out \<Policy\> (SI). The values, detection use cases and 
 
 1. Each month and at each release, developers run Test-Vulnerability.ps1, and the Windows server administrator reviews the Windows Update report from both VMs. **Manual**
 2. The security officer records each flaw, its severity and its clock start on TPL-7. **Manual**
-3. The person responsible tests the update on a separate stack for its effect and side effects. **Manual**
+3. The person responsible tests the update in the test environment for its effect and side effects. **Manual**
 4. They install it through the change process in \<Procedures\> (CM), within the timetable in \<Risk Assessment Management\>, section 3.6. **Manual**
 
 #### PRO-SI-2 Handling malicious code
@@ -1483,7 +1483,7 @@ These procedures carry out \<Policy\> (SI). The values, detection use cases and 
 
 #### PRO-SI-3 Reviewing monitoring
 
-1. Each week the security officer reviews the forwarded application, Windows and PostgreSQL logs, and the alerts raised, against the detection use cases in \<System and Information Integrity Management\>, section 3.4.
+1. Each week the security officer reviews the forwarded application, Windows and SQL Server logs, and the alerts raised, against the detection use cases in \<System and Information Integrity Management\>, section 3.4.
 2. They record what was reviewed and anything found on TPL-8. **Manual**
 3. The system owner raises monitoring when risk rises, and takes the legal adviser's opinion before monitoring users in a new way. **Manual**
 
@@ -1495,25 +1495,25 @@ These procedures carry out \<Policy\> (SI). The values, detection use cases and 
 
 #### PRO-SI-5 Acting on advisories
 
-1. The security officer receives advisories from NCSC (including Early Warning), Microsoft, .NET and GitHub, and PostgreSQL, and checks CISA's Known Exploited Vulnerabilities catalogue weekly (SyOps C50). **Manual**
+1. The security officer receives advisories from NCSC (including Early Warning), CISA, Microsoft for Windows Server, SQL Server and .NET, and the vendors of every other component, and checks CISA's Known Exploited Vulnerabilities catalogue weekly (SyOps C50). **Manual**
 2. For each one that applies, they write an internal advisory note on TPL-7 and pass it to the administrators and developers. **Manual**
 3. The fix follows PRO-SI-1. **Manual**
 
 #### PRO-SI-6 Checking integrity
 
 1. At start-up, at each release and monthly, the Windows server administrator checks release packages against the baseline in \<System and Information Integrity Management\>, section 3.5.
-2. The security officer runs the audit chain check and the document checksum check at the same times.
+2. The security officer runs the audit chain check and the file checksum check at the same times.
 3. An unexpected change is handled as an incident, and the item is restored from a trusted copy. **Manual**
 
 #### PRO-SI-7 Managing information
 
-1. The system owner applies \<System Name\>'s retention schedule (\<PII Processing Management\>, section 3.7) to documents and outputs.
+1. The system owner applies \<System Name\>'s retention schedule (\<PII Processing Management\>, section 3.7) to items and outputs.
 2. The database administrator keeps audit records for 12 months online and 12 months archived, and application logs for 30 days.
 3. Disposal is recorded on TPL-13 and in the audit trail. **Manual**
 
 #### PRO-SI-8 Testing integrity controls
 
-1. Developers run Test-Integrity.ps1 on a separate test stack at each release, after a significant change and at each review, and file the result on TPL-8. **Manual**
+1. Developers run Test-Integrity.ps1 in the test environment at each release, after a significant change and at each review, and file the result on TPL-8. **Manual**
 2. Any new gap goes to \<Risk List\> and \<Plan of Action and Milestones\>. **Manual**
 
 ## SR Supply Chain Risk Management
@@ -1528,7 +1528,7 @@ These procedures carry out \<Policy\> (SR). Steps marked **Manual** rely on peop
 
 | Procedure | When | Who | Record | Controls |
 | --- | --- | --- | --- | --- |
-| PRO-SR-1 Bringing in a component | Before a package, image or browser file is added or updated | Developers | TPL-6 change record | SR-3, SR-5, SR-11 |
+| PRO-SR-1 Bringing in a component | Before a package or browser library is added or updated | Developers | TPL-6 change record | SR-3, SR-5, SR-11 |
 | PRO-SR-2 Reviewing suppliers and the plan | Every 12 months, and before a new critical supplier is used | System owner, supply chain team | TPL-16 supplier review | SR-2, SR-2(1), SR-6 |
 | PRO-SR-3 Inspecting a release | At each release, and when tampering is suspected | Developers, security officer | Test-SupplyChain.ps1 results; TPL-6 | SR-10, SR-3 |
 | PRO-SR-4 Authenticity and counterfeits | When a component is suspected | Anyone; security officer | TPL-10 incident record | SR-11, SR-11(1), SR-11(2) |
@@ -1540,9 +1540,9 @@ These procedures carry out \<Policy\> (SR). Steps marked **Manual** rely on peop
 #### PRO-SR-1 Bringing in a component
 
 1. A developer checks the component's origin, publisher, licence, maintainer activity, support period and known vulnerabilities, as \<Procedures\>, PRO-SA-7 requires, and checks the package ID against look-alikes. **Manual**
-2. The developer adds the package and everything it pulls in to the offline feed, which records its SHA-256 value, and restores only from the feed.
-3. The developer updates the project's lock file, and confirms the restore passes the signed-package trust policy and NuGet's audit.
-4. An image is pinned by digest, and a browser file is served by \<System Name\> or carries an integrity check.
+2. The developer adds the package and everything it pulls in to the in-house checked package feed, which records its SHA-256 value, and restores only from the feed.
+3. The developer updates the lock file, and confirms the restore passes the signed-package trust policy and NuGet's audit.
+4. A browser library is packaged with \<System Name\> and served by it, never from a content delivery service or other outside host.
 5. The developer records the change on TPL-6, and the system owner adds any new supplier to the register in \<Supply Chain Risk Management\>, section 3.5. **Manual**
 
 #### PRO-SR-2 Reviewing suppliers and the plan
@@ -1555,14 +1555,14 @@ These procedures carry out \<Policy\> (SR). Steps marked **Manual** rely on peop
 #### PRO-SR-3 Inspecting a release
 
 1. A developer produces the release's bill of materials, with each component's version, supplier, hash and licence.
-2. A developer runs Test-SupplyChain.ps1, which checks the package sources, lock files, trust policy, feed index, image pinning, bill of materials and CDN files, and compares the release images and assemblies with the recorded SHA-256 baseline (\<System and Information Integrity Management\>, section 3.5). **Manual**
+2. A developer runs Test-SupplyChain.ps1, which checks the package sources, lock files, trust policy, feed index and bill of materials, confirms that no page loads a script or style from an outside host, and compares the release packages and assemblies with the recorded SHA-256 baseline (\<System and Information Integrity Management\>, section 3.5). **Manual**
 3. Before installation, the Windows server administrator checks the release's SHA-256 values against the release record.
 4. The security officer reviews any mismatch as a suspected incident under \<Procedures\> (IR). **Manual**
 
 #### PRO-SR-4 Authenticity and counterfeits
 
 1. Anyone who suspects a counterfeit or look-alike component, hardware or software, stops using it and tells the security officer. **Manual**
-2. The security officer records it on TPL-10, tells \<Organisation\>, and for software reports it to the package registry (NuGet or GitHub) and, if serious, to the NCSC. **Manual**
+2. The security officer records it on TPL-10, tells \<Organisation\>, and for software reports it to the package's publisher or registry, such as NuGet, and, if serious, to the NCSC. **Manual**
 3. \<Organisation\> inspects hardware, trains its buyers yearly, and keeps control of equipment sent for repair. **Manual** (EV-SR-02)
 
 #### PRO-SR-5 Notices and advisories

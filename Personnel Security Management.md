@@ -43,20 +43,19 @@ Every role in \<Roles and Responsibilities\> has a designation. A role is higher
 | Head of Cyber | Standard | Approves policies; no \<System Name\> account is needed |
 | Legal adviser | Standard | Advises and reviews; no privileged access |
 | Data protection officer | Standard | Advises; no privileged access |
-| Business and information owner | Standard | Owns the information; a user in their own projects |
+| Business and information owner | Standard | Owns the information; a user in their own schemas |
 | Authorising official | Standard | Decides risk; no \<System Name\> account is needed |
 | Security assessor | Higher risk | Sees the whole document set and its evidence, which describe every weakness |
 | \<Organisation\> security contact | Standard | Provides evidence; no \<System Name\> account is needed |
-| Global administrator | Higher risk | Manages every project and the AD groups each uses |
-| Administrator | Higher risk | Changes system settings |
+| Administrator | Higher risk | Manages schemas, which Active Directory groups open each schema, and system settings, and can reach every schema. This is the one administrator role |
 | Auditor | Higher risk | Reads every audit record |
 | Security officer | Higher risk | Sees logs, alerts and incident records |
-| Project access approver | Standard | Decides who may see a project, but cannot grant access alone |
-| Windows server administrator | Higher risk | Full control of both VMs |
-| Database administrator | Higher risk | Full control of the database that holds every document |
-| Developers | Higher risk | Change the code that handles HR documents |
-| Document reader | Standard | Reads documents in their own projects |
-| Project editor | Standard | Uploads and exports within their own projects |
+| Data Owner | Standard | Owns a schema's data and its read and edit groups, and authorises who may read or edit it in ServiceNow; nobody approves their own access |
+| Windows server administrator | Higher risk | Full control of both servers |
+| Database administrator | Higher risk | Full control of the database that holds every item |
+| Developers | Higher risk | Change the code that handles every item, including personal data; hold no administrator access on the servers |
+| Reader | Standard | Searches and reads items in their own schemas |
+| Editor | Standard | Creates, uploads, manages and exports items within their own schemas |
 | Line manager | Standard | Requests access for others; no access of their own is implied |
 
 A higher risk role adds three things: screening is confirmed again before the role is granted and every 5 years; role training is completed first (\<Awareness and Training Management\>, section 3.5); and access is ended within 1 hour when the holder leaves.
@@ -89,13 +88,13 @@ Two agreements are signed before access, and again every 12 months and after a m
 1. **\<Organisation\>'s confidentiality agreement,** signed on employment or engagement.
 2. **The rules of behaviour,** \<Security Operating Procedures\>: Part A for everyone, and Part B, the privileged rules, for administrators as well. Each person signs a declaration on TPL-21 that they have read and understood the rules and agree to follow them, and the signature is recorded in the register of signatures (\<Planning Management\>, section 3.5).
 
-Each person signs both before being added to any \<System Name\> group. The access request checks the register of signatures, and is not approved without a signature in it. The system owner reviews and updates the agreements every 12 months.
+Each person signs both before being added to any \<System Name\> group. The ServiceNow access request checks the register of signatures, and is not approved without a signature in it. The system owner reviews and updates the agreements every 12 months.
 
 ### 3.5 Joiners, movers and leavers
 
 Controls met here: PS-3, PS-4, PS-5, PS-6.
 
-\<System Name\> holds no accounts. A person signs in through PingFederate with their Active Directory account, and their access is their membership of \<System Name\>'s AD groups (\<Access Control Management\>). So joining means being added to a group, and leaving means \<Organisation\> disabling the Active Directory account.
+\<System Name\> holds no accounts. A person signs in through PingFederate with their Active Directory account, and the API reads their membership of \<System Name\>'s Active Directory groups directly from Active Directory over LDAPS; that membership is their access (\<Access Control Management\>). So joining means being added to a group, and leaving means \<Organisation\> disabling the Active Directory account.
 
 ![Figure 1: From joining to leaving](figures/psm-figure-1.png)
 
@@ -105,12 +104,12 @@ Controls met here: PS-3, PS-4, PS-5, PS-6.
 
 | Event | What happens | Who | Within | Record |
 | --- | --- | --- | --- | --- |
-| Joiner | The role's designation is looked up; \<Organisation\> confirms the screening; the person completes training and signs the agreements; only then do the group owners add them to the groups the role needs | System owner; \<Organisation\>; the group owners | Before access | TPL-2; TPL-21; the register |
+| Joiner | The role's designation is looked up; \<Organisation\> confirms the screening; the person completes training and signs the agreements; the access request is authorised in ServiceNow, by the Data Owner for a schema's groups and by the system owner for a role group; only then do the group owners add them to the groups the role needs | System owner; \<Organisation\>; the Data Owner; the group owners | Before access | TPL-2; TPL-21; the register |
 | Mover | The line manager tells the system owner and the owners of the person's groups. Each owner confirms whether the person still needs the group, and removes or adds memberships. A higher risk role needs screening confirmed again first | Line manager; system owner; the group owners | 1 working day | TPL-14 |
-| Leaver | \<Organisation\> disables the Active Directory account at once, and ends the person's PingFederate sign-in, which ends access. Its Starters/Leavers system tells the group owners, who remove the memberships. Any service secret the person knew is changed, and exported files and printouts are recovered or destroyed. Separately, anyone who has not signed in for 90 days is removed from \<System Name\>'s groups each month (\<Access Control Management\>, section 3.14) | \<Organisation\>; the group owners; system owner | At once, and memberships within 5 working days | TPL-14 |
+| Leaver | \<Organisation\> disables the Active Directory account at once, and ends the person's PingFederate sign-in, which ends access. Its starters and leavers process gives notice of the leaver to the group owners, through ServiceNow, and they remove the memberships. Any service secret the person knew is changed, and exported files and printouts are recovered or destroyed. Separately, anyone who has not signed in for 90 days is removed from \<System Name\>'s groups each month (\<Access Control Management\>, section 3.14) | \<Organisation\>; the group owners; system owner | At once, and memberships within 5 working days (\<System Description\>, P-06) | TPL-14 |
 | Higher-risk leaver, dismissal or suspected misuse | \<Organisation\>'s service desk disables the Active Directory account and ends the person's PingFederate sign-in, so \<System Name\> refuses the person at the next group lookup (P-AC-13) | \<Organisation\>'s service desk | 1 hour of notice | TPL-14; TPL-10 if it is an incident |
 
-**Leavers.** Disabling the Active Directory account revokes the person's password and second factor. Any service secret the person knew is changed (\<Procedures\>, PRO-IA-4). \<Organisation\> holds an exit interview, which covers the person's continuing confidentiality duties and the return of equipment, and recovers their laptop, phone, pass and any other equipment. Exported files and printouts are recovered or destroyed (\<Security Operating Procedures\>, section 4.4). Documents belong to projects, not to people, so a leaver's documents stay with the project and its members. The system owner confirms this on TPL-14.
+**Leavers.** Disabling the Active Directory account revokes the person's password and second factor. Any service secret the person knew is changed (\<Procedures\>, PRO-IA-4). \<Organisation\> holds an exit interview, which covers the person's continuing confidentiality duties and the return of equipment, and recovers their laptop, phone, pass and any other equipment. Exported files and printouts are recovered or destroyed (\<Security Operating Procedures\>, section 4.4). Items belong to schemas, not to people, so the items a leaver created stay with the schema and its members. The system owner confirms this on TPL-14.
 
 **Movers.** Each group owner removes the memberships the person no longer needs, and adds any the new role needs through an access request. A change to a person's groups takes effect at their next sign-in, and a removed membership is refused at the next group lookup (\<Access Control Management\>, sections 3.14 and 3.15). No \<System Name\> role gives physical access to the servers (\<Physical and Environmental Protection Management\>, section 3.2), so a move changes logical access only.
 
@@ -123,7 +122,7 @@ Controls met here: PS-2, PS-3, PS-4, PS-5, PS-6, PS-7, PS-8.
 | Event | Limit | Who acts | Record |
 | --- | --- | --- | --- |
 | Screening confirmed and agreements signed | Before the person is added to any \<System Name\> group | System owner | TPL-2; TPL-21 |
-| Leaver | \<Organisation\> disables the Active Directory account at once, which ends access; group memberships removed within 5 working days | \<Organisation\>; the owners of the person's groups | TPL-14 |
+| Leaver | \<Organisation\> disables the Active Directory account at once, which ends access; group memberships removed within 5 working days (\<System Description\>, P-06) | \<Organisation\>; the owners of the person's groups | TPL-14 |
 | Higher-risk leaver, dismissal or suspected misuse | Active Directory account disabled, and PingFederate sign-in ended, within 1 hour of notice | \<Organisation\>'s service desk | TPL-14; TPL-10 if it is an incident |
 | Mover | Access reviewed, and the system owner told, within 1 working day | Line manager, system owner, the owners of the person's groups | TPL-14 |
 | Supplier's leaver or mover | Supplier tells the system owner within 1 working day | Supplier | TPL-14 |
@@ -197,8 +196,8 @@ CSS does not select these at Moderate, so they are not assessed. Some of the des
 | Control | What it adds | \<System Name\>'s position |
 | --- | --- | --- |
 | PS-3(1), PS-3(2), PS-6(2) Classified Information; Formal Indoctrination; Classified Information Requiring Special Protection | Clearance, briefing and agreements for access to classified information | Not required. \<System Name\> holds no classified information |
-| PS-3(3) Information Requiring Special Protective Measures | Extra screening for access to information that needs special protection | Not required. HR documents, which hold special category data, are protected by limiting each project to the people approved for it, not by further screening |
+| PS-3(3) Information Requiring Special Protective Measures | Extra screening for access to information that needs special protection | Not required. Items that hold special category data are protected by limiting each schema to the people its Data Owner authorises, not by further screening |
 | PS-3(4) Citizenship Requirements | Citizenship checks for defined roles | Not required. The right to work check covers lawful employment in the United Kingdom |
 | PS-4(1), PS-6(3) Post-employment Requirements | People are told of, and bound by, duties that continue after they leave | Not required. Done in part: the exit interview covers continuing confidentiality duties. Whether \<Organisation\>'s confidentiality agreement continues after employment is asked with EV-PS-02 |
-| PS-4(2) Automated Actions | Automated notice of a leaver, and automated disabling of access | In the High baseline only. Done in design: disabling the Active Directory account ends access to \<System Name\> at once, and \<Organisation\>'s Starters/Leavers system prompts the group owners |
+| PS-4(2) Automated Actions | Automated notice of a leaver, and automated disabling of access | In the High baseline only. Done in design: disabling the Active Directory account ends access to \<System Name\> at once, and \<Organisation\>'s starters and leavers process prompts the group owners through ServiceNow |
 | PS-6(1) | Withdrawn by CSS: moved into PS-3 | Not applicable |

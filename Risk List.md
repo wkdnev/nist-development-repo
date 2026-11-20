@@ -34,7 +34,7 @@ This method follows the risk response in CSS (tasks R-2 and R-3). The risk model
 
 ### 4.1 Rating
 
-Likelihood and impact are each rated Low, Medium or High. Impact considers the confidentiality, integrity and availability of the documents \<System Name\> holds, and the effect on \<Organisation\>.
+Likelihood and impact are each rated Low, Medium or High. Impact considers the confidentiality, integrity and availability of the items \<System Name\> holds, and the effect on \<Organisation\>.
 
 **Table 3: Risk rating**
 
@@ -44,7 +44,7 @@ Likelihood and impact are each rated Low, Medium or High. Impact considers the c
 | Medium | Low | Medium | High |
 | High | Low | Medium | High |
 
-The matrix weights impact more than likelihood on purpose. A High impact can never rate below Medium, and a Low impact never above Low, because \<System Name\>'s harm is driven by what it holds: one disclosure of HR documents matters more than how often an attempt is made. CSS allows the organisation to set this (Appendix I).
+The matrix weights impact more than likelihood on purpose. A High impact can never rate below Medium, and a Low impact never above Low, because \<System Name\>'s harm is driven by what it holds: one disclosure of items holding personal or special category data matters more than how often an attempt is made. CSS allows the organisation to set this (Appendix I).
 
 **Table 3a: Likelihood scale**
 
@@ -58,9 +58,9 @@ The matrix weights impact more than likelihood on purpose. A High impact can nev
 
 | Level | Meaning |
 | --- | --- |
-| High | Severe or serious adverse effect (CSS): disclosure or loss of many documents or of special category data, or \<Organisation\> breaching the law |
-| Medium | Serious adverse effect on part of the service: some documents disclosed or changed, or a loss of service beyond the 72-hour recovery time |
-| Low | Limited adverse effect: no documents disclosed, and a short loss of service within the recovery time |
+| High | Severe or serious adverse effect (CSS): disclosure or loss of many items or of special category data, or \<Organisation\> breaching the law |
+| Medium | Serious adverse effect on part of the service: some items disclosed or changed, or a loss of service beyond the 72-hour recovery time objective (P-12) |
+| Low | Limited adverse effect: no items disclosed, and a short loss of service within the recovery time |
 
 **Table 3c: Threat sources considered**
 
@@ -68,7 +68,7 @@ The matrix weights impact more than likelihood on purpose. A High impact can nev
 | --- | --- |
 | Adversarial | An outsider exploiting a known flaw; an insider reading another schema's items; a supplier's compromised package |
 | Accidental | An administrator deleting or misconfiguring; a user sending an export to the wrong person |
-| Structural | A disk, VM or database failure; a software flaw; loss of the key or backup |
+| Structural | A disk, VM or SQL Server failure; PingFederate or Active Directory unavailable, so nobody can sign in; a software flaw; loss of the key or backup |
 | Environmental | Loss of power, cooling or the site, provided by \<Organisation\> |
 
 **Assumptions and uncertainty.**
@@ -106,7 +106,7 @@ These thresholds are \<System Name\>'s own, and sit within \<Organisation\>'s ri
 | --- | --- | --- |
 | Accept | The risk is understood and tolerated, and the non-compliance remains | Section 3 of this document, and the control's line in \<System Security Plan\>, section 7 |
 | Remediate | The non-compliance is to be fixed, on a plan and not immediately | \<Plan of Action and Milestones\>, with milestones |
-| Approve | The mechanism exists or no mechanism is needed, and only a decision or value is outstanding | \<Organisation\>'s corporate parameter values |
+| Approve | The mechanism exists or no mechanism is needed, and only a decision or value is outstanding | \<System Description\>, section 4, and \<Decision Register\> |
 | Evidence | The control is expected to be inherited, and \<Organisation\> must supply the evidence | \<Evidence Requests\> and the control's line in \<System Security Plan\>, section 7, then rated when the evidence is seen |
 | Tailor | The control or part is proposed as not applicable, with a rationale | \<System Security Plan\>, section 5 |
 

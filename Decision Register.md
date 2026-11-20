@@ -6,6 +6,8 @@ This register records the approvals and decisions for the set. Each row states w
 
 After a decision, the document it affects is updated to match: \<Access Control Management\> for values, \<Risk List\> for risk treatments and \<Tailoring Register\> for tailoring.
 
+A departure from the reference design (\<System Description\>, section 3.6) is decided by the system owner and recorded here as a D-GEN entry; a departure from a Secure by Design principle (\<System Description\>, section 8) is decided by the authorising official.
+
 Decisions are numbered D-XX-nn, parameter approvals D-XX-Pnn and non-compliance entries NC-XX-nn, where XX is the family code. Cross-family decisions use GEN as the code.
 
 **Table 1: Family coverage**
@@ -53,7 +55,7 @@ Decisions are numbered D-XX-nn, parameter approvals D-XX-Pnn and non-compliance 
 
 ### 3.2 Parameters
 
-The values are set at corporate level by \<Organisation\>. Each row records the approval of one control's parameters, with the main values proposed.
+The reference values are the parameters in \<System Description\>, section 4, and the settings in \<Access Control Management\>, which match \<Organisation\>'s corporate values. Each row records the approval of one control's parameters, with the main values proposed.
 
 **Table 4: AC parameter approvals**
 

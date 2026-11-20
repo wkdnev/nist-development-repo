@@ -14,7 +14,7 @@ Values that CSS asks the organisation to define are set at corporate level by \<
 
 Copies go to the people in section 3.4 and the authorising official. \<Organisation\>'s IT service desk receives sections 3.5, 3.6 and 3.9 and appendix A, which it needs to act (CP-02\_ODP\[04\]). The same people are told of every change, with a note of what changed (CP-2f).
 
-The document is Restricted. It is kept in the restricted document store with the other records, where only the people above can read it and only the system owner can change it (CP-2h). The system owner and security officer each keep a current offline copy, so that the plan can be used when \<System Name\> and the document store are down. The offline copy is section 3 with appendices A and B, which together are the whole plan. There is no separate plan document.
+The document is marked \<Classification\>. It is kept in the restricted document store with the other records, where only the people above can read it and only the system owner can change it (CP-2h). The system owner and security officer each keep a current offline copy, so that the plan can be used when \<System Name\> and the document store are down. The offline copy is section 3 with appendices A and B, which together are the whole plan. There is no separate plan document.
 
 ## 2 Summary
 
@@ -45,7 +45,7 @@ The plan recovers \<System Name\> in three phases: activation and notification, 
 
 **Figure 1: The three phases of recovery**
 
-**Scope:** UI application, Admin application, API, the PostgreSQL database that holds every document page and audit record, the secrets they need, and the two Windows Server 2025 VMs at \<Organisation\>. \<Organisation\>'s own sites, network and services, including PingFederate and Active Directory, are covered by its plans (appendix B).
+**Scope:** the UI application, the Admin application, the API, the Microsoft SQL Server 2022 database that holds every item, file, schema definition and audit record, the secrets they need, and the two Windows Server 2025 VMs at \<Organisation\>. \<Organisation\>'s own sites, network and services, including PingFederate and Active Directory, are covered by its plans (appendix B).
 
 **Assumptions:**
 
@@ -59,7 +59,7 @@ The plan recovers \<System Name\> in three phases: activation and notification, 
 
 Controls met here: CP-2, CP-2(3), CP-2(8).
 
-This analysis follows CSS, Appendix B. \<System Name\>'s availability is rated Low: an outage delays work, but no service to the public stops. Losing documents or audit records cannot be tolerated.
+This analysis follows CSS, Appendix B. \<System Name\>'s availability is rated Low: an outage delays work, but no service to the public stops. Losing items or audit records cannot be tolerated.
 
 #### 3.3.1 Impact over time
 
@@ -69,9 +69,9 @@ Controls met here: CP-2.
 
 | Function | 24 hours | 72 hours | 1 week | 2 weeks |
 | --- | --- | --- | --- | --- |
-| Sign in, find and read documents (essential) | Staff wait or use paper copies where they exist | HR and finance requests are delayed | Requests with legal deadlines, such as subject access, are at risk | Deadlines are missed |
-| Upload and index documents | New documents queue | Backlog grows | Backlog takes days to clear | Records are incomplete |
-| Administration: projects and the groups each uses | None while \<System Name\> is down | None while \<System Name\> is down | Starters wait for access | Starters wait for access |
+| Sign in, find and read items (essential) | Staff wait or use paper copies where they exist | The business processes it supports are delayed | Requests with legal deadlines, such as subject access, are at risk | Deadlines are missed |
+| Upload and manage items | New items queue | Backlog grows | Backlog takes days to clear | Records are incomplete |
+| Administration: schemas and the groups that open each | None while \<System Name\> is down | None while \<System Name\> is down | Starters wait for access | Starters wait for access |
 | Reports and bulk export | None | None | Planned reports are late | Planned reports are late |
 
 While \<System Name\> is down nobody can use it, so an outage does not leave leavers with access. The members of \<System Name\>'s AD groups are checked against current staff before users return (section 3.7).
@@ -84,8 +84,8 @@ Controls met here: CP-2, CP-2(3), CP-10.
 
 | Function | Maximum tolerable downtime | Recovery time objective | Recovery point objective | Priority |
 | --- | --- | --- | --- | --- |
-| Sign in, find and read documents | 120 hours | 72 hours | 24 hours from the daily backup; minutes with the archived transaction logs | 1 |
-| Upload and index documents | 14 days | 7 days | As above | 2 |
+| Sign in, find and read items | 120 hours (P-14) | 72 hours (P-12) | 24 hours (P-13) from the daily backup; less with the archived transaction logs | 1 |
+| Upload and manage items | 14 days | 7 days | As above | 2 |
 | Administration | 14 days | 7 days | As above | 2 |
 | Reports and bulk export | 14 days | 7 days | Not applicable: produced from the database | 3 |
 
@@ -100,10 +100,10 @@ Controls met here: CP-2, CP-2(8).
 | Order | Component | Needed for | Depends on | Recovered from |
 | --- | --- | --- | --- | --- |
 | 1 | \<Organisation\>'s network, PingFederate sign-in, directory, name resolution, time and certificates | Everything | \<Organisation\> | \<Organisation\>'s plans (appendix B) |
-| 2 | Database VM and PostgreSQL 18 | Every function | 1 | \<Configuration Management\> baseline, then the latest good backup and transaction logs |
-| 3 | Secrets: the database password and the token signing key | Starting API | 1 | The protected copy at the second site (section 3.8) |
+| 2 | Database VM and SQL Server 2022 | Every function | 1 | \<Configuration Management\> baseline, then the latest good backup and transaction logs |
+| 3 | Secrets: the token signing key and the audit chain key. There is no database password: the API connects with Windows authentication | Starting the API | 1 | The protected copy at the second site (section 3.8) |
 | 4 | Application VM: API | Every function | 2, 3 | The tagged release and \<Configuration Management\> |
-| 5 | UI application | Finding and reading documents | 4 | The tagged release |
+| 5 | UI application | Finding and reading items | 4 | The tagged release |
 | 6 | Admin application | Administration | 4 | The tagged release |
 
 \<System Name\> cannot be used while PingFederate is unavailable, because nobody can sign in. \<Organisation\>'s recovery time for PingFederate and Active Directory therefore sets a floor under \<System Name\>'s own. It is asked for with EV-CP-01. If it is longer than 72 hours, the system owner takes the recovery objectives back to the authorising official.
@@ -116,12 +116,12 @@ Controls met here: CP-2(8).
 
 | Asset | Why it is essential | Recovery |
 | --- | --- | --- |
-| The database | Holds every document page, project, group mapping and audit record | Rebuild the VM, then restore the latest good backup and transaction logs |
-| The application VM | Runs API, UI application and Admin application | Rebuild from the tagged release and \<Configuration Management\> |
+| The database | Holds every item, file, schema definition, the read and edit group of each schema, and every audit record | Rebuild the VM, then restore the latest good backup and transaction logs |
+| The application VM | Runs the API, the UI application and the Admin application | Rebuild from the tagged release and \<Configuration Management\> |
 | Backups and transaction logs | The only way back after a loss | Held encrypted at the second site, with one offline or immutable copy |
-| Secrets | Without them API cannot start or reach the database | A protected copy held apart from the backups |
+| Secrets | Without them the API cannot start, accept calls from the other two applications or chain audit records | A protected copy held apart from the backups |
 
-The ASP.NET Data Protection keys are not essential. They protect sign-in cookies and forms only: if they are lost, users simply sign in again. They are not restored.
+The applications' key rings are not essential. They protect the authentication cookie and anti-forgery tokens only: if they are lost, users simply sign in again through PingFederate. They are not restored.
 
 ### 3.4 Roles
 
@@ -186,7 +186,7 @@ Recovery follows PRO-CP-3 in the order of recovery in section 3.3.3, at the seco
 2. Rebuild the database VM to the baseline in \<Configuration Management\>, sections 3.4 and 3.6.
 3. Restore the latest good backup, then apply the archived transaction logs up to the last consistent point (CP-10(2)). If a backup fails its checks, use the one before it.
 4. Restore the secrets from their protected copy. Change them if a compromise is suspected.
-5. Rebuild the application VM from the tagged release, with each application under its own service account, and start API, then UI application, then Admin application.
+5. Rebuild the application VM from the tagged release, with each application as a Windows service under its own group managed service account, and start the API, then the UI application, then the Admin application.
 6. Move to reconstitution (section 3.7).
 
 #### 3.6.2 Recovery during a security incident
@@ -199,7 +199,7 @@ If the outage may be an incident, the incident response plan leads and this plan
 
 Controls met here: CP-2.
 
-There is no manual alternative for reading documents. If full recovery would take longer than 72 hours, the system owner may restore sign-in, finding and reading first, with uploads and administration turned off, once the authorising official accepts the risk. Security controls stay in force throughout.
+There is no manual alternative for reading items. If full recovery would take longer than 72 hours, the system owner may restore sign-in, finding and reading first, with uploads and administration turned off, once the authorising official accepts the risk. Security controls stay in force throughout.
 
 #### 3.6.4 Escalation
 
@@ -213,8 +213,8 @@ Controls met here: CP-2, CP-7, CP-9(1), CP-10.
 
 Users return only when every step below is done.
 
-1. **Validate the data:** the database administrator runs the checks in PRO-CP-2: row counts against the last known counts, each document page against its stored checksum, and the audit records' stored hashes against the export taken with the backup. The newest audit record shows how much data was lost, against the recovery point objective.
-2. **Validate the functions:** sign in, find and read a document, upload a test document to a test project and remove it, and sign in to Admin application. Audit records must be written for each.
+1. **Validate the data:** the database administrator runs the checks in PRO-CP-2: row counts against the last known counts, each stored file against its SHA-256 checksum, and the audit chain checked from end to end. The newest audit record shows how much data was lost, against the recovery point objective.
+2. **Validate the functions:** sign in, find and read an item, upload a test item to a test schema and remove it, and sign in to the Admin application. Audit records must be written for each.
 3. **Confirm the controls:** the security officer checks that the controls match the main site, including encryption in transit, the members of \<System Name\>'s AD groups against current staff, and audit logging.
 4. **Declare recovery:** the system owner declares \<System Name\> recovered, and tells users and the people in section 3.4.
 5. **Back up at once:** a full backup is taken and confirmed at the second site before normal work resumes.
@@ -230,8 +230,8 @@ Controls met here: CP-6, CP-9, CP-9(1), CP-9(8), CP-10, CP-10(2).
 
 | What | How often | Kept | Where | Protection |
 | --- | --- | --- | --- | --- |
-| The database, including documents and audit records | Daily, full | 14 daily, 8 weekly and 12 monthly copies | The second site, and one offline or immutable copy | Encrypted. The key is held apart from the backups. Its SHA-256 value is recorded when taken |
-| Transaction logs | Continuously | Until the oldest daily copy is removed | The second site | Encrypted |
+| The SQL Server database, including items, files and audit records | Daily, full SQL Server backup | 14 daily, 8 weekly and 12 monthly copies | The second site, and one offline or immutable copy | Encrypted. The key is held apart from the backups. Its SHA-256 value is recorded when taken |
+| SQL Server transaction log backups | Between the daily backups, \[interval\] | Until the oldest daily copy is removed | The second site | Encrypted |
 | Each VM's system configuration | Weekly | 8 copies | The second site | Encrypted |
 | Secrets | At each change | Every version for 12 months | A protected copy at the second site, held apart from the backups | Encrypted, with access limited to the system owner and administrators |
 | This plan and the records | At each change | As each record's retention | The controlled library | Access controlled |
@@ -239,9 +239,9 @@ Controls met here: CP-6, CP-9, CP-9(1), CP-9(8), CP-10, CP-10(2).
 
 A failed backup alerts the database administrator and the security officer, and the week's backups are checked under \<Security Operating Procedures\>, duty C8. Restores are tested every 6 months (PRO-CP-2), and after a change to the database or the backup method.
 
-Every backup is encrypted before it leaves the database server, so that nobody who holds a copy, including the second site's staff, can read or change it. The key is held apart from the backups, where only the system owner and the administrators can reach it, and is listed in the key register (\<System and Communications Protection Management\>, section 3.4). The SHA-256 value recorded when a backup is taken is checked before it is restored.
+Every backup is encrypted by SQL Server's backup encryption, with AES-256, before it leaves the database server, so that nobody who holds a copy, including the second site's staff, can read or change it. The key is held apart from the backups, where only the system owner and the administrators can reach it, and is listed in the key register (\<System and Communications Protection Management\>, section 3.4). The SHA-256 value recorded when a backup is taken is checked before it is restored.
 
-PostgreSQL's transaction logs are archived continuously to the second site, so that a restore can be brought forward to the last consistent point before the failure (section 3.6.1). That gives a recovery point of minutes.
+SQL Server's transaction log backups are taken between the daily backups and copied to the second site, so that a restore can be brought forward to the last consistent point before the failure (section 3.6.1). That keeps data loss well within the 24-hour recovery point objective (P-13).
 
 The system documentation, including this plan and the other security and privacy documents, is under version control, and each change is kept in the restricted document store.
 
@@ -271,8 +271,8 @@ This follows CSS. The first restore test and tabletop exercise take place within
 | Activity | When | Who | Objective | Record |
 | --- | --- | --- | --- | --- |
 | Role training | Within 30 days of taking a role, and every 12 months | Everyone in section 3.4 | Each person knows this plan, their steps in PRO-CP, the call tree and where the offline copy is | TPL-9 |
-| Restore test | First within 30 days of the VMs being built; then every 6 months | Database administrator, observed by the security officer | Restore the latest backup to a separate server within the recovery time objective, and pass the checks in PRO-CP-2 | TPL-11 |
-| Tabletop exercise, with the incident response plan | First within 30 days of the VMs being built; then every 12 months | Everyone in section 3.4, and \<Organisation\>'s IT service desk | Walk through one scenario from activation to deactivation | TPL-11 |
+| Restore test | First within 30 days of the VMs being built; then every 6 months (P-16) | Database administrator, observed by the security officer | Restore the latest backup to a separate server within the recovery time objective, and pass the checks in PRO-CP-2 | TPL-11 |
+| Tabletop exercise, with the incident response plan | First within 30 days of the VMs being built; then every 12 months (P-16) | Everyone in section 3.4, and \<Organisation\>'s IT service desk | Walk through one scenario from activation to deactivation | TPL-11 |
 | Plan review | Every 12 months, and after each test or activation | System owner and authorising official | Keep the plan current and build in what was learned | Change record |
 
 Tabletop scenarios rotate through: ransomware on the database VM; loss of the main site; a backup that fails its checks; a key person being unavailable; and PingFederate being unavailable. Training content covers the activation criteria, the call tree, each role's steps and the checks before return; it is reviewed every 12 months and after a plan change, test or activation. Role training is module M8 of the role curriculum (\<Awareness and Training Management\>, section 3.4), and the training register shows who is trained (\<Awareness and Training Management\>, section 3.8). After a change to the plan that alters a person's steps, that person is briefed on the change.
@@ -355,8 +355,8 @@ CSS does not select these at Moderate, so they are not assessed. Some of the des
 | CP-2(5) Continue Mission and Business Functions | Functions continue with little or no loss of continuity | Not required. Availability is rated Low, and 72 hours to recover is enough |
 | CP-3(1) Simulated Events | Training that simulates a real event | Not required. The tabletop exercise walks through a scenario |
 | CP-4(2) Alternate Processing Site | Testing the plan at the second site | Not required, and not planned. The first restore test is on the main servers |
-| CP-6(2) Recovery Time and Recovery Point Objectives | The storage site set up to meet the recovery objectives | Not required. Done in design: transaction logs go to the second site continuously, for a recovery point of minutes |
+| CP-6(2) Recovery Time and Recovery Point Objectives | The storage site set up to meet the recovery objectives | Not required. Done in design: transaction log backups go to the second site between the daily backups |
 | CP-7(4) Preparation for Use | The second site kept ready to use | Not required. The servers are rebuilt there when needed |
 | CP-8(3), CP-8(4) Separation of Providers; Provider Contingency Plan | Alternate services from a separate provider, who has a contingency plan | Not required. \<Organisation\>'s plans are asked for with EV-CP-01 |
-| CP-9(2), CP-9(3), CP-9(5) Test Restoration Using Sampling; Separate Storage for Critical Information; Transfer to Alternate Storage Site | Further assurance for backups | Not required. Done in design: every restore test restores the whole database; one copy is offline or immutable; backups and logs go to the second site |
+| CP-9(2), CP-9(3), CP-9(5) Test Restoration Using Sampling; Separate Storage for Critical Information; Transfer to Alternate Storage Site | Further assurance for backups | Not required. Done in design: every restore test restores the whole database; one copy is offline or immutable; backups and transaction log backups go to the second site |
 | CP-10(4) Restore Within Time Period | Components restored from configuration-controlled images within a set time | Not required. Done in design: the servers are rebuilt from the baseline and the tagged release (\<Configuration Management\>, section 3.4) |

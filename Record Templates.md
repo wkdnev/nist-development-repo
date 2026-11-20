@@ -11,15 +11,15 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | Template | Purpose | AC controls and procedures | Other families |
 | --- | --- | --- | --- |
 | TPL-1 Risk acceptance | Records a decision to accept a non-compliance | Any NC entry; PRO-AC-15, PRO-AC-17 | Any NC entry in AU, IA, SC, CM, SI, RA, CA, IR, CP, AT, MA, MP, PE, PL, PS, PT, SA or SR |
-| TPL-2 Access request | Records a request and approval before access changes. Once the ServiceNow workflow is in use, the ServiceNow request is this record and must hold these fields | AC-2c, AC-2e, AC-6(5); PRO-AC-1, PRO-AC-2, PRO-AC-5, PRO-AC-6 | IA-4, CM-5, PS-3; PRO-PS-1 |
+| TPL-2 Access request | Records a request, its approval by the line manager and its authorisation by the group's owner before access changes. The ServiceNow access approval workflow is where requests are made, and the closed ServiceNow request is this record and must hold these fields | AC-2c, AC-2e, AC-6(5); PRO-AC-1, PRO-AC-2, PRO-AC-5, PRO-AC-6 | IA-4, CM-5, PS-3; PRO-PS-1 |
 | TPL-3 Access review | Records a periodic review of accounts or privileges | AC-2j, AC-6(7); PRO-AC-7, PRO-AC-8 | CM-7(1), SC-7(4), CA-3, CA-9; PS-2, PS-6; PRO-PS-4 |
 | TPL-4 Procedure walk-through | Shows that a procedure was tried and works | AC-1, AC-2f; all PRO procedures | AU-1, IA-1, SC-1, CM-1, SI-1, RA-1, CA-1, IR-1, CP-1, AT-1, MA-1, MP-1, PE-1, PL-1, PS-1, PT-1, SA-1, SR-1; all their procedures |
 | TPL-5 Approved access list | The approved baseline to compare the system against | AC-2d, AC-2i, AC-5, AC-6 | CM-7(5), CM-8, CM-12 |
-| TPL-6 Change record | Records a change, its impact, testing and approval. Once the ServiceNow workflow is in use, the ServiceNow record is this record and must hold these fields | None | CM-3, CM-3(2), CM-4, CM-4(2), SI-2, IA-5, IA-5(1), IA-5(6); PRO-CM-1, PRO-IA-4, PRO-IA-5 |
+| TPL-6 Change record | Records a change, its impact, testing and approval. Where the change is recorded in ServiceNow, the ServiceNow record is this record and must hold these fields | None | CM-3, CM-3(2), CM-4, CM-4(2), SI-2, IA-5, IA-5(1), IA-5(6); PRO-CM-1, PRO-IA-4, PRO-IA-5 |
 | TPL-7 Vulnerability and patch review | Records a scan or package check, what was found, and when it was fixed | None | SI-2, SI-2(2), SI-5, RA-5, RA-5(5); PRO-SI-1, PRO-SI-5, PRO-RA-3, PRO-RA-4, PRO-RA-5 |
 | TPL-8 Monitoring and integrity report | Records log reviews, integrity checks, configuration drift and the monthly measures | None | AU-6, SI-4, SI-7(1), CA-7; PRO-SI-3, PRO-SI-4, PRO-SI-6, PRO-CA-5 |
 | TPL-9 Training record | Records who was trained, on what and when. Kept for 3 years | None | AT-2, AT-3, AT-3(5), AT-4, IR-2, CP-3, PL-4; PRO-AT-1, PRO-AT-2 and PRO-AT-4 |
-| TPL-10 Incident record | Records an incident from report to lessons. Once the ServiceNow workflow is in use, the ServiceNow record is this record and must hold these fields | None | IR-4, IR-5, IR-6; PRO-IR-1, PRO-IR-2 |
+| TPL-10 Incident record | Records an incident from report to lessons. Where the incident is recorded in ServiceNow, the ServiceNow record is this record and must hold these fields | None | IR-4, IR-5, IR-6; PRO-IR-1, PRO-IR-2 |
 | TPL-11 Exercise and restore test | Records a tabletop exercise, restore test or activation as an after-action report, the result and the actions | None | IR-3, IR-3(2), CP-4, CP-4(1), CP-9(1); PRO-IR-3, PRO-CP-2, PRO-CP-4 |
 | TPL-12 Maintenance record | Records maintenance, who did it and the check afterwards. Kept for 3 years | None | MA-2, MA-3, MA-3(3), MA-4, MA-5; PRO-MA-1 to PRO-MA-7 |
 | TPL-13 Media record | Records media transport, sanitising and exceptions. Kept for 3 years | None | MP-5, MP-6, MP-7; PRO-MP-1 to PRO-MP-4 |
@@ -66,14 +66,15 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | Record number |  |
 | Person needing access (name and team) |  |
 | Type: new, change or removal |  |
-| Role, project or group |  |
+| Role or schema, and the AD group: a role group or the schema's read or edit group |  |
 | Reason and intended use |  |
 | Prerequisites met, such as the signed rules of behaviour (TPL-21, checked against the register of signatures in \<Planning Management\>, section 3.5) |  |
 | Screening confirmed by \<Organisation\>: by whom, and the date only (\<Procedures\>, PRO-PS-1) |  |
 | Requested by and date |  |
-| Approved by (name and role), decision and date |  |
-| Approver is not the person receiving access (yes or no) |  |
-| Change made by and date |  |
+| Approved by the line manager (name), decision and date |  |
+| Authorised by the group's owner (name and role: the system owner for a role group, or the schema's Data Owner for a schema group), decision and date |  |
+| Neither the approver nor the authoriser is the person receiving access (yes or no) |  |
+| Member added to or removed from the AD group by the group's owner, and date |  |
 | Change checked by and date |  |
 
 ### 2.3 TPL-3 Access review
@@ -84,8 +85,8 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | --- | --- |
 | Record number |  |
 | Scope: privileged group memberships, or all other group memberships |  |
-| System or layer: application, Windows or PostgreSQL |  |
-| Date of the account export, and who produced it |  |
+| System or layer: application (Active Directory role and schema groups), Windows or SQL Server |  |
+| Date of the group membership export from Active Directory, or the account export, and who produced it |  |
 | Compared with: the approved access list version |  |
 | Accounts reviewed |  |
 | Accounts confirmed, changed and removed |  |
@@ -93,7 +94,7 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | For a review of risk designations and access agreements (\<Procedures\>, PRO-PS-4): roles checked against \<Roles and Responsibilities\>, designations changed, and agreements reviewed |  |
 | Reviewer is not reviewing their own access (yes or no) |  |
 | Actions completed, by and date |  |
-| Signed off by the system owner, and date |  |
+| Signed off by the group's owner (the system owner for role groups, the Data Owner for a schema's groups), and date |  |
 
 **Table 5: TPL-3 Access review detail**
 
@@ -110,7 +111,7 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | Record number |  |
 | Procedure and version |  |
 | Family and controls it supports |  |
-| Date and environment: test stack or the VMs |  |
+| Date and environment: the test environment or the production servers |  |
 | People taking part (names and roles) |  |
 | Scenario used |  |
 | Steps followed as written (yes or no, with any step that failed) |  |
@@ -133,7 +134,7 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 
 **Table 8: TPL-5 Approved access list entries**
 
-| Person | Account | Account type | Roles and groups | Projects | Reason | Approval record (TPL-2) |
+| Person | Account | Account type | Roles and groups | Schemas | Reason | Approval record (TPL-2) |
 | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  |  |  |  |
 
@@ -150,7 +151,7 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | Impact rating: Low, Medium or High. The authorising official's agreement and date, if the impact is High or the change is significant |  |
 | Test plan and back-out plan |  |
 | Emergency change: yes or no (PRO-CM-8) |  |
-| Tested on a separate stack: date and result |  |
+| Tested in the test environment: date and result |  |
 | Decided by the change control board: decision, names of the members present, and date |  |
 | Implemented by, and date |  |
 | Verified after the change: by, and result |  |
@@ -183,7 +184,7 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | Period covered, and reviewer |  |
 | Logs reviewed, and anything unexplained |  |
 | Alerts raised, and what was done |  |
-| Integrity checks: release packages, document checksums and audit chain |  |
+| Integrity checks: release packages, file checksums and audit chain |  |
 | Configuration drift from \<Configuration Management\>, sections 3.4 to 3.6 (PRO-CM-7), and the change record raised for each |  |
 | Open plan items |  |
 | Oldest unpatched update, in days |  |
@@ -239,8 +240,8 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | Date, and who took part |  |
 | Objectives, and the scenario or backup restored and its date |  |
 | Plans covered: \<Incident Response Management\>, \<Contingency Planning Management\> or both |  |
-| Time to recover and data lost, against the objectives (72 hours, 24 hours) |  |
-| Checks in PRO-CP-2 (row counts, document checksums, audit hashes): result |  |
+| Time to recover and data lost, against the objectives (P-12, 72 hours; P-13, 24 hours) |  |
+| Checks in PRO-CP-2 (row counts, file checksums, audit chain, and group members checked against current staff): result |  |
 | Changes made to \<Contingency Planning Management\> or the procedures (CP-2g) |  |
 | Result, and problems found |  |
 | Actions, owner and date |  |
@@ -260,13 +261,13 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | On site or remote; if remote, the route and when it ended |  |
 | Parts removed or replaced; removal approved by |  |
 | Equipment sanitised: by, and certificate |  |
-| Tools used, including any built-in maintenance page (PRO-MA-7), and the second person present |  |
+| Tools used, including the fixed diagnostics in the Admin application |  |
 | Tools inspected before use, and any media scanned: by, and result |  |
 | Case or return number for parts sent away |  |
 | Data, dumps, logs or screenshots taken away: approved by, how protected, and deletion confirmed |  |
-| Session log reference, for remote maintenance |  |
+| Remote maintenance connection log reference |  |
 | Checklist after maintenance (\<Procedures\>, Table MA-2): run by, result, and signed by the security officer |  |
-| Monthly review against the change record (C48): by, date and result |  |
+| Monthly review against the change record: by, date and result |  |
 
 ### 2.13 TPL-13 Media record
 
@@ -299,7 +300,7 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | PingFederate sign-in ended by \<Organisation\>, if needed: date and time |  |
 | Service secrets the person knew changed (\<Procedures\>, PRO-IA-4): by, and date |  |
 | Exported files and printouts recovered or destroyed: confirmed by |  |
-| Documents still available: confirmed by |  |
+| Items the person managed still available in their schemas: confirmed by |  |
 | Rescreening needed: yes or no |  |
 | Exit interview and equipment confirmed by \<Organisation\>: date |  |
 
@@ -423,7 +424,7 @@ Completed for each person before access, every 12 months, and after a material c
 | --- | --- |
 | Record number |  |
 | Name and role |  |
-| Parts signed: A only, or A and B (administrators) |  |
+| Parts signed: A only, or A and B (administrators, auditors, security officers, and Windows server and database administrators) |  |
 | Declaration: I have read and understood these rules, and I agree to follow them |  |
 | \<Security Operating Procedures\> version signed |  |
 | Reason: before access, yearly, or after a material change (which version) |  |
@@ -463,7 +464,7 @@ Completed by the system owner for each review of the risk list, the supply chain
 | Kind of review: risk, supply chain or critical components |  |
 | Reason: yearly, significant change, incident, new test result or release |  |
 | Date, and who took part |  |
-| What was looked at, with versions and evidence (for example Test-Vulnerability.ps1 results) |  |
+| What was looked at, with versions and evidence |  |
 | Risks added, re-rated or closed, with their IDs |  |
 | Acceptances checked against their review dates |  |
 | Components or suppliers added or removed |  |

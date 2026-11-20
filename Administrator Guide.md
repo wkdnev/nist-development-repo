@@ -9,10 +9,10 @@ Values in \[brackets\] are for the developers to fill.
 ## 2 Secure installation
 
 1. Build the two Windows Server 2025 VMs to \<Organisation\>'s hardened build and the baseline in \<Configuration Management\>; turn on full-disk encryption and Microsoft Defender before \<System Name\> is installed.
-2. Install the applications from a release tag only, and check the release checksums. Never install from a working branch. Install each application as a Windows service, under its own service account.
-3. Put the database connection string, the signing key and service secrets in the key store, never in a settings file or in Git. Only API connects to the database, with one account that is not a superuser and cannot change the schema.
-4. Turn on TLS for every flow in \<System Security Plan\>, section 3.7, including the database connection.
-5. Publish the admin portal only on \<Organisation\>'s managed administration route (route R3), never on every interface.
+2. Install the applications from a release tag only, and check the release checksums. Never install from a working branch. Install each application as a Windows service, under its own group managed service account.
+3. Put the token signing key and the audit chain key in the key store, never in a settings file or in Git. There is no database password: only the API connects to the database, by Windows authentication under its managed service account. Its SQL Server login is not a system administrator, has rights on \<System Name\>'s database only, and cannot change the database structure.
+4. Turn on TLS for every flow, F1 to F8 in \<System Description\>, section 6.5, including the database connection (F5), with strict encryption and the server's certificate and name checked in full.
+5. Publish the Admin application only on \<Organisation\>'s managed administration route (F2; route R3), never on every interface. Bind the API to the application server's loopback address only (F3, F4).
 6. Set up backups, encrypted, with transaction log archiving, as in \<Contingency Planning Management\>.
 7. Run Test-AccessControl.ps1, Test-Identification.ps1 and Test-ConfigurationManagement.ps1 against the built VMs, and keep the results (\<System and Services Acquisition Management\>, section 3.9).
 
@@ -22,13 +22,15 @@ Values in \[brackets\] are for the developers to fill.
 
 | Setting | Where | Required value | Source |
 | --- | --- | --- | --- |
-| Sign-in lifetime | Each application's authentication cookie settings | No longer than PingFederate's sign-in lifetime (P-AC-10). \<System Name\> has no page lock, idle sign-out or session limit of its own | \<Access Control Management\> |
-| Sign-in | \<System Name\>'s PingFederate connection (its OpenID Connect client settings) | Password length, lockout and multi-factor authentication are set by \<Organisation\>, not in \<System Name\> | \<Policy\> (IA) |
+| Sign-in lifetime | Each application's authentication cookie settings | No longer than PingFederate's sign-in lifetime (P-AC-10; \<System Description\>, P-02). \<System Name\> has no session management: no page lock, idle sign-out or session limit of its own | \<Access Control Management\> |
+| Sign-in | \<System Name\>'s PingFederate connection (its OpenID Connect client settings) | Password length, lockout and multi-factor authentication are set by \<Organisation\>, not in \<System Name\>. The signed response names the person and carries no groups | \<Policy\> (IA) |
+| Group lookup | API's directory settings | Active Directory read over LDAPS (F7, TCP 636), read-only, under the API's managed service account, with the directory's certificate checked | \<Identification and Authentication Management\> |
+| Database connection | API's connection settings | Microsoft SQL Server 2022 by Windows authentication, with no password; TLS with strict encryption on TCP 1433 (F5), from the application server only | \<Identification and Authentication Management\> |
 | Allowed origins | API's allowed origins | Only UI application and Admin application host names | \<System and Communications Protection Management\> |
 | Token signing | API's token settings | Key from the key store, rotated as in \<System and Communications Protection Management\> | \<System and Communications Protection Management\> |
 | Audit | Audit settings in each application | All events in \<Audit and Accountability Management\> on | \<Audit and Accountability Management\> |
-| Exports | Bulk export folder | Copies removed after download | \<Media Protection Management\> |
-| Browser libraries | Page templates | Served by \<System Name\>, not a CDN | \<System and Communications Protection Management\> |
+| Exports | Encrypted export working area | Copies deleted after download, and always within 24 hours (\<System Description\>, P-20) | \<Media Protection Management\> |
+| Browser libraries | Page templates | Packaged with and served by \<System Name\> itself. No content delivery service or other outside host | \<System and Communications Protection Management\> |
 | Logging | Each application's logging settings | No personal data or sign-in details in the application log | \<Audit and Accountability Management\> |
 
 Any change to these settings follows \<Procedures\> (CM), and is checked for drift monthly (SyOps C47).
@@ -39,14 +41,14 @@ Any change to these settings follows \<Procedures\> (CM), and is checked for dri
 
 | Duty | How often | Procedure | Record |
 | --- | --- | --- | --- |
-| Grant, change and remove access | On request | \<Procedures\> (AC) | TPL-2, TPL-14 |
-| Review group memberships and privileges | Every 3 months | \<Procedures\> (AC) | TPL-3 |
+| Name a schema's read and edit groups. Group members are changed only by the groups' owners, on requests authorised in ServiceNow | On request | \<Procedures\> (AC) | TPL-2, TPL-14 |
+| Review group memberships and privileges | Role groups every 3 months; schema groups every 12 months, by their Data Owners (\<System Description\>, P-04 and P-05) | \<Procedures\> (AC) | TPL-3 |
 | Review audit records | Weekly | \<Procedures\> (AU) | TPL-8 |
 | Apply security updates | To the timetable in \<Risk Assessment Management\>, section 3.6 | \<Procedures\>, PRO-SI-1 | TPL-7 |
 | Check for exploited flaws | Weekly | \<Procedures\>, PRO-RA-4 | TPL-7 |
 | Test backups and restores | As in \<Contingency Planning Management\> | \<Procedures\> (CP) | TPL-11 |
 | Maintenance | As needed | \<Procedures\> (MA), through the managed route | TPL-12 |
-| Check the export folder | Each working day (SyOps C49) | \<Procedures\> (MP) | TPL-8 |
+| Check the export working area | Each working day (SyOps C49) | \<Procedures\> (MP) | TPL-8 |
 | Report an incident | At once | \<Incident Response Management\> | TPL-10 |
 
 ## 5 Security functions and how to maintain them
@@ -56,20 +58,20 @@ Any change to these settings follows \<Procedures\> (CM), and is checked for dri
 | Function | What it does | How to maintain it | Tested by |
 | --- | --- | --- | --- |
 | Sign-in | Each person's Active Directory account, through PingFederate with multi-factor authentication; the API reads their groups from Active Directory over LDAPS | Keep the PingFederate connection; never add a local account | Test-Identification.ps1 |
-| Project access | Checks the user's project role on every page and API call | Grant roles only through \<Procedures\> (AC); review every 3 months | Test-AccessControl.ps1 |
-| Global administrator | Full rights across \<System Name\> | Keep holders to the named few; review every 3 months | Test-AccessControl.ps1 |
+| Schema access | Checks the person's schema read or edit group on every page and API call; a schema with no group is closed to all but administrators | Name each schema's groups only through \<Procedures\> (AC); groups' owners review members as P-04 and P-05 set | Test-AccessControl.ps1 |
+| Administrator | Manages schemas, their groups and settings, and can reach every schema. This is the one administration role: there is no separate global administrator | Keep the administrators' group to the named few; review every 3 months | Test-AccessControl.ps1 |
 | Sign-in lifetime | Holds the sign-in only in the authentication cookie, for no longer than PingFederate's sign-in lifetime. \<System Name\> has no page lock or sign-out of its own | Keep the cookie lifetime in Table 1 | Test-AccessControl.ps1 |
-| Audit | Hash-chained records of security events | Run the chain check; keep records as in \<Policy\> (AU) | Test-AuditAndAuth.ps1 |
-| Exports | Bulk and single exports of documents | Check the export folder each working day; remove copies | Test-MediaProtection.ps1 |
+| Audit | Records of security events, written only by the API and chained by a keyed hash (HMAC-SHA-256) | Run the chain check; keep records as in \<Policy\> (AU) | Test-AuditAndAuth.ps1 |
+| Exports | Bulk exports of a schema's items, run as background jobs | Check the export working area each working day; remove copies | Test-MediaProtection.ps1 |
 | Backups | Copies for recovery | Keep encrypted; test restores | Test-BackupRestore.ps1 |
 
 ## 6 Privacy functions
 
-1. **Requests from individuals:** search every project for the person's documents and record what was found and changed on TPL-15 (\<Procedures\>, PRO-PT-1).
+1. **Requests from individuals:** use the search across all schemas (\<System Description\>, FR-073) to find every item about the person, and record what was found and changed on TPL-15 (\<Procedures\>, PRO-PT-1).
 2. **Corrections and deletions:** record each one on TPL-15.
-3. **HR projects:** keep special category documents only in projects the business owner authorises (\<Policy\> (PT), R5).
-4. **Retention:** dispose of documents at the end of the period in \<PII Processing Management\>, section 3.7.
-5. **Test data:** never copy real personal data to a test stack (PRO-PT-6).
+3. **Special category data:** keep it only in schemas the business owner authorises (\<Policy\> (PT), R5).
+4. **Retention:** dispose of items at the end of the period in \<PII Processing Management\>, section 3.7.
+5. **Test data:** never copy real personal data to the test environment (PRO-PT-6).
 
 ## 7 Known problems with privileged functions
 

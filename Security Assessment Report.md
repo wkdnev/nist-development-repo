@@ -4,7 +4,7 @@
 
 This report brings together the results of the assessment of all 19 control families, so that the authorising official can see in one place how far \<System Name\> meets the CSS Moderate baseline, what the remaining risk is, and what must happen before it can be authorised. It is the assessment report in the authorisation package (CSS, tasks A-4 and R-1), and it meets CA-2e and CA-2f. It covers the privacy controls as well, so it is also the privacy assessment report.
 
-This section states what was assessed: the version of \<System Name\>, its components (UI application, Admin application, API and the \<System Name\> database) and the environment it runs in. The detail for each family is in its assessment, which takes precedence over this summary. The figures in this report are taken from the assessments, \<Risk List\> and \<Plan of Action and Milestones\>, and are checked against them.
+This section states what was assessed: the version of \<System Name\>, its components (UI application, Admin application, API and shared library, and the Microsoft SQL Server 2022 database) and the environment it runs in, two Windows Server 2025 VMs at \<Organisation\>. The detail for each family is in its assessment, which takes precedence over this summary. The figures in this report are taken from the assessments, \<Risk List\> and \<Plan of Action and Milestones\>, and are checked against them.
 
 ## 2 Executive summary
 

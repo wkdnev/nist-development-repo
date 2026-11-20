@@ -23,9 +23,21 @@ The audit design is held in \<Audit and Accountability Management\>: the sources
 
 The design for assessing, authorising and monitoring \<System Name\> is held in \<Assessment, Authorization, and Monitoring Management\>: assessment, the plan of action, authorisation, the inherited controls, the interface record, the monitoring strategy, significant change. It is not repeated here.
 
+## CM Configuration Management
+
+The configuration management design is held in \<Configuration Management\>: the baseline, change control, the configuration settings, least functionality, the component inventory, software use. It is not repeated here.
+
+## CP Contingency Planning
+
+The contingency design is held in \<Contingency Planning Management\>: the business impact analysis, the recovery objectives, backups, the second site, recovery and reconstitution, testing. It is not repeated here.
+
 ## IA Identification and Authentication
 
 The identification and authentication design is held in \<Identification and Authentication Management\>: who is identified and how, sign-in through PingFederate, the assurance levels, the authenticator inventory, the settings against CSS. It is not repeated here.
+
+## IR Incident Response
+
+The incident response design is held in \<Incident Response Management\>: the incident response plan, the severities and their targets, the playbooks, reporting and personal data breaches. It is not repeated here.
 
 ## MA Maintenance
 
@@ -53,7 +65,7 @@ The personal data design is held in \<PII Processing Management\>: the authority
 
 ## RA Risk Assessment
 
-The risk assessment design is held in \<Risk Assessment Management\>: the vulnerability timetable, the critical components and the first supply chain review. It is not repeated here.
+The risk assessment design is held in \<Risk Assessment Management\>: the vulnerability timetable, the critical components and the supply chain review. It is not repeated here.
 
 ## SA System and Services Acquisition
 
@@ -67,3 +79,6 @@ The communications protection design is held in \<System and Communications Prot
 
 The integrity design is held in \<System and Information Integrity Management\>: the upload checks, the advisory sources, the detection use cases, the integrity baseline and the retention periods. It is not repeated here.
 
+## SR Supply Chain Risk Management
+
+The supply chain design is held in \<Supply Chain Risk Management\>: the supply chain risk management plan, the supplier register, how components come in, inspection and authenticity. It is not repeated here.

@@ -40,13 +40,13 @@ Entries are numbered TR-XX-nn, where XX is the family code.
 | ID | Control or part | Tailoring | Rationale | Condition that must hold | If the condition changes |
 | --- | --- | --- | --- | --- | --- |
 | TR-AC-01 | AC-2(2) | Not applicable | Temporary and emergency accounts are prohibited (P-AC-09), and the system cannot expire accounts | Each access review confirms that no such account exists | The system must first be able to disable them automatically |
-| TR-AC-02 | AC-2k | Not applicable | Shared and group accounts are prohibited (P-AC-04) | \<System Name\> holds no accounts of its own: every account is a person's own Active Directory account. The admin account is seeded sample data in the Docker environment only | A process for changing shared authenticators is needed |
+| TR-AC-02 | AC-2k | Not applicable | Shared and group accounts are prohibited (P-AC-04) | \<System Name\> holds no accounts of its own: every account is a person's own Active Directory account, and there is no built-in or default account | A process for changing shared authenticators is needed |
 | TR-AC-03 | AC-8a.01 | Replace the statement with one naming \<Organisation\> | \<System Name\> is not a U.S. Government system, so the statement would be untrue | The notice names \<Organisation\>, and a legal adviser agrees the wording | Applies again if \<System Name\> serves a U.S. Government customer |
-| TR-AC-04 | AC-8c | Not applicable | \<System Name\> is not publicly accessible | Documents and functions need sign-in, except the list in P-AC-25 | AC-8c applies in full |
-| TR-AC-05 | AC-17(4) | Not applicable | CSS defines remote access as access through external networks. Administration is to take place only from inside \<Organisation\>'s network | \<Organisation\> confirms this route, and external routes to the VMs' administration ports are blocked (EV-AC-12) | AC-17(4) applies, with defined needs and logging |
+| TR-AC-04 | AC-8c | Not applicable | \<System Name\> is not publicly accessible | Items and functions need sign-in, except the list in P-AC-25 | AC-8c applies in full |
+| TR-AC-05 | AC-17(4) | Not applicable | CSS defines remote access as access through external networks. Administration is to take place only from inside \<Organisation\>'s network | Administration uses only \<Organisation\>'s managed route, and external routes to the VMs' administration ports are blocked (EV-AC-12) | AC-17(4) applies, with defined needs and logging |
 | TR-AC-06 | AC-19, AC-19(5) | Not applicable | Phones and tablets are not to be used with \<System Name\> in the first release | \<Organisation\>'s device controls prevent or govern this. \<System Name\> cannot identify a device, so a rule alone is weak evidence (EV-AC-15) | Both apply, with \<Organisation\>'s mobile controls as evidence |
 | TR-AC-07 | AC-20(1) | Not applicable | P-AC-22 does not allow external systems to reach or hold \<System Name\> data without the system owner's approval, and none is proposed | No such approval is given | Verification of controls and retained agreements are needed for each approval |
-| TR-AC-08 | AC-22 | Not applicable | \<System Name\> holds no public content (P-AC-24) | Documents and functions need sign-in, except the list in P-AC-25 | AC-22 applies in full |
+| TR-AC-08 | AC-22 | Not applicable | \<System Name\> holds no public content (P-AC-24) | Items and functions need sign-in, except the list in P-AC-25 | AC-22 applies in full |
 | TR-AC-09 | AC-07\_ODP\[05\], \[06\] | Not selected | The account lock is the chosen action, so no delay algorithm or other action is needed | The lock remains in place | Define the value that is then selected |
 | TR-AC-10 | AC-20\_ODP\[03\] | Not selected | Terms and conditions are used, not asserted controls | P-AC-22 remains the rule | Define the asserted controls |
 
@@ -62,6 +62,7 @@ These controls may look unnecessary but are not proposed for tailoring, so that 
 | AC-18(3) | It needs confirming on the built VMs and workstation builds |
 | AC-17, AC-17(1) to (3) | Approved users may work remotely through \<Organisation\>'s service |
 | AC-20, AC-20(2) | Downloads can reach any device the user has, so the rule and its enforcement remain relevant |
+| AC-2(5), AC-11, AC-11(1), AC-12 | \<System Name\> has no session management of its own: no idle lock, idle timeout, session limit or sign-out. The controls are not tailored out but are provided by \<Organisation\> and inherited (\<System Description\>, section 7.3). AC-11 and AC-11(1) come from the screen lock on \<Organisation\>'s managed devices (\<System Description\>, P-03); AC-12 and AC-2(5) come from the sign-in lifetime set in PingFederate (P-02), which the application's authentication cookie never outlasts |
 
 ## 3 Identification and Authentication (IA)
 
@@ -100,7 +101,7 @@ The PT controls are in the CSS privacy baseline, not Moderate, and are assessed 
 
 | ID | Control or part | Tailoring | Rationale | Condition that must hold | If the condition changes |
 | --- | --- | --- | --- | --- | --- |
-| TR-PT-01 | PT-5(2), PT-6, PT-6(1), PT-6(2), PT-7(1), PT-7(2), PT-8 | Not applicable | These rest on US law and federal bodies: the Privacy Act, Federal Register notices, Social Security numbers, the First Amendment and computer matching. \<Organisation\> operates in the UK | \<System Name\> processes no data under those US laws. The legal adviser confirms this | Assess those controls |
+| TR-PT-01 | PT-5(2), PT-6, PT-6(1), PT-6(2), PT-7(1), PT-7(2), PT-8 | Not applicable | These rest on US law and federal bodies: the Privacy Act, Federal Register notices, Social Security numbers, the First Amendment and computer matching. \<Organisation\> operates in the UK | \<System Name\> processes no data under those US laws. The legal adviser checks this | Assess those controls |
 | TR-SA-01 | SA-4(10) | Not applicable | It requires US government PIV identity products, which \<System Name\> doesn't use | \<System Name\> doesn't use PIV cards | Assess SA-4(10) |
 
 ## 6 System and Communications Protection (SC)

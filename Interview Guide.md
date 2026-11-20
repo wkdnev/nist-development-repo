@@ -61,11 +61,11 @@ Questions are numbered INT-XX-nn, where XX is the family code, and each names th
 
 | ID | Question | Statements | Ask to see |
 | --- | --- | --- | --- |
-| INT-AC-07 | Take me through creating a schema and naming its read and edit groups. What do you need before you start? | AC-02c, AC-02e, AC-02f | A recent TPL-2 record and its audit entry |
-| INT-AC-08 | How do you learn that someone has left or moved, and how quickly? | AC-02h, AC-02l, AC-02(03) | Recent notice and the change it caused |
+| INT-AC-07 | Take me through creating a schema in the Admin application and naming its Active Directory read and edit groups. What do you need before you start, and who owns the two groups? | AC-02c, AC-02e, AC-02f | A recent TPL-2 record and its audit entry |
+| INT-AC-08 | How do you learn that someone has left or moved, and how quickly are their Active Directory account and group memberships changed? | AC-02h, AC-02l, AC-02(03) | Recent notice and the change it caused |
 | INT-AC-09 | What would you do if told someone is a high risk, right now? | AC-02(13) | PRO-AC-4, last walk-through |
-| INT-AC-10 | How do you find inactive accounts? | AC-02(03)(d) | PRO-AC-8 records |
-| INT-AC-11 | Do you use your administrator account for everyday document work? | AC-06(02) | Your two accounts |
+| INT-AC-10 | How are inactive Active Directory accounts and unused group memberships found? | AC-02(03)(d) | PRO-AC-8 records |
+| INT-AC-11 | Do you use your administrator account for everyday item work? | AC-06(02) | Your two accounts |
 | INT-AC-12 | Who checks your own actions? | AC-05b, AC-06(09) | Auditor's review record |
 
 ### 3.3 Data Owners
@@ -74,8 +74,8 @@ Questions are numbered INT-XX-nn, where XX is the family code, and each names th
 
 | ID | Question | Statements | Ask to see |
 | --- | --- | --- | --- |
-| INT-AC-13 | How do you decide who may read or edit your schema? | AC-02i, AC-03 | TPL-2 records |
-| INT-AC-14 | When did you last review who has access, and what changed? | AC-02j, AC-06(07) | TPL-3 record |
+| INT-AC-13 | How do you decide who may read or edit your schema, and how do you authorise a request in ServiceNow? | AC-02i, AC-03 | TPL-2 records and ServiceNow approvals |
+| INT-AC-14 | When did you last review the members of your schema's read and edit groups, and what changed? | AC-02j, AC-06(07) | TPL-3 record |
 | INT-AC-15 | How do you decide whether an item can be shared with people outside the schema's groups? | AC-21a, AC-21b | PRO-AC-16 record |
 
 ### 3.4 Auditors and security officers
@@ -95,7 +95,7 @@ Questions are numbered INT-XX-nn, where XX is the family code, and each names th
 | ID | Question | Statements | Ask to see |
 | --- | --- | --- | --- |
 | INT-AC-19 | Who has administrator rights on each VM and in the database? | AC-06(01), AC-06(05) | Group and role listings |
-| INT-AC-20 | What rights do the application service accounts have? | AC-06 | Service account and database role settings |
+| INT-AC-20 | What rights do the group managed service accounts of the three applications have, on the server, in SQL Server and in Active Directory? | AC-06 | Service account settings, SQL Server logins and database role grants |
 | INT-AC-21 | From where, and how, do you administer the VMs? | AC-17, AC-17(04) | Administration route; firewall rules |
 | INT-AC-22 | What are the logon lockout, banner and screen lock settings? | AC-07, AC-08, AC-11 | Policy export |
 | INT-AC-23 | How are your privileged actions logged? | AC-06(09) | Sample log |
@@ -106,9 +106,9 @@ Questions are numbered INT-XX-nn, where XX is the family code, and each names th
 
 | ID | Question | Statements | Ask to see |
 | --- | --- | --- | --- |
-| INT-AC-24 | How do you make sure a new page or endpoint needs the right access? | AC-03, AC-06(10) | Code review practice, test checks |
+| INT-AC-24 | How do you make sure a new page or API function needs the right access? | AC-03, AC-06(10) | Code review practice, test checks |
 | INT-AC-25 | Do you have any access to production? | AC-05a, AC-06 | Approved access list |
-| INT-AC-26 | How are diagnostic pages kept out of production? | AC-06(10), AC-14 | Build settings |
+| INT-AC-26 | How are diagnostic and test pages kept out of a release? | AC-06(10), AC-14 | Build settings |
 
 ### 3.7 \<Organisation\> security contact
 
@@ -120,7 +120,7 @@ Questions are numbered INT-XX-nn, where XX is the family code, and each names th
 | INT-AC-28 | Who controls firewalls, and how are rule changes approved? | AC-04 | EV-AC-03 |
 | INT-AC-29 | How do people reach internal systems remotely, and how is that monitored? | AC-17, AC-17(01) to (03) | EV-AC-08 to EV-AC-11 |
 | INT-AC-30 | How are wireless, mobile devices and USB storage controlled? | AC-18, AC-19, AC-20(02) | EV-AC-13 to EV-AC-17 |
-| INT-AC-31 | How do leavers and movers reach the system owner? | AC-02h, AC-02l | EV-AC-01 |
+| INT-AC-31 | How do leavers and movers reach the system owner and the Data Owners, and how quickly is a leaver's Active Directory account disabled? | AC-02h, AC-02l | EV-AC-01 |
 
 ### 3.8 Sample users
 
@@ -128,9 +128,9 @@ Questions are numbered INT-XX-nn, where XX is the family code, and each names th
 
 | ID | Question | Statements | Ask to see |
 | --- | --- | --- | --- |
-| INT-AC-32 | Have you read the SyOPS, and did you sign it? | AC-01a, AC-02c | Signed acknowledgement |
-| INT-AC-33 | What do you do if you can see a document you should not? | AC-03 | None |
-| INT-AC-34 | Do you use \<System Name\> from a phone, or a personal device, or copy documents to USB? | AC-19, AC-20 | None |
+| INT-AC-32 | Have you read the rules of behaviour, and did you sign them? | AC-01a, AC-02c | Signed acknowledgement |
+| INT-AC-33 | What do you do if you can see an item you should not? | AC-03 | None |
+| INT-AC-34 | Do you use \<System Name\> from a phone, or a personal device, or copy items to USB? | AC-19, AC-20 | None |
 
 ## 4 Awareness and Training (AT)
 
@@ -151,7 +151,7 @@ Questions are numbered INT-XX-nn, where XX is the family code, and each names th
 | --- | --- | --- | --- | --- |
 | INT-AU-01 | System owner | How do you decide which events are logged, and why are they enough? | AU-02d, AU-12b | \<Audit and Accountability Management\>, review record |
 | INT-AU-02 | Auditor | Show me your last weekly review. What did you find, and whom did you tell? | AU-06a, AU-06b | Review record |
-| INT-AU-03 | Auditor | How do you know the records have not been changed? | AU-09a, AU-09b | Chain check result |
+| INT-AU-03 | Auditor | How do you know the audit records have not been changed or removed? | AU-09a, AU-09b | Chain check result |
 | INT-AU-04 | Windows server administrator | What happens when logging fails? Who is told, and how quickly? | AU-05 | An alert and its response |
 | INT-AU-05 | Database administrator | How long are records kept, and how is capacity checked? | AU-04, AU-11 | Capacity record, backup |
 | INT-AU-06 | \<Organisation\>'s security contact | Is there central monitoring, and which time source do the VMs use? | AU-06(01), AU-06(03), AU-08 | EV-AU-01, EV-AU-02 |
@@ -166,7 +166,7 @@ Questions are numbered INT-XX-nn, where XX is the family code, and each names th
 | INT-CA-02 | Authorising official | What did you rely on to authorise \<System Name\>, and which risks did you accept? | CA-06c | TPL-18 authorisation decision, and \<Security Assessment Report\> |
 | INT-CA-03 | System owner | How is the plan kept up to date, and when did it last change? | CA-05b | \<Plan of Action and Milestones\> history |
 | INT-CA-04 | Security officer | Show me the last monitoring report on TPL-8, and any measure past its threshold. Who received it? | CA-07 | Monitoring report |
-| INT-CA-05 | System owner | Which systems connect to \<System Name\>, and who approved them? | CA-03, CA-09 | Interface record |
+| INT-CA-05 | System owner | Which of \<Organisation\>'s services does \<System Name\> connect to, and how do you know no other system connects to it? | CA-03, CA-09 | Interface record; the flows in \<System Description\>, section 6.5 |
 
 ## 7 Configuration Management (CM)
 
@@ -203,10 +203,10 @@ Questions are numbered INT-XX-nn, where XX is the family code, and each names th
 | INT-IA-01 | \<Organisation\>'s IT service desk | How do you check who someone is before resetting their password or second factor? | IA-05a, IA-05d | PRO-IA-2 record |
 | INT-IA-02 | \<Organisation\>'s IT service desk | What happens to an Active Directory account name when someone leaves? Is it ever given to another person? | IA-04d | \<Organisation\>'s record (EV-AC-01) |
 | INT-IA-03 | Sample user | What would you do if you thought your password was known? | IA-05f, IA-05h | None |
-| INT-IA-04 | Windows server administrator | When were the signing key and service secrets last changed? | IA-05f, IA-05(06) | Rotation record |
+| INT-IA-04 | Windows server administrator | How are the key that signs the tokens between the applications and the audit chain key changed, and when were they last changed? | IA-05f, IA-05(06) | Rotation record |
 | INT-IA-05 | \<Organisation\>'s security contact | How are devices identified on the network? | IA-03 | EV-IA-01 |
 | INT-IA-06 | \<Organisation\>'s HR | What identity evidence do you check, and how are people told? | IA-12, IA-12(02), IA-12(03), IA-12(05) | EV-IA-02 |
-| INT-IA-07 | Developers, with \<Organisation\>'s security contact | Show me a sign-in through PingFederate from start to finish. What does \<System Name\> check in the OpenID Connect response, and what happens if I present the same response twice? | IA-02, IA-02(01), IA-02(08) | The trust settings (\<Identification and Authentication Management\>, section 3.3); a test record |
+| INT-IA-07 | Developers, with \<Organisation\>'s security contact | Show me a sign-in through PingFederate from start to finish. What does \<System Name\> check in the OpenID Connect response, how does the API then read the person's groups from Active Directory over LDAPS, and what happens if I present the same response twice? | IA-02, IA-02(01), IA-02(08) | The trust settings (\<Identification and Authentication Management\>, section 3.3); a test record |
 
 ## 10 Incident Response (IR)
 
@@ -227,11 +227,11 @@ Questions are numbered INT-XX-nn, where XX is the family code, and each names th
 | --- | --- | --- | --- | --- |
 | INT-MA-01 | Windows server administrator | Show me the record for the last maintenance. Who approved it, and who checked the controls afterwards? | MA-02 | Change record and TPL-12 |
 | INT-MA-02 | Windows server administrator | Which tools are approved, and how are they checked? | MA-03, MA-03(01), MA-03(02) | Tool list |
-| INT-MA-03 | System owner | How does remote maintenance get approved, watched and ended? | MA-04 | Change record and session logs |
+| INT-MA-03 | System owner | How does remote maintenance get approved, watched and ended? | MA-04 | Change record and remote maintenance logs |
 | INT-MA-04 | System owner | Who may maintain \<System Name\>, and how is anyone else supervised? | MA-05 | Approved list |
 | INT-MA-05 | \<Organisation\>'s IT service desk | How quickly can support and parts arrive, and how is equipment sanitised before it leaves? | MA-02d, MA-06 | EV-MA-01 |
-| INT-MA-06 | Security officer | How do you review the maintenance records and the remote session logs, and what happens when a job has no change record? | MA-02a, MA-04a | TPL-12 reviews; session logs |
-| INT-MA-07 | Administrator | When did you last use a built-in maintenance page? Who approved it, who was present, and where is it recorded? | MA-03a | Change record and TPL-12 |
+| INT-MA-06 | Security officer | How do you review the maintenance records and the remote maintenance logs, and what happens when a job has no change record? | MA-02a, MA-04a | TPL-12 reviews; remote maintenance logs |
+| INT-MA-07 | Administrator | When did you last run the diagnostics in the Admin application? Who approved it, who was present, and where is it recorded? | MA-03a | Change record and TPL-12 |
 
 ## 12 Media Protection (MP)
 
@@ -239,10 +239,10 @@ Questions are numbered INT-XX-nn, where XX is the family code, and each names th
 
 | ID | For | Question | Statements | Ask to see |
 | --- | --- | --- | --- | --- |
-| INT-MP-01 | A sample of users | What do you do with a printed Restricted document? | MP-02, MP-03, MP-04, MP-06 | Locked storage and shredder |
+| INT-MP-01 | A sample of users | What do you do with a printed page from an item marked Restricted? | MP-02, MP-03, MP-04, MP-06 | Locked storage and shredder |
 | INT-MP-02 | Database administrator | Where do backup media go, and who can reach them? | MP-02, MP-04, MP-05 | EV-MP-01 |
 | INT-MP-03 | \<Organisation\>'s IT service desk | How are disks and backup media sanitised, and how is USB blocked? | MP-06, MP-07 | EV-MP-02, EV-MP-03 |
-| INT-MP-04 | Windows server administrator | Show me the export folder on the application VM and your last check. What do you do with a copy older than 24 hours? | MP-04, MP-06 | TPL-8 |
+| INT-MP-04 | Windows server administrator | Show me the encrypted export working area on the application server and your last check. What do you do with a copy older than 24 hours? | MP-04, MP-06 | TPL-8 |
 | INT-MP-05 | System owner | When did you last review the media inventory, and check a sample of sanitising certificates against the media records? | MP-02, MP-06 | Inventory review; TPL-13 |
 
 ## 13 Physical and Environmental Protection (PE)
@@ -269,7 +269,7 @@ Questions are numbered INT-XX-nn, where XX is the family code, and each names th
 | INT-PL-04 | A sample of users and an administrator | Which version of the rules did you sign, and when? Can you name two rules that apply to you? Have you been asked to sign again after a change? | PL-4b, PL-4d, PL-4(1) | TPL-21 and the register of signatures in \<Planning Management\>, section 3.5 |
 | INT-PL-05 | Head of Cyber | Have you seen the System Security Plan, and do you concur with it? How are you told when it changes? | PL-02a.15, PL-02b | The plan's approval in \<Decision Register\> and the plan review record |
 | INT-PM-01 | Head of Cyber | Where is \<Organisation\>'s security programme written down, what is its risk appetite, is \<System Name\> in the system inventory, and who is the data protection officer? Do \<System Name\>'s risk thresholds fit the appetite? | PM-1, PM-2, PM-5, PM-9, PM-19 (inherited; \<Program Management\>, section 3.3) | EV-PM-01, EV-PM-02, EV-PM-04 |
-| INT-PM-02 | Legal adviser | Is there a privacy programme plan, and who leads it? Where is \<System Name\>'s HR data in the record of processing? How do complaints and breaches reach the people who must be told? | PM-5(1), PM-18, PM-19, PM-26, PM-27 (inherited; \<Program Management\>, section 3.3) | EV-PM-02, EV-PM-04 |
+| INT-PM-02 | Legal adviser | Is there a privacy programme plan, and who leads it? Where is \<System Name\>'s personal data in the record of processing? How do complaints and breaches reach the people who must be told? | PM-5(1), PM-18, PM-19, PM-26, PM-27 (inherited; \<Program Management\>, section 3.3) | EV-PM-02, EV-PM-04 |
 
 ## 15 Personnel Security (PS)
 
@@ -278,7 +278,7 @@ Questions are numbered INT-XX-nn, where XX is the family code, and each names th
 | ID | For | Question | Statements | Ask to see |
 | --- | --- | --- | --- | --- |
 | INT-PS-01 | \<Organisation\>'s HR | What screening is done before someone starts, and when is it repeated? | PS-02b, PS-03 | EV-PS-01 |
-| INT-PS-02 | Administrator, with a Data Owner | Show me the last leaver and the last mover. When were you told, and when were the Active Directory account disabled, the group memberships changed and the PingFederate sign-in ended? | PS-04, PS-05 | TPL-14 and audit records |
+| INT-PS-02 | Data Owner, with the system owner | Show me the last leaver and the last mover. When were you told, and when were the Active Directory account disabled, the group memberships changed and the PingFederate sign-in ended? | PS-04, PS-05 | TPL-14 and audit records |
 | INT-PS-03 | System owner | Show me the signed agreement for a sample of people | PS-06 | Signed agreements |
 | INT-PS-04 | \<Organisation\>'s HR | How are exit interviews and disciplinary action handled, and do job descriptions state security duties? | PS-04c, PS-08, PS-09 | EV-PS-02 |
 | INT-PS-05 | System owner | How do you check that external people meet their contract terms? | PS-07 | EV-PS-03 |
@@ -296,7 +296,7 @@ Questions are numbered INT-XX-nn, where XX is the family code, and each names th
 | INT-PT-04 | Business owner | What personal data do schemas hold, for how long, and who checks it is correct? | PT-03, SI-12(01), SI-18 | Retention periods and the last check |
 | INT-PT-05 | Developers | What personal data is in audit records and test data? | AU-03(03), SI-12(02) | A sample of each |
 | INT-PT-06 | Legal adviser | Show me a data protection complaint. Was it acknowledged within 30 days, and how was it resolved? | PT-01, PM-26 | A complaint record (TPL-22) |
-| INT-PT-07 | Administrator who would handle a request | Show me how you would find every document about one person, and how you would record a correction or deletion | AC-03(14), SI-18(04) | TPL-15; audit records |
+| INT-PT-07 | Legal adviser's delegate who would handle a request | Show me how you would find every item about one person across all schemas, and how you would record a correction or deletion | AC-03(14), SI-18(04) | TPL-15; audit records |
 | INT-PT-08 | Data protection officer | What advice did you give on the impact assessment, and what changed as a result? | RA-08, PT-02 | The impact assessment |
 
 ## 17 Risk Assessment (RA)
@@ -320,12 +320,12 @@ Questions are numbered INT-XX-nn, where XX is the family code, and each names th
 
 | ID | For | Question | Statements | Ask to see |
 | --- | --- | --- | --- | --- |
-| INT-SA-01 | Developers | Walk me through a recent change, from plan to release | SA-03, SA-10, SA-15 | The ServiceNow record and pull request |
+| INT-SA-01 | Developers | Walk me through a recent change, from plan to release, under \<Organisation\>'s corporate SDLC | SA-03, SA-10, SA-15 | The change record and pull request |
 | INT-SA-02 | Developers | What tests run at a release, and where are the results? | SA-11 | The latest results |
 | INT-SA-03 | System owner | How are security and privacy costs raised and funded? | SA-02 | The budget request |
 | INT-SA-04 | System owner | How do you check that providers keep to their contracts? | SA-04, SA-09 | The last review |
 | INT-SA-05 | Developers | How do you know a component is nearing the end of its support? | SA-22 | The monthly check |
-| INT-SA-06 | Developers | Show me how the default branch is protected, and the review on the last change merged to it | SA-10, CM-3 | The GitHub branch settings and the latest release check results |
+| INT-SA-06 | Developers | Show me how the default branch is protected, and the review on the last change merged to it | SA-10, CM-3 | The repository's branch protection settings and the latest release check results |
 | INT-SA-07 | \<Organisation\>'s contract owner | Show me the security and privacy terms in the agreement for \<System Name\>'s hosting and services, and how \<Organisation\> shows it keeps to them | SA-04, SA-09 | The agreement; service level reports |
 | INT-SA-08 | Security officer | Which designs have you checked against the engineering principles, and what changed as a result? | SA-03d, SA-08 | TPL-6 records of design checks |
 
@@ -337,7 +337,7 @@ Questions are numbered INT-XX-nn, where XX is the family code, and each names th
 | --- | --- | --- | --- | --- |
 | INT-SC-01 | Developers | Which traffic is encrypted, and how are certificates renewed? | SC-08, SC-08(01), SC-23 | VM configuration, certificate record |
 | INT-SC-02 | Developers | Where are keys held, who can reach them, and how are they rotated? | SC-12 | Key record |
-| INT-SC-03 | Developers | Which scripts can pages load, and how would you notice an unapproved one? | SC-18 | Page policy |
+| INT-SC-03 | Developers | Which scripts can pages load, how do you know each is served by \<System Name\> itself and none from a content delivery service, and how would you notice an unapproved one? | SC-18 | Page policy and the packaged browser libraries |
 | INT-SC-04 | Windows server administrator | Is disk encryption on, and how are recovery keys protected? | SC-28, SC-28(01) | BitLocker status on both VMs |
 | INT-SC-05 | \<Organisation\>'s security contact | What protects the boundary, and how are exceptions approved? | SC-07, SC-07(03), SC-07(04), SC-07(05) | EV-SC-02 |
 | INT-SC-06 | \<Organisation\>'s security contact | What protects against denial of service, and how is DNS protected? | SC-05, SC-20, SC-21, SC-22 | EV-SC-01, EV-SC-05 |
@@ -356,7 +356,7 @@ Questions are numbered INT-XX-nn, where XX is the family code, and each names th
 | INT-SI-04 | Security officer | Which advisories do you receive, and what did you do about the last one? | SI-05 | Advisory record |
 | INT-SI-05 | Developers | How are inputs checked, and what does a user see when something fails? | SI-10, SI-11 | Test results |
 | INT-SI-06 | \<Organisation\>'s security contact | What monitors traffic, and how are firmware updates handled? | SI-04(04), SI-02c | EV-SI-01, EV-SI-02 |
-| INT-SI-07 | Security officer | Show me the integrity baseline for the running release. How would you know a release package, a document or an audit record had been changed? | SI-07a, SI-07(01), SI-07(07) | \<System and Information Integrity Management\>, section 3.5; the integrity baseline; a TPL-8 integrity check |
+| INT-SI-07 | Security officer | Show me the integrity baseline for the running release. How would you know a release package, a stored file or an audit record had been changed? | SI-07a, SI-07(01), SI-07(07) | \<System and Information Integrity Management\>, section 3.5; the integrity baseline; a TPL-8 integrity check |
 | INT-SI-08 | Developers | Upload the EICAR test file and show me what happens, and where it is recorded | SI-03 | The refused upload; the audit record; the alert |
 
 ## 21 Supply Chain Risk Management (SR)

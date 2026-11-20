@@ -63,7 +63,7 @@ Controls met here: PM-2, PM-10, PM-18, PM-19, PM-29.
 
 Controls met here: PM-1, PM-2, PM-3, PM-4, PM-5, PM-5(1), PM-6, PM-7, PM-7(1), PM-8, PM-9, PM-10, PM-11, PM-12, PM-13, PM-14, PM-15, PM-16, PM-16(1), PM-17, PM-18, PM-19, PM-20, PM-20(1), PM-21, PM-22, PM-23, PM-24, PM-25, PM-26, PM-27, PM-28, PM-29, PM-30, PM-31, PM-32.
 
-Each Rev 5 PM control is listed with who provides it, which \<System Name\> controls rely on it, what \<System Name\> contributes, the evidence that would show it, and whether CSS places it in the privacy baseline. A consistency check confirms that every row names a provider and an evidence request that exists. The three enhancements, PM-7(1), PM-16(1) and PM-20(1), are included.
+Each PM control is listed with who provides it, which \<System Name\> controls rely on it, what \<System Name\> contributes, the evidence that would show it, and whether CSS places it in the privacy baseline. A consistency check confirms that every row names a provider and an evidence request that exists. The three enhancements, PM-7(1), PM-16(1) and PM-20(1), are included.
 
 **Table 3: PM inheritance**
 
@@ -93,11 +93,11 @@ Each Rev 5 PM control is listed with who provides it, which \<System Name\> cont
 | PM-19 Privacy Program Leadership Role | \<Organisation\> | PT family | Data protection officer placeholder in \<Roles and Responsibilities\> and \<Privacy Plan\> | EV-PM-04 | Yes |
 | PM-20 Dissemination of Privacy Program Information | \<Organisation\> | PT-5 | Employee privacy notice (EV-PT-01) | EV-PM-04 | Yes |
 | PM-20(1) Privacy Policies on Websites, Applications, and Digital Services | \<Organisation\> | PT-5 | A link to the employee privacy notice from \<System Name\>'s pages | EV-PM-04 | Yes |
-| PM-21 Accounting of Disclosures | \<Organisation\>, legal adviser | PT-2, AU-2 | Exports and shares are audited | EV-PM-04 | Yes |
+| PM-21 Accounting of Disclosures | \<Organisation\>, legal adviser | PT-2, AU-2 | Downloads and exports are audited | EV-PM-04 | Yes |
 | PM-22 Personally Identifiable Information Quality Management | \<Organisation\> | SI-18 | The yearly check of accuracy (\<Procedures\>, PRO-PT-5) | EV-PM-04 | Yes |
 | PM-23 Data Governance Body | \<Organisation\> | PT-2 | None | EV-PM-04 | No |
 | PM-24 Data Integrity Board | Not applicable | None | United States only | None | Yes |
-| PM-25 Minimization of PII Used in Testing, Training, and Research | \<Organisation\> | SA-8(33), SI-12(2) | Testing uses sample data only | EV-PM-04 | Yes |
+| PM-25 Minimization of PII Used in Testing, Training, and Research | \<Organisation\> | SA-8(33), SI-12(2) | Testing and development use invented data only | EV-PM-04 | Yes |
 | PM-26 Complaint Management | \<Organisation\>, legal adviser | AC-3(14), PT-5 | TPL-15 privacy requests and TPL-22 complaints (\<Procedures\>, PRO-PT-1 and PRO-PT-2) | EV-PM-04 | Yes |
 | PM-27 Privacy Reporting | \<Organisation\>, legal adviser | IR-8(1) | Breach steps in section 3.8 of \<Incident Response Management\>, and the breach register in its section 3.14 | EV-PM-04 | Yes |
 | PM-28 Risk Framing | \<Organisation\>, Head of Cyber | RA-3, RA-7 | \<Risk List\> | EV-PM-01 | Yes |
@@ -112,7 +112,7 @@ Where \<Organisation\>'s document is not yet seen, \<System Name\>'s own documen
 
 Controls met here: PM-5(1), PM-18, PM-26, PM-27.
 
-\<System Name\> applies the CSS privacy baseline, as it holds HR documents with personal data. That baseline includes 24 PM controls: PM-3, PM-4, PM-5(1), PM-6 to PM-11, PM-13, PM-14, PM-17 to PM-22, PM-20(1), PM-24 to PM-28 and PM-31. CSS still expects them to be met once, by the organisation's programme, so they stay \<Organisation\>'s to provide. They stay inherited and are not assessed for \<System Name\>. Two of them, PM-17 and PM-24, rest on United States law and do not apply.
+\<System Name\> applies the CSS privacy baseline, as it holds personal data. That baseline includes 24 PM controls: PM-3, PM-4, PM-5(1), PM-6 to PM-11, PM-13, PM-14, PM-17 to PM-22, PM-20(1), PM-24 to PM-28 and PM-31. CSS still expects them to be met once, by the organisation's programme, so they stay \<Organisation\>'s to provide. They stay inherited and are not assessed for \<System Name\>. Two of them, PM-17 and PM-24, rest on United States law and do not apply.
 
 For the rest, \<System Name\>'s privacy controls depend on them directly: the personal data inventory on PM-5(1), complaints on PM-26, breach reporting on PM-27, and the privacy plan on PM-18. Until \<Organisation\> evidences its privacy programme (EV-PM-04, EV-PM-02), \<System Name\>'s own privacy plan, inventory and procedures stand in.
 
@@ -125,7 +125,7 @@ Controls met here: PM-1, PM-2, PM-3, PM-5, PM-5(1), PM-6, PM-7, PM-7(1), PM-8, P
 | Request | Controls | What is asked |
 | --- | --- | --- |
 | EV-PM-01 | PM-1, PM-2, PM-3, PM-8, PM-9, PM-11, PM-12, PM-13, PM-15, PM-16, PM-16(1), PM-28, PM-29, PM-32 | The information security programme plan, the risk management strategy and risk appetite, and the roles that lead them |
-| EV-PM-02 | PM-5, PM-5(1) | \<System Name\>'s entry in the system inventory, and its HR personal data in the record of processing |
+| EV-PM-02 | PM-5, PM-5(1) | \<System Name\>'s entry in the system inventory, and the personal data it holds in the record of processing |
 | EV-PM-03 | PM-6, PM-10, PM-14, PM-30, PM-31 | How systems are authorised, tested and monitored, how performance is measured, and how supply chain risk is managed |
 | EV-PM-04 | PM-18 to PM-23, PM-20(1), PM-25 to PM-27 | The privacy programme plan, the data protection officer or the reason none is required, and the complaint and reporting processes |
 | EV-PL-01 | PM-7, PM-7(1) | The enterprise architecture standards that \<System Name\> must fit |

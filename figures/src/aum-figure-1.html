@@ -3,7 +3,7 @@
 <defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0L10,5L0,10z" fill="#999"/></marker></defs>
 <rect width="1520" height="938" fill="#fff"/>
 <text x="48" y="55" font-size="30" font-weight="700" fill="#1a1a1a">Where audit records come from, and who reads them</text>
-<text x="48" y="92" font-size="21" fill="#555">The design. Much of it is not built yet: section 3 says what is missing. Dashed boxes are &lt;Organisation&gt;'s.</text>
+<text x="48" y="92" font-size="21" fill="#555">One application audit log, written only by the API. Dashed boxes are &lt;Organisation&gt;'s.</text>
 <text x="48" y="152" font-size="24" font-weight="700" fill="#1a1a1a">Source</text>
 <text x="560" y="152" font-size="24" font-weight="700" fill="#1a1a1a">Held in</text>
 <text x="1052" y="152" font-size="24" font-weight="700" fill="#1a1a1a">Read by</text>
@@ -18,11 +18,11 @@
 <line x1="980" y1="239" x2="1050" y2="239" stroke="#999" stroke-width="2.5" marker-end="url(#a)"/>
 <rect x="48" y="328" width="420" height="134" rx="12" fill="#fff" stroke="#999" stroke-width="2"/>
 <text x="76" y="374" font-size="25" font-weight="700" fill="#1a1a1a">SQL Server</text>
-<text x="76" y="410" font-size="20" fill="#555">connections, permission</text>
-<text x="76" y="440" font-size="20" fill="#555">and schema changes</text>
+<text x="76" y="410" font-size="20" fill="#555">logins, permission and</text>
+<text x="76" y="440" font-size="20" fill="#555">database structure changes</text>
 <rect x="560" y="328" width="420" height="134" rx="12" fill="#fff" stroke="#999" stroke-width="2"/>
-<text x="588" y="374" font-size="25" font-weight="700" fill="#1a1a1a">Database server log</text>
-<text x="588" y="410" font-size="20" fill="#555">on the database server</text>
+<text x="588" y="374" font-size="25" font-weight="700" fill="#1a1a1a">SQL Server Audit files</text>
+<text x="588" y="410" font-size="20" fill="#555">forwarded to central logging</text>
 <line x1="468" y1="395" x2="558" y2="395" stroke="#999" stroke-width="2.5" marker-end="url(#a)"/>
 <line x1="980" y1="395" x2="1050" y2="395" stroke="#999" stroke-width="2.5" marker-end="url(#a)"/>
 <rect x="48" y="484" width="420" height="134" rx="12" fill="#fff" stroke="#999" stroke-width="2"/>
@@ -31,7 +31,8 @@
 <text x="76" y="596" font-size="20" fill="#555">policy changes</text>
 <rect x="560" y="484" width="420" height="134" rx="12" fill="#fff" stroke="#999" stroke-width="2"/>
 <text x="588" y="530" font-size="25" font-weight="700" fill="#1a1a1a">Windows event logs</text>
-<text x="588" y="566" font-size="20" fill="#555">on each server</text>
+<text x="588" y="566" font-size="20" fill="#555">on each server, forwarded</text>
+<text x="588" y="596" font-size="20" fill="#555">to central logging</text>
 <line x1="468" y1="551" x2="558" y2="551" stroke="#999" stroke-width="2.5" marker-end="url(#a)"/>
 <line x1="980" y1="551" x2="1050" y2="551" stroke="#999" stroke-width="2.5" marker-end="url(#a)"/>
 <rect x="48" y="640" width="420" height="134" rx="12" fill="#fff" stroke="#999" stroke-width="2" stroke-dasharray="8 6"/>
@@ -48,14 +49,11 @@
 <text x="1080" y="254" font-size="20" fill="#555">every week, through the</text>
 <text x="1080" y="284" font-size="20" fill="#555">audit pages only</text>
 <rect x="1052" y="328" width="420" height="446" rx="12" fill="#fff" stroke="#999" stroke-width="2"/>
-<text x="1080" y="374" font-size="25" font-weight="700" fill="#1a1a1a">The auditor, by report</text>
-<text x="1080" y="410" font-size="20" fill="#555">&lt;Organisation&gt;'s central</text>
-<text x="1080" y="440" font-size="20" fill="#555">monitoring takes these logs,</text>
-<text x="1080" y="470" font-size="20" fill="#555">if confirmed. Until then the</text>
-<text x="1080" y="500" font-size="20" fill="#555">auditor gets &lt;Organisation&gt;'s</text>
-<text x="1080" y="530" font-size="20" fill="#555">report and compares the logs</text>
-<text x="1080" y="560" font-size="20" fill="#555">with the audit log by hand</text>
-<text x="1080" y="590" font-size="20" fill="#555">each week</text>
+<text x="1080" y="374" font-size="25" font-weight="700" fill="#1a1a1a">The auditor, across stores</text>
+<text x="1080" y="410" font-size="20" fill="#555">every week, compares these</text>
+<text x="1080" y="440" font-size="20" fill="#555">logs with the audit log by</text>
+<text x="1080" y="470" font-size="20" fill="#555">hand, lining them up by</text>
+<text x="1080" y="500" font-size="20" fill="#555">UTC time and username</text>
 <rect x="48" y="818" width="1424" height="80" rx="12" fill="#efeeeb" stroke="#999" stroke-width="2"/>
 <text x="76" y="866" font-size="20" fill="#555">All times are in UTC. Records are kept 12 months online, then 12 months in an offline archive. Nobody can change one.</text>
 </svg></body></html>

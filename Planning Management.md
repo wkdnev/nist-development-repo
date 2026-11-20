@@ -23,7 +23,7 @@ Controls met here: PL-2, PL-4.
 1. **One current set.** The System Security Plan is the single statement of how controls are met, and every plan it relies on is listed in one register.
 2. **Rules before access.** Nobody gets access without signing the rules.
 3. **Plans change with the system.** Plans change when the system, its risks or an assessment changes, and every review and change is recorded.
-4. **Plans are Restricted.** Plans describe weaknesses, and must be protected like the system itself.
+4. **Plans are protected.** Plans describe weaknesses, are marked \<Classification\>, and must be protected like the system itself.
 
 These carry out the principles and rules of \<Policy\>, sections PL.3 and PL.4.
 
@@ -43,7 +43,7 @@ Every plan and planning record in force, with its owner, version, approver and n
 | --- | --- | --- | --- | --- | --- |
 | System security plan | \<System Security Plan\> | \<ver\> | System owner | System owner, with the Head of Cyber's concurrence, and accepted by the authorising official as an accurate record | Every 12 months, and after a significant change |
 | Privacy plan | \<Privacy Plan\> | \<ver\> | Legal adviser | Legal adviser and authorising official | Every 12 months |
-| Data protection impact assessment | \<Data Protection Impact Assessment\> | \<ver\> | Legal adviser | Legal adviser | Before production, and after a significant change in processing |
+| Data protection impact assessment | \<Data Protection Impact Assessment\> | \<ver\> | Legal adviser | Legal adviser | Before real data is held, and after a significant change in processing |
 | Supply chain risk management plan | \<Supply Chain Risk Management\> | \<ver\> | System owner | System owner | Every 12 months |
 | Configuration management plan | \<Configuration Management\> | \<ver\> | System owner | System owner | Every 12 months |
 | Contingency plan | \<Contingency Planning Management\> | \<ver\> | System owner | System owner and authorising official | Every 12 months, and after a test or activation |
@@ -96,7 +96,7 @@ Controls met here: PL-2.
 | 2 Check | The plan consistency test is run on the whole document set, and every gap is corrected before the plans are issued. It has 24 checks: for example, that the plan and the assessment agree on the status of every control, and that every section one document cites exists in the other | System owner | The test result, kept with its hash |
 | 3 Approve | The security plan goes to the Head of Cyber for concurrence and to the authorising official to accept as an accurate record. The privacy plan is approved by the legal adviser and the authorising official | System owner | \<Decision Register\> |
 | 4 Share | When a plan is approved or changed, a link to the restricted copy goes to the Head of Cyber, the administrators and \<Organisation\>'s security contact | System owner | Plan review record, naming the recipients |
-| 5 Protect | The plans and the assessment evidence are Restricted. They are kept only in the restricted document store, where only named people can read or change them, and never in a code repository. The access list is checked against \<Roles and Responsibilities\> at each review | System owner | Plan review record |
+| 5 Protect | The plans and the assessment evidence are marked \<Classification\>. They are kept only in the restricted document store, where only named people can read or change them, and never in a code repository. The access list is checked against \<Roles and Responsibilities\> at each review | System owner | Plan review record |
 | 6 Review | Every plan in the register is reviewed every 12 months, and after an assessment, a significant change or a problem found in use. The record shows who reviewed it, their role, the date, the outcome and the actions | System owner | Plan review record, kept in the change record (\<Documentation Map\>, section 4.1) |
 
 ### 3.5 Rules of behaviour and the register of signatures
@@ -105,7 +105,7 @@ Controls met here: PL-4, PL-4(1).
 
 The Security Operating Procedures are the rules of behaviour. Part A applies to everyone, and Part B, the privileged rules, to administrators as well. The privacy rules are A23 to A29. The rules on social media, public websites and outside sites are these:
 
-- **A43:** \<System Name\> information, documents and how the system works are not posted or discussed on social media, forums or any public website.
+- **A43:** \<System Name\> information, items and how the system works are not posted or discussed on social media, forums or any public website.
 - **A25:** \<Organisation\>'s information is not posted on public websites.
 - **A44:** work credentials are not used to create accounts on outside sites.
 - **A45:** the use of outside services and AI tools is limited.
@@ -113,7 +113,7 @@ The Security Operating Procedures are the rules of behaviour. Part A applies to 
 The system owner reviews and updates the rules every 12 months.
 
 1. Before access, the person is given the rules, and signs a declaration that they have read and understood them and agree to follow them, on paper or electronically. The system owner completes TPL-21.
-2. The signature is added to the register below. The access request checks the register before access is given, and is not approved without a signature in it.
+2. The signature is added to the register below. The access request in ServiceNow checks the register before access is given, and the group's owner adds nobody to a group without a signature in it.
 3. Everyone signs again every 12 months, and after a material change to the rules: a new or stricter rule, a changed consequence, new monitoring or a new privileged duty. The system owner decides whether a change is material, and records it in the change record of the rules. After a material change everyone signs within 30 days, or loses access.
 
 Signed forms are kept for as long as the person has access, and for 3 years after it ends. The declaration each person signs is: "I have read and understood these rules, and I agree to follow them."

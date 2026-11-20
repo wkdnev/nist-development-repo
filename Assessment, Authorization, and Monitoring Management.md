@@ -24,7 +24,7 @@ Controls met here: CA-2, CA-2(1), CA-3, CA-5, CA-6, CA-7, CA-9.
 
 1. **Two levels of assessment.** The system owner self-assesses at Level 1. An independent team assesses at Level 2.
 2. **Authorise knowingly.** The authorising official accepts the remaining risk by name, in writing, for no more than 12 months at a time.
-3. **Nothing in production before authorisation.** \<System Name\> holds no production documents until it is authorised.
+3. **Nothing in production before authorisation.** \<System Name\> holds no real data until it is authorised (P-25).
 4. **Track what is open.** Every weakness stays on the plan of action until its fix is tested.
 5. **Know the connections.** Each connection to another system is recorded and approved before it is used.
 6. **Keep watching.** After authorisation, measures are collected and reported, and a significant change sends \<System Name\> back to the authorising official.
@@ -118,9 +118,9 @@ Controls met here: CA-6.
 | Assessor independence | TPL-19 |
 | Decision | TPL-18, with terms, conditions, accepted risks, inherited controls accepted and an end date no more than 12 months away |
 
-**Privacy review.** \<System Name\> holds HR records, so before the decision the legal adviser reviews the privacy plan and the impact assessment, and their view goes to the authorising official with the package.
+**Privacy review.** \<System Name\> holds personal data, so before the decision the legal adviser reviews the privacy plan and the impact assessment, and their view goes to the authorising official with the package.
 
-**The decision.** The authorising official records the decision on TPL-18. It is one of three types: a first authorisation, a re-authorisation, or the withdrawal of an authorisation. The record gives the package received, with versions; the decision, to authorise or not; the terms and conditions, such as items to fix by a date or limits on use; each remaining risk accepted, by its Risk List entry; the inherited controls accepted; and an end date no more than 12 months away (PRO-CA-4). It is copied to the system owner and the Head of Cyber. \<System Name\> holds no production documents until the authorising official has authorised it. The authorisation is reviewed every 12 months and after a significant change.
+**The decision.** The authorising official records the decision on TPL-18. It is one of three types: a first authorisation, a re-authorisation, or the withdrawal of an authorisation. The record gives the package received, with versions; the decision, to authorise or not; the terms and conditions, such as items to fix by a date or limits on use; each remaining risk accepted, by its Risk List entry; the inherited controls accepted; and an end date no more than 12 months away (PRO-CA-4). It is copied to the system owner and the Head of Cyber. \<System Name\> holds no real data until the authorising official has authorised it. The authorisation is reviewed every 12 months and after a significant change.
 
 ### 3.6 Inherited controls
 
@@ -157,18 +157,18 @@ This is the single record of \<System Name\>'s connections. Each has an agreemen
 
 **Table 6: Interface record**
 
-| Connection | Type | Information | Security and privacy needs | Responsibilities | Impact | Agreement | Agreed, review and end |
+| Connection | Type | Information | Security and privacy needs | Responsibilities | Impact | Agreement | Review and end |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| UI application and Admin application to API | Internal (CA-9) | Every request the two user-facing apps make, including document content and audit events | HTTPS on the application server's own loopback address; the API accepts requests only from the two apps | Developers; Windows server administrator | Moderate | None needed: inside the boundary | Reviewed every 12 months; ends when a component is retired |
-| Application VM to database VM | Internal (CA-9) | Documents, accounts and audit records, including personal data in HR documents | TLS; allowed only between these VMs | Windows server and database administrators | Moderate | None needed: inside the boundary | Reviewed every 12 months; ends when a VM is rebuilt |
-| \<Organisation\>'s PingFederate and Active Directory | External (CA-3) | PingFederate's signed OpenID Connect response, which names the person and carries no groups, and the certificate that checks it; each person's group membership, read by the API from Active Directory over LDAPS (F7) | The response is signed and sent over TLS, and the groups are read over LDAPS; \<System Name\> trusts only \<Organisation\>'s PingFederate | \<Organisation\>, for authentication and the directory; system owner, for which groups \<System Name\> uses | Moderate | \<Organisation\>'s hosting and services agreement | \[agreement name and date, asked for with EV-CA-02\]; reviewed every 12 months; ends if sign-in moves to another service |
-| ServiceNow | External (CA-3) | Access and change requests and approvals; names of requesters | TLS; approved accounts only | System owner; \<Organisation\>'s IT service desk | Moderate | Information exchange agreement with \<Organisation\>'s IT service desk | \[date agreed\]; reviewed every 12 months; ends if the workflow moves |
-| Starters/Leavers system | External (CA-3) | Prompts to add or remove access; staff names and leaving dates | TLS; approved accounts only | System owner; \<Organisation\> | Moderate | Information exchange agreement with \<Organisation\> | \[date agreed\]; reviewed every 12 months; ends if the process changes |
-| \<Organisation\>'s central logging | External (CA-3) | Windows and application security logs | Protected in transit; access limited to \<Organisation\>'s security team | \<Organisation\>; Windows server administrator | Moderate | \<Organisation\>'s hosting and services agreement | \[agreement name and date\]; reviewed every 12 months |
-| \<Organisation\>'s time service | External (CA-3) | Time | Authenticated NTP where available | \<Organisation\> | Low | \<Organisation\>'s hosting and services agreement | As above |
-| \<Organisation\>'s backup site | External (CA-3) | Encrypted database backups | Encrypted before leaving the database VM | Database administrator; \<Organisation\> | Moderate | \<Organisation\>'s hosting and services agreement | As above |
+| F3, F4: UI application and Admin application to API | Internal (CA-9) | Every request the two user-facing applications make, including item content and audit events | HTTPS on the application server's own loopback address; the API accepts requests only from the two applications, each with a signed, short-lived token | Developers; Windows server administrator | Moderate | None needed: inside the boundary | Reviewed every 12 months; ends when a component is retired |
+| F5: API on the application VM to SQL Server on the database VM | Internal (CA-9) | Items, their files, schema definitions and audit records, including personal data. No user accounts are held | SQL Server over TLS with strict encryption, TCP 1433, with Windows authentication under the API's managed service account and no database password; allowed only from the application server | Windows server and database administrators | Moderate | None needed: inside the boundary | Reviewed every 12 months; ends when a VM is rebuilt |
+| F6, F7: \<Organisation\>'s PingFederate and Active Directory | External (CA-3) | PingFederate's signed OpenID Connect response, which names the person and carries no groups, and the certificate that checks it; each person's group membership, read by the API from Active Directory over LDAPS (F7) | The response is signed and sent over TLS, and the groups are read over LDAPS; \<System Name\> trusts only \<Organisation\>'s PingFederate | \<Organisation\>, for authentication and the directory; system owner, for which groups \<System Name\> uses | Moderate | \<Organisation\>'s hosting and services agreement \[agreement name\] (EV-CA-02) | Reviewed every 12 months; ends if sign-in moves to another service |
+| F9: ServiceNow | Not a system connection: people only (F9) | Access requests and the Data Owner's authorisation; change requests; names of requesters. None of it passes to \<System Name\> | ServiceNow has no connection to \<System Name\>. Group owners act on an authorised request by changing group membership in Active Directory | System owner; Data Owners; \<Organisation\>'s IT service desk | Moderate | None needed: no system connection; ServiceNow is \<Organisation\>'s service | Reviewed every 12 months; ends if the workflow moves |
+| F9: Starters and leavers process | Not a system connection: people only (F9) | Leaver notices to group owners; staff names. None of it passes to \<System Name\> | No connection to \<System Name\>. A leaver's Active Directory account is disabled as P-06 sets, which ends their access | System owner; \<Organisation\> | Moderate | None needed: no system connection; the process is \<Organisation\>'s service | Reviewed every 12 months; ends if the process changes |
+| F8: \<Organisation\>'s central logging | External (CA-3) | Windows and application security logs | Protected in transit; access limited to \<Organisation\>'s security team | \<Organisation\>; Windows server administrator | Moderate | \<Organisation\>'s hosting and services agreement | Reviewed every 12 months |
+| F8: \<Organisation\>'s time service | External (CA-3) | Time | Authenticated NTP where available | \<Organisation\> | Low | \<Organisation\>'s hosting and services agreement | As above |
+| F8: \<Organisation\>'s backup site | External (CA-3) | Encrypted SQL Server backups | Encrypted before leaving the database VM | Database administrator; \<Organisation\> | Moderate | \<Organisation\>'s hosting and services agreement | As above |
 
-Every connection uses TLS. A connection ends when it is no longer needed, or when a server is rebuilt: the Windows server administrator removes it, and the system owner records the end date (PRO-CA-2, step 3). The API listens only on the loopback address and accepts only the two apps, and the database accepts only the application server (\<Access Control Management\>, section 3.6). A new or changed external exchange is a significant change (section 3.9), so the authorising official weighs its risk before it is built.
+Every system connection is encrypted. A connection ends when it is no longer needed, or when a server is rebuilt: the Windows server administrator removes it, and the system owner records the end date (PRO-CA-2, step 3). The API listens only on the loopback address and accepts only the two applications, and the database accepts only the application server (\<Access Control Management\>, section 3.6). A new or changed external exchange is a significant change (section 3.9), so the authorising official weighs its risk before it is built.
 
 Users' and administrators' devices are outside the boundary. They connect by browser, as a class and not one by one: \<Organisation\>'s managed devices, over HTTPS, in the office or on the VPN (\<Access Control Management\>, section 3.6). \<Organisation\>'s firewall allows only the flows \<System Name\> has asked for (\<Access Control Management\>, section 3.6.4).
 
@@ -231,7 +231,7 @@ Controls met here: CA-2, CA-3, CA-6, CA-7.
 A significant change is one likely to alter \<System Name\>'s security or privacy risk. It must be assessed before it is made (PRO-CA-6), and the authorising official decides whether \<System Name\> must be re-assessed or re-authorised. These always count as significant:
 
 1. A new or changed external connection, or a change to an agreement in section 3.7.
-2. A new hosting site, or a new major version of Windows Server, PostgreSQL or .NET.
+2. A new hosting site, or a new major version of Windows Server, SQL Server or .NET.
 3. A change to how people sign in, or to the access control model in \<Access Control Management\>.
 4. A new type of information, or a higher impact level for any information type.
 5. A change to the boundary in \<System Security Plan\>.
@@ -249,7 +249,7 @@ Controls met here: CA-3, CA-6.
 | Provided | Controls | What \<System Name\> relies on | Evidence asked |
 | --- | --- | --- | --- |
 | An authorising official for its common controls, and their authorisation | CA-6 | The 65 inherited controls are authorised and working | EV-CA-01 |
-| The agreements for the exchanges | CA-3 | A hosting and services agreement covering PingFederate, central logging, the time service and the backup site; information exchange agreements for ServiceNow and the Starters/Leavers system | EV-CA-02 |
+| The agreements for the exchanges | CA-3 | A hosting and services agreement covering PingFederate, Active Directory, central logging, the time service and the backup site. ServiceNow and the starters and leavers process are \<Organisation\>'s services used by people, with no connection to \<System Name\> | EV-CA-02 |
 | Evidence for each inherited control | CA-6, and each control's own family | Each control's evidence request in \<Evidence Requests\> | By family |
 
 ### 3.11 Policy and procedures
@@ -275,5 +275,5 @@ CSS does not select these at Moderate, so they are not assessed.
 | CA-3(6), CA-3(7) Transfer Authorizations; Transitive Information Exchanges | Checks on what the other system may do with the information | Not required, and not done |
 | CA-7(3) Trend Analyses | Using trends to adjust monitoring | Not required. Done in part: the monthly analysis looks across three months |
 | CA-7(5), CA-7(6) Consistency Analysis; Automation Support | Further assurance and automation of monitoring | Not required, and not done |
-| CA-8 Penetration Testing | Penetration testing of the system | Selected only at High, so not required. One is commissioned anyway, before go-live: by a tester independent of the build, on the servers, covering the two user-facing apps, the API and sign-in through PingFederate, with each finding rated in the Risk List. Tester and date: \[to be set\] |
+| CA-8 Penetration Testing | Penetration testing of the system | Selected only at High, so not required. One is commissioned anyway, before go-live: by a tester independent of the build, on the servers, covering the two user-facing applications, the API and sign-in through PingFederate, with each finding rated in the Risk List. Tester: \[Name\] |
 | CA-9(1) Compliance Checks | Security checks on a component before it connects | Not required, and not done |

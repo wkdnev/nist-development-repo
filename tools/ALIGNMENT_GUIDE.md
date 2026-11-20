@@ -2,11 +2,9 @@
 
 Working rules for bringing each document in the set into line with `System Description.md`, the generic Secure by Design reference. Worked example: `Access Control Management.md`, which was done by hand as the pilot.
 
-## 1 What stays
+## 1 What the set is
 
-- Every control's **status** (Implemented, Partially implemented, Not implemented, Not applicable) and the findings, test results (T-numbers), weaknesses (PA-), risks (NC-), evidence requests (EV-), tailoring (TR-) and decision (D-) references, where they still hold for the reference design.
-- Test results describe the **tested v1.0 build**, which signed in with its own passwords, held its groups and sessions in its own database and ran PostgreSQL in containers. Keep them, but say so where the reference design differs, for example "the tested build had a page lock after 25 minutes (T53), which the reference design does not have".
-- Appendix A "How it is built today" and similar records of the tested build stay as records of that build, with a note that the reference design differs.
+A clean template for any application, describing the reference design. It holds no records of anything that happened: no results, findings, decisions, risks, plan items, incidents, dates, approvals or notes about a tested build. `tools/CLEAN_GUIDE.md` and `tools/BLANK_GUIDE.md` set those rules, and they still apply. Do not add any of these back.
 
 ## 2 The reference system (from the System Description)
 
@@ -26,21 +24,15 @@ Working rules for bringing each document in the set into line with `System Descr
 | Build | Under the organisation's **corporate SDLC**, inherited |
 | Flows | F1 browser to UI; F2 admin route to Admin; F3, F4 apps to API on loopback; F5 API to SQL Server; F6 browser to PingFederate; F7 API to AD over LDAPS; F8 servers to time, logging, proxy and backup; F9 ServiceNow and starters and leavers, people only |
 | Parameters | The System Description's P-01 to P-35 (section 4). Refer to them where a family document sets the same value |
-| Figure | `figures/sd-figure-1.png` replaces `figures/arch-figure-1.png` |
+| Figure | `figures/sd-figure-1.png` is the architecture figure |
 
-## 3 Review and approval information is removed
+## 3 Review and approval information
 
-The set is treated as **not yet reviewed or approved**. Documents carry no contents list, section or appendix bands, section links, document control section, status line, approval table or change history. These were removed from every document by `tools/strip_control.py`, which also renumbered sections and tables and their cross-references. Do not add them back.
-
-- Changes are kept in the change record (\<Documentation Map\>, section 4.1), not in the document. Where text says something is recorded in a document's change history, it now says change record.
-- "Approved (D-x)" becomes "Proposed (D-x), not yet approved"; "Approved;" becomes "Not yet approved;".
-- "Reviewed on (date)", "legally reviewed", "approved by the Head of Cyber", "the system owner approved these values on (date)" and similar: remove, or say not yet reviewed or approved.
-- Risk decisions "approved" or "accepted" become "acceptance proposed, not yet decided".
-- Design decisions keep their D- reference but lose "the system owner decided on (date)".
+None. See section 1.
 
 ## 4 Method
 
-1. Run `python3 tools/align_terms.py "<Document>.md"` for the mechanical term pass.
-2. Read the whole document. Fix what the term pass cannot: sentences about tokens carrying groups, session controls, global administrator rows in tables, PostgreSQL-specific features such as SCRAM-SHA-256, and anything that contradicts section 2.
-3. Grep afterwards for: `session`, `token`, `global admin`, `project`, `AD FS`, `PostgreSQL`, `superuser`, `SCRAM`, `Jira`, `Approved`, `reviewed on`, `approved by`, `accepted`, `a administrator`.
+1. Read `System Description.md` in full first: it is the reference, and every fact in your documents must agree with it.
+2. Read the whole document. Fix everything that contradicts it: sentences about tokens carrying groups, session controls, global administrator rows in tables, PostgreSQL-specific features such as SCRAM-SHA-256, and anything that contradicts section 2.
+3. Grep afterwards for: `session`, `token`, `global admin`, `project`, `AD FS`, `PostgreSQL`, `superuser`, `SCRAM`, `pg_`, `psql`, `Docker`, `container`, `Linux`, `password` (the API has no database password; users have none in the app), `signing key`, `jsDelivr`, `CDN`, `Jira`, `document` where the design says item, and `a administrator`.
 4. Keep the document's own structure, numbering and plain-English style. No em dashes. If a section or table is added or removed, renumber those that follow and every reference to them, across the set.

@@ -32,9 +32,9 @@ These carry out the principles and rules of \<Policy\>, sections IR.3 and IR.4.
 
 Controls met here: IR-8.
 
-The plan follows CSS, which treats incident response as part of managing cyber risk across the six CSF 2.0 functions: preparation (Govern, Identify, Protect), detection (Detect), and handling and recovery (Respond, Recover). It meets the needs of a Moderate system holding Restricted documents, and HR documents with personal data, run by a small named team.
+The plan follows CSS, which treats incident response as part of managing cyber risk across the six CSF 2.0 functions: preparation (Govern, Identify, Protect), detection (Detect), and handling and recovery (Respond, Recover). It meets the needs of a Moderate system holding items that include personal data (\<System Description\>, section 3.4), run by a small named team.
 
-It covers UI application, Admin application, API, the \<System Name\> database, its backups and secrets, and the two VMs at \<Organisation\>. Incidents in \<Organisation\>'s own services, including PingFederate and Active Directory, are handled by \<Organisation\>, with this plan for \<System Name\>'s part.
+It covers the UI application, the Admin application, the API, the \<System Name\> SQL Server database, its backups and secrets, and the two Windows Server 2025 virtual servers at \<Organisation\>. Incidents in \<Organisation\>'s own services, including PingFederate and Active Directory, are handled by \<Organisation\>, with this plan for \<System Name\>'s part.
 
 ![Figure 1: The steps every incident follows](figures/irm-figure-1.png)
 
@@ -68,7 +68,7 @@ Controls met here: IR-2, IR-2(3), IR-3, IR-3(2), IR-4, IR-4(1), IR-6(1), IR-7(1)
 Preparation covers the CSF 2.0 Govern, Identify and Protect functions as they apply to incidents.
 
 1. **People:** each role holder is trained within 30 days of taking the role and every 12 months (PRO-IR-3). The training covers this plan, the severity levels, the playbooks in section 3.9, preserving evidence, the breach steps in section 3.8, and the contacts. It is module M7 of the role curriculum (\<Awareness and Training Management\>, section 3.4), and the training register shows who is trained (\<Awareness and Training Management\>, section 3.8). After a change to the plan that alters a person's part, that person is briefed on it. The training content is reviewed every 12 months, and after a plan change or an incident.
-2. **Exercises:** a tabletop exercise every 12 months, held with the contingency plan (\<Contingency Planning Management\>, section 3.10), the first within 30 days of the VMs being built and before production. \<Organisation\>'s security contact and IT service desk take part. Each exercise walks through one playbook from report to closing, and ends with an after-action report on TPL-11.
+2. **Exercises:** a tabletop exercise every 12 months, held with the contingency plan (\<Contingency Planning Management\>, section 3.10), the first within 30 days of the servers being built and before production. \<Organisation\>'s security contact and IT service desk take part. Each exercise walks through one playbook from report to closing, and ends with an after-action report on TPL-11.
 3. **Assets and baseline:** the components and baseline in \<Configuration Management\>, sections 3.4 and 3.5, show what normal looks like.
 4. **Tools:** ServiceNow, and the audit records and logs in section 3.10. ServiceNow holds each incident's record, timeline, actions and evidence list, and reminds the owner of each action. A report raises a ticket there, which notifies the security officer. Users raise a request for help there, and see its progress. If ServiceNow is out of use, reports are made by phone or email, users ask the security officer directly for help, and the record is form TPL-10, kept by hand.
 5. **Contacts:** appendix A, checked at each review and exercise.
@@ -83,10 +83,10 @@ Controls met here: IR-4.
 | Source | What it shows | Who watches |
 | --- | --- | --- |
 | User and staff reports | Anything that looks wrong (section 3.11) | Security officer |
-| Weekly audit log review (\<Procedures\> (AU)) | Refused access, changes to access, large exports; failed sign-ins and lockouts from \<Organisation\>'s PingFederate record | The auditor, who reports to the security officer |
-| Alerts | Repeated failed sign-ins, audit chain breaks, Defender detections | Security officer |
-| Microsoft Defender on both VMs | Malicious code | Windows server administrator |
-| Backup and integrity checks (SyOps C8, C12) | Failed backups, changed documents or release packages | Database and Windows server administrators |
+| Weekly audit log review (\<Procedures\> (AU); \<System Description\>, P-08) | Refused access, changes to schemas and their groups, large exports; failed sign-ins and lockouts from \<Organisation\>'s PingFederate and Active Directory records | The security officer, with the auditor |
+| Alerts (\<System Description\>, P-27) | The eight alert events: repeated failed sign-ins; a break in the audit chain; malware detected; a person added to an administrator group; a bulk export above a set size; an administrator sign-in out of hours; an audit logging failure; and an unexpected change to the software | Security officer |
+| Microsoft Defender on both servers | Malicious code | Windows server administrator |
+| Backup and integrity checks (SyOps C8, C12) | Failed backups, changed stored files or release packages | Database and Windows server administrators |
 | \<Organisation\>'s monitoring (EV-IR-01) | Network and directory events | \<Organisation\>'s security contact |
 | Supplier and NCSC advisories | Vulnerabilities in components \<System Name\> uses | Security officer |
 
@@ -101,7 +101,7 @@ The incident lead sets the severity when the incident is confirmed, and may rais
 | Severity | Examples | Work starts within | Contained within | Who is told |
 | --- | --- | --- | --- | --- |
 | Critical | Personal data breach likely to harm people; ransomware; a privileged account compromised | 1 hour | 4 hours | System owner, authorising official, legal adviser, \<Organisation\>'s security contact |
-| High | A user account compromised; a secret exposed; access to documents someone should not see | 4 hours | 1 working day | System owner, \<Organisation\>'s security contact; legal adviser if personal data is involved |
+| High | A user account compromised; a secret exposed; access to items someone should not see | 4 hours | 1 working day | System owner, \<Organisation\>'s security contact; legal adviser if personal data is involved |
 | Medium | Malware stopped by Defender; repeated failed sign-ins; a supplier advisory affecting \<System Name\> | 1 working day | 5 working days | System owner |
 | Low | A single policy breach with no data exposed | 5 working days | As planned | Recorded only |
 
@@ -112,7 +112,7 @@ Controls met here: IR-4.
 Every incident follows these steps, the same severity table and the same record, TPL-10, so that handling is consistent. Greater severity means more people and faster targets, not a different process.
 
 1. **Detect and analyse:** the incident lead confirms whether a report is an incident, sets its severity, and opens a record on TPL-10.
-2. **Contain:** limit the harm, for example by disabling an account and ending the person's PingFederate sign-in, removing a group membership, or isolating a VM. Preserve evidence first (section 3.10).
+2. **Contain:** limit the harm, for example by disabling an account and ending the person's PingFederate sign-in, removing a group membership, or isolating a server. Preserve evidence first (section 3.10).
 3. **Eradicate:** remove the cause, for example by fixing a flaw or changing secrets.
 4. **Recover:** restore normal service, invoking \<Contingency Planning Management\> if needed. The incident plan leads while the outage may be an incident, with the contingency plan in support, and recovery uses a backup taken before the compromise (\<Contingency Planning Management\>, section 3.6.2).
 5. **Close and learn:** within 10 working days of containment, the incident lead records the root cause and lessons, and updates this plan, the training, \<Risk List\> and \<Plan of Action and Milestones\> (PRO-IR-7).
@@ -124,7 +124,7 @@ Controls met here: IR-4, IR-6, IR-8(1).
 A personal data breach is any security incident that leads to the accidental or unlawful loss, change, disclosure of, or access to personal data.
 
 1. **Tell the legal adviser at once.** The security officer tells the legal adviser as soon as personal data may be involved.
-2. **72 hours from becoming aware.** If the breach is likely to put people's rights and freedoms at risk, the legal adviser tells the ICO within 72 hours of the organisation becoming aware of it, even if not all details are known. A later report gives the reasons for the delay.
+2. **72 hours from becoming aware.** If the breach is likely to put people's rights and freedoms at risk, the legal adviser tells the ICO within 72 hours of the organisation becoming aware of it (\<System Description\>, P-21), even if not all details are known. A later report gives the reasons for the delay.
 3. **Assess and reduce the harm.** The legal adviser and the security officer judge how the breach could harm the people concerned, such as distress, discrimination, fraud or the loss of confidentiality, and what would reduce it: getting copies back or deleted, changing access, and telling people what to watch for.
 4. **Tell the people affected** without undue delay when the risk to them is high, unless the data was protected, for example by encryption, so that it cannot be read.
 5. **Record every breach** in the register in section 3.14, whether or not it is reported: the facts, the effects, the action taken, and, if not reported, why.
@@ -138,16 +138,16 @@ Controls met here: IR-4.
 
 | Incident | Contain | Eradicate and recover | Usual severity |
 | --- | --- | --- | --- |
-| Stolen or guessed password | Ask \<Organisation\>'s service desk to disable the Active Directory account and end the person's PingFederate sign-in, so that \<System Name\> refuses them at the next group lookup; check the audit records for what was read or exported | \<Organisation\>'s service desk resets the password and second factor under PRO-IA-3; access returns once identity is checked | High; Critical for a global administrator |
-| Exposed secret (signing key, database password) | Change the secret; changing the signing key makes every user sign in again | Find where it was exposed and remove it; check the audit records for misuse since | High |
-| Compromise of PingFederate or of Active Directory accounts, reported by \<Organisation\> | Ask \<Organisation\> to disable the accounts affected and end their PingFederate sign-ins, or to end every PingFederate sign-in to \<System Name\> if it cannot say who; ask \<Organisation\> which accounts and groups were touched | Check the audit records for what those accounts did; check the members of \<System Name\>'s groups against the approved requests; let people back in once \<Organisation\> confirms the accounts are safe | High; Critical for a privileged account |
-| Ransomware or destructive attack on a VM | Isolate the VM through \<Organisation\>; do not power off before evidence is taken | Rebuild and restore from a backup taken before the compromise (\<Contingency Planning Management\>, section 3.6.2); change every secret | Critical |
-| Bulk export or download misuse | The group's owner removes the person from the project's AD group, or \<Organisation\>'s service desk disables the account and ends the person's PingFederate sign-in | Work out what left, with the export audit records; treat as a personal data breach if HR documents were included | High; Critical if personal data |
+| Stolen or guessed password | Ask \<Organisation\>'s service desk to disable the Active Directory account and end the person's PingFederate sign-in, so that \<System Name\> refuses them at the next group lookup; check the audit records for what was read or exported | \<Organisation\>'s service desk resets the password and second factor under PRO-IA-3; access returns once identity is checked | High; Critical for an administrator |
+| Exposed secret (token signing key, audit chain key or a data protection key ring) | Change the secret at once (\<System Description\>, P-10); replacing an application's key ring makes every user of it sign in again. There is no database password: the API uses Windows authentication | Find where it was exposed and remove it; check the audit records for misuse since | High |
+| Compromise of PingFederate or of Active Directory accounts, reported by \<Organisation\> | Ask \<Organisation\> to disable the accounts affected and end their PingFederate sign-ins, or to end every PingFederate sign-in to \<System Name\> if it cannot say who; ask \<Organisation\> which accounts and groups were touched | Check the audit records for what those accounts did; check the members of \<System Name\>'s groups against the requests authorised in ServiceNow; let people back in once \<Organisation\> confirms the accounts are safe | High; Critical for a privileged account |
+| Ransomware or destructive attack on a server | Isolate the server through \<Organisation\>; do not power off before evidence is taken | Rebuild and restore from a backup taken before the compromise (\<Contingency Planning Management\>, section 3.6.2); change every secret | Critical |
+| Bulk export or download misuse | The schema's Data Owner removes the person from the schema's Active Directory group, or \<Organisation\>'s service desk disables the account and ends the person's PingFederate sign-in | Work out what left, with the export audit records; treat as a personal data breach if items holding personal data were included | High; Critical if personal data |
 | Audit record tampering | Export the audit records with a hash before anything changes; restrict database access | Compare with the last exported copy and backups; fix the cause | High |
-| Malicious file uploaded | Remove access to the document; stop further uploads if needed | Scan, remove, and check who opened it | Medium; High if opened |
-| Document in the wrong place: filed in the wrong project, or sent or shown to the wrong person | Remove access to the document; find who viewed or exported it, from the audit records | Ask anyone who received a copy to delete it and confirm; file the document correctly; treat it as a personal data breach if it holds personal data (section 3.8) | Medium; High if the document is Restricted or holds personal data |
-| Lost or stolen laptop, phone or printout | \<Organisation\> locks or wipes the device and ends the person's PingFederate sign-in; for a printout, find out which documents it held | Confirm the device was encrypted; check the audit records for what the user viewed or exported; treat personal data as a possible breach (section 3.8) | Medium; High if unencrypted or holding personal data |
-| Physical intrusion, fire, flood or power loss at a data centre | \<Organisation\> secures the site and tells the security officer (\<Procedures\>, PRO-PE-2); take evidence before anything is moved | Invoke the contingency plan if the site is lost (\<Contingency Planning Management\>); after an intrusion, check the VMs and disks for tampering, and change secrets | High |
+| Malicious file uploaded, despite the scan before storing | Remove access to the item; stop further uploads if needed | Scan, remove, and check who opened it | Medium; High if opened |
+| Item in the wrong place: filed in the wrong schema, or sent or shown to the wrong person | Remove access to the item; find who viewed or exported it, from the audit records | Ask anyone who received a copy to delete it and confirm; file the item in the right schema; treat it as a personal data breach if it holds personal data (section 3.8) | Medium; High if the item is Restricted or holds personal data |
+| Lost or stolen laptop, phone or printout | \<Organisation\> locks or wipes the device and ends the person's PingFederate sign-in; for a printout, find out which items it held | Confirm the device was encrypted; check the audit records for what the user viewed or exported; treat personal data as a possible breach (section 3.8) | Medium; High if unencrypted or holding personal data |
+| Physical intrusion, fire, flood or power loss at a data centre | \<Organisation\> secures the site and tells the security officer (\<Procedures\>, PRO-PE-2); take evidence before anything is moved | Invoke the contingency plan if the site is lost (\<Contingency Planning Management\>); after an intrusion, check the servers and disks for tampering, and change secrets | High |
 
 ### 3.10 Evidence and forensic readiness
 
@@ -157,14 +157,14 @@ Controls met here: IR-4.
 
 | Source | Where it is kept | Kept for | Notes |
 | --- | --- | --- | --- |
-| Audit records | The \<System Name\> database, table dbo.AuditLog | 12 months online and 12 months archived (\<Audit and Accountability Management\>) | Times stored in UTC; each record is chained to the one before |
-| Application logs | Each application's log on the application VM | 30 days (\<Audit and Accountability Management\>, section 3.10) | Errors and events that add to the audit records |
-| Windows and SQL Server logs | The VMs, and \<Organisation\>'s central service if it takes them (EV-AU-01) | As \<Organisation\> sets; 12 months is expected (\<Audit and Accountability Management\>, section 3.7) | Operating system and database events |
+| Audit records | The \<System Name\> database, table dbo.AuditLog | 12 months online and 12 months in an offline archive (\<Audit and Accountability Management\>; \<System Description\>, P-07) | Times stored in UTC; each record is chained to the one before |
+| Application logs | Each application's log on the application server, forwarded to central logging | 30 days (\<Audit and Accountability Management\>, section 3.10) | Errors and events that add to the audit records; no personal data |
+| Windows and SQL Server logs | The servers, and \<Organisation\>'s central service if it takes them (EV-AU-01) | As \<Organisation\> sets; 12 months is expected (\<Audit and Accountability Management\>, section 3.7) | Operating system and database events |
 | PingFederate and Active Directory records | \<Organisation\> | As \<Organisation\> sets (EV-AU-05) | Sign-in attempts and changes to group members |
-| Backups | The second site (\<Contingency Planning Management\>, section 3.8) | 14 daily, 8 weekly, 12 monthly | A snapshot of the state before an incident |
+| Backups | The second site (\<Contingency Planning Management\>, section 3.8) | 14 daily, 8 weekly, 12 monthly (\<System Description\>, P-15) | A snapshot of the state before an incident |
 
 1. **Before changing anything,** export the evidence and record its SHA-256 hash, and note it on TPL-10 with who took it and when.
-2. **Time:** all times are UTC. Check each system's clock against a trusted source before building a timeline; the VMs take time from \<Organisation\> (EV-AU-02).
+2. **Time:** all times are UTC. Check each system's clock against a trusted source before building a timeline; the servers take time from \<Organisation\>, within 1 second of UTC (EV-AU-02; \<System Description\>, P-09).
 3. **Custody:** each piece of evidence is listed on TPL-10 with who holds it, where, and each hand-over.
 4. **Personal data in evidence** is handled as Restricted and kept only as long as the incident needs.
 
@@ -172,9 +172,9 @@ Controls met here: IR-4.
 
 Controls met here: IR-6, IR-8.
 
-An event is anything seen in \<System Name\> or reported about it. It becomes an incident when the incident lead confirms that it harms, or may harm, the confidentiality, integrity or availability of \<System Name\> or its information, or breaks a security rule. People report what they suspect; they do not wait to be sure. Everyone reports a suspected incident to the security officer within 1 hour, and the rules of behaviour repeat this (\<Security Operating Procedures\>, Part A).
+An event is anything seen in \<System Name\> or reported about it. It becomes an incident when the incident lead confirms that it harms, or may harm, the confidentiality, integrity or availability of \<System Name\> or its information, or breaks a security rule. People report what they suspect; they do not wait to be sure. Everyone reports a suspected incident to the security officer within 1 hour (\<System Description\>, P-21), and the rules of behaviour repeat this (\<Security Operating Procedures\>, Part A).
 
-These must be reported: suspected account misuse; access to documents by someone who should not have it; an exposed password or secret; malicious code; an attack on the system; loss or unexpected change of documents or audit records; and a failure of logging or backups. Anything else that looks wrong should be reported too.
+These must be reported: suspected account misuse; access to items by someone who should not have it; an exposed password or secret; malicious code; an attack on the system; loss or unexpected change of items, stored files or audit records; and a failure of logging or backups. Anything else that looks wrong should be reported too.
 
 ### 3.12 Measures and resources
 
@@ -186,7 +186,7 @@ Controls met here: IR-5, IR-7, IR-8.
 | --- | --- |
 | Time from noticing to reporting | Within 1 hour |
 | Time from reporting to containment | As section 3.6 for the severity |
-| Time to recover | Within the contingency plan's recovery time objective of 72 hours |
+| Time to recover | Within the contingency plan's recovery time objective of 72 hours (\<System Description\>, P-12) |
 | Incidents closed with lessons recorded within 10 working days | All |
 | Repeat incidents with the same root cause | None |
 
@@ -285,5 +285,5 @@ CSS does not select these in the Moderate security baseline, so they are not ass
 | IR-6(2) Vulnerabilities Related to Incidents | Weaknesses found through incidents are reported | Not required. Done in design: closing an incident updates the Risk List and the POA&M (PRO-IR-7) |
 | IR-7(2) Coordination with External Providers | A working relationship with outside providers of protection | Not required. \<Organisation\> is the only provider (section 3.15) |
 | IR-8(1) Breaches | The plan covers personal data breaches: whether to notify, the harm to people, and the law that applies | Privacy baseline, so it applies. Met by section 3.8, and assessed with the PT family |
-| IR-9, IR-9(2), IR-9(3), IR-9(4) Information Spillage Response | Handling information that reaches a system or person not cleared for it | Not required. Done in part: the playbook for a document in the wrong place (section 3.9) |
+| IR-9, IR-9(2), IR-9(3), IR-9(4) Information Spillage Response | Handling information that reaches a system or person not cleared for it | Not required. Done in part: the playbook for an item in the wrong place (section 3.9) |
 | IR-9(1), IR-10 | Withdrawn by CSS | Not applicable |

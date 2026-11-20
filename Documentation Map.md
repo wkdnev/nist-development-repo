@@ -4,8 +4,8 @@
 
 This set covers the 19 control families of CSS that apply to \<System Name\>: Access Control (AC), Awareness and Training (AT), Audit and Accountability (AU), Assessment, Authorization, and Monitoring (CA), Configuration Management (CM), Contingency Planning (CP), Identification and Authentication (IA), Incident Response (IR), Maintenance (MA), Media Protection (MP), Physical and Environmental Protection (PE), Planning (PL), Personnel Security (PS), Personally Identifiable Information Processing and Transparency (PT), Risk Assessment (RA), System and Services Acquisition (SA), System and Communications Protection (SC), System and Information Integrity (SI) and Supply Chain Risk Management (SR). The Moderate baseline applies, with the CSS privacy baseline for personal data, which makes 316 controls. Program Management (PM) is the twentieth family. It is outside the baseline for a single system, and \<System Name\> inherits it from \<Organisation\> (\<Tailoring Register\>, section 4). Wherever this set lists the families, it uses CSS order.
 
-- **System:** the \<System Name\> application built from the API, UI application, Admin application, shared library and workspace repository repositories. It is a separate product from the template-built \<System Name\>; that product's documents were used only as a guide to document types and content.
-- **Design described:** \<System Name\> on two Windows Server 2025 VMs at \<Organisation\>. Development and testing run in Docker, apart from production.
+- **System:** \<System Name\>, an internal digital library built on the reference system in \<System Description\>: the UI application, the Admin application, the API and the shared library, with a Microsoft SQL Server 2022 database in which each schema is its own database schema.
+- **Design described:** \<System Name\> on two Windows Server 2025 VMs at \<Organisation\>, each application a Windows service under its own group managed service account. Development is on developers' computers and testing on a throwaway copy of the whole system built from a tagged release, both with invented data and apart from production.
 - **Baseline:** Moderate.
 - **Evidence basis:** the record documents are templates. The team that assesses \<System Name\> fills them in from its own tests, interviews and evidence. Nothing in the set is a claim of compliance.
 - **Master copy:** the documents are kept as Markdown. Section 4.1 says how they are controlled.
@@ -265,6 +265,6 @@ ISO 2145 and ISO/IEC 27001 were read through secondary summaries, because the st
 ## 5 Open questions
 
 1. Is Moderate the right security categorisation? The authorising official approves the categorisation (\<System Security Plan\>, section 3.3).
-2. Who are the authorising official, global administrators, auditors and project access approvers? \[Names, in \<Roles and Responsibilities\>\].
+2. Who are the authorising official, administrators, auditors, security officers and the Data Owner of each schema? \[Names, in \<Roles and Responsibilities\>\].
 3. Which \<Organisation\> services and evidence cover the inherited controls, and does the Cyber Essentials Plus scope include the two VMs? \[Answer, from the evidence asked for in \<Evidence Requests\>\].
 4. What target dates should High POA&M items have? \[Dates, set by the authorising official (\<Plan of Action and Milestones\>, section 2.1)\].

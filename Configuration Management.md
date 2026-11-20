@@ -24,8 +24,8 @@ Controls met here: CM-2, CM-3, CM-6, CM-7, CM-8, CM-8(3).
 2. **Controlled change.** No change happens without an impact analysis, approval and testing.
 3. **Least functionality.** Anything \<System Name\> does not need is turned off or left out.
 4. **Accurate inventory.** Every component is recorded, and an unauthorised one is detected.
-5. **Secure settings at every layer.** Windows Server, PostgreSQL, the hosting, the runtime and the applications each follow a named standard.
-6. **Nothing drifts unseen.** The running system is compared with the baseline every month.
+5. **Secure settings at every layer.** Windows Server 2025, SQL Server 2022, the hosting, the runtime and the applications each follow a named standard.
+6. **Nothing drifts unseen.** The running system is compared with the baseline monthly and at each release (P-29).
 
 These carry out the principles and rules of \<Policy\>, sections CM.3 and CM.4.
 
@@ -40,15 +40,15 @@ Controls met here: CM-3, CM-3(4), CM-9.
 | System owner | Owns this plan; chairs the change control board; approves departures from the secure settings, licence decisions and requests to install software |
 | Security officer | Analyses the impact of every change; member of the board; receives drift reports |
 | Windows server administrator | Member of the board; applies and checks the servers' settings; installs releases; keeps the approved software list |
-| Database administrator | Applies and checks the PostgreSQL settings |
+| Database administrator | Applies and checks the SQL Server settings; applies the database structure scripts in a release |
 | Developers | Make, test and release changes to the applications; keep the component list |
 | Legal adviser | Privacy representative on the board, for any change that touches personal data |
 | Authorising official | Decides on significant changes and High impact changes |
-| \<Organisation\> | Provides the hosts, Group Policy, discovery tools and ServiceNow |
+| \<Organisation\> | Provides the hosts, Group Policy, discovery tools, the in-house package feed and ServiceNow |
 
 The holders are named in \<Roles and Responsibilities\>. The processes are the nine procedures of \<Procedures\> (CM).
 
-**Identifying configuration items.** An item is identified when it enters the baseline, and is managed through the change procedure, PRO-CM-1, for its whole life. Each is named by its component and its version or tag, for example the API at a release tag, or Npgsql 10.0.2. Each release is named by its tag.
+**Identifying configuration items.** An item is identified when it enters the baseline, and is managed through the change procedure, PRO-CM-1, for its whole life. Each is named by its component and its version or tag, for example the API at a release tag, or Microsoft.Data.SqlClient at its recorded version. Each release is named by its signed tag.
 
 ### 3.3 Configuration items
 
@@ -58,12 +58,11 @@ Controls met here: CM-3, CM-9.
 
 | Item | Held in | Controlled by |
 | --- | --- | --- |
-| Application code, API, UI application, Admin application, shared library | Git repositories, tagged at each release | Developers, PRO-CM-1 |
-| Access-control toolkit (OfflineModules.AccessControl 0.2.0) | Its own repository, at a recorded commit | Developers, PRO-CM-1 |
-| Software components: packages, base images, runtime and database | Section 3.5 | Developers, PRO-CM-1 and PRO-CM-4 |
-| Container and deployment files | workspace repository, tagged at each release | Developers, PRO-CM-1 |
-| Application settings and environment values, without secrets | Settings files and deployment files; secrets held outside the baseline | Developers, Windows server administrator |
-| Windows Server 2025 and PostgreSQL settings | CIS Benchmarks and recorded exceptions | Windows server and database administrators |
+| Application code: \<Code\>\_Web, \<Code\>\_Admin, \<Code\>\_API and \<Code\>\_Shared | Git repositories, tagged at each release | Developers, PRO-CM-1 |
+| Software components: packages, browser libraries, runtime, operating system and database | Section 3.5 | Developers, PRO-CM-1 and PRO-CM-4 |
+| Release scripts: service installation and database structure scripts | Git repositories, tagged at each release | Developers, PRO-CM-1 |
+| Application settings, without secrets | Settings files at the release tag; secrets held in the key store, outside the baseline | Developers, Windows server administrator |
+| Windows Server 2025 and SQL Server 2022 settings | CIS Benchmarks and recorded exceptions | Windows server and database administrators |
 | Security documents | Restricted document store | System owner |
 
 ### 3.4 Baseline
@@ -76,17 +75,15 @@ The baseline is what a release must contain so that it can be rebuilt exactly.
 
 | Item | Baseline |
 | --- | --- |
-| Application code | The release tag, with the commit of each of the API, UI application, Admin application and shared library: \[commits\] |
-| Deployment files | workspace repository at the release tag, \[commit\] |
-| Access-control toolkit | \[commit\], packaged as 0.2.0 |
-| Application base images | mcr.microsoft.com/dotnet/aspnet:10.0 and sdk:10.0, pinned by digest |
-| Database image | postgres:18, pinned by digest |
-| Software components | Section 3.5 |
+| Application code | The signed release tag, with the commit of each of the API, UI application, Admin application and shared library: \[commits\] |
+| Release packages | One package for each application, with its SHA-256 checksum recorded in the release record |
+| Release scripts | Service installation and database structure scripts at the release tag |
+| Software components | Section 3.5, at the versions in the lock files, with the software bill of materials |
 | Settings | Section 3.6; settings files at the release tag, with secrets held outside them |
-| Windows Server and PostgreSQL on the VMs | CIS Benchmarks with recorded exceptions |
+| Windows Server 2025 and SQL Server 2022 on the two servers | CIS Benchmarks with recorded exceptions, at their recorded update levels |
 | Network placement and connections | The two servers, their zones and the flows between them, as \<Security Architecture\> and \<Access Control Management\>, section 3.6.4, set out; the connections in \<Assessment, Authorization, and Monitoring Management\>, section 3.7 |
 
-Three means keep the baseline current, complete and accurate: release tags in the source repositories; image versions pinned by digest; and the deployment files, which state the exact configuration. The build produces a bill of materials at each release.
+Three means keep the baseline current, complete and accurate: signed release tags in the source repositories; lock files and the recorded checksum of each package; and the release record, which states the exact configuration. The build produces a software bill of materials at each release.
 
 The system owner and the Windows server administrator review the baseline every 12 months and at each release (PRO-CM-2). Step 6 of every change updates it (PRO-CM-1). The three previous configurations are kept, so that a release can be rolled back (section 3.13).
 
@@ -94,27 +91,25 @@ The system owner and the Windows server administrator review the baseline every 
 
 Controls met here: CM-7(5), CM-8, CM-10.
 
-Every package, image, runtime and database \<System Name\> is built from, with its licence. A new component is recorded here, and checked for known vulnerabilities, before it enters the baseline (PRO-CM-4). Licences are checked again at each release and every 12 months (PRO-CM-9).
+Every package, browser library, runtime, operating system and database \<System Name\> is built from or runs on, with its licence. This is the reference stack of \<System Description\>, sections 6.3 and 6.4; an application that replaces a part records it as a departure in \<System Description\>, section 3.6. A new component is recorded here, and checked for known vulnerabilities, before it enters the baseline (PRO-CM-4). Licences are checked again at each release and every 12 months (PRO-CM-9).
 
 **Table 4: Software components**
 
 | Component | Version | Supplier | Licence | Used by | Note |
 | --- | --- | --- | --- | --- | --- |
-| .NET and ASP.NET Core runtime (aspnet image) | 10.0 | Microsoft | MIT | All three applications | Image pinned by digest |
-| .NET SDK image | \<ver\> | Microsoft | MIT | Build only | Image pinned by digest |
-| PostgreSQL (postgres image) | 18 | PostgreSQL Global Development Group | PostgreSQL Licence | Database | Image pinned by digest |
-| Microsoft.AspNetCore.Authentication.JwtBearer | 10.0.5 | Microsoft | MIT | API |  |
-| Microsoft.AspNetCore.Authorization | 10.0.5 | Microsoft | MIT | UI application |  |
-| Microsoft.AspNetCore.Components.Authorization | 10.0.5 | Microsoft | MIT | UI application, Admin application |  |
-| Microsoft.AspNetCore.OpenApi | 10.0.5 | Microsoft | MIT | API |  |
-| Microsoft.EntityFrameworkCore | 10.0.5 | Microsoft | MIT | shared library, UI application |  |
-| Microsoft.EntityFrameworkCore.Design and .Tools | 10.0.5 | Microsoft | MIT | API, UI application, Admin application | Design-time tools |
-| Npgsql | 10.0.2 | Npgsql project | PostgreSQL Licence | shared library, UI application |  |
-| Npgsql.EntityFrameworkCore.PostgreSQL | 10.0.1 | Npgsql project | PostgreSQL Licence | All three applications |  |
-| OfflineModules.AccessControl (Accounts, AspNetCore, Sessions) | 0.2.0 | Access-control toolkit repository | \[owner and licence to confirm\] | shared library | Internal component |
-| SixLabors.ImageSharp | 3.1.12 | Six Labors | Six Labors Split License 1.0, free community tier | API, UI application |  |
-| SkiaSharp and SkiaSharp.NativeAssets.Linux.NoDependencies | 3.119.2 | Microsoft (.NET Foundation) | MIT | API, UI application |  |
-| Swashbuckle.AspNetCore | 10.1.7 | Swashbuckle project | MIT | API | Development only; not in release builds |
+| Windows Server 2025 | \<ver\> | Microsoft | Commercial, licensed by \<Organisation\> | Both servers | Includes Microsoft Defender, BitLocker and managed service accounts |
+| Microsoft SQL Server 2022 | \<ver\> | Microsoft | Commercial, licensed by \<Organisation\> | Database server | |
+| .NET 10 and ASP.NET Core 10 runtime, including Blazor Server | 10.0 | Microsoft | MIT | All three applications | Long-term support release |
+| .NET 10 SDK | \<ver\> | Microsoft | MIT | Build only | |
+| ASP.NET Core OpenID Connect authentication | \<ver\> | Microsoft | MIT | UI application, Admin application | Sign-in through PingFederate |
+| Entity Framework Core 10, with the SQL Server provider | \<ver\> | Microsoft | MIT | API, shared library | |
+| Microsoft.Data.SqlClient | \<ver\> | Microsoft | MIT | API | TLS with strict encryption and Windows authentication |
+| Directory access library for LDAPS | \<ver\> | Microsoft | MIT | API | Group lookup in Active Directory |
+| API documentation package | \<ver\> | \[Supplier\] | \[Licence\] | API | Development only; not in release builds |
+| \[Server-side rendering library for the viewer\] | \<ver\> | \[Supplier\] | \[Licence\] | API | Renders a file as an image on the server |
+| \[Browser libraries, such as a document viewer or an icon set\] | \<ver\> | \[Supplier\] | \[Licence\] | UI application | Packaged with the UI application and served by it. No content delivery service |
+
+Every package comes through \<Organisation\>'s in-house checked package feed, at the version in the lock files.
 
 ### 3.6 Secure settings for every layer
 
@@ -124,17 +119,17 @@ Controls met here: CM-6.
 
 | Layer | Guidance | Key settings | Where set |
 | --- | --- | --- | --- |
-| Windows Server 2025, both VMs | CIS Benchmark, Level 1 member server | Unneeded services and accounts removed, default passwords changed, auto-run off, Defender on, audit policy as \<Audit and Accountability Management\>, section 3.2 | Group policy and VM build |
-| PostgreSQL 18 | CIS Benchmark for PostgreSQL | TLS required; scram-sha-256 passwords; listens only on the database VM's address; connections and changes logged | The server and client access settings of PostgreSQL |
-| Application hosting | Microsoft's guidance for hosting ASP.NET Core as a Windows service | HTTPS only with HSTS, under NCSC's TLS profiles in \<System and Communications Protection Management\>, section 3.3; data protection key rings protected with DPAPI; each application under its own low-privilege account | Each service's configuration |
-| .NET runtime | Microsoft ASP.NET Core security guidance | Production environment; detailed errors off; API documentation off | Environment values |
+| Windows Server 2025, both servers | CIS Benchmark, Level 1 member server | Unneeded services and accounts removed, default passwords changed, auto-run off, Defender on, audit policy as \<Audit and Accountability Management\>, section 3.2 | \<Organisation\>'s Group Policy and the server build |
+| SQL Server 2022 | CIS Benchmark for Microsoft SQL Server 2022 | TLS with strict encryption on TCP 1433; Windows authentication only, so no database password exists; the built-in sa login disabled; connections accepted only from the application server; logins and changes audited (\<Audit and Accountability Management\>, appendix A) | SQL Server configuration and SQL Server Audit |
+| Application hosting | Microsoft's guidance for hosting ASP.NET Core as a Windows service | HTTPS only with HSTS, under NCSC's TLS profiles in \<System and Communications Protection Management\>, section 3.3; data protection key rings protected with DPAPI; each application a Windows service under its own managed service account | Each service's configuration |
+| .NET runtime | Microsoft ASP.NET Core security guidance | Production environment; detailed errors off; interactive API documentation left out | Environment values |
 | Application security settings | \<Access Control Management\>, \<Identification and Authentication Management\> and \<System and Communications Protection Management\> | The authentication cookie's lifetime, no longer than PingFederate's sign-in lifetime, the PingFederate connection (OpenID Connect client), cookie flags, content security policy and allowed origins, at the values in those documents | Settings files at the release tag |
 
-The Windows server and database administrators apply the benchmarks when the servers are built, and the developers apply the hosting and application settings (PRO-CM-3). Each departure from the guidance is recorded on TPL-6 with a reason, and approved by the system owner (PRO-CM-3).
+The benchmarks are applied when the servers are built, and the developers apply the hosting and application settings (PRO-CM-3). Each departure from the guidance is recorded on TPL-6 with a reason, and approved by the system owner (PRO-CM-3).
 
-Each month the Windows server administrator scans both servers against the benchmarks, and the database administrator compares the PostgreSQL settings. Any difference is reported to the security officer, and is put back or raised as a change (PRO-CM-7). Some Windows settings are set by \<Organisation\>'s Group Policy as part of its corporate configuration: account lockout, the logon banner and the screen lock. \<System Name\> accepts the corporate standard for those.
+Each month the Windows server administrator scans both servers against the benchmarks, and the database administrator compares the SQL Server settings. Any difference is reported to the security officer, and is put back or raised as a change (PRO-CM-7). Some Windows settings are set by \<Organisation\>'s Group Policy as part of its corporate configuration: account lockout, the logon banner and the screen lock. \<System Name\> accepts the corporate standard for those.
 
-One fact is still to be supplied: \[who builds the two servers and to which standard\]. The Administrator Guide, \<Administrator Guide\>, has them built from \<Organisation\>'s hardened build and then brought to this baseline. If that is how they are built, \<Organisation\>'s build standard is asked for as evidence, and the CIS Benchmark scan shows what the build leaves to be done. Until that is known, the design stands as written: the CIS Benchmark, applied by the Windows server administrator. If \<Organisation\> builds them, its standard is asked for as evidence, compared with the benchmark, and any shortfall recorded as a departure.
+Both servers are configured to the CIS Benchmark by policy that \<Organisation\> applies, with only the functions, ports and services \<System Name\> needs, and checked with a benchmark tool (\<System Description\>, NFR-091). Where \<Organisation\>'s hardened build already sets a setting, its build standard is asked for as evidence and compared with the benchmark, and any shortfall is recorded as a departure.
 
 ### 3.7 Change control
 
@@ -155,11 +150,11 @@ Every change to a configuration item in section 3.3 follows one route, including
 | 3 Decision | Change control board | Approves, refuses, defers or asks for more. A significant or High impact change goes to the authorising official first | On the change, with the date and members present |
 | 4 Make and test | Developers or administrators | Make the change, and test it on a separate test environment before release | Test result on the change |
 | 5 Verify | Those who made it | Check that the controls named in the analysis still work | Result on the change |
-| 6 Update | Those who made it | Update the baseline, the component list and the inventory; tag the release; record the pinned image versions; produce the bill of materials | This document; the release record |
+| 6 Update | Those who made it | Update the baseline, the component list and the inventory; sign the release tag; record each package's checksum; produce the software bill of materials | This document; the release record |
 
 **Testing.** Each change is tested on the separate test environment before release, with the security tests that apply, and the result is recorded on the change (PRO-CM-1, step 4). A release that fails a test does not go out.
 
-**Who made each change.** The change record names who made it. The servers and the database record it independently: Windows logs each administrator sign-in, installed service and policy change, and PostgreSQL logs each change to a table, role or permission (\<Audit and Accountability Management\>, section 3.2). The monthly comparison with the baseline finds a change that has no record.
+**Who made each change.** The change record names who made it. The servers and the database record it independently: Windows logs each administrator sign-in, installed service and policy change, and SQL Server Audit records each change to a table, login, role or permission (\<Audit and Accountability Management\>, section 3.2). The comparison with the baseline, monthly and at each release (P-29), finds a change that has no record.
 
 **Emergency changes.** An emergency change is allowed only to stop or limit an incident or an outage. The system owner, or their deputy, approves it by phone or in person before it is made. It is recorded within 1 working day, with the impact analysis done afterwards, and the board confirms or reverses it at its next meeting (PRO-CM-8).
 
@@ -199,7 +194,7 @@ The security officer answers each question on the change before the board decide
 | Does it touch personal data? | If so, the legal adviser joins the decision |
 | Does it add or change a connection or component? | Connections need \<Assessment, Authorization, and Monitoring Management\>, section 3.7; components need section 3.5 and a vulnerability check on TPL-7 |
 | Is it a significant change? | The test in \<Assessment, Authorization, and Monitoring Management\>, section 3.9 |
-| How will it be tested? | The test scripts in the test scripts folder that apply, on a separate stack, and what proves the affected controls still work |
+| How will it be tested? | The test scripts in the test scripts folder that apply, in the test environment, and what proves the affected controls still work |
 | How is it undone? | The back-out plan |
 | What must be updated? | This plan, \<System Security Plan\> and any family document the change affects |
 
@@ -209,14 +204,14 @@ The security officer rates the impact Low, Medium or High. A High impact needs t
 
 Controls met here: CM-7, CM-7(1).
 
-\<System Name\> is configured to do four things: store, search and show documents, and administer them. Table 9 lists what is prohibited or restricted.
+\<System Name\> is configured to do four things: store, search and show items, and administer them. Table 9 lists what is prohibited or restricted.
 
 **Table 9: What is prohibited or restricted**
 
 | Kind | Prohibited or restricted |
 | --- | --- |
-| Functions | Diagnostic, test and maintenance pages in production; the API documentation page outside development |
-| Ports | Everything except HTTPS to the applications, the database from the application server only, and administration from \<Organisation\>'s network. The flows \<System Name\> asks \<Organisation\> to allow are in \<Access Control Management\>, section 3.6.4 |
+| Functions | Test pages, and any diagnostic not on the fixed list, in production; the interactive API documentation outside development; email or other outbound messages; any interface for other systems |
+| Ports | Everything except the flows in \<System Description\>, section 6.5: HTTPS on TCP 443 to the UI application; the Admin application over the administration route; the API on the loopback address only; SQL Server on TCP 1433 from the application server only; LDAPS on TCP 636 to Active Directory; and \<Organisation\>'s time, logging, proxy and backup services. The flows \<System Name\> asks \<Organisation\> to allow are in \<Access Control Management\>, section 3.6.4 |
 | Protocols | Everything except TLS-protected ones on those routes |
 | Software | Anything not on the approved software list, and any package the applications do not use |
 | Services | Any Windows service not needed for those four things |
@@ -234,7 +229,7 @@ Controls met here: CM-5.
 | The applications | Developers, each change reviewed by a second developer | Permissions and required reviews in the source repositories |
 | What runs on the application server | The named Windows server administrators, installing an approved release | Windows permissions: only they can write to each application's program folder, and no application can change its own files (\<Access Control Management\>, section 3.6.3) |
 | Windows settings | The named Windows server administrators; \<Organisation\>, through Group Policy | Named administrator accounts; \<Organisation\>'s change process |
-| PostgreSQL settings and structure | The named database administrators. The API's database account cannot create, alter or drop tables | Database permissions (\<Access Control Management\>, section 3.6) |
+| SQL Server settings and database structure | The named database administrators, the structure only through a release. The API's database account cannot create, alter or drop tables | Database permissions (\<Access Control Management\>, section 3.6) |
 | Application settings and secrets | The named Windows server administrators | Windows permissions on the settings files; secrets in the key store |
 | The hosts, network and firewall | \<Organisation\> | Its physical and logical controls, and its change process (EV-CM-01) |
 | This document set | The system owner | The restricted document store, under version control |
@@ -249,11 +244,11 @@ Controls met here: CM-8, CM-8(1), CM-8(3), CM-12, CM-12(1).
 
 **Unauthorised components.** \<Organisation\>'s discovery tools check its network, including both servers, every month. When one finds an unauthorised component, it alerts the Windows server administrator, who removes the component or disables its network access, tells the security officer, and records it on TPL-8 (PRO-CM-6).
 
-**Where information is held.** Documents and audit records are in PostgreSQL on the database server, each project in its own schema. The application server holds only working files: export output for up to 24 hours, each application's key ring, and logs. Backups go to \<Organisation\>'s backup site. \<System Security Plan\>, sections 3.4 and 4.4, hold the record. A change of location is a change to the baseline, and a new site is a significant change. Each is recorded on the change and in \<System Security Plan\>.
+**Where information is held.** Items, their files, schema definitions and audit records are in SQL Server 2022 on the database server, each schema in its own database schema. The application server holds only working files: encrypted export working copies, deleted as P-20 sets, each application's key ring, and logs. Backups go to \<Organisation\>'s backup site. \<System Security Plan\>, sections 3.4 and 4.4, hold the record. A change of location is a change to the baseline, and a new site is a significant change. Each is recorded on the change and in \<System Security Plan\>.
 
-**Finding information.** Restricted documents are held by project in the database, so the database itself lists them. For anything outside it, \<Organisation\>'s tools are to scan both servers for stray copies, if it has such tools.
+**Finding information.** Items are held by schema in the database, so the database itself lists them. For anything outside it, \<Organisation\>'s tools are to scan both servers for stray copies, if it has such tools.
 
-**Who has access to it.** The approved access list names the members of each of \<System Name\>'s AD groups, the Windows server and database administrators, and \<Organisation\>'s staff with access to the hosts and backups. The first list is made before any production documents are held.
+**Who has access to it.** The approved access list names the members of each of \<System Name\>'s AD groups, the Windows server and database administrators, and \<Organisation\>'s staff with access to the hosts and backups. The first list is made before any real data is held.
 
 ### 3.13 Library, tools, monitoring and retention
 
@@ -263,10 +258,10 @@ Controls met here: CM-2(3), CM-3, CM-6.
 
 | Item | Detail |
 | --- | --- |
-| Configuration library | Git repositories for code and deployment files; an image registry holding images by digest, \[registry to be chosen when the VMs are built\]; the restricted document store for documents; release records with their bill of materials |
-| Tools | Git and its tags; Docker; ServiceNow for changes; CIS-CAT or an equivalent scanner; Test-ConfigurationManagement.ps1; \<Organisation\>'s discovery tools (EV-CM-02) |
-| Monitoring | Monthly drift check under PRO-CM-7, reported on TPL-8 to the security officer, and included in the monthly measures in \<Assessment, Authorization, and Monitoring Management\>, section 3.8 |
-| Retention | Change records for 3 years; the 3 previous configurations, each with tag, digests, settings and bill of materials; superseded documents for 3 years |
+| Configuration library | Git repositories for code and release scripts; \<Organisation\>'s in-house package feed, holding each package at its recorded version; the restricted document store for documents; release records with their checksums and software bill of materials |
+| Tools | Git and its signed tags; the build pipeline; NuGet through the in-house package feed; ServiceNow for changes; CIS-CAT or an equivalent scanner; Test-ConfigurationManagement.ps1; \<Organisation\>'s discovery tools (EV-CM-02) |
+| Monitoring | Drift check, monthly and at each release (P-29), under PRO-CM-7, reported on TPL-8 to the security officer, and included in the monthly measures in \<Assessment, Authorization, and Monitoring Management\>, section 3.8 |
+| Retention | Change records for 3 years; the 3 previous configurations, each with tag, package checksums, settings and software bill of materials; superseded documents for 3 years |
 | Disposal | Removed configurations are deleted from the library only after their retention period, with the system owner's approval |
 
 ### 3.14 What \<Organisation\> provides
@@ -320,9 +315,9 @@ The CSS guidance on CM-9 asks the plan to say how the development, test and oper
 
 | Environment | What it is | What it may hold | Who may change it |
 | --- | --- | --- | --- |
-| Development | The developers' PCs, and the source repositories | Sample data only. Never production documents or production secrets | Developers, each change reviewed by a second developer |
-| Test | A separate, throwaway copy of the whole system, built from a tagged release and removed after each test run | Sample data only | Developers |
-| Production | The application server and the database server at \<Organisation\> | Production documents, once \<System Name\> is authorised | The named Windows server and database administrators only, installing an approved release |
+| Development | The developers' computers, and the source repositories | Invented data only. Never real data or production secrets | Developers, each change reviewed by a second developer |
+| Test | A separate, throwaway copy of the whole system, built from a tagged release, configured as production is, including TLS, and removed after each test run | Invented data only, loaded by script | Developers |
+| Production | The application server and the database server at \<Organisation\> | Real data, once \<System Name\> is authorised | The named Windows server and database administrators only, installing an approved release |
 
 A release is tested in the test environment before it reaches production (section 3.7, step 4). CSS asks for a separate test environment only at High, as CM-4(1); \<System Name\> has one.
 

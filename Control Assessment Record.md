@@ -443,7 +443,7 @@ Request every route without parameters in each application, every API address an
 | --- | --- | --- |
 | AC-07a: a limit of consecutive invalid attempts is enforced | \[Result\] | \[Basis\] |
 | AC-07b: the account is automatically locked when exceeded | \[Result\] | \[Basis\] |
-| Windows and PostgreSQL logons on the VMs | \[Result\] | \[Basis\] |
+| Windows logons on both servers, and SQL Server logins | \[Result\] | \[Basis\] |
 
 **Examined:** \[Documents, code and configuration examined\]. **Tested:** \[Tests run\]. **Interviewed:** \[People interviewed\]. **Not covered:** \[Anything not covered\].
 
@@ -473,7 +473,7 @@ AC-08a.01 is written for U.S. Government systems. Record how it applies to \<Org
 | Objective | Result | Basis |
 | --- | --- | --- |
 | AC-02(05): users are required to log out at the set time | \[Result\] | \[Basis\] |
-| Windows and PostgreSQL administration sessions | \[Result\] | \[Basis\] |
+| Windows server and SQL Server administration sign-ins | \[Result\] | \[Basis\] |
 
 **Examined:** \[Documents, code and configuration examined\]. **Tested:** \[Tests run\]. **Interviewed:** \[People interviewed\]. **Not covered:** \[Anything not covered\].
 
@@ -486,7 +486,7 @@ AC-08a.01 is written for U.S. Government systems. Record how it applies to \<Org
 | Objective | Result | Basis |
 | --- | --- | --- |
 | AC-12: a session is automatically ended under set conditions | \[Result\] | \[Basis\] |
-| Windows and PostgreSQL sessions | \[Result\] | \[Basis\] |
+| Windows server and SQL Server administration sign-ins, and PingFederate's sign-in lifetime (P-02) | \[Result\] | \[Basis\] |
 
 **Examined:** \[Documents, code and configuration examined\]. **Tested:** \[Tests run\]. **Interviewed:** \[People interviewed\]. **Not covered:** \[Anything not covered\].
 
@@ -950,12 +950,12 @@ This records how the assessment is planned and carried out, following CSS. It co
 | Assessor | Level 1: \[Name\], working for the system owner. Level 2: an independent team led by \[Name\], which meets CA-2(1) at Moderate once TPL-19 is completed |
 | Dates | \[Dates of the assessment\] |
 | Site | \[Where the assessment is done, and on what build and data\] |
-| Examine | Policies, procedures, the SSP, code in all repositories, configuration and test results. Depth: focused. Coverage: focused, on the functions each control concerns |
-| Test | Repeatable checks of access enforcement, privilege, accounts, sign-in and sessions, a browser check of the pages, and a probe of what answers without signing in. Depth: focused. Coverage: focused |
-| Interview | Account managers, administrators and \<Organisation\>'s security contact, using INT-AC-01 to 34. The people are named in \<Roles and Responsibilities\> |
+| Examine | Policies, procedures, the SSP, \<System Description\>, the code of the UI application, Admin application, API and shared library, the access rule on each page and API function, the schema definitions and their read and edit groups, the role group settings, configuration and test results. Depth: focused. Coverage: focused, on the functions each control concerns |
+| Test | Repeatable checks of access enforcement by schema and role, privilege, the group lookup in Active Directory over LDAPS, sign-in through PingFederate and the authentication cookie's lifetime, a browser check of the pages, and a probe of what answers without signing in. Depth: focused. Coverage: focused |
+| Interview | The system owner, administrators, Data Owners, auditors and security officers, the Windows server and database administrators, developers, \<Organisation\>'s security contact and a sample of users, using INT-AC-01 to 34. The people are named in \<Roles and Responsibilities\> |
 | Previous results reused | \[Results reused from other chapters, if any\] |
-| Boundary | The whole stack: the application and database VMs, with Windows accounts, PostgreSQL roles and service accounts as well as application users. \<Organisation\>'s network, remote access, devices and directory are inherited, and Cyber Essentials Plus supports but does not prove them |
-| Order of assessment | A, access enforcement (AC-3, AC-14, AC-6(10), AC-6(1)); B, privilege (AC-6, AC-6(5), AC-5, AC-6(2), AC-6(9)); C, account lifecycle (AC-2 and its enhancements, AC-6(7)); D, sign-in and sessions (AC-7, AC-8, AC-2(5), AC-12, AC-11, AC-11(1)); E, network and devices (AC-4, AC-17, AC-18 and AC-19 families); F, organisation (AC-20 family, AC-21, AC-22, AC-1). Access enforcement comes first because the other results depend on it |
+| Boundary | The whole stack on the two Windows Server 2025 VMs: the UI application, Admin application, API and shared library on the application server, and SQL Server 2022 on the database server, with Windows accounts, SQL Server logins and roles, and each application's group managed service account, as well as the Active Directory role and schema groups that give users access. \<Organisation\>'s network, remote access, devices, PingFederate and Active Directory are inherited, and Cyber Essentials Plus supports but does not prove them |
+| Order of assessment | A, access enforcement (AC-3, AC-14, AC-6(10), AC-6(1)); B, privilege (AC-6, AC-6(5), AC-5, AC-6(2), AC-6(9)); C, account lifecycle (AC-2 and its enhancements, AC-6(7)); D, sign-in, sign-in lifetime and screen lock (AC-7, AC-8, AC-2(5), AC-12, AC-11, AC-11(1)), where AC-2(5) and AC-12 rest on PingFederate's sign-in lifetime (P-02) and AC-11 and AC-11(1) on the device screen lock (P-03), as \<System Name\> has no session management of its own; E, network and devices (AC-4, AC-17, AC-18 and AC-19 families); F, organisation (AC-20 family, AC-21, AC-22, AC-1). Access enforcement comes first because the other results depend on it |
 | Needed from \<Organisation\> | Evidence for the inherited parts of AC-4, AC-17, AC-18, AC-19, AC-20 and AC-6(9), as requested in \<Evidence Requests\> |
 | Approval | The authorising official approves this plan. Approved by: \[Name\] |
 | Evidence retained | \<Access Control Management\>, section A.9, and the AC evidence, with its manifest |
@@ -1245,10 +1245,10 @@ There is one finding for each CSS determination statement, including those about
 | Dates | \[Dates of the assessment\] |
 | Site | \[Where the assessment is done, and on what build and data\] |
 | Examine | The audit service, the audit record format, the audit page, the database's grants and settings, and \<Policy\> (AU), \<Procedures\> (AU) and \<Audit and Accountability Management\>. Depth: focused. Coverage: focused, on the functions each control concerns |
-| Test | Test-AuditAndAuth.ps1, whose audit checks cover AU and whose sign-in checks cover IA, with a hash manifest of each run. Depth: focused. Coverage: focused, including Windows and PostgreSQL logging on the VMs |
+| Test | Test-AuditAndAuth.ps1, whose audit checks cover AU and whose sign-in checks cover IA, with a hash manifest of each run. Depth: focused. Coverage: focused, including Windows and SQL Server logging on the VMs |
 | Interview | The auditor, security officer, Windows server and database administrators and \<Organisation\>'s security contact, using INT-AU-01 to 06. The people are named in \<Roles and Responsibilities\> |
 | Previous results reused | \[Results reused from other chapters, if any\] |
-| Boundary | Audit records in dbo.AuditLog, the application logs, and the PostgreSQL and Windows logs on both VMs. \<Organisation\>'s central monitoring and time service are inherited |
+| Boundary | The audit log in the SQL Server database, written only by the API, the application logs, and the SQL Server and Windows logs on both VMs. \<Organisation\>'s central monitoring and time service are inherited |
 | Order of assessment | A, record generation and content (AU-12, AU-2, AU-3, AU-3(1)); B, protection (AU-9, AU-9(4)); C, failure, capacity and retention (AU-5, AU-4, AU-11); D, review and reporting (AU-6, AU-6(1), AU-6(3), AU-7, AU-7(1)); E, time (AU-8); F, policy (AU-1). Generation comes first because every other result depends on records existing |
 | Needed from \<Organisation\> | EV-AU-01 to EV-AU-05 in \<Evidence Requests\>: central monitoring, the time source, storage and backup, the Windows audit policy, and PingFederate and Active Directory audit records |
 | Evidence retained | The AU and IA evidence, with its manifest; \<Audit and Accountability Management\>, section 3 |
@@ -1669,11 +1669,11 @@ There is one finding for each CSS determination statement, including those about
 | Procedures | CSS, using the CSS published statements and identifiers (catalog release 5.2.0) |
 | Dates | \[Dates of the assessment\] |
 | Site | \[Where the assessment is done, and on what build and data\] |
-| Examine | The build files, project files, settings files, the start-up configuration and the repositories at the release tag; \<Policy\> (CM), \<Procedures\> (CM) and \<Configuration Management\>. Depth: focused. Coverage: focused |
+| Examine | The build files, the .NET project files, settings files, the start-up configuration and the repositories at the release tag; \<Policy\> (CM), \<Procedures\> (CM) and \<Configuration Management\>. Depth: focused. Coverage: focused |
 | Test | Test-ConfigurationManagement.ps1, with the component inventory and a hash manifest, and checks by hand. Depth: focused. Coverage: focused, including the VMs, CIS settings and drift |
 | Interview | Developers, the Windows server and database administrators, and \<Organisation\>'s security contact |
 | Previous results reused | \[Results reused from other chapters, if any\] |
-| Boundary | The code, components and settings of \<System Name\>, and the Windows Server and PostgreSQL configuration of both VMs. \<Organisation\>'s discovery tools and licences are inherited |
+| Boundary | The code, components and settings of \<System Name\>, and the Windows Server 2025 and SQL Server 2022 configuration of both VMs. \<Organisation\>'s discovery tools and licences are inherited |
 | Order of assessment | A, baseline and inventory (CM-2, CM-8, CM-10); B, change control (CM-3, CM-4, CM-5); C, secure settings and least functionality (CM-6, CM-7 and enhancements, CM-11); D, the plan and information location (CM-9, CM-12); E, policy (CM-1). The baseline comes first because every other result is judged against it |
 | Needed from \<Organisation\> | EV-CM-01 to EV-CM-03 in \<Evidence Requests\>: physical change restrictions, discovery tools, and licences |
 | Evidence retained | The SC and CM evidence, with its manifest; \<Configuration Management\>, sections 3.4 to 3.6 |
@@ -1876,8 +1876,8 @@ There is one finding for each CSS determination statement, including those about
 | Procedures | CSS, using the CSS published statements and identifiers (catalog release 5.2.0) |
 | Dates | \[Dates of the assessment\] |
 | Site | \[Where the assessment is done, and on what build and data\] |
-| Examine | \<Policy\> (CP), \<Procedures\> (CP) and \<Contingency Planning Management\>; the backup support and storage configuration; where documents and audit records are stored. Depth: focused. Coverage: focused |
-| Test | Test-BackupRestore.ps1: backup, restore to a fresh server, and checks of rows, document checksums and audit hashes. Depth: focused. Coverage: focused, including backups on the VMs, the second site and a tabletop exercise |
+| Examine | \<Policy\> (CP), \<Procedures\> (CP) and \<Contingency Planning Management\>; the backup support and storage configuration; where items, their files and audit records are stored. Depth: focused. Coverage: focused |
+| Test | Test-BackupRestore.ps1: backup, restore to a fresh server, and checks of row counts, file checksums and the audit chain. Depth: focused. Coverage: focused, including backups on the VMs, the second site and a tabletop exercise |
 | Interview | The database and Windows server administrators and \<Organisation\>'s IT service desk |
 | Previous results reused | \[Results reused from other chapters, if any\] |
 | Boundary | \<System Name\>'s database, applications, secrets and the two VMs. \<Organisation\>'s second site, network and telecommunications are inherited |
@@ -1897,7 +1897,7 @@ This records the Level 1 self-assessment of the 24 IA entries in the CSS Moderat
 
 **N/A** means not applicable, as set out in \<Tailoring Register\>. This is the organisation's tailoring decision, not a result under CSS, and the independent assessor may test it.
 
-The methods are **Examine** (code and configuration), **Test** (Test-AuditAndAuth.ps1 and Test-Identification.ps1, with a hash manifest of each run, in the AU and IA evidence) and **Interview**. The interview questions are INT-IA-01 to 06 in \<Interview Guide\>.
+The methods are **Examine** (code and configuration), **Test** (Test-AuditAndAuth.ps1 and Test-Identification.ps1, with a hash manifest of each run, in the AU and IA evidence) and **Interview**. The interview questions are INT-IA-01 to 07 in \<Interview Guide\>.
 
 ### IA.3 Executive summary
 
@@ -2054,13 +2054,13 @@ There is one finding for each CSS determination statement, including those about
 | Procedures | CSS, using the CSS published statements and identifiers (catalog release 5.2.0), with CSS as the test standard for authenticators |
 | Dates | \[Dates of the assessment\] |
 | Site | \[Where the assessment is done, and on what build and data\] |
-| Examine | The sign-in configuration of each app and of PingFederate, the security data model, the settings files and the database, at the release tag; \<Policy\> (IA), \<Procedures\> (IA) and \<Identification and Authentication Management\>. Depth: focused. Coverage: focused |
+| Examine | The sign-in configuration of each application and of PingFederate, the check of PingFederate's signed response, the API's group lookup in Active Directory over LDAPS, the group managed service accounts, the Windows authentication of the API to SQL Server, the settings files and the database, which holds no accounts or passwords, at the release tag; \<Policy\> (IA), \<Procedures\> (IA) and \<Identification and Authentication Management\>. Depth: focused. Coverage: focused |
 | Test | Test-AuditAndAuth.ps1 and Test-Identification.ps1, each run with a hash manifest. Depth: focused. Coverage: focused, including Windows logon, device identification and cryptographic modules |
-| Interview | Global administrators, \<Organisation\>'s security contact and HR |
+| Interview | Administrators, developers, the Windows server administrator, \<Organisation\>'s security contact, IT service desk and HR, and a sample of users |
 | Previous results reused | \[Results reused from other chapters, if any\] |
-| Boundary | \<System Name\>'s sign-in, authenticators and secrets. \<Organisation\>'s identity proofing, sign-in service and device identification are inherited |
+| Boundary | \<System Name\>'s acceptance of PingFederate's signed response, its group lookup in Active Directory, its service accounts and the secrets in its key store. \<Organisation\>'s identity proofing, PingFederate, Active Directory and device identification are inherited |
 | Order of assessment | A, authenticators (IA-5 and enhancements, IA-6, IA-7); B, sign-in and multi-factor (IA-2 and enhancements, IA-11); C, identifiers (IA-4); D, inherited proofing and devices (IA-3, IA-12); E, policy (IA-1). Authenticators come first because sign-in depends on them |
-| Needed from \<Organisation\> | EV-IA-01 to EV-IA-04 in \<Evidence Requests\>: device identification, identity proofing, cryptographic modules, and sign-in through PingFederate |
+| Needed from \<Organisation\> | EV-IA-01 to EV-IA-05 in \<Evidence Requests\>: device identification, identity proofing, cryptographic modules, sign-in through PingFederate, and the group lookup in Active Directory over LDAPS |
 | Evidence retained | The AU and IA evidence, with its manifest; \<Identification and Authentication Management\>, sections 3.4 to 3.6 |
 
 The independent assessor's team, schedule, and depth and coverage are added once agreed. For the Level 2 assessment, the assessor should repeat the checks on the VMs, test multi-factor sign-in, hold the interviews, examine \<Organisation\>'s evidence and re-determine every statement in section IA.4.
@@ -2236,7 +2236,7 @@ This records the Level 1 self-assessment of the 9 MA entries in the CSS Moderate
 
 ### MA.2 How to read this record
 
-The methods are **Examine** (documents and code), **Test** (Test-Maintenance.ps1, with a hash manifest of each run, in the MA evidence) and **Interview**. The interview questions are INT-MA-01 to 04 in \<Interview Guide\>. Maintenance records on the VMs and \<Organisation\>'s maintenance, routes and support are examined as well as the tests.
+The methods are **Examine** (documents and code), **Test** (Test-Maintenance.ps1, with a hash manifest of each run, in the MA evidence) and **Interview**. The interview questions are INT-MA-01 to 07 in \<Interview Guide\>. Maintenance records on the VMs and \<Organisation\>'s maintenance, routes and support are examined as well as the tests.
 
 ### MA.3 Executive summary
 
@@ -2350,11 +2350,11 @@ There is one finding for each CSS determination statement, including those about
 | Procedures | CSS, using the CSS published statements and identifiers (catalog release 5.2.0) |
 | Dates | \[Dates of the assessment\] |
 | Site | \[Where the assessment is done, and on what build and data\] |
-| Examine | \<Policy\> (MA), \<Procedures\> (MA) and \<Maintenance Management\>; TPL-12; SyOps sections 4.6 and 4.7; the admin portal maintenance pages and the build files. Depth: focused. Coverage: focused |
+| Examine | \<Policy\> (MA), \<Procedures\> (MA) and \<Maintenance Management\>; TPL-12; SyOps sections 4.6 and 4.7; the diagnostics page in the Admin application and the build files. Depth: focused. Coverage: focused |
 | Test | Test-Maintenance.ps1, with a hash manifest. Depth: focused. Coverage: focused |
-| Interview | The Windows server administrator, database administrator, global administrator and \<Organisation\>'s IT service desk |
+| Interview | The Windows server administrator, database administrator, an administrator, the security officer, the system owner and \<Organisation\>'s IT service desk |
 | Previous results reused | \[Results reused from other chapters, if any\] |
-| Boundary | Maintenance of the VMs, database and applications, and \<System Name\>'s built-in maintenance functions. Hardware and hypervisor maintenance, the managed route and support are inherited from \<Organisation\> |
+| Boundary | Maintenance of the VMs, database and applications, and the diagnostics in \<System Name\>'s Admin application. Hardware and hypervisor maintenance, the managed route and support are inherited from \<Organisation\> |
 | Order of assessment | A, tools and built-in functions (MA-3 and enhancements); B, remote routes (MA-4); C, controlled maintenance and records (MA-2); D, people (MA-5); E, timely maintenance (MA-6); F, policy (MA-1) |
 | Needed from \<Organisation\> | EV-MA-01 and EV-MA-02 in \<Evidence Requests\>: its maintenance process, sanitising, service agreement, and the managed route's settings and logs |
 | Evidence retained | The MA evidence, with its manifest; \<Maintenance Management\>, sections 3.4 to 3.8 |
@@ -2371,7 +2371,7 @@ This records the Level 1 self-assessment of the 7 MP entries in the CSS Moderate
 
 A Not applicable statement is counted in the chapter's 71 statements but not as satisfied.
 
-The methods are **Examine** (documents and code), **Test** (Test-MediaProtection.ps1, with a hash manifest of each run, in the MP evidence) and **Interview**. The interview questions are INT-MP-01 to 03 in \<Interview Guide\>. The tests show how \<System Name\>'s exports, marking and storage behave; how \<Organisation\> stores, moves or sanitises disks and backup media, and blocks USB storage, is shown by its evidence.
+The methods are **Examine** (documents and code), **Test** (Test-MediaProtection.ps1, with a hash manifest of each run, in the MP evidence) and **Interview**. The interview questions are INT-MP-01 to 05 in \<Interview Guide\>. The tests show how \<System Name\>'s exports, marking and storage behave; how \<Organisation\> stores, moves or sanitises disks and backup media, and blocks USB storage, is shown by its evidence.
 
 ### MP.3 Executive summary
 
@@ -2490,16 +2490,16 @@ There is one finding for each CSS determination statement, including those about
 | Procedures | CSS, using the CSS published statements and identifiers (catalog release 5.2.0), with CSS as the reference for sanitising |
 | Dates | \[Dates of the assessment\] |
 | Site | \[Where the assessment is done, and on what build and data\] |
-| Examine | \<Policy\> (MP), \<Procedures\> (MP) and \<Media Protection Management\>; TPL-13; SyOps A28, A30 to A35 and section 4.8; the export code and UI application pages. Depth: focused. Coverage: focused |
+| Examine | \<Policy\> (MP), \<Procedures\> (MP) and \<Media Protection Management\>; TPL-13; SyOps A28, A30 to A35 and section 4.8; the export code, the encrypted export working area and the UI application pages. Depth: focused. Coverage: focused |
 | Test | Test-MediaProtection.ps1, with a hash manifest. Depth: focused. Coverage: focused |
-| Interview | The database administrator, a sample of users and \<Organisation\>'s IT service desk |
+| Interview | The database administrator, the Windows server administrator, the system owner, a sample of users and \<Organisation\>'s IT service desk |
 | Previous results reused | \[Results reused from other chapters, if any\] |
 | Boundary | \<System Name\>'s exports, marking, users' copies and printouts. Storage, transport and sanitising of physical disks and backup media, and device control, are inherited from \<Organisation\> |
 | Order of assessment | A, the media inventory (MP-2, MP-4); B, export copies (MP-4, MP-6); C, marking (MP-3); D, sanitising (MP-6); E, transport (MP-5); F, portable storage (MP-7); G, policy (MP-1). The inventory comes first because every other result depends on it |
 | Needed from \<Organisation\> | EV-MP-01 to EV-MP-03 in \<Evidence Requests\>: media handling, sanitising certificates and device control |
 | Evidence retained | The MP evidence, with its manifest; \<Media Protection Management\>, sections 3.2 to 3.6 |
 
-For the Level 2 assessment, the assessor should repeat the tests on the VMs, examine the export folder and a sample of users' devices, examine TPL-13 records and \<Organisation\>'s certificates, test USB blocking, hold the interviews and re-determine every statement in section MP.4.
+For the Level 2 assessment, the assessor should repeat the tests on the VMs, examine the encrypted export working area and a sample of users' devices, examine TPL-13 records and \<Organisation\>'s certificates, test USB blocking, hold the interviews and re-determine every statement in section MP.4.
 
 ## PE Physical and Environmental Protection
 
@@ -2870,7 +2870,7 @@ This records the Level 1 self-assessment of the 9 PS entries in the CSS Moderate
 
 ### PS.2 How to read this record
 
-The methods are **Examine** (documents) and **Interview**. This family has no code to test: the leaver and mover route depends on \<Organisation\>'s Starters/Leavers system, and is assessed by following a leaver and a mover. The interview questions are INT-PS-01 to INT-PS-05 in \<Interview Guide\>. Test-PlanConsistency.ps1 checks that every role has a risk designation (the PL evidence).
+The methods are **Examine** (documents) and **Interview**. This family has no code to test: the leaver and mover route depends on \<Organisation\>'s starters and leavers process, the Active Directory account and ServiceNow, and is assessed by following a leaver and a mover. The interview questions are INT-PS-01 to INT-PS-06 in \<Interview Guide\>. Test-PlanConsistency.ps1 checks that every role has a risk designation (the PL evidence).
 
 ### PS.3 Executive summary
 
@@ -2989,7 +2989,7 @@ There is one finding for each CSS determination statement, including those about
 | Dates | \[Dates of the assessment\] |
 | Examine | \<Policy\> (PS), \<Procedures\> (PS) and \<Personnel Security Management\>; \<Roles and Responsibilities\>; \<Security Operating Procedures\>, sections 4.4 and 9; \<Procedures\>, PRO-AC-3 and PRO-AC-4. Depth: focused. Coverage: focused |
 | Test | Not applicable to this family. Test-PlanConsistency.ps1 checks that every role has a risk designation (the PL evidence) |
-| Interview | The system owner, the global administrator, a line manager and \<Organisation\>'s HR (INT-PS-01 to INT-PS-05) |
+| Interview | The system owner, an administrator, a Data Owner, a line manager and \<Organisation\>'s HR (INT-PS-01 to INT-PS-06) |
 | Boundary | \<System Name\>'s own designations, agreements, time limits and register. \<Organisation\>'s screening, HR and disciplinary processes are provider evidence (EV-PS-01 to EV-PS-03) |
 | Order of assessment | A, designations (PS-2); B, screening (PS-3); C, agreements (PS-6); D, leavers and movers (PS-4, PS-5); E, external people (PS-7); F, sanctions and role descriptions (PS-8, PS-9); G, policy (PS-1) |
 | Needed from providers | EV-PS-01, EV-PS-02 and EV-PS-03 in \<Evidence Requests\> |
@@ -3184,9 +3184,9 @@ There is one finding for each CSS determination statement, including those about
 | Scope | 6 PT controls and 16 privacy baseline controls outside Moderate, with 109 determination statements, covering every kind of personal data in \<PII Processing Management\>, section 3.3 |
 | Procedures | CSS, using the CSS published statements and identifiers (catalog release 5.2.0); UK GDPR, the DPA 2018 and the Data (Use and Access) Act 2025 for what the organisation must comply with |
 | Dates | \[Dates of the assessment\] |
-| Examine | \<Policy\> (PT), \<Procedures\> (PT) and \<PII Processing Management\>, \<Data Protection Impact Assessment\>, \<Privacy Plan\>, \<Incident Response Management\>, section 3.8, SyOps A23 to A29; the audit record format, the admin portal's document management and the repositories' search. Depth: focused. Coverage: focused |
+| Examine | \<Policy\> (PT), \<Procedures\> (PT) and \<PII Processing Management\>, \<Data Protection Impact Assessment\>, \<Privacy Plan\>, \<Incident Response Management\>, section 3.8, SyOps A23 to A29; the audit record format, the item management functions, the correct and delete functions, and the search across schemas for one person's data (\<System Description\>, FR-073). Depth: focused. Coverage: focused |
 | Test | Test-PersonalData.ps1, on a fresh throwaway stack (the PT evidence) |
-| Interview | The legal adviser, the business owner, the data protection officer and an administrator who would handle a request |
+| Interview | The legal adviser, the business owner, the data protection officer, a Data Owner and the legal adviser's delegate who would handle a request |
 | Previous results reused | \[Results reused from other chapters, if any\] |
 | Boundary | \<System Name\>'s handling of personal data. \<Organisation\>'s notice, record of processing and privacy programme are inherited (EV-PT-01, EV-PM-02, EV-PM-04) |
 | Order of assessment | A, the impact assessment and lawful bases (RA-8, PT-2, PT-7); B, people's rights (AC-3(14), SI-18(4)); C, retention (SI-12(3)); D, transparency (PT-5); E, logs (AU-3(3)); F, policy (PT-1). The impact assessment comes first because most other findings depend on it |
@@ -3203,7 +3203,7 @@ This records the Level 1 self-assessment of the 10 RA entries in the CSS Moderat
 
 ### RA.2 How to read this record
 
-The methods are **Examine** (the risk documents), **Test** and **Interview**. The test is Test-Vulnerability.ps1, run on the release and its images. It checks the packages, the images and their operating system packages, and whether the risk list, decisions, acceptances, critical components and plan of action agree. The results and their hashes are kept in the RA evidence.
+The methods are **Examine** (the risk documents), **Test** and **Interview**. The test is Test-Vulnerability.ps1, run on the release and the two Windows Server 2025 VMs. It checks the release's packages, the software installed on the servers, and whether the risk list, decisions, acceptances, critical components and plan of action agree. The results and their hashes are kept in the RA evidence.
 
 ### RA.3 Executive summary
 
@@ -3327,10 +3327,10 @@ There is one finding for each CSS determination statement, including those about
 | Procedures | CSS, using the CSS published statements and identifiers (catalog release 5.2.0); CSS for the risk method |
 | Dates | \[Dates of the assessment\] |
 | Examine | \<Policy\> (RA), \<Procedures\> (RA) and \<Risk Assessment Management\>; \<Risk List\>; \<System Security Plan\>, section 3; \<Supply Chain Risk Management\>; \<Decision Register\>; \<Plan of Action and Milestones\>. Depth: focused. Coverage: focused |
-| Test | Test-Vulnerability.ps1, on the release tag and its images (the RA evidence) |
+| Test | Test-Vulnerability.ps1, on the release tag and the servers (the RA evidence) |
 | Interview | The system owner, the security officer, the Windows server administrator and \<Organisation\>'s security contact |
 | Previous results reused | \[Results reused from other chapters, if any\] |
-| Boundary | \<System Name\>'s risk assessment and vulnerability management. \<Organisation\>'s risk strategy, scanning services and the VMs are inherited (EV-RA-01, EV-PM-01) |
+| Boundary | \<System Name\>'s risk assessment and vulnerability management. \<Organisation\>'s risk strategy, scanning services and virtual platform are inherited (EV-RA-01, EV-PM-01) |
 | Order of assessment | A, vulnerabilities (RA-5, RA-5(2), RA-5(5)); B, risk method and register (RA-3, RA-7); C, supply chain and critical components (RA-3(1), RA-9); D, categorisation (RA-2); E, policy (RA-1) |
 | Needed from \<Organisation\> | EV-RA-01 and EV-PM-01 in \<Evidence Requests\> |
 | Evidence retained | The RA evidence (results, README and MANIFEST); completed TPL-7 and TPL-23 records |
@@ -3345,7 +3345,7 @@ This records the Level 1 self-assessment of the 17 SA entries in the CSS Moderat
 
 ### SA.2 How to read this record
 
-The methods are **Examine** (documents, repositories and test evidence), **Test** and **Interview**. The test is Test-Development.ps1. It reads the repository settings through the GitHub API (read-only), the Git history at the release tag, the build files and the component support dates. The results and their hashes are kept in the SA evidence.
+The methods are **Examine** (documents, repositories and test evidence), **Test** and **Interview**. The test is Test-Development.ps1. It reads the repository settings through the source repository service (read-only), the Git history at the release tag, the build files and the component support dates. The results and their hashes are kept in the SA evidence.
 
 ### SA.3 Executive summary
 
@@ -3560,13 +3560,13 @@ There is one finding for each CSS determination statement, including those about
 | Scope | The 17 SA entries in the Moderate baseline, with 159 determination statements. SA-4(10) is covered by TR-SA-01 |
 | Procedures | CSS, using the CSS published statements and identifiers (catalog release 5.2.0); CSS for the development process |
 | Dates | \[Dates of the assessment\] |
-| Examine | \<Policy\> (SA), \<Procedures\> (SA) and \<System and Services Acquisition Management\>; \<Security Architecture\>; \<System Security Plan\>, sections 3, 4 and 7; \<Risk Assessment Management\>; \<Maintenance Management\>; the guides; the test evidence folders. Depth: focused. Coverage: focused |
+| Examine | \<Policy\> (SA), \<Procedures\> (SA) and \<System and Services Acquisition Management\>; \<Security Architecture\>; \<System Security Plan\>, sections 3, 4 and 7; \<Risk Assessment Management\>; \<Maintenance Management\>; \<Organisation\>'s corporate SDLC, which \<System Name\> is built under; the guides; the test evidence folders. Depth: focused. Coverage: focused |
 | Test | Test-Development.ps1, read-only, against the repositories, the release history and the build files (the SA evidence) |
 | Interview | The developers, the system owner and \<Organisation\>'s contract owner |
 | Previous results reused | \[Results reused from other chapters, if any\] |
-| Boundary | \<System Name\>'s development and acquisition. \<Organisation\>'s contracts and services, and GitHub's own controls, are provider evidence (EV-SA-01 to EV-SA-03) |
+| Boundary | \<System Name\>'s development and acquisition. \<Organisation\>'s contracts, services and corporate SDLC, and the source repository service's own controls, are provider evidence (EV-SA-01 to EV-SA-04) |
 | Order of assessment | A, change control (SA-10); B, developer testing (SA-11); C, process and tools (SA-3, SA-15); D, documentation (SA-5); E, external services and contracts (SA-4, SA-9); F, policy and resources (SA-1, SA-2) |
-| Needed from providers | EV-SA-01, EV-SA-02 and EV-SA-03 in \<Evidence Requests\> |
+| Needed from providers | EV-SA-01 to EV-SA-04 in \<Evidence Requests\> |
 | Evidence retained | The SA evidence (results, README and MANIFEST); the other evidence folders; completed TPL-6, TPL-16 and TPL-23 records |
 
 For the Level 2 assessment, the assessor should run Test-Development.ps1 again, sample merged changes for a recorded review, check the guides against the screens, and re-determine every statement in section SA.4.
@@ -3757,8 +3757,8 @@ There is one finding for each CSS determination statement, including those about
 | Test | Test-Protection.ps1, on a throwaway test stack built from the release (the SC evidence), and checks by hand |
 | Interview | The Windows server administrator, database administrator, developers and \<Organisation\>'s security contact |
 | Previous results reused | \[Results reused from other chapters, if any\] |
-| Boundary | \<System Name\>'s apps, database, keys and the two VMs. \<Organisation\>'s network, VPN, proxy, DNS and certificate authority are provider evidence (EV-SC-01 to EV-SC-05) |
-| Order of assessment | A, transport and session authenticity (SC-8, SC-8(1), SC-23); B, keys and cryptography (SC-12, SC-13); C, page code (SC-18); D, boundary (SC-7 and enhancements); E, data at rest (SC-28); F, inherited services (SC-17, SC-20 to SC-22, SC-39); G, policy (SC-1) |
+| Boundary | \<System Name\>'s UI application, Admin application, API, SQL Server database, keys and the two VMs, and flows F1 to F8 in \<System Description\>, section 6.5. \<Organisation\>'s network, VPN, proxy, DNS and certificate authority are provider evidence (EV-SC-01 to EV-SC-05) |
+| Order of assessment | A, transport and the authenticity of connections (SC-8, SC-8(1), SC-23); B, keys and cryptography (SC-12, SC-13); C, page code (SC-18); D, boundary (SC-7 and enhancements); E, data at rest (SC-28); F, inherited services (SC-17, SC-20 to SC-22, SC-39); G, policy (SC-1) |
 | Needed from providers | EV-SC-01 to EV-SC-05 and EV-AC-03 in \<Evidence Requests\> |
 | Evidence retained | The SC evidence (results, README and MANIFEST); the SC and CM evidence; completed TPL-6, TPL-8, TPL-11 and TPL-23 records |
 
@@ -3774,7 +3774,7 @@ This records the Level 1 self-assessment of the 18 SI entries in the CSS Moderat
 
 **N/A** means not applicable, as set out in \<Tailoring Register\>, which the independent assessor may test.
 
-The methods are **Examine** (code, settings and documents), **Test** and **Interview**. The test is Test-Integrity.ps1, run against a throwaway test stack built from the release. Upload checks use the API's dry-run endpoint, which stores nothing. The results, the integrity baseline and their hashes are kept in the SI evidence. Package checks come from Test-Vulnerability.ps1 (the RA evidence).
+The methods are **Examine** (code, settings and documents), **Test** and **Interview**. The test is Test-Integrity.ps1, run against a throwaway test stack built from the release. Upload checks use the API's check-only function for a batch, which stores nothing (\<System Description\>, FR-042). The results, the integrity baseline and their hashes are kept in the SI evidence. Package checks come from Test-Vulnerability.ps1 (the RA evidence).
 
 ### SI.3 Executive summary
 
@@ -3975,7 +3975,7 @@ There is one finding for each CSS determination statement, including those about
 | Test | Test-Integrity.ps1, on a throwaway test stack built from the release (the SI evidence); Test-Vulnerability.ps1 (the RA evidence) |
 | Interview | The security officer, Windows server administrator and \<Organisation\>'s security contact |
 | Previous results reused | \[Results reused from other chapters, if any\] |
-| Boundary | \<System Name\>'s apps, database and records. \<Organisation\>'s network monitoring, firmware and logging are provider evidence (EV-SI-01 to EV-SI-03) |
+| Boundary | \<System Name\>'s UI application, Admin application, API, SQL Server database and records. \<Organisation\>'s network monitoring, firmware and logging are provider evidence (EV-SI-01 to EV-SI-03) |
 | Order of assessment | A, flaws (SI-2); B, malicious code and uploads (SI-3, SI-10); C, monitoring and alerts (SI-4); D, integrity (SI-7); E, errors (SI-11); F, advisories, retention and memory (SI-5, SI-12, SI-16); G, policy (SI-1) |
 | Needed from providers | EV-SI-01, EV-SI-02 and EV-SI-03 in \<Evidence Requests\> |
 | Evidence retained | The SI evidence (results, baseline, README and MANIFEST); the RA evidence; completed TPL-7, TPL-8 and TPL-10 records |
@@ -3990,7 +3990,7 @@ This records the Level 1 self-assessment of the 12 SR entries in the CSS Moderat
 
 ### SR.2 How to read this record
 
-The methods are **Examine** (code, settings and documents), **Test** and **Interview**. The test is Test-SupplyChain.ps1, run on the release and the images built from it, with no running stack. The results and their hashes are kept in the SR evidence. \<Organisation\>'s supplier, hardware and disposal processes are shown by its evidence.
+The methods are **Examine** (code, settings and documents), **Test** and **Interview**. The test is Test-SupplyChain.ps1, run on the release and the packages built from it, with no running system. The results and their hashes are kept in the SR evidence. \<Organisation\>'s supplier, hardware and disposal processes are shown by its evidence.
 
 ### SR.3 Executive summary
 
@@ -4123,8 +4123,8 @@ There is one finding for each CSS determination statement, including those about
 | Scope | The 12 SR entries in the Moderate baseline, with 81 determination statements |
 | Procedures | CSS, using the CSS published statements and identifiers (catalog release 5.2.0) |
 | Dates | \[Dates of the assessment\] |
-| Examine | \<Policy\> (SR), \<Procedures\> (SR) and \<Supply Chain Risk Management\>; \<Risk Assessment Management\>, sections 3.9 and 3.4; the package source settings files, the build files, each app's restored package list and the offline feed index at the release tag. Depth: focused. Coverage: focused |
-| Test | Test-SupplyChain.ps1, with no running stack (the SR evidence); Test-Vulnerability.ps1 (the RA evidence) |
+| Examine | \<Policy\> (SR), \<Procedures\> (SR) and \<Supply Chain Risk Management\>; \<Risk Assessment Management\>, sections 3.9 and 3.4; the package source settings files, the build files, each application's restored package list and the in-house package feed's index at the release tag. Depth: focused. Coverage: focused |
+| Test | Test-SupplyChain.ps1, with no running system (the SR evidence); Test-Vulnerability.ps1 (the RA evidence) |
 | Interview | The developers, security officer and \<Organisation\>'s IT service desk |
 | Previous results reused | \[Results reused from other chapters, if any\] |
 | Boundary | \<System Name\>'s code, build and release. \<Organisation\>'s suppliers, hardware, repair and disposal are provider evidence (EV-SR-01, EV-SR-02) |

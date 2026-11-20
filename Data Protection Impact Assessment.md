@@ -8,17 +8,17 @@ The facts about \<System Name\> are filled in from the design documents. Everyth
 
 ## 2 Step 1: Why a DPIA is needed
 
-\<System Name\> stores, finds and shows \<Organisation\>'s project documents, including a Human Resources project. HR documents hold employees' personal data and may hold special category data, such as health information. The people concerned are employees, who are in an unequal relationship with their employer. Processing special category data about employees is a factor the ICO lists as likely to need a DPIA. \[Legal adviser: confirm whether a DPIA is mandatory under UK GDPR, Article 35, or carried out as good practice.\]
+\<System Name\> stores, finds and shows \<Organisation\>'s digital items, kept apart in schemas. It holds the sign-in identities in its audit records, and whatever personal data its information types hold (\<System Description\>, section 3.4): \[for example, employees' personal data in a Human Resources schema, which may include special category data such as health information\]. Where the people concerned are employees, they are in an unequal relationship with their employer, and processing special category data about employees is a factor the ICO lists as likely to need a DPIA. \[Legal adviser: confirm whether a DPIA is mandatory under UK GDPR, Article 35, or carried out as good practice.\]
 
 ## 3 Step 2: The processing
 
-**Nature:** documents are uploaded in bulk or one at a time, indexed by metadata, searched within a project, viewed on screen, printed on managed printers, and exported in bulk by editors. The full inventory, with each kind of data, is in \<PII Processing Management\>, section 3.3.
+**Nature:** items are created or uploaded in bulk or one at a time, described by their catalogue details, searched within one schema at a time, viewed on screen, downloaded, printed on managed printers, and exported in bulk by editors. The full inventory, with each kind of data, is in \<PII Processing Management\>, section 3.3.
 
-**Scope:** \[number of employees and former employees whose HR documents are held\]; \[number of documents\]; \[number of projects\], including Human Resources. Data is kept until disposed of under the retention schedule in \<PII Processing Management\>, section 3.7.
+**Scope:** \[number of people whose personal data is held\]; \[number of items\]; \[number of schemas\] (\<System Description\>, P-33). Data is kept until disposed of under the retention schedule in \<PII Processing Management\>, section 3.7.
 
-**Context:** users are \<Organisation\> staff on managed devices in the UK. \<System Name\> runs on two VMs in \<Organisation\>'s data centre. No data leaves the UK, and no processor outside \<Organisation\> is used. Links to ServiceNow and the Starters/Leavers system carry names and account details only.
+**Context:** users are \<Organisation\> staff and contractors on managed devices in the UK. \<System Name\> runs on two Windows Server 2025 virtual servers in \<Organisation\>'s data centre, with its items in Microsoft SQL Server 2022. No data leaves the UK (\<System Description\>, P-23), and no processor outside \<Organisation\> is used. People sign in through \<Organisation\>'s PingFederate, and the API reads their group memberships from Active Directory. ServiceNow and the starters and leavers process have no connection to \<System Name\>: people act on the access approvals and leaver notices they produce.
 
-**Purposes:** HR administration, and managing project documents (\<Policy\> (PT)).
+**Purposes:** \[the purposes set in the application profile and \<PII Processing Management\>\], and managing \<System Name\>'s items (\<Policy\> (PT)).
 
 ## 4 Step 3: Consultation
 
@@ -37,25 +37,25 @@ The facts about \<System Name\> are filled in from the design documents. Everyth
 
 | Kind of data | Article 6 basis | Article 9 condition | DPA 2018, Schedule 1 condition | Appropriate policy document needed? |
 | --- | --- | --- | --- | --- |
-| HR records (contract, pay, absence, performance) | \[For example, contract or legal obligation\] | Not applicable | Not applicable | No |
-| Health and other special category data in HR records | \[Basis\] | \[For example, Article 9(2)(b), employment\] | \[For example, paragraph 1\] | \[Yes or no\] |
-| Names and contact details in project documents | \[For example, legitimate interests\] | Not applicable | Not applicable | No |
+| \[Information type from the profile, for example HR records (contract, pay, absence, performance)\] | \[For example, contract or legal obligation\] | Not applicable | Not applicable | No |
+| \[Special category data, if any, for example health data in HR records\] | \[Basis\] | \[For example, Article 9(2)(b), employment\] | \[For example, paragraph 1\] | \[Yes or no\] |
+| Names and contact details in items | \[For example, legitimate interests\] | Not applicable | Not applicable | No |
 | Names from sign-in through PingFederate, and groups read from Active Directory | \[For example, legitimate interests\] | Not applicable | Not applicable | No |
 | Audit records and logs | \[For example, legal obligation or legitimate interests\] | Not applicable | Not applicable | No |
 
 Consent is not used, because employees cannot freely refuse their employer, as the ICO's employment records guidance advises.
 
-**Minimisation:** \<System Name\> holds whole documents, so minimisation depends on what projects choose to upload (SI-12(1), PRO-PT-5). Test stacks use sample data only, which Test-PersonalData.ps1 checks.
+**Minimisation:** \<System Name\> holds whole items, so minimisation depends on what each schema's Data Owner and editors choose to upload (SI-12(1), PRO-PT-5). Test and development use invented data only, which Test-PersonalData.ps1 checks.
 
-**Accuracy:** project access approvers check accuracy every 12 months (PRO-PT-5).
+**Accuracy:** each schema's Data Owner checks accuracy every 12 months (PRO-PT-5).
 
-**Retention:** periods are in \<PII Processing Management\>, section 3.7, set by the business owner, and documents are disposed of at the end of their period.
+**Retention:** periods are in \<PII Processing Management\>, section 3.7, set by the business owner, and items are disposed of at the end of their period, with the disposal recorded (\<System Description\>, FR-074).
 
-**Rights:** requests go to the legal adviser (PRO-PT-1), with a reasonable and proportionate search and complaints acknowledged within 30 days, as the Data (Use and Access) Act 2025 requires.
+**Rights:** requests go to the legal adviser (PRO-PT-1) and are answered within the time in \<System Description\>, P-22, using the search across all schemas (FR-073) as a reasonable and proportionate search, and complaints acknowledged within 30 days, as the Data (Use and Access) Act 2025 requires.
 
 **Transparency:** \<Organisation\>'s employee privacy notice must name \<System Name\> (EV-PT-01). People sign in on \<Organisation\>'s PingFederate page.
 
-**Transfers and processors:** none outside \<Organisation\>.
+**Transfers and processors:** none outside \<Organisation\>, and no data is held outside the UK.
 
 **Automated decisions:** \<System Name\> makes no decision about a person by automated means alone, and does no profiling (UK GDPR, Article 22).
 
@@ -101,4 +101,4 @@ Likelihood and severity are proposed by the assessor from the design and the ass
 | ICO sample DPIA template; ICO guidance on keeping employment records | The structure and the employment context |
 | CSS, RA-8, PT-2, PT-3 and PT-7 | The controls this assessment supports |
 | \<PII Processing Management\>, \<Privacy Plan\>, \<Policy\> (PT), \<Procedures\> (PT), \<Risk List\> and \<Plan of Action and Milestones\> | Inventory, privacy plan, policy, procedures, risks and fixes |
-| the PT evidence | Test-PersonalData.ps1 results |
+| Test-PersonalData.ps1, in the PT evidence | The check that test and development hold invented data only |

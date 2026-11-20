@@ -36,11 +36,11 @@ These carry out the principles and rules of \<Policy\>, sections SR.3 and SR.4.
 
 Controls met here: SR-2.
 
-\<System Name\> is three .NET 10 web applications and a PostgreSQL 18 database, to run as Windows services on two Windows Server 2025 servers hosted by \<Organisation\>. They are built and tested in container images. Its impact level is Moderate. Users sign in through \<Organisation\>'s PingFederate, and access is decided by Active Directory groups.
+\<System Name\> is three .NET 10 web applications, the UI application, the Admin application and the API, with a shared library built into all three, and a Microsoft SQL Server 2022 database (\<System Description\>, sections 6.3 and 6.4). The applications run as Windows services, each under its own group managed service account, on two Windows Server 2025 virtual servers in \<Organisation\>'s data centre. The test environment is a throwaway copy of the whole system, built from a tagged release. Its impact level is Moderate. Users sign in through \<Organisation\>'s PingFederate, and the API reads their Active Directory groups over LDAPS to decide their access. \<System Name\> is built in-house under \<Organisation\>'s corporate SDLC.
 
-This plan covers \<System Name\>, its software packages, container images, browser files, build tools, hosting and hardware.
+This plan covers \<System Name\>, its software packages, browser libraries, build tools, hosting and hardware.
 
-What it is built from: 59 packages for API, 40 for UI application and 34 for Admin application, counting those pulled in; two Microsoft base images and the PostgreSQL image; and two browser libraries from jsDelivr.
+What it is built from: the Microsoft products in the reference stack; \[number\] packages for the API, \[number\] for the UI application and \[number\] for the Admin application, counting those pulled in, all through the in-house package feed; and the browser libraries the pages need, packaged with the UI application and served by it.
 
 ### 3.3 The supply chain team
 
@@ -58,11 +58,11 @@ Controls met here: SR-2, SR-3.
 
 | Stage | Risk | Response |
 | --- | --- | --- |
-| Research and development | A harmful, vulnerable or look-alike package is added | PRO-SR-1 check, then into the offline feed |
+| Research and development | A harmful, vulnerable or look-alike package is added | PRO-SR-1 check, then into the in-house package feed |
 | Design | A design relies on an unsuitable supplier | Supplier register; review before a new critical supplier |
 | Manufacturing | Hardware is altered before arrival | \<Organisation\> inspects |
 | Acquisition | A supplier makes no security commitment | \<Organisation\>'s contract; open-source security policies checked |
-| Delivery | A package, image or release is altered in transit | Lock files, signed-package trust, image digests, release SHA-256 values |
+| Delivery | A package or release is altered in transit | Lock files, signed-package trust, and releases from a signed tag with SHA-256 values |
 | Integration | A new component weakens a control | Release tests and Test-SupplyChain.ps1 |
 | Operation and maintenance | A known flaw appears in a component | Monthly and release checks; \<Procedures\>, PRO-SI-1 |
 | Disposal | Data leaves with a component | PRO-MP-3 |
@@ -71,24 +71,19 @@ Controls met here: SR-2, SR-3.
 
 Controls met here: SR-3, SR-5, SR-6, SR-8.
 
-Criticality follows the critical components in \<Risk Assessment Management\>, section 3.9: High where a compromise would reach documents, or the way people sign in. Advisories are watched through the sources in \<System and Information Integrity Management\>, section 3.3.
+Criticality follows the critical components in \<Risk Assessment Management\>, section 3.9: High where a compromise would reach items, or the way people sign in. Advisories are watched through the sources in \<System and Information Integrity Management\>, section 3.3.
 
 **Table 2: Supplier register**
 
-| Supplier | What it supplies | Criticality | How it reaches \<System Name\> | Evidence | Notification route | Last review | Next review |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| \<Organisation\> | Hosting, network, hardware, service desk, central logging, and sign-in through PingFederate and Active Directory | High | Contract | EV-SR-01, EV-SR-02 | Security contact to the security officer, within 24 hours | \[Date\] (\<Risk Assessment Management\>, section 3.4) | \[Date\] |
-| Microsoft | .NET 10, ASP.NET Core and Entity Framework packages, Windows Server 2025 | High | nuget.org; the VM build | Published lifecycle and security advisories | Microsoft and .NET advisories | \[Date\] | \[Date\] |
-| Microsoft container registry (mcr.microsoft.com) | .NET SDK and runtime base images | High | Pulled by digest at build | Published image digests | .NET advisories | \[Date\] | \[Date\] |
-| nuget.org | The package registry for all other packages | High | Mirrored into the offline feed after the PRO-SR-1 check; vulnerability data | Repository signatures on every package | GitHub Advisory Database | \[Date\] | \[Date\] |
-| Npgsql project | PostgreSQL driver and Entity Framework provider | High | nuget.org | Open-source project; security policy published | GitHub advisories | \[Date\] | \[Date\] |
-| PostgreSQL Global Development Group, through Docker Hub | The postgres:18 database image | High | Docker Hub (docker.io), pulled by digest | Official image; published support dates | PostgreSQL security announcements | \[Date\] | \[Date\] |
-| GitHub | Source code hosting | High | Private repositories | Published security terms (EV-SA-03) | GitHub advisories | \[Date\] | \[Date\] |
-| OfflineModules packages (in-house, system owner) | Access control modules | High | Offline feed only, by package source mapping | SHA-256 index in the feed | Internal | \[Date\] | \[Date\] |
-| Six Labors (ImageSharp) | Image processing | Medium | nuget.org | Six Labors Split License, community tier | GitHub advisories | \[Date\] | \[Date\] |
-| SkiaSharp (Microsoft and Mono) | Image rendering and its Linux native library | Medium | nuget.org | Open-source project | GitHub advisories | \[Date\] | \[Date\] |
-| jsDelivr (cdn.jsdelivr.net) | Bootstrap Icons and OpenSeadragon in the browser | Medium | Copied into \<System Name\> and served by it, with SHA-256 values recorded | None | Library advisories | \[Date\] | \[Date\] |
-| Swashbuckle and Azure.Storage.Blobs | API documentation; an unused storage client | Low | nuget.org; left out of release builds | Open-source and Microsoft packages | GitHub advisories | \[Date\] | \[Date\] |
+| Supplier | What it supplies | Criticality | How it reaches \<System Name\> | Evidence | Notification route | Review |
+| --- | --- | --- | --- | --- | --- | --- |
+| \<Organisation\> | Hosting on its virtual platform and data centre, network, hardware, service desk, central logging, sign-in through PingFederate and Active Directory, ServiceNow, and the corporate SDLC with its source repositories, build pipeline and in-house package feed (\<System Description\>, section 10) | High | Contract and corporate services | EV-SR-01, EV-SR-02 | Security contact to the security officer, within 24 hours | Every 12 months, and before a new critical service is used |
+| Microsoft | Windows Server 2025, with Defender and BitLocker; Microsoft SQL Server 2022; .NET 10, ASP.NET Core 10 and Blazor Server; Entity Framework Core 10 with the SQL Server provider (Microsoft.Data.SqlClient) | High | The server build, by \<Organisation\>, with updates through the proxy; packages through the in-house package feed | Published lifecycle and security advisories | Microsoft and .NET advisories | Every 12 months |
+| nuget.org | The package registry behind the in-house package feed | High | Copied into the in-house package feed after the PRO-SR-1 check; vulnerability data | Repository signatures on every package | GitHub Advisory Database | Every 12 months |
+| \<System Name\>'s developers (in-house) | The shared library, \<Code\>\_Shared, which holds the data model, the access checks and the audit record format, built into all three applications | High | Built from \<System Name\>'s own source repositories under the corporate SDLC | Reviewed changes and the release record | Internal | Every 12 months |
+| \[Supplier of each other third-party package\] | \[Packages the application needs beyond the reference stack\] | \[Medium or Low\] | The in-house package feed | \[Licence and security policy\] | \[Advisory source\] | Every 12 months |
+| \[Supplier of each browser library\] | Third-party scripts and styles the pages need, for example a document viewer or an icon set | Medium | Through the in-house package feed, packaged with the UI application and served by \<System Name\> itself, with SHA-256 values recorded. No content delivery service is used | \[Licence and security policy\] | Library advisories | Every 12 months |
+| \[Supplier of the API documentation package\] | Interactive API documentation, for development only | Low | The in-house package feed; left out of release builds | \[Licence\] | \[Advisory source\] | Every 12 months |
 
 ### 3.6 Risk tolerance
 
@@ -100,17 +95,17 @@ No critical component may be used without a known source and a SHA-256 record. A
 
 Controls met here: SR-3, SR-5, SR-10, SR-11.
 
-Three processes find and address weaknesses in the supply chain: component checks before use (PRO-SR-1), supplier reviews (PRO-SR-2) and release inspection (PRO-SR-3). They are coordinated with \<Organisation\>'s IT service desk and the suppliers in section 3.5. The processes and controls are documented in this plan and in \<System Security Plan\>.
+Three processes find and address weaknesses in the supply chain: component checks before use (PRO-SR-1), supplier reviews (PRO-SR-2) and release inspection (PRO-SR-3). They are coordinated with \<Organisation\>'s IT service desk and the suppliers in section 3.5. They sit within \<Organisation\>'s corporate SDLC, which provides the one checked package feed, lock files and a software bill of materials for each release (\<System Description\>, section 7.12). The processes and controls are documented in this plan and in \<System Security Plan\>.
 
 **Table 3: How each component comes in**
 
 | Component | How it comes in |
 | --- | --- |
-| OfflineModules packages | Offline feed only, by package source mapping |
-| All other packages | Mirrored into the offline feed after the PRO-SR-1 check; lock files in locked mode; trust policy for nuget.org's repository signature; NuGet's audit on |
-| Base and database images, for the build and the test stacks | Pinned by digest |
-| Browser libraries | Served by \<System Name\> |
-| Releases | SHA-256 values and a CycloneDX bill of materials, checked before installation |
+| The shared library | Built from \<System Name\>'s own source repositories, under the corporate SDLC |
+| All other packages | Through the in-house package feed only, by package source mapping, after the PRO-SR-1 check; lock files in locked mode; trust policy for nuget.org's repository signature; NuGet's audit on |
+| Windows Server 2025 and SQL Server 2022 | Installed by \<Organisation\>'s server build from Microsoft's media, and updated through \<Organisation\>'s proxy |
+| Browser libraries | Through the in-house package feed, packaged with the UI application and served by \<System Name\> itself. No content delivery service |
+| Releases | From a signed tag, with SHA-256 values and a CycloneDX bill of materials, checked before installation |
 | Hardware and hosting | Inspected, controlled under repair and disposed of by \<Organisation\>, with evidence |
 
 ### 3.8 Notices, inspection, authenticity and disposal
@@ -118,8 +113,8 @@ Three processes find and address weaknesses in the supply chain: component check
 Controls met here: SR-8, SR-10, SR-11, SR-11(1), SR-11(2), SR-12.
 
 1. **Notices** (SR-8). \<Organisation\> reports a supply chain compromise to the security officer within 24 hours, and shares assessment or audit results that affect \<System Name\> (EV-SR-01). For open-source suppliers, their published advisories are the notice, through the sources in \<System and Information Integrity Management\>, section 3.3. Each notice that applies is recorded on TPL-7, and a compromise is handled as an incident (PRO-SR-5).
-2. **Inspection** (SR-10). Release packages, the test images and \<System Name\>'s application files are checked against their recorded SHA-256 values at each release, before installation, and whenever tampering is suspected. A different value, an unexpected package source or damaged packaging is a sign of tampering. \<Organisation\> inspects hardware (PRO-SR-3; EV-SR-02).
-3. **Authenticity** (SR-11). Under policy rule R11, package names are checked against look-alikes, and packages come only from the offline feed under a signed-package trust policy. A suspected counterfeit is refused and reported to its source, the security officer, \<Organisation\>, the package registry and, if serious, the NCSC. \<Organisation\> trains its buyers every year, and keeps control of hardware sent for repair (PRO-SR-4).
+2. **Inspection** (SR-10). Release packages and \<System Name\>'s application files are checked against their recorded SHA-256 values at each release, before installation, and whenever tampering is suspected. A different value, an unexpected package source or damaged packaging is a sign of tampering. \<Organisation\> inspects hardware (PRO-SR-3; EV-SR-02).
+3. **Authenticity** (SR-11). Under policy rule R11, package names are checked against look-alikes, and packages come only from the in-house package feed under a signed-package trust policy. A suspected counterfeit is refused and reported to its source, the security officer, \<Organisation\>, the package registry and, if serious, the NCSC. \<Organisation\> trains its buyers every year, and keeps control of hardware sent for repair (PRO-SR-4).
 4. **Disposal** (SR-12). For hardware, media, data and documents, \<System Name\> data is removed first (PRO-MP-3), and \<Organisation\> disposes of the component and confirms in writing (PRO-SR-6).
 
 ### 3.9 What \<Organisation\> provides
@@ -152,7 +147,7 @@ CSS does not select these at Moderate, so they are not assessed. Table 5 says wh
 | Control | What it adds | \<System Name\>'s position |
 | --- | --- | --- |
 | SR-3(1) to SR-3(3) | Diverse supply base; limiting harm; flowing controls down to sub-tier suppliers | Not required. Done in part: the risk tolerance limits harm (section 3.6) |
-| SR-4 Provenance | Records where each component came from and every change to it | Not required. Done in part in design: the offline feed's SHA-256 records and the bill of materials |
+| SR-4 Provenance | Records where each component came from and every change to it | Not required. Done in part in design: the in-house package feed's SHA-256 records and the bill of materials |
 | SR-5(1), SR-5(2) | Adequate supply; assessments before selection | Not required. Done in part: the PRO-SR-1 check before a component is used |
 | SR-6(1) Testing and Analysis | Tests what suppliers provide | Not required. Done in part: release inspection (section 3.8) |
 | SR-7 Supply Chain Operations Security | Hides supply chain information from adversaries | Not required. The plan and the register are restricted |

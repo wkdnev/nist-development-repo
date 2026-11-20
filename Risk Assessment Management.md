@@ -38,11 +38,11 @@ These carry out the principles and rules of \<Policy\>, sections RA.3 and RA.4.
 
 Controls met here: RA-2.
 
-\<System Name\> is categorised Moderate: confidentiality Moderate, integrity Moderate and availability Low. Each of its four information types was mapped to CSS and rated under CSS, and the system takes the highest level of each. The record, with the rationale for each level, is in \<System Security Plan\>, section 3.3, as RA-2 requires. \[Name\] owns the information types, and the authorising official, \[Name\], approves the categorisation.
+\<System Name\> is categorised Moderate: confidentiality Moderate, integrity Moderate and availability Low (\<System Description\>, P-01), unless its application profile sets otherwise. Each of its information types (\<System Description\>, section 3.4, Table 6) is mapped to CSS and rated under CSS, and the system takes the highest level of each. An application rated High in any objective is outside the reference system. The record, with the rationale for each level, is in \<System Security Plan\>, section 3.3, as RA-2 requires. \[Name\] owns the information types, and the authorising official, \[Name\], approves the categorisation.
 
-Availability is Low because the 120-hour maximum tolerable downtime means a loss of availability has a limited adverse effect; "business critical" means important to \<Organisation\>, not that \<System Name\> must always be available.
+Availability is Low because the 120-hour maximum tolerable downtime (\<System Description\>, P-14) means a loss of availability has a limited adverse effect; "business critical" means important to \<Organisation\>, not that \<System Name\> must always be available.
 
-The fourth information type covers the identities that arrive at sign-in and the audit records. \<System Name\> holds no accounts or credentials, as users sign in through PingFederate.
+The last information type, held by every application built on the reference system, covers the sign-in identities and the audit records. \<System Name\> holds no accounts or credentials, as users sign in through PingFederate and the API reads their groups from Active Directory.
 
 The categorisation is reviewed with the risk assessment, and whenever an information type is added or changed.
 
@@ -50,7 +50,7 @@ The categorisation is reviewed with the risk assessment, and whenever an informa
 
 Controls met here: RA-3, RA-7.
 
-\<System Name\>'s risk assessment is the Risk List, \<Risk List\>. It follows CSS: a threat source exploits a weakness, with a likelihood, to cause an impact. The method is set out in full in its section 4, beside the risks it rates, so that the Risk List can be read on its own. Table 1, below, summarises it.
+\<System Name\>'s risk assessment is the Risk List, \<Risk List\>. It follows CSS: a threat source exploits a weakness, with a likelihood, to cause an impact. The method is set out in full in its section 4, beside the risks it rates, so that the Risk List can be read on its own. Table 1, below, summarises it. The threats to the application are modelled before it is built, from its profile and functions, and again at each significant change, and the threat model is kept with the Risk List (\<System Description\>, NFR-083).
 
 **Table 1: The risk method at a glance**
 
@@ -58,7 +58,7 @@ Controls met here: RA-3, RA-7.
 | --- | --- | --- |
 | Threat sources | Adversarial, accidental, structural and environmental, each with examples for \<System Name\> | \<Risk List\>, Table 3c |
 | Likelihood | Low, Medium or High, on a scale of how able and motivated the source is and what stands in its way | \<Risk List\>, Table 3a |
-| Impact | Low, Medium or High, on the CSS scale, for the documents and for \<Organisation\> | \<Risk List\>, Table 3b |
+| Impact | Low, Medium or High, on the CSS scale, for the items and for \<Organisation\> | \<Risk List\>, Table 3b |
 | Rating | A matrix that weights impact: a High impact never rates below Medium, and a Low impact never above Low, because \<System Name\>'s harm is driven by what it holds | \<Risk List\>, Table 3 |
 | Uncertainty | Where the evidence is a single test or a document review, the higher of the two plausible ratings is used. Ratings set before the evidence was seen are marked provisional | \<Risk List\>, section 4.1 and Table 3d |
 | Privacy risk | Rated by the same method. The data protection impact assessment adds the effects on individuals | \<Risk List\>; \<Data Protection Impact Assessment\> |
@@ -81,7 +81,7 @@ After a significant change, such as a change to how users sign in or to where th
 
 Controls met here: RA-3(1).
 
-Every 12 months, before a new supplier or a new kind of component is added, and after a significant change to the system or where it runs, the system owner and the developers review each item in the supply chain for its origin, support, known problems and end of support (PRO-RA-2). They use the supplier register in \<Supply Chain Risk Management\>, the latest package and image check, and the bill of materials. Each review is recorded on TPL-23, and any new risk goes into the Risk List. The supply chain plan, \<Supply Chain Risk Management\>, holds the suppliers and how they are managed; this section holds the risk assessment.
+Every 12 months, before a new supplier or a new kind of component is added, and after a significant change to the system or where it runs, the system owner and the developers review each item in the supply chain for its origin, support, known problems and end of support (PRO-RA-2). They use the supplier register in \<Supply Chain Risk Management\>, the latest package check, and the bill of materials. Each review is recorded on TPL-23, and any new risk goes into the Risk List. The supply chain plan, \<Supply Chain Risk Management\>, holds the suppliers and how they are managed; this section holds the risk assessment.
 
 ### 3.5 What is monitored for vulnerabilities
 
@@ -91,11 +91,10 @@ Controls met here: RA-5, RA-5(2), RA-5(5).
 
 | Component | How it is checked | Who | How often |
 | --- | --- | --- | --- |
-| Windows Server 2025, on both VMs | Vendor updates, and a credentialed scan (PRO-RA-3) | Windows server administrator | Monthly, and at each release |
-| PostgreSQL | Vendor security announcements | Database administrator | Monthly |
-| .NET and NuGet packages, from nuget.org and the offline feed | The package vulnerability report at each build, and Test-Vulnerability.ps1 at each release | Developers | Each build, and monthly |
-| Browser libraries | Vendor security announcements | Developers | Monthly |
-| Images, and their operating system packages | Test-Vulnerability.ps1, and an image scanner | Developers | Each release |
+| Windows Server 2025, on both servers | Vendor updates, and a credentialed scan (PRO-RA-3) | Windows server administrator | Monthly, and at each release (\<System Description\>, P-30) |
+| Microsoft SQL Server 2022 | Vendor updates and security advisories, and the credentialed scan of the database server | Database administrator | Monthly |
+| .NET and NuGet packages, through the in-house package feed | The package vulnerability report at each build, and Test-Vulnerability.ps1 at each release | Developers | Each build, and monthly |
+| Browser libraries, served by \<System Name\> itself | Vendor security announcements, and the package scan at each release | Developers | Monthly, and at each release |
 | \<System Name\>'s own applications: UI application, Admin application and API | A web application scan, reaching them as a user and as an outsider would; the static analysis in the build; and an independent penetration test before go-live | Developers | Each release |
 | Server and database settings | The configuration scan against the baseline in \<Configuration Management\>, which finds the improper configurations RA-5 also asks about | Windows server administrator, database administrator | Monthly |
 | All components, for exploited flaws | CISA's Known Exploited Vulnerabilities catalogue and \<Organisation\>'s alerts (PRO-RA-4) | Security officer | Weekly (\<Security Operating Procedures\>, C50) |
@@ -104,14 +103,13 @@ Monitoring also starts whenever a new vulnerability that may affect \<System Nam
 
 The scanner must:
 
-1. scan both VMs with an account approved for scanning, so that the scan sees what an administrator sees (RA-5(5));
+1. scan both servers with an account approved for scanning, so that the scan sees what an administrator sees (RA-5(5));
 2. update its definitions before each scan (RA-5(2));
 3. name each flaw by its CVE identifier and rate it by CVSS, so that its results and the package check's can be compared and measured the same way (RA-5b);
-4. cover the images and their operating system packages, if images are still used to build or run a release;
-5. find ports, protocols and services that should not be reachable, against the allowed flows in \<Access Control Management\>, section 3.6;
-6. scan \<System Name\>'s three applications at each release, as this section sets out.
+4. find ports, protocols and services that should not be reachable, against the allowed flows F1 to F9 in \<System Description\>, section 6.5, and \<Access Control Management\>, section 3.6;
+5. scan \<System Name\>'s three applications at each release, as this section sets out.
 
-Items 5 and 6 come from the CSS guidance on RA-5.
+Items 4 and 5 come from the CSS guidance on RA-5.
 
 Improper configurations are found by the configuration scan against the baseline, which uses a standard checklist format (\<Configuration Management\>).
 
@@ -119,7 +117,7 @@ Improper configurations are found by the configuration scan against the baseline
 
 Controls met here: RA-5.
 
-This is the one timetable for vulnerabilities in \<System Name\>, its packages, images and VMs. It replaces any other limit for vulnerabilities, including the general limits for POA&M items in \<Policy\> (CA). It meets the Cyber Essentials limit of 14 days for high and critical updates, which \<Organisation\> holds.
+This is the one timetable for vulnerabilities in \<System Name\>, its packages and its servers (\<System Description\>, P-11). It replaces any other limit for vulnerabilities, including the general limits for POA&M items in \<Policy\> (CA). It meets the Cyber Essentials limit of 14 days for high and critical updates, which \<Organisation\> holds.
 
 **Table 4: Vulnerability timetable**
 
@@ -129,7 +127,7 @@ This is the one timetable for vulnerabilities in \<System Name\>, its packages, 
 | Critical | Vendor rating Critical, or CVSS base 9.0 or more | 14 days |
 | High | Vendor rating High, or CVSS base 7.0 to 8.9, or no rating given | 14 days |
 | Medium | Vendor rating Medium or Moderate, or CVSS base 4.0 to 6.9 | 30 days |
-| Low | Vendor rating Low, or CVSS base below 4.0 | 90 days, or 30 days once a vendor update exists |
+| Low | Vendor rating Low, or CVSS base below 4.0 | 90 days |
 
 The clock starts when the fix is released, or when \<System Name\>'s use of the flaw is detected if that is later. The vendor's rating comes first; the CVSS version is recorded on TPL-7. Mitigating means reducing the risk without the fix, for example by turning off the affected feature or blocking its route. A fix that cannot meet its time goes to a risk decision under \<Policy\>, section RA.7, with its compensating measure.
 
@@ -142,7 +140,7 @@ Controls met here: RA-5, RA-5(11).
 3. **Fixing.** The people responsible fix or mitigate each finding within its time, as a change (\<Configuration Management\>). An exploited flaw is fixed or mitigated as an emergency change, and the security officer confirms it and tells the system owner (PRO-RA-4).
 4. **Sharing.** After each scan the security officer shares each finding that applies with the developers and the Windows server administrator, so that the same flaw is fixed wherever it occurs. A finding that may affect \<Organisation\>'s other systems also goes to its security contact, so that it can be removed there too (PRO-RA-5).
 5. **Reports from anyone.** Anyone may report a vulnerability in \<System Name\> to \<Organisation\>'s security contact, which passes the report to the security officer, who records it on TPL-7 and handles it as a scan finding. CSS asks for a public channel, so the contact must be published where people outside \<Organisation\> can find it, for example in a security.txt file on its website (RFC 9116): \[Where the contact is published\] (EV-RA-01). Its published terms must authorise research in good faith, and may ask the reporter to allow a set time for a fix before disclosing the flaw, but must not require it to be kept secret for ever. The time asked for is 90 days (EV-RA-01).
-6. **Flaws in other parties' components.** A flaw found in another party's package or image is reported to its maintainer through their published route, and noted on TPL-7.
+6. **Flaws in other parties' components.** A flaw found in another party's package or browser library is reported to its maintainer through their published route, and noted on TPL-7.
 
 ### 3.8 Risk response
 
@@ -166,27 +164,27 @@ A monitoring finding, such as a scan result, is first recorded on TPL-7 (section
 
 Controls met here: RA-9.
 
-**Method.** A component is critical if its failure or compromise would expose or lose the documents, or defeat a security control. Each component in the authorisation boundary, and each outside service it relies on, is judged by the impact levels in \<System Security Plan\>, section 3.3, the recovery priorities in \<Contingency Planning Management\>, section 3.3, and whether it lies on the path to the documents. A component that gives unmediated access to a critical component is critical too. The developers' criticality analysis (SA-15(3)) uses this list.
+**Method.** A component is critical if its failure or compromise would expose or lose the items, or defeat a security control. Each component in the authorisation boundary, and each outside service it relies on, is judged by the impact levels in \<System Security Plan\>, section 3.3, the recovery priorities in \<Contingency Planning Management\>, section 3.3, and whether it lies on the path to the items. A component that gives unmediated access to a critical component is critical too. The developers' criticality analysis (SA-15(3)) uses this list.
 
 **Table 6: Critical components**
 
 | Component | Why it is critical | If it fails or is compromised |
 | --- | --- | --- |
-| Database server VM | Holds every document, document record and audit record | All documents are exposed or lost |
-| Application server VM | Runs all three applications, and holds their data protection key rings and the bulk export working folder. Whoever controls it reaches the database through the API | Every document reachable, and the applications' controls bypassed |
-| API | The only route to the database. Checks each request's sign-in, role and project access for the other two applications | Access controls can be bypassed, and every document read |
-| UI application | Users' document pages, reached after sign-in through PingFederate | Documents shown to the wrong person, or a user's sign-in taken over |
-| Admin application | Sets which AD groups open each project, and administers projects, documents and audit records, including raw deletes and maintenance pages | Project access granted, or documents deleted, without trace |
+| Database server | Holds every item, its files, the schema definitions and the audit records, each schema in its own database schema | All items are exposed or lost |
+| Application server | Runs all three applications, and holds their data protection key rings and the encrypted export working area. Whoever controls it reaches the database through the API | Every item reachable, and the applications' controls bypassed |
+| API | The only route to the database. Reads each person's groups from Active Directory over LDAPS, and checks each request's sign-in, role and schema access for the other two applications | Access controls can be bypassed, and every item read |
+| UI application | Users' pages for items, reached after sign-in through PingFederate | Items shown to the wrong person, or a user's sign-in taken over |
+| Admin application | Sets which Active Directory groups open each schema, administers schemas and system settings, runs fixed diagnostics, and gives auditors the audit log | Schema access granted to the wrong groups, or schemas changed or closed |
 | Audit records | Show who did what | Misuse cannot be traced or proved |
-| Backup store | Holds a full copy of every document | Every document exposed from a stolen or unencrypted backup, or lost |
-| Bulk export working folder | Holds full, unencrypted copies of documents for each export job | Documents disclosed outside their project's permissions |
-| Key store | Holds the signing key and service secrets | Calls between the applications, and database access, can be forged |
-| Data protection key rings | Protect each app's cookies and tokens | Sign-in cookies can be forged or read |
-| PingFederate, with Active Directory (\<Organisation\>) | PingFederate authenticates every user with multi-factor authentication; Active Directory holds the groups, read by the API over LDAPS, that decide each role and each project's access | Anyone could sign in as another user, or be given any role or project |
+| Backup store | Holds a full, encrypted copy of every item | Every item exposed from a stolen backup and its key, or lost |
+| Export working area | Holds encrypted working copies of items for each export job, deleted as \<System Description\>, P-20 sets | Items disclosed outside their schema's access |
+| Key store | Holds the token signing key and the audit chain key. There is no database password: the API uses Windows authentication | Calls between the applications can be forged, or the audit chain rewritten unnoticed |
+| Data protection key rings | Protect each application's authentication cookie and anti-forgery tokens | Sign-in cookies can be forged or read |
+| PingFederate, with Active Directory (\<Organisation\>) | PingFederate authenticates every user with multi-factor authentication; Active Directory holds the groups, read by the API over LDAPS, that decide each role and each schema's access | Anyone could sign in as another user, or be given any role or schema |
 
-PingFederate with Active Directory is critical because \<System Name\> holds no accounts and relies on \<Organisation\> to authenticate every user. The application server VM and the bulk export working folder are critical because each gives a path to the documents that goes round the other controls.
+PingFederate with Active Directory is critical because \<System Name\> holds no accounts and relies on \<Organisation\> to authenticate every user. The application server and the export working area are critical because each gives a path to the items that goes round the other controls.
 
-**Critical functions.** CSS asks for critical functions as well as components. Five functions would expose or lose the documents if they failed: signing in and deciding access (PingFederate with Active Directory, API, the key store and the data protection key rings); storing and showing documents (the database server, the application server, API and UI application); administering projects and access (Admin application); recording who did what (the audit records); and recovering documents (the backup store).
+**Critical functions.** CSS asks for critical functions as well as components. Five functions would expose or lose the items if they failed: signing in and deciding access (PingFederate with Active Directory, the API, the key store and the data protection key rings); storing and showing items (the database server, the application server, the API and the UI application); administering schemas and access (the Admin application); recording who did what (the audit records); and recovering items (the backup store).
 
 The list is reviewed at each major release and after a significant change (PRO-RA-6).
 

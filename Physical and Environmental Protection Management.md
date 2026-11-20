@@ -58,11 +58,11 @@ Who provides each PE control, and the evidence that closes it. The first choice 
 
 | Control | \<Organisation\> provides | \<System Name\> provides | Closing evidence |
 | --- | --- | --- | --- |
-| PE-1 | Its own physical security policy | The policy, the procedures and this document | Approved documents |
+| PE-1 | Its own physical security policy | The policy, the procedures and this document | The policy, the procedures and this document |
 | PE-2 | Authorised access list for the data centres | Nothing | A.7.2; access list review record (EV-PE-01) |
 | PE-3 | Entry control, logs, visitors, keys and cards | Nothing | A.7.1, A.7.2, A.7.3; TPL-20 (EV-PE-01) |
 | PE-4 | Protected cabling | Nothing | A.7.12 (EV-PE-01) |
-| PE-5 | Managed printers with secure release; office security | Users' rules (A33, A36, A37); the device screen lock is \<Organisation\>'s (P-AC-15) | A.7.7; EV-PE-05; AC-11 tests |
+| PE-5 | Managed printers with secure release; office security | Users' rules (A33, A36, A37); the device screen lock is \<Organisation\>'s (P-03) | A.7.7; EV-PE-05; \<Organisation\>'s device policy |
 | PE-6, PE-6(1) | Monitoring, alarms and CCTV; log review | Incident handling of what is reported | A.7.4; monitoring records (EV-PE-01) |
 | PE-8 | Visitor records and review | Nothing | A.7.2; sample records (EV-PE-01) |
 | PE-9, PE-10, PE-11, PE-12 | Power protection, emergency shutoff, UPS and emergency lighting | Orderly shutdown on UPS (\<Security Operating Procedures\>, section 4.6) | A.7.11, A.7.12; maintenance records (EV-PE-02) |
@@ -92,11 +92,11 @@ The organisation does not assess the sites itself. It inherits their protection 
 
 Controls met here: PE-5.
 
-1. \<System Name\> documents are printed only on \<Organisation\>'s managed printers with secure release: \[managed printers\]. A page prints only when its owner is at the printer.
-2. A printout is collected at once, marked RESTRICTED, locked away when not in use, and shredded when no longer needed (\<Media Protection Management\>, section 3.4).
+1. \<System Name\> items are printed only on \<Organisation\>'s managed printers with secure release: \[managed printers\]. A page prints only when its owner is at the printer.
+2. A printout is collected at once, marked \<Classification\>, locked away when not in use, and shredded when no longer needed (\<Media Protection Management\>, section 3.4).
 3. A screen is locked when its user leaves it, and placed so that others cannot read it.
-4. \<Organisation\>'s managed devices lock the screen after the inactivity period it sets (\<Access Control Management\>, section 3.15; P-AC-15). \<System Name\> has no page lock of its own.
-5. Desks are kept clear of printed documents and notes.
+4. \<Organisation\>'s managed devices lock the screen after the inactivity period it sets (P-03; \<Access Control Management\>, section 3.15). \<System Name\> has no session management, page lock or idle timeout of its own.
+5. Desks are kept clear of printouts and notes.
 
 ### 3.6 Working from home
 
@@ -104,7 +104,7 @@ Controls met here: PE-17.
 
 1. People work remotely only from home, unless the system owner has approved another place in writing (\<Security Operating Procedures\>, rule A38).
 2. They use only \<Organisation\>'s managed device, and connect to its VPN before opening \<System Name\>. They never use a public or shared computer, and use public Wi-Fi only with the VPN connected first.
-3. They work where others in the home cannot see the screen, and do not print \<System Name\> documents at home unless the system owner has approved it.
+3. They work where others in the home cannot see the screen, and do not print \<System Name\> items at home unless the system owner has approved it.
 4. They do not use \<System Name\> from outside the UK, or take a device that can reach it abroad, without written approval from the system owner and the security officer.
 5. They report any concern or incident to the security officer at once, and a lost or stolen device within 1 hour. The security and privacy contacts are in \<Security Operating Procedures\>, section 6.
 6. Every 12 months the security officer puts a short checklist to every person who works from home: the managed device, the VPN, screen privacy, no printing, and reporting. The answers are recorded on TPL-4. Every person completes it, not a sample.
@@ -121,7 +121,7 @@ The loss or theft of a device or printout, unauthorised entry to a data centre, 
 
 ### 3.8 Encryption behind the physical controls
 
-Both servers' disks are encrypted, and backups are encrypted before they leave the database server. Someone who reaches a host, a disk or a backup copy therefore cannot read \<System Name\>'s documents. This does not replace \<Organisation\>'s physical controls: it limits the harm if one fails.
+Both servers' disks are encrypted, and backups are encrypted before they leave the database server. Someone who reaches a host, a disk or a backup copy therefore cannot read \<System Name\>'s items. This does not replace \<Organisation\>'s physical controls: it limits the harm if one fails.
 
 ### 3.9 What \<Organisation\> provides
 
@@ -204,7 +204,7 @@ CSS does not select these in the Moderate security baseline, so they are not ass
 | --- | --- | --- |
 | PE-2(1), PE-2(2), PE-2(3) Access by Position or Role; Two Forms of Identification; Restrict Unescorted Access | Tighter rules for who may enter | Not required. No \<System Name\> role enters a data centre |
 | PE-3(1) System Access | Entry to the room holding the system controlled separately from entry to the building | Not required. \<Organisation\>'s evidence may show it (A.7.1, A.7.2) |
-| PE-3(2), PE-3(3), PE-3(4), PE-3(5), PE-3(7), PE-3(8) Facility and Systems; Continuous Guards; Lockable Casings; Tamper Protection; Physical Barriers; Access Control Vestibules | Further physical barriers and checks | Not required. Done in part in design: the server disks are encrypted, so that reaching a host does not expose the documents (section 3.8) |
+| PE-3(2), PE-3(3), PE-3(4), PE-3(5), PE-3(7), PE-3(8) Facility and Systems; Continuous Guards; Lockable Casings; Tamper Protection; Physical Barriers; Access Control Vestibules | Further physical barriers and checks | Not required. Done in part in design: the server disks are encrypted, so that reaching a host does not expose the items (section 3.8) |
 | PE-5(2) Link to Individual Identity | Output released only to the person who asked for it | Not required. Done in design: managed printers with secure release (section 3.5) |
 | PE-6(2), PE-6(3), PE-6(4) Automated Intrusion Recognition and Responses; Video Surveillance; Monitoring Physical Access to Systems | More monitoring, some of it automated | Not required. CCTV is already required under PE-6(1) |
 | PE-8(1) Automated Records Maintenance and Review | Visitor records kept and reviewed by automated means | Not required |

@@ -8,7 +8,7 @@ Section 3 is the design: the development framework; the lifecycle, roles and res
 
 Other documents hold the rest. Who provides and is responsible for each control, its status and its assessment result are in \<System Security Plan\>, section 7.16 (Table 25). The tests, their results and the records an assessor will ask for are in \<Control Assessment Record\> (SA). Each control's risk is in \<Risk List\>, and what is still open is in \<Plan of Action and Milestones\>. The policy is in \<Policy\> (SA), and the steps people follow are in \<Procedures\> (SA). Four records sit beside this one, each holding what CSS asks the system's own documents to hold: the engineering principles in \<Security Architecture\>, section 6.5; the functions, ports, protocols and services in \<System Security Plan\>, section 3.7; the critical components in \<Risk Assessment Management\>, section 3.9; and the component support dates in \<Maintenance Management\>, section 3.8.
 
-\<System Name\> is built in-house, so its developers carry most of these duties. What is bought is \<Organisation\>'s hosting and services, and the outside services the developers use.
+\<System Name\> is built in-house under \<Organisation\>'s corporate software development life cycle (SDLC), which is inherited from \<Organisation\> (\<System Description\>, section 7.12), so its developers carry most of these duties within it. What is bought is \<Organisation\>'s hosting and services, and the public package registry behind the in-house package feed.
 
 Values that CSS asks the organisation to define are set at corporate level by \<Organisation\>. The settings in section 3 should match those corporate values. Where one does not, it is changed in this document.
 
@@ -22,7 +22,7 @@ The implementation status of each control, how it is met, who is responsible, it
 
 Controls met here: SA-3, SA-9, SA-10, SA-11, SA-15, SA-22.
 
-1. **A named framework.** Development follows CSS \<ver\>, practice by practice.
+1. **A named framework.** Development follows \<Organisation\>'s corporate SDLC, whose security practices meet CSS \<ver\>, practice by practice.
 2. **Known changes only.** Only reviewed and approved changes reach a release.
 3. **Test before release.** Every security function is tested at each release, to a stated depth.
 4. **Know what you depend on.** Every third-party component and external service is known, assessed and supported.
@@ -37,7 +37,7 @@ These carry out the principles and rules of \<Policy\>, sections SA.3 and SA.4.
 
 Controls met here: SA-3, SA-15.
 
-\<System Name\> is developed under CSS \<ver\>. A later version is in draft, and is adopted when final. The table gives each of the 19 practices and how \<System Name\> meets it. The UK Software Security Code of Practice's principles 1.1 to 3.5 align with these practices. Its fourth theme, communication with customers, is for software that is sold, which \<System Name\> is not.
+\<System Name\> is developed under \<Organisation\>'s corporate SDLC, which is inherited and whose security practices meet CSS \<ver\>. A later version of CSS is adopted when final. The table gives each of the 19 practices and how \<System Name\> meets it, through the corporate SDLC or, where the SDLC does not provide a practice, by its own means or a departure recorded in \<System Description\>, section 3.6. The UK Software Security Code of Practice's principles 1.1 to 3.5 align with these practices. Its fourth theme, communication with customers, is for software that is sold, which \<System Name\> is not.
 
 **Table 1: CSS practices**
 
@@ -47,18 +47,18 @@ Controls met here: SA-3, SA-15.
 | PO.2 Roles and responsibilities | \<Roles and Responsibilities\>; \<Policy\>, section SA.5; the stages in section 3.3 |
 | PO.3 Supporting toolchains | Tools in section 3.10 |
 | PO.4 Criteria for security checks | Test plan in section 3.9; ASVS 5.0 Level 2 |
-| PO.5 Secure development environments | Private repositories; offline package feed |
-| PS.1 Protect all code | Git on private GitHub repositories |
+| PO.5 Secure development environments | Private repositories and the build pipeline, under the corporate SDLC; the in-house checked package feed |
+| PS.1 Protect all code | Git, in private repositories with protected branches, under the corporate SDLC |
 | PS.2 Verify release integrity | Signed tags and SHA-256 checksums at each release |
 | PS.3 Archive each release | Git tags for each release |
 | PW.1 Design to meet requirements | Security approach and principles in \<Security Architecture\>, section 6 |
 | PW.2 Review the design | Security officer checks significant designs (PRO-SA-1) |
-| PW.4 Reuse well-secured software | Sign-in through \<Organisation\>'s PingFederate; ASP.NET Core data protection; the access-control toolkit |
+| PW.4 Reuse well-secured software | Sign-in through \<Organisation\>'s PingFederate; ASP.NET Core data protection; the shared library, which holds the access checks used by all three applications |
 | PW.5 Secure coding practices | .NET defaults; parameterised queries |
 | PW.6 Secure build settings | Release builds |
-| PW.7 Review code | Second developer reviews each change (PRO-SA-1) |
-| PW.8 Test executable code | Fifteen test scripts (section 3.9) |
-| PW.9 Secure defaults | Deny by default; the authentication cookie lasts no longer than PingFederate's sign-in lifetime (P-AC-10) |
+| PW.7 Review code | Second developer reviews each change, merged through a protected branch (PRO-SA-1) |
+| PW.8 Test executable code | Automated tests, a package scan and a code scan in the build pipeline, and fifteen test scripts (section 3.9) |
+| PW.9 Secure defaults | Deny by default; the authentication cookie lasts no longer than PingFederate's sign-in lifetime (P-AC-10; \<System Description\>, P-02) |
 | RV.1 Identify vulnerabilities | Test-Vulnerability.ps1; CISA's exploited list weekly (SyOps C50) |
 | RV.2 Assess and fix vulnerabilities | Timetable in \<Risk Assessment Management\>, section 3.6 |
 | RV.3 Find root causes | Lessons in incident records (TPL-10) and risk reviews (TPL-23) |
@@ -76,9 +76,9 @@ Controls met here: SA-2, SA-3.
 | 1 Plan | The change's security and privacy effect is noted, including whether it affects personal data | Developers | TPL-6 |
 | 2 Design | The security officer checks each significant design against the principles (section 3.6). The critical components are updated at each major change | Security officer, developers | TPL-6; \<Risk Assessment Management\>, section 3.9 |
 | 3 Build | Another developer reviews each change before it merges. A new third-party component is checked first (PRO-SA-7) | Developers | The merge review; TPL-6 |
-| 4 Test | The developer test plan runs at each release (section 3.9) | Developers, security officer | Results and manifest |
+| 4 Test | The build pipeline runs the automated tests and scans, and the developer test plan runs at each release (section 3.9) | Developers, security officer | Results and manifest |
 | 5 Release | The release goes through change control, with the guides confirmed, a signed tag and recorded checksums | Developers, system owner | TPL-6; the release tag |
-| 6 Retire | A component is replaced before its support ends (section 3.12). When \<System Name\> itself is retired, its documents and media are disposed of as \<Media Protection Management\> and \<PII Processing Management\> set out | Developers, system owner | TPL-7; disposal records |
+| 6 Retire | A component is replaced before its support ends (section 3.12). When \<System Name\> itself is retired, its items and media are disposed of as \<Media Protection Management\> and \<PII Processing Management\> set out | Developers, system owner | TPL-7; disposal records |
 
 **Requirements.** The high-level security and privacy requirements are the CSS Moderate baseline and the CSS privacy baseline, chosen from the categorisation, with the privacy plan (\<Planning Management\>, section 3.7; \<Privacy Plan\>).
 
@@ -108,7 +108,7 @@ As the developer, \<System Name\>'s team provides the design information CSS ask
 
 1. **What each control does** (SA-4(1)): each family's design document, and the security plan, section 7.
 2. **How the controls are designed** (SA-4(2)): the security-relevant external interfaces and the high-level design in \<Security Architecture\> and the security plan, sections 3 and 4, and how each security function is built, in the family design documents: enough for an assessor to judge each control.
-3. **The functions, ports, protocols and services in use** (SA-4(9)): the security plan, section 3.7, and the allowed flows in \<Access Control Management\>, section 3.6.
+3. **The functions, ports, protocols and services in use** (SA-4(9)): the security plan, section 3.7, the allowed flows F1 to F9 in \<System Description\>, section 6.5, and \<Access Control Management\>, section 3.6.
 
 PIV products (SA-4(10)) are not applicable, as \<System Name\> does not use United States government identity cards (TR-SA-01).
 
@@ -141,7 +141,7 @@ The NCSC secure design principles and the CSS privacy engineering objectives are
 
 Controls met here: SA-9, SA-9(2).
 
-These are the services in SA-09(02)\_ODP. Each provider must meet \<System Name\>'s security and privacy requirements, and states the controls it uses in its contract or service terms. Each provider must also identify the functions, ports, protocols and other services it needs. \<System Name\> relies on \<Organisation\>'s PingFederate, Active Directory and Starters/Leavers system for sign-in and access.
+These are the services in SA-09(02)\_ODP. Each provider must meet \<System Name\>'s security and privacy requirements, and states the controls it uses in its contract or service terms. Each provider must also identify the functions, ports, protocols and other services it needs. \<System Name\> relies on \<Organisation\>'s PingFederate, Active Directory, ServiceNow and starters and leavers process for sign-in and access.
 
 **Oversight.** The system owner oversees each service, and reviews each provider's compliance every 12 months on TPL-16 (PRO-SA-3). Table 4 and \<Roles and Responsibilities\> say who uses each service.
 
@@ -149,27 +149,24 @@ These are the services in SA-09(02)\_ODP. Each provider must meet \<System Name\
 
 | Service | Provider | What it holds or does for \<System Name\> | Basis of trust | Evidence |
 | --- | --- | --- | --- | --- |
-| Hosting, network and hardware | \<Organisation\> | Runs the two VMs and their network | \<Organisation\>'s service agreement, and its Cyber Essentials Plus certificate | EV-SA-02 |
-| ServiceNow | \<Organisation\> | Change, access and incident workflows | \<Organisation\>'s service agreement | EV-SA-02 |
-| PingFederate and Active Directory | \<Organisation\> | PingFederate authenticates every user with multi-factor authentication; Active Directory holds the groups, read by the API over LDAPS, that decide each role and each project's access | \<Organisation\>'s agreement covering PingFederate (EV-CA-02) | EV-CA-02, EV-SA-02 |
-| Starters/Leavers system | \<Organisation\> | Raises a leaver request automatically when someone leaves | \<Organisation\>'s service agreement | EV-SA-02 |
-| Source code hosting | GitHub | Holds all source code, history and release tags | GitHub's published terms and security reports for the account's plan (EV-SA-03) | EV-SA-03 |
-| Package registry | nuget.org, through the offline feed | Supplies .NET packages | Package signatures, and the check made before a package is used (PRO-SA-7). No agreement | Package checks |
-| Container registry | Microsoft Container Registry | Supplies the .NET base images for the build and the test stacks | Microsoft's published images and terms. No agreement | Image checks |
-| Image registry | Docker Hub | Supplies the PostgreSQL image for the test stacks | The official image's publisher. No agreement | Image checks |
-| Browser library CDN | jsDelivr | Source of bootstrap-icons and openseadragon, which \<System Name\> serves itself | None: a public service with no agreement, which is why \<System Name\> serves these files itself | None |
+| Hosting, network and hardware | \<Organisation\> | Runs the two Windows Server 2025 virtual servers and their network | \<Organisation\>'s service agreement, and its Cyber Essentials Plus certificate | EV-SA-02 |
+| ServiceNow | \<Organisation\> | The access approval workflow, in which the Data Owner authorises each request, and the change and incident workflows. It has no connection to \<System Name\> (flow F9) | \<Organisation\>'s service agreement | EV-SA-02 |
+| PingFederate and Active Directory | \<Organisation\> | PingFederate authenticates every user with multi-factor authentication; Active Directory holds the groups, read by the API over LDAPS, that decide each role and each schema's access | \<Organisation\>'s agreement covering PingFederate (EV-CA-02) | EV-CA-02, EV-SA-02 |
+| Starters and leavers process | \<Organisation\> | Gives prompt notice of each leaver, through ServiceNow | \<Organisation\>'s service agreement | EV-SA-02 |
+| Source repositories, build pipeline and in-house package feed | \<Organisation\>, under the corporate SDLC | Hold all source code, history and release tags; build and test each release; supply every package | \<Organisation\>'s corporate SDLC, which is inherited (EV-SA-03) | EV-SA-03 |
+| Package registry | nuget.org, through the in-house package feed | Supplies .NET packages and the browser libraries the pages need, which \<System Name\> serves itself | Package signatures, and the check made before a package is used (PRO-SA-7). No agreement | Package checks |
 
-**Trust and service levels.** Each row says what \<System Name\>'s trust in the service rests on, as CSS asks (SA-9). For \<Organisation\>'s services, the agreement should state the service levels, how they are measured, and the remedies when they are missed; these are asked for with EV-SA-02. The public services offer none, so \<System Name\> relies on its own checks of what they supply. The authorising official keeps the risk of each external service.
+**Trust and service levels.** Each row says what \<System Name\>'s trust in the service rests on, as CSS asks (SA-9). For \<Organisation\>'s services, the agreement should state the service levels, how they are measured, and the remedies when they are missed; these are asked for with EV-SA-02. The public package registry offers none, so \<System Name\> relies on its own checks of what it supplies. The authorising official keeps the risk of each external service.
 
 ### 3.8 Developer configuration management
 
 Controls met here: SA-10.
 
 1. **What is controlled.** Code, configuration, documents and test scripts, during development, implementation and operation.
-2. **Where.** In Git, in six private repositories on GitHub, each with one default branch name.
+2. **Where.** In Git, in \[number\] private repositories provided under \<Organisation\>'s corporate SDLC, each with one protected default branch.
 3. **How a change gets in.** On a branch, reviewed and approved by another developer before it merges into the protected default branch.
 4. **Releases.** Each release is tagged, the tag is signed, and its checksums are recorded.
-5. **Alerts.** Dependency alerts and secret scanning are on.
+5. **Scans.** The build pipeline runs a package scan, a code scan and a secret scan on each change, and the secret scan blocks a merge.
 6. **Deployment.** Only an approved release is deployed, through change control (\<Configuration Management\>).
 7. **Recording.** Each approved change records its security and privacy effect on TPL-6 (PRO-SA-1).
 8. **Flaws.** Each security flaw is tracked in the Risk List and the POA&M, and reported to the system owner and the security officer.
@@ -178,7 +175,7 @@ Controls met here: SA-10.
 
 Controls met here: SA-11.
 
-This is the developer security and privacy test plan (SA-11). Each script runs on a separate test stack or only reads, keeps its results with a README and a manifest of SHA-256 hashes in the evidence for its family, and is run at each release, by hand until a pipeline runs them. The web applications are to be verified to OWASP ASVS 5.0 Level 2.
+This is the developer security and privacy test plan (SA-11). Each script runs in the test environment, a throwaway copy of the whole system built from a tagged release with invented data, or only reads, keeps its results with a README and a manifest of SHA-256 hashes in the evidence for its family, and is run at each release. The web applications are verified to OWASP ASVS 5.0 Level 2 (\<System Description\>, P-28).
 
 The scripts are one kind of analysis among several that the CSS guidance expects for software written in-house. Table 5 says when each is done.
 
@@ -187,7 +184,8 @@ The scripts are one kind of analysis among several that the CSS guidance expects
 | Kind | What | When |
 | --- | --- | --- |
 | Scripted security tests | The 15 scripts in the table below | Each release |
-| Unit and integration tests | Run by a build pipeline | Each build |
+| Unit and integration tests | Run by the build pipeline | Each build |
+| Package scan and secret scan | Run by the build pipeline; a secret found blocks the merge | Each build |
 | Manual code review | Another developer reviews each change before it merges (PRO-SA-1) | Each change |
 | Static analysis | The .NET analysers or CodeQL, in the pipeline | Each build |
 | Dynamic analysis | A web application scan of the three applications (\<Risk Assessment Management\>, section 3.5) | Each release |
@@ -202,10 +200,10 @@ The plan, its results and the evidence are protected as the document set is: res
 
 | Script | Security functions covered | Evidence kept with |
 | --- | --- | --- |
-| Test-AccessControl.ps1 | Project access, roles and anonymous endpoints | The AC evidence |
+| Test-AccessControl.ps1 | Schema access, roles and anonymous endpoints | The AC evidence |
 | Test-AuditAndAuth.ps1 | Audit records, and sign-in | The AU and IA evidence |
 | Test-Identification.ps1 | Identifiers and authenticators | The AU and IA evidence |
-| Test-ConfigurationManagement.ps1 | The baseline, images and settings | The CM evidence |
+| Test-ConfigurationManagement.ps1 | The baseline and settings | The CM evidence |
 | Test-Protection.ps1 | Encryption in transit, security headers and cookies, keys and secrets, and request limits | The SC evidence |
 | Test-IncidentReadiness.ps1 | Ending access, clocks, and the logs an incident needs | The IR evidence |
 | Test-BackupRestore.ps1 | Backup and restore | The CP evidence |
@@ -213,8 +211,8 @@ The plan, its results and the evidence are protected as the document set is: res
 | Test-MediaProtection.ps1 | Exports and marking | The MP evidence |
 | Test-PersonalData.ps1 | How personal data is held, logged and kept | The PT evidence |
 | Test-Integrity.ps1 | Upload checks, error handling, checksums, the audit chain and alerts | The SI evidence |
-| Test-Vulnerability.ps1 | Packages, images and the risk records | The RA evidence |
-| Test-SupplyChain.ps1 | Package sources, lock files, signatures, image pins, the bill of materials and suppliers | The SR evidence |
+| Test-Vulnerability.ps1 | Packages, code and the risk records | The RA evidence |
+| Test-SupplyChain.ps1 | Package sources, lock files, signatures, the bill of materials and suppliers | The SR evidence |
 | Test-Development.ps1 | Repositories, the build and component support | The SA evidence |
 | Test-PlanConsistency.ps1 | The consistency of the document set | The PL evidence |
 
@@ -222,18 +220,18 @@ The plan, its results and the evidence are protected as the document set is: res
 
 Controls met here: SA-15.
 
-The process is CSS \<ver\> (section 3.2). The standards are CSS, OWASP ASVS 5.0 Level 2 for the web applications, the NCSC secure design principles and the CSS privacy engineering objectives, with the UK Software Security Code of Practice alongside. Every 12 months the developers and the security officer review the process, standards and tools against the acquisition policy and the personal data policy, and record the review and any change on TPL-23 (PRO-SA-6).
+The process is \<Organisation\>'s corporate SDLC, meeting CSS \<ver\> (section 3.2). The standards are CSS, OWASP ASVS 5.0 Level 2 for the web applications, the NCSC secure design principles and the CSS privacy engineering objectives, with the UK Software Security Code of Practice alongside. Every 12 months the developers and the security officer review the process, standards and tools against the acquisition policy and the personal data policy, and record the review and any change on TPL-23 (PRO-SA-6).
 
 **Table 7: Development tools**
 
 | Tool | Version or setting | Configuration that matters for security |
 | --- | --- | --- |
 | .NET SDK and ASP.NET Core | 10.0, long-term support | Release builds, with NuGet's package audit on |
-| Docker | Desktop on the developer PC, for the build and the test stacks | The .NET SDK and runtime base images, pinned by digest. In production each application runs as a Windows service on the application server, not in a container |
-| Git and GitHub | Private repositories under one account | Branch protection, required review and alerts, as section 3.8 sets out |
-| Offline NuGet feed | The in-house offline package repository | Packages are checked before they enter the feed (\<Supply Chain Risk Management\>) |
+| Test environment | A throwaway copy of the whole system on Windows Server 2025, built from a tagged release and removed after each test run | Configured as production is, including TLS, with invented data only. Each application runs as a Windows service, as in production |
+| Git, source repositories and build pipeline | Private repositories under the corporate SDLC | Branch protection, required review and the pipeline's scans, as section 3.8 sets out |
+| In-house NuGet package feed | The one checked package source | Packages are checked before they enter the feed (\<Supply Chain Risk Management\>) |
 | PowerShell 7 | Runs the test scripts | The scripts are under version control |
-| GitHub CLI | Used by Test-Development.ps1 | Read-only calls to GitHub |
+| \[Repository command-line tool\] | Used by Test-Development.ps1 | Read-only calls to the source repositories |
 
 ### 3.11 Criticality analysis
 
@@ -256,8 +254,8 @@ Controls met here: SA-4, SA-9, SA-9(2), SA-10.
 | Provided | Controls | What \<System Name\> relies on | Evidence asked |
 | --- | --- | --- | --- |
 | The standard contract, with security and privacy terms | SA-4 | Its terms cover the nine things in section 3.4 | EV-SA-01 |
-| Hosting, network, ServiceNow, PingFederate, Active Directory and the Starters/Leavers system | SA-9, SA-9(2) | Each states its controls, and the functions, ports, protocols and services it needs | EV-SA-02; EV-CA-02 for the PingFederate agreement |
-| GitHub | SA-9, SA-9(2), SA-10 | Its controls for private repositories, and the plan and settings of \<System Name\>'s account | EV-SA-03 |
+| Hosting, network, ServiceNow, PingFederate, Active Directory and the starters and leavers process | SA-9, SA-9(2) | Each states its controls, and the functions, ports, protocols and services it needs | EV-SA-02; EV-CA-02 for the PingFederate agreement |
+| The corporate SDLC, with its source repositories, build pipeline and package feed | SA-9, SA-9(2), SA-10, SA-15 | Its security practices, which meet CSS, and the controls on the private repositories and the pipeline | EV-SA-03 |
 
 ### 3.14 Policy and procedures
 
@@ -277,8 +275,8 @@ CSS does not select these at Moderate, so they are not assessed. Some of the des
 
 | Control | What it adds | \<System Name\>'s position |
 | --- | --- | --- |
-| SA-3(1) Manage Preproduction Environment | Protects the development and test environments | Not required. Done in part: the test stacks are separate from production |
-| SA-3(2) Use of Live or Operational Data | Limits the use of real data in development and testing | Not required. Done in design: the test stacks hold sample data only (\<PII Processing Management\>) |
+| SA-3(1) Manage Preproduction Environment | Protects the development and test environments | Not required. Done in part: the test environment is a separate throwaway copy of the system |
+| SA-3(2) Use of Live or Operational Data | Limits the use of real data in development and testing | Not required. Done in design: the test and development environments hold invented data only (\<PII Processing Management\>) |
 | SA-3(3) Technology Refresh | Plans the replacement of technology | Not required. Done in part: replacements are planned 6 months before support ends (section 3.12) |
 | SA-4(3) Development Methods, Techniques, and Practices | Requires a stated development method | Not required. Done in design: CSS \<ver\> (section 3.2) |
 | SA-4(5) System, Component, and Service Configurations | Delivers products with secure settings in place | Not required: selected at High only |

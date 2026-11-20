@@ -22,7 +22,7 @@ Each item has a milestone, which says when its fix is planned. The system owner 
 | M2 | The development phase | \[Date\] |
 | M3 | The VM build | \[Date\] |
 | M4 | Before authorisation | \[Date\] |
-| Go-live | Production documents are first held | \[Date\] |
+| Go-live | Real data is first held | \[Date\] |
 
 ### 2.2 Latest completion
 
@@ -35,7 +35,7 @@ Each item also has a latest completion, after which it is overdue. Until the go-
 | High items | \[Latest completion\] | Authorising official |
 | Medium items | Within 180 days of go-live | \<Policy\> (CA) |
 | Low items | Within 365 days of go-live | \<Policy\> (CA) |
-| Known vulnerabilities | 3 days if exploited, 14 days for Critical and High, 30 days for Medium and 90 days for Low, from the fix's release or its detection if later | \<Risk Assessment Management\>, section 3.6 |
+| Known vulnerabilities | 3 days if exploited, 14 days for Critical and High, 30 days for Medium and 90 days for Low, from the fix's release or its detection if later (\<System Description\>, P-11) | \<Risk Assessment Management\>, section 3.6 |
 | Items the fix or the decision says must be done first | Before go-live | The item's own decision |
 
 Overdue items go to the authorising official each quarter. An item closes only when its fix is tested and recorded (\<Procedures\>, PRO-CA-3). Effort is an estimate for the system owner to confirm: small is up to a day, medium is up to a week, and large is more than a week.
@@ -68,9 +68,9 @@ The decisions to be made before work starts, so that results can be approved and
 
 The facts, evidence and services to be obtained from \<Organisation\>, such as inherited controls and their scope.
 
-### 5.3 Fix before \<System Name\> holds real documents
+### 5.3 Fix before \<System Name\> holds real data
 
-The fixes needed before production documents are held, with the quickest risk reductions first.
+The fixes needed before real data is held, with the quickest risk reductions first.
 
 ### 5.4 Fix before going live
 

@@ -29,11 +29,11 @@ This policy sets the organisation's rules and principles for access to \<System 
 
 This policy sets who may access \<System Name\>, what they may do, and how that access is controlled, in line with the CSS AC family (AC-1).
 
-It applies to everyone who uses or administers UI application, Admin application, API, the \<System Name\> database and the two Windows Server 2025 VMs they run on at \<Organisation\>, and to any service account they use.
+It applies to everyone who uses or administers the UI application, the Admin application, the API, the \<System Name\> database and the two Windows Server 2025 VMs they run on at \<Organisation\>, and to any service account they use.
 
 ### AC.2 The organisation's position
 
-Documents in \<System Name\> are available only to people with an approved need. Convenience never overrides that. The organisation accepts that some access controls depend on \<Organisation\>, and it stays accountable for making sure they are in place and evidenced. The Head of Cyber, for \<Organisation\>'s management, is committed to this policy: to providing the people, time and tools it needs, to reviewing how well it works, and to acting on breaches of it.
+Items in \<System Name\> are available only to people with an approved need. Convenience never overrides that. The organisation accepts that some access controls depend on \<Organisation\>, and it stays accountable for making sure they are in place and evidenced. The Head of Cyber, for \<Organisation\>'s management, is committed to this policy: to providing the people, time and tools it needs, to reviewing how well it works, and to acting on breaches of it.
 
 ### AC.3 Control principles
 
@@ -61,10 +61,10 @@ Documents in \<System Name\> are available only to people with an approved need.
 | R8 | Duties that could be misused together must be separated | AC-5 |
 | R9 | Account changes and privileged actions must be recorded against the person who made them | AC-2(4), AC-6(9) |
 | R10 | Access and privileges must be reviewed at set intervals | AC-2, AC-6(7) |
-| R11 | Repeated failed sign-ins must lock the account. An unattended device must lock its screen after a set time without activity, and every sign-in must have a time limit, set by PingFederate. \<System Name\> has no sessions of its own. A system use notice must be shown before sign-in | AC-2(5), AC-7, AC-8, AC-11, AC-11(1), AC-12 |
+| R11 | Repeated failed sign-ins must lock the account, in PingFederate and Active Directory. An unattended device must lock its screen after a set time without activity (P-03), and every sign-in must have a time limit, set by PingFederate (P-02). \<System Name\> has no session management of its own: it holds the sign-in only in its authentication cookie, whose lifetime is no longer than PingFederate's. A system use notice must be shown at sign-in, and accepted before the person goes further | AC-2(5), AC-7, AC-8, AC-11, AC-11(1), AC-12 |
 | R12 | Information must flow only along approved routes. Remote access must use an approved, managed and encrypted route | AC-4, AC-17 family |
 | R13 | Wireless access, mobile devices, external systems and portable storage must follow approved rules | AC-18, AC-19 and AC-20 families |
-| R14 | Information may be shared outside a project only after a decision by its approver. \<System Name\> does not hold public content | AC-21, AC-22 |
+| R14 | Information may be shared outside a schema only after a decision by its Data Owner. \<System Name\> does not hold public content | AC-21, AC-22 |
 
 ### AC.5 Responsibilities
 
@@ -73,13 +73,14 @@ Documents in \<System Name\> are available only to people with an approved need.
 | Role | Responsibility |
 | --- | --- |
 | Head of Cyber | Approves all policies, including this one |
-| System owner | Owns this policy, approves privileged access, approves exceptions and accepts risk within their authority |
+| System owner | Owns this policy and the three role groups; authorises privileged access and adds each member; approves exceptions and accepts risk within their authority |
 | Authorising official | Accepts residual risk and authorises operation |
-| Global administrator | Carries out approved changes to users, groups and projects |
-| Project access approver | Decides who may read or edit a project, and whether its information may be shared |
-| Auditor | Reviews audit records and privileged activity |
-| Security officer | Monitors security information |
-| Windows server and database administrators | Keep to these requirements on the VMs and in PostgreSQL |
+| Data Owner | Owns a schema's data and its read and edit groups; authorises, through the ServiceNow access approval workflow, who may read or edit the schema, and decides whether its information may be shared |
+| Line manager | Approves their people's access requests in ServiceNow, confirming the need |
+| Administrator | Manages schemas, the AD groups each schema uses, and system settings, in the Admin application. Cannot add anyone to a group |
+| Auditor | Reviews audit records and privileged activity. Holds no administration role |
+| Security officer | Monitors security information. Holds no administration role |
+| Windows server and database administrators | Keep to these requirements on the servers and in SQL Server |
 | \<Organisation\> security contact | Provides evidence for the controls \<System Name\> inherits |
 | Every user | Follows the Security Operating Procedures (\<Security Operating Procedures\>) |
 
@@ -116,12 +117,13 @@ The organisation takes a risk-based approach to these requirements. No system me
 | Term | Meaning |
 | --- | --- |
 | Access | The ability to use \<System Name\> or its information, including reading, editing, exporting and administering |
-| Account | A named identity in \<System Name\>, Windows or PostgreSQL that a person or service uses to sign in |
-| Approver | The person who must agree an access change before it is made: the system owner, or the project access approver for project groups (P-AC-05) |
+| Account | A named Active Directory identity that a person or service uses to sign in to \<System Name\>, Windows or SQL Server. \<System Name\> holds no accounts of its own |
+| Approver | The people who must agree an access change before it is made: the person's line manager approves it in ServiceNow, and the group's owner authorises it, the system owner for a role group or the Data Owner for a schema group (P-AC-05) |
+| Data Owner | The person who owns a schema's data and its read and edit groups, and authorises who may read or edit it |
 | Exception | Written permission to depart from a requirement for a set period, recorded in \<Risk List\> |
 | Least privilege | Giving each person or process only the access its tasks need |
 | Privileged access | Access that can change accounts, settings, security functions, servers or the database, or read audit records |
-| Project | A set of documents in \<System Name\> with its own read and edit groups |
+| Schema | A set of items in \<System Name\> with its own read group and edit group, kept apart from every other schema in its own database schema |
 | Separation of duties | Splitting duties so that no one person can misuse them together unnoticed |
 | Service account | An account used by a program rather than a person |
 
@@ -150,7 +152,7 @@ It applies to everyone who uses, administers or develops \<System Name\>, includ
 
 ### AT.2 The organisation's position
 
-\<System Name\> holds Restricted HR documents, so the people who use and run it are part of its protection. \<Organisation\>'s general course gives everyone the basics; \<System Name\> adds what is specific to it, and trains each role in the duties it actually performs. Training that cannot be shown, or that people did not understand, does not count.
+\<System Name\> holds Moderate-impact information, including personal data, so the people who use and run it are part of its protection. \<Organisation\>'s general course gives everyone the basics; \<System Name\> adds what is specific to it, and trains each role in the duties it actually performs. Training that cannot be shown, or that people did not understand, does not count.
 
 ### AT.3 Control principles
 
@@ -163,15 +165,15 @@ It applies to everyone who uses, administers or develops \<System Name\>, includ
 ### AT.4 Mandatory requirements
 
 1. **R1 Awareness:** all users must complete \<Organisation\>'s security and privacy awareness course and the \<System Name\> briefing before getting access, and every 12 months.
-2. **R2 Briefing content:** the \<System Name\> briefing must cover Restricted HR documents and export rules, insider threat and social engineering scenarios specific to \<System Name\>, and how to report.
+2. **R2 Briefing content:** the \<System Name\> briefing must cover the classification of its items and the export rules, insider threat and social engineering scenarios specific to \<System Name\>, and how to report.
 3. **R3 Rules of behaviour:** all users must sign \<Security Operating Procedures\> Part A, and privileged users Part B, before access.
 4. **R4 Role training:** each role in the training matrix must complete its modules before privileged access, and every 12 months. Incident response and contingency training must be completed within 30 days of taking the role.
-5. **R5 Privacy training:** everyone who handles HR documents, and all administrators, must complete privacy training before access and every 12 months.
+5. **R5 Privacy training:** everyone who handles personal data in items, and all administrators, must complete privacy training before access and every 12 months.
 6. **R6 Updates:** content must be reviewed every 12 months, and after a significant incident, exercise or change, with the lessons added.
 7. **R7 Checks and measures:** each module must end with a check, with a pass mark of 80%. Completion before access, the pass rate and the number of suspicious messages reported must be reported monthly.
 8. **R8 Phishing simulations:** none may be run without the agreement of HR and the legal adviser. If run, no one is penalised for clicking, and the measure is reports, not clicks.
 9. **R9 Records:** every completion must be recorded on TPL-9 and in the training register, and kept for 3 years.
-10. **R10 Checking:** Test-PlanConsistency.ps1 (check L14) must show that every security role has its training defined, at each review.
+10. **R10 Checking:** Test-PlanConsistency.ps1 must show that every security role has its training defined, at each review.
 
 ### AT.5 Responsibilities
 
@@ -232,7 +234,7 @@ The rule on non-compliance in section 1.1 applies to this policy.
 
 This policy sets the organisation's rules for recording and reviewing activity in \<System Name\>, so that actions can be traced to a person and incidents can be investigated, in line with the CSS AU family (AU-1). The settings that carry it out are in \<Audit and Accountability Management\>, and the steps people follow are in \<Procedures\> (AU).
 
-It applies to UI application, Admin application, API, the \<System Name\> database and the two Windows Server 2025 VMs they run on at \<Organisation\>, and to everyone who administers or reviews them.
+It applies to the UI application, the Admin application, the API, the \<System Name\> database and the two Windows Server 2025 VMs they run on at \<Organisation\>, and to everyone who administers or reviews them.
 
 ### AU.2 The organisation's position
 
@@ -249,10 +251,10 @@ Every security-relevant action in \<System Name\> must leave a reliable record t
 ### AU.4 Mandatory requirements
 
 1. **R1 Events:** the events in \<Audit and Accountability Management\> must be logged by each component it names.
-2. **R2 Retention:** records must be kept for 12 months online and a further 12 months in an offline archive whose hash is recorded, with storage sized to match. After 24 months they may be deleted, only with the system owner's recorded approval.
-3. **R3 Time:** time stamps must be in UTC to the nearest second, from \<Organisation\>'s time source, and within 1 second of UTC.
+2. **R2 Retention:** records must be kept for 12 months online and a further 12 months in an offline archive whose hash is recorded (P-07), with storage sized to match. After 24 months they may be deleted, only with the system owner's recorded approval.
+3. **R3 Time:** time stamps must be in UTC to the nearest second, from \<Organisation\>'s time source, and within 1 second of UTC (P-09).
 4. **R4 Protection:** auditors alone read audit records, and nobody may change or delete them, except as R2 allows.
-5. **R5 Review:** the auditor must review records weekly and report findings to the security officer and system owner.
+5. **R5 Review:** the auditor must review records weekly (P-08) and report findings to the security officer and system owner.
 6. **R6 Logging failure:** a logging failure must alert the Windows server administrator and security officer within 1 hour. The system keeps running while it is investigated and restored.
 7. **R7 Tampering:** suspected tampering must alert the security officer and auditor.
 8. **R8 Content of records:** records must not contain passwords, keys, tokens or cookie values, and must hold only the personal data an investigation needs.
@@ -270,7 +272,7 @@ Every security-relevant action in \<System Name\> must leave a reliable record t
 | Auditor | Reviews records weekly and reports findings |
 | Security officer | Receives findings and alerts, and handles incidents |
 | Windows server administrator | Receives logging failure alerts, and restores logging on the VMs |
-| Database administrator | Protects and retains the audit data in PostgreSQL |
+| Database administrator | Protects and retains the audit data in SQL Server |
 | Developers | Build logging into the application |
 
 ### AU.6 Governance requirements
@@ -323,11 +325,11 @@ The rule on non-compliance in section 1.1 applies to this policy.
 
 This policy sets the organisation's rules for assessing \<System Name\>'s controls, authorising it to operate and monitoring it afterwards, in line with the CSS CA family (CA-1). It stands alone, as each family has its own policy. The settings that carry it out are in \<Assessment, Authorization, and Monitoring Management\>, and the steps people follow are in \<Procedures\> (CA).
 
-It applies to UI application, Admin application, API, the \<System Name\> database, the two Windows Server 2025 VMs they run on at \<Organisation\>, and their connections to other systems.
+It applies to the UI application, the Admin application, the API, the \<System Name\> database, the two Windows Server 2025 VMs they run on at \<Organisation\>, and their connections to other systems.
 
 ### CA.2 The organisation's position
 
-\<System Name\> must not hold production documents until the authorising official has authorised it. Authorisation rests on an honest assessment, including an independent one, and continues only while monitoring shows the risk stays acceptable.
+\<System Name\> must not hold real data until the authorising official has authorised it. Authorisation rests on an honest assessment, including an independent one, and continues only while monitoring shows the risk stays acceptable.
 
 ### CA.3 Control principles
 
@@ -340,9 +342,9 @@ It applies to UI application, Admin application, API, the \<System Name\> databa
 
 1. **R1 Assessment:** controls must be assessed every 12 months, with results given to the system owner, authorising official and Head of Cyber.
 2. **R2 Independence:** assessors must be independent, having had no part in building or running \<System Name\>.
-3. **R3 Connections:** each connection, including ServiceNow, the Starters/Leavers system and the link between the VMs, must be recorded and approved, reviewed every 12 months, and use TLS.
+3. **R3 Connections:** each connection to another system, including PingFederate, Active Directory over LDAPS, \<Organisation\>'s time, logging, proxy and backup services, and the link between the two servers (flows F5 to F8 in \<System Description\>, section 6.5), must be recorded and approved, reviewed every 12 months, and encrypted. ServiceNow and the starters and leavers process have no connection to \<System Name\>: people carry their decisions across (F9).
 4. **R4 Plan of action:** \<Plan of Action and Milestones\> must be updated monthly. Each open item must be fixed within the time set for its rating, counted from go-live: High items within the time the authorising official sets, Medium within 180 days and Low within 365 days. Overdue items are reported to the authorising official each quarter.
-5. **R5 Authorisation:** the authorising official must authorise \<System Name\> before it holds production documents, and review the authorisation every 12 months.
+5. **R5 Authorisation:** the authorising official must authorise \<System Name\> before it holds real data, and review the authorisation every 12 months (P-25).
 6. **R6 Monitoring:** the security and privacy measures in \<Assessment, Authorization, and Monitoring Management\>, section 3.8, must be reported monthly to the system owner and quarterly to the authorising official.
 7. **R7 Significant change:** a significant change must be assessed before it is made, and the authorising official decides whether \<System Name\> must be re-assessed or re-authorised.
 8. **R8 Authorisation package:** the authorising official receives the authorisation package listed in \<Assessment, Authorization, and Monitoring Management\>, section 3.5, and records each decision on TPL-18, with its terms, conditions and end date.
@@ -408,7 +410,7 @@ The rule on non-compliance in section 1.1 applies to this policy.
 
 This policy sets the organisation's rules for controlling how \<System Name\> is configured and changed, in line with the CSS CM family (CM-1). It stands alone, as each family has its own policy. \<Configuration Management\> holds the design, and is the Configuration Management Plan that CM-9 requires. \<Procedures\> (CM) holds the steps.
 
-It applies to UI application, Admin application, API, the \<System Name\> database and the two Windows Server 2025 VMs they run on at \<Organisation\>.
+It applies to the UI application, the Admin application, the API, the \<System Name\> database and the two Windows Server 2025 VMs they run on at \<Organisation\>.
 
 ### CM.2 The organisation's position
 
@@ -425,14 +427,14 @@ It applies to UI application, Admin application, API, the \<System Name\> databa
 
 1. **R1 Baselines:** baselines must be reviewed every 12 months and at each release, keeping the 3 previous configurations.
 2. **R2 Change control:** changes need a ServiceNow change request, approved by the system owner, security officer and Windows server administrator, and tested before release. Records are kept for 3 years.
-3. **R3 Settings:** settings follow the CIS Benchmarks for Windows Server 2025 and PostgreSQL, with exceptions recorded.
-4. **R4 Routes:** only these routes are open: HTTPS to the application, the database from the application VM only, and administration from \<Organisation\>'s network only. Everything else is off, and this is reviewed every 12 months.
+3. **R3 Settings:** settings follow the CIS Benchmarks for Windows Server 2025 and SQL Server 2022, with exceptions recorded.
+4. **R4 Routes:** only the flows F1 to F9 in \<System Description\>, section 6.5, are open: HTTPS to the UI application on TCP 443; the Admin application only over \<Organisation\>'s managed administration route; the API on the application server's loopback address only; SQL Server on TCP 1433 from the application server only; and the routes to PingFederate, to Active Directory over LDAPS and to \<Organisation\>'s time, logging, proxy and backup services. Everything else is off, and this is reviewed every 12 months.
 5. **R5 Approved software:** an approved software list is kept and reviewed every 12 months.
 6. **R6 Installing software:** users may install software on the VMs only with approval.
 7. **R7 Inventory:** the server inventory in \<System Security Plan\> and the software component inventory in \<Configuration Management\> are updated at each change, with each component's version, supplier and licence. \<Organisation\>'s tools detect unauthorised components monthly and alert the Windows server administrator.
-8. **R8 Reproducible releases:** each release must be reproducible: code at a tag, and every image and component at a pinned version or digest recorded in the baseline.
+8. **R8 Reproducible releases:** each release must be reproducible: code at a signed tag, and every package and component at a pinned version, with its checksum, recorded in the baseline.
 9. **R9 Licences:** every component's licence must be known and permit \<System Name\>'s use before it enters the baseline; the system owner records any licence decision in \<Decision Register\>.
-10. **R10 Every layer:** secure settings apply to every layer: Windows Server, PostgreSQL, the application hosting and the application itself, as set in \<Configuration Management\>.
+10. **R10 Every layer:** secure settings apply to every layer: Windows Server, SQL Server, the Windows services that host the applications and the applications themselves, as set in \<Configuration Management\>.
 11. **R11 Impact analysis:** every change has a recorded security and privacy impact analysis against the criteria in \<Configuration Management\>, including the significant change test in \<Assessment, Authorization, and Monitoring Management\>, section 3.9.
 12. **R12 Drift:** the running configuration is compared with the baseline every month, and any drift is reported to the security officer and corrected or approved through change control.
 
@@ -447,7 +449,7 @@ It applies to UI application, Admin application, API, the \<System Name\> databa
 | Authorising official | Decides Medium and High risks |
 | Security officer | Approves changes, and represents security in change control |
 | Windows server administrator | Approves changes, and manages VM settings and software |
-| Database administrator | Manages PostgreSQL settings |
+| Database administrator | Manages SQL Server settings |
 | Developers | Build, test and release changes |
 | \<Organisation\> | Provides detection tools and the ServiceNow service desk |
 
@@ -470,9 +472,9 @@ The rule on non-compliance in section 1.1 applies to this policy.
 | Term | Meaning |
 | --- | --- |
 | Baseline | The approved, recorded configuration of a configuration item at a point in time, from which it can be rebuilt |
-| Configuration item | Anything placed under configuration control: code, images, components, settings or documents |
+| Configuration item | Anything placed under configuration control: code, packages, components, settings or documents |
 | Change control board | The group that approves changes: the system owner, security officer and Windows server administrator |
-| Component | A software package, image, runtime or database that \<System Name\> is built from |
+| Component | A software package, runtime, operating system or database that \<System Name\> is built from or runs on |
 | Drift | Any difference between the running configuration and the baseline |
 | Security impact analysis | The check, before a change, of its effect on security and privacy controls |
 | Bill of materials | A machine-readable list of every component in a release |
@@ -485,7 +487,7 @@ The rule on non-compliance in section 1.1 applies to this policy.
 | --- | --- |
 | CSS, CM family, and CSS Moderate baseline | The controls this policy meets |
 | CSS, Security-Focused Configuration Management | The plan structure, board charter and impact analysis |
-| CIS Benchmarks | Secure settings for Windows Server and PostgreSQL |
+| CIS Benchmarks | Secure settings for Windows Server and SQL Server |
 | Cyber Essentials | \<Organisation\>'s scheme: secure configuration and updates |
 | \<Procedures\> (CM) and \<Configuration Management\> | The procedures and plan |
 | \<Assessment, Authorization, and Monitoring Management\>, section 3.9 | What counts as a significant change |
@@ -497,11 +499,11 @@ The rule on non-compliance in section 1.1 applies to this policy.
 
 This policy sets the organisation's rules for keeping \<System Name\> recoverable, in line with the CSS CP family (CP-1). It stands alone, as each family has its own policy. The plan that carries it out is \<Contingency Planning Management\>, and the steps people follow are in \<Procedures\> (CP).
 
-It applies to UI application, Admin application, API, the \<System Name\> database, its backups, the secrets the applications need, and the two Windows Server 2025 VMs they run on at \<Organisation\>.
+It applies to the UI application, the Admin application, the API, the \<System Name\> database, its backups, the secrets the applications need, and the two Windows Server 2025 VMs they run on at \<Organisation\>.
 
 ### CP.2 The organisation's position
 
-\<System Name\>'s availability is rated Low, so a short outage can be tolerated. Losing its documents or audit records cannot, so encrypted backups and tested recovery are required before \<System Name\> holds real documents.
+\<System Name\>'s availability is rated Low, so a short outage can be tolerated. Losing its items or audit records cannot, so encrypted backups and tested recovery are required before \<System Name\> holds real data.
 
 ### CP.3 Control principles
 
@@ -513,16 +515,16 @@ It applies to UI application, Admin application, API, the \<System Name\> databa
 
 ### CP.4 Mandatory requirements
 
-1. **R1 Recovery objectives:** recovery objectives must be set by a business impact analysis, reviewed every 12 months. Essential functions must be back within 72 hours, within a maximum tolerable downtime of 120 hours, losing no more than 24 hours of data.
-2. **R2 Backups:** the database, which holds the documents and audit records, must be backed up daily with its transaction logs archived continuously; system configuration weekly; the secrets and documentation at each change.
+1. **R1 Recovery objectives:** recovery objectives must be set by a business impact analysis, reviewed every 12 months. Essential functions must be back within 72 hours (P-12), within a maximum tolerable downtime of 120 hours (P-14), losing no more than 24 hours of data (P-13).
+2. **R2 Backups:** the database, which holds the items, their files and the audit records, must be backed up daily with its transaction logs archived continuously; system configuration weekly; the secrets and documentation at each change.
 3. **R3 Where and how:** backups must be encrypted, and held at a second \<Organisation\> site that does not share the main site's hazards.
-4. **R4 Restore tests:** a restore must be tested every 6 months, and after a change to the database or backups, and checked against the data before the backup.
+4. **R4 Restore tests:** a restore must be tested every 6 months (P-16), and after a change to the database or backups, and checked against the data before the backup.
 5. **R5 Second site:** the VMs must be able to be rebuilt at that second site if the main one is lost.
 6. **R6 Plan tests:** the plan must be tested every 12 months by tabletop exercise and restore test, coordinated with the incident response plan and \<Organisation\>'s plans.
 7. **R7 Training:** people with a contingency role must be trained within 30 days of taking it and every 12 months.
 8. **R8 The plan:** the plan must be approved by the system owner and authorising official, reviewed every 12 months and after a test or activation, shared with the people it names, and protected from disclosure and change.
-9. **R9 Retention:** at least 14 daily, 8 weekly and 12 monthly backups must be kept, and one copy must be offline or immutable.
-10. **R10 Keys and secrets:** the backup encryption key and the protected copy of the secrets must be held apart from the backups, and only the system owner and administrators may reach them.
+9. **R9 Retention:** at least 14 daily, 8 weekly and 12 monthly backups must be kept, and one copy must be offline or immutable (P-15).
+10. **R10 Keys and secrets:** the backup encryption key and the protected copy of the secrets must be held apart from the backups, and only the system owner and the Windows server and database administrators may reach them.
 11. **R11 Return and learning:** users return after a recovery only when the data, functions and controls have been checked. Each test or activation must end with an after-action report within 10 working days.
 
 ### CP.5 Responsibilities
@@ -588,7 +590,7 @@ The rule on non-compliance in section 1.1 applies to this policy.
 
 This policy sets the organisation's rules for proving who is using \<System Name\>, in line with the CSS IA family (IA-1). The settings that carry it out are in \<Identification and Authentication Management\>, and the steps people follow are in \<Procedures\> (IA).
 
-It applies to everyone who uses or administers UI application, Admin application, API, the \<System Name\> database and the two Windows Server 2025 VMs they run on at \<Organisation\>, and to every service account and secret they use.
+It applies to everyone who uses or administers the UI application, the Admin application, the API, the \<System Name\> database and the two Windows Server 2025 VMs they run on at \<Organisation\>, and to every service account and secret they use.
 
 ### IA.2 The organisation's position
 
@@ -608,9 +610,9 @@ Every action in \<System Name\> must be traceable to one known person. Access de
 2. **R2 Identifiers:** a person's Active Directory account name is their identifier. It is unique and named, is never reused, and shows staff or contractor status. \<System Name\> issues no identifiers of its own.
 3. **R3 Sign-in:** every user must sign in through \<Organisation\>'s single sign-on service, PingFederate. \<System Name\> must hold no passwords and no accounts of its own. Password rules are those of \<Organisation\>'s corporate standard, which \<System Name\> accepts.
 4. **R4 Password changes:** follow \<Organisation\>'s corporate standard. Anyone who thinks their password is known must change it through \<Organisation\>'s service desk and tell the security officer.
-5. **R5 Secrets:** service account secrets and the signing key must be held outside source code, changed every 12 months and when an administrator leaves, and never recorded in clear.
+5. **R5 Secrets:** the secrets, the token signing key and the audit chain key, must be held in a key store outside source code and settings files, changed as P-10 sets and when an administrator who could read them leaves, and never recorded in clear. Each application runs under its own group managed service account, whose password the operating system sets and changes. The API connects to SQL Server with Windows authentication, so no database password exists.
 6. **R6 Multi-factor:** every user must sign in with multi-factor authentication, which PingFederate provides.
-7. **R7 Signing in again:** when PingFederate's sign-in lifetime for \<System Name\> ends (\<Access Control Management\>, P-AC-10). \<System Name\> has no idle timeout or session limit of its own. A change to a person's groups takes effect when they next sign in.
+7. **R7 Signing in again:** when PingFederate's sign-in lifetime for \<System Name\> ends (P-02; \<Access Control Management\>, P-AC-10). \<System Name\> has no session management of its own: no idle timeout, idle lock or limit on sign-ins. The API reads a person's groups from Active Directory over LDAPS, so a change to their groups takes effect when they next sign in.
 8. **R8 Assurance levels:** the identity and authenticator assurance levels in \<Identification and Authentication Management\>, section 3.4, must be met for each user group, and reviewed every 12 months.
 9. **R9 Authenticator inventory:** every authenticator must be listed in \<Identification and Authentication Management\>, section 3.5, with its owner, storage and change period, and reviewed every 12 months.
 10. **R10 Protection:** authenticators and tokens must travel only over encrypted connections, and \<System Name\> must accept only a sign-in response that PingFederate has signed. A user's access is ended by disabling their AD account or removing their group membership, and ending their PingFederate sign-in.
@@ -625,9 +627,9 @@ Every action in \<System Name\> must be traceable to one known person. Access de
 | Head of Cyber | Approves this policy, as all policies |
 | System owner | Owns this policy, authorises privileged roles and manages the members of their AD groups, and reviews the assurance levels and authenticator inventory |
 | Authorising official | Accepts the assurance levels, and decides Medium and High risks, including multi-factor sign-in |
-| Project access approver | Authorises access to their project, and manages the members of its AD groups |
-| Global administrator | Issues no identifiers or passwords and ends no sessions: \<System Name\> has none |
-| Windows server and database administrators | Hold and change the service secrets and signing key |
+| Data Owner | Authorises access to their schema, and manages the members of its AD groups |
+| Administrator | Issues no identifiers, accounts or passwords: \<System Name\> holds none |
+| Windows server and database administrators | Hold and change the secrets in the key store: the token signing key and the audit chain key |
 | \<Organisation\> | Proves identity through pre-employment checks; provides the Active Directory accounts, PingFederate sign-in with multi-factor authentication, and password and second factor resets; identifies devices on its network |
 | Everyone with an account | Protects their authenticators and reports loss or suspected compromise |
 
@@ -638,7 +640,7 @@ The rules in section 1.1 apply to this policy. It adds these.
 1. **Communication:** this policy and the procedures must be shared with everyone who uses or administers \<System Name\>, and whenever they change.
 2. **Compliance and management commitment:** the system owner reviews compliance at each review and records the result. Breaches may lead to loss of access and disciplinary action.
 3. **Coordination:** the system owner agrees with \<Organisation\>'s security contact how identity proofing, device identification and sign-in through PingFederate are provided, and records it.
-4. **Laws and standards:** this policy must be consistent with applicable law, including UK GDPR Article 32, which requires appropriate security of personal data, and the Computer Misuse Act 1990; \<Organisation\>'s policies; CSS; and CSS.
+4. **Laws and standards:** this policy must be consistent with applicable law, including UK GDPR Article 32, which requires appropriate security of personal data, and the Computer Misuse Act 1990; \<Organisation\>'s policies; and CSS.
 
 ### IA.7 Non-compliance and risk acceptance
 
@@ -677,11 +679,11 @@ The rule on non-compliance in section 1.1 applies to this policy.
 
 This policy sets the organisation's rules for handling security incidents affecting \<System Name\>, in line with the CSS IR family (IR-1) and CSS. It stands alone, as each family has its own policy. The plan that carries it out is \<Incident Response Management\>, and the steps people follow are in \<Procedures\> (IR).
 
-It applies to UI application, Admin application, API, the \<System Name\> database, its backups and secrets, the two Windows Server 2025 VMs they run on at \<Organisation\>, and everyone who uses or administers them.
+It applies to the UI application, the Admin application, the API, the \<System Name\> database, its backups and secrets, the two Windows Server 2025 VMs they run on at \<Organisation\>, and everyone who uses or administers them.
 
 ### IR.2 The organisation's position
 
-Incidents are reported at once, without blame. \<System Name\> holds Restricted documents, and HR documents hold personal data, so a delay can cause harm and can breach the law.
+Incidents are reported at once, without blame. \<System Name\> holds Moderate-impact information, including personal data, so a delay can cause harm and can breach the law.
 
 ### IR.3 Control principles
 
@@ -692,11 +694,11 @@ Incidents are reported at once, without blame. \<System Name\> holds Restricted 
 
 ### IR.4 Mandatory requirements
 
-1. **R1 Reporting:** everyone must report a suspected incident to the security officer within 1 hour.
+1. **R1 Reporting:** everyone must report a suspected incident to the security officer within 1 hour (P-21).
 2. **R2 Severity and targets:** the security officer must set each incident's severity, and contain it within the target in \<Incident Response Management\>, section 3.6.
 3. **R3 Others told:** the security officer must tell \<Organisation\>'s security contact and any affected supplier.
 4. **R4 Personal data breaches:** the legal adviser must tell the ICO within 72 hours of the organisation becoming aware of a reportable breach, and tell the people affected without undue delay when the risk to them is high. Every breach must be recorded, with the reason if it is not reported.
-5. **R5 Records:** incidents are tracked and recorded on TPL-10, and in ServiceNow once it is set up.
+5. **R5 Records:** incidents are tracked and recorded on TPL-10, or in a ServiceNow record that holds the same fields.
 6. **R6 Evidence:** evidence must be preserved, hashed and its custody recorded before anything is changed.
 7. **R7 Training:** people with an incident role must be trained within 30 days of taking it, every 12 months and after a plan change.
 8. **R8 Testing:** the plan must be tested by tabletop exercise every 12 months, coordinated with the contingency plan.
@@ -763,13 +765,13 @@ The rule on non-compliance in section 1.1 applies to this policy.
 
 This policy sets the organisation's rules for maintaining \<System Name\>, in line with the CSS MA family (MA-1). It stands alone, as each family has its own policy. The settings, lists and routes that carry it out are in \<Maintenance Management\>, and the steps people follow are in \<Procedures\> (MA).
 
-It applies to the hardware and hypervisor, the two Windows Server 2025 VMs, PostgreSQL, UI application, Admin application and API, including the maintenance functions built into \<System Name\>. It applies to everyone who maintains them: administrators, developers, \<Organisation\>'s engineers and any supplier.
+It applies to the hardware and hypervisor, the two Windows Server 2025 VMs, SQL Server, the UI application, the Admin application and the API, including the diagnostics built into the Admin application. It applies to everyone who maintains them: administrators, developers, \<Organisation\>'s engineers and any supplier.
 
 Maintenance means preventive and corrective work, repair and replacement, done on site or remotely. Fixing flaws (SI-2) and releasing new versions (CM-3) follow their own policies, but use the same change records.
 
 ### MA.2 The organisation's position
 
-Maintenance gives people powerful access, often at short notice, and \<System Name\> has maintenance functions of its own that can change or delete data. Maintenance must therefore be approved, done by known people with known tools over known routes, checked afterwards and recorded.
+Maintenance gives people powerful access, often at short notice. \<System Name\> has no page that changes its database's structure or resets its data: such changes come only in a release. Maintenance must still be approved, done by known people with known tools over known routes, checked afterwards and recorded.
 
 ### MA.3 Control principles
 
@@ -784,14 +786,14 @@ Maintenance gives people powerful access, often at short notice, and \<System Na
 2. **R2 Records:** every maintenance job must be recorded on TPL-12, with the fields set in \<Maintenance Management\>. The security officer reviews the records every month against the change records.
 3. **R3 Check afterwards:** after every job, the administrator must run the checklist in \<Procedures\> (MA), and the security officer must review and sign the result.
 4. **R4 Approved tools:** only tools on the approved list in \<Maintenance Management\> may be used. The list is reviewed every 12 months. Tools are inspected before use, and media holding diagnostic or test programs are scanned for malicious code first.
-5. **R5 Built-in maintenance functions:** the maintenance pages built into \<System Name\> may be used only under an approved change record, with a second person present, until they are removed.
-6. **R6 Remote (nonlocal) maintenance:** remote maintenance must use only the routes in \<Maintenance Management\>, with multi-factor sign-in, be logged, and be ended as soon as the work is finished. The admin portal must be reachable only through the managed route.
+5. **R5 Built-in maintenance functions:** the only maintenance function built into \<System Name\> is the fixed diagnostics page in the Admin application, which reads no item content and is used only by administrators. No page changes the database's structure: structure changes are scripts in a release, applied by the database administrator under an approved change record. No diagnostic or test page is included in a release.
+6. **R6 Remote (nonlocal) maintenance:** remote maintenance must use only the routes in \<Maintenance Management\>, with multi-factor sign-in, be logged, and be ended as soon as the work is finished. The Admin application must be reachable only through \<Organisation\>'s managed administration route.
 7. **R7 Maintenance people:** only people on the approved list may maintain \<System Name\> without an escort. They must be screened, have signed Part B of \<Security Operating Procedures\> and use a named account. Supplier accounts are temporary, limited to the job and disabled afterwards. Anyone else must be escorted and supervised by someone on the list.
 8. **R8 Equipment removal:** the system owner must approve removing any equipment, and it must be sanitised first.
-9. **R9 Data leaving for maintenance or support:** no copy of \<System Name\> data, database dump, log or screenshot may leave the VMs for maintenance or support without the system owner's approval. It must be kept to the minimum, encrypted, recorded and deleted when no longer needed.
+9. **R9 Data leaving for maintenance or support:** no copy of \<System Name\> data, database backup, log or screenshot may leave the servers for maintenance or support without the system owner's approval. It must be kept to the minimum, encrypted, recorded and deleted when no longer needed.
 10. **R10 Timely maintenance:** support and parts for the hardware and hypervisor must be available within 24 hours of a failure. Software must stay on supported versions, with a replacement planned at least 6 months before support ends.
 11. **R11 Schedule and notice:** preventive maintenance follows the schedule in \<Procedures\> (MA). Users are given 2 working days' notice of planned maintenance that affects them.
-12. **R12 Session records:** the events of each remote maintenance session must be logged and reviewed weekly.
+12. **R12 Remote maintenance records:** the events of each remote maintenance connection must be logged and reviewed weekly.
 
 ### MA.5 Responsibilities
 
@@ -801,11 +803,11 @@ Maintenance gives people powerful access, often at short notice, and \<System Na
 | --- | --- |
 | Head of Cyber | Approves this policy, as all policies |
 | System owner | Owns this policy; approves the lists of people and tools, equipment removal and any data leaving for support |
-| Security officer | Reviews maintenance records monthly and session logs weekly; reviews and signs the check after maintenance |
+| Security officer | Reviews maintenance records monthly and remote maintenance logs weekly; reviews and signs the check after maintenance |
 | Windows server administrator | Maintains the VMs, keeps the tool list and runs the check after maintenance |
-| Database administrator | Maintains the database and runs the check after database maintenance |
-| Developers | Maintain the applications through releases; never use the built-in maintenance pages outside R5 |
-| Global administrator | The only role that can open the built-in maintenance pages, and does so only under R5 |
+| Database administrator | Maintains the database, applies structure changes from a release, and runs the check after database maintenance |
+| Developers | Maintain the applications through releases only |
+| Administrator | Runs the fixed diagnostics in the Admin application (R5) |
 | \<Organisation\> | Maintains the hardware and hypervisor, provides support and parts within 24 hours, provides the managed route, and sanitises equipment |
 
 ### MA.6 Governance requirements
@@ -829,9 +831,9 @@ The rule on non-compliance in section 1.1 applies to this policy.
 | Maintenance | Preventive or corrective work on a \<System Name\> component, including repair and replacement |
 | Remote (nonlocal) maintenance | Maintenance done over a network rather than in person at the component |
 | Maintenance tool | Any program, device or function used to diagnose or maintain \<System Name\> |
-| Built-in maintenance function | A page or function inside \<System Name\> that changes its data or set-up, such as Database Update or Fresh Start |
+| Built-in maintenance function | The fixed diagnostics page in the Admin application, which reads no item content. \<System Name\> has no page that changes its data or set-up |
 | Escort | A person on the approved list who supervises someone who is not |
-| Change record | The approved record of a change or maintenance job, on TPL-6 or in ServiceNow once it is set up |
+| Change record | The approved record of a change or maintenance job, on TPL-6 or in a ServiceNow record that holds the same fields |
 | Security-critical component | A component that \<System Name\>'s security depends on, listed in \<Maintenance Management\> |
 
 ### MA.9 References
@@ -857,22 +859,22 @@ It applies to every place \<System Name\> information is held outside the runnin
 
 ### MP.2 The organisation's position
 
-\<System Name\> has no removable media of its own, but its documents leave the application as exports, downloads, backups, logs and printouts. Each copy must be protected as the documents themselves are, marked, kept only as long as needed and sanitised when it is no longer needed.
+\<System Name\> has no removable media of its own, but its items leave the application as exports, downloads, backups, logs and printouts. Each copy must be protected as the items themselves are, marked, kept only as long as needed and sanitised when it is no longer needed.
 
 ### MP.3 Control principles
 
 1. **P1 Same protection:** every copy gets the protection of the information it holds.
 2. **P2 Know where it is:** every place \<System Name\> information is held is listed, and copies are kept only as long as needed.
-3. **P3 Marked:** \<System Name\> information is marked RESTRICTED wherever it goes.
+3. **P3 Marked:** \<System Name\> information is marked \<Classification\> wherever it goes.
 4. **P4 Nothing left behind:** media are sanitised, by an approved method, before reuse, release or disposal.
 
 ### MP.4 Mandatory requirements
 
 1. **R1 Media inventory:** every place \<System Name\> information is held must be listed in \<Media Protection Management\>, with its protection and sanitising method, and the list reviewed every 12 months.
-2. **R2 Access:** digital media may be reached only by the roles named in \<Media Protection Management\>. Only editors in a project may create exports of it.
-3. **R3 Marking:** all \<System Name\> information is marked RESTRICTED, with the document's own classification alongside. \<System Name\> marks printed pages and export files with their classification. No media is exempt.
+2. **R2 Access:** digital media may be reached only by the roles named in \<Media Protection Management\>. Only editors of a schema, and administrators, may create exports of it.
+3. **R3 Marking:** all \<System Name\> information is marked \<Classification\>, with the item's own classification alongside. \<System Name\> marks printed pages and export files with their classification. No media is exempt.
 4. **R4 Storage:** digital media must be stored encrypted in controlled areas: \<Organisation\>'s data centres, or a managed device. Printouts are locked away when not in use.
-5. **R5 Export copies:** an export copy on the server must be removed once downloaded, and within 24 hours at most. \<System Name\> deletes it after the download, and a background task removes any left past the limit.
+5. **R5 Export copies:** an export copy on the server must be held in the encrypted working area, and removed once downloaded, and within 24 hours at most (P-20). \<System Name\> deletes it after the download, and a background task removes any left past the limit.
 6. **R6 Users' copies:** exports and downloads may be saved only in approved \<Organisation\> locations on a managed device, kept to the minimum, and deleted within 30 days once no longer needed (\<Security Operating Procedures\>, A28 and A30 to A35).
 7. **R7 Transport:** media are physically transported only by exception, approved by the system owner, encrypted or sealed, tracked and recorded on TPL-13. Network copies, such as backups to the second site, are protected under SC-8 and CP-6 and must be encrypted first. Printouts do not leave the site without approval.
 8. **R8 Sanitising:** media must be sanitised before reuse, release or disposal following CSS and IEEE 2883-2022, using the method set for each media type in \<Media Protection Management\>. Cryptographic erase is used for encrypted virtual disks and backups. Paper is cross-cut shredded to DIN 66399 level P-4 or better.
@@ -889,7 +891,7 @@ It applies to every place \<System Name\> information is held outside the runnin
 | --- | --- |
 | Head of Cyber | Approves this policy, as all policies |
 | System owner | Owns this policy and the media inventory; approves portable storage exceptions and physical transport; checks sanitising certificates |
-| Windows server administrator | Protects the VM disks and export folder, and checks the export folder each working day |
+| Windows server administrator | Protects the VM disks and the export working area, and checks the export working area each working day |
 | Database administrator | Protects the database volumes and backups |
 | Security officer | Receives ownerless devices and reports media incidents |
 | Everyone | Follows the rules for exports, downloads and printouts, and marks and shreds printouts |
@@ -915,8 +917,8 @@ The rule on non-compliance in section 1.1 applies to this policy.
 | --- | --- |
 | Media | Anything that holds \<System Name\> information outside the running application: disks, volumes, files, devices, backups and paper |
 | Digital media | Media that need power to be read, including virtual disks, export files and managed devices |
-| Export copy | A copy of documents made by \<System Name\>'s export or download functions |
-| Marking | The RESTRICTED label, with the document's own classification, on what \<System Name\> shows or produces |
+| Export copy | A copy of items made by \<System Name\>'s export or download functions |
+| Marking | The \<Classification\> label, with the item's own classification, on what \<System Name\> shows or produces |
 | Sanitising | Making information on media impossible to recover, by clearing, purging, cryptographic erase or destruction |
 | Cryptographic erase | Sanitising encrypted media by destroying the keys, so the data can no longer be decrypted |
 | Controlled area | A place where access is limited to authorised people: \<Organisation\>'s data centres and locked storage |
@@ -960,9 +962,9 @@ It applies to the data centre that hosts the two VMs, the second site that holds
 3. **R3 Requirements:** the data centres must meet the values in \<Physical and Environmental Protection Management\>, including temperature and humidity within the ASHRAE TC 9.9 recommended envelope.
 4. **R4 Second site:** the second site must meet the same requirements as the main data centre.
 5. **R5 Site inspection:** each data centre, the main site and the second site, is inspected once, at Level 2, by the independent assessor or \<Organisation\>'s auditor using TPL-20, and again after a change of site.
-6. **R6 Printing:** \<System Name\> documents may be printed only on \<Organisation\>'s managed printers with secure release, and collected at once.
+6. **R6 Printing:** \<System Name\> items may be printed only on \<Organisation\>'s managed printers with secure release, and collected at once.
 7. **R7 Screens:** screens must be locked when left and placed so that others cannot read them.
-8. **R8 Home working:** remote working is allowed only from home, unless the system owner approves another place, on \<Organisation\>'s managed devices and route. \<System Name\> documents must not be printed at home unless approved, and must be worked on where others in the home cannot see them.
+8. **R8 Home working:** remote working is allowed only from home, unless the system owner approves another place, on \<Organisation\>'s managed devices and route. \<System Name\> items must not be printed at home unless approved, and must be worked on where others in the home cannot see them.
 9. **R9 Physical incidents:** the loss or theft of a device or printout, unauthorised entry to a data centre, and fire, flood or power loss affecting \<System Name\> must be reported to the security officer at once and handled under \<Incident Response Management\>.
 10. **R10 Physical access compensation:** VM disks must be encrypted, so that physical access to the hosts does not expose \<System Name\> information.
 
@@ -1035,7 +1037,7 @@ It applies to every system plan for \<System Name\>: the System Security Plan, t
 1. **P1 One current set:** the SSP is the single statement of how controls are met, and every plan it relies on is listed in one register.
 2. **P2 Rules before access:** nobody gets access without signing the rules.
 3. **P3 Plans change with the system:** plans change when the system, its risks or an assessment changes, and every review and change is recorded.
-4. **P4 Plans are Restricted:** plans describe weaknesses and must be protected like the system itself.
+4. **P4 Plans are protected:** plans describe weaknesses, carry the set's marking (\<Classification\>) and must be protected like the system itself.
 
 ### PL.4 Mandatory requirements
 
@@ -1043,8 +1045,8 @@ It applies to every system plan for \<System Name\>: the System Security Plan, t
 2. **R2 Approval:** the System Security Plan must be approved by the system owner, with the Head of Cyber's concurrence, and accepted by the authorising official as an accurate record. The privacy plan must be approved by the legal adviser and the authorising official. The supply chain plan is approved by the system owner.
 3. **R3 Review and change records:** each system plan must keep a plan review record (who reviewed, their role, the date, the outcome and actions) separate from its change record. Plans are reviewed every 12 months and after an assessment, significant change or problem found in use.
 4. **R4 Sharing:** the SSP and its changes must be shared with the Head of Cyber, administrators and \<Organisation\>'s security contact, and each issue recorded in the plan review record.
-5. **R5 Protection:** plans and assessment evidence are Restricted. They must be kept in the restricted SharePoint area, never in a code repository or a public location, and only people who need them may read or change them.
-6. **R6 Rules of behaviour:** the Security Operating Procedures are the rules of behaviour. Part A applies to everyone, and Part B, the privileged rules, to administrators as well. Everyone signs before access, and the signature is recorded on TPL-21 and in the register of signatures.
+5. **R5 Protection:** plans and assessment evidence are marked \<Classification\>. They must be kept in the restricted SharePoint area, never in a code repository or a public location, and only people who need them may read or change them.
+6. **R6 Rules of behaviour:** the Security Operating Procedures are the rules of behaviour. Part A applies to everyone, and Part B, the privileged rules, to administrators, auditors, security officers and the Windows server and database administrators as well. Everyone signs before access, and the signature is recorded on TPL-21 and in the register of signatures.
 7. **R7 Signing again:** everyone signs again every 12 months, and after a material change to the rules: a new or stricter rule, a changed consequence, new monitoring or a new privileged duty. The system owner decides whether a change is material and records it in the SyOps change record.
 8. **R8 Social media:** \<System Name\> information must not be placed on social media or external sites, and work credentials must not be used on them.
 9. **R9 Architecture:** \<Security Architecture\> must state the security approach, trust zones, layers of defence, and assumptions and dependencies, and be reviewed every 12 months and after a significant change. Its changes must be reflected in the SSP, the privacy plan, the ConOps, the critical components list and procurement.
@@ -1060,7 +1062,7 @@ It applies to every system plan for \<System Name\>: the System Security Plan, t
 | Authorising official | Accepts the SSP as an accurate record, approves the privacy plan, accepts the tailoring register as a record, and makes the authorisation decision |
 | System owner | Owns this policy, the plans and the register of plans; keeps the review records, the signed rules and the register of signatures; decides whether a change to the rules is material |
 | Legal adviser | Reviews this policy and approves the privacy plan |
-| Administrators | Sign Parts A and B of the rules |
+| Administrators, auditors, security officers, and Windows server and database administrators | Sign Parts A and B of the rules |
 | Everyone | Signs Part A of the rules, and follows them |
 
 ### PL.6 Governance requirements
@@ -1111,7 +1113,7 @@ It applies to everyone who uses, administers or develops \<System Name\>, includ
 
 ### PS.2 The organisation's position
 
-\<System Name\> holds Restricted HR documents, so the people trusted with it matter as much as its technical controls. \<Organisation\> employs most of them, so its screening, HR and disciplinary processes are used, and it must evidence them. \<System Name\> adds what is specific to it: a risk designation for every role, a minimum it expects of screening, signed agreements, and time limits when people move or leave.
+\<System Name\> holds Moderate-impact information, including personal data, so the people trusted with it matter as much as its technical controls. \<Organisation\> employs most of them, so its screening, HR and disciplinary processes are used, and it must evidence them. \<System Name\> adds what is specific to it: a risk designation for every role, a minimum it expects of screening, signed agreements, and time limits when people move or leave.
 
 ### PS.3 Control principles
 
@@ -1126,14 +1128,14 @@ It applies to everyone who uses, administers or develops \<System Name\>, includ
 2. **R2 Screening before access:** nobody may be given access to \<System Name\> until \<Organisation\> has confirmed that they passed its pre-employment screening. That screening must cover at least identity, the right to work, employment history and a basic criminal record check.
 3. **R3 Rescreening:** screening must be confirmed again before someone moves into a higher risk role, and every 5 years for anyone in one.
 4. **R4 Screening data:** \<System Name\> must record only that screening was confirmed, by whom and when. Screening results and criminal record data stay with \<Organisation\> and must never be stored in \<System Name\> or its records.
-5. **R5 Leavers:** a leaver's \<System Name\> access must be disabled within 5 working days, on the condition in \<Access Control Management\>, P-AC-06. Their credentials must be revoked, any shared secret they knew must be changed, and the documents they managed must stay available.
+5. **R5 Leavers:** a leaver's Active Directory account is disabled by \<Organisation\> at once, which ends their \<System Name\> access, and their group memberships must be removed within 5 working days (P-06; \<Access Control Management\>, P-AC-06). Their credentials must be revoked, any secret they knew must be changed, and the items they managed must stay available.
 6. **R6 Higher-risk leavers:** access must be disabled within 1 hour of notice when the person holds a higher risk role, is dismissed, or is suspected of misuse.
 7. **R7 Movers:** a mover's access must be reviewed, and the system owner told, within 1 working day.
 8. **R8 Access agreements:** everyone must sign \<Organisation\>'s confidentiality agreement and \<Security Operating Procedures\> before access, and sign again every 12 months and after a material change to the rules.
 9. **R9 External people:** contracts with external people must state their security duties. Suppliers must report leavers and movers within 1 working day, and their compliance must be checked every 12 months.
 10. **R10 Sanctions:** a breach of the rules is handled through \<Organisation\>'s disciplinary process. The system owner must be told within 1 working day of a formal sanction that involves \<System Name\>.
 11. **R11 Role descriptions:** the security and privacy duties of every \<System Name\> role must be stated in \<Roles and Responsibilities\>, and \<Organisation\>'s job descriptions must refer to them.
-12. **R12 Records and checking:** each of these steps must be recorded on the forms named in \<Procedures\> (PS). Test-PlanConsistency.ps1 (check L17) must show that every role has a designation, at each review.
+12. **R12 Records and checking:** each of these steps must be recorded on the forms named in \<Procedures\> (PS). Test-PlanConsistency.ps1 must show that every role has a designation, at each review.
 
 ### PS.5 Responsibilities
 
@@ -1144,7 +1146,7 @@ It applies to everyone who uses, administers or develops \<System Name\>, includ
 | Head of Cyber | Approves this policy, as all policies |
 | Authorising official | Decides Medium and High risks |
 | System owner | Owns this policy; keeps the designations, the personnel security register and the signed agreements; checks screening is confirmed before access; monitors external people |
-| Global administrator | Acts within the time limits. \<System Name\> has no sessions to end: a leaver's access ends when \<Organisation\> disables their AD account and ends their PingFederate sign-in |
+| Data Owners | Remove a leaver's or mover's memberships of their schema groups within the time limits; the system owner does the same for the role groups. \<System Name\> has no session management: a leaver's access ends when \<Organisation\> disables their AD account and ends their PingFederate sign-in |
 | Line managers | Report movers and leavers within 1 working day |
 | Legal adviser | Reviews this policy and the laws it names |
 | \<Organisation\> | Screens people and holds the results; runs HR and disciplinary processes; holds exit interviews and recovers equipment; disables the network account of a leaver at once; provides job descriptions |
@@ -1201,11 +1203,11 @@ The rule on non-compliance in section 1.1 applies to this policy.
 
 This policy sets the organisation's rules for processing personal data in \<System Name\>, in line with the CSS PT family (PT-1) and UK data protection law. It stands alone, as each family has its own policy. The inventory, retention schedule and values that carry it out are in \<PII Processing Management\>, the impact assessment is \<Data Protection Impact Assessment\>, the privacy plan is \<Privacy Plan\>, and the steps people follow are in \<Procedures\> (PT).
 
-It applies to all personal data in \<System Name\>: HR documents, other project documents, the names held from sign-in, audit records, logs and export copies.
+It applies to all personal data in \<System Name\>: the items in every schema, the names held from sign-in, audit records, logs and export copies.
 
 ### PT.2 The organisation's position
 
-\<Organisation\> operates in the UK and is the controller of the personal data in \<System Name\>. UK GDPR, the Data Protection Act 2018 and the Data (Use and Access) Act 2025 apply. \<System Name\> holds HR documents that may contain special category data, so personal data gets the same care as any other Restricted information, and more where the law requires it.
+\<Organisation\> operates in the UK and is the controller of the personal data in \<System Name\>. UK GDPR, the Data Protection Act 2018 and the Data (Use and Access) Act 2025 apply. \<System Name\> may hold items that contain special category data, as its information types in \<System Description\>, section 3.4, show, so personal data gets the same care as any other information at its classification, and more where the law requires it.
 
 ### PT.3 Control principles
 
@@ -1216,17 +1218,17 @@ It applies to all personal data in \<System Name\>: HR documents, other project 
 
 ### PT.4 Mandatory requirements
 
-1. **R1 Purposes:** personal data may be processed only for HR administration and managing project documents.
+1. **R1 Purposes:** personal data may be processed only for the purposes stated in the application profile (\<System Description\>, section 3) and \<PII Processing Management\>.
 2. **R2 Basis and conditions:** each kind of personal data must have an Article 6 lawful basis recorded in \<PII Processing Management\>, section 3.3, confirmed by the legal adviser. Special category data must also have an Article 9 condition and, where needed, a Schedule 1 condition. Where a Schedule 1, Part 1 condition is relied on, an appropriate policy document must be in place. Consent is not used for employee data.
 3. **R3 Inventory and record of processing:** \<PII Processing Management\>, section 3.3 must list every kind of personal data, and match \<Organisation\>'s record of processing (UK GDPR, Article 30; EV-PM-02).
 4. **R4 Impact assessment:** \<Data Protection Impact Assessment\> must be completed and approved by the legal adviser, with the data protection officer's advice, before production and after any significant change in processing.
-5. **R5 Special category data:** special category data may be held only in projects the business owner authorises, and those documents must be marked as such.
+5. **R5 Special category data:** special category data may be held only in schemas the business owner authorises, and those items must be marked as such.
 6. **R6 Retention:** personal data must be kept only for the period in \<PII Processing Management\>, section 3.7, then disposed of, with the disposal audited.
-7. **R7 Rights and complaints:** requests from individuals must go to the legal adviser and be met by a reasonable and proportionate search of every project within one month. Complaints about how data is handled must be acknowledged within 30 days, investigated, and answered with the outcome.
+7. **R7 Rights and complaints:** requests from individuals must go to the legal adviser and be met by a reasonable and proportionate search of every schema, using the search across schemas (FR-073), within one month (P-22). Complaints about how data is handled must be acknowledged within 30 days, investigated, and answered with the outcome.
 8. **R8 Transparency:** \<Organisation\>'s employee privacy notice must name \<System Name\> and its purposes, be reviewed every 12 months, and be linked from \<System Name\>'s pages.
 9. **R9 Breaches:** personal data breaches must be handled under \<Incident Response Management\>, section 3.8, including the 72-hour report to the ICO, harm to the people affected and the breach register.
-10. **R10 Training and test data:** everyone who handles HR documents and all administrators must complete privacy training before access and every 12 months. Real personal data must not be used for testing, training or research.
-11. **R11 Accuracy:** personal data must be kept accurate and up to date. Each project's personal data must be checked every 12 months, and anything inaccurate or out of date corrected or deleted.
+10. **R10 Training and test data:** everyone who handles personal data in items and all administrators must complete privacy training before access and every 12 months. Real personal data must not be used for testing, training or research.
+11. **R11 Accuracy:** personal data must be kept accurate and up to date. Each schema's personal data must be checked every 12 months, and anything inaccurate or out of date corrected or deleted.
 
 ### PT.5 Responsibilities
 
@@ -1238,7 +1240,9 @@ It applies to all personal data in \<System Name\>: HR documents, other project 
 | Legal adviser | Owns the privacy plan and the impact assessment; confirms each lawful basis and condition and the appropriate policy document; handles requests, complaints and reports to the ICO |
 | Data protection officer | Advises on the impact assessment and is the contact for individuals and the ICO, or the legal adviser records why none is required |
 | System owner | Owns this policy and the inventory, and makes sure \<System Name\> follows it |
-| Business and information owner | Decides what personal data each project holds, authorises special category projects, and sets retention periods |
+| Information owner | Decides what personal data each schema holds |
+| Business owner | Authorises the schemas that may hold special category data, and sets retention periods |
+| Data Owners | Make sure their schema holds only the personal data it needs |
 | \<Organisation\> | Provides the employee privacy notice and the record of processing |
 
 ### PT.6 Governance requirements
@@ -1247,7 +1251,7 @@ The rules in section 1.1 apply to this policy. It adds these.
 
 1. **Communication:** this policy and the procedures must be shared with everyone who administers \<System Name\>, and whenever they change.
 2. **Policy review:** every 12 months, and after a significant incident, audit finding, change in the law or change in processing.
-3. **Compliance and management commitment:** the system owner reviews compliance at each review, runs Test-PersonalData.ps1 on a test stack, and records the result.
+3. **Compliance and management commitment:** the system owner reviews compliance at each review, runs Test-PersonalData.ps1 in the test environment, and records the result.
 4. **Coordination:** the system owner works with the legal adviser, the data protection officer and \<Organisation\>, and records what is agreed.
 5. **Laws and standards:** this policy must be consistent with UK GDPR, the Data Protection Act 2018, the Data (Use and Access) Act 2025, \<Organisation\>'s policies and CSS.
 
@@ -1276,7 +1280,7 @@ The rule on non-compliance in section 1.1 applies to this policy.
 | --- | --- |
 | CSS, PT family and CSS privacy baseline | The controls this policy meets |
 | UK GDPR; Data Protection Act 2018; Data (Use and Access) Act 2025 | The law |
-| ICO guidance: keeping employment records; data protection impact assessments | How the law applies to HR records |
+| ICO guidance: keeping employment records; data protection impact assessments | How the law applies to staff records |
 | \<PII Processing Management\>, \<Data Protection Impact Assessment\>, \<Privacy Plan\>, \<Procedures\> (PT), \<Incident Response Management\> and \<Security Operating Procedures\> | The inventory, impact assessment, privacy plan, procedures, breach handling and the rules people sign |
 
 ## RA Risk Assessment
@@ -1285,7 +1289,7 @@ The rule on non-compliance in section 1.1 applies to this policy.
 
 This policy sets the organisation's rules for understanding and responding to risk in \<System Name\>, in line with the CSS RA family (RA-1). It stands alone, as each family has its own policy. The values that carry it out are in \<Risk Assessment Management\>, the steps people follow are in \<Procedures\> (RA), and the risks themselves are in \<Risk List\>.
 
-It applies to UI application, Admin application, API, the \<System Name\> database, the backups and the two Windows Server 2025 VMs they run on at \<Organisation\>.
+It applies to the UI application, the Admin application, the API, the \<System Name\> database, the backups and the two Windows Server 2025 VMs they run on at \<Organisation\>.
 
 ### RA.2 The organisation's position
 
@@ -1305,9 +1309,9 @@ It applies to UI application, Admin application, API, the \<System Name\> databa
 2. **R2 Risk review:** the risk assessment must be reviewed every 12 months, and after a significant change, incident or new test result, and shared with the system owner, the authorising official and the Head of Cyber.
 3. **R3 Categorisation:** the system must keep a security categorisation under CSS, with its rationale, approved by the authorising official.
 4. **R4 Organisational risk:** system risk decisions must respect \<Organisation\>'s risk management strategy and risk appetite.
-5. **R5 Supply chain:** supply chain risk from packages, base images, suppliers and the VMs must be reviewed every 12 months, and recorded on TPL-23.
-6. **R6 Scanning:** vulnerability scans must run monthly and at each release, with definitions updated before each scan, and credentialed scans of both VMs. The packages, \<System Name\>'s own applications, the container images and their operating system packages must all be covered.
-7. **R7 Response times:** each vulnerability must be fixed or mitigated within the time in \<Risk Assessment Management\>, section 3.6, for its severity, counted from the fix's release, or from detection if that is later. Critical and High within 14 days, Medium within 30 days, Low within 90 days or 30 days once a vendor update exists. Severity is the vendor's rating, or else the CVSS base score.
+5. **R5 Supply chain:** supply chain risk from packages, browser libraries, suppliers and the servers must be reviewed every 12 months, and recorded on TPL-23.
+6. **R6 Scanning:** vulnerability scans must run as P-30 sets: servers monthly, with credentialed scans of both VMs, and packages and code at each release, with definitions updated before each scan. The packages, the browser libraries, \<System Name\>'s own applications, and both servers' operating system, SQL Server and other installed software must all be covered.
+7. **R7 Response times:** each vulnerability must be fixed or mitigated within the time in \<Risk Assessment Management\>, section 3.6, for its severity, counted from the fix's release, or from detection if that is later. Critical and High within 14 days, Medium within 30 days, Low within 90 days (P-11). Severity is the vendor's rating, or else the CVSS base score.
 8. **R8 Exploited flaws:** a flaw listed in CISA's Known Exploited Vulnerabilities catalogue, or confirmed by its vendor as exploited, must be fixed or mitigated within 3 days as an emergency change. A fix that cannot meet any time goes to a risk decision under section RA.7.
 9. **R9 Reports:** vulnerability reports must be received through \<Organisation\>'s security contact, which must be published with terms that authorise research in good faith, and flaws found in another party's component must be reported to its maintainer.
 10. **R10 Critical components:** critical components must be identified by the method in \<Risk Assessment Management\>, section 3.9, and reviewed at each major release and significant change.
@@ -1324,7 +1328,7 @@ It applies to UI application, Admin application, API, the \<System Name\> databa
 | Information owner | Confirms the information types and their impact levels |
 | Security officer | Reviews scan results, tracks them to closure, and receives vulnerability reports |
 | Windows server administrator | Runs scans of the VMs |
-| Developers | Check packages and images at each release, and fix flaws in \<System Name\>'s code |
+| Developers | Check packages and browser libraries at each release, and fix flaws in \<System Name\>'s code |
 | \<Organisation\> | Provides the security contact, and any shared scanning service |
 
 ### RA.6 Governance requirements
@@ -1350,7 +1354,7 @@ The rule on non-compliance in section 1.1 applies to this policy. A vulnerabilit
 | Vulnerability | A weakness in \<System Name\>, its components or its operation that a threat source could exploit |
 | Severity | The vendor's rating of a vulnerability or, without one, its CVSS base score: 9.0 or more Critical, 7.0 to 8.9 High, 4.0 to 6.9 Medium, below 4.0 Low |
 | Exploited flaw | A vulnerability in CISA's Known Exploited Vulnerabilities catalogue, or confirmed as exploited by its vendor or \<Organisation\> |
-| Critical component | A component whose failure or compromise would expose or lose the documents, or defeat a security control |
+| Critical component | A component whose failure or compromise would expose or lose the items, or defeat a security control |
 | Mitigate | Reduce a vulnerability's risk without the fix, for example by disabling the affected feature or blocking access to it |
 
 ### RA.9 References
@@ -1374,7 +1378,7 @@ The rule on non-compliance in section 1.1 applies to this policy. A vulnerabilit
 
 This policy sets the organisation's rules for buying and building \<System Name\>, in line with the CSS SA family (SA-1). It stands alone, as each family has its own policy. The values that carry it out are in \<System and Services Acquisition Management\>, and the steps people follow are in \<Procedures\> (SA).
 
-It applies to \<System Name\>'s in-house development and build environment, and to every product, component and service bought or used from outside, including source code hosting and package registries.
+It applies to \<System Name\>'s in-house development and build environment, and to every product, component and service bought or used from outside, including the source repositories and the in-house package feed.
 
 ### SA.2 The organisation's position
 
@@ -1382,22 +1386,22 @@ It applies to \<System Name\>'s in-house development and build environment, and 
 
 ### SA.3 Control principles
 
-1. **A named framework:** development follows CSS \<ver\>, practice by practice.
+1. **A named framework:** development follows \<Organisation\>'s corporate SDLC, whose security practices meet CSS, practice by practice.
 2. **Known changes only:** only reviewed and approved changes reach a release.
 3. **Test before release:** every security function is tested at each release, to a stated depth.
 4. **Know what you depend on:** every third-party component and external service is known, assessed and supported.
 
 ### SA.4 Mandatory requirements
 
-1. **R1 Framework:** \<System Name\> must be developed under CSS \<ver\>, with each practice mapped to how it is met in \<System and Services Acquisition Management\>, section 3.2.
+1. **R1 Framework:** \<System Name\> must be developed under \<Organisation\>'s corporate software development life cycle (SDLC), which is inherited and whose security practices meet CSS, with each practice mapped to how it is met in \<System and Services Acquisition Management\>, section 3.2.
 2. **R2 Resources:** the system owner must raise security and privacy costs in yearly budgeting, and record them.
 3. **R3 Contracts:** contracts must use \<Organisation\>'s standard terms, with security and privacy requirements, documentation, responsibilities and acceptance criteria added.
 4. **R4 Design information:** design and the functions, ports, protocols and services \<System Name\> needs must be documented, and kept current with each change.
 5. **R5 Documentation:** administrator and user guides covering secure installation, configuration, operation and use must be kept with the code and confirmed at each release.
 6. **R6 Principles:** design must follow the NCSC secure design principles and the CSS privacy engineering objectives, as mapped in \<Security Architecture\>, section 6.5.
 7. **R7 Change control:** code, configuration and documents must be held in Git, with each default branch protected, at least one approving review before a change merges, dependency alerts on, and release tags signed. Test scripts must be under version control.
-8. **R8 Build and test:** each release must pass unit, integration and security tests covering every security function, to the depth in \<System and Services Acquisition Management\>, section 3.9. Builds must not turn package vulnerability checks off.
-9. **R9 Third parties:** each new third-party component must be checked for origin, licence, support and known vulnerabilities before it is added. External services, including GitHub and the package and container registries, must state their controls and be reviewed every 12 months.
+8. **R8 Build and test:** each release must pass unit, integration and security tests covering every security function, to the depth in \<System and Services Acquisition Management\>, section 3.9, and to the verification standard in P-28. Builds must not turn package vulnerability checks off.
+9. **R9 Third parties:** each new third-party component must be checked for origin, licence, support and known vulnerabilities before it is added. External services, including the source repositories and the sources behind the in-house package feed, must state their controls and be reviewed every 12 months.
 10. **R10 Support:** components must be replaced before support ends, with a replacement planned at least 6 months before. Any exception needs the authorising official's approval.
 
 ### SA.5 Responsibilities
@@ -1431,11 +1435,11 @@ The rule on non-compliance in section 1.1 applies to this policy.
 
 | Term | Meaning |
 | --- | --- |
-| CSS | Secure software development: practices to prepare the organisation, protect the software, produce well-secured software and respond to vulnerabilities |
+| Corporate SDLC | \<Organisation\>'s software development life cycle, inherited by \<System Name\>, whose security practices meet CSS: preparing the organisation, protecting the software, producing well-secured software and responding to vulnerabilities |
 | Default branch | The branch in each repository that releases are built from |
-| Third-party component | Any package, library, base image or script \<System Name\> uses but didn't write |
-| External service | A service run by someone else that \<System Name\> depends on, such as hosting, source code hosting or a package registry |
-| Security function | A part of \<System Name\> that enforces a control, such as sign-in, project access or audit |
+| Third-party component | Any package, library or script \<System Name\> uses but did not write |
+| External service | A service run by someone else that \<System Name\> depends on, such as hosting, source code hosting or a package source |
+| Security function | A part of \<System Name\> that enforces a control, such as sign-in, schema access or audit |
 
 ### SA.9 References
 
@@ -1444,7 +1448,7 @@ The rule on non-compliance in section 1.1 applies to this policy.
 | Reference | Use |
 | --- | --- |
 | CSS, SA family | The controls this policy meets |
-| CSS \<ver\> | The development framework |
+| \<Organisation\>'s corporate SDLC, meeting CSS | The development framework |
 | NCSC secure design principles; CSS privacy engineering objectives | The engineering principles |
 | OWASP ASVS 5.0 | The verification depth for the web applications |
 | UK Software Security Code of Practice | Peer practice the policy aligns with |
@@ -1456,7 +1460,7 @@ The rule on non-compliance in section 1.1 applies to this policy.
 
 This policy sets the organisation's rules for protecting \<System Name\>'s communications, boundaries, keys and stored information, in line with the CSS SC family (SC-1). It stands alone, as each family has its own policy. The values, cryptographic register and allow-lists that carry it out are in \<System and Communications Protection Management\>, and the steps people follow are in \<Procedures\> (SC).
 
-It applies to UI application, Admin application, API, the \<System Name\> database, their backups and keys, and the two Windows Server 2025 VMs they run on at \<Organisation\>.
+It applies to the UI application, the Admin application, the API, the \<System Name\> database, their backups and keys, and the two Windows Server 2025 VMs they run on at \<Organisation\>.
 
 ### SC.2 The organisation's position
 
@@ -1471,16 +1475,16 @@ Information in \<System Name\> must be protected wherever it travels or rests. \
 
 ### SC.4 Mandatory requirements
 
-1. **R1 Flows:** only the flows in \<System Security Plan\>, section 3.7, Table 7, and \<Security Architecture\>, Table 2, are allowed. Traffic is denied by default at \<Organisation\>'s firewalls and at each VM's host firewall, using the allow-lists in \<System and Communications Protection Management\>, section 3.2.
-2. **R2 Listening addresses:** UI application listens on TCP 443 only. The admin portal is reachable only over \<Organisation\>'s managed administration route. API listens only on the application VM's loopback address. The database accepts connections only from the application VM.
+1. **R1 Flows:** only the flows F1 to F9 in \<System Description\>, section 6.5, as set out in \<System Security Plan\>, section 3.7, Table 7, and \<Security Architecture\>, Table 2, are allowed. Traffic is denied by default at \<Organisation\>'s firewalls and at each VM's host firewall, using the allow-lists in \<System and Communications Protection Management\>, section 3.2.
+2. **R2 Listening addresses:** the UI application listens on TCP 443 only. The Admin application is reachable only over \<Organisation\>'s managed administration route. The API listens only on the application server's loopback address. SQL Server accepts connections on TCP 1433 only from the application server.
 3. **R3 Transport:** every flow must use TLS under NCSC's profiles. TLS 1.3 is preferred, with hybrid post-quantum key exchange where the platform supports it. TLS 1.2 is allowed only with the GCM profiles. SSL, TLS 1.0 and 1.1, compression and TLS 1.3 early data (0-RTT) must be off.
-4. **R4 Web traffic and cookies:** the apps must serve HTTPS only and redirect HTTP, send HSTS with a maximum age of at least 1 year, and mark every cookie Secure, HttpOnly and SameSite. \<System Name\> has no sessions of its own: the authentication cookie lasts no longer than PingFederate's sign-in lifetime (\<Access Control Management\>, P-AC-10).
-5. **R5 Database:** PostgreSQL must accept network connections only over TLS, with a minimum of TLS 1.2, and API must connect with full certificate and host name checking.
-6. **R6 Cryptography:** only the algorithms in the cryptographic register may be used: NCSC's TLS profiles, XTS-AES 256 for disk encryption, PBKDF2-SHA512 with at least 600,000 iterations for passwords, and HMAC-SHA256 with a random key of at least 256 bits for tokens. US CSS validation is not required.
-7. **R7 Keys:** every key must be in the register, with an owner, a protected store and a cryptoperiod based on CSS. Keys must never be held in source code, tickets, chat or documents. Each key is changed at the end of its cryptoperiod, when someone who held it leaves, and at once if it may be compromised. The data protection key rings are protected with Windows DPAPI and backed up with the server.
+4. **R4 Web traffic and cookies:** the apps must serve HTTPS only and redirect HTTP, send HSTS with a maximum age of at least 1 year, and mark every cookie Secure, HttpOnly and SameSite. \<System Name\> has no session management of its own: the authentication cookie lasts no longer than PingFederate's sign-in lifetime (P-02; \<Access Control Management\>, P-AC-10).
+5. **R5 Database:** SQL Server 2022 must accept network connections only over TLS 1.2 or later with strict encryption. The API must connect with Windows authentication under its group managed service account, so no database password exists, and with full certificate and server name checking.
+6. **R6 Cryptography:** only the algorithms in the cryptographic register may be used: NCSC's TLS profiles, XTS-AES 256 for disk encryption, AES-256 for backups, SHA-256 for file and release checksums, and HMAC-SHA-256 with a random key of at least 256 bits for the tokens between the applications and for the audit chain. No MD5 or SHA-1 is used for protection, and no cryptography is written in-house. \<System Name\> holds no passwords. Validation of cryptographic modules to a United States standard is not required.
+7. **R7 Keys:** every key must be in the register, with an owner, a protected store and a cryptoperiod based on CSS, and be changed as P-10 sets. Keys must never be held in source code, settings files, tickets, chat or documents. Each key is changed at the end of its cryptoperiod, when someone who held it leaves, and at once if it may be compromised. The data protection key rings are protected with Windows DPAPI and backed up with the server.
 8. **R8 Certificates:** certificates are issued under \<Organisation\>'s certificate policy, use ECDSA P-256 or RSA 2048-bit with SHA-256, and are renewed at least 30 days before they expire. Only \<Organisation\>'s approved trust anchors are trusted.
-9. **R9 Data at rest:** both VMs must use BitLocker with XTS-AES 256 and the TPM. Backups must be encrypted. Export copies must be deleted once downloaded. Recovery keys are held in \<Organisation\>'s protected store and tested every 12 months.
-10. **R10 Mobile code:** pages may run only JavaScript and WebAssembly served by \<System Name\>. Each app must send a page security policy with no inline scripts, no eval and no outside hosts, that limits where forms may be sent and upgrades insecure requests. Any exception is approved by the system owner and recorded.
+9. **R9 Data at rest:** both VMs must use BitLocker with XTS-AES 256 and the TPM. Backups must be encrypted. Export copies must be held in an encrypted working area and deleted once downloaded (P-20). Recovery keys are held in \<Organisation\>'s protected store and tested every 12 months.
+10. **R10 Mobile code:** pages may run only JavaScript and WebAssembly served by \<System Name\> itself. Every script and style, including browser libraries, is packaged with the application; no content delivery service is used. Each app must send a page security policy with no inline scripts, no eval and no outside hosts, that limits where forms may be sent and upgrades insecure requests. Any exception is approved by the system owner and recorded.
 11. **R11 Availability and remote access:** each app must limit request rates, on top of \<Organisation\>'s denial-of-service protection. Split tunnelling is not allowed. Outbound traffic from the VMs goes through \<Organisation\>'s authenticated proxy, or is blocked.
 12. **R12 Change and checking:** a new flow, port, external service, key or certificate goes through change control and updates the register and allow-lists first. Test-Protection.ps1 is run at each release, after a significant change and at each review.
 
@@ -1494,7 +1498,7 @@ Information in \<System Name\> must be protected wherever it travels or rests. \
 | Authorising official | Decides Medium and High risks, and any exception to R3 or R6 |
 | System owner | Owns this policy and the cryptographic register; approves new flows and mobile code exceptions; reviews the boundary with \<Organisation\> every 12 months |
 | Windows server administrator | Sets TLS, certificates, host firewall rules, BitLocker and key ring protection on the VMs |
-| Database administrator | Sets TLS in PostgreSQL, with client rules that require it, and encrypts backups |
+| Database administrator | Sets strict TLS encryption in SQL Server, limits connections to the application server, gives the API's managed service account a Windows-authenticated login with rights on the application's database only, and encrypts backups |
 | Developers | Build secure cookies and page policies; keep keys out of the code; configure the key rings and rate limits; run Test-Protection.ps1 |
 | Security officer | Checks the register and test results at each review |
 | \<Organisation\> | Provides firewalls, proxy, DNS, certificates and denial-of-service protection |
@@ -1534,7 +1538,7 @@ The rule on non-compliance in section 1.1 applies to this policy.
 | CSS, SC family | The controls this policy meets |
 | NCSC, Using TLS to protect data | The TLS profiles |
 | CSS | Cryptoperiods and key management |
-| PostgreSQL 18 documentation, Secure TCP/IP Connections with SSL | Database TLS enforcement |
+| Microsoft, SQL Server 2022 documentation, encrypted connections and strict encryption | Database TLS enforcement |
 | Microsoft, ASP.NET Core Data Protection key encryption at rest | The key ring protection |
 | \<System and Communications Protection Management\>, \<Procedures\> (SC), \<Security Architecture\> and \<System Security Plan\>, section 3.7 | The values, procedures, design and flows |
 
@@ -1544,11 +1548,11 @@ The rule on non-compliance in section 1.1 applies to this policy.
 
 This policy sets the organisation's rules for keeping \<System Name\> free of known flaws and malicious code, watching it for misuse, and showing that its software and records have not been changed without authority, in line with the CSS SI family (SI-1). It stands alone, as each family has its own policy. The values, detection use cases and retention table that carry it out are in \<System and Information Integrity Management\>, and the steps people follow are in \<Procedures\> (SI).
 
-It applies to UI application, Admin application, API, the \<System Name\> database, the documents and records it holds, and the two Windows Server 2025 VMs they run on at \<Organisation\>.
+It applies to the UI application, the Admin application, the API, the \<System Name\> database, the items and records it holds, and the two Windows Server 2025 VMs they run on at \<Organisation\>.
 
 ### SI.2 The organisation's position
 
-\<System Name\> holds Restricted documents. It must be patched promptly, keep malicious files out, notice misuse quickly, and be able to prove that its software and records are unchanged. Where a rule here is not yet met, the gap is recorded in \<Plan of Action and Milestones\> rather than described as done.
+\<System Name\> holds Moderate-impact information, including personal data. It must be patched promptly, keep malicious files out, notice misuse quickly, and be able to prove that its software and records are unchanged. Where a rule here is not yet met, the gap is recorded in \<Plan of Action and Milestones\> rather than described as done.
 
 ### SI.3 Control principles
 
@@ -1560,17 +1564,17 @@ It applies to UI application, Admin application, API, the \<System Name\> databa
 
 ### SI.4 Mandatory requirements
 
-1. **R1 Flaw remediation:** flaws must be fixed to the one timetable in \<Risk Assessment Management\>, section 3.6: 3 days for a flaw known to be exploited, 14 days for Critical and High, 30 days for Medium, and 90 days for Low (30 once a vendor fix exists), counted from the fix's release or its detection if later. Updates are tested first and installed through change control.
+1. **R1 Flaw remediation:** flaws must be fixed to the one timetable in \<Risk Assessment Management\>, section 3.6: 3 days for a flaw known to be exploited, 14 days for Critical and High, 30 days for Medium, and 90 days for Low (P-11), counted from the fix's release or its detection if later. Updates are tested first and installed through change control.
 2. **R2 Update status:** Test-Vulnerability.ps1 must run monthly and at each release, dependency alerts must be on for every repository, and Windows Update status must be reported from both VMs.
 3. **R3 Malicious code:** Microsoft Defender must run on both VMs, with real-time protection, daily updates and a weekly full scan. Every upload must be passed to Defender through the Windows Antimalware Scan Interface (AMSI) before it is stored. A flagged file is refused, recorded in the audit trail and reported to the security officer.
-4. **R4 Upload checks:** only the allowed document types may be uploaded. Each file's type and signature must match its extension, its size must be within the limit for the user's role, and its name must not contain a path.
-5. **R5 Monitoring:** application, Windows and PostgreSQL logs must be forwarded to \<Organisation\>'s central logging and reviewed weekly. The detection use cases in \<System and Information Integrity Management\>, section 3.4, must raise alerts to the security officer.
+4. **R4 Upload checks:** only the file types in P-19 may be uploaded. Each file's type and signature must match its extension, its size must be within the limit for the user's role (P-17), a batch must be within P-18, and its name must not contain a path.
+5. **R5 Monitoring:** application, Windows and SQL Server logs must be forwarded to \<Organisation\>'s central logging and reviewed weekly (P-08). The detection use cases in \<System and Information Integrity Management\>, section 3.4, which include the eight events in P-27, must raise alerts to the security officer.
 6. **R6 Monitoring people:** users must be monitored only after the legal adviser's opinion, only as far as needed, and with staff told what is monitored and why.
-7. **R7 Advisories:** advisories must be received from NCSC (including Early Warning), CISA's Known Exploited Vulnerabilities catalogue (weekly), Microsoft, .NET and GitHub, and PostgreSQL, and passed to the people who act on them.
-8. **R8 Integrity:** release packages, stored documents and audit records must be protected with SHA-256 and checked against the recorded baseline at start-up, at each release and monthly. An unexpected change is handled as an incident.
+7. **R7 Advisories:** advisories must be received from NCSC (including Early Warning), CISA's Known Exploited Vulnerabilities catalogue (weekly), and the vendors of every component, including Microsoft for Windows Server, .NET and SQL Server, and passed to the people who act on them.
+8. **R8 Integrity:** release packages and stored files must be protected with SHA-256 checksums, and audit records with the HMAC-SHA-256 chain, and checked against the recorded baseline at start-up, at each release and monthly (P-29). An unexpected change is handled as an incident.
 9. **R9 Input validation:** all API inputs, uploads and search terms must be validated on the server, and database queries must use parameters.
 10. **R10 Errors:** users and API callers must receive general error messages. Exception detail goes only to the logs, for administrators and developers.
-11. **R11 Retention:** information must be kept and disposed of under \<System Name\>'s retention schedule (\<PII Processing Management\>, section 3.7): audit records for 12 months online and 12 archived, application logs for 30 days, and export copies deleted once downloaded.
+11. **R11 Retention:** information must be kept and disposed of under \<System Name\>'s retention schedule (\<PII Processing Management\>, section 3.7): audit records for 12 months online and 12 archived (P-07), application logs for 30 days, and export copies deleted once downloaded (P-20).
 12. **R12 Checking:** Test-Integrity.ps1 must run at each release, after a significant change and at each review.
 
 ### SI.5 Responsibilities
@@ -1584,7 +1588,7 @@ It applies to UI application, Admin application, API, the \<System Name\> databa
 | System owner | Owns this policy and the detection use cases |
 | Security officer | Reviews logs and alerts, runs the advisory process, and leads the response to detections |
 | Windows server administrator | Patches the VMs, runs Defender and forwards Windows logs |
-| Database administrator | Patches PostgreSQL and forwards its logs |
+| Database administrator | Patches SQL Server and forwards its logs |
 | Developers | Update packages, build upload scanning, validation and safe errors, and run Test-Integrity.ps1 |
 | Legal adviser | Advises on monitoring users and on retention periods |
 | \<Organisation\> | Monitors network traffic, provides central logging, and registers \<System Name\>'s addresses with NCSC Early Warning |
@@ -1633,11 +1637,11 @@ The rule on non-compliance in section 1.1 applies to this policy.
 
 This policy sets the organisation's rules for managing the risk that \<System Name\> is harmed through what it is built from, where it is hosted, and who supplies it, in line with the CSS SR family (SR-1). It stands alone, as each family has its own policy. The plan, supplier register and values are in \<Supply Chain Risk Management\>, and the steps people follow are in \<Procedures\> (SR).
 
-It applies to the software packages, container images and browser files \<System Name\> is built from, the tools that build it, the hosting, network and hardware \<Organisation\> provides, and the services \<System Name\> depends on.
+It applies to the software packages and browser libraries \<System Name\> is built from, the tools that build it, the hosting, network and hardware \<Organisation\> provides, and the services \<System Name\> depends on.
 
 ### SR.2 The organisation's position
 
-\<System Name\> is mostly made of other people's code: API alone restores 59 packages. A compromise of any supplier could reach \<System Name\>, so what comes in is chosen, checked, fixed and watched. Where a rule here is not yet met, the gap is recorded in \<Plan of Action and Milestones\> rather than described as done.
+\<System Name\> is mostly made of other people's code. A compromise of any supplier could reach \<System Name\>, so what comes in is chosen, checked, fixed and watched. Where a rule here is not yet met, the gap is recorded in \<Plan of Action and Milestones\> rather than described as done.
 
 ### SR.3 Control principles
 
@@ -1652,10 +1656,10 @@ It applies to the software packages, container images and browser files \<System
 1. **R1 Plan and team:** a supply chain plan with a supplier register must be kept in \<Supply Chain Risk Management\> and reviewed every 12 months by the supply chain team: the system owner, the security officer, a developer and \<Organisation\>'s IT service desk.
 2. **R2 Tolerance:** no critical component may be used without a known source and a SHA-256 record.
 3. **R3 Approved suppliers:** hardware, hosting and services must come from suppliers \<Organisation\> has approved. A new critical supplier must be reviewed before use.
-4. **R4 One package source:** every software package, including those pulled in by others, must be restored only from the offline feed, after the PRO-SR-1 check. nuget.org may be used only as a source of vulnerability data.
-5. **R5 Fixed and trusted restores:** every project must use a lock file in locked mode, and restores must accept only packages signed by trusted signers.
-6. **R6 Images and browser files:** container images must be pinned by digest, and any file a page loads from another host must carry an integrity check.
-7. **R7 Monitoring components:** packages and images must be checked for known flaws monthly and at each release, with NuGet's audit on in every build.
+4. **R4 One package source:** every software package, including those pulled in by others, must be restored only from the in-house checked package feed (the offline feed), after the PRO-SR-1 check. nuget.org may be used only as a source of vulnerability data.
+5. **R5 Fixed and trusted restores:** every .NET project in the source code must use a lock file in locked mode, and restores must accept only packages signed by trusted signers.
+6. **R6 Browser libraries:** every script and style a page loads must be packaged with \<System Name\> and served by it. No page loads anything from another host or a content delivery service.
+7. **R7 Monitoring components:** packages and browser libraries must be checked for known flaws monthly and at each release, with NuGet's audit on in every build.
 8. **R8 Bill of materials:** each release must have a bill of materials that lists every component with its version, hash and licence.
 9. **R9 Inspection:** each release must be inspected against its recorded SHA-256 values before installation, and when tampering is suspected. \<Organisation\> must inspect hardware.
 10. **R10 Supplier reviews and notices:** critical suppliers must be reviewed every 12 months on TPL-16. \<Organisation\> must report a compromise to the security officer within 24 hours, and open-source suppliers' advisories must be watched (\<System and Information Integrity Management\>, section 3.3).
@@ -1696,8 +1700,8 @@ The rule on non-compliance in section 1.1 applies to this policy.
 | --- | --- |
 | Supplier | Anyone who provides a component or service \<System Name\> depends on, including open-source projects and package registries |
 | Critical component | A component whose failure or compromise would harm \<System Name\>'s confidentiality, integrity or availability (\<Risk Assessment Management\>, section 3.9) |
-| Offline feed | The in-house offline package repository, whose packages are recorded with SHA-256 values |
-| Lock file | A file that records the exact version and content hash of every package a project restores |
+| Offline feed | The in-house checked package feed, held offline, whose packages are recorded with SHA-256 values |
+| Lock file | A file that records the exact version and content hash of every package a .NET project restores |
 | Bill of materials | A list of every component in a release, with its version, supplier, hash and licence |
 | Counterfeit | A component that is not what it claims to be, including a look-alike package |
 

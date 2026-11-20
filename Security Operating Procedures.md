@@ -16,8 +16,8 @@ Frequencies and time limits are those set in the family documents, and the value
 
 | Who | Reads and signs | When |
 | --- | --- | --- |
-| Everyone with a \<System Name\> account | Part A | Before access, every 12 months, and when the rules change |
-| Global administrators, administrators, auditors, the security officer, Windows server and database administrators, and developers with access to a live system | Parts A and B | Before privileged access, every 12 months, and when the rules change |
+| Everyone given access to \<System Name\> | Part A | Before access, every 12 months, and when the rules change |
+| Administrators, auditors, the security officer, Windows server and database administrators, and developers with access to a live system | Parts A and B | Before privileged access, every 12 months, and when the rules change |
 | Holders of the roles in Part C | Their duties in Part C | Covered by role-based training (AT-3), with no separate signature |
 
 ## 2 Part A: rules for everyone
@@ -38,9 +38,9 @@ Frequencies and time limits are those set in the family documents, and the value
 
 ### 2.2 Monitoring and privacy
 
-**A6.** Before you sign in, \<System Name\> shows this notice: "This system is for authorised use only. Activity is monitored and recorded. Unauthorised use may lead to disciplinary or legal action. By signing in you accept these terms."
+**A6.** When you sign in, \<System Name\> shows this notice, which you must accept before going further: "This system is for authorised use only. Activity is monitored and recorded. Unauthorised use may lead to disciplinary or legal action. By continuing you accept these terms."
 
-**A7.** Everything you do in \<System Name\> is recorded, including sign-ins, searches, documents opened, changes and exports. Authorised auditors review these records and report what they find to the security officer and system owner. The records may be used in investigations, and in disciplinary or legal proceedings.
+**A7.** Everything you do in \<System Name\> is recorded, including sign-ins, searches, items viewed and downloaded, changes and exports. Authorised auditors and the security officer review these records and report what they find to the security officer and system owner. The records may be used in investigations, and in disciplinary or legal proceedings.
 
 **A8.** You have no expectation of privacy in your use of \<System Name\>. By signing these rules you agree to this monitoring. It is carried out only for security, audit and legal compliance.
 
@@ -60,33 +60,33 @@ Frequencies and time limits are those set in the family documents, and the value
 
 **A15.** When working remotely, connect through \<Organisation\>'s VPN with multi-factor authentication. Never approve a sign-in prompt you did not start.
 
-### 2.4 Using \<System Name\> and its documents
+### 2.4 Using \<System Name\> and its items
 
 **A16.** Use \<System Name\> only for \<Organisation\> business. Personal use is not allowed.
 
-**A17.** Open, search for and download only the documents your current work needs, even if you can see more.
+**A17.** Open, search for and download only the items your current work needs, even if you can see more.
 
-**A18.** If you can see a project or document you should not, stop, do not explore further, and report it to the security officer.
+**A18.** If you can see a schema or item you should not, stop, do not explore further, and report it to the security officer.
 
-**A19.** Do not alter, delete, hide or falsify any document or record, except as your role and an approved process allow.
+**A19.** Do not alter, delete, hide or falsify any item or record, except as your role and an approved process allow.
 
-**A20.** Use **Report Bad File** for a corrupt or wrong document.
+**A20.** Use the fault report to report a faulty or wrong item or file.
 
 **A21.** Do not use \<System Name\> to store, view or share anything illegal, offensive, harassing or discriminatory, or anything you have no right to use under copyright or licence.
 
-**A22.** Do not share documents outside their project, or with anyone outside \<Organisation\>, unless the project access approver has agreed and the recipient has a business need.
+**A22.** Do not share items outside their schema, or with anyone outside \<Organisation\>, unless the schema's Data Owner has agreed and the recipient has a business need.
 
 ### 2.5 Personal data
 
-\<System Name\> holds personal data, chiefly in HR documents. UK GDPR, the Data Protection Act 2018 and the Data (Use and Access) Act 2025 apply, and the privacy plan is \<Privacy Plan\>.
+\<System Name\> holds personal data: at least the sign-in identities in its audit records, and whatever its information types hold (\<System Description\>, section 3.4). UK GDPR, the Data Protection Act 2018 and the Data (Use and Access) Act 2025 apply, and the privacy plan is \<Privacy Plan\>.
 
-**A23.** Look at personal data only when your current task needs it, and use it only for the purposes it is held for: HR administration and managing project documents.
+**A23.** Look at personal data only when your current task needs it, and use it only for the purposes it is held for, as set in \<PII Processing Management\>.
 
 **A24.** Copy, export or print only the minimum personal data the task needs.
 
 **A25.** Do not disclose personal data to anyone who does not need it for their work, and never to the public, the media or on social media.
 
-**A26.** If personal data is wrong, out of date or in the wrong project, tell the project access approver so it can be put right.
+**A26.** If personal data is wrong, out of date or in the wrong schema, tell the schema's Data Owner so it can be put right.
 
 **A27.** Pass any request from a person about their data, such as to see, correct or delete it, or to restrict or object to its use, and any complaint about how their data is handled, to the legal adviser the same working day. Do not answer it yourself.
 
@@ -102,9 +102,9 @@ Frequencies and time limits are those set in the family documents, and the value
 
 **A32.** Do not copy \<System Name\> information to USB drives or other removable media. USB storage is blocked on managed devices. Where there is a business need, ask for an exception (section 5), and use only encrypted media issued by \<Organisation\>.
 
-**A33.** Print \<System Name\> documents only on \<Organisation\>'s managed printers with secure release, and mark them RESTRICTED. Collect them from the printer straight away, lock them away when not in use, do not take them off site, and cross-cut shred them when finished, to DIN 66399 level P-4 or better.
+**A33.** Print \<System Name\> items only on \<Organisation\>'s managed printers with secure release, and make sure each page carries the \<Classification\> marking. Collect them from the printer straight away, lock them away when not in use, do not take them off site, and cross-cut shred them when finished, to DIN 66399 level P-4 or better.
 
-**A34.** Do not email \<System Name\> documents outside \<Organisation\>, and do not set up automatic forwarding of work email to any outside address.
+**A34.** Do not email \<System Name\> items outside \<Organisation\>, and do not set up automatic forwarding of work email to any outside address.
 
 ### 2.7 Devices, remote working and travel
 
@@ -114,7 +114,7 @@ Frequencies and time limits are those set in the family documents, and the value
 
 **A37.** Keep your desk clear of printed documents and notes, and place your screen so that others cannot read it.
 
-**A38.** Work remotely only from home, unless the system owner has approved another place in writing. Do not print \<System Name\> documents at home, unless the system owner has approved it in writing.
+**A38.** Work remotely only from home, unless the system owner has approved another place in writing. Do not print \<System Name\> items at home, unless the system owner has approved it in writing.
 
 **A39.** When remote, connect to \<Organisation\>'s VPN before opening \<System Name\>. Do not disable the VPN or send traffic around it.
 
@@ -126,13 +126,13 @@ Frequencies and time limits are those set in the family documents, and the value
 
 ### 2.8 Email, social media, external sites and AI
 
-**A43.** Do not post or discuss \<System Name\> information, documents or how the system works on social media, forums or any public website.
+**A43.** Do not post or discuss \<System Name\> information, items or how the system works on social media, forums or any public website.
 
 **A44.** Do not use your work email address or username to create accounts on outside sites or services, except those \<Organisation\> has approved for business use. Never reuse a work password on them.
 
 **A45.** Do not put \<System Name\> information into any generative AI tool, translation site, file converter or other outside service unless the system owner has approved that tool in writing (section 5).
 
-**A46.** Be wary of emails, messages or calls that ask for documents, passwords or system details, or press you to act fast. Do not click links or open attachments you did not expect. Check the sender by a separate route, and report suspected phishing.
+**A46.** Be wary of emails, messages or calls that ask for items, passwords or system details, or press you to act fast. Do not click links or open attachments you did not expect. Check the sender by a separate route, and report suspected phishing.
 
 ### 2.9 Software and changes
 
@@ -147,11 +147,11 @@ Frequencies and time limits are those set in the family documents, and the value
 **A50.** Report any of these to the security officer within 1 hour:
 
 - a password or account you think is compromised
-- documents you should not be able to see
+- items you should not be able to see
 - personal data that is lost, sent to the wrong person, or seen by someone who should not see it
 - a lost or stolen device
 - unexpected pop-ups, slowness or software installing itself
-- a request for passwords or documents from someone you cannot verify
+- a request for passwords or items from someone you cannot verify
 - someone using \<System Name\> who should not be
 - any breach of these rules
 
@@ -169,17 +169,17 @@ Frequencies and time limits are those set in the family documents, and the value
 
 ## 3 Part B: rules for privileged users
 
-Part B applies, in addition to Part A, to global administrators, administrators, auditors, the security officer, Windows server and database administrators, and developers with access to a live system. A privileged account can change or expose the whole system, so these rules are stricter. The rules are numbered B1 to B22.
+Part B applies, in addition to Part A, to administrators, auditors, the security officer, Windows server and database administrators, and developers with access to a live system. A privileged account can change or expose the whole system, so these rules are stricter. The rules are numbered B1 to B22.
 
 ### 3.1 Before and while you hold privileged access
 
 **B1.** Complete the role-based security training for your role before you receive privileged access, and every 12 months.
 
-**B2.** Use your privileged account only for the privileged task in hand. Use a separate ordinary account for everyday document work.
+**B2.** Use your privileged account only for the privileged task in hand. Use a separate ordinary account for everyday work.
 
 **B3.** Never use a privileged account to browse the web, read email, join meetings or chat.
 
-**B4.** Never share privileged credentials, service account passwords or keys. Each administrator has their own named account.
+**B4.** Never share privileged credentials, secrets or keys. Each administrator has their own named account. Service accounts are managed by the operating system, and nobody signs in with them.
 
 **B5.** Tell the system owner the same day when you no longer need privileged access, for example when your role changes.
 
@@ -187,13 +187,13 @@ Part B applies, in addition to Part A, to global administrators, administrators,
 
 ### 3.2 Managing accounts and access
 
-**B7.** Change projects, or the groups a project uses, only with the approval that \<Procedures\> (AC) requires, and keep the record. Only a group's owner changes its members, and only on an approved request.
+**B7.** Change schemas, or the groups a schema uses, only with the approval that \<Procedures\> (AC) requires, and keep the record. Only a group's owner changes its members, and only on a request authorised in ServiceNow: by the Data Owner for a schema's group, or the system owner for a role group.
 
 **B8.** Never raise your own privileges. Another approved person must make any change to your own access, and nobody's privileges may be raised without approval.
 
 **B9.** Confirm a person's identity by a separate route before you restore any access. Password resets and unlocks are done by \<Organisation\>'s IT service desk, not in \<System Name\>.
 
-**B10.** Do not open documents just because your role allows it. Open them only for a task that needs it, and note the reason when it is not obvious.
+**B10.** Do not open items just because your role allows it. Open them only for a task that needs it, and note the reason when it is not obvious.
 
 **B11.** Protect anything you see in the course of your duties, including other people's personal data, and use it for no other purpose.
 
@@ -205,7 +205,7 @@ Part B applies, in addition to Part A, to global administrators, administrators,
 
 **B14.** Do not change security settings, firewall rules, certificates or keys without an approved change.
 
-**B15.** Do not use debug, test or database maintenance pages on a live system without an approved change, and then only with a second person present (\<Procedures\>, PRO-MA-7).
+**B15.** Do not carry out database maintenance on a live system without an approved change, and then only with a second person present (\<Procedures\>, PRO-MA-7). No debug or test page is included in a release: report any you find.
 
 **B16.** Query or change data directly in the database only for an approved change or incident, and record what you did.
 
@@ -237,36 +237,36 @@ The detection use cases U1 to U8 in \<System and Information Integrity Managemen
 | --- | --- | --- | --- | --- | --- |
 | **Daily** |  |  |  |  |  |
 | C1 | Check all services are healthy | Administrator | The API health check and each application's start page | Health check log on TPL-8, one line a day | SI-4, CP-2 |
-| C2 | Back up the database and documents | Database administrator | \<Procedures\>, PRO-CP-1 | Backup job log, checked at C8 | CP-9 |
+| C2 | Back up the database, which holds every item and file | Database administrator | \<Procedures\>, PRO-CP-1 | Backup job log, checked at C8 | CP-9 |
 | **Weekly** |  |  |  |  |  |
 | C3 | Review failed sign-ins, lockouts and privileged actions | Auditor | Section 4.2 | TPL-8 | AC-2, AC-6(9), AC-7, AU-6 |
 | C4 | Review logs and any alerts | Security officer | \<Procedures\>, PRO-SI-3 and PRO-SI-4 | TPL-8 | SI-4, AU-6 |
-| C5 | Check Windows and PostgreSQL logs, or \<Organisation\>'s report on them | Windows server and database administrators | \[Method set with \<Organisation\>\] | TPL-8 | AU-6, AU-6(3), SI-4 |
+| C5 | Check Windows and SQL Server logs, or \<Organisation\>'s report on them | Windows server and database administrators | \[Method set with \<Organisation\>\] | TPL-8 | AU-6, AU-6(3), SI-4 |
 | C6 | Back up system configuration | Windows server administrator | \<Procedures\>, PRO-CP-1 | Backup job log, checked at C8 | CP-9 |
 | C7 | Act on security advisories as they arrive, and confirm none were missed | Security officer | \<Procedures\>, PRO-SI-5 | TPL-7 | SI-5 |
 | C8 | Check every backup job in the week succeeded | Database administrator | Backup job logs | TPL-8 | CP-9 |
 | **Monthly** |  |  |  |  |  |
-| C9 | List the members of \<System Name\>'s groups who have not signed in for 90 days, and have the groups' owners remove them | Global administrator; the groups' owners | \<Procedures\>, PRO-AC-8 | TPL-3 | AC-2(3) |
+| C9 | List the members of \<System Name\>'s groups who have not signed in for 90 days, and have the groups' owners remove them | Administrator; the groups' owners | \<Procedures\>, PRO-AC-8 | TPL-3 | AC-2(3) |
 | C10 | Scan for vulnerabilities and review patches | Windows server administrator, security officer | \<Procedures\>, PRO-RA-3 | TPL-7 | RA-5, SI-2 |
-| C11 | Check packages, lock files, the offline feed's index and support dates, and run Test-SupplyChain.ps1 at each release | Developers | \<Procedures\>, PRO-SR-1 and PRO-SR-3; \<Procedures\>, PRO-SA-5 | TPL-7 | SI-2, SA-22, SR-3 |
-| C12 | Check release packages, document checksums and the audit chain | Windows server administrator, security officer | \<Procedures\>, PRO-SI-6 | TPL-8 | SI-7, SI-7(1), AU-9 |
+| C11 | Check packages, lock files, the in-house package feed and support dates, and run Test-SupplyChain.ps1 at each release | Developers | \<Procedures\>, PRO-SR-1 and PRO-SR-3; \<Procedures\>, PRO-SA-5 | TPL-7 | SI-2, SA-22, SR-3 |
+| C12 | Check release packages, file checksums and the audit chain | Windows server administrator, security officer | \<Procedures\>, PRO-SI-6 | TPL-8 | SI-7, SI-7(1), AU-9 |
 | C13 | Report security status to the system owner | Security officer | \<Procedures\>, PRO-CA-5 | TPL-8, monthly measures | CA-7 |
 | C14 | Update the plan of action | System owner | \<Procedures\>, PRO-CA-3 | \<Plan of Action and Milestones\> change record | CA-5 |
 | C45 | Check audit storage, archive records older than 12 months, and check both VMs are within 1 second of UTC | Database administrator, Windows server administrator | \<Procedures\>, PRO-AU-4 | TPL-8 | AU-4, AU-8, AU-11 |
 | C46 | Check who can read the application logs, and delete those older than 30 days | Windows server administrator | \<Procedures\>, PRO-AU-7 | TPL-8 | AU-9, AU-11, PT-3 |
 | C47 | Check the running configuration against the baseline, and report any drift | Windows server and database administrators | \<Procedures\>, PRO-CM-7 | TPL-8 | CM-2, CM-6, CA-7 |
 | C48 | Review every maintenance record against its change record; raise any maintenance without one as an incident | Security officer | \<Procedures\>, PRO-MA-1 | TPL-12 | MA-2, MA-4 |
-| C49 | Check the export folder on the application VM, and delete any export copy older than 24 hours (each working day) | Windows server administrator | \<Procedures\>, PRO-MP-5 | TPL-8 | MP-4, MP-6 |
+| C49 | Check the encrypted export working area on the application server, and delete any working copy older than 24 hours (each working day; \<System Description\>, P-20) | Windows server administrator | \<Procedures\>, PRO-MP-5 | TPL-8 | MP-4, MP-6 |
 | C50 | Each week, check CISA's Known Exploited Vulnerabilities catalogue and \<Organisation\>'s alerts against \<System Name\>'s components; fix or mitigate any match within 3 days | Security officer | \<Procedures\>, PRO-RA-4 | TPL-7 | RA-5, SI-2, SI-5 |
 | **Every 3 months** |  |  |  |  |  |
 | C15 | Review privileged access | System owner, auditor | \<Procedures\>, PRO-AC-7 | TPL-3 | AC-2, AC-6(7) |
-| C16 | Check the global administrators' actions | Head of Cyber | Audit records | TPL-8 | AC-6(9), AU-6 |
+| C16 | Check the administrators' actions | Head of Cyber | Audit records | TPL-8 | AC-6(9), AU-6 |
 | C17 | Report security status to the authorising official | Security officer, system owner | \<Procedures\>, PRO-CA-5 | TPL-8 | CA-7 |
 | **Every 6 months** |  |  |  |  |  |
 | C18 | Test that backups can be restored | Database administrator | \<Procedures\>, PRO-CP-2 | TPL-11 | CP-9(1) |
 | **Every 12 months** |  |  |  |  |  |
-| C19 | Review all access | Project access approvers | \<Procedures\>, PRO-AC-7 | TPL-3 | AC-2 |
-| C20 | Rotate secrets and database passwords | Database administrator, Windows server administrator | \<Procedures\>, PRO-IA-4 and PRO-SC-3 | TPL-6 | IA-5, SC-12 |
+| C19 | Review the members of each schema's groups, and the system owner the role groups at C15 | Data Owners | \<Procedures\>, PRO-AC-7 | TPL-3 | AC-2 |
+| C20 | Change keys and secrets as \<System Description\>, P-10 sets. The API has no database password | Database administrator, Windows server administrator | \<Procedures\>, PRO-IA-4 and PRO-SC-3 | TPL-6 | IA-5, SC-12 |
 | C21 | Exercise the incident response and contingency plans | Security officer, system owner | \<Procedures\>, PRO-IR-3; \<Procedures\>, PRO-CP-4 | TPL-11 | IR-3, CP-4 |
 | C22 | Complete awareness and role training | Everyone; the security officer keeps records | \<Procedures\>, PRO-AT-1 to PRO-AT-5 | TPL-9 | AT-2, AT-3, AT-4 |
 | C23 | Re-sign Parts A and B | Everyone; the system owner keeps the register of signatures | Section 9 | TPL-21; the register of signatures (\<Planning Management\>, section 3.5) | PL-4, PS-6 |
@@ -278,7 +278,7 @@ The detection use cases U1 to U8 in \<System and Information Integrity Managemen
 | C29 | Check \<Organisation\>'s physical security evidence | System owner | \<Procedures\>, PRO-PE-1 | Response logged in \<Evidence Requests\> | PE-2 to PE-16 |
 | C30 | Assess home working controls | Security officer | \<Procedures\>, PRO-PE-4 | TPL-4 | PE-17 |
 | C31 | Review risk designations and access agreements | System owner | \<Procedures\>, PRO-PS-4 | TPL-3 | PS-2, PS-6 |
-| C32 | Check personal data is accurate, relevant and still needed | Project access approvers | \<Procedures\>, PRO-PT-5 | TPL-3 | SI-18, PT-3 |
+| C32 | Check personal data is accurate, relevant and still needed | Data Owners | \<Procedures\>, PRO-PT-5 | TPL-3 | SI-18, PT-3 |
 | C33 | Check the privacy notice names \<System Name\> | System owner | \<Procedures\>, PRO-PT-3 | TPL-4 | PT-5 |
 | C34 | Review exceptions | System owner | Section 5 | Exception register, TPL-17 | PL-4, CA-5 |
 | C35 | Review these SyOps and the other security documents | System owner | Each document's change record | Document change record | PL-4c, PL-2 |
@@ -289,19 +289,19 @@ The detection use cases U1 to U8 in \<System and Information Integrity Managemen
 | C37 | Apply updates within the time limits in Table 4 | Windows server administrator, database administrator, developers | Section 4.3, through approved change | TPL-6, TPL-7 | SI-2, CM-3 |
 | C38 | Make a change, including an emergency change | Change control element | Section 4.5 | TPL-6 | CM-3, CM-4, CM-5 |
 | C39 | Renew certificates before they expire | Windows server administrator | \<Procedures\>, PRO-SC-2 | TPL-6 | SC-8, SC-17 |
-| C40 | Repeat the security tests at each release and after a significant change | Developers | The developer test plan in \<System and Services Acquisition Management\>, section 3.9 (15 scripts, including Test-Protection.ps1 for \<Procedures\>, PRO-SC-1), on a separate test stack; \<Procedures\>, PRO-SA-2 | Results, with a manifest, in the evidence for each family | CA-2, CM-4(2), SA-11 |
-| C41 | Carry out maintenance | Administrators | Sections 4.6 and 4.7 | TPL-12 | MA-2, MA-4 |
-| C42 | Transport, sanitise or dispose of media | \<Organisation\>, administrators | Section 4.8 | TPL-13 | MP-5, MP-6 |
+| C40 | Repeat the security tests at each release and after a significant change | Developers | The developer test plan in \<System and Services Acquisition Management\>, section 3.9 (15 scripts, including Test-Protection.ps1 for \<Procedures\>, PRO-SC-1), in the test environment; \<Procedures\>, PRO-SA-2 | Results, with a manifest, in the evidence for each family | CA-2, CM-4(2), SA-11 |
+| C41 | Carry out maintenance | Windows server and database administrators | Sections 4.6 and 4.7 | TPL-12 | MA-2, MA-4 |
+| C42 | Transport, sanitise or dispose of media | \<Organisation\>, Windows server administrator | Section 4.8 | TPL-13 | MP-5, MP-6 |
 | C43 | Handle a security incident or personal data breach | Security officer | Section 4.9 | TPL-10 | IR-4, IR-5, IR-6 |
 | C44 | Handle a request or complaint from a person about their data | Legal adviser | \<Procedures\>, PRO-PT-1 and PRO-PT-2 | TPL-15, TPL-22 | AC-3(14), SI-18(4) |
 | C51 | Have every code change reviewed by another developer and merged through the protected default branch, and sign each release tag | Developers | \<Procedures\>, PRO-SA-1; Test-Development.ps1 at each release | Pull request or change record, TPL-6 | SA-10, CM-3 |
 
 ### 4.2 Audit review procedure (C3)
 
-1. The auditor opens the audit log page in the admin portal and filters to the period since the last review.
-2. They look for repeated failed sign-ins, lockouts, refused access, sign-ins at unusual times, account, group and privilege changes, password resets, large exports, configuration changes, reading of the audit log, gaps in the records, and records under unknown names or "System".
-3. They compare account and privilege changes with the approved requests (TPL-2).
-4. They check the Windows and PostgreSQL logs, and \<Organisation\>'s record of PingFederate sign-ins and of changes to \<System Name\>'s AD groups, or get \<Organisation\>'s report on them.
+1. The auditor opens the audit log page in the Admin application and filters to the period since the last review.
+2. They look for refused sign-in responses, failed Active Directory lookups, refused access, sign-ins at unusual times, schema and group administration, privileged functions, large exports, configuration changes, reading of the audit log, gaps in the records, and records under unknown names or "System".
+3. They compare changes to \<System Name\>'s Active Directory groups, from \<Organisation\>'s records, with the requests authorised in ServiceNow (TPL-2).
+4. They check the Windows and SQL Server logs, and \<Organisation\>'s record of PingFederate sign-ins, failed sign-ins and lockouts, and of changes to \<System Name\>'s Active Directory groups, or get \<Organisation\>'s report on them.
 5. They run the audit chain check (\<Procedures\>, PRO-AU-2). If tampering is suspected, they preserve the evidence before anything is changed (PRO-AU-2, step 3), and raise it, and anything else unexplained, as a security incident (section 4.9).
 6. They record the date, the period covered, the reviewer and the result on TPL-8.
 
@@ -312,10 +312,9 @@ The detection use cases U1 to U8 in \<System and Information Integrity Managemen
 | Component | How it is checked | Who | How often |
 | --- | --- | --- | --- |
 | Windows Server 2025 | Vendor updates and a credentialed scan, \<Procedures\>, PRO-RA-3 | Windows server administrator | Monthly, and at each release |
-| PostgreSQL | Vendor security announcements | Database administrator | Monthly |
-| .NET and NuGet packages, from nuget.org and the offline feed | Package vulnerability report at each build | Developers | Each build, and monthly |
+| Microsoft SQL Server 2022 | Vendor updates and security announcements | Database administrator | Monthly |
+| .NET and NuGet packages, through the in-house package feed | Package vulnerability report at each build | Developers | Each build, and monthly |
 | Browser libraries | Vendor security announcements | Developers | Monthly |
-| Container images and their operating system packages | Test-Vulnerability.ps1 and an image scanner | Developers | Each release |
 | \<System Name\>'s own applications | Web application scan | Developers | Each release |
 | Server and database settings | Configuration scan against the baseline | Windows server administrator, database administrator | Monthly |
 | All components, for exploited flaws | CISA's Known Exploited Vulnerabilities catalogue and \<Organisation\>'s alerts, \<Procedures\>, PRO-RA-4 | Security officer | Weekly (C50) |
@@ -326,14 +325,14 @@ The detection use cases U1 to U8 in \<System and Information Integrity Managemen
 | --- | --- |
 | Critical or high | 14 days, matching Cyber Essentials Plus |
 | Medium | 30 days |
-| Low | 90 days, or 30 days once a vendor security update is available |
+| Low | 90 days |
 | Exploited (in CISA's catalogue, or confirmed by the vendor) | 3 days, as an emergency change |
 
 A fix that cannot be made in time goes through PRO-AC-15 and into \<Plan of Action and Milestones\>. Updates are tested first, as \<Procedures\>, PRO-SI-1 requires. These times are the timetable in \<Risk Assessment Management\>, section 3.6, counted from the fix's release, or from detection if later; severity is the vendor's rating, or else the CVSS base score.
 
 ### 4.4 Joiners, movers and leavers (C36)
 
-1. **Joiner.** The person asks for access in ServiceNow. Their line manager approves it, and the group's owner authorises it: the system owner for a role, or the project access approver for a project. Before the person is added to a group, they complete training (A54), sign Part A, and Part B if privileged. The owner adds them to the fewest AD groups the role needs. No \<System Name\> account is created.
+1. **Joiner.** The person asks for access in ServiceNow. Their line manager approves it, and the group's owner authorises it: the system owner for a role, or the Data Owner for a schema. Before the person is added to a group, they complete training (A54), sign Part A, and Part B if privileged. The owner adds them to the fewest Active Directory groups the role needs. No \<System Name\> account is created.
 2. **Mover.** The person's manager tells the system owner and the owners of the person's groups within 1 working day of a role change. Access no longer needed is removed and recorded on TPL-14.
 3. **Leaver.** \<Organisation\> disables the person's Active Directory account at once, which ends their access, and the owners of their groups remove the memberships within 5 working days. Any exported files or paper are recovered or destroyed, and recorded on TPL-14.
 4. **High-risk leaver or misuse.** \<Organisation\>'s service desk disables the Active Directory account and ends the person's PingFederate sign-in within 1 hour of notice (\<Procedures\>, PRO-AC-4).
@@ -341,7 +340,7 @@ A fix that cannot be made in time goes through PRO-AC-15 and into \<Plan of Acti
 
 ### 4.5 Change control (C38)
 
-1. **Normal change.** It is raised on TPL-6, or in ServiceNow. The security officer assesses its security impact, and it is tested on a separate stack. The change control board approves it: the system owner, the security officer and the Windows server administrator. After it is made, it is checked to confirm the security functions still work. The documents it affects are updated.
+1. **Normal change.** It is raised on TPL-6, or in ServiceNow. The security officer assesses its security impact, and it is tested in the test environment. The change control board approves it: the system owner, the security officer and the Windows server administrator. After it is made, it is checked to confirm the security functions still work. The documents it affects are updated.
 2. **Emergency change.** This is allowed only to stop or limit an incident or an outage. The system owner, or their deputy, approves it by phone or in person before it is made. It is recorded on TPL-6 within 1 working day, and reviewed by the change control board at its next meeting (PRO-CM-8).
 3. **Prohibited.** There are no changes without a record, no changes by anyone outside the approved roles, and no changes that switch off auditing or security functions.
 
@@ -349,16 +348,16 @@ The security officer analyses each change's impact against the criteria in \<Con
 
 ### 4.6 Secure start-up, shut-down and recovery (C41)
 
-1. **Start-up.** Start the database VM first, then the application VM. Confirm the time is synchronised, run the start-up checks of release packages, document checksums and the audit chain (\<Procedures\>, PRO-SI-6), then confirm every service is healthy (C1).
-2. **Shut-down.** A planned shut-down is an approved change. Tell users at least 2 working days beforehand, confirm the latest backups succeeded, stop UI application and Admin application, then API, then PostgreSQL, and record it.
+1. **Start-up.** Start the database VM first, then the application VM. Confirm the time is synchronised, run the start-up checks of release packages, file checksums and the audit chain (\<Procedures\>, PRO-SI-6), then confirm every service is healthy (C1).
+2. **Shut-down.** A planned shut-down is an approved change. Tell users at least 2 working days beforehand, confirm the latest backups succeeded, stop the UI application and the Admin application, then the API, then SQL Server, and record it.
 3. **Emergency shut-down.** If \<Organisation\> warns that the data centre is on backup power, the Windows server and database administrators shut down at once in the same order, without the notice, and before the backup power runs out. It is recorded on TPL-10 as a physical incident.
-4. **Recovery.** Follow \<Contingency Planning Management\>. Restore from the latest good backup, run the checks in PRO-CP-2 (row counts, document checksums and the audit records' stored hashes) and \<Contingency Planning Management\>, section 3.7, and change secrets if a compromise is suspected. Confirm the security functions work before users return, and record the recovery on TPL-11, or on TPL-10 if it followed an incident.
+4. **Recovery.** Follow \<Contingency Planning Management\>. Restore from the latest good backup, run the checks in PRO-CP-2 (row counts, file checksums and the audit chain) and \<Contingency Planning Management\>, section 3.7, and change secrets if a compromise is suspected. Check the members of \<System Name\>'s groups against current staff, and confirm the security functions work, before users return, and record the recovery on TPL-11, or on TPL-10 if it followed an incident.
 
 ### 4.7 Remote maintenance (C41)
 
 1. Remote maintenance is done only over a route in \<Maintenance Management\>, section 3.4, through \<Organisation\>'s approved route, with multi-factor authentication, for an approved change or an incident.
-2. The session is logged, limited to the task, and ended as soon as it is finished.
-3. Afterwards the administrator runs the checklist after maintenance (\<Procedures\>, Table MA-2) and records the session on TPL-12, with the session log reference. The security officer reviews and signs the result within 1 working day.
+2. The connection is logged, limited to the task, and ended as soon as it is finished.
+3. Afterwards the server or database administrator runs the checklist after maintenance (\<Procedures\>, Table MA-2) and records the work on TPL-12, with the connection log reference. The security officer reviews and signs the result within 1 working day.
 4. Outside maintenance staff work only under the supervision of a \<System Name\> administrator (B21).
 
 ### 4.8 Media sanitisation and disposal (C42)
@@ -374,7 +373,7 @@ The security officer analyses each change's impact against the criteria in \<Con
 | Severity | Examples | Security officer starts work within | Who is told |
 | --- | --- | --- | --- |
 | Critical | Personal data breach likely to harm people; ransomware; compromise of a privileged account | 1 hour | System owner, authorising official, legal adviser, \<Organisation\>'s security contact |
-| High | Compromised user account; exposed secret; access to documents someone should not see | 4 hours | System owner, \<Organisation\>'s security contact; legal adviser if personal data is involved |
+| High | Compromised user account; exposed secret; access to items someone should not see | 4 hours | System owner, \<Organisation\>'s security contact; legal adviser if personal data is involved |
 | Medium | Malware stopped by Defender; repeated failed sign-ins; a supplier advisory affecting \<System Name\> | 1 working day | System owner |
 | Low | A single policy breach with no data exposed | 5 working days | Recorded only |
 
@@ -382,7 +381,7 @@ The security officer analyses each change's impact against the criteria in \<Con
 
 | Event | First action | Who |
 | --- | --- | --- |
-| Suspected account misuse | Have the account disabled and the person's PingFederate sign-in ended (\<Procedures\>, PRO-AC-4) | Global administrator |
+| Suspected account misuse | Have the account disabled and the person's PingFederate sign-in ended (\<Procedures\>, PRO-AC-4) | Security officer, through \<Organisation\>'s service desk |
 | Exposed password or secret | Change it and report it to the security officer | Whoever finds it |
 | Access to data someone should not see | Stop, and report to the security officer | Whoever finds it |
 | Personal data breach | Report to the security officer at once. The security officer tells the legal adviser, who decides on telling the ICO within 72 hours of becoming aware and the people affected, and records every breach (\<Incident Response Management\>, section 3.8) | Whoever finds it; security officer; legal adviser |
@@ -422,7 +421,7 @@ The phone number and email of each contact are in \<Roles and Responsibilities\>
 | When the security officer is away | \[Name\], system owner, as deputy (\<Roles and Responsibilities\>, Table 4) |
 | Exceptions, and decisions on access | \[Name\], system owner |
 | Personal data, breaches and requests from individuals | \[Name\], legal adviser |
-| Accounts and access in \<System Name\> | \[Name\], global administrator |
+| Access to a schema, or to a role in \<System Name\> | The schema's Data Owner; \[Name\], system owner, for a role |
 | Devices, VPN, lost devices and passwords for the network | \<Organisation\>'s IT service desk |
 | \<Organisation\>'s security team | \[Name\]; deputy \[Name\] |
 
@@ -433,16 +432,16 @@ The phone number and email of each contact are in \<Roles and Responsibilities\>
 | Term | Meaning |
 | --- | --- |
 | Approved change | A change raised, assessed, tested and approved under section 4.5 |
-| Audit record | \<System Name\>'s record of an action, such as a sign-in, document view, change or export |
+| Audit record | \<System Name\>'s record of an action, such as a sign-in, item view, change or export |
 | Exception | Written permission to depart from a rule for a set period (section 5) |
 | Export | Any copy of \<System Name\> information taken out of \<System Name\>, including downloads, bulk exports, screenshots and prints |
 | Generative AI tool | Any service that produces text, images or code from what you give it, such as chat assistants and AI writing or translation tools |
 | Managed device | A computer that \<Organisation\> issues and controls, with disk encryption, screen lock and USB blocking |
 | Personal data | Information about a living person who can be identified, as defined in UK GDPR |
 | Personal data breach | A breach of security that leads to personal data being lost, destroyed, changed, disclosed or accessed without authority |
-| Privileged user | Anyone whose access lets them change accounts, settings, security functions, servers or the database, or read audit records (Part B) |
+| Privileged user | Anyone whose access lets them change schemas, groups, settings, security functions, servers or the database, or read audit records (Part B) |
 | Removable media | USB drives, external disks, memory cards and similar storage |
-| RESTRICTED | \<Organisation\>'s marking for \<System Name\> information and printouts |
+| \<Classification\> | The protective marking for \<System Name\> information and printouts, shown by \<System Name\> on what it displays, prints and exports |
 | Security incident | Anything that harms, or could harm, the confidentiality, integrity or availability of \<System Name\> or its information, or that breaks these rules |
 | VPN | \<Organisation\>'s virtual private network, used to reach the corporate network from outside the office |
 

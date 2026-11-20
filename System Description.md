@@ -19,6 +19,7 @@ It is a summary. The detail of each control family is held once, in the design d
 | \<Document Name\> | Another document in the set, such as \<Access Control Management\> | \<Documentation Map\> |
 | \<ver\> | A document's version, where a record cites one | The change record (\<Documentation Map\>, section 4.1) |
 | \<Classification\> | The protective marking of the set | Section 3.1 |
+| \<Code\> | The application's short code, used in component, service and group names | Section 3.1 |
 | P-nn | A value the application confirms or changes, such as a retention period | Section 4 |
 | AF-nnn | A function particular to one application | Section 3.5 |
 | \[Text in square brackets\] | A fact that must be supplied for the application. Do not guess it | Where it appears |
@@ -72,7 +73,7 @@ This section is completed for each application built on the reference system. Un
 | Item | Value |
 | --- | --- |
 | Application name (\<System Name\>) | \[Name\] |
-| Short code, used in component and service names | \[Code\] |
+| Short code, used in component, service and group names (\<Code\>) | \[Code\] |
 | Organisation (\<Organisation\>) | \[Organisation\] |
 | Business purpose, in one sentence | \[Purpose\] |
 | Business processes it supports | \[Processes\] |
@@ -95,7 +96,7 @@ This section is completed for each application built on the reference system. Un
 
 ### 3.3 Who uses it
 
-The reference system has the roles below. An application may rename a role, or leave one out where it has no use for it, and items that in section 3.6.
+The reference system has the roles below. An application may rename a role, or leave one out where it has no use for it, and records that in section 3.6.
 
 **Table 5: Users and roles**
 
@@ -125,7 +126,7 @@ Each application lists the information it holds and rates each type under CSS. T
 | Sign-in identities and audit records | Yes | Moderate | Moderate | Low |
 | **The application, taking the highest of each** | | **\[Rating\]** | **\[Rating\]** | **\[Rating\]** |
 
-The reference system is designed for Moderate confidentiality, Moderate integrity and Low availability. An application rated Low in any objective may keep the Moderate controls. An application rated High in any objective is outside this reference system (section 1.2, step 4).
+The reference system is designed for Moderate confidentiality, Moderate integrity and Low availability. An application rated Low in any objective may keep the Moderate controls. An application rated High in any objective is outside this reference system (section 1.2, step 5).
 
 ### 3.5 Functions particular to the application
 
@@ -137,7 +138,7 @@ The functional requirements in section 5.1 are common to every application built
 | --- | --- | --- | --- |
 | AF-001 | \[Function\] | \[Role\] | \[Which part does the work, where the data is held and where the access check is made\] |
 
-A function that would break a statement in section 5.1.11, "What the application does not do", is a departure and goes in section 3.6.
+A function that would break a statement in section 5.1.12, "What the application does not do", is a departure and goes in section 3.6.
 
 ### 3.6 Departures from the reference design
 
@@ -151,7 +152,7 @@ An application with no departures says "None".
 
 ## 4 Parameters
 
-These are the values the controls depend on. CSS calls many of them organisation-defined parameters. Each has a reference value that the design in this set is written to. An application keeps it or sets its own, and states the reason in the last column. A change to P-01 or to any time in P-11 to P-14 changes the categorisation or the contingency plan, and needs the authorising official's agreement.
+These are the values the controls depend on. CSS calls many of them organisation-defined parameters. Each has a reference value that the design in this set is written to. An application keeps it or sets its own, and states the reason in the last column. A change to P-01 or to any time in P-12 to P-14 changes the categorisation or the contingency plan, and needs the authorising official's agreement.
 
 **Table 9: Parameters**
 
@@ -338,7 +339,7 @@ Each requirement is to be verified before the application is authorised. \<Secur
 
 | No. | Requirement | Who | How it is implemented |
 | --- | --- | --- | --- |
-| FR-067 | Record every event type in section 7.6 in one audit log, with who, what, when, where and the result | System | The function that carries out an action calls the audit service in the API, which adds one item |
+| FR-067 | Record every event type in section 7.6 in one audit log, with who, what, when, where and the result | System | The function that carries out an action calls the audit service in the API, which adds one record |
 | FR-068 | Accept audit records only from the application's own components, and let no user write or change one | System | The API accepts audit events only on calls bearing the token of the UI application or Admin application, and its database account may only add rows |
 | FR-069 | Chain the audit records with a keyed hash, and check the chain on a schedule and on request | System | Each audit record stores a keyed hash of its own content and the previous record's hash. A scheduled task recomputes the chain and reports a break |
 | FR-070 | Read, filter, search, sort and export the audit log | Auditor | The Admin application asks the API, which runs parameterised queries on the audit table. Only the auditor role may do this |
@@ -424,8 +425,8 @@ The application has no session management of its own: no idle lock, no idle time
 
 | No. | Requirement | How it is implemented | Held in |
 | --- | --- | --- | --- |
-| NFR-022 | Item in each audit record the event type and action, the time in UTC, the application, the address and browser, the result, the user, and the schema and item | One record layout, filled in by the audit service in the API from the request | \<Audit and Accountability Management\> |
-| NFR-023 | Never item a password, key, token or cookie | The audit service takes named fields only | \<Audit and Accountability Management\> |
+| NFR-022 | Record in each audit record the event type and action, the time in UTC, the application, the address and browser, the result, the user, and the schema and item | One record layout, filled in by the audit service in the API from the request | \<Audit and Accountability Management\> |
+| NFR-023 | Never record a password, key, token or cookie | The audit service takes named fields only | \<Audit and Accountability Management\> |
 | NFR-024 | Let only the API write audit records, and let its database account add records and nothing more | Only the API has a route to the audit table, and its database role is granted insert and select on it and nothing more | \<Audit and Accountability Management\> |
 | NFR-025 | Chain audit records with HMAC-SHA-256 under a key held outside the database, so that a change or removal is detected | The hash covers the record's content and the previous hash, keyed with a secret from the key store | \<Audit and Accountability Management\> |
 | NFR-026 | Keep audit records as P-07 sets | A scheduled archive and deletion, with the archive kept offline | \<Audit and Accountability Management\> |
@@ -607,7 +608,7 @@ An application built on the reference system has no hardware of its own, no wire
 | Database | Microsoft SQL Server | Holds every item, file, schema definition and audit record, with each schema in its own database schema | Database server |
 | Browser libraries | Any third-party script or style the pages need | For example a document viewer or an icon set | The user's browser, served by the application itself |
 
-The components are named \[Code\]\_Web, \[Code\]\_Admin, \[Code\]\_API and \[Code\]\_Shared, using the short code in section 3.1.
+The components are named \<Code\>\_Web, \<Code\>\_Admin, \<Code\>\_API and \<Code\>\_Shared, using the short code in section 3.1.
 
 ### 6.4 Technologies
 
@@ -719,7 +720,7 @@ The application has no session management. Once signed in, the person's identity
 | Secrets: the token signing key and the audit chain key | A key store outside the source code | Access limited to the service account that needs each; changed as P-10 sets. There is no database password: the API uses Windows authentication |
 | Backups | \<Organisation\>'s backup store and second site | Encrypted, with the key held apart |
 
-The application holds no user accounts. The names and groups that arrive at sign-in are held only in the authentication cookie, in the audit records, and in items, such as who created or uploaded a record.
+The application holds no user accounts. The names and groups that arrive at sign-in are held only in the authentication cookie, in the audit records, and in items, such as who created or uploaded an item.
 
 ### 7.5 Files: upload, viewing and export
 
@@ -727,7 +728,7 @@ The application holds no user accounts. The names and groups that arrive at sign
 
 **Viewing.** A file is sent to the browser, or rendered on the server and sent as an image, only after the schema access check. The viewer is served by the application.
 
-**Export.** Only an editor of the schema, or a administrator, may bulk export. A job can be seen, downloaded or cancelled only by the person who started it. Exports are delivered as downloads, marked with their classification, and every export is audited. Taking exported items outside \<Organisation\>'s systems needs the Data Owner's decision.
+**Export.** Only an editor of the schema, or an Administrator, may bulk export. A job can be seen, downloaded or cancelled only by the person who started it. Exports are delivered as downloads, marked with their classification, and every export is audited. Taking exported items outside \<Organisation\>'s systems needs the Data Owner's decision.
 
 ### 7.6 Audit
 
@@ -767,7 +768,7 @@ Each record holds the event type and action, the time in UTC, the application th
 | Database connection account | Windows authentication (Kerberos) with the API's managed service account. No password is held |
 | Sign-in responses | Signed by PingFederate; the application holds only its public certificate |
 
-Every key has an owner, a store and a cryptoperiod in the key register, in \<System and Communications Protection Management\>. Keys are never held in source code or settings files. United States CSS validation is not required: NCSC's profiles are used instead.
+Every key has an owner, a store and a cryptoperiod in the key register, in \<System and Communications Protection Management\>. Keys are never held in source code or settings files. Validation of cryptographic modules to a United States standard is not required: NCSC's profiles are used instead.
 
 ### 7.8 Network and boundary
 
