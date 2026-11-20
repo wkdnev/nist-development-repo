@@ -4,7 +4,7 @@
 
 This plan is used by every control family. It describes how \<System Name\> implements its security controls: how it meets each one or does not, at a high level, which are shared, and which do not apply. It covers all nineteen assessed families, listed below, and section 7 gives a brief overview of every control in each of them. PM is outside the baseline (\<Tailoring Register\>, TR-PM-01). Nothing is fully implemented in operation, because \<System Name\> is not yet operational. This plan does not claim compliance.
 
-\<System Name\> is assessed against NIST SP 800-53 Rev 5 only, using the SP 800-53A Rev 5 assessment procedures and the SP 800-53B baselines. Assessment results are in each family's chapter of \<Control Assessment Record\>, summarised below. The privacy plan is \<Privacy Plan\> and the supply chain risk management plan is \<Supply Chain Risk Management\>. This plan refers to them rather than repeating them. The organisation takes a risk-based approach, so each non-compliance is rated and decided in \<Risk List\>. This plan is a brief overview of each control. The findings behind it are in that record, and are not repeated here. In section 7, Status describes what is built, and Assessment gives the Level 1 result.
+\<System Name\> is assessed against CSS only, using the CSS assessment procedures and the CSS baselines. Assessment results are in each family's chapter of \<Control Assessment Record\>, summarised below. The privacy plan is \<Privacy Plan\> and the supply chain risk management plan is \<Supply Chain Risk Management\>. This plan refers to them rather than repeating them. The organisation takes a risk-based approach, so each non-compliance is rated and decided in \<Risk List\>. This plan is a brief overview of each control. The findings behind it are in that record, and are not repeated here. In section 7, Status describes what is built, and Assessment gives the Level 1 result.
 
 Level 1 statements satisfied, by family, on 12 November 2026:
 
@@ -52,7 +52,7 @@ Level 1 statements satisfied, by family, on 12 November 2026:
 | Security categorisation | Moderate, confirmed by the authorising official |
 | System owner | \[Name\] |
 | Authorising official | \[Name\] |
-| Control baseline | NIST SP 800-53 Rev 5 Moderate; the AC, AT, AU, CA, CM, CP, IA, IR, MA, MP, PE, PL, PS, RA, SA, SC, SI and SR families in this version, with PT and 16 other controls from NIST's privacy baseline |
+| Control baseline | CSS Moderate; the AC, AT, AU, CA, CM, CP, IA, IR, MA, MP, PE, PL, PS, RA, SA, SC, SI and SR families in this version, with PT and 16 other controls from the CSS privacy baseline |
 
 The key contacts are below. Their business contact details are in \<Roles and Responsibilities\>, section 6.
 
@@ -95,11 +95,11 @@ Other role holders are named in \<Roles and Responsibilities\>.
 
 ### 3.3 Information types and security categorisation
 
-The information types below are taken from the projects in the sample data, and each is mapped to its NIST SP 800-60 Volume II Rev 1 information types. The impact levels follow FIPS 199, and the mapping does not change them. \[Name\] owns all four information types. \[Name\] and the authorising official confirmed the levels on 6 November 2026. The high-water mark is Moderate, which is why the Moderate baseline is used. Availability is Low for every type, as in SP 800-60's provisional levels: the business impact analysis allows 120 hours of downtime (\<Contingency Planning Management\>, section 3.3), so a loss of availability has a limited adverse effect. "Business critical" in section 2 means the system matters to \<Organisation\>'s work, not that it must be highly available. The information owner and authorising official are asked to confirm this rationale (D-RA-07).
+The information types below are taken from the projects in the sample data, and each is mapped to its CSS information types. The impact levels follow CSS, and the mapping does not change them. \[Name\] owns all four information types. \[Name\] and the authorising official confirmed the levels on 6 November 2026. The high-water mark is Moderate, which is why the Moderate baseline is used. Availability is Low for every type, as in CSS's provisional levels: the business impact analysis allows 120 hours of downtime (\<Contingency Planning Management\>, section 3.3), so a loss of availability has a limited adverse effect. "Business critical" in section 2 means the system matters to \<Organisation\>'s work, not that it must be highly available. The information owner and authorising official are asked to confirm this rationale (D-RA-07).
 
 **Table 4: Information types and impact levels**
 
-| Information type | SP 800-60 Volume II types | Confidentiality | Integrity | Availability |
+| Information type | CSS types | Confidentiality | Integrity | Availability |
 | --- | --- | --- | --- | --- |
 | HR documents, including personal data | C.3.3 Human Resource Management, chiefly C.3.3.2 Staff Acquisition, C.3.3.4 Compensation Management, C.3.3.7 Employee Relations and C.3.3.9 Separation Management | Moderate | Moderate | Low |
 | Invoices and financial documents | C.3.2.4 Accounting; C.3.2.5 Payments | Moderate | Moderate | Low |
@@ -137,7 +137,7 @@ This is the intended inventory for the authorisation boundary. Host names, asset
 
 ### 3.5 Related laws, regulations and policies
 
-\<Organisation\> operates in the UK, and \<System Name\> holds HR documents, so the laws in Table 5a apply. \<Organisation\>'s policies, Cyber Essentials Plus and NIST SP 800-53 Rev 5 also apply. The legal adviser, \[Name\], confirmed the first row on 6 November 2026. The other rows are the laws the family policies name, and the legal adviser confirms each with that policy's review.
+\<Organisation\> operates in the UK, and \<System Name\> holds HR documents, so the laws in Table 5a apply. \<Organisation\>'s policies, Cyber Essentials Plus and CSS also apply. The legal adviser, \[Name\], confirmed the first row on 6 November 2026. The other rows are the laws the family policies name, and the legal adviser confirms each with that policy's review.
 
 **Table 5a: Laws and where they are applied**
 
@@ -239,9 +239,9 @@ The VPN's multi-factor authentication protects the network route. \<System Name\
 
 ## 5 Control applicability and inheritance
 
-The controls are those of NIST SP 800-53 Rev 5 in the SP 800-53B Moderate baseline. PT and 16 related privacy controls come from the SP 800-53B privacy baseline (D-PT-01, D-PT-07), and PM is outside the baseline (TR-PM-01). \<System Name\> inherits PM controls from \<Organisation\>'s security and privacy programme as common controls; they are listed with their providers and evidence in \<Program Management\>, section 3.3. Twenty-four of them are in the privacy baseline; they stay inherited and are not assessed for \<System Name\> (D-PM-06). \<Organisation\>'s programme plan has not yet been seen (EV-PM-01). Tailoring is recorded in \<Tailoring Register\>, under which 23 controls are not applicable.
+The controls are those of CSS in the CSS Moderate baseline. PT and 16 related privacy controls come from the CSS privacy baseline (D-PT-01, D-PT-07), and PM is outside the baseline (TR-PM-01). \<System Name\> inherits PM controls from \<Organisation\>'s security and privacy programme as common controls; they are listed with their providers and evidence in \<Program Management\>, section 3.3. Twenty-four of them are in the privacy baseline; they stay inherited and are not assessed for \<System Name\> (D-PM-06). \<Organisation\>'s programme plan has not yet been seen (EV-PM-01). Tailoring is recorded in \<Tailoring Register\>, under which 23 controls are not applicable.
 
-Each control is given one of four types. **System** controls are met by \<System Name\>. **Hybrid** controls are met partly by \<System Name\> and partly by the organisation or \<Organisation\>. **Organisational** controls are met by policy, procedure and people. **Inherited** controls are provided by \<Organisation\>, which is expected to supply the evidence (\<Evidence Requests\>). As NIST SP 800-37 allows, this plan names the provider of an inherited control but does not describe how that provider implements it.
+Each control is given one of four types. **System** controls are met by \<System Name\>. **Hybrid** controls are met partly by \<System Name\> and partly by the organisation or \<Organisation\>. **Organisational** controls are met by policy, procedure and people. **Inherited** controls are provided by \<Organisation\>, which is expected to supply the evidence (\<Evidence Requests\>). As CSS allows, this plan names the provider of an inherited control but does not describe how that provider implements it.
 
 **Table 8: Controls by family**
 
@@ -298,7 +298,7 @@ People holding these roles are named in \<Roles and Responsibilities\>. How secu
 
 This section gives a brief overview of every control in the 19 families, one line each. Each line says how the control is implemented or planned, who is responsible, its type (section 5), its implementation status and its Level 1 assessment status. It does not repeat the assessment. The finding for each determination statement is in the family's chapter of \<Control Assessment Record\>, and each non-compliance and its decision are in \<Risk List\> and \<Decision Register\>.
 
-**Status** uses the NIST SP 800-18 Rev 2 terms, for the target design on the two VMs: Fully implemented, Partially implemented, Planned (selected, but not started), or Not applicable. **Assessment:** Satisfied only when every statement for the control is satisfied, and otherwise Other than satisfied. **Decision:** the NC entry in \<Risk List\> and, where a fix is planned, its POA&M item in \<Plan of Action and Milestones\>; or the tailoring entry in \<Tailoring Register\>.
+**Status** uses the CSS terms, for the target design on the two VMs: Fully implemented, Partially implemented, Planned (selected, but not started), or Not applicable. **Assessment:** Satisfied only when every statement for the control is satisfied, and otherwise Other than satisfied. **Decision:** the NC entry in \<Risk List\> and, where a fix is planned, its POA&M item in \<Plan of Action and Milestones\>; or the tailoring entry in \<Tailoring Register\>.
 
 ### 7.1 Access Control (AC)
 
@@ -449,7 +449,7 @@ This section gives a brief overview of every control in the 19 families, one lin
 | Control | How it is implemented | Who | Type | Status | Assessment | Decision |
 | --- | --- | --- | --- | --- | --- | --- |
 | CP-1 Policy and Procedures | Version \<ver\> approved, and legally reviewed on 9 November 2026; not yet shared | System owner, Head of Cyber | Organisational | Partially implemented | Other than satisfied | NC-CP-01, PA-20 |
-| CP-2 Contingency Plan | Section 3 of \<Contingency Planning Management\> is the plan, structured after NIST SP 800-34. Version \<ver\> was approved by the system owner and authorising official (D-CP-11); the version rebuilt on 15 November 2026 awaits their approval. Not yet shared | System owner, authorising official | Organisational | Partially implemented | Other than satisfied | NC-CP-02, PA-88, PA-114 |
+| CP-2 Contingency Plan | Section 3 of \<Contingency Planning Management\> is the plan, structured after CSS. Version \<ver\> was approved by the system owner and authorising official (D-CP-11); the version rebuilt on 15 November 2026 awaits their approval. Not yet shared | System owner, authorising official | Organisational | Partially implemented | Other than satisfied | NC-CP-02, PA-88, PA-114 |
 | CP-2(1) Related Plans | Related plans named in \<Contingency Planning Management\>, appendix D; coordination not yet shown | System owner, security officer | Organisational | Planned | Other than satisfied | NC-CP-03, PA-114 |
 | CP-2(3) Resume Functions | 72 hours for essential functions, within a maximum tolerable downtime of 120 hours, from the business impact analysis in \<Contingency Planning Management\>, section 3.3. Reaching it depends on backups (PA-64) | System owner | Organisational | Fully implemented | Satisfied | NC-CP-04 (met) |
 | CP-2(8) Critical Assets | Listed in \<Contingency Planning Management\>, section 3.3.4, including the secrets \<System Name\> needs | System owner | Organisational | Fully implemented | Satisfied | NC-CP-05 (met) |
@@ -494,7 +494,7 @@ This section gives a brief overview of every control in the 19 families, one lin
 | IA-5(2) Public Key | Not applicable | None | Not applicable | Not applicable | Not applicable | TR-IA-02 |
 | IA-5(6) Protection of Authenticators | User passwords are protected by Active Directory; the signing key and database password are committed in source | Developers, administrators | System | Partially implemented | Other than satisfied | NC-IA-11, PA-19 |
 | IA-6 Authentication Feedback | Sign-in feedback is given by AD FS, not \<System Name\>; not yet evidenced. The tested build gave the same response for a wrong password and an unknown user | \<Organisation\> | Inherited | Partially implemented | Other than satisfied | NC-IA-12, PA-25 |
-| IA-7 Cryptographic Module Authentication | Modules on the VMs not confirmed; standard Windows modules, not in FIPS mode, as stated | Windows server administrator, \<Organisation\> | Inherited | Planned | Other than satisfied | NC-IA-13, PA-48 |
+| IA-7 Cryptographic Module Authentication | Modules on the VMs not confirmed; standard Windows modules, not in CSS-approved cryptographic mode, as stated | Windows server administrator, \<Organisation\> | Inherited | Planned | Other than satisfied | NC-IA-13, PA-48 |
 | IA-8 Non-organizational Users | Only staff and contractors hold accounts | System owner | Not applicable | Not applicable | Not applicable | TR-IA-03 |
 | IA-8(1) PIV from Other Agencies | Not applicable | None | Not applicable | Not applicable | Not applicable | TR-IA-04 |
 | IA-8(2) External Authenticators | Not applicable | None | Not applicable | Not applicable | Not applicable | TR-IA-05 |
@@ -558,7 +558,7 @@ This section gives a brief overview of every control in the 19 families, one lin
 | MP-3 Media Marking | RESTRICTED for all \<System Name\> information, with the document's classification alongside (\<Media Protection Management\>, section 3.3); nothing \<System Name\> shows or produces is marked yet (P04, P07); printouts marked by hand | Developers, everyone | Hybrid | Planned | Other than satisfied | NC-MP-03, PA-87 |
 | MP-4 Media Storage | \<Organisation\>'s data centres and managed devices; locked storage for paper; export copies left unencrypted on the server (P02 to P06, P09), checked each working day until fixed (C49) | \<Organisation\>, Windows server administrator, everyone | Hybrid | Planned | Other than satisfied | NC-MP-04, PA-26, PA-52, PA-86, PA-88, PA-121 |
 | MP-5 Media Transport | Physical transport only by exception, encrypted or sealed, tracked; network backup copies under SC-8 and CP-6, to be encrypted (PA-64); not evidenced | \<Organisation\>, system owner | Inherited | Planned | Other than satisfied | NC-MP-05, PA-64, PA-121 |
-| MP-6 Media Sanitization | Methods by media type to NIST SP 800-88 Revision 2 and IEEE 2883-2022, including cryptographic erase for virtual disks (\<Media Protection Management\>, section 3.6); paper to DIN 66399 P-4; recorded on TPL-13; not evidenced | \<Organisation\>, administrators, everyone | Hybrid | Planned | Other than satisfied | NC-MP-06, PA-52, PA-121 |
+| MP-6 Media Sanitization | Methods by media type to CSS and IEEE 2883-2022, including cryptographic erase for virtual disks (\<Media Protection Management\>, section 3.6); paper to DIN 66399 P-4; recorded on TPL-13; not evidenced | \<Organisation\>, administrators, everyone | Hybrid | Planned | Other than satisfied | NC-MP-06, PA-52, PA-121 |
 | MP-7 Media Use | USB blocked on users' devices unless approved; none passed through to the VMs; ownerless devices handed in; not evidenced | \<Organisation\>, system owner | Inherited | Planned | Other than satisfied | NC-MP-07, PA-121 |
 
 ### 7.11 Physical and Environmental Protection (PE)
@@ -664,7 +664,7 @@ This section gives a brief overview of every control in the 19 families, one lin
 | --- | --- | --- | --- | --- | --- | --- |
 | RA-1 Policy and Procedures | Version \<ver\> legally reviewed, awaiting the Head of Cyber (D-RA-06); procedures approved; not yet shared | System owner, Head of Cyber | Organisational | Partially implemented | Other than satisfied | NC-RA-01, PA-20 |
 | RA-2 Security Categorization | Moderate, approved by the authorising official; availability rationale for confirmation (D-RA-07) | System owner, authorising official | Organisational | Fully implemented | Satisfied | None |
-| RA-3 Risk Assessment | \<Risk List\>, on the NIST SP 800-30 Rev 1 method in its section 4; first scheduled review not yet due; not reviewed after the changes to sign-in and hosting (PA-127) | System owner | Organisational | Partially implemented | Other than satisfied | NC-RA-02, PA-127 |
+| RA-3 Risk Assessment | \<Risk List\>, on the CSS method in its section 4; first scheduled review not yet due; not reviewed after the changes to sign-in and hosting (PA-127) | System owner | Organisational | Partially implemented | Other than satisfied | NC-RA-02, PA-127 |
 | RA-3(1) Supply Chain | First review held on 11 November 2026 (\<Risk Assessment Management\>, section 3.4); not updated after the changes to sign-in and hosting (PA-127) | System owner, developers | Organisational | Partially implemented | Other than satisfied | NC-RA-03, PA-127 |
 | RA-5 Vulnerability Monitoring | Packages checked by Test-Vulnerability.ps1; 5 High advisories open; no scanner for the images, the VMs or \<System Name\>'s own applications; one timetable in \<Risk Assessment Management\>, section 3.6 | Security officer, Windows server administrator | Hybrid | Partially implemented | Other than satisfied | NC-RA-04, PA-56, PA-62 |
 | RA-5(2) Update Vulnerabilities | No scanner | Windows server administrator | Hybrid | Planned | Other than satisfied | NC-RA-05, PA-62 |
@@ -675,7 +675,7 @@ This section gives a brief overview of every control in the 19 families, one lin
 
 ### 7.16 System and Services Acquisition (SA)
 
-88 of 159 assessment statements satisfied; 5 of 17 controls fully satisfied. Assessed on 6 November 2026 and updated on 11 November 2026 with Test-Development.ps1 (S01 to S10): findings are in \<Control Assessment Record\> (SA), whose section SA.5 is the assessment plan, and decisions are in \<Risk List\>. Implementation detail is in \<Policy\> (SA), \<Procedures\> (SA) and \<System and Services Acquisition Management\>, whose appendix A holds the parameter values and whose section 3.2 maps the development process to the NIST Secure Software Development Framework (SSDF).
+88 of 159 assessment statements satisfied; 5 of 17 controls fully satisfied. Assessed on 6 November 2026 and updated on 11 November 2026 with Test-Development.ps1 (S01 to S10): findings are in \<Control Assessment Record\> (SA), whose section SA.5 is the assessment plan, and decisions are in \<Risk List\>. Implementation detail is in \<Policy\> (SA), \<Procedures\> (SA) and \<System and Services Acquisition Management\>, whose appendix A holds the parameter values and whose section 3.2 maps the development process to the CSS.
 
 **Table 25: SA controls**
 
@@ -683,7 +683,7 @@ This section gives a brief overview of every control in the 19 families, one lin
 | --- | --- | --- | --- | --- | --- | --- |
 | SA-1 Policy and Procedures | Version \<ver\> approved by the system owner and legally reviewed; awaits the Head of Cyber's re-approval (D-SA-16); not yet shared | System owner, Head of Cyber | Organisational | Partially implemented | Other than satisfied | NC-SA-01, PA-20 |
 | SA-2 Allocation of Resources | Security requirements set; TPL-23 now records the costs; not yet raised in budgeting | System owner | Organisational | Partially implemented | Other than satisfied | NC-SA-02, PA-128 |
-| SA-3 System Development Life Cycle | Lifecycle mapped to the SSDF (\<System and Services Acquisition Management\>, section 3.2); roles named; approved; not yet in routine use | System owner, developers | Organisational | Partially implemented | Other than satisfied | NC-SA-03, PA-128 |
+| SA-3 System Development Life Cycle | Lifecycle mapped to the CSS (\<System and Services Acquisition Management\>, section 3.2); roles named; approved; not yet in routine use | System owner, developers | Organisational | Partially implemented | Other than satisfied | NC-SA-03, PA-128 |
 | SA-4 Acquisition Process | \<Organisation\>'s contract, not yet seen | System owner, \<Organisation\> | Inherited | Planned | Other than satisfied | NC-SA-04, PA-128 |
 | SA-4(1) Functional Properties | Section 7 of this plan and each family's design document describe the controls' functional properties | Developers | Organisational | Fully implemented | Satisfied | NC-SA-05 (met) |
 | SA-4(2) Design Information | \<Security Architecture\> and sections 3 and 4 of this plan | Developers | Organisational | Fully implemented | Satisfied | NC-SA-06 (met) |
@@ -695,7 +695,7 @@ This section gives a brief overview of every control in the 19 families, one lin
 | SA-9(2) Functions, Ports, Protocols | \<Organisation\>'s list not yet seen | \<Organisation\> | Inherited | Planned | Other than satisfied | NC-SA-11, PA-128 |
 | SA-10 Developer Configuration Management | Code is in Git on private repositories; no branch protection, required review or signed tags (S01, S05) | Developers | Hybrid | Partially implemented | Other than satisfied | NC-SA-12, PA-53, PA-91 |
 | SA-11 Developer Testing | Developer test plan of 15 scripts (\<System and Services Acquisition Management\>, section 3.9), run with kept evidence; no unit tests or pipeline, and the build turns the package audit off | Developers | Hybrid | Partially implemented | Other than satisfied | NC-SA-13, PA-68, PA-92 |
-| SA-15 Development Process | SSDF-based process and tools documented (\<System and Services Acquisition Management\>, sections 3.2 and 3.10); reviews not yet in use | Developers | Organisational | Partially implemented | Other than satisfied | NC-SA-14, PA-128 |
+| SA-15 Development Process | CSS-based process and tools documented (\<System and Services Acquisition Management\>, sections 3.2 and 3.10); reviews not yet in use | Developers | Organisational | Partially implemented | Other than satisfied | NC-SA-14, PA-128 |
 | SA-15(3) Criticality Analysis | Done on 11 November 2026 (\<Risk Assessment Management\>, section 3.9) | Developers | Organisational | Fully implemented | Satisfied | NC-SA-15 (met) |
 | SA-22 Unsupported Components | No component within 6 months of the end of support (S09; \<Maintenance Management\>, section 3.8) | Developers, authorising official | Organisational | Fully implemented | Satisfied | NC-SA-16 (met) |
 
@@ -783,7 +783,7 @@ This section gives a brief overview of every control in the 19 families, one lin
 
 ## 8 Referenced artifacts
 
-The artifacts this plan relies on are below, in the order NIST SP 800-18 Rev 2 lists them. All are part of the \<System Name\> document set indexed in \<Documentation Map\>. The master copies are the Markdown files in the document source folder, held under version control in a private local repository that is never pushed (D-GEN-19). They are not yet in the Restricted store (PA-88, D-GEN-15).
+The artifacts this plan relies on are below, in the order CSS lists them. All are part of the \<System Name\> document set indexed in \<Documentation Map\>. The master copies are the Markdown files in the document source folder, held under version control in a private local repository that is never pushed (D-GEN-19). They are not yet in the Restricted store (PA-88, D-GEN-15).
 
 **Table 29: Referenced artifacts**
 
@@ -831,12 +831,12 @@ Control family abbreviations, such as AC and SR, are spelled out in Table 8. Tes
 | CE+ | Cyber Essentials Plus |
 | CIS | Center for Internet Security |
 | CISA | US Cybersecurity and Infrastructure Security Agency |
+| CSS | Cyber Security Standards |
 | D | Decision in \<Decision Register\> |
 | DNS | Domain Name System |
 | DPA | Data Protection Act 2018 |
 | ECDSA | Elliptic Curve Digital Signature Algorithm |
 | EV | Evidence request in \<Evidence Requests\> |
-| FIPS | Federal Information Processing Standard |
 | HMAC | Hash-based message authentication code |
 | HR | Human resources |
 | HSTS | HTTP Strict Transport Security |
@@ -848,7 +848,6 @@ Control family abbreviations, such as AC and SR, are spelled out in Table 8. Tes
 | MFA | Multi-factor authentication |
 | NC | Non-compliance entry in \<Risk List\> |
 | NCSC | UK National Cyber Security Centre |
-| NIST | US National Institute of Standards and Technology |
 | NTP | Network Time Protocol |
 | PA | Plan of action item in \<Plan of Action and Milestones\> |
 | PBKDF2 | Password-Based Key Derivation Function 2 |
@@ -860,8 +859,6 @@ Control family abbreviations, such as AC and SR, are spelled out in Table 8. Tes
 | RSA | Rivest-Shamir-Adleman, a public key algorithm |
 | SCRM | Supply chain risk management |
 | SHA | Secure Hash Algorithm |
-| SP | NIST Special Publication |
-| SSDF | NIST Secure Software Development Framework |
 | SSP | System security plan |
 | SyOps | Security operating procedures, \<Security Operating Procedures\> |
 | TCP, UDP | Transmission Control Protocol, User Datagram Protocol |

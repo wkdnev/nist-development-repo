@@ -2,7 +2,7 @@
 
 ## 1 Purpose
 
-\<System Name\> depends on \<Organisation\> for its network, devices, hosting and staff processes. NIST SP 800-37 Rev 2 expects the plan to show which parts of a control the provider delivers, and the provider's own details must be available. This document lists the evidence needed and who is responsible for what. Cyber Essentials Plus supports these claims, but it is a different scheme and does not prove a NIST control, so each request asks for the specific service and evidence.
+\<System Name\> depends on \<Organisation\> for its network, devices, hosting and staff processes. CSS expects the plan to show which parts of a control the provider delivers, and the provider's own details must be available. This document lists the evidence needed and who is responsible for what. Cyber Essentials Plus supports these claims, but it is a different scheme and does not prove a CSS control, so each request asks for the specific service and evidence.
 
 Evidence is enough when it names the service, shows that it covers the two \<System Name\> VMs or the relevant users, is current, and comes from someone accountable for the service. A verbal assurance or a general policy statement is recorded but is not enough on its own.
 
@@ -59,7 +59,7 @@ The requests go to \<Organisation\> as one pack, with this covering note. The pa
 | EV-GEN-02 | Cyber Essentials Plus status and scope | Current certificate, with a statement of whether the scope includes the two VMs and their hosting | Not sent |  |  |
 | EV-GEN-03 | The VM hosting service | Service description, who administers the hypervisor and physical hosts, and where they are | Not sent |  |  |
 | EV-GEN-04 | The \<Organisation\> policies that apply to \<System Name\> | A list with owners and versions, and copies of the relevant sections | Not sent |  |  |
-| EV-GEN-05 | Any NIST-based control statements \<Organisation\> already holds | Existing common control or responsibility documents, or confirmation that none exists | Not sent |  |  |
+| EV-GEN-05 | Any CSS-based control statements \<Organisation\> already holds | Existing common control or responsibility documents, or confirmation that none exists | Not sent |  |  |
 
 ## 3 Access Control (AC)
 
@@ -192,7 +192,7 @@ This matrix is proposed and has not been agreed with \<Organisation\>.
 | EV-IA-01 | IA-3, IA-5h | How devices are identified on \<Organisation\>'s network, and how they protect credentials | Network access control description and build standard | Not sent |  |  |
 | EV-IA-02 | IA-12, IA-12(2), IA-12(3), IA-12(5) | What identity evidence HR collects and checks in pre-employment checks, for staff and contractors, and how people are told | HR process and a blank record | Not sent |  |  |
 | EV-IA-03 | IA-7 | Whether the VMs use validated cryptographic modules | Build standard and settings | Not sent |  |  |
-| EV-IA-04 | IA-2(1), IA-2(2), IA-2(8) | How AD FS signs users in to \<System Name\>: the multi-factor methods it requires, its lockout and password standard, how the token is signed, and that it carries the user's Active Directory groups. Also the trust settings for \<System Name\>: the federation protocol, the life of a token, what it carries, how the signing certificate is renewed, and whether the settings meet federation assurance level 2 of NIST SP 800-63C | Service description; the relying party settings for \<System Name\>; the password and lockout policy | Not sent |  |  |
+| EV-IA-04 | IA-2(1), IA-2(2), IA-2(8) | How AD FS signs users in to \<System Name\>: the multi-factor methods it requires, its lockout and password standard, how the token is signed, and that it carries the user's Active Directory groups. Also the trust settings for \<System Name\>: the federation protocol, the life of a token, what it carries, how the signing certificate is renewed, and whether the settings meet federation assurance level 2 of CSS | Service description; the relying party settings for \<System Name\>; the password and lockout policy | Not sent |  |  |
 
 ## 10 Incident Response (IR)
 
@@ -218,7 +218,7 @@ This matrix is proposed and has not been agreed with \<Organisation\>.
 | ID | Control | What we need to know | Evidence to provide | Status | Received | Result |
 | --- | --- | --- | --- | --- | --- | --- |
 | EV-MP-01 | MP-2, MP-4, MP-5 | Who can reach disks and backup media, where they are stored, and how they are protected, tracked and carried in transport. Where the offline audit archive and the copy of the secrets are held. What lockable storage and cross-cut shredders its offices provide for printouts | Media handling process, and sample transport records | Not sent |  |  |
-| EV-MP-02 | MP-6 | How disks and backup media are sanitised, whether it follows NIST SP 800-88 Revision 2 and IEEE 2883-2022, how virtual disks are erased when a VM is removed, and how each action is verified | Process, and a sample certificate | Not sent |  |  |
+| EV-MP-02 | MP-6 | How disks and backup media are sanitised, whether it follows CSS and IEEE 2883-2022, how virtual disks are erased when a VM is removed, and how each action is verified | Process, and a sample certificate | Not sent |  |  |
 | EV-MP-03 | MP-4, MP-6, MP-7 | How USB and portable storage are blocked on users' devices, that no USB device is passed through to the VMs, how exceptions work, and that users' devices are disk-encrypted. How print jobs are held, released and cleared on its managed printers, and how a printer's storage is sanitised | Device control settings | Not sent |  |  |
 
 ## 13 Physical and Environmental Protection (PE)
@@ -279,7 +279,7 @@ PM is outside \<System Name\>'s baseline (TR-PM-01), but \<System Name\> inherit
 
 | ID | Control | What we need to know | Evidence to provide | Status | Received | Result |
 | --- | --- | --- | --- | --- | --- | --- |
-| EV-RA-01 | RA-3, RA-5(11) | Agreement to use the security contact for vulnerability reports about \<System Name\>, and whether \<Organisation\> offers a shared scanning service or a list of exploited flaws it tracks. How organisational risk feeds into system risk is asked in EV-PM-01. Where the security contact is published, and its terms: that research in good faith is authorised, how long a reporter is asked to wait for a fix before disclosing (\<System Name\> proposes 90 days, D-RA-14), and that indefinite secrecy is not required (NIST RA-5(11)). Whether findings that may affect \<Organisation\>'s other systems should be sent to the security contact (RA-5e) | Risk statement, and written agreement; the published contact and its terms | Not sent |  |  |
+| EV-RA-01 | RA-3, RA-5(11) | Agreement to use the security contact for vulnerability reports about \<System Name\>, and whether \<Organisation\> offers a shared scanning service or a list of exploited flaws it tracks. How organisational risk feeds into system risk is asked in EV-PM-01. Where the security contact is published, and its terms: that research in good faith is authorised, how long a reporter is asked to wait for a fix before disclosing (\<System Name\> proposes 90 days, D-RA-14), and that indefinite secrecy is not required (CSS RA-5(11)). Whether findings that may affect \<Organisation\>'s other systems should be sent to the security contact (RA-5e) | Risk statement, and written agreement; the published contact and its terms | Not sent |  |  |
 
 ## 19 System and Services Acquisition (SA)
 
@@ -332,7 +332,7 @@ PM is outside \<System Name\>'s baseline (TR-PM-01), but \<System Name\> inherit
 | --- | --- |
 | EV-GEN-02 | Cyber Essentials Plus is held, and the VMs get added to scope when built |
 | EV-GEN-03 | \<Organisation\>'s own UK virtual platform, run by its infrastructure team |
-| EV-GEN-05 | No NIST-based control statements exist |
+| EV-GEN-05 | No CSS-based control statements exist |
 | EV-AC-01 | Corporate accounts are disabled immediately for leavers, and \<System Name\> cannot be reached without one |
 | EV-AC-02 | Windows administrator accounts are requested through ServiceNow, approved by the system owner and held in a named group |
 | EV-AC-03, EV-AC-04 | \<Organisation\>'s network and infrastructure teams hold firewalls and security functions, with changes through its change process |
@@ -347,5 +347,5 @@ PM is outside \<System Name\>'s baseline (TR-PM-01), but \<System Name\> inherit
 | EV-AU-04 | Group policy sets the Windows audit policy, and logs are kept for 12 months |
 | EV-IA-01 | Network access control with device certificates, and disk encryption on managed devices |
 | EV-IA-02 | Photo ID and right-to-work checks for staff, and the same through the agency for contractors |
-| EV-IA-03 | Standard Windows modules, not in FIPS mode |
+| EV-IA-03 | Standard Windows modules, not in CSS-approved cryptographic mode |
 | EV-IA-04 | \\\[Expected answer to be confirmed with \<Organisation\>\\\] |

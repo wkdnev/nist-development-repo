@@ -2,13 +2,13 @@
 
 ## 1 Purpose
 
-This document shows how \<System Name\> is maintained, for each of the 9 Maintenance (MA) controls and enhancements in the NIST SP 800-53 Rev 5 Moderate baseline. Section 3 sets out the design: who maintains what, how a job is controlled from approval to review, the routes for remote maintenance, the approved tools and people, what may leave and how, the components whose support matters, and what \<Organisation\> provides. Section 4 takes each control in turn. Appendix A lists every value NIST asks the organisation to define, and appendix B the MA controls NIST does not select at Moderate.
+This document shows how \<System Name\> is maintained, for each of the 9 Maintenance (MA) controls and enhancements in the CSS Moderate baseline. Section 3 sets out the design: who maintains what, how a job is controlled from approval to review, the routes for remote maintenance, the approved tools and people, what may leave and how, the components whose support matters, and what \<Organisation\> provides. Section 4 takes each control in turn. Appendix A lists every value CSS asks the organisation to define, and appendix B the MA controls CSS does not select at Moderate.
 
 This is the only place this design is held. Other documents point here. The policy is in \<Policy\> (MA), and the steps people follow are in \<Procedures\> (MA). Fixing flaws and releasing new versions follow their own designs, in \<System and Information Integrity Management\> and \<Configuration Management\>, and use the same change records.
 
-An assessor examines the maintenance records, the lists of approved tools and people, the remote maintenance routes and their session logs; interviews those who maintain the system; and may watch a remote session being set up and ended (NIST SP 800-53A). So for each control section 4 gives:
+An assessor examines the maintenance records, the lists of approved tools and people, the remote maintenance routes and their session logs; interviews those who maintain the system; and may watch a remote session being set up and ended (CSS). So for each control section 4 gives:
 
-- **each part of the control**, as NIST letters them, with the design that meets it and the position today;
+- **each part of the control**, as CSS letters them, with the design that meets it and the position today;
 - **who provides it**, and who is responsible;
 - **what enforces it**, the rules and procedures that apply, and the tests run;
 - **the records an assessor will ask for**, and whether they exist yet;
@@ -177,7 +177,7 @@ These are the components that \<System Name\>'s security depends on (MA-06\_ODP\
 | Provided | Controls | What \<System Name\> relies on | Evidence asked | State |
 | --- | --- | --- | --- | --- |
 | Maintenance of the hardware and the hypervisor | MA-2 | Approved, recorded maintenance by screened engineers, with notice to the system owner of work that affects \<System Name\> | EV-MA-01 | Not sent |
-| Sanitising before equipment leaves | MA-2, MA-3(3) | Disks and equipment are sanitised to NIST SP 800-88 Revision 2, with a certificate | EV-MA-01 | Not sent |
+| Sanitising before equipment leaves | MA-2, MA-3(3) | Disks and equipment are sanitised to CSS, with a certificate | EV-MA-01 | Not sent |
 | Support and parts | MA-6 | Within 24 hours of a failure, for the hardware and the hypervisor | EV-MA-01 | Not sent |
 | The managed route administrators use | MA-4 | Multi-factor sign-in; a log of each session; sessions and connections that end when the work does; a firewall rule that limits the admin portal to the route | EV-MA-02 | Not sent |
 | Maintenance of the services \<System Name\> depends on | MA-2 | Notice before work on AD FS, Active Directory, the network, the time service or the backup store that affects \<System Name\> | EV-MA-01 | Not sent |
@@ -186,13 +186,13 @@ These are the components that \<System Name\>'s security depends on (MA-06\_ODP\
 
 ## 4 Each control and enhancement
 
-The controls are in NIST order. Each has two tables. The first takes each part of the control and gives what NIST requires, the design that meets it, and the position today. The second says who provides and is responsible for the control, what enforces it, the rules and procedures that apply, the tests run, the records an assessor will ask for, its status, the risk decision, and what is still open.
+The controls are in CSS order. Each has two tables. The first takes each part of the control and gives what CSS requires, the design that meets it, and the position today. The second says who provides and is responsible for the control, what enforces it, the rules and procedures that apply, the tests run, the records an assessor will ask for, its status, the risk decision, and what is still open.
 
 ### 4.1 MA-1 Policy and Procedures
 
 **Table 11: MA-1 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a.1 | A maintenance policy, shared with defined people, covering purpose, scope, roles, responsibilities, management commitment, coordination and compliance, and consistent with the law | \<Policy\> (MA): a system-level policy, shared with everyone who maintains \<System Name\>. The legal adviser reviews it | Version \<ver\> approved by the Head of Cyber (D-MA-01) and legally reviewed on 10 November 2026. The later version awaits the Head of Cyber (D-MA-07). Not yet shared (PA-20) |
 | a.2 | Procedures that carry out the policy, shared with defined people | \<Procedures\> (MA): seven procedures, PRO-MA-1 to PRO-MA-7. Shared with the same people | Approved by the system owner (D-MA-08). Not yet shared or walked through |
@@ -218,7 +218,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 13: MA-2 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Schedule, document and review records of maintenance, repair and replacement, to the maker's specification or the organisation's own requirements | Every job is planned in a change record. Routine work follows the preventive schedule (PRO-MA-6). Each job is recorded on TPL-12, and the security officer reviews every record against its change record each month (section 3.3) | Written. No maintenance has taken place on the servers, which are not built |
 | b | Approve and monitor all maintenance, on site or remote, whether the item is serviced in place or taken away | The change is approved before work starts. Emergency work follows the emergency change rule and is recorded within 1 working day. An administrator watches work by anyone not on the approved list, remote sessions are logged (section 3.4), and each use of a built-in maintenance page is audited | Not in use. The built-in maintenance pages write no audit record (M03; PA-31) |
@@ -245,7 +245,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 15: MA-3 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Approve, control and monitor the use of maintenance tools | Only the tools in section 3.5 are used, and the system owner approves each addition. The maintenance pages built into the tested build are removed from production builds. Until they are, each use needs an approved change record and a second person, and is recorded on TPL-12 (PRO-MA-7) | The list is provisional (PA-67). Five built-in pages remain, open to global administrators, and write no audit record (M01, M03; PA-31). The tested build's container images hold a shell and a package manager (M10; PA-85) |
 | b | Review the approved tools on a schedule | Every 12 months, by the Windows server administrator with the system owner | The first review is when the servers are built |
@@ -268,7 +268,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 17: MA-3(1) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Inspect the tools maintenance people use for improper or unauthorised changes | Before use, the version, publisher and file hash of each tool are compared with the approved list (PRO-MA-3), and the result is recorded on TPL-12 | Not in use. The list does not yet give a version, publisher and hash for each tool to be compared with: they are recorded when the servers are built (PA-67) |
 
@@ -290,7 +290,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 19: MA-3(2) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Check media that hold diagnostic and test programs for malicious code before they are used | Microsoft Defender scans any media, and any file copied onto a server for maintenance, before it is used. The servers are virtual, so removable media are used rarely. The scan is recorded on TPL-12 | Defender is not yet on the servers (PA-58) |
 
@@ -312,7 +312,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 21: MA-3(3) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Prevent the removal of maintenance equipment holding the organisation's information, by checking that it holds none | Before any equipment used for maintenance leaves, such as an engineer's laptop or a drive, the administrator checks that it holds no \<System Name\> information (section 3.7) | Not yet used |
 | b | Or by sanitising or destroying it | If it does, \<Organisation\> sanitises it by the method in \<Media Protection Management\>, section 3.6 | Not yet used; sanitising is not evidenced (EV-MA-01) |
@@ -337,7 +337,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 23: MA-4 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Approve and monitor maintenance and diagnostic work done remotely | The system owner approves remote work in the change record, which names the route. Each session is logged, a supplier's session is watched by an administrator, and the security officer reviews the session logs weekly (section 3.4) | Not in use |
 | b | Allow remote maintenance tools only as policy says and as the security plan documents | The five routes in section 3.4 and the tools in section 3.5, which \<System Security Plan\>, section 3.7, points to. The admin portal is reachable only through \<Organisation\>'s managed route | Not met for the admin portal: the tested build publishes it on every network interface (M04; PA-83) |
@@ -363,7 +363,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 25: MA-5 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Have a process for authorising maintenance people, and keep a list of the organisations and people authorised | The system owner approves the list in section 3.6. The Windows server administrator checks it when someone leaves, and every 12 months (PRO-MA-5) | The process is approved (D-MA-02). The list is provisional (PA-67) |
 | b | Check that people who maintain the system unescorted hold the access authorisations required | Before giving access, the administrator checks that the person is on the list, is screened, has signed Part B of the rules of behaviour, and has a named account | The screening and signing dates are placeholders in section 3.6 |
@@ -387,7 +387,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 27: MA-6 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Obtain maintenance support or spare parts for defined components within a defined time of a failure | The components in section 3.8. \<Organisation\> provides support and parts for the hardware and the hypervisor within 24 hours, so that a restore fits the 72-hour recovery time objective. Software is kept on supported versions, with a replacement planned at least 6 months before support ends, and the support dates are checked each month | Not evidenced for the hardware (EV-MA-01). The software versions seen in the tested build are supported (M11) |
 
@@ -407,11 +407,11 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 ## Appendix A Parameter register
 
-These are NIST's organisation-defined values for the 9 MA entries: 15 in total. They were agreed on 6 November 2026 (D-MA-P01), and two were revised on 10 November 2026 (D-MA-P02).
+These are the CSS organisation-defined values for the 9 MA entries: 15 in total. They were agreed on 6 November 2026 (D-MA-P01), and two were revised on 10 November 2026 (D-MA-P02).
 
 **Table 29: MA parameter register**
 
-| NIST identifier | What must be defined | Value | State now |
+| CSS identifier | What must be defined | Value | State now |
 | --- | --- | --- | --- |
 | MA-01\_ODP\[01\] | Who receives the policy | Everyone who maintains \<System Name\> | Not yet shared (PA-20) |
 | MA-01\_ODP\[02\] | Who receives the procedures | Everyone who maintains \<System Name\> | Not yet shared (PA-20) |
@@ -431,7 +431,7 @@ These are NIST's organisation-defined values for the 9 MA entries: 15 in total. 
 
 ## Appendix B MA controls outside the Moderate baseline
 
-NIST does not select these at Moderate, so they are not assessed. Some of the design goes further than the baseline, and Table 30 says where.
+CSS does not select these at Moderate, so they are not assessed. Some of the design goes further than the baseline, and Table 30 says where.
 
 **Table 30: MA controls not selected at Moderate**
 
@@ -450,4 +450,4 @@ NIST does not select these at Moderate, so they are not assessed. Some of the de
 | MA-5(5) Non-system Maintenance | Rules for people who maintain the building and its services near the system | Not required. \<Organisation\> controls its data centres (\<Physical and Environmental Protection Management\>) |
 | MA-6(1), MA-6(2), MA-6(3) Preventive Maintenance; Predictive Maintenance; Automated Support for Predictive Maintenance | Maintenance done before a failure, by schedule or by prediction | Not required. Done in design for preventive work: the schedule in \<Procedures\>, PRO-MA-6. Nothing is predictive |
 | MA-7 Field Maintenance | Limits on maintenance done away from a trusted facility | Not required. The servers stay at \<Organisation\>'s data centres |
-| MA-2(1), MA-4(2) | Withdrawn by NIST | Not applicable |
+| MA-2(1), MA-4(2) | Withdrawn by CSS | Not applicable |

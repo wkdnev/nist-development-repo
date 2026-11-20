@@ -2,13 +2,13 @@
 
 ## 1 Purpose
 
-This document shows how security incidents affecting \<System Name\> are prepared for, found, handled and learned from, for each of the 13 Incident Response (IR) controls and enhancements in the NIST SP 800-53 Rev 5 Moderate baseline. Section 3 is the incident response plan that IR-8 requires: who does what, how incidents are found, how severe each is and how fast it must be contained, the steps every incident follows, personal data breaches, the playbooks, evidence, and the register. It can be used on its own during an incident. Section 4 takes each control in turn. Appendix A lists every value NIST asks the organisation to define, and appendix B holds the contacts. Appendix C lists the IR controls NIST does not select at Moderate.
+This document shows how security incidents affecting \<System Name\> are prepared for, found, handled and learned from, for each of the 13 Incident Response (IR) controls and enhancements in the CSS Moderate baseline. Section 3 is the incident response plan that IR-8 requires: who does what, how incidents are found, how severe each is and how fast it must be contained, the steps every incident follows, personal data breaches, the playbooks, evidence, and the register. It can be used on its own during an incident. Section 4 takes each control in turn. Appendix A lists every value CSS asks the organisation to define, and appendix B holds the contacts. Appendix C lists the IR controls CSS does not select at Moderate.
 
 This is the only place the incident response design is held. Other documents point here. The policy is in \<Policy\> (IR), and the steps people follow are in \<Procedures\> (IR).
 
-An assessor examines the plan, the incident records, the training and exercise records, and the reports made; interviews the incident lead and a sample of users; and may ask to be walked through a past incident or a playbook (NIST SP 800-53A). So for each control section 4 gives:
+An assessor examines the plan, the incident records, the training and exercise records, and the reports made; interviews the incident lead and a sample of users; and may ask to be walked through a past incident or a playbook (CSS). So for each control section 4 gives:
 
-- **each part of the control**, as NIST letters them, with the design that meets it and the position today;
+- **each part of the control**, as CSS letters them, with the design that meets it and the position today;
 - **who provides it**, and who is responsible;
 - **what enforces it**, the rules and procedures that apply, and the tests run;
 - **the records an assessor will ask for**, and whether they exist yet;
@@ -64,7 +64,7 @@ These carry out the principles and rules of \<Policy\>, sections IR.3 and IR.4.
 
 ### 3.2 Scope
 
-The plan follows NIST SP 800-61 Revision 3, which treats incident response as part of managing cyber risk across the six CSF 2.0 functions: preparation (Govern, Identify, Protect), detection (Detect), and handling and recovery (Respond, Recover). It meets the needs of a Moderate system holding Restricted documents, and HR documents with personal data.
+The plan follows CSS, which treats incident response as part of managing cyber risk across the six CSF 2.0 functions: preparation (Govern, Identify, Protect), detection (Detect), and handling and recovery (Respond, Recover). It meets the needs of a Moderate system holding Restricted documents, and HR documents with personal data.
 
 It covers UI application, Admin application, API, the \<System Name\> database, its backups and secrets, and the two VMs at \<Organisation\>. Incidents in \<Organisation\>'s own services, including AD FS and Active Directory, are handled by \<Organisation\>, with this plan for \<System Name\>'s part.
 
@@ -231,13 +231,13 @@ Until ServiceNow is set up, incidents and personal data breaches are listed here
 
 ## 4 Each control and enhancement
 
-The controls are in NIST order. Each has two tables. The first takes each part of the control and gives what NIST requires, the design that meets it, and the position today. The second says who provides and is responsible for the control, what enforces it, the rules and procedures that apply, the tests run, the records an assessor will ask for, its status, the risk decision, and what is still open.
+The controls are in CSS order. Each has two tables. The first takes each part of the control and gives what CSS requires, the design that meets it, and the position today. The second says who provides and is responsible for the control, what enforces it, the rules and procedures that apply, the tests run, the records an assessor will ask for, its status, the risk decision, and what is still open.
 
 ### 4.1 IR-1 Policy and Procedures
 
 **Table 11: IR-1 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a.1 | An incident response policy, shared with defined people, covering purpose, scope, roles, responsibilities, management commitment, coordination and compliance, and consistent with the law | \<Policy\> (IR): a system-level policy, shared with everyone who administers \<System Name\>. The legal adviser reviews it | Version \<ver\> approved by the Head of Cyber (D-IR-01) and legally reviewed on 10 November 2026. The later version awaits the Head of Cyber (D-IR-07). Not yet shared (PA-20) |
 | a.2 | Procedures that carry out the policy, shared with defined people | \<Procedures\> (IR): seven procedures, PRO-IR-1 to PRO-IR-7. Shared with the same people | Approved by the system owner (D-IR-08). Not yet shared or walked through |
@@ -263,7 +263,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 13: IR-2 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a.1 | Train people in their incident role within a defined time of taking it | Within 30 days. It covers this plan, the severity levels, the playbooks, preserving evidence, the breach steps and the contacts (section 3.4). It is module M7 of the role curriculum (\<Awareness and Training Management\>, section 3.4) | No training has been given (PA-81) |
 | a.2 | Train them again when the system changes | After a change to the plan that alters a person's part, that person is briefed on it | Not yet used |
@@ -288,7 +288,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 15: IR-3 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Test the incident response capability on a schedule, with defined tests | A tabletop exercise every 12 months, the first within 30 days of the servers being built and before production. Each walks through one playbook from report to closing, and ends with an after-action report on TPL-11 | No exercise has been held (PA-81). The containment and evidence steps were tried in the test environment on 10 November 2026 (D01 to D08) |
 
@@ -310,7 +310,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 17: IR-3(2) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Test the capability together with those responsible for related plans | The tabletop exercise is held with the contingency plan (\<Contingency Planning Management\>, section 3.10), and \<Organisation\>'s security contact and IT service desk take part | Not held (PA-81) |
 
@@ -332,7 +332,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 19: IR-4 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Handle incidents in line with the plan: preparation, detection and analysis, containment, eradication and recovery | Section 3.4 is preparation, section 3.5 detection, and section 3.7 the five steps every incident follows. The playbooks in section 3.9 give the first actions for ten kinds of incident, and section 3.6 the time allowed | Written. Not in use, as \<System Name\> is not in use. One incident is on the register, INC-2026-001 |
 | b | Coordinate incident handling with contingency planning | An outage that may be an incident is led by this plan, with the contingency plan in support; recovery uses a backup taken before the compromise (\<Contingency Planning Management\>, section 3.6.2) | Written into both plans. Not exercised (PA-81) |
@@ -357,7 +357,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 21: IR-4(1) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Support incident handling with defined automated means | ServiceNow, once set up for incidents (D-IR-05): it holds each incident's record, timeline, actions and evidence list, and reminds the owner of each action. Until then the record is form TPL-10, kept by hand | Not set up (PA-65) |
 
@@ -379,7 +379,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 23: IR-5 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Track and document incidents | Every incident and personal data breach is on the register in section 3.14, each with its TPL-10 record: what happened, the severity, the timeline, the evidence, the actions and the lessons. The measures in section 3.12 are reported each month | The register exists, with INC-2026-001. Tracking is not otherwise in use (PA-118) |
 
@@ -401,7 +401,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 25: IR-6 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Require people to report suspected incidents to the incident response capability within a defined time | Everyone reports a suspected incident to the security officer within 1 hour. Section 3.11 says what must be reported, and the rules of behaviour repeat it (\<Security Operating Procedures\>, Part A). If ServiceNow or email may be compromised, the phone numbers in appendix B are used | Written. The rules are not yet signed, and the contacts are placeholders |
 | b | Report incident information to defined authorities | The security officer tells \<Organisation\>'s security contact. The legal adviser tells the ICO within 72 hours of becoming aware of a reportable personal data breach, and the people affected when the risk to them is high (section 3.8). The system owner reports a crime or a significant cyber attack to the NCSC or to Report Fraud, which replaced Action Fraud | Not yet used. \<Organisation\>'s route for reports is not confirmed (EV-IR-01) |
@@ -424,7 +424,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 27: IR-6(1) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Report incidents by defined automated means | ServiceNow, once set up for incidents (D-IR-05): a report raises a ticket, which notifies the security officer. Until then reports are made by phone or email and recorded on form TPL-10 | Not set up (PA-65) |
 
@@ -446,7 +446,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 29: IR-6(3) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Give incident information to the provider of the product or service, and to others in the supply chain | The security officer tells \<Organisation\>'s security contact, and any other supplier whose product or service is involved, using the supplier register (\<Supply Chain Risk Management\>, section 3.5). \<Organisation\> in turn reports a compromise on its side to the security officer within 24 hours | Not yet used. \<Organisation\>'s terms are not seen (EV-IR-01, EV-SR-01) |
 
@@ -468,7 +468,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 31: IR-7 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Provide a support resource, as part of the capability, that gives users advice and help in handling and reporting incidents | The security officer is the first point of help for every user. \<Organisation\>'s security contact gives monitoring, network and forensic help. No outside forensic firm is retained | Not yet used. What \<Organisation\> will provide is not confirmed (EV-IR-01). Help outside working hours is not arranged (PA-118) |
 
@@ -490,7 +490,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 33: IR-7(1) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Make incident information and support more available by defined automated means | ServiceNow, once set up for incidents (D-IR-05): users raise a request for help there, and see its progress. Until then users ask the security officer directly | Not set up (PA-65) |
 
@@ -512,9 +512,9 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 35: IR-8 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
-| a.1 | A plan that gives the organisation a roadmap for its incident response capability | Section 3 is the plan. It follows NIST SP 800-61 Revision 3: preparation, detection, handling and recovery, and learning | Written |
+| a.1 | A plan that gives the organisation a roadmap for its incident response capability | Section 3 is the plan. It follows CSS: preparation, detection, handling and recovery, and learning | Written |
 | a.2 | It describes the structure and organisation of the capability | Section 3.3: six roles, each with a holder and a deputy | Written. One deputy is still to be named |
 | a.3 | It says how the capability fits into the organisation | Section 3.2: \<System Name\>'s team handles \<System Name\>'s part, and \<Organisation\> handles incidents in its own services | Written |
 | a.4 | It meets the organisation's own needs: its mission, size, structure and functions | It is written for one Moderate system holding Restricted HR documents, run by a small named team | Written |
@@ -545,11 +545,11 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 ## Appendix A Parameter register
 
-These are NIST's organisation-defined values for the 13 IR entries: 26 in total. They were agreed on 6 November 2026 (D-IR-P01), and IR-06\_ODP\[02\] was revised on 10 November 2026 (D-IR-P02).
+These are the CSS organisation-defined values for the 13 IR entries: 26 in total. They were agreed on 6 November 2026 (D-IR-P01), and IR-06\_ODP\[02\] was revised on 10 November 2026 (D-IR-P02).
 
 **Table 37: IR parameter register**
 
-| NIST identifier | What must be defined | Value | State now |
+| CSS identifier | What must be defined | Value | State now |
 | --- | --- | --- | --- |
 | IR-01\_ODP\[01\] | Who receives the policy | Everyone who administers \<System Name\> | Not yet shared |
 | IR-01\_ODP\[02\] | Who receives the procedures | Everyone who administers \<System Name\> | Not yet shared |
@@ -600,7 +600,7 @@ Use the phone if ServiceNow or email may be compromised.
 
 ## Appendix C IR controls outside the Moderate baseline
 
-NIST does not select these in the Moderate security baseline, so they are not assessed in this family. Two are in NIST's privacy baseline and apply because \<System Name\> holds personal data: they are assessed with the PT family. Some of the design goes further than the baseline, and Table 39 says where.
+CSS does not select these in the Moderate security baseline, so they are not assessed in this family. Two are in the CSS privacy baseline and apply because \<System Name\> holds personal data: they are assessed with the PT family. Some of the design goes further than the baseline, and Table 39 says where.
 
 **Table 39: IR controls not selected at Moderate**
 
@@ -622,4 +622,4 @@ NIST does not select these in the Moderate security baseline, so they are not as
 | IR-7(2) Coordination with External Providers | A working relationship with outside providers of protection | Not required. \<Organisation\> is the only provider (section 3.15) |
 | IR-8(1) Breaches | The plan covers personal data breaches: whether to notify, the harm to people, and the law that applies | Privacy baseline, so it applies. Met by section 3.8, and assessed with the PT family as satisfied (NC-PT-11) |
 | IR-9, IR-9(2), IR-9(3), IR-9(4) Information Spillage Response | Handling information that reaches a system or person not cleared for it | Not required. Done in part: the playbook for a document in the wrong place (section 3.9) |
-| IR-9(1), IR-10 | Withdrawn by NIST | Not applicable |
+| IR-9(1), IR-10 | Withdrawn by CSS | Not applicable |

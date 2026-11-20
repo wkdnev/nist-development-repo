@@ -469,7 +469,7 @@ Completed by the system owner for each review of the risk list, the supply chain
 | Components or suppliers added or removed |  |
 | Yearly review only: security and privacy costs raised in budgeting, and the amounts (SA-2) |  |
 | Cryptographic register and boundary review only: keys and certificates due for change, algorithms NCSC no longer recommends, allow-list rules and exceptions kept or removed (SC-7(4), SC-12, SC-13) |  |
-| Yearly review only: tools, standards and the SSDF table in \<System and Services Acquisition Management\>, section 3.2 reviewed, and changes (SA-15) |  |
+| Yearly review only: tools, standards and the CSS table in \<System and Services Acquisition Management\>, section 3.2 reviewed, and changes (SA-15) |  |
 | Decisions needed, and from whom (\<Decision Register\>) |  |
 | Shared with the authorising official and Head of Cyber, and date |  |
 | Signed by the system owner, and date |  |

@@ -2,13 +2,13 @@
 
 ## 1 Purpose
 
-This document shows how \<System Name\> is assessed, authorised to operate and monitored afterwards, and how its connections to other systems are approved, for each of the 10 Assessment, Authorization, and Monitoring (CA) controls and enhancements in the NIST SP 800-53 Rev 5 Moderate baseline. Section 3 sets out the design: the cycle, assessment, the plan of action, authorisation, inherited controls, information exchanges, continuous monitoring and significant change. Section 4 takes each control in turn. Appendix A lists every value NIST asks the organisation to define. Appendix B lists the CA controls NIST does not select at Moderate.
+This document shows how \<System Name\> is assessed, authorised to operate and monitored afterwards, and how its connections to other systems are approved, for each of the 10 Assessment, Authorization, and Monitoring (CA) controls and enhancements in the CSS Moderate baseline. Section 3 sets out the design: the cycle, assessment, the plan of action, authorisation, inherited controls, information exchanges, continuous monitoring and significant change. Section 4 takes each control in turn. Appendix A lists every value CSS asks the organisation to define. Appendix B lists the CA controls CSS does not select at Moderate.
 
-This is the only place this design is held. Other documents point here. The policy is in \<Policy\> (CA), and the steps people follow are in \<Procedures\> (CA). The design follows NIST SP 800-37 Rev 2 for assessment and authorisation, SP 800-137 for monitoring, and SP 800-47 Rev 1 for information exchanges.
+This is the only place this design is held. Other documents point here. The policy is in \<Policy\> (CA), and the steps people follow are in \<Procedures\> (CA). The design follows CSS for assessment and authorisation, CSS for monitoring, and CSS for information exchanges.
 
-This family is about processes that people carry out, so an assessor examines documents and records and interviews the people named: the system owner, the authorising official, the security officer and the assessor (NIST SP 800-53A). There is nothing in the system to test. So for each control section 4 gives:
+This family is about processes that people carry out, so an assessor examines documents and records and interviews the people named: the system owner, the authorising official, the security officer and the assessor (CSS). There is nothing in the system to test. So for each control section 4 gives:
 
-- **each part of the control**, as NIST letters them, with the design that meets it and the position today;
+- **each part of the control**, as CSS letters them, with the design that meets it and the position today;
 - **who provides it**, and who is responsible;
 - **what enforces it**, and the rules and procedures that apply;
 - **the records an assessor will ask for**, and whether they exist yet;
@@ -82,7 +82,7 @@ These carry out the principles and rules of \<Policy\>, sections CA.3 and CA.4.
 
 **Independence.** A member of the team counts as independent once they have completed TPL-19, confirming that they have had no part in designing, building, running or administering \<System Name\>, that they report to no one responsible for it, and declaring any other interest. The authorising official accepts each statement before the assessment starts.
 
-**Method.** Each control is assessed with the procedures of NIST SP 800-53A Rev 5: every determination statement is given a finding of satisfied or other than satisfied, with the basis for it. The methods are examine, interview and test.
+**Method.** Each control is assessed with the procedures of CSS: every determination statement is given a finding of satisfied or other than satisfied, with the basis for it. The methods are examine, interview and test.
 
 **Plan.** Each family's chapter of \<Control Assessment Record\> has a plan: scope, procedures, assessor, dates, site, what is examined, tested and whom is interviewed, with depth and coverage, the boundary, and what is needed from \<Organisation\>. The authorising official approves it before the assessment.
 
@@ -168,7 +168,7 @@ The authorising official accepted an earlier list of 66 as a list (D-CA-08). Sin
 
 ### 3.7 Information exchanges and internal connections
 
-This is the single record of \<System Name\>'s connections. Each has an agreement type chosen under NIST SP 800-47 Rev 1. None is in use yet. The system owner approves each before it is built, reviews each every 12 months with the owner of the other system, and records the date a connection ends (PRO-CA-2).
+This is the single record of \<System Name\>'s connections. Each has an agreement type chosen under CSS. None is in use yet. The system owner approves each before it is built, reviews each every 12 months with the owner of the other system, and records the date a connection ends (PRO-CA-2).
 
 **Table 8: Interface record**
 
@@ -189,7 +189,7 @@ Users' and administrators' devices are outside the boundary. They connect by bro
 
 ### 3.8 Continuous monitoring
 
-This strategy follows NIST SP 800-137. Monitoring starts at go-live. Nothing below is running yet.
+This strategy follows CSS. Monitoring starts at go-live. Nothing below is running yet.
 
 **How often controls are checked.** Each control is checked at the frequency of its duty in the \<Security Operating Procedures\> operating calendar: daily, weekly, monthly, quarterly or yearly. Controls with no duty there are checked at the yearly assessment.
 
@@ -216,9 +216,9 @@ This strategy follows NIST SP 800-137. Monitoring starts at go-live. Nothing bel
 
 The last two measures, on open incidents and on vulnerabilities past their fix time, were added by the system owner on 13 November 2026 (D-CA-13).
 
-**Table 10: The strategy against NIST SP 800-137**
+**Table 10: The strategy against CSS**
 
-| Step in SP 800-137 | Where it is met |
+| Step in CSS | Where it is met |
 | --- | --- |
 | Define the strategy | This section, approved by the system owner (D-CA-03, D-CA-10) |
 | Establish the programme: measures and frequencies | The measures above, and the \<Security Operating Procedures\> operating calendar |
@@ -265,13 +265,13 @@ Routine patches within the time limits of \<Security Operating Procedures\>, and
 
 ## 4 Each control and enhancement
 
-The controls are in NIST order. Each has two tables. The first takes each part of the control and gives what NIST requires, the design that meets it, and the position today. The second says who provides and is responsible for the control, what enforces it, the rules and procedures that apply, the records an assessor will ask for, its status, the risk decision, and what is still open.
+The controls are in CSS order. Each has two tables. The first takes each part of the control and gives what CSS requires, the design that meets it, and the position today. The second says who provides and is responsible for the control, what enforces it, the rules and procedures that apply, the records an assessor will ask for, its status, the risk decision, and what is still open.
 
 ### 4.1 CA-1 Policy and Procedures
 
 **Table 12: CA-1 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a.1 | An assessment, authorisation and monitoring policy, shared with defined people, covering purpose, scope, roles, responsibilities, management commitment, coordination and compliance, and consistent with the law | \<Policy\> (CA): a system-level policy. Purpose and scope are in section CA.1, responsibilities in CA.5, and commitment, coordination and compliance in CA.6. It is shared with everyone who administers \<System Name\>. The legal adviser reviews it | Version \<ver\> approved by the Head of Cyber (D-CA-09). Legally reviewed on 12 November 2026. Not yet shared (PA-20) |
 | a.2 | Procedures that carry out the policy, shared with defined people | \<Procedures\> (CA): seven procedures, PRO-CA-1 to PRO-CA-7, each naming who acts, how often and the record. Shared with the same people | Approved by the system owner (D-CA-10). Not yet shared or walked through |
@@ -297,12 +297,12 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 14: CA-2 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Choose an assessor or team suited to the assessment | Two levels (section 3.3). Level 1 is the system owner's self-assessment. Level 2 is by an independent team led by \[Name\] | Level 1 was carried out by Claude, an AI assistant, for the system owner. \[Name\]'s team is chosen for Level 2 (D-CA-05) |
-| b | Write an assessment plan: the controls in scope, the procedures, and the environment, team and roles | Each family has a plan in \<Control Assessment Record\>, giving the scope, NIST SP 800-53A procedures, site, assessor, methods, depth and coverage, and what is needed from \<Organisation\> | All 19 plans are written |
+| b | Write an assessment plan: the controls in scope, the procedures, and the environment, team and roles | Each family has a plan in \<Control Assessment Record\>, giving the scope, CSS procedures, site, assessor, methods, depth and coverage, and what is needed from \<Organisation\> | All 19 plans are written |
 | c | The authorising official approves the plan before the assessment | The authorising official approves each plan (PRO-CA-1, step 1) | All 19 plans approved (D-GEN-18) |
-| d | Assess the controls on a schedule, to see whether they are in place, work as intended and give the result wanted | Every 12 months, and after a significant change. Every determination statement in NIST SP 800-53A is given a finding | Level 1 done for all 19 families, between 5 and 12 November 2026. Level 2 has not been held (PA-106) |
+| d | Assess the controls on a schedule, to see whether they are in place, work as intended and give the result wanted | Every 12 months, and after a significant change. Every determination statement in CSS is given a finding | Level 1 done for all 19 families, between 5 and 12 November 2026. Level 2 has not been held (PA-106) |
 | e | Write a report of the results | \<Security Assessment Report\>, the Security Assessment Report, which brings together the 19 family chapters of \<Control Assessment Record\> | Issued for Level 1. The Level 2 report will replace it |
 | f | Give the results to defined people | The system owner, the authorising official and the Head of Cyber | \<Security Assessment Report\> was given to all three on 8 November 2026 (D-CA-10) |
 
@@ -324,7 +324,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 16: CA-2(1) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Use assessors who are independent | \[Name\]'s team carries out Level 2. A member counts as independent if they have had no part in designing, building, running or administering \<System Name\>, and each confirms it on TPL-19 before starting (policy rule R2) | The team is chosen (D-CA-05). No member has completed TPL-19, and Level 2 has not been held (PA-106) |
 
@@ -346,9 +346,9 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 18: CA-3 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
-| a | Approve and manage each exchange with another system, using a defined kind of agreement | Every exchange is recorded in the interface record (section 3.7) with its agreement type, chosen under NIST SP 800-47 Rev 1, and the system owner approves it before it is used (PRO-CA-2). Exchanges with \<Organisation\>'s own services rest on its hosting and services agreement; the ServiceNow and Starters/Leavers exchanges each have an information exchange agreement | Six external exchanges are recorded. None is approved or in use, and no agreement is signed (PA-63). The agreements have not been asked for (EV-CA-02) |
+| a | Approve and manage each exchange with another system, using a defined kind of agreement | Every exchange is recorded in the interface record (section 3.7) with its agreement type, chosen under CSS, and the system owner approves it before it is used (PRO-CA-2). Exchanges with \<Organisation\>'s own services rest on its hosting and services agreement; the ServiceNow and Starters/Leavers exchanges each have an information exchange agreement | Six external exchanges are recorded. None is approved or in use, and no agreement is signed (PA-63). The agreements have not been asked for (EV-CA-02) |
 | b | Record, in each agreement, the interface, the security and privacy needs, the controls, the responsibilities and the impact level | The interface record holds all of these for each exchange, and each agreement repeats them | Recorded for all six. No agreement yet holds them |
 | c | Review and update the agreements on a schedule | Every 12 months, by the system owner with the owner of the other system. An exchange no longer needed is ended | Not yet due: nothing is signed |
 
@@ -370,7 +370,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 20: CA-5 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Keep a plan of action and milestones that records the planned fixes for weaknesses found in assessments | \<Plan of Action and Milestones\>. Every weakness that needs a fix has one item, with its control, source, fix, owner, resources, milestone, due time and state. Each open item must be fixed within the time for its rating (section 3.4) | The plan exists and is current to 12 November 2026 |
 | b | Update it on a schedule, from assessments, audits and monitoring | Monthly, by the system owner. An item closes only when the fix is tested and the evidence recorded. Overdue items go to the authorising official each quarter (PRO-CA-3) | Updated as each review has found items. The monthly cycle and calendar dates start when development is scheduled (PA-108) |
@@ -393,7 +393,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 22: CA-6 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Name a senior official as the authorising official for the system | The authorising official, \[Name\] | Assigned (D-GEN-02) |
 | b | Name a senior official as the authorising official for the common controls the system inherits | \<Organisation\>'s official for its common controls, \[Organisation common control official\] | Not named: asked of \<Organisation\> (EV-CA-01), not yet sent |
@@ -420,7 +420,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 24: CA-7 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Set the measures to be monitored | The 14 measures in section 3.8, each with a target, a threshold for action, a source, a frequency and an owner | Twelve set and approved on 6 and 8 November 2026 (D-CA-03, D-CA-10); two added on 13 November 2026 (D-CA-13) |
 | b | Set how often to monitor, and how often to assess controls | Measures monthly, with each duty in the \<Security Operating Procedures\> operating calendar at its own frequency. Control assessment every 12 months | Set |
@@ -448,7 +448,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 26: CA-7(1) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Use independent assessors to monitor the controls on a continuing basis | Each year an independent assessor, who has completed TPL-19, checks a sample of the monitoring: that the measures were collected, are accurate, and were acted on (PRO-CA-5, step 3) | Not started (PA-108) |
 
@@ -470,7 +470,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 28: CA-7(4) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Monitor whether the controls are effective | Six of the measures are of effectiveness: updates applied in time, failed sign-ins and lockouts, logging failures, backups with restore tests, incidents past their time limit, and vulnerabilities past their fix time (section 3.8) | Defined. Not started (PA-108) |
 | b | Monitor compliance | Four of the measures are of compliance: overdue POA&M items, audit reviews completed, access reviews on time, and unused group members | Defined. Not started |
@@ -494,7 +494,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 30: CA-9 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Authorise the internal connections of defined components | Two internal connections, between the components on the application server and the database server: the two user-facing apps to the API, and the API to the database. The system owner authorises each in the interface record before it is built (section 3.7) | Both are recorded as planned. Neither is authorised, as the servers are not built (PA-63) |
 | b | Record, for each, the interface, the security and privacy needs and the information carried | The interface record holds all three for each | Recorded |
@@ -517,11 +517,11 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 ## Appendix A Parameter register
 
-These are NIST's organisation-defined values for the 10 CA entries: 25 in total. State now says whether each is met today. The values were agreed on 6 and 8 November 2026 (D-CA-P01).
+These are the CSS organisation-defined values for the 10 CA entries: 25 in total. State now says whether each is met today. The values were agreed on 6 and 8 November 2026 (D-CA-P01).
 
 **Table 32: CA parameter register**
 
-| NIST identifier | What must be defined | Value | State now |
+| CSS identifier | What must be defined | Value | State now |
 | --- | --- | --- | --- |
 | CA-01\_ODP\[01\] | Who receives the policy | Everyone who administers \<System Name\> | Not yet: shared when issued (PA-20) |
 | CA-01\_ODP\[02\] | Who receives the procedures | Everyone who administers \<System Name\> | Not yet: shared when issued (PA-20) |
@@ -551,7 +551,7 @@ These are NIST's organisation-defined values for the 10 CA entries: 25 in total.
 
 ## Appendix B CA controls outside the Moderate baseline
 
-NIST does not select these at Moderate, so they are not assessed.
+CSS does not select these at Moderate, so they are not assessed.
 
 **Table 33: CA controls not selected at Moderate**
 

@@ -2,15 +2,15 @@
 
 ## 1 Purpose
 
-This document shows how \<System Name\> keeps its software and information sound, for each of the 18 System and Information Integrity (SI) controls in NIST's Moderate baseline: fixing flaws, malicious code protection, monitoring, advisories, integrity checks, input validation, error handling, retention and memory protection.
+This document shows how \<System Name\> keeps its software and information sound, for each of the 18 System and Information Integrity (SI) controls in the CSS Moderate baseline: fixing flaws, malicious code protection, monitoring, advisories, integrity checks, input validation, error handling, retention and memory protection.
 
-Section 3 sets out the design: the upload checks and malware scanning; flaw remediation and advisories; monitoring and the detection use cases; the integrity baseline and checks; error handling and memory protection; retention; how integrity stands today; and what \<Organisation\> provides. Section 4 takes each control in turn. Appendix A lists every value NIST asks the organisation to define.
+Section 3 sets out the design: the upload checks and malware scanning; flaw remediation and advisories; monitoring and the detection use cases; the integrity baseline and checks; error handling and memory protection; retention; how integrity stands today; and what \<Organisation\> provides. Section 4 takes each control in turn. Appendix A lists every value CSS asks the organisation to define.
 
 This is the only place this design is held. Other documents point here. The policy is in \<Policy\> (SI), and the steps people follow are in \<Procedures\> (SI). The vulnerability timetable is in \<Risk Assessment Management\>, section 3.6, the retention schedule in \<PII Processing Management\>, section 3.7, and the audit design in \<Audit and Accountability Management\>. The privacy controls SI-12(1) to SI-12(3), SI-18, SI-18(4) and SI-19 are set out in \<PII Processing Management\>.
 
-An assessor examines the use cases, the baseline, the advisory records and the test results; interviews the security officer, the developers and the Windows server administrator; and tests the upload checks, the error messages, the malware scan and the alerts (NIST SP 800-53A). So for each control section 4 gives:
+An assessor examines the use cases, the baseline, the advisory records and the test results; interviews the security officer, the developers and the Windows server administrator; and tests the upload checks, the error messages, the malware scan and the alerts (CSS). So for each control section 4 gives:
 
-- **each part of the control**, as NIST letters them, with the design that meets it and the position today;
+- **each part of the control**, as CSS letters them, with the design that meets it and the position today;
 - **who provides it**, and who is responsible;
 - **what enforces it**, the rules and procedures that apply, and the tests run;
 - **the records an assessor will ask for**, and whether they exist yet;
@@ -194,13 +194,13 @@ Test-Integrity.ps1 ran on 12 November 2026 on the build tagged v1.0, in the test
 
 ## 4 Each control and enhancement
 
-The controls are in NIST order. Each has two tables. The first takes each part of the control and gives what NIST requires, the design that meets it, and the position today. The second says who provides and is responsible for the control, what enforces it, the rules and procedures that apply, the tests run, the records an assessor will ask for, its status, the risk decision, and what is still open.
+The controls are in CSS order. Each has two tables. The first takes each part of the control and gives what CSS requires, the design that meets it, and the position today. The second says who provides and is responsible for the control, what enforces it, the rules and procedures that apply, the tests run, the records an assessor will ask for, its status, the risk decision, and what is still open.
 
 ### 4.1 SI-1 Policy and Procedures
 
 **Table 10: SI-1 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a.1 | A system and information integrity policy, shared with defined people, covering purpose, scope, roles, responsibilities, management commitment, coordination and compliance, and consistent with the law | \<Policy\> (SI): a system-level policy, shared with everyone who administers or develops \<System Name\>. The legal adviser reviewed it on 12 November 2026 | Version \<ver\> approved by the Head of Cyber (D-SI-01). The later version awaits the Head of Cyber (D-SI-06). Not yet shared (PA-20) |
 | a.2 | Procedures that carry out the policy, shared with defined people | \<Procedures\> (SI): eight procedures, PRO-SI-1 to PRO-SI-8. Shared with the same people | Version \<ver\> approved by the system owner (D-SI-09). Not yet shared |
@@ -226,7 +226,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 12: SI-2 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Identify, report and correct system flaws | Flaws come from the package check, the advisories in section 3.3, scans and tests. Each is recorded on TPL-7 and fixed (PRO-SI-1) | 7 package advisories open, 5 of them High (V01; PA-56) |
 | b | Test updates for effectiveness and side effects before installing them | On a separate test stack first (PRO-SI-1, step 3) | Approved. Not yet in use |
@@ -251,7 +251,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 14: SI-2(2) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Check with automated means, at a defined frequency, whether components have their security updates | Test-Vulnerability.ps1, repository dependency alerts and Windows Update reports, monthly and at each release | The script exists but is run by hand (PA-57); dependency alerts are off (PA-91) |
 
@@ -273,7 +273,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 16: SI-3 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Use signature-based or non-signature-based malicious code protection at entry and exit points | Microsoft Defender, signature and behaviour based, on both servers, and every upload passed to Defender through AMSI before it is stored (section 3.2). Documents stored before the scan exists are scanned once when it is turned on | Not built: no scanner call in the upload path (H08; PA-58). The servers are not built |
 | b | Update the protection automatically as new releases are available | Defender updates daily, under configuration management | Not built (PA-58) |
@@ -299,7 +299,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 18: SI-4 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a.1 | Monitor to detect attacks and indicators of attack, against defined objectives | Detect attacks, misuse and unauthorised connections, through the detection use cases in section 3.4 | Use cases set. Nothing raises an alert (H12; PA-59) |
 | a.2 | Monitor to detect unauthorised local, network and remote connections | \<Organisation\>'s network monitoring, and the allowed flows (\<System and Communications Protection Management\>, section 3.2) | Not evidenced (EV-SI-01) |
@@ -328,7 +328,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 20: SI-4(2) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Use automated tools to support near real-time analysis of events | \<Organisation\>'s central logging, or CISA's Logging Made Easy if none is available, with alert rules for the detection use cases | No forwarding or automated analysis (H12; PA-59) |
 
@@ -350,7 +350,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 22: SI-4(4) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Set criteria for unusual or unauthorised inbound and outbound traffic | Traffic outside the agreed flows; and outbound, unusually large transfers | Defined |
 | b | Monitor inbound and outbound traffic at a defined frequency for that activity | Continuously, by \<Organisation\> | Not evidenced (EV-SI-01) |
@@ -373,7 +373,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 24: SI-4(5) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Alert defined people when defined indications of compromise occur | The security officer, for each detection use case in section 3.4 | Nothing raises an alert (H12; PA-59) |
 
@@ -395,7 +395,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 26: SI-5 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Receive alerts, advisories and directives from defined external organisations on an ongoing basis | NCSC, including Early Warning; CISA's Known Exploited Vulnerabilities catalogue, weekly; Microsoft; .NET and GitHub; and PostgreSQL (section 3.3) | Not started. Early Warning not registered (EV-SI-03) |
 | b | Generate internal alerts and advisories as needed | The security officer's note on TPL-7, naming the flaw, the components affected, the deadline and who acts | Not yet in use |
@@ -420,7 +420,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 28: SI-7 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Use integrity verification tools to detect unauthorised changes to defined software, firmware and information | SHA-256 for the release packages and stored documents, the audit chain for audit records, and \<Organisation\> for the servers' firmware (section 3.5) | Baseline recorded. Documents use MD5 (H09; PA-61); the audit chain cannot be recomputed (H10; PA-74) |
 | b | Take defined actions when unauthorised changes are detected | Treat it as an incident, and restore from a trusted copy or backup; for firmware, tell \<Organisation\>'s security contact | Defined |
@@ -443,7 +443,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 30: SI-7(1) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Check integrity at start-up, at defined events and at a defined frequency | At start-up, at each release and monthly; firmware monthly and at a change to the hosting, by \<Organisation\> | No scheduled check (PA-61) |
 
@@ -465,7 +465,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 32: SI-7(7) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Bring the detection of defined unauthorised changes into incident response | Any unexpected change to software, stored documents or audit records is handled as an incident (PRO-SI-6, step 3; \<Incident Response Management\>) | Defined and approved |
 
@@ -487,7 +487,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 34: SI-8 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Use spam protection at entry and exit points, and update it | Not applicable: \<System Name\> sends and receives no email (\<Tailoring Register\>, TR-SI-01) | Not applicable |
 
@@ -503,7 +503,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 36: SI-8(2) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Update spam protection automatically | Not applicable: \<System Name\> sends and receives no email (\<Tailoring Register\>, TR-SI-01) | Not applicable |
 
@@ -519,7 +519,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 38: SI-10 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Check the validity of defined inputs | All API inputs, uploads (type, signature, size and name) and search terms, on the server, with parameterised database queries (section 3.2) | Tested: refused or rejected (H03 to H07) |
 
@@ -541,7 +541,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 40: SI-11 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Give error messages that help put things right, without revealing what could be exploited | Users and callers see a general message; the detail goes to the log | About 29 API responses return the exception message (H01; PA-60) |
 | b | Show error detail only to defined people | Administrators and developers, through the logs | Not met while the API returns the detail (PA-60) |
@@ -564,7 +564,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 42: SI-12 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Manage and keep information, and outputs, as laws, policies and operational needs require | \<System Name\>'s retention schedule (\<PII Processing Management\>, section 3.7), with the periods in section 3.7 of this document | Set, with placeholders. Not applied: no retention or disposal is built (PA-70) |
 
@@ -586,7 +586,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 44: SI-16 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Use defined controls to protect memory from unauthorised code execution | Windows data execution prevention and address randomisation, and .NET managed memory | .NET managed memory in place. Data execution prevention and address randomisation to confirm on the servers (PA-54) |
 
@@ -606,11 +606,11 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 ## Appendix A Parameter register
 
-These are NIST's organisation-defined values for the 18 SI entries: 57 in total. They were agreed on 6 November 2026 (D-SI-P01), and those changed on 12 November 2026 in D-SI-P02. **State now** says whether \<System Name\> meets the value today.
+These are the CSS organisation-defined values for the 18 SI entries: 57 in total. They were agreed on 6 November 2026 (D-SI-P01), and those changed on 12 November 2026 in D-SI-P02. **State now** says whether \<System Name\> meets the value today.
 
 **Table 46: SI parameter register**
 
-| NIST identifier | What must be defined | Value | State now |
+| CSS identifier | What must be defined | Value | State now |
 | --- | --- | --- | --- |
 | SI-01\_ODP\[01\] | Who receives the policy | Everyone who administers or develops \<System Name\> | Not yet shared |
 | SI-01\_ODP\[02\] | Who receives the procedures | Everyone who administers or develops \<System Name\> | Not yet shared |
@@ -672,7 +672,7 @@ These are NIST's organisation-defined values for the 18 SI entries: 57 in total.
 
 ## Appendix B Integrity controls outside the Moderate baseline
 
-NIST does not select these at Moderate, so they are not assessed. SI-8 and SI-8(2) are tailored out (TR-SI-01), and SI-12(1) to SI-12(3), SI-18, SI-18(4) and SI-19 are privacy baseline controls set out in \<PII Processing Management\>. Table 47 says where the design goes some way towards them.
+CSS does not select these at Moderate, so they are not assessed. SI-8 and SI-8(2) are tailored out (TR-SI-01), and SI-12(1) to SI-12(3), SI-18, SI-18(4) and SI-19 are privacy baseline controls set out in \<PII Processing Management\>. Table 47 says where the design goes some way towards them.
 
 **Table 47: Related controls and enhancements not selected**
 

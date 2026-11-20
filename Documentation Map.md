@@ -2,7 +2,7 @@
 
 ## 1 Scope and assumptions
 
-This set covers the 19 control families of NIST SP 800-53 Rev 5 that apply to \<System Name\>: Access Control (AC), Awareness and Training (AT), Audit and Accountability (AU), Assessment, Authorization, and Monitoring (CA), Configuration Management (CM), Contingency Planning (CP), Identification and Authentication (IA), Incident Response (IR), Maintenance (MA), Media Protection (MP), Physical and Environmental Protection (PE), Planning (PL), Personnel Security (PS), Personally Identifiable Information Processing and Transparency (PT), Risk Assessment (RA), System and Services Acquisition (SA), System and Communications Protection (SC), System and Information Integrity (SI) and Supply Chain Risk Management (SR). The Moderate baseline applies, with NIST's privacy baseline for personal data, which makes 316 controls. Program Management (PM) is the twentieth family. It is outside the baseline for a single system, and \<System Name\> inherits it from \<Organisation\> (\<Tailoring Register\>, section 4). Wherever this set lists the families, it uses NIST order.
+This set covers the 19 control families of CSS that apply to \<System Name\>: Access Control (AC), Awareness and Training (AT), Audit and Accountability (AU), Assessment, Authorization, and Monitoring (CA), Configuration Management (CM), Contingency Planning (CP), Identification and Authentication (IA), Incident Response (IR), Maintenance (MA), Media Protection (MP), Physical and Environmental Protection (PE), Planning (PL), Personnel Security (PS), Personally Identifiable Information Processing and Transparency (PT), Risk Assessment (RA), System and Services Acquisition (SA), System and Communications Protection (SC), System and Information Integrity (SI) and Supply Chain Risk Management (SR). The Moderate baseline applies, with the CSS privacy baseline for personal data, which makes 316 controls. Program Management (PM) is the twentieth family. It is outside the baseline for a single system, and \<System Name\> inherits it from \<Organisation\> (\<Tailoring Register\>, section 4). Wherever this set lists the families, it uses CSS order.
 
 - **System:** the \<System Name\> application built from the API, UI application, Admin application, shared library and workspace repository repositories. It is a separate product from the template-built \<System Name\>; that product's documents were used only as a guide to document types and content.
 - **Version described:** \<System Name\> v1.0, run in Docker for development and test only. The production system, two Windows Server 2025 VMs at \<Organisation\>, is not yet built.
@@ -46,7 +46,7 @@ The set has 44 documents. \<Guide to the Document Set\> is the place to start. E
 | \<Procedures\> | Rules and how they are carried out | The procedures that carry out the policy: one chapter for each family, each step naming who acts and the record kept |
 | \<Control Implementation Register\> | Rules and how they are carried out | Formerly the register of decisions, values and registers. Every family now has its design in a document of its own, so each chapter points to it: \<Access Control Management\>, \<Awareness and Training Management\>, \<Audit and Accountability Management\>, \<Assessment, Authorization, and Monitoring Management\>, \<Identification and Authentication Management\>, \<Maintenance Management\>, \<Media Protection Management\>, \<Physical and Environmental Protection Management\>, \<Planning Management\>, \<Personnel Security Management\>, \<PII Processing Management\>, \<Risk Assessment Management\>, \<System and Services Acquisition Management\>, \<System and Communications Protection Management\> and \<System and Information Integrity Management\> |
 | \<Assessment, Authorization, and Monitoring Management\> | Rules and how they are carried out | The assessment, authorisation and monitoring design: assessment, the plan of action, authorisation, the inherited controls, the interface record, the monitoring strategy and significant change, each of the 10 CA controls, and the parameter values |
-| \<Identification and Authentication Management\> | Rules and how they are carried out | The identification and authentication design: who is identified and how, sign-in through AD FS, the assurance levels, the authenticator inventory and the settings against NIST SP 800-63B, each of the 24 IA controls, and the parameter values |
+| \<Identification and Authentication Management\> | Rules and how they are carried out | The identification and authentication design: who is identified and how, sign-in through AD FS, the assurance levels, the authenticator inventory and the settings against CSS, each of the 24 IA controls, and the parameter values |
 | \<Audit and Accountability Management\> | Rules and how they are carried out | The audit design: the sources of audit records, the events logged, what a record holds, storage and protection, time, retention, review and alerts, each of the 16 Audit and Accountability controls, and the parameter values |
 | \<Awareness and Training Management\> | Rules and how they are carried out | The training design: who needs what, the briefing, the role curriculum, the training matrix and register, each of the 6 Awareness and Training controls, and the parameter values |
 | \<Access Control Management\> | Rules and how they are carried out | The access control design: how \<System Name\> is designed and configured for each of the 39 Access Control controls and enhancements, the status of each, the parameter values and the control index |
@@ -152,7 +152,7 @@ Each document is known by its title. In the text a document is cited by its titl
 
 ### 4.4 Combined documents and chapters
 
-\<Policy\>, \<Procedures\>, \<Control Implementation Register\> and \<Control Assessment Record\> each hold one chapter for each control family, in NIST order. A chapter is named by its family code. Its sections carry the code, as in PS.3, and its tables are numbered Table PS-1, Table PS-2 and so on. Each of these documents has one version for the whole document. In \<Procedures\> each procedure is headed by its own number, such as PRO-PS-2.
+\<Policy\>, \<Procedures\>, \<Control Implementation Register\> and \<Control Assessment Record\> each hold one chapter for each control family, in CSS order. A chapter is named by its family code. Its sections carry the code, as in PS.3, and its tables are numbered Table PS-1, Table PS-2 and so on. Each of these documents has one version for the whole document. In \<Procedures\> each procedure is headed by its own number, such as PRO-PS-2.
 
 **Table 6: How to cite a combined document**
 
@@ -178,13 +178,13 @@ Each document is known by its title. In the text a document is cited by its titl
 9. Proof of each approval is the approver's signed sheet (\<Record Templates\>, TPL-24), listed in \<Decision Register\>, section 23.
 ### 4.6 Order of families
 
-Wherever a document has a part for each family, the families are in NIST order: AC, AT, AU, CA, CM, CP, IA, IR, MA, MP, PE, PL, PM, PS, PT, RA, SA, SC, SI, SR. A new family takes its place in that order, and the sections and tables after it are renumbered, with every reference to them.
+Wherever a document has a part for each family, the families are in CSS order: AC, AT, AU, CA, CM, CP, IA, IR, MA, MP, PE, PL, PM, PS, PT, RA, SA, SC, SI, SR. A new family takes its place in that order, and the sections and tables after it are renumbered, with every reference to them.
 
 ### 4.7 Live documents
 
 \<Decision Register\>, \<Tailoring Register\>, \<Evidence Requests\>, \<Record Templates\> and \<Interview Guide\> are live documents, which grow as decisions are made and evidence arrives. Each live document follows these rules:
 
-1. It has one numbered section for each family, in NIST order, with cross-family content in its own section.
+1. It has one numbered section for each family, in CSS order, with cross-family content in its own section.
 2. It has a family coverage table showing the state of every family, and steps for adding a family.
 3. Its identifiers carry the family code, such as D-AU-01, so that adding an entry never renumbers an existing one.
 4. Each addition increases the version number and is recorded in the change record.
@@ -230,7 +230,7 @@ These identifiers do not change when a document is renumbered or moved, so citat
 | R1 | A policy rule, numbered in each chapter | \<Policy\> |
 | PRO-AC-1 | A procedure | \<Procedures\> |
 | P-AC-01 | An access control setting | \<Control Implementation Register\> (AC) |
-| AC-02\_ODP\[01\], AC-02a. | NIST's own identifier for a parameter or a determination statement | \<Control Implementation Register\>, \<Control Assessment Record\> |
+| AC-02\_ODP\[01\], AC-02a. | The CSS own identifier for a parameter or a determination statement | \<Control Implementation Register\>, \<Control Assessment Record\> |
 | D-AC-01 | A decision. D-AC-P01 is the approval of parameter values | \<Decision Register\> |
 | NC-01, NC-AU-01 | A non-compliance entry. The 39 AC entries have no family code | \<Risk List\>, section 5 |
 | R-AC-01 | A risk | \<Risk List\>, section 2 |
@@ -258,7 +258,7 @@ No single standard sets a required layout, so this standard combines the sources
 | [ISO 2145](https://en.wikipedia.org/wiki/ISO_2145) | Decimal section numbers with Arabic numerals and no full stop after them |
 | [ISO/IEC Directives Part 2](https://www.iso.org/sites/directives/current/part2/index.xhtml), clauses 22, 28 and 29 | Limited subdivision, subsections only in twos or more, and tables and figures numbered continuously and separately from sections |
 | [ISO/IEC 27001 clause 7.5](https://advisera.com/iso27001/clause-7-5-documented-information/) | Documents identified with title, date, author or reference number, consistent format, review and approval |
-| [NIST SP 800-18 Rev 2](https://csrc.nist.gov/pubs/sp/800/18/r2/final) | What a system plan contains, and how its approval, reviews and changes are recorded |
+| CSS | What a system plan contains, and how its approval, reviews and changes are recorded |
 
 ISO 2145 and ISO/IEC 27001 were read through secondary summaries, because the standards are paid for. Check them directly before relying on this standard for an external audit.
 

@@ -2,17 +2,17 @@
 
 ## 1 Purpose
 
-This document shows how \<System Name\> protects its communications, its boundary, its keys and the information it holds, for each of the 25 System and Communications Protection (SC) controls in NIST's Moderate baseline.
+This document shows how \<System Name\> protects its communications, its boundary, its keys and the information it holds, for each of the 25 System and Communications Protection (SC) controls in the CSS Moderate baseline.
 
-Section 3 sets out the design: the boundary and the allowed flows, with each server's host firewall; transport encryption and sessions; the cryptographic and key register and certificates; the page policy for mobile code; information at rest; denial of service, shared resources and process isolation; name resolution; how protection stands today; and what \<Organisation\> provides. Section 4 takes each control in turn. Appendix A lists every value NIST asks the organisation to define.
+Section 3 sets out the design: the boundary and the allowed flows, with each server's host firewall; transport encryption and sessions; the cryptographic and key register and certificates; the page policy for mobile code; information at rest; denial of service, shared resources and process isolation; name resolution; how protection stands today; and what \<Organisation\> provides. Section 4 takes each control in turn. Appendix A lists every value CSS asks the organisation to define.
 
 This is the only place this design is held. Other documents point here. The policy is in \<Policy\> (SC), and the steps people follow are in \<Procedures\> (SC). The flows themselves are in \<System Security Plan\>, section 3.7, and the trust zones and layers of defence in \<Security Architecture\>.
 
 Much of this family is \<Organisation\>'s network: firewalls, the VPN, the proxy, DNS and the certificate authority. \<System Name\>'s own part is its listening addresses, host firewalls, TLS, keys, pages and the protection of what it stores.
 
-An assessor examines the register, the allow-lists, the TLS settings and the page policy; interviews the Windows server administrator, the database administrator, the developers and \<Organisation\>'s security contact; and tests the boundary, the encryption and the headers on the servers (NIST SP 800-53A). So for each control section 4 gives:
+An assessor examines the register, the allow-lists, the TLS settings and the page policy; interviews the Windows server administrator, the database administrator, the developers and \<Organisation\>'s security contact; and tests the boundary, the encryption and the headers on the servers (CSS). So for each control section 4 gives:
 
-- **each part of the control**, as NIST letters them, with the design that meets it and the position today;
+- **each part of the control**, as CSS letters them, with the design that meets it and the position today;
 - **who provides it**, and who is responsible;
 - **what enforces it**, the rules and procedures that apply, and the tests run;
 - **the records an assessor will ask for**, and whether they exist yet;
@@ -139,7 +139,7 @@ Sessions are checked on the server on every request. A new session identifier is
 
 ### 3.4 Cryptographic and key register
 
-Every key and cryptographic use in \<System Name\> is listed here (SC-12, SC-13). Cryptoperiods follow NIST SP 800-57 Part 1 Rev 5. Values are never recorded, only where they are kept. United States FIPS 140 validation is not required: NCSC's profiles and these algorithms are used instead (D-SC-P02).
+Every key and cryptographic use in \<System Name\> is listed here (SC-12, SC-13). Cryptoperiods follow CSS. Values are never recorded, only where they are kept. United States CSS validation is not required: NCSC's profiles and these algorithms are used instead (D-SC-P02).
 
 **Table 7: Cryptographic and key register**
 
@@ -241,13 +241,13 @@ Test-Protection.ps1 ran on 12 November 2026 on the build tagged v1.0, in the tes
 
 ## 4 Each control and enhancement
 
-The controls are in NIST order. Each has two tables. The first takes each part of the control and gives what NIST requires, the design that meets it, and the position today. The second says who provides and is responsible for the control, what enforces it, the rules and procedures that apply, the tests run, the records an assessor will ask for, its status, the risk decision, and what is still open.
+The controls are in CSS order. Each has two tables. The first takes each part of the control and gives what CSS requires, the design that meets it, and the position today. The second says who provides and is responsible for the control, what enforces it, the rules and procedures that apply, the tests run, the records an assessor will ask for, its status, the risk decision, and what is still open.
 
 ### 4.1 SC-1 Policy and Procedures
 
 **Table 11: SC-1 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a.1 | A system and communications protection policy, shared with defined people, covering purpose, scope, roles, responsibilities, management commitment, coordination and compliance, and consistent with the law | \<Policy\> (SC): a system-level policy, shared with everyone who administers or develops \<System Name\>. The legal adviser reviewed it on 12 November 2026 | Version \<ver\> approved by the Head of Cyber (D-SC-01). The later version awaits the Head of Cyber (D-SC-06). Not yet shared (PA-20) |
 | a.2 | Procedures that carry out the policy, shared with defined people | \<Procedures\> (SC): eight procedures, PRO-SC-1 to PRO-SC-8. Shared with the same people | Version \<ver\> approved by the system owner (D-SC-08). Not yet shared |
@@ -273,7 +273,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 13: SC-2 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Separate user functionality, including user interface services, from system management functionality | The admin portal, Admin application, is a separate application and process from the user application, UI application, reached only over \<Organisation\>'s managed administration route (section 3.2) | Separate application and process (B09). The administration route is not yet enforced (PA-83) |
 
@@ -295,7 +295,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 15: SC-4 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Prevent unauthorised and unintended transfer of information through shared system resources | Windows Server clears memory and storage between processes and users. Each application runs as its own Windows service under its own account (D-PL-10), and bulk export copies are deleted once downloaded (section 3.6) | Not assessable until the servers exist. Bulk export leaves copies in a shared temporary folder (PA-86) |
 
@@ -317,7 +317,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 17: SC-5 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Protect against or limit the effects of defined denial-of-service events | Limit the effects of network flooding, request flooding and resource exhaustion | Not evidenced (EV-SC-01) |
 | b | Use defined controls to do so | \<Organisation\>'s network protections; a request rate limit in each application; and sign-in lockout, which AD FS applies (section 3.7) | The rate limits are switched off in the code (N12; PA-50). \<Organisation\>'s protections not seen (EV-SC-01) |
@@ -340,7 +340,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 19: SC-7 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Monitor and control communications at the external managed interfaces and at key internal managed interfaces | \<Organisation\>'s firewalls at the network edge, and each server's host firewall, allow only the flows in section 3.2 | Not built. The applications listen on every interface in Docker (N07; PA-83). \<Organisation\>'s firewalls not seen (EV-SC-02) |
 | b | Separate publicly accessible components from internal networks, physically or logically | \<System Name\> has no publicly accessible component. Users reach it only from \<Organisation\>'s network | No public component |
@@ -364,7 +364,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 21: SC-7(3) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Limit the number of external network connections to the system | \<System Name\> has no connection of its own to an outside network. Its only external connections are \<Organisation\>'s managed gateways | Not evidenced (EV-SC-02) |
 
@@ -386,7 +386,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 23: SC-7(4) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | A managed interface for each external telecommunications service | Provided by \<Organisation\> | Not evidenced (EV-SC-02) |
 | b | A traffic flow policy for each managed interface | \<Organisation\>'s flow policy, which allows \<System Name\>'s flows in section 3.2 | Not evidenced (EV-SC-02) |
@@ -415,7 +415,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 25: SC-7(5) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Deny network traffic by default, and allow it by exception, at managed interfaces or for defined systems | At \<Organisation\>'s managed interfaces and at each server's host firewall, with the allow-lists in section 3.2 | Allow-lists set, but not built (PA-83). \<Organisation\>'s rules not seen (EV-AC-03) |
 
@@ -437,7 +437,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 27: SC-7(7) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Prevent split tunnelling for remote devices unless it is securely provisioned with defined safeguards | \<Organisation\>'s VPN prevents split tunnelling on every remote device | Not evidenced (EV-SC-03) |
 
@@ -459,7 +459,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 29: SC-7(8) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Route defined internal traffic to defined external networks through authenticated proxy servers | All outbound traffic from the servers goes through \<Organisation\>'s authenticated proxy, or is blocked (rule O3 in section 3.2) | Not evidenced (EV-SC-03) |
 
@@ -481,7 +481,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 31: SC-8 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Protect the confidentiality and integrity of transmitted information | TLS on every flow, F1 to F7 and F11, including those that stay inside a server, under the profile in section 3.3 | Plain HTTP on every application and on the internal API calls, and database TLS off (N01, N06; PA-18) |
 
@@ -503,7 +503,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 33: SC-8(1) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Use cryptography to prevent unauthorised disclosure, and detect changes, during transmission | TLS under NCSC's profiles, with authenticated encryption (AES-GCM) (section 3.3) | Not in place (PA-18) |
 
@@ -525,7 +525,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 35: SC-10 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | End the network connection at the end of a session, or after a defined period of inactivity | Application sessions end after 30 minutes idle and after 8 hours. \<Organisation\> ends network and remote access sessions after 30 minutes idle | Application sessions end as set. The network side is not evidenced (EV-SC-01) |
 
@@ -547,9 +547,9 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 37: SC-12 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
-| All | Establish and manage cryptographic keys under defined key management requirements | Each key in the register (section 3.4) is generated randomly, held in a protected store outside source code, owned, and changed at its cryptoperiod, which follows NIST SP 800-57 Part 1 Rev 5, when a holder leaves, and at once if compromise is suspected | The token signing key and database password are in source (N09; PA-19). The key rings are unencrypted (N08; PA-93) |
+| All | Establish and manage cryptographic keys under defined key management requirements | Each key in the register (section 3.4) is generated randomly, held in a protected store outside source code, owned, and changed at its cryptoperiod, which follows CSS, when a holder leaves, and at once if compromise is suspected | The token signing key and database password are in source (N09; PA-19). The key rings are unencrypted (N08; PA-93) |
 
 **Table 38: SC-12 responsibility and evidence**
 
@@ -569,10 +569,10 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 39: SC-13 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Determine the cryptographic uses | TLS, token signing, cookie and antiforgery protection, disk encryption, backup encryption and integrity checks (section 3.4) | Done |
-| b | Use the defined types of cryptography for each use | NCSC's TLS profiles, XTS-AES 256, HMAC-SHA256, AES-256 with HMAC-SHA256, and SHA-256. United States FIPS 140 validation is not required (D-SC-P02) | Token signing in place. TLS, disk and key ring encryption not set up. Document checksums use MD5 (PA-61) |
+| b | Use the defined types of cryptography for each use | NCSC's TLS profiles, XTS-AES 256, HMAC-SHA256, AES-256 with HMAC-SHA256, and SHA-256. United States CSS validation is not required (D-SC-P02) | Token signing in place. TLS, disk and key ring encryption not set up. Document checksums use MD5 (PA-61) |
 
 **Table 40: SC-13 responsibility and evidence**
 
@@ -592,7 +592,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 41: SC-15 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Prohibit remote activation of collaborative devices, and show when they are in use | Not applicable: \<System Name\> has no collaborative computing devices or applications (\<Tailoring Register\>, TR-SC-01) | Not applicable |
 
@@ -608,7 +608,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 43: SC-17 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Issue certificates under a defined certificate policy, or obtain them from an approved provider | From \<Organisation\>'s certificate authority, under its certificate policy, using ECDSA P-256 or RSA 2048-bit with SHA-256 (section 3.4) | Not issued; the policy is not seen (EV-SC-04) |
 | b | Include only approved trust anchors in the trust stores | Only \<Organisation\>'s approved trust anchors | Not evidenced (EV-SC-04) |
@@ -631,7 +631,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 45: SC-18 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Define acceptable and unacceptable mobile code and mobile code technologies | Acceptable: JavaScript and WebAssembly served by \<System Name\> itself. Anything else, including scripts from outside services, is unacceptable unless the system owner approves it (section 3.5) | Defined and approved |
 | b | Authorise, monitor and control the use of mobile code | Each application sends the page policy in section 3.5. Developers check page code at each release (PRO-SC-5) | UI application and Admin application send no page policy, and the configured policy allows inline scripts and outside hosts (N04, N10; PA-34, PA-51) |
@@ -654,7 +654,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 47: SC-20 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Provide data origin and integrity artefacts with authoritative name resolution responses | Provided by \<Organisation\>'s DNS (section 3.8) | Not evidenced (EV-SC-05) |
 | b | Indicate the security status of child zones, and enable a chain of trust | Provided by \<Organisation\>'s DNS | Not evidenced (EV-SC-05) |
@@ -677,7 +677,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 49: SC-21 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Request and verify data origin authentication and integrity on the name resolution responses received | Provided by \<Organisation\>'s resolvers (section 3.8) | Not evidenced (EV-SC-05) |
 
@@ -699,7 +699,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 51: SC-22 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Make the name resolution service fault-tolerant, with internal and external role separation | Provided by \<Organisation\> (section 3.8) | Not evidenced (EV-SC-05) |
 
@@ -721,7 +721,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 53: SC-23 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Protect the authenticity of communications sessions | Sessions are checked on the server on every request, and carried only over TLS in cookies marked Secure, HttpOnly and SameSite, with HSTS (section 3.3). A new session identifier at each sign-in; only identifiers \<System Name\> issued accepted; sessions ended on the server at sign-out and time-out | Sessions are checked on the server. Cookies are not Secure over HTTP, and there is no HSTS (N02, N03; PA-18). Session handling not yet tested with sign-in through AD FS (PA-95) |
 
@@ -743,7 +743,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 55: SC-28 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Protect the confidentiality and integrity of defined information at rest | Documents and pages in PostgreSQL, the database files, backups, export copies and the data protection key rings, by the means in section 3.6 | Nothing is encrypted at rest in Docker. The servers are not built (PA-52, PA-86, PA-93) |
 
@@ -765,7 +765,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 57: SC-28(1) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Use cryptography to prevent unauthorised disclosure and change of defined information at rest on defined components | BitLocker with XTS-AES 256 and the TPM on both servers, encrypted backups, and the key ring folders protected with DPAPI (section 3.6) | The servers are not built (PA-52) |
 
@@ -787,7 +787,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 59: SC-39 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Keep a separate execution domain for each running process | Windows Server gives each process its own address space, and each application runs as its own Windows service under its own account (D-PL-10) | Not assessable until the servers exist |
 
@@ -807,11 +807,11 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 ## Appendix A Parameter register
 
-These are NIST's organisation-defined values for the 25 SC entries: 30 in total. They were agreed on 6 November 2026 (D-SC-P01), and those changed on 12 November 2026 in D-SC-P02. **State now** says whether \<System Name\> meets the value today.
+These are the CSS organisation-defined values for the 25 SC entries: 30 in total. They were agreed on 6 November 2026 (D-SC-P01), and those changed on 12 November 2026 in D-SC-P02. **State now** says whether \<System Name\> meets the value today.
 
 **Table 61: SC parameter register**
 
-| NIST identifier | What must be defined | Value | State now |
+| CSS identifier | What must be defined | Value | State now |
 | --- | --- | --- | --- |
 | SC-01\_ODP\[01\] | Who receives the policy | Everyone who administers or develops \<System Name\> | Not yet shared |
 | SC-01\_ODP\[02\] | Who receives the procedures | Everyone who administers or develops \<System Name\> | Not yet shared |
@@ -834,9 +834,9 @@ These are NIST's organisation-defined values for the 25 SC entries: 30 in total.
 | SC-08\_ODP | Protection of transmitted information | Confidentiality and integrity | Plain HTTP and database TLS off (N01, N06; PA-18) |
 | SC-08(01)\_ODP | What cryptography prevents | Unauthorised disclosure, and detects changes, using the TLS profile in section 3.3 | Not in place (PA-18) |
 | SC-10\_ODP | Network disconnect | After 30 minutes idle, and at the end of a session | Application sessions end at 30 minutes idle and 8 hours; network side not evidenced (EV-SC-01) |
-| SC-12\_ODP | Key requirements | Each key in the register (section 3.4): generated randomly, held in a protected store outside source code, owned, and changed at its cryptoperiod based on NIST SP 800-57 Part 1 Rev 5 | Keys committed in source (PA-19); key rings unencrypted (PA-93) |
+| SC-12\_ODP | Key requirements | Each key in the register (section 3.4): generated randomly, held in a protected store outside source code, owned, and changed at its cryptoperiod based on CSS | Keys committed in source (PA-19); key rings unencrypted (PA-93) |
 | SC-13\_ODP\[01\] | Cryptographic uses | TLS, token signing, cookie and antiforgery protection, disk encryption, backup encryption, and integrity checks | As in section 3.4 |
-| SC-13\_ODP\[02\] | Types of cryptography | The algorithms in section 3.4: NCSC's TLS profiles, XTS-AES 256, HMAC-SHA256, AES-256 with HMAC-SHA256, and SHA-256. US FIPS 140 validation is not required (D-SC-P02) | Password hashing and token signing in place; the rest not built |
+| SC-13\_ODP\[02\] | Types of cryptography | The algorithms in section 3.4: NCSC's TLS profiles, XTS-AES 256, HMAC-SHA256, AES-256 with HMAC-SHA256, and SHA-256. US CSS validation is not required (D-SC-P02) | Password hashing and token signing in place; the rest not built |
 | SC-15\_ODP | Exceptions | Not applicable (TR-SC-01) | Not applicable |
 | SC-17\_ODP | Certificate policy | \<Organisation\>'s certificate policy, with the algorithms in section 3.3 | Not seen (EV-SC-04) |
 | SC-28\_ODP\[01\] | Protection at rest | Confidentiality and integrity | Not in place in Docker |
@@ -846,7 +846,7 @@ These are NIST's organisation-defined values for the 25 SC entries: 30 in total.
 
 ## Appendix B Communications protection controls outside the Moderate baseline
 
-NIST does not select these at Moderate, so they are not assessed. SC-15 is tailored out (TR-SC-01), and SC-7(24) is a privacy baseline control set out in \<PII Processing Management\>. Table 62 says where the design goes some way towards them.
+CSS does not select these at Moderate, so they are not assessed. SC-15 is tailored out (TR-SC-01), and SC-7(24) is a privacy baseline control set out in \<PII Processing Management\>. Table 62 says where the design goes some way towards them.
 
 **Table 62: Related controls and enhancements not selected**
 

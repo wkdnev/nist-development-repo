@@ -2,13 +2,13 @@
 
 ## 1 Purpose
 
-This document shows how \<System Name\>'s configuration is recorded, controlled and changed, for each of the 24 Configuration Management (CM) controls and enhancements in the NIST SP 800-53 Rev 5 Moderate baseline. It is also the Configuration Management Plan that CM-9 requires, and follows the outline in NIST SP 800-128, Appendix D. Section 3 sets out the design: roles and processes, the configuration items, the baseline, the software components, the secure settings, change control, impact analysis, least functionality, who may change what, the inventory, and the library. Section 4 takes each control in turn. Appendix A records how configuration was built in the tested build. Appendix B lists every value NIST asks the organisation to define. Appendix C sets out the development, test and production environments. Appendix D lists the CM controls NIST does not select at Moderate.
+This document shows how \<System Name\>'s configuration is recorded, controlled and changed, for each of the 24 Configuration Management (CM) controls and enhancements in the CSS Moderate baseline. It is also the Configuration Management Plan that CM-9 requires, and follows the outline in CSS, Appendix D. Section 3 sets out the design: roles and processes, the configuration items, the baseline, the software components, the secure settings, change control, impact analysis, least functionality, who may change what, the inventory, and the library. Section 4 takes each control in turn. Appendix A records how configuration was built in the tested build. Appendix B lists every value CSS asks the organisation to define. Appendix C sets out the development, test and production environments. Appendix D lists the CM controls CSS does not select at Moderate.
 
 This is the only place the configuration management design is held. Other documents point here. The policy is in \<Policy\> (CM), and the steps people follow are in \<Procedures\> (CM).
 
-An assessor examines the baseline, the inventory, the settings, the change records and the board's decisions, interviews those who make and approve changes, and tests that the system is configured as the documents say (NIST SP 800-53A). So for each control section 4 gives:
+An assessor examines the baseline, the inventory, the settings, the change records and the board's decisions, interviews those who make and approve changes, and tests that the system is configured as the documents say (CSS). So for each control section 4 gives:
 
-- **each part of the control**, as NIST letters them, with the design that meets it and the position today;
+- **each part of the control**, as CSS letters them, with the design that meets it and the position today;
 - **who provides it**, and who is responsible;
 - **what enforces it**, the rules and procedures that apply, and the tests run;
 - **the records an assessor will ask for**, and whether they exist yet;
@@ -193,7 +193,7 @@ Every change to a configuration item follows one route. Figure 1 shows it.
 
 ### 3.8 Change control board charter
 
-This charter follows NIST SP 800-128, Appendix H.
+This charter follows CSS, Appendix H.
 
 **Table 9: Change control board charter**
 
@@ -212,7 +212,7 @@ This charter follows NIST SP 800-128, Appendix H.
 
 ### 3.9 Security impact analysis
 
-The security officer answers each question on the change before the board decides. This follows NIST SP 800-128, Appendix I.
+The security officer answers each question on the change before the board decides. This follows CSS, Appendix I.
 
 **Table 10: Impact analysis criteria**
 
@@ -295,13 +295,13 @@ Nobody approves a change they requested or made. Every change by any of these pe
 
 ## 4 Each control and enhancement
 
-The controls are in NIST order. Each has two tables. The first takes each part of the control and gives what NIST requires, the design that meets it, and the position today. The second says who provides and is responsible for the control, what enforces it, the rules and procedures that apply, the tests run, the records an assessor will ask for, its status, the risk decision, and what is still open.
+The controls are in CSS order. Each has two tables. The first takes each part of the control and gives what CSS requires, the design that meets it, and the position today. The second says who provides and is responsible for the control, what enforces it, the rules and procedures that apply, the tests run, the records an assessor will ask for, its status, the risk decision, and what is still open.
 
 ### 4.1 CM-1 Policy and Procedures
 
 **Table 15: CM-1 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a.1 | A configuration management policy, shared with defined people, covering purpose, scope, roles, responsibilities, management commitment, coordination and compliance, and consistent with the law | \<Policy\> (CM): a system-level policy. Purpose and scope are in section CM.1, responsibilities in CM.5, and commitment, coordination and compliance in CM.6. It is shared with everyone who changes or administers \<System Name\>. The legal adviser reviews it | Version \<ver\> approved by the Head of Cyber (D-CM-11). Legally reviewed on 12 November 2026. Not yet shared (PA-20) |
 | a.2 | Procedures that carry out the policy, shared with defined people | \<Procedures\> (CM): nine procedures, PRO-CM-1 to PRO-CM-9, each naming who acts, how often and the record. Shared with the same people | Approved by the system owner (D-CM-12). Not yet shared or walked through |
@@ -327,7 +327,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 17: CM-2 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Write down and keep a current baseline configuration of the system | Section 3.4. The baseline is what a release must contain so that it can be rebuilt exactly: the applications at a tag, each image and component at a pinned version, the settings in section 3.6, and the server build to the CIS Benchmarks | Baseline v1.0 is recorded, and the applications are tagged (C03). The images are not pinned, so the release cannot be rebuilt exactly (C01, C02; PA-77). No baseline exists for the servers, as the servers are not built (PA-54) |
 | b.1 | Review and update the baseline on a schedule | Every 12 months, by the system owner and the Windows server administrator (PRO-CM-2) | Not yet due |
@@ -352,7 +352,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 19: CM-2(2) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Keep the baseline current, complete, accurate and available by automated means | Three means: release tags in the source repositories; image versions pinned by digest; and the deployment files, which state the exact configuration. A bill of materials is produced by the build at each release | Release tags are in use. Images are not pinned (PA-77), no bill of materials is produced (PA-78), and the change workflow is not set up (PA-53) |
 
@@ -374,7 +374,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 21: CM-2(3) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Keep a defined number of earlier baselines, so that a release can be rolled back | The 3 previous configurations are kept in the configuration library, each as its tagged applications, pinned image versions, settings and bill of materials (section 3.13) | Only v1.0 exists, so there is nothing earlier to keep yet |
 
@@ -396,7 +396,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 23: CM-2(7) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Issue specially configured devices to people travelling to high-risk places | No \<System Name\> device is issued to anyone, for travel or otherwise. \<System Name\> is reached only from \<Organisation\>'s managed devices, and phones and tablets cannot reach it (\<Access Control Management\>, section 3.6.5) | Met: none is issued (D-CM-05) |
 | b | Apply defined controls to the devices when the person returns | Not applicable while none is issued. If that changes, the system owner sets the configuration and the checks on return before the first device is issued | Met |
@@ -419,7 +419,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 25: CM-3 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Decide and record which kinds of change are under configuration control | Every change to a configuration item in section 3.3: the applications, components, images, deployment files, settings, the servers' and database's settings, and the security documents. Routine patches follow the same route | Set in this document |
 | b | Review each proposed change and approve or refuse it, with security and privacy impact in mind | The change control board decides each change, on its impact analysis (sections 3.8 and 3.9). Nobody approves a change they requested or made | Not in use: the ServiceNow change workflow is not set up (PA-53) |
@@ -447,7 +447,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 27: CM-3(2) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Test, validate and document each change before it is finished | Each change is tested on a separate test environment before release, with the security tests that apply, and the result is recorded on the change (PRO-CM-1, step 4). A release that fails a test does not go out | The security tests exist and were run on the v1.0 build. Nothing makes a release wait for them (PA-53) |
 
@@ -469,7 +469,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 29: CM-3(4) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Make defined security and privacy representatives members of the change control body | The security officer is a member of the board. The legal adviser joins, as privacy representative, for any change that touches personal data (section 3.8) | Met: both are named in the charter |
 
@@ -491,7 +491,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 31: CM-4 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Analyse each change for its security and privacy impact before it is made | The security officer answers the eight questions in section 3.9 on every change, rates the impact Low, Medium or High, and records it on the change before the board decides. A High impact also needs the authorising official's agreement. A significant change goes to the authorising official (\<Assessment, Authorization, and Monitoring Management\>, section 3.9) | Defined. Not in use: no change has gone through it (PA-53) |
 
@@ -513,7 +513,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 33: CM-4(2) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | After a change, check that the controls it affected are still in place, working as intended and giving the result wanted | After each change, those who made it run the tests for the controls named in the impact analysis, and record the result on the change (PRO-CM-1, step 5) | Defined. Not in use (PA-53) |
 
@@ -535,7 +535,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 35: CM-5 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Define, record, approve and enforce the physical and logical limits on who can change the system | Section 3.11. Only developers can change the applications, in the source repositories, and each change needs a second person's review. Only the named Windows server administrators can change the servers or install a release. Only the named database administrators can change PostgreSQL. No application account can change its own program files. Each change leaves a record of who made it, in the change record and in the Windows and PostgreSQL logs. Physical access to the hosts is \<Organisation\>'s | Not assessable: the servers are not built. The source repositories do not yet require a review (PA-91). \<Organisation\>'s restrictions are not evidenced (EV-CM-01) |
 
@@ -557,7 +557,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 37: CM-6 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Set and record configuration settings, from a defined secure standard, that are as restrictive as the work allows | Section 3.6. The CIS Benchmarks for Windows Server 2025 and PostgreSQL 18, and the settings there for the application hosting, the .NET runtime and the applications | Recorded. The applications run as Windows services (D-PL-10) |
 | b | Apply the settings | The Windows server and database administrators apply the benchmarks when the servers are built, and the developers apply the hosting and application settings (PRO-CM-3) | Not applied: the servers are not built (PA-54). In the test environment the runtime settings are met (C08, C11), and PostgreSQL has TLS and logging off |
@@ -582,7 +582,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 39: CM-7 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Configure the system to provide only the capabilities its purpose needs | \<System Name\> stores, searches, shows and administers documents, and nothing else (section 3.10) | Partly. The API documentation page is off outside development (B06), the database is reachable only locally (B07), and the applications do not run as root (B08) |
 | b | Prohibit or restrict defined functions, ports, protocols, software and services | Table 11 in section 3.10 lists what is prohibited in each of the five kinds | Not met in part. Diagnostic, test and maintenance pages remain in the release (PA-07, PA-31). Plain HTTP is used in the test environment (PA-18). Unused packages are built in (C05, C06; PA-79), and each image holds a shell and a package manager (PA-85) |
@@ -605,7 +605,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 41: CM-7(1) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Review the system on a schedule, to find functions, ports, protocols, software and services that are not needed or not secure | Every 12 months the Windows server administrator and the developers review all five kinds against Table 11, and record the result on TPL-3 (PRO-CM-5) | Not yet held: the first is due 12 months after go-live (PA-110) |
 | b | Disable or remove what the review finds | Anything not needed is removed through a change | Not yet used |
@@ -628,7 +628,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 43: CM-7(2) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Prevent programs from running unless they are allowed by defined rules | The approved software list says what may run on the servers. It is not enforced by the system: the system owner decided against Windows application control (D-CM-06). Software is installed only by the named Windows server administrators, on an approved request | The risk is accepted by the authorising official for 12 months, to 6 November 2027 (NC-CM-15). The list is not yet written (PA-55) |
 
@@ -650,7 +650,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 45: CM-7(5) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Identify the software allowed to run | The approved software list, kept by the Windows server administrator. For the applications themselves, the component list in section 3.5 | The component list exists. The list for the servers is not written (PA-55) |
 | b | Deny everything else, and allow by exception | By procedure, not by the system: nothing is installed without an approved request (PRO-CM-4). Not technically enforced, by decision (D-CM-06) | The risk is accepted for 12 months, to 6 November 2027 (NC-CM-16) |
@@ -674,7 +674,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 47: CM-8 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Keep an inventory that reflects the system accurately, includes every component, counts none twice, is detailed enough to track and report, and holds defined information | Two lists, with no overlap: the servers and other components in \<System Security Plan\>, section 3.4, and the software components in section 3.5. Each entry gives name, type, version, location and owner, and for software also the supplier and licence. A bill of materials from each build checks the software list | The software list is complete for v1.0, and matched a list written from the build (C04). It is kept by hand, with no bill of materials (PA-78). Server names, asset numbers and exact versions wait for the servers (PA-54) |
 | b | Review and update the inventory on a schedule | At each change (PRO-CM-1, step 6) | Not yet used |
@@ -697,7 +697,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 49: CM-8(1) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Update the inventory as part of installing, removing and updating components | A change is not closed until the inventory is updated: it is step 6 of every change (PRO-CM-1) | Not in use: no change has gone through the procedure (PA-111) |
 
@@ -719,7 +719,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 51: CM-8(3) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Detect unauthorised hardware, software and firmware by automated means, on a schedule | \<Organisation\>'s discovery tools check its network, including both servers, every month | Not evidenced (EV-CM-02) |
 | b | Take defined action when one is found | The tool alerts the Windows server administrator, who removes the component or disables its network access, tells the security officer, and records it on TPL-8 (PRO-CM-6) | Not yet used |
@@ -742,7 +742,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 53: CM-9 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | A plan that covers roles, responsibilities, and configuration management processes and procedures | This document is the plan. Roles and processes are in section 3.2, the route a change follows in section 3.7, the environments in appendix C, and the procedures are \<Procedures\> (CM) | Written |
 | b | It sets how configuration items are identified through the life of the system, and how their configuration is managed | Section 3.2: an item is identified when it enters the baseline, named by its component and version, and managed through the change procedure for its whole life | Written |
@@ -768,7 +768,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 55: CM-10 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Use software and its documentation within its contracts and copyright law | Every component's licence is recorded in section 3.5 before it enters the baseline, and must permit \<System Name\>'s use. A licence that is not a standard open source licence goes to the system owner for a recorded decision. Licences are checked again at each release and every 12 months (PRO-CM-9) | All 16 components are recorded with their licences. One needed a decision: ImageSharp, used under its free community licence (D-CM-09). One internal component's owner and licence are to be confirmed. \<Organisation\>'s licences for Windows Server and the hosting are not evidenced (EV-CM-03) |
 | b | Track software licensed by quantity, to control copying and distribution | \<System Name\>'s own components are not licensed by quantity. Windows Server and anything else licensed by quantity is \<Organisation\>'s, and is tracked in its licence record | Not evidenced (EV-CM-03) |
@@ -792,7 +792,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 57: CM-11 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Set the rules for users installing software | Nobody may install software on the servers without approval. A person who needs software there raises a request, and the system owner approves or refuses it (D-CM-07). \<Organisation\>'s policy governs users' own devices | Set |
 | b | Enforce the rules by defined means | The approval in ServiceNow, and Windows user rights: only the named Windows server administrators can install | Not assessable: the servers are not built |
@@ -816,7 +816,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 59: CM-12 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Identify and record where defined information is, and the components that process and store it | Documents and audit records are held in PostgreSQL on the database server, with each project in its own schema. The application server holds only working files: export output for up to 24 hours, each application's key ring, and logs. Backups go to \<Organisation\>'s backup site. \<System Security Plan\>, sections 3.4 and 4.4, hold the record | Recorded |
 | b | Identify and record who has access to the system and components where it is held | The approved access list: the members of each of \<System Name\>'s AD groups, the named Windows server and database administrators, and \<Organisation\>'s staff with access to the hosts and backups | Not built: the first list is to be made before any production documents are held (D-AC-14; PA-111) |
@@ -840,7 +840,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 61: CM-12(1) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Use automated tools to find defined information on defined components | Restricted documents are held by project in the database, so the database itself lists them. For anything outside it, \<Organisation\>'s tools are to scan both servers for stray copies, if it has such tools | The value is agreed. The tools are not confirmed (EV-CM-02) |
 
@@ -874,11 +874,11 @@ This records the position of the build labelled v1.0 when it was examined and te
 
 ## Appendix B Parameter register
 
-These are NIST's organisation-defined values for the 24 CM entries: 57 in total. State now says whether each value is met today. Forty-six were agreed in the meeting of 6 November 2026, and the other 11 by the system owner later the same day (D-CM-P01, D-CM-P02). Four were extended on 8 November 2026 (D-CM-08).
+These are the CSS organisation-defined values for the 24 CM entries: 57 in total. State now says whether each value is met today. Forty-six were agreed in the meeting of 6 November 2026, and the other 11 by the system owner later the same day (D-CM-P01, D-CM-P02). Four were extended on 8 November 2026 (D-CM-08).
 
 **Table 64: CM parameter register**
 
-| NIST identifier | What must be defined | Value | State now |
+| CSS identifier | What must be defined | Value | State now |
 | --- | --- | --- | --- |
 | CM-01\_ODP\[01\] | Who receives the policy | Everyone who changes or administers \<System Name\> | Not yet: shared when issued (PA-20) |
 | CM-01\_ODP\[02\] | Who receives the procedures | Everyone who changes or administers \<System Name\> | Not yet: shared when issued (PA-20) |
@@ -940,7 +940,7 @@ These are NIST's organisation-defined values for the 24 CM entries: 57 in total.
 
 ## Appendix C Environments
 
-NIST's guidance on CM-9 asks the plan to say how the development, test and operational environments are controlled. \<System Name\> has three, and nothing moves from one to the next except as a tagged release.
+The CSS guidance on CM-9 asks the plan to say how the development, test and operational environments are controlled. \<System Name\> has three, and nothing moves from one to the next except as a tagged release.
 
 **Table 65: Environments**
 
@@ -950,11 +950,11 @@ NIST's guidance on CM-9 asks the plan to say how the development, test and opera
 | Test | A separate, throwaway copy of the whole system, built from a tagged release and removed after each test run | Sample data only | Developers | In use for every test recorded in the evidence store. It runs in Docker on one PC, not on servers like the production ones |
 | Production | The application server and the database server at \<Organisation\> | Production documents, once \<System Name\> is authorised | The named Windows server and database administrators only, installing an approved release | Not built |
 
-A release is tested in the test environment before it reaches production (section 3.7, step 4). NIST asks for a separate test environment only at High, as CM-4(1); \<System Name\> has one already. The tests are to be repeated on the production servers once they are built, because the test environment differs from them.
+A release is tested in the test environment before it reaches production (section 3.7, step 4). CSS asks for a separate test environment only at High, as CM-4(1); \<System Name\> has one already. The tests are to be repeated on the production servers once they are built, because the test environment differs from them.
 
 ## Appendix D CM controls outside the Moderate baseline
 
-NIST does not select these at Moderate, so they are not assessed. Some of the design goes further than the baseline, and Table 66 says where.
+CSS does not select these at Moderate, so they are not assessed. Some of the design goes further than the baseline, and Table 66 says where.
 
 **Table 66: CM controls not selected at Moderate**
 

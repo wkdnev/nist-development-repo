@@ -2,13 +2,13 @@
 
 ## 1 Purpose
 
-This document shows how people and services are identified and authenticated in \<System Name\>, for each of the 24 Identification and Authentication (IA) controls and enhancements in the NIST SP 800-53 Rev 5 Moderate baseline. Section 3 sets out the design: who is identified and how, sign-in through AD FS, the assurance levels, the authenticators, the settings against NIST SP 800-63B Revision 4, sessions, and identity proofing. Section 4 takes each control in turn. Appendix A records how the tested build worked. Appendix B lists every value NIST asks the organisation to define. Appendix C lists the IA controls NIST does not select at Moderate.
+This document shows how people and services are identified and authenticated in \<System Name\>, for each of the 24 Identification and Authentication (IA) controls and enhancements in the CSS Moderate baseline. Section 3 sets out the design: who is identified and how, sign-in through AD FS, the assurance levels, the authenticators, the settings against CSS, sessions, and identity proofing. Section 4 takes each control in turn. Appendix A records how the tested build worked. Appendix B lists every value CSS asks the organisation to define. Appendix C lists the IA controls CSS does not select at Moderate.
 
 This is the only place this design is held. Other documents point here. The policy is in \<Policy\> (IA), and the steps people follow are in \<Procedures\> (IA). Who may do what once signed in is in \<Access Control Management\>.
 
-An assessor examines the authenticator settings and inventory, the identity proofing records and the trust with the sign-in service; interviews those who issue and reset authenticators; and tests sign-in, including what happens with a wrong password, a replayed token and an idle session (NIST SP 800-53A). So for each control section 4 gives:
+An assessor examines the authenticator settings and inventory, the identity proofing records and the trust with the sign-in service; interviews those who issue and reset authenticators; and tests sign-in, including what happens with a wrong password, a replayed token and an idle session (CSS). So for each control section 4 gives:
 
-- **each part of the control**, as NIST letters them, with the design that meets it and the position today;
+- **each part of the control**, as CSS letters them, with the design that meets it and the position today;
 - **who provides it**, and who is responsible;
 - **what enforces it**, the rules and procedures that apply, and the tests run;
 - **the records an assessor will ask for**, and whether they exist yet;
@@ -116,14 +116,14 @@ There are no shared, guest, anonymous or local accounts, and nobody outside \<Or
 | Token life | Short: \[minutes to be agreed with \<Organisation\>\] | Not built |
 | What the token carries | The person's account name and their AD groups, and nothing more than \<System Name\> needs | Not built |
 | Certificate renewal | \<System Name\> picks up AD FS's new certificate when \<Organisation\> renews it | Not built |
-| Federation assurance level | Level 2 of NIST SP 800-63C. The system owner set this as the target on 16 November 2026 (D-IA-12): a signed token that only \<System Name\> can use. It is to be agreed with \<Organisation\> | Not agreed (PA-117) |
+| Federation assurance level | Level 2 of CSS. The system owner set this as the target on 16 November 2026 (D-IA-12): a signed token that only \<System Name\> can use. It is to be agreed with \<Organisation\> | Not agreed (PA-117) |
 | If AD FS is unavailable | Nobody can sign in. There is no local sign-in to fall back on | By design (\<Contingency Planning Management\>, section 3.3.3) |
 
 The steps and the trust are the design, from the system owner's statement of how \<System Name\> works (D-AC-23, D-IA-12). The settings shown as placeholders are asked of \<Organisation\> with EV-IA-04, and are filled in when it answers (PA-117). None of it has been tested or evidenced (PA-95).
 
 ### 3.4 Assurance levels
 
-This follows NIST SP 800-63-4, section 3, and the federal acceptance statement template. It was proposed by the system owner on 9 November 2026 and accepted by the authorising official the same day, as confirmed by the system owner (D-IA-08). The statement was revised on 12 November 2026 for sign-in through AD FS (D-AC-23), and the revision awaits the authorising official.
+This follows CSS, section 3, and the federal acceptance statement template. It was proposed by the system owner on 9 November 2026 and accepted by the authorising official the same day, as confirmed by the system owner (D-IA-08). The statement was revised on 12 November 2026 for sign-in through AD FS (D-AC-23), and the revision awaits the authorising official.
 
 Identity assurance is how sure we are that a person is who they claim. Authenticator assurance is how sure we are that the person signing in holds the account. Federation assurance applies when another system, here AD FS, vouches for the person.
 
@@ -136,7 +136,7 @@ Identity assurance is how sure we are that a person is who they claim. Authentic
 | Readers and auditors | Moderate: reading one project's documents, or the audit trail | As above | AAL2: multi-factor sign-in through AD FS | Multi-factor through AD FS, as the system owner states (D-AC-23); not yet evidenced | AD FS, at federation assurance level 2 (D-IA-12), to be agreed with \<Organisation\> | No production documents held (D-GEN-13); 8-hour sessions; all actions audited |
 | Services (API to PostgreSQL) | High: the whole database | Not applicable | A secret held outside source code, changed every 12 months (section 3.5) | Secret in settings files (PA-19) | Not applicable | Database reachable only from the host (B07, C09) |
 
-**Reasoning:** \<System Name\> will hold HR and finance documents rated Moderate, so a failed sign-in check could expose personal data. SP 800-63-4 points to authenticator assurance level 2 for that harm, which needs two factors and replay resistance. Identity proofing is done once, by \<Organisation\>'s HR, and is not repeated by \<System Name\>. Federation is used: AD FS proves who the person is and vouches for them to \<System Name\> (D-AC-23).
+**Reasoning:** \<System Name\> will hold HR and finance documents rated Moderate, so a failed sign-in check could expose personal data. CSS points to authenticator assurance level 2 for that harm, which needs two factors and replay resistance. Identity proofing is done once, by \<Organisation\>'s HR, and is not repeated by \<System Name\>. Federation is used: AD FS proves who the person is and vouches for them to \<System Name\> (D-AC-23).
 
 ### 3.5 Authenticators
 
@@ -160,13 +160,13 @@ Identity assurance is how sure we are that a person is who they claim. Authentic
 
 Only the API connects to PostgreSQL, with one service account that is not a superuser (D-AC-18). The system owner and security officer review the inventory every 12 months (PRO-IA-7).
 
-### 3.6 Settings against NIST SP 800-63B Revision 4
+### 3.6 Settings against CSS
 
-\<System Name\> sets no password rule of its own. \<Organisation\>'s corporate standard applies, and is to be compared with NIST SP 800-63B Revision 4 and NCSC password guidance when \<Organisation\> supplies it (EV-IA-04).
+\<System Name\> sets no password rule of its own. \<Organisation\>'s corporate standard applies, and is to be compared with CSS and NCSC password guidance when \<Organisation\> supplies it (EV-IA-04).
 
 **Table 8: Authentication settings at authenticator assurance level 2**
 
-| Requirement | SP 800-63B-4 | \<System Name\> | Evidence | State |
+| Requirement | CSS | \<System Name\> | Evidence | State |
 | --- | --- | --- | --- | --- |
 | Password length, password only | At least 15 characters | \<Organisation\>'s corporate standard, to be supplied | None yet | To be compared when supplied |
 | Password length, with multi-factor | At least 8 characters | \<Organisation\>'s corporate standard, to be supplied | None yet | To be compared when supplied |
@@ -206,19 +206,19 @@ Only the API connects to PostgreSQL, with one service account that is not a supe
 | Active Directory accounts and passwords | IA-4, IA-4(4), IA-5, IA-5(1) | One named account for each person, never reused, showing staff or contractor; passwords under the corporate standard | Not yet asked | EV-IA-04, EV-AC-01 |
 | Device identification | IA-3 | Only managed devices join the network | Network access control with device certificates, and disk encryption on managed devices | EV-IA-01 |
 | Identity proofing | IA-12, IA-12(2), IA-12(3), IA-12(5) | Each person's identity is checked before they have an account | Photo ID and right-to-work checks for staff, and the same through the agency for contractors | EV-IA-02 |
-| Cryptographic modules on the servers | IA-7 | The modules meet the applicable standards | Standard Windows modules, not in FIPS mode | EV-IA-03 |
+| Cryptographic modules on the servers | IA-7 | The modules meet the applicable standards | Standard Windows modules, not in CSS-approved cryptographic mode | EV-IA-03 |
 
 **Today:** no request has been sent, and none of this is evidenced.
 
 ## 4 Each control and enhancement
 
-The controls are in NIST order. Each has two tables. The first takes each part of the control and gives what NIST requires, the design that meets it, and the position today. The second says who provides and is responsible for the control, what enforces it, the rules and procedures that apply, the tests run, the records an assessor will ask for, its status, the risk decision, and what is still open. Six controls are not applicable, and each says why.
+The controls are in CSS order. Each has two tables. The first takes each part of the control and gives what CSS requires, the design that meets it, and the position today. The second says who provides and is responsible for the control, what enforces it, the rules and procedures that apply, the tests run, the records an assessor will ask for, its status, the risk decision, and what is still open. Six controls are not applicable, and each says why.
 
 ### 4.1 IA-1 Policy and Procedures
 
 **Table 10: IA-1 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a.1 | An identification and authentication policy, shared with defined people, covering purpose, scope, roles, responsibilities, management commitment, coordination and compliance, and consistent with the law | \<Policy\> (IA): a system-level policy, shared with everyone who uses or administers \<System Name\>. The legal adviser reviews it | Version \<ver\> approved by the Head of Cyber (D-IA-09) and legally reviewed on 9 November 2026. The rules rewritten for AD FS on 12 November 2026 await the Head of Cyber. Not yet shared (PA-20) |
 | a.2 | Procedures that carry out the policy, shared with defined people | \<Procedures\> (IA): eight procedures, PRO-IA-1 to PRO-IA-8. Shared with the same people | Approved by the system owner (D-IA-10), and rewritten for AD FS on 12 November 2026. Not yet shared or walked through |
@@ -244,7 +244,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 12: IA-2 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Identify and authenticate each organisational user uniquely, and tie that identity to the processes acting for them | Every person signs in through \<Organisation\>'s AD FS with their own Active Directory account (section 3.3). \<System Name\> holds no accounts or passwords. It accepts a sign-in only on a token AD FS has signed, takes the person's name and groups from it, and ties every request and every audit record to that person through the session. Shared accounts are prohibited | Stated by the system owner (D-AC-23). Not yet tested or evidenced (PA-95). The tested build identified each user uniquely with its own accounts (A09, A10) |
 
@@ -266,7 +266,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 14: IA-2(1) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Use multi-factor authentication for access to privileged accounts | AD FS requires a second factor from every user, so every privileged user has one. The application roles are AD groups, and nobody reaches an administration page without signing in through AD FS. The named Windows server and database administrators reach the servers only through \<Organisation\>'s managed route, which also requires a second factor (\<Maintenance Management\>, section 3.4) | Stated by the system owner (D-AC-23); not yet tested or evidenced (PA-95). The tested build had password-only sign-in, which the authorising official accepted to 6 May 2027 with no production documents held (NC-IA-03). The route to the servers is not evidenced (EV-MA-02) |
 
@@ -288,7 +288,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 16: IA-2(2) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Use multi-factor authentication for access to non-privileged accounts | The same AD FS policy applies to every user | As IA-2(1). The acceptance for ordinary users is NC-IA-04, to 6 May 2027 |
 
@@ -310,7 +310,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 18: IA-2(8) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Use replay-resistant authentication for defined accounts | For privileged and non-privileged accounts alike. Sign-in tokens from AD FS are signed, short-lived, issued for \<System Name\> only and used once. Everything travels over TLS. \<System Name\>'s own session token is tied to one session and ends with it | Not met in the tested build: a session token still worked from another client (A13), and traffic was plain HTTP (A14). To be assessed again with AD FS and TLS (PA-18, PA-46, PA-95) |
 
@@ -332,7 +332,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 20: IA-2(12) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Accept and check Personal Identity Verification credentials | Not applicable: PIV is a United States federal credential, and no \<System Name\> user holds one (TR-IA-01 in \<Tailoring Register\>) | Not applicable. The independent assessor may test the tailoring decision |
 
@@ -348,7 +348,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 22: IA-3 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Identify and authenticate defined devices before they connect | \<Organisation\>'s network access control identifies each managed device before it joins the network, and unmanaged devices are kept off it. \<System Name\> does not identify devices itself: it is reached only from that network or the VPN | Not evidenced (EV-IA-01, PA-116) |
 
@@ -370,7 +370,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 24: IA-4 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Get authorisation from defined people before an identifier is assigned | \<Organisation\> authorises each Active Directory account through its starters process. \<System Name\>'s part is membership of its groups, authorised by the group's owner through the ServiceNow workflow (\<Access Control Management\>, section 3.13) | The ServiceNow workflow is not set up (PA-20). \<Organisation\>'s process is not evidenced (EV-AC-01) |
 | b | Choose an identifier that identifies one person, group, role, service or device | The person's Active Directory account name. Service accounts are named for the application they run | Not evidenced |
@@ -395,7 +395,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 26: IA-4(4) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Show each person's status in their identifier, as defined | Active Directory shows whether a person is staff or a contractor. The group's owner sees it when authorising a request | To be evidenced by \<Organisation\>. The tested build had no such field (PA-47, overtaken) |
 
@@ -417,11 +417,11 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 28: IA-5 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Check who a person or thing is before first giving it an authenticator | People: \<Organisation\>'s service desk, after HR's pre-employment checks (PRO-IA-2). Service secrets: set by the named administrators | Not evidenced for people |
 | b | Set the first content of each authenticator | People: under \<Organisation\>'s corporate standard. Service secrets and the signing key: generated randomly by the administrator. Service accounts: set by Windows | Secrets in the tested build were typed into settings files (PA-19) |
-| c | Make sure authenticators are strong enough for their use | Section 3.6 compares each setting with NIST SP 800-63B Revision 4 at authenticator assurance level 2 | \<Organisation\>'s standard is to be supplied and compared |
+| c | Make sure authenticators are strong enough for their use | Section 3.6 compares each setting with CSS at authenticator assurance level 2 | \<Organisation\>'s standard is to be supplied and compared |
 | d | Have procedures for first issue, for lost, compromised or damaged authenticators, and for revoking them | PRO-IA-2, PRO-IA-3 and PRO-IA-6: \<Organisation\>'s service desk issues, resets and revokes; a global administrator ends the person's \<System Name\> sessions at once | Written. Not yet used |
 | e | Change default authenticators before first use | \<System Name\> ships with no default account or password. The PostgreSQL superuser's password is set when the database server is built, and no vendor default is left on either server | The tested build seeded a sample administrator account, in the test environment only (D-AC-13) |
 | f | Change or refresh authenticators on a schedule by type, and when defined events occur | User passwords: \<Organisation\>'s corporate standard, and on suspected compromise. Service secrets and the signing key: every 12 months, and when an administrator leaves (PRO-IA-4) | Secrets have never been changed (PA-19) |
@@ -447,9 +447,9 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 30: IA-5(1) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
-| a | Keep a list of common, expected and compromised passwords, and update it on a schedule and after a compromise | \<Organisation\>'s corporate standard for Active Directory, which \<System Name\> accepts (D-AC-23) | To be supplied by \<Organisation\> and compared with NIST SP 800-63B Revision 4 (EV-IA-04) |
+| a | Keep a list of common, expected and compromised passwords, and update it on a schedule and after a compromise | \<Organisation\>'s corporate standard for Active Directory, which \<System Name\> accepts (D-AC-23) | To be supplied by \<Organisation\> and compared with CSS (EV-IA-04) |
 | b | Check new and changed passwords against the list | The same | To be supplied |
 | c | Send passwords only over encrypted channels | Passwords are typed into AD FS over TLS, and never into \<System Name\> | To be evidenced |
 | d | Store passwords with an approved salted key derivation function | Active Directory stores them. \<System Name\> stores none | To be evidenced |
@@ -476,7 +476,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 32: IA-5(2) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Check certificates and map them to accounts, where public key authentication is used | Not applicable: no person or service signs in to \<System Name\> with a certificate (TR-IA-02 in \<Tailoring Register\>). If \<Organisation\>'s AD FS uses a public key second factor, such as a security key, the control applies again, and falls to \<Organisation\> | Not applicable. The independent assessor may test the tailoring decision |
 
@@ -492,7 +492,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 34: IA-5(6) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Protect authenticators to the level of the information they give access to | The information is rated Moderate. User passwords are protected by Active Directory. The database password and the signing key, which open the whole database, are held in a protected store that only the named administrators and the API's service account can read, with a protected copy at the second site | Not met: the signing key and database password are in settings files in the source repositories (C07; PA-19) |
 
@@ -514,7 +514,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 36: IA-6 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Hide authentication information as it is entered, so that it cannot be seen or used by others | Passwords and second factors are entered on AD FS's page, which masks them and does not say whether an account exists. \<System Name\> shows no sign-in form | To be evidenced by \<Organisation\>. The tested build's own page masked the password and gave the same answer for a wrong password and an unknown user (A07, A08) |
 
@@ -536,9 +536,9 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 38: IA-7 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
-| All | Authenticate to a cryptographic module in a way that meets the applicable laws and standards | \<System Name\> uses the cryptographic modules of Windows Server 2025 and .NET. No person signs in to a module directly: the applications reach them through their service accounts. \<Organisation\> is asked which modules and mode the servers use | Not confirmed. As stated by \<Organisation\>: standard Windows modules, not in FIPS mode (EV-IA-03, PA-48) |
+| All | Authenticate to a cryptographic module in a way that meets the applicable laws and standards | \<System Name\> uses the cryptographic modules of Windows Server 2025 and .NET. No person signs in to a module directly: the applications reach them through their service accounts. \<Organisation\> is asked which modules and mode the servers use | Not confirmed. As stated by \<Organisation\>: standard Windows modules, not in CSS-approved cryptographic mode (EV-IA-03, PA-48) |
 
 **Table 39: IA-7 responsibility and evidence**
 
@@ -558,7 +558,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 40: IA-8 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Identify and authenticate non-organisational users | Not applicable: only \<Organisation\>'s staff and contractors, with an Active Directory account, may use \<System Name\> (TR-IA-03 in \<Tailoring Register\>) | Not applicable. The independent assessor may test the tailoring decision |
 
@@ -574,7 +574,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 42: IA-8(1) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Accept PIV credentials from other federal agencies | Not applicable: there are no non-organisational users (TR-IA-04 in \<Tailoring Register\>) | Not applicable. The independent assessor may test the tailoring decision |
 
@@ -590,9 +590,9 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 44: IA-8(2) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
-| All | Accept only external authenticators that meet NIST's guidance | Not applicable: there are no non-organisational users (TR-IA-05 in \<Tailoring Register\>) | Not applicable. The independent assessor may test the tailoring decision |
+| All | Accept only external authenticators that meet the CSS guidance | Not applicable: there are no non-organisational users (TR-IA-05 in \<Tailoring Register\>) | Not applicable. The independent assessor may test the tailoring decision |
 
 **Table 45: IA-8(2) responsibility and evidence**
 
@@ -606,7 +606,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 46: IA-8(4) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Conform to defined identity management profiles | Not applicable: there are no non-organisational users (TR-IA-06 in \<Tailoring Register\>) | Not applicable. The independent assessor may test the tailoring decision |
 
@@ -622,7 +622,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 48: IA-11 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Require users to sign in again in defined circumstances | After 30 minutes idle, and after 8 hours whatever the activity. A change to a person's groups takes effect at their next sign-in, and a global administrator can end a person's sessions at once, which forces one (section 3.7) | Met in the tested build: idle sessions ended at 30 minutes (T44) and all sessions at 8 hours (I08, I11). The servers are not assessable |
 
@@ -644,7 +644,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 50: IA-12 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Prove the identity of users who need an account, to the assurance level required | \<Organisation\>'s HR proves each person's identity in its pre-employment checks, once, before the Active Directory account exists. \<System Name\> does not repeat it | Not evidenced (EV-IA-02, PA-116) |
 | b | Resolve each identity to one person | One Active Directory account for each person | Not evidenced |
@@ -668,7 +668,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 52: IA-12(2) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Require identity evidence to be presented to the registration authority | \<Organisation\>'s HR sees the evidence in its pre-employment checks | Not evidenced (EV-IA-02) |
 
@@ -690,7 +690,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 54: IA-12(3) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Validate and verify the evidence by defined methods | HR checks the evidence during pre-employment checks | Not evidenced (EV-IA-02) |
 
@@ -712,7 +712,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 56: IA-12(5) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Send a registration code or a notice of proofing by a separate channel, to confirm the address on record | A notice of proofing, sent by \<Organisation\>'s HR | Not evidenced (EV-IA-02) |
 
@@ -754,11 +754,11 @@ Checks A01 to A35 ran on 6 November 2026 and were repeated on the v1.0 tag on 8 
 
 ## Appendix B Parameter register
 
-These are NIST's organisation-defined values for the 24 IA entries: 22 in total. They were agreed on 5 and 6 November 2026 (D-IA-P01), and revised on 12 November 2026 for sign-in through AD FS (D-AC-23).
+These are the CSS organisation-defined values for the 24 IA entries: 22 in total. They were agreed on 5 and 6 November 2026 (D-IA-P01), and revised on 12 November 2026 for sign-in through AD FS (D-AC-23).
 
 **Table 59: IA parameter register**
 
-| NIST identifier | What must be defined | Value | State now |
+| CSS identifier | What must be defined | Value | State now |
 | --- | --- | --- | --- |
 | IA-01\_ODP\[01\] | Who receives the policy | Everyone who uses or administers \<System Name\> | Not yet shared |
 | IA-01\_ODP\[02\] | Who receives the procedures | Everyone who uses or administers \<System Name\> | Not yet shared |
@@ -785,7 +785,7 @@ These are NIST's organisation-defined values for the 24 IA entries: 22 in total.
 
 ## Appendix C IA controls outside the Moderate baseline
 
-NIST does not select these at Moderate, so they are not assessed. Some bear on the design, and Table 60 says how.
+CSS does not select these at Moderate, so they are not assessed. Some bear on the design, and Table 60 says how.
 
 **Table 60: IA controls not selected at Moderate**
 

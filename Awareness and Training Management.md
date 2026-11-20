@@ -2,13 +2,13 @@
 
 ## 1 Purpose
 
-This document shows how security and privacy awareness and training are designed for \<System Name\>, for each of the 6 Awareness and Training (AT) controls and enhancements in the NIST SP 800-53 Rev 5 Moderate baseline. It is \<System Name\>'s learning programme plan in the sense of NIST SP 800-50 Rev 1, and follows that publication's cycle: plan the programme, write the content, give the training, then measure and improve it (sections 3.7 and 3.9). Section 3 sets out the programme: who needs what, the briefing, the role curriculum, the training matrix, the register and the measures. Section 4 takes each control in turn. Appendix A lists every value NIST asks the organisation to define.
+This document shows how security and privacy awareness and training are designed for \<System Name\>, for each of the 6 Awareness and Training (AT) controls and enhancements in the CSS Moderate baseline. It is \<System Name\>'s learning programme plan in the sense of CSS, and follows that publication's cycle: plan the programme, write the content, give the training, then measure and improve it (sections 3.7 and 3.9). Section 3 sets out the programme: who needs what, the briefing, the role curriculum, the training matrix, the register and the measures. Section 4 takes each control in turn. Appendix A lists every value CSS asks the organisation to define.
 
 This is the only place the training design is held. Other documents point here. The policy is in \<Policy\> (AT), and the steps people follow are in \<Procedures\> (AT).
 
-An assessor examines the curriculum, the materials and the training records, and interviews the people who give and receive the training (NIST SP 800-53A). So for each control section 4 gives:
+An assessor examines the curriculum, the materials and the training records, and interviews the people who give and receive the training (CSS). So for each control section 4 gives:
 
-- **each part of the control**, as NIST letters them, with the design that meets it and the position today;
+- **each part of the control**, as CSS letters them, with the design that meets it and the position today;
 - **who provides it**, and who is responsible;
 - **what enforces it**, the rules and procedures that apply, and any test;
 - **the records an assessor will ask for**, and whether they exist yet;
@@ -84,7 +84,7 @@ Awareness has two parts: \<Organisation\>'s general security and privacy course,
 | B1 What \<System Name\> holds | Restricted HR documents; who may see what; why projects and roles matter |
 | B2 Handling and export | When export is allowed; never forwarding or storing copies outside \<System Name\>; locking the screen |
 | B3 Social engineering and social mining | The forms an attempt takes: phishing and targeted phishing, a false story or false identity (pretexting and impersonation), a reply inside a genuine email thread, bait such as a free download or a found USB stick, an offer of help in return for access, a contact through social media, and following someone through a door. Scenario: an email or call asking for an employee's file "for a tribunal" from someone you don't know. Scenario: an emailed sign-in link that looks like \<System Name\>. Social mining: people gather facts about \<Organisation\>, its staff and \<System Name\> from social media, job adverts, out-of-office replies and casual calls, to make a later request convincing. Do not say what \<System Name\> holds, who uses it or how it is reached. Check with the person through a known route, and report it |
-| B4 Insider threat | Scenario: a colleague exporting many files before leaving. Signs to notice, as NIST lists them: long-lasting and strong dissatisfaction with the job; trying to reach information the person does not need for their work; unexplained access to money; bullying or harassment of colleagues; violence at work; and other serious breaches of policy or rules. Seeing a sign is a reason to report through the route in B5, not to accuse. Access is recorded and monitored, as the SyOps explains |
+| B4 Insider threat | Scenario: a colleague exporting many files before leaving. Signs to notice, as CSS lists them: long-lasting and strong dissatisfaction with the job; trying to reach information the person does not need for their work; unexplained access to money; bullying or harassment of colleagues; violence at work; and other serious breaches of policy or rules. Seeing a sign is a reason to report through the route in B5, not to accuse. Access is recorded and monitored, as the SyOps explains |
 | B5 Reporting | How to report a suspicious message, a mistake or a lost device; reporting is thanked, never blamed |
 | B6 Privacy | Using personal data only for its purpose; where the privacy notice is |
 | B7 For line managers | Every access request from your people comes to you first. Approve it only if the person needs it for their work. Tell the group's owner at once when someone moves or leaves. The insider threat signs in B4 show first to a manager: raise a concern early with the security officer or HR |
@@ -131,7 +131,7 @@ Every role must complete awareness, the briefing and the SyOps signature before 
 
 The matrix carries out AT-2, AT-3, AT-3(5) (\<PII Processing Management\>), IR-2 (\<Procedures\>, PRO-IR-3), CP-3 (\<Procedures\>, PRO-CP-4) and PL-4 (\<Security Operating Procedures\>).
 
-**Roles with no role modules.** Role training is for privileged users, meaning everyone who is not a standard user (D-AT-10). The Head of Cyber, the legal adviser and the authorising official have no access to \<System Name\>, so they are not in the matrix, although each has a security or privacy duty: approving the policy, delivering modules M6 and M9, and deciding risk. NIST's guidance on AT-3 names senior security and privacy officers, authorising officials and system owners among those who may need role training. The system owner is in the matrix. For the other three, the design relies on \<Organisation\>'s own training and their professional standing, and neither is evidenced. This is registered as a gap (PA-100).
+**Roles with no role modules.** Role training is for privileged users, meaning everyone who is not a standard user (D-AT-10). The Head of Cyber, the legal adviser and the authorising official have no access to \<System Name\>, so they are not in the matrix, although each has a security or privacy duty: approving the policy, delivering modules M6 and M9, and deciding risk. The CSS guidance on AT-3 names senior security and privacy officers, authorising officials and system owners among those who may need role training. The system owner is in the matrix. For the other three, the design relies on \<Organisation\>'s own training and their professional standing, and neither is evidenced. This is registered as a gap (PA-100).
 
 ### 3.6 When training happens
 
@@ -157,7 +157,7 @@ The steps are in \<Procedures\>, PRO-AT-3.
 
 ### 3.8 Training register
 
-The security officer keeps this register from the TPL-9 records. The system owner checks it before authorising a role. Records are kept for 3 years. NIST leaves the period to the organisation, and 3 years lets an assessor see each person's last three yearly completions. Each record (TPL-9) names the person, the role, the training and its content version, the date, the result of the check and who gave it. The layout stays here. Once the records store is set up, the live register, with its names and dates, is kept there (D-AT-10).
+The security officer keeps this register from the TPL-9 records. The system owner checks it before authorising a role. Records are kept for 3 years. CSS leaves the period to the organisation, and 3 years lets an assessor see each person's last three yearly completions. Each record (TPL-9) names the person, the role, the training and its content version, the date, the result of the check and who gave it. The layout stays here. Once the records store is set up, the live register, with its names and dates, is kept there (D-AT-10).
 
 **Table 8: Training register**
 
@@ -189,13 +189,13 @@ The security officer reports these monthly with the continuous monitoring measur
 
 ## 4 Each control and enhancement
 
-The controls are in NIST order. Each has two tables. The first takes each part of the control and gives what NIST requires, the design that meets it, and the position today. The second says who provides and is responsible for the control, what enforces it, the rules and procedures that apply, the records an assessor will ask for, its status, the risk decision, and what is still open.
+The controls are in CSS order. Each has two tables. The first takes each part of the control and gives what CSS requires, the design that meets it, and the position today. The second says who provides and is responsible for the control, what enforces it, the rules and procedures that apply, the records an assessor will ask for, its status, the risk decision, and what is still open.
 
 ### 4.1 AT-1 Policy and Procedures
 
 **Table 10: AT-1 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a.1 | An awareness and training policy, shared with defined people, covering purpose, scope, roles, responsibilities, management commitment, coordination and compliance, and consistent with the law | \<Policy\> (AT): a system-level policy. It is shared with everyone who uses or administers \<System Name\>. The legal adviser reviews it | Legally reviewed on 12 November 2026. Awaits the Head of Cyber's re-approval (D-AT-07). Not yet shared |
 | a.2 | Procedures that carry out the policy, shared with defined people | \<Procedures\> (AT): five procedures, PRO-AT-1 to PRO-AT-5, each naming who acts and the record. Shared with everyone who uses, administers or develops \<System Name\> | Approved by the system owner. Not yet shared or walked through |
@@ -221,7 +221,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 12: AT-2 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a.1 | Give security and privacy awareness training to every user, including managers and contractors, when they start and at a set frequency | Before anyone is given access, they complete \<Organisation\>'s security and privacy awareness course and the 20-minute \<System Name\> briefing, which ends with a 5-question check (section 3.3). Both are repeated every 12 months. This covers every user, whatever their grade, and contractors | Nobody is trained yet, as \<System Name\> is not in use. \<Organisation\>'s course has not been seen (EV-AT-01) |
 | a.2 | Give it again when the system changes or after set events | After a significant incident or change, the briefing is updated and given again to those it affects (PRO-AT-3) | Not yet used |
@@ -248,9 +248,9 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 14: AT-2(2) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
-| All | Train users to recognise and report signs of insider threat | Briefing part B4: a scenario of a colleague exporting many files before leaving; the signs to notice, as NIST lists them; that a sign is a reason to report and not to accuse; and that access is recorded and monitored. Part B5 says how to report. Part B7 gives line managers their own view, as NIST advises that this training can be tailored for managers. \<Organisation\>'s course is expected to cover the general case | The outline exists. Not yet given. \<Organisation\>'s content has not been seen (EV-AT-01) |
+| All | Train users to recognise and report signs of insider threat | Briefing part B4: a scenario of a colleague exporting many files before leaving; the signs to notice, as CSS lists them; that a sign is a reason to report and not to accuse; and that access is recorded and monitored. Part B5 says how to report. Part B7 gives line managers their own view, as CSS advises that this training can be tailored for managers. \<Organisation\>'s course is expected to cover the general case | The outline exists. Not yet given. \<Organisation\>'s content has not been seen (EV-AT-01) |
 
 **Table 15: AT-2(2) responsibility and evidence**
 
@@ -271,7 +271,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 16: AT-2(3) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Train users to recognise and report social engineering and social mining | Briefing part B3: the forms an attempt takes, from phishing and pretexting to tailgating; how social mining gathers facts about \<Organisation\> and \<System Name\>, and what not to disclose; and two scenarios, a request for an employee's file from someone unknown, and an emailed sign-in link that looks like \<System Name\>. Users check with the person through a known route, and report it. No phishing simulation is run unless HR and the legal adviser agree, and then nobody is penalised for clicking: reports are counted, not clicks | The outline exists. Not yet given. \<Organisation\>'s content has not been seen (EV-AT-01) |
 
@@ -294,7 +294,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 18: AT-3 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a.1 | Give role-based security and privacy training to people in defined roles, before they are given access or start their duties, and at a set frequency | The roles are those in the training matrix (section 3.5): every privileged user, meaning everyone who is not a standard user, including the system owner. Each completes its modules from the curriculum of nine, M1 to M9 (section 3.4), before privileged access is given. The incident response and contingency modules, M7 and M8, are completed within 30 days of taking the role. All are repeated every 12 months. Each module ends with a check of at least 10 questions, with a pass mark of 80%. Privacy training, M9, goes to administrators and to everyone who handles HR documents | The curriculum and the matrix are set. No module content is written yet, as the system owner confirmed on 12 November 2026, and nobody is trained |
 | a.2 | Give it again when the system changes | After a significant change, the affected module is updated and given again to those it affects (PRO-AT-3) | Not yet used |
@@ -320,7 +320,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 20: AT-4 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Record and monitor training, both awareness and role-based | The security officer records each completion on TPL-9, with the content version, the check result and the next due date, and adds it to the training register (section 3.8). The measures in section 3.9 are reported every month. Anyone overdue is reminded, and privileged access is suspended after 30 days overdue (PRO-AT-5) | The register is set up, with every role holder named. No record exists yet |
 | b | Keep each person's training records for a set time | 3 years. \<Organisation\> keeps its own course records and provides them on request | No records yet |
@@ -342,11 +342,11 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 ## Appendix A Parameter register
 
-These are NIST's organisation-defined values for the 6 AT entries: 21 in total. State now says how far each is in place on 12 November 2026. The values were agreed on 6 November 2026 and revised on 12 November 2026 (D-AT-P02).
+These are the CSS organisation-defined values for the 6 AT entries: 21 in total. State now says how far each is in place on 12 November 2026. The values were agreed on 6 November 2026 and revised on 12 November 2026 (D-AT-P02).
 
 **Table 22: AT parameter register**
 
-| NIST identifier | What must be defined | Value | State now |
+| CSS identifier | What must be defined | Value | State now |
 | --- | --- | --- | --- |
 | AT-01\_ODP\[01\] | Who receives the policy | Everyone who uses or administers \<System Name\> | Not yet shared |
 | AT-01\_ODP\[02\] | Who receives the procedures | Everyone who uses, administers or develops \<System Name\> | Not yet shared |

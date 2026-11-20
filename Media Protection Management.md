@@ -2,13 +2,13 @@
 
 ## 1 Purpose
 
-This document shows how media that hold \<System Name\>'s information are protected, for each of the 7 Media Protection (MP) controls in the NIST SP 800-53 Rev 5 Moderate baseline. Section 3 sets out the design: every place the information is held outside the running application, how each is marked, stored, moved and sanitised, the limits on portable storage, and what \<Organisation\> provides. Section 4 takes each control in turn. Appendix A lists every value NIST asks the organisation to define, and appendix B the MP controls NIST does not select at Moderate.
+This document shows how media that hold \<System Name\>'s information are protected, for each of the 7 Media Protection (MP) controls in the CSS Moderate baseline. Section 3 sets out the design: every place the information is held outside the running application, how each is marked, stored, moved and sanitised, the limits on portable storage, and what \<Organisation\> provides. Section 4 takes each control in turn. Appendix A lists every value CSS asks the organisation to define, and appendix B the MP controls CSS does not select at Moderate.
 
 This is the only place this design is held. Other documents point here. The policy is in \<Policy\> (MP), and the steps people follow are in \<Procedures\> (MP). The rules each user signs for exports, printing and copies are in \<Security Operating Procedures\>, Part A.
 
-An assessor examines the media inventory, the marking on what the system produces, the storage and transport records, and the sanitising records and certificates; interviews users and those who handle media; and tests what an export leaves behind and whether portable storage is blocked (NIST SP 800-53A). So for each control section 4 gives:
+An assessor examines the media inventory, the marking on what the system produces, the storage and transport records, and the sanitising records and certificates; interviews users and those who handle media; and tests what an export leaves behind and whether portable storage is blocked (CSS). So for each control section 4 gives:
 
-- **each part of the control**, as NIST letters them, with the design that meets it and the position today;
+- **each part of the control**, as CSS letters them, with the design that meets it and the position today;
 - **who provides it**, and who is responsible;
 - **what enforces it**, the rules and procedures that apply, and the tests run;
 - **the records an assessor will ask for**, and whether they exist yet;
@@ -114,7 +114,7 @@ Media are carried physically only by exception. Each move is approved by the sys
 
 ### 3.6 Sanitising methods
 
-Methods follow NIST SP 800-88 Revision 2 and IEEE 2883-2022, with the NCSC's guidance for the UK. Each action is recorded on TPL-13 (PRO-MP-3). Every 12 months the system owner checks a sample of \<Organisation\>'s certificates against those records. Media records are kept for 3 years, as the system owner decided on 17 November 2026 (D-MP-11). That matches the training records, and covers a full authorisation cycle.
+Methods follow CSS and IEEE 2883-2022, with the NCSC's guidance for the UK. Each action is recorded on TPL-13 (PRO-MP-3). Every 12 months the system owner checks a sample of \<Organisation\>'s certificates against those records. Media records are kept for 3 years, as the system owner decided on 17 November 2026 (D-MP-11). That matches the training records, and covers a full authorisation cycle.
 
 Cryptographic erase is sound only if the media were encrypted before any \<System Name\> information was written to them, and only once every copy of the key is destroyed. Both servers are therefore encrypted before \<System Name\> is installed, and the record on TPL-13 lists each copy of the key and confirms its destruction. Where either condition cannot be shown, the media are purged or destroyed instead.
 
@@ -152,13 +152,13 @@ Cryptographic erase is sound only if the media were encrypted before any \<Syste
 
 ## 4 Each control and enhancement
 
-The controls are in NIST order. Each has two tables. The first takes each part of the control and gives what NIST requires, the design that meets it, and the position today. The second says who provides and is responsible for the control, what enforces it, the rules and procedures that apply, the tests run, the records an assessor will ask for, its status, the risk decision, and what is still open.
+The controls are in CSS order. Each has two tables. The first takes each part of the control and gives what CSS requires, the design that meets it, and the position today. The second says who provides and is responsible for the control, what enforces it, the rules and procedures that apply, the tests run, the records an assessor will ask for, its status, the risk decision, and what is still open.
 
 ### 4.1 MP-1 Policy and Procedures
 
 **Table 8: MP-1 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a.1 | A media protection policy, shared with defined people, covering purpose, scope, roles, responsibilities, management commitment, coordination and compliance, and consistent with the law | \<Policy\> (MP): a system-level policy, shared with everyone who uses or administers \<System Name\>. The legal adviser reviews it | Version \<ver\> approved by the Head of Cyber (D-MP-01) and legally reviewed on 10 November 2026. The later version awaits the Head of Cyber (D-MP-07). Not yet shared (PA-20) |
 | a.2 | Procedures that carry out the policy, shared with defined people | \<Procedures\> (MP): six procedures, PRO-MP-1 to PRO-MP-6. Shared with the same people | Approved by the system owner (D-MP-08). Not yet shared or walked through |
@@ -184,7 +184,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 10: MP-2 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Restrict access to defined digital and non-digital media to defined people | The inventory in section 3.2 names who may reach each kind of media. \<System Name\> lets only the editors of a project create an export of it. \<Organisation\> limits its disks and backup media to its hosting staff. A printout is shared only with people authorised to read that project | Exports were limited to editors in the tested build (P01). \<Organisation\>'s limits are not evidenced (EV-MP-01). The rule for paper is not yet in use |
 
@@ -206,7 +206,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 12: MP-3 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Mark media to show their distribution limits, handling caveats and security markings | Everything \<System Name\> shows or produces is marked RESTRICTED, with the document's own classification alongside. Section 3.3 says where each marking goes | Not met: nothing \<System Name\> shows or produces is marked, neither the viewer, a printout nor an export file (P04, P07; PA-87). Printouts are marked by hand |
 | b | Exempt defined media from marking while they stay within defined controlled areas | No media is exempt | Nothing to exempt |
@@ -229,7 +229,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 14: MP-4 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Physically control and securely store defined media within defined controlled areas | Digital media are stored encrypted in \<Organisation\>'s data centres, or on a managed device. Printouts are locked away in \<Organisation\>'s offices. An export copy on the server is removed once downloaded, and within 24 hours at most (section 3.4) | Export copies are left unencrypted on the server after download and after a restart (P02, P05, P06, P09; PA-86). Disk encryption is planned (PA-52). \<Organisation\>'s storage is not evidenced (EV-MP-01) |
 | b | Protect media until they are destroyed or sanitised with approved equipment, techniques and procedures | Each kind of media keeps the protection in section 3.2 until it is sanitised by its method in section 3.6 | An export copy can stay indefinitely if the API restarts before it is cleared (P06; PA-86). The document set is on one computer, outside the restricted store (PA-88) |
@@ -252,7 +252,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 16: MP-5 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Protect and control defined media while they are carried outside controlled areas, by defined controls | Physical disks, backup media and printouts are moved only by exception. Digital media are encrypted and paper is sealed. Backups travel to the second site over the network, encrypted first (section 3.5) | Not yet used. Backups are not yet encrypted (R02; PA-64) |
 | b | Keep accountability for the media during transport | The system owner approves each move, an authorised courier carries it with tracking, and the sender and receiver are recorded | Not yet used; \<Organisation\>'s practice is not evidenced (EV-MP-01) |
@@ -277,9 +277,9 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 18: MP-6 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
-| a | Sanitise defined media before disposal, release from the organisation's control, or reuse, by defined techniques | The method for each kind of media in section 3.6, following NIST SP 800-88 Revision 2 and IEEE 2883-2022. Each action is recorded on TPL-13, with the tool used and how the result was verified | The methods are set. None has been used. \<Organisation\>'s sanitising is not evidenced (EV-MP-02). Cryptographic erase waits on encryption that is not yet on (PA-52, PA-64) |
+| a | Sanitise defined media before disposal, release from the organisation's control, or reuse, by defined techniques | The method for each kind of media in section 3.6, following CSS and IEEE 2883-2022. Each action is recorded on TPL-13, with the tool used and how the result was verified | The methods are set. None has been used. \<Organisation\>'s sanitising is not evidenced (EV-MP-02). Cryptographic erase waits on encryption that is not yet on (PA-52, PA-64) |
 | b | Use sanitising that is as strong and as sound as the category of the information requires | The information is rated Moderate. Physical disks are purged or destroyed. Encrypted virtual disks and backups are erased by destroying their keys. Deleting a file is used only where the disk beneath it is covered by one of those two. Paper is cross-cut shredded to DIN 66399 level P-4 or better | As part a |
 
 **Table 19: MP-6 responsibility and evidence**
@@ -300,7 +300,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 20: MP-7 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Restrict or prohibit the use of defined kinds of media on defined systems, by defined controls | Restricted. \<Organisation\>'s device control blocks USB and other portable storage on users' devices, and no USB device is passed through to the servers. The system owner may approve an exception, for a stated purpose and time, using only encrypted media issued by \<Organisation\> (section 3.7) | Not evidenced (EV-AC-17, EV-MP-03) |
 | b | Prohibit portable storage that has no identifiable owner | It must not be used, and is handed to the security officer, who records it on TPL-13 | The rule is written. The rules of behaviour are not yet signed |
@@ -321,11 +321,11 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 ## Appendix A Parameter register
 
-These are NIST's organisation-defined values for the 7 MP entries: 33 in total. They were agreed on 6 November 2026 (D-MP-P01), and revised on 10 November 2026 (D-MP-P02).
+These are the CSS organisation-defined values for the 7 MP entries: 33 in total. They were agreed on 6 November 2026 (D-MP-P01), and revised on 10 November 2026 (D-MP-P02).
 
 **Table 22: MP parameter register**
 
-| NIST identifier | What must be defined | Value | State now |
+| CSS identifier | What must be defined | Value | State now |
 | --- | --- | --- | --- |
 | MP-01\_ODP\[01\] | Who receives the policy | Everyone who uses or administers \<System Name\> | Not yet shared (PA-20) |
 | MP-01\_ODP\[02\] | Who receives the procedures | Everyone who uses or administers \<System Name\> | Not yet shared (PA-20) |
@@ -353,7 +353,7 @@ These are NIST's organisation-defined values for the 7 MP entries: 33 in total. 
 | MP-06\_ODP\[01\] | Media sanitised before disposal | All media in section 3.2, and paper | Not evidenced (EV-MP-02) |
 | MP-06\_ODP\[02\] | Media sanitised before release | The digital media in section 3.2 | Not evidenced (EV-MP-02) |
 | MP-06\_ODP\[03\] | Media sanitised before reuse | The digital media in section 3.2 | Not evidenced (EV-MP-02) |
-| MP-06\_ODP\[04\] | Technique before disposal | The method for each media type in section 3.6, following NIST SP 800-88 Revision 2 and IEEE 2883-2022; paper cross-cut to DIN 66399 level P-4 or better | Methods set |
+| MP-06\_ODP\[04\] | Technique before disposal | The method for each media type in section 3.6, following CSS and IEEE 2883-2022; paper cross-cut to DIN 66399 level P-4 or better | Methods set |
 | MP-06\_ODP\[05\] | Technique before release | The method for each media type in section 3.6 | Methods set |
 | MP-06\_ODP\[06\] | Technique before reuse | The method for each media type in section 3.6 | Methods set |
 | MP-07\_ODP\[01\] | Media types limited | USB and other portable storage | Not evidenced (EV-MP-03) |
@@ -363,7 +363,7 @@ These are NIST's organisation-defined values for the 7 MP entries: 33 in total. 
 
 ## Appendix B MP controls outside the Moderate baseline
 
-NIST does not select these at Moderate, so they are not assessed. Some of the design goes further than the baseline, and Table 23 says where.
+CSS does not select these at Moderate, so they are not assessed. Some of the design goes further than the baseline, and Table 23 says where.
 
 **Table 23: MP controls not selected at Moderate**
 
@@ -378,4 +378,4 @@ NIST does not select these at Moderate, so they are not assessed. Some of the de
 | MP-6(8) Remote Purging or Wiping of Information | Devices purged or wiped from a distance | Not required. Done in part: \<Organisation\> can lock or wipe a lost managed device (\<Incident Response Management\>, section 3.9) |
 | MP-7(2) Prohibit Use of Sanitization-resistant Media | Media that cannot be sanitised are not used | Not required. Every kind of media in section 3.2 has a method in section 3.6 |
 | MP-8, MP-8(1) to MP-8(4) Media Downgrading | A process for lowering the classification of media | Not required. No media is downgraded: everything is RESTRICTED until sanitised |
-| MP-2(1), MP-2(2), MP-4(1), MP-5(1), MP-5(2), MP-5(4), MP-6(4), MP-6(5), MP-6(6), MP-7(1) | Withdrawn by NIST | Not applicable |
+| MP-2(1), MP-2(2), MP-4(1), MP-5(1), MP-5(2), MP-5(4), MP-6(4), MP-6(5), MP-6(6), MP-7(1) | Withdrawn by CSS | Not applicable |

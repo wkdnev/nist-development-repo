@@ -2,17 +2,17 @@
 
 ## 1 Purpose
 
-This document shows how \<System Name\> processes personal data lawfully, openly and no more than it needs, for each of the 6 Personally Identifiable Information Processing and Transparency (PT) controls that apply and the 16 other controls of NIST's privacy baseline. NIST places none of the PT controls in the Moderate baseline. \<System Name\> applies the privacy baseline because it holds HR documents with personal data, some of it special category data (D-PT-01, D-PT-07).
+This document shows how \<System Name\> processes personal data lawfully, openly and no more than it needs, for each of the 6 Personally Identifiable Information Processing and Transparency (PT) controls that apply and the 16 other controls of the CSS privacy baseline. CSS places none of the PT controls in the Moderate baseline. \<System Name\> applies the privacy baseline because it holds HR documents with personal data, some of it special category data (D-PT-01, D-PT-07).
 
-Section 3 sets out the design: the authority, purposes and lawful basis; every kind of personal data \<System Name\> holds; special category data; the privacy notice; people's rights; minimisation, quality, retention and disposal; the impact assessment; where the privacy controls held in other documents are; and what \<Organisation\> provides. Section 4 takes each control in turn. Appendix A lists every value NIST asks the organisation to define, and appendix B the related enhancements NIST does not select.
+Section 3 sets out the design: the authority, purposes and lawful basis; every kind of personal data \<System Name\> holds; special category data; the privacy notice; people's rights; minimisation, quality, retention and disposal; the impact assessment; where the privacy controls held in other documents are; and what \<Organisation\> provides. Section 4 takes each control in turn. Appendix A lists every value CSS asks the organisation to define, and appendix B the related enhancements CSS does not select.
 
 This is the only place this design is held. Other documents point here. The policy is in \<Policy\> (PT), and the steps people follow are in \<Procedures\> (PT). Two documents sit beside this one and are owned by the legal adviser: the privacy plan, \<Privacy Plan\>, which PL-2 calls for, and the data protection impact assessment, \<Data Protection Impact Assessment\>.
 
-UK law decides what is lawful. NIST's controls set out how it is shown. Where a value needs a legal decision, it is a placeholder for the legal adviser.
+UK law decides what is lawful. The CSS controls set out how it is shown. Where a value needs a legal decision, it is a placeholder for the legal adviser.
 
-An assessor examines the inventory and the lawful basis for each kind of data, the impact assessment, the notice, the retention schedule and the records of requests, complaints and disposals; interviews the legal adviser, the business owner and an administrator who would handle a request; and tests what \<System Name\> holds, logs and keeps (NIST SP 800-53A). So for each control section 4 gives:
+An assessor examines the inventory and the lawful basis for each kind of data, the impact assessment, the notice, the retention schedule and the records of requests, complaints and disposals; interviews the legal adviser, the business owner and an administrator who would handle a request; and tests what \<System Name\> holds, logs and keeps (CSS). So for each control section 4 gives:
 
-- **each part of the control**, as NIST letters them, with the design that meets it and the position today;
+- **each part of the control**, as CSS letters them, with the design that meets it and the position today;
 - **who provides it**, and who is responsible;
 - **what enforces it**, the rules and procedures that apply, and the tests run;
 - **the records an assessor will ask for**, and whether they exist yet;
@@ -191,13 +191,13 @@ Eight of the privacy baseline controls are assessed with this family, but part o
 
 ## 4 Each control and enhancement
 
-The controls are in NIST order: the PT controls first, then the other privacy baseline controls by family. Each has two tables. The first takes each part of the control and gives what NIST requires, the design that meets it, and the position today. The second says who provides and is responsible for the control, what enforces it, the rules and procedures that apply, the tests run, the records an assessor will ask for, its status, the risk decision, and what is still open.
+The controls are in CSS order: the PT controls first, then the other privacy baseline controls by family. Each has two tables. The first takes each part of the control and gives what CSS requires, the design that meets it, and the position today. The second says who provides and is responsible for the control, what enforces it, the rules and procedures that apply, the tests run, the records an assessor will ask for, its status, the risk decision, and what is still open.
 
 ### 4.1 PT-1 Policy and Procedures
 
 **Table 8: PT-1 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a.1 | A personal data processing and transparency policy, shared with defined people, covering purpose, scope, roles, responsibilities, management commitment, coordination and compliance, and consistent with the law | \<Policy\> (PT): a system-level policy, shared with everyone who administers \<System Name\>. The legal adviser reviews it | Version \<ver\> approved by the Head of Cyber (D-PT-02) and legally reviewed on 11 November 2026. The later version awaits the Head of Cyber (D-PT-18). Not yet shared (PA-20) |
 | a.2 | Procedures that carry out the policy, shared with defined people | \<Procedures\> (PT): six procedures, PRO-PT-1 to PRO-PT-6. Shared with the same people | Approved by the system owner (D-PT-19). Not yet shared or walked through |
@@ -223,7 +223,7 @@ The controls are in NIST order: the PT controls first, then the other privacy ba
 
 **Table 10: PT-2 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Determine and document the legal authority that permits the processing of personal data | UK GDPR, the Data Protection Act 2018 and the Data (Use and Access) Act 2025. For each kind of data, the inventory records the Article 6 lawful basis and, for special category data, the Article 9 and Schedule 1 condition (section 3.3) | The authority is named (D-PT-09). Each basis and condition is a placeholder for the legal adviser (D-PT-20; PA-72) |
 | b | Restrict processing to what that authority permits | Storing, finding, displaying, printing and exporting HR and project documents, within project permissions | Project permissions limit who processes each project's documents. What the legal adviser permits is not yet recorded |
@@ -246,7 +246,7 @@ The controls are in NIST order: the PT controls first, then the other privacy ba
 
 **Table 12: PT-3 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Identify and document the purposes for processing personal data | HR administration, and managing project documents | Stated (D-PT-09). The legal adviser has not confirmed them |
 | b | Describe the purposes in public privacy notices and policies | \<Organisation\>'s employee privacy notice names \<System Name\> and both purposes (section 3.5) | The notice has not been seen (EV-PT-01) |
@@ -271,7 +271,7 @@ The controls are in NIST order: the PT controls first, then the other privacy ba
 
 **Table 14: PT-4 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Provide tools for individuals to consent to the processing of their personal data | None. Consent is not the lawful basis for employee data, as employees cannot freely refuse their employer (D-PT-10), which is the ICO's guidance on employment records. Only strictly necessary cookies are set, so no cookie consent is needed | The position awaits the legal adviser's confirmation |
 
@@ -293,7 +293,7 @@ The controls are in NIST order: the PT controls first, then the other privacy ba
 
 **Table 16: PT-5 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Give notice when people first interact with the organisation, and at a defined frequency | \<Organisation\> gives its employee privacy notice on joining, and reviews it every 12 months. \<System Name\>'s pages link to it | The notice has not been seen (EV-PT-01). No page of the tested build linked to it (Q06; PA-90) |
 | b | Make the notice clear, easy to understand and in plain language | \<Organisation\>'s notice, with a short statement on \<System Name\>'s pages of what \<System Name\> records about its users | Not seen. The statement is not written (PA-90) |
@@ -319,7 +319,7 @@ The controls are in NIST order: the PT controls first, then the other privacy ba
 
 **Table 18: PT-7 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Apply defined conditions to specific categories of personal data | Special category data is held only in projects the business owner authorises, under the Article 9 and Schedule 1 conditions in the inventory, with an appropriate policy document where Schedule 1, Part 1 is relied on. Those documents are marked as special category data (section 3.4) | Projects can be limited. The conditions are placeholders for the legal adviser (PA-72), and documents cannot yet be marked (Q01; PA-89) |
 
@@ -341,7 +341,7 @@ The controls are in NIST order: the PT controls first, then the other privacy ba
 
 **Table 20: AC-3(14) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Give individuals a way to access their personal data | A request to the legal adviser, met within one month by a reasonable and proportionate search of every project and the audit records, recorded on TPL-15 (section 3.6) | The route is written. \<System Name\> cannot search every project for one person in one step, so each project is searched in turn (Q02; PA-89) |
 
@@ -363,7 +363,7 @@ The controls are in NIST order: the PT controls first, then the other privacy ba
 
 **Table 22: AT-3(5) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Train defined people in protecting personal data, at first and at a defined frequency | Everyone who handles HR documents, and all administrators: before access and every 12 months. Module M9 of the role curriculum (\<Awareness and Training Management\>, section 3.4) | No training given. The module is not written (PA-97) |
 
@@ -385,7 +385,7 @@ The controls are in NIST order: the PT controls first, then the other privacy ba
 
 **Table 24: AU-3(3) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Limit the personal data in audit records to the elements identified in the privacy risk assessment | Username, user ID, IP address, user agent and session ID, and none in the application log (\<Audit and Accountability Management\>) | Audit free text holds no extra personal data (Q04). The application log repeats usernames and IP addresses (Q05; PA-75). The impact assessment that confirms the elements is a draft (PA-72) |
 
@@ -407,7 +407,7 @@ The controls are in NIST order: the PT controls first, then the other privacy ba
 
 **Table 26: IR-2(3) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Include in incident response training how to identify and respond to a breach, and how to report it | Module M7 for incident roles, and module M9 for everyone who handles HR documents: recognising a breach, reporting it within 1 hour, and the steps in \<Incident Response Management\>, section 3.8 | Not given (PA-81, PA-97) |
 
@@ -429,7 +429,7 @@ The controls are in NIST order: the PT controls first, then the other privacy ba
 
 **Table 28: IR-8(1) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Include in the incident response plan a process to decide whether to notify individuals or other organisations | The legal adviser decides whether to tell the ICO and the people affected (\<Incident Response Management\>, section 3.8) | Met: written and approved |
 | b | Include an assessment of the harm, embarrassment, inconvenience or unfairness to the people affected, and how to reduce it | The legal adviser and the security officer judge the harm and what would reduce it (\<Incident Response Management\>, section 3.8, step 3) | Met |
@@ -453,7 +453,7 @@ The controls are in NIST order: the PT controls first, then the other privacy ba
 
 **Table 30: PE-8(3) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Limit the personal data in visitor records to defined elements | Name, organisation, and the date and time of the visit (\<Physical and Environmental Protection Management\>) | Not seen (EV-PT-02; PA-122) |
 
@@ -475,7 +475,7 @@ The controls are in NIST order: the PT controls first, then the other privacy ba
 
 **Table 32: PL-9 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Centrally manage defined controls and related processes | Policies, plans, registers and records are held in one document set, under one owner, checked by one consistency test, and kept in the restricted store (\<Planning Management\>) | One set and one test. Not yet in the restricted store (PA-88) |
 
@@ -497,7 +497,7 @@ The controls are in NIST order: the PT controls first, then the other privacy ba
 
 **Table 34: RA-8 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Assess privacy impact before developing or procuring technology that processes personal data | \<Data Protection Impact Assessment\>, completed by the legal adviser with the data protection officer's advice, before production and after any significant change in processing, and reviewed every 12 months (section 3.8) | A draft exists. It is not complete (D-PT-20; PA-72) |
 | b | Assess it before starting a new collection of personal data | The change check in PRO-PT-3 decides whether a change needs a new or revised assessment | Not yet used |
@@ -520,7 +520,7 @@ The controls are in NIST order: the PT controls first, then the other privacy ba
 
 **Table 36: SA-8(33) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Apply the privacy principle of minimisation, using defined processes | What is collected is reviewed at design, in each change record, and in the impact assessment | Not yet in use |
 
@@ -542,7 +542,7 @@ The controls are in NIST order: the PT controls first, then the other privacy ba
 
 **Table 38: SC-7(24) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Apply defined processing rules to personal data | Project access permissions, and the measures in the impact assessment | Project permissions work in the tested build. The impact assessment is a draft |
 | b | Monitor for permitted processing at external interfaces and key internal boundaries | Exports and downloads are audited, and the auditor reviews them each week. What further monitoring is needed is decided by the impact assessment | Not decided (PA-71) |
@@ -567,7 +567,7 @@ The controls are in NIST order: the PT controls first, then the other privacy ba
 
 **Table 40: SI-12(1) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Limit the personal data processed across the information life cycle to defined elements | Only what each document's purpose requires, as in the inventory. Each project access approver reviews the personal data in their project every 12 months (PRO-PT-5) | No project has been reviewed |
 
@@ -589,7 +589,7 @@ The controls are in NIST order: the PT controls first, then the other privacy ba
 
 **Table 42: SI-12(2) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Use defined techniques to minimise personal data in research, testing and training | Sample data only for testing and training, and no real personal data for research | Test stacks hold sample data only (Q09). The rule for training and research is not yet in use |
 
@@ -611,7 +611,7 @@ The controls are in NIST order: the PT controls first, then the other privacy ba
 
 **Table 44: SI-12(3) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Use defined techniques to dispose of, destroy or erase information after its retention period | At the end of its retention period (section 3.7) a document is deleted, the deletion is audited, and the database is vacuumed so that no readable copy remains. Media are sanitised by \<Media Protection Management\>, section 3.6 | Not built. No document can carry a retention period (Q08), and deleted pages stay until the database is vacuumed (Q03; PA-70). Most periods are not yet set (D-PT-21) |
 
@@ -633,7 +633,7 @@ The controls are in NIST order: the PT controls first, then the other privacy ba
 
 **Table 46: SI-18 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Check the accuracy, relevance, timeliness and completeness of personal data at a defined frequency | Every 12 months each project access approver checks their project's personal data, and records it on TPL-3 (PRO-PT-5) | Not yet used. Policy rule R11 requires it, and awaits the Head of Cyber with the later version of the policy (D-PT-18) |
 | b | Correct or delete personal data that is inaccurate or out of date | The project access approver or an administrator corrects or deletes it, and each correction and deletion is audited | Corrections and deletions in the admin portal write no audit record (Q03, Q10; PA-89) |
@@ -656,7 +656,7 @@ The controls are in NIST order: the PT controls first, then the other privacy ba
 
 **Table 48: SI-18(4) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Correct or delete personal data when the person asks | Through the legal adviser (PRO-PT-1). The project access approver or an administrator makes the correction or deletion, and it is confirmed in writing on TPL-15. The legal adviser tells anyone the data was disclosed to (UK GDPR, Article 19) | The route is written. Corrections in the admin portal are not audited (Q10; PA-89) |
 
@@ -678,9 +678,9 @@ The controls are in NIST order: the PT controls first, then the other privacy ba
 
 **Table 50: SI-19 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
-| All | As NIST sets out for the control | Not applicable: No dataset is de-identified or released, so there is nothing to remove identifiers from | Not applicable |
+| All | As CSS sets out for the control | Not applicable: No dataset is de-identified or released, so there is nothing to remove identifiers from | Not applicable |
 
 **Table 51: SI-19 responsibility and evidence**
 
@@ -694,9 +694,9 @@ The controls are in NIST order: the PT controls first, then the other privacy ba
 
 **Table 52: United States requirements design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
-| All | As NIST sets out for the control | Not applicable: These rest on United States law and federal bodies: the Privacy Act, Federal Register notices, Social Security numbers, the First Amendment and computer matching. \<Organisation\> operates in the United Kingdom (\<Tailoring Register\>, TR-PT-01) | Not applicable |
+| All | As CSS sets out for the control | Not applicable: These rest on United States law and federal bodies: the Privacy Act, Federal Register notices, Social Security numbers, the First Amendment and computer matching. \<Organisation\> operates in the United Kingdom (\<Tailoring Register\>, TR-PT-01) | Not applicable |
 
 **Table 53: United States requirements responsibility and evidence**
 
@@ -708,11 +708,11 @@ The controls are in NIST order: the PT controls first, then the other privacy ba
 
 ## Appendix A Parameter register
 
-These are NIST's organisation-defined values for the 6 assessed PT entries and the 16 other privacy controls: 41 in total. They were agreed on 6 November 2026 and restated as requirements on 11 November 2026 (D-PT-P01). Seven more PT entries are tailored as United States only (\<Tailoring Register\>, TR-PT-01).
+These are the CSS organisation-defined values for the 6 assessed PT entries and the 16 other privacy controls: 41 in total. They were agreed on 6 November 2026 and restated as requirements on 11 November 2026 (D-PT-P01). Seven more PT entries are tailored as United States only (\<Tailoring Register\>, TR-PT-01).
 
 **Table 54: Privacy parameter register**
 
-| NIST identifier | What must be defined | Value |
+| CSS identifier | What must be defined | Value |
 | --- | --- | --- |
 | PT-01\_ODP\[01\] | Who receives the policy | Everyone who administers \<System Name\> |
 | PT-01\_ODP\[02\] | Who receives the procedures | Everyone who administers \<System Name\> |
@@ -758,7 +758,7 @@ These are NIST's organisation-defined values for the 6 assessed PT entries and t
 
 ## Appendix B Privacy controls outside the privacy baseline
 
-NIST does not select these enhancements in its privacy baseline, so they are not assessed. Some of the design goes some way towards them, and Table 55 says where. The United States controls that the baseline does select are tailored out in section 4.
+CSS does not select these enhancements in its privacy baseline, so they are not assessed. Some of the design goes some way towards them, and Table 55 says where. The United States controls that the baseline does select are tailored out in section 4.
 
 **Table 55: Related enhancements not selected**
 

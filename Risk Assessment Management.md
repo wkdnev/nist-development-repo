@@ -2,15 +2,15 @@
 
 ## 1 Purpose
 
-This document shows how \<System Name\> assesses risk and responds to it, for each of the 10 Risk Assessment (RA) controls in NIST's Moderate baseline: the security categorisation, the risk assessment and its supply chain part, vulnerability monitoring and scanning, the response to findings, and the critical components.
+This document shows how \<System Name\> assesses risk and responds to it, for each of the 10 Risk Assessment (RA) controls in the CSS Moderate baseline: the security categorisation, the risk assessment and its supply chain part, vulnerability monitoring and scanning, the response to findings, and the critical components.
 
-Section 3 sets out the design: the categorisation, the risk assessment, the supply chain review, what is monitored for vulnerabilities, the vulnerability timetable, how findings are analysed, shared and reported, how risk is responded to, the critical components, how monitoring stands today, and what \<Organisation\> provides. Section 4 takes each control in turn. Appendix A lists every value NIST asks the organisation to define, and appendix B the related controls and enhancements NIST does not select at Moderate.
+Section 3 sets out the design: the categorisation, the risk assessment, the supply chain review, what is monitored for vulnerabilities, the vulnerability timetable, how findings are analysed, shared and reported, how risk is responded to, the critical components, how monitoring stands today, and what \<Organisation\> provides. Section 4 takes each control in turn. Appendix A lists every value CSS asks the organisation to define, and appendix B the related controls and enhancements CSS does not select at Moderate.
 
 This is the only place this design is held. Other documents point here. The policy is in \<Policy\> (RA), and the steps people follow are in \<Procedures\> (RA). Three records sit beside this one: the risks, and the method that rates them, are in the Risk List, \<Risk List\>; the categorisation is in \<System Security Plan\>, section 3.3, as RA-2 requires; and the suppliers are managed under the supply chain plan, \<Supply Chain Risk Management\>.
 
-An assessor examines the risk assessment, the categorisation, the scan reports and the record of each finding, the supply chain review and the critical components; interviews the system owner, the security officer and the Windows server administrator; and tests the scanning and how quickly what it finds is fixed (NIST SP 800-53A). So for each control section 4 gives:
+An assessor examines the risk assessment, the categorisation, the scan reports and the record of each finding, the supply chain review and the critical components; interviews the system owner, the security officer and the Windows server administrator; and tests the scanning and how quickly what it finds is fixed (CSS). So for each control section 4 gives:
 
-- **each part of the control**, as NIST letters them, with the design that meets it and the position today;
+- **each part of the control**, as CSS letters them, with the design that meets it and the position today;
 - **who provides it**, and who is responsible;
 - **what enforces it**, the rules and procedures that apply, and the tests run;
 - **the records an assessor will ask for**, and whether they exist yet;
@@ -63,7 +63,7 @@ These carry out the principles and rules of \<Policy\>, sections RA.3 and RA.4.
 
 ### 3.2 Security categorisation
 
-\<System Name\> is categorised Moderate: confidentiality Moderate, integrity Moderate and availability Low. Each of its four information types was mapped to NIST SP 800-60 Volume II Rev 1 and rated under FIPS 199, and the system takes the highest level of each. The record, with the rationale for each level, is in \<System Security Plan\>, section 3.3, as RA-2 requires. \[Name\] owns the information types, and the authorising official, \[Name\], approved the categorisation (D-GEN-06).
+\<System Name\> is categorised Moderate: confidentiality Moderate, integrity Moderate and availability Low. Each of its four information types was mapped to CSS and rated under CSS, and the system takes the highest level of each. The record, with the rationale for each level, is in \<System Security Plan\>, section 3.3, as RA-2 requires. \[Name\] owns the information types, and the authorising official, \[Name\], approved the categorisation (D-GEN-06).
 
 Availability is Low because the 120-hour maximum tolerable downtime means a loss of availability has a limited adverse effect; "business critical" means important to \<Organisation\>, not that \<System Name\> must always be available. The information owner and the authorising official are asked to confirm that rationale (D-RA-07).
 
@@ -73,7 +73,7 @@ The categorisation is reviewed with the risk assessment, and whenever an informa
 
 ### 3.3 Risk assessment
 
-\<System Name\>'s risk assessment is the Risk List, \<Risk List\>. It follows NIST SP 800-30 Rev 1: a threat source exploits a weakness, with a likelihood, to cause an impact. The method is set out in full in its section 4, beside the risks it rates, so that the Risk List can be read on its own. The authorising official confirmed it on 6 November 2026. Table 3, below, summarises it.
+\<System Name\>'s risk assessment is the Risk List, \<Risk List\>. It follows CSS: a threat source exploits a weakness, with a likelihood, to cause an impact. The method is set out in full in its section 4, beside the risks it rates, so that the Risk List can be read on its own. The authorising official confirmed it on 6 November 2026. Table 3, below, summarises it.
 
 **Table 3: The risk method at a glance**
 
@@ -81,7 +81,7 @@ The categorisation is reviewed with the risk assessment, and whenever an informa
 | --- | --- | --- |
 | Threat sources | Adversarial, accidental, structural and environmental, each with examples for \<System Name\> | \<Risk List\>, Table 3c |
 | Likelihood | Low, Medium or High, on a scale of how able and motivated the source is and what stands in its way | \<Risk List\>, Table 3a |
-| Impact | Low, Medium or High, on the FIPS 199 scale, for the documents and for \<Organisation\> | \<Risk List\>, Table 3b |
+| Impact | Low, Medium or High, on the CSS scale, for the documents and for \<Organisation\> | \<Risk List\>, Table 3b |
 | Rating | A matrix that weights impact: a High impact never rates below Medium, and a Low impact never above Low, because \<System Name\>'s harm is driven by what it holds | \<Risk List\>, Table 3 |
 | Uncertainty | Where the evidence is a single test or a document review, the higher of the two plausible ratings is used. Ratings set before the evidence was seen are marked provisional | \<Risk List\>, section 4.1 and Table 3d |
 | Privacy risk | Rated by the same method. The data protection impact assessment adds the effects on individuals | \<Risk List\>, R-PT-01 and R-AU-02; \<Data Protection Impact Assessment\> |
@@ -155,7 +155,7 @@ The scanner is still to be chosen (PA-62). The system owner confirmed on 18 Nove
 5. find ports, protocols and services that should not be reachable, against the allowed flows in \<Access Control Management\>, section 3.6;
 6. scan \<System Name\>'s three applications at each release, as section 3.5 sets out.
 
-Items 5 and 6 were added by the RA cross-check on 18 November 2026, from NIST's guidance on RA-5, and confirmed by the system owner the same day (D-RA-14).
+Items 5 and 6 were added by the RA cross-check on 18 November 2026, from the CSS guidance on RA-5, and confirmed by the system owner the same day (D-RA-14).
 
 ### 3.6 Vulnerability timetable
 
@@ -179,7 +179,7 @@ The clock starts when the fix is released, or when \<System Name\>'s use of the 
 2. **False positives.** A finding that does not apply, such as a flaw in a feature \<System Name\> does not call, is marked as a false positive on TPL-7 with the reason, and checked again at the next scan.
 3. **Fixing.** The people responsible fix or mitigate each finding within its time, as a change (\<Configuration Management\>). An exploited flaw is fixed or mitigated as an emergency change, and the security officer confirms it and tells the system owner (PRO-RA-4).
 4. **Sharing.** After each scan the security officer shares each finding that applies with the developers and the Windows server administrator, so that the same flaw is fixed wherever it occurs. A finding that may affect \<Organisation\>'s other systems also goes to its security contact, so that it can be removed there too (PRO-RA-5).
-5. **Reports from anyone.** Anyone may report a vulnerability in \<System Name\> to \<Organisation\>'s security contact, which passes the report to the security officer, who records it on TPL-7 and handles it as a scan finding (D-RA-05). NIST asks for a public channel, so the contact must be published where people outside \<Organisation\> can find it, for example in a security.txt file on its website (RFC 9116): \[Where the contact is published, once agreed with \<Organisation\>\] (EV-RA-01). Its published terms must authorise research in good faith, and may ask the reporter to allow a set time for a fix before disclosing the flaw, but must not require it to be kept secret for ever. The time asked for is 90 days, as the system owner decided (D-RA-14), once \<Organisation\> agrees it (EV-RA-01).
+5. **Reports from anyone.** Anyone may report a vulnerability in \<System Name\> to \<Organisation\>'s security contact, which passes the report to the security officer, who records it on TPL-7 and handles it as a scan finding (D-RA-05). CSS asks for a public channel, so the contact must be published where people outside \<Organisation\> can find it, for example in a security.txt file on its website (RFC 9116): \[Where the contact is published, once agreed with \<Organisation\>\] (EV-RA-01). Its published terms must authorise research in good faith, and may ask the reporter to allow a set time for a fix before disclosing the flaw, but must not require it to be kept secret for ever. The time asked for is 90 days, as the system owner decided (D-RA-14), once \<Organisation\> agrees it (EV-RA-01).
 6. **Flaws in other parties' components.** A flaw found in another party's package or image is reported to its maintainer through their published route, and noted on TPL-7.
 
 ### 3.8 Risk response
@@ -220,7 +220,7 @@ A monitoring finding, such as a scan result, is first recorded on TPL-7 (section
 
 The first review was held on 11 November 2026, for the RA pack review, and approved by the system owner (D-RA-09). On 18 November 2026 the rows for the database server, API, UI application and Admin application were reworded, and AD FS with Active Directory was added, because since sign-in moved to AD FS \<System Name\> holds no accounts and relies on \<Organisation\> to authenticate every user (D-AC-23). The system owner confirmed the list on 18 November 2026 (D-RA-12). The RA cross-check the same day added the application server VM and the bulk export working folder, as each gives a path to the documents that goes round the other controls; the system owner confirmed them the same day (D-RA-14).
 
-**Critical functions.** NIST asks for critical functions as well as components. Five functions would expose or lose the documents if they failed: signing in and deciding access (AD FS with Active Directory, API, the key store and the data protection key rings); storing and showing documents (the database server, the application server, API and UI application); administering projects and access (Admin application); recording who did what (the audit records); and recovering documents (the backup store).
+**Critical functions.** CSS asks for critical functions as well as components. Five functions would expose or lose the documents if they failed: signing in and deciding access (AD FS with Active Directory, API, the key store and the data protection key rings); storing and showing documents (the database server, the application server, API and UI application); administering projects and access (Admin application); recording who did what (the audit records); and recovering documents (the backup store).
 
 The next review is due at the first major release, or at the VM build if sooner.
 
@@ -249,13 +249,13 @@ Test-Vulnerability.ps1 ran on 11 November 2026 on the v1.0 build and its images.
 
 ## 4 Each control and enhancement
 
-The controls are in NIST order. Each has two tables. The first takes each part of the control and gives what NIST requires, the design that meets it, and the position today. The second says who provides and is responsible for the control, what enforces it, the rules and procedures that apply, the tests run, the records an assessor will ask for, its status, the risk decision, and what is still open.
+The controls are in CSS order. Each has two tables. The first takes each part of the control and gives what CSS requires, the design that meets it, and the position today. The second says who provides and is responsible for the control, what enforces it, the rules and procedures that apply, the tests run, the records an assessor will ask for, its status, the risk decision, and what is still open.
 
 ### 4.1 RA-1 Policy and Procedures
 
 **Table 12: RA-1 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a.1 | A risk assessment policy, shared with defined people, covering purpose, scope, roles, responsibilities, management commitment, coordination and compliance, and consistent with the law | \<Policy\> (RA): a system-level policy, shared with everyone who administers \<System Name\>. The legal adviser reviewed it on 11 November 2026 | Version \<ver\> approved by the Head of Cyber (D-RA-01). Version \<ver\> awaits the Head of Cyber (D-RA-06). Not yet shared (PA-20) |
 | a.2 | Procedures that carry out the policy, shared with defined people | \<Procedures\> (RA): six procedures, PRO-RA-1 to PRO-RA-6. Shared with the same people | Version \<ver\> approved by the system owner (D-RA-09). Not yet shared |
@@ -281,9 +281,9 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 14: RA-2 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
-| a | Categorise the system and the information it processes, stores and transmits | Four information types, each mapped to NIST SP 800-60 Volume II Rev 1 and rated under FIPS 199. The system takes the highest level of each: Moderate, with confidentiality Moderate, integrity Moderate and availability Low (section 3.2) | Done |
+| a | Categorise the system and the information it processes, stores and transmits | Four information types, each mapped to CSS and rated under CSS. The system takes the highest level of each: Moderate, with confidentiality Moderate, integrity Moderate and availability Low (section 3.2) | Done |
 | b | Document the results, with the supporting rationale, in the security plan | \<System Security Plan\>, section 3.3, with the rationale for each level | Done. The rationale for availability awaits the information owner and the authorising official (D-RA-07) |
 | c | The authorising official reviews and approves the categorisation | The authorising official, \[Name\] | Approved (D-GEN-06) |
 
@@ -305,9 +305,9 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 16: RA-3 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
-| a.1 | Identify threats to and vulnerabilities in the system | Threat sources of four kinds, adversarial, accidental, structural and environmental, as NIST SP 800-30 Rev 1 sets out; and the weaknesses that assessments, tests, monitoring and audits find (section 3.3) | Done: the threat sources are in \<Risk List\>, section 4, and each risk's causes in its section 2 |
+| a.1 | Identify threats to and vulnerabilities in the system | Threat sources of four kinds, adversarial, accidental, structural and environmental, as CSS sets out; and the weaknesses that assessments, tests, monitoring and audits find (section 3.3) | Done: the threat sources are in \<Risk List\>, section 4, and each risk's causes in its section 2 |
 | a.2 | Determine the likelihood and magnitude of harm from unauthorised access, use, disclosure, disruption, change or destruction | Likelihood and impact are each rated Low, Medium or High on defined scales, and combined in a matrix that weights impact (\<Risk List\>, section 4.1) | Done. Check V05 found every rating agrees with the matrix |
 | a.3 | Determine the likelihood and impact of adverse effects on individuals from processing personal data | Privacy risks are rated by the same method, and the data protection impact assessment adds the effects on individuals (\<PII Processing Management\>, section 3.8) | Rated (R-PT-01, R-AU-02). The impact assessment is a draft (PA-72) |
 | b | Integrate risk results and decisions from the organisation and business process levels with the system's | System risk decisions respect \<Organisation\>'s risk management strategy and risk appetite, and the Head of Cyber confirms the thresholds against them (D-PM-03; \<Program Management\>) | \<Organisation\>'s risk appetite has not been seen (EV-PM-01, EV-RA-01) |
@@ -334,7 +334,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 18: RA-3(1) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Assess the supply chain risks of defined systems, components and services | Packages, base images, suppliers and the VMs, each for its origin, support, known problems and end of support (section 3.4) | First review held on 11 November 2026 (D-RA-09) |
 | b | Update the assessment at a defined frequency, and when the supply chain, the system or its environment changes significantly | Every 12 months, before a new supplier or a new kind of component is added, and after a significant change to the system or where it runs | The update called for by the changes to sign-in and hosting of 12 and 13 November 2026 has not been held (PA-127). The first yearly update is due in November 2027 |
@@ -357,7 +357,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 20: RA-5 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Monitor and scan for vulnerabilities at a defined frequency, and when new vulnerabilities that may affect the system are reported | Monthly and at each release, with exploited flaws checked weekly. Each component is covered as section 3.5 sets out: packages at each build, \<System Name\>'s own applications at each release, both VMs by a credentialed scan, their settings against the baseline, and the rest from vendor announcements | Packages are checked (V01). Nothing scans the images, the VMs or \<System Name\>'s own applications, and the VMs are not yet built (V02; PA-62) |
 | b | Use tools that work together and automate parts of the process, using standards to name platforms and flaws, format checklists and measure impact | The scanner to be chosen names each flaw by its CVE identifier and rates it by CVSS, so that its results and the package check's can be compared (section 3.5). Improper configurations are found by the configuration scan against the baseline, which uses a standard checklist format (\<Configuration Management\>; PA-80) | No scanner chosen (PA-62) |
@@ -384,7 +384,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 22: RA-5(2) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Update the vulnerabilities to be scanned at a defined time | Before each new scan | No scanner (PA-62) |
 
@@ -406,7 +406,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 24: RA-5(5) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Authorise privileged access to defined components for defined scanning activities | Credentialed scans of both VMs, using an account approved for that purpose | The VMs are not yet built, and no scanner is chosen (PA-62) |
 
@@ -428,7 +428,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 26: RA-5(11) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Set up a public channel for reports of vulnerabilities in the system and its components | \<Organisation\>'s security contact, published where people outside \<Organisation\> can find it. It passes any report about \<System Name\> to the security officer, who records it on TPL-7 and handles it as a scan finding (section 3.7; D-RA-05). Its published terms authorise research in good faith, and ask for a set time for a fix without requiring secrecy for ever | Not yet agreed with \<Organisation\>; where it is published, and its terms, are not known (EV-RA-01) |
 
@@ -450,7 +450,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 28: RA-7 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Respond to findings from security and privacy assessments, monitoring and audits, in line with the organisation's risk tolerance | Each finding becomes an entry in the Risk List, rated by the method, and the person the rating calls for decides whether to accept, remediate, approve, obtain evidence or tailor. Remediations go into the Plan of Action and Milestones, and decisions into the Decision Register (section 3.8) | Security and privacy assessment findings all have decisions (V06). No monitoring or audit finding has arisen yet |
 
@@ -472,7 +472,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 30: RA-9 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Identify critical components and functions by a criticality analysis of defined items at defined decision points | Every component in the authorisation boundary, and the outside services it relies on, judged by the method in section 3.9 at each major release and significant change | Eleven critical components and five critical functions. Eight components were reviewed and approved on 11 November 2026 (D-RA-09); AD FS and Active Directory were added, and the list confirmed by the system owner, on 18 November 2026 (D-RA-12); the application server VM and the bulk export working folder were added by the cross-check and confirmed by the system owner the same day (D-RA-14) |
 
@@ -492,11 +492,11 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 ## Appendix A Parameter register
 
-These are NIST's organisation-defined values for the 10 RA entries: 25 in total. They were agreed on 6 November 2026 (D-RA-P01), and the vulnerability timetable on 11 November 2026 (D-RA-P02). **State now** says whether \<System Name\> meets the value today.
+These are the CSS organisation-defined values for the 10 RA entries: 25 in total. They were agreed on 6 November 2026 (D-RA-P01), and the vulnerability timetable on 11 November 2026 (D-RA-P02). **State now** says whether \<System Name\> meets the value today.
 
 **Table 32: RA parameter register**
 
-| NIST identifier | What must be defined | Value | State now |
+| CSS identifier | What must be defined | Value | State now |
 | --- | --- | --- | --- |
 | RA-01\_ODP\[01\] | Who receives the policy | Everyone who administers \<System Name\> | Not yet shared |
 | RA-01\_ODP\[02\] | Who receives the procedures | Everyone who administers \<System Name\> | Not yet shared |
@@ -526,7 +526,7 @@ These are NIST's organisation-defined values for the 10 RA entries: 25 in total.
 
 ## Appendix B Risk assessment controls outside the Moderate baseline
 
-NIST does not select these at Moderate, so they are not assessed. Some of the design goes some way towards them, and Table 33 says where. RA-4, RA-5(1), RA-5(7) and RA-5(9) are withdrawn: RA-5(1) is now part of RA-5f, and the others were moved into other controls.
+CSS does not select these at Moderate, so they are not assessed. Some of the design goes some way towards them, and Table 33 says where. RA-4, RA-5(1), RA-5(7) and RA-5(9) are withdrawn: RA-5(1) is now part of RA-5f, and the others were moved into other controls.
 
 **Table 33: Related controls and enhancements not selected**
 
@@ -542,5 +542,5 @@ NIST does not select these at Moderate, so they are not assessed. Some of the de
 | RA-5(8) Review Historic Audit Logs | Checks the audit records for signs a newly found flaw was exploited before | Not required |
 | RA-5(10) Correlate Scanning Information | Combines scan results to find attacks that use several flaws | Not required |
 | RA-6 Technical Surveillance Countermeasures Survey | Surveys premises for eavesdropping devices | Not required. \<System Name\> has no premises of its own |
-| RA-8 Privacy Impact Assessments | Assesses the effect on people's privacy | In NIST's privacy baseline. Designed and assessed with the personal data controls in \<PII Processing Management\> |
+| RA-8 Privacy Impact Assessments | Assesses the effect on people's privacy | In the CSS privacy baseline. Designed and assessed with the personal data controls in \<PII Processing Management\> |
 | RA-10 Threat Hunting | Searches actively for threats that have evaded other controls | Not required. Any threat hunting is \<Organisation\>'s security operations |

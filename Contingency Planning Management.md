@@ -2,13 +2,13 @@
 
 ## 1 Purpose
 
-This document shows how \<System Name\> is recovered after a failure, for each of the 23 Contingency Planning (CP) controls and enhancements in the NIST SP 800-53 Rev 5 Moderate baseline. Section 3 is the contingency plan that CP-2 requires: the business impact analysis, the roles, and the three phases of activation and notification, recovery, and reconstitution, with backups, the second site, and testing and training. It can be used on its own in an emergency. Section 4 takes each control in turn. Appendix A records what the tested build showed. Appendix B lists every value NIST asks the organisation to define. Appendix C holds the contacts, and appendix D the associated plans. Appendix E lists the CP controls NIST does not select at Moderate.
+This document shows how \<System Name\> is recovered after a failure, for each of the 23 Contingency Planning (CP) controls and enhancements in the CSS Moderate baseline. Section 3 is the contingency plan that CP-2 requires: the business impact analysis, the roles, and the three phases of activation and notification, recovery, and reconstitution, with backups, the second site, and testing and training. It can be used on its own in an emergency. Section 4 takes each control in turn. Appendix A records what the tested build showed. Appendix B lists every value CSS asks the organisation to define. Appendix C holds the contacts, and appendix D the associated plans. Appendix E lists the CP controls CSS does not select at Moderate.
 
 This is the only place the contingency design is held. Other documents point here. The policy is in \<Policy\> (CP), and the steps people follow are in \<Procedures\> (CP).
 
-An assessor examines the plan, the business impact analysis, the backup and restore records, and the test and training records; interviews the people with contingency roles; and may ask to see a restore (NIST SP 800-53A). So for each control section 4 gives:
+An assessor examines the plan, the business impact analysis, the backup and restore records, and the test and training records; interviews the people with contingency roles; and may ask to see a restore (CSS). So for each control section 4 gives:
 
-- **each part of the control**, as NIST letters them, with the design that meets it and the position today;
+- **each part of the control**, as CSS letters them, with the design that meets it and the position today;
 - **who provides it**, and who is responsible;
 - **what enforces it**, the rules and procedures that apply, and the tests run;
 - **the records an assessor will ask for**, and whether they exist yet;
@@ -97,7 +97,7 @@ The plan recovers \<System Name\> in three phases: activation and notification, 
 
 ### 3.3 Business impact analysis
 
-This analysis follows NIST SP 800-34 Rev. 1, Appendix B. \<System Name\>'s availability is rated Low: an outage delays work, but no service to the public stops. Losing documents or audit records cannot be tolerated.
+This analysis follows CSS, Appendix B. \<System Name\>'s availability is rated Low: an outage delays work, but no service to the public stops. Losing documents or audit records cannot be tolerated.
 
 #### 3.3.1 Impact over time
 
@@ -253,7 +253,7 @@ None of this is confirmed (EV-CP-01, EV-CP-02, PA-66). If it is not available, t
 
 ### 3.10 Testing, training and exercises
 
-This follows NIST SP 800-84. The first restore test and tabletop exercise take place within 30 days of the VMs being built, and before production (D-CP-10, PA-81).
+This follows CSS. The first restore test and tabletop exercise take place within 30 days of the VMs being built, and before production (D-CP-10, PA-81).
 
 **Table 9: Test, training and exercise schedule**
 
@@ -280,13 +280,13 @@ Each test or activation ends with an after-action report on TPL-11: the objectiv
 
 ## 4 Each control and enhancement
 
-The controls are in NIST order. Each has two tables. The first takes each part of the control and gives what NIST requires, the design that meets it, and the position today. The second says who provides and is responsible for the control, what enforces it, the rules and procedures that apply, the tests run, the records an assessor will ask for, its status, the risk decision, and what is still open.
+The controls are in CSS order. Each has two tables. The first takes each part of the control and gives what CSS requires, the design that meets it, and the position today. The second says who provides and is responsible for the control, what enforces it, the rules and procedures that apply, the tests run, the records an assessor will ask for, its status, the risk decision, and what is still open.
 
 ### 4.1 CP-1 Policy and Procedures
 
 **Table 11: CP-1 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a.1 | A contingency planning policy, shared with defined people, covering purpose, scope, roles, responsibilities, management commitment, coordination and compliance, and consistent with the law | \<Policy\> (CP): a system-level policy. Purpose and scope are in section CP.1, responsibilities in CP.5, and commitment, coordination and compliance in CP.6. It is shared with everyone who administers \<System Name\>. The legal adviser reviews it | Version \<ver\> approved by the Head of Cyber (D-CP-12). Legally reviewed on 9 November 2026. Not yet shared (PA-20) |
 | a.2 | Procedures that carry out the policy, shared with defined people | \<Procedures\> (CP): seven procedures, PRO-CP-1 to PRO-CP-7, each naming who acts, when and the record. Shared with the same people | Approved by the system owner (D-CP-13). Not yet shared or walked through |
@@ -312,7 +312,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 13: CP-2 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a.1 | A plan that identifies the essential functions and the contingency needs that go with them | Section 3.3.1: four functions, of which signing in, finding and reading documents is essential | Written |
 | a.2 | It gives recovery objectives, the order of restoration, and measures | Section 3.3.2 gives the maximum tolerable downtime, recovery time and recovery point for each function, and its priority. Section 3.3.3 gives the order. Each test and activation measures the time to recover and the data lost against them (section 3.10) | Written, and agreed by the system owner (D-CP-10) |
@@ -347,7 +347,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 15: CP-2(1) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Develop the plan together with those responsible for related plans | Appendix D lists the related plans. This plan and the incident response plan were written together, and each cites the other. \<Organisation\>'s disaster recovery and business continuity plans provide the network, AD FS, the second site and telecommunications, and the system owner agrees with \<Organisation\> how the plans fit: who declares a disaster, and the recovery times of the services \<System Name\> depends on | The incident response plan is aligned. \<Organisation\>'s plans have not been seen, and their names are placeholders (PA-114) |
 
@@ -369,7 +369,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 17: CP-2(3) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Plan to resume defined functions within a defined time of the plan being invoked | The essential functions resume within 72 hours, including reconstitution, within a maximum tolerable downtime of 120 hours (section 3.3.2). The other functions resume within 7 days | Met as a plan (D-CP-10). It cannot be achieved until backups exist (PA-64) |
 
@@ -391,7 +391,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 19: CP-2(8) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Identify the system assets that the defined functions depend on | Section 3.3.4: the database, the application server, the backups and transaction logs, and the secrets. Section 3.3.3 adds what they depend on from \<Organisation\>, including AD FS | Met |
 
@@ -413,7 +413,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 21: CP-3 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a.1 | Train people in their contingency role within a defined time of taking it | Within 30 days. Everyone in section 3.4 learns the plan, their own steps, the call tree and where the offline copy is. It is module M8 of the role curriculum (\<Awareness and Training Management\>, section 3.4) | No training has been given (PA-81) |
 | a.2 | Train them again when the system changes | After a change to the plan that alters a person's steps, that person is briefed on the change | Not yet used |
@@ -438,7 +438,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 23: CP-4 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Test the plan on a schedule, with defined tests, to judge how well it works and how ready people are | A restore test every 6 months and a tabletop exercise every 12 months, the first of each within 30 days of the servers being built and before production (section 3.10). Each has objectives and a scenario set beforehand | No test of the plan has been held (PA-81). The restore procedure was shown in the test environment on 9 November 2026 |
 | b | Review the results | Each test ends with an after-action report on TPL-11 within 10 working days: objectives, what happened, time to recover and data lost against the objectives, and what went wrong | Not yet used |
@@ -462,7 +462,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 25: CP-4(1) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Test the plan together with those responsible for related plans | The tabletop exercise is held with the incident response plan, and \<Organisation\>'s IT service desk takes part | Not held (PA-81) |
 
@@ -484,7 +484,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 27: CP-6 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Set up a second site for storing backups, with the agreements needed to store and retrieve them | Encrypted backups are held at a second \<Organisation\> site, with one copy offline or immutable (D-CP-06) | Not confirmed: \<Organisation\> has not been asked (EV-CP-01, PA-66) |
 | b | The second site gives controls equal to the main site's | The same physical and access controls as the main site. Backups are encrypted before they leave the database server, so the site's staff cannot read them | Not confirmed |
@@ -507,7 +507,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 29: CP-6(1) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | The second site is far enough from the main one not to share its threats | \<Organisation\> is asked to show that the two sites do not share the same hazards, such as flood, power supply or a single building | Not confirmed (EV-CP-01) |
 
@@ -529,7 +529,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 31: CP-6(3) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Identify what could make the second site hard to reach in a wide-area disruption, and say what would be done | \<Organisation\>'s plans say how the site and its backups are reached if the area is disrupted. \<System Name\> asks for that part of its plans | Not confirmed (EV-CP-01) |
 
@@ -551,7 +551,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 33: CP-7 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Set up a second site for processing, with the agreements needed to move and resume defined operations within a defined time | If the main site is lost, both servers are rebuilt at the second \<Organisation\> site, and the essential functions resume within 72 hours (D-CP-07; section 3.6.1) | Not confirmed (EV-CP-01, PA-66) |
 | b | The equipment and supplies needed are at the site, or contracts are in place to deliver them in time | \<Organisation\> provides the virtual servers. \<System Name\> needs nothing else there but its backups, its secrets and the tagged release | Not confirmed |
@@ -575,7 +575,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 35: CP-7(1) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | The second processing site is far enough from the main one not to share its threats | As CP-6(1): the same site holds the backups and runs the rebuilt servers | Not confirmed (EV-CP-01) |
 
@@ -597,7 +597,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 37: CP-7(2) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Identify what could make the second processing site hard to reach in a wide-area disruption, and say what would be done | As CP-6(3) | Not confirmed (EV-CP-01) |
 
@@ -619,7 +619,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 39: CP-7(3) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | The agreement for the second site gives priority of service that matches the availability needed | \<Organisation\> is asked what priority \<System Name\> has at the second site. Availability is rated Low, with 72 hours to recover, so a modest priority is enough | Not confirmed (EV-CP-01) |
 
@@ -641,7 +641,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 41: CP-8 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Set up alternate telecommunications, with the agreements needed to resume defined operations within a defined time when the main service fails | Inherited from \<Organisation\> (D-CP-08): its network connects users to both sites, and it is asked what alternate service exists and how quickly it takes over | Not confirmed (EV-CP-02, PA-115) |
 
@@ -663,7 +663,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 43: CP-8(1) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | The main and alternate service agreements give priority of service that matches the availability needed | \<Organisation\> is asked what priority its agreements give | Not confirmed (EV-CP-02) |
 | b | Ask for Telecommunications Service Priority where a common carrier provides the service | Telecommunications Service Priority is a United States scheme. \<Organisation\> is asked whether it uses any UK equivalent | Not confirmed (EV-CP-02) |
@@ -686,7 +686,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 45: CP-8(2) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | The alternate service does not share a single point of failure with the main one | \<Organisation\> is asked to show that the two do not share a route, a building entry or a provider | Not confirmed (EV-CP-02) |
 
@@ -708,7 +708,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 47: CP-9 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Back up user-level information on defined components on a schedule | The database, which holds the documents and audit records, is backed up in full every day, and its transaction logs are archived continuously (section 3.8) | No backups exist (PA-64) |
 | b | Back up system-level information on a schedule | Each server's system configuration, weekly. The secrets, at each change | No backups exist |
@@ -733,7 +733,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 49: CP-9(1) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Test the backups on a schedule, to show the media are reliable and the information intact | Every 6 months, and after a change to the database or the backup method, the database administrator restores the latest backup to a separate server and checks it: row counts against the last known counts, each document page against its stored checksum, and the audit records' hashes against the export taken with the backup (PRO-CP-2). The security officer observes | Shown in the test environment on 9 November 2026: the restore worked (R03, R04) and the data was intact (R05 to R07). There are no backups of the servers to test (PA-64) |
 
@@ -755,7 +755,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 51: CP-9(8) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Use cryptography to stop backups being read or changed without authority | Every backup is encrypted before it leaves the database server. The key is held apart from the backups, where only the system owner and the administrators can reach it, and is listed in the key register (\<System and Communications Protection Management\>, section 3.4) | Not built. The default PostgreSQL backup is a plain archive that anyone holding it can read (R02; PA-64) |
 
@@ -777,7 +777,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 53: CP-10 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Recover the system and bring it back to a known state within a defined time after a disruption, compromise or failure | Sections 3.6 and 3.7. The servers are rebuilt to the baseline, the latest good backup is restored, and users return only when the data, the functions and the controls have been checked. Monitoring is restarted, and a recovery that amounts to a significant change goes to the authorising official. Recovery and reconstitution together take no more than 72 hours, losing no more than 24 hours of data | \<System Name\> cannot be recovered today: there are no servers and no backups. The restore itself took seconds in the test environment (R04) |
 
@@ -799,7 +799,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 55: CP-10(2) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Provide transaction recovery for systems that are based on transactions | PostgreSQL's transaction logs are archived continuously to the second site, so that a restore can be brought forward to the last consistent point before the failure. That gives a recovery point of minutes | Not built: the logs are not archived (R09; PA-64) |
 
@@ -825,11 +825,11 @@ On 9 November 2026 Test-BackupRestore.ps1 showed, on a throwaway stack at the v1
 
 ## Appendix B Parameter register
 
-These are NIST's organisation-defined values for the 23 CP entries: 38 in total. They were agreed on 6 November 2026 (D-CP-P01), and CP-09\_ODP\[01\] was revised on 9 November 2026 (D-CP-P02). State now says whether each is in place today.
+These are the CSS organisation-defined values for the 23 CP entries: 38 in total. They were agreed on 6 November 2026 (D-CP-P01), and CP-09\_ODP\[01\] was revised on 9 November 2026 (D-CP-P02). State now says whether each is in place today.
 
 **Table 57: CP parameter register**
 
-| NIST identifier | What must be defined | Value | State now |
+| CSS identifier | What must be defined | Value | State now |
 | --- | --- | --- | --- |
 | CP-01\_ODP\[01\] | Who receives the policy | Everyone who administers \<System Name\> | Not yet shared |
 | CP-01\_ODP\[02\] | Who receives the procedures | Everyone who administers \<System Name\> | Not yet shared |
@@ -899,7 +899,7 @@ These are NIST's organisation-defined values for the 23 CP entries: 38 in total.
 
 ## Appendix E CP controls outside the Moderate baseline
 
-NIST does not select these at Moderate, so they are not assessed. Some of the design goes further than the baseline, and Table 60 says where.
+CSS does not select these at Moderate, so they are not assessed. Some of the design goes further than the baseline, and Table 60 says where.
 
 **Table 60: CP controls not selected at Moderate**
 

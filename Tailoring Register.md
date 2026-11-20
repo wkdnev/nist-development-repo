@@ -2,7 +2,7 @@
 
 ## 1 Purpose
 
-NIST SP 800-37 Rev 2 (task S-2) allows a baseline to be tailored to the system, and expects each decision to have a rationale and an approval. This register holds the case for every control, part or parameter proposed as not applicable. Tailoring is not a way to avoid a control that is merely difficult. Every entry states the condition that makes it valid, and it ends if that condition stops being true. All entries are proposals.
+CSS (task S-2) allows a baseline to be tailored to the system, and expects each decision to have a rationale and an approval. This register holds the case for every control, part or parameter proposed as not applicable. Tailoring is not a way to avoid a control that is merely difficult. Every entry states the condition that makes it valid, and it ends if that condition stops being true. All entries are proposals.
 
 Entries are numbered TR-XX-nn, where XX is the family code. Each has a matching decision in \<Decision Register\>.
 
@@ -43,7 +43,7 @@ Entries are numbered TR-XX-nn, where XX is the family code. Each has a matching 
 | TR-AC-02 | AC-2k | Not applicable | Shared and group accounts are prohibited (P-AC-04) | \<System Name\> holds no accounts of its own: every account is a person's own Active Directory account (D-AC-23). The admin account is seeded sample data in the Docker environment only (D-AC-13) | A process for changing shared authenticators is needed | Approved, \[Name\], 5 November 2026 |
 | TR-AC-03 | AC-8a.01 | Replace the statement with one naming \<Organisation\> | \<System Name\> is not a U.S. Government system, so the statement would be untrue | The notice names \<Organisation\>, and a legal adviser agrees the wording | Applies again if \<System Name\> serves a U.S. Government customer | Approved, \[Name\], 5 November 2026. Legal review to follow |
 | TR-AC-04 | AC-8c | Not applicable | \<System Name\> is not publicly accessible | Documents and functions need sign-in, except the list in P-AC-25 | AC-8c applies in full | Approved, \[Name\], 5 November 2026 |
-| TR-AC-05 | AC-17(4) | Not applicable | NIST defines remote access as access through external networks. Administration is to take place only from inside \<Organisation\>'s network | \<Organisation\> confirms this route, and external routes to the VMs' administration ports are blocked (EV-AC-12) | AC-17(4) applies, with defined needs and logging | Approved, \[Name\], 6 November 2026. Condition still to be evidenced |
+| TR-AC-05 | AC-17(4) | Not applicable | CSS defines remote access as access through external networks. Administration is to take place only from inside \<Organisation\>'s network | \<Organisation\> confirms this route, and external routes to the VMs' administration ports are blocked (EV-AC-12) | AC-17(4) applies, with defined needs and logging | Approved, \[Name\], 6 November 2026. Condition still to be evidenced |
 | TR-AC-06 | AC-19, AC-19(5) | Not applicable | Phones and tablets are not to be used with \<System Name\> in the first release | \<Organisation\>'s device controls prevent or govern this. \<System Name\> cannot identify a device, so a rule alone is weak evidence (EV-AC-15) | Both apply, with \<Organisation\>'s mobile controls as evidence | Approved, \[Name\], 5 November 2026. Condition still to be evidenced |
 | TR-AC-07 | AC-20(1) | Not applicable | P-AC-22 does not allow external systems to reach or hold \<System Name\> data without the system owner's approval, and none is proposed | No such approval has been given | Verification of controls and retained agreements are needed for each approval | Approved, \[Name\], 5 November 2026 |
 | TR-AC-08 | AC-22 | Not applicable | \<System Name\> holds no public content (P-AC-24) | Documents need sign-in (T02, T03), and the open endpoints in NC-24 are dealt with | AC-22 applies in full | Approved, \[Name\], 5 November 2026 |
@@ -86,7 +86,7 @@ The system owner agreed this on 6 November 2026 (D-PM-01). It isn't tailoring in
 
 | ID | Control or part | Tailoring | Rationale | Condition that must hold | If the condition changes | Decision |
 | --- | --- | --- | --- | --- | --- | --- |
-| TR-PM-01 | The whole PM family | Outside the baseline; not assessed for \<System Name\> | PM controls cover an organisation's whole security programme, not one system, and NIST does not allocate them to a baseline. \<System Name\> still inherits them as common controls (NIST SP 800-37, task P-5), as listed in \<Program Management\>, section 3.3 | The organisation's programme stays with \<Organisation\> and the Head of Cyber, and \<System Name\>'s owner or authorising official doesn't ask for it to be assessed | Assess the PM controls | Agreed, \[Name\], 6 November 2026 |
+| TR-PM-01 | The whole PM family | Outside the baseline; not assessed for \<System Name\> | PM controls cover an organisation's whole security programme, not one system, and CSS does not allocate them to a baseline. \<System Name\> still inherits them as common controls (CSS, task P-5), as listed in \<Program Management\>, section 3.3 | The organisation's programme stays with \<Organisation\> and the Head of Cyber, and \<System Name\>'s owner or authorising official doesn't ask for it to be assessed | Assess the PM controls | Agreed, \[Name\], 6 November 2026 |
 
 ### 4.1 PM controls \<System Name\> inherits
 
@@ -94,7 +94,7 @@ The list of PM controls that \<System Name\> inherits, with the provider and the
 
 ## 5 PT and SA
 
-The system owner agreed these on 6 November 2026 (D-PT-08, D-SA-06). The PT controls are in NIST's privacy baseline, not Moderate, and were assessed against it (D-PT-01, D-PT-07).
+The system owner agreed these on 6 November 2026 (D-PT-08, D-SA-06). The PT controls are in the CSS privacy baseline, not Moderate, and were assessed against it (D-PT-01, D-PT-07).
 
 **Table 6: PT and SA decisions**
 

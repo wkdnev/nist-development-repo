@@ -2,15 +2,15 @@
 
 ## 1 Purpose
 
-This document shows how \<System Name\> relies on \<Organisation\>'s security and privacy programme, for each of the 36 Program Management (PM) controls and enhancements in NIST SP 800-53 Rev 5. Section 3 sets out the design: why PM is treated differently from the other families, who leads the programme, which control is provided by whom and what \<System Name\> adds, the PM controls NIST places in the privacy baseline, and what is asked of \<Organisation\>. Section 4 takes each control in turn.
+This document shows how \<System Name\> relies on \<Organisation\>'s security and privacy programme, for each of the 36 Program Management (PM) controls and enhancements in CSS. Section 3 sets out the design: why PM is treated differently from the other families, who leads the programme, which control is provided by whom and what \<System Name\> adds, the PM controls CSS places in the privacy baseline, and what is asked of \<Organisation\>. Section 4 takes each control in turn.
 
 This is the only place this design is held. Other documents point here. The decision that PM is outside \<System Name\>'s baseline is TR-PM-01 in \<Tailoring Register\>.
 
-**PM is different from the other families.** Its controls describe an organisation's whole security and privacy programme, not one system. NIST does not place them in the Low, Moderate or High baselines, and expects them to be implemented once, for the organisation. \<System Name\> therefore has no PM policy or procedures of its own, sets no PM parameter values, and gives no PM control a status. It inherits the controls from \<Organisation\> as common controls (NIST SP 800-37, task P-5), and its own documents follow \<Organisation\>'s programme where that is known.
+**PM is different from the other families.** Its controls describe an organisation's whole security and privacy programme, not one system. CSS does not place them in the Low, Moderate or High baselines, and expects them to be implemented once, for the organisation. \<System Name\> therefore has no PM policy or procedures of its own, sets no PM parameter values, and gives no PM control a status. It inherits the controls from \<Organisation\> as common controls (CSS, task P-5), and its own documents follow \<Organisation\>'s programme where that is known.
 
 An assessor of \<System Name\> will ask who provides each common control, what evidence shows it, and how \<System Name\> knows the programme it relies on exists. So for each control this document gives:
 
-- **what NIST requires**, in one line;
+- **what CSS requires**, in one line;
 - **who provides it**;
 - **which of \<System Name\>'s controls rely on it**, and what \<System Name\> adds;
 - **the evidence asked for**, and the position today.
@@ -27,7 +27,7 @@ There are 36 PM controls and enhancements. Two do not apply in the United Kingdo
 | Risk management | 5 | 3 | EV-PM-01, EV-PM-03 | Not sent |
 | Privacy programme | 12 | 11 | EV-PM-04 | Not sent |
 
-NIST places 24 of the PM controls in its privacy baseline, which \<System Name\> applies because it holds personal data. They are still the organisation's to provide, but they matter more to \<System Name\> than the rest: section 3.4 lists them.
+CSS places 24 of the PM controls in its privacy baseline, which \<System Name\> applies because it holds personal data. They are still the organisation's to provide, but they matter more to \<System Name\> than the rest: section 3.4 lists them.
 
 Two decisions are open with other people. The Head of Cyber has not confirmed that he is the senior information security officer, nor that \<System Name\>'s risk thresholds fit \<Organisation\>'s risk appetite (D-PM-03). The legal adviser has not named the data protection officer, or recorded why none is required (D-PM-04). The gap as a whole is registered in the Risk List (R-AC-11) and the Plan of Action and Milestones (PA-124).
 
@@ -60,7 +60,7 @@ Two decisions are open with other people. The Head of Cyber has not confirmed th
 
 ### 3.3 Which control is provided by whom
 
-Agreed on 11 November 2026 (D-PM-02). Each Rev 5 PM control is listed with who provides it, which \<System Name\> controls rely on it, what \<System Name\> contributes, the evidence that would show it, whether NIST places it in the privacy baseline, and the position today. A consistency check confirms that every row names a provider and an evidence request that exists. The three enhancements, PM-7(1), PM-16(1) and PM-20(1), were added on 17 November 2026 and confirmed by the system owner (D-PM-06).
+Agreed on 11 November 2026 (D-PM-02). Each Rev 5 PM control is listed with who provides it, which \<System Name\> controls rely on it, what \<System Name\> contributes, the evidence that would show it, whether CSS places it in the privacy baseline, and the position today. A consistency check confirms that every row names a provider and an evidence request that exists. The three enhancements, PM-7(1), PM-16(1) and PM-20(1), were added on 17 November 2026 and confirmed by the system owner (D-PM-06).
 
 **Table 3: PM inheritance**
 
@@ -107,7 +107,7 @@ Where \<Organisation\>'s document is not yet seen, \<System Name\>'s own documen
 
 ### 3.4 PM controls in the privacy baseline
 
-\<System Name\> applies NIST's privacy baseline, as it holds HR documents with personal data (D-PT-01). That baseline includes 24 PM controls: PM-3, PM-4, PM-5(1), PM-6 to PM-11, PM-13, PM-14, PM-17 to PM-22, PM-20(1), PM-24 to PM-28 and PM-31. NIST still expects them to be met once, by the organisation's programme, so they stay \<Organisation\>'s to provide. The system owner decided on 17 November 2026 that they stay inherited and are not assessed for \<System Name\>, and the authorising official is asked to confirm it (D-PM-06). Two of them, PM-17 and PM-24, rest on United States law and do not apply.
+\<System Name\> applies the CSS privacy baseline, as it holds HR documents with personal data (D-PT-01). That baseline includes 24 PM controls: PM-3, PM-4, PM-5(1), PM-6 to PM-11, PM-13, PM-14, PM-17 to PM-22, PM-20(1), PM-24 to PM-28 and PM-31. CSS still expects them to be met once, by the organisation's programme, so they stay \<Organisation\>'s to provide. The system owner decided on 17 November 2026 that they stay inherited and are not assessed for \<System Name\>, and the authorising official is asked to confirm it (D-PM-06). Two of them, PM-17 and PM-24, rest on United States law and do not apply.
 
 For the rest, \<System Name\>'s privacy controls depend on them directly: the personal data inventory on PM-5(1), complaints on PM-26, breach reporting on PM-27, and the privacy plan on PM-18. Until \<Organisation\> evidences its privacy programme (EV-PM-04, EV-PM-02), \<System Name\>'s own privacy plan, inventory and procedures stand in.
 
@@ -133,13 +133,13 @@ PM stays outside \<System Name\>'s assessment for as long as the organisation's 
 
 ## 4 Each control and enhancement
 
-The controls are grouped by what they govern, and are in NIST order within each group. No control is given a status: none is \<System Name\>'s to implement. The Today column says what is known.
+The controls are grouped by what they govern, and are in CSS order within each group. No control is given a status: none is \<System Name\>'s to implement. The Today column says what is known.
 
 ### 4.1 Security programme
 
 **Table 5: Security programme controls**
 
-| Control | NIST requires | Provided by | \<System Name\>'s part | Today |
+| Control | CSS requires | Provided by | \<System Name\>'s part | Today |
 | --- | --- | --- | --- | --- |
 | PM-1 Information Security Program Plan | An organisation-wide information security programme plan, approved by a senior official, reviewed on a schedule and protected | \<Organisation\>, Head of Cyber | The 19 family policies follow it | Not evidenced (EV-PM-01) |
 | PM-2 Information Security Program Leadership Role | A senior information security officer, with the mission and resources to run the programme | Head of Cyber | \[Name\] named as senior information security officer in \<System Security Plan\> (D-PM-03) | \[Name\] is named. His confirmation of the role is pending (D-PM-03) |
@@ -165,7 +165,7 @@ The controls are grouped by what they govern, and are in NIST order within each 
 
 **Table 6: Risk management controls**
 
-| Control | NIST requires | Provided by | \<System Name\>'s part | Today |
+| Control | CSS requires | Provided by | \<System Name\>'s part | Today |
 | --- | --- | --- | --- | --- |
 | PM-9 Risk Management Strategy | A strategy for managing security and privacy risk across the organisation, reviewed on a schedule | \<Organisation\>, Head of Cyber | Decision rules in \<Risk List\>, section 4.2, to be confirmed against the risk appetite (D-PM-03) | \<System Name\>'s thresholds are agreed, but not confirmed against \<Organisation\>'s risk appetite (D-PM-03; EV-PM-01) |
 | PM-28 Risk Framing | The assumptions, constraints, priorities and tolerances that frame risk decisions are set and shared | \<Organisation\>, Head of Cyber | \<Risk List\> | Not evidenced (EV-PM-01) |
@@ -177,7 +177,7 @@ The controls are grouped by what they govern, and are in NIST order within each 
 
 **Table 7: Privacy programme controls**
 
-| Control | NIST requires | Provided by | \<System Name\>'s part | Today |
+| Control | CSS requires | Provided by | \<System Name\>'s part | Today |
 | --- | --- | --- | --- | --- |
 | PM-17 Protecting Controlled Unclassified Information on External Systems | A policy for protecting controlled unclassified information held on external systems | Not applicable | United States only | Not applicable in the United Kingdom |
 | PM-18 Privacy Program Plan | An organisation-wide privacy programme plan, approved by a senior official and reviewed on a schedule | \<Organisation\>, legal adviser | \<Privacy Plan\> follows it | Not evidenced (EV-PM-04) |

@@ -2,7 +2,7 @@
 
 ## 1 How to use this document
 
-This document is the record of the Level 1 self-assessment of \<System Name\> against NIST SP 800-53A Rev 5. It has one chapter for each of the 19 control families assessed, in NIST order, and each chapter gives a finding for every determination statement. The totals across all chapters are in \<Security Assessment Report\>, which is generated from this record.
+This document is the record of the Level 1 self-assessment of \<System Name\> against CSS. It has one chapter for each of the 19 control families assessed, in CSS order, and each chapter gives a finding for every determination statement. The totals across all chapters are in \<Security Assessment Report\>, which is generated from this record.
 
 Level 1 is a self-assessment and is not independent. Each chapter holds its own assessment plan, and all 19 plans were approved by the authorising official (D-GEN-18).
 
@@ -12,7 +12,7 @@ Level 1 is a self-assessment and is not independent. Each chapter holds its own 
 
 ### 1.1 Findings
 
-Findings follow NIST SP 800-53A. Each determination statement gets one of these.
+Findings follow CSS. Each determination statement gets one of these.
 
 **Table 1: Finding codes**
 
@@ -44,7 +44,7 @@ Each chapter ends with its assessment plan. These parts are the same for every f
 
 ### AC.1 Purpose
 
-This records the initial self-assessment of \<System Name\> against each Moderate baseline AC control and enhancement. Section AC.3 is the executive summary, section AC.5 holds the finding for each NIST statement, and section AC.6 is the assessment plan.
+This records the initial self-assessment of \<System Name\> against each Moderate baseline AC control and enhancement. Section AC.3 is the executive summary, section AC.5 holds the finding for each CSS statement, and section AC.6 is the assessment plan.
 
 ### AC.2 How to read this record
 
@@ -52,7 +52,7 @@ This records the initial self-assessment of \<System Name\> against each Moderat
 
 This is the Level 1 self-assessment, and it makes no fixes. An independent team led by \[Name\] will use it for the Level 2 assessment. A finding does not by itself require a fix: each non-compliance is rated and decided in \<Risk List\>, and only those to be remediated go to \<Plan of Action and Milestones\>. The AC-3 fixes were made before this approach was agreed and are kept, so AC-3 describes the system with them in place.
 
-Each entry follows the NIST SP 800-53A approach: the objectives come from NIST, and each gets one of these results.
+Each entry follows the CSS approach: the objectives come from CSS, and each gets one of these results.
 
 **Table AC-1: Result scale**
 
@@ -60,8 +60,8 @@ Each entry follows the NIST SP 800-53A approach: the objectives come from NIST, 
 | --- | --- |
 | Satisfied | The evidence shows the objective is met |
 | Other than satisfied | The evidence shows a gap, or an approval is outstanding |
-| Other than satisfied (E) | NIST has no separate result for missing evidence. This marks objectives where the VMs or \<Organisation\>'s evidence are not available |
-| Not applicable | The system owner decided the objective does not apply, with a reason and any condition recorded in \<Tailoring Register\>. This is an organisation's tailoring decision, not a result under NIST SP 800-53A, and the independent assessor may test it |
+| Other than satisfied (E) | CSS has no separate result for missing evidence. This marks objectives where the VMs or \<Organisation\>'s evidence are not available |
+| Not applicable | The system owner decided the objective does not apply, with a reason and any condition recorded in \<Tailoring Register\>. This is an organisation's tailoring decision, not a result under CSS, and the independent assessor may test it |
 
 The three methods are **Examine** (documents, code and configuration), **Test** (running the mechanism) and **Interview** (asking the people responsible). The system owner has answered INT-AC-01 to 34 in writing (\<Interview Guide\>, section 22.1). No records were seen, so these answers change no finding, and the role holders and \<Organisation\> have not been interviewed.
 
@@ -122,7 +122,7 @@ The three methods are **Examine** (documents, code and configuration), **Test** 
 | AC-21 | Other than satisfied | 3 of 4 | Nothing helps users judge whether sharing a document outside a project is allowed, and project groups control access only inside \<System Name\> | NC-38, PA-22 |
 | AC-22 | Not applicable | None applies | \<System Name\> holds no public content (D-AC-11, TR-AC-08) | TR-AC-08 |
 
-\<System Name\> does not yet fully satisfy any of the 39 entries, because each has at least one statement outstanding or is not applicable. At statement level the position is clearer. Of NIST's 189 statements, 74 are satisfied, 29 are not applicable under \<Tailoring Register\>, 22 await a decision or approval, 39 show a gap in the system, 21 await evidence from the VMs or \<Organisation\>, and 4 are parameters not selected.
+\<System Name\> does not yet fully satisfy any of the 39 entries, because each has at least one statement outstanding or is not applicable. At statement level the position is clearer. Of the CSS 189 statements, 74 are satisfied, 29 are not applicable under \<Tailoring Register\>, 22 await a decision or approval, 39 show a gap in the system, 21 await evidence from the VMs or \<Organisation\>, and 4 are parameters not selected.
 
 The organisation takes a risk-based approach, and does not require every control to be met. Every entry therefore has a non-compliance record in \<Risk List\>, with a risk rating and a proposed treatment: accept, remediate, approve, obtain evidence or tailor. The system owner decided the Low items on 5 November 2026; the Medium and High items await the authorising official. The most serious gaps are the High items in \<Plan of Action and Milestones\>, and \<Plan of Action and Milestones\>, section 5, gives the recommended order of work. This assessment made no fixes, apart from the AC-3 fixes already kept.
 
@@ -205,7 +205,7 @@ The UIs deny anything not marked as open, through a fallback policy. The API doe
 
 **Result: Other than satisfied.** The main administration functions are protected, but ordinary users can still run some privileged functions. These include changing another user's session role, clearing the API cache, writing audit records and starting a database migration. Moderate has no further enhancements under AC-6(10).
 
-**What it requires:** the system must stop users without the right authorisation from running privileged functions. NIST's examples include changing or bypassing security controls, creating accounts and managing keys. Hiding a button is not enough, so the refusal has to happen where the function runs.
+**What it requires:** the system must stop users without the right authorisation from running privileged functions. The CSS examples include changing or bypassing security controls, creating accounts and managing keys. Hiding a button is not enough, so the refusal has to happen where the function runs.
 
 **Table AC-7: AC-6(10) objective**
 
@@ -244,7 +244,7 @@ The UIs deny anything not marked as open, through a fallback policy. The API doe
 
 **Result: Other than satisfied.** In the application, the main security functions are limited to the right roles, and that was tested. Who may use them is approved (D-AC-03), but security-relevant information is too widely available, and the VMs are not available to assess.
 
-**What it requires:** the organisation must name who may use its security functions, in hardware, software and firmware, and who may see security-relevant information, then authorise only them. NIST's examples include creating accounts, setting permissions and audit settings, firewall rules, security service settings, key management information and access control lists.
+**What it requires:** the organisation must name who may use its security functions, in hardware, software and firmware, and who may see security-relevant information, then authorise only them. The CSS examples include creating accounts, setting permissions and audit settings, firewall rules, security service settings, key management information and access control lists.
 
 **Table AC-9: AC-6(1) objectives**
 
@@ -785,7 +785,7 @@ The lock was found by code review and has not been exercised in a browser.
 
 ### AC.5 Findings by determination statement
 
-This section records one finding for each NIST SP 800-53A determination statement, including those about organisation-defined parameters, in control order. It is current, and it takes precedence over the grouped objectives in section AC.4, which record what was examined and tested before the system owner's decisions of 5 November 2026. Statement wording is condensed, and the identifiers are NIST's. Findings are dated 5 November 2026 unless the basis or the change record says otherwise.
+This section records one finding for each CSS determination statement, including those about organisation-defined parameters, in control order. It is current, and it takes precedence over the grouped objectives in section AC.4, which record what was examined and tested before the system owner's decisions of 5 November 2026. Statement wording is condensed, and the identifiers are CSS's. Findings are dated 5 November 2026 unless the basis or the change record says otherwise.
 
 Findings: **S** satisfied. **O-D** other than satisfied, because a decision or approval is outstanding. **O-G** other than satisfied, because of a gap in the system. **O-E** other than satisfied, because evidence from the VMs or \<Organisation\> is not available. **N/S** the parameter applies only if selected, and is not selected. N/A not applicable, as decided in \<Tailoring Register\>.
 
@@ -985,14 +985,14 @@ Findings: **S** satisfied. **O-D** other than satisfied, because a decision or a
 
 ### AC.6 Assessment plan
 
-This records how the assessment was planned and carried out, following NIST SP 800-53A Rev 5. It describes this initial self-assessment and what remains for an independent one.
+This records how the assessment was planned and carried out, following CSS. It describes this initial self-assessment and what remains for an independent one.
 
 **Table AC-54: Assessment plan**
 
 | Item | Detail |
 | --- | --- |
-| Scope | The 39 AC entries in the SP 800-53B Moderate baseline, with 189 determination statements |
-| Procedures | SP 800-53A Rev 5, using NIST's published statements and identifiers (catalog release 5.2.0) |
+| Scope | The 39 AC entries in the CSS Moderate baseline, with 189 determination statements |
+| Procedures | CSS, using the CSS published statements and identifiers (catalog release 5.2.0) |
 | Assessor | Level 1: Claude, an AI assistant, working for the system owner. Level 2: an independent team led by \[Name\], which meets CA-2(1) at Moderate once TPL-19 is completed |
 | Dates | 5 November 2026; the 75 checks re-run on the tagged v1.0 build on 8 November 2026 with the same results |
 | Site | One PC, using a separate throwaway Docker stack with sample data, and the running local stack for read-only checks. The Windows Server 2025 VMs are not built |
@@ -1012,7 +1012,7 @@ The authorising official approved this plan (D-GEN-18), as confirmed by the syst
 
 ### AT.1 Purpose
 
-This records the Level 1 self-assessment of the 6 AT entries in the NIST SP 800-53 Rev 5 Moderate baseline, using catalog release 5.2.0. AT-3(5) is a privacy baseline control, assessed with the PT family (\<Control Assessment Record\> (PT)). An independent team led by \[Name\] will use this record for the Level 2 assessment. It makes no fixes.
+This records the Level 1 self-assessment of the 6 AT entries in the CSS Moderate baseline, using catalog release 5.2.0. AT-3(5) is a privacy baseline control, assessed with the PT family (\<Control Assessment Record\> (PT)). An independent team led by \[Name\] will use this record for the Level 2 assessment. It makes no fixes.
 
 ### AT.2 How to read this record
 
@@ -1038,13 +1038,13 @@ The method was **Examine** (documents). This family has no code to test. No trai
 | AT-3 | Other than satisfied | 5 of 14 | Curriculum set; content not yet written or given | NC-AT-05 |
 | AT-4 | Other than satisfied | 1 of 4 | No training yet | NC-AT-06 |
 
-Of NIST's 66 statements, 34 are satisfied, 17 await a decision or approval, none shows a gap in the system and 15 await evidence from \<Organisation\>.
+Of the CSS 66 statements, 34 are satisfied, 17 await a decision or approval, none shows a gap in the system and 15 await evidence from \<Organisation\>.
 
 The programme is now fully defined: who needs what, the role curriculum, the briefing outline, one training matrix, the register and the measures. What remains is training actually being given, and \<Organisation\>'s evidence.
 
 ### AT.4 Findings by determination statement
 
-There is one finding for each NIST SP 800-53A determination statement, including those about organisation-defined parameters. Findings are dated 12 November 2026 unless the basis says otherwise.
+There is one finding for each CSS determination statement, including those about organisation-defined parameters. Findings are dated 12 November 2026 unless the basis says otherwise.
 
 **Table AT-3: Finding for each determination statement**
 
@@ -1124,7 +1124,7 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | Item | Detail |
 | --- | --- |
 | Scope | The 6 AT entries in the Moderate baseline, with 66 determination statements |
-| Procedures | SP 800-53A Rev 5, using NIST's published statements and identifiers (catalog release 5.2.0) |
+| Procedures | CSS, using the CSS published statements and identifiers (catalog release 5.2.0) |
 | Dates | 6 November 2026; updated on 12 November 2026 after the AT pack review |
 | Examine | \<Policy\> (AT), \<Procedures\> (AT) and the awareness and training chapter of \<Control Implementation Register\> at \<ver\>, now in \<Awareness and Training Management\>; \<Security Operating Procedures\>; \<Procedures\> (AC); PRO-IR-3; PRO-CP-4; \<PII Processing Management\>. Depth: focused. Coverage: focused |
 | Test | Not applicable to this family. Check L14 of Test-PlanConsistency.ps1 (the PL evidence) |
@@ -1145,7 +1145,7 @@ For the Level 2 assessment, the assessor should:
 
 ### AU.1 Purpose
 
-This records the Level 1 self-assessment of the 16 AU entries in the NIST SP 800-53 Rev 5 Moderate baseline, using catalog release 5.2.0. An independent team led by \[Name\] will use it for the Level 2 assessment. It makes no fixes: each non-compliance is rated and decided in \<Risk List\>, and only those to be remediated go to \<Plan of Action and Milestones\>.
+This records the Level 1 self-assessment of the 16 AU entries in the CSS Moderate baseline, using catalog release 5.2.0. An independent team led by \[Name\] will use it for the Level 2 assessment. It makes no fixes: each non-compliance is rated and decided in \<Risk List\>, and only those to be remediated go to \<Plan of Action and Milestones\>.
 
 ### AU.2 How to read this record
 
@@ -1186,13 +1186,13 @@ The methods were **Examine** (code and configuration), **Test** (Test-AuditAndAu
 | AU-11 | Other than satisfied | 1 of 2 | No retention or archive in place; VMs not built | NC-AU-14; PA-42 |
 | AU-12 | Other than satisfied | 2 of 5 | PostgreSQL logging off; Windows not assessed; events built into each release | NC-AU-15; PA-14, PA-43 |
 
-Of NIST's 81 statements, 48 are satisfied, 8 await a decision or approval, 15 show a gap in the system and 10 await evidence from the VMs or \<Organisation\>.
+Of the CSS 81 statements, 48 are satisfied, 8 await a decision or approval, 15 show a gap in the system and 10 await evidence from the VMs or \<Organisation\>.
 
 The application records the right detail for most events, in UTC, with a chain hash on each record. The most serious gap is protection: the application's database account can change, delete or empty the audit table, and nothing checks the chain. The chain itself has no key, cannot show that the newest records were removed, and as stored cannot be recomputed (A36, A37). Every audit event is also repeated in the unprotected application log with the username, IP address and session ID (A38). Global administrators can also read the records, against the agreed value. Nobody is alerted when logging fails, and no review has started.
 
 ### AU.4 Findings by determination statement
 
-There is one finding for each NIST SP 800-53A determination statement, including those about organisation-defined parameters. Statement wording is condensed, and the identifiers are NIST's. Findings are dated 6 November 2026 unless the basis or the change record says otherwise. The notes for AU-06\_ODP\[02\], AU-09a and AU-09b were updated on 8 November 2026 from checks A36 to A38, and no finding code changed.
+There is one finding for each CSS determination statement, including those about organisation-defined parameters. Statement wording is condensed, and the identifiers are CSS's. Findings are dated 6 November 2026 unless the basis or the change record says otherwise. The notes for AU-06\_ODP\[02\], AU-09a and AU-09b were updated on 8 November 2026 from checks A36 to A38, and no finding code changed.
 
 **Table AU-3: Finding for each determination statement**
 
@@ -1286,8 +1286,8 @@ There is one finding for each NIST SP 800-53A determination statement, including
 
 | Item | Detail |
 | --- | --- |
-| Scope | The 16 AU entries in the SP 800-53B Moderate baseline, with 81 determination statements. AU-3(3), which limits personal data in records, is assessed with the PT family |
-| Procedures | SP 800-53A Rev 5, using NIST's published statements and identifiers (catalog release 5.2.0) |
+| Scope | The 16 AU entries in the CSS Moderate baseline, with 81 determination statements. AU-3(3), which limits personal data in records, is assessed with the PT family |
+| Procedures | CSS, using the CSS published statements and identifiers (catalog release 5.2.0) |
 | Assessor | Level 1: Claude, an AI assistant, working for the system owner. Level 2: an independent team led by \[Name\], which meets CA-2(1) at Moderate once TPL-19 is completed |
 | Dates | 6 November 2026; evidence re-run on the tagged v1.0 build on 8 November 2026 |
 | Site | One PC, using a separate throwaway Docker stack with sample data. The Windows Server 2025 VMs are not built |
@@ -1306,7 +1306,7 @@ The authorising official approved this plan (D-GEN-18), as confirmed by the syst
 
 ### CA.1 Purpose
 
-This records the Level 1 self-assessment of the 10 CA entries in the NIST SP 800-53 Rev 5 Moderate baseline, using catalog release 5.2.0. An independent team led by \[Name\] will use it for the Level 2 assessment. It makes no fixes.
+This records the Level 1 self-assessment of the 10 CA entries in the CSS Moderate baseline, using catalog release 5.2.0. An independent team led by \[Name\] will use it for the Level 2 assessment. It makes no fixes.
 
 ### CA.2 How to read this record
 
@@ -1338,13 +1338,13 @@ The method was **Examine** (the assessment, plan and decision documents). No int
 | CA-7(4) | Other than satisfied | 1 of 4 | Risk monitoring starts at go-live | NC-CA-09 |
 | CA-9 | Other than satisfied | 7 of 10 | Internal connection planned; not yet reviewed | NC-CA-10; PA-63 |
 
-Of NIST's 93 statements, 64 are satisfied, 27 await a decision or approval, none shows a gap in the system and 2 await evidence from \<Organisation\>.
+Of the CSS 93 statements, 64 are satisfied, 27 await a decision or approval, none shows a gap in the system and 2 await evidence from \<Organisation\>.
 
 The assessments, plans, assessment report and plan of action exist, and all 19 assessment plans are approved. Level 2, authorisation and monitoring have not started, as \<System Name\> is not live.
 
 ### CA.4 Findings by determination statement
 
-There is one finding for each NIST SP 800-53A determination statement, including those about organisation-defined parameters. Findings are dated 6 November 2026 unless the basis or the change record says otherwise.
+There is one finding for each CSS determination statement, including those about organisation-defined parameters. Findings are dated 6 November 2026 unless the basis or the change record says otherwise.
 
 **Table CA-3: Finding for each determination statement**
 
@@ -1450,8 +1450,8 @@ There is one finding for each NIST SP 800-53A determination statement, including
 
 | Item | Detail |
 | --- | --- |
-| Scope | The 10 CA entries in the SP 800-53B Moderate baseline, with 93 determination statements |
-| Procedures | SP 800-53A Rev 5, using NIST's published statements and identifiers (catalog release 5.2.0) |
+| Scope | The 10 CA entries in the CSS Moderate baseline, with 93 determination statements |
+| Procedures | CSS, using the CSS published statements and identifiers (catalog release 5.2.0) |
 | Dates | 6 November 2026; updated on 8 November 2026 after the CA pack review and the approvals confirmed by the system owner |
 | Site | Documents only: CA assesses the organisation's processes, not the running system |
 | Examine | \<Policy\> (CA), \<Procedures\> (CA), \<Assessment, Authorization, and Monitoring Management\>, \<Security Assessment Report\>, \<Plan of Action and Milestones\>, \<Risk List\>, \<Decision Register\> and the 19 family assessments. Depth: focused. Coverage: every CA statement |
@@ -1469,7 +1469,7 @@ The authorising official approved this plan (D-GEN-18), as confirmed by the syst
 
 ### CM.1 Purpose
 
-This records the Level 1 self-assessment of the 24 CM entries in the NIST SP 800-53 Rev 5 Moderate baseline, using catalog release 5.2.0. An independent team led by \[Name\] will use it for the Level 2 assessment. It makes no fixes.
+This records the Level 1 self-assessment of the 24 CM entries in the CSS Moderate baseline, using catalog release 5.2.0. An independent team led by \[Name\] will use it for the Level 2 assessment. It makes no fixes.
 
 ### CM.2 How to read this record
 
@@ -1518,13 +1518,13 @@ The methods were **Examine** (code and configuration) and **Test** (checks B06 t
 | CM-12 | Other than satisfied | 4 of 8 | Approved access list not yet built | NC-CM-23 |
 | CM-12(1) | Other than satisfied | 2 of 3 | Tools not yet confirmed | NC-CM-24; EV-CM-02 |
 
-Of NIST's 178 statements, 90 are satisfied, 41 await a decision or approval, 16 show a gap in the system and 31 await evidence from the VMs or \<Organisation\>.
+Of the CSS 178 statements, 90 are satisfied, 41 await a decision or approval, 16 show a gap in the system and 31 await evidence from the VMs or \<Organisation\>.
 
 Most of this family is a process that has not started, because \<System Name\> is not live. The gaps are that the ServiceNow change workflow is not set up, diagnostic and maintenance pages remain in production builds, and software is not technically restricted, by decision.
 
 ### CM.4 Findings by determination statement
 
-There is one finding for each NIST SP 800-53A determination statement, including those about organisation-defined parameters. Findings are dated 6 November 2026 unless the basis or the change record says otherwise.
+There is one finding for each CSS determination statement, including those about organisation-defined parameters. Findings are dated 6 November 2026 unless the basis or the change record says otherwise.
 
 **Table CM-3: Finding for each determination statement**
 
@@ -1715,8 +1715,8 @@ There is one finding for each NIST SP 800-53A determination statement, including
 
 | Item | Detail |
 | --- | --- |
-| Scope | The 24 CM entries in the SP 800-53B Moderate baseline, with 178 determination statements |
-| Procedures | SP 800-53A Rev 5, using NIST's published statements and identifiers (catalog release 5.2.0) |
+| Scope | The 24 CM entries in the CSS Moderate baseline, with 178 determination statements |
+| Procedures | CSS, using the CSS published statements and identifiers (catalog release 5.2.0) |
 | Dates | 6 November 2026; updated on 8 November 2026 after the CM pack review |
 | Site | One PC, using a separate throwaway Docker stack with sample data. The VMs are not built |
 | Examine | The image build file, compose file, project files, settings files, the start-up configuration and the repositories at tag v1.0; \<Policy\> (CM), \<Procedures\> (CM) and \<Configuration Management\>. Depth: focused. Coverage: focused |
@@ -1734,7 +1734,7 @@ The authorising official approved this plan (D-GEN-18), as confirmed by the syst
 
 ### CP.1 Purpose
 
-This records the Level 1 self-assessment of the 23 CP entries in the NIST SP 800-53 Rev 5 Moderate baseline, using catalog release 5.2.0. An independent team led by \[Name\] will use it for the Level 2 assessment. It makes no fixes.
+This records the Level 1 self-assessment of the 23 CP entries in the CSS Moderate baseline, using catalog release 5.2.0. An independent team led by \[Name\] will use it for the Level 2 assessment. It makes no fixes.
 
 ### CP.2 How to read this record
 
@@ -1782,13 +1782,13 @@ The methods were **Examine** (documents and the Docker configuration) and **Test
 | CP-10 | Other than satisfied | 2 of 4 | No backups, so no recovery today; restore shown in Docker in 4.5 seconds | NC-CP-22; PA-64 |
 | CP-10(2) | Other than satisfied | 0 of 1 | Transaction logs are not archived (R09) | NC-CP-23; PA-64 |
 
-Of NIST's 124 statements, 65 are satisfied, 28 await a decision or approval, 12 show a gap in the system and 19 await evidence from the VMs or \<Organisation\>.
+Of the CSS 124 statements, 65 are satisfied, 28 await a decision or approval, 12 show a gap in the system and 19 await evidence from the VMs or \<Organisation\>.
 
-The plan now follows NIST SP 800-34 Rev. 1, with a business impact analysis and its three phases, but it has not been tested on the VMs. The restore test shows the procedure works: a backup restored to a fresh server in 4.5 seconds with every row, document checksum and audit hash intact. The gaps are that \<System Name\> has no backups, the default backup is unencrypted and transaction logs are not archived, so nothing could be recovered today. The second site is unconfirmed.
+The plan now follows CSS, with a business impact analysis and its three phases, but it has not been tested on the VMs. The restore test shows the procedure works: a backup restored to a fresh server in 4.5 seconds with every row, document checksum and audit hash intact. The gaps are that \<System Name\> has no backups, the default backup is unencrypted and transaction logs are not archived, so nothing could be recovered today. The second site is unconfirmed.
 
 ### CP.4 Findings by determination statement
 
-There is one finding for each NIST SP 800-53A determination statement, including those about organisation-defined parameters. Findings are dated 6 November 2026, and were updated on 9 November 2026 after the CP pack review.
+There is one finding for each CSS determination statement, including those about organisation-defined parameters. Findings are dated 6 November 2026, and were updated on 9 November 2026 after the CP pack review.
 
 **Table CP-3: Finding for each determination statement**
 
@@ -1925,8 +1925,8 @@ There is one finding for each NIST SP 800-53A determination statement, including
 
 | Item | Detail |
 | --- | --- |
-| Scope | The 23 CP entries in the SP 800-53B Moderate baseline, with 124 determination statements |
-| Procedures | SP 800-53A Rev 5, using NIST's published statements and identifiers (catalog release 5.2.0) |
+| Scope | The 23 CP entries in the CSS Moderate baseline, with 124 determination statements |
+| Procedures | CSS, using the CSS published statements and identifiers (catalog release 5.2.0) |
 | Dates | 6 November 2026; updated on 9 November 2026 after the CP pack review |
 | Site | One PC, using a separate throwaway Docker stack with sample data. The VMs, backups and second site do not exist yet |
 | Examine | \<Policy\> (CP), \<Procedures\> (CP) and \<Contingency Planning Management\> \<ver\>; the test stack's compose file for backup support and volumes; where documents and audit records are stored. Depth: focused. Coverage: focused |
@@ -1944,15 +1944,15 @@ The authorising official approved this plan (D-GEN-18), as confirmed by the syst
 
 ### IA.1 Purpose
 
-This records the Level 1 self-assessment of the 24 IA entries in the NIST SP 800-53 Rev 5 Moderate baseline, using catalog release 5.2.0. An independent team led by \[Name\] will use it for the Level 2 assessment. It makes no fixes: each non-compliance is rated and decided in \<Risk List\>, and only those to be remediated go to \<Plan of Action and Milestones\>.
+This records the Level 1 self-assessment of the 24 IA entries in the CSS Moderate baseline, using catalog release 5.2.0. An independent team led by \[Name\] will use it for the Level 2 assessment. It makes no fixes: each non-compliance is rated and decided in \<Risk List\>, and only those to be remediated go to \<Plan of Action and Milestones\>.
 
 ### IA.2 How to read this record
 
 **Change since this assessment.** On 12 November 2026 the system owner stated that \<System Name\> signs users in through \<Organisation\>'s AD FS, with multi-factor authentication, takes roles and project access from Active Directory groups, and holds no accounts or passwords of its own (D-AC-23). This chapter assessed the v1.0 build, which signed in with its own passwords and held its accounts and groups in its own database. Its findings are a true record of that build and are not changed. The findings on sign-in, passwords, lockout, accounts and group membership are to be made again with AD FS sign-in, when the tests are repeated and \<Organisation\>'s evidence is in (PA-95). On 15 November 2026 the design moved to \<Identification and Authentication Management\> (D-IA-11), and two items were added for gaps found in its review: PA-116 and PA-117.
 
-**N/A** means not applicable, as decided in \<Tailoring Register\>. This is the organisation's tailoring decision, not a result under NIST SP 800-53A, and the independent assessor may test it.
+**N/A** means not applicable, as decided in \<Tailoring Register\>. This is the organisation's tailoring decision, not a result under CSS, and the independent assessor may test it.
 
-The methods were **Examine** (code and configuration) and **Test**: Test-AuditAndAuth.ps1 checks A01 to A35 on 6 November 2026, repeated with A36 to A38 on the tagged v1.0 build on 8 November with the same IA results; Test-Identification.ps1 checks I01 to I11 against NIST SP 800-63B Revision 4 on 9 November; and the AC session checks T38 and T44 to T47. Results and hash manifests are in the AU and IA evidence. The system owner answered INT-IA-01 to 06 in writing.
+The methods were **Examine** (code and configuration) and **Test**: Test-AuditAndAuth.ps1 checks A01 to A35 on 6 November 2026, repeated with A36 to A38 on the tagged v1.0 build on 8 November with the same IA results; Test-Identification.ps1 checks I01 to I11 against CSS on 9 November; and the AC session checks T38 and T44 to T47. Results and hash manifests are in the AU and IA evidence. The system owner answered INT-IA-01 to 06 in writing.
 
 **Limit of the current evidence:** \<System Name\> ran in Docker on one PC with sample data, in the build labelled v1.0. The Windows Server 2025 VMs, PostgreSQL on Windows and \<Organisation\>'s services have not been examined.
 
@@ -1996,13 +1996,13 @@ The methods were **Examine** (code and configuration) and **Test**: Test-AuditAn
 | IA-12(3) | Other than satisfied | 1 of 2 | As IA-12 | NC-IA-17; EV-IA-02 |
 | IA-12(5) | Other than satisfied | 1 of 2 | As IA-12 | NC-IA-18; EV-IA-02 |
 
-Of NIST's 92 statements, 41 are satisfied, 14 are not applicable, 7 await a decision or approval, 15 show a gap in the system and 15 await evidence from the VMs or \<Organisation\>.
+Of the CSS 92 statements, 41 are satisfied, 14 are not applicable, 7 await a decision or approval, 15 show a gap in the system and 15 await evidence from the VMs or \<Organisation\>.
 
-Password storage, sign-in feedback, lockout, session limits and forced change of temporary passwords work as agreed, and the session limits are stricter than NIST SP 800-63B Revision 4 requires. The most serious gaps are password-only sign-in, including for global administrators, accepted to 6 May 2027 with an agreed end state (D-IA-07), and secrets committed in source code. Passwords of 12 to 14 characters are still accepted where 800-63B-4 requires 15 while sign-in is password-only (PA-82), users cannot change their own password, and the blocked list is short. The assurance levels in \<Identification and Authentication Management\>, section 3.4, were accepted by the authorising official (D-IA-08).
+Password storage, sign-in feedback, lockout, session limits and forced change of temporary passwords work as agreed, and the session limits are stricter than CSS requires. The most serious gaps are password-only sign-in, including for global administrators, accepted to 6 May 2027 with an agreed end state (D-IA-07), and secrets committed in source code. Passwords of 12 to 14 characters are still accepted where CSS requires 15 while sign-in is password-only (PA-82), users cannot change their own password, and the blocked list is short. The assurance levels in \<Identification and Authentication Management\>, section 3.4, were accepted by the authorising official (D-IA-08).
 
 ### IA.4 Findings by determination statement
 
-There is one finding for each NIST SP 800-53A determination statement, including those about organisation-defined parameters. Statement wording is condensed, and the identifiers are NIST's. Findings are dated 6 November 2026, updated on 9 November 2026 where the basis says so.
+There is one finding for each CSS determination statement, including those about organisation-defined parameters. Statement wording is condensed, and the identifiers are CSS's. Findings are dated 6 November 2026, updated on 9 November 2026 where the basis says so.
 
 **Table IA-3: Finding for each determination statement**
 
@@ -2107,8 +2107,8 @@ There is one finding for each NIST SP 800-53A determination statement, including
 
 | Item | Detail |
 | --- | --- |
-| Scope | The 24 IA entries in the SP 800-53B Moderate baseline, with 92 determination statements, 14 of them not applicable under \<Tailoring Register\> |
-| Procedures | SP 800-53A Rev 5, using NIST's published statements and identifiers (catalog release 5.2.0), with NIST SP 800-63B Revision 4 as the test standard for authenticators |
+| Scope | The 24 IA entries in the CSS Moderate baseline, with 92 determination statements, 14 of them not applicable under \<Tailoring Register\> |
+| Procedures | CSS, using the CSS published statements and identifiers (catalog release 5.2.0), with CSS as the test standard for authenticators |
 | Dates | 6 November 2026; updated on 8 and 9 November 2026 |
 | Site | One PC, using a separate throwaway Docker stack with sample data. The VMs are not built |
 | Examine | The API's password service, the API's sign-in service, the sign-in service of each UI, the security data model, the settings files and the database, at tag v1.0; \<Policy\> (IA), \<Procedures\> (IA) and \<Identification and Authentication Management\>. Depth: focused. Coverage: focused |
@@ -2126,7 +2126,7 @@ The authorising official approved this plan (D-GEN-18), as confirmed by the syst
 
 ### IR.1 Purpose
 
-This records the Level 1 self-assessment of the 13 IR entries in the NIST SP 800-53 Rev 5 Moderate baseline, using catalog release 5.2.0. An independent team led by \[Name\] will use it for the Level 2 assessment. It makes no fixes.
+This records the Level 1 self-assessment of the 13 IR entries in the CSS Moderate baseline, using catalog release 5.2.0. An independent team led by \[Name\] will use it for the Level 2 assessment. It makes no fixes.
 
 ### IR.2 How to read this record
 
@@ -2164,13 +2164,13 @@ The methods were **Examine** (documents and code) and **Test**: the containment 
 | IR-7(1) | Other than satisfied | 1 of 2 | ServiceNow not set up for incidents | NC-IR-12; PA-65 |
 | IR-8 | Other than satisfied | 17 of 24 | Version \<ver\> awaits the Head of Cyber; not yet shared or protected | NC-IR-13; D-IR-07, D-GEN-15 |
 
-Of NIST's 90 statements, 49 are satisfied, 38 await a decision or approval, 3 show a gap in the system and none awaits evidence.
+Of the CSS 90 statements, 49 are satisfied, 38 await a decision or approval, 3 show a gap in the system and none awaits evidence.
 
-The plan now follows NIST SP 800-61 Revision 3, with severity targets, breach steps, playbooks and evidence handling, but has not been exercised. The drill shows containment works: a suspect user's sessions ended and a disabled account was locked out at once, and audit records exported with a repeatable hash. The gaps are that ServiceNow is not set up for incidents, ending sessions is not audited (D02, PA-14), and the application log repeats personal data (D08, PA-75).
+The plan now follows CSS, with severity targets, breach steps, playbooks and evidence handling, but has not been exercised. The drill shows containment works: a suspect user's sessions ended and a disabled account was locked out at once, and audit records exported with a repeatable hash. The gaps are that ServiceNow is not set up for incidents, ending sessions is not audited (D02, PA-14), and the application log repeats personal data (D08, PA-75).
 
 ### IR.4 Findings by determination statement
 
-There is one finding for each NIST SP 800-53A determination statement, including those about organisation-defined parameters. Findings are dated 6 November 2026, updated on 10 November 2026 where the basis says so.
+There is one finding for each CSS determination statement, including those about organisation-defined parameters. Findings are dated 6 November 2026, updated on 10 November 2026 where the basis says so.
 
 **Table IR-3: Finding for each determination statement**
 
@@ -2273,8 +2273,8 @@ There is one finding for each NIST SP 800-53A determination statement, including
 
 | Item | Detail |
 | --- | --- |
-| Scope | The 13 IR entries in the SP 800-53B Moderate baseline, with 90 determination statements |
-| Procedures | SP 800-53A Rev 5, using NIST's published statements and identifiers (catalog release 5.2.0), with NIST SP 800-61 Revision 3 as the reference for the plan |
+| Scope | The 13 IR entries in the CSS Moderate baseline, with 90 determination statements |
+| Procedures | CSS, using the CSS published statements and identifiers (catalog release 5.2.0), with CSS as the reference for the plan |
 | Dates | 6 November 2026; updated on 10 November 2026 after the IR pack review |
 | Site | One PC, using a separate throwaway Docker stack with sample data. The VMs are not built |
 | Examine | \<Policy\> (IR), \<Procedures\> (IR) and \<Incident Response Management\> \<ver\>; TPL-10 and TPL-11; SyOps section 4.9; the session and audit code. Depth: focused. Coverage: focused |
@@ -2292,7 +2292,7 @@ The authorising official approved this plan (D-GEN-18), as confirmed by the syst
 
 ### MA.1 Purpose
 
-This records the Level 1 self-assessment of the 9 MA entries in the NIST SP 800-53 Rev 5 Moderate baseline, using catalog release 5.2.0. An independent team led by \[Name\] will use it for the Level 2 assessment. It makes no fixes.
+This records the Level 1 self-assessment of the 9 MA entries in the CSS Moderate baseline, using catalog release 5.2.0. An independent team led by \[Name\] will use it for the Level 2 assessment. It makes no fixes.
 
 ### MA.2 How to read this record
 
@@ -2326,13 +2326,13 @@ The methods were **Examine** (documents and code) and **Test**: checks M01 to M1
 | MA-5 | Other than satisfied | 2 of 4 | Provisional list; screening dates to come | NC-MA-08; PA-67 |
 | MA-6 | Other than satisfied | 2 of 3 | Support within 24 hours not evidenced; software versions supported (M11) | NC-MA-09; EV-MA-01 |
 
-Of NIST's 64 statements, 32 are satisfied, 23 await a decision or approval, 4 show a gap in the system and 5 await evidence from the VMs or \<Organisation\>.
+Of the CSS 64 statements, 32 are satisfied, 23 await a decision or approval, 4 show a gap in the system and 5 await evidence from the VMs or \<Organisation\>.
 
 The approach is approved but not yet in use. The tests show that the check after maintenance works and that an admin session ends at sign-out. The gaps are in \<System Name\> itself: five maintenance pages that write no audit record, an admin portal open to every network, and a package manager in the images.
 
 ### MA.4 Findings by determination statement
 
-There is one finding for each NIST SP 800-53A determination statement, including those about organisation-defined parameters. Findings are dated 6 November 2026, updated on 10 November 2026 where the basis says so.
+There is one finding for each CSS determination statement, including those about organisation-defined parameters. Findings are dated 6 November 2026, updated on 10 November 2026 where the basis says so.
 
 **Table MA-3: Finding for each determination statement**
 
@@ -2409,8 +2409,8 @@ There is one finding for each NIST SP 800-53A determination statement, including
 
 | Item | Detail |
 | --- | --- |
-| Scope | The 9 MA entries in the SP 800-53B Moderate baseline, with 64 determination statements |
-| Procedures | SP 800-53A Rev 5, using NIST's published statements and identifiers (catalog release 5.2.0) |
+| Scope | The 9 MA entries in the CSS Moderate baseline, with 64 determination statements |
+| Procedures | CSS, using the CSS published statements and identifiers (catalog release 5.2.0) |
 | Dates | 6 November 2026; updated on 10 November 2026 after the MA pack review |
 | Site | One PC, using a separate throwaway Docker stack with sample data. The VMs are not built |
 | Examine | \<Policy\> (MA), \<Procedures\> (MA) and the MA chapter of \<Control Implementation Register\> at \<ver\>, now in \<Maintenance Management\>; TPL-12; SyOps sections 4.6 and 4.7; the admin portal maintenance pages, the test stack's compose file and the image build file. Depth: focused. Coverage: focused |
@@ -2428,7 +2428,7 @@ For the Level 2 assessment, the assessor should repeat the tests on the VMs, exa
 
 ### MP.1 Purpose
 
-This records the Level 1 self-assessment of the 7 MP entries in the NIST SP 800-53 Rev 5 Moderate baseline, using catalog release 5.2.0. An independent team led by \[Name\] will use it for the Level 2 assessment. It makes no fixes.
+This records the Level 1 self-assessment of the 7 MP entries in the CSS Moderate baseline, using catalog release 5.2.0. An independent team led by \[Name\] will use it for the Level 2 assessment. It makes no fixes.
 
 ### MP.2 How to read this record
 
@@ -2462,13 +2462,13 @@ The methods were **Examine** (documents and code) and **Test**: checks P01 to P0
 | MP-6 | Other than satisfied | 6 of 10 | Methods set; sanitising not evidenced | NC-MP-06; EV-MP-02 |
 | MP-7 | Other than satisfied | 4 of 6 | USB blocking not evidenced | NC-MP-07; EV-MP-03 |
 
-Of NIST's 71 statements, 46 are satisfied, 1 is not applicable, 7 await a decision or approval, 3 show a gap in the system and 14 await evidence from the VMs or \<Organisation\>.
+Of the CSS 71 statements, 46 are satisfied, 1 is not applicable, 7 await a decision or approval, 3 show a gap in the system and 14 await evidence from the VMs or \<Organisation\>.
 
 The approach is approved and the media are now all listed. The gaps are in \<System Name\> itself: export copies left unencrypted on the server, and no marking on anything it shows or produces.
 
 ### MP.4 Findings by determination statement
 
-There is one finding for each NIST SP 800-53A determination statement, including those about organisation-defined parameters. Findings are dated 6 November 2026, updated on 10 November 2026 where the basis says so.
+There is one finding for each CSS determination statement, including those about organisation-defined parameters. Findings are dated 6 November 2026, updated on 10 November 2026 where the basis says so.
 
 **Table MP-3: Finding for each determination statement**
 
@@ -2532,7 +2532,7 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | MP-06\_ODP\[01\] | Media for disposal are defined | S | \<Media Protection Management\> |
 | MP-06\_ODP\[02\] | Media for release are defined | S | \<Media Protection Management\> |
 | MP-06\_ODP\[03\] | Media for reuse are defined | S | \<Media Protection Management\> |
-| MP-06\_ODP\[04\] | Technique for disposal is defined | S | \<Media Protection Management\>, section 3.6: NIST SP 800-88 Revision 2 and IEEE 2883-2022 (D-MP-P02) |
+| MP-06\_ODP\[04\] | Technique for disposal is defined | S | \<Media Protection Management\>, section 3.6: CSS and IEEE 2883-2022 (D-MP-P02) |
 | MP-06\_ODP\[05\] | Technique for release is defined | S | \<Media Protection Management\>, section 3.6 (D-MP-P02) |
 | MP-06\_ODP\[06\] | Technique for reuse is defined | S | \<Media Protection Management\>, section 3.6 (D-MP-P02) |
 | MP-06a.\[01\] | Media are sanitised before disposal | O-E | \<Organisation\> (EV-MP-02) |
@@ -2552,8 +2552,8 @@ There is one finding for each NIST SP 800-53A determination statement, including
 
 | Item | Detail |
 | --- | --- |
-| Scope | The 7 MP entries in the SP 800-53B Moderate baseline, with 71 determination statements |
-| Procedures | SP 800-53A Rev 5, using NIST's published statements and identifiers (catalog release 5.2.0), with NIST SP 800-88 Revision 2 as the reference for sanitising |
+| Scope | The 7 MP entries in the CSS Moderate baseline, with 71 determination statements |
+| Procedures | CSS, using the CSS published statements and identifiers (catalog release 5.2.0), with CSS as the reference for sanitising |
 | Dates | 6 November 2026; updated on 10 November 2026 after the MP pack review |
 | Site | One PC, using a separate throwaway Docker stack with sample data. The VMs are not built |
 | Examine | \<Policy\> (MP), \<Procedures\> (MP) and the MP chapter of \<Control Implementation Register\> at \<ver\>, now in \<Media Protection Management\>; TPL-13; SyOps A28, A30 to A35 and section 4.8; the export code and UI application pages. Depth: focused. Coverage: focused |
@@ -2571,7 +2571,7 @@ For the Level 2 assessment, the assessor should repeat the tests on the VMs, exa
 
 ### PE.1 Purpose
 
-This records the Level 1 self-assessment of the 18 PE entries in the NIST SP 800-53 Rev 5 Moderate baseline, using catalog release 5.2.0. An independent team led by \[Name\] will use it for the Level 2 assessment. It makes no fixes.
+This records the Level 1 self-assessment of the 18 PE entries in the CSS Moderate baseline, using catalog release 5.2.0. An independent team led by \[Name\] will use it for the Level 2 assessment. It makes no fixes.
 
 ### PE.2 How to read this record
 
@@ -2614,13 +2614,13 @@ The method was **Examine** (documents). Fifteen of the 18 controls are inherited
 | PE-16 | Other than satisfied | 2 of 7 | Inherited; not evidenced | NC-PE-17 |
 | PE-17 | Other than satisfied | 3 of 6 | Yearly check not yet held; contacts are placeholders | NC-PE-18 |
 
-Of NIST's 121 statements, 54 are satisfied, 6 await a decision or approval, none shows a gap in the system and 61 await evidence from \<Organisation\>.
+Of the CSS 121 statements, 54 are satisfied, 6 await a decision or approval, none shows a gap in the system and 61 await evidence from \<Organisation\>.
 
 The approach is approved and every inherited control is mapped to the evidence that would close it. Nothing can move further until \<Organisation\>'s certification or facility evidence arrives, and the site is inspected at Level 2.
 
 ### PE.4 Findings by determination statement
 
-There is one finding for each NIST SP 800-53A determination statement, including those about organisation-defined parameters. Findings are dated 6 November 2026, updated on 10 November 2026 where the basis says so. Every inherited statement applies to the data centre and the second site alike.
+There is one finding for each CSS determination statement, including those about organisation-defined parameters. Findings are dated 6 November 2026, updated on 10 November 2026 where the basis says so. Every inherited statement applies to the data centre and the second site alike.
 
 **Table PE-3: Finding for each determination statement**
 
@@ -2754,8 +2754,8 @@ There is one finding for each NIST SP 800-53A determination statement, including
 
 | Item | Detail |
 | --- | --- |
-| Scope | The 18 PE entries in the SP 800-53B Moderate baseline, with 121 determination statements, at the data centre, the second site, the offices and homes |
-| Procedures | SP 800-53A Rev 5, using NIST's published statements and identifiers (catalog release 5.2.0) |
+| Scope | The 18 PE entries in the CSS Moderate baseline, with 121 determination statements, at the data centre, the second site, the offices and homes |
+| Procedures | CSS, using the CSS published statements and identifiers (catalog release 5.2.0) |
 | Dates | 6 November 2026; updated on 10 November 2026 after the PE pack review |
 | Site | No site visited. The data centre and second site are \[to be named\] in \<Physical and Environmental Protection Management\>, section 3.2 |
 | Examine | \<Policy\> (PE), \<Procedures\> (PE) and the PE chapter of \<Control Implementation Register\> at \<ver\>, now in \<Physical and Environmental Protection Management\>, with the inheritance matrix; SyOps A33, A36 to A38; \<Incident Response Management\>, section 3.9. Depth: focused. Coverage: focused |
@@ -2774,7 +2774,7 @@ For the Level 2 assessment, the assessor should examine \<Organisation\>'s certi
 
 ### PL.1 Purpose
 
-This records the Level 1 self-assessment of the 7 PL entries in the NIST SP 800-53 Rev 5 Moderate baseline, using catalog release 5.2.0. An independent team led by \[Name\] will use it for the Level 2 assessment. It makes no fixes.
+This records the Level 1 self-assessment of the 7 PL entries in the CSS Moderate baseline, using catalog release 5.2.0. An independent team led by \[Name\] will use it for the Level 2 assessment. It makes no fixes.
 
 ### PL.2 How to read this record
 
@@ -2782,7 +2782,7 @@ This records the Level 1 self-assessment of the 7 PL entries in the NIST SP 800-
 
 The methods were **Examine** (documents) and **Test**. The test is Test-PlanConsistency.ps1, which reads the whole document set and checks that the plans agree with each other and with the assessments (checks L01 to L12). It runs on the documents only, with no Docker stack. The results and their hashes are in the PL evidence. No interviews have been held.
 
-The plans are compared with NIST SP 800-18 Rev 2 (June 2026), which sets out what a system plan contains, and how its approval, reviews and changes are recorded.
+The plans are compared with CSS (June 2026), which sets out what a system plan contains, and how its approval, reviews and changes are recorded.
 
 ### PL.3 Executive summary
 
@@ -2806,13 +2806,13 @@ The plans are compared with NIST SP 800-18 Rev 2 (June 2026), which sets out wha
 | PL-10 | Satisfied | 1 of 1 | Moderate, approved | Met |
 | PL-11 | Satisfied | 1 of 1 | Tailoring register 1.0 | Met |
 
-Of NIST's 93 statements, 74 are satisfied, 17 await a decision or approval, none shows a gap in the system and 2 await evidence from \<Organisation\>.
+Of the CSS 93 statements, 74 are satisfied, 17 await a decision or approval, none shows a gap in the system and 2 await evidence from \<Organisation\>.
 
 The plans are complete and agree with each other: the plan-consistency test passed all 12 checks after this review's corrections. What remains is to sign the rules, share the plans, move them to the restricted store, and let the first yearly reviews fall due.
 
 ### PL.4 Findings by determination statement
 
-There is one finding for each NIST SP 800-53A determination statement, including those about organisation-defined parameters. Findings are dated 6 November 2026, updated on 11 November 2026 where the basis says so.
+There is one finding for each CSS determination statement, including those about organisation-defined parameters. Findings are dated 6 November 2026, updated on 11 November 2026 where the basis says so.
 
 **Table PL-3: Finding for each determination statement**
 
@@ -2918,8 +2918,8 @@ There is one finding for each NIST SP 800-53A determination statement, including
 
 | Item | Detail |
 | --- | --- |
-| Scope | The 7 PL entries in the SP 800-53B Moderate baseline, with 93 determination statements, covering every plan in the register in \<Planning Management\>, section 3.2 |
-| Procedures | SP 800-53A Rev 5, using NIST's published statements and identifiers (catalog release 5.2.0); plan contents compared with NIST SP 800-18 Rev 2 |
+| Scope | The 7 PL entries in the CSS Moderate baseline, with 93 determination statements, covering every plan in the register in \<Planning Management\>, section 3.2 |
+| Procedures | CSS, using the CSS published statements and identifiers (catalog release 5.2.0); plan contents compared with CSS |
 | Dates | 6 November 2026; updated on 11 November 2026 after the PL pack review |
 | Examine | \<Policy\> (PL) and \<Procedures\> (PL) \<ver\>, the PL chapter of \<Control Implementation Register\> at \<ver\>, now in \<Planning Management\>, \<System Security Plan\>, \<Privacy Plan\>, \<Security Architecture\> \<ver\>, \<Concept of Operations\>, \<Security Operating Procedures\> \<ver\>, \<Tailoring Register\> \<ver\> and \<Risk Assessment Management\>. Depth: focused. Coverage: focused |
 | Test | Test-PlanConsistency.ps1, checks L01 to L12, run on the document set before and after this review's corrections (evidence in the PL evidence) |
@@ -2936,7 +2936,7 @@ For the Level 2 assessment, the assessor should run Test-PlanConsistency.ps1 on 
 
 ### PS.1 Purpose
 
-This records the Level 1 self-assessment of the 9 PS entries in the NIST SP 800-53 Rev 5 Moderate baseline, using catalog release 5.2.0. An independent team led by \[Name\] will use it for the Level 2 assessment. It makes no fixes.
+This records the Level 1 self-assessment of the 9 PS entries in the CSS Moderate baseline, using catalog release 5.2.0. An independent team led by \[Name\] will use it for the Level 2 assessment. It makes no fixes.
 
 ### PS.2 How to read this record
 
@@ -2967,13 +2967,13 @@ The method was **Examine** (documents). This family has no code to test: the lea
 | PS-8 | Other than satisfied | 2 of 4 | Sanctions process not evidenced | NC-PS-08 |
 | PS-9 | Other than satisfied | 0 of 2 | \<System Name\>'s role duties are in \<Roles and Responsibilities\>; \<Organisation\>'s job descriptions not seen | NC-PS-09 |
 
-Of NIST's 68 statements, 38 are satisfied, 17 await a decision or approval, none shows a gap in the system and 13 await evidence from \<Organisation\>.
+Of the CSS 68 statements, 38 are satisfied, 17 await a decision or approval, none shows a gap in the system and 13 await evidence from \<Organisation\>.
 
 What \<System Name\> itself decides is now defined: a designation for every role, the minimum screening it expects, the time limits, and the register. What remains is \<Organisation\>'s evidence of its screening, HR and disciplinary processes, the leaver and mover route (PA-32), and the first people signing their agreements.
 
 ### PS.4 Findings by determination statement
 
-There is one finding for each NIST SP 800-53A determination statement, including those about organisation-defined parameters. Findings are dated 12 November 2026 unless the basis says otherwise.
+There is one finding for each CSS determination statement, including those about organisation-defined parameters. Findings are dated 12 November 2026 unless the basis says otherwise.
 
 **Table PS-3: Finding for each determination statement**
 
@@ -3055,7 +3055,7 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | Item | Detail |
 | --- | --- |
 | Scope | The 9 PS entries in the Moderate baseline, with 68 determination statements |
-| Procedures | SP 800-53A Rev 5, using NIST's published statements and identifiers (catalog release 5.2.0) |
+| Procedures | CSS, using the CSS published statements and identifiers (catalog release 5.2.0) |
 | Dates | 6 November 2026; updated on 12 November 2026 after the whole-set review |
 | Examine | \<Policy\> (PS), \<Procedures\> (PS) and the PS chapter of \<Control Implementation Register\> at \<ver\>, now in \<Personnel Security Management\>; \<Roles and Responsibilities\>; \<Security Operating Procedures\>, sections 4.4 and 9; \<Procedures\>, PRO-AC-3 and PRO-AC-4. Depth: focused. Coverage: focused |
 | Test | Not applicable to this family today. Check L17 of Test-PlanConsistency.ps1 (the PL evidence). The leaver and mover route is tested once it is built (PA-32) |
@@ -3076,7 +3076,7 @@ For the Level 2 assessment, the assessor should:
 
 ### PT.1 Purpose
 
-This records the Level 1 self-assessment of personal data handling in \<System Name\>, against NIST SP 800-53 Rev 5 catalog release 5.2.0. It covers 6 PT controls and the 16 privacy baseline controls that are outside the Moderate baseline (D-PT-01, D-PT-07). An independent team led by \[Name\] will use it for the Level 2 assessment. It makes no fixes.
+This records the Level 1 self-assessment of personal data handling in \<System Name\>, against CSS catalog release 5.2.0. It covers 6 PT controls and the 16 privacy baseline controls that are outside the Moderate baseline (D-PT-01, D-PT-07). An independent team led by \[Name\] will use it for the Level 2 assessment. It makes no fixes.
 
 ### PT.2 How to read this record
 
@@ -3124,13 +3124,13 @@ The methods were **Examine** (documents and code) and **Test**. The test is Test
 | SI-18(4) | Other than satisfied | 0 of 1 | Corrections not audited (Q10) | NC-PT-21, NC-PT-22 |
 | SI-19 | Not applicable | None of 4 applies | No dataset is de-identified | Met |
 
-Of NIST's 109 statements, 58 are satisfied, 4 do not apply, 31 await a decision or approval, 9 show a gap in the system and 7 await evidence from \<Organisation\>.
+Of the CSS 109 statements, 58 are satisfied, 4 do not apply, 31 await a decision or approval, 9 show a gap in the system and 7 await evidence from \<Organisation\>.
 
 The largest concerns are the impact assessment and lawful bases, which are drafted for the legal adviser but not decided, and the system's limits in serving people's rights: no search across projects, unaudited corrections and deletions, and no retention.
 
 ### PT.4 Findings by determination statement
 
-There is one finding for each NIST SP 800-53A determination statement, including those about organisation-defined parameters. Findings are dated 6 November 2026, updated on 11 November 2026 where the basis says so.
+There is one finding for each CSS determination statement, including those about organisation-defined parameters. Findings are dated 6 November 2026, updated on 11 November 2026 where the basis says so.
 
 **Table PT-3: Finding for each determination statement**
 
@@ -3254,7 +3254,7 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | --- | --- |
 | Security categorisation | Moderate, confirmed by the authorising official; privacy baseline applied (D-PT-01) |
 | Scope | 6 PT controls and 16 privacy baseline controls outside Moderate, with 109 determination statements, covering every kind of personal data in \<PII Processing Management\>, section 3.3 |
-| Procedures | SP 800-53A Rev 5, using NIST's published statements and identifiers (catalog release 5.2.0); UK GDPR, the DPA 2018 and the Data (Use and Access) Act 2025 for what the organisation must comply with |
+| Procedures | CSS, using the CSS published statements and identifiers (catalog release 5.2.0); UK GDPR, the DPA 2018 and the Data (Use and Access) Act 2025 for what the organisation must comply with |
 | Dates | 6 November 2026; updated on 11 November 2026 after the PT pack review |
 | Examine | \<Policy\> (PT), \<Procedures\> (PT) and the PT chapter of \<Control Implementation Register\> at \<ver\>, now in \<PII Processing Management\>, \<Data Protection Impact Assessment\> \<ver\>, \<Privacy Plan\>, \<Incident Response Management\>, section 3.8, SyOps A23 to A29; the audit record format, the admin portal's document management and the repositories' search. Depth: focused. Coverage: focused |
 | Test | Test-PersonalData.ps1, checks Q01 to Q10, on a fresh throwaway stack (evidence in the PT evidence) |
@@ -3271,7 +3271,7 @@ For the Level 2 assessment, the assessor should examine the completed impact ass
 
 ### RA.1 Purpose
 
-This records the Level 1 self-assessment of the 10 RA entries in the NIST SP 800-53 Rev 5 Moderate baseline, using catalog release 5.2.0. An independent team led by \[Name\] will use it for the Level 2 assessment. It makes no fixes.
+This records the Level 1 self-assessment of the 10 RA entries in the CSS Moderate baseline, using catalog release 5.2.0. An independent team led by \[Name\] will use it for the Level 2 assessment. It makes no fixes.
 
 ### RA.2 How to read this record
 
@@ -3306,13 +3306,13 @@ The methods were **Examine** (the risk documents) and **Test**. The test is Test
 | RA-7 | Other than satisfied | 2 of 4 | No monitoring or audit findings yet | NC-RA-08 |
 | RA-9 | Satisfied | 3 of 3 | \<Risk Assessment Management\>, section 3.9, reviewed | Met |
 
-Of NIST's 73 statements, 49 are satisfied, 13 await a decision or approval, 9 show a gap in the system and 2 await evidence from the VMs or \<Organisation\>.
+Of the CSS 73 statements, 49 are satisfied, 13 await a decision or approval, 9 show a gap in the system and 2 await evidence from the VMs or \<Organisation\>.
 
 The risk method, categorisation and risk response are in place. The gaps are that nothing scans the images or VMs, and that five High package advisories are open. The test also found the base images unpinned (V03, PA-77).
 
 ### RA.4 Findings by determination statement
 
-There is one finding for each NIST SP 800-53A determination statement, including those about organisation-defined parameters. Findings are dated 6 November 2026, updated on 11 November 2026 where the basis says so.
+There is one finding for each CSS determination statement, including those about organisation-defined parameters. Findings are dated 6 November 2026, updated on 11 November 2026 where the basis says so.
 
 **Table RA-3: Finding for each determination statement**
 
@@ -3399,7 +3399,7 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | Item | Detail |
 | --- | --- |
 | Scope | The 10 RA entries in the Moderate baseline, with 73 determination statements |
-| Procedures | SP 800-53A Rev 5, using NIST's published statements and identifiers (catalog release 5.2.0); NIST SP 800-30 Rev 1 for the risk method |
+| Procedures | CSS, using the CSS published statements and identifiers (catalog release 5.2.0); CSS for the risk method |
 | Dates | 6 November 2026; updated on 11 November 2026 after the RA pack review |
 | Examine | \<Policy\> (RA), \<Procedures\> (RA) and the RA chapter of \<Control Implementation Register\> at \<ver\>, now in \<Risk Assessment Management\>; \<Risk List\> \<ver\>; \<System Security Plan\>, section 3; \<Supply Chain Risk Management\>; \<Decision Register\>; \<Plan of Action and Milestones\>. Depth: focused. Coverage: focused |
 | Test | Test-Vulnerability.ps1, checks V01 to V09, on the v1.0 tag and the images the throwaway stack runs (evidence in the RA evidence) |
@@ -3416,7 +3416,7 @@ For the Level 2 assessment, the assessor should run Test-Vulnerability.ps1 and a
 
 ### SA.1 Purpose
 
-This records the Level 1 self-assessment of the 17 SA entries in the NIST SP 800-53 Rev 5 Moderate baseline, using catalog release 5.2.0. SA-4(10) is tailored out (\<Tailoring Register\>, TR-SA-01), so 16 are assessed. An independent team led by \[Name\] will use it for the Level 2 assessment. It makes no fixes.
+This records the Level 1 self-assessment of the 17 SA entries in the CSS Moderate baseline, using catalog release 5.2.0. SA-4(10) is tailored out (\<Tailoring Register\>, TR-SA-01), so 16 are assessed. An independent team led by \[Name\] will use it for the Level 2 assessment. It makes no fixes.
 
 ### SA.2 How to read this record
 
@@ -3440,7 +3440,7 @@ The methods were **Examine** (documents, repositories and test evidence) and **T
 | --- | --- | --- | --- | --- |
 | SA-1 | Other than satisfied | 21 of 25 | Not yet shared; Head of Cyber's re-approval (D-SA-16) and first scheduled reviews outstanding | NC-SA-01 |
 | SA-2 | Other than satisfied | 2 of 6 | Costs not yet raised in budgeting | NC-SA-02 |
-| SA-3 | Other than satisfied | 5 of 9 | SSDF mapped; not yet in routine use | NC-SA-03 |
+| SA-3 | Other than satisfied | 5 of 9 | CSS mapped; not yet in routine use | NC-SA-03 |
 | SA-4 | Other than satisfied | 2 of 18 | Contract not seen | NC-SA-04 |
 | SA-4(1) | Satisfied | 1 of 1 | SSP section 7 and the register chapters | Met |
 | SA-4(2) | Satisfied | 4 of 4 | \<Security Architecture\> and the SSP | Met |
@@ -3455,13 +3455,13 @@ The methods were **Examine** (documents, repositories and test evidence) and **T
 | SA-15(3) | Satisfied | 6 of 6 | \<Risk Assessment Management\>, section 3.9 | Met |
 | SA-22 | Satisfied | 4 of 4 | No component near the end of support (S09) | Met |
 
-Of NIST's 159 statements, 88 are satisfied, 46 await a decision or approval, 5 show a gap in the system and 20 await evidence from providers.
+Of the CSS 159 statements, 88 are satisfied, 46 await a decision or approval, 5 show a gap in the system and 20 await evidence from providers.
 
 The largest concern is change control: no repository protects its default branch or requires a review, and the release had no reviewed merge or signed tag (PA-91). The build also turns the package audit off (PA-92).
 
 ### SA.4 Findings by determination statement
 
-There is one finding for each NIST SP 800-53A determination statement, including those about organisation-defined parameters. Findings are dated 6 November 2026, updated on 11 November 2026 where the basis says so.
+There is one finding for each CSS determination statement, including those about organisation-defined parameters. Findings are dated 6 November 2026, updated on 11 November 2026 where the basis says so.
 
 **Table SA-3: Finding for each determination statement**
 
@@ -3498,9 +3498,9 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | SA-02b.\[02\] | Resources are allocated | O-D | Not yet raised in budgeting; TPL-23 now records the costs |
 | SA-02c.\[01\] | Budget line for security | O-D | Not yet raised in budgeting; TPL-23 now records the costs |
 | SA-02c.\[02\] | Budget line for privacy | O-D | Not yet raised in budgeting; TPL-23 now records the costs |
-| SA-03\_ODP | Lifecycle is defined | S | \<System and Services Acquisition Management\>: NIST SSDF \<ver\>, section SA.3 |
-| SA-03a.\[01\] | Lifecycle includes security | O-D | SSDF mapped in \<System and Services Acquisition Management\>, section 3.2; not yet in routine use |
-| SA-03a.\[02\] | Lifecycle includes privacy | O-D | SSDF mapped in \<System and Services Acquisition Management\>, section 3.2; not yet in routine use |
+| SA-03\_ODP | Lifecycle is defined | S | \<System and Services Acquisition Management\>: CSS \<ver\>, section SA.3 |
+| SA-03a.\[01\] | Lifecycle includes security | O-D | CSS mapped in \<System and Services Acquisition Management\>, section 3.2; not yet in routine use |
+| SA-03a.\[02\] | Lifecycle includes privacy | O-D | CSS mapped in \<System and Services Acquisition Management\>, section 3.2; not yet in routine use |
 | SA-03b.\[01\] | Security roles are documented | S | \<Roles and Responsibilities\> |
 | SA-03b.\[02\] | Privacy roles are documented | S | \<Privacy Plan\>, approved (D-PT-05) |
 | SA-03c.\[01\] | People with security roles are identified | S | \<Roles and Responsibilities\> |
@@ -3607,9 +3607,9 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | SA-15\_ODP\[01\] | Review frequency is defined | S | \<System and Services Acquisition Management\> |
 | SA-15\_ODP\[02\] | Security requirements are defined | S | \<System and Services Acquisition Management\> |
 | SA-15\_ODP\[03\] | Privacy requirements are defined | S | \<System and Services Acquisition Management\> |
-| SA-15a.01\[01\] | Process addresses security | S | \<System and Services Acquisition Management\>, section 3.2 (SSDF), and \<Policy\> (SA) \<ver\> |
+| SA-15a.01\[01\] | Process addresses security | S | \<System and Services Acquisition Management\>, section 3.2 (CSS), and \<Policy\> (SA) \<ver\> |
 | SA-15a.01\[02\] | Process addresses privacy | S | \<System and Services Acquisition Management\>, section 3.2, and \<Policy\> (PT) |
-| SA-15a.02\[01\] | Process identifies standards | S | SSDF, ASVS 5.0 and the NCSC principles (\<System and Services Acquisition Management\>, sections 3.2 and 3.9) |
+| SA-15a.02\[01\] | Process identifies standards | S | CSS, ASVS 5.0 and the NCSC principles (\<System and Services Acquisition Management\>, sections 3.2 and 3.9) |
 | SA-15a.02\[02\] | Process identifies tools | S | \<System and Services Acquisition Management\>, section 3.10 |
 | SA-15a.03\[01\] | Process documents the tools | S | \<System and Services Acquisition Management\>, section 3.10 |
 | SA-15a.03\[02\] | Process documents tool configurations | S | \<System and Services Acquisition Management\>, section 3.10, including the audit setting turned off (PA-92) |
@@ -3634,7 +3634,7 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | Item | Detail |
 | --- | --- |
 | Scope | The 17 SA entries in the Moderate baseline, 16 assessed (SA-4(10) tailored), with 159 determination statements |
-| Procedures | SP 800-53A Rev 5, using NIST's published statements and identifiers (catalog release 5.2.0); NIST SSDF \<ver\> for the development process |
+| Procedures | CSS, using the CSS published statements and identifiers (catalog release 5.2.0); CSS \<ver\> for the development process |
 | Dates | 6 November 2026; updated on 11 November 2026 after the SA pack review |
 | Examine | \<Policy\> (SA), \<Procedures\> (SA) and the SA chapter of \<Control Implementation Register\> at \<ver\>, now in \<System and Services Acquisition Management\>; \<Security Architecture\> \<ver\>; \<System Security Plan\>, sections 3, 4 and 7; \<Risk Assessment Management\>; \<Maintenance Management\>; the draft guides; the test evidence folders. Depth: focused. Coverage: focused |
 | Test | Test-Development.ps1, checks S01 to S10, read-only, against the six GitHub repositories, the v1.0 history and the build files (evidence in the SA evidence) |
@@ -3651,7 +3651,7 @@ For the Level 2 assessment, the assessor should run Test-Development.ps1 again a
 
 ### SC.1 Purpose
 
-This records the Level 1 self-assessment of the 25 SC entries in the NIST SP 800-53 Rev 5 Moderate baseline, using catalog release 5.2.0. SC-15 is tailored out (\<Tailoring Register\>, TR-SC-01), so 24 are assessed. An independent team led by \[Name\] will use it for the Level 2 assessment. It makes no fixes.
+This records the Level 1 self-assessment of the 25 SC entries in the CSS Moderate baseline, using catalog release 5.2.0. SC-15 is tailored out (\<Tailoring Register\>, TR-SC-01), so 24 are assessed. An independent team led by \[Name\] will use it for the Level 2 assessment. It makes no fixes.
 
 ### SC.2 How to read this record
 
@@ -3706,13 +3706,13 @@ The methods were **Examine** (code, settings and documents) and **Test**. The te
 | SC-28(1) | Other than satisfied | 2 of 4 | As SC-28 | NC-SC-22 |
 | SC-39 | Other than satisfied | 0 of 1 | Windows Server not available | NC-SC-23 |
 
-Of NIST's 107 statements, 49 are satisfied, 3 are not applicable, 4 await a decision or approval, 10 show a gap in the system and 41 await evidence from the VMs or \<Organisation\>.
+Of the CSS 107 statements, 49 are satisfied, 3 are not applicable, 4 await a decision or approval, 10 show a gap in the system and 41 await evidence from the VMs or \<Organisation\>.
 
 The gaps within \<System Name\> are plain traffic on every flow, keys in source and unencrypted key rings, no page policy on the two web apps, and apps listening on every interface. Most of the rest depends on \<Organisation\>'s network and the VMs.
 
 ### SC.4 Findings by determination statement
 
-There is one finding for each NIST SP 800-53A determination statement, including those about organisation-defined parameters. Findings are dated 12 November 2026 unless the basis says otherwise.
+There is one finding for each CSS determination statement, including those about organisation-defined parameters. Findings are dated 12 November 2026 unless the basis says otherwise.
 
 **Table SC-3: Finding for each determination statement**
 
@@ -3833,7 +3833,7 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | Item | Detail |
 | --- | --- |
 | Scope | The 25 SC entries in the Moderate baseline, 24 assessed (SC-15 tailored), with 107 determination statements |
-| Procedures | SP 800-53A Rev 5, using NIST's published statements and identifiers (catalog release 5.2.0); NCSC's TLS guidance and NIST SP 800-57 for the values |
+| Procedures | CSS, using the CSS published statements and identifiers (catalog release 5.2.0); NCSC's TLS guidance and CSS for the values |
 | Dates | 6 November 2026; updated on 12 November 2026 after the SC pack review |
 | Examine | \<Policy\> (SC), \<Procedures\> (SC) and the SC chapter of \<Control Implementation Register\> at \<ver\>, now in \<System and Communications Protection Management\>; \<Security Architecture\> \<ver\>; \<System Security Plan\>, sections 3.7, 4 and 7; the start-up configuration, the security headers component, the API's sign-in service, the API's password service, the settings files and the test stack's compose file at tag v1.0. Depth: focused. Coverage: focused |
 | Test | Test-Protection.ps1, checks N01 to N12, on the throwaway docuview-test stack (evidence in the SC evidence); B09 by hand on 6 November 2026 |
@@ -3850,7 +3850,7 @@ For the Level 2 assessment, the assessor should run Test-Protection.ps1 against 
 
 ### SI.1 Purpose
 
-This records the Level 1 self-assessment of the 18 SI entries in the NIST SP 800-53 Rev 5 Moderate baseline, using catalog release 5.2.0. SI-8 and SI-8(2) are tailored out (\<Tailoring Register\>, TR-SI-01), so 16 are assessed. An independent team led by \[Name\] will use it for the Level 2 assessment. It makes no fixes.
+This records the Level 1 self-assessment of the 18 SI entries in the CSS Moderate baseline, using catalog release 5.2.0. SI-8 and SI-8(2) are tailored out (\<Tailoring Register\>, TR-SI-01), so 16 are assessed. An independent team led by \[Name\] will use it for the Level 2 assessment. It makes no fixes.
 
 ### SI.2 How to read this record
 
@@ -3896,13 +3896,13 @@ The methods were **Examine** (code, settings and documents) and **Test**. The te
 | SI-12 | Other than satisfied | 0 of 4 | Retention schedule not applied | NC-SI-15 |
 | SI-16 | Other than satisfied | 1 of 2 | Windows protections on the VMs | NC-SI-16 |
 
-Of NIST's 139 statements, 74 are satisfied, 7 are not applicable, 22 await a decision or approval, 13 show a gap in the system and 23 await evidence from the VMs or \<Organisation\>.
+Of the CSS 139 statements, 74 are satisfied, 7 are not applicable, 22 await a decision or approval, 13 show a gap in the system and 23 await evidence from the VMs or \<Organisation\>.
 
 The gaps within \<System Name\> are open package advisories, no malware scan of uploads, no alerting, MD5 document checksums and an audit chain that cannot be recomputed, and exception detail returned by the API. Input validation and the upload type checks work.
 
 ### SI.4 Findings by determination statement
 
-There is one finding for each NIST SP 800-53A determination statement, including those about organisation-defined parameters. Findings are dated 12 November 2026 unless the basis says otherwise.
+There is one finding for each CSS determination statement, including those about organisation-defined parameters. Findings are dated 12 November 2026 unless the basis says otherwise.
 
 **Table SI-3: Finding for each determination statement**
 
@@ -4055,7 +4055,7 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | Item | Detail |
 | --- | --- |
 | Scope | The 18 SI entries in the Moderate baseline, 16 assessed (SI-8 and SI-8(2) tailored), with 139 determination statements |
-| Procedures | SP 800-53A Rev 5, using NIST's published statements and identifiers (catalog release 5.2.0) |
+| Procedures | CSS, using the CSS published statements and identifiers (catalog release 5.2.0) |
 | Dates | 6 November 2026; updated on 12 November 2026 after the SI pack review |
 | Examine | \<Policy\> (SI), \<Procedures\> (SI) and the SI chapter of \<Control Implementation Register\> at \<ver\>, now in \<System and Information Integrity Management\>; \<Risk Assessment Management\>, section 3.6; \<PII Processing Management\>, section 3.7; the upload, validation, audit and error-handling code at tag v1.0. Depth: focused. Coverage: focused |
 | Test | Test-Integrity.ps1, checks H01 to H12, on the throwaway docuview-test stack (evidence in the SI evidence); Test-Vulnerability.ps1 (the RA evidence) |
@@ -4072,7 +4072,7 @@ For the Level 2 assessment, the assessor should run Test-Integrity.ps1 and Test-
 
 ### SR.1 Purpose
 
-This records the Level 1 self-assessment of the 12 SR entries in the NIST SP 800-53 Rev 5 Moderate baseline, using catalog release 5.2.0. An independent team led by \[Name\] will use it for the Level 2 assessment. It makes no fixes.
+This records the Level 1 self-assessment of the 12 SR entries in the CSS Moderate baseline, using catalog release 5.2.0. An independent team led by \[Name\] will use it for the Level 2 assessment. It makes no fixes.
 
 ### SR.2 How to read this record
 
@@ -4109,13 +4109,13 @@ The methods were **Examine** (code, settings and documents) and **Test**. The te
 | SR-11(2) | Other than satisfied | 1 of 3 | Repair process not seen | NC-SR-11 |
 | SR-12 | Other than satisfied | 2 of 3 | Disposal not seen | NC-SR-12 |
 
-Of NIST's 81 statements, 56 are satisfied, 16 await a decision or approval, 4 show a gap in the system and 5 await evidence from \<Organisation\>.
+Of the CSS 81 statements, 56 are satisfied, 16 await a decision or approval, 4 show a gap in the system and 5 await evidence from \<Organisation\>.
 
 The gaps within \<System Name\> are that packages other than the in-house OfflineModules come straight from nuget.org with no lock file or signature policy, images are not pinned, and releases have no checksums or bill of materials. The offline feed itself is intact (U05), and the release images match the integrity baseline (U08).
 
 ### SR.4 Findings by determination statement
 
-There is one finding for each NIST SP 800-53A determination statement, including those about organisation-defined parameters. Findings are dated 12 November 2026 unless the basis says otherwise.
+There is one finding for each CSS determination statement, including those about organisation-defined parameters. Findings are dated 12 November 2026 unless the basis says otherwise.
 
 **Table SR-3: Finding for each determination statement**
 
@@ -4210,7 +4210,7 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | Item | Detail |
 | --- | --- |
 | Scope | The 12 SR entries in the Moderate baseline, with 81 determination statements |
-| Procedures | SP 800-53A Rev 5, using NIST's published statements and identifiers (catalog release 5.2.0) |
+| Procedures | CSS, using the CSS published statements and identifiers (catalog release 5.2.0) |
 | Dates | 6 November 2026; updated on 12 November 2026 after the SR pack review |
 | Examine | \<Policy\> (SR), \<Procedures\> (SR) and \<Supply Chain Risk Management\> \<ver\>; \<Risk Assessment Management\>, sections 3.9 and 3.4; the four package source settings files, the image build file, the compose file, each app's restored package list and the offline feed index at tag v1.0. Depth: focused. Coverage: focused |
 | Test | Test-SupplyChain.ps1, checks U01 to U10, with no running stack (evidence in the SR evidence); Test-Vulnerability.ps1 (the RA evidence) |

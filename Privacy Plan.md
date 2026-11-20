@@ -31,7 +31,7 @@ The main threats to individuals are someone reading HR documents they shouldn't,
 
 ## 6 Requirements, baseline and controls
 
-The requirements are UK GDPR and the Data Protection Act 2018. The baseline is NIST's privacy baseline, as tailored by \<Tailoring Register\>. Of its 96 controls, 43 are within Moderate and assessed with their families, 6 PT controls and 16 others are assessed in \<Control Assessment Record\> (PT), 7 are tailored as US-only, and 24 are PM controls held at organisation level.
+The requirements are UK GDPR and the Data Protection Act 2018. The baseline is the CSS privacy baseline, as tailored by \<Tailoring Register\>. Of its 96 controls, 43 are within Moderate and assessed with their families, 6 PT controls and 16 others are assessed in \<Control Assessment Record\> (PT), 7 are tailored as US-only, and 24 are PM controls held at organisation level.
 
 ## 7 Activities to coordinate
 

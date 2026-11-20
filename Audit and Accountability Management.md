@@ -2,13 +2,13 @@
 
 ## 1 Purpose
 
-This document shows how audit logging and accountability are designed for \<System Name\>, for each of the 16 Audit and Accountability (AU) controls and enhancements in the NIST SP 800-53 Rev 5 Moderate baseline. Section 3 sets out the design: where audit records come from, which events are logged and why, what a record holds, how records are stored and protected, time, retention, review, and alerts. Section 4 takes each control in turn. Appendix A records how logging was built in the tested build. Appendix B lists every value NIST asks the organisation to define. Appendix C gives the logging settings for the database server. Appendix D shows the logging that other controls require, and the AU controls NIST does not select at Moderate. The design follows the good practice in NIST SP 800-92.
+This document shows how audit logging and accountability are designed for \<System Name\>, for each of the 16 Audit and Accountability (AU) controls and enhancements in the CSS Moderate baseline. Section 3 sets out the design: where audit records come from, which events are logged and why, what a record holds, how records are stored and protected, time, retention, review, and alerts. Section 4 takes each control in turn. Appendix A records how logging was built in the tested build. Appendix B lists every value CSS asks the organisation to define. Appendix C gives the logging settings for the database server. Appendix D shows the logging that other controls require, and the AU controls CSS does not select at Moderate. The design follows the good practice in CSS.
 
 This is the only place the audit design is held. Other documents point here. The policy is in \<Policy\> (AU), and the steps people follow are in \<Procedures\> (AU) and \<Security Operating Procedures\>, section 4.2.
 
-An assessor examines the list of events, the record content, the settings that protect and keep the records, and the review records. They interview the auditor, the administrators and the system owner, and test that the system logs what the design says (NIST SP 800-53A). So for each control section 4 gives:
+An assessor examines the list of events, the record content, the settings that protect and keep the records, and the review records. They interview the auditor, the administrators and the system owner, and test that the system logs what the design says (CSS). So for each control section 4 gives:
 
-- **each part of the control**, as NIST letters them, with the design that meets it and the position today;
+- **each part of the control**, as CSS letters them, with the design that meets it and the position today;
 - **who provides it**, and who is responsible;
 - **what enforces it**, the rules and procedures that apply, and the tests run;
 - **the records an assessor will ask for**, and whether they exist yet;
@@ -178,7 +178,7 @@ Global administrators and administrators have none of these functions. They are 
 
 One time source across the applications, the servers, AD FS and the network is what lets the auditor line records up from different stores (AU-6(3)).
 
-NIST no longer asks for clock synchronisation under AU-8. In Revision 5 it moved to SC-45(1), which is not in the Moderate baseline. \<System Name\> keeps the rule of 1 second anyway, because the weekly comparison across stores depends on it.
+CSS no longer asks for clock synchronisation under AU-8. In Revision 5 it moved to SC-45(1), which is not in the Moderate baseline. \<System Name\> keeps the rule of 1 second anyway, because the weekly comparison across stores depends on it.
 
 ### 3.7 Retention and capacity
 
@@ -230,7 +230,7 @@ The page only reads. It cannot change a record or its order.
 | A server clock more than 5 seconds from UTC | Security officer | At the monthly check | The Windows server administrator corrects it with \<Organisation\> | Not built |
 | Audit storage running low | Database administrator | At the monthly check | More storage is raised before records are at risk (PRO-AU-4) | Not built |
 
-A full disk is a logging failure like any other: if the audit log cannot be written because storage has run out, the first alert in Table 10 applies. NIST's separate warning before storage fills, AU-5(1), is not in the Moderate baseline; the monthly check stands in for it.
+A full disk is a logging failure like any other: if the audit log cannot be written because storage has run out, the first alert in Table 10 applies. The CSS separate warning before storage fills, AU-5(1), is not in the Moderate baseline; the monthly check stands in for it.
 
 Alerts are raised by the detection use cases in \<System and Information Integrity Management\>, section 3.4, of which U2 and U7 concern audit. None is built yet (PA-59).
 
@@ -265,13 +265,13 @@ The five requests, EV-AU-01 to EV-AU-05, are sent together, and central monitori
 
 ## 4 Each control and enhancement
 
-The controls are in NIST order. Each has two tables. The first takes each part of the control and gives what NIST requires, the design that meets it, and the position today. The second says who provides and is responsible for the control, what enforces it, the rules and procedures that apply, the tests run, the records an assessor will ask for, its status, the risk decision, and what is still open.
+The controls are in CSS order. Each has two tables. The first takes each part of the control and gives what CSS requires, the design that meets it, and the position today. The second says who provides and is responsible for the control, what enforces it, the rules and procedures that apply, the tests run, the records an assessor will ask for, its status, the risk decision, and what is still open.
 
 ### 4.1 AU-1 Policy and Procedures
 
 **Table 12: AU-1 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a.1 | An audit and accountability policy, shared with defined people, covering purpose, scope, roles, responsibilities, management commitment, coordination and compliance, and consistent with the law | \<Policy\> (AU): a system-level policy. Purpose and scope are in section AU.1, responsibilities in AU.5, and commitment, coordination and compliance in AU.6. It is shared with everyone who administers or reviews \<System Name\>. The legal adviser reviews it | Version \<ver\> approved by the Head of Cyber (D-AU-08). Legally reviewed on 12 November 2026. Not yet shared (PA-20) |
 | a.2 | Procedures that carry out the policy, shared with defined people | \<Procedures\> (AU): seven procedures, PRO-AU-1 to PRO-AU-7, each naming who acts, how often and the record. Shared with the same people | Approved by the system owner (D-AU-09). Not yet shared or walked through |
@@ -297,7 +297,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 14: AU-2 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Identify the types of event the system can log | For the applications, the event types and actions in Table 4. For the servers, the events PostgreSQL and Windows Server 2025 log, in Table 3 and appendix C. For \<Organisation\>'s services, the events in Table 3 | The tested build can log the event types in Table 4, except those the table marks as not logged |
 | b | Coordinate event logging with the other parts of the organisation that need audit information | The system owner agrees with \<Organisation\>'s security contact two things, and records them: which logs \<Organisation\>'s monitoring needs from \<System Name\> and its servers; and which of \<Organisation\>'s own records, of AD FS, Active Directory, the network and the VPN, \<System Name\>'s auditor receives (section 3.11) | Not done. The request has not been sent (EV-AU-01, EV-AU-05), and whether central monitoring will take \<System Name\>'s logs is open (D-AU-07) |
@@ -323,7 +323,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 16: AU-3 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | What type of event occurred | Event type and Action (Table 5) | Present in every record tested (A19) |
 | b | When it occurred | Time, in UTC | Present, in UTC (A22) |
@@ -350,7 +350,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 18: AU-3(1) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Records also hold defined extra information | A session reference, which is a hash of the session ID and never the ID itself, the browser, the project and the document (Table 5) | The four fields are present in the tested build (A20, A21). Whether its session field holds the live ID or a reference has not been checked (PA-104) |
 
@@ -372,7 +372,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 20: AU-4 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Set aside enough storage for the audit records that must be kept | Storage for 24 months of records: 12 months in the database, and 12 months in the offline archive. The database administrator sizes it by the method in section 3.7: records each day, times their average size, times 365, plus half as much again. Each month they check free space and the size of the audit table, and ask for more before records are at risk (PRO-AU-4) | Not planned: the servers are not built (PA-42). \<Organisation\>'s storage and backup are not evidenced (EV-AU-03) |
 
@@ -394,7 +394,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 22: AU-5 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Alert defined people within a defined time when logging fails | A failed audit write raises an alert to the Windows server administrator and the security officer within 1 hour (detection use case U7 in \<System and Information Integrity Management\>, section 3.4). The alert goes through \<Organisation\>'s central monitoring if that is confirmed; otherwise by \[alert route to be set at build\], which must not depend on \<System Name\> itself being healthy | Not built. A failed write goes to the application log as a critical line, and nobody is told (A31, A35; PA-38) |
 | b | Take defined further action | \<System Name\> keeps running. The system owner chose this (D-AU-11): staff must still be able to reach HR records, a stop would let a logging fault take the whole service down, and the failure is alerted within 1 hour and the gap recorded. The Windows server and database administrators find the cause and restore logging. The security officer records the period with no records and tells the system owner. If records may be lost or changed, the evidence is preserved first (PRO-AU-3) | The tested build keeps running when a write fails (A32). The procedure has not been used |
@@ -417,7 +417,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 24: AU-6 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Review and analyse audit records on a schedule, for signs of defined unusual activity | The auditor reviews the records every week (PRO-AU-1), for the activity listed in \<Security Operating Procedures\>, section 4.2: repeated failed sign-ins and lockouts, refused access, sign-ins at unusual times, changes to access, large exports, configuration changes, reading of the audit log, gaps in the records, and records under unknown names. The auditor judges what each finding could lead to. The auditor holds no administration role, so nobody reviews their own actions | Not started: \<System Name\> is not in use (PA-40) |
 | b | Report findings to defined people | To the security officer and the system owner, on TPL-8, with the date, the period covered, the reviewer and the result. Anything unexplained is raised as a security incident | Not started |
@@ -441,7 +441,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 26: AU-6(1) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Join up review, analysis and reporting using automated means | Two means. The admin portal's audit page, which filters and summarises the records for the auditor. And \<Organisation\>'s central monitoring, if it is confirmed to take \<System Name\>'s logs, which would raise the alerts in the detection use cases U1 to U8 (\<System and Information Integrity Management\>, section 3.4) | The audit page only. Whether central monitoring will take the logs is open (D-AU-07), and no alert is built (PA-59) |
 
@@ -463,7 +463,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 28: AU-6(3) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Analyse records from different stores together, to see the whole picture | Each week the auditor compares the application audit log with the PostgreSQL log, the Windows logs, and \<Organisation\>'s record of AD FS sign-ins and Active Directory group changes for \<System Name\>, lining them up by UTC time and username. This is done by hand. The system owner accepted that as proportionate for one system (NC-AU-08), to 6 November 2027 | Only the application audit log can be reviewed today. The other logs are off, not built, or not yet shared with the auditor (PA-43, PA-101) |
 
@@ -485,7 +485,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 30: AU-7 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Provide a way to cut records down and make reports, for review on demand and for investigation after the event | The admin portal's audit page filters the records and shows a summary. An export gives the auditor the filtered records as a file for a report or an investigation | The page filters by date, event type, result and username (A23, A24). There is no export and no report (PA-41) |
 | b | Do not change the content or time order of the records | The page only reads. It cannot change a record, and an export is a copy. Records are always shown with their stored time | The page changes nothing (A23, A24) |
@@ -508,7 +508,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 32: AU-7(1) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Sort and search records on defined fields | Search and sort on six fields: date, event type, result, username, project and document | Search on four of the six: date, event type, result and username. No search by project or document, and no choice of sort order (PA-41) |
 
@@ -530,7 +530,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 34: AU-8 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Use the system's own clocks to make time stamps | Each record takes its time from the clock of the server that writes it. Both servers set their clocks from \<Organisation\>'s time service, \[Organisation time source\], and stay within 1 second of UTC. Each month the Windows server administrator checks this, and reports any drift over 5 seconds to the security officer (PRO-AU-4) | The applications use the server clock. The servers are not built, and the time service is not evidenced (EV-AU-02, PA-102) |
 | b | Record time to a defined precision, in UTC or with the offset from it | UTC, to the nearest second or finer | The applications record UTC (A22), stored to the microsecond |
@@ -553,7 +553,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 36: AU-9 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Protect audit information and audit tools from unauthorised access, change and deletion | Section 3.5 sets it out. Only API writes records, through a database account that can add them but not change or delete them (D-AC-18). Only the auditor group opens the audit pages. Each record carries a keyed chain hash, with the key held outside the database, and the newest hash is copied each day to a store the applications cannot write to. Application logs are readable only by the Windows server administrators and the auditor. The archive is offline, and its hash is recorded. Rule B12 of \<Security Operating Procedures\> forbids anyone to alter, delete or disable audit records or logging | An ordinary user cannot open the audit pages (T71), and records are chained. But the application's database account can change, delete and empty the table (A26 to A28; PA-36). The chain has no key, so it can be rewritten, and the newest records can be removed without trace (A36; PA-73). Stored hashes cannot be recomputed (A37; PA-74). Ordinary users can add records (PA-29). The application log repeats usernames, IP addresses and session IDs (A38; PA-75) |
 | b | Alert defined people when unauthorised access, change or deletion is detected | The chain check runs on a schedule and at each start-up. A break alerts the security officer and the auditor (detection use case U2), who preserve the evidence and raise an incident (PRO-AU-2) | Not built. The tested build contains a chain check, but nothing runs it or alerts (PA-37), and until PA-73 and PA-74 are fixed it cannot be relied on |
@@ -576,7 +576,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 38: AU-9(4) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Allow only a defined few privileged users to manage audit logging | Table 7. Auditors read the records, and nobody can change them. Global administrators and administrators have no access to the audit pages, because their actions are what is reviewed. The auditor group, DocViewer\_Auditors, is owned by the system owner, who alone adds members (PRO-AU-6). Logging settings change only through a release or a recorded change | An auditor can read the records and cannot manage users (A23, A24; T73, T74). But a global administrator can also read them (A25; PA-39) |
 
@@ -598,7 +598,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 40: AU-11 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Keep audit records for a defined time, to support investigation and meet legal and organisational needs | Audit records are kept 12 months in the database, then 12 months in an offline archive whose SHA-256 hash is recorded. After 24 months they may be deleted, only with the system owner's recorded approval. Application logs are kept for 30 days. The periods are those of \<System Name\>'s retention schedule (\<System and Information Integrity Management\>, section 3.7, and \<PII Processing Management\>, section 3.7). Records held as evidence of an incident, or under a legal hold, are kept until the incident is closed or the legal adviser releases them (PRO-AU-4, PRO-AU-7) | Nothing removes or archives records, and there is no backup or capacity behind the rule yet (PA-42). Application logs are not yet controlled (PA-75) |
 
@@ -620,7 +620,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 42: AU-12 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Provide audit record generation, for the events the system can log, on defined components | Five components generate records: API, UI application, Admin application, PostgreSQL and Windows Server 2025 on both servers (section 3.2) | The three applications generate records (A15 to A18). PostgreSQL statement and connection logging are off (A30), and Windows is not built (PA-43) |
 | b | Let defined people select which events each component logs | The system owner selects the events. Application events are built into each release, so developers make a change through a release (PRO-AU-5). A release is reviewed, tested and recorded, so nobody can switch an event off quietly. PostgreSQL settings are changed by the database administrator, and the Windows audit policy by \<Organisation\>'s Group Policy, each through a recorded change | The system owner has selected the events (D-AU-P01). But no setting lets an event be turned on or off for a component: every change needs a release. The assessment found this a gap (statement AU-12b), and it is registered as PA-105 |
@@ -661,11 +661,11 @@ This records what the build labelled v1.0 did when it was examined and tested in
 
 ## Appendix B Parameter register
 
-These are NIST's organisation-defined values for the 16 AU entries: 28 in total. State now says whether the tested build met each value, from the checks of 8 November 2026 and the Level 1 assessment. The values were agreed by the system owner on 5, 6 and 8 November 2026 (D-AU-P01, D-AU-P02).
+These are the CSS organisation-defined values for the 16 AU entries: 28 in total. State now says whether the tested build met each value, from the checks of 8 November 2026 and the Level 1 assessment. The values were agreed by the system owner on 5, 6 and 8 November 2026 (D-AU-P01, D-AU-P02).
 
 **Table 45: AU parameter register**
 
-| NIST identifier | What must be defined | Value | State now |
+| CSS identifier | What must be defined | Value | State now |
 | --- | --- | --- | --- |
 | AU-01\_ODP\[01\] | Who receives the policy | Everyone who administers or reviews \<System Name\> | Not yet: shared once version \<ver\> is approved (PA-20) |
 | AU-01\_ODP\[02\] | Who receives the procedures | Everyone who administers or reviews \<System Name\> | Not yet: shared once version \<ver\> is approved (PA-20) |
@@ -716,11 +716,11 @@ These are the settings for PostgreSQL on the database server, so that it logs th
 
 Changing any of these is itself a change to logging: it is made through a recorded change (\<Configuration Management\>), and PostgreSQL logs the reload.
 
-## Appendix D The rest of NIST's catalogue
+## Appendix D The rest of the CSS catalogue
 
 ### D.1 Logging that other controls require
 
-NIST's guidance on AU-2 points out that other controls ask for particular events to be logged. Table 47 shows where each of those in the Moderate baseline is met.
+The CSS guidance on AU-2 points out that other controls ask for particular events to be logged. Table 47 shows where each of those in the Moderate baseline is met.
 
 **Table 47: Logging required by other controls**
 
@@ -737,7 +737,7 @@ NIST's guidance on AU-2 points out that other controls ask for particular events
 
 ### D.2 AU controls outside the Moderate baseline
 
-NIST does not select these at Moderate, so they are not assessed. Some of the design goes further than the baseline, and Table 48 says where.
+CSS does not select these at Moderate, so they are not assessed. Some of the design goes further than the baseline, and Table 48 says where.
 
 **Table 48: AU controls not selected at Moderate**
 

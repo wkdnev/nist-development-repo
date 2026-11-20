@@ -6,7 +6,7 @@ This guide is the place to start. It says what the \<System Name\> document set 
 
 It holds no facts about the system of its own. Each fact is held in one document only, and this guide says which. The full index is \<Documentation Map\>, which also says where each fact about a control is held (its section 3) and sets the standard every document follows (its section 4).
 
-The set is the evidence that \<System Name\>, \<Organisation\>'s document management system, is designed and run to the NIST SP 800-53 Rev 5 Moderate baseline, with NIST's privacy baseline. It covers 20 control families and 316 controls. It is written before the system goes live, so it shows honestly what is built, what is planned and what is missing.
+The set is the evidence that \<System Name\>, \<Organisation\>'s document management system, is designed and run to the CSS Moderate baseline, with the CSS privacy baseline. It covers 20 control families and 316 controls. It is written before the system goes live, so it shows honestly what is built, what is planned and what is missing.
 
 ## 2 The set at a glance
 
@@ -42,10 +42,10 @@ Each control is carried through the set by the same chain. Table 2 gives the cha
 | --- | --- | --- |
 | 1 The control | \<System Security Plan\>, section 7 | How the control is met in brief, who is responsible, its status and its result |
 | 2 The rule | \<Policy\>, the family's chapter | What must be true, and who is accountable. Approved by the Head of Cyber |
-| 3 The design | The family's design document (section 6) | How \<System Name\> meets each part of the control, what is in place today, the values NIST asks to be defined, and what \<Organisation\> provides |
+| 3 The design | The family's design document (section 6) | How \<System Name\> meets each part of the control, what is in place today, the values CSS asks to be defined, and what \<Organisation\> provides |
 | 4 The steps | \<Procedures\>, the family's chapter; \<Security Operating Procedures\> for day-to-day duties and the rules people sign | Who does what, when, and the record kept |
 | 5 The record | The forms in \<Record Templates\> | What proves the step was done |
-| 6 The finding | \<Control Assessment Record\>, the family's chapter; brought together in \<Security Assessment Report\> | Whether each of NIST's determination statements is satisfied, and why |
+| 6 The finding | \<Control Assessment Record\>, the family's chapter; brought together in \<Security Assessment Report\> | Whether each of the CSS determination statements is satisfied, and why |
 | 7 The risk | \<Risk List\> | The rating of each non-compliance, and the decision on it |
 | 8 The fix | \<Plan of Action and Milestones\> | The work, its owner, its milestone and its latest date |
 | 9 The decision | \<Decision Register\> | Who approved or decided what, and when |
@@ -140,7 +140,7 @@ Each family has a policy chapter, a design document, a procedures chapter, a sec
 | SI System and Information Integrity | \<Policy\> (SI) | \<System and Information Integrity Management\> | \<Procedures\> (SI) | Section 7.18 | \<Control Assessment Record\> (SI) | Test-Integrity.ps1 and Test-Vulnerability.ps1 |
 | SR Supply Chain Risk Management | \<Policy\> (SR) | \<Supply Chain Risk Management\> | \<Procedures\> (SR) | Section 7.19 | \<Control Assessment Record\> (SR) | Test-SupplyChain.ps1 |
 
-Four design documents are also the plan that NIST requires for their family, in their section 3: configuration management, contingency planning, incident response and supply chain risk management.
+Four design documents are also the plan that CSS requires for their family, in their section 3: configuration management, contingency planning, incident response and supply chain risk management.
 
 ## 7 Every document
 
@@ -198,7 +198,7 @@ Four design documents are also the plan that NIST requires for their family, in 
 1. **Layout.** Every document starts with its purpose. Documents carry no document control, approval or change history: none is yet reviewed or approved, decisions are in \<Decision Register\>, and changes are kept in the change record (\<Documentation Map\>, section 4.1).
 2. **Names, not numbers.** A document is cited by its name in angle brackets. A chapter of the Policy, the Procedures or the assessment record is cited with its family code, such as the Policy (RA), and a section in a chapter as section RA.4.
 3. **Design and today.** A design document gives, for each part of a control, the design that is agreed and the position today. The two are kept apart, so that a plan is never read as a fact.
-4. **Status.** A control is implemented, partially implemented, not implemented or not applicable. Its assessment result is satisfied or other than satisfied, as NIST SP 800-53A uses the terms.
+4. **Status.** A control is implemented, partially implemented, not implemented or not applicable. Its assessment result is satisfied or other than satisfied, as CSS uses the terms.
 5. **Placeholders.** Text in square brackets is a fact that only someone else can supply, such as a date from \<Organisation\>. They are counted by kind in \<Plan of Action and Milestones\>, section 5.7.
 6. **Drafts and approvals.** Nothing is shown as approved unless the person who approves it has done so. Every approval and decision is in \<Decision Register\>.
 
@@ -217,7 +217,7 @@ Four design documents are also the plan that NIST requires for their family, in 
 | TPL- | A form | \<Record Templates\> |
 | A, B and C with a number | A rule for everyone, a rule for privileged users, and an operating duty | \<Security Operating Procedures\> |
 | A letter and two digits, such as V05 or T22 | A check in a test script | The design document of the family, and the evidence for it |
-| ODP | A value NIST asks the organisation to define | The parameter register, an appendix of each design document |
+| ODP | A value CSS asks the organisation to define | The parameter register, an appendix of each design document |
 
 ## 9 What the set does not yet show
 

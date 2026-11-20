@@ -2,13 +2,13 @@
 
 ## 1 Purpose
 
-This document shows how \<System Name\> manages the risk that it is harmed through what it is built from, where it is hosted and who supplies it, for each of the 12 Supply Chain Risk Management (SR) controls in NIST's Moderate baseline. Section 3 is the supply chain risk management plan that SR-2 requires, on the headings of NIST SP 800-161 Rev 1: the system context, the team, the risks at each stage, the supplier register, the risk tolerance, how components come in, and notices, inspection, authenticity and disposal. Section 4 takes each control in turn. Appendix A lists every value NIST asks the organisation to define.
+This document shows how \<System Name\> manages the risk that it is harmed through what it is built from, where it is hosted and who supplies it, for each of the 12 Supply Chain Risk Management (SR) controls in the CSS Moderate baseline. Section 3 is the supply chain risk management plan that SR-2 requires, on the headings of CSS: the system context, the team, the risks at each stage, the supplier register, the risk tolerance, how components come in, and notices, inspection, authenticity and disposal. Section 4 takes each control in turn. Appendix A lists every value CSS asks the organisation to define.
 
 This is the only place this design is held. Other documents point here. The policy is in \<Policy\> (SR), and the steps people follow are in \<Procedures\> (SR). The critical components are in \<Risk Assessment Management\>, section 3.9, the supply chain risk review in its section 3.4, the external services in \<System and Services Acquisition Management\>, section 3.7, and the integrity baseline in \<System and Information Integrity Management\>, section 3.5.
 
-An assessor examines the plan, the supplier register, the supplier reviews, the bill of materials and the release inspection records; interviews the system owner, the developers, the security officer and \<Organisation\>'s IT service desk; and tests where each component comes from and whether a release matches its record (NIST SP 800-53A). So for each control section 4 gives:
+An assessor examines the plan, the supplier register, the supplier reviews, the bill of materials and the release inspection records; interviews the system owner, the developers, the security officer and \<Organisation\>'s IT service desk; and tests where each component comes from and whether a release matches its record (CSS). So for each control section 4 gives:
 
-- **each part of the control**, as NIST letters them, with the design that meets it and the position today;
+- **each part of the control**, as CSS letters them, with the design that meets it and the position today;
 - **who provides it**, and who is responsible;
 - **what enforces it**, the rules and procedures that apply, and the tests run;
 - **the records an assessor will ask for**, and whether they exist yet;
@@ -164,13 +164,13 @@ Test-SupplyChain.ps1 ran on the v1.0 build and its images on 12 November 2026, w
 
 ## 4 Each control and enhancement
 
-The controls are in NIST order. Each has two tables. The first takes each part of the control and gives what NIST requires, the design that meets it, and the position today. The second says who provides and is responsible for the control, what enforces it, the rules and procedures that apply, the tests run, the records an assessor will ask for, its status, the risk decision, and what is still open.
+The controls are in CSS order. Each has two tables. The first takes each part of the control and gives what CSS requires, the design that meets it, and the position today. The second says who provides and is responsible for the control, what enforces it, the rules and procedures that apply, the tests run, the records an assessor will ask for, its status, the risk decision, and what is still open.
 
 ### 4.1 SR-1 Policy and Procedures
 
 **Table 8: SR-1 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a.1 | A supply chain risk management policy, shared with defined people, covering purpose, scope, roles, responsibilities, management commitment, coordination and compliance, and consistent with the law | \<Policy\> (SR): a system-level policy, shared with developers and administrators. The legal adviser reviewed it on 12 November 2026 | Version \<ver\> approved by the Head of Cyber (D-SR-01). The later version awaits the Head of Cyber (D-SR-12). Not yet shared (PA-20) |
 | a.2 | Procedures that carry out the policy, shared with defined people | \<Procedures\> (SR): six procedures, PRO-SR-1 to PRO-SR-6. Shared with the same people | Version \<ver\> approved by the system owner (D-SR-13). Not yet shared |
@@ -196,7 +196,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 10: SR-2 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Develop a plan for managing supply chain risk in research and development, design, manufacturing, acquisition, delivery, integration, operation and maintenance, and disposal of defined systems and components | Section 3 of this document is the plan. It covers \<System Name\>, its software packages, container images, browser files, build tools, hosting and hardware, with the risk at each stage in section 3.4 | Approved as version \<ver\> (D-SR-13), and rebuilt in this form on 18 November 2026 (D-SR-14) |
 | b | Review and update the plan at a defined frequency, and as threats, the organisation or the environment change | Every 12 months by the supply chain team, and after a significant change (PRO-SR-2) | The first yearly review falls due in November 2027. Not yet updated after the changes to sign-in and hosting (PA-127) |
@@ -220,7 +220,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 12: SR-2(1) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Set up a supply chain risk management team of defined people, to lead and support defined activities | The system owner, the security officer, a developer and \<Organisation\>'s IT service desk. They keep this plan current, review suppliers and handle notices of compromise (section 3.3) | Named. \<Organisation\> has not confirmed its part, and the team has not met (EV-SR-01) |
 
@@ -242,7 +242,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 14: SR-3 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Set up processes to find and address weaknesses in supply chain elements and processes, coordinated with defined people | Supplier reviews (PRO-SR-2), component checks before use (PRO-SR-1) and release inspection (PRO-SR-3), coordinated with \<Organisation\>'s IT service desk and the suppliers in section 3.5 | Approved. No supplier review held yet |
 | b | Use defined controls to protect against supply chain risk and limit the harm of supply chain events | Approved suppliers; every package through the offline feed; lock files and signed-package trust; images pinned by digest; integrity checks on browser files; a bill of materials; and monthly and release checks (section 3.7) | Only the OfflineModules packages use the feed (U01; PA-94); no lock files or trust policy (U02, U03); images by floating tag (U06; PA-77); browser files unchecked (U09; PA-34); no bill of materials (U07; PA-78) |
@@ -266,7 +266,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 16: SR-5 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Use defined acquisition strategies, contract tools and procurement methods to protect against, find and reduce supply chain risk | Approved suppliers; every package through the offline feed after the PRO-SR-1 check; lock files and signed-package trust; images pinned by digest; and a review before a new critical supplier is used | Packages come straight from nuget.org (U01; PA-94); NuGet's audit is off in the build (U04; PA-92) |
 
@@ -288,7 +288,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 18: SR-6 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Assess and review the supply chain risks of suppliers and what they provide, at a defined frequency | Every critical supplier every 12 months, and before a new critical supplier is used, on TPL-16 (PRO-SR-2) | No supplier review held on TPL-16. The first supply chain risk review was held on 11 November 2026 (\<Risk Assessment Management\>, section 3.4) |
 
@@ -310,7 +310,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 20: SR-8 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Agree with those in the supply chain how compromises are notified, and assessment or audit results shared | \<Organisation\> reports a supply chain compromise to the security officer within 24 hours, and shares assessment or audit results that affect \<System Name\>. Open-source suppliers' advisories are treated as notice (section 3.8) | \<Organisation\>'s terms not seen (EV-SR-01). The advisories are not yet watched (PA-130) |
 
@@ -332,7 +332,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 22: SR-10 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Inspect defined systems or components, at defined times or on signs of need, to detect tampering | Release packages, the test images and \<System Name\>'s application files at each release and whenever tampering is suspected, against the recorded SHA-256 values; hardware by \<Organisation\> (section 3.8) | The test images and application files match the baseline (U08). Release checksums not built (PA-61). Hardware inspection not seen (EV-SR-02) |
 
@@ -354,7 +354,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 24: SR-11 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Develop and carry out anti-counterfeit policy and procedures, with the means to detect and prevent counterfeit components | Policy rule R11 and PRO-SR-4: package names checked against look-alikes, packages only from the offline feed with signed-package trust, and hardware inspected by \<Organisation\> | Approved. No trust policy (U03; PA-94); browser files have no integrity check (U09; PA-34) |
 | b | Report counterfeit components to defined parties | The source, the security officer and \<Organisation\>; for software, the package registry and, if serious, the NCSC | Approved. Not yet used |
@@ -377,7 +377,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 26: SR-11(1) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Train defined people to detect counterfeit components | \<Organisation\> trains its buyers every year | Not seen (EV-SR-02) |
 
@@ -399,7 +399,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 28: SR-11(2) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Keep configuration control over components awaiting or returning from service or repair | Hardware away for service or repair stays under \<Organisation\>'s control | Not seen (EV-SR-02) |
 
@@ -421,7 +421,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 30: SR-12 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Dispose of defined data, documentation, tools or components by defined techniques | Hardware, media, data and documents: \<System Name\> data is removed first (PRO-MP-3), and \<Organisation\> disposes of the component and confirms in writing | PRO-MP-3 approved. \<Organisation\>'s disposal not seen (EV-SR-02) |
 
@@ -441,11 +441,11 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 ## Appendix A Parameter register
 
-These are NIST's organisation-defined values for the 12 SR entries: 32 in total. They were agreed on 6 November 2026 and revised on 12 November 2026 (D-SR-P01). **State now** says how far each is in place.
+These are the CSS organisation-defined values for the 12 SR entries: 32 in total. They were agreed on 6 November 2026 and revised on 12 November 2026 (D-SR-P01). **State now** says how far each is in place.
 
 **Table 32: SR parameter register**
 
-| NIST identifier | What must be defined | Value | State now |
+| CSS identifier | What must be defined | Value | State now |
 | --- | --- | --- | --- |
 | SR-01\_ODP\[01\] | Who receives the policy | Developers and administrators | Not yet shared |
 | SR-01\_ODP\[02\] | Who receives the procedures | Developers and administrators | Not yet shared |
@@ -482,7 +482,7 @@ These are NIST's organisation-defined values for the 12 SR entries: 32 in total.
 
 ## Appendix B Supply chain controls outside the Moderate baseline
 
-NIST does not select these at Moderate, so they are not assessed. Table 33 says where the design goes some way towards them.
+CSS does not select these at Moderate, so they are not assessed. Table 33 says where the design goes some way towards them.
 
 **Table 33: Related controls and enhancements not selected**
 

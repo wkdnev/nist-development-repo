@@ -2,15 +2,15 @@
 
 ## 1 Purpose
 
-This document shows how the places where \<System Name\> runs and is used are protected, for each of the 18 Physical and Environmental Protection (PE) controls and enhancements in the NIST SP 800-53 Rev 5 Moderate baseline. Section 3 sets out the design: the sites, who provides each control, how \<Organisation\>'s evidence is obtained and checked, the rules for offices and for working from home, physical incidents, and the encryption that stands behind the physical controls. Section 4 takes each control in turn. Appendix A lists every value NIST asks the organisation to define, and appendix B the PE controls NIST does not select at Moderate.
+This document shows how the places where \<System Name\> runs and is used are protected, for each of the 18 Physical and Environmental Protection (PE) controls and enhancements in the CSS Moderate baseline. Section 3 sets out the design: the sites, who provides each control, how \<Organisation\>'s evidence is obtained and checked, the rules for offices and for working from home, physical incidents, and the encryption that stands behind the physical controls. Section 4 takes each control in turn. Appendix A lists every value CSS asks the organisation to define, and appendix B the PE controls CSS does not select at Moderate.
 
 This is the only place this design is held. Other documents point here. The policy is in \<Policy\> (PE), and the steps people follow are in \<Procedures\> (PE).
 
 \<System Name\> has no premises of its own. It runs on two virtual servers in \<Organisation\>'s data centre, with backups and recovery at a second site, so 15 of the 18 controls are provided wholly by \<Organisation\>. \<System Name\>'s own part is small: how its users treat screens and printouts, how they work from home, how physical incidents are handled, and the encryption of the server disks.
 
-An assessor examines the provider's evidence for each inherited control, and the organisation's check of it; inspects the site; and interviews those who work in the offices and from home (NIST SP 800-53A). So for each control section 4 gives:
+An assessor examines the provider's evidence for each inherited control, and the organisation's check of it; inspects the site; and interviews those who work in the offices and from home (CSS). So for each control section 4 gives:
 
-- **each part of the control**, as NIST letters them, with the design that meets it and the position today;
+- **each part of the control**, as CSS letters them, with the design that meets it and the position today;
 - **who provides it**, and who is responsible;
 - **what enforces it**, the rules and procedures that apply, and the tests run;
 - **the records an assessor will ask for**, and whether they exist yet;
@@ -168,13 +168,13 @@ Both servers' disks are encrypted, and backups are encrypted before they leave t
 
 ## 4 Each control and enhancement
 
-The controls are in NIST order. Each has two tables. The first takes each part of the control and gives what NIST requires, the design that meets it, and the position today. The second says who provides and is responsible for the control, what enforces it, the rules and procedures that apply, the tests run, the records an assessor will ask for, its status, the risk decision, and what is still open.
+The controls are in CSS order. Each has two tables. The first takes each part of the control and gives what CSS requires, the design that meets it, and the position today. The second says who provides and is responsible for the control, what enforces it, the rules and procedures that apply, the tests run, the records an assessor will ask for, its status, the risk decision, and what is still open.
 
 ### 4.1 PE-1 Policy and Procedures
 
 **Table 7: PE-1 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a.1 | A physical and environmental protection policy, shared with defined people, covering purpose, scope, roles, responsibilities, management commitment, coordination and compliance, and consistent with the law | \<Policy\> (PE): a system-level policy, shared with everyone who uses or administers \<System Name\>. The legal adviser reviews it | Version \<ver\> approved by the Head of Cyber (D-PE-01) and legally reviewed on 10 November 2026. The later version awaits the Head of Cyber (D-PE-09). Not yet shared (PA-20) |
 | a.2 | Procedures that carry out the policy, shared with defined people | \<Procedures\> (PE): five procedures, PRO-PE-1 to PRO-PE-5. Shared with the same people | Approved by the system owner (D-PE-10). Not yet shared or walked through |
@@ -200,7 +200,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 9: PE-2 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Keep an approved list of the people authorised to enter the facility where the system is | \<Organisation\> keeps the list for each data centre. No \<System Name\> role needs to enter one: every administrator works remotely (\<Maintenance Management\>, section 3.4) | Not evidenced (EV-PE-01) |
 | b | Issue credentials for entry | An individual card or credential for each person on the list | Not evidenced (EV-PE-01) |
@@ -225,7 +225,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 11: PE-3 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Enforce the authorisations at defined entry and exit points, by checking each person and by controlling the way in and out | At every data centre entrance and exit, by \<Organisation\>'s electronic access control system, with individual cards or credentials | Not evidenced (EV-PE-01) |
 | b | Keep entry logs for defined points | For every data centre entrance and exit | Not evidenced (EV-PE-01) |
@@ -253,7 +253,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 13: PE-4 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Control physical access to defined distribution and transmission lines | Power and network cabling in each data centre is kept in locked rooms, cabinets and cable trays | Not evidenced (EV-PE-01) |
 
@@ -275,7 +275,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 15: PE-5 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Control physical access to the output of defined devices, so that nobody unauthorised obtains it | Printers: \<System Name\> documents are printed only on \<Organisation\>'s managed printers with secure release, so that a page prints only when its owner is at the printer, and are collected at once. Screens and desks: a screen is locked when left and placed so that others cannot read it, and desks are kept clear of printed documents. \<System Name\> also locks the page after 25 minutes idle (section 3.5) | The printers are not listed or evidenced (EV-PE-05). The page lock worked in the tested build, under AC-11 (\<Access Control Management\>) |
 
@@ -297,7 +297,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 17: PE-6 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Monitor physical access to the facility, to detect and respond to physical security incidents | \<Organisation\> monitors each data centre and responds to alarms | Not evidenced (EV-PE-01) |
 | b | Review the entry logs on a schedule and after defined events | Monthly, and after a physical security incident or alarm | Not evidenced (EV-PE-01) |
@@ -321,7 +321,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 19: PE-6(1) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Monitor physical access with intrusion alarms and surveillance equipment | Intrusion alarms and CCTV at each data centre | Not evidenced (EV-PE-01) |
 
@@ -343,7 +343,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 21: PE-8 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Keep visitor records for a defined time | 12 months | Not evidenced (EV-PE-01) |
 | b | Review them on a schedule | Monthly | Not evidenced (EV-PE-01) |
@@ -367,7 +367,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 23: PE-9 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Protect power equipment and power cabling from damage and destruction | \<Organisation\> protects the power equipment and cabling that serve the hosts, at both sites | Not evidenced (EV-PE-02) |
 
@@ -389,7 +389,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 25: PE-10 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Be able to shut off power to defined components in an emergency | To the hosting equipment for both servers | Not evidenced (EV-PE-02) |
 | b | Place the shutoff switches where authorised people can reach them | Near the exits of the data centre room | Not evidenced (EV-PE-02) |
@@ -413,7 +413,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 27: PE-11 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Provide an uninterruptible power supply that allows an orderly shutdown, or a move to long-term backup power, when the main power fails | Enough backup power for an orderly shutdown of both servers. \<Organisation\> warns the administrators when a site is on backup power, and they shut the servers down in order (section 3.7; \<Security Operating Procedures\>, section 4.6) | Not evidenced (EV-PE-02). How long the backup power lasts and how the warning is given are not known |
 
@@ -435,7 +435,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 29: PE-12 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Have automatic emergency lighting that comes on in a power failure and covers emergency exits and evacuation routes | In each data centre | Not evidenced (EV-PE-02) |
 
@@ -457,7 +457,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 31: PE-13 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Have fire detection and suppression systems, with an independent energy source | In each data centre | Not evidenced (EV-PE-03) |
 
@@ -479,7 +479,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 33: PE-13(1) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Fire detection that works automatically and notifies defined people and emergency responders | It notifies \<Organisation\>'s facilities staff and the fire and rescue service | Not evidenced (EV-PE-03) |
 
@@ -501,7 +501,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 35: PE-14 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Keep defined environmental levels within defined limits | Temperature and humidity, within the ASHRAE TC 9.9 recommended envelope: 18 to 27°C, a dew point from -9 to 15°C, and at most 60% relative humidity | Not evidenced (EV-PE-03) |
 | b | Monitor them on a schedule | Continuously | Not evidenced (EV-PE-03) |
@@ -524,7 +524,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 37: PE-15 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Protect the system from water leaks with master shutoff or isolation valves that can be reached, work, and are known to key people | In each data centre | Not evidenced (EV-PE-03) |
 
@@ -546,7 +546,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 39: PE-16 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Authorise and control defined items entering and leaving the facility | Hardware and media that hold \<System Name\> information. The system owner approves the removal of anything of \<System Name\>'s (\<Maintenance Management\>, section 3.7) | Not evidenced (EV-PE-04) |
 | b | Keep records of those items | \<Organisation\>'s delivery and removal records; \<System Name\>'s own on TPL-12 and TPL-13 | Not evidenced (EV-PE-04). The forms exist; none is used yet |
@@ -569,7 +569,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 41: PE-17 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Decide and record which alternate work sites are allowed | Employees' homes, and any other place the system owner approves in writing | In place: stated in the rules of behaviour (\<Security Operating Procedures\>, rule A38). The rules are not yet signed |
 | b | Use defined controls at those sites | \<Organisation\>'s managed device, with its VPN connected first; no public or shared computer; a screen that others in the home cannot see; no printing at home unless approved (section 3.6) | Not evidenced (EV-PE-05) |
@@ -592,11 +592,11 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 ## Appendix A Parameter register
 
-These are NIST's organisation-defined values for the 18 PE entries: 40 in total. They apply to the data centre and the second site alike. They were agreed on 6 November 2026 (D-PE-P01, D-PE-07) and restated as requirements on 10 November 2026 (D-PE-P02). \<Organisation\> must confirm it meets them at both sites.
+These are the CSS organisation-defined values for the 18 PE entries: 40 in total. They apply to the data centre and the second site alike. They were agreed on 6 November 2026 (D-PE-P01, D-PE-07) and restated as requirements on 10 November 2026 (D-PE-P02). \<Organisation\> must confirm it meets them at both sites.
 
 **Table 43: PE parameter register**
 
-| NIST identifier | What must be defined | Value (requirement) | State now |
+| CSS identifier | What must be defined | Value (requirement) | State now |
 | --- | --- | --- | --- |
 | PE-01\_ODP\[01\] | Who receives the policy | Everyone who uses or administers \<System Name\> | Not yet shared (PA-20) |
 | PE-01\_ODP\[02\] | Who receives the procedures | Everyone who uses or administers \<System Name\> | Not yet shared (PA-20) |
@@ -641,7 +641,7 @@ These are NIST's organisation-defined values for the 18 PE entries: 40 in total.
 
 ## Appendix B PE controls outside the Moderate baseline
 
-NIST does not select these in the Moderate security baseline, so they are not assessed in this family. One is in NIST's privacy baseline and applies because visitor records hold personal data: it is assessed with the PT family. All but that one would be \<Organisation\>'s to provide, and Table 44 says where its evidence may already show them.
+CSS does not select these in the Moderate security baseline, so they are not assessed in this family. One is in the CSS privacy baseline and applies because visitor records hold personal data: it is assessed with the PT family. All but that one would be \<Organisation\>'s to provide, and Table 44 says where its evidence may already show them.
 
 **Table 44: PE controls not selected at Moderate**
 
@@ -662,4 +662,4 @@ NIST does not select these in the Moderate security baseline, so they are not as
 | PE-15(1) Automation Support | Water detected automatically, with an alert | Not required |
 | PE-18 Location of System Components | Components placed to limit damage from hazards and from unauthorised access | Not required. The second site is asked not to share the main site's hazards (\<Contingency Planning Management\>, section 3.9) |
 | PE-19, PE-19(1), PE-20, PE-21, PE-22, PE-23 Information Leakage; Asset Monitoring and Tracking; Electromagnetic Pulse Protection; Component Marking; Facility Location | Protection from emanations and pulses, tracking of assets, and the siting of the facility | Not required |
-| PE-3(6), PE-5(1), PE-5(3), PE-7, PE-8(2), PE-10(1), PE-13(3), PE-18(1) | Withdrawn by NIST | Not applicable |
+| PE-3(6), PE-5(1), PE-5(3), PE-7, PE-8(2), PE-10(1), PE-13(3), PE-18(1) | Withdrawn by CSS | Not applicable |

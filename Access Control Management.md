@@ -2,13 +2,13 @@
 
 ## 1 Purpose
 
-This document shows how \<System Name\> is designed and configured for each of the 39 Access Control (AC) controls and enhancements in the NIST SP 800-53 Rev 5 Moderate baseline. Section 3 sets out the access control model: the account types, roles, permissions, separation of duties, access routes, settings, rules and the access request workflow. Section 4 takes each control in turn. Appendix A records how the system is built today, and appendix B every value NIST asks the organisation to define.
+This document shows how \<System Name\> is designed and configured for each of the 39 Access Control (AC) controls and enhancements in the CSS Moderate baseline. Section 3 sets out the access control model: the account types, roles, permissions, separation of duties, access routes, settings, rules and the access request workflow. Section 4 takes each control in turn. Appendix A records how the system is built today, and appendix B every value CSS asks the organisation to define.
 
 This is the only place the access control design is held. Other documents point here.
 
-An assessor examines the design, the settings and the records, interviews the people named, and tests the mechanisms (NIST SP 800-53A). So for each control section 4 gives:
+An assessor examines the design, the settings and the records, interviews the people named, and tests the mechanisms (CSS). So for each control section 4 gives:
 
-- **each part of the control**, as NIST letters them, with the design that meets it and what the system does today;
+- **each part of the control**, as CSS letters them, with the design that meets it and what the system does today;
 - **who provides it**: \<System Name\> itself, people following the procedures, \<Organisation\>, or a share of these;
 - **what enforces it**: the mechanism and its settings;
 - **the rules and procedures** that apply, and the tests run, with their results;
@@ -17,7 +17,7 @@ An assessor examines the design, the settings and the records, interviews the pe
 
 As \<System Description\> sets out, \<Organisation\>'s PingFederate authenticates every user, with multi-factor authentication, and \<System Name\>'s API reads each user's Active Directory groups directly from Active Directory over LDAPS, to give their roles and schema access (D-AC-23). \<System Name\> holds no accounts or passwords of its own, and has no session management: how long a sign-in lasts is set by PingFederate, and an unattended screen is locked by \<Organisation\>'s managed devices. Both are corporate services that \<System Name\> uses as they stand. The design in sections 3 and 4 is written on that basis.
 
-\<System Name\> is not yet built on its servers, so "today" means the tested v1.0 code in the test environment. That build signed in with its own passwords, held its groups and sessions in its own database and used PostgreSQL, so its tests do not show PingFederate sign-in, Active Directory groups or SQL Server working. Where that matters, the "Today" column and the "Tests" row say so. Its findings are kept where they still apply to the reference design. Test results are in the AC evidence. Values that NIST asks the organisation to define are in Appendix B.
+\<System Name\> is not yet built on its servers, so "today" means the tested v1.0 code in the test environment. That build signed in with its own passwords, held its groups and sessions in its own database and used PostgreSQL, so its tests do not show PingFederate sign-in, Active Directory groups or SQL Server working. Where that matters, the "Today" column and the "Tests" row say so. Its findings are kept where they still apply to the reference design. Test results are in the AC evidence. Values that CSS asks the organisation to define are in Appendix B.
 
 **Table 1: Status values**
 
@@ -426,13 +426,13 @@ These rules apply:
 
 ## 4 Each control and enhancement
 
-The controls are in NIST order. Each has two tables. The first takes each part of the control and gives what NIST requires, the design that meets it, and what the system does today. The second says who provides and is responsible for the control, what enforces it, the rules and procedures that apply, the tests run, the records an assessor will ask for, its status, the risk decision, and what is still open.
+The controls are in CSS order. Each has two tables. The first takes each part of the control and gives what CSS requires, the design that meets it, and what the system does today. The second says who provides and is responsible for the control, what enforces it, the rules and procedures that apply, the tests run, the records an assessor will ask for, its status, the risk decision, and what is still open.
 
 ### 4.1 AC-1 Policy and Procedures
 
 **Table 18: AC-1 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a.1 | An access control policy, shared with defined people, covering purpose, scope, roles, responsibilities, management commitment, coordination and compliance, and consistent with the law | \<Policy\> (AC): a system-level policy within \<Organisation\>'s organisational policies. Purpose and scope in section AC.1, responsibilities in AC.5, commitment, coordination and compliance in AC.6. Shared with everyone who uses or administers \<System Name\>. The legal adviser reviews it | Not yet approved by the Head of Cyber, legally reviewed or shared |
 | a.2 | Procedures that carry out the policy, shared with defined people | \<Procedures\> (AC): 17 procedures, PRO-AC-1 to PRO-AC-17, each naming who acts, the time limit and the record. Shared with the same people | Not yet approved, shared or walked through |
@@ -458,7 +458,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 20: AC-2 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Define the account types allowed and prohibited | Table 3. Every account is a person's own Active Directory account. Temporary, emergency, shared, guest, anonymous, demonstration and local \<System Name\> accounts are prohibited (P-AC-04) | Proposed (D-AC-03, D-AC-23), not yet approved. The tested build signed in with its own passwords and held its groups in its own database, so this is not yet tested with PingFederate and Active Directory |
 | b | Assign account managers | \<Organisation\> manages the AD accounts. Each AD group's owner manages its members: the system owner for the role groups, and each Data Owner for their schema's groups. The administrator manages schemas and the groups that open them in \<System Name\> | Holders are to be named in \<Roles and Responsibilities\>. The AD groups are not yet created |
@@ -492,7 +492,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 22: AC-2(1) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Support account management with automated mechanisms | Automated by \<Organisation\>: AD account creation, change and disabling through its starters and leavers process; sign-in, lockout and multi-factor authentication in PingFederate. Automated by \<System Name\>: reading each user's groups from Active Directory at sign-in and applying them | \<Organisation\>'s mechanisms are not evidenced. The tested build signed in with its own passwords and held its groups in its own database, so this is not yet tested with PingFederate and Active Directory. Proposed for acceptance for 12 months as a Medium risk (NC-03) |
 
@@ -514,7 +514,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 24: AC-2(2) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Automatically remove or disable temporary and emergency accounts after a set time | Temporary and emergency accounts are prohibited (P-AC-09), so there is nothing to remove. Each access review confirms that none exists | None exists |
 
@@ -536,7 +536,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 26: AC-2(3) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Disable accounts that have expired | AD accounts with an end date are disabled by Active Directory on that date | \<Organisation\>'s practice is not evidenced |
 | b | Disable accounts no longer tied to a person | A leaver's AD account is disabled by \<Organisation\> at once (P-AC-06) | Not evidenced (EV-AC-01) |
@@ -561,7 +561,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 28: AC-2(4) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | Creation | Automatically audit account creation | Active Directory audits the creation of every account | \<Organisation\>'s audit is not evidenced |
 | Modification | Automatically audit account changes | Active Directory audits every change to an account and to the members of a group. \<System Name\> audits changes to which AD groups open a schema | Not evidenced. The tested build did not audit group or schema changes (PA-14) |
@@ -587,7 +587,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 30: AC-2(5) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Require users to log out after a set period of inactivity | \<System Name\> has no session management, so it does not sign users out itself. A user's sign-in ends when PingFederate's sign-in lifetime ends (P-AC-10), and an unattended screen is locked by the screen lock on \<Organisation\>'s managed devices and the servers (P-AC-15). \<Security Operating Procedures\> tells users to close the browser and lock their device when they finish | The tested build signed users out after 30 minutes idle (T44), which the reference design does not have. PingFederate's sign-in lifetime and the device screen lock are not evidenced (PA-21, PA-30) |
 
@@ -610,7 +610,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 32: AC-2(13) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Disable the accounts of people posing a significant risk within a set time | Within 1 hour of notice from management or \<Organisation\>'s security contact of misconduct, compromised credentials or a hostile departure (P-AC-13): \<Organisation\> disables the AD account and ends their PingFederate sign-in, so the person cannot sign in again, and any group lookup for them fails (procedure PRO-AC-4, record TPL-14; TPL-10 if it is an incident). \<System Name\> has no sessions of its own to end | The tested build could end a user's sessions (T38), which the reference design does not need. Disabling was tested on a local account (T40, T41), not on an AD account. The procedure is approved but not yet walked through |
 
@@ -633,7 +633,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 34: AC-3 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Enforce approved authorisations for access to information and system resources | Every request passes four checks in order: sign-in through PingFederate, which authenticates the user with multi-factor authentication, shown by the app's valid authentication cookie; the user's AD groups, read from Active Directory by the API over LDAPS; the schema decision, read or edit, from those groups; and the role group needed for the page or function (Figure 1). Anything not granted is refused. A schema with no group is closed to everyone but administrators. Page addresses name the schema, because page numbers restart in each schema. An export job can be used only by the person who started it. Item content is sent so that it is not kept in shared caches | Schema read and edit are enforced and tested for pages, image tiles, exports and bad file reports: 23 checks pass, including an outsider refused, an editor of one schema refused in another, a forged token refused, and an unknown schema refused before reaching the database. Gaps: any signed-in user can change another user's session role (PA-02); Export to Folder can write to any server folder (PA-26); an API address with no schema may find the wrong document (PA-25); the apps share a database sysadmin, and secrets are in the repositories (PA-10, PA-19) |
 
@@ -655,7 +655,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 36: AC-4 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Enforce approved flows of information within the system and to connected systems | Only these flows are allowed, as numbered in \<System Description\>: F6, browsers to PingFederate to sign in; F1 and F2, browsers to the UI app and the Admin app; F3 and F4, those apps to the API, on the application server's loopback address only; F5, the API to SQL Server on the database server; and F7, the API to Active Directory over LDAPS. The UI app and the Admin app have no database connection (D-AC-18). All use TLS. The Admin app is reached only over \<Organisation\>'s managed route. \<Organisation\>'s corporate network team sets the firewall rules to allow these flows and nothing else; the \<System Name\> team has no control over the rules (D-AC-20). Browsers load code only from \<System Name\>. Items leave only as downloads by a schema's editors. ServiceNow and the Starters/Leavers system (F9) have no connection to \<System Name\> | The designed flows exist, but nothing enforces them. No firewall rules or TLS are set (PA-18). In the test environment the web, admin and API ports are open on every network interface. Every page loads scripts and styles from an outside service, with no integrity check (PA-34). Export to Folder can write outside the approved route (PA-26). The API accepts cross-origin requests only from named origins |
 
@@ -678,7 +678,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 38: AC-5 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Identify and document the duties that must be separated | Section 3.5: approving and granting access; administering and auditing; application, Windows and database administration; and development and production administration. Six rules apply | Proposed (D-AC-03), not yet approved. The named holders are all different people (\<Roles and Responsibilities\>) |
 | b | Define access so that it supports the separation | Separate roles carry each duty (Table 5): only auditors read audit logs, only security officers read security information, and neither holds an administration role. Server and database administration use separate accounts. Developers have no administrator access on the servers | In the tested build an auditor can read audit logs and cannot manage users (T73, T74). But an administrator can read the audit logs of their own actions (T75), and could grant administrator with no second person. Proposed for acceptance for 12 months as a Medium risk, with the Head of Cyber checking the administrator's actions every 3 months (D-AC-07, NC-11) |
@@ -701,7 +701,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 40: AC-6 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Give users, and processes acting for them, only the access their tasks need | People: access only through the roles and schema groups in section 3, each approved for a stated need. Administrators reach every schema. Processes: only the API connects to SQL Server, with one service account that is not a sysadmin and cannot change the schema (section 3.6, D-AC-18). Each app runs under its own Windows service account, which is not an administrator, cannot sign in interactively, and can read only its own files (sections 3.6.1 and 3.6.3, D-AC-19). No maintenance, diagnostic or test page is present in production | Readers and editors are limited to their own schemas and refused administration. The apps do not run as root in the test environment. Gaps: all three apps share one database sysadmin (T55, PA-10); an administrator can read every schema, including HR (PA-15); session, notification, cache and diagnostic functions are open to ordinary users (PA-02, PA-03, PA-06, PA-07, PA-29); five maintenance pages remain, one of which can delete every schema (PA-31); Export to Folder (PA-26); secrets in the repositories (PA-19) |
 
@@ -723,7 +723,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 42: AC-6(1) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Authorise named people and roles to use security functions, in hardware, software and firmware | Software: the functions in section 3.8, open only to the privileged roles in Table 3. Hardware and firmware: the physical hosts, network equipment and host firmware, held by \<Organisation\>'s network and infrastructure teams | User, group, schema, role, credential and schema functions are open only to administrators (T26, T28, T29). A reader is refused the audit and security pages (T71, T72). But session roles, notification clean-up, the API cache and audit writes are open to others (PA-02, PA-03, PA-06, PA-29). Nobody is yet named for Windows, SQL Server, firewall rules, certificates or the hypervisor (PA-30) |
 | b | Authorise named people and roles to see security-relevant information | The information in section 3.8, readable only by those roles. Secrets are kept out of the code repositories, and each app's secrets are readable only by that app's service account and the Windows server administrators (section 3.6.3) | Any signed-in user can see all users, their administrator settings and all schemas on diagnostic pages (T30, T65, T70, PA-07). The signing key and database password are in the code repositories (PA-19). In the tested build all three apps could read password hashes and sessions through one database account (PA-10); the design holds no passwords |
@@ -747,7 +747,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 44: AC-6(2) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | People with access to security functions use a non-privileged account for other work | Each administrator has two AD accounts: a privileged one for administration, and an everyday one for item work (P-AC-18; \<Security Operating Procedures\>, rules B2 and B3) | The rule is approved. No everyday accounts are issued, and nothing stops an administrator reading documents with the privileged account (T18). Accepted as a Low risk (NC-14) |
 
@@ -769,7 +769,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 46: AC-6(5) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Restrict privileged accounts to named people or roles | Only six roles hold privileged access: administrator, administrator, auditor, security officer, Windows server administrator and database administrator. Each application role is an AD group whose only owner is the system owner, who authorises each member after role training and a signed Part B of \<Security Operating Procedures\> (PRO-AC-6). An administrator cannot add anyone to a group. The API's database service account is privileged and headless, and is managed by the database administrator. Only the named Windows server and database administrators may sign in to the servers (section 3.6.2) | In the tested build, administrator was a setting that another administrator could give. The apps' database account is a sysadmin (T55, PA-10). Server administrator accounts do not exist yet (PA-30) |
 
@@ -792,7 +792,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 48: AC-6(7) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Review the privileges of defined roles on a schedule | Each group's owner reviews its members against the ServiceNow requests: the role groups every 3 months, by the system owner with the auditor, and the Head of Cyber as an extra check on administrators; schema groups every 12 months, by the Data Owners (P-AC-07, PRO-AC-7) | No review has been held (PA-16) |
 | b | Remove or reassign privileges where needed | The owner removes a member who no longer needs the access, in Active Directory, and records it on TPL-3 | Not yet used |
@@ -815,7 +815,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 50: AC-6(9) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Log the use of privileged functions | Every use of a function in section 3.8 writes an audit record naming the person, the action, the target and the time. Only the system can write audit records | Logged: administrator password resets, and administrator changes on one of the two pages that make them. Not logged: the other of those pages, ending a user's sessions (T37), creating or deactivating users, unlocking accounts, group, schema and role changes, and the maintenance pages (PA-14, PA-31). The API records some events against "System". Ordinary users can add audit records through diagnostic pages, so the log cannot yet be fully relied on (PA-29) |
 
@@ -837,7 +837,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 52: AC-6(10) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Prevent ordinary users from running privileged functions | Each privileged function checks the caller's role where the function runs, not only in the menu. Table 5 says which role may run each. Everything else is refused | All 30 Admin application pages need a role, and a reader was refused each one tested, along with listing and ending other users' sessions (T24 to T29 pass). Gaps, 13 checks: a reader can change another user's session role and create session records (T33, T34, PA-02); send notifications to anyone and run clean-up (T35, T36, PA-06); and open eight diagnostic pages and a diagnostic address that show all users and schemas (T30 to T32, T65 to T70, PA-07). In a browser, a reader also wrote audit records and pressed buttons that start database migrations (PA-29). The cache can be cleared without signing in (PA-03) |
 
@@ -859,7 +859,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 54: AC-7 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Limit consecutive failed sign-ins in a set period | PingFederate and Active Directory count failed sign-ins, under \<Organisation\>'s corporate standard, which \<System Name\> accepts. \<System Name\> has no sign-in of its own | \<Organisation\>'s values are to be supplied. The tested build enforced 5 failures at its own sign-in (T49) |
 | b | Act automatically when the limit is reached | PingFederate and Active Directory lock the account, under the same standard. The lock applies to every system the person uses, not only \<System Name\> | To be supplied. The tested build locked for 15 minutes (T49, T50) |
@@ -883,7 +883,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 56: AC-8 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Show a notice before access, stating that use is monitored and recorded, that unauthorised use is prohibited and may be penalised, and that use means consent | Each app shows the notice on its first page, before it sends the user to PingFederate to sign in: "This system is for authorised use only. Activity is monitored and recorded. Unauthorised use may lead to disciplinary or legal action. By signing in you accept these terms." (P-AC-16). The notice names \<Organisation\>, not the U.S. Government (TR-AC-03) | The tested build showed no notice on either sign-in page (T51, T52, PA-11). The wording is approved, with the legal adviser's review due by 20 November 2026 (D-AC-06) |
 | b | Keep the notice on screen until the user accepts it | The notice stays until the user chooses to continue to sign-in, which is the acceptance | Not built (PA-11) |
@@ -908,7 +908,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 58: AC-11 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Prevent further access by locking after a period of inactivity | \<System Name\> has no page lock of its own. \<Organisation\>'s managed devices and the servers lock the screen after the inactivity period in P-AC-15, by Group Policy or device management | The tested build had a page lock after 25 minutes (T53), which the reference design does not have. \<Organisation\>'s screen lock is not evidenced (PA-21) |
 | b | Keep the lock until the user signs in again | The device lock stays until the user unlocks the device with their own credentials | Not evidenced (PA-21) |
@@ -932,7 +932,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 60: AC-11(1) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Hide what was on screen while locked | The lock screen of \<Organisation\>'s managed devices and servers hides the display | Device locks are not evidenced (PA-21). The tested build's page overlay is not part of the reference design |
 
@@ -955,7 +955,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 62: AC-12 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | End a user's session automatically under set conditions | \<System Name\> has no session management. A user's sign-in ends when PingFederate's sign-in lifetime for \<System Name\> ends (P-AC-10), or when \<Organisation\> ends their PingFederate sign-in or disables their account. \<System Name\> holds the sign-in only in its authentication cookie, whose lifetime is no longer than PingFederate's, and reads the person's groups from Active Directory at sign-in, so a change to their groups takes effect at their next sign-in | The tested build ended sessions itself after 30 minutes idle and 8 hours, on sign-out and when an administrator ended them (T38, T44, T45, T46, T47), which the reference design does not have. PingFederate's sign-in lifetime is not yet supplied or evidenced |
 
@@ -978,7 +978,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 64: AC-14 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Identify the actions allowed without signing in | Only these (P-AC-25): be sent to PingFederate to sign in; see the access-denied page; load static files such as scripts, styles and images; and check that the API is running, which returns one status word. Reviewed every 12 months and after a change (PRO-AC-14) | Every route in both apps and 18 API addresses were requested without signing in. All others redirected to sign-in or were refused (T01 to T06 pass). Three gaps: cache statistics and clearing the cache (T07, T08, PA-03); a diagnostic address that returns the environment name; and a test page (T09, PA-07). Windows and SQL Server are not examined (PA-28) |
 | b | Record them in the security plan, with the reason for each | Each is needed before a person can identify themselves, and none returns business data. The API health check supports monitoring. The list and reasons are also stated in \<System Security Plan\> | The list and rationale are approved (D-AC-12) |
@@ -1001,7 +1001,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 66: AC-17 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Set usage restrictions, connection requirements and guidance for each type of remote access | One type only: \<Organisation\>'s VPN, from a managed device, with multi-factor authentication. Used by users working from home and by approved administrators. \<System Name\> is not reachable from the internet. Rules for users are in \<Security Operating Procedures\> (rules A39 and A40) | \<Organisation\> has stated this. The service is not yet named, and no restrictions are written down (PA-18) |
 | b | Authorise each type before it is used | \<Organisation\> authorises VPN access for each person through its own process | Not evidenced |
@@ -1025,7 +1025,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 68: AC-17(1) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Monitor and control remote access automatically | \<Organisation\> logs and monitors VPN sessions | Stated by \<Organisation\>; not evidenced (PA-18, PA-21) |
 
@@ -1048,7 +1048,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 70: AC-17(2) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Encrypt remote access sessions | The VPN is encrypted. Inside it, every \<System Name\> flow uses TLS under NCSC's profiles: HTTPS to both apps, and TLS to SQL Server | The VPN is encrypted, as stated. \<System Name\> uses plain HTTP in the test environment, and the database has no TLS (T54, PA-18). The apps include HTTPS redirection and HSTS settings, which are not in effect |
 
@@ -1071,7 +1071,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 72: AC-17(3) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Route remote access through managed access control points | All remote access enters through \<Organisation\>'s one managed gateway | Stated by \<Organisation\>; not evidenced (PA-18, PA-21) |
 
@@ -1094,9 +1094,9 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 74: AC-17(4) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
-| a | Allow privileged commands over remote access only for set needs, leaving evidence | Not applicable. NIST defines remote access as access through external networks. Administration takes place only from inside \<Organisation\>'s network, so no privileged remote access is allowed (D-AC-08) | \<Organisation\> is to confirm the route, and that outside routes to the servers' administration ports are blocked (EV-AC-12) |
+| a | Allow privileged commands over remote access only for set needs, leaving evidence | Not applicable. CSS defines remote access as access through external networks. Administration takes place only from inside \<Organisation\>'s network, so no privileged remote access is allowed (D-AC-08) | \<Organisation\> is to confirm the route, and that outside routes to the servers' administration ports are blocked (EV-AC-12) |
 | b | Record the reason in the security plan | The reason is in \<Tailoring Register\> (TR-AC-05), for the authorising official's approval | Recorded, not yet approved |
 
 **Table 75: AC-17(4) responsibility and evidence**
@@ -1118,7 +1118,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 76: AC-18 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Set configuration and connection requirements for each type of wireless access | \<System Name\> has no wireless part. Users' devices may use \<Organisation\>'s corporate wireless network, under its wireless policy (P-AC-21). Users must not use public wireless without the VPN (\<Security Operating Procedures\>, rule A40) | No evidence from \<Organisation\> yet (PA-21) |
 | b | Authorise each type before it is used | \<Organisation\> authorises wireless access | Not evidenced |
@@ -1142,7 +1142,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 78: AC-18(1) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Protect wireless access with authentication and encryption | \<Organisation\>'s wireless network authenticates both users and devices, and is encrypted | Stated by \<Organisation\>'s security contact on 5 November 2026 (D-AC-P20); not evidenced (PA-21) |
 
@@ -1165,7 +1165,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 80: AC-18(3) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Turn off wireless networking not intended for use, before deployment | The two servers have no wireless adapter. \<Organisation\>'s build standard disables wireless where it is not needed | To be confirmed on the built servers (PA-21) |
 
@@ -1188,7 +1188,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 82: AC-19 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Set requirements for mobile devices | Not applicable. Phones and tablets are not to be used with \<System Name\> in the first release (D-AC-09) | \<System Name\> cannot identify a device, so the rule depends on \<Organisation\>'s device controls, which are not evidenced (EV-AC-15) |
 | b | Authorise mobile device connections | Not applicable: none is authorised | None authorised |
@@ -1212,7 +1212,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 84: AC-19(5) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Encrypt information on mobile devices | Not applicable: no mobile devices are used (TR-AC-06) | As AC-19 |
 
@@ -1235,7 +1235,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 86: AC-20 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Set the terms on which external systems may reach or hold the system's information | External systems may reach or hold \<System Name\> data only with the system owner's written approval (P-AC-22). None is approved. Terms and conditions are used, not asserted controls (TR-AC-10) | Proposed (D-AC-10), not yet approved |
 | b | Prohibit named types of external system | Personal devices, personal cloud storage and any unmanaged system are prohibited (\<Security Operating Procedures\>, rules A31, A35 and A45) | \<Organisation\> states that unmanaged devices are blocked from its network. \<System Name\> cannot recognise an approved device, and there is no evidence (PA-21) |
@@ -1259,7 +1259,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 88: AC-20(1) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Allow external systems only after checking their controls, or under a retained agreement | Not applicable: no external system is allowed to reach or hold \<System Name\> data, and none is proposed (TR-AC-07) | No approval has been given |
 
@@ -1281,7 +1281,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 90: AC-20(2) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Restrict the use of portable storage on external systems | USB and other portable storage may not hold \<System Name\> data without the system owner's approval, recorded as a sharing decision (P-AC-22, PRO-AC-16; \<Security Operating Procedures\>, rule A32) | \<Organisation\> states that USB storage is blocked unless approved; not evidenced (PA-21). Downloads and bulk export can still reach any device the user has |
 
@@ -1304,7 +1304,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 92: AC-21 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Let authorised users decide whether a sharing partner's access matches the restrictions on the information | Sharing outside a schema needs a decision by that schema's Data Owner, who checks that the recipient is authorised for the information (P-AC-23, PRO-AC-16, record TPL-2). Exported documents stay under the schema's rules | Not yet approved. Documents carry no record of their sharing restrictions (PA-22). Accepted as a Low risk (NC-38) |
 | b | Use automated mechanisms or a manual process to assist the decision | A manual process: PRO-AC-16 | Not yet used. Nothing in the system assists (PA-22) |
@@ -1327,7 +1327,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 94: AC-22 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Control what is published on publicly accessible systems | Not applicable: \<System Name\> holds and serves no public content (P-AC-24, D-AC-11). Every document needs sign-in | Documents need sign-in (T02, T03). The open functions under AC-14 return no documents |
 
@@ -1473,11 +1473,11 @@ The tests for each control, with their results, are listed with the control in s
 
 ## Appendix B Parameter register
 
-NIST SP 800-53A identifies the values an organisation must define for each control. This register records every such value for the 39 AC entries, using NIST's identifiers: 62 in total. "Proposed" means the value awaits approval. "As built, not approved" means the running system uses the value, but nobody has approved it. "Open" means someone must decide it. **The State before approval column shows the position of the tested build, and the State now column shows it against the reference design in \<System Description\>. None of the values has yet been approved. \<Organisation\>'s security contact is asked to confirm AC-06(01)\_ODP\[02\] and \[04\] (its network and infrastructure teams) and AC-18(01)\_ODP (users and devices). The values for AC-02(02), AC-17(04), AC-19(05) and AC-22 are not applicable under \<Tailoring Register\>.**
+CSS identifies the values an organisation must define for each control. This register records every such value for the 39 AC entries, using the CSS identifiers: 62 in total. "Proposed" means the value awaits approval. "As built, not approved" means the running system uses the value, but nobody has approved it. "Open" means someone must decide it. **The State before approval column shows the position of the tested build, and the State now column shows it against the reference design in \<System Description\>. None of the values has yet been approved. \<Organisation\>'s security contact is asked to confirm AC-06(01)\_ODP\[02\] and \[04\] (its network and infrastructure teams) and AC-18(01)\_ODP (users and devices). The values for AC-02(02), AC-17(04), AC-19(05) and AC-22 are not applicable under \<Tailoring Register\>.**
 
 **Table 102: Parameter register**
 
-| NIST identifier | What must be defined | Value | Source | State before approval | State now |
+| CSS identifier | What must be defined | Value | Source | State before approval | State now |
 | --- | --- | --- | --- | --- | --- |
 | AC-01\_ODP\[01\] | Who receives the policy | Everyone who uses or administers \<System Name\> | \<Policy\>, section AC.6 | Proposed | Proposed (D-AC-P01), not yet approved |
 | AC-01\_ODP\[02\] | Who receives the procedures | Everyone who uses or administers \<System Name\> | \<Policy\>, section AC.6 | Proposed | Proposed (D-AC-P01), not yet approved |

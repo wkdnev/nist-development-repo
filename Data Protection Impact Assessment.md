@@ -2,7 +2,7 @@
 
 ## 1 Purpose and how to complete this draft
 
-This is the data protection impact assessment for \<System Name\> required before production (\<Policy\> (PT); PA-72; NIST SP 800-53 RA-8). It follows the steps of the ICO's sample DPIA template.
+This is the data protection impact assessment for \<System Name\> required before production (\<Policy\> (PT); PA-72; CSS RA-8). It follows the steps of the ICO's sample DPIA template.
 
 The facts about \<System Name\> are filled in from the documents and tests. Everything that is a legal judgement is shown in square brackets for the legal adviser: the lawful basis, the special category and Schedule 1 conditions, whether an appropriate policy document is needed, the final risk scores, and the decision. Nothing in square brackets has been decided.
 
@@ -115,6 +115,6 @@ Likelihood and severity are proposed by the assessor from the test evidence. The
 | UK GDPR, Articles 5, 6, 9, 30, 35 and 36; Data Protection Act 2018, Schedule 1 | The law this assessment applies |
 | Data (Use and Access) Act 2025 | Complaints to the controller, and reasonable and proportionate searches |
 | ICO sample DPIA template; ICO guidance on keeping employment records (February 2025) | The structure and the employment context |
-| NIST SP 800-53 Rev 5, RA-8, PT-2, PT-3 and PT-7 | The controls this assessment supports |
+| CSS, RA-8, PT-2, PT-3 and PT-7 | The controls this assessment supports |
 | \<PII Processing Management\>, \<Privacy Plan\>, \<Policy\> (PT), \<Procedures\> (PT), \<Risk List\> and \<Plan of Action and Milestones\> | Inventory, privacy plan, policy, procedures, risks and fixes |
 | the PT evidence | Test-PersonalData.ps1 results |

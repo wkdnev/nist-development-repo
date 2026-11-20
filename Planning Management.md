@@ -2,13 +2,13 @@
 
 ## 1 Purpose
 
-This document shows how \<System Name\>'s plans are written, approved, shared, reviewed and protected, for each of the 7 Planning (PL) controls and enhancements in the NIST SP 800-53 Rev 5 Moderate baseline. Section 3 sets out the design: the register of every plan in force, what the security plan and the privacy plan must hold and where each part is, how a plan is approved and kept current, the rules of behaviour and who has signed them, the architecture, and the baseline and its tailoring. Section 4 takes each control in turn. Appendix A lists every value NIST asks the organisation to define, and appendix B the PL controls NIST does not select at Moderate.
+This document shows how \<System Name\>'s plans are written, approved, shared, reviewed and protected, for each of the 7 Planning (PL) controls and enhancements in the CSS Moderate baseline. Section 3 sets out the design: the register of every plan in force, what the security plan and the privacy plan must hold and where each part is, how a plan is approved and kept current, the rules of behaviour and who has signed them, the architecture, and the baseline and its tailoring. Section 4 takes each control in turn. Appendix A lists every value CSS asks the organisation to define, and appendix B the PL controls CSS does not select at Moderate.
 
 This is the only place this design is held. Other documents point here. The policy is in \<Policy\> (PL), and the steps people follow are in \<Procedures\> (PL). The plans themselves are separate documents, listed in section 3.2.
 
-An assessor examines the plans against what NIST requires them to hold, their approvals and review records, who received them and how they are protected, the signed rules of behaviour, and the architecture; and interviews those who keep the plans and a sample of those who signed the rules (NIST SP 800-53A). So for each control section 4 gives:
+An assessor examines the plans against what CSS requires them to hold, their approvals and review records, who received them and how they are protected, the signed rules of behaviour, and the architecture; and interviews those who keep the plans and a sample of those who signed the rules (CSS). So for each control section 4 gives:
 
-- **each part of the control**, as NIST letters them, with the design that meets it and the position today;
+- **each part of the control**, as CSS letters them, with the design that meets it and the position today;
 - **who provides it**, and who is responsible;
 - **what enforces it**, the rules and procedures that apply, and the tests run;
 - **the records an assessor will ask for**, and whether they exist yet;
@@ -76,7 +76,7 @@ Every plan and planning record in force, with its owner, version, approver and n
 | Security architecture | \<Security Architecture\> | \<ver\> | System owner | System owner (D-PL-08) | November 2027, and after a significant change |
 | Concept of operations | \<Concept of Operations\> | \<ver\> | System owner | System owner | November 2027 |
 | Rules of behaviour | \<Security Operating Procedures\> | \<ver\> | System owner | System owner | November 2027, and after a material change (D-PL-P02) |
-| Baseline and tailoring | NIST SP 800-53 Rev 5 Moderate and privacy baselines; \<Tailoring Register\> | \<ver\> | System owner | System owner; acceptance by the authorising official pending (D-PL-09) | November 2027, and when a condition changes |
+| Baseline and tailoring | CSS Moderate and privacy baselines; \<Tailoring Register\> | \<ver\> | System owner | System owner; acceptance by the authorising official pending (D-PL-09) | November 2027, and when a condition changes |
 | Risk list | \<Risk List\> | \<ver\> | System owner | System owner | Every 3 months once in operation |
 | Plan of action | \<Plan of Action and Milestones\> | \<ver\> | System owner | System owner | Monthly once in operation |
 
@@ -84,11 +84,11 @@ The versions in the register are checked by the plan consistency test (check L22
 
 ### 3.3 What the plans hold
 
-PL-2 lists 15 things a security plan and a privacy plan must hold. The security plan is \<System Security Plan\>, written to NIST SP 800-18 Revision 2, and the privacy plan is \<Privacy Plan\>. The system owner confirmed Table 4 on 17 November 2026 (D-PL-13).
+PL-2 lists 15 things a security plan and a privacy plan must hold. The security plan is \<System Security Plan\>, written to CSS, and the privacy plan is \<Privacy Plan\>. The system owner confirmed Table 4 on 17 November 2026 (D-PL-13).
 
 **Table 4: Where each required part of the plans is held**
 
-| Part | NIST requires | Security plan | Privacy plan | Today |
+| Part | CSS requires | Security plan | Privacy plan | Today |
 | --- | --- | --- | --- | --- |
 | a.1 | Consistent with the enterprise architecture | \<System Security Plan\>, section 4; \<Security Architecture\>, sections 4 and 6.3 | \<Privacy Plan\>, section 8 | \<Organisation\>'s architecture has not been seen (EV-PL-01) |
 | a.2 | Defines the components of the system | \<System Security Plan\>, sections 3.1 and 3.4; \<Security Architecture\>, section 2 | \<Privacy Plan\>, section 2 | Met |
@@ -143,7 +143,7 @@ The security architecture is \<Security Architecture\>, which states the protect
 
 ### 3.7 Baseline and tailoring
 
-The baseline is NIST SP 800-53B Moderate, with the privacy baseline. It was chosen from the categorisation of \<System Name\>'s information, which is Moderate for confidentiality and integrity and Low for availability. A control, or a part of one, is set aside only through \<Tailoring Register\>, with a rationale, a condition that must hold, what happens if the condition changes, and a recorded decision. Each condition is checked at the yearly review.
+The baseline is CSS Moderate, with the privacy baseline. It was chosen from the categorisation of \<System Name\>'s information, which is Moderate for confidentiality and integrity and Low for availability. A control, or a part of one, is set aside only through \<Tailoring Register\>, with a rationale, a condition that must hold, what happens if the condition changes, and a recorded decision. Each condition is checked at the yearly review.
 
 ### 3.8 What \<Organisation\> provides
 
@@ -157,13 +157,13 @@ The baseline is NIST SP 800-53B Moderate, with the privacy baseline. It was chos
 
 ## 4 Each control and enhancement
 
-The controls are in NIST order. Each has two tables. The first takes each part of the control and gives what NIST requires, the design that meets it, and the position today. The second says who provides and is responsible for the control, what enforces it, the rules and procedures that apply, the tests run, the records an assessor will ask for, its status, the risk decision, and what is still open.
+The controls are in CSS order. Each has two tables. The first takes each part of the control and gives what CSS requires, the design that meets it, and the position today. The second says who provides and is responsible for the control, what enforces it, the rules and procedures that apply, the tests run, the records an assessor will ask for, its status, the risk decision, and what is still open.
 
 ### 4.1 PL-1 Policy and Procedures
 
 **Table 8: PL-1 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a.1 | A planning policy, shared with defined people, covering purpose, scope, roles, responsibilities, management commitment, coordination and compliance, and consistent with the law | \<Policy\> (PL): a system-level policy, shared with everyone who administers \<System Name\>. The legal adviser reviews it | Version \<ver\> approved by the Head of Cyber (D-PL-01) and legally reviewed on 11 November 2026. The later version awaits the Head of Cyber (D-PL-07). Not yet shared (PA-20) |
 | a.2 | Procedures that carry out the policy, shared with defined people | \<Procedures\> (PL): six procedures, PRO-PL-1 to PRO-PL-6. Shared with the same people | Approved by the system owner (D-PL-08). Not yet shared or walked through |
@@ -189,9 +189,9 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 10: PL-2 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
-| a | Develop security and privacy plans that hold the 15 things NIST lists, from the fit with the enterprise architecture to approval by the authorising official | \<System Security Plan\> is the security plan and \<Privacy Plan\> the privacy plan. Section 3.3 shows where each of the 15 is held | Thirteen of the 15 are met. \<Organisation\>'s enterprise architecture has not been seen (EV-PL-01), and the privacy risk results wait on the impact assessment, which is a draft (PA-72) |
+| a | Develop security and privacy plans that hold the 15 things CSS lists, from the fit with the enterprise architecture to approval by the authorising official | \<System Security Plan\> is the security plan and \<Privacy Plan\> the privacy plan. Section 3.3 shows where each of the 15 is held | Thirteen of the 15 are met. \<Organisation\>'s enterprise architecture has not been seen (EV-PL-01), and the privacy risk results wait on the impact assessment, which is a draft (PA-72) |
 | b | Give copies of the plans to defined people, and tell them of later changes | The Head of Cyber, the administrators and \<Organisation\>'s security contact receive a link to the restricted copy when a plan is approved or changed. Each issue is recorded in the plan review record (section 3.4) | Not yet shared (PA-123) |
 | c | Review the plans on a schedule | Every 12 months, and after an assessment, a significant change or a problem found in use. Each review is recorded in the plan review record | The plan review record was started on 11 November 2026. The first yearly review falls due in November 2027 |
 | d | Update the plans for changes to the system and for problems found in use or in assessments | The affected plans are updated, each with a line in its change record, and the consistency test of 24 checks is run on the whole set before a plan is issued | Done at each change. The test passes on the current set |
@@ -215,7 +215,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 12: PL-4 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Set rules for everyone who needs access, describing their responsibilities and the behaviour expected for use of the system, security and privacy, and give the rules to them | \<Security Operating Procedures\> is the rules of behaviour. Part A applies to everyone, and Part B, the privileged rules, to administrators as well. The privacy rules are A23 to A29 | Approved by the system owner (D-PL-05) |
 | b | Receive each person's documented acknowledgement before giving them access | Each person signs a declaration, before access, that they have read and understood the rules and agree to follow them. The signature is recorded on TPL-21 and in the register in section 3.5, and the access request checks the register before access is given | Nobody has signed. The form and the register are ready (PA-123) |
@@ -240,7 +240,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 14: PL-4(1) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Include in the rules limits on the use of social media, social networking sites and external sites and applications | Rule A43: \<System Name\> information, documents and how the system works are not posted or discussed on social media, forums or any public website. Rule A45 limits outside services and AI tools | Met: the rules are approved |
 | b | And on posting the organisation's information on public websites | Rules A25 and A43 | Met |
@@ -264,7 +264,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 16: PL-8 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a.1 | A security architecture that describes the requirements and approach for protecting confidentiality, integrity and availability | \<Security Architecture\>, section 6: the protection goals, design principles, trust zones and layers of defence | Met |
 | a.2 | A privacy architecture that describes the requirements and approach for processing personal data so as to limit the risk to individuals | \<Privacy Plan\>, section 8 | Met |
@@ -291,9 +291,9 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 18: PL-10 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
-| All | Select a control baseline for the system | The NIST SP 800-53B Moderate baseline, with the privacy baseline, chosen from the categorisation in \<System Security Plan\>, section 3.3 | Selected, and approved by the authorising official (D-GEN-06) |
+| All | Select a control baseline for the system | The CSS Moderate baseline, with the privacy baseline, chosen from the categorisation in \<System Security Plan\>, section 3.3 | Selected, and approved by the authorising official (D-GEN-06) |
 
 **Table 19: PL-10 responsibility and evidence**
 
@@ -313,7 +313,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 20: PL-11 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Tailor the selected baseline by applying defined tailoring actions | A control or a part of one is set aside only through \<Tailoring Register\>, with a rationale, a condition that must hold, and a recorded decision. Each condition is checked at the yearly review (PRO-PL-4) | In use. The tailoring register is approved by the system owner (D-PL-09). The authorising official's acceptance of it as a record is pending |
 
@@ -333,11 +333,11 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 ## Appendix A Parameter register
 
-These are NIST's organisation-defined values for the 7 PL entries: 15 in total. They were agreed on 6 November 2026 (D-PL-P01), and the value for signing again was refined on 11 November 2026 (D-PL-P02).
+These are the CSS organisation-defined values for the 7 PL entries: 15 in total. They were agreed on 6 November 2026 (D-PL-P01), and the value for signing again was refined on 11 November 2026 (D-PL-P02).
 
 **Table 22: PL parameter register**
 
-| NIST identifier | What must be defined | Value |
+| CSS identifier | What must be defined | Value |
 | --- | --- | --- |
 | PL-01\_ODP\[01\] | Who receives the policy | Everyone who administers \<System Name\> |
 | PL-01\_ODP\[02\] | Who receives the procedures | Everyone who administers \<System Name\> |
@@ -357,7 +357,7 @@ These are NIST's organisation-defined values for the 7 PL entries: 15 in total. 
 
 ## Appendix B PL controls outside the Moderate baseline
 
-NIST does not select these in the Moderate security baseline, so they are not assessed in this family. One is in NIST's privacy baseline, and is assessed with the PT family. The design already does what two of the others ask, and Table 23 says where.
+CSS does not select these in the Moderate security baseline, so they are not assessed in this family. One is in the CSS privacy baseline, and is assessed with the PT family. The design already does what two of the others ask, and Table 23 says where.
 
 **Table 23: PL controls not selected at Moderate**
 
@@ -367,4 +367,4 @@ NIST does not select these in the Moderate security baseline, so they are not as
 | PL-8(1) Defense in Depth | Controls placed in layers, so that one failure does not expose the system | Not required. Done in design: the layers of defence in \<Security Architecture\>, section 6.4 |
 | PL-8(2) Supplier Diversity | Controls in different layers obtained from different suppliers | Not required |
 | PL-9 Central Management | Defined controls and processes managed centrally | Privacy baseline, so it applies. The whole document set is managed as one, by one owner, with one consistency test. Assessed with the PT family; partly in place, as the set is not yet in the restricted store (NC-PT-13; PA-88) |
-| PL-2(1), PL-2(2), PL-2(3), PL-3, PL-5, PL-6 | Withdrawn by NIST | Not applicable |
+| PL-2(1), PL-2(2), PL-2(3), PL-3, PL-5, PL-6 | Withdrawn by CSS | Not applicable |

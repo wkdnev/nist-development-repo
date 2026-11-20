@@ -57,7 +57,7 @@ This list is used by every control family, and this version covers the AC, AU, I
 
 \<System Name\> is not required to meet every control. The organisation takes a risk-based approach: every non-compliance is identified and documented, its risk is understood, and a named person decides what happens to it. A risk that is acceptable may be accepted with a recorded decision. A risk that is too high requires a remediation plan in \<Plan of Action and Milestones\>. Finding a non-compliance does not by itself start a fix.
 
-This method follows the risk response in NIST SP 800-37 Rev 2 (tasks R-2 and R-3). The risk model follows NIST SP 800-30 Rev 1: a threat source exploits a weakness, with a likelihood, to cause an impact. The system owner agreed the method, and the authorising official confirmed it on 6 November 2026.
+This method follows the risk response in CSS (tasks R-2 and R-3). The risk model follows CSS: a threat source exploits a weakness, with a likelihood, to cause an impact. The system owner agreed the method, and the authorising official confirmed it on 6 November 2026.
 
 ### 4.1 Rating
 
@@ -71,7 +71,7 @@ Likelihood and impact are each rated Low, Medium or High. Impact considers the c
 | Medium | Low | Medium | High |
 | High | Low | Medium | High |
 
-The matrix weights impact more than likelihood on purpose. A High impact can never rate below Medium, and a Low impact never above Low, because \<System Name\>'s harm is driven by what it holds: one disclosure of HR documents matters more than how often an attempt is made. NIST SP 800-30 Rev 1 allows the organisation to set this (Appendix I).
+The matrix weights impact more than likelihood on purpose. A High impact can never rate below Medium, and a Low impact never above Low, because \<System Name\>'s harm is driven by what it holds: one disclosure of HR documents matters more than how often an attempt is made. CSS allows the organisation to set this (Appendix I).
 
 **Table 3a: Likelihood scale**
 
@@ -85,13 +85,13 @@ The matrix weights impact more than likelihood on purpose. A High impact can nev
 
 | Level | Meaning |
 | --- | --- |
-| High | Severe or serious adverse effect (FIPS 199): disclosure or loss of many documents or of special category data, or \<Organisation\> breaching the law |
+| High | Severe or serious adverse effect (CSS): disclosure or loss of many documents or of special category data, or \<Organisation\> breaching the law |
 | Medium | Serious adverse effect on part of the service: some documents disclosed or changed, or a loss of service beyond the 72-hour recovery time |
 | Low | Limited adverse effect: no documents disclosed, and a short loss of service within the recovery time |
 
 **Table 3c: Threat sources considered**
 
-| Source (SP 800-30 Rev 1, Table D-2) | Examples for \<System Name\> |
+| Source (CSS, Table D-2) | Examples for \<System Name\> |
 | --- | --- |
 | Adversarial | An outsider exploiting a known flaw; an insider reading another project's documents; a supplier's compromised package |
 | Accidental | An administrator deleting or misconfiguring; a user sending an export to the wrong person |
@@ -148,7 +148,7 @@ These thresholds are \<System Name\>'s own. They are to be confirmed against \<O
 
 ## 5 Non-compliance register
 
-This register has one entry for each control that is not fully satisfied, by family in NIST order. **The authorising official decided some items on 6 November 2026, and chose to remediate TLS and committed secrets (PA-18, PA-19) before production, the other High items within 6 months after production, and the Medium items through the plan. Multi-factor authentication (NC-IA-03, NC-IA-04) is accepted to 6 May 2027 (\<Decision Register\>).** Cause codes are D (a decision or approval is outstanding), G (a gap in the system) and E (evidence is not yet available from the VMs or \<Organisation\>). Ratings marked "provisional" will be set when the evidence is seen.
+This register has one entry for each control that is not fully satisfied, by family in CSS order. **The authorising official decided some items on 6 November 2026, and chose to remediate TLS and committed secrets (PA-18, PA-19) before production, the other High items within 6 months after production, and the Medium items through the plan. Multi-factor authentication (NC-IA-03, NC-IA-04) is accepted to 6 May 2027 (\<Decision Register\>).** Cause codes are D (a decision or approval is outstanding), G (a gap in the system) and E (evidence is not yet available from the VMs or \<Organisation\>). Ratings marked "provisional" will be set when the evidence is seen.
 
 ### 5.1 Access Control (AC)
 
@@ -348,7 +348,7 @@ There is one entry for each IA control that is neither satisfied nor tailored ou
 | NC-IA-07 | IA-4 | ServiceNow authorisation is not set up, and deletion frees a username | G | R-AC-06 | Low | Remediate | PRO-AC-3 keeps accounts disabled, which limits this | PA-20, PA-47 | Remediate |
 | NC-IA-08 | IA-4(4) | No staff or contractor status | G | R-AC-06 | Low | Remediate | Small field | PA-47 | Remediate |
 | NC-IA-09 | IA-5 | Users cannot change their own password, and secrets are committed and never rotated | D, G | R-AC-04 | High | Remediate | Secrets give full database control | PA-19, PA-44 | Remediate |
-| NC-IA-10 | IA-5(1) | Blocked list has 15 entries, traffic is plain HTTP, there is no strength tool, and 12 to 14-character passwords are accepted where SP 800-63B-4 requires 15 while sign-in is password-only (I02, I03) | G | R-AC-10 | Medium | Remediate | Weak passwords are accepted | PA-18, PA-45, PA-49, PA-82 | Remediate |
+| NC-IA-10 | IA-5(1) | Blocked list has 15 entries, traffic is plain HTTP, there is no strength tool, and 12 to 14-character passwords are accepted where CSS requires 15 while sign-in is password-only (I02, I03) | G | R-AC-10 | Medium | Remediate | Weak passwords are accepted | PA-18, PA-45, PA-49, PA-82 | Remediate |
 | NC-IA-11 | IA-5(6) | Secrets are committed in source | G | R-AC-04 | High | Remediate | With PA-19 | PA-19 | Remediate |
 | NC-IA-12 | IA-6 | Windows logon not assessable | E | R-AC-11 | Low | Evidence | Application tested | PA-25 | Obtain evidence |
 | NC-IA-13 | IA-7 | Cryptographic modules on the VMs are not confirmed | E | R-AC-11 | Low | Evidence | Confirm on the VMs | PA-48 | Obtain evidence |
@@ -411,7 +411,7 @@ There is one entry for each MP control, as none is yet satisfied. The decisions 
 | NC-MP-03 | MP-3 | Nothing \<System Name\> shows or produces is marked RESTRICTED (P04, P07); printouts are marked by hand | D, G | R-PE-01 | Low | Remediate | Manual marking (PRO-MP-1) until the system marks | PA-87 | Remediate |
 | NC-MP-04 | MP-4 | Bulk export leaves full, unencrypted copies on the application server after download and after a restart (P02, P05, P06, P09); disk and backup storage isn't evidenced; the paper rule is not in use | D, E, G | R-AC-01 | Medium | Remediate | A check each working day of the export folder (C49) until PA-86 is fixed | EV-MP-01; PA-86, PA-26, PA-52, PA-88, PA-121 | Remediate, proposed by the system owner; awaits the authorising official |
 | NC-MP-05 | MP-5 | Physical transport, by exception only, isn't evidenced; network backup copies are not yet encrypted (R02) | E | R-PE-01 | Low | Evidence | Expected from \<Organisation\>; backups encrypted under PA-64 | EV-MP-01; PA-64, PA-121 | Obtain evidence |
-| NC-MP-06 | MP-6 | Sanitising isn't evidenced; methods by media type are now set to NIST SP 800-88 Revision 2 and IEEE 2883-2022, with cryptographic erase for virtual disks | E | R-PE-01 | Low | Evidence | Expected from \<Organisation\>; cryptographic erase relies on PA-52 | EV-MP-02; PA-52, PA-121 | Obtain evidence |
+| NC-MP-06 | MP-6 | Sanitising isn't evidenced; methods by media type are now set to CSS and IEEE 2883-2022, with cryptographic erase for virtual disks | E | R-PE-01 | Low | Evidence | Expected from \<Organisation\>; cryptographic erase relies on PA-52 | EV-MP-02; PA-52, PA-121 | Obtain evidence |
 | NC-MP-07 | MP-7 | USB blocking on users' devices and the VMs isn't evidenced | E | R-PE-01 | Low | Evidence | Expected from \<Organisation\> | EV-AC-17, EV-MP-03; PA-121 | Obtain evidence |
 
 ### 5.11 Physical and Environmental Protection (PE)
@@ -533,7 +533,7 @@ There is one entry for each assessed SA control. SA-4(1), SA-4(2), SA-4(9), SA-1
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | NC-SA-01 | SA-1 | Policy \<ver\> is legally reviewed and awaits the Head of Cyber (D-SA-16); procedures approved; not yet shared | D | R-AC-11 | Low | Approve | No system change is needed | PA-20 | Approve |
 | NC-SA-02 | SA-2 | Security and privacy costs aren't yet raised in budgeting; the yearly review now records them (TPL-23) | D | R-AC-11 | Low | Approve | At the next yearly budgeting | PA-128 | Approve |
-| NC-SA-03 | SA-3 | The lifecycle follows NIST SSDF \<ver\>, mapped in \<System and Services Acquisition Management\>, section 3.2; not yet in routine use | D | R-SA-01 | Low | Approve | In PRO-SA-1 | PA-128 | Approve |
+| NC-SA-03 | SA-3 | The lifecycle follows CSS \<ver\>, mapped in \<System and Services Acquisition Management\>, section 3.2; not yet in routine use | D | R-SA-01 | Low | Approve | In PRO-SA-1 | PA-128 | Approve |
 | NC-SA-04 | SA-4 | Contract terms haven't been seen | E | R-SA-01 | Low | Evidence | Expected from \<Organisation\> | EV-SA-01; PA-128 | Obtain evidence |
 | NC-SA-05 | SA-4(1) | None: the SSP, section 7, and the family design documents describe each control's functional properties | None | R-SA-01 | Low | Approve | Now satisfied | None | Approve; now satisfied |
 | NC-SA-06 | SA-4(2) | None: \<Security Architecture\> and the SSP figures give the design information | None | R-SA-01 | Low | Approve | Now satisfied | None | Approve; now satisfied |

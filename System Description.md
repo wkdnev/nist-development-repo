@@ -4,7 +4,7 @@
 
 This document describes the reference system that a series of \<Organisation\>'s internal digital library applications are designed and built to. It says what such an application is for, how it is built, what it runs on, how it is designed and what it must do, from a security standpoint. Every other document in the set is written against it. An application that follows this design starts with its security and privacy controls already designed, rather than added after it is built: that is what Secure by Design means here.
 
-The document is written so that a person, or an AI assistant, can answer questions about the security of an application built on the reference system against NIST SP 800-53 Rev 5 without the source code. Everything a reader needs is stated in plain words. No part of it points to code.
+The document is written so that a person, or an AI assistant, can answer questions about the security of an application built on the reference system against CSS without the source code. Everything a reader needs is stated in plain words. No part of it points to code.
 
 It is a summary. The detail of each control family is held once, in the design document named in section 9, and that document is the authority if the two ever differ. Each control has one line in \<System Security Plan\>, and \<Guide to the Document Set\> shows how the whole set fits together.
 
@@ -28,7 +28,7 @@ It is a summary. The detail of each control family is held once, in the design d
 1. **Complete the application profile** in section 3: its name, purpose, owners, users, information types and its own functions.
 2. **Confirm the parameters** in section 4. Keep the reference value, or record a different value with the reason.
 3. **Item each departure** from the reference design in section 3.6, with the risk it brings and the control that answers it. A departure is decided by the system owner and recorded in \<Decision Register\>.
-4. **Categorise the application** from its information types, under FIPS 199 and NIST SP 800-60. If it comes out above Moderate in any objective, the Moderate baseline in this set is not enough and the system owner must decide how to proceed before going further.
+4. **Categorise the application** from its information types, under CSS. If it comes out above Moderate in any objective, the Moderate baseline in this set is not enough and the system owner must decide how to proceed before going further.
 5. **Carry the profile into the set.** Replace the placeholders throughout, fill in the square brackets, and confirm each control in \<Control Implementation Register\>.
 6. **Build to the design, then assess.** The application is tested against the requirements in section 5, and any shortfall becomes an item in \<Plan of Action and Milestones\>.
 
@@ -55,8 +55,8 @@ It is a summary. The detail of each control family is held once, in the design d
 | Sign-in | \<Organisation\>'s PingFederate single sign-on service, with multi-factor authentication, against Active Directory. The application holds no accounts and no passwords, and has no session management of its own |
 | Authorisation | Active Directory groups, read directly from Active Directory by the API: three role groups, and a read group and an edit group for each schema |
 | Information held | The information types in section 3.4, and in every case sign-in identities and audit records |
-| Security categorisation | Moderate: confidentiality Moderate, integrity Moderate, availability Low (FIPS 199), unless the application profile sets otherwise (P-01) |
-| Control baseline | NIST SP 800-53 Rev 5, Moderate baseline, with NIST's privacy baseline, as tailored in \<Tailoring Register\>. Program Management is inherited from \<Organisation\> |
+| Security categorisation | Moderate: confidentiality Moderate, integrity Moderate, availability Low (CSS), unless the application profile sets otherwise (P-01) |
+| Control baseline | CSS Moderate baseline, with the CSS privacy baseline, as tailored in \<Tailoring Register\>. Program Management is inherited from \<Organisation\> |
 | Law | UK GDPR, the Data Protection Act 2018, the Data (Use and Access) Act 2025 and the Computer Misuse Act 1990 (P-31) |
 | Development | Built in-house under \<Organisation\>'s corporate software development life cycle (SDLC) |
 
@@ -113,7 +113,7 @@ All role and schema groups are Active Directory groups. The system owner owns th
 
 ### 3.4 What information it holds
 
-Each application lists the information it holds and rates each type under NIST SP 800-60. The application's categorisation is the highest rating in each column. The last row is held by every application built on the reference system.
+Each application lists the information it holds and rates each type under CSS. The application's categorisation is the highest rating in each column. The last row is held by every application built on the reference system.
 
 **Table 6: Information types and impact**
 
@@ -150,7 +150,7 @@ An application with no departures says "None".
 
 ## 4 Parameters
 
-These are the values the controls depend on. NIST SP 800-53 calls many of them organisation-defined parameters. Each has a reference value that the design in this set is written to. An application keeps it or sets its own, and states the reason in the last column. A change to P-01 or to any time in P-11 to P-14 changes the categorisation or the contingency plan, and needs the authorising official's agreement.
+These are the values the controls depend on. CSS calls many of them organisation-defined parameters. Each has a reference value that the design in this set is written to. An application keeps it or sets its own, and states the reason in the last column. A change to P-01 or to any time in P-11 to P-14 changes the categorisation or the contingency plan, and needs the authorising official's agreement.
 
 **Table 9: Parameters**
 
@@ -397,7 +397,7 @@ Each statement below narrows what can go wrong. An application that needs one of
 | No. | Requirement | How it is implemented | Held in |
 | --- | --- | --- | --- |
 | NFR-011 | Identify every user uniquely by their Active Directory account. No shared or generic accounts | The username in every audit record is the Active Directory account name | \<Identification and Authentication Management\> |
-| NFR-012 | Multi-factor authentication for every user, at authenticator assurance level 2 and federation assurance level 2 of NIST SP 800-63 | PingFederate requires the second factor before it signs a person in. The application accepts no other sign-in | \<Identification and Authentication Management\> |
+| NFR-012 | Multi-factor authentication for every user, at authenticator assurance level 2 and federation assurance level 2 of CSS | PingFederate requires the second factor before it signs a person in. The application accepts no other sign-in | \<Identification and Authentication Management\> |
 | NFR-013 | Hold no passwords, password hashes or user accounts in the application | No account or password table exists in the database | \<Identification and Authentication Management\> |
 | NFR-014 | Read group membership from Active Directory over LDAPS only, with the directory's certificate checked | The API binds to Active Directory with its managed service account, over LDAPS on TCP 636 | \<Identification and Authentication Management\> |
 | NFR-015 | Give each application its own service account, managed by the operating system, with no interactive sign-in | Managed service accounts, whose passwords the operating system sets and changes | \<Identification and Authentication Management\> |
@@ -539,7 +539,7 @@ The application has no session management of its own: no idle lock, no idle time
 
 | No. | Requirement | How it is implemented | Held in |
 | --- | --- | --- | --- |
-| NFR-082 | Develop under \<Organisation\>'s corporate SDLC, whose security practices meet NIST's Secure Software Development Framework, SP 800-218 | The corporate SDLC, inherited from \<Organisation\> | \<System and Services Acquisition Management\> |
+| NFR-082 | Develop under \<Organisation\>'s corporate SDLC, whose security practices meet CSS | The corporate SDLC, inherited from \<Organisation\> | \<System and Services Acquisition Management\> |
 | NFR-083 | Model the threats to the application before it is built, and again at each significant change | A threat model of the profile and its functions, kept with the risk list | \<Risk Assessment Management\> |
 | NFR-084 | Have every change reviewed by a second developer and merged through a protected branch | Branch rules in the source repositories | \<System and Services Acquisition Management\> |
 | NFR-085 | Approve every change to production by the change control board, after a security impact analysis | A change record, with the board's decision, before any release | \<Configuration Management\> |
@@ -561,7 +561,7 @@ The application has no session management of its own: no idle lock, no idle time
 | NFR-094 | Train users as P-24 sets | \<Organisation\>'s course, and the application's briefing and role modules | \<Awareness and Training Management\> |
 | NFR-095 | Report and handle incidents as P-21 sets | The incident response plan, with \<Organisation\>'s service desk | \<Incident Response Management\> |
 | NFR-096 | Approve maintenance beforehand, and record it | A change record for each piece of maintenance | \<Maintenance Management\> |
-| NFR-097 | Meet the NIST SP 800-53 Rev 5 Moderate baseline and privacy baseline, as tailored | The control register and the family design documents | \<Tailoring Register\> |
+| NFR-097 | Meet the CSS Moderate baseline and privacy baseline, as tailored | The control register and the family design documents | \<Tailoring Register\> |
 | NFR-098 | Be authorised as P-25 sets | A signed authorisation decision | \<Assessment, Authorization, and Monitoring Management\> |
 | NFR-099 | Be assessed independently before authorisation, and monitored continuously after it | An assessor independent of the developers, and the monitoring measures | \<Assessment, Authorization, and Monitoring Management\> |
 | NFR-100 | Comply with the laws in P-31 | Through the privacy design and the legal adviser's review | \<Planning Management\> |
@@ -682,7 +682,7 @@ The layers are the boundary, transport, identity, authorisation, data at rest, a
 4. The application checks the response: that PingFederate signed it, that it was issued for this application and that it is still valid.
 5. The API queries Active Directory directly, over LDAPS, for the person's group memberships, and gives the roles and schema access those groups allow. The sign-in is recorded.
 
-The application holds no accounts, no passwords and no password hashes. There is no local sign-in to fall back on, so nobody can sign in while PingFederate or Active Directory is down. Failed sign-ins and lockouts happen in PingFederate and Active Directory, under \<Organisation\>'s standard. A leaver's Active Directory account is disabled by \<Organisation\> at once, which ends their access. The target is federation assurance level 2 and authenticator assurance level 2 of NIST SP 800-63.
+The application holds no accounts, no passwords and no password hashes. There is no local sign-in to fall back on, so nobody can sign in while PingFederate or Active Directory is down. Failed sign-ins and lockouts happen in PingFederate and Active Directory, under \<Organisation\>'s standard. A leaver's Active Directory account is disabled by \<Organisation\> at once, which ends their access. The target is federation assurance level 2 and authenticator assurance level 2 of CSS.
 
 ### 7.2 Authorisation
 
@@ -766,7 +766,7 @@ Each record holds the event type and action, the time in UTC, the application th
 | Database connection account | Windows authentication (Kerberos) with the API's managed service account. No password is held |
 | Sign-in responses | Signed by PingFederate; the application holds only its public certificate |
 
-Every key has an owner, a store and a cryptoperiod in the key register, in \<System and Communications Protection Management\>. Keys are never held in source code or settings files. United States FIPS 140 validation is not required: NCSC's profiles are used instead.
+Every key has an owner, a store and a cryptoperiod in the key register, in \<System and Communications Protection Management\>. Keys are never held in source code or settings files. United States CSS validation is not required: NCSC's profiles are used instead.
 
 ### 7.8 Network and boundary
 
@@ -786,7 +786,7 @@ The database is backed up daily, encrypted, with transaction logs archived, and 
 
 ### 7.12 Build, release and supply chain
 
-Every application is built in-house under \<Organisation\>'s corporate software development life cycle (SDLC), which is inherited from \<Organisation\>. The reference system relies on the SDLC to provide these security practices, which together meet NIST's Secure Software Development Framework: threats modelled before a significant change is built, and the change checked against the principles in section 8; each change reviewed by a second developer and merged through a protected branch; a build pipeline with automated tests, a package scan, a code scan and a secret scan; releases through change control from a signed tag with recorded checksums; every package through one checked feed, with lock files; and a software bill of materials for each release. Where the SDLC does not provide one of these, the application provides it itself or records a departure in section 3.6. The suppliers are in a register with their criticality.
+Every application is built in-house under \<Organisation\>'s corporate software development life cycle (SDLC), which is inherited from \<Organisation\>. The reference system relies on the SDLC to provide these security practices, which together meet CSS: threats modelled before a significant change is built, and the change checked against the principles in section 8; each change reviewed by a second developer and merged through a protected branch; a build pipeline with automated tests, a package scan, a code scan and a secret scan; releases through change control from a signed tag with recorded checksums; every package through one checked feed, with lock files; and a software bill of materials for each release. Where the SDLC does not provide one of these, the application provides it itself or records a departure in section 3.6. The suppliers are in a register with their criticality.
 
 ### 7.13 Operation and maintenance
 
@@ -817,11 +817,11 @@ These principles are fixed for every application built on the reference system. 
 | Privacy by design | Only the personal data needed, kept only as long as needed, with people's rights supported by the system | Section 5.1.11; section 7.14 |
 | Secure development | Threats modelled, changes reviewed, releases built, tested and signed, components from one checked source | Section 7.12 |
 
-The principles draw on NIST SP 800-160 Volume 1, NIST SP 800-218, NCSC's secure design principles and CISA's Secure by Design guidance.
+The principles draw on CSS, NCSC's secure design principles and CISA's Secure by Design guidance.
 
 ## 9 Security, family by family
 
-Table 45 gives each NIST SP 800-53 Rev 5 control family, the reference design in brief, and the document that holds the full design, where every control is set out part by part. The number of controls in each family, and which are met by the system, shared, met by people, inherited or not applicable, are in \<Tailoring Register\>.
+Table 45 gives each CSS control family, the reference design in brief, and the document that holds the full design, where every control is set out part by part. The number of controls in each family, and which are met by the system, shared, met by people, inherited or not applicable, are in \<Tailoring Register\>.
 
 **Table 45: The control families**
 
@@ -830,27 +830,27 @@ Table 45 gives each NIST SP 800-53 Rev 5 control family, the reference design in
 | AC Access Control | Deny by default. Roles and schema access come only from Active Directory groups. Each schema has a read group and an edit group. The application has no session controls: session lock and termination come from the managed device and PingFederate (P-02, P-03). Duties are kept apart by separate groups. A system use notice is shown at sign-in, and access is reviewed on a schedule | \<Access Control Management\> |
 | AT Awareness and Training | Nobody is added to a group until they have had \<Organisation\>'s awareness course and the application's briefing, and privileged roles complete role modules first. Repeated as P-24 sets | \<Awareness and Training Management\> |
 | AU Audit and Accountability | One application audit log, written only by the API, with who, what, when, where and the result. Records are chained by a keyed hash, read only by auditors, reviewed and kept as P-07 and P-08 set | \<Audit and Accountability Management\> |
-| CA Assessment, Authorization, and Monitoring | A self-assessment against every NIST determination statement, then an independent assessment; a plan of action; authorisation by a named official; continuous monitoring measures | \<Assessment, Authorization, and Monitoring Management\> |
+| CA Assessment, Authorization, and Monitoring | A self-assessment against every CSS determination statement, then an independent assessment; a plan of action; authorisation by a named official; continuous monitoring measures | \<Assessment, Authorization, and Monitoring Management\> |
 | CM Configuration Management | A baseline for each release, changes approved by a change control board after a security impact analysis, CIS Benchmark settings, least functionality, and a check for drift | \<Configuration Management\> |
 | CP Contingency Planning | Recover within P-12, losing at most P-13. Encrypted daily backups with transaction logs, a copy at a second site, and recovery tested as P-16 sets | \<Contingency Planning Management\> |
 | IA Identification and Authentication | Every user signs in through \<Organisation\>'s PingFederate with multi-factor authentication. The application holds no accounts or passwords. Services use their own accounts and secrets held in a key store | \<Identification and Authentication Management\> |
 | IR Incident Response | Report within the time in P-21, four severities with targets, playbooks, evidence preserved before clean-up, and personal data breaches to the legal adviser | \<Incident Response Management\> |
 | MA Maintenance | Maintenance is approved first, done by known people with approved tools over \<Organisation\>'s managed route, checked afterwards and recorded | \<Maintenance Management\> |
-| MP Media Protection | Items stay in the database. Exports are limited, encrypted, marked and removed; portable storage needs approval; media are sanitised to NIST SP 800-88 | \<Media Protection Management\> |
+| MP Media Protection | Items stay in the database. Exports are limited, encrypted, marked and removed; portable storage needs approval; media are sanitised to CSS | \<Media Protection Management\> |
 | PE Physical and Environmental Protection | Provided by \<Organisation\> at its data centre and second site. The system owner checks its evidence each year and sets rules for offices and home working | \<Physical and Environmental Protection Management\> |
 | PL Planning | A security plan, a privacy plan and rules of behaviour that every user signs, all checked for consistency before each issue | \<Planning Management\> |
 | PM Program Management | Outside the baseline. Inherited from \<Organisation\>'s security and privacy programme | \<Program Management\> |
 | PS Personnel Security | \<Organisation\> screens staff. Every role has a risk designation; access agreements are signed; a leaver's account is disabled at once | \<Personnel Security Management\> |
 | PT PII Processing and Transparency | Personal data is processed only for the purposes in the profile. An inventory, a retention schedule built into the system, a search across schemas for people's requests, and an impact assessment | \<PII Processing Management\> |
-| RA Risk Assessment | Categorised from the profile. A threat model, a risk list on the NIST SP 800-30 method, a vulnerability timetable (P-11), and a list of critical components | \<Risk Assessment Management\> |
-| SA System and Services Acquisition | Built in-house under the corporate SDLC, meeting NIST SSDF, with reviewed changes, a pipeline with automated tests and scans, verification to P-28, and external services reviewed yearly | \<System and Services Acquisition Management\> |
+| RA Risk Assessment | Categorised from the profile. A threat model, a risk list on the CSS method, a vulnerability timetable (P-11), and a list of critical components | \<Risk Assessment Management\> |
+| SA System and Services Acquisition | Built in-house under the corporate SDLC, meeting CSS, with reviewed changes, a pipeline with automated tests and scans, verification to P-28, and external services reviewed yearly | \<System and Services Acquisition Management\> |
 | SC System and Communications Protection | Deny by default at the firewalls and on each server, TLS on every flow, a register of every key, a strict page policy, and encryption at rest | \<System and Communications Protection Management\> |
 | SI System and Information Integrity | Uploads are checked and scanned for malware, flaws are fixed to the timetable, logs are forwarded and eight events raise alerts, and releases are checked against a baseline | \<System and Information Integrity Management\> |
 | SR Supply Chain Risk Management | A supplier register with criticality, every package through one checked source with lock files and a bill of materials, and each release inspected against its record | \<Supply Chain Risk Management\> |
 
 ## 10 What \<Organisation\> provides
 
-An application built on the reference system relies on \<Organisation\> for much of its protection. These controls are inherited, and \<Organisation\> supplies the evidence for them; the requests are in \<Evidence Requests\>. A certification such as Cyber Essentials Plus or ISO/IEC 27001 supports these services but does not by itself prove a NIST control.
+An application built on the reference system relies on \<Organisation\> for much of its protection. These controls are inherited, and \<Organisation\> supplies the evidence for them; the requests are in \<Evidence Requests\>. A certification such as Cyber Essentials Plus or ISO/IEC 27001 supports these services but does not by itself prove a CSS control.
 
 **Table 46: Services provided by \<Organisation\>**
 
@@ -905,6 +905,7 @@ These are questions an assessor is likely to ask, each with the reference answer
 
 | Term | Meaning |
 | --- | --- |
+| CSS | Cyber Security Standards: the control catalogue, baselines, assessment procedures and supporting standards the set is built on |
 | Reference system | The design in this document, which every application in the series is built to |
 | Application profile | Section 3: the facts and choices particular to one application |
 | Parameter | A value the controls depend on, numbered P-nn in section 4, with a reference value an application keeps or changes |

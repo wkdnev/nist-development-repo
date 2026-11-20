@@ -2,7 +2,7 @@
 
 ## 1 Purpose and scope
 
-This report brings together the results of the Level 1 self-assessment of all 19 control families, so that the authorising official can see in one place how far \<System Name\> meets the NIST SP 800-53 Rev 5 Moderate baseline, what the remaining risk is, and what must happen before it can be authorised. It is the assessment report in the authorisation package (NIST SP 800-37 Rev 2, tasks A-4 and R-1), and it meets CA-2e and CA-2f. It covers the privacy controls as well, so it is also the privacy assessment report.
+This report brings together the results of the Level 1 self-assessment of all 19 control families, so that the authorising official can see in one place how far \<System Name\> meets the CSS Moderate baseline, what the remaining risk is, and what must happen before it can be authorised. It is the assessment report in the authorisation package (CSS, tasks A-4 and R-1), and it meets CA-2e and CA-2f. It covers the privacy controls as well, so it is also the privacy assessment report.
 
 It covers \<System Name\> v1.0: UI application, Admin application, API and the \<System Name\> database, on the two planned Windows Server 2025 VMs at \<Organisation\>. The detail for each family is in its assessment, which takes precedence over this summary. The figures in this report are generated from the assessments, the risk list and the POA&M, and Test-PlanConsistency.ps1 checks that they agree.
 
@@ -10,7 +10,7 @@ It covers \<System Name\> v1.0: UI application, Admin application, API and the \
 
 **\<System Name\> is not ready to be authorised, and it holds no production documents.** That is the expected position for a system that is not yet built on its VMs: most of what is outstanding is a decision not yet carried out, evidence not yet available, or a code fix waiting for the development phase.
 
-- **Coverage:** all 316 entries in the Moderate baseline, and the privacy baseline outside PM, were assessed against 1,998 NIST SP 800-53A determination statements. The coverage and the statement counts were checked against NIST's catalogue, release 5.2.0, on 12 November 2026.
+- **Coverage:** all 316 entries in the Moderate baseline, and the privacy baseline outside PM, were assessed against 1,998 CSS determination statements. The coverage and the statement counts were checked against the CSS catalogue, release 5.2.0, on 12 November 2026.
 - **Result:** 1,083 statements (54%) are satisfied, and 19 controls are fully satisfied. Every other statement is recorded with a reason, and every non-compliance is rated in \<Risk List\>.
 - **Why the rest are not satisfied:** 157 statements (8%) are gaps in the system itself; 306 (15%) await evidence from \<Organisation\> or the VMs; 390 (20%) await a decision, or the start of operation; and 62 do not apply. Section 4.3 breaks these down.
 - **Risk:** 24 risks are recorded. 5 are rated High: a user interferes with another user's session or abuses internal functions (R-AC-02); someone gains full database control (R-AC-04); credentials or documents are intercepted (R-AC-05); a stolen password gives full access (R-AC-10); a known flaw or malicious upload compromises the system (R-SI-01).
@@ -28,7 +28,7 @@ It covers \<System Name\> v1.0: UI application, Admin application, API and the \
 | Assessor | Level 1: Claude, an AI assistant, working for the system owner. Level 2: an independent team led by \[Name\], which meets CA-2(1) once each member has completed TPL-19 |
 | Independence | Level 1 is a self-assessment. The same assistant drafted the documents and assessed them, for the system owner, so it is not independent. Level 2 provides the independence |
 | Dates | 5 to 12 November 2026. Each family was assessed on 5 or 6 November, and reassessed after its pack review between 8 and 12 November |
-| Procedures | NIST SP 800-53A Rev 5, catalog release 5.2.0, one finding for every determination statement |
+| Procedures | CSS, catalog release 5.2.0, one finding for every determination statement |
 | Methods | Examine (documents, code and configuration), Test (15 test scripts, with results and hash manifests in the evidence store; section 7) and Interview (the system owner's written answers only) |
 | Environment | A throwaway Docker stack on one PC with sample data, built from the code tagged v1.0 |
 | Limits | The VMs, PostgreSQL on Windows and \<Organisation\>'s services were not examined, and the role holders were not interviewed. Nothing has been seen in operation, because \<System Name\> is not in use. Level 2 must repeat the tests on the VMs |

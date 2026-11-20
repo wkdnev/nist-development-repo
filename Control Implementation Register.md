@@ -2,7 +2,7 @@
 
 ## 1 How to use this document
 
-This document was the register of how each control family is implemented in \<System Name\>: the approved decisions, the values of NIST's parameters, the registers and lists the controls call for, and an index from each control to where it is met. Since 18 November 2026 every family's design is held in a document of its own, in the same form, as the system owner asked, and this register holds none of it. Each chapter is kept as a pointer to the document that now holds its family's design, so that the decisions and records that cite a chapter still lead to it. The system owner decided on 18 November 2026 to keep it as an index until the next whole-set review, when it may be retired (D-SR-15). The rules are in \<Policy\>, the steps people follow are in \<Procedures\>, and \<Documentation Map\>, section 2.2, lists where each family is documented.
+This document was the register of how each control family is implemented in \<System Name\>: the approved decisions, the values of the CSS parameters, the registers and lists the controls call for, and an index from each control to where it is met. Since 18 November 2026 every family's design is held in a document of its own, in the same form, as the system owner asked, and this register holds none of it. Each chapter is kept as a pointer to the document that now holds its family's design, so that the decisions and records that cite a chapter still lead to it. The system owner decided on 18 November 2026 to keep it as an index until the next whole-set review, when it may be retired (D-SR-15). The rules are in \<Policy\>, the steps people follow are in \<Procedures\>, and \<Documentation Map\>, section 2.2, lists where each family is documented.
 
 - **Chapters.** Each chapter is named by its family code, and says which document now holds its family's design.
 - **Versions.** The document has one version. A change to any chapter is a new version of the document.
@@ -25,7 +25,7 @@ The design for assessing, authorising and monitoring \<System Name\> is held in 
 
 ## IA Identification and Authentication
 
-The identification and authentication design is held in \<Identification and Authentication Management\>: who is identified and how, sign-in through AD FS, the assurance levels, the authenticator inventory, the settings against NIST SP 800-63B, and the parameter values. It is not repeated here.
+The identification and authentication design is held in \<Identification and Authentication Management\>: who is identified and how, sign-in through AD FS, the assurance levels, the authenticator inventory, the settings against CSS, and the parameter values. It is not repeated here.
 
 ## MA Maintenance
 

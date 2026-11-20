@@ -2,17 +2,17 @@
 
 ## 1 Purpose
 
-This document shows how \<System Name\> is built and bought securely, for each of the 17 System and Services Acquisition (SA) controls in NIST's Moderate baseline: the lifecycle and resources, contracts, documentation, engineering principles, external services, developer configuration management and testing, the development process, criticality analysis and unsupported components.
+This document shows how \<System Name\> is built and bought securely, for each of the 17 System and Services Acquisition (SA) controls in the CSS Moderate baseline: the lifecycle and resources, contracts, documentation, engineering principles, external services, developer configuration management and testing, the development process, criticality analysis and unsupported components.
 
-Section 3 sets out the design: the development framework; the lifecycle, roles and resources; contracts and design information; documentation; engineering principles; external services; configuration management; the developer test plan; the process, standards and tools; criticality analysis; unsupported components; how \<System Name\> is built today; and what \<Organisation\> and the providers supply. Section 4 takes each control in turn. Appendix A lists every value NIST asks the organisation to define, and appendix B the related controls and enhancements NIST does not select at Moderate.
+Section 3 sets out the design: the development framework; the lifecycle, roles and resources; contracts and design information; documentation; engineering principles; external services; configuration management; the developer test plan; the process, standards and tools; criticality analysis; unsupported components; how \<System Name\> is built today; and what \<Organisation\> and the providers supply. Section 4 takes each control in turn. Appendix A lists every value CSS asks the organisation to define, and appendix B the related controls and enhancements CSS does not select at Moderate.
 
-This is the only place this design is held. Other documents point here. The policy is in \<Policy\> (SA), and the steps people follow are in \<Procedures\> (SA). Four records sit beside this one, each holding what NIST asks the system's own documents to hold: the engineering principles in \<Security Architecture\>, section 6.5; the functions, ports, protocols and services in \<System Security Plan\>, section 3.7; the critical components in \<Risk Assessment Management\>, section 3.9; and the component support dates in \<Maintenance Management\>, section 3.8.
+This is the only place this design is held. Other documents point here. The policy is in \<Policy\> (SA), and the steps people follow are in \<Procedures\> (SA). Four records sit beside this one, each holding what CSS asks the system's own documents to hold: the engineering principles in \<Security Architecture\>, section 6.5; the functions, ports, protocols and services in \<System Security Plan\>, section 3.7; the critical components in \<Risk Assessment Management\>, section 3.9; and the component support dates in \<Maintenance Management\>, section 3.8.
 
 \<System Name\> is built in-house, so its developers carry most of these duties. What is bought is \<Organisation\>'s hosting and services, and the outside services the developers use.
 
-An assessor examines the framework, the contracts, the guides, the external services, the repository settings and the test evidence; interviews the developers, the system owner and \<Organisation\>'s contract owner; and tests the repositories and the build (NIST SP 800-53A). So for each control section 4 gives:
+An assessor examines the framework, the contracts, the guides, the external services, the repository settings and the test evidence; interviews the developers, the system owner and \<Organisation\>'s contract owner; and tests the repositories and the build (CSS). So for each control section 4 gives:
 
-- **each part of the control**, as NIST letters them, with the design that meets it and the position today;
+- **each part of the control**, as CSS letters them, with the design that meets it and the position today;
 - **who provides it**, and who is responsible;
 - **what enforces it**, the rules and procedures that apply, and the tests run;
 - **the records an assessor will ask for**, and whether they exist yet;
@@ -59,7 +59,7 @@ Two things matter most. Nothing stops an unreviewed change reaching a release: n
 
 ### 3.1 Principles
 
-1. **A named framework.** Development follows NIST SSDF \<ver\>, practice by practice.
+1. **A named framework.** Development follows CSS \<ver\>, practice by practice.
 2. **Known changes only.** Only reviewed and approved changes reach a release.
 3. **Test before release.** Every security function is tested at each release, to a stated depth.
 4. **Know what you depend on.** Every third-party component and external service is known, assessed and supported.
@@ -72,13 +72,13 @@ These carry out the principles and rules of \<Policy\>, sections SA.3 and SA.4.
 
 ### 3.2 Development framework
 
-\<System Name\> is developed under NIST SSDF \<ver\> (SP 800-218, February 2022). Version \<ver\> is in draft (SP 800-218 Rev 1, December 2025), and is adopted when final. The table gives each of the 19 practices, how \<System Name\> meets it, and the gap where it does not. The UK Software Security Code of Practice's principles 1.1 to 3.5 align with these practices. Its fourth theme, communication with customers, is for software that is sold, which \<System Name\> is not.
+\<System Name\> is developed under CSS \<ver\> (CSS, February 2022). Version \<ver\> is in draft (CSS, December 2025), and is adopted when final. The table gives each of the 19 practices, how \<System Name\> meets it, and the gap where it does not. The UK Software Security Code of Practice's principles 1.1 to 3.5 align with these practices. Its fourth theme, communication with customers, is for software that is sold, which \<System Name\> is not.
 
-**Table 3: SSDF practices**
+**Table 3: CSS practices**
 
 | Practice | How \<System Name\> meets it | Gap |
 | --- | --- | --- |
-| PO.1 Define security requirements | NIST SP 800-53 Moderate and the privacy baseline; family policies; \<System Security Plan\> | None |
+| PO.1 Define security requirements | CSS Moderate and the privacy baseline; family policies; \<System Security Plan\> | None |
 | PO.2 Roles and responsibilities | \<Roles and Responsibilities\>; \<Policy\>, section SA.5; the stages in section 3.3 | Module M5, secure development, is not yet written or given (PA-97) |
 | PO.3 Supporting toolchains | Tools in section 3.10 | No pipeline (PA-68); package audit off (PA-92) |
 | PO.4 Criteria for security checks | Test plan in section 3.9; ASVS 5.0 Level 2 | ASVS not yet assessed |
@@ -117,9 +117,9 @@ These carry out the principles and rules of \<Policy\>, sections SA.3 and SA.4.
 
 ### 3.4 Contracts and design information
 
-\<System Name\>'s software is written in-house. What is bought, now or later, uses \<Organisation\>'s standard contract, with security and privacy terms added for each of the nine things SA-4 asks a contract to hold: the functional requirements, the strength of mechanisms, assurance, the controls, documentation and its protection, the development and operating environments, who is responsible for security, privacy and supply chain risk, and acceptance criteria (D-SA-06; PRO-SA-3). Section 4.4 sets out each; the system owner confirmed them on 18 November 2026 (D-SA-20). The contract also states how and when the supplier gives notice of support, maintenance and updates, as NIST's guidance on SA-4 suggests. \<Organisation\>'s contract has not been seen (EV-SA-01).
+\<System Name\>'s software is written in-house. What is bought, now or later, uses \<Organisation\>'s standard contract, with security and privacy terms added for each of the nine things SA-4 asks a contract to hold: the functional requirements, the strength of mechanisms, assurance, the controls, documentation and its protection, the development and operating environments, who is responsible for security, privacy and supply chain risk, and acceptance criteria (D-SA-06; PRO-SA-3). Section 4.4 sets out each; the system owner confirmed them on 18 November 2026 (D-SA-20). The contract also states how and when the supplier gives notice of support, maintenance and updates, as the CSS guidance on SA-4 suggests. \<Organisation\>'s contract has not been seen (EV-SA-01).
 
-As the developer, \<System Name\>'s team provides the design information NIST asks for:
+As the developer, \<System Name\>'s team provides the design information CSS asks for:
 
 1. **What each control does** (SA-4(1)): each family's design document, and the security plan, section 7.
 2. **How the controls are designed** (SA-4(2)): the security-relevant external interfaces and the high-level design in \<Security Architecture\> and the security plan, sections 3 and 4, and how each security function is built, in the family design documents.
@@ -133,7 +133,7 @@ Two guides are kept with the code: the Administrator Guide (\<Administrator Guid
 
 ### 3.6 Engineering principles
 
-The NCSC secure design principles and NIST's privacy engineering objectives are mapped to \<System Name\>'s specification and design in \<Security Architecture\>, section 6.5, which holds them (D-SA-08). The security officer checks each significant design against them (PRO-SA-1). Work before 11 November 2026 was not checked against them; each change is from now on.
+The NCSC secure design principles and the CSS privacy engineering objectives are mapped to \<System Name\>'s specification and design in \<Security Architecture\>, section 6.5, which holds them (D-SA-08). The security officer checks each significant design against them (PRO-SA-1). Work before 11 November 2026 was not checked against them; each change is from now on.
 
 ### 3.7 External services
 
@@ -153,7 +153,7 @@ These are the services in SA-09(02)\_ODP. Each states its controls in its contra
 | Image registry | Docker Hub | Supplies the PostgreSQL image for the test stacks | The official image's publisher. No agreement | Image checks (V03) |
 | Browser library CDN | jsDelivr | Serves bootstrap-icons and openseadragon to browsers, until served by \<System Name\> (PA-34) | None: a public service with no agreement, which is why \<System Name\> is to serve these files itself (PA-34) | None |
 
-**Trust and service levels.** Each row says what \<System Name\>'s trust in the service rests on, as NIST asks (SA-9). For \<Organisation\>'s services, the agreement should state the service levels, how they are measured, and the remedies when they are missed; these are asked for with EV-SA-02. The public services offer none, so \<System Name\> relies on its own checks of what they supply. The authorising official keeps the risk of each external service.
+**Trust and service levels.** Each row says what \<System Name\>'s trust in the service rests on, as CSS asks (SA-9). For \<Organisation\>'s services, the agreement should state the service levels, how they are measured, and the remedies when they are missed; these are asked for with EV-SA-02. The public services offer none, so \<System Name\> relies on its own checks of what they supply. The authorising official keeps the risk of each external service.
 
 ### 3.8 Developer configuration management
 
@@ -173,7 +173,7 @@ This is the developer security and privacy test plan (SA-11). Each script runs o
 
 The sign-in and access checks ran on the v1.0 build, which used \<System Name\>'s own passwords and groups. They are to be run again with sign-in through AD FS and access by Active Directory groups (D-AC-23; PA-95).
 
-The scripts are one kind of analysis among several that NIST's guidance expects for software written in-house. Table 6 says when each is done, and where it stands.
+The scripts are one kind of analysis among several that the CSS guidance expects for software written in-house. Table 6 says when each is done, and where it stands.
 
 **Table 6: Kinds of analysis**
 
@@ -211,7 +211,7 @@ The plan, its results and the evidence are protected as the document set is: res
 
 ### 3.10 Development process, standards and tools
 
-The process is NIST SSDF \<ver\> (section 3.2). The standards are SSDF, OWASP ASVS 5.0 Level 2 for the web applications, the NCSC secure design principles and NIST's privacy engineering objectives, with the UK Software Security Code of Practice alongside. Every 12 months the developers and the security officer review the process, standards and tools against the acquisition policy and the personal data policy, and record the review and any change on TPL-23 (PRO-SA-6).
+The process is CSS \<ver\> (section 3.2). The standards are CSS, OWASP ASVS 5.0 Level 2 for the web applications, the NCSC secure design principles and the CSS privacy engineering objectives, with the UK Software Security Code of Practice alongside. Every 12 months the developers and the security officer review the process, standards and tools against the acquisition policy and the personal data policy, and record the review and any change on TPL-23 (PRO-SA-6).
 
 **Table 8: Development tools**
 
@@ -255,13 +255,13 @@ Test-Development.ps1 ran on 11 November 2026. Its results, with their hashes, ar
 
 ## 4 Each control and enhancement
 
-The controls are in NIST order. Each has two tables. The first takes each part of the control and gives what NIST requires, the design that meets it, and the position today. The second says who provides and is responsible for the control, what enforces it, the rules and procedures that apply, the tests run, the records an assessor will ask for, its status, the risk decision, and what is still open.
+The controls are in CSS order. Each has two tables. The first takes each part of the control and gives what CSS requires, the design that meets it, and the position today. The second says who provides and is responsible for the control, what enforces it, the rules and procedures that apply, the tests run, the records an assessor will ask for, its status, the risk decision, and what is still open.
 
 ### 4.1 SA-1 Policy and Procedures
 
 **Table 10: SA-1 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a.1 | An acquisition policy, shared with defined people, covering purpose, scope, roles, responsibilities, management commitment, coordination and compliance, and consistent with the law | \<Policy\> (SA): a system-level policy, shared with developers and administrators. The legal adviser reviewed it on 11 November 2026 | Version \<ver\> approved by the Head of Cyber (D-SA-01). The later version awaits the Head of Cyber (D-SA-16). Not yet shared (PA-20) |
 | a.2 | Procedures that carry out the policy, shared with defined people | \<Procedures\> (SA): seven procedures, PRO-SA-1 to PRO-SA-7. Shared with the same people | Version \<ver\> approved by the system owner (D-SA-18). Not yet shared |
@@ -287,9 +287,9 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 12: SA-2 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
-| a | Determine the high-level security and privacy requirements in business process planning | The Moderate baseline and NIST's privacy baseline, chosen from the categorisation, with the privacy plan (\<Planning Management\>, section 3.7; \<Privacy Plan\>) | Done |
+| a | Determine the high-level security and privacy requirements in business process planning | The Moderate baseline and the CSS privacy baseline, chosen from the categorisation, with the privacy plan (\<Planning Management\>, section 3.7; \<Privacy Plan\>) | Done |
 | b | Determine, document and allocate the resources needed to protect the system, as part of capital planning and investment control | The system owner raises the cost of security and privacy in \<Organisation\>'s yearly budgeting, and records it on TPL-23 (section 3.3) | Not yet raised in budgeting |
 | c | Establish a separate line for security and privacy in programming and budgeting documents | Security and privacy are a separate line in \<System Name\>'s budget request | Not yet raised in budgeting |
 
@@ -311,9 +311,9 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 14: SA-3 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
-| a | Acquire, develop and manage the system using a defined lifecycle that includes security and privacy | NIST SSDF \<ver\>, practice by practice (section 3.2), through six stages, each with its security and privacy check (section 3.3) | Mapped and approved. Not yet in routine use |
+| a | Acquire, develop and manage the system using a defined lifecycle that includes security and privacy | CSS \<ver\>, practice by practice (section 3.2), through six stages, each with its security and privacy check (section 3.3) | Mapped and approved. Not yet in routine use |
 | b | Define and document security and privacy roles and responsibilities throughout the lifecycle | \<Roles and Responsibilities\>, the privacy plan, and the stages in section 3.3 | Done |
 | c | Identify the people who hold those roles | Named in \<Roles and Responsibilities\> and in the privacy plan, section 3 | Done |
 | d | Integrate security and privacy risk management into the lifecycle | Each change records its security and privacy effect on TPL-6, and the security officer checks significant designs (PRO-SA-1). A change that affects personal data goes to the legal adviser (PRO-PT-3) | Approved. Not yet in use |
@@ -336,7 +336,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 16: SA-4 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | The contract includes security and privacy functional requirements | The controls of the Moderate and privacy baselines that the product or service must meet, by reference to the security plan | Contract not seen (EV-SA-01) |
 | b | The contract includes strength of mechanism requirements | The strength required of each mechanism, such as encryption and sign-in, as the family design documents set it | Contract not seen (EV-SA-01) |
@@ -366,7 +366,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 18: SA-4(1) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | The developer describes the functional properties of the controls to be implemented | Each family's design document, and the security plan, section 7, set out what each control does | Done |
 
@@ -388,7 +388,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 20: SA-4(2) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | The developer provides design and implementation information for the controls, at a defined level of detail | The security-relevant external interfaces and the high-level design (\<Security Architecture\>; \<System Security Plan\>, sections 3 and 4), and how each security function is built, in the family design documents: enough for an assessor to judge each control | Done |
 
@@ -410,7 +410,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 22: SA-4(9) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | The developer identifies the functions, ports, protocols and services intended for use | \<System Security Plan\>, section 3.7, and the allowed flows in \<Access Control Management\>, section 3.6 | Done |
 
@@ -432,7 +432,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 24: SA-4(10) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Use only products on the approved list for PIV capability | Not applicable: It requires products on the United States government's list for PIV identity cards, which \<System Name\> does not use (\<Tailoring Register\>, TR-SA-01) | Not applicable |
 
@@ -448,7 +448,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 26: SA-5 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a.1 | Administrator documentation on the secure configuration, installation and operation of the system | \<Administrator Guide\>, sections 2 to 4 | Drafted. Not yet confirmed by the developers (S10; PA-69) |
 | a.2 | Administrator documentation on using and maintaining the security and privacy functions | \<Administrator Guide\>, sections 5 and 6 | Drafted. Not yet confirmed |
@@ -477,9 +477,9 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 28: SA-8 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
-| All | Apply defined security and privacy engineering principles in the specification, design, development, implementation and modification of the system | The NCSC secure design principles and NIST's privacy engineering objectives, mapped to \<System Name\> in \<Security Architecture\>, section 6.5 (section 3.6). The security officer checks each significant design against them (PRO-SA-1) | Applied to the specification and design. Work before 11 November 2026 was not checked against them; changes are checked from now on |
+| All | Apply defined security and privacy engineering principles in the specification, design, development, implementation and modification of the system | The NCSC secure design principles and the CSS privacy engineering objectives, mapped to \<System Name\> in \<Security Architecture\>, section 6.5 (section 3.6). The security officer checks each significant design against them (PRO-SA-1) | Applied to the specification and design. Work before 11 November 2026 was not checked against them; changes are checked from now on |
 
 **Table 29: SA-8 responsibility and evidence**
 
@@ -499,7 +499,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 30: SA-9 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Require providers of external services to meet the security and privacy requirements and use defined controls | The controls stated in each provider's contract or service terms (section 3.7). Each row records what the trust in the service rests on, and \<Organisation\>'s agreements are to state service levels and remedies | Terms not seen (EV-SA-02, EV-SA-03) |
 | b | Define and document oversight, and user roles and responsibilities, for external services | The system owner oversees each service. Section 3.7 and \<Roles and Responsibilities\> say who uses each | Done |
@@ -523,7 +523,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 32: SA-9(2) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Require providers of defined external services to identify the functions, ports, protocols and other services they need | Every service in section 3.7, including \<Organisation\>'s hosting, network, ServiceNow, AD FS and Active Directory, and GitHub | Providers' lists not seen (EV-SA-02, EV-SA-03) |
 
@@ -545,7 +545,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 34: SA-10 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Perform configuration management during defined stages of the lifecycle | Development, implementation and operation: code, configuration, documents and test scripts held in Git, in private repositories on GitHub (section 3.8) | Code is in Git, in private repositories (S04). 10 test scripts were not (S07) |
 | b | Document, manage and control the integrity of changes to defined items | Each default branch protected, with at least one approving review before a change merges, and each release tag signed | Not in place: no branch protection, required review or signed tag (S01, S05; PA-91) |
@@ -571,7 +571,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 36: SA-11 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Develop and carry out a plan for ongoing security and privacy control assessments | The developer test plan in section 3.9: 15 scripts covering the security functions, with privacy checks in Test-PersonalData.ps1 | Carried out: the scripts ran on the v1.0 build, and the evidence is kept |
 | b | Test at a defined frequency, depth and coverage | Unit, integration and security tests at each release, covering every security function, with the web applications verified to OWASP ASVS 5.0 Level 2 | Run by hand; no unit tests or pipeline (S08; PA-68). ASVS not yet verified (PA-68) |
@@ -597,10 +597,10 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 38: SA-15 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
-| a.1 | Follow a documented development process that explicitly addresses security and privacy requirements | NIST SSDF \<ver\> (section 3.2), with the acquisition policy and the personal data policy | Done |
-| a.2 | The process identifies the standards and tools used | SSDF, OWASP ASVS 5.0, the NCSC principles and the tools in section 3.10 | Done |
+| a.1 | Follow a documented development process that explicitly addresses security and privacy requirements | CSS \<ver\> (section 3.2), with the acquisition policy and the personal data policy | Done |
+| a.2 | The process identifies the standards and tools used | CSS, OWASP ASVS 5.0, the NCSC principles and the tools in section 3.10 | Done |
 | a.3 | The process documents the tool options and configurations used | Section 3.10, with the settings that matter for security | Done, including the package audit turned off (PA-92) |
 | a.4 | The process documents, manages and protects changes to itself and its tools | Changes to the process or tools are reviewed every 12 months and recorded on TPL-23 (PRO-SA-6) | Approved. Not yet in use |
 | b | Review the process, standards, tools and configurations at a defined frequency, against defined requirements | Every 12 months, against the acquisition policy and the personal data policy | No review yet held |
@@ -623,7 +623,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 40: SA-15(3) design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Perform a criticality analysis at defined decision points | At design and at each major change (\<Risk Assessment Management\>, section 3.9) | Done on 11 November 2026, and redone on 18 November 2026 for sign-in through AD FS |
 | b | At a defined breadth and depth | Every component, in enough depth to identify the critical ones | Done |
@@ -646,7 +646,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 **Table 42: SA-22 design**
 
-| Part | NIST requires | Design | Today |
+| Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Replace components when support for them is no longer available | Each is replaced before its support ends, with the replacement planned at least 6 months before (section 3.12) | No component within 6 months of the end of support (S09). Packages and browser libraries are not yet checked for loss of support (PA-128) |
 | b | Provide defined options for other support for unsupported components | In-house support, or a supplier's extended support by exception, approved by the authorising official | None needed yet |
@@ -667,11 +667,11 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 
 ## Appendix A Parameter register
 
-These are NIST's organisation-defined values for the SA entries: 35 in total. SA-4(10) is tailored (\<Tailoring Register\>, TR-SA-01), and has no parameters. They were agreed on 6 November 2026, and restated as requirements on 11 November 2026 (D-SA-P01). **State now** says whether \<System Name\> meets the value today.
+These are the CSS organisation-defined values for the SA entries: 35 in total. SA-4(10) is tailored (\<Tailoring Register\>, TR-SA-01), and has no parameters. They were agreed on 6 November 2026, and restated as requirements on 11 November 2026 (D-SA-P01). **State now** says whether \<System Name\> meets the value today.
 
 **Table 44: SA parameter register**
 
-| NIST identifier | What must be defined | Value | State now |
+| CSS identifier | What must be defined | Value | State now |
 | --- | --- | --- | --- |
 | SA-01\_ODP\[01\] | Who receives the policy | Developers and administrators | Not yet shared |
 | SA-01\_ODP\[02\] | Who receives the procedures | Developers and administrators | Not yet shared |
@@ -681,7 +681,7 @@ These are NIST's organisation-defined values for the SA entries: 35 in total. SA
 | SA-01\_ODP\[06\] | Events requiring policy review | Significant incident, audit finding or system change | Met: reviewed after the SA pack review |
 | SA-01\_ODP\[07\] | Procedures review frequency | Every 12 months | First review not yet due |
 | SA-01\_ODP\[08\] | Events requiring procedures review | A change to the steps | Met: reviewed as version \<ver\> |
-| SA-03\_ODP | Lifecycle | NIST SSDF \<ver\>, as in section 3.2 | Mapped; not yet in routine use |
+| SA-03\_ODP | Lifecycle | CSS \<ver\>, as in section 3.2 | Mapped; not yet in routine use |
 | SA-04\_ODP\[01\] | Contract method | Standard contract language | Contract not seen (EV-SA-01) |
 | SA-04\_ODP\[02\] | Contract language | \<Organisation\>'s standard contract, with security and privacy requirements added | Contract not seen (EV-SA-01) |
 | SA-04(02)\_ODP\[01\] | Design information level | Security-relevant external interfaces and high-level design | Met: \<Security Architecture\> and \<System Security Plan\>, sections 3 and 4 |
@@ -690,7 +690,7 @@ These are NIST's organisation-defined values for the SA entries: 35 in total. SA
 | SA-05\_ODP\[01\] | What to do about missing documents | Record it and chase the supplier | Met by procedure |
 | SA-05\_ODP\[02\] | Who receives documentation | Administrators, the security officer and users | Guides drafted, not yet shared |
 | SA-08\_ODP\[01\] | Security engineering principles | NCSC secure design principles | Mapped in \<Security Architecture\>, section 6.5 |
-| SA-08\_ODP\[02\] | Privacy engineering principles | NIST's privacy engineering objectives | Mapped in \<Security Architecture\>, section 6.5 |
+| SA-08\_ODP\[02\] | Privacy engineering principles | The CSS privacy engineering objectives | Mapped in \<Security Architecture\>, section 6.5 |
 | SA-09\_ODP\[01\] | Controls providers must use | Those stated in the contract or service terms | Terms not seen (EV-SA-02, EV-SA-03) |
 | SA-09\_ODP\[02\] | How compliance is monitored | System owner's review every 12 months, on TPL-16 | First review not yet held |
 | SA-09(02)\_ODP | Services concerned | The services in section 3.7 | Lists not seen |
@@ -711,7 +711,7 @@ These are NIST's organisation-defined values for the SA entries: 35 in total. SA
 
 ## Appendix B Acquisition controls outside the Moderate baseline
 
-NIST does not select these at Moderate, so they are not assessed. Some of the design goes some way towards them, and Table 45 says where. SA-6, SA-7, SA-12, SA-13, SA-14, SA-18 and SA-19 are withdrawn, and so are the enhancements of SA-5. SA-22(1) is now part of SA-22.
+CSS does not select these at Moderate, so they are not assessed. Some of the design goes some way towards them, and Table 45 says where. SA-6, SA-7, SA-12, SA-13, SA-14, SA-18 and SA-19 are withdrawn, and so are the enhancements of SA-5. SA-22(1) is now part of SA-22.
 
 **Table 45: Related controls and enhancements not selected**
 
@@ -720,14 +720,14 @@ NIST does not select these at Moderate, so they are not assessed. Some of the de
 | SA-3(1) Manage Preproduction Environment | Protects the development and test environments | Not required. Done in part: the test stacks are separate from production |
 | SA-3(2) Use of Live or Operational Data | Limits the use of real data in development and testing | Not required. Done in design: the test stacks hold sample data only (Q09; \<PII Processing Management\>) |
 | SA-3(3) Technology Refresh | Plans the replacement of technology | Not required. Done in part: replacements are planned 6 months before support ends (section 3.12) |
-| SA-4(3) Development Methods, Techniques, and Practices | Requires a stated development method | Not required. Done in design: NIST SSDF \<ver\> (section 3.2) |
+| SA-4(3) Development Methods, Techniques, and Practices | Requires a stated development method | Not required. Done in design: CSS \<ver\> (section 3.2) |
 | SA-4(5) System, Component, and Service Configurations | Delivers products with secure settings in place | Not required: selected at High only |
 | SA-4(6), SA-4(7) Use of Information Assurance Products; NIAP-approved Protection Profiles | Uses United States government evaluated products | Not applicable |
 | SA-4(8) Continuous Monitoring Plan for Controls | Requires the developer to plan monitoring of the controls | Not required. The monitoring plan is in \<Assessment, Authorization, and Monitoring Management\>, section 3.8 |
 | SA-4(11) System of Records | Privacy Act terms for a United States system of records | Not applicable |
 | SA-4(12) Data Ownership | States that the organisation owns its data | Not required. \<Organisation\> owns the data \<System Name\> holds |
 | SA-8(1) to SA-8(32) | Individual security engineering principles | Not required. The NCSC secure design principles cover the same ground (section 3.6) |
-| SA-8(33) Minimization | The privacy principle of minimisation | In NIST's privacy baseline. Designed and assessed in \<PII Processing Management\> |
+| SA-8(33) Minimization | The privacy principle of minimisation | In the CSS privacy baseline. Designed and assessed in \<PII Processing Management\> |
 | SA-9(1) Risk Assessments and Organizational Approvals | Assesses risk and approves before an external service is used | Not required. Done in part: a new supplier or component is reviewed before use (PRO-RA-2, PRO-SA-7) |
 | SA-9(3) to SA-9(8) | Trust relationships, consistent interests, location, the organisation's own keys and integrity checks, and United States jurisdiction | Not required. Done in part: each external service's basis of trust is recorded (section 3.7) |
 | SA-10(1) to SA-10(7) | Integrity checks, trusted generation and distribution, and other forms of developer configuration management | Not required. Done in part in design: signed tags and release checksums (PA-61, PA-91) |

@@ -2,7 +2,7 @@
 
 ## 1 How to use this document
 
-This document is the security and privacy policy for \<System Name\>. It holds one policy for each of the 19 NIST SP 800-53 Rev 5 control families that apply, as chapters in NIST order. A policy says what must be true and who is accountable for it. How each rule is carried out is in \<Procedures\>, and the design, values and decisions are in each family's design document (\<Documentation Map\>, section 2.2).
+This document is the security and privacy policy for \<System Name\>. It holds one policy for each of the 19 CSS control families that apply, as chapters in CSS order. A policy says what must be true and who is accountable for it. How each rule is carried out is in \<Procedures\>, and the design, values and decisions are in each family's design document (\<Documentation Map\>, section 2.2).
 
 The Head of Cyber approves each policy, and the legal adviser reviews it. None is yet reviewed or approved. The decisions each chapter needs are listed in \<Decision Register\>.
 
@@ -27,7 +27,7 @@ These rules apply to every chapter. They are stated once here. A chapter repeats
 
 This policy sets the organisation's rules and principles for access to \<System Name\>: what is mandatory, and who answers for it. The Head of Cyber, who approves all policies, has approved it. The legal adviser reviewed it on 12 November 2026. It has not yet been shared. The approved decisions and settings that carry it out are in \<Access Control Management\>, and the steps people follow are in \<Procedures\> (AC).
 
-This policy sets who may access \<System Name\>, what they may do, and how that access is controlled, in line with the NIST SP 800-53 Rev 5 AC family (AC-1).
+This policy sets who may access \<System Name\>, what they may do, and how that access is controlled, in line with the CSS AC family (AC-1).
 
 It applies to everyone who uses or administers UI application, Admin application, API, the \<System Name\> database and the two Windows Server 2025 VMs they run on at \<Organisation\>, and to any service account they use.
 
@@ -95,7 +95,7 @@ The rules in section 1.1 apply to this policy. It adds these.
 4. **Procedures review (P-AC-03):** every 12 months, and after a change to the steps.
 5. **Compliance and management commitment:** the system owner reviews compliance at each review and records the result. Breaches may lead to loss of access and to disciplinary action. They may also be offences under the Computer Misuse Act 1990 or the Data Protection Act 2018, as \<Security Operating Procedures\>, rule A4, explains.
 6. **Coordination:** the system owner agrees with \<Organisation\>'s security contact how inherited controls, leavers and incidents are handled, and records it.
-7. **Laws and standards:** this policy must be consistent with applicable law, \<Organisation\>'s policies and NIST SP 800-53 Rev 5. The legal adviser reviewed it on 12 November 2026.
+7. **Laws and standards:** this policy must be consistent with applicable law, \<Organisation\>'s policies and CSS. The legal adviser reviewed it on 12 November 2026.
 8. **Exceptions:** an exception needs written approval from the system owner, a stated end date and an entry in \<Risk List\>. \<Access Control Management\> sets the rules, and PRO-AC-15 sets the steps.
 
 ### AC.7 Non-compliance and risk acceptance
@@ -131,8 +131,8 @@ The organisation takes a risk-based approach to these requirements. No system me
 
 | Reference | Use |
 | --- | --- |
-| NIST SP 800-53 Rev 5, Access Control (AC) family | The controls this policy meets |
-| NIST SP 800-53B, Moderate baseline | The controls selected |
+| CSS, Access Control (AC) family | The controls this policy meets |
+| CSS, Moderate baseline | The controls selected |
 | \<Procedures\> (AC), Access Control Procedures | The steps people follow |
 | \<Access Control Management\>, Access Control Management | The approved settings and parameter values |
 | \<Security Operating Procedures\>, Security Operating Procedures | The rules every user signs |
@@ -144,7 +144,7 @@ The organisation takes a risk-based approach to these requirements. No system me
 
 ### AT.1 Purpose and scope
 
-This policy sets the organisation's rules for security and privacy awareness and training for \<System Name\>, in line with the NIST SP 800-53 Rev 5 AT family (AT-1). It stands alone, as each family has its own policy. The curriculum, briefing, training matrix, measures and register are in \<Awareness and Training Management\>, and the steps people follow are in \<Procedures\> (AT).
+This policy sets the organisation's rules for security and privacy awareness and training for \<System Name\>, in line with the CSS AT family (AT-1). It stands alone, as each family has its own policy. The curriculum, briefing, training matrix, measures and register are in \<Awareness and Training Management\>, and the steps people follow are in \<Procedures\> (AT).
 
 It applies to everyone who uses, administers or develops \<System Name\>, including \<Organisation\>'s staff who hold a \<System Name\> role. It covers the training other families require: incident response (IR-2), contingency (CP-3), privacy (AT-3(5)) and the rules of behaviour (PL-4).
 
@@ -195,7 +195,7 @@ The rules in section 1.1 apply to this policy. It adds these.
 1. **Communication:** this policy and the procedures must be shared with everyone who uses, administers or develops \<System Name\>, and whenever they change.
 2. **Compliance and management commitment:** the system owner reviews the measures monthly and compliance at each review, and records the result.
 3. **Coordination:** the system owner agrees with \<Organisation\> how its course and its administrators' training are evidenced, and records it.
-4. **Laws and standards:** this policy must be consistent with applicable law, \<Organisation\>'s policies and NIST SP 800-53 Rev 5. The legal adviser reviewed it on 12 November 2026.
+4. **Laws and standards:** this policy must be consistent with applicable law, \<Organisation\>'s policies and CSS. The legal adviser reviewed it on 12 November 2026.
 
 ### AT.7 Non-compliance and risk acceptance
 
@@ -219,9 +219,9 @@ The rule on non-compliance in section 1.1 applies to this policy.
 
 | Reference | Use |
 | --- | --- |
-| NIST SP 800-53 Rev 5, AT family | The controls this policy meets |
-| NIST SP 800-50 Rev 1 (September 2024) | Running the learning programme |
-| NIST SP 800-181 Rev 1, the NICE Framework | Describing role training |
+| CSS, AT family | The controls this policy meets |
+| CSS (September 2024) | Running the learning programme |
+| CSS, the NICE Framework | Describing role training |
 | NCSC 10 Steps: engagement and training; NCSC phishing guidance | Needs-led training and blame-free reporting |
 | ICO data protection audit framework: training and awareness | Privacy training and evidence of understanding |
 | \<Awareness and Training Management\>, \<Procedures\> (AT), \<Security Operating Procedures\> and \<PII Processing Management\> | The curriculum, procedures, rules and privacy training |
@@ -230,7 +230,7 @@ The rule on non-compliance in section 1.1 applies to this policy.
 
 ### AU.1 Purpose and scope
 
-This policy sets the organisation's rules for recording and reviewing activity in \<System Name\>, so that actions can be traced to a person and incidents can be investigated, in line with the NIST SP 800-53 Rev 5 AU family (AU-1). The settings that carry it out are in \<Audit and Accountability Management\>, and the steps people follow are in \<Procedures\> (AU).
+This policy sets the organisation's rules for recording and reviewing activity in \<System Name\>, so that actions can be traced to a person and incidents can be investigated, in line with the CSS AU family (AU-1). The settings that carry it out are in \<Audit and Accountability Management\>, and the steps people follow are in \<Procedures\> (AU).
 
 It applies to UI application, Admin application, API, the \<System Name\> database and the two Windows Server 2025 VMs they run on at \<Organisation\>, and to everyone who administers or reviews them.
 
@@ -279,7 +279,7 @@ The rules in section 1.1 apply to this policy. It adds these.
 
 1. **Communication:** this policy and the procedures must be shared with everyone who administers or reviews \<System Name\>, and whenever they change.
 2. **Coordination:** the system owner agrees with \<Organisation\>'s security contact how logs from inherited services are shared, and records it.
-3. **Laws and standards:** this policy must be consistent with applicable law, including UK GDPR and the Data Protection Act 2018 for personal data in records, the Computer Misuse Act 1990 for misuse of the system and the use of records as evidence, \<Organisation\>'s policies and NIST SP 800-53 Rev 5. The legal adviser reviewed it on 12 November 2026.
+3. **Laws and standards:** this policy must be consistent with applicable law, including UK GDPR and the Data Protection Act 2018 for personal data in records, the Computer Misuse Act 1990 for misuse of the system and the use of records as evidence, \<Organisation\>'s policies and CSS. The legal adviser reviewed it on 12 November 2026.
 
 ### AU.7 Non-compliance and risk acceptance
 
@@ -307,9 +307,9 @@ The rule on non-compliance in section 1.1 applies to this policy.
 
 | Reference | Use |
 | --- | --- |
-| NIST SP 800-53 Rev 5, Audit and Accountability (AU) family | The controls this policy meets |
-| NIST SP 800-53B, Moderate baseline | The controls selected |
-| NIST SP 800-92, Guide to Computer Security Log Management | Good practice for log management |
+| CSS, Audit and Accountability (AU) family | The controls this policy meets |
+| CSS, Moderate baseline | The controls selected |
+| CSS, Guide to Computer Security Log Management | Good practice for log management |
 | \<Procedures\> (AU), Audit and Accountability Procedures | The steps people follow |
 | \<Audit and Accountability Management\>, Audit and Accountability Management | The approved settings, events and parameter values |
 | \<Security Operating Procedures\>, Security Operating Procedures, section 4.2 | The audit review steps and the list of unusual activity |
@@ -321,7 +321,7 @@ The rule on non-compliance in section 1.1 applies to this policy.
 
 ### CA.1 Purpose and scope
 
-This policy sets the organisation's rules for assessing \<System Name\>'s controls, authorising it to operate and monitoring it afterwards, in line with the NIST SP 800-53 Rev 5 CA family (CA-1). It stands alone, as each family has its own policy. The settings that carry it out are in \<Assessment, Authorization, and Monitoring Management\>, and the steps people follow are in \<Procedures\> (CA).
+This policy sets the organisation's rules for assessing \<System Name\>'s controls, authorising it to operate and monitoring it afterwards, in line with the CSS CA family (CA-1). It stands alone, as each family has its own policy. The settings that carry it out are in \<Assessment, Authorization, and Monitoring Management\>, and the steps people follow are in \<Procedures\> (CA).
 
 It applies to UI application, Admin application, API, the \<System Name\> database, the two Windows Server 2025 VMs they run on at \<Organisation\>, and their connections to other systems.
 
@@ -368,7 +368,7 @@ The rules in section 1.1 apply to this policy. It adds these.
 
 1. **Communication:** this policy and the procedures must be shared with everyone who administers \<System Name\>, and whenever they change.
 2. **Coordination:** the system owner agrees with \<Organisation\>'s security contact how inherited controls are provided, and records it.
-3. **Laws and standards:** this policy must be consistent with applicable law, including UK GDPR and the Data Protection Act 2018, \<Organisation\>'s policies and NIST SP 800-53 Rev 5. The legal adviser reviewed it on 12 November 2026.
+3. **Laws and standards:** this policy must be consistent with applicable law, including UK GDPR and the Data Protection Act 2018, \<Organisation\>'s policies and CSS. The legal adviser reviewed it on 12 November 2026.
 
 ### CA.7 Non-compliance and risk acceptance
 
@@ -394,10 +394,10 @@ The rule on non-compliance in section 1.1 applies to this policy.
 
 | Reference | Use |
 | --- | --- |
-| NIST SP 800-53 Rev 5, CA family, and SP 800-53B Moderate baseline | The controls this policy meets |
-| NIST SP 800-37 Rev 2, Risk Management Framework | The assessment and authorisation process |
-| NIST SP 800-137, Information Security Continuous Monitoring | The monitoring strategy |
-| NIST SP 800-47 Rev 1, Managing the Security of Information Exchanges | Agreements for connections |
+| CSS, CA family, and CSS Moderate baseline | The controls this policy meets |
+| CSS, Risk Management Framework | The assessment and authorisation process |
+| CSS, Information Security Continuous Monitoring | The monitoring strategy |
+| CSS, Managing the Security of Information Exchanges | Agreements for connections |
 | \<Procedures\> (CA), \<Assessment, Authorization, and Monitoring Management\> and \<Security Assessment Report\> | The procedures, settings and assessment report |
 | \<Risk List\> and \<Plan of Action and Milestones\> | Risks, decisions and remediation |
 | UK GDPR, Data Protection Act 2018 | The laws this policy must be consistent with |
@@ -406,7 +406,7 @@ The rule on non-compliance in section 1.1 applies to this policy.
 
 ### CM.1 Purpose and scope
 
-This policy sets the organisation's rules for controlling how \<System Name\> is configured and changed, in line with the NIST SP 800-53 Rev 5 CM family (CM-1). It stands alone, as each family has its own policy. \<Configuration Management\> holds the design, and is the Configuration Management Plan that CM-9 requires. \<Procedures\> (CM) holds the steps.
+This policy sets the organisation's rules for controlling how \<System Name\> is configured and changed, in line with the CSS CM family (CM-1). It stands alone, as each family has its own policy. \<Configuration Management\> holds the design, and is the Configuration Management Plan that CM-9 requires. \<Procedures\> (CM) holds the steps.
 
 It applies to UI application, Admin application, API, the \<System Name\> database and the two Windows Server 2025 VMs they run on at \<Organisation\>.
 
@@ -457,7 +457,7 @@ The rules in section 1.1 apply to this policy. It adds these.
 
 1. **Communication:** this policy and the procedures must be shared with everyone who changes or administers \<System Name\>, and whenever they change.
 2. **Coordination:** the system owner agrees with \<Organisation\>'s security contact how changes on its services are coordinated, and records it.
-3. **Laws and standards:** this policy must be consistent with applicable law, including the Copyright, Designs and Patents Act 1988 for software licences, \<Organisation\>'s policies and NIST SP 800-53 Rev 5. The legal adviser reviewed it on 12 November 2026.
+3. **Laws and standards:** this policy must be consistent with applicable law, including the Copyright, Designs and Patents Act 1988 for software licences, \<Organisation\>'s policies and CSS. The legal adviser reviewed it on 12 November 2026.
 
 ### CM.7 Non-compliance and risk acceptance
 
@@ -483,8 +483,8 @@ The rule on non-compliance in section 1.1 applies to this policy.
 
 | Reference | Use |
 | --- | --- |
-| NIST SP 800-53 Rev 5, CM family, and SP 800-53B Moderate baseline | The controls this policy meets |
-| NIST SP 800-128, Security-Focused Configuration Management | The plan structure, board charter and impact analysis |
+| CSS, CM family, and CSS Moderate baseline | The controls this policy meets |
+| CSS, Security-Focused Configuration Management | The plan structure, board charter and impact analysis |
 | CIS Benchmarks | Secure settings for Windows Server and PostgreSQL |
 | Cyber Essentials | \<Organisation\>'s scheme: secure configuration and updates |
 | \<Procedures\> (CM) and \<Configuration Management\> | The procedures and plan |
@@ -495,7 +495,7 @@ The rule on non-compliance in section 1.1 applies to this policy.
 
 ### CP.1 Purpose and scope
 
-This policy sets the organisation's rules for keeping \<System Name\> recoverable, in line with the NIST SP 800-53 Rev 5 CP family (CP-1). It stands alone, as each family has its own policy. The plan that carries it out is \<Contingency Planning Management\>, and the steps people follow are in \<Procedures\> (CP).
+This policy sets the organisation's rules for keeping \<System Name\> recoverable, in line with the CSS CP family (CP-1). It stands alone, as each family has its own policy. The plan that carries it out is \<Contingency Planning Management\>, and the steps people follow are in \<Procedures\> (CP).
 
 It applies to UI application, Admin application, API, the \<System Name\> database, its backups, the secrets the applications need, and the two Windows Server 2025 VMs they run on at \<Organisation\>.
 
@@ -548,7 +548,7 @@ The rules in section 1.1 apply to this policy. It adds these.
 3. **Communication:** this policy and the procedures must be shared with everyone who administers \<System Name\>, and whenever they change.
 4. **Policy review:** every 12 months, and after a significant incident, audit finding, system change, contingency test or activation.
 5. **Coordination:** the system owner agrees with \<Organisation\>'s security contact how the second site, network and telecommunications are provided, and records it.
-6. **Laws and standards:** this policy must be consistent with applicable law, including UK GDPR Article 32(1)(b) and (c), which require resilience and the ability to restore personal data in a timely manner, and the Data Protection Act 2018; \<Organisation\>'s policies; and NIST SP 800-53 Rev 5. The legal adviser reviewed it on 9 November 2026.
+6. **Laws and standards:** this policy must be consistent with applicable law, including UK GDPR Article 32(1)(b) and (c), which require resilience and the ability to restore personal data in a timely manner, and the Data Protection Act 2018; \<Organisation\>'s policies; and CSS. The legal adviser reviewed it on 9 November 2026.
 
 ### CP.7 Non-compliance and risk acceptance
 
@@ -575,9 +575,9 @@ The rule on non-compliance in section 1.1 applies to this policy.
 
 | Reference | Use |
 | --- | --- |
-| NIST SP 800-53 Rev 5, CP family, and SP 800-53B Moderate baseline | The controls this policy meets |
-| NIST SP 800-34 Rev. 1, Contingency Planning Guide for Federal Information Systems | The plan structure and business impact analysis |
-| NIST SP 800-84, Guide to Test, Training, and Exercise Programs | Testing, exercises and after-action reports |
+| CSS, CP family, and CSS Moderate baseline | The controls this policy meets |
+| CSS, Contingency Planning Guide for Federal Information Systems | The plan structure and business impact analysis |
+| CSS, Guide to Test, Training, and Exercise Programs | Testing, exercises and after-action reports |
 | UK GDPR Article 32, and the Data Protection Act 2018 | Resilience and timely restoration of personal data |
 | \<Contingency Planning Management\> and \<Procedures\> (CP) | The plan and procedures |
 | \<Incident Response Management\> | The incident response plan this plan works with |
@@ -586,7 +586,7 @@ The rule on non-compliance in section 1.1 applies to this policy.
 
 ### IA.1 Purpose and scope
 
-This policy sets the organisation's rules for proving who is using \<System Name\>, in line with the NIST SP 800-53 Rev 5 IA family (IA-1). The settings that carry it out are in \<Identification and Authentication Management\>, and the steps people follow are in \<Procedures\> (IA).
+This policy sets the organisation's rules for proving who is using \<System Name\>, in line with the CSS IA family (IA-1). The settings that carry it out are in \<Identification and Authentication Management\>, and the steps people follow are in \<Procedures\> (IA).
 
 It applies to everyone who uses or administers UI application, Admin application, API, the \<System Name\> database and the two Windows Server 2025 VMs they run on at \<Organisation\>, and to every service account and secret they use.
 
@@ -638,7 +638,7 @@ The rules in section 1.1 apply to this policy. It adds these.
 1. **Communication:** this policy and the procedures must be shared with everyone who uses or administers \<System Name\>, and whenever they change.
 2. **Compliance and management commitment:** the system owner reviews compliance at each review and records the result. Breaches may lead to loss of access and disciplinary action.
 3. **Coordination:** the system owner agrees with \<Organisation\>'s security contact how identity proofing, device identification and sign-in through AD FS are provided, and records it.
-4. **Laws and standards:** this policy must be consistent with applicable law, including UK GDPR Article 32, which requires appropriate security of personal data, and the Computer Misuse Act 1990; \<Organisation\>'s policies; NIST SP 800-53 Rev 5; and NIST SP 800-63B Revision 4. The legal adviser reviewed it on 9 November 2026.
+4. **Laws and standards:** this policy must be consistent with applicable law, including UK GDPR Article 32, which requires appropriate security of personal data, and the Computer Misuse Act 1990; \<Organisation\>'s policies; CSS; and CSS. The legal adviser reviewed it on 9 November 2026.
 
 ### IA.7 Non-compliance and risk acceptance
 
@@ -664,9 +664,9 @@ The rule on non-compliance in section 1.1 applies to this policy.
 
 | Reference | Use |
 | --- | --- |
-| NIST SP 800-53 Rev 5, IA family, and SP 800-53B Moderate baseline | The controls this policy meets |
-| NIST SP 800-63-4, Digital Identity Guidelines | Choosing assurance levels |
-| NIST SP 800-63B Revision 4, Authentication and Authenticator Management | Password, multi-factor and session rules |
+| CSS, IA family, and CSS Moderate baseline | The controls this policy meets |
+| CSS, Digital Identity Guidelines | Choosing assurance levels |
+| CSS, Authentication and Authenticator Management | Password, multi-factor and session rules |
 | NCSC password guidance | The UK view on password rules |
 | UK GDPR Article 32, and the Computer Misuse Act 1990 | Security of personal data, and unauthorised access |
 | \<Identification and Authentication Management\> and \<Procedures\> (IA) | The settings and procedures |
@@ -675,7 +675,7 @@ The rule on non-compliance in section 1.1 applies to this policy.
 
 ### IR.1 Purpose and scope
 
-This policy sets the organisation's rules for handling security incidents affecting \<System Name\>, in line with the NIST SP 800-53 Rev 5 IR family (IR-1) and NIST SP 800-61 Revision 3. It stands alone, as each family has its own policy. The plan that carries it out is \<Incident Response Management\>, and the steps people follow are in \<Procedures\> (IR).
+This policy sets the organisation's rules for handling security incidents affecting \<System Name\>, in line with the CSS IR family (IR-1) and CSS. It stands alone, as each family has its own policy. The plan that carries it out is \<Incident Response Management\>, and the steps people follow are in \<Procedures\> (IR).
 
 It applies to UI application, Admin application, API, the \<System Name\> database, its backups and secrets, the two Windows Server 2025 VMs they run on at \<Organisation\>, and everyone who uses or administers them.
 
@@ -725,7 +725,7 @@ The rules in section 1.1 apply to this policy. It adds these.
 1. **Approval:** the Head of Cyber approves this policy, as all policies, and the plan; the system owner approves the procedures.
 2. **Communication:** this policy and the procedures must be shared with everyone who administers \<System Name\>, and whenever they change.
 3. **Coordination:** the system owner agrees with \<Organisation\>'s security contact how incidents are shared, and records it.
-4. **Laws and standards:** this policy must be consistent with applicable law, including UK GDPR Articles 33 and 34, the Data Protection Act 2018 and the Computer Misuse Act 1990; \<Organisation\>'s policies; and NIST SP 800-53 Rev 5. The legal adviser reviewed it on 10 November 2026.
+4. **Laws and standards:** this policy must be consistent with applicable law, including UK GDPR Articles 33 and 34, the Data Protection Act 2018 and the Computer Misuse Act 1990; \<Organisation\>'s policies; and CSS. The legal adviser reviewed it on 10 November 2026.
 
 ### IR.7 Non-compliance and risk acceptance
 
@@ -750,8 +750,8 @@ The rule on non-compliance in section 1.1 applies to this policy.
 
 | Reference | Use |
 | --- | --- |
-| NIST SP 800-53 Rev 5, IR family, and SP 800-53B Moderate baseline | The controls this policy meets |
-| NIST SP 800-61 Revision 3 | Incident response as part of cyber risk management |
+| CSS, IR family, and CSS Moderate baseline | The controls this policy meets |
+| CSS | Incident response as part of cyber risk management |
 | ICO guide to personal data breaches | Reporting to the ICO and telling the people affected |
 | NCSC incident management guidance | Reporting and handling cyber incidents in the UK |
 | UK GDPR Articles 33 and 34; Data Protection Act 2018; Computer Misuse Act 1990 | The legal duties |
@@ -761,7 +761,7 @@ The rule on non-compliance in section 1.1 applies to this policy.
 
 ### MA.1 Purpose and scope
 
-This policy sets the organisation's rules for maintaining \<System Name\>, in line with the NIST SP 800-53 Rev 5 MA family (MA-1). It stands alone, as each family has its own policy. The settings, lists and routes that carry it out are in \<Maintenance Management\>, and the steps people follow are in \<Procedures\> (MA).
+This policy sets the organisation's rules for maintaining \<System Name\>, in line with the CSS MA family (MA-1). It stands alone, as each family has its own policy. The settings, lists and routes that carry it out are in \<Maintenance Management\>, and the steps people follow are in \<Procedures\> (MA).
 
 It applies to the hardware and hypervisor, the two Windows Server 2025 VMs, PostgreSQL, UI application, Admin application and API, including the maintenance functions built into \<System Name\>. It applies to everyone who maintains them: administrators, developers, \<Organisation\>'s engineers and any supplier.
 
@@ -814,7 +814,7 @@ The rules in section 1.1 apply to this policy. It adds these.
 
 1. **Communication:** this policy and the procedures must be shared with everyone who maintains \<System Name\>, and whenever they change.
 2. **Coordination:** the system owner agrees with \<Organisation\> how its maintenance, routes and support are carried out and evidenced, and records it.
-3. **Laws and standards:** this policy must be consistent with applicable law, including UK GDPR Article 32, and Article 28 where a supplier handles personal data during maintenance or support, and the Computer Misuse Act 1990; \<Organisation\>'s policies; and NIST SP 800-53 Rev 5. The legal adviser reviewed it on 10 November 2026.
+3. **Laws and standards:** this policy must be consistent with applicable law, including UK GDPR Article 32, and Article 28 where a supplier handles personal data during maintenance or support, and the Computer Misuse Act 1990; \<Organisation\>'s policies; and CSS. The legal adviser reviewed it on 10 November 2026.
 
 ### MA.7 Non-compliance and risk acceptance
 
@@ -840,9 +840,9 @@ The rule on non-compliance in section 1.1 applies to this policy.
 
 | Reference | Use |
 | --- | --- |
-| NIST SP 800-53 Rev 5, MA family, and SP 800-53B Moderate baseline | The controls this policy meets |
-| NIST SP 800-53A Rev 5 | How the controls are assessed |
-| NIST SP 800-88 Revision 2 and IEEE 2883-2022 | Sanitising equipment and media |
+| CSS, MA family, and CSS Moderate baseline | The controls this policy meets |
+| CSS | How the controls are assessed |
+| CSS and IEEE 2883-2022 | Sanitising equipment and media |
 | NCSC Secure System Administration | Trusted devices, multi-factor sign-in and monitoring for administration |
 | UK GDPR Articles 28 and 32; Computer Misuse Act 1990 | The legal duties |
 | \<Maintenance Management\>, \<Procedures\> (MA), \<Procedures\> (CM) and \<Security Operating Procedures\> | The settings, procedures, change control and rules people sign |
@@ -851,7 +851,7 @@ The rule on non-compliance in section 1.1 applies to this policy.
 
 ### MP.1 Purpose and scope
 
-This policy sets the organisation's rules for protecting media that hold \<System Name\>'s information, in line with the NIST SP 800-53 Rev 5 MP family (MP-1). It stands alone, as each family has its own policy. The media inventory, values and methods that carry it out are in \<Media Protection Management\>, and the steps people follow are in \<Procedures\> (MP).
+This policy sets the organisation's rules for protecting media that hold \<System Name\>'s information, in line with the CSS MP family (MP-1). It stands alone, as each family has its own policy. The media inventory, values and methods that carry it out are in \<Media Protection Management\>, and the steps people follow are in \<Procedures\> (MP).
 
 It applies to every place \<System Name\> information is held outside the running application: the VMs' disks, database and key volumes, export files, application logs, backups, the audit archive, the secret store, support copies, incident evidence, the document set, users' managed devices and approved locations, managed printers, test PCs and paper. It applies to everyone who uses, administers or maintains \<System Name\>, and to \<Organisation\> for the media it handles.
 
@@ -875,7 +875,7 @@ It applies to every place \<System Name\> information is held outside the runnin
 5. **R5 Export copies:** an export copy on the server must be removed once downloaded, and within 24 hours at most. Until \<System Name\> does this itself (PA-86), the Windows server administrator checks it each working day.
 6. **R6 Users' copies:** exports and downloads may be saved only in approved \<Organisation\> locations on a managed device, kept to the minimum, and deleted within 30 days once no longer needed (\<Security Operating Procedures\>, A28 and A30 to A35).
 7. **R7 Transport:** media are physically transported only by exception, approved by the system owner, encrypted or sealed, tracked and recorded on TPL-13. Network copies, such as backups to the second site, are protected under SC-8 and CP-6 and must be encrypted first. Printouts do not leave the site without approval.
-8. **R8 Sanitising:** media must be sanitised before reuse, release or disposal following NIST SP 800-88 Revision 2 and IEEE 2883-2022, using the method set for each media type in \<Media Protection Management\>. Cryptographic erase is used for encrypted virtual disks and backups. Paper is cross-cut shredded to DIN 66399 level P-4 or better.
+8. **R8 Sanitising:** media must be sanitised before reuse, release or disposal following CSS and IEEE 2883-2022, using the method set for each media type in \<Media Protection Management\>. Cryptographic erase is used for encrypted virtual disks and backups. Paper is cross-cut shredded to DIN 66399 level P-4 or better.
 9. **R9 Records:** each sanitising action is recorded on TPL-13 with the item, method, verification and certificate. The system owner checks a sample of \<Organisation\>'s certificates every 12 months.
 10. **R10 Portable storage:** USB and other portable storage are blocked on users' devices unless an exception is approved. No USB device is passed through to the VMs.
 11. **R11 Ownerless devices:** portable storage with no identifiable owner must not be used, and must be handed to the security officer.
@@ -901,7 +901,7 @@ The rules in section 1.1 apply to this policy. It adds these.
 
 1. **Communication:** this policy and the procedures must be shared with everyone who uses or administers \<System Name\>, and whenever they change.
 2. **Coordination:** the system owner agrees with \<Organisation\> how it handles media and evidences that, and records it.
-3. **Laws and standards:** this policy must be consistent with applicable law, including UK GDPR Articles 5(1)(f) and 32 and the Data Protection Act 2018; \<Organisation\>'s policies; and NIST SP 800-53 Rev 5. The legal adviser reviewed it on 10 November 2026.
+3. **Laws and standards:** this policy must be consistent with applicable law, including UK GDPR Articles 5(1)(f) and 32 and the Data Protection Act 2018; \<Organisation\>'s policies; and CSS. The legal adviser reviewed it on 10 November 2026.
 
 ### MP.7 Non-compliance and risk acceptance
 
@@ -927,8 +927,8 @@ The rule on non-compliance in section 1.1 applies to this policy.
 
 | Reference | Use |
 | --- | --- |
-| NIST SP 800-53 Rev 5, MP family, and SP 800-53B Moderate baseline | The controls this policy meets |
-| NIST SP 800-88 Revision 2 and IEEE 2883-2022 | Sanitising media |
+| CSS, MP family, and CSS Moderate baseline | The controls this policy meets |
+| CSS and IEEE 2883-2022 | Sanitising media |
 | NCSC Secure sanitisation of storage media | UK guidance on sanitising and disposal |
 | DIN 66399 | Shredding levels for paper |
 | UK GDPR Articles 5(1)(f) and 32; Data Protection Act 2018 | The legal duties |
@@ -938,7 +938,7 @@ The rule on non-compliance in section 1.1 applies to this policy.
 
 ### PE.1 Purpose and scope
 
-This policy sets the organisation's rules for the physical and environmental protection of \<System Name\>, in line with the NIST SP 800-53 Rev 5 PE family (PE-1). It stands alone, as each family has its own policy. The values, inheritance matrix and site details that carry it out are in \<Physical and Environmental Protection Management\>, and the steps people follow are in \<Procedures\> (PE).
+This policy sets the organisation's rules for the physical and environmental protection of \<System Name\>, in line with the CSS PE family (PE-1). It stands alone, as each family has its own policy. The values, inheritance matrix and site details that carry it out are in \<Physical and Environmental Protection Management\>, and the steps people follow are in \<Procedures\> (PE).
 
 It applies to the data centre that hosts the two VMs, the second site that holds backups and is used for recovery, the offices where \<System Name\> is used and printed, and the homes of people who work remotely.
 
@@ -986,7 +986,7 @@ The rules in section 1.1 apply to this policy. It adds these.
 1. **Communication:** this policy and the procedures must be shared with everyone who uses or administers \<System Name\>, and whenever they change.
 2. **Policy review:** every 12 months, and after a significant incident, audit finding or change of site.
 3. **Coordination:** the system owner agrees with \<Organisation\> how physical protection is evidenced at both sites, and records it.
-4. **Laws and standards:** this policy must be consistent with applicable law, including the Regulatory Reform (Fire Safety) Order 2005 and UK GDPR Article 32; \<Organisation\>'s policies; and NIST SP 800-53 Rev 5. The legal adviser reviewed it on 10 November 2026.
+4. **Laws and standards:** this policy must be consistent with applicable law, including the Regulatory Reform (Fire Safety) Order 2005 and UK GDPR Article 32; \<Organisation\>'s policies; and CSS. The legal adviser reviewed it on 10 November 2026.
 
 ### PE.7 Non-compliance and risk acceptance
 
@@ -1011,7 +1011,7 @@ The rule on non-compliance in section 1.1 applies to this policy.
 
 | Reference | Use |
 | --- | --- |
-| NIST SP 800-53 Rev 5, PE family, and SP 800-53B Moderate baseline | The controls this policy meets |
+| CSS, PE family, and CSS Moderate baseline | The controls this policy meets |
 | ISO/IEC 27001:2022, Annex A.7; AICPA SOC 2, CC6.4 | How \<Organisation\> evidences physical controls |
 | ASHRAE TC 9.9 thermal guidelines | Data centre temperature and humidity |
 | NCSC home working guidance; NPSA physical security guidance | UK guidance for home working and sites |
@@ -1022,9 +1022,9 @@ The rule on non-compliance in section 1.1 applies to this policy.
 
 ### PL.1 Purpose and scope
 
-This policy sets the organisation's rules for security and privacy planning for \<System Name\>, in line with the NIST SP 800-53 Rev 5 PL family (PL-1). It stands alone, as each family has its own policy. The register of plans and the values that carry it out are in \<Planning Management\>, and the steps people follow are in \<Procedures\> (PL).
+This policy sets the organisation's rules for security and privacy planning for \<System Name\>, in line with the CSS PL family (PL-1). It stands alone, as each family has its own policy. The register of plans and the values that carry it out are in \<Planning Management\>, and the steps people follow are in \<Procedures\> (PL).
 
-It applies to every system plan for \<System Name\>: the System Security Plan, the privacy plan and the supply chain risk management plan, which NIST SP 800-18 Rev 2 calls the system plans. It also covers the plans and documents they rely on, the rules of behaviour, the security architecture and the choice and tailoring of the baseline.
+It applies to every system plan for \<System Name\>: the System Security Plan, the privacy plan and the supply chain risk management plan, which CSS calls the system plans. It also covers the plans and documents they rely on, the rules of behaviour, the security architecture and the choice and tailoring of the baseline.
 
 ### PL.2 The organisation's position
 
@@ -1048,7 +1048,7 @@ It applies to every system plan for \<System Name\>: the System Security Plan, t
 7. **R7 Signing again:** everyone signs again every 12 months, and after a material change to the rules: a new or stricter rule, a changed consequence, new monitoring or a new privileged duty. The system owner decides whether a change is material and records it in the SyOps change record.
 8. **R8 Social media:** \<System Name\> information must not be placed on social media or external sites, and work credentials must not be used on them.
 9. **R9 Architecture:** \<Security Architecture\> must state the security approach, trust zones, layers of defence, and assumptions and dependencies, and be reviewed every 12 months and after a significant change. Its changes must be reflected in the SSP, the privacy plan, the ConOps, the critical components list and procurement.
-10. **R10 Baseline and tailoring:** NIST SP 800-53 Rev 5 Moderate, with the privacy baseline, is the baseline. It may be tailored only through \<Tailoring Register\>, with a rationale, a condition and a recorded decision.
+10. **R10 Baseline and tailoring:** CSS Moderate, with the privacy baseline, is the baseline. It may be tailored only through \<Tailoring Register\>, with a rationale, a condition and a recorded decision.
 
 ### PL.5 Responsibilities
 
@@ -1070,7 +1070,7 @@ The rules in section 1.1 apply to this policy. It adds these.
 1. **Communication:** this policy and the procedures must be shared with everyone who administers \<System Name\>, and whenever they change.
 2. **Compliance and management commitment:** the system owner reviews compliance at each review, runs Test-PlanConsistency.ps1, and records the result in the plan review record.
 3. **Coordination:** the system owner coordinates the plans with the Head of Cyber, administrators, the legal adviser and \<Organisation\>'s security contact.
-4. **Laws and standards:** this policy must be consistent with applicable law, including UK GDPR and the Data Protection Act 2018 for the privacy plan; \<Organisation\>'s policies; and NIST SP 800-53 Rev 5. The legal adviser reviewed it on 11 November 2026.
+4. **Laws and standards:** this policy must be consistent with applicable law, including UK GDPR and the Data Protection Act 2018 for the privacy plan; \<Organisation\>'s policies; and CSS. The legal adviser reviewed it on 11 November 2026.
 
 ### PL.7 Non-compliance and risk acceptance
 
@@ -1082,7 +1082,7 @@ The rule on non-compliance in section 1.1 applies to this policy.
 
 | Term | Meaning |
 | --- | --- |
-| System plans | The System Security Plan, privacy plan and supply chain risk management plan, as in NIST SP 800-18 Rev 2 |
+| System plans | The System Security Plan, privacy plan and supply chain risk management plan, as in CSS |
 | Plan review record | A record of each review of a plan: who, their role, the date, the outcome and actions |
 | Change record | A record of each change to a plan: version, date and what changed |
 | Rules of behaviour | \<Security Operating Procedures\>: Part A for everyone, and Part B for privileged users |
@@ -1095,9 +1095,9 @@ The rule on non-compliance in section 1.1 applies to this policy.
 
 | Reference | Use |
 | --- | --- |
-| NIST SP 800-53 Rev 5, PL family, and SP 800-53B Moderate and privacy baselines | The controls this policy meets |
-| NIST SP 800-18 Rev 2 (June 2026) | What a system plan contains, its approval, review and change records |
-| NIST SP 800-37 Rev 2, tasks S-2 and S-6 | Tailoring and plan approval |
+| CSS, PL family, and CSS Moderate and privacy baselines | The controls this policy meets |
+| CSS (June 2026) | What a system plan contains, its approval, review and change records |
+| CSS, tasks S-2 and S-6 | Tailoring and plan approval |
 | UK GDPR and the Data Protection Act 2018 | The legal basis for the privacy plan |
 | \<Planning Management\>, \<Procedures\> (PL), \<Security Operating Procedures\>, \<Security Architecture\> and \<Tailoring Register\> | The register and values, procedures, rules, architecture and tailoring |
 
@@ -1105,7 +1105,7 @@ The rule on non-compliance in section 1.1 applies to this policy.
 
 ### PS.1 Purpose and scope
 
-This policy sets the organisation's rules for personnel security for \<System Name\>, in line with the NIST SP 800-53 Rev 5 PS family (PS-1). It stands alone, as each family has its own policy. The designations, screening standard, time limits and register are in \<Personnel Security Management\>, and the steps people follow are in \<Procedures\> (PS).
+This policy sets the organisation's rules for personnel security for \<System Name\>, in line with the CSS PS family (PS-1). It stands alone, as each family has its own policy. The designations, screening standard, time limits and register are in \<Personnel Security Management\>, and the steps people follow are in \<Procedures\> (PS).
 
 It applies to everyone who uses, administers or develops \<System Name\>, including external people and \<Organisation\>'s staff who hold a \<System Name\> role.
 
@@ -1155,7 +1155,7 @@ The rules in section 1.1 apply to this policy. It adds these.
 
 1. **Communication:** this policy and the procedures must be shared with everyone who administers \<System Name\> and every line manager of a \<System Name\> user, and whenever they change.
 2. **Coordination:** the system owner agrees with \<Organisation\> how its screening, HR and disciplinary processes are used and evidenced, and records it (EV-PS-01 to EV-PS-03).
-3. **Laws and standards:** this policy must be consistent with applicable law, \<Organisation\>'s policies and NIST SP 800-53 Rev 5. The laws that bear on it are below. \<Organisation\>, as the employer, carries out the screening and holds its records, so these laws apply to it first. The legal adviser reviewed version \<ver\> on 12 November 2026, and confirms this list with the review of version \<ver\>.
+3. **Laws and standards:** this policy must be consistent with applicable law, \<Organisation\>'s policies and CSS. The laws that bear on it are below. \<Organisation\>, as the employer, carries out the screening and holds its records, so these laws apply to it first. The legal adviser reviewed version \<ver\> on 12 November 2026, and confirms this list with the review of version \<ver\>.
 
 **Table PS-2: Laws that bear on personnel security**
 
@@ -1190,7 +1190,7 @@ The rule on non-compliance in section 1.1 applies to this policy.
 
 | Reference | Use |
 | --- | --- |
-| NIST SP 800-53 Rev 5, PS family | The controls this policy meets |
+| CSS, PS family | The controls this policy meets |
 | HMG Baseline Personnel Security Standard | The four checks used as the minimum in R2 |
 | NPSA, Employment screening: a good practice guide; BS 7858:2019 | What a fuller screening standard covers, for comparison with \<Organisation\>'s own |
 | \<Personnel Security Management\>, \<Procedures\> (PS), \<Roles and Responsibilities\>, \<Security Operating Procedures\> and \<Access Control Management\> | The designations and register, the procedures, the roles, the rules people sign and the account time limits |
@@ -1199,7 +1199,7 @@ The rule on non-compliance in section 1.1 applies to this policy.
 
 ### PT.1 Purpose and scope
 
-This policy sets the organisation's rules for processing personal data in \<System Name\>, in line with the NIST SP 800-53 Rev 5 PT family (PT-1) and UK data protection law. It stands alone, as each family has its own policy. The inventory, retention schedule and values that carry it out are in \<PII Processing Management\>, the impact assessment is \<Data Protection Impact Assessment\>, the privacy plan is \<Privacy Plan\>, and the steps people follow are in \<Procedures\> (PT).
+This policy sets the organisation's rules for processing personal data in \<System Name\>, in line with the CSS PT family (PT-1) and UK data protection law. It stands alone, as each family has its own policy. The inventory, retention schedule and values that carry it out are in \<PII Processing Management\>, the impact assessment is \<Data Protection Impact Assessment\>, the privacy plan is \<Privacy Plan\>, and the steps people follow are in \<Procedures\> (PT).
 
 It applies to all personal data in \<System Name\>: HR documents, other project documents, the names held from sign-in, audit records, logs and export copies.
 
@@ -1249,7 +1249,7 @@ The rules in section 1.1 apply to this policy. It adds these.
 2. **Policy review:** every 12 months, and after a significant incident, audit finding, change in the law or change in processing.
 3. **Compliance and management commitment:** the system owner reviews compliance at each review, runs Test-PersonalData.ps1 on a test stack, and records the result.
 4. **Coordination:** the system owner works with the legal adviser, the data protection officer and \<Organisation\>, and records what is agreed.
-5. **Laws and standards:** this policy must be consistent with UK GDPR, the Data Protection Act 2018, the Data (Use and Access) Act 2025, \<Organisation\>'s policies and NIST SP 800-53 Rev 5. The legal adviser reviewed it on 11 November 2026.
+5. **Laws and standards:** this policy must be consistent with UK GDPR, the Data Protection Act 2018, the Data (Use and Access) Act 2025, \<Organisation\>'s policies and CSS. The legal adviser reviewed it on 11 November 2026.
 
 ### PT.7 Non-compliance and risk acceptance
 
@@ -1274,7 +1274,7 @@ The rule on non-compliance in section 1.1 applies to this policy.
 
 | Reference | Use |
 | --- | --- |
-| NIST SP 800-53 Rev 5, PT family and SP 800-53B privacy baseline | The controls this policy meets |
+| CSS, PT family and CSS privacy baseline | The controls this policy meets |
 | UK GDPR; Data Protection Act 2018; Data (Use and Access) Act 2025 | The law |
 | ICO guidance: keeping employment records (February 2025); data protection impact assessments | How the law applies to HR records |
 | \<PII Processing Management\>, \<Data Protection Impact Assessment\>, \<Privacy Plan\>, \<Procedures\> (PT), \<Incident Response Management\> and \<Security Operating Procedures\> | The inventory, impact assessment, privacy plan, procedures, breach handling and the rules people sign |
@@ -1283,7 +1283,7 @@ The rule on non-compliance in section 1.1 applies to this policy.
 
 ### RA.1 Purpose and scope
 
-This policy sets the organisation's rules for understanding and responding to risk in \<System Name\>, in line with the NIST SP 800-53 Rev 5 RA family (RA-1). It stands alone, as each family has its own policy. The values that carry it out are in \<Risk Assessment Management\>, the steps people follow are in \<Procedures\> (RA), and the risks themselves are in \<Risk List\>.
+This policy sets the organisation's rules for understanding and responding to risk in \<System Name\>, in line with the CSS RA family (RA-1). It stands alone, as each family has its own policy. The values that carry it out are in \<Risk Assessment Management\>, the steps people follow are in \<Procedures\> (RA), and the risks themselves are in \<Risk List\>.
 
 It applies to UI application, Admin application, API, the \<System Name\> database, the backups and the two Windows Server 2025 VMs they run on at \<Organisation\>.
 
@@ -1301,9 +1301,9 @@ It applies to UI application, Admin application, API, the \<System Name\> databa
 
 ### RA.4 Mandatory requirements
 
-1. **R1 Risk record:** \<Risk List\> is the record of risk assessment. It must use the method in its section 4, which follows NIST SP 800-30 Rev 1, and give each risk a status and the date it was last reviewed.
+1. **R1 Risk record:** \<Risk List\> is the record of risk assessment. It must use the method in its section 4, which follows CSS, and give each risk a status and the date it was last reviewed.
 2. **R2 Risk review:** the risk assessment must be reviewed every 12 months, and after a significant change, incident or new test result, and shared with the system owner, the authorising official and the Head of Cyber.
-3. **R3 Categorisation:** the system must keep a security categorisation under FIPS 199 and NIST SP 800-60, with its rationale, approved by the authorising official.
+3. **R3 Categorisation:** the system must keep a security categorisation under CSS, with its rationale, approved by the authorising official.
 4. **R4 Organisational risk:** system risk decisions must respect \<Organisation\>'s risk management strategy and risk appetite once confirmed (D-PM-03).
 5. **R5 Supply chain:** supply chain risk from packages, base images, suppliers and the VMs must be reviewed every 12 months, and recorded on TPL-23.
 6. **R6 Scanning:** vulnerability scans must run monthly and at each release, with definitions updated before each scan, and credentialed scans of both VMs. The packages, \<System Name\>'s own applications, the container images and their operating system packages must all be covered.
@@ -1334,7 +1334,7 @@ The rules in section 1.1 apply to this policy. It adds these.
 1. **Communication:** this policy and the procedures must be shared with everyone who administers \<System Name\>, and whenever they change.
 2. **Compliance and management commitment:** the system owner reviews compliance at each review, runs Test-Vulnerability.ps1, and records the result.
 3. **Coordination:** the system owner agrees with \<Organisation\>'s security contact how inherited protections and vulnerability reports are handled, and records it.
-4. **Laws and standards:** this policy must be consistent with applicable law, \<Organisation\>'s policies, the Cyber Essentials requirements \<Organisation\> holds, and NIST SP 800-53 Rev 5. The legal adviser reviewed it on 11 November 2026.
+4. **Laws and standards:** this policy must be consistent with applicable law, \<Organisation\>'s policies, the Cyber Essentials requirements \<Organisation\> holds, and CSS. The legal adviser reviewed it on 11 November 2026.
 
 ### RA.7 Non-compliance and risk acceptance
 
@@ -1346,7 +1346,7 @@ The rule on non-compliance in section 1.1 applies to this policy. A vulnerabilit
 
 | Term | Meaning |
 | --- | --- |
-| Risk | The chance that a threat source exploits a weakness, combined with the harm that would cause (NIST SP 800-30 Rev 1) |
+| Risk | The chance that a threat source exploits a weakness, combined with the harm that would cause (CSS) |
 | Vulnerability | A weakness in \<System Name\>, its components or its operation that a threat source could exploit |
 | Severity | The vendor's rating of a vulnerability or, without one, its CVSS base score: 9.0 or more Critical, 7.0 to 8.9 High, 4.0 to 6.9 Medium, below 4.0 Low |
 | Exploited flaw | A vulnerability in CISA's Known Exploited Vulnerabilities catalogue, or confirmed as exploited by its vendor or \<Organisation\> |
@@ -1359,10 +1359,10 @@ The rule on non-compliance in section 1.1 applies to this policy. A vulnerabilit
 
 | Reference | Use |
 | --- | --- |
-| NIST SP 800-53 Rev 5, RA family | The controls this policy meets |
-| NIST SP 800-30 Rev 1 | The risk method |
-| NIST SP 800-40 Rev 4 | Patch management as preventive maintenance |
-| FIPS 199 and NIST SP 800-60 Volume II Rev 1 | Categorisation |
+| CSS, RA family | The controls this policy meets |
+| CSS | The risk method |
+| CSS | Patch management as preventive maintenance |
+| CSS | Categorisation |
 | Cyber Essentials, Requirements for IT Infrastructure \<ver\> | The 14-day limit \<Organisation\> meets for high and critical updates |
 | NCSC vulnerability management guidance | Updating by default, responding to exploitation, and owning the risk of not updating |
 | CISA Known Exploited Vulnerabilities catalogue | The list of exploited flaws |
@@ -1372,7 +1372,7 @@ The rule on non-compliance in section 1.1 applies to this policy. A vulnerabilit
 
 ### SA.1 Purpose and scope
 
-This policy sets the organisation's rules for buying and building \<System Name\>, in line with the NIST SP 800-53 Rev 5 SA family (SA-1). It stands alone, as each family has its own policy. The values that carry it out are in \<System and Services Acquisition Management\>, and the steps people follow are in \<Procedures\> (SA).
+This policy sets the organisation's rules for buying and building \<System Name\>, in line with the CSS SA family (SA-1). It stands alone, as each family has its own policy. The values that carry it out are in \<System and Services Acquisition Management\>, and the steps people follow are in \<Procedures\> (SA).
 
 It applies to \<System Name\>'s in-house development and build environment, and to every product, component and service bought or used from outside, including source code hosting and package registries.
 
@@ -1382,19 +1382,19 @@ It applies to \<System Name\>'s in-house development and build environment, and 
 
 ### SA.3 Control principles
 
-1. **A named framework:** development follows NIST SSDF \<ver\>, practice by practice.
+1. **A named framework:** development follows CSS \<ver\>, practice by practice.
 2. **Known changes only:** only reviewed and approved changes reach a release.
 3. **Test before release:** every security function is tested at each release, to a stated depth.
 4. **Know what you depend on:** every third-party component and external service is known, assessed and supported.
 
 ### SA.4 Mandatory requirements
 
-1. **R1 Framework:** \<System Name\> must be developed under NIST SSDF \<ver\>, with each practice mapped to how it is met in \<System and Services Acquisition Management\>, section 3.2.
+1. **R1 Framework:** \<System Name\> must be developed under CSS \<ver\>, with each practice mapped to how it is met in \<System and Services Acquisition Management\>, section 3.2.
 2. **R2 Resources:** the system owner must raise security and privacy costs in yearly budgeting, and record them.
 3. **R3 Contracts:** contracts must use \<Organisation\>'s standard terms, with security and privacy requirements, documentation, responsibilities and acceptance criteria added.
 4. **R4 Design information:** design and the functions, ports, protocols and services \<System Name\> needs must be documented, and kept current with each change.
 5. **R5 Documentation:** administrator and user guides covering secure installation, configuration, operation and use must be kept with the code and confirmed at each release.
-6. **R6 Principles:** design must follow the NCSC secure design principles and NIST's privacy engineering objectives, as mapped in \<Security Architecture\>, section 6.5.
+6. **R6 Principles:** design must follow the NCSC secure design principles and the CSS privacy engineering objectives, as mapped in \<Security Architecture\>, section 6.5.
 7. **R7 Change control:** code, configuration and documents must be held in Git, with each default branch protected, at least one approving review before a change merges, dependency alerts on, and release tags signed. Test scripts must be under version control. Until this is in place, the gap is tracked in PA-91.
 8. **R8 Build and test:** each release must pass unit, integration and security tests covering every security function, to the depth in \<System and Services Acquisition Management\>, section 3.9. Builds must not turn package vulnerability checks off.
 9. **R9 Third parties:** each new third-party component must be checked for origin, licence, support and known vulnerabilities before it is added. External services, including GitHub and the package and container registries, must state their controls and be reviewed every 12 months.
@@ -1419,7 +1419,7 @@ The rules in section 1.1 apply to this policy. It adds these.
 1. **Communication:** this policy and the procedures must be shared with developers and administrators, and whenever they change.
 2. **Compliance and management commitment:** the system owner reviews compliance at each review, runs Test-Development.ps1, and records the result.
 3. **Coordination:** the system owner agrees contract terms with \<Organisation\>, and records them.
-4. **Laws and standards:** this policy must be consistent with applicable law, \<Organisation\>'s policies and NIST SP 800-53 Rev 5, and aligns with the UK Software Security Code of Practice. The legal adviser reviewed it on 11 November 2026.
+4. **Laws and standards:** this policy must be consistent with applicable law, \<Organisation\>'s policies and CSS, and aligns with the UK Software Security Code of Practice. The legal adviser reviewed it on 11 November 2026.
 
 ### SA.7 Non-compliance and risk acceptance
 
@@ -1431,7 +1431,7 @@ The rule on non-compliance in section 1.1 applies to this policy.
 
 | Term | Meaning |
 | --- | --- |
-| SSDF | NIST's Secure Software Development Framework, SP 800-218: practices to prepare the organisation, protect the software, produce well-secured software and respond to vulnerabilities |
+| CSS | Secure software development: practices to prepare the organisation, protect the software, produce well-secured software and respond to vulnerabilities |
 | Default branch | The branch in each repository that releases are built from |
 | Third-party component | Any package, library, base image or script \<System Name\> uses but didn't write |
 | External service | A service run by someone else that \<System Name\> depends on, such as hosting, source code hosting or a package registry |
@@ -1443,9 +1443,9 @@ The rule on non-compliance in section 1.1 applies to this policy.
 
 | Reference | Use |
 | --- | --- |
-| NIST SP 800-53 Rev 5, SA family | The controls this policy meets |
-| NIST SP 800-218 (SSDF) \<ver\> | The development framework |
-| NCSC secure design principles; NIST privacy engineering objectives | The engineering principles |
+| CSS, SA family | The controls this policy meets |
+| CSS \<ver\> | The development framework |
+| NCSC secure design principles; CSS privacy engineering objectives | The engineering principles |
 | OWASP ASVS 5.0 | The verification depth for the web applications |
 | UK Software Security Code of Practice | Peer practice the policy aligns with |
 | \<System and Services Acquisition Management\>, \<Procedures\> (SA), \<Security Architecture\>, \<Administrator Guide\> and \<User Guide\> | The values, procedures, design and guides |
@@ -1454,7 +1454,7 @@ The rule on non-compliance in section 1.1 applies to this policy.
 
 ### SC.1 Purpose and scope
 
-This policy sets the organisation's rules for protecting \<System Name\>'s communications, boundaries, keys and stored information, in line with the NIST SP 800-53 Rev 5 SC family (SC-1). It stands alone, as each family has its own policy. The values, cryptographic register and allow-lists that carry it out are in \<System and Communications Protection Management\>, and the steps people follow are in \<Procedures\> (SC).
+This policy sets the organisation's rules for protecting \<System Name\>'s communications, boundaries, keys and stored information, in line with the CSS SC family (SC-1). It stands alone, as each family has its own policy. The values, cryptographic register and allow-lists that carry it out are in \<System and Communications Protection Management\>, and the steps people follow are in \<Procedures\> (SC).
 
 It applies to UI application, Admin application, API, the \<System Name\> database, their backups and keys, and the two Windows Server 2025 VMs they run on at \<Organisation\>.
 
@@ -1476,8 +1476,8 @@ Information in \<System Name\> must be protected wherever it travels or rests. \
 3. **R3 Transport:** every flow must use TLS under NCSC's profiles. TLS 1.3 is preferred, with hybrid post-quantum key exchange where the platform supports it. TLS 1.2 is allowed only with the GCM profiles. SSL, TLS 1.0 and 1.1, compression and TLS 1.3 early data (0-RTT) must be off.
 4. **R4 Web sessions:** the apps must serve HTTPS only and redirect HTTP, send HSTS with a maximum age of at least 1 year, and mark every cookie Secure, HttpOnly and SameSite. Sessions end after 30 minutes idle and after 8 hours.
 5. **R5 Database:** PostgreSQL must accept network connections only over TLS, with a minimum of TLS 1.2, and API must connect with full certificate and host name checking.
-6. **R6 Cryptography:** only the algorithms in the cryptographic register may be used: NCSC's TLS profiles, XTS-AES 256 for disk encryption, PBKDF2-SHA512 with at least 600,000 iterations for passwords, and HMAC-SHA256 with a random key of at least 256 bits for tokens. US FIPS 140 validation is not required (D-SC-P02).
-7. **R7 Keys:** every key must be in the register, with an owner, a protected store and a cryptoperiod based on NIST SP 800-57. Keys must never be held in source code, tickets, chat or documents. Each key is changed at the end of its cryptoperiod, when someone who held it leaves, and at once if it may be compromised. The data protection key rings are protected with Windows DPAPI and backed up with the server.
+6. **R6 Cryptography:** only the algorithms in the cryptographic register may be used: NCSC's TLS profiles, XTS-AES 256 for disk encryption, PBKDF2-SHA512 with at least 600,000 iterations for passwords, and HMAC-SHA256 with a random key of at least 256 bits for tokens. US CSS validation is not required (D-SC-P02).
+7. **R7 Keys:** every key must be in the register, with an owner, a protected store and a cryptoperiod based on CSS. Keys must never be held in source code, tickets, chat or documents. Each key is changed at the end of its cryptoperiod, when someone who held it leaves, and at once if it may be compromised. The data protection key rings are protected with Windows DPAPI and backed up with the server.
 8. **R8 Certificates:** certificates are issued under \<Organisation\>'s certificate policy, use ECDSA P-256 or RSA 2048-bit with SHA-256, and are renewed at least 30 days before they expire. Only \<Organisation\>'s approved trust anchors are trusted.
 9. **R9 Data at rest:** both VMs must use BitLocker with XTS-AES 256 and the TPM. Backups must be encrypted. Export copies must be deleted once downloaded. Recovery keys are held in \<Organisation\>'s protected store and tested every 12 months.
 10. **R10 Mobile code:** pages may run only JavaScript and WebAssembly served by \<System Name\>. Each app must send a page security policy with no inline scripts, no eval and no outside hosts, that limits where forms may be sent and upgrades insecure requests. Any exception is approved by the system owner and recorded.
@@ -1506,7 +1506,7 @@ The rules in section 1.1 apply to this policy. It adds these.
 1. **Communication:** this policy and the procedures must be shared with everyone who administers or develops \<System Name\>, and whenever they change.
 2. **Compliance and management commitment:** the system owner reviews compliance at each review, runs Test-Protection.ps1 and checks the register, and records the result.
 3. **Coordination:** the system owner agrees with \<Organisation\>'s security contact how inherited protections are provided, and records it.
-4. **Laws and standards:** this policy must be consistent with applicable law, \<Organisation\>'s policies and NIST SP 800-53 Rev 5, and follows NCSC's guidance on TLS. The legal adviser reviewed it on 12 November 2026.
+4. **Laws and standards:** this policy must be consistent with applicable law, \<Organisation\>'s policies and CSS, and follows NCSC's guidance on TLS. The legal adviser reviewed it on 12 November 2026.
 
 ### SC.7 Non-compliance and risk acceptance
 
@@ -1531,9 +1531,9 @@ The rule on non-compliance in section 1.1 applies to this policy.
 
 | Reference | Use |
 | --- | --- |
-| NIST SP 800-53 Rev 5, SC family | The controls this policy meets |
+| CSS, SC family | The controls this policy meets |
 | NCSC, Using TLS to protect data (updated 15 October 2026) | The TLS profiles |
-| NIST SP 800-57 Part 1 Rev 5 | Cryptoperiods and key management |
+| CSS | Cryptoperiods and key management |
 | PostgreSQL 18 documentation, Secure TCP/IP Connections with SSL | Database TLS enforcement |
 | Microsoft, ASP.NET Core Data Protection key encryption at rest | The key ring protection |
 | \<System and Communications Protection Management\>, \<Procedures\> (SC), \<Security Architecture\> and \<System Security Plan\>, section 3.7 | The values, procedures, design and flows |
@@ -1542,7 +1542,7 @@ The rule on non-compliance in section 1.1 applies to this policy.
 
 ### SI.1 Purpose and scope
 
-This policy sets the organisation's rules for keeping \<System Name\> free of known flaws and malicious code, watching it for misuse, and showing that its software and records have not been changed without authority, in line with the NIST SP 800-53 Rev 5 SI family (SI-1). It stands alone, as each family has its own policy. The values, detection use cases and retention table that carry it out are in \<System and Information Integrity Management\>, and the steps people follow are in \<Procedures\> (SI).
+This policy sets the organisation's rules for keeping \<System Name\> free of known flaws and malicious code, watching it for misuse, and showing that its software and records have not been changed without authority, in line with the CSS SI family (SI-1). It stands alone, as each family has its own policy. The values, detection use cases and retention table that carry it out are in \<System and Information Integrity Management\>, and the steps people follow are in \<Procedures\> (SI).
 
 It applies to UI application, Admin application, API, the \<System Name\> database, the documents and records it holds, and the two Windows Server 2025 VMs they run on at \<Organisation\>.
 
@@ -1596,7 +1596,7 @@ The rules in section 1.1 apply to this policy. It adds these.
 1. **Communication:** this policy and the procedures must be shared with everyone who administers or develops \<System Name\>, and whenever they change.
 2. **Compliance and management commitment:** the system owner reviews compliance at each review, runs Test-Integrity.ps1, and records the result.
 3. **Coordination:** the system owner agrees with \<Organisation\>'s security contact how monitoring, logging and firmware updates are provided, and records it.
-4. **Laws and standards:** this policy must be consistent with applicable law, \<Organisation\>'s policies and NIST SP 800-53 Rev 5. The legal adviser reviewed it on 12 November 2026.
+4. **Laws and standards:** this policy must be consistent with applicable law, \<Organisation\>'s policies and CSS. The legal adviser reviewed it on 12 November 2026.
 
 ### SI.7 Non-compliance and risk acceptance
 
@@ -1620,8 +1620,8 @@ The rule on non-compliance in section 1.1 applies to this policy.
 
 | Reference | Use |
 | --- | --- |
-| NIST SP 800-53 Rev 5, SI family | The controls this policy meets |
-| NIST SP 800-40 Rev 4 | Patch management |
+| CSS, SI family | The controls this policy meets |
+| CSS | Patch management |
 | OWASP File Upload Cheat Sheet | Upload checks |
 | NCSC Early Warning; CISA Known Exploited Vulnerabilities catalogue | Advisory sources |
 | ICO, Employment practices and data protection: monitoring workers (October 2023) | Monitoring people |
@@ -1631,7 +1631,7 @@ The rule on non-compliance in section 1.1 applies to this policy.
 
 ### SR.1 Purpose and scope
 
-This policy sets the organisation's rules for managing the risk that \<System Name\> is harmed through what it is built from, where it is hosted, and who supplies it, in line with the NIST SP 800-53 Rev 5 SR family (SR-1). It stands alone, as each family has its own policy. The plan, supplier register and values are in \<Supply Chain Risk Management\>, and the steps people follow are in \<Procedures\> (SR).
+This policy sets the organisation's rules for managing the risk that \<System Name\> is harmed through what it is built from, where it is hosted, and who supplies it, in line with the CSS SR family (SR-1). It stands alone, as each family has its own policy. The plan, supplier register and values are in \<Supply Chain Risk Management\>, and the steps people follow are in \<Procedures\> (SR).
 
 It applies to the software packages, container images and browser files \<System Name\> is built from, the tools that build it, the hosting, network and hardware \<Organisation\> provides, and the services \<System Name\> depends on.
 
@@ -1682,7 +1682,7 @@ The rules in section 1.1 apply to this policy. It adds these.
 1. **Communication:** this policy and the procedures must be shared with developers and administrators, and whenever they change.
 2. **Compliance and management commitment:** the system owner reviews compliance at each review, runs Test-SupplyChain.ps1, and records the result.
 3. **Coordination:** the supply chain team coordinates with \<Organisation\>, and records what is agreed.
-4. **Laws and standards:** this policy must be consistent with applicable law, \<Organisation\>'s policies and NIST SP 800-53 Rev 5. The legal adviser reviewed it on 12 November 2026.
+4. **Laws and standards:** this policy must be consistent with applicable law, \<Organisation\>'s policies and CSS. The legal adviser reviewed it on 12 November 2026.
 
 ### SR.7 Non-compliance and risk acceptance
 
@@ -1707,8 +1707,8 @@ The rule on non-compliance in section 1.1 applies to this policy.
 
 | Reference | Use |
 | --- | --- |
-| NIST SP 800-53 Rev 5, SR family | The controls this policy meets |
-| NIST SP 800-161 Rev 1, update 1 | Supply chain risk management practice and the plan's content |
+| CSS, SR family | The controls this policy meets |
+| CSS, update 1 | Supply chain risk management practice and the plan's content |
 | UK Software Security Code of Practice (May 2025) | Third-party components and the build environment |
 | NCSC supply chain security principles | Supplier reviews |
 | CISA 2025 minimum elements for a software bill of materials | What the bill of materials holds |

@@ -4,11 +4,11 @@
 
 These are the security operating procedures (SyOps) for \<System Name\>. They have three parts:
 
-- **Part A** (section 2) holds the rules of behaviour that everyone must read and sign before getting access, as NIST SP 800-53 Rev 5 control PL-4 requires.
+- **Part A** (section 2) holds the rules of behaviour that everyone must read and sign before getting access, as CSS control PL-4 requires.
 - **Part B** (section 3) adds the rules for privileged users.
 - **Part C** (section 4) sets out how \<System Name\>'s security is operated: each duty, who does it, how often, and the record that proves it was done.
 
-Sections 5 to 9 cover exceptions, contacts, definitions, the link from each rule to its NIST control, and acknowledgement.
+Sections 5 to 9 cover exceptions, contacts, definitions, the link from each rule to its CSS control, and acknowledgement.
 
 \<System Name\> is not yet in production, so nothing in Part C is in practice yet. Frequencies and time limits are those approved in the family documents, and the values are in each family's parameter register. Role holders are named in \<Roles and Responsibilities\>. Items in square brackets are placeholders for the system owner to complete.
 
@@ -22,7 +22,7 @@ Sections 5 to 9 cover exceptions, contacts, definitions, the link from each rule
 
 ## 2 Part A: rules for everyone
 
-"You" means anyone who uses \<System Name\>. The rules are numbered A1 to A55 so that each can be traced to its NIST control in section 8.
+"You" means anyone who uses \<System Name\>. The rules are numbered A1 to A55 so that each can be traced to its CSS control in section 8.
 
 ### 2.1 Your responsibilities and the law
 
@@ -225,7 +225,7 @@ Part B applies, in addition to Part A, to global administrators, administrators,
 
 ## 4 Part C: operating procedures
 
-Part C sets out how \<System Name\>'s security is run. Each duty has a reference, C1 to C53, so that it can be traced to its NIST control in section 8. Each names the record that proves it was done. Records use the forms in \<Record Templates\>. Once the ServiceNow workflow is in use, a ServiceNow record holding the same fields may replace a form. Records are kept for 3 years in \[the restricted records location\], unless a longer period applies. Audit records stay in \<System Name\> for 12 months and then in an offline archive for 12 more; application logs are kept for 30 days (\<Audit and Accountability Management\>).
+Part C sets out how \<System Name\>'s security is run. Each duty has a reference, C1 to C53, so that it can be traced to its CSS control in section 8. Each names the record that proves it was done. Records use the forms in \<Record Templates\>. Once the ServiceNow workflow is in use, a ServiceNow record holding the same fields may replace a form. Records are kept for 3 years in \[the restricted records location\], unless a longer period applies. Audit records stay in \<System Name\> for 12 months and then in an offline archive for 12 more; application logs are kept for 30 days (\<Audit and Accountability Management\>).
 
 The system does not yet raise alerts, so all monitoring is by hand for now. The detection use cases U1 to U8 in \<System and Information Integrity Management\>, section 3.4, say what will raise an alert, including repeated failed sign-ins, a break in the audit chain and a Defender detection, and \<Procedures\>, PRO-SI-4, says how to respond (PA-59).
 
@@ -365,7 +365,7 @@ The security officer analyses each change's impact against the criteria in \<Con
 
 ### 4.8 Media sanitisation and disposal (C42)
 
-1. Media are sanitised before reuse or disposal by the method for their type in \<Media Protection Management\>, section 3.6, following NIST SP 800-88 Revision 2 and IEEE 2883-2022: cryptographic erase for encrypted virtual disks and backups, and purge or destruction with a certificate for \<Organisation\>'s physical disks.
+1. Media are sanitised before reuse or disposal by the method for their type in \<Media Protection Management\>, section 3.6, following CSS and IEEE 2883-2022: cryptographic erase for encrypted virtual disks and backups, and purge or destruction with a certificate for \<Organisation\>'s physical disks.
 2. Paper is cross-cut shredded to DIN 66399 level P-4 or better. Exported files are deleted securely from wherever they were saved.
 3. Transport, sanitising and any exception are recorded on TPL-13.
 
@@ -448,7 +448,7 @@ The phone number and email of each contact are in \<Roles and Responsibilities\>
 | Security incident | Anything that harms, or could harm, the confidentiality, integrity or availability of \<System Name\> or its information, or that breaks these rules |
 | VPN | \<Organisation\>'s virtual private network, used to reach the corporate network from outside the office |
 
-## 8 Traceability to NIST SP 800-53 Rev 5
+## 8 Traceability to CSS
 
 Table 9 shows where each control that these SyOps serve is met. It lets an auditor test from the control to the rule or duty, or the other way.
 

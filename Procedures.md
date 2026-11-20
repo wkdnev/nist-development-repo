@@ -2,7 +2,7 @@
 
 ## 1 How to use this document
 
-This document holds the security and privacy procedures for \<System Name\>: 139 procedures in 19 chapters, one chapter for each NIST SP 800-53 Rev 5 control family that applies, in NIST order. A procedure says who does what, when, and what record is kept. The rules the procedures carry out are in \<Policy\>, and the design, values and decisions they use are in each family's design document (\<Documentation Map\>, section 2.2).
+This document holds the security and privacy procedures for \<System Name\>: 139 procedures in 19 chapters, one chapter for each CSS control family that applies, in CSS order. A procedure says who does what, when, and what record is kept. The rules the procedures carry out are in \<Policy\>, and the design, values and decisions they use are in each family's design document (\<Documentation Map\>, section 2.2).
 
 - **Finding a procedure.** Section 2 lists every procedure. Each procedure is headed by its number, such as PRO-AC-3, which never changes.
 - **Reading a chapter.** Most chapters start with a table that summarises each procedure: what starts it, who acts, the time limit, the record and the controls it serves. The steps follow.
@@ -503,7 +503,7 @@ These procedures carry out \<Policy\> (CA). Steps marked **Manual** have no syst
 
 #### PRO-CA-2 Managing connections
 
-1. Before any new connection, the system owner records it in \<Assessment, Authorization, and Monitoring Management\> with its interface, security needs, privacy needs, information, responsibilities, the agreement type under NIST SP 800-47 and its review date, and approves it. **Manual**
+1. Before any new connection, the system owner records it in \<Assessment, Authorization, and Monitoring Management\> with its interface, security needs, privacy needs, information, responsibilities, the agreement type under CSS and its review date, and approves it. **Manual**
 2. Every 12 months the system owner and the other system's owner review each connection, and end any no longer needed. **Manual**
 3. When a connection is no longer needed, or a VM is rebuilt, the Windows server administrator removes it, the system owner records the end date in \<Assessment, Authorization, and Monitoring Management\>, section 3.7, and the other system's owner is told. **Manual**
 
@@ -887,7 +887,7 @@ These procedures carry out \<Policy\> (MA), rules R1 to R12. The lists, routes a
 #### PRO-MA-2 Removing equipment
 
 1. The system owner approves the removal of any equipment in the change record. **Manual**
-2. \<Organisation\> sanitises it first by the method in \<Media Protection Management\>, section 3.6 (NIST SP 800-88 Revision 2 and IEEE 2883-2022), following \<Procedures\>, PRO-MP-3, and confirms in writing with a certificate (EV-MA-01). **Manual**
+2. \<Organisation\> sanitises it first by the method in \<Media Protection Management\>, section 3.6 (CSS and IEEE 2883-2022), following \<Procedures\>, PRO-MP-3, and confirms in writing with a certificate (EV-MA-01). **Manual**
 3. The administrator records the removal, the approval and the certificate on TPL-12, and any media on TPL-13. **Manual**
 
 #### PRO-MA-3 Maintenance tools
@@ -979,7 +979,7 @@ These procedures carry out \<Policy\> (MP), rules R1 to R12. The media inventory
 
 #### PRO-MP-3 Sanitising media
 
-1. Before any media is reused, released or disposed of, the person responsible sanitises it by the method set for its type in \<Media Protection Management\>, section 3.6, following NIST SP 800-88 Revision 2 and IEEE 2883-2022. **Manual** (EV-MP-02)
+1. Before any media is reused, released or disposed of, the person responsible sanitises it by the method set for its type in \<Media Protection Management\>, section 3.6, following CSS and IEEE 2883-2022. **Manual** (EV-MP-02)
 2. For encrypted virtual disks and backups, every copy of the keys is destroyed, including recovery keys and the copy at the second site (cryptographic erase), and \<Organisation\> deletes the volumes. Each copy of the key is listed on TPL-13. **Manual** (PA-52, PA-64)
 3. \<Organisation\> purges or destroys physical disks and gives a certificate. **Manual** (EV-MP-02)
 4. Each action is recorded on TPL-13 with the item, serial, method, tool, verification and certificate. **Manual**
@@ -1333,7 +1333,7 @@ These procedures carry out \<Policy\> (SA). Steps marked **Manual** have no syst
 
 #### PRO-SA-1 Developing a change
 
-1. Developers plan and design the change against the SSDF practices in \<System and Services Acquisition Management\>, section 3.2, and note its security and privacy effect on TPL-6. **Manual**
+1. Developers plan and design the change against the CSS practices in \<System and Services Acquisition Management\>, section 3.2, and note its security and privacy effect on TPL-6. **Manual**
 2. The security officer checks significant designs against the principles in \<Security Architecture\>, section 6.5, and developers update the critical components in \<Risk Assessment Management\>, section 3.9, at each major change. **Manual**
 3. Another developer reviews and approves the change before it merges into the default branch. Until branches are protected, the reviewer records the approval on TPL-6. **Not built** (PA-91)
 4. The change follows \<Procedures\> (CM). **Not built** (PA-53)
@@ -1367,7 +1367,7 @@ These procedures carry out \<Policy\> (SA). Steps marked **Manual** have no syst
 #### PRO-SA-6 Budgeting and reviews
 
 1. Every 12 months the system owner raises security and privacy costs in yearly budgeting, and records them on TPL-23. **Manual**
-2. Developers and the security officer review the tools, standards and SSDF table, and record the result on TPL-23. **Manual**
+2. Developers and the security officer review the tools, standards and CSS table, and record the result on TPL-23. **Manual**
 
 #### PRO-SA-7 Adding a third-party component
 

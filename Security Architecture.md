@@ -46,7 +46,7 @@ F9 and F10 are planned, are not technical connections to \<System Name\> today, 
 
 ## 4 Inherited from \<Organisation\>
 
-\<Organisation\> holds Cyber Essentials Plus, which supports these claims but does not prove a NIST control. Each needs a named service and evidence from \<Organisation\>.
+\<Organisation\> holds Cyber Essentials Plus, which supports these claims but does not prove a CSS control. Each needs a named service and evidence from \<Organisation\>.
 
 **Table 3: Services inherited from \<Organisation\>**
 
@@ -88,7 +88,7 @@ F9 and F10 are planned, are not technical connections to \<System Name\> today, 
 
 ## 6 Security approach
 
-This section states how \<System Name\> is protected, as NIST SP 800-53 PL-8 requires. It describes the target on the VMs. Where the target is not yet in place, the POA&M item is named.
+This section states how \<System Name\> is protected, as CSS PL-8 requires. It describes the target on the VMs. Where the target is not yet in place, the POA&M item is named.
 
 ### 6.1 Protection goals
 
@@ -139,7 +139,7 @@ This section states how \<System Name\> is protected, as NIST SP 800-53 PL-8 req
 
 ### 6.5 Engineering principles
 
-\<System Name\>'s security engineering principles are the NCSC secure design principles, and its privacy engineering principles are NIST's privacy engineering objectives (\<System and Services Acquisition Management\>; SA-8). The table shows where the design meets each, and the gap where it doesn't. Development, implementation and changes are checked against it from now on (\<Procedures\>, PRO-SA-1).
+\<System Name\>'s security engineering principles are the NCSC secure design principles, and its privacy engineering principles are the CSS privacy engineering objectives (\<System and Services Acquisition Management\>; SA-8). The table shows where the design meets each, and the gap where it doesn't. Development, implementation and changes are checked against it from now on (\<Procedures\>, PRO-SA-1).
 
 **Table 8: Engineering principles**
 
@@ -150,9 +150,9 @@ This section states how \<System Name\> is protected, as NIST SP 800-53 PL-8 req
 | NCSC 3: Make disruption difficult | Separate application and database VMs; recovery times in \<Contingency Planning Management\> | No backups yet (PA-64); no rate limit (PA-50) |
 | NCSC 4: Make compromise detection easier | Hash-chained audit records, weekly review and alerts (\<Audit and Accountability Management\>), detection use cases U1 to U8 (\<System and Information Integrity Management\>, section 3.4); log forwarding to \<Organisation\> | Chain hash has no key (R-AU-01), and only 1 of 15 records recomputes (PA-74); no alerts or forwarding yet (PA-59) |
 | NCSC 5: Reduce the impact of compromise | Data separated by project schema; database reachable only from Z3; separate administration route; critical components in \<Risk Assessment Management\>, section 3.9 | One database role for all apps (PA-10); committed secrets (PA-19) |
-| NIST privacy: Predictability | Purposes and processing rules in \<PII Processing Management\>; privacy notice through \<Organisation\> | Notice not linked at sign-in (PA-90) |
-| NIST privacy: Manageability | Requests, corrections and deletions through PRO-PT-1; retention schedule drafted | Corrections not audited and no cross-project search (PA-89); no retention fields (PA-70) |
-| NIST privacy: Disassociability | Access limited by project role; audit free text holds no extra personal data (Q04) | Application log repeats personal data (PA-75) |
+| CSS privacy: Predictability | Purposes and processing rules in \<PII Processing Management\>; privacy notice through \<Organisation\> | Notice not linked at sign-in (PA-90) |
+| CSS privacy: Manageability | Requests, corrections and deletions through PRO-PT-1; retention schedule drafted | Corrections not audited and no cross-project search (PA-89); no retention fields (PA-70) |
+| CSS privacy: Disassociability | Access limited by project role; audit free text holds no extra personal data (Q04) | Application log repeats personal data (PA-75) |
 
 ### 6.6 Assumptions and dependencies
 

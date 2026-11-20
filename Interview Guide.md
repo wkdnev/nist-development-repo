@@ -2,11 +2,11 @@
 
 ## 1 Purpose
 
-NIST SP 800-53A Rev 5 uses three assessment methods: examine, test and interview. These questions cover that method. The system owner's answers so far are in section 22.1. For this Level 1 assessment, the system owner answers them. The Level 2 assessor, \[Name\], may repeat them with the role holders named in \<Roles and Responsibilities\>. Ask each person how the control works in practice and to show a record. An answer alone is not evidence that a control operates.
+CSS uses three assessment methods: examine, test and interview. These questions cover that method. The system owner's answers so far are in section 22.1. For this Level 1 assessment, the system owner answers them. The Level 2 assessor, \[Name\], may repeat them with the role holders named in \<Roles and Responsibilities\>. Ask each person how the control works in practice and to show a record. An answer alone is not evidence that a control operates.
 
 After each interview, record it in section 2 and update the matching statements in \<Control Assessment Record\>, section AC.5, or the equivalent for the family.
 
-Questions are numbered INT-XX-nn, where XX is the family code, and each names the statements it supports. The people to interview come from the Interview objects in SP 800-53A.
+Questions are numbered INT-XX-nn, where XX is the family code, and each names the statements it supports. The people to interview come from the Interview objects in CSS.
 
 **Table 1: Family coverage**
 
