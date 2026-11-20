@@ -81,7 +81,7 @@ It covers UI application, Admin application, API, the \<System Name\> database, 
 | Incident lead | \[Name\], security officer | \[Name\] | Leads the response, sets the severity, keeps the record, and tells others |
 | Decision maker | \[Name\], system owner | \[Name\] | Decides on stopping the service, recovery and outside reporting of crime |
 | Risk decision | \[Name\], authorising official | None | Decides on the risk arising from the incident |
-| Technical response | \[Name\], Richard McCaron, and the developers | Each other | Contain, eradicate, recover and preserve evidence |
+| Technical response | \[Name\], \[Name\], and the developers | Each other | Contain, eradicate, recover and preserve evidence |
 | Legal | \[Name\] | \[Deputy to be named\] | Decides whether to tell the ICO and the people affected, and makes the reports |
 | Support | \[Name\], \<Organisation\>'s security contact | \[Name\] | \<Organisation\>'s monitoring, network and forensic help |
 
@@ -591,7 +591,7 @@ Use the phone if ServiceNow or email may be compromised.
 | Authorising official | \[Name\] | \[phone to add\] | \[email to add\] |
 | Legal adviser | \[Name\] | \[phone to add\] | \[email to add\] |
 | Windows server administrator | \[Name\] | \[phone to add\] | \[email to add\] |
-| Database administrator | Richard McCaron | \[phone to add\] | \[email to add\] |
+| Database administrator | \[Name\] | \[phone to add\] | \[email to add\] |
 | \<Organisation\>'s security contact | \[Name\]; deputy \[Name\] | \[phone to add\] | \[email to add\] |
 | \<Organisation\>'s IT service desk | \[name to add\] | \[phone to add\] | \[email to add\] |
 | Information Commissioner's Office | Breach reporting | \[number to confirm\] | ICO online breach report form |

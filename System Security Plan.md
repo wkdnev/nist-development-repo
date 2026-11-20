@@ -219,7 +219,7 @@ Both VMs sit inside \<Organisation\>'s network. Home users come in through the V
 
 **Figure 4: Storage**
 
-Documents and audit records are all held in PostgreSQL on the database VM, with the record of projects and the AD groups each uses. \<System Name\> holds no accounts: they are in \<Organisation\>'s Active Directory (D-AC-23). Shared tables sit in a common schema, and each project has its own schema, which holds its documents and page content. Older TIFF pages may be read from a file path instead. The application VM holds only working files: bulk export output, each app's data protection keys and, today, its secrets. Encryption at rest, a key store, backups and retention are all planned, not built.
+Items, their files and audit records are all held in SQL Server on the database VM, with each schema's definition and its read and edit groups. \<System Name\> holds no accounts: they are in \<Organisation\>'s Active Directory (D-AC-23). Shared tables sit in a common schema, and each project has its own schema, which holds its documents and page content. Older TIFF pages may be read from a file path instead. The application VM holds only working files: bulk export output, each app's data protection keys and, today, its secrets. Encryption at rest, a key store, backups and retention are all planned, not built.
 
 ### 4.5 End-points
 
@@ -235,7 +235,7 @@ Documents and audit records are all held in PostgreSQL on the database VM, with 
 
 **Figure 6: VPN and administrator access**
 
-The VPN's multi-factor authentication protects the network route. \<System Name\>'s own sign-in is through \<Organisation\>'s AD FS, with multi-factor authentication (D-AC-23). The authorising official's earlier acceptance of password-only sign-in until 6 May 2027, with no production documents held (D-GEN-13), was given before this was known, and stands until AD FS sign-in is shown working (PA-95). Windows administrators reach the VMs through \<Organisation\>'s approved route, whose details are still to come (EV-MA-02).
+The VPN's multi-factor authentication protects the network route. \<System Name\>'s own sign-in is through \<Organisation\>'s PingFederate, with multi-factor authentication (D-AC-23). The authorising official's earlier acceptance of password-only sign-in until 6 May 2027, with no production documents held (D-GEN-13), was given before this was known, and stands until AD FS sign-in is shown working (PA-95). Windows administrators reach the VMs through \<Organisation\>'s approved route, whose details are still to come (EV-MA-02).
 
 ## 5 Control applicability and inheritance
 

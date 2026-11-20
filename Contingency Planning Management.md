@@ -162,8 +162,8 @@ The ASP.NET Data Protection keys are not essential. They protect sign-in cookies
 | Decides to invoke | \[Name\], system owner | \[Name\] | Invokes this plan, tells the people below, and declares recovery complete |
 | Risk decision | \[Name\], authorising official | None | Decides on running in a reduced state, or beyond the recovery time objective |
 | Coordination | \[Name\], security officer | \[Name\] | Keeps the activity log, coordinates with any incident, and confirms controls before users return |
-| Database | Richard McCaron, database administrator | \[Name\] | Restores backups and transaction logs, and runs the data checks |
-| Servers | \[Name\], Windows server administrator | Richard McCaron | Rebuilds the VMs and restores the secrets |
+| Database | \[Name\], database administrator | \[Name\] | Restores backups and transaction logs, and runs the data checks |
+| Servers | \[Name\], Windows server administrator | \[Name\] | Rebuilds the VMs and restores the secrets |
 | Service | \<Organisation\>'s IT service desk | Its own rota | Provides the second site and connectivity |
 
 Deputies were agreed on 6 November 2026 (D-CP-09). Contact details are in appendix C.
@@ -879,7 +879,7 @@ These are the CSS organisation-defined values for the 23 CP entries: 38 in total
 | System owner | \[Name\] | \[phone to add\] | \[email to add\] |
 | Authorising official | \[Name\] | \[phone to add\] | \[email to add\] |
 | Security officer | \[Name\] | \[phone to add\] | \[email to add\] |
-| Database administrator | Richard McCaron | \[phone to add\] | \[email to add\] |
+| Database administrator | \[Name\] | \[phone to add\] | \[email to add\] |
 | Windows server administrator | \[Name\] | \[phone to add\] | \[email to add\] |
 | \<Organisation\>'s IT service desk | \[name to add\] | \[phone to add\] | \[email to add\] |
 | \<Organisation\>'s security contact | \[name to add\] | \[phone to add\] | \[email to add\] |

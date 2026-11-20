@@ -1,0 +1,55 @@
+<!doctype html><html><head><meta charset="utf-8"><style>body{margin:0;background:#fff;font-family:Segoe UI,Arial,sans-serif}</style></head><body>
+<svg xmlns="http://www.w3.org/2000/svg" width="1520" height="830" viewBox="0 0 1520 830" font-family="Segoe UI, Arial, sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0L10,5L0,10z" fill="#999"/></marker></defs>
+<text x="48" y="55" font-size="30" font-weight="700" fill="#1a1a1a">Two web apps share one API, and only the API uses the database</text>
+<text x="48" y="92" font-size="21" fill="#555">Target design. Sign-in is through PingFederate; the API reads each person's groups from Active Directory.</text>
+<!-- browsers -->
+<rect x="48" y="200" width="290" height="130" rx="12" fill="#fff" stroke="#999" stroke-width="2"/>
+<text x="76" y="242" font-size="25" font-weight="700">User's browser</text>
+<text x="76" y="275" font-size="20" fill="#555">pages run on the</text><text x="76" y="301" font-size="20" fill="#555">server (Blazor)</text>
+<rect x="48" y="410" width="290" height="130" rx="12" fill="#fff" stroke="#999" stroke-width="2"/>
+<text x="76" y="452" font-size="25" font-weight="700">Admin's browser</text>
+<text x="76" y="485" font-size="20" fill="#555">administrators and</text><text x="76" y="511" font-size="20" fill="#555">auditors, admin route</text>
+<rect x="48" y="620" width="290" height="130" rx="12" fill="#fff" stroke="#999" stroke-width="2" stroke-dasharray="8 6"/>
+<text x="76" y="662" font-size="25" font-weight="700">PingFederate</text>
+<text x="76" y="695" font-size="20" fill="#555">sign-in with MFA</text><text x="76" y="721" font-size="20" fill="#555">(inherited)</text>
+<line x1="193" y1="540" x2="193" y2="618" stroke="#999" stroke-width="2.5" marker-end="url(#a)"/><text x="207" y="586" font-size="19" fill="#555">F6, both browsers</text>
+<!-- app server -->
+<rect x="384" y="130" width="680" height="650" rx="16" fill="#efeeeb" stroke="#999" stroke-width="2"/>
+<text x="416" y="170" font-size="25" font-weight="700">Application server VM</text>
+<rect x="416" y="200" width="300" height="130" rx="12" fill="#fff" stroke="#999" stroke-width="2"/>
+<text x="444" y="242" font-size="25" font-weight="700">UI app</text>
+<text x="444" y="275" font-size="20" fill="#555">search, view, upload</text><text x="444" y="301" font-size="20" fill="#555">and export items</text>
+<rect x="416" y="410" width="300" height="130" rx="12" fill="#fff" stroke="#999" stroke-width="2"/>
+<text x="444" y="452" font-size="25" font-weight="700">Admin app</text>
+<text x="444" y="485" font-size="20" fill="#555">schemas and groups,</text><text x="444" y="511" font-size="20" fill="#555">settings, audit log</text>
+<line x1="338" y1="265" x2="414" y2="265" stroke="#999" stroke-width="2.5" marker-end="url(#a)"/><text x="376" y="253" font-size="19" fill="#555" text-anchor="middle">F1</text>
+<line x1="338" y1="475" x2="414" y2="475" stroke="#999" stroke-width="2.5" marker-end="url(#a)"/><text x="376" y="463" font-size="19" fill="#555" text-anchor="middle">F2</text>
+<rect x="780" y="260" width="252" height="220" rx="12" fill="#d9e1ec" stroke="#2f6fd6" stroke-width="3"/>
+<text x="806" y="302" font-size="25" font-weight="700">API</text>
+<text x="806" y="337" font-size="20" fill="#555">access decisions,</text>
+<text x="806" y="363" font-size="20" fill="#555">audit log, jobs;</text>
+<text x="806" y="389" font-size="20" fill="#555">loopback only;</text>
+<text x="806" y="415" font-size="20" fill="#555">the only route to</text>
+<text x="806" y="441" font-size="20" fill="#555">the database</text>
+<polyline points="716,265 748,265 748,320 778,320" fill="none" stroke="#999" stroke-width="2.5" marker-end="url(#a)"/><text x="732" y="252" font-size="19" fill="#555" text-anchor="middle">F3</text>
+<polyline points="716,475 748,475 748,420 778,420" fill="none" stroke="#999" stroke-width="2.5" marker-end="url(#a)"/><text x="732" y="503" font-size="19" fill="#555" text-anchor="middle">F4</text>
+<rect x="416" y="620" width="616" height="130" rx="12" fill="#fff" stroke="#2f6fd6" stroke-width="3"/>
+<text x="444" y="662" font-size="25" font-weight="700">Shared library, built into each app</text>
+<text x="444" y="695" font-size="20" fill="#555">data model, access checks and audit record format,</text>
+<text x="444" y="721" font-size="20" fill="#555">so every app decides the same way</text>
+<!-- database -->
+<rect x="1112" y="130" width="360" height="330" rx="16" fill="#efeeeb" stroke="#999" stroke-width="2"/>
+<text x="1140" y="170" font-size="25" font-weight="700">Database server VM</text>
+<rect x="1140" y="200" width="304" height="230" rx="12" fill="#fff" stroke="#999" stroke-width="2"/>
+<text x="1166" y="242" font-size="25" font-weight="700">SQL Server 2022</text>
+<text x="1166" y="277" font-size="20" fill="#555">one database schema</text>
+<text x="1166" y="303" font-size="20" fill="#555">per library schema;</text>
+<text x="1166" y="329" font-size="20" fill="#555">Windows authentication,</text>
+<text x="1166" y="355" font-size="20" fill="#555">no database password</text>
+<line x1="1032" y1="320" x2="1138" y2="320" stroke="#999" stroke-width="2.5" marker-end="url(#a)"/><text x="1085" y="308" font-size="19" fill="#555" text-anchor="middle">F5</text>
+<rect x="1112" y="530" width="360" height="130" rx="12" fill="#fff" stroke="#999" stroke-width="2" stroke-dasharray="8 6"/>
+<text x="1140" y="572" font-size="25" font-weight="700">Active Directory</text>
+<text x="1140" y="605" font-size="20" fill="#555">group membership,</text><text x="1140" y="631" font-size="20" fill="#555">read-only (inherited)</text>
+<polyline points="1032,440 1080,440 1080,595 1110,595" fill="none" stroke="#999" stroke-width="2.5" marker-end="url(#a)"/><text x="1092" y="520" font-size="19" fill="#555">F7, LDAPS</text>
+</svg></body></html>

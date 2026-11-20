@@ -65,7 +65,7 @@ Maintenance means preventive and corrective work, repair and replacement, done o
 | --- | --- | --- | --- |
 | Hardware and hypervisor | \<Organisation\> | \<Organisation\>'s own process (EV-MA-01) | \<Organisation\>'s report |
 | Windows Server on both servers | \[Name\], Windows server administrator | Change record, route R1 | TPL-12 |
-| PostgreSQL | Richard McCaron, database administrator | Change record, route R2 | TPL-12 |
+| PostgreSQL | \[Name\], database administrator | Change record, route R2 | TPL-12 |
 | \<System Name\> set-up and data repair | \[Name\], global administrator | Change record, route R3, PRO-MA-7 | TPL-12 |
 | Applications | Developers | Change record and release test, route R4 | TPL-6 |
 | The services \<System Name\> depends on: AD FS, Active Directory, the network and firewall, the time service and the backup store | \<Organisation\> | \<Organisation\>'s own process. It is asked to tell the system owner before work that affects \<System Name\> (EV-MA-01), as the system owner decided on 17 November 2026 (D-MA-10) | \<Organisation\>'s notice |
@@ -139,7 +139,7 @@ This list is provisional until the servers are built (PA-67). The system owner a
 | Person or organisation | Role | Maintains | Screened | Part B signed | Account | Escort needed |
 | --- | --- | --- | --- | --- | --- | --- |
 | \[Name\] | Windows server administrator | Both servers | \[Date\] | \[Date\] | Named Windows administrator account | No |
-| Richard McCaron | Database administrator | PostgreSQL | \[Date\] | \[Date\] | Named PostgreSQL account | No |
+| \[Name\] | Database administrator | PostgreSQL | \[Date\] | \[Date\] | Named PostgreSQL account | No |
 | \[Name\] | Global administrator | Built-in maintenance pages, under PRO-MA-7 | \[Date\] | \[Date\] | Their Active Directory account, in the global administrators group | No, but a second person is present |
 | \[Developers\] | Developers | Applications, through releases | \[Date\] | \[Date\] | No access to the servers | Not applicable |
 | \<Organisation\>'s engineers, \[names\] | Hardware and hypervisor | The hosts | \<Organisation\>'s screening (EV-MA-01) | Not applicable | \<Organisation\>'s own | Yes, on the \<System Name\> servers |

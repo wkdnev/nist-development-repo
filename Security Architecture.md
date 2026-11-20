@@ -18,7 +18,7 @@ This document is used by every control family. \<System Name\> is the whole stac
 
 **Figure 1: Target design, showing the \<System Name\> boundary on \<Organisation\>'s network with flows F1 to F8**
 
-The figure shows the two VMs inside the \<System Name\> boundary, on \<Organisation\>'s corporate network. Users' devices reach UI application (F1) and Admin application (F2). Both call API (F3, F4), and only API connects to PostgreSQL on the database VM (F7). That is the target design (D-AC-18). Today the two apps also connect to the database themselves (F5, F6), which is to be removed (PA-10). Browsers also load files from cdn.jsdelivr.net (F8), which is to be removed (PA-34).
+The figure shows the two VMs inside the \<System Name\> boundary, on \<Organisation\>'s corporate network. Users' devices reach UI application (F1) and Admin application (F2). Both call API (F3, F4), and only API connects to SQL Server on the database VM (F5) and reads groups from Active Directory over LDAPS (F7); browsers sign in through PingFederate (F6), and both VMs reach \<Organisation\>'s time, logging, proxy and backup services (F8). That is the target design (D-AC-18). Today the two apps also connect to the database themselves (F5, F6), which is to be removed (PA-10). Browsers also load files from cdn.jsdelivr.net (F8), which is to be removed (PA-34).
 
 Users sign in through \<Organisation\>'s AD FS, with multi-factor authentication (D-AC-23), which returns a signed token carrying their Active Directory groups. \<System Name\> holds no accounts or passwords of its own. The tested build checked its own passwords in API, and UI application and Admin application connected to the database themselves.
 
