@@ -2,15 +2,18 @@
 
 ## 1 Purpose
 
-This document shows how \<System Name\> is designed and configured for each of the 39 Access Control (AC) controls and enhancements in the CSS Moderate baseline. Section 3 sets out the access control model: the account types, roles, permissions, separation of duties, access routes, settings, rules and the access request workflow, and the design for ending access, sign-in and sessions, the system use notice, actions allowed without signing in, audit, remote, wireless and mobile access, and the policy and procedures. Section 4 is an index that shows where in section 3 each part of each control is met.
+This document sets out how \<System Name\> is designed and configured to meet the 39 Access Control (AC) controls and enhancements in the CSS Moderate baseline.
 
-An assessor examines the design, the settings and the records, interviews the people named, and tests the mechanisms (CSS). This document gives the design that meets each part of each control, the mechanisms that enforce it, and their settings. Who provides and is responsible for each control, its status and its assessment result are in \<System Security Plan\>, section 7.1 (Table 10). The tests run, with their results, and the records an assessor will ask for are in \<Control Assessment Record\> (AC). Each control's risk is in \<Risk List\>, and what is still open, with the fix, is in \<Plan of Action and Milestones\>.
+- **Section 3** is the design: the account types, roles, permissions, separation of duties, access routes, settings and rules, the access request workflow, and the design for ending access, sign-in lifetime and device lock, the system use notice, actions allowed without signing in, audit, remote, wireless and mobile access, and the policy and procedures.
+- **Section 4** is an index that shows where in section 3 each part of each control is met, and which settings apply.
 
-As \<System Description\> sets out, \<Organisation\>'s PingFederate authenticates every user, with multi-factor authentication, and \<System Name\>'s API reads each user's Active Directory groups directly from Active Directory over LDAPS, to give their roles and schema access (D-AC-23). \<System Name\> holds no accounts or passwords of its own, and has no session management: how long a sign-in lasts is set by PingFederate, and an unattended screen is locked by \<Organisation\>'s managed devices. Both are corporate services that \<System Name\> uses as they stand. The design in section 3 is written on that basis.
+Other documents hold the rest. Who provides and is responsible for each control, its status and its assessment result are in \<System Security Plan\>, section 7.1 (Table 10). The tests, their results and the records an assessor will ask for are in \<Control Assessment Record\> (AC). Each control's risk is in \<Risk List\>, and what is still open is in \<Plan of Action and Milestones\>. The policy is in \<Policy\> (AC), and the steps people follow are in \<Procedures\> (AC).
 
-\<System Name\> is not yet built on its servers, so "today" means the tested v1.0 code in the test environment. That build signed in with its own passwords, held its groups and sessions in its own database and used PostgreSQL, so its tests do not show PingFederate sign-in, Active Directory groups or SQL Server working. Where that matters, the "Today" columns and notes in section 3 say so. Its findings are kept where they still apply to the reference design. Test results are in the AC evidence. Values that CSS asks the organisation to define are set at corporate level by \<Organisation\>.
+As \<System Description\> sets out, \<Organisation\>'s PingFederate authenticates every user, with multi-factor authentication, and \<System Name\>'s API reads each user's groups directly from Active Directory over LDAPS, to give their roles and schema access (D-AC-23). \<System Name\> holds no accounts or passwords of its own, and has no session management: how long a sign-in lasts is set by PingFederate, and an unattended screen is locked by \<Organisation\>'s managed devices. Both are corporate services that \<System Name\> uses as they stand.
 
-The policy is in \<Policy\> (AC), and the steps people follow are in \<Procedures\> (AC).
+Values that CSS asks the organisation to define are set at corporate level by \<Organisation\>. The settings in section 3.7 should match those corporate values. Where one does not, it is changed in this document.
+
+\<System Name\> is not yet built on its servers. Where section 3 notes what "today" is, it means the tested v1.0 build, which signed in with its own passwords, held its groups and sessions in its own database and used PostgreSQL. Those notes show where that build differs from the design.
 
 ## 2 Summary
 
