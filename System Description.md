@@ -67,6 +67,7 @@
 
 | Version | Date | Change |
 | --- | --- | --- |
+| \<ver\> | 20 November 2026 | The system owner confirmed SQL Server 2022, sign-in by OpenID Connect, no sign-out in the application, and the API-to-Active Directory LDAPS flow (F7) |
 | \<ver\> | 20 November 2026 | Rewritten as a generic Secure by Design reference system for a series of internal digital library applications. Names of the organisation, the people and the first application are replaced by placeholders. The record of one tested build, its weaknesses and its self-assessment results is removed, because this document describes the design that every application is built to. An application profile (section 4), a parameter table (section 5) and a statement of the Secure by Design principles (section 9) are added. The reference system, as confirmed by the system owner point by point, is an internal digital library with UI, Admin and API applications on Windows Server 2025 and .NET 10, Microsoft SQL Server, sign-in through PingFederate with groups read directly from Active Directory, separate schemas each owned by a Data Owner, access approval in ServiceNow, no session management in the application, and development under the corporate SDLC |
 | \<ver\> | 18 November 2026 | First issue, describing a single document management application |
 
@@ -126,7 +127,7 @@ It is a summary. The detail of each control family is held once, in the design d
 | Users | \<Organisation\>'s staff and contractors only. No external or public users |
 | Exposure | Internal only. Reached by browser from \<Organisation\>'s network or its VPN, on managed devices. Not reachable from the internet |
 | Applications | Three: the UI application for readers and editors, a separate Admin application, and an API that is the only route to the data, with a shared library built into all three |
-| Database | Microsoft SQL Server, holding every item, file, schema definition and audit record. Each schema is its own database schema |
+| Database | Microsoft SQL Server 2022, holding every item, file, schema definition and audit record. Each schema is its own database schema |
 | Hosting | Two Windows Server 2025 virtual servers in \<Organisation\>'s data centre: an application server and a database server. Each application runs as a Windows service under its own managed service account |
 | Sign-in | \<Organisation\>'s PingFederate single sign-on service, with multi-factor authentication, against Active Directory. The application holds no accounts and no passwords, and has no session management of its own |
 | Authorisation | Active Directory groups, read directly from Active Directory by the API: three role groups, and a read group and an edit group for each schema |
@@ -330,7 +331,7 @@ Each requirement is to be verified before the application is authorised. \<Secur
 | FR-021 | Copy a link to an item. A link opens only for a person who may read the schema | Reader | The link holds the schema and a random token for the item, not its number. Opening it runs the normal sign-in and access checks |
 | FR-022 | Check the person's access to the schema on every request for an item, file, page, preview or download | System | Every API function that returns content takes the schema, confirms it against the person's groups, and only then reads from that schema's area |
 | FR-023 | Name the schema in every item address | System | The address of each item and file carries the schema. No address works without it |
-| FR-024 | Send content so that it is not kept in shared caches or after sign-out | System | The API sets response headers that forbid shared caching and storing |
+| FR-024 | Send content so that it is not kept in shared caches or in the browser after use | System | The API sets response headers that forbid shared caching and storing |
 | FR-025 | Mark what the application shows, prints and exports with its classification | System | A banner and watermark on the viewer, on printed pages and in export files |
 
 #### 6.1.4 Reporting a fault in an item
@@ -709,8 +710,8 @@ The reference stack is below. An application may replace any part of it with a s
 | User interface | Blazor Server: pages are rendered on the server and updated over a live connection from the browser | No application logic or data access runs in the browser |
 | API | ASP.NET Core web API, called over HTTPS by the other two applications with a signed token | Interactive API documentation is for development only and is left out of releases |
 | Data access | Entity Framework Core 10 with the Microsoft SQL Server provider (Microsoft.Data.SqlClient) | Queries use parameters by default |
-| Database | Microsoft SQL Server \[2022 Standard, to be confirmed\] | TLS with strict encryption, Windows authentication, fine-grained permissions and backup encryption |
-| Sign-in | \<Organisation\>'s PingFederate, by federation \[OpenID Connect or SAML 2.0, to be confirmed\], with multi-factor authentication against Active Directory | No accounts or passwords in the application |
+| Database | Microsoft SQL Server 2022 | TLS with strict encryption, Windows authentication, fine-grained permissions and backup encryption |
+| Sign-in | \<Organisation\>'s PingFederate, by federation using OpenID Connect, with multi-factor authentication against Active Directory | No accounts or passwords in the application |
 | Group lookup | Active Directory, queried by the API over LDAPS | Groups are read from the directory itself, not carried in the sign-in response |
 | Tokens between the applications | HMAC-SHA-256, with the key in a key store | Short-lived, and refused from any other caller |
 | Malicious code | Microsoft Defender, called for each upload through the Windows Antimalware Scan Interface | Scanning before anything is stored |
@@ -769,7 +770,7 @@ The layers are the boundary, transport, identity, authorisation, data at rest, a
 
 1. A person opens the application. Not being signed in, they are sent to \<Organisation\>'s PingFederate.
 2. PingFederate checks their password and second factor against Active Directory. The application never sees either.
-3. PingFederate returns a signed response that names the person.
+3. PingFederate returns a signed OpenID Connect response that names the person. It carries no groups.
 4. The application checks the response: that PingFederate signed it, that it was issued for this application and that it is still valid.
 5. The API queries Active Directory directly, over LDAPS, for the person's group memberships, and gives the roles and schema access those groups allow. The sign-in is recorded.
 
