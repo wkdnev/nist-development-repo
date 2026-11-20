@@ -2,7 +2,7 @@
 
 ## 1 Purpose of this document
 
-This document is used by every control family. It describes how \<System Name\> is intended to be used: why it exists, who uses it, the business processes it supports and how it works day to day. How it meets controls is in the SSP. The business details are proposals until the business owner confirms them.
+This document is used by every control family. It describes how \<System Name\> is intended to be used: why it exists, who uses it, the business processes it supports and how it works day to day. How it meets controls is in the SSP. The business details come from the business owner.
 
 ## 2 Mission and purpose
 
@@ -27,7 +27,7 @@ The business and information owner is \[Name\] (\<Roles and Responsibilities\>).
 
 ## 4 Business workflows
 
-A document normally moves through four stages: it is added to a project, found and read, corrected if something is wrong, and exported if it is needed elsewhere. The business processes \<System Name\> will support are still to be confirmed: \[Business processes, from the business owner\]. The sample data uses invoices, correspondence and HR projects.
+A document normally moves through four stages: it is added to a project, found and read, corrected if something is wrong, and exported if it is needed elsewhere. The business processes \<System Name\> will support are: \[Business processes, from the business owner\]. The sample data uses invoices, correspondence and HR projects.
 
 **Table 2: Business workflows**
 
@@ -106,7 +106,7 @@ None of this has started, as \<System Name\> is not live. Table 5 says in brief 
 | Building and buying | Changes follow the development lifecycle. Suppliers are approved, and packages are to arrive through the offline feed (PA-94) | \<System and Services Acquisition Management\>; \<Supply Chain Risk Management\> |
 | Risk and authorisation | The risk list and plan of action are kept current, and the authorising official is kept informed. Authorisation is decided from the authorisation package | \<Assessment, Authorization, and Monitoring Management\>, section 3.5; \<Security Assessment Report\> |
 
-\<System Name\> is not authorised. No production documents are held until multi-factor authentication through PingFederate is shown working (PA-95), or the acceptance of password-only sign-in ends on 6 May 2027.
+\<System Name\> is not authorised. No production documents are held until multi-factor authentication through PingFederate is shown working (PA-95).
 
 ## 7 Open questions
 

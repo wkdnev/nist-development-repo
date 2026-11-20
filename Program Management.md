@@ -28,7 +28,7 @@ There are 36 PM controls and enhancements. Two do not apply in the United Kingdo
 
 CSS places 24 of the PM controls in its privacy baseline, which \<System Name\> applies because it holds personal data. They are still the organisation's to provide, but they matter more to \<System Name\> than the rest: section 3.4 lists them.
 
-Two decisions are open with other people. The Head of Cyber has not confirmed that he is the senior information security officer, nor that \<System Name\>'s risk thresholds fit \<Organisation\>'s risk appetite (D-PM-03). The legal adviser has not named the data protection officer, or recorded why none is required (D-PM-04). The gap as a whole is registered in the Risk List (R-AC-11) and the Plan of Action and Milestones (PA-124).
+Two roles rest with other people. The Head of Cyber is the senior information security officer, and \<System Name\>'s risk thresholds are set to fit \<Organisation\>'s risk appetite (D-PM-03). The legal adviser names the data protection officer, or records why none is required (D-PM-04). Both are registered in the Risk List (R-AC-11) and the Plan of Action and Milestones (PA-124).
 
 ## 3 The design
 
@@ -53,7 +53,7 @@ Controls met here: PM-2, PM-10, PM-18, PM-19, PM-29.
 
 | Role | Holder | Controls | State |
 | --- | --- | --- | --- |
-| Senior information security officer | \[Name\], Head of Cyber | PM-2 | Named by the system owner. His confirmation is pending (D-PM-03) |
+| Senior information security officer | \[Name\], Head of Cyber | PM-2 | Named (D-PM-03) |
 | Senior official for privacy: the data protection officer | \[Name, or the reason none is required\] | PM-19 | For the legal adviser to complete (D-PM-04) |
 | Authorising official | \[Name\] | PM-10 | Named |
 | Authorising official for \<Organisation\>'s common controls | \[Organisation common control official\] | PM-10 | Not named: asked of \<Organisation\> (EV-CA-01; \<Assessment, Authorization, and Monitoring Management\>) |
@@ -65,14 +65,14 @@ Controls met here: PM-2, PM-10, PM-18, PM-19, PM-29.
 
 Controls met here: PM-1, PM-2, PM-3, PM-4, PM-5, PM-5(1), PM-6, PM-7, PM-7(1), PM-8, PM-9, PM-10, PM-11, PM-12, PM-13, PM-14, PM-15, PM-16, PM-16(1), PM-17, PM-18, PM-19, PM-20, PM-20(1), PM-21, PM-22, PM-23, PM-24, PM-25, PM-26, PM-27, PM-28, PM-29, PM-30, PM-31, PM-32.
 
-Agreed on 11 November 2026 (D-PM-02). Each Rev 5 PM control is listed with who provides it, which \<System Name\> controls rely on it, what \<System Name\> contributes, the evidence that would show it, whether CSS places it in the privacy baseline, and the position today. A consistency check confirms that every row names a provider and an evidence request that exists. The three enhancements, PM-7(1), PM-16(1) and PM-20(1), were added on 17 November 2026 and confirmed by the system owner (D-PM-06).
+Each Rev 5 PM control is listed with who provides it, which \<System Name\> controls rely on it, what \<System Name\> contributes, the evidence that would show it, whether CSS places it in the privacy baseline, and the position today (D-PM-02). A consistency check confirms that every row names a provider and an evidence request that exists. The three enhancements, PM-7(1), PM-16(1) and PM-20(1), are included (D-PM-06).
 
 **Table 3: PM inheritance**
 
 | PM control | Provider | \<System Name\> controls that rely on it | \<System Name\>'s part | Evidence | In the privacy baseline | Today |
 | --- | --- | --- | --- | --- | --- | --- |
 | PM-1 Information Security Program Plan | \<Organisation\>, Head of Cyber | Every family's policy (xx-1) | The 19 family policies follow it | EV-PM-01 | No | Not evidenced (EV-PM-01) |
-| PM-2 Information Security Program Leadership Role | Head of Cyber | All | \[Name\] named as senior information security officer in \<System Security Plan\> (D-PM-03) | EV-PM-01 | No | \[Name\] is named. His confirmation of the role is pending (D-PM-03) |
+| PM-2 Information Security Program Leadership Role | Head of Cyber | All | \[Name\] named as senior information security officer in \<System Security Plan\> (D-PM-03) | EV-PM-01 | No | \[Name\] is named (D-PM-03) |
 | PM-3 Information Security and Privacy Resources | \<Organisation\> | CA-5, SA-2 | Fixes costed in \<Plan of Action and Milestones\>, and on TPL-23 | EV-PM-01 | Yes | Not evidenced (EV-PM-01) |
 | PM-4 Plan of Action and Milestones Process | \<Organisation\>, Head of Cyber | CA-5 | \<Plan of Action and Milestones\> feeds it | EV-PM-01 | Yes | \<System Name\> keeps its own register. \<Organisation\>'s process has not been seen (EV-PM-01) |
 | PM-5 System Inventory | \<Organisation\> | CM-8, PL-2 | A system identifier, shown as a placeholder in \<System Security Plan\>, section 2 | EV-PM-02 | No | \<System Name\>'s entry in the inventory is not known: a placeholder (EV-PM-02) |
@@ -81,7 +81,7 @@ Agreed on 11 November 2026 (D-PM-02). Each Rev 5 PM control is listed with who p
 | PM-7 Enterprise Architecture | \<Organisation\> | PL-2, PL-8, SA-17 | \<Security Architecture\> fits it | EV-PL-01 | Yes | \<Organisation\>'s enterprise architecture has not been seen (EV-PL-01) |
 | PM-7(1) Offloading | \<Organisation\> | PL-8, SA-8 | None | EV-PL-01 | No | Not evidenced (EV-PL-01) |
 | PM-8 Critical Infrastructure Plan | \<Organisation\> | CP-2 | None; \<System Name\> is not critical infrastructure | EV-PM-01 | Yes | Not evidenced (EV-PM-01) |
-| PM-9 Risk Management Strategy | \<Organisation\>, Head of Cyber | RA-3, CA-5, CA-6 | Decision rules in \<Risk List\>, section 4.2, to be confirmed against the risk appetite (D-PM-03) | EV-PM-01 | Yes | \<System Name\>'s thresholds are agreed, but not confirmed against \<Organisation\>'s risk appetite (D-PM-03; EV-PM-01) |
+| PM-9 Risk Management Strategy | \<Organisation\>, Head of Cyber | RA-3, CA-5, CA-6 | Decision rules in \<Risk List\>, section 4.2, set to fit the risk appetite (D-PM-03) | EV-PM-01 | Yes | \<System Name\>'s thresholds are checked against \<Organisation\>'s risk appetite (D-PM-03; EV-PM-01) |
 | PM-10 Authorization Process | \<Organisation\> | CA-6 | TPL-18; authorising official named; acceptance of the inherited controls (\<Assessment, Authorization, and Monitoring Management\>) | EV-PM-03 | Yes | \[Name\] is named as authorising official. \<Organisation\>'s process has not been seen (EV-PM-03) |
 | PM-11 Mission and Business Process Definition | \<Organisation\> | CP-2, RA-2 | \<Concept of Operations\>; business impact in \<Contingency Planning Management\> | EV-PM-01 | Yes | Not evidenced (EV-PM-01) |
 | PM-12 Insider Threat Program | \<Organisation\> | AU-6, PS-3 | Audit records and reviews; the playbook for bulk export misuse (\<Incident Response Management\>, section 3.9) | EV-PM-01 | No | Not evidenced (EV-PM-01) |
@@ -114,7 +114,7 @@ Where \<Organisation\>'s document is not yet seen, \<System Name\>'s own documen
 
 Controls met here: PM-5(1), PM-18, PM-26, PM-27.
 
-\<System Name\> applies the CSS privacy baseline, as it holds HR documents with personal data (D-PT-01). That baseline includes 24 PM controls: PM-3, PM-4, PM-5(1), PM-6 to PM-11, PM-13, PM-14, PM-17 to PM-22, PM-20(1), PM-24 to PM-28 and PM-31. CSS still expects them to be met once, by the organisation's programme, so they stay \<Organisation\>'s to provide. The system owner decided on 17 November 2026 that they stay inherited and are not assessed for \<System Name\>, and the authorising official is asked to confirm it (D-PM-06). Two of them, PM-17 and PM-24, rest on United States law and do not apply.
+\<System Name\> applies the CSS privacy baseline, as it holds HR documents with personal data (D-PT-01). That baseline includes 24 PM controls: PM-3, PM-4, PM-5(1), PM-6 to PM-11, PM-13, PM-14, PM-17 to PM-22, PM-20(1), PM-24 to PM-28 and PM-31. CSS still expects them to be met once, by the organisation's programme, so they stay \<Organisation\>'s to provide. They stay inherited and are not assessed for \<System Name\> (D-PM-06). Two of them, PM-17 and PM-24, rest on United States law and do not apply.
 
 For the rest, \<System Name\>'s privacy controls depend on them directly: the personal data inventory on PM-5(1), complaints on PM-26, breach reporting on PM-27, and the privacy plan on PM-18. Until \<Organisation\> evidences its privacy programme (EV-PM-04, EV-PM-02), \<System Name\>'s own privacy plan, inventory and procedures stand in.
 
@@ -132,7 +132,7 @@ Controls met here: PM-1, PM-2, PM-3, PM-5, PM-5(1), PM-6, PM-7, PM-7(1), PM-8, P
 | EV-PM-04 | PM-18 to PM-23, PM-20(1), PM-25 to PM-27 | The privacy programme plan, the data protection officer or the reason none is required, and the complaint and reporting processes | Not sent |
 | EV-PL-01 | PM-7, PM-7(1) | The enterprise architecture standards that \<System Name\> must fit | Not sent |
 
-The first choice of evidence is \<Organisation\>'s ISO/IEC 27001 certificate, with its scope statement and Statement of Applicability. That standard certifies the management system itself: its leadership, risk management, resources, measurement and review. One certificate whose scope includes the services \<System Name\> uses would evidence most of the security programme controls at once. Where it does not, or if \<Organisation\> holds no certificate, the documents in each request are asked for. The system owner agreed this order on 17 November 2026 (D-PM-07).
+The first choice of evidence is \<Organisation\>'s ISO/IEC 27001 certificate, with its scope statement and Statement of Applicability. That standard certifies the management system itself: its leadership, risk management, resources, measurement and review. One certificate whose scope includes the services \<System Name\> uses would evidence most of the security programme controls at once. Where it does not, or if \<Organisation\> holds no certificate, the documents in each request are asked for (D-PM-07).
 
 ### 3.6 Keeping this design current
 

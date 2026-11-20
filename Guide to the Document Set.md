@@ -41,7 +41,7 @@ Each control is carried through the set by the same chain. Table 2 gives the cha
 | Link | Where | What it tells you |
 | --- | --- | --- |
 | 1 The control | \<System Security Plan\>, section 7 | How the control is met in brief, who is responsible, its status and its result |
-| 2 The rule | \<Policy\>, the family's chapter | What must be true, and who is accountable. Approved by the Head of Cyber |
+| 2 The rule | \<Policy\>, the family's chapter | What must be true, and who is accountable. The Head of Cyber approves it |
 | 3 The design | The family's design document (section 6) | How \<System Name\> meets each part of the control, what is in place today, the values CSS asks to be defined, and what \<Organisation\> provides |
 | 4 The steps | \<Procedures\>, the family's chapter; \<Security Operating Procedures\> for day-to-day duties and the rules people sign | Who does what, when, and the record kept |
 | 5 The record | The forms in \<Record Templates\> | What proves the step was done |
@@ -108,7 +108,7 @@ RA-5, Vulnerability Monitoring and Scanning, shows the chain at work. It is part
 | The finding | \<Control Assessment Record\> (RA) | Four of fourteen statements satisfied, with the reason for each of the others |
 | The risk | \<Risk List\>, NC-RA-04 and risk R-SI-01 | Rated Medium, to be remediated before go-live |
 | The fix | \<Plan of Action and Milestones\>, PA-56 and PA-62 | Update the packages; choose and run a scanner |
-| The decision | \<Decision Register\>, D-RA-P02 and D-RA-13 | The timetable agreed, and the risk decision asked of the authorising official |
+| The decision | \<Decision Register\>, D-RA-P02 and D-RA-13 | The timetable, and the risk decision for the authorising official |
 | The test | Test-Vulnerability.ps1, with its results in the RA evidence | Checks V01 to V09, which can be run again |
 
 ## 6 Finding a family
@@ -172,7 +172,7 @@ Four design documents are also the plan that CSS requires for their family, in t
 | \<Data Protection Impact Assessment\> | Plans and descriptions | The data protection impact assessment, drafted for the legal adviser to complete | The legal adviser |
 | \<Policy\> | Rules and how they are carried out | The security and privacy policy: one chapter of rules for each of the 19 families | Everyone bound by the rules |
 | \<Procedures\> | Rules and how they are carried out | The procedures that carry out the policy: one chapter for each family, each step naming who acts and the record kept | Whoever carries out a duty |
-| \<Control Implementation Register\> | Rules and how they are carried out | Formerly the register of decisions and values; now an index that points to each family's design document | Only when an older record cites a register chapter |
+| \<Control Implementation Register\> | Rules and how they are carried out | An index that points to each family's design document | Only when an older record cites a register chapter |
 | \<Assessment, Authorization, and Monitoring Management\> | Rules and how they are carried out | The assessment, authorisation and monitoring design | Whoever works in, or assesses, that family |
 | \<Identification and Authentication Management\> | Rules and how they are carried out | The identification and authentication design | Whoever works in, or assesses, that family |
 | \<Audit and Accountability Management\> | Rules and how they are carried out | The audit design | Whoever works in, or assesses, that family |
@@ -195,9 +195,9 @@ Four design documents are also the plan that CSS requires for their family, in t
 
 ## 8 How to read the documents
 
-1. **Layout.** Every document starts with its purpose. Documents carry no document control, approval or change history: none is yet reviewed or approved, decisions are in \<Decision Register\>, and changes are kept in the change record (\<Documentation Map\>, section 4.1).
+1. **Layout.** Every document starts with its purpose. Documents carry no document control, approval or change history: decisions are in \<Decision Register\>, and changes are kept in the change record (\<Documentation Map\>, section 4.1).
 2. **Names, not numbers.** A document is cited by its name in angle brackets. A chapter of the Policy, the Procedures or the assessment record is cited with its family code, such as the Policy (RA), and a section in a chapter as section RA.4.
-3. **Design and today.** A design document gives, for each part of a control, the design that is agreed and the position today. The two are kept apart, so that a plan is never read as a fact.
+3. **Design and today.** A design document gives, for each part of a control, the design and the position today. The two are kept apart, so that a plan is never read as a fact.
 4. **Status.** A control is implemented, partially implemented, not implemented or not applicable. Its assessment result is satisfied or other than satisfied, as CSS uses the terms.
 5. **Placeholders.** Text in square brackets is a fact that only someone else can supply, such as a date from \<Organisation\>. They are counted by kind in \<Plan of Action and Milestones\>, section 5.7.
 6. **Drafts and approvals.** Nothing is shown as approved unless the person who approves it has done so. Every approval and decision is in \<Decision Register\>.
@@ -228,4 +228,3 @@ The set is written before \<System Name\> goes live, and says so throughout. A r
 3. **\<Organisation\>'s controls are not evidenced.** The evidence requests in \<Evidence Requests\> have not been sent.
 4. **Nothing has been seen in operation.** Reviews, training and exercises start with operation, so their records do not exist yet.
 5. **The assessment so far is a self-assessment.** The independent assessment, led by \[Name\], has not started.
-6. **Nothing is yet reviewed or approved.** The whole set is a draft until its decisions are taken in \<Decision Register\>.

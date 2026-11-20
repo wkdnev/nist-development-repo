@@ -114,7 +114,7 @@ Likelihood and severity are proposed by the assessor from the test evidence. The
 | --- | --- |
 | UK GDPR, Articles 5, 6, 9, 30, 35 and 36; Data Protection Act 2018, Schedule 1 | The law this assessment applies |
 | Data (Use and Access) Act 2025 | Complaints to the controller, and reasonable and proportionate searches |
-| ICO sample DPIA template; ICO guidance on keeping employment records (February 2025) | The structure and the employment context |
+| ICO sample DPIA template; ICO guidance on keeping employment records | The structure and the employment context |
 | CSS, RA-8, PT-2, PT-3 and PT-7 | The controls this assessment supports |
 | \<PII Processing Management\>, \<Privacy Plan\>, \<Policy\> (PT), \<Procedures\> (PT), \<Risk List\> and \<Plan of Action and Milestones\> | Inventory, privacy plan, policy, procedures, risks and fixes |
 | the PT evidence | Test-PersonalData.ps1 results |

@@ -2,8 +2,6 @@
 
 This guide lists the 44 documents in the set and suggests the order in which to review them. Start with the [Guide to the Document Set](Guide%20to%20the%20Document%20Set.md), which shows how the documents relate and gives a route through them, and the [System Description](System%20Description.md), which describes the whole system in one place. It is a working aid for reviewers. It is not a controlled document, and nothing else in the set depends on it.
 
-Written on 12 November 2026, against the set as it stood that day.
-
 ## 1 The short version
 
 1. **Read four short documents first** to learn the system: about one hour.

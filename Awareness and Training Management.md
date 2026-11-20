@@ -178,7 +178,7 @@ The security officer reports these monthly with the continuous monitoring measur
 | First-attempt pass rate on checks | 90% | No checks yet |
 | People overdue for a refresher | 0 | None due |
 | Suspicious messages reported each month | Rising; reports, not clicks, are counted | No reports yet |
-| Content reviewed within 12 months and after each significant incident | 100% | Reviewed 12 November 2026 |
+| Content reviewed within 12 months and after each significant incident | 100% | No review yet |
 
 ### 3.10 Policy and procedures
 

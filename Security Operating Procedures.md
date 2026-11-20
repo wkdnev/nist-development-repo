@@ -10,7 +10,7 @@ These are the security operating procedures (SyOps) for \<System Name\>. They ha
 
 Sections 5 to 9 cover exceptions, contacts, definitions, the link from each rule to its CSS control, and acknowledgement.
 
-\<System Name\> is not yet in production, so nothing in Part C is in practice yet. Frequencies and time limits are those approved in the family documents, and the values are set at corporate level by \<Organisation\>. Role holders are named in \<Roles and Responsibilities\>. Items in square brackets are placeholders for the system owner to complete.
+\<System Name\> is not yet in production, so nothing in Part C is in practice yet. Frequencies and time limits are those set in the family documents, and the values are set at corporate level by \<Organisation\>. Role holders are named in \<Roles and Responsibilities\>. Items in square brackets are placeholders for the system owner to complete.
 
 **Table 1: Who reads which part**
 
@@ -241,7 +241,7 @@ The system does not yet raise alerts, so all monitoring is by hand for now. The 
 | **Weekly** |  |  |  |  |  |
 | C3 | Review failed sign-ins, lockouts and privileged actions | Auditor | Section 4.2 | TPL-8 | AC-2, AC-6(9), AC-7, AU-6 |
 | C4 | Review logs and any alerts | Security officer | \<Procedures\>, PRO-SI-3 and PRO-SI-4 | TPL-8 | SI-4, AU-6 |
-| C5 | Check Windows and PostgreSQL logs, or \<Organisation\>'s report on them | Windows server and database administrators | To be confirmed with \<Organisation\> | TPL-8 | AU-6, AU-6(3), SI-4 |
+| C5 | Check Windows and PostgreSQL logs, or \<Organisation\>'s report on them | Windows server and database administrators | \[Method set with \<Organisation\>\] | TPL-8 | AU-6, AU-6(3), SI-4 |
 | C6 | Back up system configuration | Windows server administrator | \<Procedures\>, PRO-CP-1 | Backup job log, checked at C8 | CP-9 |
 | C7 | Act on security advisories as they arrive, and confirm none were missed | Security officer | \<Procedures\>, PRO-SI-5 | TPL-7 | SI-5 |
 | C8 | Check every backup job in the week succeeded | Database administrator | Backup job logs | TPL-8 | CP-9 |
@@ -331,7 +331,7 @@ The audit log cannot yet be fully relied on. Many privileged actions are not log
 | Low | 90 days, or 30 days once a vendor security update is available |
 | Exploited (in CISA's catalogue, or confirmed by the vendor) | 3 days, as an emergency change |
 
-A fix that cannot be made in time goes through PRO-AC-15 and into \<Plan of Action and Milestones\>. Updates are tested first, as \<Procedures\>, PRO-SI-1 requires. Today the image build turns NuGet's vulnerability audit off (PA-92), so nothing reports vulnerable packages automatically. These times are the timetable in \<Risk Assessment Management\>, section 3.6, counted from the fix's release, or from detection if later; severity is the vendor's rating, or else the CVSS base score. Test-Vulnerability.ps1 found the same 7 advisories on 11 November 2026 as the manual check on 6 November (PA-56), and nothing scans the system yet (PA-62).
+A fix that cannot be made in time goes through PRO-AC-15 and into \<Plan of Action and Milestones\>. Updates are tested first, as \<Procedures\>, PRO-SI-1 requires. Today the image build turns NuGet's vulnerability audit off (PA-92), so nothing reports vulnerable packages automatically. These times are the timetable in \<Risk Assessment Management\>, section 3.6, counted from the fix's release, or from detection if later; severity is the vendor's rating, or else the CVSS base score. Test-Vulnerability.ps1 found the same 7 advisories as the manual check (PA-56), and nothing scans the system yet (PA-62).
 
 ### 4.4 Joiners, movers and leavers (C36)
 

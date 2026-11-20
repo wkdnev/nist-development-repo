@@ -41,20 +41,20 @@ Every plan and planning record in force, with its owner, version, approver and n
 
 **Table 1: Plans in force**
 
-| Plan or record | Document | Version | Owner | Approved by | Next review |
+| Plan or record | Document | Version | Owner | Approver | Next review |
 | --- | --- | --- | --- | --- | --- |
-| System security plan | \<System Security Plan\> | \<ver\> | System owner | Version \<ver\> by the system owner, accepted by the authorising official as an accurate record; 2.1 by the system owner (D-GEN-19); later versions await the system owner. The Head of Cyber's concurrence is pending (D-PL-06) | November 2027, and after a significant change |
-| Privacy plan | \<Privacy Plan\> | \<ver\> | Legal adviser | Version \<ver\> by the legal adviser and authorising official (D-PT-05); 1.1 legally reviewed; 1.2 factual update; later versions references only | November 2027 |
-| Data protection impact assessment | \<Data Protection Impact Assessment\> | \<ver\> | Legal adviser | Draft; completion and approval by the legal adviser pending (D-PT-20) | Before production, and after a significant change in processing |
-| Supply chain risk management plan | \<Supply Chain Risk Management\> | \<ver\> | System owner | System owner | November 2027 |
-| Configuration management plan | \<Configuration Management\> | \<ver\> | System owner | System owner, for version \<ver\> (D-CM-12, D-SC-07). The version rebuilt on 13 November 2026 awaits approval | November 2027 |
-| Contingency plan | \<Contingency Planning Management\> | \<ver\> | System owner | System owner and authorising official, for version \<ver\> (D-CP-11). The version rebuilt on 15 November 2026 awaits both | November 2027, and after a test or activation |
-| Incident response plan | \<Incident Response Management\> | \<ver\> | Security officer | Version \<ver\> by the Head of Cyber; later versions pending (D-IR-07) | November 2027, and after an incident or exercise |
-| Continuous monitoring strategy | \<Assessment, Authorization, and Monitoring Management\> | \<ver\> | System owner | System owner | November 2027 |
-| Security architecture | \<Security Architecture\> | \<ver\> | System owner | System owner (D-PL-08) | November 2027, and after a significant change |
-| Concept of operations | \<Concept of Operations\> | \<ver\> | System owner | System owner | November 2027 |
-| Rules of behaviour | \<Security Operating Procedures\> | \<ver\> | System owner | System owner | November 2027, and after a material change (D-PL-P02) |
-| Baseline and tailoring | CSS Moderate and privacy baselines; \<Tailoring Register\> | \<ver\> | System owner | System owner; acceptance by the authorising official pending (D-PL-09) | November 2027, and when a condition changes |
+| System security plan | \<System Security Plan\> | \<ver\> | System owner | System owner, with the Head of Cyber's concurrence, and accepted by the authorising official as an accurate record (D-GEN-19, D-PL-06) | Every 12 months, and after a significant change |
+| Privacy plan | \<Privacy Plan\> | \<ver\> | Legal adviser | Legal adviser and authorising official (D-PT-05) | Every 12 months |
+| Data protection impact assessment | \<Data Protection Impact Assessment\> | \<ver\> | Legal adviser | Legal adviser (D-PT-20) | Before production, and after a significant change in processing |
+| Supply chain risk management plan | \<Supply Chain Risk Management\> | \<ver\> | System owner | System owner | Every 12 months |
+| Configuration management plan | \<Configuration Management\> | \<ver\> | System owner | System owner (D-CM-12, D-SC-07) | Every 12 months |
+| Contingency plan | \<Contingency Planning Management\> | \<ver\> | System owner | System owner and authorising official (D-CP-11) | Every 12 months, and after a test or activation |
+| Incident response plan | \<Incident Response Management\> | \<ver\> | Security officer | Head of Cyber (D-IR-07) | Every 12 months, and after an incident or exercise |
+| Continuous monitoring strategy | \<Assessment, Authorization, and Monitoring Management\> | \<ver\> | System owner | System owner | Every 12 months |
+| Security architecture | \<Security Architecture\> | \<ver\> | System owner | System owner (D-PL-08) | Every 12 months, and after a significant change |
+| Concept of operations | \<Concept of Operations\> | \<ver\> | System owner | System owner | Every 12 months |
+| Rules of behaviour | \<Security Operating Procedures\> | \<ver\> | System owner | System owner | Every 12 months, and after a material change (D-PL-P02) |
+| Baseline and tailoring | CSS Moderate and privacy baselines; \<Tailoring Register\> | \<ver\> | System owner | System owner, accepted by the authorising official (D-PL-09) | Every 12 months, and when a condition changes |
 | Risk list | \<Risk List\> | \<ver\> | System owner | System owner | Every 3 months once in operation |
 | Plan of action | \<Plan of Action and Milestones\> | \<ver\> | System owner | System owner | Monthly once in operation |
 
@@ -64,7 +64,7 @@ The versions in the register are checked by the plan consistency test (check L22
 
 Controls met here: PL-2.
 
-PL-2 lists 15 things a security plan and a privacy plan must hold. The security plan is \<System Security Plan\>, written to CSS, and the privacy plan is \<Privacy Plan\>. The system owner confirmed Table 2 on 17 November 2026 (D-PL-13).
+PL-2 lists 15 things a security plan and a privacy plan must hold. The security plan is \<System Security Plan\>, written to CSS, and the privacy plan is \<Privacy Plan\>. Table 2 shows where each part is held (D-PL-13).
 
 **Table 2: Where each required part of the plans is held**
 
@@ -75,7 +75,7 @@ PL-2 lists 15 things a security plan and a privacy plan must hold. The security 
 | a.3 | Describes the operational context | \<System Security Plan\>, sections 1 and 2; \<Concept of Operations\> | \<Privacy Plan\>, section 2 | Met. Three questions for the business owner are still open in \<Concept of Operations\>, section 7: who will use \<System Name\> and from where, which business processes it supports, and the hours and numbers it must serve (PA-123) |
 | a.4 | Names the people in each role | \<System Security Plan\>, section 6; \<Roles and Responsibilities\> | \<Privacy Plan\>, section 3 | Met |
 | a.5 | Identifies the types of information | \<System Security Plan\>, section 3.3 | \<Privacy Plan\>, section 4 | Met |
-| a.6 | Gives the security categorisation, with its reasons | \<System Security Plan\>, section 3.3 | \<Privacy Plan\>, section 4 | Met; approved by the authorising official |
+| a.6 | Gives the security categorisation, with its reasons | \<System Security Plan\>, section 3.3 | \<Privacy Plan\>, section 4 | Met |
 | a.7 | Describes the threats of concern | \<Risk List\>, section 2 | \<Privacy Plan\>, section 5 | Met |
 | a.8 | Gives the results of a privacy risk assessment | \<Data Protection Impact Assessment\> | \<Data Protection Impact Assessment\> | Not met: the impact assessment is a draft (PA-72) |
 | a.9 | Describes the environment, and the connections to other systems | \<System Security Plan\>, sections 3.1, 3.2 and 4 | \<Privacy Plan\>, section 2 | Met |
@@ -84,7 +84,7 @@ PL-2 lists 15 things a security plan and a privacy plan must hold. The security 
 | a.12 | Describes each control, in place or planned, with the reason for any tailoring | \<System Security Plan\>, section 7: one row for each control; \<Tailoring Register\> | \<Privacy Plan\>, section 6 | Met |
 | a.13 | Includes the risk decisions on architecture and design | \<Risk List\>; \<Decision Register\> | \<Privacy Plan\>, section 5; \<Decision Register\> | Met |
 | a.14 | Includes the activities that need planning and coordination with defined people | The operating calendar in \<Security Operating Procedures\>, Part C; \<Plan of Action and Milestones\>. They are coordinated with the Head of Cyber, the administrators and \<Organisation\>'s security contact | \<Privacy Plan\>, section 7 | Met |
-| a.15 | Reviewed and approved by the authorising official before it is put into effect | Approved by the system owner, with the Head of Cyber's concurrence, and accepted by the authorising official as an accurate record | Approved by the legal adviser and the authorising official | Version \<ver\> of the security plan was accepted; later versions await acceptance (D-GEN-20), and the Head of Cyber's concurrence is pending (D-PL-06). The privacy plan was approved (D-PT-05) |
+| a.15 | Reviewed and approved by the authorising official before it is put into effect | Approved by the system owner, with the Head of Cyber's concurrence, and accepted by the authorising official as an accurate record | Approved by the legal adviser and the authorising official | \[To be approved\] (D-GEN-20, D-PL-06, D-PT-05) |
 
 ### 3.4 Approval, review, sharing and protection
 
@@ -118,9 +118,9 @@ The system owner reviews and updates the rules every 12 months.
 2. The signature is added to the register below. The access request checks the register before access is given, and is not approved without a signature in it.
 3. Everyone signs again every 12 months, and after a material change to the rules: a new or stricter rule, a changed consequence, new monitoring or a new privileged duty (D-PL-P02). The system owner decides whether a change is material, and records it in the change record of the rules. After a material change everyone signs within 30 days, or loses access.
 
-Signed forms are kept for as long as the person has access, and for 3 years after it ends, as the system owner decided on 17 November 2026 (D-PL-14). The declaration each person signs is: "I have read and understood these rules, and I agree to follow them."
+Signed forms are kept for as long as the person has access, and for 3 years after it ends (D-PL-14). The declaration each person signs is: "I have read and understood these rules, and I agree to follow them."
 
-No one has signed yet: first signatures are taken on the version current when the remaining family reviews end (D-PL-P02).
+The register starts empty. First signatures are taken on the current version of the rules, before access is given (D-PL-P02).
 
 **Table 4: Register of signatures**
 

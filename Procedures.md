@@ -8,7 +8,7 @@ This document holds the security and privacy procedures for \<System Name\>: 139
 - **Reading a chapter.** Most chapters start with a table that summarises each procedure: what starts it, who acts, the time limit, the record and the controls it serves. The steps follow.
 - **Manual steps.** A step marked **Manual** has no support in the system yet, so a person must carry it out and record it. \<Plan of Action and Milestones\> holds the work to build that support.
 - **Records.** Records use the forms in \<Record Templates\>, TPL-1 to TPL-24, or a ServiceNow record with the same fields once the ServiceNow workflows are in use.
-- **Not yet in use.** \<System Name\> is not live. The procedures are approved but have not been walked through, and each is walked through once on form TPL-4 before go-live.
+- **Not yet in use.** \<System Name\> is not live. The procedures have not been walked through, and each is walked through once on form TPL-4 before go-live.
 - **Citing.** Cite a procedure by its number, as \<Procedures\>, PRO-AC-3. Cite a chapter as \<Procedures\> (AC), a section as \<Procedures\>, section AC.2, and a table as \<Procedures\>, Table AC-4.
 
 ## 2 Index of procedures

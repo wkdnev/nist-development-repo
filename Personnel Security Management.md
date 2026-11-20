@@ -47,7 +47,7 @@ Every role in \<Roles and Responsibilities\> has a designation. A role is higher
 | Data protection officer | Standard | Advises; no privileged access |
 | Business and information owner | Standard | Owns the information; a user in their own projects |
 | Authorising official | Standard | Decides risk; no \<System Name\> account is needed |
-| Security assessor | Higher risk | Sees the whole document set and its evidence, which describe every weakness. Made higher risk on 17 November 2026 (D-PS-12) |
+| Security assessor | Higher risk | Sees the whole document set and its evidence, which describe every weakness (D-PS-12) |
 | \<Organisation\> security contact | Standard | Provides evidence; no \<System Name\> account is needed |
 | Global administrator | Higher risk | Manages every project and the AD groups each uses |
 | Administrator | Higher risk | Changes system settings |
@@ -152,24 +152,24 @@ A breach of the rules is handled through \<Organisation\>'s disciplinary process
 
 Controls met here: PS-3, PS-6.
 
-The system owner keeps this register for everyone who has, or will have, access to \<System Name\> or its Restricted documents: the system owner, the operating roles in \<Roles and Responsibilities\> and the security assessor. Each user is added when their access is requested. It holds dates only. Entries are kept while the person has access, and for 3 years after it ends. Leaver and mover records on TPL-14 are kept for 3 years. The system owner set both on 17 November 2026 (D-PS-12). Signatures of the rules of behaviour are recorded in the register of signatures (\<Planning Management\>, section 3.5).
+The system owner keeps this register for everyone who has, or will have, access to \<System Name\> or its Restricted documents: the system owner, the operating roles in \<Roles and Responsibilities\> and the security assessor. Each user is added when their access is requested. It holds dates only. Entries are kept while the person has access, and for 3 years after it ends. Leaver and mover records on TPL-14 are kept for 3 years (D-PS-12). Signatures of the rules of behaviour are recorded in the register of signatures (\<Planning Management\>, section 3.5).
 
 **Table 5: Personnel security register**
 
 | Person | Role | Designation | Screening confirmed by \<Organisation\> | Agreements signed | Next review |
 | --- | --- | --- | --- | --- | --- |
-| \[Name\] | System owner | Standard | \[Date\] | None yet | November 2027 |
-| \[Name\] | Global administrator | Higher risk | \[Date\] | None yet | November 2027 |
-| \[Name\] | Administrator | Higher risk | \[Date\] | None yet | November 2027 |
-| \[Name\] | Auditor | Higher risk | \[Date\] | None yet | November 2027 |
-| \[Name\] | Security officer | Higher risk | \[Date\] | None yet | November 2027 |
-| \[Name\] | Project access approver | Standard | \[Date\] | None yet | November 2027 |
-| \[Name\] | Windows server administrator | Higher risk | \[Date\] | None yet | November 2027 |
-| \[Name\] | Database administrator | Higher risk | \[Date\] | None yet | November 2027 |
-| \[Name\] | Developer | Higher risk | \[Date\] | None yet | November 2027 |
-| \[Name\] | Developer | Higher risk | \[Date\] | None yet | November 2027 |
-| \[Name\] | Developer | Higher risk | \[Date\] | None yet | November 2027 |
-| \[Name\] | Security assessor | Higher risk | \[Date\] | None yet | November 2027 |
+| \[Name\] | System owner | Standard | \[Date\] | None yet | \[Date\] |
+| \[Name\] | Global administrator | Higher risk | \[Date\] | None yet | \[Date\] |
+| \[Name\] | Administrator | Higher risk | \[Date\] | None yet | \[Date\] |
+| \[Name\] | Auditor | Higher risk | \[Date\] | None yet | \[Date\] |
+| \[Name\] | Security officer | Higher risk | \[Date\] | None yet | \[Date\] |
+| \[Name\] | Project access approver | Standard | \[Date\] | None yet | \[Date\] |
+| \[Name\] | Windows server administrator | Higher risk | \[Date\] | None yet | \[Date\] |
+| \[Name\] | Database administrator | Higher risk | \[Date\] | None yet | \[Date\] |
+| \[Name\] | Developer | Higher risk | \[Date\] | None yet | \[Date\] |
+| \[Name\] | Developer | Higher risk | \[Date\] | None yet | \[Date\] |
+| \[Name\] | Developer | Higher risk | \[Date\] | None yet | \[Date\] |
+| \[Name\] | Security assessor | Higher risk | \[Date\] | None yet | \[Date\] |
 
 ### 3.10 What \<Organisation\> provides
 

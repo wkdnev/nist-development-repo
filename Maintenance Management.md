@@ -44,7 +44,7 @@ Controls met here: MA-2, MA-5.
 | PostgreSQL | \[Name\], database administrator | Change record, route R2 | TPL-12 |
 | \<System Name\> set-up and data repair | \[Name\], global administrator | Change record, route R3, PRO-MA-7 | TPL-12 |
 | Applications | Developers | Change record and release test, route R4 | TPL-6 |
-| The services \<System Name\> depends on: PingFederate, Active Directory, the network and firewall, the time service and the backup store | \<Organisation\> | \<Organisation\>'s own process. It is asked to tell the system owner before work that affects \<System Name\> (EV-MA-01), as the system owner decided on 17 November 2026 (D-MA-10) | \<Organisation\>'s notice |
+| The services \<System Name\> depends on: PingFederate, Active Directory, the network and firewall, the time service and the backup store | \<Organisation\> | \<Organisation\>'s own process. It is asked to tell the system owner before work that affects \<System Name\> (EV-MA-01, D-MA-10) | \<Organisation\>'s notice |
 
 ### 3.3 How a maintenance job is controlled
 
@@ -67,7 +67,7 @@ Controls met here: MA-2, MA-5.
 
 **The check after maintenance** confirms that: the services answer; anonymous access is refused; sign-in works and is audited; the audit records are intact; the documents are intact; Defender is running; backups still run; the time is right; and the settings are unchanged. The method and the expected result of each are in \<Procedures\>, PRO-MA-1.
 
-**The maintenance record** holds: the date and time; the component; what was done; who did it, their organisation and contact; any escort; whether on site or remote, with the route and session reference; the tools used; parts removed or replaced, with any case or return number; data taken away; the inspection of the tools and the scan of any media; and the check afterwards with its reviewer. Form TPL-12 in \<Record Templates\> has a field for each. Each change to the database schema is also recorded, with its version, date and release. Maintenance records are kept for 3 years, as the system owner decided on 17 November 2026 (D-MP-11). That matches the training records, and covers a full authorisation cycle.
+**The maintenance record** holds: the date and time; the component; what was done; who did it, their organisation and contact; any escort; whether on site or remote, with the route and session reference; the tools used; parts removed or replaced, with any case or return number; data taken away; the inspection of the tools and the scan of any media; and the check afterwards with its reviewer. Form TPL-12 in \<Record Templates\> has a field for each. Each change to the database schema is also recorded, with its version, date and release. Maintenance records are kept for 3 years (D-MP-11). That matches the training records, and covers a full authorisation cycle.
 
 **Routine work** follows the preventive schedule in \<Procedures\>, PRO-MA-6: database upkeep, disk space, updates, certificates, old logs and support dates, each with its owner and how often.
 
@@ -104,11 +104,11 @@ Microsoft Defender scans any media, and any file copied onto a server for mainte
 | \[Remote desktop or PowerShell remoting\] | Administer the servers | Over route R1 | Windows server administrator | Provisional |
 | Windows built-in tools: Event Viewer, Services, Windows Update, Defender | Diagnose, update and scan | Both servers | Windows server administrator | Provisional |
 | Windows service control | Start, stop and inspect the three application services | Application server | Windows server administrator | Provisional |
-| Docker command line | Start, stop and inspect containers | Test environment only | Developers | Approved for the test environment only |
+| Docker command line | Start, stop and inspect containers | Test environment only | Developers | For the test environment only |
 | psql, pg\_dump and pg\_restore, PostgreSQL 18 | Maintain, back up and restore the database | Database server | Database administrator | Provisional |
 | \[Database administration tool, if any\] | \[Use\] | \[Where\] | Database administrator | Placeholder |
 | \<System Name\> built-in pages: Database Update, Fresh Start, Legacy Cleanup, Fix Duplicate Users and Seed Project Roles | Schema and data repair | Admin portal | Global administrator, under PRO-MA-7 only | Restricted until removed (PA-31) |
-| The test scripts | Checks on a test stack | Test environment only | Developers | Approved for the test environment only |
+| The test scripts | Checks on a test stack | Test environment only | Developers | For the test environment only |
 
 Not approved on the servers: any shell or package manager carried inside a release, as the tested build's container images carry (PA-85), and any tool not in this table.
 
@@ -149,7 +149,7 @@ Controls met here: MA-2, MA-3(3).
 
 Controls met here: MA-6.
 
-These are the components that \<System Name\>'s security depends on (MA-06\_ODP\[01\]). Support dates are checked each month against the vendors' published lifecycles. \<Organisation\> provides support and parts for the hardware and the hypervisor within 24 hours of a failure, so that a restore fits the 72-hour recovery time objective. Software is kept on supported versions, and a replacement is planned at least 6 months before support ends. On the servers each application runs as a Windows service (D-PL-10); the tested build ran in containers, so the image base applies to the test environment only, and the container engine is no longer a component of the servers. The system owner confirmed this on 17 November 2026 (D-MA-10).
+These are the components that \<System Name\>'s security depends on (MA-06\_ODP\[01\]). Support dates are checked each month against the vendors' published lifecycles. \<Organisation\> provides support and parts for the hardware and the hypervisor within 24 hours of a failure, so that a restore fits the 72-hour recovery time objective. Software is kept on supported versions, and a replacement is planned at least 6 months before support ends. On the servers each application runs as a Windows service (D-PL-10); the tested build ran in containers, so the image base applies to the test environment only, and the container engine is not a component of the servers (D-MA-10).
 
 **Table 7: Security-critical components**
 

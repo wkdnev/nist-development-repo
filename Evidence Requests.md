@@ -42,7 +42,7 @@ The requests go to \<Organisation\> as one pack, with this covering note. The pa
 1. **To:** \[Name\], \<Organisation\>'s security contact, with \[Name\] as deputy.
 2. **From:** \[Name\], system owner.
 3. **Date sent:** \[Date\].
-4. **Reply needed by:** \[Date\]. The records and the list of applicable policies promised on 6 November 2026 are due by 20 November 2026 (section 23).
+4. **Reply needed by:** \[Date\].
 5. **What is asked:** the 74 requests in sections 2 to 22. Each has an ID, what is needed and the evidence that is acceptable.
 6. **How to reply:** for each request ID, give the document or record, its date and its owner, or say that none exists. One reply can answer several requests.
 7. **Where to send it:** \[The restricted records location\].
@@ -89,7 +89,7 @@ The requests go to \<Organisation\> as one pack, with this covering note. The pa
 
 ### 3.2 Responsibility matrix
 
-This matrix is proposed and has not been agreed with \<Organisation\>.
+This matrix is proposed to \<Organisation\>.
 
 **Table 4: AC responsibility matrix**
 
@@ -200,7 +200,7 @@ This matrix is proposed and has not been agreed with \<Organisation\>.
 
 | ID | Control | What we need to know | Evidence to provide | Status | Received | Result |
 | --- | --- | --- | --- | --- | --- | --- |
-| EV-IR-01 | IR-3(2), IR-4, IR-6, IR-6(3), IR-7, IR-7(1) | \<Organisation\>'s incident process, how the security contact takes reports from \<System Name\>, and what help it gives: monitoring, forensic help, isolating a server, disabling an account, and locking or wiping a device. How it is reached outside working hours. How soon it tells \<System Name\> of a compromise on its side; 24 hours is asked. Who speaks to the press. Whether it will take part in the yearly exercise. Also confirmation, with its date, that the old PingFederate client secret found in the source repositories has been revoked (INC-2026-001) | The process, and the contact route | Not sent |  |  |
+| EV-IR-01 | IR-3(2), IR-4, IR-6, IR-6(3), IR-7, IR-7(1) | \<Organisation\>'s incident process, how the security contact takes reports from \<System Name\>, and what help it gives: monitoring, forensic help, isolating a server, disabling an account, and locking or wiping a device. How it is reached outside working hours. How soon it tells \<System Name\> of a compromise on its side; 24 hours is asked. Who speaks to the press. Whether it will take part in the yearly exercise. Also confirmation, with its date, that any PingFederate client secret held in the source repositories has been revoked | The process, and the contact route | Not sent |  |  |
 
 ## 11 Maintenance (MA)
 
@@ -322,13 +322,13 @@ PM is outside \<System Name\>'s baseline (TR-PM-01), but \<System Name\> inherit
 | EV-SR-01 | SR-2(1), SR-3, SR-6, SR-8 | Who the approved suppliers are, and how they report a compromise; confirmation that the IT service desk sits on \<System Name\>'s supply chain team and will take part in the yearly supplier review (\<Supply Chain Risk Management\>, section 3.5); the contract term for reporting a compromise to the security officer within 24 hours | The approved supplier list, and notification terms | Not sent |  |  |
 | EV-SR-02 | SR-10, SR-11(1), SR-11(2), SR-12 | How hardware is inspected, how buyers are trained, how equipment is controlled during repair, and how it is disposed of | Procedures, a training record and a sample disposal record | Not sent |  |  |
 
-## 23 Answers given on 6 November 2026
+## 23 Expected answers
 
-\[Name\] and \[Name\] agreed these proposed answers in a meeting, as reported by the system owner. Several began as best guesses. They are statements, not evidence, so findings do not change until the records arrive. \[Name\] is to send the records and the list of applicable policies by 20 November 2026. These replace the "Not sent" status above.
+The table gives the answer \<Organisation\> is expected to give to each request. They are statements, not evidence, so findings do not change until the records arrive. \[Name\] sends the records and the list of applicable policies.
 
-**Table 24: \<Organisation\>'s stated answers**
+**Table 24: \<Organisation\>'s expected answers**
 
-| Requests | Answer stated |
+| Requests | Expected answer |
 | --- | --- |
 | EV-GEN-02 | Cyber Essentials Plus is held, and the VMs get added to scope when built |
 | EV-GEN-03 | \<Organisation\>'s own UK virtual platform, run by its infrastructure team |
@@ -348,4 +348,4 @@ PM is outside \<System Name\>'s baseline (TR-PM-01), but \<System Name\> inherit
 | EV-IA-01 | Network access control with device certificates, and disk encryption on managed devices |
 | EV-IA-02 | Photo ID and right-to-work checks for staff, and the same through the agency for contractors |
 | EV-IA-03 | Standard Windows modules, not in CSS-approved cryptographic mode |
-| EV-IA-04 | \\\[Expected answer to be confirmed with \<Organisation\>\\\] |
+| EV-IA-04 | \[Expected answer from \<Organisation\>\] |

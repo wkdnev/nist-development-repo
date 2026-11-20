@@ -40,9 +40,9 @@ These carry out the principles and rules of \<Policy\>, sections RA.3 and RA.4.
 
 Controls met here: RA-2.
 
-\<System Name\> is categorised Moderate: confidentiality Moderate, integrity Moderate and availability Low. Each of its four information types was mapped to CSS and rated under CSS, and the system takes the highest level of each. The record, with the rationale for each level, is in \<System Security Plan\>, section 3.3, as RA-2 requires. \[Name\] owns the information types, and the authorising official, \[Name\], approved the categorisation (D-GEN-06).
+\<System Name\> is categorised Moderate: confidentiality Moderate, integrity Moderate and availability Low. Each of its four information types was mapped to CSS and rated under CSS, and the system takes the highest level of each. The record, with the rationale for each level, is in \<System Security Plan\>, section 3.3, as RA-2 requires. \[Name\] owns the information types, and the authorising official, \[Name\], approves the categorisation (D-GEN-06).
 
-Availability is Low because the 120-hour maximum tolerable downtime means a loss of availability has a limited adverse effect; "business critical" means important to \<Organisation\>, not that \<System Name\> must always be available. The information owner and the authorising official are asked to confirm that rationale (D-RA-07).
+Availability is Low because the 120-hour maximum tolerable downtime means a loss of availability has a limited adverse effect; "business critical" means important to \<Organisation\>, not that \<System Name\> must always be available (D-RA-07).
 
 The fourth information type was named for accounts and credentials. Since sign-in moved to PingFederate, \<System Name\> holds neither (D-AC-23), so it is now named for the identities that arrive at sign-in and the audit records. Its levels do not change. The authorising official is asked to see the new name with the availability rationale (D-RA-07).
 
@@ -52,7 +52,7 @@ The categorisation is reviewed with the risk assessment, and whenever an informa
 
 Controls met here: RA-3, RA-7.
 
-\<System Name\>'s risk assessment is the Risk List, \<Risk List\>. It follows CSS: a threat source exploits a weakness, with a likelihood, to cause an impact. The method is set out in full in its section 4, beside the risks it rates, so that the Risk List can be read on its own. The authorising official confirmed it. Table 1, below, summarises it.
+\<System Name\>'s risk assessment is the Risk List, \<Risk List\>. It follows CSS: a threat source exploits a weakness, with a likelihood, to cause an impact. The method is set out in full in its section 4, beside the risks it rates, so that the Risk List can be read on its own. Table 1, below, summarises it.
 
 **Table 1: The risk method at a glance**
 
@@ -65,7 +65,7 @@ Controls met here: RA-3, RA-7.
 | Uncertainty | Where the evidence is a single test or a document review, the higher of the two plausible ratings is used. Ratings set before the evidence was seen are marked provisional | \<Risk List\>, section 4.1 and Table 3d |
 | Privacy risk | Rated by the same method. The data protection impact assessment adds the effects on individuals | \<Risk List\>, R-PT-01 and R-AU-02; \<Data Protection Impact Assessment\> |
 | Who decides | Low: the system owner. Medium: the authorising official, on the system owner's advice. High: the authorising official, and only for a stated period while a fix runs | \<Risk List\>, section 4.2 |
-| Tolerance | The thresholds are \<System Name\>'s own until the Head of Cyber confirms them against \<Organisation\>'s risk management strategy and risk appetite | D-PM-03; EV-PM-01 |
+| Tolerance | The thresholds are \<System Name\>'s own, and the Head of Cyber checks them against \<Organisation\>'s risk management strategy and risk appetite | D-PM-03; EV-PM-01 |
 
 **Table 2: When the risk assessment is reviewed**
 
@@ -77,7 +77,7 @@ Controls met here: RA-3, RA-7.
 | When a risk needs a decision | Decided by the person its rating calls for | System owner or authorising official | \<Decision Register\> |
 | At each review | The categorisation is checked against the information \<System Name\> holds, and any change goes to the authorising official (section 3.2) | System owner | TPL-23 |
 
-Two significant changes have been made since the risk assessment was last reviewed as a whole: sign-in moved to PingFederate with multi-factor authentication (D-AC-23), and each application now runs as a Windows service on the servers (D-PL-10). Risk entries were reworded as each family was reviewed, but the risk assessment has not yet been reviewed as a whole, as RA-3 and PRO-RA-1 require after a significant change. The acceptance of password-only sign-in (D-GEN-13), which the move to PingFederate overtakes, is still recorded; the authorising official is asked to note it, and to keep it until PingFederate sign-in is shown to work (D-RA-15). The review is registered as PA-127, and a draft of it has been prepared for the system owner to check.
+After a significant change, such as sign-in through PingFederate with multi-factor authentication (D-AC-23) or each application running as a Windows service on the servers (D-PL-10), the risk assessment is reviewed as a whole, as RA-3 and PRO-RA-1 require. The acceptance of password-only sign-in (D-GEN-13), which sign-in through PingFederate overtakes, is kept until PingFederate sign-in is shown to work (D-RA-15). The review is registered as PA-127.
 
 ### 3.4 Supply chain risk assessment
 
@@ -85,7 +85,7 @@ Controls met here: RA-3(1).
 
 Every 12 months, before a new supplier or a new kind of component is added, and after a significant change to the system or where it runs, the system owner and the developers review each item in the supply chain for its origin, support, known problems and end of support (PRO-RA-2). They use the supplier register in \<Supply Chain Risk Management\>, the latest package and image check, and the bill of materials once it is produced (PA-78). Each review is recorded on TPL-23, and any new risk goes into the Risk List. The supply chain plan, \<Supply Chain Risk Management\>, holds the suppliers and how they are managed; this section holds the risk assessment.
 
-The first review was approved by the system owner (D-RA-09). It used \<Supply Chain Risk Management\>, Test-Vulnerability.ps1 and the configuration management findings. It stands as the first record; each later review is recorded on TPL-23.
+The first review is recorded below (D-RA-09). It used \<Supply Chain Risk Management\>, Test-Vulnerability.ps1 and the configuration management findings. It stands as the first record; each later review is recorded on TPL-23.
 
 **Table 3: First supply chain review**
 
@@ -108,7 +108,7 @@ Three changes since the first review alter the supply chain. Each is a significa
 | --- | --- | --- |
 | Sign-in through PingFederate, with access decided by Active Directory groups that the API reads over LDAPS (D-AC-23) | \<Organisation\>'s PingFederate and Active Directory become critical dependencies (section 3.9). \<System Name\> no longer holds passwords | Not yet reviewed |
 | Access requests through ServiceNow, and leavers through the Starters/Leavers system (D-AC-22) | Two of \<Organisation\>'s corporate services become part of how access is given and removed | Not yet reviewed |
-| Each application runs as a Windows service on Windows Server 2025 (D-PL-10) | The .NET runtime is installed on the application server. Whether the base images still reach a release is to be confirmed | Not yet reviewed |
+| Each application runs as a Windows service on Windows Server 2025 (D-PL-10) | The .NET runtime is installed on the application server. The review checks whether the base images still reach a release | Not yet reviewed |
 
 ### 3.5 What is monitored for vulnerabilities
 
@@ -129,7 +129,7 @@ Controls met here: RA-5, RA-5(2), RA-5(5).
 
 Monitoring also starts whenever a new vulnerability that may affect \<System Name\> is reported, through these sources or the reporting route in section 3.7.
 
-The scanner is still to be chosen (PA-62). The system owner confirmed that it must (D-RA-12):
+The scanner is still to be chosen (PA-62). It must (D-RA-12):
 
 1. scan both VMs with an account approved for scanning, so that the scan sees what an administrator sees (RA-5(5));
 2. update its definitions before each scan (RA-5(2));
@@ -168,7 +168,7 @@ Controls met here: RA-5, RA-5(11).
 2. **False positives.** A finding that does not apply, such as a flaw in a feature \<System Name\> does not call, is marked as a false positive on TPL-7 with the reason, and checked again at the next scan.
 3. **Fixing.** The people responsible fix or mitigate each finding within its time, as a change (\<Configuration Management\>). An exploited flaw is fixed or mitigated as an emergency change, and the security officer confirms it and tells the system owner (PRO-RA-4).
 4. **Sharing.** After each scan the security officer shares each finding that applies with the developers and the Windows server administrator, so that the same flaw is fixed wherever it occurs. A finding that may affect \<Organisation\>'s other systems also goes to its security contact, so that it can be removed there too (PRO-RA-5).
-5. **Reports from anyone.** Anyone may report a vulnerability in \<System Name\> to \<Organisation\>'s security contact, which passes the report to the security officer, who records it on TPL-7 and handles it as a scan finding (D-RA-05). CSS asks for a public channel, so the contact must be published where people outside \<Organisation\> can find it, for example in a security.txt file on its website (RFC 9116): \[Where the contact is published, once agreed with \<Organisation\>\] (EV-RA-01). Its published terms must authorise research in good faith, and may ask the reporter to allow a set time for a fix before disclosing the flaw, but must not require it to be kept secret for ever. The time asked for is 90 days, as the system owner decided (D-RA-14), once \<Organisation\> agrees it (EV-RA-01).
+5. **Reports from anyone.** Anyone may report a vulnerability in \<System Name\> to \<Organisation\>'s security contact, which passes the report to the security officer, who records it on TPL-7 and handles it as a scan finding (D-RA-05). CSS asks for a public channel, so the contact must be published where people outside \<Organisation\> can find it, for example in a security.txt file on its website (RFC 9116): \[Where the contact is published\] (EV-RA-01). Its published terms must authorise research in good faith, and may ask the reporter to allow a set time for a fix before disclosing the flaw, but must not require it to be kept secret for ever. The time asked for is 90 days (D-RA-14; EV-RA-01).
 6. **Flaws in other parties' components.** A flaw found in another party's package or image is reported to its maintainer through their published route, and noted on TPL-7.
 
 ### 3.8 Risk response
@@ -211,7 +211,7 @@ Controls met here: RA-9.
 | Data protection key rings | Protect each app's cookies and tokens | Sign-in cookies can be forged or read | Built |
 | PingFederate, with Active Directory (\<Organisation\>) | PingFederate authenticates every user with multi-factor authentication; Active Directory holds the groups, read by the API over LDAPS, that decide each role and each project's access (D-AC-23) | Anyone could sign in as another user, or be given any role or project | Inherited from \<Organisation\> |
 
-PingFederate with Active Directory is critical because \<System Name\> holds no accounts and relies on \<Organisation\> to authenticate every user (D-AC-23). The application server VM and the bulk export working folder are critical because each gives a path to the documents that goes round the other controls. The system owner approved the list (D-RA-09, D-RA-12, D-RA-14).
+PingFederate with Active Directory is critical because \<System Name\> holds no accounts and relies on \<Organisation\> to authenticate every user (D-AC-23). The application server VM and the bulk export working folder are critical because each gives a path to the documents that goes round the other controls (D-RA-09, D-RA-12, D-RA-14).
 
 **Critical functions.** CSS asks for critical functions as well as components. Five functions would expose or lose the documents if they failed: signing in and deciding access (PingFederate with Active Directory, API, the key store and the data protection key rings); storing and showing documents (the database server, the application server, API and UI application); administering projects and access (Admin application); recording who did what (the audit records); and recovering documents (the backup store).
 
@@ -224,7 +224,7 @@ Test-Vulnerability.ps1 ran on the v1.0 build and its images. Its results, with t
 - **Packages:** the package check found the same 7 advisories as the earlier check, 5 of them High, in API and UI application (V01; PA-56).
 - **Images:** the runtime images run Ubuntu 24.04.5 LTS with 97 packages and no security update waiting (V04). No scanner checks them (V02), and their base images are not pinned (V03).
 - **VMs:** nothing scans them, and they do not exist yet (PA-62).
-- **Reports:** vulnerability reports go through \<Organisation\>'s security contact, which has not yet been agreed with them (EV-RA-01).
+- **Reports:** vulnerability reports go through \<Organisation\>'s security contact (EV-RA-01).
 
 ### 3.11 What \<Organisation\> provides
 

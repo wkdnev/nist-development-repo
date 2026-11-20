@@ -128,14 +128,14 @@ This section states how \<System Name\> is protected, as CSS PL-8 requires. It d
 | --- | --- | --- | --- |
 | Boundary | \<Organisation\>'s firewalls allow only HTTPS into Z3, and the admin portal only from Z2 | SC-7, AC-17, MA-4 | Inherited, not evidenced; admin portal open on every interface in Docker (PA-83) |
 | Transport | TLS on F1 to F7, under NCSC's profiles (\<System and Communications Protection Management\>, section 3.3); data protection key rings protected with DPAPI (PA-93) | SC-8, SC-13 | Planned; plain HTTP in Docker (R-AC-05) |
-| Identity | Each person's own Active Directory account, signed in through PingFederate with multi-factor authentication; roles and project access from AD groups | IA-2, IA-5, AC-7 | As the system owner states (D-AC-23); not yet tested or evidenced (PA-95) |
+| Identity | Each person's own Active Directory account, signed in through PingFederate with multi-factor authentication; roles and project access from AD groups | IA-2, IA-5, AC-7 | Designed (D-AC-23); not yet tested or evidenced (PA-95) |
 | Authorisation | Project roles checked on every page and API call | AC-3, AC-6 | In place, with known gaps tracked in the POA&M |
 | Sign-in lifetime and screen lock | No session management in \<System Name\>. The sign-in is held only in the authentication cookie, which lasts no longer than PingFederate's sign-in lifetime (P-AC-10); an unattended screen is locked by the operating system on \<Organisation\>'s managed devices and the servers (P-AC-15) | AC-11, AC-12, SC-23 | Inherited from \<Organisation\>, not evidenced |
 | Data at rest | Full-disk encryption on both VMs; no plain copies left by exports | SC-28, MP-4 | Planned (PA-52); export copies (PA-86) |
 | Audit | Hash-chained audit records, reviewed and kept | AU-2, AU-6, AU-9 | In place; chain hash has no key (R-AU-01) |
 | Host | CIS hardening, Microsoft Defender, patching | CM-6, SI-2, SI-3 | Planned (PA-54, PA-58) |
 | Recovery | Encrypted backups and logs at the second site | CP-9, CP-10 | Planned (PA-64) |
-| People | Rules signed before access, training, screening | PL-4, AT-2, PS-3 | Rules approved, none signed yet (NC-PL-03) |
+| People | Rules signed before access, training, screening | PL-4, AT-2, PS-3 | Rules written, none signed yet (NC-PL-03) |
 
 ### 6.5 Engineering principles
 
@@ -161,6 +161,6 @@ This section states how \<System Name\> is protected, as CSS PL-8 requires. It d
 3. Users work only on \<Organisation\>'s managed devices, over its network or managed route.
 4. The critical components and their failure effects are in \<Risk Assessment Management\>, section 3.9.
 
-## 7 Questions moved out
+## 7 Open questions
 
-The two open questions in version \<ver\> are now decisions in \<Decision Register\>, so that this approved design has none open: how the applications run on the application VM (D-PL-10, decided on 13 November 2026: as Windows services), and whether \<Organisation\> runs the hypervisor and it is inside the Cyber Essentials Plus scope (D-PL-11).
+This design has no open questions. How the applications run on the application VM (D-PL-10: as Windows services), and whether \<Organisation\> runs the hypervisor and it is inside the Cyber Essentials Plus scope (D-PL-11), are decisions in \<Decision Register\>.

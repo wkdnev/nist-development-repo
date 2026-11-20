@@ -2,7 +2,7 @@
 
 ## 1 Purpose and how to use this draft
 
-This guide tells administrators how to install, configure and run \<System Name\> securely, how to use and maintain its security and privacy functions, and what to watch for in its privileged functions (SA-5a). It points to the approved document that holds each value rather than repeating it, so it stays correct when a value changes.
+This guide tells administrators how to install, configure and run \<System Name\> securely, how to use and maintain its security and privacy functions, and what to watch for in its privileged functions (SA-5a). It points to the document that holds each value rather than repeating it, so it stays correct when a value changes.
 
 It is a draft. Values in \[brackets\] are for the developers to fill or confirm. Until version \<ver\>, administrators follow the procedures named here.
 

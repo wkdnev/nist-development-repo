@@ -10,13 +10,13 @@ Other documents hold the rest. Who provides and is responsible for each control,
 
 Values that CSS asks the organisation to define are set at corporate level by \<Organisation\>. The values in section 3, such as the recovery objectives, the backup retention and the intervals for testing and training, should match those corporate values. Where one does not, it is changed in this document.
 
-\<System Name\> is not yet built on its servers, and has no backups and no confirmed second site (PA-64, PA-66). Where section 3 notes what "today" is, it means the tested v1.0 build.
+\<System Name\> is not yet built on its servers, and has no backups and no evidenced second site (PA-64, PA-66). Where section 3 notes what "today" is, it means the tested v1.0 build.
 
 ### 1.1 Distribution and protection
 
 Copies go to the people in section 3.4 and the authorising official. \<Organisation\>'s IT service desk receives sections 3.5, 3.6 and 3.9 and appendix A, which it needs to act (CP-02\_ODP\[04\]). The same people are told of every change, with a note of what changed (CP-2f).
 
-The document is Restricted. It is kept in the restricted document store with the other records (D-GEN-15), where only the people above can read it and only the system owner can change it (CP-2h). The system owner and security officer each keep a current offline copy, so that the plan can be used when \<System Name\> and the document store are down. The offline copy is section 3 with appendices A and B, which together are the whole plan: the system owner decided against a separate plan document (D-CP-15).
+The document is Restricted. It is kept in the restricted document store with the other records (D-GEN-15), where only the people above can read it and only the system owner can change it (CP-2h). The system owner and security officer each keep a current offline copy, so that the plan can be used when \<System Name\> and the document store are down. The offline copy is section 3 with appendices A and B, which together are the whole plan. There is no separate plan document (D-CP-15).
 
 ## 2 Summary
 
@@ -51,7 +51,7 @@ The plan recovers \<System Name\> in three phases: activation and notification, 
 
 **Assumptions:**
 
-1. \<Organisation\> provides a second site, network, sign-in through PingFederate, directory, name resolution and time (EV-CP-01, EV-CP-02). Unconfirmed.
+1. \<Organisation\> provides a second site, network, sign-in through PingFederate, directory, name resolution and time (EV-CP-01, EV-CP-02). Not yet evidenced.
 2. The latest good backup, its transaction logs and the protected copy of the secrets are at the second site.
 3. The tagged release and the baseline in \<Configuration Management\>, section 3.4, can be reached to rebuild the applications.
 4. At least one holder or deputy of each role in section 3.4 is available.
@@ -91,7 +91,7 @@ Controls met here: CP-2, CP-2(3), CP-10.
 | Administration | 14 days | 7 days | As above | 2 |
 | Reports and bulk export | 14 days | 7 days | Not applicable: produced from the database | 3 |
 
-The recovery time objective includes reconstitution (section 3.7), so users return within 72 hours. That leaves 48 hours within the maximum tolerable downtime for a failed first attempt, such as a damaged backup. These values were agreed by the system owner on 9 November 2026 (D-CP-10).
+The recovery time objective includes reconstitution (section 3.7), so users return within 72 hours. That leaves 48 hours within the maximum tolerable downtime for a failed first attempt, such as a damaged backup. These values are set in D-CP-10.
 
 #### 3.3.3 Components, dependencies and order of recovery
 
@@ -140,7 +140,7 @@ Controls met here: CP-2.
 | Servers | \[Name\], Windows server administrator | \[Name\] | Rebuilds the VMs and restores the secrets |
 | Service | \<Organisation\>'s IT service desk | Its own rota | Provides the second site and connectivity |
 
-Deputies were agreed on 6 November 2026 (D-CP-09). Contact details are in appendix A.
+Each role has a deputy, as Table 5 shows (D-CP-09). Contact details are in appendix A.
 
 ### 3.5 Activation and notification
 
@@ -260,7 +260,7 @@ Controls met here: CP-6, CP-6(1), CP-6(3), CP-7, CP-7(1), CP-7(2), CP-7(3), CP-8
 
 **Telecommunications.** Alternate telecommunications are inherited from \<Organisation\> (D-CP-08). Its network connects users to both sites. It is asked what alternate service exists, how quickly it takes over, and what priority its main and alternate agreements give. The alternate service must not share a route, a building entry or a provider with the main one. Telecommunications Service Priority is a United States scheme, so \<Organisation\> is asked whether it uses any UK equivalent.
 
-None of this is confirmed (EV-CP-01, EV-CP-02, PA-66). If it is not available, the system owner takes the risk to the authorising official.
+None of this is evidenced yet (EV-CP-01, EV-CP-02, PA-66). If it is not available, the system owner takes the risk to the authorising official.
 
 ### 3.10 Testing, training and exercises
 
@@ -354,7 +354,7 @@ CSS does not select these at Moderate, so they are not assessed. Some of the des
 | Control | What it adds | \<System Name\>'s position |
 | --- | --- | --- |
 | CP-2(2) Capacity Planning | Capacity planned for processing, telecommunications and support during a contingency | Not required. The second site is asked to run both servers at their normal size (EV-CP-01) |
-| CP-2(5) Continue Mission and Business Functions | Functions continue with little or no loss of continuity | Not required. Availability is rated Low, and 72 hours is accepted |
+| CP-2(5) Continue Mission and Business Functions | Functions continue with little or no loss of continuity | Not required. Availability is rated Low, and 72 hours to recover is enough |
 | CP-3(1) Simulated Events | Training that simulates a real event | Not required. The tabletop exercise walks through a scenario |
 | CP-4(2) Alternate Processing Site | Testing the plan at the second site | Not required, and not planned. The first restore test is on the main servers |
 | CP-6(2) Recovery Time and Recovery Point Objectives | The storage site set up to meet the recovery objectives | Not required. Done in design: transaction logs go to the second site continuously, for a recovery point of minutes |

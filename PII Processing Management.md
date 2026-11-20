@@ -104,7 +104,7 @@ Controls met here: SA-8(33), SI-12(1), SI-12(2), SI-12(3), SI-18, SI-19.
 
 1. **Minimisation.** What personal data is collected is reviewed at design, in each change record, and in the impact assessment. Each project holds only what its documents' purpose requires.
 2. **Quality.** Every 12 months each project access approver checks that their project's personal data is accurate, relevant, timely and complete, and no more than its documents' purpose requires, and records the check on TPL-3 (PRO-PT-5). The project access approver or an administrator corrects or deletes inaccurate or out-of-date data, and each correction and deletion is audited.
-3. **Retention.** Each kind of record is kept for the period below, then disposed of. The business owner sets each period with the legal adviser (D-PT-21), guided by the ICO's employment records guidance (February 2025). Row A1 was reworded for sign-in through PingFederate and confirmed by the system owner on 18 November 2026 (D-PT-23); its period stays with the business owner.
+3. **Retention.** Each kind of record is kept for the period below, then disposed of. The business owner sets each period with the legal adviser (D-PT-21), guided by the ICO's employment records guidance. Row A1 covers names held from sign-in through PingFederate (D-PT-23), and its period is set by the business owner.
 4. **Disposal.** At the end of its period a document is deleted, the deletion is audited, and the database is vacuumed afterwards so that no readable copy remains. Media are sanitised as \<Media Protection Management\>, section 3.6 sets out. \<System Name\> cannot yet do this (Q03, Q08; PA-70).
 5. **Testing, training and research.** Testing and training use sample data only, loaded into each test stack, and no real personal data is used for research.
 6. **De-identification.** No dataset is de-identified or released, so there is nothing to remove identifiers from.
@@ -127,8 +127,8 @@ Controls met here: SA-8(33), SI-12(1), SI-12(2), SI-12(3), SI-18, SI-19.
 | A7 | Signed rules of behaviour (TPL-21) and the register of signatures | While the person has access, and 3 years after | Access ended | PL-4, as set in \<Planning Management\>, section 3.5 (D-PL-14) | Delete |
 | A8 | Personnel security register entries | While the person has access, and 3 years after | Access ended | PS-3, as set in \<Personnel Security Management\>, section 3.9 (D-PS-12) | Delete |
 | A9 | Leaver and mover records (TPL-14) | 3 years | Record completed | PS-4, PS-5, as set in \<Personnel Security Management\>, section 3.9 (D-PS-12) | Delete |
-| A10 | Privacy requests (TPL-15) | 3 years | Request closed | Covers a complaint to the ICO about how a request was handled, and matches the other records. Set by the system owner (D-PT-24), for the legal adviser to confirm | Delete |
-| A11 | Data protection complaints (TPL-22) | 3 years | Complaint closed | Covers a complaint to the ICO about how a complaint was handled, and matches the other records. Set by the system owner (D-PT-24), for the legal adviser to confirm | Delete |
+| A10 | Privacy requests (TPL-15) | 3 years | Request closed | Covers a complaint to the ICO about how a request was handled, and matches the other records (D-PT-24) | Delete |
+| A11 | Data protection complaints (TPL-22) | 3 years | Complaint closed | Covers a complaint to the ICO about how a complaint was handled, and matches the other records (D-PT-24) | Delete |
 
 ### 3.8 Impact assessment and changes in processing
 

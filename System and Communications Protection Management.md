@@ -80,7 +80,7 @@ Each server's host firewall denies everything not listed below (SC-7(5)). \<Orga
 
 Controls met here: SC-7(4), SC-8, SC-8(1), SC-10, SC-13, SC-23.
 
-Every flow uses this profile, from NCSC's guidance (updated 15 October 2026). It covers F1 to F7, including the API calls that stay on the application server, and F11, sign-in through PingFederate, which \<Organisation\> protects.
+Every flow uses this profile, from NCSC's guidance. It covers F1 to F7, including the API calls that stay on the application server, and F11, sign-in through PingFederate, which \<Organisation\> protects.
 
 **Table 4: TLS profile**
 
@@ -177,7 +177,7 @@ Controls met here: SC-20, SC-21, SC-22.
 
 ### 3.9 How protection stands today
 
-Test-Protection.ps1 ran on 12 November 2026 on the build tagged v1.0, in the test stack: 12 checks, 1 passed and 11 gaps. Its results, with their hashes, are kept with the SC evidence. The test sent its requests to the sign-in pages of that build, which used \<System Name\>'s own passwords; \<System Name\> now has no sign-in page of its own (D-AC-23), so the checks are to be run again on the servers.
+Test-Protection.ps1 ran on the build tagged v1.0, in the test stack: 12 checks, 1 passed and 11 gaps. Its results, with their hashes, are kept with the SC evidence. The test sent its requests to the sign-in pages of that build, which used \<System Name\>'s own passwords; \<System Name\> now has no sign-in page of its own (D-AC-23), so the checks are to be run again on the servers.
 
 **Table 7: How protection is built today**
 

@@ -42,7 +42,7 @@ Controls met here: SR-2.
 
 This plan covers \<System Name\>, its software packages, container images, browser files, build tools, hosting and hardware.
 
-What it is built from: 59 packages for API, 40 for UI application and 34 for Admin application, counting those pulled in; two Microsoft base images and the PostgreSQL image; and two browser libraries loaded from jsDelivr. The values were agreed on 6 November 2026 and revised on 12 November 2026 (D-SR-P01).
+What it is built from: 59 packages for API, 40 for UI application and 34 for Admin application, counting those pulled in; two Microsoft base images and the PostgreSQL image; and two browser libraries loaded from jsDelivr (D-SR-P01).
 
 ### 3.3 The supply chain team
 
@@ -50,7 +50,7 @@ Controls met here: SR-2, SR-2(1), SR-6.
 
 The supply chain team is the system owner, the security officer, a developer and \<Organisation\>'s IT service desk (D-SR-05). It keeps this plan current, reviews the critical suppliers every 12 months and before a new critical supplier is used, on TPL-16, and handles notices of compromise (PRO-SR-2, PRO-SR-5). The system owner leads it and approves the plan.
 
-The team reviews this plan every 12 months, and after a significant change (PRO-SR-2). The plan is restricted, under version control, and held in the restricted store. \<Organisation\> has not yet confirmed its part, and the team has not met (EV-SR-01).
+The team reviews this plan every 12 months, and after a significant change (PRO-SR-2). The plan is restricted, under version control, and held in the restricted store. \<Organisation\>'s part is evidenced through EV-SR-01.
 
 ### 3.4 Risks across the lifecycle
 
@@ -79,18 +79,18 @@ Criticality follows the critical components in \<Risk Assessment Management\>, s
 
 | Supplier | What it supplies | Criticality | How it reaches \<System Name\> | Evidence | Notification route | Last review | Next review |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| \<Organisation\> | Hosting, network, hardware, service desk, central logging, and sign-in through PingFederate and Active Directory (D-AC-23) | High | Contract | EV-SR-01, EV-SR-02 (not yet received) | Security contact to the security officer, within 24 hours (to confirm) | 11 November 2026 (\<Risk Assessment Management\>, section 3.4) | November 2027 |
-| Microsoft | .NET 10, ASP.NET Core and Entity Framework packages, Windows Server 2025 | High | nuget.org; the VM build | Published lifecycle and security advisories | Microsoft and .NET advisories | 11 November 2026 | November 2027 |
-| Microsoft container registry (mcr.microsoft.com) | .NET SDK and runtime base images | High | Pulled by tag at build (PA-77) | Published image digests | .NET advisories | 11 November 2026 | November 2027 |
-| nuget.org | The package registry for all other packages | High | Restored directly today (PA-94); vulnerability data only once fixed | Repository signatures on every package | GitHub Advisory Database | 12 November 2026 | November 2027 |
-| Npgsql project | PostgreSQL driver and Entity Framework provider | High | nuget.org | Open-source project; security policy published | GitHub advisories | 12 November 2026 | November 2027 |
-| PostgreSQL Global Development Group, through Docker Hub | The postgres:18 database image | High | Docker Hub (docker.io), pulled by tag (PA-77) | Official image; published support dates | PostgreSQL security announcements | 11 November 2026 | November 2027 |
-| GitHub | Source code hosting | High | Private repositories (PA-91) | Published security terms (EV-SA-03) | GitHub advisories | 11 November 2026 | November 2027 |
-| OfflineModules packages (in-house, system owner) | Access control modules | High | Offline feed only, by package source mapping | SHA-256 index in the feed (U05) | Internal | 12 November 2026 | November 2027 |
-| Six Labors (ImageSharp) | Image processing | Medium | nuget.org | Six Labors Split License, community tier (D-CM-09); 6 advisories open (PA-56) | GitHub advisories | 11 November 2026 | November 2027 |
-| SkiaSharp (Microsoft and Mono) | Image rendering and its Linux native library | Medium | nuget.org | Open-source project | GitHub advisories | 12 November 2026 | November 2027 |
-| jsDelivr (cdn.jsdelivr.net) | Bootstrap Icons and OpenSeadragon in the browser | Medium | Loaded by each page, with no integrity check (PA-34) | None | None; to stop when files are served locally | 12 November 2026 | November 2027 |
-| Swashbuckle and Azure.Storage.Blobs | API documentation; an unused storage client | Low | nuget.org; to be removed from release builds (PA-79) | Open-source and Microsoft packages | GitHub advisories | 12 November 2026 | November 2027 |
+| \<Organisation\> | Hosting, network, hardware, service desk, central logging, and sign-in through PingFederate and Active Directory (D-AC-23) | High | Contract | EV-SR-01, EV-SR-02 (not yet received) | Security contact to the security officer, within 24 hours | \[Date\] (\<Risk Assessment Management\>, section 3.4) | \[Date\] |
+| Microsoft | .NET 10, ASP.NET Core and Entity Framework packages, Windows Server 2025 | High | nuget.org; the VM build | Published lifecycle and security advisories | Microsoft and .NET advisories | \[Date\] | \[Date\] |
+| Microsoft container registry (mcr.microsoft.com) | .NET SDK and runtime base images | High | Pulled by tag at build (PA-77) | Published image digests | .NET advisories | \[Date\] | \[Date\] |
+| nuget.org | The package registry for all other packages | High | Restored directly today (PA-94); vulnerability data only once fixed | Repository signatures on every package | GitHub Advisory Database | \[Date\] | \[Date\] |
+| Npgsql project | PostgreSQL driver and Entity Framework provider | High | nuget.org | Open-source project; security policy published | GitHub advisories | \[Date\] | \[Date\] |
+| PostgreSQL Global Development Group, through Docker Hub | The postgres:18 database image | High | Docker Hub (docker.io), pulled by tag (PA-77) | Official image; published support dates | PostgreSQL security announcements | \[Date\] | \[Date\] |
+| GitHub | Source code hosting | High | Private repositories (PA-91) | Published security terms (EV-SA-03) | GitHub advisories | \[Date\] | \[Date\] |
+| OfflineModules packages (in-house, system owner) | Access control modules | High | Offline feed only, by package source mapping | SHA-256 index in the feed (U05) | Internal | \[Date\] | \[Date\] |
+| Six Labors (ImageSharp) | Image processing | Medium | nuget.org | Six Labors Split License, community tier (D-CM-09); 6 advisories open (PA-56) | GitHub advisories | \[Date\] | \[Date\] |
+| SkiaSharp (Microsoft and Mono) | Image rendering and its Linux native library | Medium | nuget.org | Open-source project | GitHub advisories | \[Date\] | \[Date\] |
+| jsDelivr (cdn.jsdelivr.net) | Bootstrap Icons and OpenSeadragon in the browser | Medium | Loaded by each page, with no integrity check (PA-34) | None | None; to stop when files are served locally | \[Date\] | \[Date\] |
+| Swashbuckle and Azure.Storage.Blobs | API documentation; an unused storage client | Low | nuget.org; to be removed from release builds (PA-79) | Open-source and Microsoft packages | GitHub advisories | \[Date\] | \[Date\] |
 
 ### 3.6 Risk tolerance
 
@@ -126,9 +126,9 @@ Controls met here: SR-8, SR-10, SR-11, SR-11(1), SR-11(2), SR-12.
 
 ### 3.9 How the plan is checked today
 
-Test-SupplyChain.ps1 ran on the v1.0 build and its images on 12 November 2026, without a running stack. It passed 2 of 10 checks. Its results, with their hashes, are kept with the SR evidence.
+Test-SupplyChain.ps1 ran on the v1.0 build and its images, without a running stack. It passed 2 of 10 checks. Its results, with their hashes, are kept with the SR evidence.
 
-**Table 4: Test-SupplyChain.ps1, 12 November 2026**
+**Table 4: Test-SupplyChain.ps1 results**
 
 | Check | Result | What it found |
 | --- | --- | --- |

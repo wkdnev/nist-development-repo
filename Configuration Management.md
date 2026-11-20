@@ -81,7 +81,7 @@ The baseline is what a release must contain so that it can be rebuilt exactly. T
 | Application code | Tag v1.0: API b82831a, UI application b06b4e1, Admin application 43ef895, shared library a8c3a3a | Met (C03) |
 | Deployment files | workspace repository tag v1.0, commit 21018a6 | Met |
 | Access-control toolkit | Commit 20524d8, packaged as 0.2.0 | Met |
-| Application base images | mcr.microsoft.com/dotnet/aspnet:10.0 and sdk:10.0, to be pinned by digest; .NET runtime 10.0.14 observed on 8 November 2026 | Not met: floating tags (C01; PA-77) |
+| Application base images | mcr.microsoft.com/dotnet/aspnet:10.0 and sdk:10.0, to be pinned by digest; .NET runtime 10.0.14 observed in the tested build | Not met: floating tags (C01; PA-77) |
 | Database image | postgres:18, to be pinned by digest; observed as PostgreSQL 18.6, digest sha256:3a4264520e12… | Not met: floating tag (C02; PA-77) |
 | Software components | Section 3.5 | Met: listed by hand; no bill of materials yet (PA-78) |
 | Settings | Section 3.6; settings files at tag v1.0, with secrets moved out (PA-19) | Partly: secrets still in settings files (C07) |
@@ -96,7 +96,7 @@ The system owner and the Windows server administrator review the baseline every 
 
 Controls met here: CM-7(5), CM-8, CM-10.
 
-Every package, image, runtime and database \<System Name\> is built from, with its licence. The check of 8 November 2026 wrote the same list from the build, and the two agreed (C04). A new component is recorded here, and checked for known vulnerabilities, before it enters the baseline (PRO-CM-4). Licences are checked again at each release and every 12 months (PRO-CM-9).
+Every package, image, runtime and database \<System Name\> is built from, with its licence. The check of the tested build wrote the same list, and the two matched (C04). A new component is recorded here, and checked for known vulnerabilities, before it enters the baseline (PRO-CM-4). Licences are checked again at each release and every 12 months (PRO-CM-9).
 
 **Table 4: Software components**
 
@@ -129,7 +129,7 @@ Controls met here: CM-6.
 | --- | --- | --- | --- | --- |
 | Windows Server 2025, both VMs | CIS Benchmark, Level 1 member server | Unneeded services and accounts removed, default passwords changed, auto-run off, Defender on, audit policy as \<Audit and Accountability Management\>, section 3.2 | Group policy and VM build | Not assessable: VMs not built (PA-54) |
 | PostgreSQL 18 | CIS Benchmark for PostgreSQL | TLS required; scram-sha-256 passwords; listens only on the database VM's address; connections and changes logged | The server and client access settings of PostgreSQL | Not met in Docker: TLS off (B02), logging off (A30) |
-| Application hosting | Microsoft's guidance for hosting ASP.NET Core as a Windows service | HTTPS only with HSTS, under NCSC's TLS profiles in \<System and Communications Protection Management\>, section 3.3; data protection key rings protected with DPAPI; each application under its own low-privilege account | Each service's configuration | Decided on 13 November 2026: each application runs as a Windows service, under its own service account (D-PL-10, D-AC-19). Not built, as the servers are not built |
+| Application hosting | Microsoft's guidance for hosting ASP.NET Core as a Windows service | HTTPS only with HSTS, under NCSC's TLS profiles in \<System and Communications Protection Management\>, section 3.3; data protection key rings protected with DPAPI; each application under its own low-privilege account | Each service's configuration | Each application runs as a Windows service, under its own service account (D-PL-10, D-AC-19). Not built, as the servers are not built |
 | .NET runtime | Microsoft ASP.NET Core security guidance | Production environment; detailed errors off; API documentation off | Environment values | Met in Docker (C08, C11) |
 | Application security settings | \<Access Control Management\>, \<Identification and Authentication Management\> and \<System and Communications Protection Management\> | The authentication cookie's lifetime, no longer than PingFederate's sign-in lifetime, the PingFederate connection (OpenID Connect client), cookie flags, content security policy and allowed origins, at the values in those documents | Settings files at tag v1.0 | As assessed in the AC, IA and SC assessments |
 
@@ -137,7 +137,7 @@ The Windows server and database administrators apply the benchmarks when the ser
 
 Each month the Windows server administrator scans both servers against the benchmarks, and the database administrator compares the PostgreSQL settings. Any difference is reported to the security officer, and is put back or raised as a change (PRO-CM-7). Some Windows settings are set by \<Organisation\>'s Group Policy as part of its corporate configuration: account lockout, the logon banner and the screen lock. \<System Name\> accepts the corporate standard for those (D-AC-21).
 
-One fact is still to be supplied: \[who builds the two servers and to which standard\]. The Administrator Guide, \<Administrator Guide\>, has them built from \<Organisation\>'s hardened build and then brought to this baseline. If that is confirmed, \<Organisation\>'s build standard is asked for as evidence, and the CIS Benchmark scan shows what the build leaves to be done. Until it is, the design stands as written: the CIS Benchmark, applied by the Windows server administrator. If \<Organisation\> builds them, its standard is asked for as evidence, compared with the benchmark, and any shortfall recorded as a departure.
+One fact is still to be supplied: \[who builds the two servers and to which standard\]. The Administrator Guide, \<Administrator Guide\>, has them built from \<Organisation\>'s hardened build and then brought to this baseline. If that is how they are built, \<Organisation\>'s build standard is asked for as evidence, and the CIS Benchmark scan shows what the build leaves to be done. Until that is known, the design stands as written: the CIS Benchmark, applied by the Windows server administrator. If \<Organisation\> builds them, its standard is asked for as evidence, compared with the benchmark, and any shortfall recorded as a departure.
 
 ### 3.7 Change control
 
@@ -294,7 +294,7 @@ Controls met here: CM-7(2), CM-7(5), CM-10, CM-11.
 
 1. **Approved software list.** The Windows server administrator keeps the approved software list, which says what may run on the servers. For the applications themselves, the component list in section 3.5 is the list. Both are reviewed every 12 months.
 2. **Allow by exception, by procedure.** Nothing is installed on the servers without an approved request (PRO-CM-4). A person who needs software there raises a request in ServiceNow, and the system owner approves or refuses it (D-CM-07). Only the named Windows server administrators have the Windows user rights to install software.
-3. **Not enforced by the system.** The system owner decided against Windows application control (D-CM-06), so the list is not technically enforced on the servers.
+3. **Not enforced by the system.** Windows application control is not used (D-CM-06), so the list is not technically enforced on the servers.
 4. **Compliance check.** Every 12 months, with the functions review in section 3.10, what is installed on the servers is compared with the approved software list.
 5. **Users' devices.** \<Organisation\>'s policy governs software on users' own devices.
 6. **Licences.** Every component's licence is recorded in section 3.5 before it enters the baseline, and must permit \<System Name\>'s use. A licence that is not a standard open source licence goes to the system owner for a recorded decision. \<System Name\>'s own components are not licensed by quantity. Windows Server and anything else licensed by quantity is \<Organisation\>'s, and is tracked in its licence record.

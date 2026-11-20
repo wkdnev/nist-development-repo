@@ -2,7 +2,7 @@
 
 ## 1 Purpose
 
-This document is used by every control family. It names who holds each role, so the other documents in the set refer to roles and never to people. The system owner named these holders on 5 November 2026. No person holds more than one role.
+This document is used by every control family. It names who holds each role, so the other documents in the set refer to roles and never to people. The system owner names the holders. No person holds more than one role.
 
 ## 2 Governance roles
 
@@ -11,7 +11,7 @@ This document is used by every control family. It names who holds each role, so 
 | Role | Responsibility | Holder |
 | --- | --- | --- |
 | System owner | Owns \<System Name\> and its documents; accepts risk within their authority; chairs the change control board; keeps the plan of action up to date; invokes the contingency plan; approves equipment removal, data sent for support, and the lists of maintenance people and tools; reviews \<Organisation\>'s physical evidence against the inheritance matrix in \<Physical and Environmental Protection Management\>; keeps risk designations, signed agreements, signed rules (TPL-21 and the register of signatures) and the plan review records; decides whether a change to the rules is material; keeps the plans in the restricted store; monitors external people; gives the \<System Name\> awareness briefing to each user before their account is created (\<Awareness and Training Management\>, section 3.3) | \[Name\] |
-| Head of Cyber | Senior information security officer for \<System Name\> (PM-2; confirmation pending, D-PM-03); approves all policies and the incident response plan; concurs with the SSP; confirms \<System Name\>'s risk thresholds against \<Organisation\>'s risk appetite; trains the security officer and auditor; also checks the global administrator's actions every 3 months, as an extra check | \[Name\] |
+| Head of Cyber | Senior information security officer for \<System Name\> (PM-2, D-PM-03); approves all policies and the incident response plan; concurs with the SSP; confirms \<System Name\>'s risk thresholds against \<Organisation\>'s risk appetite; trains the security officer and auditor; also checks the global administrator's actions every 3 months, as an extra check | \[Name\] |
 | Legal adviser | Reviews policies and the system use notice; privacy representative for changes; decides whether to tell the ICO of a breach, and makes the report; owns the privacy plan and impact assessment; confirms the lawful basis; handles requests and data protection complaints from individuals (\<Procedures\> (PT), TPL-15 and TPL-22); completes the data protection impact assessment (\<Data Protection Impact Assessment\>); gives the opinion on lawful monitoring of users (D-SI-07) | \[Name\] |
 | Data protection officer | Leads \<Organisation\>'s privacy programme for \<System Name\>'s personal data (PM-19; UK GDPR, Articles 37 to 39): advises on the privacy plan and impact assessment, and is the contact for individuals and the ICO. If none is required, the legal adviser records why (D-PM-04) | \[Name, or the reason none is required\] |
 | Business and information owner | Owns the information types and the business use of \<System Name\>; sets retention periods | \[Name\] |
@@ -48,7 +48,7 @@ The permissions behind the application roles are defined in \<Access Control Man
 
 ## 5 Deputies
 
-A deputy acts only while the holder is away, and holds the same screening, training and risk designation as the role (\<Personnel Security Management\>, section 3.2). Table 4 brings together the deputies already agreed, and shows where one is still to be named.
+A deputy acts only while the holder is away, and holds the same screening, training and risk designation as the role (\<Personnel Security Management\>, section 3.2). Table 4 lists the deputy for each role and where each is recorded.
 
 **Table 4: Deputies**
 

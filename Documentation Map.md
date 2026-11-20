@@ -6,7 +6,7 @@ This set covers the 19 control families of CSS that apply to \<System Name\>: Ac
 
 - **System:** the \<System Name\> application built from the API, UI application, Admin application, shared library and workspace repository repositories. It is a separate product from the template-built \<System Name\>; that product's documents were used only as a guide to document types and content.
 - **Version described:** \<System Name\> v1.0, run in Docker for development and test only. The production system, two Windows Server 2025 VMs at \<Organisation\>, is not yet built.
-- **Baseline:** Moderate, confirmed by the authorising official.
+- **Baseline:** Moderate.
 - **Evidence basis:** code read and tests run on one PC against a throwaway database, and the system owner's written answers. This is a Level 1 self-assessment. It is not independent, and nothing here is a claim of compliance.
 - **Master copy:** the documents are kept as Markdown. Section 4.1 says how they are controlled.
 
@@ -44,7 +44,7 @@ The set has 44 documents. \<Guide to the Document Set\> is the place to start. W
 | \<Data Protection Impact Assessment\> | Plans and descriptions | The data protection impact assessment, drafted for the legal adviser to complete |
 | \<Policy\> | Rules and how they are carried out | The security and privacy policy: one chapter of rules for each of the 19 families |
 | \<Procedures\> | Rules and how they are carried out | The procedures that carry out the policy: one chapter for each family, each step naming who acts and the record kept |
-| \<Control Implementation Register\> | Rules and how they are carried out | Formerly the register of decisions, values and registers. Every family now has its design in a document of its own, so each chapter points to it: \<Access Control Management\>, \<Awareness and Training Management\>, \<Audit and Accountability Management\>, \<Assessment, Authorization, and Monitoring Management\>, \<Identification and Authentication Management\>, \<Maintenance Management\>, \<Media Protection Management\>, \<Physical and Environmental Protection Management\>, \<Planning Management\>, \<Personnel Security Management\>, \<PII Processing Management\>, \<Risk Assessment Management\>, \<System and Services Acquisition Management\>, \<System and Communications Protection Management\> and \<System and Information Integrity Management\> |
+| \<Control Implementation Register\> | Rules and how they are carried out | An index of the family design documents. Each family has its design in a document of its own, and each chapter points to it: \<Access Control Management\>, \<Awareness and Training Management\>, \<Audit and Accountability Management\>, \<Assessment, Authorization, and Monitoring Management\>, \<Identification and Authentication Management\>, \<Maintenance Management\>, \<Media Protection Management\>, \<Physical and Environmental Protection Management\>, \<Planning Management\>, \<Personnel Security Management\>, \<PII Processing Management\>, \<Risk Assessment Management\>, \<System and Services Acquisition Management\>, \<System and Communications Protection Management\> and \<System and Information Integrity Management\> |
 | \<Assessment, Authorization, and Monitoring Management\> | Rules and how they are carried out | The assessment, authorisation and monitoring design: assessment, the plan of action, authorisation, the inherited controls, the interface record, the monitoring strategy and significant change |
 | \<Identification and Authentication Management\> | Rules and how they are carried out | The identification and authentication design: who is identified and how, sign-in through PingFederate, the assurance levels, the authenticator inventory and the settings against CSS |
 | \<Audit and Accountability Management\> | Rules and how they are carried out | The audit design: the sources of audit records, the events logged, what a record holds, storage and protection, time, retention, review and alerts |
@@ -124,7 +124,7 @@ Each fact about a control is held in one document, and the others point to it. T
 
 ## 4 Document standard
 
-Every \<System Name\> document follows this standard, so that readers can navigate, cite and audit them in the same way. It was a separate document until 12 November 2026.
+Every \<System Name\> document follows this standard, so that readers can navigate, cite and audit them in the same way.
 
 ### 4.1 Master copy and change record
 
@@ -264,7 +264,7 @@ ISO 2145 and ISO/IEC 27001 were read through secondary summaries, because the st
 
 ## 5 Open questions
 
-1. Is Moderate the right security categorisation? Answered: Moderate, confirmed by the authorising official.
+1. Is Moderate the right security categorisation? Answered: Moderate. The authorising official approves the categorisation.
 2. Who are the authorising official, global administrators, auditors and project access approvers? Answered: named in \<Roles and Responsibilities\>.
 3. Which \<Organisation\> services and evidence cover the inherited controls, and does the Cyber Essentials Plus scope include these two VMs? Still open: the evidence requests in \<Evidence Requests\> have not been sent.
 4. Will password-only sign-in stay? Answered: no. Sign-in is through PingFederate, with multi-factor authentication (D-AC-23), which is still to be shown working (PA-95).

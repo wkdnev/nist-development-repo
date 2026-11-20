@@ -617,8 +617,8 @@ The reference stack is below. An application may replace any part of it with a s
 
 | Layer | Reference technology | Why it is chosen |
 | --- | --- | --- |
-| Operating system | Windows Server 2025 | Supported to November 2029; CIS Benchmark available; Defender, BitLocker and managed service accounts built in |
-| Application platform | Microsoft .NET 10 and ASP.NET Core 10, a long-term support release | Supported to November 2028; built-in data protection, anti-forgery and authentication for federated sign-in |
+| Operating system | Windows Server 2025 | Under Microsoft support; CIS Benchmark available; Defender, BitLocker and managed service accounts built in |
+| Application platform | Microsoft .NET 10 and ASP.NET Core 10, a long-term support release | Under Microsoft support; built-in data protection, anti-forgery and authentication for federated sign-in |
 | User interface | Blazor Server: pages are rendered on the server and updated over a live connection from the browser | No application logic or data access runs in the browser |
 | API | ASP.NET Core web API, called over HTTPS by the other two applications with a signed token | Interactive API documentation is for development only and is left out of releases |
 | Data access | Entity Framework Core 10 with the Microsoft SQL Server provider (Microsoft.Data.SqlClient) | Queries use parameters by default |

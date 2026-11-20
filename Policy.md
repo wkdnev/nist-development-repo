@@ -4,7 +4,7 @@
 
 This document is the security and privacy policy for \<System Name\>. It holds one policy for each of the 19 CSS control families that apply, as chapters in CSS order. A policy says what must be true and who is accountable for it. How each rule is carried out is in \<Procedures\>, and the design, values and decisions are in each family's design document (\<Documentation Map\>, section 2.2).
 
-The Head of Cyber approves each policy, and the legal adviser reviews it. None is yet reviewed or approved. The decisions each chapter needs are listed in \<Decision Register\>.
+The Head of Cyber approves each policy, and the legal adviser reviews it. The decisions each chapter needs are listed in \<Decision Register\>.
 
 - **Chapters.** Each chapter is named by its family code. Its sections carry the code, so PS.3 is section 3 of the Personnel Security chapter, and its tables are numbered Table PS-1, Table PS-2 and so on.
 - **Citing.** Cite a chapter as \<Policy\> (PS), a section as \<Policy\>, section PS.3, and a table as \<Policy\>, Table PS-1.
@@ -25,7 +25,7 @@ These rules apply to every chapter. They are stated once here. A chapter repeats
 
 ### AC.1 Purpose and scope
 
-This policy sets the organisation's rules and principles for access to \<System Name\>: what is mandatory, and who answers for it. The Head of Cyber, who approves all policies, has approved it. The legal adviser reviewed it on 12 November 2026. It has not yet been shared. The approved decisions and settings that carry it out are in \<Access Control Management\>, and the steps people follow are in \<Procedures\> (AC).
+This policy sets the organisation's rules and principles for access to \<System Name\>: what is mandatory, and who answers for it. The Head of Cyber approves it, as all policies, and the legal adviser reviews it. The approved decisions and settings that carry it out are in \<Access Control Management\>, and the steps people follow are in \<Procedures\> (AC).
 
 This policy sets who may access \<System Name\>, what they may do, and how that access is controlled, in line with the CSS AC family (AC-1).
 
@@ -95,7 +95,7 @@ The rules in section 1.1 apply to this policy. It adds these.
 4. **Procedures review (P-AC-03):** every 12 months, and after a change to the steps.
 5. **Compliance and management commitment:** the system owner reviews compliance at each review and records the result. Breaches may lead to loss of access and to disciplinary action. They may also be offences under the Computer Misuse Act 1990 or the Data Protection Act 2018, as \<Security Operating Procedures\>, rule A4, explains.
 6. **Coordination:** the system owner agrees with \<Organisation\>'s security contact how inherited controls, leavers and incidents are handled, and records it.
-7. **Laws and standards:** this policy must be consistent with applicable law, \<Organisation\>'s policies and CSS. The legal adviser reviewed it on 12 November 2026.
+7. **Laws and standards:** this policy must be consistent with applicable law, \<Organisation\>'s policies and CSS.
 8. **Exceptions:** an exception needs written approval from the system owner, a stated end date and an entry in \<Risk List\>. \<Access Control Management\> sets the rules, and PRO-AC-15 sets the steps.
 
 ### AC.7 Non-compliance and risk acceptance
@@ -195,7 +195,7 @@ The rules in section 1.1 apply to this policy. It adds these.
 1. **Communication:** this policy and the procedures must be shared with everyone who uses, administers or develops \<System Name\>, and whenever they change.
 2. **Compliance and management commitment:** the system owner reviews the measures monthly and compliance at each review, and records the result.
 3. **Coordination:** the system owner agrees with \<Organisation\> how its course and its administrators' training are evidenced, and records it.
-4. **Laws and standards:** this policy must be consistent with applicable law, \<Organisation\>'s policies and CSS. The legal adviser reviewed it on 12 November 2026.
+4. **Laws and standards:** this policy must be consistent with applicable law, \<Organisation\>'s policies and CSS.
 
 ### AT.7 Non-compliance and risk acceptance
 
@@ -220,7 +220,7 @@ The rule on non-compliance in section 1.1 applies to this policy.
 | Reference | Use |
 | --- | --- |
 | CSS, AT family | The controls this policy meets |
-| CSS (September 2024) | Running the learning programme |
+| CSS | Running the learning programme |
 | CSS, the NICE Framework | Describing role training |
 | NCSC 10 Steps: engagement and training; NCSC phishing guidance | Needs-led training and blame-free reporting |
 | ICO data protection audit framework: training and awareness | Privacy training and evidence of understanding |
@@ -279,7 +279,7 @@ The rules in section 1.1 apply to this policy. It adds these.
 
 1. **Communication:** this policy and the procedures must be shared with everyone who administers or reviews \<System Name\>, and whenever they change.
 2. **Coordination:** the system owner agrees with \<Organisation\>'s security contact how logs from inherited services are shared, and records it.
-3. **Laws and standards:** this policy must be consistent with applicable law, including UK GDPR and the Data Protection Act 2018 for personal data in records, the Computer Misuse Act 1990 for misuse of the system and the use of records as evidence, \<Organisation\>'s policies and CSS. The legal adviser reviewed it on 12 November 2026.
+3. **Laws and standards:** this policy must be consistent with applicable law, including UK GDPR and the Data Protection Act 2018 for personal data in records, the Computer Misuse Act 1990 for misuse of the system and the use of records as evidence, \<Organisation\>'s policies and CSS.
 
 ### AU.7 Non-compliance and risk acceptance
 
@@ -341,7 +341,7 @@ It applies to UI application, Admin application, API, the \<System Name\> databa
 1. **R1 Assessment:** controls must be assessed every 12 months, with results given to the system owner, authorising official and Head of Cyber.
 2. **R2 Independence:** assessors must be independent, having had no part in building or running \<System Name\>.
 3. **R3 Connections:** each connection, including ServiceNow, the Starters/Leavers system and the link between the VMs, must be recorded and approved, reviewed every 12 months, and use TLS.
-4. **R4 Plan of action:** \<Plan of Action and Milestones\> must be updated monthly. Each open item must be fixed within the time set for its rating, counted from go-live: High items as the authorising official has decided, Medium within 180 days and Low within 365 days. Overdue items are reported to the authorising official each quarter.
+4. **R4 Plan of action:** \<Plan of Action and Milestones\> must be updated monthly. Each open item must be fixed within the time set for its rating, counted from go-live: High items within the time the authorising official sets, Medium within 180 days and Low within 365 days. Overdue items are reported to the authorising official each quarter.
 5. **R5 Authorisation:** the authorising official must authorise \<System Name\> before it holds production documents, and review the authorisation every 12 months.
 6. **R6 Monitoring:** the security and privacy measures in \<Assessment, Authorization, and Monitoring Management\>, section 3.8, must be reported monthly to the system owner and quarterly to the authorising official.
 7. **R7 Significant change:** a significant change must be assessed before it is made, and the authorising official decides whether \<System Name\> must be re-assessed or re-authorised.
@@ -368,7 +368,7 @@ The rules in section 1.1 apply to this policy. It adds these.
 
 1. **Communication:** this policy and the procedures must be shared with everyone who administers \<System Name\>, and whenever they change.
 2. **Coordination:** the system owner agrees with \<Organisation\>'s security contact how inherited controls are provided, and records it.
-3. **Laws and standards:** this policy must be consistent with applicable law, including UK GDPR and the Data Protection Act 2018, \<Organisation\>'s policies and CSS. The legal adviser reviewed it on 12 November 2026.
+3. **Laws and standards:** this policy must be consistent with applicable law, including UK GDPR and the Data Protection Act 2018, \<Organisation\>'s policies and CSS.
 
 ### CA.7 Non-compliance and risk acceptance
 
@@ -427,7 +427,7 @@ It applies to UI application, Admin application, API, the \<System Name\> databa
 2. **R2 Change control:** changes need a ServiceNow change request, approved by the system owner, security officer and Windows server administrator, and tested before release. Records are kept for 3 years.
 3. **R3 Settings:** settings follow the CIS Benchmarks for Windows Server 2025 and PostgreSQL, with exceptions recorded.
 4. **R4 Routes:** only these routes are open: HTTPS to the application, the database from the application VM only, and administration from \<Organisation\>'s network only. Everything else is off, and this is reviewed every 12 months.
-5. **R5 Approved software:** an approved software list is kept and reviewed every 12 months. It is not technically enforced, a risk the authorising official accepted for 12 months on 6 November 2026 (NC-CM-15, NC-CM-16).
+5. **R5 Approved software:** an approved software list is kept and reviewed every 12 months. It is not technically enforced, a risk that goes to the authorising official for a decision (NC-CM-15, NC-CM-16).
 6. **R6 Installing software:** users may install software on the VMs only with approval.
 7. **R7 Inventory:** the server inventory in \<System Security Plan\> and the software component inventory in \<Configuration Management\> are updated at each change, with each component's version, supplier and licence. \<Organisation\>'s tools detect unauthorised components monthly and alert the Windows server administrator.
 8. **R8 Reproducible releases:** each release must be reproducible: code at a tag, and every image and component at a pinned version or digest recorded in the baseline.
@@ -457,7 +457,7 @@ The rules in section 1.1 apply to this policy. It adds these.
 
 1. **Communication:** this policy and the procedures must be shared with everyone who changes or administers \<System Name\>, and whenever they change.
 2. **Coordination:** the system owner agrees with \<Organisation\>'s security contact how changes on its services are coordinated, and records it.
-3. **Laws and standards:** this policy must be consistent with applicable law, including the Copyright, Designs and Patents Act 1988 for software licences, \<Organisation\>'s policies and CSS. The legal adviser reviewed it on 12 November 2026.
+3. **Laws and standards:** this policy must be consistent with applicable law, including the Copyright, Designs and Patents Act 1988 for software licences, \<Organisation\>'s policies and CSS.
 
 ### CM.7 Non-compliance and risk acceptance
 
@@ -548,7 +548,7 @@ The rules in section 1.1 apply to this policy. It adds these.
 3. **Communication:** this policy and the procedures must be shared with everyone who administers \<System Name\>, and whenever they change.
 4. **Policy review:** every 12 months, and after a significant incident, audit finding, system change, contingency test or activation.
 5. **Coordination:** the system owner agrees with \<Organisation\>'s security contact how the second site, network and telecommunications are provided, and records it.
-6. **Laws and standards:** this policy must be consistent with applicable law, including UK GDPR Article 32(1)(b) and (c), which require resilience and the ability to restore personal data in a timely manner, and the Data Protection Act 2018; \<Organisation\>'s policies; and CSS. The legal adviser reviewed it on 9 November 2026.
+6. **Laws and standards:** this policy must be consistent with applicable law, including UK GDPR Article 32(1)(b) and (c), which require resilience and the ability to restore personal data in a timely manner, and the Data Protection Act 2018; \<Organisation\>'s policies; and CSS.
 
 ### CP.7 Non-compliance and risk acceptance
 
@@ -638,7 +638,7 @@ The rules in section 1.1 apply to this policy. It adds these.
 1. **Communication:** this policy and the procedures must be shared with everyone who uses or administers \<System Name\>, and whenever they change.
 2. **Compliance and management commitment:** the system owner reviews compliance at each review and records the result. Breaches may lead to loss of access and disciplinary action.
 3. **Coordination:** the system owner agrees with \<Organisation\>'s security contact how identity proofing, device identification and sign-in through PingFederate are provided, and records it.
-4. **Laws and standards:** this policy must be consistent with applicable law, including UK GDPR Article 32, which requires appropriate security of personal data, and the Computer Misuse Act 1990; \<Organisation\>'s policies; CSS; and CSS. The legal adviser reviewed it on 9 November 2026.
+4. **Laws and standards:** this policy must be consistent with applicable law, including UK GDPR Article 32, which requires appropriate security of personal data, and the Computer Misuse Act 1990; \<Organisation\>'s policies; CSS; and CSS.
 
 ### IA.7 Non-compliance and risk acceptance
 
@@ -725,7 +725,7 @@ The rules in section 1.1 apply to this policy. It adds these.
 1. **Approval:** the Head of Cyber approves this policy, as all policies, and the plan; the system owner approves the procedures.
 2. **Communication:** this policy and the procedures must be shared with everyone who administers \<System Name\>, and whenever they change.
 3. **Coordination:** the system owner agrees with \<Organisation\>'s security contact how incidents are shared, and records it.
-4. **Laws and standards:** this policy must be consistent with applicable law, including UK GDPR Articles 33 and 34, the Data Protection Act 2018 and the Computer Misuse Act 1990; \<Organisation\>'s policies; and CSS. The legal adviser reviewed it on 10 November 2026.
+4. **Laws and standards:** this policy must be consistent with applicable law, including UK GDPR Articles 33 and 34, the Data Protection Act 2018 and the Computer Misuse Act 1990; \<Organisation\>'s policies; and CSS.
 
 ### IR.7 Non-compliance and risk acceptance
 
@@ -814,7 +814,7 @@ The rules in section 1.1 apply to this policy. It adds these.
 
 1. **Communication:** this policy and the procedures must be shared with everyone who maintains \<System Name\>, and whenever they change.
 2. **Coordination:** the system owner agrees with \<Organisation\> how its maintenance, routes and support are carried out and evidenced, and records it.
-3. **Laws and standards:** this policy must be consistent with applicable law, including UK GDPR Article 32, and Article 28 where a supplier handles personal data during maintenance or support, and the Computer Misuse Act 1990; \<Organisation\>'s policies; and CSS. The legal adviser reviewed it on 10 November 2026.
+3. **Laws and standards:** this policy must be consistent with applicable law, including UK GDPR Article 32, and Article 28 where a supplier handles personal data during maintenance or support, and the Computer Misuse Act 1990; \<Organisation\>'s policies; and CSS.
 
 ### MA.7 Non-compliance and risk acceptance
 
@@ -901,7 +901,7 @@ The rules in section 1.1 apply to this policy. It adds these.
 
 1. **Communication:** this policy and the procedures must be shared with everyone who uses or administers \<System Name\>, and whenever they change.
 2. **Coordination:** the system owner agrees with \<Organisation\> how it handles media and evidences that, and records it.
-3. **Laws and standards:** this policy must be consistent with applicable law, including UK GDPR Articles 5(1)(f) and 32 and the Data Protection Act 2018; \<Organisation\>'s policies; and CSS. The legal adviser reviewed it on 10 November 2026.
+3. **Laws and standards:** this policy must be consistent with applicable law, including UK GDPR Articles 5(1)(f) and 32 and the Data Protection Act 2018; \<Organisation\>'s policies; and CSS.
 
 ### MP.7 Non-compliance and risk acceptance
 
@@ -986,7 +986,7 @@ The rules in section 1.1 apply to this policy. It adds these.
 1. **Communication:** this policy and the procedures must be shared with everyone who uses or administers \<System Name\>, and whenever they change.
 2. **Policy review:** every 12 months, and after a significant incident, audit finding or change of site.
 3. **Coordination:** the system owner agrees with \<Organisation\> how physical protection is evidenced at both sites, and records it.
-4. **Laws and standards:** this policy must be consistent with applicable law, including the Regulatory Reform (Fire Safety) Order 2005 and UK GDPR Article 32; \<Organisation\>'s policies; and CSS. The legal adviser reviewed it on 10 November 2026.
+4. **Laws and standards:** this policy must be consistent with applicable law, including the Regulatory Reform (Fire Safety) Order 2005 and UK GDPR Article 32; \<Organisation\>'s policies; and CSS.
 
 ### PE.7 Non-compliance and risk acceptance
 
@@ -1070,7 +1070,7 @@ The rules in section 1.1 apply to this policy. It adds these.
 1. **Communication:** this policy and the procedures must be shared with everyone who administers \<System Name\>, and whenever they change.
 2. **Compliance and management commitment:** the system owner reviews compliance at each review, runs Test-PlanConsistency.ps1, and records the result in the plan review record.
 3. **Coordination:** the system owner coordinates the plans with the Head of Cyber, administrators, the legal adviser and \<Organisation\>'s security contact.
-4. **Laws and standards:** this policy must be consistent with applicable law, including UK GDPR and the Data Protection Act 2018 for the privacy plan; \<Organisation\>'s policies; and CSS. The legal adviser reviewed it on 11 November 2026.
+4. **Laws and standards:** this policy must be consistent with applicable law, including UK GDPR and the Data Protection Act 2018 for the privacy plan; \<Organisation\>'s policies; and CSS.
 
 ### PL.7 Non-compliance and risk acceptance
 
@@ -1096,7 +1096,7 @@ The rule on non-compliance in section 1.1 applies to this policy.
 | Reference | Use |
 | --- | --- |
 | CSS, PL family, and CSS Moderate and privacy baselines | The controls this policy meets |
-| CSS (June 2026) | What a system plan contains, its approval, review and change records |
+| CSS | What a system plan contains, its approval, review and change records |
 | CSS, tasks S-2 and S-6 | Tailoring and plan approval |
 | UK GDPR and the Data Protection Act 2018 | The legal basis for the privacy plan |
 | \<Planning Management\>, \<Procedures\> (PL), \<Security Operating Procedures\>, \<Security Architecture\> and \<Tailoring Register\> | The register and values, procedures, rules, architecture and tailoring |
@@ -1155,7 +1155,7 @@ The rules in section 1.1 apply to this policy. It adds these.
 
 1. **Communication:** this policy and the procedures must be shared with everyone who administers \<System Name\> and every line manager of a \<System Name\> user, and whenever they change.
 2. **Coordination:** the system owner agrees with \<Organisation\> how its screening, HR and disciplinary processes are used and evidenced, and records it (EV-PS-01 to EV-PS-03).
-3. **Laws and standards:** this policy must be consistent with applicable law, \<Organisation\>'s policies and CSS. The laws that bear on it are below. \<Organisation\>, as the employer, carries out the screening and holds its records, so these laws apply to it first. The legal adviser reviewed version \<ver\> on 12 November 2026, and confirms this list with the review of version \<ver\>.
+3. **Laws and standards:** this policy must be consistent with applicable law, \<Organisation\>'s policies and CSS. The laws that bear on it are below. \<Organisation\>, as the employer, carries out the screening and holds its records, so these laws apply to it first. The legal adviser confirms this list at each review of the policy.
 
 **Table PS-2: Laws that bear on personnel security**
 
@@ -1249,7 +1249,7 @@ The rules in section 1.1 apply to this policy. It adds these.
 2. **Policy review:** every 12 months, and after a significant incident, audit finding, change in the law or change in processing.
 3. **Compliance and management commitment:** the system owner reviews compliance at each review, runs Test-PersonalData.ps1 on a test stack, and records the result.
 4. **Coordination:** the system owner works with the legal adviser, the data protection officer and \<Organisation\>, and records what is agreed.
-5. **Laws and standards:** this policy must be consistent with UK GDPR, the Data Protection Act 2018, the Data (Use and Access) Act 2025, \<Organisation\>'s policies and CSS. The legal adviser reviewed it on 11 November 2026.
+5. **Laws and standards:** this policy must be consistent with UK GDPR, the Data Protection Act 2018, the Data (Use and Access) Act 2025, \<Organisation\>'s policies and CSS.
 
 ### PT.7 Non-compliance and risk acceptance
 
@@ -1276,7 +1276,7 @@ The rule on non-compliance in section 1.1 applies to this policy.
 | --- | --- |
 | CSS, PT family and CSS privacy baseline | The controls this policy meets |
 | UK GDPR; Data Protection Act 2018; Data (Use and Access) Act 2025 | The law |
-| ICO guidance: keeping employment records (February 2025); data protection impact assessments | How the law applies to HR records |
+| ICO guidance: keeping employment records; data protection impact assessments | How the law applies to HR records |
 | \<PII Processing Management\>, \<Data Protection Impact Assessment\>, \<Privacy Plan\>, \<Procedures\> (PT), \<Incident Response Management\> and \<Security Operating Procedures\> | The inventory, impact assessment, privacy plan, procedures, breach handling and the rules people sign |
 
 ## RA Risk Assessment
@@ -1304,7 +1304,7 @@ It applies to UI application, Admin application, API, the \<System Name\> databa
 1. **R1 Risk record:** \<Risk List\> is the record of risk assessment. It must use the method in its section 4, which follows CSS, and give each risk a status and the date it was last reviewed.
 2. **R2 Risk review:** the risk assessment must be reviewed every 12 months, and after a significant change, incident or new test result, and shared with the system owner, the authorising official and the Head of Cyber.
 3. **R3 Categorisation:** the system must keep a security categorisation under CSS, with its rationale, approved by the authorising official.
-4. **R4 Organisational risk:** system risk decisions must respect \<Organisation\>'s risk management strategy and risk appetite once confirmed (D-PM-03).
+4. **R4 Organisational risk:** system risk decisions must respect \<Organisation\>'s risk management strategy and risk appetite (D-PM-03).
 5. **R5 Supply chain:** supply chain risk from packages, base images, suppliers and the VMs must be reviewed every 12 months, and recorded on TPL-23.
 6. **R6 Scanning:** vulnerability scans must run monthly and at each release, with definitions updated before each scan, and credentialed scans of both VMs. The packages, \<System Name\>'s own applications, the container images and their operating system packages must all be covered.
 7. **R7 Response times:** each vulnerability must be fixed or mitigated within the time in \<Risk Assessment Management\>, section 3.6, for its severity, counted from the fix's release, or from detection if that is later. Critical and High within 14 days, Medium within 30 days, Low within 90 days or 30 days once a vendor update exists. Severity is the vendor's rating, or else the CVSS base score.
@@ -1334,7 +1334,7 @@ The rules in section 1.1 apply to this policy. It adds these.
 1. **Communication:** this policy and the procedures must be shared with everyone who administers \<System Name\>, and whenever they change.
 2. **Compliance and management commitment:** the system owner reviews compliance at each review, runs Test-Vulnerability.ps1, and records the result.
 3. **Coordination:** the system owner agrees with \<Organisation\>'s security contact how inherited protections and vulnerability reports are handled, and records it.
-4. **Laws and standards:** this policy must be consistent with applicable law, \<Organisation\>'s policies, the Cyber Essentials requirements \<Organisation\> holds, and CSS. The legal adviser reviewed it on 11 November 2026.
+4. **Laws and standards:** this policy must be consistent with applicable law, \<Organisation\>'s policies, the Cyber Essentials requirements \<Organisation\> holds, and CSS.
 
 ### RA.7 Non-compliance and risk acceptance
 
@@ -1419,7 +1419,7 @@ The rules in section 1.1 apply to this policy. It adds these.
 1. **Communication:** this policy and the procedures must be shared with developers and administrators, and whenever they change.
 2. **Compliance and management commitment:** the system owner reviews compliance at each review, runs Test-Development.ps1, and records the result.
 3. **Coordination:** the system owner agrees contract terms with \<Organisation\>, and records them.
-4. **Laws and standards:** this policy must be consistent with applicable law, \<Organisation\>'s policies and CSS, and aligns with the UK Software Security Code of Practice. The legal adviser reviewed it on 11 November 2026.
+4. **Laws and standards:** this policy must be consistent with applicable law, \<Organisation\>'s policies and CSS, and aligns with the UK Software Security Code of Practice.
 
 ### SA.7 Non-compliance and risk acceptance
 
@@ -1506,7 +1506,7 @@ The rules in section 1.1 apply to this policy. It adds these.
 1. **Communication:** this policy and the procedures must be shared with everyone who administers or develops \<System Name\>, and whenever they change.
 2. **Compliance and management commitment:** the system owner reviews compliance at each review, runs Test-Protection.ps1 and checks the register, and records the result.
 3. **Coordination:** the system owner agrees with \<Organisation\>'s security contact how inherited protections are provided, and records it.
-4. **Laws and standards:** this policy must be consistent with applicable law, \<Organisation\>'s policies and CSS, and follows NCSC's guidance on TLS. The legal adviser reviewed it on 12 November 2026.
+4. **Laws and standards:** this policy must be consistent with applicable law, \<Organisation\>'s policies and CSS, and follows NCSC's guidance on TLS.
 
 ### SC.7 Non-compliance and risk acceptance
 
@@ -1532,7 +1532,7 @@ The rule on non-compliance in section 1.1 applies to this policy.
 | Reference | Use |
 | --- | --- |
 | CSS, SC family | The controls this policy meets |
-| NCSC, Using TLS to protect data (updated 15 October 2026) | The TLS profiles |
+| NCSC, Using TLS to protect data | The TLS profiles |
 | CSS | Cryptoperiods and key management |
 | PostgreSQL 18 documentation, Secure TCP/IP Connections with SSL | Database TLS enforcement |
 | Microsoft, ASP.NET Core Data Protection key encryption at rest | The key ring protection |
@@ -1596,7 +1596,7 @@ The rules in section 1.1 apply to this policy. It adds these.
 1. **Communication:** this policy and the procedures must be shared with everyone who administers or develops \<System Name\>, and whenever they change.
 2. **Compliance and management commitment:** the system owner reviews compliance at each review, runs Test-Integrity.ps1, and records the result.
 3. **Coordination:** the system owner agrees with \<Organisation\>'s security contact how monitoring, logging and firmware updates are provided, and records it.
-4. **Laws and standards:** this policy must be consistent with applicable law, \<Organisation\>'s policies and CSS. The legal adviser reviewed it on 12 November 2026.
+4. **Laws and standards:** this policy must be consistent with applicable law, \<Organisation\>'s policies and CSS.
 
 ### SI.7 Non-compliance and risk acceptance
 
@@ -1624,7 +1624,7 @@ The rule on non-compliance in section 1.1 applies to this policy.
 | CSS | Patch management |
 | OWASP File Upload Cheat Sheet | Upload checks |
 | NCSC Early Warning; CISA Known Exploited Vulnerabilities catalogue | Advisory sources |
-| ICO, Employment practices and data protection: monitoring workers (October 2023) | Monitoring people |
+| ICO, Employment practices and data protection: monitoring workers | Monitoring people |
 | \<System and Information Integrity Management\>, \<Procedures\> (SI), \<Risk Assessment Management\>, \<PII Processing Management\> and \<Audit and Accountability Management\> | The values, procedures, timetable, retention schedule and audit settings |
 
 ## SR Supply Chain Risk Management
@@ -1682,7 +1682,7 @@ The rules in section 1.1 apply to this policy. It adds these.
 1. **Communication:** this policy and the procedures must be shared with developers and administrators, and whenever they change.
 2. **Compliance and management commitment:** the system owner reviews compliance at each review, runs Test-SupplyChain.ps1, and records the result.
 3. **Coordination:** the supply chain team coordinates with \<Organisation\>, and records what is agreed.
-4. **Laws and standards:** this policy must be consistent with applicable law, \<Organisation\>'s policies and CSS. The legal adviser reviewed it on 12 November 2026.
+4. **Laws and standards:** this policy must be consistent with applicable law, \<Organisation\>'s policies and CSS.
 
 ### SR.7 Non-compliance and risk acceptance
 
@@ -1709,7 +1709,7 @@ The rule on non-compliance in section 1.1 applies to this policy.
 | --- | --- |
 | CSS, SR family | The controls this policy meets |
 | CSS, update 1 | Supply chain risk management practice and the plan's content |
-| UK Software Security Code of Practice (May 2025) | Third-party components and the build environment |
+| UK Software Security Code of Practice | Third-party components and the build environment |
 | NCSC supply chain security principles | Supplier reviews |
-| CISA 2025 minimum elements for a software bill of materials | What the bill of materials holds |
+| CISA minimum elements for a software bill of materials | What the bill of materials holds |
 | \<Supply Chain Risk Management\>, \<Procedures\> (SR), \<Risk Assessment Management\>, \<System and Information Integrity Management\> and \<Procedures\> (MP) | The plan, procedures, critical components, integrity baseline and disposal |

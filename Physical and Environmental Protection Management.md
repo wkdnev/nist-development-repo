@@ -60,7 +60,7 @@ Who provides each PE control, and the evidence that closes it. The first choice 
 
 | Control | \<Organisation\> provides | \<System Name\> provides | Closing evidence | State now |
 | --- | --- | --- | --- | --- |
-| PE-1 | Its own physical security policy | The policy, the procedures and this document | Approved documents | Approved; not yet shared |
+| PE-1 | Its own physical security policy | The policy, the procedures and this document | Approved documents | Not yet shared |
 | PE-2 | Authorised access list for the data centres | Nothing | A.7.2; access list review record | Not evidenced (EV-PE-01) |
 | PE-3 | Entry control, logs, visitors, keys and cards | Nothing | A.7.1, A.7.2, A.7.3; TPL-20 | Not evidenced (EV-PE-01) |
 | PE-4 | Protected cabling | Nothing | A.7.12 | Not evidenced (EV-PE-01) |

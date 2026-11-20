@@ -28,7 +28,7 @@ Controls met here: AU-2, AU-3, AU-6, AU-9, AU-11, AU-12.
 4. **Reviewed.** Records are examined every week by someone who does not administer the system.
 5. **Retained.** Records are kept for 24 months: long enough to investigate an incident found late.
 6. **No secrets.** Records never hold a password, key, token or authentication cookie, and hold only the personal data an investigation needs.
-7. **One audit log.** \<System Name\> has one application audit log, written only by the API, as the system owner confirmed on 12 November 2026 (D-AU-11). Any other log that repeats its content is protected as audit information.
+7. **One audit log.** \<System Name\> has one application audit log, written only by the API (D-AU-11). Any other log that repeats its content is protected as audit information.
 
 These carry out the principles and rules of \<Policy\>, sections AU.3 and AU.4.
 
@@ -49,9 +49,9 @@ An investigation must be able to follow an action from the network to the databa
 | UI application, Admin application and API | The events in Table 2 | The audit log: the audit log table in the \<System Name\> database | The system owner, in Table 2; built by \<System Name\>'s developers through a release | Partly logged (Table 2) |
 | The three applications' own logs | Errors, start-up and shut-down, and logging failures. No audit details | Log files on the application server, kept 30 days | \<System Name\>'s developers | They also repeat usernames, IP addresses and the tested build's session IDs (A38, PA-75) |
 | PostgreSQL | Connections and failed connections; role and permission changes; schema changes; any change to or deletion of audit records; changes to logging settings | The PostgreSQL log on the database server | Database administrator | Statement and connection logging are off (A30, PA-43) |
-| Windows Server 2025, both servers | Sign-ins and failed sign-ins (events 4624, 4625); account and group changes (4720, 4722 to 4726, 4728, 4732, 4756); use of special privileges (4672); audit policy changes (4719); security log cleared (1102); services installed (7045); system time changed (4616) | The Windows Security and System logs on each server, forwarded to \<Organisation\>'s central monitoring if confirmed (D-AU-07) | \<Organisation\>'s Group Policy. \<System Name\> states the events it needs (EV-AU-04) | Not assessable: the servers are not built (PA-43) |
+| Windows Server 2025, both servers | Sign-ins and failed sign-ins (events 4624, 4625); account and group changes (4720, 4722 to 4726, 4728, 4732, 4756); use of special privileges (4672); audit policy changes (4719); security log cleared (1102); services installed (7045); system time changed (4616) | The Windows Security and System logs on each server, forwarded to \<Organisation\>'s central monitoring if it takes them (D-AU-07) | \<Organisation\>'s Group Policy. \<System Name\> states the events it needs (EV-AU-04) | Not assessable: the servers are not built (PA-43) |
 | PingFederate and Active Directory | Every sign-in attempt, failed sign-in, lockout and second-factor result for \<System Name\>; every change to an account; every change to the members of \<System Name\>'s groups | \<Organisation\>'s own logs | \<Organisation\> | Not evidenced. No arrangement yet gives \<System Name\>'s auditor these records (PA-101, EV-AU-05) |
-| \<Organisation\>'s network services | Firewall and VPN events, and the time service | \<Organisation\>'s central monitoring | \<Organisation\> | Inherited; to be confirmed (D-AU-07, EV-AU-01) |
+| \<Organisation\>'s network services | Firewall and VPN events, and the time service | \<Organisation\>'s central monitoring | \<Organisation\> | Inherited; not yet evidenced (D-AU-07, EV-AU-01) |
 
 Each source logs at every occurrence. The system owner selects the events, reviews the list every 12 months and on any change, and records the decision in \<Decision Register\> (PRO-AU-5).
 
@@ -167,7 +167,7 @@ Controls met here: AU-4, AU-11.
 | Archived audit records | A further 12 months | May be deleted, only with the system owner's recorded approval |
 | Application logs | 30 days | Deleted |
 | Records held as incident evidence | Until the incident is closed | As the incident record says (\<Incident Response Management\>) |
-| Records under a legal hold: a claim, a tribunal, a regulator's enquiry or a person's request for their data | Until the legal adviser releases them | The legal adviser tells the system owner and the database administrator, who mark the records so that they are not deleted (PRO-AU-4). The system owner adopted this rule on 12 November 2026 (D-AU-12); the legal adviser confirms its wording at the next review of the policy |
+| Records under a legal hold: a claim, a tribunal, a regulator's enquiry or a person's request for their data | Until the legal adviser releases them | The legal adviser tells the system owner and the database administrator, who mark the records so that they are not deleted (PRO-AU-4, D-AU-12) |
 | Backup copies of the database, which include the audit log | As the backup schedule: 14 daily, 8 weekly and 12 monthly copies | Encrypted, and protected as audit information (\<Contingency Planning Management\>) |
 | Windows, PingFederate and Active Directory logs | As \<Organisation\> sets; 12 months is expected | \<Organisation\>'s process (EV-AU-04, EV-AU-05) |
 
@@ -180,12 +180,12 @@ The periods are those of \<System Name\>'s retention schedule (\<System and Info
 Controls met here: AU-6, AU-6(1), AU-6(3), AU-7, AU-7(1).
 
 1. **Weekly review.** The auditor reviews the records since the last review, following \<Security Operating Procedures\>, section 4.2, which lists the unusual activity to look for (PRO-AU-1; duty C3). The auditor judges what each finding could lead to. The auditor holds no administration role, so nobody reviews their own actions.
-2. **Across stores.** The auditor compares the application records with the PostgreSQL and Windows logs and \<Organisation\>'s record of sign-ins and group changes, lining them up by UTC time and username. This is done by hand, which is proportionate for one system, which the system owner has accepted to 6 November 2027 (NC-AU-08).
+2. **Across stores.** The auditor compares the application records with the PostgreSQL and Windows logs and \<Organisation\>'s record of sign-ins and group changes, lining them up by UTC time and username. This is done by hand, which is proportionate for one system (NC-AU-08).
 3. **Against requests.** Every change to access is checked against its approved ServiceNow request (\<Access Control Management\>, section 3.13).
 4. **Report.** Findings go to the security officer and system owner on TPL-8, with the date, the period covered, the reviewer and the result. Anything unexplained is raised as a security incident.
 5. **More review when risk rises.** After an incident or new threat information, the system owner sets a more frequent or closer review (PRO-AU-1, step 5).
 6. **A second look at the most powerful.** The Head of Cyber checks the global administrators' actions (\<Security Operating Procedures\>, duty C16).
-7. **Automated support.** Two means join up review, analysis and reporting. The admin portal's audit page filters and summarises the records for the auditor. \<Organisation\>'s central monitoring, if it is confirmed to take \<System Name\>'s logs, raises the alerts in the detection use cases U1 to U8 (\<System and Information Integrity Management\>, section 3.4).
+7. **Automated support.** Two means join up review, analysis and reporting. The admin portal's audit page filters and summarises the records for the auditor. \<Organisation\>'s central monitoring, if it takes \<System Name\>'s logs, raises the alerts in the detection use cases U1 to U8 (\<System and Information Integrity Management\>, section 3.4).
 8. **Reports and exports.** The audit page, open only to the auditor group, filters the records and shows a summary. An export gives the auditor the filtered records as a file, for a report or an investigation. Records are always shown with their stored time.
 
 **Table 7: Search and sort on the audit page**
@@ -215,7 +215,7 @@ Controls met here: AU-5, AU-6(1), AU-9.
 | A server clock more than 5 seconds from UTC | Security officer | At the monthly check | The Windows server administrator corrects it with \<Organisation\> | Not built |
 | Audit storage running low | Database administrator | At the monthly check | More storage is raised before records are at risk (PRO-AU-4) | Not built |
 
-The logging failure alert goes through \<Organisation\>'s central monitoring if that is confirmed; otherwise by \[alert route to be set at build\], which must not depend on \<System Name\> itself being healthy.
+The logging failure alert goes through \<Organisation\>'s central monitoring if it takes \<System Name\>'s logs; otherwise by \[alert route to be set at build\], which must not depend on \<System Name\> itself being healthy.
 
 \<System Name\> keeps running when logging fails. The system owner chose this (D-AU-11): staff must still be able to reach HR records, a stop would let a logging fault take the whole service down, and the failure is alerted within 1 hour and the gap recorded. The Windows server and database administrators find the cause and restore logging. The security officer records the period with no records and tells the system owner. If records may be lost or changed, the evidence is preserved first (PRO-AU-3).
 
@@ -227,7 +227,7 @@ Alerts are raised by the detection use cases in \<System and Information Integri
 
 Controls met here: AU-9, AU-11.
 
-Each application also keeps its own log of errors, start-up and shut-down. In the tested build that log repeats every audit event, with the username, IP address and the tested build's session ID (A38). Until that is fixed (PA-75), an interim rule applies, approved by the authorising official (D-AU-06):
+Each application also keeps its own log of errors, start-up and shut-down. In the tested build that log repeats every audit event, with the username, IP address and the tested build's session ID (A38). Until that is fixed (PA-75), an interim rule applies (D-AU-06):
 
 1. The application logs are audit information. Only the Windows server administrators and the auditor may read them.
 2. They are kept for 30 days and then deleted.
@@ -244,7 +244,7 @@ Controls met here: AU-2, AU-4, AU-5, AU-6, AU-6(1), AU-6(3), AU-8, AU-11, AU-12.
 
 **Table 9: Provided by \<Organisation\>**
 
-| Provided | Controls | What \<System Name\> relies on | Expected, not confirmed | Evidence asked |
+| Provided | Controls | What \<System Name\> relies on | Expected | Evidence asked |
 | --- | --- | --- | --- | --- |
 | Central log monitoring | AU-6(1), AU-6(3), AU-5 | It takes the Windows and PostgreSQL logs, and \<System Name\>'s alerts, and tells the security officer | A central service takes the Windows and PostgreSQL logs. Open (D-AU-07) | EV-AU-01 |
 | Time service | AU-8 | Both servers stay within 1 second of UTC | The domain controllers provide time | EV-AU-02 |
@@ -268,7 +268,7 @@ Controls met here: AU-1.
 
 ## Appendix A Server logging settings
 
-These are the settings for PostgreSQL on the database server, so that it logs the events in Table 1 with the content AU-3 requires. The system owner adopted them as the design on 12 November 2026 (D-AU-12). The database administrator applies them at build and records any value that has to differ, with the reason. None is applied yet (PA-43). The Windows audit policy is \<Organisation\>'s Group Policy, and its settings are asked for under EV-AU-04.
+These are the settings for PostgreSQL on the database server, so that it logs the events in Table 1 with the content AU-3 requires. They are the design (D-AU-12). The database administrator applies them at build and records any value that has to differ, with the reason. None is applied yet (PA-43). The Windows audit policy is \<Organisation\>'s Group Policy, and its settings are asked for under EV-AU-04.
 
 **Table 10: PostgreSQL logging settings**
 
