@@ -6,7 +6,7 @@ This document shows how \<System Name\> keeps its software and information sound
 
 Section 3 sets out the design: the upload checks and malware scanning; flaw remediation and advisories; monitoring and the detection use cases; the integrity baseline and checks; error handling and memory protection; retention; how integrity stands today; and what \<Organisation\> provides. Section 4 takes each control in turn. Appendix A lists every value CSS asks the organisation to define.
 
-This is the only place this design is held. Other documents point here. The policy is in \<Policy\> (SI), and the steps people follow are in \<Procedures\> (SI). The vulnerability timetable is in \<Risk Assessment Management\>, section 3.6, the retention schedule in \<PII Processing Management\>, section 3.7, and the audit design in \<Audit and Accountability Management\>. The privacy controls SI-12(1) to SI-12(3), SI-18, SI-18(4) and SI-19 are set out in \<PII Processing Management\>.
+The policy is in \<Policy\> (SI), and the steps people follow are in \<Procedures\> (SI). The vulnerability timetable is in \<Risk Assessment Management\>, section 3.6, the retention schedule in \<PII Processing Management\>, section 3.7, and the audit design in \<Audit and Accountability Management\>. The privacy controls SI-12(1) to SI-12(3), SI-18, SI-18(4) and SI-19 are set out in \<PII Processing Management\>.
 
 An assessor examines the use cases, the baseline, the advisory records and the test results; interviews the security officer, the developers and the Windows server administrator; and tests the upload checks, the error messages, the malware scan and the alerts (CSS). So for each control section 4 gives:
 

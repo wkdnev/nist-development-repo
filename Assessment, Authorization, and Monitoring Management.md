@@ -4,7 +4,7 @@
 
 This document shows how \<System Name\> is assessed, authorised to operate and monitored afterwards, and how its connections to other systems are approved, for each of the 10 Assessment, Authorization, and Monitoring (CA) controls and enhancements in the CSS Moderate baseline. Section 3 sets out the design: the cycle, assessment, the plan of action, authorisation, inherited controls, information exchanges, continuous monitoring and significant change. Section 4 takes each control in turn. Appendix A lists every value CSS asks the organisation to define. Appendix B lists the CA controls CSS does not select at Moderate.
 
-This is the only place this design is held. Other documents point here. The policy is in \<Policy\> (CA), and the steps people follow are in \<Procedures\> (CA). The design follows CSS for assessment and authorisation, CSS for monitoring, and CSS for information exchanges.
+The policy is in \<Policy\> (CA), and the steps people follow are in \<Procedures\> (CA). The design follows CSS for assessment and authorisation, CSS for monitoring, and CSS for information exchanges.
 
 This family is about processes that people carry out, so an assessor examines documents and records and interviews the people named: the system owner, the authorising official, the security officer and the assessor (CSS). There is nothing in the system to test. So for each control section 4 gives:
 

@@ -4,7 +4,7 @@
 
 This document shows how \<System Name\> is recovered after a failure, for each of the 23 Contingency Planning (CP) controls and enhancements in the CSS Moderate baseline. Section 3 is the contingency plan that CP-2 requires: the business impact analysis, the roles, and the three phases of activation and notification, recovery, and reconstitution, with backups, the second site, and testing and training. It can be used on its own in an emergency. Section 4 takes each control in turn. Appendix A records what the tested build showed. Appendix B lists every value CSS asks the organisation to define. Appendix C holds the contacts, and appendix D the associated plans. Appendix E lists the CP controls CSS does not select at Moderate.
 
-This is the only place the contingency design is held. Other documents point here. The policy is in \<Policy\> (CP), and the steps people follow are in \<Procedures\> (CP).
+The policy is in \<Policy\> (CP), and the steps people follow are in \<Procedures\> (CP).
 
 An assessor examines the plan, the business impact analysis, the backup and restore records, and the test and training records; interviews the people with contingency roles; and may ask to see a restore (CSS). So for each control section 4 gives:
 

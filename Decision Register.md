@@ -2,7 +2,7 @@
 
 ## 1 Purpose
 
-This is the one place where approvals and decisions are made and recorded. Each row states what needs deciding, the recommendation and who decides, with space for the decision, name and date. Nothing is decided until a named person completes a row. The recommendations are proposals.
+This register records the approvals and decisions for the set. Each row states what needs deciding, the recommendation and who decides, with space for the decision, name and date. Nothing is decided until a named person completes a row. The recommendations are proposals.
 
 After a decision, the document it affects is updated to match: \<Access Control Management\> for values, \<Risk List\> for risk treatments and \<Tailoring Register\> for tailoring.
 

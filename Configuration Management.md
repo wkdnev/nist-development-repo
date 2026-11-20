@@ -4,7 +4,7 @@
 
 This document shows how \<System Name\>'s configuration is recorded, controlled and changed, for each of the 24 Configuration Management (CM) controls and enhancements in the CSS Moderate baseline. It is also the Configuration Management Plan that CM-9 requires, and follows the outline in CSS, Appendix D. Section 3 sets out the design: roles and processes, the configuration items, the baseline, the software components, the secure settings, change control, impact analysis, least functionality, who may change what, the inventory, and the library. Section 4 takes each control in turn. Appendix A records how configuration was built in the tested build. Appendix B lists every value CSS asks the organisation to define. Appendix C sets out the development, test and production environments. Appendix D lists the CM controls CSS does not select at Moderate.
 
-This is the only place the configuration management design is held. Other documents point here. The policy is in \<Policy\> (CM), and the steps people follow are in \<Procedures\> (CM).
+The policy is in \<Policy\> (CM), and the steps people follow are in \<Procedures\> (CM).
 
 An assessor examines the baseline, the inventory, the settings, the change records and the board's decisions, interviews those who make and approve changes, and tests that the system is configured as the documents say (CSS). So for each control section 4 gives:
 

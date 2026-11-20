@@ -4,7 +4,7 @@
 
 This document shows how audit logging and accountability are designed for \<System Name\>, for each of the 16 Audit and Accountability (AU) controls and enhancements in the CSS Moderate baseline. Section 3 sets out the design: where audit records come from, which events are logged and why, what a record holds, how records are stored and protected, time, retention, review, and alerts. Section 4 takes each control in turn. Appendix A records how logging was built in the tested build. Appendix B lists every value CSS asks the organisation to define. Appendix C gives the logging settings for the database server. Appendix D shows the logging that other controls require, and the AU controls CSS does not select at Moderate. The design follows the good practice in CSS.
 
-This is the only place the audit design is held. Other documents point here. The policy is in \<Policy\> (AU), and the steps people follow are in \<Procedures\> (AU) and \<Security Operating Procedures\>, section 4.2.
+The policy is in \<Policy\> (AU), and the steps people follow are in \<Procedures\> (AU) and \<Security Operating Procedures\>, section 4.2.
 
 An assessor examines the list of events, the record content, the settings that protect and keep the records, and the review records. They interview the auditor, the administrators and the system owner, and test that the system logs what the design says (CSS). So for each control section 4 gives:
 

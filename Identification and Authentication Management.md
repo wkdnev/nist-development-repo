@@ -4,7 +4,7 @@
 
 This document shows how people and services are identified and authenticated in \<System Name\>, for each of the 24 Identification and Authentication (IA) controls and enhancements in the CSS Moderate baseline. Section 3 sets out the design: who is identified and how, sign-in through AD FS, the assurance levels, the authenticators, the settings against CSS, sessions, and identity proofing. Section 4 takes each control in turn. Appendix A records how the tested build worked. Appendix B lists every value CSS asks the organisation to define. Appendix C lists the IA controls CSS does not select at Moderate.
 
-This is the only place this design is held. Other documents point here. The policy is in \<Policy\> (IA), and the steps people follow are in \<Procedures\> (IA). Who may do what once signed in is in \<Access Control Management\>.
+The policy is in \<Policy\> (IA), and the steps people follow are in \<Procedures\> (IA). Who may do what once signed in is in \<Access Control Management\>.
 
 An assessor examines the authenticator settings and inventory, the identity proofing records and the trust with the sign-in service; interviews those who issue and reset authenticators; and tests sign-in, including what happens with a wrong password, a replayed token and an idle session (CSS). So for each control section 4 gives:
 

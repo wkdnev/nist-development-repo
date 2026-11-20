@@ -4,7 +4,7 @@
 
 This document shows how security and privacy awareness and training are designed for \<System Name\>, for each of the 6 Awareness and Training (AT) controls and enhancements in the CSS Moderate baseline. It is \<System Name\>'s learning programme plan in the sense of CSS, and follows that publication's cycle: plan the programme, write the content, give the training, then measure and improve it (sections 3.7 and 3.9). Section 3 sets out the programme: who needs what, the briefing, the role curriculum, the training matrix, the register and the measures. Section 4 takes each control in turn. Appendix A lists every value CSS asks the organisation to define.
 
-This is the only place the training design is held. Other documents point here. The policy is in \<Policy\> (AT), and the steps people follow are in \<Procedures\> (AT).
+The policy is in \<Policy\> (AT), and the steps people follow are in \<Procedures\> (AT).
 
 An assessor examines the curriculum, the materials and the training records, and interviews the people who give and receive the training (CSS). So for each control section 4 gives:
 

@@ -2,7 +2,7 @@
 
 ## 1 Purpose
 
-This document is used by every control family. It is the one place that names who holds each role, so other documents refer to roles and never to people. The system owner named these holders on 5 November 2026. No person holds more than one role.
+This document is used by every control family. It names who holds each role, so the other documents in the set refer to roles and never to people. The system owner named these holders on 5 November 2026. No person holds more than one role.
 
 ## 2 Governance roles
 
@@ -65,7 +65,7 @@ A deputy acts only while the holder is away, and holds the same screening, train
 
 ## 6 Contact details
 
-This is the one list of contact details for the set. Other documents name the role and point here. \<Contingency Planning Management\> and \<Incident Response Management\> keep their own lists in appendix A, because each must work when nothing else can be reached, and they are filled in from this one. Only business contact details are recorded. Items in square brackets are placeholders for the system owner to complete.
+This is the list of contact details for the set. Other documents name the role and point here. \<Contingency Planning Management\> and \<Incident Response Management\> keep their own lists in appendix A, because each must work when nothing else can be reached, and they are filled in from this one. Only business contact details are recorded. Items in square brackets are placeholders for the system owner to complete.
 
 **Table 5: Contact details**
 

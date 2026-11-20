@@ -6,7 +6,7 @@ This document shows how \<System Name\> protects its communications, its boundar
 
 Section 3 sets out the design: the boundary and the allowed flows, with each server's host firewall; transport encryption and sessions; the cryptographic and key register and certificates; the page policy for mobile code; information at rest; denial of service, shared resources and process isolation; name resolution; how protection stands today; and what \<Organisation\> provides. Section 4 takes each control in turn. Appendix A lists every value CSS asks the organisation to define.
 
-This is the only place this design is held. Other documents point here. The policy is in \<Policy\> (SC), and the steps people follow are in \<Procedures\> (SC). The flows themselves are in \<System Security Plan\>, section 3.7, and the trust zones and layers of defence in \<Security Architecture\>.
+The policy is in \<Policy\> (SC), and the steps people follow are in \<Procedures\> (SC). The flows themselves are in \<System Security Plan\>, section 3.7, and the trust zones and layers of defence in \<Security Architecture\>.
 
 Much of this family is \<Organisation\>'s network: firewalls, the VPN, the proxy, DNS and the certificate authority. \<System Name\>'s own part is its listening addresses, host firewalls, TLS, keys, pages and the protection of what it stores.
 

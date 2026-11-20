@@ -4,8 +4,6 @@
 
 This document shows how \<System Name\> is designed and configured for each of the 39 Access Control (AC) controls and enhancements in the CSS Moderate baseline. Section 3 sets out the access control model: the account types, roles, permissions, separation of duties, access routes, settings, rules and the access request workflow. Section 4 takes each control in turn. Appendix A records how the system is built today, and appendix B every value CSS asks the organisation to define.
 
-This is the only place the access control design is held. Other documents point here.
-
 An assessor examines the design, the settings and the records, interviews the people named, and tests the mechanisms (CSS). So for each control section 4 gives:
 
 - **each part of the control**, as CSS letters them, with the design that meets it and what the system does today;
@@ -33,8 +31,6 @@ No AC control is yet fully implemented. The policy is in \<Policy\> (AC), and th
 ## 2 Summary
 
 The implementation status of each control, how it is met, who is responsible, its assessment result and the risk and plan entries for its gaps are recorded once, in \<System Security Plan\>, section 7.1 (Table 10).
-
-
 
 ## 3 The access control model
 

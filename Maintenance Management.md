@@ -4,7 +4,7 @@
 
 This document shows how \<System Name\> is maintained, for each of the 9 Maintenance (MA) controls and enhancements in the CSS Moderate baseline. Section 3 sets out the design: who maintains what, how a job is controlled from approval to review, the routes for remote maintenance, the approved tools and people, what may leave and how, the components whose support matters, and what \<Organisation\> provides. Section 4 takes each control in turn. Appendix A lists every value CSS asks the organisation to define, and appendix B the MA controls CSS does not select at Moderate.
 
-This is the only place this design is held. Other documents point here. The policy is in \<Policy\> (MA), and the steps people follow are in \<Procedures\> (MA). Fixing flaws and releasing new versions follow their own designs, in \<System and Information Integrity Management\> and \<Configuration Management\>, and use the same change records.
+The policy is in \<Policy\> (MA), and the steps people follow are in \<Procedures\> (MA). Fixing flaws and releasing new versions follow their own designs, in \<System and Information Integrity Management\> and \<Configuration Management\>, and use the same change records.
 
 An assessor examines the maintenance records, the lists of approved tools and people, the remote maintenance routes and their session logs; interviews those who maintain the system; and may watch a remote session being set up and ended (CSS). So for each control section 4 gives:
 

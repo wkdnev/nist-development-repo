@@ -4,7 +4,7 @@
 
 This document shows how the places where \<System Name\> runs and is used are protected, for each of the 18 Physical and Environmental Protection (PE) controls and enhancements in the CSS Moderate baseline. Section 3 sets out the design: the sites, who provides each control, how \<Organisation\>'s evidence is obtained and checked, the rules for offices and for working from home, physical incidents, and the encryption that stands behind the physical controls. Section 4 takes each control in turn. Appendix A lists every value CSS asks the organisation to define, and appendix B the PE controls CSS does not select at Moderate.
 
-This is the only place this design is held. Other documents point here. The policy is in \<Policy\> (PE), and the steps people follow are in \<Procedures\> (PE).
+The policy is in \<Policy\> (PE), and the steps people follow are in \<Procedures\> (PE).
 
 \<System Name\> has no premises of its own. It runs on two virtual servers in \<Organisation\>'s data centre, with backups and recovery at a second site, so 15 of the 18 controls are provided wholly by \<Organisation\>. \<System Name\>'s own part is small: how its users treat screens and printouts, how they work from home, how physical incidents are handled, and the encryption of the server disks.
 

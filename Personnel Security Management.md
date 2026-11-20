@@ -4,7 +4,7 @@
 
 This document shows how \<System Name\> makes sure the people who use and run it are trustworthy, and stay so, for each of the 9 Personnel Security (PS) controls in the CSS Moderate baseline. Section 3 sets out the design: the risk designation of every role, the minimum screening, the access agreements, what happens when people join, move and leave, the time limits, external people, sanctions, the personnel security register, and what \<Organisation\> provides. Section 4 takes each control in turn. Appendix A lists every value CSS asks the organisation to define, and appendix B the PS controls CSS does not select at Moderate.
 
-This is the only place this design is held. Other documents point here. The policy is in \<Policy\> (PS), and the steps people follow are in \<Procedures\> (PS). How access is requested, granted and removed is in \<Access Control Management\>, and the duties of each role are in \<Roles and Responsibilities\>.
+The policy is in \<Policy\> (PS), and the steps people follow are in \<Procedures\> (PS). How access is requested, granted and removed is in \<Access Control Management\>, and the duties of each role are in \<Roles and Responsibilities\>.
 
 Screening, HR and disciplinary processes belong to \<Organisation\>. \<System Name\> sets the minimum it requires of them, records only that each check was confirmed and when, and relies on \<Organisation\>'s evidence for the rest.
 

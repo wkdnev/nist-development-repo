@@ -4,7 +4,7 @@
 
 This document shows how \<System Name\> relies on \<Organisation\>'s security and privacy programme, for each of the 36 Program Management (PM) controls and enhancements in CSS. Section 3 sets out the design: why PM is treated differently from the other families, who leads the programme, which control is provided by whom and what \<System Name\> adds, the PM controls CSS places in the privacy baseline, and what is asked of \<Organisation\>. Section 4 takes each control in turn.
 
-This is the only place this design is held. Other documents point here. The decision that PM is outside \<System Name\>'s baseline is TR-PM-01 in \<Tailoring Register\>.
+The decision that PM is outside \<System Name\>'s baseline is TR-PM-01 in \<Tailoring Register\>.
 
 **PM is different from the other families.** Its controls describe an organisation's whole security and privacy programme, not one system. CSS does not place them in the Low, Moderate or High baselines, and expects them to be implemented once, for the organisation. \<System Name\> therefore has no PM policy or procedures of its own, sets no PM parameter values, and gives no PM control a status. It inherits the controls from \<Organisation\> as common controls (CSS, task P-5), and its own documents follow \<Organisation\>'s programme where that is known.
 

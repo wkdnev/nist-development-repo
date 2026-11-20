@@ -4,7 +4,7 @@
 
 This document shows how \<System Name\>'s plans are written, approved, shared, reviewed and protected, for each of the 7 Planning (PL) controls and enhancements in the CSS Moderate baseline. Section 3 sets out the design: the register of every plan in force, what the security plan and the privacy plan must hold and where each part is, how a plan is approved and kept current, the rules of behaviour and who has signed them, the architecture, and the baseline and its tailoring. Section 4 takes each control in turn. Appendix A lists every value CSS asks the organisation to define, and appendix B the PL controls CSS does not select at Moderate.
 
-This is the only place this design is held. Other documents point here. The policy is in \<Policy\> (PL), and the steps people follow are in \<Procedures\> (PL). The plans themselves are separate documents, listed in section 3.2.
+The policy is in \<Policy\> (PL), and the steps people follow are in \<Procedures\> (PL). The plans themselves are separate documents, listed in section 3.2.
 
 An assessor examines the plans against what CSS requires them to hold, their approvals and review records, who received them and how they are protected, the signed rules of behaviour, and the architecture; and interviews those who keep the plans and a sample of those who signed the rules (CSS). So for each control section 4 gives:
 

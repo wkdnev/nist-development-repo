@@ -4,7 +4,7 @@
 
 This guide is the place to start. It says what the \<System Name\> document set is, how its 44 documents relate to each other, and how to find a way through them. It is written for someone who has not seen the set before: an external auditor, the independent assessment team, a new role holder, or the authorising official.
 
-It holds no facts about the system of its own. Each fact is held in one document only, and this guide says which. The full index is \<Documentation Map\>, which also says where each fact about a control is held (its section 3) and sets the standard every document follows (its section 4).
+It holds no facts about the system of its own. It says which document in the set holds each kind of fact. The full index is \<Documentation Map\>, which also says where each fact about a control is held (its section 3) and sets the standard every document follows (its section 4).
 
 The set is the evidence that \<System Name\>, \<Organisation\>'s document management system, is designed and run to the CSS Moderate baseline, with the CSS privacy baseline. It covers 20 control families and 316 controls. It is written before the system goes live, so it shows honestly what is built, what is planned and what is missing.
 
@@ -27,7 +27,7 @@ The documents fall into four groups, and answer four questions in turn: what the
 
 Four ideas explain how the set is built.
 
-1. **One home for each fact.** A value, a design or a decision is written once. Every other document points to it. If two documents seem to say the same thing, one of them is a summary and says so.
+1. **Point, don't repeat.** Within the set, a value, a design or a decision is written in one document, and the others point to it. If two documents seem to say the same thing, one of them is a summary and says so. Other sources, such as the development team's design documents, may also describe the system.
 2. **One design document for each family.** Each of the 20 control families has a document that sets out its design and takes every control part by part. Section 6 lists them.
 3. **One line for each control in the security plan.** \<System Security Plan\>, section 7, has a line for every one of the 316 controls: how it is met, who is responsible, its status, its assessment result and where its gap is registered. It is the quickest way in to any control.
 4. **Every gap is registered.** A control that is not fully met has an entry in \<Risk List\>, and a weakness that needs a fix has an item in \<Plan of Action and Milestones\>. Nothing is described as done that is not.
@@ -90,7 +90,7 @@ An auditor does not need to read every document from end to end. This route take
 
 Steps 4 to 6 are repeated for each family chosen. A good first family is Access Control, as it is the largest, or Risk Assessment, as it shows how every gap in the other families is rated and answered.
 
-Two things save time. Each control's status is held only in \<System Security Plan\>, section 7, and every design document's section 2 points to its family's table there, with a short account of what matters most. And in each chapter of \<Control Assessment Record\>, the final section is the assessment plan, which says what was examined and tested, what was not, and what the independent assessor should do next.
+Two things save time. Within the set, each control's status is recorded in \<System Security Plan\>, section 7, and every design document's section 2 points to its family's table there, with a short account of what matters most. And in each chapter of \<Control Assessment Record\>, the final section is the assessment plan, which says what was examined and tested, what was not, and what the independent assessor should do next.
 
 ## 5 Following one control from end to end
 

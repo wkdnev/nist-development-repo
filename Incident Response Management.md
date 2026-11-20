@@ -4,7 +4,7 @@
 
 This document shows how security incidents affecting \<System Name\> are prepared for, found, handled and learned from, for each of the 13 Incident Response (IR) controls and enhancements in the CSS Moderate baseline. Section 3 is the incident response plan that IR-8 requires: who does what, how incidents are found, how severe each is and how fast it must be contained, the steps every incident follows, personal data breaches, the playbooks, evidence, and the register. It can be used on its own during an incident. Section 4 takes each control in turn. Appendix A lists every value CSS asks the organisation to define, and appendix B holds the contacts. Appendix C lists the IR controls CSS does not select at Moderate.
 
-This is the only place the incident response design is held. Other documents point here. The policy is in \<Policy\> (IR), and the steps people follow are in \<Procedures\> (IR).
+The policy is in \<Policy\> (IR), and the steps people follow are in \<Procedures\> (IR).
 
 An assessor examines the plan, the incident records, the training and exercise records, and the reports made; interviews the incident lead and a sample of users; and may ask to be walked through a past incident or a playbook (CSS). So for each control section 4 gives:
 

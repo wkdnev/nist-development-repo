@@ -85,7 +85,7 @@ These modes come from reading the design. They have not been exercised.
 
 ### 6.4 How it is kept secure in operation
 
-None of this has started, as \<System Name\> is not live. Table 5 says in brief how each part of operation is kept secure. The time limits, frequencies and other values are held only in the document named, so that they cannot fall out of step.
+None of this has started, as \<System Name\> is not live. Table 5 says in brief how each part of operation is kept secure. The time limits, frequencies and other values are in the document named, so that the set does not repeat them.
 
 **Table 5: Keeping \<System Name\> secure in operation**
 

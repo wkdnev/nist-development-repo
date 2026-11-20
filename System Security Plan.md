@@ -298,7 +298,7 @@ People holding these roles are named in \<Roles and Responsibilities\>. How secu
 
 This section gives a brief overview of every control in the 19 families, one line each. Each line says how the control is implemented or planned, who is responsible, its type (section 5), its implementation status and its Level 1 assessment status. It does not repeat the assessment. The finding for each determination statement is in the family's chapter of \<Control Assessment Record\>, and each non-compliance and its decision are in \<Risk List\> and \<Decision Register\>.
 
-**Status** is the one record of each control's implementation status in the set, for the target design on the two VMs: Implemented, Partially implemented, Not implemented (selected, but not started), or Not applicable. The family documents point here. **Assessment:** Satisfied only when every statement for the control is satisfied, and otherwise Other than satisfied. **Decision:** the NC entry in \<Risk List\> and, where a fix is planned, its POA&M item in \<Plan of Action and Milestones\>; or the tailoring entry in \<Tailoring Register\>.
+**Status** is where the set records each control's implementation status, for the target design on the two VMs: Implemented, Partially implemented, Not implemented (selected, but not started), or Not applicable. The family documents point here. **Assessment:** Satisfied only when every statement for the control is satisfied, and otherwise Other than satisfied. **Decision:** the NC entry in \<Risk List\> and, where a fix is planned, its POA&M item in \<Plan of Action and Milestones\>; or the tailoring entry in \<Tailoring Register\>.
 
 ### 7.1 Access Control (AC)
 

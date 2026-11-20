@@ -4,7 +4,7 @@
 
 This document shows how media that hold \<System Name\>'s information are protected, for each of the 7 Media Protection (MP) controls in the CSS Moderate baseline. Section 3 sets out the design: every place the information is held outside the running application, how each is marked, stored, moved and sanitised, the limits on portable storage, and what \<Organisation\> provides. Section 4 takes each control in turn. Appendix A lists every value CSS asks the organisation to define, and appendix B the MP controls CSS does not select at Moderate.
 
-This is the only place this design is held. Other documents point here. The policy is in \<Policy\> (MP), and the steps people follow are in \<Procedures\> (MP). The rules each user signs for exports, printing and copies are in \<Security Operating Procedures\>, Part A.
+The policy is in \<Policy\> (MP), and the steps people follow are in \<Procedures\> (MP). The rules each user signs for exports, printing and copies are in \<Security Operating Procedures\>, Part A.
 
 An assessor examines the media inventory, the marking on what the system produces, the storage and transport records, and the sanitising records and certificates; interviews users and those who handle media; and tests what an export leaves behind and whether portable storage is blocked (CSS). So for each control section 4 gives:
 
