@@ -10,13 +10,11 @@ Other documents hold the rest. Who provides and is responsible for each control,
 
 Values that CSS asks the organisation to define are set at corporate level by \<Organisation\>. The values in section 3, such as the recovery objectives, the backup retention and the intervals for testing and training, should match those corporate values. Where one does not, it is changed in this document.
 
-\<System Name\> is not yet built on its servers, and has no backups and no evidenced second site (PA-64, PA-66). Where section 3 notes what "today" is, it means the tested v1.0 build.
-
 ### 1.1 Distribution and protection
 
 Copies go to the people in section 3.4 and the authorising official. \<Organisation\>'s IT service desk receives sections 3.5, 3.6 and 3.9 and appendix A, which it needs to act (CP-02\_ODP\[04\]). The same people are told of every change, with a note of what changed (CP-2f).
 
-The document is Restricted. It is kept in the restricted document store with the other records (D-GEN-15), where only the people above can read it and only the system owner can change it (CP-2h). The system owner and security officer each keep a current offline copy, so that the plan can be used when \<System Name\> and the document store are down. The offline copy is section 3 with appendices A and B, which together are the whole plan. There is no separate plan document (D-CP-15).
+The document is Restricted. It is kept in the restricted document store with the other records, where only the people above can read it and only the system owner can change it (CP-2h). The system owner and security officer each keep a current offline copy, so that the plan can be used when \<System Name\> and the document store are down. The offline copy is section 3 with appendices A and B, which together are the whole plan. There is no separate plan document.
 
 ## 2 Summary
 
@@ -51,7 +49,7 @@ The plan recovers \<System Name\> in three phases: activation and notification, 
 
 **Assumptions:**
 
-1. \<Organisation\> provides a second site, network, sign-in through PingFederate, directory, name resolution and time (EV-CP-01, EV-CP-02). Not yet evidenced.
+1. \<Organisation\> provides a second site, network, sign-in through PingFederate, directory, name resolution and time (EV-CP-01, EV-CP-02).
 2. The latest good backup, its transaction logs and the protected copy of the secrets are at the second site.
 3. The tagged release and the baseline in \<Configuration Management\>, section 3.4, can be reached to rebuild the applications.
 4. At least one holder or deputy of each role in section 3.4 is available.
@@ -86,12 +84,12 @@ Controls met here: CP-2, CP-2(3), CP-10.
 
 | Function | Maximum tolerable downtime | Recovery time objective | Recovery point objective | Priority |
 | --- | --- | --- | --- | --- |
-| Sign in, find and read documents | 120 hours | 72 hours | 24 hours; minutes once transaction logs are archived (PA-64) | 1 |
+| Sign in, find and read documents | 120 hours | 72 hours | 24 hours from the daily backup; minutes with the archived transaction logs | 1 |
 | Upload and index documents | 14 days | 7 days | As above | 2 |
 | Administration | 14 days | 7 days | As above | 2 |
 | Reports and bulk export | 14 days | 7 days | Not applicable: produced from the database | 3 |
 
-The recovery time objective includes reconstitution (section 3.7), so users return within 72 hours. That leaves 48 hours within the maximum tolerable downtime for a failed first attempt, such as a damaged backup. These values are set in D-CP-10.
+The recovery time objective includes reconstitution (section 3.7), so users return within 72 hours. That leaves 48 hours within the maximum tolerable downtime for a failed first attempt, such as a damaged backup.
 
 #### 3.3.3 Components, dependencies and order of recovery
 
@@ -102,13 +100,13 @@ Controls met here: CP-2, CP-2(8).
 | Order | Component | Needed for | Depends on | Recovered from |
 | --- | --- | --- | --- | --- |
 | 1 | \<Organisation\>'s network, PingFederate sign-in, directory, name resolution, time and certificates | Everything | \<Organisation\> | \<Organisation\>'s plans (appendix B) |
-| 2 | Database VM and PostgreSQL 18.6 | Every function | 1 | \<Configuration Management\> baseline, then the latest good backup and transaction logs |
+| 2 | Database VM and PostgreSQL 18 | Every function | 1 | \<Configuration Management\> baseline, then the latest good backup and transaction logs |
 | 3 | Secrets: the database password and the token signing key | Starting API | 1 | The protected copy at the second site (section 3.8) |
 | 4 | Application VM: API | Every function | 2, 3 | The tagged release and \<Configuration Management\> |
 | 5 | UI application | Finding and reading documents | 4 | The tagged release |
 | 6 | Admin application | Administration | 4 | The tagged release |
 
-\<System Name\> cannot be used while PingFederate is unavailable, because nobody can sign in. \<Organisation\>'s recovery time for PingFederate and Active Directory therefore sets a floor under \<System Name\>'s own. It is not yet known, and is asked for with EV-CP-01 (D-CP-15, PA-114). If it is longer than 72 hours, the system owner takes the recovery objectives back to the authorising official.
+\<System Name\> cannot be used while PingFederate is unavailable, because nobody can sign in. \<Organisation\>'s recovery time for PingFederate and Active Directory therefore sets a floor under \<System Name\>'s own. It is asked for with EV-CP-01. If it is longer than 72 hours, the system owner takes the recovery objectives back to the authorising official.
 
 #### 3.3.4 Essential assets
 
@@ -121,7 +119,7 @@ Controls met here: CP-2(8).
 | The database | Holds every document page, project, group mapping and audit record | Rebuild the VM, then restore the latest good backup and transaction logs |
 | The application VM | Runs API, UI application and Admin application | Rebuild from the tagged release and \<Configuration Management\> |
 | Backups and transaction logs | The only way back after a loss | Held encrypted at the second site, with one offline or immutable copy |
-| Secrets | Without them API cannot start or reach the database | A protected copy held apart from the backups. Today they are in the settings files (PA-19) |
+| Secrets | Without them API cannot start or reach the database | A protected copy held apart from the backups |
 
 The ASP.NET Data Protection keys are not essential. They protect sign-in cookies and forms only: if they are lost, users simply sign in again. They are not restored.
 
@@ -140,7 +138,7 @@ Controls met here: CP-2.
 | Servers | \[Name\], Windows server administrator | \[Name\] | Rebuilds the VMs and restores the secrets |
 | Service | \<Organisation\>'s IT service desk | Its own rota | Provides the second site and connectivity |
 
-Each role has a deputy, as Table 5 shows (D-CP-09). Contact details are in appendix A.
+Each role has a deputy, as Table 5 shows. Contact details are in appendix A.
 
 ### 3.5 Activation and notification
 
@@ -236,16 +234,16 @@ Controls met here: CP-6, CP-9, CP-9(1), CP-9(8), CP-10, CP-10(2).
 | Transaction logs | Continuously | Until the oldest daily copy is removed | The second site | Encrypted |
 | Each VM's system configuration | Weekly | 8 copies | The second site | Encrypted |
 | Secrets | At each change | Every version for 12 months | A protected copy at the second site, held apart from the backups | Encrypted, with access limited to the system owner and administrators |
-| This plan and the records | At each change | As each record's retention | The controlled library (D-GEN-15) | Access controlled |
+| This plan and the records | At each change | As each record's retention | The controlled library | Access controlled |
 | Code and releases | Each release | Every release | The Git host, and the tag recorded in \<Configuration Management\> | Access controlled |
 
-A failed backup alerts the database administrator and the security officer, and the week's backups are checked under \<Security Operating Procedures\>, duty C8. Restores are tested every 6 months (PRO-CP-2), and after a change to the database or the backup method. None of this exists yet (PA-64).
+A failed backup alerts the database administrator and the security officer, and the week's backups are checked under \<Security Operating Procedures\>, duty C8. Restores are tested every 6 months (PRO-CP-2), and after a change to the database or the backup method.
 
 Every backup is encrypted before it leaves the database server, so that nobody who holds a copy, including the second site's staff, can read or change it. The key is held apart from the backups, where only the system owner and the administrators can reach it, and is listed in the key register (\<System and Communications Protection Management\>, section 3.4). The SHA-256 value recorded when a backup is taken is checked before it is restored.
 
 PostgreSQL's transaction logs are archived continuously to the second site, so that a restore can be brought forward to the last consistent point before the failure (section 3.6.1). That gives a recovery point of minutes.
 
-The system documentation, including this plan and the other security and privacy documents, is under version control, and each change is kept in the restricted document store (D-GEN-15).
+The system documentation, including this plan and the other security and privacy documents, is under version control, and each change is kept in the restricted document store.
 
 ### 3.9 Second site and telecommunications
 
@@ -253,20 +251,20 @@ Controls met here: CP-6, CP-6(1), CP-6(3), CP-7, CP-7(1), CP-7(2), CP-7(3), CP-8
 
 **Second site.** \<Organisation\> is expected to provide a second site, far enough from the main one not to share its hazards, such as flood, power supply or a single building. The same site serves for storing backups and for processing.
 
-- **Storage.** It holds the encrypted backups, with one copy offline or immutable (D-CP-06), under the same physical and access controls as the main site. Backups are encrypted before they leave the database server, so the site's staff cannot read them.
-- **Processing.** If the main site is lost, both servers are rebuilt there, on virtual servers that \<Organisation\> provides, and the essential functions resume within 72 hours (D-CP-07; section 3.6.1). \<System Name\> needs nothing else there but its backups, its secrets and the tagged release. The servers are rebuilt to the same baseline (\<Configuration Management\>, section 3.4), and the security officer confirms the controls before users return (section 3.7).
+- **Storage.** It holds the encrypted backups, with one copy offline or immutable, under the same physical and access controls as the main site. Backups are encrypted before they leave the database server, so the site's staff cannot read them.
+- **Processing.** If the main site is lost, both servers are rebuilt there, on virtual servers that \<Organisation\> provides, and the essential functions resume within 72 hours (section 3.6.1). \<System Name\> needs nothing else there but its backups, its secrets and the tagged release. The servers are rebuilt to the same baseline (\<Configuration Management\>, section 3.4), and the security officer confirms the controls before users return (section 3.7).
 - **Priority.** \<Organisation\> is asked what priority \<System Name\> has at the second site. Availability is rated Low, with 72 hours to recover, so a modest priority is enough.
 - **Reaching it.** If a wide-area disruption makes the second site hard to reach, \<Organisation\>'s plans say how the site and its backups are reached. \<System Name\> asks for that part of its plans.
 
-**Telecommunications.** Alternate telecommunications are inherited from \<Organisation\> (D-CP-08). Its network connects users to both sites. It is asked what alternate service exists, how quickly it takes over, and what priority its main and alternate agreements give. The alternate service must not share a route, a building entry or a provider with the main one. Telecommunications Service Priority is a United States scheme, so \<Organisation\> is asked whether it uses any UK equivalent.
+**Telecommunications.** Alternate telecommunications are inherited from \<Organisation\>. Its network connects users to both sites. It is asked what alternate service exists, how quickly it takes over, and what priority its main and alternate agreements give. The alternate service must not share a route, a building entry or a provider with the main one. Telecommunications Service Priority is a United States scheme, so \<Organisation\> is asked whether it uses any UK equivalent.
 
-None of this is evidenced yet (EV-CP-01, EV-CP-02, PA-66). If it is not available, the system owner takes the risk to the authorising official.
+The evidence is asked for with EV-CP-01 and EV-CP-02. If it is not available, the system owner takes the risk to the authorising official.
 
 ### 3.10 Testing, training and exercises
 
 Controls met here: CP-2, CP-3, CP-4, CP-4(1), CP-9(1).
 
-This follows CSS. The first restore test and tabletop exercise take place within 30 days of the VMs being built, and before production (D-CP-10, PA-81).
+This follows CSS. The first restore test and tabletop exercise take place within 30 days of the VMs being built, and before production.
 
 **Table 7: Test, training and exercise schedule**
 
@@ -287,11 +285,11 @@ Controls met here: CP-2(1), CP-4(1), CP-6, CP-6(1), CP-6(3), CP-7, CP-7(1), CP-7
 
 **Table 8: Asked of \<Organisation\>**
 
-| Provided | Controls | What \<System Name\> relies on | Evidence asked | State |
-| --- | --- | --- | --- | --- |
-| A second site for backups and for rebuilt servers | CP-6, CP-6(1), CP-6(3), CP-7, CP-7(1), CP-7(2), CP-7(3) | A site that does not share the main site's hazards, holds the encrypted backups with one offline or immutable copy, can run both servers within 72 hours, and can be reached in a wide-area disruption | EV-CP-01 | Not sent |
-| Alternate telecommunications | CP-8, CP-8(1), CP-8(2) | An alternate service with no single point of failure shared with the main one, and a stated priority | EV-CP-02 | Not sent |
-| Its own disaster recovery and business continuity plans | CP-2(1), CP-4(1) | Who declares a disaster, and the recovery times of the network, PingFederate, Active Directory, name resolution and time | EV-CP-01 | Not sent |
+| Provided | Controls | What \<System Name\> relies on | Evidence asked |
+| --- | --- | --- | --- |
+| A second site for backups and for rebuilt servers | CP-6, CP-6(1), CP-6(3), CP-7, CP-7(1), CP-7(2), CP-7(3) | A site that does not share the main site's hazards, holds the encrypted backups with one offline or immutable copy, can run both servers within 72 hours, and can be reached in a wide-area disruption | EV-CP-01 |
+| Alternate telecommunications | CP-8, CP-8(1), CP-8(2) | An alternate service with no single point of failure shared with the main one, and a stated priority | EV-CP-02 |
+| Its own disaster recovery and business continuity plans | CP-2(1), CP-4(1) | Who declares a disaster, and the recovery times of the network, PingFederate, Active Directory, name resolution and time | EV-CP-01 |
 
 ### 3.12 Keeping the plan current
 
@@ -306,7 +304,7 @@ Controls met here: CP-2.
 
 Controls met here: CP-2(1), CP-4(1).
 
-Appendix B lists the related plans. This plan and the incident response plan were written together, and each cites the other. Their tabletop exercise is held together, and \<Organisation\>'s IT service desk takes part (section 3.10). \<Organisation\>'s disaster recovery and business continuity plans provide the network, PingFederate, the second site and telecommunications. The system owner agrees with \<Organisation\> how the plans fit: who declares a disaster, and the recovery times of the services \<System Name\> depends on (section 3.3.3).
+Appendix B lists the related plans. This plan and the incident response plan each cite the other. Their tabletop exercise is held together, and \<Organisation\>'s IT service desk takes part (section 3.10). \<Organisation\>'s disaster recovery and business continuity plans provide the network, PingFederate, the second site and telecommunications. The system owner agrees with \<Organisation\> how the plans fit: who declares a disaster, and the recovery times of the services \<System Name\> depends on (section 3.3.3).
 
 ### 3.14 Policy and procedures
 

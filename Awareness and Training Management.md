@@ -10,7 +10,7 @@ Other documents hold the rest. Who provides and is responsible for each control,
 
 Values that CSS asks the organisation to define are set at corporate level by \<Organisation\>. The settings in section 3 should match those corporate values. Where one does not, it is changed in this document.
 
-Training is carried out by people, not by the system, so nothing here is built into \<System Name\>. No training has yet been given, because \<System Name\> is not in use and no one has been given access. Where section 3 notes the state now or "today", it means the position when the tested v1.0 build was assessed.
+Training is carried out by people, not by the system, so nothing here is built into \<System Name\>.
 
 ## 2 Summary
 
@@ -23,7 +23,7 @@ The implementation status of each control, how it is met, who is responsible, it
 Controls met here: AT-2, AT-2(3), AT-3, AT-4.
 
 1. **Trained before access.** Nobody is given access to \<System Name\> until they have completed awareness training, the \<System Name\> briefing and the rules of behaviour.
-2. **Every privileged user is trained for the role.** Anyone who is not a standard user completes the modules for their role before the access is given. That includes the system owner, who authorises privileged roles and manages the role groups (D-AT-10).
+2. **Every privileged user is trained for the role.** Anyone who is not a standard user completes the modules for their role before the access is given. That includes the system owner, who authorises privileged roles and manages the role groups.
 3. **Repeated every 12 months.** All training is repeated yearly, and after a significant incident or change.
 4. **Kept current.** Content is reviewed every 12 months, and each lesson from an incident or exercise is added within 30 days.
 5. **Checked and recorded.** Every module ends with a check, and every completion is recorded and kept for 3 years.
@@ -56,7 +56,7 @@ Controls met here: AT-2, AT-3.
 
 Controls met here: AT-2, AT-2(2), AT-2(3).
 
-Awareness has two parts: \<Organisation\>'s general security and privacy course, and the \<System Name\> briefing. \<Organisation\>'s course is expected to cover the general case, including insider threat and social engineering. The system owner gives this 20-minute briefing to every user, whatever their grade, including managers and contractors, before they are given access, together with the signature of \<Security Operating Procedures\>. It ends with a 5-question check, which the person must pass in full; a wrong answer is talked through and asked again. The briefing material and the check are not yet written (PA-96).
+Awareness has two parts: \<Organisation\>'s general security and privacy course, and the \<System Name\> briefing. \<Organisation\>'s course is expected to cover the general case, including insider threat and social engineering. The system owner gives this 20-minute briefing to every user, whatever their grade, including managers and contractors, before they are given access, together with the signature of \<Security Operating Procedures\>. It ends with a 5-question check, which the person must pass in full; a wrong answer is talked through and asked again.
 
 **Table 2: Briefing outline**
 
@@ -116,7 +116,7 @@ Every role must complete awareness, the briefing and the SyOps signature before 
 
 The matrix carries out AT-2, AT-3, AT-3(5) (\<PII Processing Management\>), IR-2 (\<Procedures\>, PRO-IR-3), CP-3 (\<Procedures\>, PRO-CP-4) and PL-4 (\<Security Operating Procedures\>).
 
-**Roles with no role modules.** Role training is for privileged users, meaning everyone who is not a standard user (D-AT-10). The Head of Cyber, the legal adviser and the authorising official have no access to \<System Name\>, so they are not in the matrix, although each has a security or privacy duty: approving the policy, delivering modules M6 and M9, and deciding risk. The CSS guidance on AT-3 names senior security and privacy officers, authorising officials and system owners among those who may need role training. The system owner is in the matrix. For the other three, the design relies on \<Organisation\>'s own training and their professional standing, and neither is evidenced. This is registered as a gap (PA-100).
+**Roles with no role modules.** Role training is for privileged users, meaning everyone who is not a standard user. The Head of Cyber, the legal adviser and the authorising official have no access to \<System Name\>, so they are not in the matrix, although each has a security or privacy duty: approving the policy, delivering modules M6 and M9, and deciding risk. The CSS guidance on AT-3 names senior security and privacy officers, authorising officials and system owners among those who may need role training. The system owner is in the matrix. For the other three, the design relies on \<Organisation\>'s own training and their professional standing.
 
 ### 3.6 When training happens
 
@@ -148,21 +148,21 @@ The steps are in \<Procedures\>, PRO-AT-3.
 
 Controls met here: AT-4.
 
-The security officer keeps this register from the TPL-9 records. The system owner checks it before authorising a role. Records are kept for 3 years. CSS leaves the period to the organisation, and 3 years lets an assessor see each person's last three yearly completions. Each record (TPL-9) names the person, the role, the training and its content version, the date, the result of the check, who gave it and the next due date. \<Organisation\> keeps its own course records and provides them on request. The layout stays here. Once the records store is set up, the live register, with its names and dates, is kept there (D-AT-10).
+The security officer keeps this register from the TPL-9 records. The system owner checks it before authorising a role. Records are kept for 3 years. CSS leaves the period to the organisation, and 3 years lets an assessor see each person's last three yearly completions. Each record (TPL-9) names the person, the role, the training and its content version, the date, the result of the check, who gave it and the next due date. \<Organisation\> keeps its own course records and provides them on request. The layout stays here. Once the records store is set up, the live register, with its names and dates, is kept there.
 
 **Table 6: Training register**
 
-| Person | Role | Awareness and briefing | Role modules | Within 30 days | Next due | State now |
-| --- | --- | --- | --- | --- | --- | --- |
-| \[Name\] | Global administrator | \[date\] | \[dates\] | \[dates\] | \[date\] | Not started |
-| \[Name\] | Administrator | \[date\] | \[dates\] | \[dates\] | \[date\] | Not started |
-| \[Name\] | Windows server administrator | \[date\] | \[dates\] | \[dates\] | \[date\] | Not started |
-| \[Name\] | Database administrator | \[date\] | \[dates\] | \[dates\] | \[date\] | Not started |
-| \[Name\], \[Name\], \[Name\] | Developers | \[dates\] | \[dates\] | \[dates\] | \[date\] | Not started |
-| \[Name\] | Security officer | \[date\] | \[dates\] | \[dates\] | \[date\] | Not started |
-| \[Name\] | Auditor | \[date\] | \[dates\] | \[dates\] | \[date\] | Not started |
-| \[Name\] | System owner | \[date\] | \[dates\] | \[dates\] | \[date\] | Not started |
-| \[Name\] | Project access approver | \[date\] | \[dates\] | \[dates\] | \[date\] | Not started |
+| Person | Role | Awareness and briefing | Role modules | Within 30 days | Next due |
+| --- | --- | --- | --- | --- | --- |
+| \[Name\] | Global administrator | \[date\] | \[dates\] | \[dates\] | \[date\] |
+| \[Name\] | Administrator | \[date\] | \[dates\] | \[dates\] | \[date\] |
+| \[Name\] | Windows server administrator | \[date\] | \[dates\] | \[dates\] | \[date\] |
+| \[Name\] | Database administrator | \[date\] | \[dates\] | \[dates\] | \[date\] |
+| \[Name\], \[Name\], \[Name\] | Developers | \[dates\] | \[dates\] | \[dates\] | \[date\] |
+| \[Name\] | Security officer | \[date\] | \[dates\] | \[dates\] | \[date\] |
+| \[Name\] | Auditor | \[date\] | \[dates\] | \[dates\] | \[date\] |
+| \[Name\] | System owner | \[date\] | \[dates\] | \[dates\] | \[date\] |
+| \[Name\] | Project access approver | \[date\] | \[dates\] | \[dates\] | \[date\] |
 
 ### 3.9 Measures
 
@@ -172,13 +172,13 @@ The security officer reports these monthly with the continuous monitoring measur
 
 **Table 7: Training measures**
 
-| Measure | Target | Today |
-| --- | --- | --- |
-| People trained before access | 100% | No one trained; \<System Name\> not in use |
-| First-attempt pass rate on checks | 90% | No checks yet |
-| People overdue for a refresher | 0 | None due |
-| Suspicious messages reported each month | Rising; reports, not clicks, are counted | No reports yet |
-| Content reviewed within 12 months and after each significant incident | 100% | No review yet |
+| Measure | Target |
+| --- | --- |
+| People trained before access | 100% |
+| First-attempt pass rate on checks | 90% |
+| People overdue for a refresher | 0 |
+| Suspicious messages reported each month | Rising; reports, not clicks, are counted |
+| Content reviewed within 12 months and after each significant incident | 100% |
 
 ### 3.10 Policy and procedures
 

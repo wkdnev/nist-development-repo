@@ -292,7 +292,7 @@ The rule on non-compliance in section 1.1 applies to this policy.
 | Term | Meaning |
 | --- | --- |
 | Audit record | One entry that records an event: what happened, when, where, from where, the outcome and who was involved |
-| Audit log | The store of audit records, today the table dbo.AuditLog in the \<System Name\> database |
+| Audit log | The store of audit records, the table dbo.AuditLog in the \<System Name\> database |
 | Audit information | Audit records, any log that repeats them, and the tools and settings used to read or manage them |
 | Auditor | The person who reviews audit records and does not administer the system |
 | Chain hash | A value calculated from each record and the one before it, so that a change can be detected |
@@ -427,7 +427,7 @@ It applies to UI application, Admin application, API, the \<System Name\> databa
 2. **R2 Change control:** changes need a ServiceNow change request, approved by the system owner, security officer and Windows server administrator, and tested before release. Records are kept for 3 years.
 3. **R3 Settings:** settings follow the CIS Benchmarks for Windows Server 2025 and PostgreSQL, with exceptions recorded.
 4. **R4 Routes:** only these routes are open: HTTPS to the application, the database from the application VM only, and administration from \<Organisation\>'s network only. Everything else is off, and this is reviewed every 12 months.
-5. **R5 Approved software:** an approved software list is kept and reviewed every 12 months. It is not technically enforced, a risk that goes to the authorising official for a decision (NC-CM-15, NC-CM-16).
+5. **R5 Approved software:** an approved software list is kept and reviewed every 12 months.
 6. **R6 Installing software:** users may install software on the VMs only with approval.
 7. **R7 Inventory:** the server inventory in \<System Security Plan\> and the software component inventory in \<Configuration Management\> are updated at each change, with each component's version, supplier and licence. \<Organisation\>'s tools detect unauthorised components monthly and alert the Windows server administrator.
 8. **R8 Reproducible releases:** each release must be reproducible: code at a tag, and every image and component at a pinned version or digest recorded in the baseline.
@@ -606,10 +606,10 @@ Every action in \<System Name\> must be traceable to one known person. Access de
 
 1. **R1 Who may have access:** only \<Organisation\>'s staff and contractors, who hold an Active Directory account and whose identity \<Organisation\>'s HR has checked. Non-organisational users are not allowed.
 2. **R2 Identifiers:** a person's Active Directory account name is their identifier. It is unique and named, is never reused, and shows staff or contractor status. \<System Name\> issues no identifiers of its own.
-3. **R3 Sign-in:** every user must sign in through \<Organisation\>'s single sign-on service, PingFederate. \<System Name\> must hold no passwords and no accounts of its own. Password rules are those of \<Organisation\>'s corporate standard, which \<System Name\> accepts (D-AC-21, D-AC-23).
+3. **R3 Sign-in:** every user must sign in through \<Organisation\>'s single sign-on service, PingFederate. \<System Name\> must hold no passwords and no accounts of its own. Password rules are those of \<Organisation\>'s corporate standard, which \<System Name\> accepts.
 4. **R4 Password changes:** follow \<Organisation\>'s corporate standard. Anyone who thinks their password is known must change it through \<Organisation\>'s service desk and tell the security officer.
 5. **R5 Secrets:** service account secrets and the signing key must be held outside source code, changed every 12 months and when an administrator leaves, and never recorded in clear.
-6. **R6 Multi-factor:** every user must sign in with multi-factor authentication, which PingFederate provides (D-AC-23). This carries out the authorising official's decision that multi-factor sign-in is required (D-IA-07).
+6. **R6 Multi-factor:** every user must sign in with multi-factor authentication, which PingFederate provides.
 7. **R7 Signing in again:** when PingFederate's sign-in lifetime for \<System Name\> ends (\<Access Control Management\>, P-AC-10). \<System Name\> has no idle timeout or session limit of its own. A change to a person's groups takes effect when they next sign in.
 8. **R8 Assurance levels:** the identity and authenticator assurance levels in \<Identification and Authentication Management\>, section 3.4, must be met for each user group, and reviewed every 12 months.
 9. **R9 Authenticator inventory:** every authenticator must be listed in \<Identification and Authentication Management\>, section 3.5, with its owner, storage and change period, and reviewed every 12 months.
@@ -870,9 +870,9 @@ It applies to every place \<System Name\> information is held outside the runnin
 
 1. **R1 Media inventory:** every place \<System Name\> information is held must be listed in \<Media Protection Management\>, with its protection and sanitising method, and the list reviewed every 12 months.
 2. **R2 Access:** digital media may be reached only by the roles named in \<Media Protection Management\>. Only editors in a project may create exports of it.
-3. **R3 Marking:** all \<System Name\> information is marked RESTRICTED, with the document's own classification alongside. Printouts are marked by hand until \<System Name\> marks them (PA-87). No media is exempt.
+3. **R3 Marking:** all \<System Name\> information is marked RESTRICTED, with the document's own classification alongside. \<System Name\> marks printed pages and export files with their classification. No media is exempt.
 4. **R4 Storage:** digital media must be stored encrypted in controlled areas: \<Organisation\>'s data centres, or a managed device. Printouts are locked away when not in use.
-5. **R5 Export copies:** an export copy on the server must be removed once downloaded, and within 24 hours at most. Until \<System Name\> does this itself (PA-86), the Windows server administrator checks it each working day.
+5. **R5 Export copies:** an export copy on the server must be removed once downloaded, and within 24 hours at most. \<System Name\> deletes it after the download, and a background task removes any left past the limit.
 6. **R6 Users' copies:** exports and downloads may be saved only in approved \<Organisation\> locations on a managed device, kept to the minimum, and deleted within 30 days once no longer needed (\<Security Operating Procedures\>, A28 and A30 to A35).
 7. **R7 Transport:** media are physically transported only by exception, approved by the system owner, encrypted or sealed, tracked and recorded on TPL-13. Network copies, such as backups to the second site, are protected under SC-8 and CP-6 and must be encrypted first. Printouts do not leave the site without approval.
 8. **R8 Sanitising:** media must be sanitised before reuse, release or disposal following CSS and IEEE 2883-2022, using the method set for each media type in \<Media Protection Management\>. Cryptographic erase is used for encrypted virtual disks and backups. Paper is cross-cut shredded to DIN 66399 level P-4 or better.
@@ -964,7 +964,7 @@ It applies to the data centre that hosts the two VMs, the second site that holds
 7. **R7 Screens:** screens must be locked when left and placed so that others cannot read them.
 8. **R8 Home working:** remote working is allowed only from home, unless the system owner approves another place, on \<Organisation\>'s managed devices and route. \<System Name\> documents must not be printed at home unless approved, and must be worked on where others in the home cannot see them.
 9. **R9 Physical incidents:** the loss or theft of a device or printout, unauthorised entry to a data centre, and fire, flood or power loss affecting \<System Name\> must be reported to the security officer at once and handled under \<Incident Response Management\>.
-10. **R10 Physical access compensation:** VM disks must be encrypted (PA-52), so that physical access to the hosts does not expose \<System Name\> information.
+10. **R10 Physical access compensation:** VM disks must be encrypted, so that physical access to the hosts does not expose \<System Name\> information.
 
 ### PE.5 Responsibilities
 
@@ -1028,7 +1028,7 @@ It applies to every system plan for \<System Name\>: the System Security Plan, t
 
 ### PL.2 The organisation's position
 
-\<System Name\>'s security and privacy are planned and written down before they are relied on. The plans describe what exists today and what is planned, without claiming compliance that has not been shown. Approving a plan does not authorise the system: only the authorising official's decision on TPL-18 does that.
+\<System Name\>'s security and privacy are planned and written down before they are relied on. The plans describe what is in place and what is planned, without claiming compliance that has not been shown. Approving a plan does not authorise the system: only the authorising official's decision on TPL-18 does that.
 
 ### PL.3 Control principles
 
@@ -1043,7 +1043,7 @@ It applies to every system plan for \<System Name\>: the System Security Plan, t
 2. **R2 Approval:** the System Security Plan must be approved by the system owner, with the Head of Cyber's concurrence, and accepted by the authorising official as an accurate record. The privacy plan must be approved by the legal adviser and the authorising official. The supply chain plan is approved by the system owner.
 3. **R3 Review and change records:** each system plan must keep a plan review record (who reviewed, their role, the date, the outcome and actions) separate from its change record. Plans are reviewed every 12 months and after an assessment, significant change or problem found in use.
 4. **R4 Sharing:** the SSP and its changes must be shared with the Head of Cyber, administrators and \<Organisation\>'s security contact, and each issue recorded in the plan review record.
-5. **R5 Protection:** plans and assessment evidence are Restricted. They must be kept in the restricted SharePoint area (D-GEN-15), never in a code repository or a public location, and only people who need them may read or change them.
+5. **R5 Protection:** plans and assessment evidence are Restricted. They must be kept in the restricted SharePoint area, never in a code repository or a public location, and only people who need them may read or change them.
 6. **R6 Rules of behaviour:** the Security Operating Procedures are the rules of behaviour. Part A applies to everyone, and Part B, the privileged rules, to administrators as well. Everyone signs before access, and the signature is recorded on TPL-21 and in the register of signatures.
 7. **R7 Signing again:** everyone signs again every 12 months, and after a material change to the rules: a new or stricter rule, a changed consequence, new monitoring or a new privileged duty. The system owner decides whether a change is material and records it in the SyOps change record.
 8. **R8 Social media:** \<System Name\> information must not be placed on social media or external sites, and work credentials must not be used on them.
@@ -1236,7 +1236,7 @@ It applies to all personal data in \<System Name\>: HR documents, other project 
 | --- | --- |
 | Head of Cyber | Approves this policy, as all policies |
 | Legal adviser | Owns the privacy plan and the impact assessment; confirms each lawful basis and condition and the appropriate policy document; handles requests, complaints and reports to the ICO |
-| Data protection officer | Advises on the impact assessment and is the contact for individuals and the ICO, or the legal adviser records why none is required (D-PM-04) |
+| Data protection officer | Advises on the impact assessment and is the contact for individuals and the ICO, or the legal adviser records why none is required |
 | System owner | Owns this policy and the inventory, and makes sure \<System Name\> follows it |
 | Business and information owner | Decides what personal data each project holds, authorises special category projects, and sets retention periods |
 | \<Organisation\> | Provides the employee privacy notice and the record of processing |
@@ -1304,7 +1304,7 @@ It applies to UI application, Admin application, API, the \<System Name\> databa
 1. **R1 Risk record:** \<Risk List\> is the record of risk assessment. It must use the method in its section 4, which follows CSS, and give each risk a status and the date it was last reviewed.
 2. **R2 Risk review:** the risk assessment must be reviewed every 12 months, and after a significant change, incident or new test result, and shared with the system owner, the authorising official and the Head of Cyber.
 3. **R3 Categorisation:** the system must keep a security categorisation under CSS, with its rationale, approved by the authorising official.
-4. **R4 Organisational risk:** system risk decisions must respect \<Organisation\>'s risk management strategy and risk appetite (D-PM-03).
+4. **R4 Organisational risk:** system risk decisions must respect \<Organisation\>'s risk management strategy and risk appetite.
 5. **R5 Supply chain:** supply chain risk from packages, base images, suppliers and the VMs must be reviewed every 12 months, and recorded on TPL-23.
 6. **R6 Scanning:** vulnerability scans must run monthly and at each release, with definitions updated before each scan, and credentialed scans of both VMs. The packages, \<System Name\>'s own applications, the container images and their operating system packages must all be covered.
 7. **R7 Response times:** each vulnerability must be fixed or mitigated within the time in \<Risk Assessment Management\>, section 3.6, for its severity, counted from the fix's release, or from detection if that is later. Critical and High within 14 days, Medium within 30 days, Low within 90 days or 30 days once a vendor update exists. Severity is the vendor's rating, or else the CVSS base score.
@@ -1395,7 +1395,7 @@ It applies to \<System Name\>'s in-house development and build environment, and 
 4. **R4 Design information:** design and the functions, ports, protocols and services \<System Name\> needs must be documented, and kept current with each change.
 5. **R5 Documentation:** administrator and user guides covering secure installation, configuration, operation and use must be kept with the code and confirmed at each release.
 6. **R6 Principles:** design must follow the NCSC secure design principles and the CSS privacy engineering objectives, as mapped in \<Security Architecture\>, section 6.5.
-7. **R7 Change control:** code, configuration and documents must be held in Git, with each default branch protected, at least one approving review before a change merges, dependency alerts on, and release tags signed. Test scripts must be under version control. Until this is in place, the gap is tracked in PA-91.
+7. **R7 Change control:** code, configuration and documents must be held in Git, with each default branch protected, at least one approving review before a change merges, dependency alerts on, and release tags signed. Test scripts must be under version control.
 8. **R8 Build and test:** each release must pass unit, integration and security tests covering every security function, to the depth in \<System and Services Acquisition Management\>, section 3.9. Builds must not turn package vulnerability checks off.
 9. **R9 Third parties:** each new third-party component must be checked for origin, licence, support and known vulnerabilities before it is added. External services, including GitHub and the package and container registries, must state their controls and be reviewed every 12 months.
 10. **R10 Support:** components must be replaced before support ends, with a replacement planned at least 6 months before. Any exception needs the authorising official's approval.
@@ -1476,7 +1476,7 @@ Information in \<System Name\> must be protected wherever it travels or rests. \
 3. **R3 Transport:** every flow must use TLS under NCSC's profiles. TLS 1.3 is preferred, with hybrid post-quantum key exchange where the platform supports it. TLS 1.2 is allowed only with the GCM profiles. SSL, TLS 1.0 and 1.1, compression and TLS 1.3 early data (0-RTT) must be off.
 4. **R4 Web traffic and cookies:** the apps must serve HTTPS only and redirect HTTP, send HSTS with a maximum age of at least 1 year, and mark every cookie Secure, HttpOnly and SameSite. \<System Name\> has no sessions of its own: the authentication cookie lasts no longer than PingFederate's sign-in lifetime (\<Access Control Management\>, P-AC-10).
 5. **R5 Database:** PostgreSQL must accept network connections only over TLS, with a minimum of TLS 1.2, and API must connect with full certificate and host name checking.
-6. **R6 Cryptography:** only the algorithms in the cryptographic register may be used: NCSC's TLS profiles, XTS-AES 256 for disk encryption, PBKDF2-SHA512 with at least 600,000 iterations for passwords, and HMAC-SHA256 with a random key of at least 256 bits for tokens. US CSS validation is not required (D-SC-P02).
+6. **R6 Cryptography:** only the algorithms in the cryptographic register may be used: NCSC's TLS profiles, XTS-AES 256 for disk encryption, PBKDF2-SHA512 with at least 600,000 iterations for passwords, and HMAC-SHA256 with a random key of at least 256 bits for tokens. US CSS validation is not required.
 7. **R7 Keys:** every key must be in the register, with an owner, a protected store and a cryptoperiod based on CSS. Keys must never be held in source code, tickets, chat or documents. Each key is changed at the end of its cryptoperiod, when someone who held it leaves, and at once if it may be compromised. The data protection key rings are protected with Windows DPAPI and backed up with the server.
 8. **R8 Certificates:** certificates are issued under \<Organisation\>'s certificate policy, use ECDSA P-256 or RSA 2048-bit with SHA-256, and are renewed at least 30 days before they expire. Only \<Organisation\>'s approved trust anchors are trusted.
 9. **R9 Data at rest:** both VMs must use BitLocker with XTS-AES 256 and the TPM. Backups must be encrypted. Export copies must be deleted once downloaded. Recovery keys are held in \<Organisation\>'s protected store and tested every 12 months.
@@ -1565,7 +1565,7 @@ It applies to UI application, Admin application, API, the \<System Name\> databa
 3. **R3 Malicious code:** Microsoft Defender must run on both VMs, with real-time protection, daily updates and a weekly full scan. Every upload must be passed to Defender through the Windows Antimalware Scan Interface (AMSI) before it is stored. A flagged file is refused, recorded in the audit trail and reported to the security officer.
 4. **R4 Upload checks:** only the allowed document types may be uploaded. Each file's type and signature must match its extension, its size must be within the limit for the user's role, and its name must not contain a path.
 5. **R5 Monitoring:** application, Windows and PostgreSQL logs must be forwarded to \<Organisation\>'s central logging and reviewed weekly. The detection use cases in \<System and Information Integrity Management\>, section 3.4, must raise alerts to the security officer.
-6. **R6 Monitoring people:** users must be monitored only after the legal adviser's opinion (D-SI-07), only as far as needed, and with staff told what is monitored and why.
+6. **R6 Monitoring people:** users must be monitored only after the legal adviser's opinion, only as far as needed, and with staff told what is monitored and why.
 7. **R7 Advisories:** advisories must be received from NCSC (including Early Warning), CISA's Known Exploited Vulnerabilities catalogue (weekly), Microsoft, .NET and GitHub, and PostgreSQL, and passed to the people who act on them.
 8. **R8 Integrity:** release packages, stored documents and audit records must be protected with SHA-256 and checked against the recorded baseline at start-up, at each release and monthly. An unexpected change is handled as an incident.
 9. **R9 Input validation:** all API inputs, uploads and search terms must be validated on the server, and database queries must use parameters.
@@ -1586,7 +1586,7 @@ It applies to UI application, Admin application, API, the \<System Name\> databa
 | Windows server administrator | Patches the VMs, runs Defender and forwards Windows logs |
 | Database administrator | Patches PostgreSQL and forwards its logs |
 | Developers | Update packages, build upload scanning, validation and safe errors, and run Test-Integrity.ps1 |
-| Legal adviser | Advises on monitoring users (D-SI-07) and on retention periods |
+| Legal adviser | Advises on monitoring users and on retention periods |
 | \<Organisation\> | Monitors network traffic, provides central logging, and registers \<System Name\>'s addresses with NCSC Early Warning |
 
 ### SI.6 Governance requirements

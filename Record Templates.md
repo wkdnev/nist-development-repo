@@ -2,7 +2,7 @@
 
 ## 1 Purpose
 
-An assessor looks for records that show a control operating, as well as a statement that it should. These templates make those records consistent. They are written for any family: each has a family field, and Table 1 shows which controls use it. Completed records are evidence, are kept where D-GEN-15 decides, and are not stored in this document.
+An assessor looks for records that show a control operating, as well as a statement that it should. These templates make those records consistent. They are written for any family: each has a family field, and Table 1 shows which controls use it. Completed records are evidence, are kept in the restricted SharePoint area, and are not stored in this document.
 
 Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-001.
 

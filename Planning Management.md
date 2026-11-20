@@ -10,8 +10,6 @@ Other documents hold the rest. Who provides and is responsible for each control,
 
 Values that CSS asks the organisation to define are set at corporate level by \<Organisation\>. The values in section 3, such as the review intervals and how long signed forms are kept, should match those corporate values. Where one does not, it is changed in this document.
 
-Where section 3 notes what "today" is, it means the tested v1.0 build and its document set.
-
 ## 2 Summary
 
 The implementation status of each control, how it is met, who is responsible, its assessment result and the risk and plan entries for its gaps are recorded in \<System Security Plan\>, section 7.12 (Table 21).
@@ -43,48 +41,48 @@ Every plan and planning record in force, with its owner, version, approver and n
 
 | Plan or record | Document | Version | Owner | Approver | Next review |
 | --- | --- | --- | --- | --- | --- |
-| System security plan | \<System Security Plan\> | \<ver\> | System owner | System owner, with the Head of Cyber's concurrence, and accepted by the authorising official as an accurate record (D-GEN-19, D-PL-06) | Every 12 months, and after a significant change |
-| Privacy plan | \<Privacy Plan\> | \<ver\> | Legal adviser | Legal adviser and authorising official (D-PT-05) | Every 12 months |
-| Data protection impact assessment | \<Data Protection Impact Assessment\> | \<ver\> | Legal adviser | Legal adviser (D-PT-20) | Before production, and after a significant change in processing |
+| System security plan | \<System Security Plan\> | \<ver\> | System owner | System owner, with the Head of Cyber's concurrence, and accepted by the authorising official as an accurate record | Every 12 months, and after a significant change |
+| Privacy plan | \<Privacy Plan\> | \<ver\> | Legal adviser | Legal adviser and authorising official | Every 12 months |
+| Data protection impact assessment | \<Data Protection Impact Assessment\> | \<ver\> | Legal adviser | Legal adviser | Before production, and after a significant change in processing |
 | Supply chain risk management plan | \<Supply Chain Risk Management\> | \<ver\> | System owner | System owner | Every 12 months |
-| Configuration management plan | \<Configuration Management\> | \<ver\> | System owner | System owner (D-CM-12, D-SC-07) | Every 12 months |
-| Contingency plan | \<Contingency Planning Management\> | \<ver\> | System owner | System owner and authorising official (D-CP-11) | Every 12 months, and after a test or activation |
-| Incident response plan | \<Incident Response Management\> | \<ver\> | Security officer | Head of Cyber (D-IR-07) | Every 12 months, and after an incident or exercise |
+| Configuration management plan | \<Configuration Management\> | \<ver\> | System owner | System owner | Every 12 months |
+| Contingency plan | \<Contingency Planning Management\> | \<ver\> | System owner | System owner and authorising official | Every 12 months, and after a test or activation |
+| Incident response plan | \<Incident Response Management\> | \<ver\> | Security officer | Head of Cyber | Every 12 months, and after an incident or exercise |
 | Continuous monitoring strategy | \<Assessment, Authorization, and Monitoring Management\> | \<ver\> | System owner | System owner | Every 12 months |
-| Security architecture | \<Security Architecture\> | \<ver\> | System owner | System owner (D-PL-08) | Every 12 months, and after a significant change |
+| Security architecture | \<Security Architecture\> | \<ver\> | System owner | System owner | Every 12 months, and after a significant change |
 | Concept of operations | \<Concept of Operations\> | \<ver\> | System owner | System owner | Every 12 months |
-| Rules of behaviour | \<Security Operating Procedures\> | \<ver\> | System owner | System owner | Every 12 months, and after a material change (D-PL-P02) |
-| Baseline and tailoring | CSS Moderate and privacy baselines; \<Tailoring Register\> | \<ver\> | System owner | System owner, accepted by the authorising official (D-PL-09) | Every 12 months, and when a condition changes |
+| Rules of behaviour | \<Security Operating Procedures\> | \<ver\> | System owner | System owner | Every 12 months, and after a material change |
+| Baseline and tailoring | CSS Moderate and privacy baselines; \<Tailoring Register\> | \<ver\> | System owner | System owner, accepted by the authorising official | Every 12 months, and when a condition changes |
 | Risk list | \<Risk List\> | \<ver\> | System owner | System owner | Every 3 months once in operation |
 | Plan of action | \<Plan of Action and Milestones\> | \<ver\> | System owner | System owner | Monthly once in operation |
 
-The versions in the register are checked by the plan consistency test (check L22), and are brought up to date whenever a plan is given a new version. The register is to be kept in the restricted document store with the plans (D-GEN-15).
+The versions in the register are checked by the plan consistency test, and are brought up to date whenever a plan is given a new version. The register is kept in the restricted document store with the plans.
 
 ### 3.3 What the plans hold
 
 Controls met here: PL-2.
 
-PL-2 lists 15 things a security plan and a privacy plan must hold. The security plan is \<System Security Plan\>, written to CSS, and the privacy plan is \<Privacy Plan\>. Table 2 shows where each part is held (D-PL-13).
+PL-2 lists 15 things a security plan and a privacy plan must hold. The security plan is \<System Security Plan\>, written to CSS, and the privacy plan is \<Privacy Plan\>. Table 2 shows where each part is held.
 
 **Table 2: Where each required part of the plans is held**
 
-| Part | CSS requires | Security plan | Privacy plan | Today |
-| --- | --- | --- | --- | --- |
-| a.1 | Consistent with the enterprise architecture | \<System Security Plan\>, section 4; \<Security Architecture\>, sections 4 and 6.3 | \<Privacy Plan\>, section 8 | \<Organisation\>'s architecture has not been seen (EV-PL-01) |
-| a.2 | Defines the components of the system | \<System Security Plan\>, sections 3.1 and 3.4; \<Security Architecture\>, section 2 | \<Privacy Plan\>, section 2 | Met |
-| a.3 | Describes the operational context | \<System Security Plan\>, sections 1 and 2; \<Concept of Operations\> | \<Privacy Plan\>, section 2 | Met. Three questions for the business owner are still open in \<Concept of Operations\>, section 7: who will use \<System Name\> and from where, which business processes it supports, and the hours and numbers it must serve (PA-123) |
-| a.4 | Names the people in each role | \<System Security Plan\>, section 6; \<Roles and Responsibilities\> | \<Privacy Plan\>, section 3 | Met |
-| a.5 | Identifies the types of information | \<System Security Plan\>, section 3.3 | \<Privacy Plan\>, section 4 | Met |
-| a.6 | Gives the security categorisation, with its reasons | \<System Security Plan\>, section 3.3 | \<Privacy Plan\>, section 4 | Met |
-| a.7 | Describes the threats of concern | \<Risk List\>, section 2 | \<Privacy Plan\>, section 5 | Met |
-| a.8 | Gives the results of a privacy risk assessment | \<Data Protection Impact Assessment\> | \<Data Protection Impact Assessment\> | Not met: the impact assessment is a draft (PA-72) |
-| a.9 | Describes the environment, and the connections to other systems | \<System Security Plan\>, sections 3.1, 3.2 and 4 | \<Privacy Plan\>, section 2 | Met |
-| a.10 | Gives an overview of the requirements | \<System Security Plan\>, sections 1 and 5 | \<Privacy Plan\>, section 6 | Met |
-| a.11 | Identifies the baselines and overlays | \<System Security Plan\>, section 5; \<Tailoring Register\> | \<Privacy Plan\>, section 6 | Met |
-| a.12 | Describes each control, in place or planned, with the reason for any tailoring | \<System Security Plan\>, section 7: one row for each control; \<Tailoring Register\> | \<Privacy Plan\>, section 6 | Met |
-| a.13 | Includes the risk decisions on architecture and design | \<Risk List\>; \<Decision Register\> | \<Privacy Plan\>, section 5; \<Decision Register\> | Met |
-| a.14 | Includes the activities that need planning and coordination with defined people | The operating calendar in \<Security Operating Procedures\>, Part C; \<Plan of Action and Milestones\>. They are coordinated with the Head of Cyber, the administrators and \<Organisation\>'s security contact | \<Privacy Plan\>, section 7 | Met |
-| a.15 | Reviewed and approved by the authorising official before it is put into effect | Approved by the system owner, with the Head of Cyber's concurrence, and accepted by the authorising official as an accurate record | Approved by the legal adviser and the authorising official | \[To be approved\] (D-GEN-20, D-PL-06, D-PT-05) |
+| Part | CSS requires | Security plan | Privacy plan |
+| --- | --- | --- | --- |
+| a.1 | Consistent with the enterprise architecture | \<System Security Plan\>, section 4; \<Security Architecture\>, sections 4 and 6.3 | \<Privacy Plan\>, section 8 |
+| a.2 | Defines the components of the system | \<System Security Plan\>, sections 3.1 and 3.4; \<Security Architecture\>, section 2 | \<Privacy Plan\>, section 2 |
+| a.3 | Describes the operational context | \<System Security Plan\>, sections 1 and 2; \<Concept of Operations\> | \<Privacy Plan\>, section 2 |
+| a.4 | Names the people in each role | \<System Security Plan\>, section 6; \<Roles and Responsibilities\> | \<Privacy Plan\>, section 3 |
+| a.5 | Identifies the types of information | \<System Security Plan\>, section 3.3 | \<Privacy Plan\>, section 4 |
+| a.6 | Gives the security categorisation, with its reasons | \<System Security Plan\>, section 3.3 | \<Privacy Plan\>, section 4 |
+| a.7 | Describes the threats of concern | \<Risk List\>, section 2 | \<Privacy Plan\>, section 5 |
+| a.8 | Gives the results of a privacy risk assessment | \<Data Protection Impact Assessment\> | \<Data Protection Impact Assessment\> |
+| a.9 | Describes the environment, and the connections to other systems | \<System Security Plan\>, sections 3.1, 3.2 and 4 | \<Privacy Plan\>, section 2 |
+| a.10 | Gives an overview of the requirements | \<System Security Plan\>, sections 1 and 5 | \<Privacy Plan\>, section 6 |
+| a.11 | Identifies the baselines and overlays | \<System Security Plan\>, section 5; \<Tailoring Register\> | \<Privacy Plan\>, section 6 |
+| a.12 | Describes each control, in place or planned, with the reason for any tailoring | \<System Security Plan\>, section 7: one row for each control; \<Tailoring Register\> | \<Privacy Plan\>, section 6 |
+| a.13 | Includes the risk decisions on architecture and design | \<Risk List\>; \<Decision Register\> | \<Privacy Plan\>, section 5; \<Decision Register\> |
+| a.14 | Includes the activities that need planning and coordination with defined people | The operating calendar in \<Security Operating Procedures\>, Part C; \<Plan of Action and Milestones\>. They are coordinated with the Head of Cyber, the administrators and \<Organisation\>'s security contact | \<Privacy Plan\>, section 7 |
+| a.15 | Reviewed and approved by the authorising official before it is put into effect | Approved by the system owner, with the Head of Cyber's concurrence, and accepted by the authorising official as an accurate record | Approved by the legal adviser and the authorising official |
 
 ### 3.4 Approval, review, sharing and protection
 
@@ -105,7 +103,7 @@ Controls met here: PL-2.
 
 Controls met here: PL-4, PL-4(1).
 
-The Security Operating Procedures are the rules of behaviour (D-PL-05). Part A applies to everyone, and Part B, the privileged rules, to administrators as well. The privacy rules are A23 to A29. The rules on social media, public websites and outside sites are these:
+The Security Operating Procedures are the rules of behaviour. Part A applies to everyone, and Part B, the privileged rules, to administrators as well. The privacy rules are A23 to A29. The rules on social media, public websites and outside sites are these:
 
 - **A43:** \<System Name\> information, documents and how the system works are not posted or discussed on social media, forums or any public website.
 - **A25:** \<Organisation\>'s information is not posted on public websites.
@@ -116,29 +114,29 @@ The system owner reviews and updates the rules every 12 months.
 
 1. Before access, the person is given the rules, and signs a declaration that they have read and understood them and agree to follow them, on paper or electronically. The system owner completes TPL-21.
 2. The signature is added to the register below. The access request checks the register before access is given, and is not approved without a signature in it.
-3. Everyone signs again every 12 months, and after a material change to the rules: a new or stricter rule, a changed consequence, new monitoring or a new privileged duty (D-PL-P02). The system owner decides whether a change is material, and records it in the change record of the rules. After a material change everyone signs within 30 days, or loses access.
+3. Everyone signs again every 12 months, and after a material change to the rules: a new or stricter rule, a changed consequence, new monitoring or a new privileged duty. The system owner decides whether a change is material, and records it in the change record of the rules. After a material change everyone signs within 30 days, or loses access.
 
-Signed forms are kept for as long as the person has access, and for 3 years after it ends (D-PL-14). The declaration each person signs is: "I have read and understood these rules, and I agree to follow them."
+Signed forms are kept for as long as the person has access, and for 3 years after it ends. The declaration each person signs is: "I have read and understood these rules, and I agree to follow them."
 
-The register starts empty. First signatures are taken on the current version of the rules, before access is given (D-PL-P02).
+The register starts empty. First signatures are taken on the current version of the rules, before access is given.
 
 **Table 4: Register of signatures**
 
 | TPL-21 record | Name | Role | Parts | SyOps version | Reason | Date signed | Next due |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| None yet |  |  |  |  |  |  |  |
+| \[TPL-21 reference\] | \[Name\] | \[Role\] | \[Part A, or Parts A and B\] | \[Version\] | \[First access, yearly or material change\] | \[Date\] | \[Date\] |
 
 ### 3.6 Architecture
 
 Controls met here: PL-8.
 
-The security architecture is \<Security Architecture\>. The protection goals, the design principles, the trust zones and the layers of defence are in \<Security Architecture\>, section 6. What is inherited from \<Organisation\>, and where the trust zones meet its network, is in \<Security Architecture\>, sections 4 and 6.3: this is how the architecture fits \<Organisation\>'s enterprise architecture. The assumptions about, and dependencies on, external systems and services are in \<Security Architecture\>, section 6.6. The privacy architecture is in \<Privacy Plan\>, section 8, which covers the same for the processing of personal data. The system owner reviews the architecture against the system as built every 12 months and after a significant change. Each change is carried into the security plan, the privacy plan, the concept of operations, the list of critical components (\<Risk Assessment Management\>, section 3.9), the procedures and any procurement, and each is noted in the review record (PRO-PL-5). New open questions go to \<Decision Register\> or \<Plan of Action and Milestones\>, and not into the architecture.
+The security architecture is \<Security Architecture\>. The protection goals, the design principles, the trust zones and the layers of defence are in \<Security Architecture\>, section 6. What is inherited from \<Organisation\>, and where the trust zones meet its network, is in \<Security Architecture\>, sections 4 and 6.3: this is how the architecture fits \<Organisation\>'s enterprise architecture. The assumptions about, and dependencies on, external systems and services are in \<Security Architecture\>, section 6.6. The privacy architecture is in \<Privacy Plan\>, section 8, which covers the same for the processing of personal data. The system owner reviews the architecture against the system itself every 12 months and after a significant change. Each change is carried into the security plan, the privacy plan, the concept of operations, the list of critical components (\<Risk Assessment Management\>, section 3.9), the procedures and any procurement, and each is noted in the review record (PRO-PL-5). New open questions go to \<Decision Register\> or \<Plan of Action and Milestones\>, and not into the architecture.
 
 ### 3.7 Baseline and tailoring
 
 Controls met here: PL-10, PL-11.
 
-The baseline is CSS Moderate, with the privacy baseline. It was chosen from the categorisation of \<System Name\>'s information in \<System Security Plan\>, section 3.3, which is Moderate for confidentiality and integrity and Low for availability (D-GEN-06). A control, or a part of one, is set aside only through \<Tailoring Register\>, with a rationale, a condition that must hold, what happens if the condition changes, and a recorded decision. Each condition is checked at the yearly review (PRO-PL-4). The plan consistency test checks that the applicability table in \<System Security Plan\> agrees with the tailoring register.
+The baseline is CSS Moderate, with the privacy baseline. It was chosen from the categorisation of \<System Name\>'s information in \<System Security Plan\>, section 3.3, which is Moderate for confidentiality and integrity and Low for availability. A control, or a part of one, is set aside only through \<Tailoring Register\>, with a rationale, a condition that must hold, what happens if the condition changes, and a recorded decision. Each condition is checked at the yearly review (PRO-PL-4). The plan consistency test checks that the applicability table in \<System Security Plan\> agrees with the tailoring register.
 
 ### 3.8 What \<Organisation\> provides
 
@@ -146,11 +144,11 @@ Controls met here: PL-2, PL-8.
 
 **Table 5: Asked of \<Organisation\>**
 
-| Provided | Controls | What \<System Name\> relies on | Evidence asked | State |
-| --- | --- | --- | --- | --- |
-| Its enterprise architecture standards | PL-2, PL-8 | The standards that \<System Name\>'s plans and architecture must fit | EV-PL-01 | Not sent |
-| Who runs the hypervisor beneath the servers, and whether it is within the Cyber Essentials Plus scope | PL-8 | The answer settles a dependency recorded in the architecture (D-PL-11) | EV-PL-01 | Not sent |
-| The restricted document store | PL-2 | A SharePoint area where only named people can read or change the plans | Not an evidence request: tracked by PA-88 | Not in use |
+| Provided | Controls | What \<System Name\> relies on | Evidence asked |
+| --- | --- | --- | --- |
+| Its enterprise architecture standards | PL-2, PL-8 | The standards that \<System Name\>'s plans and architecture must fit | EV-PL-01 |
+| Who runs the hypervisor beneath the servers, and whether it is within the Cyber Essentials Plus scope | PL-8 | The answer settles a dependency recorded in the architecture | EV-PL-01 |
+| The restricted document store | PL-2 | A SharePoint area where only named people can read or change the plans | Not an evidence request |
 
 ### 3.9 Policy and procedures
 
@@ -170,8 +168,8 @@ CSS does not select these in the Moderate security baseline, so they are not ass
 
 | Control | What it adds | \<System Name\>'s position |
 | --- | --- | --- |
-| PL-7 Concept of Operations | A concept of operations that says how the organisation means to operate the system, reviewed on a schedule | Not required. Done: \<Concept of Operations\> is in the register of plans, and is reviewed every 12 months. Three of its questions for the business owner are still open |
+| PL-7 Concept of Operations | A concept of operations that says how the organisation means to operate the system, reviewed on a schedule | Not required. Done: \<Concept of Operations\> is in the register of plans, and is reviewed every 12 months |
 | PL-8(1) Defense in Depth | Controls placed in layers, so that one failure does not expose the system | Not required. Done in design: the layers of defence in \<Security Architecture\>, section 6.4 |
 | PL-8(2) Supplier Diversity | Controls in different layers obtained from different suppliers | Not required |
-| PL-9 Central Management | Defined controls and processes managed centrally | Privacy baseline, so it applies. The whole document set is managed as one, by one owner, with one consistency test. Assessed with the PT family; partly in place, as the set is not yet in the restricted store (NC-PT-13; PA-88) |
+| PL-9 Central Management | Defined controls and processes managed centrally | Privacy baseline, so it applies. The whole document set is managed as one, by one owner, with one consistency test. Assessed with the PT family |
 | PL-2(1), PL-2(2), PL-2(3), PL-3, PL-5, PL-6 | Withdrawn by CSS | Not applicable |

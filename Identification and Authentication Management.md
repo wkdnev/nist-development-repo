@@ -8,11 +8,9 @@ Section 3 is the design: who and what is identified, sign-in through PingFederat
 
 Other documents hold the rest. Who provides and is responsible for each control, its status and its assessment result are in \<System Security Plan\>, section 7.7 (Table 16). The tests, their results and the records an assessor will ask for are in \<Control Assessment Record\> (IA). Each control's risk is in \<Risk List\>, and what is still open is in \<Plan of Action and Milestones\>. The policy is in \<Policy\> (IA), and the steps people follow are in \<Procedures\> (IA). Who may do what once signed in is in \<Access Control Management\>.
 
-Every user signs in through \<Organisation\>'s PingFederate, with multi-factor authentication, by OpenID Connect. PingFederate's signed response names the person and carries no groups: \<System Name\>'s API reads the person's groups from Active Directory over LDAPS (flow F7). \<System Name\> holds no accounts or passwords of its own, and has no session management (D-AC-23).
+Every user signs in through \<Organisation\>'s PingFederate, with multi-factor authentication, by OpenID Connect. PingFederate's signed response names the person and carries no groups: \<System Name\>'s API reads the person's groups from Active Directory over LDAPS (flow F7). \<System Name\> holds no accounts or passwords of its own, and has no session management.
 
 Values that CSS asks the organisation to define are set at corporate level by \<Organisation\>. The settings in section 3 should match those corporate values. Where one does not, it is changed in this document.
-
-\<System Name\> is not yet built on its servers. Where section 3 notes what "today" is, it means the tested v1.0 build, which signed in with its own passwords. Those notes show where that build differs from the design.
 
 Appendix A lists the IA controls CSS does not select at Moderate.
 
@@ -47,7 +45,7 @@ Controls met here: IA-2, IA-2(12), IA-3, IA-4, IA-4(4), IA-8, IA-8(1), IA-8(2), 
 | The API, to the database | One database service account, which is not a superuser | Database administrator | Its password, held in the protected store | Not applicable |
 | Each application, on the application server | Its own Windows service account | \<Organisation\>, in Active Directory | Windows: a group managed service account, whose password no person knows | Not applicable |
 | Windows server and database administrators, on the servers | Their own named administrator accounts | \<Organisation\> | \<Organisation\>'s directory and approved route | Never |
-| The database server, to the API | Its TLS certificate | \[Issuer to be agreed with \<Organisation\>\] | The API checks the certificate and the server's name in full before it sends the password (PA-18) | Not applicable |
+| The database server, to the API | Its TLS certificate | \[Issuer to be agreed with \<Organisation\>\] | The API checks the certificate and the server's name in full before it sends the password | Not applicable |
 | PingFederate, to the applications | Its signing certificate | \<Organisation\> | Each application checks every sign-in response against it | Not applicable |
 | Users' devices | The managed device, to the network | \<Organisation\> | Its network access control | Not applicable |
 
@@ -82,16 +80,16 @@ Controls met here: IA-2, IA-2(1), IA-2(2), IA-2(8), IA-6, IA-11.
 
 **Table 3: The trust between PingFederate and \<System Name\>**
 
-| Setting | Design | Today |
-| --- | --- | --- |
-| Protocol | OpenID Connect | Not built |
-| Who \<System Name\> trusts | \<Organisation\>'s PingFederate only, by its signing certificate, through \<System Name\>'s OpenID Connect client | Not built |
-| What a sign-in response must show | Signed by PingFederate; issued for \<System Name\>; within its life; not used before | Not built |
-| Token life | Short: \[minutes to be agreed with \<Organisation\>\] | Not built |
-| What the response carries | The person's account name, and nothing more than \<System Name\> needs. It carries no groups: the API reads them from Active Directory over LDAPS (flow F7) | Not built |
-| Certificate renewal | \<System Name\> picks up PingFederate's new certificate when \<Organisation\> renews it | Not built |
-| Federation assurance level | Level 2 of CSS: a signed token that only \<System Name\> can use (D-IA-12). It is to be set with \<Organisation\> | Not yet set with \<Organisation\> (PA-117) |
-| If PingFederate is unavailable | Nobody can sign in. There is no local sign-in to fall back on | By design (\<Contingency Planning Management\>, section 3.3.3) |
+| Setting | Design |
+| --- | --- |
+| Protocol | OpenID Connect |
+| Who \<System Name\> trusts | \<Organisation\>'s PingFederate only, by its signing certificate, through \<System Name\>'s OpenID Connect client |
+| What a sign-in response must show | Signed by PingFederate; issued for \<System Name\>; within its life; not used before |
+| Token life | Short: \[minutes to be agreed with \<Organisation\>\] |
+| What the response carries | The person's account name, and nothing more than \<System Name\> needs. It carries no groups: the API reads them from Active Directory over LDAPS (flow F7) |
+| Certificate renewal | \<System Name\> picks up PingFederate's new certificate when \<Organisation\> renews it |
+| Federation assurance level | Level 2 of CSS: a signed token that only \<System Name\> can use. It is to be set with \<Organisation\> |
+| If PingFederate is unavailable | Nobody can sign in. There is no local sign-in to fall back on |
 
 **Second factor.** PingFederate requires a second factor from every user, privileged or not, under the same authentication policy for \<System Name\>. The application roles are AD groups, and nobody reaches an administration page without signing in through PingFederate. The named Windows server and database administrators reach the servers only through \<Organisation\>'s managed route, which also requires a second factor (\<Maintenance Management\>, section 3.4).
 
@@ -99,26 +97,26 @@ Controls met here: IA-2, IA-2(1), IA-2(2), IA-2(8), IA-6, IA-11.
 
 **What the person sees.** Passwords and second factors are entered on PingFederate's page, which masks them and does not say whether an account exists. \<System Name\> shows no sign-in form.
 
-The steps and the trust are the design, from the system owner's statement of how \<System Name\> works (D-AC-23, D-IA-12). The settings shown as placeholders are asked of \<Organisation\> with EV-IA-04, and are filled in when it answers (PA-117). None of it has been tested or evidenced (PA-95).
+The steps and the trust are the design. The settings shown as placeholders are asked of \<Organisation\> with EV-IA-04, and are filled in when it answers.
 
 ### 3.4 Assurance levels
 
 Controls met here: IA-2, IA-2(1), IA-2(2), IA-5, IA-12.
 
-This follows CSS, section 3, and the federal acceptance statement template (D-IA-08). The statement is revised for sign-in through PingFederate (D-AC-23).
+This follows CSS, section 3, and the federal acceptance statement template, applied to sign-in through PingFederate.
 
 Identity assurance is how sure we are that a person is who they claim. Authenticator assurance is how sure we are that the person signing in holds the account. Federation assurance applies when another system, here PingFederate, vouches for the person.
 
 **Table 4: Assurance levels by user group**
 
-| User group | Harm if impersonated | Identity assurance | Authenticator assurance: target | Authenticator assurance: today | Federation | Until the target is met |
-| --- | --- | --- | --- | --- | --- | --- |
-| Global administrators | High: every document, account and setting | \<Organisation\>'s pre-employment checks, with the request confirmed by the system owner (PRO-IA-1) | AAL2: multi-factor sign-in through PingFederate | Multi-factor through PingFederate (D-AC-23); not yet evidenced | PingFederate, at federation assurance level 2 (D-IA-12), to be set with \<Organisation\> | No production documents held (D-GEN-13); sign-in lifetime set by PingFederate (P-AC-10); all actions audited |
-| Project access approvers and editors | Moderate: one project's documents | As above, confirmed by the project access approver | AAL2: multi-factor sign-in through PingFederate | Multi-factor through PingFederate (D-AC-23); not yet evidenced | PingFederate, at federation assurance level 2 (D-IA-12), to be set with \<Organisation\> | No production documents held (D-GEN-13); sign-in lifetime set by PingFederate (P-AC-10); all actions audited |
-| Readers and auditors | Moderate: reading one project's documents, or the audit trail | As above | AAL2: multi-factor sign-in through PingFederate | Multi-factor through PingFederate (D-AC-23); not yet evidenced | PingFederate, at federation assurance level 2 (D-IA-12), to be set with \<Organisation\> | No production documents held (D-GEN-13); sign-in lifetime set by PingFederate (P-AC-10); all actions audited |
-| Services (API to PostgreSQL) | High: the whole database | Not applicable | A secret held outside source code, changed every 12 months (section 3.5) | Secret in settings files (PA-19) | Not applicable | Database reachable only from the host (B07, C09) |
+| User group | Harm if impersonated | Identity assurance | Authenticator assurance: target | Federation |
+| --- | --- | --- | --- | --- |
+| Global administrators | High: every document, account and setting | \<Organisation\>'s pre-employment checks, with the request confirmed by the system owner (PRO-IA-1) | AAL2: multi-factor sign-in through PingFederate | PingFederate, at federation assurance level 2, to be set with \<Organisation\> |
+| Project access approvers and editors | Moderate: one project's documents | As above, confirmed by the project access approver | AAL2: multi-factor sign-in through PingFederate | PingFederate, at federation assurance level 2, to be set with \<Organisation\> |
+| Readers and auditors | Moderate: reading one project's documents, or the audit trail | As above | AAL2: multi-factor sign-in through PingFederate | PingFederate, at federation assurance level 2, to be set with \<Organisation\> |
+| Services (API to PostgreSQL) | High: the whole database | Not applicable | A secret held outside source code, changed every 12 months (section 3.5) | Not applicable |
 
-**Reasoning:** \<System Name\> will hold HR and finance documents rated Moderate, so a failed sign-in check could expose personal data. CSS points to authenticator assurance level 2 for that harm, which needs two factors and replay resistance. Identity proofing is done once, by \<Organisation\>'s HR, and is not repeated by \<System Name\>. Federation is used: PingFederate proves who the person is and vouches for them to \<System Name\> (D-AC-23).
+**Reasoning:** \<System Name\> will hold HR and finance documents rated Moderate, so a failed sign-in check could expose personal data. CSS points to authenticator assurance level 2 for that harm, which needs two factors and replay resistance. Identity proofing is done once, by \<Organisation\>'s HR, and is not repeated by \<System Name\>. Federation is used: PingFederate proves who the person is and vouches for them to \<System Name\>.
 
 ### 3.5 Authenticators
 
@@ -126,23 +124,23 @@ Controls met here: IA-5, IA-5(1), IA-5(2), IA-5(6), IA-7.
 
 **Table 5: Authenticator inventory**
 
-| Authenticator | Used by | Held or stored | Changed | If lost or exposed | Today |
-| --- | --- | --- | --- | --- | --- |
-| Active Directory password | Every user | Active Directory; the person. \<System Name\> never sees it | Under \<Organisation\>'s corporate standard, and on suspected compromise (PRO-IA-3) | \<Organisation\>'s service desk resets it; \<Organisation\> ends the person's PingFederate sign-in | \<Organisation\>'s standard is to be supplied |
-| Temporary password | Not used by \<System Name\> | Not applicable | Not applicable | Not applicable | The tested build used them (A01) |
-| Second factor | Every user | Held by the person; registered with \<Organisation\> for PingFederate | On loss or replacement (PRO-IA-6) | \<Organisation\>'s service desk resets it after checking who the person is | Provided by PingFederate, as the system owner states (D-AC-23); not yet evidenced |
-| Authentication cookie | UI application, Admin application and API callers | Issued by \<System Name\> after PingFederate has signed the user in, held in the person's browser and protected by the application's key ring. \<System Name\> keeps no record of it | Lifetime no longer than PingFederate's sign-in lifetime (P-AC-10) | Change the key ring, so that every cookie stops working and users sign in again through PingFederate | Replays from another client (PA-46) |
-| Token signing key | API | \[Secret store to be chosen\]; protected copy at the second site (\<Contingency Planning Management\>, section 3.8) | Every 12 months, and when an administrator leaves (PRO-IA-4) | Change it; users sign in again | In settings files (PA-19) |
-| Database account password | API only: one service account, which is not a superuser and cannot change the schema (D-AC-18) | \[Secret store to be chosen\]; protected copy at the second site (\<Contingency Planning Management\>, section 3.8) | Every 12 months, and when an administrator leaves (PRO-IA-4) | Change it in PostgreSQL and API | In settings files, and the account is a superuser in the tested build (PA-19, PA-10) |
-| Windows service accounts | UI application, Admin application and API, one each | Group managed service accounts in Active Directory. Windows sets and changes the password, and no person knows it (D-AC-19) | By Windows, automatically | \<Organisation\> resets the account | Not built. Whether \<Organisation\> allows group managed service accounts is still to be checked |
-| First administrator account | Not used | Not applicable: \<System Name\> holds no accounts (D-AC-23) | Not applicable | Not applicable | The tested build had one (D-AC-13) |
-| PingFederate signing certificate | UI application, Admin application, API, to check each sign-in response | Published by \<Organisation\>'s PingFederate; \<System Name\> holds only the public part | When \<Organisation\> renews it | \<Organisation\> replaces it, and \<System Name\> picks up the new one | To be set up and evidenced |
-| ASP.NET Data Protection keys | UI application, Admin application, API | A volume on each application | Rolled by the framework | Users sign in again; no data is lost | As designed |
-| VM administrator accounts | Windows server and database administrators | \<Organisation\>'s directory | \[\<Organisation\>'s rule\] | \<Organisation\>'s process | Not assessable (EV-IA-01) |
-| PostgreSQL superuser | Database administrator | \[To be set on the database VM\] | Every 12 months, and when an administrator leaves | Change it | Not assessable |
-| TLS certificates | UI application, Admin application, API | \[Issuer and store to be agreed with \<Organisation\>\] | Before expiry | Revoke and reissue | Not in use (PA-18) |
+| Authenticator | Used by | Held or stored | Changed | If lost or exposed |
+| --- | --- | --- | --- | --- |
+| Active Directory password | Every user | Active Directory; the person. \<System Name\> never sees it | Under \<Organisation\>'s corporate standard, and on suspected compromise (PRO-IA-3) | \<Organisation\>'s service desk resets it; \<Organisation\> ends the person's PingFederate sign-in |
+| Temporary password | Not used by \<System Name\> | Not applicable | Not applicable | Not applicable |
+| Second factor | Every user | Held by the person; registered with \<Organisation\> for PingFederate | On loss or replacement (PRO-IA-6) | \<Organisation\>'s service desk resets it after checking who the person is |
+| Authentication cookie | UI application, Admin application and API callers | Issued by \<System Name\> after PingFederate has signed the user in, held in the person's browser and protected by the application's key ring. \<System Name\> keeps no record of it | Lifetime no longer than PingFederate's sign-in lifetime (P-AC-10) | Change the key ring, so that every cookie stops working and users sign in again through PingFederate |
+| Token signing key | API | \[Secret store to be chosen\]; protected copy at the second site (\<Contingency Planning Management\>, section 3.8) | Every 12 months, and when an administrator leaves (PRO-IA-4) | Change it; users sign in again |
+| Database account password | API only: one service account, which is not a superuser and cannot change the schema | \[Secret store to be chosen\]; protected copy at the second site (\<Contingency Planning Management\>, section 3.8) | Every 12 months, and when an administrator leaves (PRO-IA-4) | Change it in PostgreSQL and API |
+| Windows service accounts | UI application, Admin application and API, one each | Group managed service accounts in Active Directory. Windows sets and changes the password, and no person knows it | By Windows, automatically | \<Organisation\> resets the account |
+| First administrator account | Not used | Not applicable: \<System Name\> holds no accounts | Not applicable | Not applicable |
+| PingFederate signing certificate | UI application, Admin application, API, to check each sign-in response | Published by \<Organisation\>'s PingFederate; \<System Name\> holds only the public part | When \<Organisation\> renews it | \<Organisation\> replaces it, and \<System Name\> picks up the new one |
+| ASP.NET Data Protection keys | UI application, Admin application, API | A volume on each application | Rolled by the framework | Users sign in again; no data is lost |
+| VM administrator accounts | Windows server and database administrators | \<Organisation\>'s directory | \[\<Organisation\>'s rule\] | \<Organisation\>'s process |
+| PostgreSQL superuser | Database administrator | \[To be set on the database VM\] | Every 12 months, and when an administrator leaves | Change it |
+| TLS certificates | UI application, Admin application, API | \[Issuer and store to be agreed with \<Organisation\>\] | Before expiry | Revoke and reissue |
 
-Only the API connects to PostgreSQL, with one service account that is not a superuser (D-AC-18). The system owner and security officer review the inventory every 12 months (PRO-IA-7).
+Only the API connects to PostgreSQL, with one service account that is not a superuser. The system owner and security officer review the inventory every 12 months (PRO-IA-7).
 
 1. **First issue.** For people, \<Organisation\>'s service desk issues authenticators after HR's pre-employment checks (PRO-IA-2), with first content under \<Organisation\>'s corporate standard. Service secrets and the signing key are set by the named administrators, generated randomly. Service account passwords are set by Windows.
 2. **Lost, compromised or revoked.** \<Organisation\>'s service desk issues, resets and revokes, and \<Organisation\> ends the person's PingFederate sign-in at once, or disables their AD account (PRO-IA-2, PRO-IA-3, PRO-IA-6). After account recovery, \<Organisation\>'s service desk process requires a new password at once.
@@ -161,23 +159,23 @@ Controls met here: IA-2(1), IA-2(2), IA-2(8), IA-5, IA-5(1), IA-6, IA-11.
 
 **Table 6: Authentication settings at authenticator assurance level 2**
 
-| Requirement | CSS | \<System Name\> | Evidence | State |
-| --- | --- | --- | --- | --- |
-| Password length, password only | At least 15 characters | \<Organisation\>'s corporate standard, to be supplied | None yet | To be compared when supplied |
-| Password length, with multi-factor | At least 8 characters | \<Organisation\>'s corporate standard, to be supplied | None yet | To be compared when supplied |
-| Longest password allowed | At least 64 should be allowed | \<Organisation\>'s corporate standard | None yet | To be compared when supplied |
-| Spaces and all characters | Should be allowed | \<Organisation\>'s corporate standard | None yet | To be compared when supplied |
-| Composition rules | Must not be imposed | \<Organisation\>'s corporate standard | None yet | To be compared when supplied |
-| Scheduled changes | Must not be required | \<Organisation\>'s corporate standard | None yet | To be compared when supplied |
-| Blocklist | Must be checked | \<Organisation\>'s corporate standard | None yet | To be compared when supplied |
-| Storage | Salted, with a costly function | Active Directory. \<System Name\> stores no passwords | None yet | Provided by \<Organisation\>; to be evidenced |
-| Rate limiting | At most 100 failures | Lockout by PingFederate and Active Directory, under the corporate standard (P-AC-14) | None yet | To be compared when supplied |
-| Inactivity timeout | No more than 1 hour | None in \<System Name\>. PingFederate's sign-in lifetime (P-AC-10) limits the sign-in, and the device screen lock hides an unattended screen (P-AC-15) | T44 | To be compared when \<Organisation\> supplies the values. The tested build signed users out after 30 minutes idle, which the design does not have |
-| Overall sign-in limit | No more than 24 hours | PingFederate's sign-in lifetime (P-AC-10). \<System Name\> has no limit of its own | I08, I11, T45 | To be compared when \<Organisation\> supplies the value. The tested build ended sign-ins after 8 hours, which the design does not have |
-| Second factor | Required | Provided by PingFederate (D-AC-23) | None yet | To be evidenced by \<Organisation\> |
-| Replay resistance | Required | To be assessed with PingFederate sign-in and TLS | A13, A14 | Gap in the tested build (PA-46, PA-18) |
-| Sign-in ends on password change | Expected | Not applicable: \<System Name\> holds no passwords and no sessions. \<Organisation\> ends the person's PingFederate sign-in on notice (PRO-IA-3) | T38 | Met by other means |
-| Feedback | No hint whether the user exists | Given by PingFederate, not \<System Name\> | None yet | To be evidenced by \<Organisation\> |
+| Requirement | CSS | \<System Name\> |
+| --- | --- | --- |
+| Password length, password only | At least 15 characters | \<Organisation\>'s corporate standard, to be supplied |
+| Password length, with multi-factor | At least 8 characters | \<Organisation\>'s corporate standard, to be supplied |
+| Longest password allowed | At least 64 should be allowed | \<Organisation\>'s corporate standard |
+| Spaces and all characters | Should be allowed | \<Organisation\>'s corporate standard |
+| Composition rules | Must not be imposed | \<Organisation\>'s corporate standard |
+| Scheduled changes | Must not be required | \<Organisation\>'s corporate standard |
+| Blocklist | Must be checked | \<Organisation\>'s corporate standard |
+| Storage | Salted, with a costly function | Active Directory. \<System Name\> stores no passwords |
+| Rate limiting | At most 100 failures | Lockout by PingFederate and Active Directory, under the corporate standard (P-AC-14) |
+| Inactivity timeout | No more than 1 hour | None in \<System Name\>. PingFederate's sign-in lifetime (P-AC-10) limits the sign-in, and the device screen lock hides an unattended screen (P-AC-15) |
+| Overall sign-in limit | No more than 24 hours | PingFederate's sign-in lifetime (P-AC-10). \<System Name\> has no limit of its own |
+| Second factor | Required | Provided by PingFederate |
+| Replay resistance | Required | Sign-in responses from PingFederate are signed, short-lived, issued for \<System Name\> only and used once, over TLS (section 3.3) |
+| Sign-in ends on password change | Expected | Not applicable: \<System Name\> holds no passwords and no sessions. \<Organisation\> ends the person's PingFederate sign-in on notice (PRO-IA-3) |
+| Feedback | No hint whether the user exists | Given by PingFederate, not \<System Name\> |
 
 ### 3.7 Sign-in lifetime and signing in again
 
@@ -195,7 +193,7 @@ Controls met here: IA-2, IA-11.
 
 Controls met here: IA-12, IA-12(2), IA-12(3), IA-12(5).
 
-\<Organisation\>'s HR proves who each person is, once, in its pre-employment checks, before the person has an Active Directory account. As stated by \<Organisation\>, that is photo identification and a right-to-work check for staff, and the same through the agency for contractors, with a notice of proofing sent to the person. HR sees the evidence, and validates and verifies it, in those checks, and each identity resolves to one person, with one Active Directory account. \<System Name\> does not repeat it. Before adding anyone to a group, the group's owner confirms the request came from that person and their line manager (PRO-IA-1).
+\<Organisation\>'s HR proves who each person is, once, in its pre-employment checks, before the person has an Active Directory account. That is photo identification and a right-to-work check for staff, and the same through the agency for contractors, with a notice of proofing sent to the person. HR sees the evidence, and validates and verifies it, in those checks, and each identity resolves to one person, with one Active Directory account. \<System Name\> does not repeat it. Before adding anyone to a group, the group's owner confirms the request came from that person and their line manager (PRO-IA-1).
 
 ### 3.9 What \<Organisation\> provides
 
@@ -203,15 +201,13 @@ Controls met here: IA-2, IA-2(1), IA-2(2), IA-2(8), IA-3, IA-4, IA-4(4), IA-5, I
 
 **Table 7: Asked of \<Organisation\>**
 
-| Provided | Controls | What \<System Name\> relies on | As stated by \<Organisation\> | Evidence asked |
-| --- | --- | --- | --- | --- |
-| PingFederate and its multi-factor authentication | IA-2, IA-2(1), IA-2(2), IA-2(8), IA-6 | Every user is authenticated with two factors; the sign-in response is signed and names the person, and carries no groups; the sign-in page hides what is typed | Not yet stated by \<Organisation\> (D-AC-23) | EV-IA-04 |
-| Active Directory accounts and passwords | IA-4, IA-4(4), IA-5, IA-5(1) | One named account for each person, never reused, showing staff or contractor; passwords under the corporate standard | Not yet asked | EV-IA-04, EV-AC-01 |
-| Device identification | IA-3 | Only managed devices join the network | Network access control with device certificates, and disk encryption on managed devices | EV-IA-01 |
-| Identity proofing | IA-12, IA-12(2), IA-12(3), IA-12(5) | Each person's identity is checked before they have an account | Photo ID and right-to-work checks for staff, and the same through the agency for contractors | EV-IA-02 |
-| Cryptographic modules on the servers | IA-7 | The modules meet the applicable standards | Standard Windows modules, not in CSS-approved cryptographic mode | EV-IA-03 |
-
-**Today:** no request has been sent, and none of this is evidenced.
+| Provided | Controls | What \<System Name\> relies on | Evidence asked |
+| --- | --- | --- | --- |
+| PingFederate and its multi-factor authentication | IA-2, IA-2(1), IA-2(2), IA-2(8), IA-6 | Every user is authenticated with two factors; the sign-in response is signed and names the person, and carries no groups; the sign-in page hides what is typed | EV-IA-04 |
+| Active Directory accounts and passwords | IA-4, IA-4(4), IA-5, IA-5(1) | One named account for each person, never reused, showing staff or contractor; passwords under the corporate standard | EV-IA-04, EV-AC-01 |
+| Device identification | IA-3 | Only managed devices join the network | EV-IA-01 |
+| Identity proofing | IA-12, IA-12(2), IA-12(3), IA-12(5) | Each person's identity is checked before they have an account | EV-IA-02 |
+| Cryptographic modules on the servers | IA-7 | The modules meet the applicable standards | EV-IA-03 |
 
 ### 3.10 Policy and procedures
 
@@ -233,9 +229,9 @@ CSS does not select these at Moderate, so they are not assessed. Some bear on th
 | --- | --- | --- |
 | IA-2(5) Individual Authentication with Group Authentication | A person signs in as themselves before using a shared account | Not required. There are no shared accounts |
 | IA-2(6) Access to Accounts, Separate Device | The second factor is on a device separate from the one signing in | Not required. Set by \<Organisation\>'s PingFederate, and asked with EV-IA-04 |
-| IA-5(7) No Embedded Unencrypted Static Authenticators | No passwords or keys left in code, scripts or settings | Not required. It is what PA-19 puts right: the signing key and database password are in settings files today |
+| IA-5(7) No Embedded Unencrypted Static Authenticators | No passwords or keys left in code, scripts or settings | Not required. Done in design: the signing key and database password are held in a protected store, outside the source repositories and settings files (section 3.5) |
 | IA-5(13) Expiration of Cached Authenticators | Cached sign-in details expire | Not required. \<System Name\> caches no authenticators: it holds the sign-in only in its authentication cookie, for no longer than PingFederate's sign-in lifetime (P-AC-10) |
 | IA-9 Service Identification and Authentication | Services prove who they are to each other | In no baseline. Done in design: the API to the database, and the applications' check of PingFederate's signed response (section 3.2) |
 | IA-10 Adaptive Authentication | Extra checks when a sign-in looks unusual | In no baseline. A matter for \<Organisation\>'s PingFederate |
 | IA-12(4) In-person Validation and Verification | Identity evidence checked in person | Selected only at High. \<Organisation\>'s HR is asked how it checks (EV-IA-02) |
-| IA-13 Identity Providers and Authorization Servers | Controls on the service that vouches for users, and on checking its tokens | In no baseline. It bears directly on \<System Name\>, which relies on PingFederate. Section 3.3 sets what \<System Name\> checks in a sign-in response, and PA-117 tracks agreeing it |
+| IA-13 Identity Providers and Authorization Servers | Controls on the service that vouches for users, and on checking its tokens | In no baseline. It bears directly on \<System Name\>, which relies on PingFederate. Section 3.3 sets what \<System Name\> checks in a sign-in response |

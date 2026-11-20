@@ -29,7 +29,7 @@ This guide tells you how to use \<System Name\>'s security and privacy features,
 2. Copy, export or print only the minimum (A24), and never share it with anyone who doesn't need it (A25).
 3. If personal data is wrong or in the wrong project, tell the project access approver (A26).
 4. Pass any request from a person about their data, or any complaint about how it's handled, to the legal adviser the same working day (A27).
-5. \<Organisation\>'s employee privacy notice explains how your own data is used; \[link to be added at sign-in (PA-90)\].
+5. \<Organisation\>'s employee privacy notice explains how your own data is used; \[link to the employee privacy notice\].
 
 ## 5 Your responsibilities
 

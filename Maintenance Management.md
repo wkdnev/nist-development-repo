@@ -10,8 +10,6 @@ Other documents hold the rest. Who provides and is responsible for each control,
 
 Values that CSS asks the organisation to define are set at corporate level by \<Organisation\>. Any settings in section 3 should match those corporate values. Where one does not, it is changed in this document.
 
-\<System Name\> is not yet built on its servers, and no maintenance has taken place on them. Where section 3 notes what is in place "now", it means the tested v1.0 build, in the test environment. Those notes show where that build differs from the design.
-
 ## 2 Summary
 
 The implementation status of each control, how it is met, who is responsible, its assessment result and the risk and plan entries for its gaps are recorded in \<System Security Plan\>, section 7.9 (Table 18).
@@ -41,10 +39,10 @@ Controls met here: MA-2, MA-5.
 | --- | --- | --- | --- |
 | Hardware and hypervisor | \<Organisation\> | \<Organisation\>'s own process (EV-MA-01) | \<Organisation\>'s report |
 | Windows Server on both servers | \[Name\], Windows server administrator | Change record, route R1 | TPL-12 |
-| PostgreSQL | \[Name\], database administrator | Change record, route R2 | TPL-12 |
+| SQL Server 2022 | \[Name\], database administrator | Change record, route R2 | TPL-12 |
 | \<System Name\> set-up and data repair | \[Name\], global administrator | Change record, route R3, PRO-MA-7 | TPL-12 |
 | Applications | Developers | Change record and release test, route R4 | TPL-6 |
-| The services \<System Name\> depends on: PingFederate, Active Directory, the network and firewall, the time service and the backup store | \<Organisation\> | \<Organisation\>'s own process. It is asked to tell the system owner before work that affects \<System Name\> (EV-MA-01, D-MA-10) | \<Organisation\>'s notice |
+| The services \<System Name\> depends on: PingFederate, Active Directory, the network and firewall, the time service and the backup store | \<Organisation\> | \<Organisation\>'s own process. It is asked to tell the system owner before work that affects \<System Name\> (EV-MA-01) | \<Organisation\>'s notice |
 
 ### 3.3 How a maintenance job is controlled
 
@@ -67,7 +65,7 @@ Controls met here: MA-2, MA-5.
 
 **The check after maintenance** confirms that: the services answer; anonymous access is refused; sign-in works and is audited; the audit records are intact; the documents are intact; Defender is running; backups still run; the time is right; and the settings are unchanged. The method and the expected result of each are in \<Procedures\>, PRO-MA-1.
 
-**The maintenance record** holds: the date and time; the component; what was done; who did it, their organisation and contact; any escort; whether on site or remote, with the route and session reference; the tools used; parts removed or replaced, with any case or return number; data taken away; the inspection of the tools and the scan of any media; and the check afterwards with its reviewer. Form TPL-12 in \<Record Templates\> has a field for each. Each change to the database schema is also recorded, with its version, date and release. Maintenance records are kept for 3 years (D-MP-11). That matches the training records, and covers a full authorisation cycle.
+**The maintenance record** holds: the date and time; the component; what was done; who did it, their organisation and contact; any escort; whether on site or remote, with the route and session reference; the tools used; parts removed or replaced, with any case or return number; data taken away; the inspection of the tools and the scan of any media; and the check afterwards with its reviewer. Form TPL-12 in \<Record Templates\> has a field for each. Each change to the database schema is also recorded, with its version, date and release. Maintenance records are kept for 3 years. That matches the training records, and covers a full authorisation cycle.
 
 **Routine work** follows the preventive schedule in \<Procedures\>, PRO-MA-6: database upkeep, disk space, updates, certificates, old logs and support dates, each with its owner and how often.
 
@@ -79,13 +77,13 @@ MA-4 requires every route used for remote maintenance to be documented in the se
 
 **Table 3: Remote maintenance routes**
 
-| Route | Used by | Tool | Network path | Sign-in | Logged in | How it ends | State now |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| R1 Windows administration | Windows server administrator; \<Organisation\>'s engineers | \[Remote desktop or PowerShell remoting, to be confirmed\] | \<Organisation\>'s managed route to the servers' management interface | VPN with multi-factor sign-in, then a named Windows account | Windows Security log and \[\<Organisation\>'s route log\] | Sign out and disconnect; temporary accounts disabled | Not evidenced (EV-MA-02) |
-| R2 Database administration | Database administrator | psql, pg\_dump and pg\_restore | Route R1 to the database server, then PostgreSQL locally | As R1, then a named PostgreSQL account, not the application's | PostgreSQL log (A30) and route R1's logs | Close the session and disconnect | Planned |
-| R3 Admin portal | Global administrator, administrator | Browser | Managed route only, over HTTPS (PA-18) | Sign-in through PingFederate, with multi-factor authentication (D-AC-23); the tested build used a password | \<System Name\> audit log; the built-in maintenance pages are not audited (PA-31) | Close the browser and lock the device. \<System Name\> has no sign-out; the sign-in ends when PingFederate's sign-in lifetime ends (P-AC-10). The tested build's sign-out ended an admin session (M12) | Gap: published on every interface (M04, PA-83) |
-| R4 Application releases | Developers | Release package | No direct route; the Windows server administrator installs the release over R1 | Not applicable | Change record (TPL-6) | Not applicable | Planned (PA-53) |
-| R5 Hardware and hypervisor | \<Organisation\> | \<Organisation\>'s tools | \<Organisation\>'s internal management network | \<Organisation\>'s controls | \<Organisation\>'s records | \<Organisation\>'s process | Inherited; not evidenced (EV-MA-01) |
+| Route | Used by | Tool | Network path | Sign-in | Logged in | How it ends |
+| --- | --- | --- | --- | --- | --- | --- |
+| R1 Windows administration | Windows server administrator; \<Organisation\>'s engineers | \[Remote desktop or PowerShell remoting\] | \<Organisation\>'s managed route to the servers' management interface (EV-MA-02) | VPN with multi-factor sign-in, then a named Windows account | Windows Security log and \[\<Organisation\>'s route log\] | Sign out and disconnect; temporary accounts disabled |
+| R2 Database administration | Database administrator | sqlcmd and SQL Server Management Studio | Route R1 to the database server, then SQL Server locally | As R1, then the administrator's own Windows account with a named SQL Server login, not the application's | SQL Server audit and error logs, and route R1's logs | Close the session and disconnect |
+| R3 Admin portal | Global administrator, administrator | Browser | Managed route only, over HTTPS | Sign-in through PingFederate, with multi-factor authentication | \<System Name\> audit log | Close the browser and lock the device. \<System Name\> has no sign-out; the sign-in ends when PingFederate's sign-in lifetime ends (P-AC-10) |
+| R4 Application releases | Developers | Release package | No direct route; the Windows server administrator installs the release over R1 | Not applicable | Change record (TPL-6) | Not applicable |
+| R5 Hardware and hypervisor | \<Organisation\> | \<Organisation\>'s tools | \<Organisation\>'s internal management network (EV-MA-01) | \<Organisation\>'s controls | \<Organisation\>'s records | \<Organisation\>'s process |
 
 The system owner approves remote work in the change record, which names the route. An administrator watches a supplier's session. For each session the logs must show the start and end time, the account, the source address, the route, and the actions where the tool records them, and the session reference goes on TPL-12. The security officer reviews the logs weekly.
 
@@ -93,32 +91,30 @@ The system owner approves remote work in the change record, which names the rout
 
 Controls met here: MA-2, MA-3, MA-3(1), MA-3(2), MA-4.
 
-This list is provisional until the servers are built (PA-67). The Windows server administrator keeps it and reviews it with the system owner every 12 months, and the system owner approves changes. When the servers are built, the version, publisher and file hash of each tool are added. Before use, each tool's version, publisher and file hash are compared with the list (PRO-MA-3), and the result is recorded on TPL-12.
+The Windows server administrator keeps this list and reviews it with the system owner every 12 months, and the system owner approves changes. The list records the version, publisher and file hash of each tool. Before use, each tool's version, publisher and file hash are compared with the list (PRO-MA-3), and the result is recorded on TPL-12.
 
 Microsoft Defender scans any media, and any file copied onto a server for maintenance, before it is used. The servers are virtual, so removable media are used rarely. The scan is recorded on TPL-12.
 
 **Table 4: Approved maintenance tools**
 
-| Tool | Use | Where | Who | State now |
-| --- | --- | --- | --- | --- |
-| \[Remote desktop or PowerShell remoting\] | Administer the servers | Over route R1 | Windows server administrator | Provisional |
-| Windows built-in tools: Event Viewer, Services, Windows Update, Defender | Diagnose, update and scan | Both servers | Windows server administrator | Provisional |
-| Windows service control | Start, stop and inspect the three application services | Application server | Windows server administrator | Provisional |
-| Docker command line | Start, stop and inspect containers | Test environment only | Developers | For the test environment only |
-| psql, pg\_dump and pg\_restore, PostgreSQL 18 | Maintain, back up and restore the database | Database server | Database administrator | Provisional |
-| \[Database administration tool, if any\] | \[Use\] | \[Where\] | Database administrator | Placeholder |
-| \<System Name\> built-in pages: Database Update, Fresh Start, Legacy Cleanup, Fix Duplicate Users and Seed Project Roles | Schema and data repair | Admin portal | Global administrator, under PRO-MA-7 only | Restricted until removed (PA-31) |
-| The test scripts | Checks on a test stack | Test environment only | Developers | For the test environment only |
+| Tool | Use | Where | Who |
+| --- | --- | --- | --- |
+| \[Remote desktop or PowerShell remoting\] | Administer the servers | Over route R1 | Windows server administrator |
+| Windows built-in tools: Event Viewer, Services, Windows Update, Defender | Diagnose, update and scan | Both servers | Windows server administrator |
+| Windows service control | Start, stop and inspect the three application services | Application server | Windows server administrator |
+| sqlcmd and SQL Server Management Studio, SQL Server 2022 | Maintain, back up and restore the database | Database server | Database administrator |
+| \[Database administration tool, if any\] | \[Use\] | \[Where\] | Database administrator |
+| \<System Name\> built-in pages: Database Update, Fresh Start, Legacy Cleanup, Fix Duplicate Users and Seed Project Roles | Schema and data repair | Admin portal | Global administrator, under PRO-MA-7 only |
 
-Not approved on the servers: any shell or package manager carried inside a release, as the tested build's container images carry (PA-85), and any tool not in this table.
+Not approved on the servers: any shell or package manager carried inside a release, and any tool not in this table.
 
-**The built-in maintenance pages.** The tested build has five pages in the admin portal that change the database schema or repair data. They can delete data, and they write no audit record. The design is that they are removed from production builds and replaced by controlled set-up steps (PA-31). Until then, a page is used only under an approved change record that names it, by a global administrator with the security officer or the system owner present, after a checked backup. Each use is written to the audit log (PA-31) and recorded on TPL-12.
+**The built-in maintenance pages.** Five pages in the admin portal change the database schema or repair data, and can delete data. A page is used only under an approved change record that names it, by a global administrator with the security officer or the system owner present, after a checked backup. Each use is written to the audit log and recorded on TPL-12.
 
 ### 3.6 Approved maintenance people
 
 Controls met here: MA-5.
 
-This list is provisional until the servers are built (PA-67). The system owner approves it. The Windows server administrator checks it when someone leaves, and every 12 months (PRO-MA-5).
+The system owner approves this list. The Windows server administrator checks it when someone leaves, and every 12 months (PRO-MA-5).
 
 Before giving access, the administrator checks that the person is on the list, is screened, has signed Part B of the rules of behaviour, and has a named account. The Windows server administrator or the database administrator escorts and supervises anyone not on the list. A supplier has a temporary account, limited to the job and disabled afterwards, and no access to \<System Name\>'s data.
 
@@ -127,7 +123,7 @@ Before giving access, the administrator checks that the person is on the list, i
 | Person or organisation | Role | Maintains | Screened | Part B signed | Account | Escort needed |
 | --- | --- | --- | --- | --- | --- | --- |
 | \[Name\] | Windows server administrator | Both servers | \[Date\] | \[Date\] | Named Windows administrator account | No |
-| \[Name\] | Database administrator | PostgreSQL | \[Date\] | \[Date\] | Named PostgreSQL account | No |
+| \[Name\] | Database administrator | SQL Server 2022 | \[Date\] | \[Date\] | Named SQL Server login | No |
 | \[Name\] | Global administrator | Built-in maintenance pages, under PRO-MA-7 | \[Date\] | \[Date\] | Their Active Directory account, in the global administrators group | No, but a second person is present |
 | \[Developers\] | Developers | Applications, through releases | \[Date\] | \[Date\] | No access to the servers | Not applicable |
 | \<Organisation\>'s engineers, \[names\] | Hardware and hypervisor | The hosts | \<Organisation\>'s screening (EV-MA-01) | Not applicable | \<Organisation\>'s own | Yes, on the \<System Name\> servers |
@@ -149,17 +145,16 @@ Controls met here: MA-2, MA-3(3).
 
 Controls met here: MA-6.
 
-These are the components that \<System Name\>'s security depends on (MA-06\_ODP\[01\]). Support dates are checked each month against the vendors' published lifecycles. \<Organisation\> provides support and parts for the hardware and the hypervisor within 24 hours of a failure, so that a restore fits the 72-hour recovery time objective. Software is kept on supported versions, and a replacement is planned at least 6 months before support ends. On the servers each application runs as a Windows service (D-PL-10); the tested build ran in containers, so the image base applies to the test environment only, and the container engine is not a component of the servers (D-MA-10).
+These are the components that \<System Name\>'s security depends on (MA-06\_ODP\[01\]). Support dates are checked each month against the vendors' published lifecycles. \<Organisation\> provides support and parts for the hardware and the hypervisor within 24 hours of a failure, so that a restore fits the 72-hour recovery time objective. Software is kept on supported versions, and a replacement is planned at least 6 months before support ends. On the servers each application runs as a Windows service.
 
 **Table 7: Security-critical components**
 
-| Component | Version seen | Support ends | Support or parts within | Who |
+| Component | Version | Support ends | Support or parts within | Who |
 | --- | --- | --- | --- | --- |
 | Hardware and hypervisor hosts | \[\<Organisation\>\] | \[Per \<Organisation\>'s service agreement\] | 24 hours | \<Organisation\> |
 | Windows Server 2025, both servers | 2025 | Mainstream to November 2029; extended to November 2034 | Vendor updates | Windows server administrator |
-| PostgreSQL | 18.6 (M11) | November 2030 | Community updates | Database administrator |
-| .NET and ASP.NET Core runtime | 10.0.14 (M11) | November 2028, long-term support | Vendor updates | Developers |
-| Application image base, Ubuntu, in the test environment only | 24.04.5 LTS (M11) | Standard support to May 2029 | Vendor updates | Developers |
+| Microsoft SQL Server, database server | 2022 | Mainstream to January 2028; extended to January 2033 | Vendor updates | Database administrator |
+| .NET and ASP.NET Core runtime | 10.0 | November 2028, long-term support | Vendor updates | Developers |
 | Microsoft Defender | \[Version\] | While Windows Server is supported | Vendor updates | Windows server administrator |
 
 ### 3.9 What \<Organisation\> provides
@@ -168,15 +163,13 @@ Controls met here: MA-2, MA-3(3), MA-4, MA-6.
 
 **Table 8: Asked of \<Organisation\>**
 
-| Provided | Controls | What \<System Name\> relies on | Evidence asked | State |
-| --- | --- | --- | --- | --- |
-| Maintenance of the hardware and the hypervisor | MA-2 | Approved, recorded maintenance by screened engineers, with notice to the system owner of work that affects \<System Name\> | EV-MA-01 | Not sent |
-| Sanitising before equipment leaves | MA-2, MA-3(3) | Disks and equipment are sanitised to CSS, with a certificate | EV-MA-01 | Not sent |
-| Support and parts | MA-6 | Within 24 hours of a failure, for the hardware and the hypervisor | EV-MA-01 | Not sent |
-| The managed route administrators use | MA-4 | Multi-factor sign-in; a log of each session; sessions and connections that end when the work does; a firewall rule that limits the admin portal to the route | EV-MA-02 | Not sent |
-| Maintenance of the services \<System Name\> depends on | MA-2 | Notice before work on PingFederate, Active Directory, the network, the time service or the backup store that affects \<System Name\> | EV-MA-01 | Not sent |
-
-**Today:** no request has been sent, and none of this is evidenced (PA-120).
+| Provided | Controls | What \<System Name\> relies on | Evidence asked |
+| --- | --- | --- | --- |
+| Maintenance of the hardware and the hypervisor | MA-2 | Approved, recorded maintenance by screened engineers, with notice to the system owner of work that affects \<System Name\> | EV-MA-01 |
+| Sanitising before equipment leaves | MA-2, MA-3(3) | Disks and equipment are sanitised to CSS, with a certificate | EV-MA-01 |
+| Support and parts | MA-6 | Within 24 hours of a failure, for the hardware and the hypervisor | EV-MA-01 |
+| The managed route administrators use | MA-4 | Multi-factor sign-in; a log of each session; sessions and connections that end when the work does; a firewall rule that limits the admin portal to the route | EV-MA-02 |
+| Maintenance of the services \<System Name\> depends on | MA-2 | Notice before work on PingFederate, Active Directory, the network, the time service or the backup store that affects \<System Name\> | EV-MA-01 |
 
 ### 3.10 Policy and procedures
 
@@ -196,9 +189,9 @@ CSS does not select these at Moderate, so they are not assessed. Some of the des
 
 | Control | What it adds | \<System Name\>'s position |
 | --- | --- | --- |
-| MA-2(2) Automated Maintenance Activities | Maintenance scheduled, done and recorded by automated means | Not required. The change records move to ServiceNow when it is set up (PA-53); the maintenance record stays a form |
+| MA-2(2) Automated Maintenance Activities | Maintenance scheduled, done and recorded by automated means | Not required. The maintenance record is a form |
 | MA-3(4), MA-3(5) Restricted Tool Use; Execution with Privilege | Tools limited to authorised people, and their privileged use monitored | Not required. Done in part: each tool in section 3.5 is tied to a role, and the built-in pages are limited to global administrators |
-| MA-3(6) Software Updates and Patches | Maintenance tools kept up to date | Not required. Done in part: the Windows and PostgreSQL tools are updated with the servers |
+| MA-3(6) Software Updates and Patches | Maintenance tools kept up to date | Not required. Done in part: the Windows and SQL Server tools are updated with the servers |
 | MA-4(1) Logging and Review | Remote maintenance sessions logged, and the logs reviewed | Not required. Done in design: section 3.4 says what each session logs, and the security officer reviews the logs weekly |
 | MA-4(3) Comparable Security and Sanitization | Remote maintenance done only from a system as secure as the one maintained | Not required. Administrators use \<Organisation\>'s managed devices and route (EV-MA-02) |
 | MA-4(4) Authentication and Separation of Maintenance Sessions | Maintenance sessions kept apart from other network sessions | Not required. Done in part: the servers are administered through a management interface on \<Organisation\>'s managed route |

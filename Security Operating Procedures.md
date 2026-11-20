@@ -10,7 +10,7 @@ These are the security operating procedures (SyOps) for \<System Name\>. They ha
 
 Sections 5 to 9 cover exceptions, contacts, definitions, the link from each rule to its CSS control, and acknowledgement.
 
-\<System Name\> is not yet in production, so nothing in Part C is in practice yet. Frequencies and time limits are those set in the family documents, and the values are set at corporate level by \<Organisation\>. Role holders are named in \<Roles and Responsibilities\>. Items in square brackets are placeholders for the system owner to complete.
+Frequencies and time limits are those set in the family documents, and the values are set at corporate level by \<Organisation\>. Role holders are named in \<Roles and Responsibilities\>. Items in square brackets are placeholders for the system owner to complete.
 
 **Table 1: Who reads which part**
 
@@ -155,7 +155,7 @@ Sections 5 to 9 cover exceptions, contacts, definitions, the link from each rule
 - someone using \<System Name\> who should not be
 - any breach of these rules
 
-**A51.** Report by phone or email to the security officer: \[business phone and email\]. Use ServiceNow once it is set up. If the security officer cannot be reached, contact the deputy or \<Organisation\>'s security contact (section 6).
+**A51.** Report by phone or email to the security officer: \[business phone and email\]. ServiceNow may also be used. If the security officer cannot be reached, contact the deputy or \<Organisation\>'s security contact (section 6).
 
 **A52.** Do not investigate yourself, delete evidence or warn anyone involved. Leave anything relevant as it is.
 
@@ -225,9 +225,9 @@ Part B applies, in addition to Part A, to global administrators, administrators,
 
 ## 4 Part C: operating procedures
 
-Part C sets out how \<System Name\>'s security is run. Each duty has a reference, C1 to C53, so that it can be traced to its CSS control in section 8. Each names the record that proves it was done. Records use the forms in \<Record Templates\>. Once the ServiceNow workflow is in use, a ServiceNow record holding the same fields may replace a form. Records are kept for 3 years in \[the restricted records location\], unless a longer period applies. Audit records stay in \<System Name\> for 12 months and then in an offline archive for 12 more; application logs are kept for 30 days (\<Audit and Accountability Management\>).
+Part C sets out how \<System Name\>'s security is run. Each duty has a reference, C1 to C53, so that it can be traced to its CSS control in section 8. Each names the record that proves it was done. Records use the forms in \<Record Templates\>. A ServiceNow record holding the same fields may replace a form. Records are kept for 3 years in \[the restricted records location\], unless a longer period applies. Audit records stay in \<System Name\> for 12 months and then in an offline archive for 12 more; application logs are kept for 30 days (\<Audit and Accountability Management\>).
 
-The system does not yet raise alerts, so all monitoring is by hand for now. The detection use cases U1 to U8 in \<System and Information Integrity Management\>, section 3.4, say what will raise an alert, including repeated failed sign-ins, a break in the audit chain and a Defender detection, and \<Procedures\>, PRO-SI-4, says how to respond (PA-59).
+The detection use cases U1 to U8 in \<System and Information Integrity Management\>, section 3.4, say what raises an alert, including repeated failed sign-ins, a break in the audit chain and a Defender detection, and \<Procedures\>, PRO-SI-4, says how to respond.
 
 ### 4.1 Operating calendar
 
@@ -237,7 +237,7 @@ The system does not yet raise alerts, so all monitoring is by hand for now. The 
 | --- | --- | --- | --- | --- | --- |
 | **Daily** |  |  |  |  |  |
 | C1 | Check all services are healthy | Administrator | The API health check and each application's start page | Health check log on TPL-8, one line a day | SI-4, CP-2 |
-| C2 | Back up the database and documents | Database administrator | \<Procedures\>, PRO-CP-1 (PA-64) | Backup job log, checked at C8 | CP-9 |
+| C2 | Back up the database and documents | Database administrator | \<Procedures\>, PRO-CP-1 | Backup job log, checked at C8 | CP-9 |
 | **Weekly** |  |  |  |  |  |
 | C3 | Review failed sign-ins, lockouts and privileged actions | Auditor | Section 4.2 | TPL-8 | AC-2, AC-6(9), AC-7, AU-6 |
 | C4 | Review logs and any alerts | Security officer | \<Procedures\>, PRO-SI-3 and PRO-SI-4 | TPL-8 | SI-4, AU-6 |
@@ -247,16 +247,16 @@ The system does not yet raise alerts, so all monitoring is by hand for now. The 
 | C8 | Check every backup job in the week succeeded | Database administrator | Backup job logs | TPL-8 | CP-9 |
 | **Monthly** |  |  |  |  |  |
 | C9 | List the members of \<System Name\>'s groups who have not signed in for 90 days, and have the groups' owners remove them | Global administrator; the groups' owners | \<Procedures\>, PRO-AC-8 | TPL-3 | AC-2(3) |
-| C10 | Scan for vulnerabilities and review patches | Windows server administrator, security officer | \<Procedures\>, PRO-RA-3 (PA-62) | TPL-7 | RA-5, SI-2 |
+| C10 | Scan for vulnerabilities and review patches | Windows server administrator, security officer | \<Procedures\>, PRO-RA-3 | TPL-7 | RA-5, SI-2 |
 | C11 | Check packages, lock files, the offline feed's index and support dates, and run Test-SupplyChain.ps1 at each release | Developers | \<Procedures\>, PRO-SR-1 and PRO-SR-3; \<Procedures\>, PRO-SA-5 | TPL-7 | SI-2, SA-22, SR-3 |
 | C12 | Check release packages, document checksums and the audit chain | Windows server administrator, security officer | \<Procedures\>, PRO-SI-6 | TPL-8 | SI-7, SI-7(1), AU-9 |
 | C13 | Report security status to the system owner | Security officer | \<Procedures\>, PRO-CA-5 | TPL-8, monthly measures | CA-7 |
 | C14 | Update the plan of action | System owner | \<Procedures\>, PRO-CA-3 | \<Plan of Action and Milestones\> change record | CA-5 |
 | C45 | Check audit storage, archive records older than 12 months, and check both VMs are within 1 second of UTC | Database administrator, Windows server administrator | \<Procedures\>, PRO-AU-4 | TPL-8 | AU-4, AU-8, AU-11 |
 | C46 | Check who can read the application logs, and delete those older than 30 days | Windows server administrator | \<Procedures\>, PRO-AU-7 | TPL-8 | AU-9, AU-11, PT-3 |
-| C47 | Check the running configuration against the baseline, and report any drift | Windows server and database administrators | \<Procedures\>, PRO-CM-7 (PA-80) | TPL-8 | CM-2, CM-6, CA-7 |
+| C47 | Check the running configuration against the baseline, and report any drift | Windows server and database administrators | \<Procedures\>, PRO-CM-7 | TPL-8 | CM-2, CM-6, CA-7 |
 | C48 | Review every maintenance record against its change record; raise any maintenance without one as an incident | Security officer | \<Procedures\>, PRO-MA-1 | TPL-12 | MA-2, MA-4 |
-| C49 | Check the export folder on the application VM, and delete any export copy older than 24 hours (each working day, until PA-86 is fixed) | Windows server administrator | \<Procedures\>, PRO-MP-5 | TPL-8 | MP-4, MP-6 |
+| C49 | Check the export folder on the application VM, and delete any export copy older than 24 hours (each working day) | Windows server administrator | \<Procedures\>, PRO-MP-5 | TPL-8 | MP-4, MP-6 |
 | C50 | Each week, check CISA's Known Exploited Vulnerabilities catalogue and \<Organisation\>'s alerts against \<System Name\>'s components; fix or mitigate any match within 3 days | Security officer | \<Procedures\>, PRO-RA-4 | TPL-7 | RA-5, SI-2, SI-5 |
 | **Every 3 months** |  |  |  |  |  |
 | C15 | Review privileged access | System owner, auditor | \<Procedures\>, PRO-AC-7 | TPL-3 | AC-2, AC-6(7) |
@@ -266,7 +266,7 @@ The system does not yet raise alerts, so all monitoring is by hand for now. The 
 | C18 | Test that backups can be restored | Database administrator | \<Procedures\>, PRO-CP-2 | TPL-11 | CP-9(1) |
 | **Every 12 months** |  |  |  |  |  |
 | C19 | Review all access | Project access approvers | \<Procedures\>, PRO-AC-7 | TPL-3 | AC-2 |
-| C20 | Rotate secrets and database passwords | Database administrator, Windows server administrator | \<Procedures\>, PRO-IA-4 and PRO-SC-3 (PA-19) | TPL-6 | IA-5, SC-12 |
+| C20 | Rotate secrets and database passwords | Database administrator, Windows server administrator | \<Procedures\>, PRO-IA-4 and PRO-SC-3 | TPL-6 | IA-5, SC-12 |
 | C21 | Exercise the incident response and contingency plans | Security officer, system owner | \<Procedures\>, PRO-IR-3; \<Procedures\>, PRO-CP-4 | TPL-11 | IR-3, CP-4 |
 | C22 | Complete awareness and role training | Everyone; the security officer keeps records | \<Procedures\>, PRO-AT-1 to PRO-AT-5 | TPL-9 | AT-2, AT-3, AT-4 |
 | C23 | Re-sign Parts A and B | Everyone; the system owner keeps the register of signatures | Section 9 | TPL-21; the register of signatures (\<Planning Management\>, section 3.5) | PL-4, PS-6 |
@@ -274,7 +274,7 @@ The system does not yet raise alerts, so all monitoring is by hand for now. The 
 | C25 | Review the boundary and connections | System owner, \<Organisation\>'s security contact | \<Procedures\>, PRO-SC-8; \<Procedures\>, PRO-CA-2 | TPL-3 | SC-7, CA-3, CA-9 |
 | C26 | Review the supply chain, external services and suppliers | System owner, developers | \<Procedures\>, PRO-RA-2; \<Procedures\>, PRO-SA-3; \<Procedures\>, PRO-SR-2 | TPL-16 | RA-3(1), SA-9, SR-6 |
 | C27 | Review development tools and standards | Developers, security officer | \<Procedures\>, PRO-SA-6 | TPL-23 | SA-15 |
-| C28 | Review maintenance tools and people | Windows server administrator, system owner | \<Procedures\>, PRO-MA-3 and PRO-MA-5 (PA-67) | TPL-12 | MA-3, MA-5 |
+| C28 | Review maintenance tools and people | Windows server administrator, system owner | \<Procedures\>, PRO-MA-3 and PRO-MA-5 | TPL-12 | MA-3, MA-5 |
 | C29 | Check \<Organisation\>'s physical security evidence | System owner | \<Procedures\>, PRO-PE-1 | Response logged in \<Evidence Requests\> | PE-2 to PE-16 |
 | C30 | Assess home working controls | Security officer | \<Procedures\>, PRO-PE-4 | TPL-4 | PE-17 |
 | C31 | Review risk designations and access agreements | System owner | \<Procedures\>, PRO-PS-4 | TPL-3 | PS-2, PS-6 |
@@ -288,13 +288,13 @@ The system does not yet raise alerts, so all monitoring is by hand for now. The 
 | C36 | Grant, change or remove access | The groups' owners; \<Organisation\>'s service desk ends PingFederate sign-ins | Section 4.4 | TPL-2, TPL-14 | AC-2, PS-4, PS-5 |
 | C37 | Apply updates within the time limits in Table 4 | Windows server administrator, database administrator, developers | Section 4.3, through approved change | TPL-6, TPL-7 | SI-2, CM-3 |
 | C38 | Make a change, including an emergency change | Change control element | Section 4.5 | TPL-6 | CM-3, CM-4, CM-5 |
-| C39 | Renew certificates before they expire | Windows server administrator | \<Procedures\>, PRO-SC-2 (PA-18) | TPL-6 | SC-8, SC-17 |
+| C39 | Renew certificates before they expire | Windows server administrator | \<Procedures\>, PRO-SC-2 | TPL-6 | SC-8, SC-17 |
 | C40 | Repeat the security tests at each release and after a significant change | Developers | The developer test plan in \<System and Services Acquisition Management\>, section 3.9 (15 scripts, including Test-Protection.ps1 for \<Procedures\>, PRO-SC-1), on a separate test stack; \<Procedures\>, PRO-SA-2 | Results, with a manifest, in the evidence for each family | CA-2, CM-4(2), SA-11 |
 | C41 | Carry out maintenance | Administrators | Sections 4.6 and 4.7 | TPL-12 | MA-2, MA-4 |
 | C42 | Transport, sanitise or dispose of media | \<Organisation\>, administrators | Section 4.8 | TPL-13 | MP-5, MP-6 |
 | C43 | Handle a security incident or personal data breach | Security officer | Section 4.9 | TPL-10 | IR-4, IR-5, IR-6 |
 | C44 | Handle a request or complaint from a person about their data | Legal adviser | \<Procedures\>, PRO-PT-1 and PRO-PT-2 | TPL-15, TPL-22 | AC-3(14), SI-18(4) |
-| C51 | Have every code change reviewed by another developer and merged through the protected default branch, and sign each release tag. Until GitHub enforces this (PA-91), the reviewer records the review on the change | Developers | \<Procedures\>, PRO-SA-1; Test-Development.ps1 at each release | Pull request or change record, TPL-6 | SA-10, CM-3 |
+| C51 | Have every code change reviewed by another developer and merged through the protected default branch, and sign each release tag | Developers | \<Procedures\>, PRO-SA-1; Test-Development.ps1 at each release | Pull request or change record, TPL-6 | SA-10, CM-3 |
 
 ### 4.2 Audit review procedure (C3)
 
@@ -302,10 +302,8 @@ The system does not yet raise alerts, so all monitoring is by hand for now. The 
 2. They look for repeated failed sign-ins, lockouts, refused access, sign-ins at unusual times, account, group and privilege changes, password resets, large exports, configuration changes, reading of the audit log, gaps in the records, and records under unknown names or "System".
 3. They compare account and privilege changes with the approved requests (TPL-2).
 4. They check the Windows and PostgreSQL logs, and \<Organisation\>'s record of PingFederate sign-ins and of changes to \<System Name\>'s AD groups, or get \<Organisation\>'s report on them.
-5. They run the audit chain check (\<Procedures\>, PRO-AU-2) once it is built. If tampering is suspected, they preserve the evidence before anything is changed (PRO-AU-2, step 3), and raise it, and anything else unexplained, as a security incident (section 4.9).
+5. They run the audit chain check (\<Procedures\>, PRO-AU-2). If tampering is suspected, they preserve the evidence before anything is changed (PRO-AU-2, step 3), and raise it, and anything else unexplained, as a security incident (section 4.9).
 6. They record the date, the period covered, the reviewer and the result on TPL-8.
-
-The audit log cannot yet be fully relied on. Many privileged actions are not logged (PA-14), ordinary users can add records (PA-29), the application's database account can change them (PA-36), nothing runs the chain check (PA-37), and the chain has no key and as stored cannot be recomputed (PA-73, PA-74). The application log also repeats usernames, IP addresses and, from the tested build, session IDs (PA-75).
 
 ### 4.3 Vulnerability management (C10, C11, C37, C50)
 
@@ -313,13 +311,13 @@ The audit log cannot yet be fully relied on. Many privileged actions are not log
 
 | Component | How it is checked | Who | How often |
 | --- | --- | --- | --- |
-| Windows Server 2025 | Vendor updates and a credentialed scan, \<Procedures\>, PRO-RA-3 (PA-62) | Windows server administrator | Monthly, and at each release |
+| Windows Server 2025 | Vendor updates and a credentialed scan, \<Procedures\>, PRO-RA-3 | Windows server administrator | Monthly, and at each release |
 | PostgreSQL | Vendor security announcements | Database administrator | Monthly |
-| .NET and NuGet packages, from nuget.org and the offline feed (PA-94) | Package vulnerability report at each build | Developers | Each build, and monthly |
+| .NET and NuGet packages, from nuget.org and the offline feed | Package vulnerability report at each build | Developers | Each build, and monthly |
 | Browser libraries | Vendor security announcements | Developers | Monthly |
-| Container images and their operating system packages | Test-Vulnerability.ps1; no image scanner yet (PA-62) | Developers | Each release |
-| \<System Name\>'s own applications | Web application scan; no scanner yet (PA-62) | Developers | Each release |
-| Server and database settings | Configuration scan against the baseline (PA-80) | Windows server administrator, database administrator | Monthly |
+| Container images and their operating system packages | Test-Vulnerability.ps1 and an image scanner | Developers | Each release |
+| \<System Name\>'s own applications | Web application scan | Developers | Each release |
+| Server and database settings | Configuration scan against the baseline | Windows server administrator, database administrator | Monthly |
 | All components, for exploited flaws | CISA's Known Exploited Vulnerabilities catalogue and \<Organisation\>'s alerts, \<Procedures\>, PRO-RA-4 | Security officer | Weekly (C50) |
 
 **Table 4: Time limits for fixes, summarised from \<Risk Assessment Management\>, section 3.6**
@@ -331,7 +329,7 @@ The audit log cannot yet be fully relied on. Many privileged actions are not log
 | Low | 90 days, or 30 days once a vendor security update is available |
 | Exploited (in CISA's catalogue, or confirmed by the vendor) | 3 days, as an emergency change |
 
-A fix that cannot be made in time goes through PRO-AC-15 and into \<Plan of Action and Milestones\>. Updates are tested first, as \<Procedures\>, PRO-SI-1 requires. Today the image build turns NuGet's vulnerability audit off (PA-92), so nothing reports vulnerable packages automatically. These times are the timetable in \<Risk Assessment Management\>, section 3.6, counted from the fix's release, or from detection if later; severity is the vendor's rating, or else the CVSS base score. Test-Vulnerability.ps1 found the same 7 advisories as the manual check (PA-56), and nothing scans the system yet (PA-62).
+A fix that cannot be made in time goes through PRO-AC-15 and into \<Plan of Action and Milestones\>. Updates are tested first, as \<Procedures\>, PRO-SI-1 requires. These times are the timetable in \<Risk Assessment Management\>, section 3.6, counted from the fix's release, or from detection if later; severity is the vendor's rating, or else the CVSS base score.
 
 ### 4.4 Joiners, movers and leavers (C36)
 
@@ -343,7 +341,7 @@ A fix that cannot be made in time goes through PRO-AC-15 and into \<Plan of Acti
 
 ### 4.5 Change control (C38)
 
-1. **Normal change.** It is raised on TPL-6, or in ServiceNow once that is set up (PA-53). The security officer assesses its security impact, and it is tested on a separate stack. The change control board approves it: the system owner, the security officer and the Windows server administrator. After it is made, it is checked to confirm the security functions still work. The documents it affects are updated.
+1. **Normal change.** It is raised on TPL-6, or in ServiceNow. The security officer assesses its security impact, and it is tested on a separate stack. The change control board approves it: the system owner, the security officer and the Windows server administrator. After it is made, it is checked to confirm the security functions still work. The documents it affects are updated.
 2. **Emergency change.** This is allowed only to stop or limit an incident or an outage. The system owner, or their deputy, approves it by phone or in person before it is made. It is recorded on TPL-6 within 1 working day, and reviewed by the change control board at its next meeting (PRO-CM-8).
 3. **Prohibited.** There are no changes without a record, no changes by anyone outside the approved roles, and no changes that switch off auditing or security functions.
 

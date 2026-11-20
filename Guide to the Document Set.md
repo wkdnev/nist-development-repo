@@ -6,7 +6,7 @@ This guide is the place to start. It says what the \<System Name\> document set 
 
 It holds no facts about the system of its own. It says which document in the set holds each kind of fact. The full index is \<Documentation Map\>, which also says where each fact about a control is held (its section 3) and sets the standard every document follows (its section 4).
 
-The set is the evidence that \<System Name\>, \<Organisation\>'s document management system, is designed and run to the CSS Moderate baseline, with the CSS privacy baseline. It covers 20 control families and 316 controls. It is written before the system goes live, so it shows honestly what is built, what is planned and what is missing.
+The set shows how \<System Name\>, \<Organisation\>'s document management system, is designed and run to the CSS Moderate baseline, with the CSS privacy baseline. It covers 20 control families and 316 controls. The plans, descriptions, rules and procedures state the design. The assessment and authorisation documents are templates, filled in as \<System Name\> is assessed, authorised and run.
 
 ## 2 The set at a glance
 
@@ -42,7 +42,7 @@ Each control is carried through the set by the same chain. Table 2 gives the cha
 | --- | --- | --- |
 | 1 The control | \<System Security Plan\>, section 7 | How the control is met in brief, who is responsible, its status and its result |
 | 2 The rule | \<Policy\>, the family's chapter | What must be true, and who is accountable. The Head of Cyber approves it |
-| 3 The design | The family's design document (section 6) | How \<System Name\> meets each part of the control, what is in place today, the values CSS asks to be defined, and what \<Organisation\> provides |
+| 3 The design | The family's design document (section 6) | How \<System Name\> meets each part of the control, the values CSS asks to be defined, and what \<Organisation\> provides |
 | 4 The steps | \<Procedures\>, the family's chapter; \<Security Operating Procedures\> for day-to-day duties and the rules people sign | Who does what, when, and the record kept |
 | 5 The record | The forms in \<Record Templates\> | What proves the step was done |
 | 6 The finding | \<Control Assessment Record\>, the family's chapter; brought together in \<Security Assessment Report\> | Whether each of the CSS determination statements is satisfied, and why |
@@ -90,26 +90,26 @@ An auditor does not need to read every document from end to end. This route take
 
 Steps 4 to 6 are repeated for each family chosen. A good first family is Access Control, as it is the largest, or Risk Assessment, as it shows how every gap in the other families is rated and answered.
 
-Two things save time. Within the set, each control's status is recorded in \<System Security Plan\>, section 7, and every design document's section 2 points to its family's table there, with a short account of what matters most. And in each chapter of \<Control Assessment Record\>, the final section is the assessment plan, which says what was examined and tested, what was not, and what the independent assessor should do next.
+Two things save time. Within the set, each control's status is recorded in \<System Security Plan\>, section 7, and every design document's section 2 points to its family's table there, with a short account of what matters most. And in each chapter of \<Control Assessment Record\>, the final section is the assessment plan, which records what is examined and tested, what is not, and what the independent assessor should do next.
 
 ## 5 Following one control from end to end
 
-RA-5, Vulnerability Monitoring and Scanning, shows the chain at work. It is partly met, so every link has something to show.
+RA-5, Vulnerability Monitoring and Scanning, shows the chain at work. Every link has a place for it.
 
 **Table 5: RA-5 through the set**
 
 | Link | Where | What is there |
 | --- | --- | --- |
-| The control | \<System Security Plan\>, section 7.15 | One line: packages are checked, nothing scans the servers, the status is partially implemented, and the gap is registered as NC-RA-04, PA-56 and PA-62 |
+| The control | \<System Security Plan\>, section 7.15 | One line: how RA-5 is met, who is responsible, its status and its result, and where any gap is registered |
 | The rule | \<Policy\> (RA), rules R6 to R9 | Scans monthly and at each release, the time allowed for each severity, exploited flaws first, and how reports are received |
-| The design | \<Risk Assessment Management\>, sections 3.5 to 3.7 | What is checked, how and how often; the vulnerability timetable; how findings are analysed and shared; and each of the six parts of RA-5 with the position today |
+| The design | \<Risk Assessment Management\>, sections 3.5 to 3.7 | What is checked, how and how often; the vulnerability timetable; how findings are analysed and shared; and each of the six parts of RA-5 |
 | The steps | \<Procedures\>, PRO-RA-3 to PRO-RA-5; \<Security Operating Procedures\>, duties C10 and C50 | Who scans, who reviews the results within 5 working days, and what happens when a flaw is being exploited |
 | The record | TPL-7 in \<Record Templates\> | Each finding, its severity, its due date and its fix |
-| The finding | \<Control Assessment Record\> (RA) | Four of fourteen statements satisfied, with the reason for each of the others |
-| The risk | \<Risk List\>, NC-RA-04 and risk R-SI-01 | Rated Medium, to be remediated before go-live |
-| The fix | \<Plan of Action and Milestones\>, PA-56 and PA-62 | Update the packages; choose and run a scanner |
-| The decision | \<Decision Register\>, D-RA-P02 and D-RA-13 | The timetable, and the risk decision for the authorising official |
-| The test | Test-Vulnerability.ps1, with its results in the RA evidence | Checks V01 to V09, which can be run again |
+| The finding | \<Control Assessment Record\> (RA) | Whether each of the RA-5 determination statements is satisfied, with the reason |
+| The risk | \<Risk List\>, section 5 | A non-compliance entry for each statement not satisfied, with its rating and the decision on it |
+| The fix | \<Plan of Action and Milestones\> | The work to close each gap, its owner and its date |
+| The decision | \<Decision Register\> | The approval of the timetable, and any risk decision for the authorising official |
+| The test | Test-Vulnerability.ps1, with its results in the RA evidence | Its checks, which can be run again |
 
 ## 6 Finding a family
 
@@ -120,7 +120,7 @@ Each family has a policy chapter, a design document, a procedures chapter, a sec
 | Family | Rules | Design | Steps | Security plan | Findings | Test |
 | --- | --- | --- | --- | --- | --- | --- |
 | AC Access Control | \<Policy\> (AC) | \<Access Control Management\> | \<Procedures\> (AC) | Section 7.1 | \<Control Assessment Record\> (AC) | Test-AccessControl.ps1 |
-| AT Awareness and Training | \<Policy\> (AT) | \<Awareness and Training Management\> | \<Procedures\> (AT) | Section 7.2 | \<Control Assessment Record\> (AT) | Test-PlanConsistency.ps1, check L14 |
+| AT Awareness and Training | \<Policy\> (AT) | \<Awareness and Training Management\> | \<Procedures\> (AT) | Section 7.2 | \<Control Assessment Record\> (AT) | Test-PlanConsistency.ps1 |
 | AU Audit and Accountability | \<Policy\> (AU) | \<Audit and Accountability Management\> | \<Procedures\> (AU) | Section 7.3 | \<Control Assessment Record\> (AU) | Test-AuditAndAuth.ps1 |
 | CA Assessment, Authorization, and Monitoring | \<Policy\> (CA) | \<Assessment, Authorization, and Monitoring Management\> | \<Procedures\> (CA) | Section 7.4 | \<Control Assessment Record\> (CA) | Test-PlanConsistency.ps1 |
 | CM Configuration Management | \<Policy\> (CM) | \<Configuration Management\> | \<Procedures\> (CM) | Section 7.5 | \<Control Assessment Record\> (CM) | Test-ConfigurationManagement.ps1 |
@@ -132,7 +132,7 @@ Each family has a policy chapter, a design document, a procedures chapter, a sec
 | PE Physical and Environmental Protection | \<Policy\> (PE) | \<Physical and Environmental Protection Management\> | \<Procedures\> (PE) | Section 7.11 | \<Control Assessment Record\> (PE) | None: provided by \<Organisation\> |
 | PL Planning | \<Policy\> (PL) | \<Planning Management\> | \<Procedures\> (PL) | Section 7.12 | \<Control Assessment Record\> (PL) | Test-PlanConsistency.ps1 |
 | PM Program Management | \<Organisation\>'s policies | \<Program Management\> | None | Section 5 | Not assessed | None: outside the baseline |
-| PS Personnel Security | \<Policy\> (PS) | \<Personnel Security Management\> | \<Procedures\> (PS) | Section 7.13 | \<Control Assessment Record\> (PS) | Test-PlanConsistency.ps1, check L17 |
+| PS Personnel Security | \<Policy\> (PS) | \<Personnel Security Management\> | \<Procedures\> (PS) | Section 7.13 | \<Control Assessment Record\> (PS) | Test-PlanConsistency.ps1 |
 | PT PII Processing and Transparency | \<Policy\> (PT) | \<PII Processing Management\> | \<Procedures\> (PT) | Section 7.14 | \<Control Assessment Record\> (PT) | Test-PersonalData.ps1 |
 | RA Risk Assessment | \<Policy\> (RA) | \<Risk Assessment Management\> | \<Procedures\> (RA) | Section 7.15 | \<Control Assessment Record\> (RA) | Test-Vulnerability.ps1 |
 | SA System and Services Acquisition | \<Policy\> (SA) | \<System and Services Acquisition Management\> | \<Procedures\> (SA) | Section 7.16 | \<Control Assessment Record\> (SA) | Test-Development.ps1 |
@@ -148,7 +148,7 @@ Four design documents are also the plan that CSS requires for their family, in t
 
 | Document | Group | What it holds | Who reads it |
 | --- | --- | --- | --- |
-| \<System Security Plan\> | Plans and descriptions | How \<System Name\> implements each of the 316 controls, or does not yet, with the system description, architecture figures, inheritance and responsibilities | Everyone, first |
+| \<System Security Plan\> | Plans and descriptions | How \<System Name\> implements each of the 316 controls, with the system description, architecture figures, inheritance and responsibilities | Everyone, first |
 | \<Privacy Plan\> | Plans and descriptions | How personal data in \<System Name\> is governed: the privacy plan that PL-2 calls for | The legal adviser; an auditor |
 | \<System Description\> | Plans and descriptions | One description of the whole system, for a person or an AI without the source code | Anyone who needs to understand the system; an auditor, early |
 | \<Security Architecture\> | Plans and descriptions | System boundary, components, data flows and what is inherited from \<Organisation\> | Developers, administrators, an auditor |
@@ -169,7 +169,7 @@ Four design documents are also the plan that CSS requires for their family, in t
 | \<Maintenance Management\> | Plans and descriptions | The maintenance design | Whoever works in, or assesses, that family |
 | \<Incident Response Management\> | Plans and descriptions | The incident response design, and the plan IR-8 requires | Whoever works in, or assesses, that family |
 | \<Supply Chain Risk Management\> | Plans and descriptions | The supply chain risk management plan that SR-2 requires: the system context, the team, the risks at each stage, the supplier register, the risk tolerance and how components come in | Whoever works in, or assesses, that family |
-| \<Data Protection Impact Assessment\> | Plans and descriptions | The data protection impact assessment, drafted for the legal adviser to complete | The legal adviser |
+| \<Data Protection Impact Assessment\> | Plans and descriptions | The data protection impact assessment, for the legal adviser to complete | The legal adviser |
 | \<Policy\> | Rules and how they are carried out | The security and privacy policy: one chapter of rules for each of the 19 families | Everyone bound by the rules |
 | \<Procedures\> | Rules and how they are carried out | The procedures that carry out the policy: one chapter for each family, each step naming who acts and the record kept | Whoever carries out a duty |
 | \<Control Implementation Register\> | Rules and how they are carried out | An index that points to each family's design document | Only when an older record cites a register chapter |
@@ -180,14 +180,14 @@ Four design documents are also the plan that CSS requires for their family, in t
 | \<Access Control Management\> | Rules and how they are carried out | The access control design | Whoever works in, or assesses, that family |
 | \<Security Operating Procedures\> | Rules and how they are carried out | Rules of behaviour for everyone and for privileged users, and how security is operated day to day, with the record that proves each duty | Every user and administrator, who sign it |
 | \<Record Templates\> | Rules and how they are carried out | The forms that show controls operating, TPL-1 to TPL-24 | Whoever carries out a procedure |
-| \<Tailoring Register\> | Rules and how they are carried out | The case for each control treated as not applicable, and the decision that Program Management is outside the baseline | An assessor |
-| \<Control Assessment Record\> | Assessment and authorisation | The Level 1 self-assessment: a finding for each of the 1,998 determination statements, one chapter for each family | An assessor |
-| \<Security Assessment Report\> | Assessment and authorisation | The results of all 19 families in one report for the authorising official, with the risk position and the conditions before authorisation | The authorising official; an auditor, early |
-| \<Risk List\> | Assessment and authorisation | Each risk with its rating, treatment and acceptance, and a non-compliance entry for every control that is not satisfied | The authorising official and system owner |
-| \<Plan of Action and Milestones\> | Assessment and authorisation | Each weakness with its fix, owner, milestone and latest completion, and the road to authorisation | The system owner, monthly; an auditor |
-| \<Decision Register\> | Assessment and authorisation | Every approval and decision, who made it, when, and the evidence of it | Anyone checking who approved what |
-| \<Evidence Requests\> | Assessment and authorisation | The evidence needed from \<Organisation\>, and who does what for each control | The system owner and \<Organisation\> |
-| \<Interview Guide\> | Assessment and authorisation | The interview questions by role, the statements each supports, and the answers given at Level 1 | An assessor, and the people interviewed |
+| \<Tailoring Register\> | Rules and how they are carried out | The case for each control treated as not applicable, and why Program Management is outside the baseline | An assessor |
+| \<Control Assessment Record\> | Assessment and authorisation | A template for the self-assessment: the 1,998 determination statements to assess, with space for the finding on each, one chapter for each family | An assessor |
+| \<Security Assessment Report\> | Assessment and authorisation | A template for the report to the authorising official: the results of all 19 families, the risk position and the conditions before authorisation, to be filled in from the assessment | The authorising official; an auditor, early |
+| \<Risk List\> | Assessment and authorisation | A template for the risk register: the rating method, and space for each risk with its rating, treatment and acceptance, and for a non-compliance entry for each control that is not satisfied | The authorising official and system owner |
+| \<Plan of Action and Milestones\> | Assessment and authorisation | A template for each weakness with its fix, owner, milestone and latest completion, and for the road to authorisation | The system owner, monthly; an auditor |
+| \<Decision Register\> | Assessment and authorisation | A template for recording each approval and decision, who made it, when, and the evidence of it | Anyone checking who approved what |
+| \<Evidence Requests\> | Assessment and authorisation | The evidence to ask of \<Organisation\>, and who does what for each control | The system owner and \<Organisation\> |
+| \<Interview Guide\> | Assessment and authorisation | The interview questions by role and the statements each supports, with space for the answers | An assessor, and the people interviewed |
 | \<Administrator Guide\> | Guides and index | How administrators set up and run \<System Name\> securely | Administrators |
 | \<User Guide\> | Guides and index | How users work securely in \<System Name\> | Users |
 | \<Documentation Map\> | Guides and index | The index: every document, where each family is documented, where each fact about a control is held, and the document standard | Anyone looking for a document or a fact |
@@ -197,7 +197,7 @@ Four design documents are also the plan that CSS requires for their family, in t
 
 1. **Layout.** Every document starts with its purpose. Documents carry no document control, approval or change history: decisions are in \<Decision Register\>, and changes are kept in the change record (\<Documentation Map\>, section 4.1).
 2. **Names, not numbers.** A document is cited by its name in angle brackets. A chapter of the Policy, the Procedures or the assessment record is cited with its family code, such as the Policy (RA), and a section in a chapter as section RA.4.
-3. **Design and today.** A design document gives, for each part of a control, the design and the position today. The two are kept apart, so that a plan is never read as a fact.
+3. **Design and records.** A design document gives the design for each part of a control. What has happened is recorded only in the assessment and authorisation documents and the completed forms, so that a plan is never read as a fact.
 4. **Status.** A control is implemented, partially implemented, not implemented or not applicable. Its assessment result is satisfied or other than satisfied, as CSS uses the terms.
 5. **Placeholders.** Text in square brackets is a fact that only someone else can supply, such as a date from \<Organisation\>. They are counted by kind in \<Plan of Action and Milestones\>, section 5.7.
 6. **Drafts and approvals.** Nothing is shown as approved unless the person who approves it has done so. Every approval and decision is in \<Decision Register\>.
@@ -216,15 +216,6 @@ Four design documents are also the plan that CSS requires for their family, in t
 | PRO- | A procedure | \<Procedures\> |
 | TPL- | A form | \<Record Templates\> |
 | A, B and C with a number | A rule for everyone, a rule for privileged users, and an operating duty | \<Security Operating Procedures\> |
-| A letter and two digits, such as V05 or T22 | A check in a test script | The design document of the family, and the evidence for it |
+| A letter and two digits | A check in a test script | The design document of the family, and the evidence for it |
 | ODP | A value CSS asks the organisation to define | Set at corporate level by \<Organisation\> |
 
-## 9 What the set does not yet show
-
-The set is written before \<System Name\> goes live, and says so throughout. A reader should expect the following, each of which is tracked.
-
-1. **\<System Name\> is not authorised, and holds no production documents.** The conditions before authorisation are in \<Security Assessment Report\>, section 8.
-2. **The servers are not built.** The tests ran on a test stack with sample data, and are to be repeated on the servers. Sign-in through \<Organisation\>'s PingFederate is stated but not yet tested (PA-95).
-3. **\<Organisation\>'s controls are not evidenced.** The evidence requests in \<Evidence Requests\> have not been sent.
-4. **Nothing has been seen in operation.** Reviews, training and exercises start with operation, so their records do not exist yet.
-5. **The assessment so far is a self-assessment.** The independent assessment, led by \[Name\], has not started.

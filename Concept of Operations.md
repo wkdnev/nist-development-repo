@@ -10,7 +10,7 @@ This document is used by every control family. It describes how \<System Name\> 
 
 Teams need one controlled place to keep scanned and electronic documents, so that the right people can find them quickly and others cannot see them. Keeping each project's documents separate lets one system serve several parts of the business.
 
-The business and information owner is \[Name\] (\<Roles and Responsibilities\>). The benefits the business expects are still to be stated: \[Benefits expected, from the business owner\].
+The business and information owner is \[Name\] (\<Roles and Responsibilities\>). The benefits the business expects are: \[Benefits expected, from the business owner\].
 
 ## 3 User communities
 
@@ -37,7 +37,7 @@ A document normally moves through four stages: it is added to a project, found a
 | Add documents | Editor | Uploads files one at a time or in bulk, with details such as title and author |
 | Report a bad file | Reader, editor | Flags a corrupt or wrong document so it can be corrected |
 | Export a project's documents | Editor | Downloads a set of documents for approved use elsewhere |
-| Start a new person | The person, their line manager, the group's owner | The person requests access, their line manager approves it and the owner authorises it, then the owner adds the person to the project's or role's Active Directory group. \<System Name\> creates no account (D-AC-23) |
+| Start a new person | The person, their line manager, the group's owner | The person requests access, their line manager approves it and the owner authorises it, then the owner adds the person to the project's or role's Active Directory group. \<System Name\> creates no account |
 | Remove a leaver | \<Organisation\>, the group owners | \<Organisation\> disables the person's Active Directory account at once, which ends their access, and the group owners remove their group memberships within 5 working days |
 | Check activity | Auditor | Reviews who did what |
 
@@ -60,11 +60,11 @@ A document normally moves through four stages: it is added to a project, found a
 
 ### 6.1 Where it runs
 
-It is not in production. It will run on the corporate network of \<Organisation\>, on an application server VM and a separate database server VM, both Windows Server 2025, with each application running as a Windows service (D-PL-10). The current development stack runs in Docker on one PC with sample data.
+It runs on the corporate network of \<Organisation\>, on an application server VM and a separate database server VM, both Windows Server 2025, with each application running as a Windows service. Development and testing run in Docker with sample data.
 
 ### 6.2 How access works day to day
 
-1. A person signs in through \<Organisation\>'s single sign-on, PingFederate, with multi-factor authentication (D-AC-23). \<System Name\> has no password of its own.
+1. A person signs in through \<Organisation\>'s single sign-on, PingFederate, with multi-factor authentication. \<System Name\> has no password of its own.
 2. \<System Name\> takes their roles and project access from their Active Directory groups.
 3. Their group memberships decide which projects they see. Each project names a read group and an edit group.
 4. \<System Name\> has no sessions of its own. The sign-in is held only in the application's authentication cookie and lasts no longer than PingFederate's sign-in lifetime (P-AC-10). An unattended screen is locked by the operating system on \<Organisation\>'s managed devices (P-AC-15).
@@ -79,13 +79,13 @@ It is not in production. It will run on the corporate network of \<Organisation\
 | PingFederate down | Nobody can sign in, because \<Organisation\>'s PingFederate authenticates every user. People already signed in carry on until their sign-in ends at PingFederate's sign-in lifetime |
 | API down | Nobody can work, because both apps reach the documents only through API |
 | Database down | API cannot read any data, so it refuses every request and nobody can open a document. People stay signed in |
-| Maintenance | Users cannot reach \<System Name\>; there is no notice page explaining why. Users get 2 working days' notice of planned maintenance, and a maintenance page is recommended (REC-53) |
+| Maintenance | Users cannot reach \<System Name\>. Users get 2 working days' notice of planned maintenance |
 
-These modes come from reading the design. They have not been exercised.
+These modes come from reading the design.
 
 ### 6.4 How it is kept secure in operation
 
-None of this has started, as \<System Name\> is not live. Table 5 says in brief how each part of operation is kept secure. The time limits, frequencies and other values are in the document named, so that the set does not repeat them.
+Table 5 says in brief how each part of operation is kept secure. The time limits, frequencies and other values are in the document named, so that the set does not repeat them.
 
 **Table 5: Keeping \<System Name\> secure in operation**
 
@@ -94,7 +94,7 @@ None of this has started, as \<System Name\> is not live. Table 5 says in brief 
 | Changes | Approved by the change control board, after a security impact analysis and a review by a second developer. The running system is checked against the approved baseline | \<Configuration Management\> |
 | Patches and vulnerabilities | The system is scanned regularly, and flaws are fixed within time limits set by their severity | \<Risk Assessment Management\>, section 3.6 |
 | Malicious code and monitoring | Microsoft Defender runs on both VMs and uploads are scanned. Audit records and logs are reviewed, and detection use cases alert the security officer | \<System and Information Integrity Management\>, section 3.4; \<Security Operating Procedures\>, section 4 |
-| Encryption | TLS on every flow, encrypted disks and backups, and a register of keys. Not yet built (PA-18, PA-52, PA-93) | \<System and Communications Protection Management\> |
+| Encryption | TLS on every flow, encrypted disks and backups, and a register of keys | \<System and Communications Protection Management\> |
 | Backups and recovery | Encrypted backups, tested restores, and recovery within the objectives the business has set | \<Contingency Planning Management\> |
 | Incidents and breaches | Reported to the security officer and handled by severity. The legal adviser decides whether to tell the ICO and the people affected | \<Incident Response Management\> |
 | Training | Security training and a \<System Name\> briefing before access, repeated on a schedule, with role modules for those with special duties | \<Awareness and Training Management\> |
@@ -103,14 +103,14 @@ None of this has started, as \<System Name\> is not live. Table 5 says in brief 
 | Buildings | \<Organisation\> protects the data centre and the second site, and its evidence is checked | \<Physical and Environmental Protection Management\> |
 | People | Screened before access, bound by signed rules, and their access changed promptly when they move or leave | \<Personnel Security Management\>, section 3.6 |
 | Personal data | Used only for HR administration and managing project documents. Requests and complaints go to the legal adviser, and the impact assessment is completed before production | \<Privacy Plan\>; \<Data Protection Impact Assessment\> |
-| Building and buying | Changes follow the development lifecycle. Suppliers are approved, and packages are to arrive through the offline feed (PA-94) | \<System and Services Acquisition Management\>; \<Supply Chain Risk Management\> |
+| Building and buying | Changes follow the development lifecycle. Suppliers are approved, and packages arrive through the offline feed | \<System and Services Acquisition Management\>; \<Supply Chain Risk Management\> |
 | Risk and authorisation | The risk list and plan of action are kept current, and the authorising official is kept informed. Authorisation is decided from the authorisation package | \<Assessment, Authorization, and Monitoring Management\>, section 3.5; \<Security Assessment Report\> |
 
-\<System Name\> is not authorised. No production documents are held until multi-factor authentication through PingFederate is shown working (PA-95).
+No production documents are held until \<System Name\> is authorised.
 
 ## 7 Open questions
 
-1. Which \<Organisation\> staff will use \<System Name\>, and from where? Still open: \[Teams and locations, from the business owner\].
-2. Answered: \[Name\], as project access approver, decides who may read each project.
-3. Which business processes will \<System Name\> support, and what are the expected benefits? Still open: see sections 2 and 4.
-4. What hours must it be available, and how many users and documents are expected? Still open: \[Hours, and numbers of users and documents, from the business owner\].
+1. Which \<Organisation\> staff will use \<System Name\>, and from where? \[Teams and locations, from the business owner\].
+2. Who decides who may read each project? \[Name and role, from the business owner\].
+3. Which business processes will \<System Name\> support, and what are the expected benefits? See sections 2 and 4.
+4. What hours must it be available, and how many users and documents are expected? \[Hours, and numbers of users and documents, from the business owner\].

@@ -8,14 +8,14 @@ This guide lists the 44 documents in the set and suggests the order in which to 
 2. **Review the plan's front half**, then the two documents that set its scope.
 3. **Review the rules one family at a time**, reading the same family in three documents side by side.
 4. **Review the five standalone plans** and the day-to-day rules.
-5. **Review the assessment and its results** last, because they judge everything before them.
+5. **Review the assessment and authorisation templates** last, because they will be used to judge everything before them.
 6. **Use the registers as reference.** Look things up in them; do not read them end to end.
 
 The whole set is about 286,000 words. A reviewer who follows this path reads about 105,000 of them closely and samples the rest.
 
 ## 2 What a reviewer does not need to check
 
-A script, `tests\Test-PlanConsistency.ps1`, checks 24 things every time the set changes, and all 24 pass. So a reviewer can leave these to it and spend their time on substance:
+A script, `tests\Test-PlanConsistency.ps1`, checks 24 things every time the set changes. So a reviewer can leave these to it and spend their time on substance:
 
 - that every link, section reference and table reference leads somewhere that exists;
 - that the totals in the plan and the report match the assessment;
@@ -41,9 +41,9 @@ Read these straight through. They are short, and everything else assumes them.
 | Order | Document | Size | Why now | Look for |
 | --- | --- | --- | --- | --- |
 | 1 | [Documentation Map](Documentation%20Map.md), sections 1 to 3 | 2,500 of 5,500 | It lists every document and says where each family's material is | Whether the set looks complete for what you expect |
-| 2 | [Concept of Operations](Concept%20of%20Operations.md) | 2,700 | Why \<System Name\> exists, who uses it and how | Whether the business picture is right. Several business facts are still placeholders |
+| 2 | [Concept of Operations](Concept%20of%20Operations.md) | 2,700 | Why \<System Name\> exists, who uses it and how | Whether the business picture is right. The business facts in square brackets are for the business owner to supply |
 | 3 | [Security Architecture](Security%20Architecture.md) | 3,400 | The boundary, the components and the eight data flows | Whether the boundary and flows match what will be built |
-| 4 | [Roles and Responsibilities](Roles%20and%20Responsibilities.md) | 2,500 | Every other document names roles, and this one names the people | Whether each holder is right, and the two deputies still to be named |
+| 4 | [Roles and Responsibilities](Roles%20and%20Responsibilities.md) | 2,500 | Every other document names roles, and this one names the people | Whether each holder is right, and which deputies are to be named |
 
 ### Stage 2: The plan and its scope
 
@@ -58,7 +58,7 @@ This is the largest stage. Three documents hold the rules, and each has one chap
 
 - [Policy](Policy.md): what must be true (24,000 words, 19 chapters);
 - [Procedures](Procedures.md): who does what, and the record kept (22,100 words, 139 procedures);
-- [Control Implementation Register](Control%20Implementation%20Register.md): now an index only (3,800 words). Every family's design is in a document of its own, and each chapter points to it.
+- [Control Implementation Register](Control%20Implementation%20Register.md): an index only (3,800 words). Every family's design is in a document of its own, and each chapter points to it.
 
 For Access Control, read [Access Control Management](Access%20Control%20Management.md) (23,600 words) in place of the Register chapter. It holds the access control design: the model and the settings.
 
@@ -127,19 +127,19 @@ Each is short and can go to a different reviewer. Review each straight after its
 | 11 | [Contingency Planning Management](Contingency%20Planning%20Management.md) | 12,700 | CP | Recovery times against the business need, and who invokes the plan |
 | 12 | [Supply Chain Risk Management](Supply%20Chain%20Risk%20Management.md) | 7,400 | SR | The supply chain plan, the supplier register and each SR control |
 | 13 | [Privacy Plan](Privacy%20Plan.md) | 1,400 | PT | Whether it matches how personal data will really be handled |
-| 14 | [Data Protection Impact Assessment](Data%20Protection%20Impact%20Assessment.md) | 2,400 | PT | A draft for the legal adviser to complete. Most of its placeholders are theirs |
+| 14 | [Data Protection Impact Assessment](Data%20Protection%20Impact%20Assessment.md) | 2,400 | PT | For the legal adviser to complete. Most of its placeholders are theirs |
 
-### Stage 5: The assessment and its results
+### Stage 5: The assessment and authorisation templates
 
-Review these after the rules, because each one judges or acts on what came before. Start with the summary and work down into detail only where it matters.
+Review these after the rules, because each one will judge or act on what came before. They are templates: check that each holds what its readers will need, and that the methods and rules for filling it in are sound. Start with the summary and work down into detail only where it matters.
 
 | Order | Document | Size | Why now | Look for |
 | --- | --- | --- | --- | --- |
-| 15 | [Security Assessment Report](Security%20Assessment%20Report.md) | 4,500 | The results of all 19 families in a few pages | Whether the conclusion is fair, and the conditions before authorisation |
-| 16 | [System Security Plan](System%20Security%20Plan.md), section 7 | 14,500 | One line for each of the 316 controls | Sample it. Take five controls you know well and check the line is true |
-| 17 | [Control Assessment Record](Control%20Assessment%20Record.md) | 79,800 | The finding behind every line: 1,998 statements | Do not read it through. For each family, read the summary and the result table, then sample ten findings |
-| 18 | [Risk List](Risk%20List.md), sections 1 to 4 | 4,000 of 16,500 | The 24 risks, how they are rated and who may accept them | Whether the ratings are right. Section 5 is reference |
-| 19 | [Plan of Action and Milestones](Plan%20of%20Action%20and%20Milestones.md) | 20,000 | The 94 fixes, and the road to authorisation in section 5 | Owners, effort and order. The milestone dates are still to be set |
+| 15 | [Security Assessment Report](Security%20Assessment%20Report.md) | 4,500 | The template for the results of all 19 families in a few pages | Whether it will give the authorising official what they need, including the conditions before authorisation |
+| 16 | [System Security Plan](System%20Security%20Plan.md), section 7 | 14,500 | One line for each of the 316 controls | Sample it. Take five controls you know well and check that the way each is implemented is described truly |
+| 17 | [Control Assessment Record](Control%20Assessment%20Record.md) | 79,800 | The 1,998 determination statements to assess, with space for each finding | Do not read it through. For each family, read the assessment plan, then sample ten statements |
+| 18 | [Risk List](Risk%20List.md), sections 1 to 4 | 4,000 of 16,500 | How risks are rated, and who may accept them | Whether the rating method and the decision rules are right. Section 5 is reference |
+| 19 | [Plan of Action and Milestones](Plan%20of%20Action%20and%20Milestones.md) | 20,000 | The template for fixes, and the road to authorisation in section 5 | Whether the columns, and the rules for owners, effort and order, are workable |
 
 ### Stage 6: Reference documents
 
@@ -147,7 +147,7 @@ Look things up in these. Reading them end to end is poor use of a reviewer's tim
 
 | Document | Size | Use it to |
 | --- | --- | --- |
-| [Decision Register](Decision%20Register.md) | 27,100 | Check who decided something and when. Each approver should review only the decisions in their own name, against their sign-off sheet |
+| [Decision Register](Decision%20Register.md) | 27,100 | See how each decision and approval is to be recorded, and who may make it |
 | [Evidence Requests](Evidence%20Requests.md) | 7,900 | See what \<Organisation\> is asked for. \<Organisation\> should review this one in full |
 | [Interview Guide](Interview%20Guide.md) | 12,700 | Prepare the Level 2 interviews. The security assessor should review it |
 | [Risk List](Risk%20List.md), section 5 | 12,500 | Find the entry for one control that is not met |
@@ -156,7 +156,7 @@ Look things up in these. Reading them end to end is poor use of a reviewer's tim
 
 | Order | Document | Size | Why last | Look for |
 | --- | --- | --- | --- | --- |
-| 20 | [Administrator Guide](Administrator%20Guide.md) | 2,200 | A draft, written from the documents and not yet checked against the code | The developers should confirm every step |
+| 20 | [Administrator Guide](Administrator%20Guide.md) | 2,200 | Written from the documents, for the developers to check against the code | The developers should confirm every step |
 | 21 | [User Guide](User%20Guide.md) | 1,100 | The same | The same |
 
 ## 4 Who should review what

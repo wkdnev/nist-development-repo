@@ -2,7 +2,7 @@
 
 ## 1 How to use this document
 
-This document is an index from each control family to the document that holds its design. Every family's design, decisions, CSS parameter values, registers and lists are held in a document of its own, in the same form, and this register holds none of it. Each chapter is a pointer to the document that holds its family's design, so that the decisions and records that cite a chapter lead to it. It is kept as an index until the next whole-set review, when it may be retired (D-SR-15). The rules are in \<Policy\>, the steps people follow are in \<Procedures\>, and \<Documentation Map\>, section 2.2, lists where each family is documented.
+This document is an index from each control family to the document that holds its design. Every family's design, CSS parameter values, registers and lists are held in a document of its own, in the same form, and this register holds none of it. Each chapter is a pointer to the document that holds its family's design, so that any reference to a chapter leads to it. It is kept as an index until the next whole-set review, when it may be retired. The rules are in \<Policy\>, the steps people follow are in \<Procedures\>, and \<Documentation Map\>, section 2.2, lists where each family is documented.
 
 - **Chapters.** Each chapter is named by its family code, and says which document now holds its family's design.
 - **Versions.** The document has one version. A change to any chapter is a new version of the document.
@@ -53,17 +53,17 @@ The personal data design is held in \<PII Processing Management\>: the authority
 
 ## RA Risk Assessment
 
-The risk assessment design is held in \<Risk Assessment Management\>: the vulnerability timetable, the critical components, the first supply chain review, how vulnerability monitoring stands today. It is not repeated here.
+The risk assessment design is held in \<Risk Assessment Management\>: the vulnerability timetable, the critical components and the first supply chain review. It is not repeated here.
 
 ## SA System and Services Acquisition
 
-The acquisition design is held in \<System and Services Acquisition Management\>: the development framework, the external services, the developer test plan, the tools and their configuration, how \<System Name\> is built today. It is not repeated here.
+The acquisition design is held in \<System and Services Acquisition Management\>: the development framework, the external services, the developer test plan and the tools and their configuration. It is not repeated here.
 
 ## SC System and Communications Protection
 
-The communications protection design is held in \<System and Communications Protection Management\>: the cryptographic and key register, the TLS profile, the host firewall allow-lists, the page policy, how protection stands today. It is not repeated here.
+The communications protection design is held in \<System and Communications Protection Management\>: the cryptographic and key register, the TLS profile, the host firewall allow-lists and the page policy. It is not repeated here.
 
 ## SI System and Information Integrity
 
-The integrity design is held in \<System and Information Integrity Management\>: the upload checks, the advisory sources, the detection use cases, the integrity baseline, the retention periods, how integrity stands today. It is not repeated here.
+The integrity design is held in \<System and Information Integrity Management\>: the upload checks, the advisory sources, the detection use cases, the integrity baseline and the retention periods. It is not repeated here.
 

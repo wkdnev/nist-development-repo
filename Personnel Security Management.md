@@ -12,8 +12,6 @@ Other documents hold the rest. Who provides and is responsible for each control,
 
 Values that CSS asks the organisation to define are set at corporate level by \<Organisation\>. The values in section 3, such as the time limits, the rescreening interval and how long records are kept, should match those corporate values. Where one does not, it is changed in this document.
 
-Where section 3 notes what "today" is, it means the tested v1.0 build, which nobody yet has access to.
-
 ## 2 Summary
 
 The implementation status of each control, how it is met, who is responsible, its assessment result and the risk and plan entries for its gaps are recorded in \<System Security Plan\>, section 7.13 (Table 22).
@@ -35,7 +33,7 @@ These carry out the principles and rules of \<Policy\>, sections PS.3 and PS.4.
 
 Controls met here: PS-2, PS-3.
 
-Every role in \<Roles and Responsibilities\> has a designation. A role is higher risk if it has privileged technical access, or can see or change security records. The plan consistency test (check L17) confirms that no role is missed.
+Every role in \<Roles and Responsibilities\> has a designation. A role is higher risk if it has privileged technical access, or can see or change security records. The plan consistency test confirms that no role is missed.
 
 **Table 1: Risk designations**
 
@@ -47,7 +45,7 @@ Every role in \<Roles and Responsibilities\> has a designation. A role is higher
 | Data protection officer | Standard | Advises; no privileged access |
 | Business and information owner | Standard | Owns the information; a user in their own projects |
 | Authorising official | Standard | Decides risk; no \<System Name\> account is needed |
-| Security assessor | Higher risk | Sees the whole document set and its evidence, which describe every weakness (D-PS-12) |
+| Security assessor | Higher risk | Sees the whole document set and its evidence, which describe every weakness |
 | \<Organisation\> security contact | Standard | Provides evidence; no \<System Name\> account is needed |
 | Global administrator | Higher risk | Manages every project and the AD groups each uses |
 | Administrator | Higher risk | Changes system settings |
@@ -56,7 +54,7 @@ Every role in \<Roles and Responsibilities\> has a designation. A role is higher
 | Project access approver | Standard | Decides who may see a project, but cannot grant access alone |
 | Windows server administrator | Higher risk | Full control of both VMs |
 | Database administrator | Higher risk | Full control of the database that holds every document |
-| Developers | Higher risk | Change the code that handles HR documents, and have held the secrets in PA-19 |
+| Developers | Higher risk | Change the code that handles HR documents |
 | Document reader | Standard | Reads documents in their own projects |
 | Project editor | Standard | Uploads and exports within their own projects |
 | Line manager | Standard | Requests access for others; no access of their own is implied |
@@ -140,7 +138,7 @@ Controls met here: PS-7.
 
 People who are not \<Organisation\>'s staff, such as contracted developers or a supplier's engineer, may hold a \<System Name\> role only on the same terms as staff: screened to the minimum in section 3.3, signed up to the agreements in section 3.4, and designated by their role. Each contract states these requirements and their security duties, requires the supplier and its people to comply with \<Policy\> (PS) and \<Procedures\> (PS), and requires the supplier to tell the system owner within 1 working day when one of its people moves or leaves.
 
-The same applies to the independent assessors who carry out the Level 2 assessment, as they see the whole document set and its evidence, which describe \<System Name\>'s weaknesses. Any member of the team who is not \<Organisation\>'s staff is screened, signs a confidentiality agreement and Part A of the rules of behaviour, and is entered in the register, before the evidence is shared: \[whether the assessment team are \<Organisation\>'s staff or external\] (PA-125). The system owner checks each supplier's compliance every 12 months, and records it on TPL-16.
+The same applies to the independent assessors who carry out the Level 2 assessment, as they see the whole document set and its evidence, which describe \<System Name\>'s weaknesses. Any member of the team who is not \<Organisation\>'s staff is screened, signs a confidentiality agreement and Part A of the rules of behaviour, and is entered in the register, before the evidence is shared: \[whether the assessment team are \<Organisation\>'s staff or external\]. The system owner checks each supplier's compliance every 12 months, and records it on TPL-16.
 
 ### 3.8 Sanctions
 
@@ -152,24 +150,13 @@ A breach of the rules is handled through \<Organisation\>'s disciplinary process
 
 Controls met here: PS-3, PS-6.
 
-The system owner keeps this register for everyone who has, or will have, access to \<System Name\> or its Restricted documents: the system owner, the operating roles in \<Roles and Responsibilities\> and the security assessor. Each user is added when their access is requested. It holds dates only. Entries are kept while the person has access, and for 3 years after it ends. Leaver and mover records on TPL-14 are kept for 3 years (D-PS-12). Signatures of the rules of behaviour are recorded in the register of signatures (\<Planning Management\>, section 3.5).
+The system owner keeps this register for everyone who has, or will have, access to \<System Name\> or its Restricted documents: the system owner, the operating roles in \<Roles and Responsibilities\> and the security assessor. Each user is added when their access is requested. It holds dates only. Entries are kept while the person has access, and for 3 years after it ends. Leaver and mover records on TPL-14 are kept for 3 years. Signatures of the rules of behaviour are recorded in the register of signatures (\<Planning Management\>, section 3.5).
 
 **Table 5: Personnel security register**
 
 | Person | Role | Designation | Screening confirmed by \<Organisation\> | Agreements signed | Next review |
 | --- | --- | --- | --- | --- | --- |
-| \[Name\] | System owner | Standard | \[Date\] | None yet | \[Date\] |
-| \[Name\] | Global administrator | Higher risk | \[Date\] | None yet | \[Date\] |
-| \[Name\] | Administrator | Higher risk | \[Date\] | None yet | \[Date\] |
-| \[Name\] | Auditor | Higher risk | \[Date\] | None yet | \[Date\] |
-| \[Name\] | Security officer | Higher risk | \[Date\] | None yet | \[Date\] |
-| \[Name\] | Project access approver | Standard | \[Date\] | None yet | \[Date\] |
-| \[Name\] | Windows server administrator | Higher risk | \[Date\] | None yet | \[Date\] |
-| \[Name\] | Database administrator | Higher risk | \[Date\] | None yet | \[Date\] |
-| \[Name\] | Developer | Higher risk | \[Date\] | None yet | \[Date\] |
-| \[Name\] | Developer | Higher risk | \[Date\] | None yet | \[Date\] |
-| \[Name\] | Developer | Higher risk | \[Date\] | None yet | \[Date\] |
-| \[Name\] | Security assessor | Higher risk | \[Date\] | None yet | \[Date\] |
+| \[Name\] | \[Role\] | \[Standard or Higher risk\] | \[Date\] | \[Date\] | \[Date\] |
 
 ### 3.10 What \<Organisation\> provides
 
@@ -177,15 +164,13 @@ Controls met here: PS-2, PS-3, PS-4, PS-5, PS-6, PS-7, PS-8, PS-9.
 
 **Table 6: Asked of \<Organisation\>**
 
-| Provided | Controls | What \<System Name\> relies on | Evidence asked | State |
-| --- | --- | --- | --- | --- |
-| Pre-employment screening | PS-2, PS-3 | Each person is screened to at least the minimum in section 3.3, rescreened as section 3.6 says, and confirmed to the system owner with the date only | EV-PS-01 | Not sent |
-| Starters, movers and leavers | PS-4, PS-5 | A leaver's Active Directory account is disabled at once, and the group owners are told of every mover and leaver | EV-AC-01; PA-32 | Not sent; the prompt is not set up |
-| Exit interviews, equipment, discipline and job descriptions | PS-4, PS-8, PS-9 | Exit interviews cover confidentiality, equipment is recovered, sanctions are notified, and job descriptions refer to the duties in \<Roles and Responsibilities\> | EV-PS-02 | Not sent |
-| The confidentiality agreement | PS-6 | Every person signs it before access | EV-PS-02 | Not sent |
-| Contract terms for external people | PS-7 | Contracts require the same personnel security, and notice of movers and leavers within 1 working day | EV-PS-03 | Not sent |
-
-**Today:** no request has been sent, and none of this is evidenced (PA-125).
+| Provided | Controls | What \<System Name\> relies on | Evidence asked |
+| --- | --- | --- | --- |
+| Pre-employment screening | PS-2, PS-3 | Each person is screened to at least the minimum in section 3.3, rescreened as section 3.6 says, and confirmed to the system owner with the date only | EV-PS-01 |
+| Starters, movers and leavers | PS-4, PS-5 | A leaver's Active Directory account is disabled at once, and the group owners are told of every mover and leaver | EV-AC-01 |
+| Exit interviews, equipment, discipline and job descriptions | PS-4, PS-8, PS-9 | Exit interviews cover confidentiality, equipment is recovered, sanctions are notified, and job descriptions refer to the duties in \<Roles and Responsibilities\> | EV-PS-02 |
+| The confidentiality agreement | PS-6 | Every person signs it before access | EV-PS-02 |
+| Contract terms for external people | PS-7 | Contracts require the same personnel security, and notice of movers and leavers within 1 working day | EV-PS-03 |
 
 ### 3.11 Role duties in job descriptions
 
@@ -215,5 +200,5 @@ CSS does not select these at Moderate, so they are not assessed. Some of the des
 | PS-3(3) Information Requiring Special Protective Measures | Extra screening for access to information that needs special protection | Not required. HR documents, which hold special category data, are protected by limiting each project to the people approved for it, not by further screening |
 | PS-3(4) Citizenship Requirements | Citizenship checks for defined roles | Not required. The right to work check covers lawful employment in the United Kingdom |
 | PS-4(1), PS-6(3) Post-employment Requirements | People are told of, and bound by, duties that continue after they leave | Not required. Done in part: the exit interview covers continuing confidentiality duties. Whether \<Organisation\>'s confidentiality agreement continues after employment is asked with EV-PS-02 |
-| PS-4(2) Automated Actions | Automated notice of a leaver, and automated disabling of access | In the High baseline only. Done in design: disabling the Active Directory account ends access to \<System Name\> at once, and \<Organisation\>'s Starters/Leavers system is to prompt the group owners (PA-32) |
+| PS-4(2) Automated Actions | Automated notice of a leaver, and automated disabling of access | In the High baseline only. Done in design: disabling the Active Directory account ends access to \<System Name\> at once, and \<Organisation\>'s Starters/Leavers system prompts the group owners |
 | PS-6(1) | Withdrawn by CSS: moved into PS-3 | Not applicable |

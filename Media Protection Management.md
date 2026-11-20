@@ -10,8 +10,6 @@ Other documents hold the rest. Who provides and is responsible for each control,
 
 Values that CSS asks the organisation to define are set at corporate level by \<Organisation\>. The settings in section 3 should match those corporate values. Where one does not, it is changed in this document.
 
-\<System Name\> is not yet built on its servers. Where section 3 notes the state now or "today", it means the tested v1.0 build and what \<Organisation\> has evidenced. Those notes show where that differs from the design.
-
 ## 2 Summary
 
 The implementation status of each control, how it is met, who is responsible, its assessment result and the risk and plan entries for its gaps are recorded in \<System Security Plan\>, section 7.10 (Table 19).
@@ -37,28 +35,28 @@ These carry out the principles and rules of \<Policy\>, sections MP.3 and MP.4.
 
 Controls met here: MP-2, MP-4.
 
-Every place \<System Name\> information is held outside the running application, with who may reach it. It includes the audit archive, the secret store, incident evidence, the document set, managed printers and the approved locations for users' copies (D-MP-10, D-MP-11). The system owner reviews the inventory every 12 months, and adds any new place before it is used (PRO-MP-6). \<System Name\> lets only the editors of a project create an export of it, and Windows permissions limit the export folder and the logs to the Windows server administrator. A printout is shared only with people authorised to read that project.
+Every place \<System Name\> information is held outside the running application, with who may reach it. It includes the audit archive, the secret store, incident evidence, the document set, managed printers and the approved locations for users' copies. The system owner reviews the inventory every 12 months, and adds any new place before it is used (PRO-MP-6). \<System Name\> lets only the editors of a project create an export of it, and Windows permissions limit the export folder and the logs to the Windows server administrator. A printout is shared only with people authorised to read that project.
 
 **Table 1: Media inventory**
 
-| Media | Holds | Protection | Who may reach it | Sanitising method (section 3.6) | State now |
-| --- | --- | --- | --- | --- | --- |
-| Server disks, both servers | Everything on the servers | BitLocker; \<Organisation\>'s data centre | Windows server administrator; \<Organisation\>'s hosting staff | M1 | Disk encryption planned (PA-52) |
-| Database and key volumes | Documents, audit records and data protection keys | As the server disks | Database administrator; Windows server administrator | M1 | As the server disks |
-| Export folder on the application server | Full copies of exported documents | Removed once downloaded and within 24 hours | Windows server administrator | M5 | Copies left unencrypted (P02 to P06, PA-86) |
-| Users' managed devices | Downloads and exports | \<Organisation\>'s disk encryption and USB blocking | The user | M4 | Not evidenced (EV-MP-03) |
-| Approved locations for users' copies | Exports and downloads that users keep | \<Organisation\>'s access control and encryption for the location | The user, and those the location is shared with | M5 | The locations are not named (PA-121) |
-| \<Organisation\>'s managed printers | Print jobs, held until the user releases them at the printer | Secure release; \<Organisation\>'s control of the printer and its storage | The user who printed; \<Organisation\>'s staff who maintain the printer | M4 | Not evidenced (EV-MP-03) |
-| Application logs | Personal data repeated from audit events | Access limited; kept 30 days (C46) | Windows server administrator | M5 | Personal data in logs (PA-75) |
-| Backups, at the second site | Everything in the database | Encrypted before they leave (PA-64) | Database administrator; \<Organisation\>'s hosting staff | M2 | Not yet encrypted (R02, PA-64) |
-| Support copies | Data, dumps, logs or screenshots sent for support | Approved, minimised and encrypted (\<Procedures\>, PRO-MA-7) | As approved | M5 | Not yet used |
-| Audit archive, offline | Audit records older than 12 months | Encrypted, held off the database server, with its SHA-256 value recorded (\<Audit and Accountability Management\>) | Database administrator | M2 | Not built; where it is held is not yet set (EV-AU-03) |
-| Secret store, and its copy at the second site | The database password, the signing key and the backup key | Readable only by the named administrators and the API's service account (\<Identification and Authentication Management\>, section 3.5) | Windows server administrator; database administrator | M5, and the secret is changed | Not built: the secrets are in settings files (PA-19) |
-| Incident evidence | Audit records and logs exported during an incident | Handled as Restricted, with a hash and a record of custody (\<Incident Response Management\>, section 3.10) | Security officer; the administrators | M5 | Not yet used |
-| Physical disks and backup media | \<Organisation\>'s storage under the servers | \<Organisation\>'s data centre | \<Organisation\>'s hosting staff | M3 | Not evidenced (EV-MP-01) |
-| Test PCs | Sample data only, in throwaway Docker stacks | Removed after each test, with its data volumes | Developers | M5 | In place |
-| The document set and the test evidence | This set of Restricted documents, and the test results | The restricted document store | The people each document is shared with | M5 | One copy, on the system owner's computer, outside the restricted store (PA-88) |
-| Printouts | Printed documents | Marked, locked away, kept on site | People authorised to read that project | M6 | Not yet in use |
+| Media | Holds | Protection | Who may reach it | Sanitising method (section 3.6) |
+| --- | --- | --- | --- | --- |
+| Server disks, both servers | Everything on the servers | BitLocker; \<Organisation\>'s data centre | Windows server administrator; \<Organisation\>'s hosting staff | M1 |
+| Database and key volumes | Documents, audit records and data protection keys | As the server disks | Database administrator; Windows server administrator | M1 |
+| Export folder on the application server | Full copies of exported documents | Removed once downloaded and within 24 hours | Windows server administrator | M5 |
+| Users' managed devices | Downloads and exports | \<Organisation\>'s disk encryption and USB blocking (EV-MP-03) | The user | M4 |
+| Approved locations for users' copies | Exports and downloads that users keep | \<Organisation\>'s access control and encryption for the location | The user, and those the location is shared with | M5 |
+| \<Organisation\>'s managed printers | Print jobs, held until the user releases them at the printer | Secure release; \<Organisation\>'s control of the printer and its storage (EV-MP-03) | The user who printed; \<Organisation\>'s staff who maintain the printer | M4 |
+| Application logs | Errors, start-up and shut-down events | Access limited; kept 30 days (C46) | Windows server administrator | M5 |
+| Backups, at the second site | Everything in the database | Encrypted before they leave | Database administrator; \<Organisation\>'s hosting staff | M2 |
+| Support copies | Data, dumps, logs or screenshots sent for support | Approved, minimised and encrypted (\<Procedures\>, PRO-MA-7) | As approved | M5 |
+| Audit archive, offline | Audit records older than 12 months | Encrypted, held off the database server, with its SHA-256 value recorded (\<Audit and Accountability Management\>; EV-AU-03) | Database administrator | M2 |
+| Secret store, and its copy at the second site | The database password, the signing key and the backup key | Readable only by the named administrators and the API's service account (\<Identification and Authentication Management\>, section 3.5) | Windows server administrator; database administrator | M5, and the secret is changed |
+| Incident evidence | Audit records and logs exported during an incident | Handled as Restricted, with a hash and a record of custody (\<Incident Response Management\>, section 3.10) | Security officer; the administrators | M5 |
+| Physical disks and backup media | \<Organisation\>'s storage under the servers | \<Organisation\>'s data centre (EV-MP-01) | \<Organisation\>'s hosting staff | M3 |
+| Test environments | Invented data only, in throwaway copies of the system | Removed after each test, with its data volumes | Developers | M5 |
+| The document set and assessment evidence | This set of Restricted documents, and the assessment records | The restricted document store | The people each document is shared with | M5 |
+| Printouts | Printed documents | Marked, locked away, kept on site | People authorised to read that project | M6 |
 
 ### 3.3 Marking scheme
 
@@ -68,12 +66,12 @@ All \<System Name\> information is marked RESTRICTED, \<Organisation\>'s marking
 
 **Table 2: Where the marking goes**
 
-| Output | How it is marked | State now |
-| --- | --- | --- |
-| Viewer pages | A RESTRICTED banner with the document's classification | Not built (PA-87) |
-| Printouts | The banner on every page, by a print style; by hand until then | By hand (PRO-MP-1) |
-| Export files | RESTRICTED in the file name, and a marking notice inside | Not built (PA-87); by hand until then |
-| Other digital media | A RESTRICTED label on the media or its record | Through \<Organisation\> (EV-MP-01) |
+| Output | How it is marked |
+| --- | --- |
+| Viewer pages | A RESTRICTED banner with the document's classification |
+| Printouts | The banner on every page, by a print style |
+| Export files | RESTRICTED in the file name, and a marking notice inside |
+| Other digital media | A RESTRICTED label on the media or its record, through \<Organisation\> (EV-MP-01) |
 
 ### 3.4 Storage, export copies and users' copies
 
@@ -84,11 +82,9 @@ Controls met here: MP-2, MP-4.
 | Media | Controlled area | Rule |
 | --- | --- | --- |
 | Server disks, volumes, backups and physical media | \<Organisation\>'s data centres | Encrypted. Reached only by the roles in section 3.2 |
-| Export copies on the application server | The application server | Removed once downloaded, and within 24 hours at most. \<System Name\> is to do this itself (PA-86) |
+| Export copies on the application server | The application server | Removed by \<System Name\> once downloaded, and within 24 hours at most |
 | Users' exports and downloads | A managed device, in the locations \<Organisation\> approves: \[approved locations\] | Kept to the minimum, and deleted within 30 days once no longer needed |
 | Printouts | Locked storage in \<Organisation\>'s offices | Printed only on \<Organisation\>'s managed printers with secure release. Collected at once, locked away when not in use, kept on site, and shredded when no longer needed, within 30 days if they hold personal data |
-
-Until \<System Name\> removes export copies itself, the Windows server administrator checks the export folder each working day and deletes anything older than 24 hours. The check is made each working day, not weekly, because a weekly check would let a copy stay for up to 7 days (D-MP-10). A copy made before a weekend can still stay until the next working day: that shortfall is part of the gap registered as PA-86.
 
 ### 3.5 Transport
 
@@ -100,7 +96,7 @@ Media are carried physically only by exception. Each move is approved by the sys
 
 Controls met here: MP-6.
 
-Methods follow CSS and IEEE 2883-2022, with the NCSC's guidance for the UK. Each action is recorded on TPL-13, with the tool used and how the result was verified (PRO-MP-3). Every 12 months the system owner checks a sample of \<Organisation\>'s certificates against those records. Media records are kept for 3 years (D-MP-11). That matches the training records, and covers a full authorisation cycle.
+Methods follow CSS and IEEE 2883-2022, with the NCSC's guidance for the UK. Each action is recorded on TPL-13, with the tool used and how the result was verified (PRO-MP-3). Every 12 months the system owner checks a sample of \<Organisation\>'s certificates against those records. Media records are kept for 3 years. That matches the training records, and covers a full authorisation cycle.
 
 Cryptographic erase is sound only if the media were encrypted before any \<System Name\> information was written to them, and only once every copy of the key is destroyed. Both servers are therefore encrypted before \<System Name\> is installed, and the record on TPL-13 lists each copy of the key and confirms its destruction. Where either condition cannot be shown, the media are purged or destroyed instead.
 
@@ -132,15 +128,13 @@ Controls met here: MP-2, MP-4, MP-5, MP-6, MP-7.
 
 **Table 5: Asked of \<Organisation\>**
 
-| Provided | Controls | What \<System Name\> relies on | Evidence asked | State |
-| --- | --- | --- | --- | --- |
-| Storage of disks and backup media | MP-2, MP-4 | They stay in its data centres, reached only by its hosting staff | EV-MP-01 | Not sent |
-| Transport of physical media | MP-5 | Only by exception, protected, tracked and recorded | EV-MP-01 | Not sent |
-| Sanitising | MP-6 | Physical disks are purged or destroyed to IEEE 2883-2022, with a certificate; virtual disks are erased when a server is removed | EV-MP-02 | Not sent |
-| Managed devices and device control | MP-4, MP-7 | Users' devices are disk-encrypted, USB storage is blocked, and no USB device is passed through to the servers | EV-MP-03, EV-AC-17 | Not sent |
-| Locked storage for paper | MP-4 | Lockable storage in its offices, and a cross-cut shredder | Not yet asked | Added to EV-MP-01 |
-
-**Today:** no request has been sent, and none of this is evidenced (PA-121).
+| Provided | Controls | What \<System Name\> relies on | Evidence asked |
+| --- | --- | --- | --- |
+| Storage of disks and backup media | MP-2, MP-4 | They stay in its data centres, reached only by its hosting staff | EV-MP-01 |
+| Transport of physical media | MP-5 | Only by exception, protected, tracked and recorded | EV-MP-01 |
+| Sanitising | MP-6 | Physical disks are purged or destroyed to IEEE 2883-2022, with a certificate; virtual disks are erased when a server is removed | EV-MP-02 |
+| Managed devices and device control | MP-4, MP-7 | Users' devices are disk-encrypted, USB storage is blocked, and no USB device is passed through to the servers | EV-MP-03, EV-AC-17 |
+| Locked storage for paper | MP-4 | Lockable storage in its offices, and a cross-cut shredder | EV-MP-01 |
 
 ### 3.9 Policy and procedures
 

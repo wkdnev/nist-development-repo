@@ -12,8 +12,6 @@ Other documents hold the rest. Who provides and is responsible for each control,
 
 Values that CSS asks the organisation to define are set at corporate level by \<Organisation\>. The values in section 3 should match those corporate values. Where one does not, it is changed in this document.
 
-Where section 3 notes what "today" is, or the state now, it means the tested v1.0 build and what \<Organisation\> has evidenced so far. Those notes show where that position differs from the design.
-
 ## 2 Summary
 
 The implementation status of each control, how it is met, who is responsible, its assessment result and the risk and plan entries for its gaps are recorded in \<System Security Plan\>, section 7.11 (Table 20).
@@ -44,36 +42,36 @@ Controls met here: PE-2, PE-17.
 | Site | Use | Location | \<Organisation\> contact | Evidence |
 | --- | --- | --- | --- | --- |
 | Data centre | Hosts both servers | \[Data centre name and address\] | \[Facilities contact\] | EV-PE-01 to EV-PE-04 |
-| Second site | Holds backups; used for recovery (\<Contingency Planning Management\>, section 3.9) | \[Second site name and address\] | \[Facilities contact\] | EV-PE-01 to EV-PE-04; PA-66 |
+| Second site | Holds backups; used for recovery (\<Contingency Planning Management\>, section 3.9) | \[Second site name and address\] | \[Facilities contact\] | EV-PE-01 to EV-PE-04 |
 | Offices | Where \<System Name\> is used and printed | \[\<Organisation\> offices\] | \[Office security contact\] | EV-PE-05 |
 | Homes | Remote working | Employees' homes | Security officer | C30, TPL-4 |
 
-No \<System Name\> role needs to enter either data centre (D-PE-12). The Windows server and database administrators work over \<Organisation\>'s managed route (\<Maintenance Management\>, section 3.4), and the hardware beneath the servers is maintained by \<Organisation\>'s engineers.
+No \<System Name\> role needs to enter either data centre. The Windows server and database administrators work over \<Organisation\>'s managed route (\<Maintenance Management\>, section 3.4), and the hardware beneath the servers is maintained by \<Organisation\>'s engineers.
 
 ### 3.3 Who provides each control
 
 Controls met here: PE-1, PE-2, PE-3, PE-4, PE-5, PE-6, PE-6(1), PE-8, PE-9, PE-10, PE-11, PE-12, PE-13, PE-13(1), PE-14, PE-15, PE-16, PE-17.
 
-Who provides each PE control, and the evidence that closes it. The first choice of evidence is \<Organisation\>'s ISO/IEC 27001 certificate and Statement of Applicability, with the Annex A control shown, for both sites. A SOC 2 report serves instead if it covers physical access (criterion CC6.4) and, for power, fire, environment and water, the availability criteria (A1.2) (D-PE-12). The site inspection (TPL-20) adds what was seen.
+Who provides each PE control, and the evidence that closes it. The first choice of evidence is \<Organisation\>'s ISO/IEC 27001 certificate and Statement of Applicability, with the Annex A control shown, for both sites. A SOC 2 report serves instead if it covers physical access (criterion CC6.4) and, for power, fire, environment and water, the availability criteria (A1.2). The site inspection (TPL-20) adds what was seen.
 
 **Table 2: PE inheritance matrix**
 
-| Control | \<Organisation\> provides | \<System Name\> provides | Closing evidence | State now |
-| --- | --- | --- | --- | --- |
-| PE-1 | Its own physical security policy | The policy, the procedures and this document | Approved documents | Not yet shared |
-| PE-2 | Authorised access list for the data centres | Nothing | A.7.2; access list review record | Not evidenced (EV-PE-01) |
-| PE-3 | Entry control, logs, visitors, keys and cards | Nothing | A.7.1, A.7.2, A.7.3; TPL-20 | Not evidenced (EV-PE-01) |
-| PE-4 | Protected cabling | Nothing | A.7.12 | Not evidenced (EV-PE-01) |
-| PE-5 | Managed printers with secure release; office security | Users' rules (A33, A36, A37); the device screen lock is \<Organisation\>'s (P-AC-15) | A.7.7; EV-PE-05; AC-11 tests | Printers not yet listed |
-| PE-6, PE-6(1) | Monitoring, alarms and CCTV; log review | Incident handling of what is reported | A.7.4; monitoring records | Not evidenced (EV-PE-01) |
-| PE-8 | Visitor records and review | Nothing | A.7.2; sample records | Not evidenced (EV-PE-01) |
-| PE-9, PE-10, PE-11, PE-12 | Power protection, emergency shutoff, UPS and emergency lighting | Orderly shutdown on UPS (\<Security Operating Procedures\>, section 4.6) | A.7.11, A.7.12; maintenance records | Not evidenced (EV-PE-02) |
-| PE-13, PE-13(1) | Fire detection and suppression, with automatic notification | Nothing | A.7.5; fire safety records | Not evidenced (EV-PE-03) |
-| PE-14 | Temperature and humidity control and monitoring | Nothing | A.7.5, A.7.8; monitoring records | Not evidenced (EV-PE-03) |
-| PE-15 | Water damage protection | Nothing | A.7.5 | Not evidenced (EV-PE-03) |
-| PE-16 | Control of deliveries and removals | Approves removal of \<System Name\> equipment (\<Procedures\>, PRO-MA-2) | A.7.2, A.7.10; sample records | Not evidenced (EV-PE-04) |
-| PE-17 | Managed devices and route | Home working rules and the yearly check | A.6.7, A.7.9; EV-PE-05; TPL-4 | Not yet assessed |
-| Compensating | Nothing | Server disk encryption, so physical access to hosts does not expose data (PA-52) | Encryption settings on the servers | Planned (PA-52) |
+| Control | \<Organisation\> provides | \<System Name\> provides | Closing evidence |
+| --- | --- | --- | --- |
+| PE-1 | Its own physical security policy | The policy, the procedures and this document | Approved documents |
+| PE-2 | Authorised access list for the data centres | Nothing | A.7.2; access list review record (EV-PE-01) |
+| PE-3 | Entry control, logs, visitors, keys and cards | Nothing | A.7.1, A.7.2, A.7.3; TPL-20 (EV-PE-01) |
+| PE-4 | Protected cabling | Nothing | A.7.12 (EV-PE-01) |
+| PE-5 | Managed printers with secure release; office security | Users' rules (A33, A36, A37); the device screen lock is \<Organisation\>'s (P-AC-15) | A.7.7; EV-PE-05; AC-11 tests |
+| PE-6, PE-6(1) | Monitoring, alarms and CCTV; log review | Incident handling of what is reported | A.7.4; monitoring records (EV-PE-01) |
+| PE-8 | Visitor records and review | Nothing | A.7.2; sample records (EV-PE-01) |
+| PE-9, PE-10, PE-11, PE-12 | Power protection, emergency shutoff, UPS and emergency lighting | Orderly shutdown on UPS (\<Security Operating Procedures\>, section 4.6) | A.7.11, A.7.12; maintenance records (EV-PE-02) |
+| PE-13, PE-13(1) | Fire detection and suppression, with automatic notification | Nothing | A.7.5; fire safety records (EV-PE-03) |
+| PE-14 | Temperature and humidity control and monitoring | Nothing | A.7.5, A.7.8; monitoring records (EV-PE-03) |
+| PE-15 | Water damage protection | Nothing | A.7.5 (EV-PE-03) |
+| PE-16 | Control of deliveries and removals | Approves removal of \<System Name\> equipment (\<Procedures\>, PRO-MA-2) | A.7.2, A.7.10; sample records (EV-PE-04) |
+| PE-17 | Managed devices and route | Home working rules and the yearly check | A.6.7, A.7.9; EV-PE-05; TPL-4 |
+| Compensating | Nothing | Server disk encryption, so physical access to hosts does not expose data | Encryption settings on the servers |
 
 ### 3.4 How the evidence is obtained and checked
 
@@ -88,7 +86,7 @@ Who provides each PE control, and the evidence that closes it. The first choice 
 | 5 | Any shortfall is raised as a risk | System owner | \<Risk List\> |
 | 6 | The check is repeated every 12 months, and after a change of site or a significant incident at a site | System owner | Section 3.3 |
 
-The organisation does not assess the sites itself. It inherits their protection by evidence, with the single inspection in step 4 (D-PE-05, D-PE-08).
+The organisation does not assess the sites itself. It inherits their protection by evidence, with the single inspection in step 4.
 
 ### 3.5 Offices: screens and printing
 
@@ -109,7 +107,7 @@ Controls met here: PE-17.
 3. They work where others in the home cannot see the screen, and do not print \<System Name\> documents at home unless the system owner has approved it.
 4. They do not use \<System Name\> from outside the UK, or take a device that can reach it abroad, without written approval from the system owner and the security officer.
 5. They report any concern or incident to the security officer at once, and a lost or stolen device within 1 hour. The security and privacy contacts are in \<Security Operating Procedures\>, section 6.
-6. Every 12 months the security officer puts a short checklist to every person who works from home: the managed device, the VPN, screen privacy, no printing, and reporting. The answers are recorded on TPL-4. Every person completes it, not a sample (D-PE-13).
+6. Every 12 months the security officer puts a short checklist to every person who works from home: the managed device, the VPN, screen privacy, no printing, and reporting. The answers are recorded on TPL-4. Every person completes it, not a sample.
 
 These are rules A35 to A42 of the rules of behaviour, which each person signs (\<Security Operating Procedures\>, Part A).
 
@@ -117,13 +115,13 @@ These are rules A35 to A42 of the rules of behaviour, which each person signs (\
 
 Controls met here: PE-6, PE-8, PE-11.
 
-The loss or theft of a device or printout, unauthorised entry to a data centre, and fire, flood or power loss affecting \<System Name\> are security incidents. Whoever sees one reports it to the security officer at once. \<Organisation\>'s security contact tells the security officer of any physical incident at a site that affects \<System Name\>, and of any anomaly in the visitor records, within 24 hours (D-PE-12). The security officer handles it with the playbooks for a lost device or printout and for intrusion, fire, flood or power loss at a data centre (\<Incident Response Management\>, section 3.9), and the contingency plan is invoked if a site is lost (\<Contingency Planning Management\>).
+The loss or theft of a device or printout, unauthorised entry to a data centre, and fire, flood or power loss affecting \<System Name\> are security incidents. Whoever sees one reports it to the security officer at once. \<Organisation\>'s security contact tells the security officer of any physical incident at a site that affects \<System Name\>, and of any anomaly in the visitor records, within 24 hours. The security officer handles it with the playbooks for a lost device or printout and for intrusion, fire, flood or power loss at a data centre (\<Incident Response Management\>, section 3.9), and the contingency plan is invoked if a site is lost (\<Contingency Planning Management\>).
 
-**Loss of power.** Each data centre has enough backup power for an orderly shutdown of both servers. When a data centre moves to backup power, \<Organisation\> warns the Windows server administrator. The administrators then shut both servers down in order, before the backup power runs out (\<Security Operating Procedures\>, section 4.6), and record it as a physical incident (D-PE-13). How long the backup power lasts, and how the warning is given, are asked of \<Organisation\> (EV-PE-02).
+**Loss of power.** Each data centre has enough backup power for an orderly shutdown of both servers. When a data centre moves to backup power, \<Organisation\> warns the Windows server administrator. The administrators then shut both servers down in order, before the backup power runs out (\<Security Operating Procedures\>, section 4.6), and record it as a physical incident. How long the backup power lasts, and how the warning is given, are asked of \<Organisation\> (EV-PE-02).
 
 ### 3.8 Encryption behind the physical controls
 
-Both servers' disks are encrypted, and backups are encrypted before they leave the database server. Someone who reaches a host, a disk or a backup copy therefore cannot read \<System Name\>'s documents. This does not replace \<Organisation\>'s physical controls: it limits the harm if one fails. Today it is planned and not in place (PA-52, PA-64).
+Both servers' disks are encrypted, and backups are encrypted before they leave the database server. Someone who reaches a host, a disk or a backup copy therefore cannot read \<System Name\>'s documents. This does not replace \<Organisation\>'s physical controls: it limits the harm if one fails.
 
 ### 3.9 What \<Organisation\> provides
 
@@ -131,19 +129,17 @@ Controls met here: PE-2, PE-3, PE-4, PE-5, PE-6, PE-6(1), PE-8, PE-9, PE-10, PE-
 
 **Table 4: Asked of \<Organisation\>**
 
-| Request | Controls | What is asked | State |
-| --- | --- | --- | --- |
-| EV-PE-01 | PE-2, PE-3, PE-4, PE-6, PE-6(1), PE-8 | Who can enter each data centre, how entry is controlled and logged, how visitors, keys and cabling are managed, how access is monitored, and how incidents reach \<System Name\>'s security officer. Its certificate or report, for both sites | Not sent |
-| EV-PE-02 | PE-9, PE-10, PE-11, PE-12 | How power is protected, the emergency shutoff, backup power for an orderly shutdown, and emergency lighting | Not sent |
-| EV-PE-03 | PE-13, PE-13(1), PE-14, PE-15 | Fire detection and suppression and who they notify, temperature and humidity and how they are monitored, and protection from water | Not sent |
-| EV-PE-04 | PE-16 | How hardware and media are authorised and recorded when entering or leaving | Not sent |
-| EV-PE-05 | PE-5, PE-17 | Office controls for printers and screens, which managed printers have secure release, and the controls on managed devices and the route at home | Not sent |
-
-**Today:** no request has been sent, the sites and the facilities contacts are not named, and none of this is evidenced (PA-122).
+| Request | Controls | What is asked |
+| --- | --- | --- |
+| EV-PE-01 | PE-2, PE-3, PE-4, PE-6, PE-6(1), PE-8 | Who can enter each data centre, how entry is controlled and logged, how visitors, keys and cabling are managed, how access is monitored, and how incidents reach \<System Name\>'s security officer. Its certificate or report, for both sites |
+| EV-PE-02 | PE-9, PE-10, PE-11, PE-12 | How power is protected, the emergency shutoff, backup power for an orderly shutdown, and emergency lighting |
+| EV-PE-03 | PE-13, PE-13(1), PE-14, PE-15 | Fire detection and suppression and who they notify, temperature and humidity and how they are monitored, and protection from water |
+| EV-PE-04 | PE-16 | How hardware and media are authorised and recorded when entering or leaving |
+| EV-PE-05 | PE-5, PE-17 | Office controls for printers and screens, which managed printers have secure release, and the controls on managed devices and the route at home |
 
 ### 3.10 What \<System Name\> requires at each data centre
 
-These are what \<System Name\> requires of \<Organisation\> at both the main data centre and the second site (D-PE-P02). \<Organisation\> provides them, and they count only once evidenced (section 3.4).
+These are what \<System Name\> requires of \<Organisation\> at both the main data centre and the second site. \<Organisation\> provides them, and they count only once evidenced (section 3.4).
 
 #### 3.10.1 Entry, keys and cabling
 
@@ -168,7 +164,7 @@ Controls met here: PE-6, PE-6(1), PE-8.
 Controls met here: PE-9, PE-10, PE-11, PE-12.
 
 1. **Power equipment.** \<Organisation\> protects the power equipment and cabling that serve the hosts from damage and destruction.
-2. **Emergency shutoff.** Power to the hosting equipment for both servers can be shut off in an emergency, by switches near the exits of the data centre room. The shutoff is guarded against accidental and unauthorised use (D-PE-12), and \<Organisation\> is asked how (EV-PE-02).
+2. **Emergency shutoff.** Power to the hosting equipment for both servers can be shut off in an emergency, by switches near the exits of the data centre room. The shutoff is guarded against accidental and unauthorised use, and \<Organisation\> is asked how (EV-PE-02).
 3. **Backup power.** Enough for an orderly shutdown of both servers (section 3.7).
 4. **Emergency lighting.** Automatic emergency lighting in each data centre comes on in a power failure and covers the emergency exits and evacuation routes.
 
@@ -212,7 +208,7 @@ CSS does not select these in the Moderate security baseline, so they are not ass
 | PE-5(2) Link to Individual Identity | Output released only to the person who asked for it | Not required. Done in design: managed printers with secure release (section 3.5) |
 | PE-6(2), PE-6(3), PE-6(4) Automated Intrusion Recognition and Responses; Video Surveillance; Monitoring Physical Access to Systems | More monitoring, some of it automated | Not required. CCTV is already required under PE-6(1) |
 | PE-8(1) Automated Records Maintenance and Review | Visitor records kept and reviewed by automated means | Not required |
-| PE-8(3) Limit Personally Identifiable Information Elements | Visitor records hold only defined personal data | Privacy baseline, so it applies. The data allowed is the name, the organisation, and the date and time of the visit. Assessed with the PT family; not evidenced (NC-PT-12; EV-PT-02; PA-122) |
+| PE-8(3) Limit Personally Identifiable Information Elements | Visitor records hold only defined personal data | Privacy baseline, so it applies. The data allowed is the name, the organisation, and the date and time of the visit. Assessed with the PT family (EV-PT-02) |
 | PE-9(1), PE-9(2) Redundant Cabling; Automatic Voltage Controls | Spare power cabling and voltage control | Not required |
 | PE-11(1), PE-11(2) Alternate Power Supply | Long-term backup power that keeps the system running | Not required. Availability is rated Low, and an orderly shutdown is enough. \<Organisation\> is asked how long its backup power lasts (EV-PE-02) |
 | PE-12(1) Essential Mission and Business Functions | Emergency lighting for all areas that support essential functions | Not required |

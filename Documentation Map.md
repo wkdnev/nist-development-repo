@@ -5,14 +5,14 @@
 This set covers the 19 control families of CSS that apply to \<System Name\>: Access Control (AC), Awareness and Training (AT), Audit and Accountability (AU), Assessment, Authorization, and Monitoring (CA), Configuration Management (CM), Contingency Planning (CP), Identification and Authentication (IA), Incident Response (IR), Maintenance (MA), Media Protection (MP), Physical and Environmental Protection (PE), Planning (PL), Personnel Security (PS), Personally Identifiable Information Processing and Transparency (PT), Risk Assessment (RA), System and Services Acquisition (SA), System and Communications Protection (SC), System and Information Integrity (SI) and Supply Chain Risk Management (SR). The Moderate baseline applies, with the CSS privacy baseline for personal data, which makes 316 controls. Program Management (PM) is the twentieth family. It is outside the baseline for a single system, and \<System Name\> inherits it from \<Organisation\> (\<Tailoring Register\>, section 4). Wherever this set lists the families, it uses CSS order.
 
 - **System:** the \<System Name\> application built from the API, UI application, Admin application, shared library and workspace repository repositories. It is a separate product from the template-built \<System Name\>; that product's documents were used only as a guide to document types and content.
-- **Version described:** \<System Name\> v1.0, run in Docker for development and test only. The production system, two Windows Server 2025 VMs at \<Organisation\>, is not yet built.
+- **Design described:** \<System Name\> on two Windows Server 2025 VMs at \<Organisation\>. Development and testing run in Docker, apart from production.
 - **Baseline:** Moderate.
-- **Evidence basis:** code read and tests run on one PC against a throwaway database, and the system owner's written answers. This is a Level 1 self-assessment. It is not independent, and nothing here is a claim of compliance.
+- **Evidence basis:** the record documents are templates. The team that assesses \<System Name\> fills them in from its own tests, interviews and evidence. Nothing in the set is a claim of compliance.
 - **Master copy:** the documents are kept as Markdown. Section 4.1 says how they are controlled.
 
 ## 2 The document set
 
-The set has 44 documents. \<Guide to the Document Set\> is the place to start. Within the set, each fact is written in one document and the others point to it. Every family has its design in a document of its own, in the same form, as the system owner asked: access control in \<Access Control Management\>, awareness and training in \<Awareness and Training Management\>, audit and accountability in \<Audit and Accountability Management\>, assessment, authorisation and monitoring in \<Assessment, Authorization, and Monitoring Management\>, configuration management in \<Configuration Management\>, contingency planning in \<Contingency Planning Management\>, identification and authentication in \<Identification and Authentication Management\>, incident response in \<Incident Response Management\>, maintenance in \<Maintenance Management\>, media protection in \<Media Protection Management\>, physical and environmental protection in \<Physical and Environmental Protection Management\>, planning in \<Planning Management\>, program management in \<Program Management\>, personnel security in \<Personnel Security Management\>, personal data in \<PII Processing Management\>, risk assessment in \<Risk Assessment Management\>, system and services acquisition in \<System and Services Acquisition Management\>, system and communications protection in \<System and Communications Protection Management\>, system and information integrity in \<System and Information Integrity Management\>, and supply chain risk management in \<Supply Chain Risk Management\>.
+The set has 44 documents. \<Guide to the Document Set\> is the place to start. Within the set, each fact is written in one document and the others point to it. Every family has its design in a document of its own, in the same form: access control in \<Access Control Management\>, awareness and training in \<Awareness and Training Management\>, audit and accountability in \<Audit and Accountability Management\>, assessment, authorisation and monitoring in \<Assessment, Authorization, and Monitoring Management\>, configuration management in \<Configuration Management\>, contingency planning in \<Contingency Planning Management\>, identification and authentication in \<Identification and Authentication Management\>, incident response in \<Incident Response Management\>, maintenance in \<Maintenance Management\>, media protection in \<Media Protection Management\>, physical and environmental protection in \<Physical and Environmental Protection Management\>, planning in \<Planning Management\>, program management in \<Program Management\>, personnel security in \<Personnel Security Management\>, personal data in \<PII Processing Management\>, risk assessment in \<Risk Assessment Management\>, system and services acquisition in \<System and Services Acquisition Management\>, system and communications protection in \<System and Communications Protection Management\>, system and information integrity in \<System and Information Integrity Management\>, and supply chain risk management in \<Supply Chain Risk Management\>.
 
 ### 2.1 The documents
 
@@ -20,9 +20,9 @@ The set has 44 documents. \<Guide to the Document Set\> is the place to start. W
 
 | Document | Group | Purpose |
 | --- | --- | --- |
-| \<System Security Plan\> | Plans and descriptions | How \<System Name\> implements each of the 316 controls, or does not yet, with the system description, architecture figures, inheritance and responsibilities |
+| \<System Security Plan\> | Plans and descriptions | How \<System Name\> implements each of the 316 controls, with the system description, architecture figures, inheritance and responsibilities |
 | \<Privacy Plan\> | Plans and descriptions | How personal data in \<System Name\> is governed: the privacy plan that PL-2 calls for |
-| \<System Description\> | Plans and descriptions | One description of the whole system for a person or an AI without the source code: its purpose, users, high-level requirements, architecture, technologies and design, its security family by family, and how the design differs from what is built |
+| \<System Description\> | Plans and descriptions | One description of the whole system for a person or an AI without the source code: its purpose, users, high-level requirements, architecture, technologies and design, its security family by family, and how an application departs from the reference design |
 | \<Security Architecture\> | Plans and descriptions | System boundary, components, data flows and what is inherited from \<Organisation\> |
 | \<Concept of Operations\> | Plans and descriptions | Why \<System Name\> exists, who uses it, the business workflows it supports and its operational scenarios |
 | \<Roles and Responsibilities\> | Plans and descriptions | Who holds each role, so that other documents name roles and not people |
@@ -41,7 +41,7 @@ The set has 44 documents. \<Guide to the Document Set\> is the place to start. W
 | \<Maintenance Management\> | Plans and descriptions | The maintenance design: who maintains what, how a job is controlled, the remote maintenance routes, the approved tools and people, what may leave, the security-critical components |
 | \<Incident Response Management\> | Plans and descriptions | The incident response design, and the plan IR-8 requires: roles, detection, severity and targets, the steps of handling, personal data breaches, playbooks, evidence and the register |
 | \<Supply Chain Risk Management\> | Plans and descriptions | The supply chain risk management plan that SR-2 requires: the system context, the team, the risks at each stage, the supplier register, the risk tolerance and how components come in |
-| \<Data Protection Impact Assessment\> | Plans and descriptions | The data protection impact assessment, drafted for the legal adviser to complete |
+| \<Data Protection Impact Assessment\> | Plans and descriptions | The data protection impact assessment, for the legal adviser to complete |
 | \<Policy\> | Rules and how they are carried out | The security and privacy policy: one chapter of rules for each of the 19 families |
 | \<Procedures\> | Rules and how they are carried out | The procedures that carry out the policy: one chapter for each family, each step naming who acts and the record kept |
 | \<Control Implementation Register\> | Rules and how they are carried out | An index of the family design documents. Each family has its design in a document of its own, and each chapter points to it: \<Access Control Management\>, \<Awareness and Training Management\>, \<Audit and Accountability Management\>, \<Assessment, Authorization, and Monitoring Management\>, \<Identification and Authentication Management\>, \<Maintenance Management\>, \<Media Protection Management\>, \<Physical and Environmental Protection Management\>, \<Planning Management\>, \<Personnel Security Management\>, \<PII Processing Management\>, \<Risk Assessment Management\>, \<System and Services Acquisition Management\>, \<System and Communications Protection Management\> and \<System and Information Integrity Management\> |
@@ -52,17 +52,17 @@ The set has 44 documents. \<Guide to the Document Set\> is the place to start. W
 | \<Access Control Management\> | Rules and how they are carried out | The access control design: how \<System Name\> is designed and configured to meet the 39 Access Control controls and enhancements |
 | \<Security Operating Procedures\> | Rules and how they are carried out | Rules of behaviour for everyone and for privileged users, and how security is operated day to day, with the record that proves each duty |
 | \<Record Templates\> | Rules and how they are carried out | The forms that show controls operating, TPL-1 to TPL-24 |
-| \<Tailoring Register\> | Rules and how they are carried out | The case for each control treated as not applicable, and the decision that Program Management is outside the baseline |
-| \<Control Assessment Record\> | Assessment and authorisation | The Level 1 self-assessment: a finding for each of the 1,998 determination statements, one chapter for each family |
-| \<Security Assessment Report\> | Assessment and authorisation | The results of all 19 families in one report for the authorising official, with the risk position and the conditions before authorisation |
-| \<Risk List\> | Assessment and authorisation | Each risk with its rating, treatment and acceptance, and a non-compliance entry for every control that is not satisfied |
-| \<Plan of Action and Milestones\> | Assessment and authorisation | Each weakness with its fix, owner, milestone and latest completion, and the road to authorisation |
-| \<Decision Register\> | Assessment and authorisation | Every approval and decision, who made it, when, and the evidence of it |
-| \<Evidence Requests\> | Assessment and authorisation | The evidence needed from \<Organisation\>, and who does what for each control |
-| \<Interview Guide\> | Assessment and authorisation | The interview questions by role, the statements each supports, and the answers given at Level 1 |
+| \<Tailoring Register\> | Rules and how they are carried out | The case for each control treated as not applicable, and why Program Management is outside the baseline |
+| \<Control Assessment Record\> | Assessment and authorisation | A template for the self-assessment: the 1,998 determination statements to assess, with space for the finding on each, one chapter for each family |
+| \<Security Assessment Report\> | Assessment and authorisation | A template for the report to the authorising official: the results of all 19 families, the risk position and the conditions before authorisation, to be filled in from the assessment |
+| \<Risk List\> | Assessment and authorisation | A template for the risk register: the rating method, and space for each risk with its rating, treatment and acceptance, and for a non-compliance entry for each control that is not satisfied |
+| \<Plan of Action and Milestones\> | Assessment and authorisation | A template for each weakness with its fix, owner, milestone and latest completion, and for the road to authorisation |
+| \<Decision Register\> | Assessment and authorisation | A template for recording each approval and decision, who made it, when, and the evidence of it |
+| \<Evidence Requests\> | Assessment and authorisation | The evidence to ask of \<Organisation\>, and who does what for each control |
+| \<Interview Guide\> | Assessment and authorisation | The interview questions by role and the statements each supports, with space for the answers |
 | \<Guide to the Document Set\> | Guides and index | The place to start: how the documents relate, a route through them for an auditor, one control followed from end to end, and where each family is documented |
-| \<Administrator Guide\> | Guides and index | How administrators set up and run \<System Name\> securely; a draft for the developers to confirm |
-| \<User Guide\> | Guides and index | How users work securely in \<System Name\>; a draft for the developers to confirm |
+| \<Administrator Guide\> | Guides and index | How administrators set up and run \<System Name\> securely, for the developers to confirm against \<System Name\> |
+| \<User Guide\> | Guides and index | How users work securely in \<System Name\>, for the developers to confirm against \<System Name\> |
 | \<Documentation Map\> | Guides and index | This map: every document, where each family is documented, where each fact about a control is held, and the document standard |
 
 ### 2.2 Where each family is documented
@@ -103,7 +103,7 @@ Table 2 gives, for each family, the chapter or section of every document that ho
 | Test evidence | \<evidence\> | The results of each test, with a note that explains them and a list of hashes that fixes their content |
 | Figures | With the documents | The architecture figures used in \<System Security Plan\> and \<Security Architecture\> |
 | Change record | The private records repository described in section 4.1 | Every change to the documents and evidence, with its date |
-| Sign-off sheets | To be filed in the restricted store (\<Decision Register\>, section 23) | Each approver's signature for the decisions recorded for them |
+| Sign-off sheets | The restricted store (\<Decision Register\>, section 23) | Each approver's signature for the decisions recorded for them |
 
 ## 3 Following a control
 
@@ -130,7 +130,7 @@ Every \<System Name\> document follows this standard, so that readers can naviga
 
 The documents are kept as Markdown, one file for each document, named by its title. That set is the master copy. Figures and the replaced documents are kept with it. No Word or PDF copies are issued. A copy in another format can be made when one is needed, but it is not a controlled copy.
 
-Every change to the documents and the test evidence is recorded in a private records repository on the system owner's computer. It has no remote copy and is separate from the code repositories. Each change is dated, and each issue of the set is marked, so any earlier state can be shown. The set moves to \<Organisation\>'s restricted store when that is set up (PA-88). Until then the repository is the change record, and a list of hashes fixes the content of each issue.
+Every change to the documents and the test evidence is recorded in a private records repository on the system owner's computer. It has no remote copy and is separate from the code repositories. Each change is dated, and each issue of the set is marked, so any earlier state can be shown. The set moves to \<Organisation\>'s restricted store when that is set up. Until then the repository is the change record, and a list of hashes fixes the content of each issue.
 
 ### 4.2 Parts of every document
 
@@ -186,7 +186,7 @@ Wherever a document has a part for each family, the families are in CSS order: A
 
 1. It has one numbered section for each family, in CSS order, with cross-family content in its own section.
 2. It has a family coverage table showing the state of every family, and steps for adding a family.
-3. Its identifiers carry the family code, such as D-AU-01, so that adding an entry never renumbers an existing one.
+3. Its identifiers carry the family code, such as D-AU-nn, so that adding an entry never renumbers an existing one.
 4. Each addition increases the version number and is recorded in the change record.
 5. This map is updated at the same time.
 
@@ -231,17 +231,17 @@ These identifiers do not change when a document is renumbered or moved, so citat
 | PRO-AC-1 | A procedure | \<Procedures\> |
 | P-AC-01 | An access control setting | \<Control Implementation Register\> (AC) |
 | AC-02\_ODP\[01\], AC-02a. | The CSS own identifier for a parameter or a determination statement | \<Control Implementation Register\>, \<Control Assessment Record\> |
-| D-AC-01 | A decision. D-AC-P01 is the approval of parameter values | \<Decision Register\> |
-| NC-01, NC-AU-01 | A non-compliance entry. The 39 AC entries have no family code | \<Risk List\>, section 5 |
-| R-AC-01 | A risk | \<Risk List\>, section 2 |
-| PA-01 | A POA&M item | \<Plan of Action and Milestones\>, section 3 |
-| REC-1 | A step on the road to authorisation | \<Plan of Action and Milestones\>, section 5 |
+| D-AC-nn | A decision. D-AC-Pnn is the approval of parameter values | \<Decision Register\> |
+| NC-AU-nn | A non-compliance entry | \<Risk List\>, section 5 |
+| R-AC-nn | A risk | \<Risk List\>, section 2 |
+| PA-nn | A POA&M item | \<Plan of Action and Milestones\>, section 3 |
+| REC-n | A step on the road to authorisation | \<Plan of Action and Milestones\>, section 5 |
 | TR-AC-01 | A tailoring entry | \<Tailoring Register\> |
 | EV-AC-01 | An evidence request | \<Evidence Requests\> |
 | INT-AC-01 | An interview question | \<Interview Guide\> |
 | TPL-1 | A record template | \<Record Templates\> |
 | A1, B1, C1 | A rule or duty in the operating procedures | \<Security Operating Procedures\> |
-| T01, A01, L01 | A test check. The letter shows the script | \<Security Assessment Report\>, section 7 |
+| Tnn, Ann, Lnn | A test check. The letter shows the script | \<Security Assessment Report\>, section 7 |
 
 ### 4.11 Checks on the set
 
@@ -264,8 +264,7 @@ ISO 2145 and ISO/IEC 27001 were read through secondary summaries, because the st
 
 ## 5 Open questions
 
-1. Is Moderate the right security categorisation? Answered: Moderate. The authorising official approves the categorisation.
-2. Who are the authorising official, global administrators, auditors and project access approvers? Answered: named in \<Roles and Responsibilities\>.
-3. Which \<Organisation\> services and evidence cover the inherited controls, and does the Cyber Essentials Plus scope include these two VMs? Still open: the evidence requests in \<Evidence Requests\> have not been sent.
-4. Will password-only sign-in stay? Answered: no. Sign-in is through PingFederate, with multi-factor authentication (D-AC-23), which is still to be shown working (PA-95).
-5. What target dates should the open High POA&M items have? Answered: TLS and committed secrets before production, and the other High items within 6 months after production (\<Decision Register\>). The milestone dates themselves are still to be set (\<Plan of Action and Milestones\>, section 2.1).
+1. Is Moderate the right security categorisation? The authorising official approves the categorisation (\<System Security Plan\>, section 3.3).
+2. Who are the authorising official, global administrators, auditors and project access approvers? \[Names, in \<Roles and Responsibilities\>\].
+3. Which \<Organisation\> services and evidence cover the inherited controls, and does the Cyber Essentials Plus scope include the two VMs? \[Answer, from the evidence asked for in \<Evidence Requests\>\].
+4. What target dates should High POA&M items have? \[Dates, set by the authorising official (\<Plan of Action and Milestones\>, section 2.1)\].

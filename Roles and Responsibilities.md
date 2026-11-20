@@ -11,9 +11,9 @@ This document is used by every control family. It names who holds each role, so 
 | Role | Responsibility | Holder |
 | --- | --- | --- |
 | System owner | Owns \<System Name\> and its documents; accepts risk within their authority; chairs the change control board; keeps the plan of action up to date; invokes the contingency plan; approves equipment removal, data sent for support, and the lists of maintenance people and tools; reviews \<Organisation\>'s physical evidence against the inheritance matrix in \<Physical and Environmental Protection Management\>; keeps risk designations, signed agreements, signed rules (TPL-21 and the register of signatures) and the plan review records; decides whether a change to the rules is material; keeps the plans in the restricted store; monitors external people; gives the \<System Name\> awareness briefing to each user before their account is created (\<Awareness and Training Management\>, section 3.3) | \[Name\] |
-| Head of Cyber | Senior information security officer for \<System Name\> (PM-2, D-PM-03); approves all policies and the incident response plan; concurs with the SSP; confirms \<System Name\>'s risk thresholds against \<Organisation\>'s risk appetite; trains the security officer and auditor; also checks the global administrator's actions every 3 months, as an extra check | \[Name\] |
-| Legal adviser | Reviews policies and the system use notice; privacy representative for changes; decides whether to tell the ICO of a breach, and makes the report; owns the privacy plan and impact assessment; confirms the lawful basis; handles requests and data protection complaints from individuals (\<Procedures\> (PT), TPL-15 and TPL-22); completes the data protection impact assessment (\<Data Protection Impact Assessment\>); gives the opinion on lawful monitoring of users (D-SI-07) | \[Name\] |
-| Data protection officer | Leads \<Organisation\>'s privacy programme for \<System Name\>'s personal data (PM-19; UK GDPR, Articles 37 to 39): advises on the privacy plan and impact assessment, and is the contact for individuals and the ICO. If none is required, the legal adviser records why (D-PM-04) | \[Name, or the reason none is required\] |
+| Head of Cyber | Senior information security officer for \<System Name\> (PM-2); approves all policies and the incident response plan; concurs with the SSP; confirms \<System Name\>'s risk thresholds against \<Organisation\>'s risk appetite; trains the security officer and auditor; also checks the global administrator's actions every 3 months, as an extra check | \[Name\] |
+| Legal adviser | Reviews policies and the system use notice; privacy representative for changes; decides whether to tell the ICO of a breach, and makes the report; owns the privacy plan and impact assessment; confirms the lawful basis; handles requests and data protection complaints from individuals (\<Procedures\> (PT), TPL-15 and TPL-22); completes the data protection impact assessment (\<Data Protection Impact Assessment\>); gives the opinion on lawful monitoring of users | \[Name\] |
+| Data protection officer | Leads \<Organisation\>'s privacy programme for \<System Name\>'s personal data (PM-19; UK GDPR, Articles 37 to 39): advises on the privacy plan and impact assessment, and is the contact for individuals and the ICO. If none is required, the legal adviser records why | \[Name, or the reason none is required\] |
 | Business and information owner | Owns the information types and the business use of \<System Name\>; sets retention periods | \[Name\] |
 | Authorising official | Accepts residual risk, authorises operation and approves the contingency plan | \[Name\] |
 | Security assessor | Leads the independent Level 2 assessment, and confirms independence on TPL-19; inspects the data centre with TPL-20, or accepts \<Organisation\>'s auditor's inspection | \[Name\] |
@@ -54,10 +54,10 @@ A deputy acts only while the holder is away, and holds the same screening, train
 
 | Role | Deputy | Where it is recorded |
 | --- | --- | --- |
-| System owner | \[Name\] | D-CP-09; \<Contingency Planning Management\>, section 3.4; \<Incident Response Management\>, section 3.3 |
+| System owner | \[Name\] | \<Contingency Planning Management\>, section 3.4; \<Incident Response Management\>, section 3.3 |
 | Security officer | \[Name\] | \<Contingency Planning Management\>, section 3.4; \<Incident Response Management\>, section 3.3 |
-| Database administrator | \[Name\] | D-CP-09; \<Contingency Planning Management\>, section 3.4 |
-| Windows server administrator | \[Name\] | D-CP-09; \<Contingency Planning Management\>, section 3.4 |
+| Database administrator | \[Name\] | \<Contingency Planning Management\>, section 3.4 |
+| Windows server administrator | \[Name\] | \<Contingency Planning Management\>, section 3.4 |
 | \<Organisation\> security contact | \[Name\] | Table 1 |
 | Global administrator | \[Deputy to be named\] | Needed so that the end of a person's access can be confirmed within 1 hour (\<Personnel Security Management\>, section 3.6) |
 | Legal adviser | \[Deputy to be named\] | \<Incident Response Management\>, section 3.3 |

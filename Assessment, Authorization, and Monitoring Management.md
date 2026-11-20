@@ -55,7 +55,7 @@ Controls met here: CA-2, CA-5, CA-6, CA-7, CA-7(1).
 
 Controls met here: CA-2, CA-2(1), CA-7(1).
 
-**Levels.** Level 1 is the system owner's self-assessment, carried out by Claude, an AI assistant, for the system owner. It is not independent: the same assistant drafted the documents and assessed them. It shows the system owner where \<System Name\> stands, and prepares the ground for Level 2. Level 2 is the independent assessment by \[Name\]'s team, which also makes the yearly independent check of monitoring.
+**Levels.** Level 1 is the system owner's self-assessment. It is not independent. It shows the system owner where \<System Name\> stands, and prepares the ground for Level 2. Level 2 is the independent assessment by \[Name\]'s team, which also makes the yearly independent check of monitoring.
 
 **Independence.** A member of the team counts as independent once they have completed TPL-19, confirming that they have had no part in designing, building, running or administering \<System Name\>, that they report to no one responsible for it, and declaring any other interest. The authorising official accepts each statement before the assessment starts.
 
@@ -80,8 +80,8 @@ Every weakness that needs a fix has one item in \<Plan of Action and Milestones\
 | Rating | Fixed within | Decided by |
 | --- | --- | --- |
 | High | The time the authorising official has set for the item | Authorising official |
-| Medium | 180 days of go-live | Authorising official (D-CA-07) |
-| Low | 365 days of go-live | Authorising official (D-CA-07) |
+| Medium | 180 days of go-live | Authorising official |
+| Low | 365 days of go-live | Authorising official |
 
 1. The system owner updates the plan each month, from assessments, monitoring and audits.
 2. Once the development phase is scheduled, each open item is given a calendar date within its time limit.
@@ -118,11 +118,9 @@ Controls met here: CA-6.
 | Assessor independence | TPL-19 |
 | Decision | TPL-18, with terms, conditions, accepted risks, inherited controls accepted and an end date no more than 12 months away |
 
-**Privacy review.** \<System Name\> holds HR records, so before the decision the legal adviser reviews the privacy plan and the impact assessment, and their view goes to the authorising official with the package (D-CA-13).
+**Privacy review.** \<System Name\> holds HR records, so before the decision the legal adviser reviews the privacy plan and the impact assessment, and their view goes to the authorising official with the package.
 
 **The decision.** The authorising official records the decision on TPL-18. It is one of three types: a first authorisation, a re-authorisation, or the withdrawal of an authorisation. The record gives the package received, with versions; the decision, to authorise or not; the terms and conditions, such as items to fix by a date or limits on use; each remaining risk accepted, by its Risk List entry; the inherited controls accepted; and an end date no more than 12 months away (PRO-CA-4). It is copied to the system owner and the Head of Cyber. \<System Name\> holds no production documents until the authorising official has authorised it. The authorisation is reviewed every 12 months and after a significant change.
-
-**Current state.** \<System Name\> is not authorised and holds no production documents. \<Security Assessment Report\>, section 6, lists the conditions to meet first.
 
 ### 3.6 Inherited controls
 
@@ -149,26 +147,26 @@ These 65 entries are provided wholly by \<Organisation\>, and the system owner r
 | SR | 4 | SR-8, SR-11(1), SR-11(2), SR-12 |
 | **Total** | **65** |  |
 
-The system owner puts the list of 65 to the authorising official for acceptance as a list, with the other proposed ratings, and for acceptance for operation with the authorisation package, once \<Organisation\>'s evidence is in (D-CA-08, D-AC-23, D-CA-12, PA-107).
+The system owner puts the list of 65 to the authorising official for acceptance as a list, with the other proposed ratings, and for acceptance for operation with the authorisation package, once \<Organisation\>'s evidence is in.
 
 ### 3.7 Information exchanges and internal connections
 
 Controls met here: CA-3, CA-9.
 
-This is the single record of \<System Name\>'s connections. Each has an agreement type chosen under CSS. None is in use yet. The system owner approves each before it is built, reviews each every 12 months with the owner of the other system, and records the date a connection ends (PRO-CA-2). Each agreement repeats what the interface record holds for its exchange: the interface, the security and privacy needs, the controls, the responsibilities and the impact level.
+This is the single record of \<System Name\>'s connections. Each has an agreement type chosen under CSS. The system owner approves each before it is built, reviews each every 12 months with the owner of the other system, and records the date a connection ends (PRO-CA-2). Each agreement repeats what the interface record holds for its exchange: the interface, the security and privacy needs, the controls, the responsibilities and the impact level.
 
 **Table 6: Interface record**
 
-| Connection | Type | Information | Security and privacy needs | Responsibilities | Impact | Agreement | Agreed, review and end | State |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| UI application and Admin application to API | Internal (CA-9) | Every request the two user-facing apps make, including document content and audit events | HTTPS on the application server's own loopback address; the API accepts requests only from the two apps | Developers; Windows server administrator | Moderate | None needed: inside the boundary | Reviewed every 12 months; ends when a component is retired | Planned (PA-18) |
-| Application VM to database VM | Internal (CA-9) | Documents, accounts and audit records, including personal data in HR documents | TLS; allowed only between these VMs | Windows server and database administrators | Moderate | None needed: inside the boundary | Reviewed every 12 months; ends when a VM is rebuilt | Planned (PA-18) |
-| \<Organisation\>'s PingFederate and Active Directory | External (CA-3) | PingFederate's signed OpenID Connect response, which names the person and carries no groups, and the certificate that checks it; each person's group membership, read by the API from Active Directory over LDAPS (F7) | The response is signed and sent over TLS, and the groups are read over LDAPS; \<System Name\> trusts only \<Organisation\>'s PingFederate | \<Organisation\>, for authentication and the directory; system owner, for which groups \<System Name\> uses | Moderate | \<Organisation\>'s hosting and services agreement | \[agreement name and date, asked for with EV-CA-02\]; reviewed every 12 months; ends if sign-in moves to another service | Stated by the system owner (D-AC-23); not evidenced (EV-IA-04, PA-95) |
-| ServiceNow | External (CA-3) | Access and change requests and approvals; names of requesters | TLS; approved accounts only | System owner; \<Organisation\>'s IT service desk | Moderate | Information exchange agreement with \<Organisation\>'s IT service desk | \[date agreed\]; reviewed every 12 months; ends if the workflow moves | Planned (PA-63) |
-| Starters/Leavers system | External (CA-3) | Prompts to add or remove access; staff names and leaving dates | TLS; approved accounts only | System owner; \<Organisation\> | Moderate | Information exchange agreement with \<Organisation\> | \[date agreed\]; reviewed every 12 months; ends if the process changes | Planned (PA-63) |
-| \<Organisation\>'s central logging | External (CA-3) | Windows and application security logs | Protected in transit; access limited to \<Organisation\>'s security team | \<Organisation\>; Windows server administrator | Moderate | \<Organisation\>'s hosting and services agreement | \[agreement name and date\]; reviewed every 12 months | Not evidenced (EV-AU-01) |
-| \<Organisation\>'s time service | External (CA-3) | Time | Authenticated NTP where available | \<Organisation\> | Low | \<Organisation\>'s hosting and services agreement | As above | Stated, not evidenced (EV-AU-02) |
-| \<Organisation\>'s backup site | External (CA-3) | Encrypted database backups | Encrypted before leaving the database VM | Database administrator; \<Organisation\> | Moderate | \<Organisation\>'s hosting and services agreement | As above | Planned (PA-64, PA-66) |
+| Connection | Type | Information | Security and privacy needs | Responsibilities | Impact | Agreement | Agreed, review and end |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| UI application and Admin application to API | Internal (CA-9) | Every request the two user-facing apps make, including document content and audit events | HTTPS on the application server's own loopback address; the API accepts requests only from the two apps | Developers; Windows server administrator | Moderate | None needed: inside the boundary | Reviewed every 12 months; ends when a component is retired |
+| Application VM to database VM | Internal (CA-9) | Documents, accounts and audit records, including personal data in HR documents | TLS; allowed only between these VMs | Windows server and database administrators | Moderate | None needed: inside the boundary | Reviewed every 12 months; ends when a VM is rebuilt |
+| \<Organisation\>'s PingFederate and Active Directory | External (CA-3) | PingFederate's signed OpenID Connect response, which names the person and carries no groups, and the certificate that checks it; each person's group membership, read by the API from Active Directory over LDAPS (F7) | The response is signed and sent over TLS, and the groups are read over LDAPS; \<System Name\> trusts only \<Organisation\>'s PingFederate | \<Organisation\>, for authentication and the directory; system owner, for which groups \<System Name\> uses | Moderate | \<Organisation\>'s hosting and services agreement | \[agreement name and date, asked for with EV-CA-02\]; reviewed every 12 months; ends if sign-in moves to another service |
+| ServiceNow | External (CA-3) | Access and change requests and approvals; names of requesters | TLS; approved accounts only | System owner; \<Organisation\>'s IT service desk | Moderate | Information exchange agreement with \<Organisation\>'s IT service desk | \[date agreed\]; reviewed every 12 months; ends if the workflow moves |
+| Starters/Leavers system | External (CA-3) | Prompts to add or remove access; staff names and leaving dates | TLS; approved accounts only | System owner; \<Organisation\> | Moderate | Information exchange agreement with \<Organisation\> | \[date agreed\]; reviewed every 12 months; ends if the process changes |
+| \<Organisation\>'s central logging | External (CA-3) | Windows and application security logs | Protected in transit; access limited to \<Organisation\>'s security team | \<Organisation\>; Windows server administrator | Moderate | \<Organisation\>'s hosting and services agreement | \[agreement name and date\]; reviewed every 12 months |
+| \<Organisation\>'s time service | External (CA-3) | Time | Authenticated NTP where available | \<Organisation\> | Low | \<Organisation\>'s hosting and services agreement | As above |
+| \<Organisation\>'s backup site | External (CA-3) | Encrypted database backups | Encrypted before leaving the database VM | Database administrator; \<Organisation\> | Moderate | \<Organisation\>'s hosting and services agreement | As above |
 
 Every connection uses TLS. A connection ends when it is no longer needed, or when a server is rebuilt: the Windows server administrator removes it, and the system owner records the end date (PRO-CA-2, step 3). The API listens only on the loopback address and accepts only the two apps, and the database accepts only the application server (\<Access Control Management\>, section 3.6). A new or changed external exchange is a significant change (section 3.9), so the authorising official weighs its risk before it is built.
 
@@ -178,7 +176,7 @@ Users' and administrators' devices are outside the boundary. They connect by bro
 
 Controls met here: CA-7, CA-7(1), CA-7(4).
 
-This strategy follows CSS. Monitoring starts at go-live. Nothing below is running yet.
+This strategy follows CSS. Monitoring starts at go-live.
 
 **How often controls are checked.** Each control is checked at the frequency of its duty in the \<Security Operating Procedures\> operating calendar: daily, weekly, monthly, quarterly or yearly. Controls with no duty there are checked at the yearly assessment.
 
@@ -203,20 +201,18 @@ This strategy follows CSS. Monitoring starts at go-live. Nothing below is runnin
 | Security incidents open past their time limit | Effectiveness | None | Any | TPL-10 | Monthly | Security officer |
 | Vulnerabilities past their fix time | Effectiveness | None | Any Critical or High past its time | TPL-7; the timetable in \<Risk Assessment Management\>, section 3.6 | Monthly | Windows server administrator, developers |
 
-The measures on open incidents and on vulnerabilities past their fix time are set under D-CA-13.
-
 **Table 8: The strategy against CSS**
 
 | Step in CSS | Where it is met |
 | --- | --- |
-| Define the strategy | This section (D-CA-03, D-CA-10) |
+| Define the strategy | This section |
 | Establish the programme: measures and frequencies | The measures above, and the \<Security Operating Procedures\> operating calendar |
 | Implement: collect the data | The duties in the operating calendar, each with its record |
 | Analyse and report | Analysis and Reporting, below |
 | Respond | Response, below; \<Plan of Action and Milestones\> |
 | Review and update | Review of this strategy, below |
 
-**Analysis.** The analysis and response steps are in PRO-CA-5 (D-CA-12). Each month the security officer reads the measures together with the audit review findings, the vulnerability results and the incident records, and looks for a trend across three months. The system owner also reviews the Risk List each month for new or changed risks.
+**Analysis.** The analysis and response steps are in PRO-CA-5. Each month the security officer reads the measures together with the audit review findings, the vulnerability results and the incident records, and looks for a trend across three months. The system owner also reviews the Risk List each month for new or changed risks.
 
 **Response.** A measure past its threshold is acted on in the month, and the action is recorded on TPL-8. One not put right in the month becomes an item in \<Plan of Action and Milestones\>.
 
@@ -250,11 +246,11 @@ Controls met here: CA-3, CA-6.
 
 **Table 9: Asked of \<Organisation\>**
 
-| Provided | Controls | What \<System Name\> relies on | Evidence asked | State |
-| --- | --- | --- | --- | --- |
-| An authorising official for its common controls, and their authorisation | CA-6 | The 65 inherited controls are authorised and working | EV-CA-01 | Not sent. To go in the first batch of requests to \<Organisation\> (D-CA-12) |
-| The agreements for the exchanges | CA-3 | A hosting and services agreement covering PingFederate, central logging, the time service and the backup site; information exchange agreements for ServiceNow and the Starters/Leavers system | EV-CA-02 | Not sent. To go in the first batch |
-| Evidence for each inherited control | CA-6, and each control's own family | Each control's evidence request in \<Evidence Requests\> | By family | None sent |
+| Provided | Controls | What \<System Name\> relies on | Evidence asked |
+| --- | --- | --- | --- |
+| An authorising official for its common controls, and their authorisation | CA-6 | The 65 inherited controls are authorised and working | EV-CA-01 |
+| The agreements for the exchanges | CA-3 | A hosting and services agreement covering PingFederate, central logging, the time service and the backup site; information exchange agreements for ServiceNow and the Starters/Leavers system | EV-CA-02 |
+| Evidence for each inherited control | CA-6, and each control's own family | Each control's evidence request in \<Evidence Requests\> | By family |
 
 ### 3.11 Policy and procedures
 
@@ -279,5 +275,5 @@ CSS does not select these at Moderate, so they are not assessed.
 | CA-3(6), CA-3(7) Transfer Authorizations; Transitive Information Exchanges | Checks on what the other system may do with the information | Not required, and not done |
 | CA-7(3) Trend Analyses | Using trends to adjust monitoring | Not required. Done in part: the monthly analysis looks across three months |
 | CA-7(5), CA-7(6) Consistency Analysis; Automation Support | Further assurance and automation of monitoring | Not required, and not done |
-| CA-8 Penetration Testing | Penetration testing of the system | Selected only at High, so not required. One is commissioned anyway, before go-live: by a tester independent of the build, on the servers, covering the two user-facing apps, the API and sign-in through PingFederate, with each finding rated in the Risk List (D-CA-12, PA-109). Tester and date: \[to be set\] |
+| CA-8 Penetration Testing | Penetration testing of the system | Selected only at High, so not required. One is commissioned anyway, before go-live: by a tester independent of the build, on the servers, covering the two user-facing apps, the API and sign-in through PingFederate, with each finding rated in the Risk List. Tester and date: \[to be set\] |
 | CA-9(1) Compliance Checks | Security checks on a component before it connects | Not required, and not done |
