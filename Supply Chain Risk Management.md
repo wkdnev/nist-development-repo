@@ -25,24 +25,9 @@ An assessor examines the plan, the supplier register, the supplier reviews, the 
 
 ## 2 Summary
 
-Of the 12 controls, none is implemented, 5 are partially implemented and 7 are not implemented. No control in the Moderate baseline is missing from the design. Every gap is registered in the Risk List (\<Risk List\>) and the Plan of Action and Milestones (\<Plan of Action and Milestones\>).
+The implementation status of each control, how it is met, who is responsible, its assessment result and the risk and plan entries for its gaps are recorded once, in \<System Security Plan\>, section 7.19 (Table 28). This section gives only the overall position.
 
-**Table 2: Status of each control**
-
-| Control | Title | Status | What is missing | Registered as |
-| --- | --- | --- | --- | --- |
-| SR-1 | Policy and Procedures | Partially implemented | Not yet shared. The later version awaits the Head of Cyber | NC-SR-01; PA-20 |
-| SR-2 | Supply Chain Risk Management Plan | Partially implemented | Not in the restricted store; not updated after the changes to sign-in and hosting | NC-SR-02; PA-88, PA-127 |
-| SR-2(1) | Establish SCRM Team | Not implemented | The team is not confirmed and has not met | NC-SR-03; PA-131 |
-| SR-3 | Supply Chain Controls and Processes | Partially implemented | Packages bypass the offline feed; no lock files, trust policy, pinned images or bill of materials | NC-SR-04; PA-94 |
-| SR-5 | Acquisition Strategies, Tools, and Methods | Partially implemented | Packages acquired unchecked; NuGet's audit off | NC-SR-05; PA-92, PA-94 |
-| SR-6 | Supplier Assessments and Reviews | Not implemented | No supplier review held | NC-SR-06; PA-131 |
-| SR-8 | Notification Agreements | Not implemented | \<Organisation\>'s terms not seen | NC-SR-07; PA-131, EV-SR-01 |
-| SR-10 | Inspection of Systems or Components | Partially implemented | No release checksums; hardware inspection not seen | NC-SR-08; PA-61, PA-77, PA-78 |
-| SR-11 | Component Authenticity | Not implemented | No trust policy; browser files unchecked | NC-SR-09; PA-34, PA-94 |
-| SR-11(1) | Anti-counterfeit Training | Not implemented | Not evidenced | NC-SR-10; PA-131, EV-SR-02 |
-| SR-11(2) | Configuration Control for Component Service and Repair | Not implemented | Not evidenced | NC-SR-11; PA-131, EV-SR-02 |
-| SR-12 | Component Disposal | Not implemented | Not evidenced | NC-SR-12; PA-131, EV-SR-02 |
+No control in the Moderate baseline is missing from the design. Every gap is registered in the Risk List (\<Risk List\>) and the Plan of Action and Milestones (\<Plan of Action and Milestones\>).
 
 Two things matter most. Almost every package comes straight from nuget.org, with no lock file or signed-package trust policy, so what a release contains is not fixed or checked (PA-94, rated Medium). And a release has no bill of materials or checksums, so it cannot be shown to match its record (PA-78, PA-61).
 
@@ -74,7 +59,7 @@ The supply chain team is the system owner, the security officer, a developer and
 
 ### 3.4 Risks across the lifecycle
 
-**Table 3: Supply chain risks by stage**
+**Table 2: Supply chain risks by stage**
 
 | Stage | Risk | Response | State now |
 | --- | --- | --- | --- |
@@ -91,7 +76,7 @@ The supply chain team is the system owner, the security officer, a developer and
 
 Criticality follows the critical components in \<Risk Assessment Management\>, section 3.9: High where a compromise would reach documents, or the way people sign in. Advisories are watched through the sources in \<System and Information Integrity Management\>, section 3.3.
 
-**Table 4: Supplier register**
+**Table 3: Supplier register**
 
 | Supplier | What it supplies | Criticality | How it reaches \<System Name\> | Evidence | Notification route | Last review | Next review |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -114,7 +99,7 @@ No critical component may be used without a known source and a SHA-256 record (D
 
 ### 3.7 How components come in
 
-**Table 5: Components, today and required**
+**Table 4: Components, today and required**
 
 | Component | Today | Required | POA&M |
 | --- | --- | --- | --- |
@@ -136,7 +121,7 @@ No critical component may be used without a known source and a SHA-256 record (D
 
 Test-SupplyChain.ps1 ran on the v1.0 build and its images on 12 November 2026, without a running stack. It passed 2 of 10 checks. Its results, with their hashes, are kept with the SR evidence.
 
-**Table 6: Test-SupplyChain.ps1, 12 November 2026**
+**Table 5: Test-SupplyChain.ps1, 12 November 2026**
 
 | Check | Result | What it found |
 | --- | --- | --- |
@@ -153,7 +138,7 @@ Test-SupplyChain.ps1 ran on the v1.0 build and its images on 12 November 2026, w
 
 ### 3.10 What \<Organisation\> provides
 
-**Table 7: Asked of \<Organisation\>**
+**Table 6: Asked of \<Organisation\>**
 
 | Provided | Controls | What \<System Name\> relies on | Evidence asked | State |
 | --- | --- | --- | --- | --- |
@@ -168,7 +153,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.1 SR-1 Policy and Procedures
 
-**Table 8: SR-1 design**
+**Table 7: SR-1 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
@@ -178,7 +163,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 | c.1 | The policy is reviewed on a schedule and after set events | Every 12 months, and after a significant incident, audit finding or system change | Reviewed on 12 November 2026 after the SR pack review. The first yearly review falls due in November 2027 |
 | c.2 | The procedures are reviewed on a schedule and after set events | Every 12 months, and after a change to the steps | Reviewed on 12 November 2026. The first yearly review falls due in November 2027 |
 
-**Table 9: SR-1 responsibility and evidence**
+**Table 8: SR-1 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -194,7 +179,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.2 SR-2 Supply Chain Risk Management Plan
 
-**Table 10: SR-2 design**
+**Table 9: SR-2 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
@@ -202,7 +187,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 | b | Review and update the plan at a defined frequency, and as threats, the organisation or the environment change | Every 12 months by the supply chain team, and after a significant change (PRO-SR-2) | The first yearly review falls due in November 2027. Not yet updated after the changes to sign-in and hosting (PA-127) |
 | c | Protect the plan from unauthorised disclosure and change | Restricted, under version control, and held in the restricted store | Not yet in the restricted store (PA-88) |
 
-**Table 11: SR-2 responsibility and evidence**
+**Table 10: SR-2 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -218,13 +203,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.3 SR-2(1) Establish SCRM Team
 
-**Table 12: SR-2(1) design**
+**Table 11: SR-2(1) design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Set up a supply chain risk management team of defined people, to lead and support defined activities | The system owner, the security officer, a developer and \<Organisation\>'s IT service desk. They keep this plan current, review suppliers and handle notices of compromise (section 3.3) | Named. \<Organisation\> has not confirmed its part, and the team has not met (EV-SR-01) |
 
-**Table 13: SR-2(1) responsibility and evidence**
+**Table 12: SR-2(1) responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -240,7 +225,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.4 SR-3 Supply Chain Controls and Processes
 
-**Table 14: SR-3 design**
+**Table 13: SR-3 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
@@ -248,7 +233,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 | b | Use defined controls to protect against supply chain risk and limit the harm of supply chain events | Approved suppliers; every package through the offline feed; lock files and signed-package trust; images pinned by digest; integrity checks on browser files; a bill of materials; and monthly and release checks (section 3.7) | Only the OfflineModules packages use the feed (U01; PA-94); no lock files or trust policy (U02, U03); images by floating tag (U06; PA-77); browser files unchecked (U09; PA-34); no bill of materials (U07; PA-78) |
 | c | Document the processes and controls in defined documents | This plan, and the security plan | Done |
 
-**Table 15: SR-3 responsibility and evidence**
+**Table 14: SR-3 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -264,13 +249,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.5 SR-5 Acquisition Strategies, Tools, and Methods
 
-**Table 16: SR-5 design**
+**Table 15: SR-5 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Use defined acquisition strategies, contract tools and procurement methods to protect against, find and reduce supply chain risk | Approved suppliers; every package through the offline feed after the PRO-SR-1 check; lock files and signed-package trust; images pinned by digest; and a review before a new critical supplier is used | Packages come straight from nuget.org (U01; PA-94); NuGet's audit is off in the build (U04; PA-92) |
 
-**Table 17: SR-5 responsibility and evidence**
+**Table 16: SR-5 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -286,13 +271,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.6 SR-6 Supplier Assessments and Reviews
 
-**Table 18: SR-6 design**
+**Table 17: SR-6 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Assess and review the supply chain risks of suppliers and what they provide, at a defined frequency | Every critical supplier every 12 months, and before a new critical supplier is used, on TPL-16 (PRO-SR-2) | No supplier review held on TPL-16. The first supply chain risk review was held on 11 November 2026 (\<Risk Assessment Management\>, section 3.4) |
 
-**Table 19: SR-6 responsibility and evidence**
+**Table 18: SR-6 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -308,13 +293,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.7 SR-8 Notification Agreements
 
-**Table 20: SR-8 design**
+**Table 19: SR-8 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Agree with those in the supply chain how compromises are notified, and assessment or audit results shared | \<Organisation\> reports a supply chain compromise to the security officer within 24 hours, and shares assessment or audit results that affect \<System Name\>. Open-source suppliers' advisories are treated as notice (section 3.8) | \<Organisation\>'s terms not seen (EV-SR-01). The advisories are not yet watched (PA-130) |
 
-**Table 21: SR-8 responsibility and evidence**
+**Table 20: SR-8 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -330,13 +315,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.8 SR-10 Inspection of Systems or Components
 
-**Table 22: SR-10 design**
+**Table 21: SR-10 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Inspect defined systems or components, at defined times or on signs of need, to detect tampering | Release packages, the test images and \<System Name\>'s application files at each release and whenever tampering is suspected, against the recorded SHA-256 values; hardware by \<Organisation\> (section 3.8) | The test images and application files match the baseline (U08). Release checksums not built (PA-61). Hardware inspection not seen (EV-SR-02) |
 
-**Table 23: SR-10 responsibility and evidence**
+**Table 22: SR-10 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -352,14 +337,14 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.9 SR-11 Component Authenticity
 
-**Table 24: SR-11 design**
+**Table 23: SR-11 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Develop and carry out anti-counterfeit policy and procedures, with the means to detect and prevent counterfeit components | Policy rule R11 and PRO-SR-4: package names checked against look-alikes, packages only from the offline feed with signed-package trust, and hardware inspected by \<Organisation\> | Approved. No trust policy (U03; PA-94); browser files have no integrity check (U09; PA-34) |
 | b | Report counterfeit components to defined parties | The source, the security officer and \<Organisation\>; for software, the package registry and, if serious, the NCSC | Approved. Not yet used |
 
-**Table 25: SR-11 responsibility and evidence**
+**Table 24: SR-11 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -375,13 +360,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.10 SR-11(1) Anti-counterfeit Training
 
-**Table 26: SR-11(1) design**
+**Table 25: SR-11(1) design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Train defined people to detect counterfeit components | \<Organisation\> trains its buyers every year | Not seen (EV-SR-02) |
 
-**Table 27: SR-11(1) responsibility and evidence**
+**Table 26: SR-11(1) responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -397,13 +382,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.11 SR-11(2) Configuration Control for Component Service and Repair
 
-**Table 28: SR-11(2) design**
+**Table 27: SR-11(2) design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Keep configuration control over components awaiting or returning from service or repair | Hardware away for service or repair stays under \<Organisation\>'s control | Not seen (EV-SR-02) |
 
-**Table 29: SR-11(2) responsibility and evidence**
+**Table 28: SR-11(2) responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -419,13 +404,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.12 SR-12 Component Disposal
 
-**Table 30: SR-12 design**
+**Table 29: SR-12 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Dispose of defined data, documentation, tools or components by defined techniques | Hardware, media, data and documents: \<System Name\> data is removed first (PRO-MP-3), and \<Organisation\> disposes of the component and confirms in writing | PRO-MP-3 approved. \<Organisation\>'s disposal not seen (EV-SR-02) |
 
-**Table 31: SR-12 responsibility and evidence**
+**Table 30: SR-12 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -443,7 +428,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 These are the CSS organisation-defined values for the 12 SR entries: 32 in total. They were agreed on 6 November 2026 and revised on 12 November 2026 (D-SR-P01). **State now** says how far each is in place.
 
-**Table 32: SR parameter register**
+**Table 31: SR parameter register**
 
 | CSS identifier | What must be defined | Value | State now |
 | --- | --- | --- | --- |
@@ -482,9 +467,9 @@ These are the CSS organisation-defined values for the 12 SR entries: 32 in total
 
 ## Appendix B Supply chain controls outside the Moderate baseline
 
-CSS does not select these at Moderate, so they are not assessed. Table 33 says where the design goes some way towards them.
+CSS does not select these at Moderate, so they are not assessed. Table 32 says where the design goes some way towards them.
 
-**Table 33: Related controls and enhancements not selected**
+**Table 32: Related controls and enhancements not selected**
 
 | Control | What it adds | \<System Name\>'s position |
 | --- | --- | --- |

@@ -26,19 +26,9 @@ An assessor examines the media inventory, the marking on what the system produce
 
 ## 2 Summary
 
-Of the 7 controls, none is fully implemented, 2 are partially implemented and 5 are not implemented. No control in the baseline is missing from the design. Every gap is registered in the Risk List (\<Risk List\>) and the Plan of Action and Milestones (\<Plan of Action and Milestones\>).
+The implementation status of each control, how it is met, who is responsible, its assessment result and the risk and plan entries for its gaps are recorded once, in \<System Security Plan\>, section 7.10 (Table 19). This section gives only the overall position.
 
-**Table 2: Status of each control**
-
-| Control | Title | Status | What is missing | Registered as |
-| --- | --- | --- | --- | --- |
-| MP-1 | Policy and Procedures | Partially implemented | Not yet shared. The later version awaits the Head of Cyber | NC-MP-01; PA-20 |
-| MP-2 | Media Access | Partially implemented | \<Organisation\>'s limits on disks and backup media are not evidenced. The rule for paper is not in use | NC-MP-02; PA-121, EV-MP-01 |
-| MP-3 | Media Marking | Not implemented | Nothing \<System Name\> shows or produces is marked | NC-MP-03; PA-87 |
-| MP-4 | Media Storage | Not implemented | Export copies are left unencrypted on the server. Disks are not yet encrypted. The document set is outside the restricted store | NC-MP-04; PA-26, PA-52, PA-86, PA-88, PA-121, EV-MP-01 |
-| MP-5 | Media Transport | Not implemented | Transport is not evidenced, and backups are not yet encrypted | NC-MP-05; PA-64, PA-121, EV-MP-01 |
-| MP-6 | Media Sanitization | Not implemented | Sanitising is not evidenced, and cryptographic erase waits on encryption | NC-MP-06; PA-52, PA-121, EV-MP-02 |
-| MP-7 | Media Use | Not implemented | USB blocking is not evidenced | NC-MP-07; PA-121, EV-AC-17, EV-MP-03 |
+No control in the baseline is missing from the design. Every gap is registered in the Risk List (\<Risk List\>) and the Plan of Action and Milestones (\<Plan of Action and Milestones\>).
 
 \<System Name\> has no removable media of its own. Its information leaves the running application as exports, downloads, backups, logs and printouts, and each copy must be protected as the documents are. Two gaps are in the system itself: bulk export leaves full, unencrypted copies of documents on the server (PA-86, rated Medium), and nothing \<System Name\> shows or produces is marked (PA-87). The rest waits on \<Organisation\>, which stores, moves and sanitises the disks and backup media and controls users' devices: none of its part is evidenced (PA-121).
 
@@ -61,7 +51,7 @@ These carry out the principles and rules of \<Policy\>, sections MP.3 and MP.4.
 
 Every place \<System Name\> information is held outside the running application, with who may reach it. The audit archive, the secret store, incident evidence and the document set were added on 17 November 2026, and confirmed by the system owner (D-MP-10). Managed printers and the approved locations for users' copies were added the same day (D-MP-11). The system owner reviews the inventory every 12 months, and adds any new place before it is used (PRO-MP-6).
 
-**Table 3: Media inventory**
+**Table 2: Media inventory**
 
 | Media | Holds | Protection | Who may reach it | Sanitising method (section 3.6) | State now |
 | --- | --- | --- | --- | --- | --- |
@@ -86,7 +76,7 @@ Every place \<System Name\> information is held outside the running application,
 
 All \<System Name\> information is marked RESTRICTED, \<Organisation\>'s marking (MP-3). Each document also holds its own classification (Public, Internal, Confidential or Restricted), which is shown alongside but never lowers the RESTRICTED marking. No other handling caveat is used: who may see a document is set by its project, not by a further marking. No media is exempt.
 
-**Table 4: Where the marking goes**
+**Table 3: Where the marking goes**
 
 | Output | How it is marked | State now |
 | --- | --- | --- |
@@ -97,7 +87,7 @@ All \<System Name\> information is marked RESTRICTED, \<Organisation\>'s marking
 
 ### 3.4 Storage, export copies and users' copies
 
-**Table 5: Where media are stored**
+**Table 4: Where media are stored**
 
 | Media | Controlled area | Rule |
 | --- | --- | --- |
@@ -118,7 +108,7 @@ Methods follow CSS and IEEE 2883-2022, with the NCSC's guidance for the UK. Each
 
 Cryptographic erase is sound only if the media were encrypted before any \<System Name\> information was written to them, and only once every copy of the key is destroyed. Both servers are therefore encrypted before \<System Name\> is installed, and the record on TPL-13 lists each copy of the key and confirms its destruction. Where either condition cannot be shown, the media are purged or destroyed instead.
 
-**Table 6: Sanitising methods by media type**
+**Table 5: Sanitising methods by media type**
 
 | Method | Media | How | Who | Evidence |
 | --- | --- | --- | --- | --- |
@@ -138,7 +128,7 @@ Cryptographic erase is sound only if the media were encrypted before any \<Syste
 
 ### 3.8 What \<Organisation\> provides
 
-**Table 7: Asked of \<Organisation\>**
+**Table 6: Asked of \<Organisation\>**
 
 | Provided | Controls | What \<System Name\> relies on | Evidence asked | State |
 | --- | --- | --- | --- | --- |
@@ -156,7 +146,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.1 MP-1 Policy and Procedures
 
-**Table 8: MP-1 design**
+**Table 7: MP-1 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
@@ -166,7 +156,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 | c.1 | The policy is reviewed on a schedule and after set events | Every 12 months, and after a significant incident, audit finding or system change | Reviewed on 10 November 2026. The first yearly review falls due in November 2027 |
 | c.2 | The procedures are reviewed on a schedule and after set events | Every 12 months, and after a change to the steps | As the policy |
 
-**Table 9: MP-1 responsibility and evidence**
+**Table 8: MP-1 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -182,13 +172,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.2 MP-2 Media Access
 
-**Table 10: MP-2 design**
+**Table 9: MP-2 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Restrict access to defined digital and non-digital media to defined people | The inventory in section 3.2 names who may reach each kind of media. \<System Name\> lets only the editors of a project create an export of it. \<Organisation\> limits its disks and backup media to its hosting staff. A printout is shared only with people authorised to read that project | Exports were limited to editors in the tested build (P01). \<Organisation\>'s limits are not evidenced (EV-MP-01). The rule for paper is not yet in use |
 
-**Table 11: MP-2 responsibility and evidence**
+**Table 10: MP-2 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -204,14 +194,14 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.3 MP-3 Media Marking
 
-**Table 12: MP-3 design**
+**Table 11: MP-3 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Mark media to show their distribution limits, handling caveats and security markings | Everything \<System Name\> shows or produces is marked RESTRICTED, with the document's own classification alongside. Section 3.3 says where each marking goes | Not met: nothing \<System Name\> shows or produces is marked, neither the viewer, a printout nor an export file (P04, P07; PA-87). Printouts are marked by hand |
 | b | Exempt defined media from marking while they stay within defined controlled areas | No media is exempt | Nothing to exempt |
 
-**Table 13: MP-3 responsibility and evidence**
+**Table 12: MP-3 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -227,14 +217,14 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.4 MP-4 Media Storage
 
-**Table 14: MP-4 design**
+**Table 13: MP-4 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Physically control and securely store defined media within defined controlled areas | Digital media are stored encrypted in \<Organisation\>'s data centres, or on a managed device. Printouts are locked away in \<Organisation\>'s offices. An export copy on the server is removed once downloaded, and within 24 hours at most (section 3.4) | Export copies are left unencrypted on the server after download and after a restart (P02, P05, P06, P09; PA-86). Disk encryption is planned (PA-52). \<Organisation\>'s storage is not evidenced (EV-MP-01) |
 | b | Protect media until they are destroyed or sanitised with approved equipment, techniques and procedures | Each kind of media keeps the protection in section 3.2 until it is sanitised by its method in section 3.6 | An export copy can stay indefinitely if the API restarts before it is cleared (P06; PA-86). The document set is on one computer, outside the restricted store (PA-88) |
 
-**Table 15: MP-4 responsibility and evidence**
+**Table 14: MP-4 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -250,7 +240,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.5 MP-5 Media Transport
 
-**Table 16: MP-5 design**
+**Table 15: MP-5 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
@@ -259,7 +249,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 | c | Document what is done during transport | Form TPL-13: from, to, protection and courier | Not yet used |
 | d | Restrict transport to authorised people | \<Organisation\>'s hosting staff and its authorised courier. A printout does not leave the site without the system owner's approval | Not evidenced (EV-MP-01) |
 
-**Table 17: MP-5 responsibility and evidence**
+**Table 16: MP-5 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -275,14 +265,14 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.6 MP-6 Media Sanitization
 
-**Table 18: MP-6 design**
+**Table 17: MP-6 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Sanitise defined media before disposal, release from the organisation's control, or reuse, by defined techniques | The method for each kind of media in section 3.6, following CSS and IEEE 2883-2022. Each action is recorded on TPL-13, with the tool used and how the result was verified | The methods are set. None has been used. \<Organisation\>'s sanitising is not evidenced (EV-MP-02). Cryptographic erase waits on encryption that is not yet on (PA-52, PA-64) |
 | b | Use sanitising that is as strong and as sound as the category of the information requires | The information is rated Moderate. Physical disks are purged or destroyed. Encrypted virtual disks and backups are erased by destroying their keys. Deleting a file is used only where the disk beneath it is covered by one of those two. Paper is cross-cut shredded to DIN 66399 level P-4 or better | As part a |
 
-**Table 19: MP-6 responsibility and evidence**
+**Table 18: MP-6 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -298,14 +288,14 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.7 MP-7 Media Use
 
-**Table 20: MP-7 design**
+**Table 19: MP-7 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Restrict or prohibit the use of defined kinds of media on defined systems, by defined controls | Restricted. \<Organisation\>'s device control blocks USB and other portable storage on users' devices, and no USB device is passed through to the servers. The system owner may approve an exception, for a stated purpose and time, using only encrypted media issued by \<Organisation\> (section 3.7) | Not evidenced (EV-AC-17, EV-MP-03) |
 | b | Prohibit portable storage that has no identifiable owner | It must not be used, and is handed to the security officer, who records it on TPL-13 | The rule is written. The rules of behaviour are not yet signed |
 
-**Table 21: MP-7 responsibility and evidence**
+**Table 20: MP-7 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -323,7 +313,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 These are the CSS organisation-defined values for the 7 MP entries: 33 in total. They were agreed on 6 November 2026 (D-MP-P01), and revised on 10 November 2026 (D-MP-P02).
 
-**Table 22: MP parameter register**
+**Table 21: MP parameter register**
 
 | CSS identifier | What must be defined | Value | State now |
 | --- | --- | --- | --- |
@@ -363,9 +353,9 @@ These are the CSS organisation-defined values for the 7 MP entries: 33 in total.
 
 ## Appendix B MP controls outside the Moderate baseline
 
-CSS does not select these at Moderate, so they are not assessed. Some of the design goes further than the baseline, and Table 23 says where.
+CSS does not select these at Moderate, so they are not assessed. Some of the design goes further than the baseline, and Table 22 says where.
 
-**Table 23: MP controls not selected at Moderate**
+**Table 22: MP controls not selected at Moderate**
 
 | Control | What it adds | \<System Name\>'s position |
 | --- | --- | --- |

@@ -26,21 +26,9 @@ An assessor examines the designations, the screening confirmations, the signed a
 
 ## 2 Summary
 
-Of the 9 controls, none is fully implemented, 2 are partially implemented and 7 are not implemented. No control in the baseline is missing from the design. Every gap is registered in the Risk List (\<Risk List\>) and the Plan of Action and Milestones (\<Plan of Action and Milestones\>).
+The implementation status of each control, how it is met, who is responsible, its assessment result and the risk and plan entries for its gaps are recorded once, in \<System Security Plan\>, section 7.13 (Table 22). This section gives only the overall position.
 
-**Table 2: Status of each control**
-
-| Control | Title | Status | What is missing | Registered as |
-| --- | --- | --- | --- | --- |
-| PS-1 | Policy and Procedures | Partially implemented | Not yet shared. The later version awaits the Head of Cyber | NC-PS-01; PA-20 |
-| PS-2 | Position Risk Designation | Not implemented | \<Organisation\>'s screening criteria have not been seen | NC-PS-02; PA-125, EV-PS-01 |
-| PS-3 | Personnel Screening | Not implemented | \<Organisation\>'s screening is not evidenced, and the register has no screening dates | NC-PS-03; PA-125, EV-PS-01 |
-| PS-4 | Personnel Termination | Not implemented | The Starters/Leavers prompt is not set up, and the exit process is not evidenced | NC-PS-04; PA-32, PA-125, EV-PS-02 |
-| PS-5 | Personnel Transfer | Not implemented | The Starters/Leavers prompt is not set up | NC-PS-05; PA-32 |
-| PS-6 | Access Agreements | Partially implemented | Nobody has signed. \<Organisation\>'s confidentiality agreement has not been seen | NC-PS-06; PA-123, PA-125 |
-| PS-7 | External Personnel Security | Not implemented | Contract terms have not been seen. Whether the assessment team are external is not recorded | NC-PS-07; PA-125, EV-PS-03 |
-| PS-8 | Personnel Sanctions | Not implemented | \<Organisation\>'s disciplinary process is not evidenced | NC-PS-08; PA-125, EV-PS-02 |
-| PS-9 | Position Descriptions | Not implemented | \<Organisation\>'s job descriptions have not been seen | NC-PS-09; PA-125, EV-PS-02 |
+No control in the baseline is missing from the design. Every gap is registered in the Risk List (\<Risk List\>) and the Plan of Action and Milestones (\<Plan of Action and Milestones\>).
 
 What \<System Name\> decides for itself is defined: a designation for every role, the minimum screening, the agreements, the time limits and the register. Nobody has access yet, so nothing is in use. What remains is \<Organisation\>'s evidence of its screening, HR and disciplinary processes (PA-125), the prompt from its Starters/Leavers system that tells the group owners of a mover or leaver (PA-32, rated Medium), and the first signatures.
 
@@ -59,7 +47,7 @@ These carry out the principles and rules of \<Policy\>, sections PS.3 and PS.4.
 
 Every role in \<Roles and Responsibilities\> has a designation. A role is higher risk if it has privileged technical access, or can see or change security records. The plan consistency test (check L17) confirms that no role is missed.
 
-**Table 3: Risk designations**
+**Table 2: Risk designations**
 
 | Role | Designation | Why |
 | --- | --- | --- |
@@ -89,7 +77,7 @@ A higher risk role adds three things: screening is confirmed again before the ro
 
 \<Organisation\> screens its staff. \<System Name\> relies on that screening, and sets the minimum it must cover before anyone is given access. The four checks are those of the HMG Baseline Personnel Security Standard.
 
-**Table 4: Minimum screening before \<System Name\> access**
+**Table 3: Minimum screening before \<System Name\> access**
 
 | Check | What it confirms | \<Organisation\>'s practice |
 | --- | --- | --- |
@@ -117,7 +105,7 @@ Two agreements are signed before access, and again every 12 months and after a m
 
 **Figure 1: From joining to leaving**
 
-**Table 5: Joiners, movers and leavers**
+**Table 4: Joiners, movers and leavers**
 
 | Event | What happens | Who | Within | Record |
 | --- | --- | --- | --- | --- |
@@ -128,7 +116,7 @@ Two agreements are signed before access, and again every 12 months and after a m
 
 ### 3.6 Time limits
 
-**Table 6: Personnel security time limits**
+**Table 5: Personnel security time limits**
 
 | Event | Limit | Who acts | Record |
 | --- | --- | --- | --- |
@@ -156,7 +144,7 @@ A breach of the rules is handled through \<Organisation\>'s disciplinary process
 
 The system owner keeps this register for everyone who has, or will have, access to \<System Name\> or its Restricted documents: the system owner, the operating roles in \<Roles and Responsibilities\> and the security assessor. Each user is added when their access is requested. It holds dates only. Entries are kept while the person has access, and for 3 years after it ends. Leaver and mover records on TPL-14 are kept for 3 years. The system owner set both on 17 November 2026 (D-PS-12). Signatures of the rules of behaviour are recorded in the register of signatures (\<Planning Management\>, section 3.5).
 
-**Table 7: Personnel security register**
+**Table 6: Personnel security register**
 
 | Person | Role | Designation | Screening confirmed by \<Organisation\> | Agreements signed | Next review |
 | --- | --- | --- | --- | --- | --- |
@@ -175,7 +163,7 @@ The system owner keeps this register for everyone who has, or will have, access 
 
 ### 3.10 What \<Organisation\> provides
 
-**Table 8: Asked of \<Organisation\>**
+**Table 7: Asked of \<Organisation\>**
 
 | Provided | Controls | What \<System Name\> relies on | Evidence asked | State |
 | --- | --- | --- | --- | --- |
@@ -193,7 +181,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.1 PS-1 Policy and Procedures
 
-**Table 9: PS-1 design**
+**Table 8: PS-1 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
@@ -203,7 +191,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 | c.1 | The policy is reviewed on a schedule and after set events | Every 12 months, and after a significant incident, audit finding or system change | Reviewed on 12 November 2026. The first yearly review falls due in November 2027 |
 | c.2 | The procedures are reviewed on a schedule and after set events | Every 12 months, and after a change to the steps | As the policy |
 
-**Table 10: PS-1 responsibility and evidence**
+**Table 9: PS-1 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -219,7 +207,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.2 PS-2 Position Risk Designation
 
-**Table 11: PS-2 design**
+**Table 10: PS-2 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
@@ -227,7 +215,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 | b | Set screening criteria for the people who fill each position | Every person: identity, right to work, employment history and a basic criminal record check, before access (section 3.3). Higher risk roles: the same, confirmed again before the role is granted and every 5 years | Set. \<Organisation\>'s own criteria have not been seen (EV-PS-01) |
 | c | Review and update the designations on a schedule | Every 12 months, and when a role's access changes | Reviewed on 12 November 2026. The first yearly review falls due in November 2027 |
 
-**Table 12: PS-2 responsibility and evidence**
+**Table 11: PS-2 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -243,14 +231,14 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.3 PS-3 Personnel Screening
 
-**Table 13: PS-3 design**
+**Table 12: PS-3 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Screen people before giving them access to the system | \<Organisation\> screens each person before employment. Before anyone is added to a \<System Name\> group, the system owner has \<Organisation\> confirm that the person passed, and that the screening covered the minimum in section 3.3. Only the confirmation and its date are recorded (section 3.9) | Nobody has access yet. \<Organisation\>'s screening has not been evidenced (EV-PS-01), and the screening dates in the register are placeholders |
 | b | Rescreen people under defined conditions and at a defined frequency | Before someone moves into a higher risk role, and every 5 years for anyone in one | Not yet used. \<Organisation\>'s practice has not been seen (EV-PS-01) |
 
-**Table 14: PS-3 responsibility and evidence**
+**Table 13: PS-3 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -266,7 +254,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.4 PS-4 Personnel Termination
 
-**Table 15: PS-4 design**
+**Table 14: PS-4 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
@@ -276,7 +264,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 | d | Retrieve all security-related property | \<Organisation\> recovers the person's laptop, phone, pass and any other equipment. Any exported files or printouts are recovered or destroyed (\<Security Operating Procedures\>, section 4.4) | Not evidenced (EV-PS-02) |
 | e | Keep access to the information and systems the person controlled | Documents belong to projects, not to people, so a leaver's documents stay with the project and its members. The system owner confirms this on TPL-14 | Not yet used |
 
-**Table 16: PS-4 responsibility and evidence**
+**Table 15: PS-4 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -292,7 +280,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.5 PS-5 Personnel Transfer
 
-**Table 17: PS-5 design**
+**Table 16: PS-5 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
@@ -301,7 +289,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 | c | Change access as needed to match the new role | The owners remove the memberships no longer needed, and add any the new role needs through an access request. A change to a person's groups takes effect at their next sign-in, and a global administrator can end their sessions to bring it in at once (\<Identification and Authentication Management\>, section 3.7) | Not yet used |
 | d | Tell defined people within a defined time | The system owner, within 1 working day | Not in use (PA-32) |
 
-**Table 18: PS-5 responsibility and evidence**
+**Table 17: PS-5 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -317,7 +305,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.6 PS-6 Access Agreements
 
-**Table 19: PS-6 design**
+**Table 18: PS-6 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
@@ -326,7 +314,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 | c.1 | Verify that people sign the agreements before they are given access | Each person signs before being added to any \<System Name\> group. Their signature of the rules is recorded on TPL-21 and in the register of signatures (\<Planning Management\>, section 3.5), which the access request checks | Nobody has signed yet (PA-123) |
 | c.2 | Verify that people sign again when the agreements change, or at a defined frequency | Every 12 months, and after a material change to the rules: a new or stricter rule, a changed consequence, new monitoring or a new privileged duty | Nobody has signed yet |
 
-**Table 20: PS-6 responsibility and evidence**
+**Table 19: PS-6 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -342,7 +330,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.7 PS-7 External Personnel Security
 
-**Table 21: PS-7 design**
+**Table 20: PS-7 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
@@ -352,7 +340,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 | d | Require providers to report the transfer or departure of any of their people who hold credentials or access, within a defined time | To the system owner, within 1 working day | Contract terms not seen (EV-PS-03) |
 | e | Monitor provider compliance | The system owner checks each supplier every 12 months, and records it on TPL-16 | Not yet started |
 
-**Table 22: PS-7 responsibility and evidence**
+**Table 21: PS-7 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -368,14 +356,14 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.8 PS-8 Personnel Sanctions
 
-**Table 23: PS-8 design**
+**Table 22: PS-8 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Use a formal sanctions process for people who fail to comply with the security and privacy policies and procedures | \<Organisation\>'s disciplinary process. The rules of behaviour tell each person that a breach may lead to it | Not evidenced (EV-PS-02) |
 | b | Tell defined people within a defined time when a formal sanction starts, naming the person and the reason | \<Organisation\> tells the system owner within 1 working day when a sanction involves \<System Name\>. If the breach is a security incident, the security officer records it, and the system owner decides whether access must end at once (section 3.8) | Not yet used |
 
-**Table 24: PS-8 responsibility and evidence**
+**Table 23: PS-8 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -391,13 +379,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.9 PS-9 Position Descriptions
 
-**Table 25: PS-9 design**
+**Table 24: PS-9 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Include security and privacy roles and responsibilities in position descriptions | The security and privacy duties of every \<System Name\> role are stated in \<Roles and Responsibilities\>. \<Organisation\>'s job descriptions for those roles refer to them | \<Roles and Responsibilities\> states them. \<Organisation\>'s job descriptions have not been seen (EV-PS-02) |
 
-**Table 26: PS-9 responsibility and evidence**
+**Table 25: PS-9 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -415,7 +403,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 These are the CSS organisation-defined values for the 9 PS entries: 23 in total. They were agreed on 6 November 2026 (D-PS-P01) and revised on 12 November 2026 (D-PS-P02).
 
-**Table 27: PS parameter register**
+**Table 26: PS parameter register**
 
 | CSS identifier | What must be defined | Value | State now |
 | --- | --- | --- | --- |
@@ -445,9 +433,9 @@ These are the CSS organisation-defined values for the 9 PS entries: 23 in total.
 
 ## Appendix B PS controls outside the Moderate baseline
 
-CSS does not select these at Moderate, so they are not assessed. Some of the design goes further than the baseline, and Table 28 says where.
+CSS does not select these at Moderate, so they are not assessed. Some of the design goes further than the baseline, and Table 27 says where.
 
-**Table 28: PS controls not selected at Moderate**
+**Table 27: PS controls not selected at Moderate**
 
 | Control | What it adds | \<System Name\>'s position |
 | --- | --- | --- |

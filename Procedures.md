@@ -457,7 +457,7 @@ These procedures define how audit records are reviewed, protected and retained. 
 #### PRO-AU-5 Changing the logged events
 
 1. The system owner decides on any change to the logged events, and reviews the list every 12 months. **Manual**
-2. Developers make the change through the normal release process, because the events are built into each release. The list of events is \<Audit and Accountability Management\>, Table 4, and it is changed there first.
+2. Developers make the change through the normal release process, because the events are built into each release. The list of events is \<Audit and Accountability Management\>, Table 3, and it is changed there first.
 
 #### PRO-AU-6 Auditor access
 

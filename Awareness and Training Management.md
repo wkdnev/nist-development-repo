@@ -26,16 +26,7 @@ Training is carried out by people, not by the system, so nothing here is built i
 
 ## 2 Summary
 
-**Table 2: Status of each control**
-
-| Control | Title | Status | What is missing | Registered as |
-| --- | --- | --- | --- | --- |
-| AT-1 | Policy and Procedures | Partially implemented | The policy awaits the Head of Cyber's re-approval. The policy and procedures are not yet shared with the people they apply to | NC-AT-01; PA-20 |
-| AT-2 | Literacy Training and Awareness | Not implemented | The briefing material and its check are not written. Nobody has been briefed. The quarterly security note has not started. \<Organisation\>'s course has not been seen | NC-AT-02; PA-96, PA-99; EV-AT-01 |
-| AT-2(2) | Insider Threat | Not implemented | Briefing part B4 is an outline only, and is not given. \<Organisation\>'s content has not been seen | NC-AT-03; PA-96, PA-99; EV-AT-01 |
-| AT-2(3) | Social Engineering and Mining | Not implemented | Briefing part B3 is an outline only, and is not given. \<Organisation\>'s content has not been seen | NC-AT-04; PA-96, PA-99; EV-AT-01 |
-| AT-3 | Role-based Training | Not implemented | None of the nine modules is written, and nobody is trained. The training of \<Organisation\>'s own server administrators is not evidenced. The Head of Cyber, legal adviser and authorising official have no role training (section 3.5) | NC-AT-05; PA-97, PA-99, PA-100; EV-AT-01 |
-| AT-4 | Training Records | Not implemented | No training record exists. The register is a layout only, and the records store is not set up | NC-AT-06; PA-98 |
+The implementation status of each control, how it is met, who is responsible, its assessment result and the risk and plan entries for its gaps are recorded once, in \<System Security Plan\>, section 7.2 (Table 11). This section gives only the overall position.
 
 Three training controls outside this family rest on the same curriculum, and are assessed in their own families: privacy training, AT-3(5) (module M9; NC-PT-08, PA-97); incident response training, IR-2 (module M7; NC-IR-02, PA-81); and contingency training, CP-3 (module M8; NC-CP-06, PA-81).
 
@@ -60,7 +51,7 @@ Figure 1 shows the path a person follows.
 
 ### 3.2 Who needs what
 
-**Table 3: What each audience needs to know and do**
+**Table 2: What each audience needs to know and do**
 
 | Audience | Main risk they can cause or stop | Behaviours needed | Met by |
 | --- | --- | --- | --- |
@@ -77,7 +68,7 @@ Figure 1 shows the path a person follows.
 
 Awareness has two parts: \<Organisation\>'s general security and privacy course, and the \<System Name\> briefing. The system owner gives this 20-minute briefing to every user before they are given access, together with the signature of \<Security Operating Procedures\>. It ends with a 5-question check, which the person must pass in full; a wrong answer is talked through and asked again. The briefing material and the check are not yet written (PA-96).
 
-**Table 4: Briefing outline**
+**Table 3: Briefing outline**
 
 | Part | Content |
 | --- | --- |
@@ -95,7 +86,7 @@ Between courses, awareness is kept up by the system use notice shown before sign
 
 Each module ends with a short check of at least 10 questions, with a pass mark of 80%. Anyone below it repeats the module. The security officer writes the content, and the Head of Cyber delivers the modules for the security officer and auditor.
 
-**Table 5: Role modules**
+**Table 4: Role modules**
 
 | Module | Learning outcomes | Built on | Length | Delivered by |
 | --- | --- | --- | --- | --- |
@@ -113,7 +104,7 @@ Each module ends with a short check of at least 10 questions, with a pass mark o
 
 Every role must complete awareness, the briefing and the SyOps signature before access. Role modules come before privileged access; M7 and M8 within 30 days of taking the role. All are repeated every 12 months.
 
-**Table 6: Training matrix**
+**Table 5: Training matrix**
 
 | Role | Awareness and briefing | SyOps | Role modules | Within 30 days |
 | --- | --- | --- | --- | --- |
@@ -135,7 +126,7 @@ The matrix carries out AT-2, AT-3, AT-3(5) (\<PII Processing Management\>), IR-2
 
 ### 3.6 When training happens
 
-**Table 7: Training timetable**
+**Table 6: Training timetable**
 
 | When | What | Who checks |
 | --- | --- | --- |
@@ -159,7 +150,7 @@ The steps are in \<Procedures\>, PRO-AT-3.
 
 The security officer keeps this register from the TPL-9 records. The system owner checks it before authorising a role. Records are kept for 3 years. CSS leaves the period to the organisation, and 3 years lets an assessor see each person's last three yearly completions. Each record (TPL-9) names the person, the role, the training and its content version, the date, the result of the check and who gave it. The layout stays here. Once the records store is set up, the live register, with its names and dates, is kept there (D-AT-10).
 
-**Table 8: Training register**
+**Table 7: Training register**
 
 | Person | Role | Awareness and briefing | Role modules | Within 30 days | Next due | State now |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -177,7 +168,7 @@ The security officer keeps this register from the TPL-9 records. The system owne
 
 The security officer reports these monthly with the continuous monitoring measures on TPL-8 (PRO-AT-5).
 
-**Table 9: Training measures**
+**Table 8: Training measures**
 
 | Measure | Target | Today |
 | --- | --- | --- |
@@ -193,7 +184,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.1 AT-1 Policy and Procedures
 
-**Table 10: AT-1 design**
+**Table 9: AT-1 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
@@ -203,7 +194,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 | c.1 | The policy is reviewed on a schedule and after set events | Every 12 months, and after a significant incident, audit finding or system change | Reviewed after the AT review of 12 November 2026. The first yearly review falls due in November 2027 |
 | c.2 | The procedures are reviewed on a schedule and after set events | Every 12 months, and after a change to the steps | As the policy |
 
-**Table 11: AT-1 responsibility and evidence**
+**Table 10: AT-1 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -219,7 +210,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.2 AT-2 Literacy Training and Awareness
 
-**Table 12: AT-2 design**
+**Table 11: AT-2 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
@@ -229,7 +220,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 | c | Update the content at a set frequency and after set events | The security officer reviews the briefing every 12 months, and within 30 days of a significant incident, exercise or change. Each change is recorded and the content version goes up (PRO-AT-3) | The outline was reviewed on 12 November 2026 |
 | d | Build lessons from incidents and breaches into the content | The yearly review reads the incident records and exercise reports of the year, inside and outside \<Organisation\>, and adds each lesson (PRO-AT-3) | Not yet used: no incident lesson has yet been added |
 
-**Table 13: AT-2 responsibility and evidence**
+**Table 12: AT-2 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -246,13 +237,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.3 AT-2(2) Insider Threat
 
-**Table 14: AT-2(2) design**
+**Table 13: AT-2(2) design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Train users to recognise and report signs of insider threat | Briefing part B4: a scenario of a colleague exporting many files before leaving; the signs to notice, as CSS lists them; that a sign is a reason to report and not to accuse; and that access is recorded and monitored. Part B5 says how to report. Part B7 gives line managers their own view, as CSS advises that this training can be tailored for managers. \<Organisation\>'s course is expected to cover the general case | The outline exists. Not yet given. \<Organisation\>'s content has not been seen (EV-AT-01) |
 
-**Table 15: AT-2(2) responsibility and evidence**
+**Table 14: AT-2(2) responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -269,13 +260,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.4 AT-2(3) Social Engineering and Mining
 
-**Table 16: AT-2(3) design**
+**Table 15: AT-2(3) design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Train users to recognise and report social engineering and social mining | Briefing part B3: the forms an attempt takes, from phishing and pretexting to tailgating; how social mining gathers facts about \<Organisation\> and \<System Name\>, and what not to disclose; and two scenarios, a request for an employee's file from someone unknown, and an emailed sign-in link that looks like \<System Name\>. Users check with the person through a known route, and report it. No phishing simulation is run unless HR and the legal adviser agree, and then nobody is penalised for clicking: reports are counted, not clicks | The outline exists. Not yet given. \<Organisation\>'s content has not been seen (EV-AT-01) |
 
-**Table 17: AT-2(3) responsibility and evidence**
+**Table 16: AT-2(3) responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -292,7 +283,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.5 AT-3 Role-based Training
 
-**Table 18: AT-3 design**
+**Table 17: AT-3 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
@@ -301,7 +292,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 | b | Update the content at a set frequency and after set events | The security officer reviews each module every 12 months, and within 30 days of a significant incident, exercise or change. The legal adviser reviews the privacy content | The curriculum was set on 12 November 2026 |
 | c | Build lessons from incidents and breaches into the content | As AT-2 part d: each lesson from the year's incidents and exercises is added to the module it concerns | Not yet used |
 
-**Table 19: AT-3 responsibility and evidence**
+**Table 18: AT-3 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -318,14 +309,14 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.6 AT-4 Training Records
 
-**Table 20: AT-4 design**
+**Table 19: AT-4 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Record and monitor training, both awareness and role-based | The security officer records each completion on TPL-9, with the content version, the check result and the next due date, and adds it to the training register (section 3.8). The measures in section 3.9 are reported every month. Anyone overdue is reminded, and privileged access is suspended after 30 days overdue (PRO-AT-5) | The register is set up, with every role holder named. No record exists yet |
 | b | Keep each person's training records for a set time | 3 years. \<Organisation\> keeps its own course records and provides them on request | No records yet |
 
-**Table 21: AT-4 responsibility and evidence**
+**Table 20: AT-4 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -344,7 +335,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 These are the CSS organisation-defined values for the 6 AT entries: 21 in total. State now says how far each is in place on 12 November 2026. The values were agreed on 6 November 2026 and revised on 12 November 2026 (D-AT-P02).
 
-**Table 22: AT parameter register**
+**Table 21: AT parameter register**
 
 | CSS identifier | What must be defined | Value | State now |
 | --- | --- | --- | --- |

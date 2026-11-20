@@ -26,25 +26,9 @@ An assessor examines the plan, the incident records, the training and exercise r
 
 ## 2 Summary
 
-Of the 13 controls, none is fully implemented, 4 are partially implemented and 9 are not implemented. No control in the baseline is missing from the design. Every gap is registered in the Risk List (\<Risk List\>) and the Plan of Action and Milestones (\<Plan of Action and Milestones\>).
+The implementation status of each control, how it is met, who is responsible, its assessment result and the risk and plan entries for its gaps are recorded once, in \<System Security Plan\>, section 7.8 (Table 17). This section gives only the overall position.
 
-**Table 2: Status of each control**
-
-| Control | Title | Status | What is missing | Registered as |
-| --- | --- | --- | --- | --- |
-| IR-1 | Policy and Procedures | Partially implemented | Not yet shared. The later version awaits the Head of Cyber | NC-IR-01; PA-20 |
-| IR-2 | Incident Response Training | Not implemented | No training has been given, and the module is not written | NC-IR-02; PA-81, PA-97 |
-| IR-3 | Incident Response Testing | Not implemented | No tabletop exercise has been held | NC-IR-03; PA-81 |
-| IR-3(2) | Coordination with Related Plans | Not implemented | No exercise with the contingency plan has been held | NC-IR-04; PA-81 |
-| IR-4 | Incident Handling | Partially implemented | Handling is written but not in use. Ending sessions is not audited. No cover outside working hours is arranged | NC-IR-05; PA-14, PA-118 |
-| IR-4(1) | Automated Incident Handling Processes | Not implemented | ServiceNow is not set up for incidents | NC-IR-06; PA-65 |
-| IR-5 | Incident Monitoring | Not implemented | Tracking is not in use beyond the register | NC-IR-07; PA-65, PA-118 |
-| IR-6 | Incident Reporting | Partially implemented | Reporting is not in use, and \<Organisation\>'s route is not confirmed | NC-IR-08; PA-118, EV-IR-01 |
-| IR-6(1) | Automated Reporting | Not implemented | ServiceNow is not set up for incidents | NC-IR-09; PA-65 |
-| IR-6(3) | Supply Chain Coordination | Not implemented | Supplier reporting is not in use | NC-IR-10; PA-118 |
-| IR-7 | Incident Response Assistance | Not implemented | \<Organisation\>'s help is not confirmed | NC-IR-11; PA-118, EV-IR-01 |
-| IR-7(1) | Automation Support for Availability of Information and Support | Not implemented | ServiceNow is not set up for incidents | NC-IR-12; PA-65 |
-| IR-8 | Incident Response Plan | Partially implemented | The later version awaits the Head of Cyber. The plan is not shared, and its contacts are placeholders. No copy is held for use when the document store is down | NC-IR-13; PA-88, PA-119 |
+No control in the baseline is missing from the design. Every gap is registered in the Risk List (\<Risk List\>) and the Plan of Action and Milestones (\<Plan of Action and Milestones\>).
 
 Two IR controls from the privacy baseline are assessed with the PT family, and rest on this plan: breach training, IR-2(3) (NC-PT-10; PA-81, PA-97), and the breach steps of the plan, IR-8(1), which section 3.8 meets.
 
@@ -74,7 +58,7 @@ It covers UI application, Admin application, API, the \<System Name\> database, 
 
 ### 3.3 How the response is organised
 
-**Table 3: Incident response roles**
+**Table 2: Incident response roles**
 
 | Role | Holder | Deputy | Part in a response |
 | --- | --- | --- | --- |
@@ -102,7 +86,7 @@ Preparation covers the CSF 2.0 Govern, Identify and Protect functions as they ap
 
 ### 3.5 Detection sources
 
-**Table 4: How incidents are found**
+**Table 3: How incidents are found**
 
 | Source | What it shows | Who watches | State |
 | --- | --- | --- | --- |
@@ -118,7 +102,7 @@ Preparation covers the CSF 2.0 Govern, Identify and Protect functions as they ap
 
 The incident lead sets the severity when the incident is confirmed, and may raise or lower it as facts emerge.
 
-**Table 5: Severity**
+**Table 4: Severity**
 
 | Severity | Examples | Work starts within | Contained within | Who is told |
 | --- | --- | --- | --- | --- |
@@ -152,7 +136,7 @@ A personal data breach is any security incident that leads to the accidental or 
 
 ### 3.9 Playbooks
 
-**Table 6: Playbooks**
+**Table 5: Playbooks**
 
 | Incident | Contain | Eradicate and recover | Usual severity |
 | --- | --- | --- | --- |
@@ -169,7 +153,7 @@ A personal data breach is any security incident that leads to the accidental or 
 
 ### 3.10 Evidence and forensic readiness
 
-**Table 7: Evidence sources**
+**Table 6: Evidence sources**
 
 | Source | Where it is kept | Kept for | Notes |
 | --- | --- | --- | --- |
@@ -192,7 +176,7 @@ These must be reported: suspected account misuse; access to documents by someone
 
 ### 3.12 Measures and resources
 
-**Table 8: Measures**
+**Table 7: Measures**
 
 | Measure | Target |
 | --- | --- |
@@ -212,7 +196,7 @@ Information is shared with \<Organisation\>'s security contact, any affected sup
 
 Until ServiceNow is set up, incidents and personal data breaches are listed here, each with its TPL-10 record.
 
-**Table 9: Incident and breach register**
+**Table 8: Incident and breach register**
 
 | Reference | Opened | Summary | Severity | Personal data breach | Status |
 | --- | --- | --- | --- | --- | --- |
@@ -220,7 +204,7 @@ Until ServiceNow is set up, incidents and personal data breaches are listed here
 
 ### 3.15 What \<Organisation\> provides
 
-**Table 10: Asked of \<Organisation\>**
+**Table 9: Asked of \<Organisation\>**
 
 | Provided | Controls | What \<System Name\> relies on | Evidence asked | State |
 | --- | --- | --- | --- | --- |
@@ -235,7 +219,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.1 IR-1 Policy and Procedures
 
-**Table 11: IR-1 design**
+**Table 10: IR-1 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
@@ -245,7 +229,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 | c.1 | The policy is reviewed on a schedule and after set events | Every 12 months, and after a significant incident, audit finding or system change | Reviewed on 10 November 2026. The first yearly review falls due in November 2027 |
 | c.2 | The procedures are reviewed on a schedule and after set events | Every 12 months, and after a change to the steps | As the policy |
 
-**Table 12: IR-1 responsibility and evidence**
+**Table 11: IR-1 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -261,7 +245,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.2 IR-2 Incident Response Training
 
-**Table 13: IR-2 design**
+**Table 12: IR-2 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
@@ -270,7 +254,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 | a.3 | Train them again on a schedule | Every 12 months | Not yet due |
 | b | Review and update the training content on a schedule and after defined events | Every 12 months, and after a plan change or an incident | The content is outlined in section 3.4. The module itself is not written (PA-97) |
 
-**Table 14: IR-2 responsibility and evidence**
+**Table 13: IR-2 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -286,13 +270,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.3 IR-3 Incident Response Testing
 
-**Table 15: IR-3 design**
+**Table 14: IR-3 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Test the incident response capability on a schedule, with defined tests | A tabletop exercise every 12 months, the first within 30 days of the servers being built and before production. Each walks through one playbook from report to closing, and ends with an after-action report on TPL-11 | No exercise has been held (PA-81). The containment and evidence steps were tried in the test environment on 10 November 2026 (D01 to D08) |
 
-**Table 16: IR-3 responsibility and evidence**
+**Table 15: IR-3 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -308,13 +292,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.4 IR-3(2) Coordination with Related Plans
 
-**Table 17: IR-3(2) design**
+**Table 16: IR-3(2) design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Test the capability together with those responsible for related plans | The tabletop exercise is held with the contingency plan (\<Contingency Planning Management\>, section 3.10), and \<Organisation\>'s security contact and IT service desk take part | Not held (PA-81) |
 
-**Table 18: IR-3(2) responsibility and evidence**
+**Table 17: IR-3(2) responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -330,7 +314,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.5 IR-4 Incident Handling
 
-**Table 19: IR-4 design**
+**Table 18: IR-4 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
@@ -339,7 +323,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 | c | Build lessons from incidents into the procedures, training and testing, and make the changes | Within 10 working days of containment the incident lead records the root cause and lessons, and updates this document, the training, the Risk List and the POA&M (PRO-IR-7) | Not yet used |
 | d | Make the rigour, intensity, scope and results of handling comparable and predictable | Every incident follows the same five steps, the same severity table and the same record, TPL-10. Greater severity means more people and faster targets, not a different process | Written |
 
-**Table 20: IR-4 responsibility and evidence**
+**Table 19: IR-4 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -355,13 +339,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.6 IR-4(1) Automated Incident Handling Processes
 
-**Table 21: IR-4(1) design**
+**Table 20: IR-4(1) design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Support incident handling with defined automated means | ServiceNow, once set up for incidents (D-IR-05): it holds each incident's record, timeline, actions and evidence list, and reminds the owner of each action. Until then the record is form TPL-10, kept by hand | Not set up (PA-65) |
 
-**Table 22: IR-4(1) responsibility and evidence**
+**Table 21: IR-4(1) responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -377,13 +361,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.7 IR-5 Incident Monitoring
 
-**Table 23: IR-5 design**
+**Table 22: IR-5 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Track and document incidents | Every incident and personal data breach is on the register in section 3.14, each with its TPL-10 record: what happened, the severity, the timeline, the evidence, the actions and the lessons. The measures in section 3.12 are reported each month | The register exists, with INC-2026-001. Tracking is not otherwise in use (PA-118) |
 
-**Table 24: IR-5 responsibility and evidence**
+**Table 23: IR-5 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -399,14 +383,14 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.8 IR-6 Incident Reporting
 
-**Table 25: IR-6 design**
+**Table 24: IR-6 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Require people to report suspected incidents to the incident response capability within a defined time | Everyone reports a suspected incident to the security officer within 1 hour. Section 3.11 says what must be reported, and the rules of behaviour repeat it (\<Security Operating Procedures\>, Part A). If ServiceNow or email may be compromised, the phone numbers in appendix B are used | Written. The rules are not yet signed, and the contacts are placeholders |
 | b | Report incident information to defined authorities | The security officer tells \<Organisation\>'s security contact. The legal adviser tells the ICO within 72 hours of becoming aware of a reportable personal data breach, and the people affected when the risk to them is high (section 3.8). The system owner reports a crime or a significant cyber attack to the NCSC or to Report Fraud, which replaced Action Fraud | Not yet used. \<Organisation\>'s route for reports is not confirmed (EV-IR-01) |
 
-**Table 26: IR-6 responsibility and evidence**
+**Table 25: IR-6 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -422,13 +406,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.9 IR-6(1) Automated Reporting
 
-**Table 27: IR-6(1) design**
+**Table 26: IR-6(1) design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Report incidents by defined automated means | ServiceNow, once set up for incidents (D-IR-05): a report raises a ticket, which notifies the security officer. Until then reports are made by phone or email and recorded on form TPL-10 | Not set up (PA-65) |
 
-**Table 28: IR-6(1) responsibility and evidence**
+**Table 27: IR-6(1) responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -444,13 +428,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.10 IR-6(3) Supply Chain Coordination
 
-**Table 29: IR-6(3) design**
+**Table 28: IR-6(3) design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Give incident information to the provider of the product or service, and to others in the supply chain | The security officer tells \<Organisation\>'s security contact, and any other supplier whose product or service is involved, using the supplier register (\<Supply Chain Risk Management\>, section 3.5). \<Organisation\> in turn reports a compromise on its side to the security officer within 24 hours | Not yet used. \<Organisation\>'s terms are not seen (EV-IR-01, EV-SR-01) |
 
-**Table 30: IR-6(3) responsibility and evidence**
+**Table 29: IR-6(3) responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -466,13 +450,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.11 IR-7 Incident Response Assistance
 
-**Table 31: IR-7 design**
+**Table 30: IR-7 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Provide a support resource, as part of the capability, that gives users advice and help in handling and reporting incidents | The security officer is the first point of help for every user. \<Organisation\>'s security contact gives monitoring, network and forensic help. No outside forensic firm is retained | Not yet used. What \<Organisation\> will provide is not confirmed (EV-IR-01). Help outside working hours is not arranged (PA-118) |
 
-**Table 32: IR-7 responsibility and evidence**
+**Table 31: IR-7 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -488,13 +472,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.12 IR-7(1) Automation Support for Availability of Information and Support
 
-**Table 33: IR-7(1) design**
+**Table 32: IR-7(1) design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Make incident information and support more available by defined automated means | ServiceNow, once set up for incidents (D-IR-05): users raise a request for help there, and see its progress. Until then users ask the security officer directly | Not set up (PA-65) |
 
-**Table 34: IR-7(1) responsibility and evidence**
+**Table 33: IR-7(1) responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -510,7 +494,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.13 IR-8 Incident Response Plan
 
-**Table 35: IR-8 design**
+**Table 34: IR-8 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
@@ -529,7 +513,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 | d | Changes are told to the same people | With the change record | Not yet shared (PA-119) |
 | e | The plan is protected from unauthorised disclosure and change | It is Restricted, and kept in the restricted document store, where only the people in part b can read it and only the security officer can change it | Not yet in the restricted store (PA-88) |
 
-**Table 36: IR-8 responsibility and evidence**
+**Table 35: IR-8 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -547,7 +531,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 These are the CSS organisation-defined values for the 13 IR entries: 26 in total. They were agreed on 6 November 2026 (D-IR-P01), and IR-06\_ODP\[02\] was revised on 10 November 2026 (D-IR-P02).
 
-**Table 37: IR parameter register**
+**Table 36: IR parameter register**
 
 | CSS identifier | What must be defined | Value | State now |
 | --- | --- | --- | --- |
@@ -582,7 +566,7 @@ These are the CSS organisation-defined values for the 13 IR entries: 26 in total
 
 Use the phone if ServiceNow or email may be compromised.
 
-**Table 38: Contacts**
+**Table 37: Contacts**
 
 | Contact | Name | Phone | Email or route |
 | --- | --- | --- | --- |
@@ -600,9 +584,9 @@ Use the phone if ServiceNow or email may be compromised.
 
 ## Appendix C IR controls outside the Moderate baseline
 
-CSS does not select these in the Moderate security baseline, so they are not assessed in this family. Two are in the CSS privacy baseline and apply because \<System Name\> holds personal data: they are assessed with the PT family. Some of the design goes further than the baseline, and Table 39 says where.
+CSS does not select these in the Moderate security baseline, so they are not assessed in this family. Two are in the CSS privacy baseline and apply because \<System Name\> holds personal data: they are assessed with the PT family. Some of the design goes further than the baseline, and Table 38 says where.
 
-**Table 39: IR controls not selected at Moderate**
+**Table 38: IR controls not selected at Moderate**
 
 | Control | What it adds | \<System Name\>'s position |
 | --- | --- | --- |

@@ -90,7 +90,7 @@ An auditor does not need to read every document from end to end. This route take
 
 Steps 4 to 6 are repeated for each family chosen. A good first family is Access Control, as it is the largest, or Risk Assessment, as it shows how every gap in the other families is rated and answered.
 
-Two things save time. In every design document, section 2 is a one-page summary: the status of each control, what is missing, and where it is registered. And in each chapter of \<Control Assessment Record\>, the final section is the assessment plan, which says what was examined and tested, what was not, and what the independent assessor should do next.
+Two things save time. Each control's status is held only in \<System Security Plan\>, section 7, and every design document's section 2 points to its family's table there, with a short account of what matters most. And in each chapter of \<Control Assessment Record\>, the final section is the assessment plan, which says what was examined and tested, what was not, and what the independent assessor should do next.
 
 ## 5 Following one control from end to end
 
@@ -228,4 +228,4 @@ The set is written before \<System Name\> goes live, and says so throughout. A r
 3. **\<Organisation\>'s controls are not evidenced.** The evidence requests in \<Evidence Requests\> have not been sent.
 4. **Nothing has been seen in operation.** Reviews, training and exercises start with operation, so their records do not exist yet.
 5. **The assessment so far is a self-assessment.** The independent assessment, led by \[Name\], has not started.
-6. **Some documents are drafts.** Each says so in its status line, and \<Documentation Map\>, section 2.1, gives the state of every document.
+6. **Nothing is yet reviewed or approved.** The whole set is a draft until its decisions are taken in \<Decision Register\>.

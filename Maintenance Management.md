@@ -26,21 +26,9 @@ An assessor examines the maintenance records, the lists of approved tools and pe
 
 ## 2 Summary
 
-Of the 9 controls, none is fully implemented, 1 is partially implemented and 8 are not implemented. No control in the baseline is missing from the design. Every gap is registered in the Risk List (\<Risk List\>) and the Plan of Action and Milestones (\<Plan of Action and Milestones\>).
+The implementation status of each control, how it is met, who is responsible, its assessment result and the risk and plan entries for its gaps are recorded once, in \<System Security Plan\>, section 7.9 (Table 18). This section gives only the overall position.
 
-**Table 2: Status of each control**
-
-| Control | Title | Status | What is missing | Registered as |
-| --- | --- | --- | --- | --- |
-| MA-1 | Policy and Procedures | Partially implemented | Not yet shared. The later version awaits the Head of Cyber | NC-MA-01; PA-20 |
-| MA-2 | Controlled Maintenance | Not implemented | Not in use. The built-in maintenance pages and schema changes leave no record. Sanitising is not evidenced | NC-MA-02; PA-31, PA-84, PA-120, EV-MA-01 |
-| MA-3 | Maintenance Tools | Not implemented | The tool list is provisional. Built-in maintenance pages remain, and the tested build's images hold a package manager | NC-MA-03; PA-31, PA-67, PA-85 |
-| MA-3(1) | Inspect Tools | Not implemented | Inspection is not in use, and the list holds no versions or hashes to inspect against | NC-MA-04; PA-67, PA-120 |
-| MA-3(2) | Inspect Media | Not implemented | Defender is not on the servers | NC-MA-05; PA-58 |
-| MA-3(3) | Prevent Unauthorized Removal | Not implemented | Removal control is not in use | NC-MA-06; PA-120 |
-| MA-4 | Nonlocal Maintenance | Not implemented | The admin portal is open to every network in the tested build. \<Organisation\>'s route is not evidenced | NC-MA-07; PA-19, PA-23, PA-83, PA-120, EV-MA-02 |
-| MA-5 | Maintenance Personnel | Not implemented | The list is provisional, with no screening or signing dates | NC-MA-08; PA-67 |
-| MA-6 | Timely Maintenance | Not implemented | Support and parts within 24 hours are not evidenced | NC-MA-09; PA-120, EV-MA-01 |
+No control in the baseline is missing from the design. Every gap is registered in the Risk List (\<Risk List\>) and the Plan of Action and Milestones (\<Plan of Action and Milestones\>).
 
 Most of this family is a process that has not started, because the servers are not built. Three gaps are in the system itself: maintenance pages built into the admin portal that can change or delete data and write no audit record (PA-31), an admin portal open to every network in the tested build (PA-83), and schema changes that leave no record (PA-84). The rest waits on \<Organisation\>, which maintains the hardware and provides the route administrators use: none of its part is evidenced (PA-120).
 
@@ -59,7 +47,7 @@ Maintenance means preventive and corrective work, repair and replacement, done o
 
 ### 3.2 Who maintains what
 
-**Table 3: Who maintains what**
+**Table 2: Who maintains what**
 
 | Part | Maintained by | Route | Record |
 | --- | --- | --- | --- |
@@ -76,7 +64,7 @@ Maintenance means preventive and corrective work, repair and replacement, done o
 
 **Figure 1: How a maintenance job is controlled**
 
-**Table 4: Steps of a maintenance job**
+**Table 3: Steps of a maintenance job**
 
 | Step | What happens | Who | Record |
 | --- | --- | --- | --- |
@@ -97,7 +85,7 @@ Maintenance means preventive and corrective work, repair and replacement, done o
 
 MA-4 requires every route used for remote maintenance to be documented in the security plan. \<System Security Plan\>, section 3.7, points here. All administration of the servers is remote, as they are at \<Organisation\>'s data centre.
 
-**Table 5: Remote maintenance routes**
+**Table 4: Remote maintenance routes**
 
 | Route | Used by | Tool | Network path | Sign-in | Logged in | How it ends | State now |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -113,7 +101,7 @@ For each session the logs must show the start and end time, the account, the sou
 
 This list is provisional until the servers are built (PA-67). The Windows server administrator keeps it, and the system owner approves changes. When the servers are built, the version, publisher and file hash of each tool are added, so that a tool can be inspected against them before use.
 
-**Table 6: Approved maintenance tools**
+**Table 5: Approved maintenance tools**
 
 | Tool | Use | Where | Who | State now |
 | --- | --- | --- | --- | --- |
@@ -134,7 +122,7 @@ Not approved on the servers: any shell or package manager carried inside a relea
 
 This list is provisional until the servers are built (PA-67). The system owner approves it.
 
-**Table 7: Approved maintenance people**
+**Table 6: Approved maintenance people**
 
 | Person or organisation | Role | Maintains | Screened | Part B signed | Account | Escort needed |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -147,7 +135,7 @@ This list is provisional until the servers are built (PA-67). The system owner a
 
 ### 3.7 Equipment and data that leave
 
-**Table 8: What may leave, and how**
+**Table 7: What may leave, and how**
 
 | What | Rule | Approved by | Record |
 | --- | --- | --- | --- |
@@ -159,7 +147,7 @@ This list is provisional until the servers are built (PA-67). The system owner a
 
 These are the components that \<System Name\>'s security depends on (MA-06\_ODP\[01\]). Support dates are checked each month against the vendors' published lifecycles. On the servers each application runs as a Windows service (D-PL-10); the tested build ran in containers, so the image base applies to the test environment only, and the container engine is no longer a component of the servers. The system owner confirmed this on 17 November 2026 (D-MA-10).
 
-**Table 9: Security-critical components**
+**Table 8: Security-critical components**
 
 | Component | Version seen | Support ends | Support or parts within | Who |
 | --- | --- | --- | --- | --- |
@@ -172,7 +160,7 @@ These are the components that \<System Name\>'s security depends on (MA-06\_ODP\
 
 ### 3.9 What \<Organisation\> provides
 
-**Table 10: Asked of \<Organisation\>**
+**Table 9: Asked of \<Organisation\>**
 
 | Provided | Controls | What \<System Name\> relies on | Evidence asked | State |
 | --- | --- | --- | --- | --- |
@@ -190,7 +178,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.1 MA-1 Policy and Procedures
 
-**Table 11: MA-1 design**
+**Table 10: MA-1 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
@@ -200,7 +188,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 | c.1 | The policy is reviewed on a schedule and after set events | Every 12 months, and after a significant incident, audit finding or system change | Reviewed on 10 November 2026. The first yearly review falls due in November 2027 |
 | c.2 | The procedures are reviewed on a schedule and after set events | Every 12 months, and after a change to the steps | As the policy |
 
-**Table 12: MA-1 responsibility and evidence**
+**Table 11: MA-1 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -216,7 +204,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.2 MA-2 Controlled Maintenance
 
-**Table 13: MA-2 design**
+**Table 12: MA-2 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
@@ -227,7 +215,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 | e | Check that every control the work could have affected still works afterwards | A nine-point checklist (section 3.3). The administrator runs it, and the security officer reviews and signs the result within 1 working day | The first three checks passed in the test environment after a simulated restart (M06 to M08). Not used on the servers |
 | f | Include defined information in the maintenance records | The fields in section 3.3, on TPL-12. Each change to the database schema is recorded with its version, date and release | TPL-12 holds the fields. Not yet used. Schema changes leave no record in the database (M09; PA-84) |
 
-**Table 14: MA-2 responsibility and evidence**
+**Table 13: MA-2 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -243,14 +231,14 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.3 MA-3 Maintenance Tools
 
-**Table 15: MA-3 design**
+**Table 14: MA-3 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Approve, control and monitor the use of maintenance tools | Only the tools in section 3.5 are used, and the system owner approves each addition. The maintenance pages built into the tested build are removed from production builds. Until they are, each use needs an approved change record and a second person, and is recorded on TPL-12 (PRO-MA-7) | The list is provisional (PA-67). Five built-in pages remain, open to global administrators, and write no audit record (M01, M03; PA-31). The tested build's container images hold a shell and a package manager (M10; PA-85) |
 | b | Review the approved tools on a schedule | Every 12 months, by the Windows server administrator with the system owner | The first review is when the servers are built |
 
-**Table 16: MA-3 responsibility and evidence**
+**Table 15: MA-3 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -266,13 +254,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.4 MA-3(1) Inspect Tools
 
-**Table 17: MA-3(1) design**
+**Table 16: MA-3(1) design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Inspect the tools maintenance people use for improper or unauthorised changes | Before use, the version, publisher and file hash of each tool are compared with the approved list (PRO-MA-3), and the result is recorded on TPL-12 | Not in use. The list does not yet give a version, publisher and hash for each tool to be compared with: they are recorded when the servers are built (PA-67) |
 
-**Table 18: MA-3(1) responsibility and evidence**
+**Table 17: MA-3(1) responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -288,13 +276,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.5 MA-3(2) Inspect Media
 
-**Table 19: MA-3(2) design**
+**Table 18: MA-3(2) design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Check media that hold diagnostic and test programs for malicious code before they are used | Microsoft Defender scans any media, and any file copied onto a server for maintenance, before it is used. The servers are virtual, so removable media are used rarely. The scan is recorded on TPL-12 | Defender is not yet on the servers (PA-58) |
 
-**Table 20: MA-3(2) responsibility and evidence**
+**Table 19: MA-3(2) responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -310,7 +298,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.6 MA-3(3) Prevent Unauthorized Removal
 
-**Table 21: MA-3(3) design**
+**Table 20: MA-3(3) design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
@@ -319,7 +307,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 | c | Or by keeping it within the facility | Or it stays at \<Organisation\>'s site | Not yet used |
 | d | Or by an exemption from defined people that explicitly allows the removal | Only the system owner may allow equipment or data to leave. That includes any copy of data, database dump, log or screenshot sent for support: kept to the minimum, encrypted, recorded, and deleted when no longer needed (PRO-MA-7) | Not yet used |
 
-**Table 22: MA-3(3) responsibility and evidence**
+**Table 21: MA-3(3) responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -335,7 +323,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.7 MA-4 Nonlocal Maintenance
 
-**Table 23: MA-4 design**
+**Table 22: MA-4 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
@@ -345,7 +333,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 | d | Keep records of remote maintenance and diagnostic work | TPL-12, with the session reference. The logs show the start and end time, the account, the source address, the route, and the actions where the tool records them | Not in use |
 | e | End the session and the network connection when the work is finished | The person signs out and disconnects, and any temporary account is disabled. Signing out of the admin portal ends its session | Signing out of the admin portal ended the session in the tested build (M12). \<Organisation\>'s route is not evidenced (EV-MA-02) |
 
-**Table 24: MA-4 responsibility and evidence**
+**Table 23: MA-4 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -361,7 +349,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.8 MA-5 Maintenance Personnel
 
-**Table 25: MA-5 design**
+**Table 24: MA-5 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
@@ -369,7 +357,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 | b | Check that people who maintain the system unescorted hold the access authorisations required | Before giving access, the administrator checks that the person is on the list, is screened, has signed Part B of the rules of behaviour, and has a named account | The screening and signing dates are placeholders in section 3.6 |
 | c | Name people with the authorisations and the technical skill to supervise those who lack them | The Windows server administrator or the database administrator escorts and supervises anyone not on the list. A supplier has a temporary account, limited to the job and disabled afterwards, and no access to \<System Name\>'s data | Not yet used |
 
-**Table 26: MA-5 responsibility and evidence**
+**Table 25: MA-5 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -385,13 +373,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.9 MA-6 Timely Maintenance
 
-**Table 27: MA-6 design**
+**Table 26: MA-6 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Obtain maintenance support or spare parts for defined components within a defined time of a failure | The components in section 3.8. \<Organisation\> provides support and parts for the hardware and the hypervisor within 24 hours, so that a restore fits the 72-hour recovery time objective. Software is kept on supported versions, with a replacement planned at least 6 months before support ends, and the support dates are checked each month | Not evidenced for the hardware (EV-MA-01). The software versions seen in the tested build are supported (M11) |
 
-**Table 28: MA-6 responsibility and evidence**
+**Table 27: MA-6 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -409,7 +397,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 These are the CSS organisation-defined values for the 9 MA entries: 15 in total. They were agreed on 6 November 2026 (D-MA-P01), and two were revised on 10 November 2026 (D-MA-P02).
 
-**Table 29: MA parameter register**
+**Table 28: MA parameter register**
 
 | CSS identifier | What must be defined | Value | State now |
 | --- | --- | --- | --- |
@@ -431,9 +419,9 @@ These are the CSS organisation-defined values for the 9 MA entries: 15 in total.
 
 ## Appendix B MA controls outside the Moderate baseline
 
-CSS does not select these at Moderate, so they are not assessed. Some of the design goes further than the baseline, and Table 30 says where.
+CSS does not select these at Moderate, so they are not assessed. Some of the design goes further than the baseline, and Table 29 says where.
 
-**Table 30: MA controls not selected at Moderate**
+**Table 29: MA controls not selected at Moderate**
 
 | Control | What it adds | \<System Name\>'s position |
 | --- | --- | --- |

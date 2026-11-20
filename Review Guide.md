@@ -62,7 +62,7 @@ This is the largest stage. Three documents hold the rules, and each has one chap
 - [Procedures](Procedures.md): who does what, and the record kept (22,100 words, 139 procedures);
 - [Control Implementation Register](Control%20Implementation%20Register.md): now an index only (3,800 words). Every family's design is in a document of its own, and each chapter points to it.
 
-For Access Control, read [Access Control Management](Access%20Control%20Management.md) (23,600 words) in place of the Register chapter. It is the only place the access control design is held: the model, the settings, the status of all 39 AC controls, how the system is built today and the parameter values.
+For Access Control, read [Access Control Management](Access%20Control%20Management.md) (23,600 words) in place of the Register chapter. It is the only place the access control design is held: the model, the settings, how the system is built today and the parameter values.
 
 For Awareness and Training, read [Awareness and Training Management](Awareness%20and%20Training%20Management.md) (6,700 words) in the same way. It holds the briefing, the role curriculum, the training matrix and the training register.
 

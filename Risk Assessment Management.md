@@ -26,22 +26,9 @@ An assessor examines the risk assessment, the categorisation, the scan reports a
 
 ## 2 Summary
 
-Of the 10 controls, 2 are implemented, 5 are partially implemented and 3 are not implemented. No control in the Moderate baseline is missing from the design. Every gap is registered in the Risk List (\<Risk List\>) and the Plan of Action and Milestones (\<Plan of Action and Milestones\>).
+The implementation status of each control, how it is met, who is responsible, its assessment result and the risk and plan entries for its gaps are recorded once, in \<System Security Plan\>, section 7.15 (Table 24). This section gives only the overall position.
 
-**Table 2: Status of each control**
-
-| Control | Title | Status | What is missing | Registered as |
-| --- | --- | --- | --- | --- |
-| RA-1 | Policy and Procedures | Partially implemented | Not yet shared. Version \<ver\> awaits the Head of Cyber | NC-RA-01; PA-20 |
-| RA-2 | Security Categorization | Implemented | Nothing. The availability rationale awaits confirmation | None needed: satisfied |
-| RA-3 | Risk Assessment | Partially implemented | Not reviewed after the changes to sign-in and hosting. Not shared with the Head of Cyber. \<Organisation\>'s risk appetite not seen | NC-RA-02; PA-127, EV-RA-01 |
-| RA-3(1) | Supply Chain Risk Assessment | Partially implemented | Not updated after the changes to sign-in and hosting | NC-RA-03; PA-127 |
-| RA-5 | Vulnerability Monitoring and Scanning | Partially implemented | No scanner for the images, the VMs or \<System Name\>'s own applications. 5 High package advisories open | NC-RA-04; PA-56, PA-62 |
-| RA-5(2) | Update Vulnerabilities to Be Scanned | Not implemented | No scanner | NC-RA-05; PA-62 |
-| RA-5(5) | Privileged Access | Not implemented | The VMs are not built, and no scanner is chosen | NC-RA-06; PA-62 |
-| RA-5(11) | Public Disclosure Program | Not implemented | The route is not agreed with \<Organisation\>, nor published with its terms | NC-RA-07; PA-127, EV-RA-01 |
-| RA-7 | Risk Response | Partially implemented | No monitoring or audit finding has yet been responded to | NC-RA-08; PA-127 |
-| RA-9 | Criticality Analysis | Implemented | Nothing | NC-RA-09 (met) |
+No control in the Moderate baseline is missing from the design. Every gap is registered in the Risk List (\<Risk List\>) and the Plan of Action and Milestones (\<Plan of Action and Milestones\>).
 
 Two things matter most. Nothing scans the VMs or the images, and no scanner has been chosen (PA-62, rated Medium), so vulnerability monitoring rests on the package check alone. And seven package advisories are open, five of them High (PA-56, rated High). The timetable requires them to be fixed by 20 November 2026; if they are not, a risk decision is needed (\<Policy\>, section RA.7), and the authorising official has been asked for it in advance (D-RA-13).
 
@@ -73,9 +60,9 @@ The categorisation is reviewed with the risk assessment, and whenever an informa
 
 ### 3.3 Risk assessment
 
-\<System Name\>'s risk assessment is the Risk List, \<Risk List\>. It follows CSS: a threat source exploits a weakness, with a likelihood, to cause an impact. The method is set out in full in its section 4, beside the risks it rates, so that the Risk List can be read on its own. The authorising official confirmed it on 6 November 2026. Table 3, below, summarises it.
+\<System Name\>'s risk assessment is the Risk List, \<Risk List\>. It follows CSS: a threat source exploits a weakness, with a likelihood, to cause an impact. The method is set out in full in its section 4, beside the risks it rates, so that the Risk List can be read on its own. The authorising official confirmed it on 6 November 2026. Table 2, below, summarises it.
 
-**Table 3: The risk method at a glance**
+**Table 2: The risk method at a glance**
 
 | Element | Design | Where it is held |
 | --- | --- | --- |
@@ -88,7 +75,7 @@ The categorisation is reviewed with the risk assessment, and whenever an informa
 | Who decides | Low: the system owner. Medium: the authorising official, on the system owner's advice. High: the authorising official, and only for a stated period while a fix runs | \<Risk List\>, section 4.2 |
 | Tolerance | The thresholds are \<System Name\>'s own until the Head of Cyber confirms them against \<Organisation\>'s risk management strategy and risk appetite | D-PM-03; EV-PM-01 |
 
-**Table 4: When the risk assessment is reviewed**
+**Table 3: When the risk assessment is reviewed**
 
 | When | What is done | Who | Record |
 | --- | --- | --- | --- |
@@ -106,7 +93,7 @@ Every 12 months, before a new supplier or a new kind of component is added, and 
 
 The first review was held on 11 November 2026 and approved by the system owner (D-RA-09). It used \<Supply Chain Risk Management\>, Test-Vulnerability.ps1 and the configuration management findings. It stands as the first record; each later review is recorded on TPL-23.
 
-**Table 5: First supply chain review**
+**Table 4: First supply chain review**
 
 | Item | Origin and support | Known problems | Risk |
 | --- | --- | --- | --- |
@@ -121,7 +108,7 @@ No new risk was found. The open items are already tracked.
 
 Three changes since the first review alter the supply chain. Each is a significant change, so RA-3(1) calls for the review to be updated now, not at the yearly point. The update has not been held (PA-127).
 
-**Table 6: Changes since the first supply chain review**
+**Table 5: Changes since the first supply chain review**
 
 | Change | Date | What it adds or removes | State |
 | --- | --- | --- | --- |
@@ -131,7 +118,7 @@ Three changes since the first review alter the supply chain. Each is a significa
 
 ### 3.5 What is monitored for vulnerabilities
 
-**Table 7: Components checked for vulnerabilities**
+**Table 6: Components checked for vulnerabilities**
 
 | Component | How it is checked | Who | How often | Today |
 | --- | --- | --- | --- | --- |
@@ -161,7 +148,7 @@ Items 5 and 6 were added by the RA cross-check on 18 November 2026, from the CSS
 
 This is the one timetable for vulnerabilities in \<System Name\>, its packages, images and VMs (D-RA-P02). It replaces any other limit for vulnerabilities, including the general limits for POA&M items in \<Policy\> (CA). It meets the Cyber Essentials limit of 14 days for high and critical updates, which \<Organisation\> holds.
 
-**Table 8: Vulnerability timetable**
+**Table 7: Vulnerability timetable**
 
 | Severity | How it is set | Fix or mitigate within |
 | --- | --- | --- |
@@ -186,7 +173,7 @@ The clock starts when the fix is released, or when \<System Name\>'s use of the 
 
 Findings come from four sources: security assessments, privacy assessments, monitoring and audits. Each is answered the same way, within the risk tolerance in section 3.3.
 
-**Table 9: How a finding is answered**
+**Table 8: How a finding is answered**
 
 | Step | What happens | Who | Record |
 | --- | --- | --- | --- |
@@ -202,7 +189,7 @@ A monitoring finding, such as a scan result, is first recorded on TPL-7 (section
 
 **Method.** A component is critical if its failure or compromise would expose or lose the documents, or defeat a security control. Each component in the authorisation boundary, and each outside service it relies on, was judged by the impact levels in \<System Security Plan\>, section 3.3, the recovery priorities in \<Contingency Planning Management\>, section 3.3, and whether it lies on the path to the documents. A component that gives unmediated access to a critical component is critical too. The developers' criticality analysis (SA-15(3)) uses this list.
 
-**Table 10: Critical components**
+**Table 9: Critical components**
 
 | Component | Why it is critical | If it fails or is compromised | State |
 | --- | --- | --- | --- |
@@ -235,7 +222,7 @@ Test-Vulnerability.ps1 ran on 11 November 2026 on the v1.0 build and its images.
 
 ### 3.11 What \<Organisation\> provides
 
-**Table 11: Asked of \<Organisation\>**
+**Table 10: Asked of \<Organisation\>**
 
 | Provided | Controls | What \<System Name\> relies on | Evidence asked | State |
 | --- | --- | --- | --- | --- |
@@ -253,7 +240,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.1 RA-1 Policy and Procedures
 
-**Table 12: RA-1 design**
+**Table 11: RA-1 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
@@ -263,7 +250,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 | c.1 | The policy is reviewed on a schedule and after set events | Every 12 months, and after a significant incident, audit finding or system change | Reviewed on 11 November 2026 after the RA pack review. The first yearly review falls due in November 2027 |
 | c.2 | The procedures are reviewed on a schedule and after set events | Every 12 months, and after a change to the steps | Reviewed and approved as version \<ver\> on 11 November 2026. The first yearly review falls due in November 2027 |
 
-**Table 13: RA-1 responsibility and evidence**
+**Table 12: RA-1 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -279,7 +266,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.2 RA-2 Security Categorization
 
-**Table 14: RA-2 design**
+**Table 13: RA-2 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
@@ -287,7 +274,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 | b | Document the results, with the supporting rationale, in the security plan | \<System Security Plan\>, section 3.3, with the rationale for each level | Done. The rationale for availability awaits the information owner and the authorising official (D-RA-07) |
 | c | The authorising official reviews and approves the categorisation | The authorising official, \[Name\] | Approved (D-GEN-06) |
 
-**Table 15: RA-2 responsibility and evidence**
+**Table 14: RA-2 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -303,7 +290,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.3 RA-3 Risk Assessment
 
-**Table 16: RA-3 design**
+**Table 15: RA-3 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
@@ -316,7 +303,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 | e | Share the results with defined people | The system owner, the authorising official and the Head of Cyber | Not yet shared with the Head of Cyber |
 | f | Update the assessment at a defined frequency, and when the system, its environment or other conditions change significantly | Every 12 months, and at each significant change | Not yet updated after the changes to sign-in and hosting of 12 and 13 November 2026 (PA-127). The first yearly update is not yet due |
 
-**Table 17: RA-3 responsibility and evidence**
+**Table 16: RA-3 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -332,14 +319,14 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.4 RA-3(1) Supply Chain Risk Assessment
 
-**Table 18: RA-3(1) design**
+**Table 17: RA-3(1) design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Assess the supply chain risks of defined systems, components and services | Packages, base images, suppliers and the VMs, each for its origin, support, known problems and end of support (section 3.4) | First review held on 11 November 2026 (D-RA-09) |
 | b | Update the assessment at a defined frequency, and when the supply chain, the system or its environment changes significantly | Every 12 months, before a new supplier or a new kind of component is added, and after a significant change to the system or where it runs | The update called for by the changes to sign-in and hosting of 12 and 13 November 2026 has not been held (PA-127). The first yearly update is due in November 2027 |
 
-**Table 19: RA-3(1) responsibility and evidence**
+**Table 18: RA-3(1) responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -355,7 +342,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.5 RA-5 Vulnerability Monitoring and Scanning
 
-**Table 20: RA-5 design**
+**Table 19: RA-5 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
@@ -366,7 +353,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 | e | Share what monitoring and assessments find with defined people, to remove similar flaws elsewhere | The security officer shares each finding that applies with the developers and the Windows server administrator, so that it is fixed wherever it occurs, and passes to \<Organisation\>'s security contact any that may affect its other systems (PRO-RA-5) | Approved. Not yet in use. Sharing with \<Organisation\> was added by the cross-check |
 | f | Use tools that can readily update the vulnerabilities they scan for | The scanner to be chosen updates its definitions before each scan | No scanner chosen (PA-62) |
 
-**Table 21: RA-5 responsibility and evidence**
+**Table 20: RA-5 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -382,13 +369,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.6 RA-5(2) Update Vulnerabilities to Be Scanned
 
-**Table 22: RA-5(2) design**
+**Table 21: RA-5(2) design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Update the vulnerabilities to be scanned at a defined time | Before each new scan | No scanner (PA-62) |
 
-**Table 23: RA-5(2) responsibility and evidence**
+**Table 22: RA-5(2) responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -404,13 +391,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.7 RA-5(5) Privileged Access
 
-**Table 24: RA-5(5) design**
+**Table 23: RA-5(5) design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Authorise privileged access to defined components for defined scanning activities | Credentialed scans of both VMs, using an account approved for that purpose | The VMs are not yet built, and no scanner is chosen (PA-62) |
 
-**Table 25: RA-5(5) responsibility and evidence**
+**Table 24: RA-5(5) responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -426,13 +413,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.8 RA-5(11) Public Disclosure Program
 
-**Table 26: RA-5(11) design**
+**Table 25: RA-5(11) design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Set up a public channel for reports of vulnerabilities in the system and its components | \<Organisation\>'s security contact, published where people outside \<Organisation\> can find it. It passes any report about \<System Name\> to the security officer, who records it on TPL-7 and handles it as a scan finding (section 3.7; D-RA-05). Its published terms authorise research in good faith, and ask for a set time for a fix without requiring secrecy for ever | Not yet agreed with \<Organisation\>; where it is published, and its terms, are not known (EV-RA-01) |
 
-**Table 27: RA-5(11) responsibility and evidence**
+**Table 26: RA-5(11) responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -448,13 +435,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.9 RA-7 Risk Response
 
-**Table 28: RA-7 design**
+**Table 27: RA-7 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Respond to findings from security and privacy assessments, monitoring and audits, in line with the organisation's risk tolerance | Each finding becomes an entry in the Risk List, rated by the method, and the person the rating calls for decides whether to accept, remediate, approve, obtain evidence or tailor. Remediations go into the Plan of Action and Milestones, and decisions into the Decision Register (section 3.8) | Security and privacy assessment findings all have decisions (V06). No monitoring or audit finding has arisen yet |
 
-**Table 29: RA-7 responsibility and evidence**
+**Table 28: RA-7 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -470,13 +457,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.10 RA-9 Criticality Analysis
 
-**Table 30: RA-9 design**
+**Table 29: RA-9 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Identify critical components and functions by a criticality analysis of defined items at defined decision points | Every component in the authorisation boundary, and the outside services it relies on, judged by the method in section 3.9 at each major release and significant change | Eleven critical components and five critical functions. Eight components were reviewed and approved on 11 November 2026 (D-RA-09); AD FS and Active Directory were added, and the list confirmed by the system owner, on 18 November 2026 (D-RA-12); the application server VM and the bulk export working folder were added by the cross-check and confirmed by the system owner the same day (D-RA-14) |
 
-**Table 31: RA-9 responsibility and evidence**
+**Table 30: RA-9 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -494,7 +481,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 These are the CSS organisation-defined values for the 10 RA entries: 25 in total. They were agreed on 6 November 2026 (D-RA-P01), and the vulnerability timetable on 11 November 2026 (D-RA-P02). **State now** says whether \<System Name\> meets the value today.
 
-**Table 32: RA parameter register**
+**Table 31: RA parameter register**
 
 | CSS identifier | What must be defined | Value | State now |
 | --- | --- | --- | --- |
@@ -526,9 +513,9 @@ These are the CSS organisation-defined values for the 10 RA entries: 25 in total
 
 ## Appendix B Risk assessment controls outside the Moderate baseline
 
-CSS does not select these at Moderate, so they are not assessed. Some of the design goes some way towards them, and Table 33 says where. RA-4, RA-5(1), RA-5(7) and RA-5(9) are withdrawn: RA-5(1) is now part of RA-5f, and the others were moved into other controls.
+CSS does not select these at Moderate, so they are not assessed. Some of the design goes some way towards them, and Table 32 says where. RA-4, RA-5(1), RA-5(7) and RA-5(9) are withdrawn: RA-5(1) is now part of RA-5f, and the others were moved into other controls.
 
-**Table 33: Related controls and enhancements not selected**
+**Table 32: Related controls and enhancements not selected**
 
 | Control | What it adds | \<System Name\>'s position |
 | --- | --- | --- |

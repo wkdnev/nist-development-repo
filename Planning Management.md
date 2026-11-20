@@ -24,19 +24,9 @@ An assessor examines the plans against what CSS requires them to hold, their app
 
 ## 2 Summary
 
-Of the 7 controls, 3 are implemented, 4 are partially implemented and none is not implemented. No control in the baseline is missing from the design. Every gap is registered in the Risk List (\<Risk List\>) and the Plan of Action and Milestones (\<Plan of Action and Milestones\>).
+The implementation status of each control, how it is met, who is responsible, its assessment result and the risk and plan entries for its gaps are recorded once, in \<System Security Plan\>, section 7.12 (Table 21). This section gives only the overall position.
 
-**Table 2: Status of each control**
-
-| Control | Title | Status | What is missing | Registered as |
-| --- | --- | --- | --- | --- |
-| PL-1 | Policy and Procedures | Partially implemented | Not yet shared. The later version awaits the Head of Cyber | NC-PL-01; PA-20 |
-| PL-2 | System Security and Privacy Plans | Partially implemented | The plans are not shared or in the restricted store. The privacy risk results and \<Organisation\>'s architecture standards are outstanding | NC-PL-02, NC-PL-06; PA-88, PA-123, EV-PL-01 |
-| PL-4 | Rules of Behavior | Partially implemented | Nobody has signed the rules | NC-PL-03; PA-123 |
-| PL-4(1) | Social Media and External Site/Application Usage Restrictions | Implemented | Nothing | NC-PL-04 |
-| PL-8 | Security and Privacy Architectures | Partially implemented | The first yearly review is not yet due. \<Organisation\>'s architecture standards have not been seen | NC-PL-05; PA-123 |
-| PL-10 | Baseline Selection | Implemented | Nothing | None: satisfied |
-| PL-11 | Baseline Tailoring | Implemented | Nothing | None: satisfied |
+No control in the baseline is missing from the design. Every gap is registered in the Risk List (\<Risk List\>) and the Plan of Action and Milestones (\<Plan of Action and Milestones\>).
 
 One PL control from the privacy baseline is assessed with the PT family: PL-9, central management, which rests on the one document set described here (NC-PT-13; PA-88).
 
@@ -61,7 +51,7 @@ These carry out the principles and rules of \<Policy\>, sections PL.3 and PL.4.
 
 Every plan and planning record in force, with its owner, version, approver and next review. The design documents for each control family are not plans, and are listed in \<Documentation Map\>.
 
-**Table 3: Plans in force**
+**Table 2: Plans in force**
 
 | Plan or record | Document | Version | Owner | Approved by | Next review |
 | --- | --- | --- | --- | --- | --- |
@@ -84,9 +74,9 @@ The versions in the register are checked by the plan consistency test (check L22
 
 ### 3.3 What the plans hold
 
-PL-2 lists 15 things a security plan and a privacy plan must hold. The security plan is \<System Security Plan\>, written to CSS, and the privacy plan is \<Privacy Plan\>. The system owner confirmed Table 4 on 17 November 2026 (D-PL-13).
+PL-2 lists 15 things a security plan and a privacy plan must hold. The security plan is \<System Security Plan\>, written to CSS, and the privacy plan is \<Privacy Plan\>. The system owner confirmed Table 3 on 17 November 2026 (D-PL-13).
 
-**Table 4: Where each required part of the plans is held**
+**Table 3: Where each required part of the plans is held**
 
 | Part | CSS requires | Security plan | Privacy plan | Today |
 | --- | --- | --- | --- | --- |
@@ -108,7 +98,7 @@ PL-2 lists 15 things a security plan and a privacy plan must hold. The security 
 
 ### 3.4 Approval, review, sharing and protection
 
-**Table 5: How a plan is kept current**
+**Table 4: How a plan is kept current**
 
 | Step | What happens | Who | Record |
 | --- | --- | --- | --- |
@@ -131,7 +121,7 @@ Signed forms are kept for as long as the person has access, and for 3 years afte
 
 No one has signed yet: first signatures are taken on the version current when the remaining family reviews end (D-PL-P02).
 
-**Table 6: Register of signatures**
+**Table 5: Register of signatures**
 
 | TPL-21 record | Name | Role | Parts | SyOps version | Reason | Date signed | Next due |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -147,7 +137,7 @@ The baseline is CSS Moderate, with the privacy baseline. It was chosen from the 
 
 ### 3.8 What \<Organisation\> provides
 
-**Table 7: Asked of \<Organisation\>**
+**Table 6: Asked of \<Organisation\>**
 
 | Provided | Controls | What \<System Name\> relies on | Evidence asked | State |
 | --- | --- | --- | --- | --- |
@@ -161,7 +151,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.1 PL-1 Policy and Procedures
 
-**Table 8: PL-1 design**
+**Table 7: PL-1 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
@@ -171,7 +161,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 | c.1 | The policy is reviewed on a schedule and after set events | Every 12 months, and after a significant incident, audit finding or system change | Reviewed on 11 November 2026. The first yearly review falls due in November 2027 |
 | c.2 | The procedures are reviewed on a schedule and after set events | Every 12 months, and after a change to the steps | As the policy |
 
-**Table 9: PL-1 responsibility and evidence**
+**Table 8: PL-1 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -187,7 +177,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.2 PL-2 System Security and Privacy Plans
 
-**Table 10: PL-2 design**
+**Table 9: PL-2 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
@@ -197,7 +187,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 | d | Update the plans for changes to the system and for problems found in use or in assessments | The affected plans are updated, each with a line in its change record, and the consistency test of 24 checks is run on the whole set before a plan is issued | Done at each change. The test passes on the current set |
 | e | Protect the plans from unauthorised disclosure and change | The plans and the assessment evidence are Restricted. They are kept only in the restricted document store, where only named people can read or change them, and never in a code repository | Not met: the set is on the system owner's computer, outside the restricted store. Every change is recorded in a private local repository, with a manifest of hashes for each issue (NC-PL-06; PA-88) |
 
-**Table 11: PL-2 responsibility and evidence**
+**Table 10: PL-2 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -213,7 +203,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.3 PL-4 Rules of Behavior
 
-**Table 12: PL-4 design**
+**Table 11: PL-4 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
@@ -222,7 +212,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 | c | Review and update the rules on a schedule | Every 12 months | The first yearly review falls due in November 2027 |
 | d | Have people who signed an earlier version read and sign again, on a schedule or when the rules change | Every 12 months, and after a material change to the rules: a new or stricter rule, a changed consequence, new monitoring or a new privileged duty. After a material change everyone signs again within 30 days, or loses access | Nobody has signed yet |
 
-**Table 13: PL-4 responsibility and evidence**
+**Table 12: PL-4 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -238,7 +228,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.4 PL-4(1) Social Media and External Site/Application Usage Restrictions
 
-**Table 14: PL-4(1) design**
+**Table 13: PL-4(1) design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
@@ -246,7 +236,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 | b | And on posting the organisation's information on public websites | Rules A25 and A43 | Met |
 | c | And on using the organisation's identifiers and authentication secrets to create accounts on external sites and applications | Rule A44: work credentials are not used on outside sites | Met |
 
-**Table 15: PL-4(1) responsibility and evidence**
+**Table 14: PL-4(1) responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -262,7 +252,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.5 PL-8 Security and Privacy Architectures
 
-**Table 16: PL-8 design**
+**Table 15: PL-8 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
@@ -273,7 +263,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 | b | Review and update the architectures on a schedule, to reflect changes in the enterprise architecture | Every 12 months, and after a significant change, the system owner reviews the architecture against the system as built | The first yearly review falls due in November 2027 |
 | c | Carry planned changes to the architecture into the plans, the concept of operations, the criticality analysis, the procedures and procurement | Each change is carried into the security plan, the privacy plan, the concept of operations, the list of critical components (\<Risk Assessment Management\>, section 3.9), the procedures and any procurement, and each is noted in the review record (PRO-PL-5) | Done for the documents at each change. There has been no procurement |
 
-**Table 17: PL-8 responsibility and evidence**
+**Table 16: PL-8 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -289,13 +279,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.6 PL-10 Baseline Selection
 
-**Table 18: PL-10 design**
+**Table 17: PL-10 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Select a control baseline for the system | The CSS Moderate baseline, with the privacy baseline, chosen from the categorisation in \<System Security Plan\>, section 3.3 | Selected, and approved by the authorising official (D-GEN-06) |
 
-**Table 19: PL-10 responsibility and evidence**
+**Table 18: PL-10 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -311,13 +301,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.7 PL-11 Baseline Tailoring
 
-**Table 20: PL-11 design**
+**Table 19: PL-11 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Tailor the selected baseline by applying defined tailoring actions | A control or a part of one is set aside only through \<Tailoring Register\>, with a rationale, a condition that must hold, and a recorded decision. Each condition is checked at the yearly review (PRO-PL-4) | In use. The tailoring register is approved by the system owner (D-PL-09). The authorising official's acceptance of it as a record is pending |
 
-**Table 21: PL-11 responsibility and evidence**
+**Table 20: PL-11 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -335,7 +325,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 These are the CSS organisation-defined values for the 7 PL entries: 15 in total. They were agreed on 6 November 2026 (D-PL-P01), and the value for signing again was refined on 11 November 2026 (D-PL-P02).
 
-**Table 22: PL parameter register**
+**Table 21: PL parameter register**
 
 | CSS identifier | What must be defined | Value |
 | --- | --- | --- |
@@ -357,9 +347,9 @@ These are the CSS organisation-defined values for the 7 PL entries: 15 in total.
 
 ## Appendix B PL controls outside the Moderate baseline
 
-CSS does not select these in the Moderate security baseline, so they are not assessed in this family. One is in the CSS privacy baseline, and is assessed with the PT family. The design already does what two of the others ask, and Table 23 says where.
+CSS does not select these in the Moderate security baseline, so they are not assessed in this family. One is in the CSS privacy baseline, and is assessed with the PT family. The design already does what two of the others ask, and Table 22 says where.
 
-**Table 23: PL controls not selected at Moderate**
+**Table 22: PL controls not selected at Moderate**
 
 | Control | What it adds | \<System Name\>'s position |
 | --- | --- | --- |

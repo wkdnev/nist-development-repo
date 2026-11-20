@@ -298,7 +298,7 @@ People holding these roles are named in \<Roles and Responsibilities\>. How secu
 
 This section gives a brief overview of every control in the 19 families, one line each. Each line says how the control is implemented or planned, who is responsible, its type (section 5), its implementation status and its Level 1 assessment status. It does not repeat the assessment. The finding for each determination statement is in the family's chapter of \<Control Assessment Record\>, and each non-compliance and its decision are in \<Risk List\> and \<Decision Register\>.
 
-**Status** uses the CSS terms, for the target design on the two VMs: Fully implemented, Partially implemented, Planned (selected, but not started), or Not applicable. **Assessment:** Satisfied only when every statement for the control is satisfied, and otherwise Other than satisfied. **Decision:** the NC entry in \<Risk List\> and, where a fix is planned, its POA&M item in \<Plan of Action and Milestones\>; or the tailoring entry in \<Tailoring Register\>.
+**Status** is the one record of each control's implementation status in the set, for the target design on the two VMs: Implemented, Partially implemented, Not implemented (selected, but not started), or Not applicable. The family documents point here. **Assessment:** Satisfied only when every statement for the control is satisfied, and otherwise Other than satisfied. **Decision:** the NC entry in \<Risk List\> and, where a fix is planned, its POA&M item in \<Plan of Action and Milestones\>; or the tailoring entry in \<Tailoring Register\>.
 
 ### 7.1 Access Control (AC)
 
@@ -321,31 +321,31 @@ This section gives a brief overview of every control in the 19 families, one lin
 | AC-5 Separation of Duties | Separate administrator, auditor and security roles exist, but a global administrator holds them all | System owner | Hybrid | Partially implemented | Other than satisfied | NC-11, PA-15 |
 | AC-6 Least Privilege | Access through groups and roles; diagnostic pages and a superuser database role remain | Developers, database administrator | Hybrid | Partially implemented | Other than satisfied | NC-12, PA-10, PA-19, PA-26, PA-31 |
 | AC-6(1) Authorize Access to Security Functions | Security pages need the global administrator or a security role; some API functions lack a check | Developers | System | Partially implemented | Other than satisfied | NC-13, PA-07, PA-15, PA-19, PA-30 |
-| AC-6(2) Non-privileged Access for Nonsecurity Functions | SyOps requires a separate everyday account; not yet issued or enforced | System owner | Organisational | Planned | Other than satisfied | NC-14, PA-17 |
+| AC-6(2) Non-privileged Access for Nonsecurity Functions | SyOps requires a separate everyday account; not yet issued or enforced | System owner | Organisational | Not implemented | Other than satisfied | NC-14, PA-17 |
 | AC-6(5) Privileged Accounts | Global administrator is a flag on named accounts; the apps' database role is a superuser | Global administrator, database administrator | Hybrid | Partially implemented | Other than satisfied | NC-15, PA-10, PA-30 |
-| AC-6(7) Review of User Privileges | Review procedure approved; no review held yet | System owner, auditor | Organisational | Planned | Other than satisfied | NC-16, PA-16 |
+| AC-6(7) Review of User Privileges | Review procedure approved; no review held yet | System owner, auditor | Organisational | Not implemented | Other than satisfied | NC-16, PA-16 |
 | AC-6(9) Log Use of Privileged Functions | Some privileged actions are audited; many are not (PA-14) | Developers | System | Partially implemented | Other than satisfied | NC-17, PA-14, PA-29, PA-31 |
 | AC-6(10) Prohibit Non-privileged Users from Executing Privileged Functions | Ordinary users are refused admin functions, except debug pages and some API calls | Developers | System | Partially implemented | Other than satisfied | NC-18, PA-02, PA-03, PA-06, PA-07, PA-29 |
 | AC-7 Unsuccessful Logon Attempts | AD FS and Active Directory count failed sign-ins and lock the account, under \<Organisation\>'s corporate standard. Not yet evidenced. The tested build locked after five failures | \<Organisation\> | Inherited | Partially implemented | Other than satisfied | NC-19, PA-20, PA-30, PA-35 |
-| AC-8 System Use Notification | No notice is shown at sign-in yet; the wording is approved | Developers, Windows server administrator | Hybrid | Planned | Other than satisfied | NC-20, PA-11 |
+| AC-8 System Use Notification | No notice is shown at sign-in yet; the wording is approved | Developers, Windows server administrator | Hybrid | Not implemented | Other than satisfied | NC-20, PA-11 |
 | AC-11 Device Lock | The page locks after 25 minutes but unlocks without signing in again; device lock by \<Organisation\> | Developers, \<Organisation\> | Hybrid | Partially implemented | Other than satisfied | NC-21, PA-12, PA-21 |
 | AC-11(1) Pattern-hiding Displays | The lock overlay hides the page | Developers | System | Partially implemented | Other than satisfied | NC-22, PA-21 |
 | AC-12 Session Termination | Sessions end on sign-out, when idle, after 8 hours, or when an administrator ends them | Developers | System | Partially implemented | Other than satisfied | NC-23, PA-20, PA-30; PA-33 closed (I11) |
 | AC-14 Permitted Actions Without Identification | Only sign-in and its steps work without signing in, except some open API endpoints | Developers | System | Partially implemented | Other than satisfied | NC-24, PA-03, PA-07, PA-28 |
-| AC-17 Remote Access | \<Organisation\>'s VPN with MFA, as stated; not yet evidenced | \<Organisation\> | Hybrid | Planned | Other than satisfied | NC-25, PA-18 |
-| AC-17(1) Monitoring and Control | \<Organisation\> monitors VPN sessions, as stated | \<Organisation\> | Hybrid | Planned | Other than satisfied | NC-26, PA-18, PA-21 |
-| AC-17(2) Encryption | VPN encrypted, as stated; \<System Name\> HTTPS planned (PA-18) | \<Organisation\>, Windows server administrator | Hybrid | Planned | Other than satisfied | NC-27, PA-18 |
-| AC-17(3) Managed Access Control Points | One managed gateway, as stated | \<Organisation\> | Inherited | Planned | Other than satisfied | NC-28, PA-18, PA-21 |
+| AC-17 Remote Access | \<Organisation\>'s VPN with MFA, as stated; not yet evidenced | \<Organisation\> | Hybrid | Not implemented | Other than satisfied | NC-25, PA-18 |
+| AC-17(1) Monitoring and Control | \<Organisation\> monitors VPN sessions, as stated | \<Organisation\> | Hybrid | Not implemented | Other than satisfied | NC-26, PA-18, PA-21 |
+| AC-17(2) Encryption | VPN encrypted, as stated; \<System Name\> HTTPS planned (PA-18) | \<Organisation\>, Windows server administrator | Hybrid | Not implemented | Other than satisfied | NC-27, PA-18 |
+| AC-17(3) Managed Access Control Points | One managed gateway, as stated | \<Organisation\> | Inherited | Not implemented | Other than satisfied | NC-28, PA-18, PA-21 |
 | AC-17(4) Privileged Commands and Access | No remote administration beyond the approved route | None | Not applicable | Not applicable | Not applicable | TR-AC-05; NC-29 (tailored) |
-| AC-18 Wireless Access | \<Organisation\>'s wireless controls; \<System Name\> has no wireless part | \<Organisation\> | Inherited | Planned | Other than satisfied | NC-30, PA-21 |
-| AC-18(1) Authentication and Encryption | \<Organisation\>'s wireless controls | \<Organisation\> | Inherited | Planned | Other than satisfied | NC-31, PA-21 |
-| AC-18(3) Disable Wireless Networking | The VMs have no wireless adapter, to be confirmed when built | \<Organisation\> | Inherited | Planned | Other than satisfied | NC-32, PA-21 |
+| AC-18 Wireless Access | \<Organisation\>'s wireless controls; \<System Name\> has no wireless part | \<Organisation\> | Inherited | Not implemented | Other than satisfied | NC-30, PA-21 |
+| AC-18(1) Authentication and Encryption | \<Organisation\>'s wireless controls | \<Organisation\> | Inherited | Not implemented | Other than satisfied | NC-31, PA-21 |
+| AC-18(3) Disable Wireless Networking | The VMs have no wireless adapter, to be confirmed when built | \<Organisation\> | Inherited | Not implemented | Other than satisfied | NC-32, PA-21 |
 | AC-19 Mobile Devices | Phones and tablets cannot reach \<System Name\> | None | Not applicable | Not applicable | Not applicable | TR-AC-06; NC-33 (tailored) |
 | AC-19(5) Device Encryption | As AC-19 | None | Not applicable | Not applicable | Not applicable | TR-AC-06; NC-34 (tailored) |
-| AC-20 External Systems | Policy forbids external systems without approval; unmanaged devices are blocked, as stated | System owner, \<Organisation\> | Organisational | Planned | Other than satisfied | NC-35, PA-21 |
+| AC-20 External Systems | Policy forbids external systems without approval; unmanaged devices are blocked, as stated | System owner, \<Organisation\> | Organisational | Not implemented | Other than satisfied | NC-35, PA-21 |
 | AC-20(1) Limits on Authorized Use | External use is forbidden | None | Not applicable | Not applicable | Not applicable | TR-AC-07; NC-36 (tailored) |
-| AC-20(2) Portable Storage Devices | USB storage blocked unless approved, as stated; bulk export can still save files | \<Organisation\>, users | Organisational | Planned | Other than satisfied | NC-37, PA-21 |
-| AC-21 Information Sharing | Project groups control sharing inside \<System Name\>; no wider sharing process | Project access approvers | Organisational | Planned | Other than satisfied | NC-38, PA-22 |
+| AC-20(2) Portable Storage Devices | USB storage blocked unless approved, as stated; bulk export can still save files | \<Organisation\>, users | Organisational | Not implemented | Other than satisfied | NC-37, PA-21 |
+| AC-21 Information Sharing | Project groups control sharing inside \<System Name\>; no wider sharing process | Project access approvers | Organisational | Not implemented | Other than satisfied | NC-38, PA-22 |
 | AC-22 Publicly Accessible Content | \<System Name\> has no public content | None | Not applicable | Not applicable | Not applicable | TR-AC-08; NC-39 (tailored) |
 
 ### 7.2 Awareness and Training (AT)
@@ -357,11 +357,11 @@ This section gives a brief overview of every control in the 19 families, one lin
 | Control | How it is implemented | Who | Type | Status | Assessment | Decision |
 | --- | --- | --- | --- | --- | --- | --- |
 | AT-1 Policy and Procedures | Policy 1.1 legally reviewed on 12 November 2026 and awaits the Head of Cyber's re-approval (D-AT-07); procedures approved, and the design approved as a register chapter at 1.1, now in \<Awareness and Training Management\>; not yet shared | System owner, Head of Cyber | Organisational | Partially implemented | Other than satisfied | NC-AT-01, PA-20 |
-| AT-2 Literacy Training | \<Organisation\>'s course, plus the \<System Name\> briefing (\<Awareness and Training Management\>, section 3.3) given with the SyOps signature; neither yet given | \<Organisation\>, system owner | Hybrid | Planned | Other than satisfied | NC-AT-02, PA-96, PA-99 |
-| AT-2(2) Insider Threat | Briefing part B4, and \<Organisation\>'s course (not seen) | \<Organisation\>, system owner | Hybrid | Planned | Other than satisfied | NC-AT-03, PA-96, PA-99 |
-| AT-2(3) Social Engineering | Briefing part B3, and \<Organisation\>'s course (not seen); no punitive phishing simulations | \<Organisation\>, system owner | Hybrid | Planned | Other than satisfied | NC-AT-04, PA-96, PA-99 |
-| AT-3 Role-based Training | Role curriculum M1 to M9 and the training matrix (\<Awareness and Training Management\>, sections 3.4 and 3.5); content not yet written | Security officer, Head of Cyber | Organisational | Planned | Other than satisfied | NC-AT-05, PA-97, PA-99, PA-100 |
-| AT-4 Training Records | TPL-9 and the training register, kept 3 years; none yet | Security officer | Organisational | Planned | Other than satisfied | NC-AT-06, PA-98 |
+| AT-2 Literacy Training | \<Organisation\>'s course, plus the \<System Name\> briefing (\<Awareness and Training Management\>, section 3.3) given with the SyOps signature; neither yet given | \<Organisation\>, system owner | Hybrid | Not implemented | Other than satisfied | NC-AT-02, PA-96, PA-99 |
+| AT-2(2) Insider Threat | Briefing part B4, and \<Organisation\>'s course (not seen) | \<Organisation\>, system owner | Hybrid | Not implemented | Other than satisfied | NC-AT-03, PA-96, PA-99 |
+| AT-2(3) Social Engineering | Briefing part B3, and \<Organisation\>'s course (not seen); no punitive phishing simulations | \<Organisation\>, system owner | Hybrid | Not implemented | Other than satisfied | NC-AT-04, PA-96, PA-99 |
+| AT-3 Role-based Training | Role curriculum M1 to M9 and the training matrix (\<Awareness and Training Management\>, sections 3.4 and 3.5); content not yet written | Security officer, Head of Cyber | Organisational | Not implemented | Other than satisfied | NC-AT-05, PA-97, PA-99, PA-100 |
+| AT-4 Training Records | TPL-9 and the training register, kept 3 years; none yet | Security officer | Organisational | Not implemented | Other than satisfied | NC-AT-06, PA-98 |
 
 ### 7.3 Audit and Accountability (AU)
 
@@ -375,17 +375,17 @@ This section gives a brief overview of every control in the 19 families, one lin
 | AU-2 Event Logging | Most agreed events are logged; most account, group and role changes in the admin portal are not (PA-14), nor are reading the audit log, start-up and shut-down, or logging changes (PA-76) | System owner, developers | System | Partially implemented | Other than satisfied | NC-AU-02, NC-AU-17, NC-PT-22, PA-14, PA-76, PA-89, PA-101, PA-103 |
 | AU-3 Content of Audit Records | Records show type, time, component, IP address, outcome and username; some API records name "System" | Developers | System | Partially implemented | Other than satisfied | NC-AU-03, PA-14 |
 | AU-3(1) Additional Audit Information | Records show session, browser, project and document | Developers | System | Partially implemented | Satisfied | None |
-| AU-4 Audit Log Storage Capacity | Records are held in the database; no capacity planned, as the VMs are not built | Database administrator | Hybrid | Planned | Other than satisfied | NC-AU-04, PA-42 |
+| AU-4 Audit Log Storage Capacity | Records are held in the database; no capacity planned, as the VMs are not built | Database administrator | Hybrid | Not implemented | Other than satisfied | NC-AU-04, PA-42 |
 | AU-5 Response to Logging Failures | A failed write goes to the application log and the action continues; nobody is alerted | Windows server administrator, security officer | Hybrid | Partially implemented | Other than satisfied | NC-AU-05, PA-38 |
-| AU-6 Review, Analysis and Reporting | Weekly review defined in PRO-AU-1 and the SyOps; not started | Auditor, security officer | Organisational | Planned | Other than satisfied | NC-AU-06, PA-40 |
-| AU-6(1) Automated Process Integration | None; \<Organisation\>'s central monitoring is unconfirmed | Auditor, \<Organisation\> | Hybrid | Planned | Other than satisfied | NC-AU-07, PA-40 |
-| AU-6(3) Correlate Repositories | Only the application table can be reviewed | Auditor, \<Organisation\> | Hybrid | Planned | Other than satisfied | NC-AU-08, PA-40 |
+| AU-6 Review, Analysis and Reporting | Weekly review defined in PRO-AU-1 and the SyOps; not started | Auditor, security officer | Organisational | Not implemented | Other than satisfied | NC-AU-06, PA-40 |
+| AU-6(1) Automated Process Integration | None; \<Organisation\>'s central monitoring is unconfirmed | Auditor, \<Organisation\> | Hybrid | Not implemented | Other than satisfied | NC-AU-07, PA-40 |
+| AU-6(3) Correlate Repositories | Only the application table can be reviewed | Auditor, \<Organisation\> | Hybrid | Not implemented | Other than satisfied | NC-AU-08, PA-40 |
 | AU-7 Reduction and Report Generation | The audit page filters and summarises without changing records; no export or report | Developers | System | Partially implemented | Other than satisfied | NC-AU-09, PA-41 |
 | AU-7(1) Automatic Processing | Search by date, event type, result and username; project, document and sort are missing | Developers | System | Partially implemented | Other than satisfied | NC-AU-10, PA-41 |
 | AU-8 Time Stamps | Application records use UTC; the VMs' time source is not yet evidenced | Developers, \<Organisation\> | Hybrid | Partially implemented | Other than satisfied | NC-AU-11, PA-102 |
 | AU-9 Protection of Audit Information | Ordinary users cannot open the page and records are hash-chained; the app's database account can change them, and nothing runs the chain check. The chain has no key and, as stored, cannot be recomputed; the application log repeats usernames, IP addresses and session IDs | Developers, database administrator | System | Partially implemented | Other than satisfied | NC-AU-12, NC-AU-16, PA-36, PA-37, PA-73, PA-74, PA-75, PA-104 |
 | AU-9(4) Access by Subset of Privileged Users | Auditors can read records, and so can global administrators, against the agreed value | System owner, developers | System | Partially implemented | Other than satisfied | NC-AU-13, PA-39 |
-| AU-11 Audit Record Retention | Nothing removes records; the rule of 12 months online and 12 months archived has no capacity or backup behind it yet | Database administrator | Hybrid | Planned | Other than satisfied | NC-AU-14, PA-42 |
+| AU-11 Audit Record Retention | Nothing removes records; the rule of 12 months online and 12 months archived has no capacity or backup behind it yet | Database administrator | Hybrid | Not implemented | Other than satisfied | NC-AU-14, PA-42 |
 | AU-12 Audit Record Generation | All three apps generate records; PostgreSQL statement logging is off, and Windows logs are not yet available | Developers, administrators | Hybrid | Partially implemented | Other than satisfied | NC-AU-15, NC-AU-17, PA-14, PA-43, PA-76, PA-105 |
 
 ### 7.4 Assessment, Authorization, and Monitoring (CA)
@@ -398,14 +398,14 @@ This section gives a brief overview of every control in the 19 families, one lin
 | --- | --- | --- | --- | --- | --- | --- |
 | CA-1 Policy and Procedures | Approved and legally reviewed; not yet shared | System owner, Head of Cyber | Organisational | Partially implemented | Other than satisfied | NC-CA-01, PA-20 |
 | CA-2 Control Assessments | Level 1 is done for all 19 families and reported in \<Security Assessment Report\>; all 19 plans are approved; Level 2 has not started | System owner, security assessor | Organisational | Partially implemented | Other than satisfied | NC-CA-02, PA-106 |
-| CA-2(1) Independent Assessors | \[Name\]'s team, with independence to be confirmed on TPL-19 | Security assessor | Organisational | Planned | Other than satisfied | NC-CA-03, PA-106 |
-| CA-3 Information Exchange | All six external exchanges are recorded with an agreement type in \<Assessment, Authorization, and Monitoring Management\>, section 3.7; none is in use yet | System owner, \<Organisation\> | Hybrid | Planned | Other than satisfied | NC-CA-04, PA-63 |
+| CA-2(1) Independent Assessors | \[Name\]'s team, with independence to be confirmed on TPL-19 | Security assessor | Organisational | Not implemented | Other than satisfied | NC-CA-03, PA-106 |
+| CA-3 Information Exchange | All six external exchanges are recorded with an agreement type in \<Assessment, Authorization, and Monitoring Management\>, section 3.7; none is in use yet | System owner, \<Organisation\> | Hybrid | Not implemented | Other than satisfied | NC-CA-04, PA-63 |
 | CA-5 Plan of Action and Milestones | \<Plan of Action and Milestones\> exists, with time limits by rating (D-CA-07); monthly updates start at go-live | System owner | Organisational | Partially implemented | Other than satisfied | NC-CA-05, PA-108 |
 | CA-6 Authorization | \[Name\] is assigned; the package and the TPL-18 decision form are defined; 65 inherited controls are listed in \<Assessment, Authorization, and Monitoring Management\>, section 3.6, and are to be accepted again, as the list has changed since D-CA-08; \<System Name\> is not authorised | Authorising official | Organisational | Partially implemented | Other than satisfied | NC-CA-06, PA-107 |
-| CA-7 Continuous Monitoring | Strategy with measures, thresholds and re-assessment triggers approved (\<Assessment, Authorization, and Monitoring Management\>, section 3.8); starts at go-live | Security officer, system owner | Organisational | Planned | Other than satisfied | NC-CA-07, PA-108 |
-| CA-7(1) Independent Assessment | Not started | Security assessor | Organisational | Planned | Other than satisfied | NC-CA-08, PA-108 |
-| CA-7(4) Risk Monitoring | Not started | System owner | Organisational | Planned | Other than satisfied | NC-CA-09, PA-108 |
-| CA-9 Internal Connections | The link between the VMs is recorded as planned | Windows server and database administrators | Hybrid | Planned | Other than satisfied | NC-CA-10, PA-63 |
+| CA-7 Continuous Monitoring | Strategy with measures, thresholds and re-assessment triggers approved (\<Assessment, Authorization, and Monitoring Management\>, section 3.8); starts at go-live | Security officer, system owner | Organisational | Not implemented | Other than satisfied | NC-CA-07, PA-108 |
+| CA-7(1) Independent Assessment | Not started | Security assessor | Organisational | Not implemented | Other than satisfied | NC-CA-08, PA-108 |
+| CA-7(4) Risk Monitoring | Not started | System owner | Organisational | Not implemented | Other than satisfied | NC-CA-09, PA-108 |
+| CA-9 Internal Connections | The link between the VMs is recorded as planned | Windows server and database administrators | Hybrid | Not implemented | Other than satisfied | NC-CA-10, PA-63 |
 
 ### 7.5 Configuration Management (CM)
 
@@ -418,27 +418,27 @@ This section gives a brief overview of every control in the 19 families, one lin
 | CM-1 Policy and Procedures | Approved and legally reviewed; not yet shared | System owner, Head of Cyber | Organisational | Partially implemented | Other than satisfied | NC-CM-01, PA-20 |
 | CM-2 Baseline Configuration | Baseline documented in \<Configuration Management\>, section 3.4; code tagged v1.0, but images not pinned (PA-77); no VM baseline | System owner, Windows server administrator | Hybrid | Partially implemented | Other than satisfied | NC-CM-02, NC-CM-25, PA-54, PA-77, PA-80 |
 | CM-2(2) Automation Support | Git tags, pinned image digests and deployment files agreed; digests not yet pinned | Developers | Hybrid | Partially implemented | Other than satisfied | NC-CM-03, NC-CM-25, PA-53, PA-77 |
-| CM-2(3) Previous Configurations | 3 to be kept; only v1.0 exists | Developers | Hybrid | Planned | Other than satisfied | NC-CM-04, PA-53 |
-| CM-2(7) High-risk Travel | Kept in scope; no device is issued for travel | System owner | Organisational | Fully implemented | Satisfied | NC-CM-05 (met) |
-| CM-3 Change Control | Git commits only; the ServiceNow workflow is planned (PA-53) | System owner, security officer, Windows server administrator | Hybrid | Planned | Other than satisfied | NC-CM-06, PA-53 |
-| CM-3(2) Testing Changes | Test scripts exist; no release gate (PA-68) | Developers | Hybrid | Planned | Other than satisfied | NC-CM-07, PA-53 |
-| CM-3(4) Representatives | Security officer and legal adviser are the representatives | System owner | Organisational | Fully implemented | Satisfied | NC-CM-08 (met) |
-| CM-4 Impact Analyses | Set out in PRO-CM-1, not yet in use | Security officer | Organisational | Planned | Other than satisfied | NC-CM-09, PA-53 |
-| CM-4(2) Verification | Set out in PRO-CM-1, not yet in use | Developers, security officer | Organisational | Planned | Other than satisfied | NC-CM-10, PA-53 |
-| CM-5 Access Restrictions | Not assessable until the VMs exist | Windows server administrator, \<Organisation\> | Hybrid | Planned | Other than satisfied | NC-CM-11, PA-112 |
-| CM-6 Configuration Settings | CIS Benchmarks and settings for every layer set in \<Configuration Management\>, section 3.6; VMs not built; drift checks planned (PA-80) | Windows server and database administrators | Hybrid | Planned | Other than satisfied | NC-CM-12, PA-54, PA-80 |
+| CM-2(3) Previous Configurations | 3 to be kept; only v1.0 exists | Developers | Hybrid | Not implemented | Other than satisfied | NC-CM-04, PA-53 |
+| CM-2(7) High-risk Travel | Kept in scope; no device is issued for travel | System owner | Organisational | Implemented | Satisfied | NC-CM-05 (met) |
+| CM-3 Change Control | Git commits only; the ServiceNow workflow is planned (PA-53) | System owner, security officer, Windows server administrator | Hybrid | Not implemented | Other than satisfied | NC-CM-06, PA-53 |
+| CM-3(2) Testing Changes | Test scripts exist; no release gate (PA-68) | Developers | Hybrid | Not implemented | Other than satisfied | NC-CM-07, PA-53 |
+| CM-3(4) Representatives | Security officer and legal adviser are the representatives | System owner | Organisational | Implemented | Satisfied | NC-CM-08 (met) |
+| CM-4 Impact Analyses | Set out in PRO-CM-1, not yet in use | Security officer | Organisational | Not implemented | Other than satisfied | NC-CM-09, PA-53 |
+| CM-4(2) Verification | Set out in PRO-CM-1, not yet in use | Developers, security officer | Organisational | Not implemented | Other than satisfied | NC-CM-10, PA-53 |
+| CM-5 Access Restrictions | Not assessable until the VMs exist | Windows server administrator, \<Organisation\> | Hybrid | Not implemented | Other than satisfied | NC-CM-11, PA-112 |
+| CM-6 Configuration Settings | CIS Benchmarks and settings for every layer set in \<Configuration Management\>, section 3.6; VMs not built; drift checks planned (PA-80) | Windows server and database administrators | Hybrid | Not implemented | Other than satisfied | NC-CM-12, PA-54, PA-80 |
 | CM-7 Least Functionality | API documentation off, database local, not running as root; diagnostic and maintenance pages remain, and unused packages are built in (PA-79) | Developers, Windows server administrator | Hybrid | Partially implemented | Other than satisfied | NC-CM-13, NC-CM-27, PA-07, PA-31, PA-79 |
-| CM-7(1) Periodic Review | Set out in PRO-CM-5, not yet in use | Windows server administrator, developers | Organisational | Planned | Other than satisfied | NC-CM-14, PA-110 |
-| CM-7(2) Prevent Execution | Not technically enforced, by decision | Windows server administrator | Hybrid | Planned | Other than satisfied | NC-CM-15, PA-55 |
-| CM-7(5) Authorised Software | List to be written; not enforced, by decision | Windows server administrator | Hybrid | Planned | Other than satisfied | NC-CM-16, PA-55 |
+| CM-7(1) Periodic Review | Set out in PRO-CM-5, not yet in use | Windows server administrator, developers | Organisational | Not implemented | Other than satisfied | NC-CM-14, PA-110 |
+| CM-7(2) Prevent Execution | Not technically enforced, by decision | Windows server administrator | Hybrid | Not implemented | Other than satisfied | NC-CM-15, PA-55 |
+| CM-7(5) Authorised Software | List to be written; not enforced, by decision | Windows server administrator | Hybrid | Not implemented | Other than satisfied | NC-CM-16, PA-55 |
 | CM-8 Inventory | Servers in section 3.4; software components in \<Configuration Management\>, section 3.5; no bill of materials yet (PA-78) | System owner | Hybrid | Partially implemented | Other than satisfied | NC-CM-17, NC-CM-26, PA-54, PA-78 |
-| CM-8(1) Updates | Set out in PRO-CM-1, not yet in use | Windows server administrator | Organisational | Planned | Other than satisfied | NC-CM-18, NC-CM-26, PA-78, PA-111 |
-| CM-8(3) Unauthorised Components | \<Organisation\>'s tools, monthly | \<Organisation\> | Inherited | Planned | Other than satisfied | NC-CM-19, PA-112 |
+| CM-8(1) Updates | Set out in PRO-CM-1, not yet in use | Windows server administrator | Organisational | Not implemented | Other than satisfied | NC-CM-18, NC-CM-26, PA-78, PA-111 |
+| CM-8(3) Unauthorised Components | \<Organisation\>'s tools, monthly | \<Organisation\> | Inherited | Not implemented | Other than satisfied | NC-CM-19, PA-112 |
 | CM-9 Configuration Management Plan | \<Configuration Management\> is the plan. Version \<ver\> was approved; the version rebuilt on 13 November 2026 awaits the system owner's approval. Not yet in use | System owner | Organisational | Partially implemented | Other than satisfied | NC-CM-20, PA-88 |
-| CM-10 Software Usage | \<System Name\>'s component licences reviewed, with ImageSharp under its community licence (D-CM-09); \<Organisation\>'s licences not evidenced | System owner, \<Organisation\> | Hybrid | Planned | Other than satisfied | NC-CM-21, PA-112, PA-113 |
-| CM-11 User-installed Software | Allowed on the VMs with approval | System owner, Windows server administrator | Hybrid | Planned | Other than satisfied | NC-CM-22, PA-110 |
+| CM-10 Software Usage | \<System Name\>'s component licences reviewed, with ImageSharp under its community licence (D-CM-09); \<Organisation\>'s licences not evidenced | System owner, \<Organisation\> | Hybrid | Not implemented | Other than satisfied | NC-CM-21, PA-112, PA-113 |
+| CM-11 User-installed Software | Allowed on the VMs with approval | System owner, Windows server administrator | Hybrid | Not implemented | Other than satisfied | NC-CM-22, PA-110 |
 | CM-12 Information Location | Recorded in sections 3.4 and 4.4; approved access list not yet built | System owner | Organisational | Partially implemented | Other than satisfied | NC-CM-23, PA-111 |
-| CM-12(1) Automated Tools | Value agreed; tools not confirmed | \<Organisation\> | Inherited | Planned | Other than satisfied | NC-CM-24, PA-112 |
+| CM-12(1) Automated Tools | Value agreed; tools not confirmed | \<Organisation\> | Inherited | Not implemented | Other than satisfied | NC-CM-24, PA-112 |
 
 ### 7.6 Contingency Planning (CP)
 
@@ -450,27 +450,27 @@ This section gives a brief overview of every control in the 19 families, one lin
 | --- | --- | --- | --- | --- | --- | --- |
 | CP-1 Policy and Procedures | Version \<ver\> approved, and legally reviewed on 9 November 2026; not yet shared | System owner, Head of Cyber | Organisational | Partially implemented | Other than satisfied | NC-CP-01, PA-20 |
 | CP-2 Contingency Plan | Section 3 of \<Contingency Planning Management\> is the plan, structured after CSS. Version \<ver\> was approved by the system owner and authorising official (D-CP-11); the version rebuilt on 15 November 2026 awaits their approval. Not yet shared | System owner, authorising official | Organisational | Partially implemented | Other than satisfied | NC-CP-02, PA-88, PA-114 |
-| CP-2(1) Related Plans | Related plans named in \<Contingency Planning Management\>, appendix D; coordination not yet shown | System owner, security officer | Organisational | Planned | Other than satisfied | NC-CP-03, PA-114 |
-| CP-2(3) Resume Functions | 72 hours for essential functions, within a maximum tolerable downtime of 120 hours, from the business impact analysis in \<Contingency Planning Management\>, section 3.3. Reaching it depends on backups (PA-64) | System owner | Organisational | Fully implemented | Satisfied | NC-CP-04 (met) |
-| CP-2(8) Critical Assets | Listed in \<Contingency Planning Management\>, section 3.3.4, including the secrets \<System Name\> needs | System owner | Organisational | Fully implemented | Satisfied | NC-CP-05 (met) |
-| CP-3 Training | Agreed; not started | System owner | Organisational | Planned | Other than satisfied | NC-CP-06, NC-CP-24, PA-81 |
-| CP-4 Testing | Tabletop and restore test due within 30 days of the VMs being built (PA-81); restore procedure shown in Docker | System owner, database administrator | Organisational | Planned | Other than satisfied | NC-CP-07, NC-CP-24, PA-81 |
-| CP-4(1) Related Plans | Agreed; not held | System owner, security officer | Organisational | Planned | Other than satisfied | NC-CP-08, NC-CP-24, PA-81 |
-| CP-6 Alternate Storage | \<Organisation\>'s second site, unconfirmed | \<Organisation\> | Inherited | Planned | Other than satisfied | NC-CP-09, PA-66 |
-| CP-6(1) Separation | Unconfirmed | \<Organisation\> | Inherited | Planned | Other than satisfied | NC-CP-10, PA-66 |
-| CP-6(3) Accessibility | Unconfirmed | \<Organisation\> | Inherited | Planned | Other than satisfied | NC-CP-11, PA-66 |
-| CP-7 Alternate Processing | Rebuild at the second site, unconfirmed | \<Organisation\>, Windows server administrator | Inherited | Planned | Other than satisfied | NC-CP-12, PA-66 |
-| CP-7(1) Separation | Unconfirmed | \<Organisation\> | Inherited | Planned | Other than satisfied | NC-CP-13, PA-66 |
-| CP-7(2) Accessibility | Unconfirmed | \<Organisation\> | Inherited | Planned | Other than satisfied | NC-CP-14, PA-66 |
-| CP-7(3) Priority of Service | Unconfirmed | \<Organisation\> | Inherited | Planned | Other than satisfied | NC-CP-15, PA-66 |
-| CP-8 Telecommunications | \<Organisation\> | \<Organisation\> | Inherited | Planned | Other than satisfied | NC-CP-16, PA-115 |
-| CP-8(1) Priority of Service | \<Organisation\> | \<Organisation\> | Inherited | Planned | Other than satisfied | NC-CP-17, PA-115 |
-| CP-8(2) Single Points of Failure | \<Organisation\> | \<Organisation\> | Inherited | Planned | Other than satisfied | NC-CP-18, PA-115 |
-| CP-9 System Backup | No backups | Database and Windows server administrators | Hybrid | Planned | Other than satisfied | NC-CP-19, PA-64 |
-| CP-9(1) Testing | No backups to test; procedure shown in Docker on 9 November 2026 (R03 to R07) | Database administrator | Hybrid | Planned | Other than satisfied | NC-CP-20, PA-64 |
-| CP-9(8) Cryptographic Protection | No backups to protect; the default backup is unencrypted (R02) | Database administrator | Hybrid | Planned | Other than satisfied | NC-CP-21, PA-64 |
-| CP-10 Recovery | Cannot recover today; restore shown in Docker (R04) | Administrators, system owner | Hybrid | Planned | Other than satisfied | NC-CP-22, PA-64 |
-| CP-10(2) Transaction Recovery | PostgreSQL can do this; transaction logs not archived (R09) | Database administrator | Hybrid | Planned | Other than satisfied | NC-CP-23, PA-64 |
+| CP-2(1) Related Plans | Related plans named in \<Contingency Planning Management\>, appendix D; coordination not yet shown | System owner, security officer | Organisational | Not implemented | Other than satisfied | NC-CP-03, PA-114 |
+| CP-2(3) Resume Functions | 72 hours for essential functions, within a maximum tolerable downtime of 120 hours, from the business impact analysis in \<Contingency Planning Management\>, section 3.3. Reaching it depends on backups (PA-64) | System owner | Organisational | Implemented | Satisfied | NC-CP-04 (met) |
+| CP-2(8) Critical Assets | Listed in \<Contingency Planning Management\>, section 3.3.4, including the secrets \<System Name\> needs | System owner | Organisational | Implemented | Satisfied | NC-CP-05 (met) |
+| CP-3 Training | Agreed; not started | System owner | Organisational | Not implemented | Other than satisfied | NC-CP-06, NC-CP-24, PA-81 |
+| CP-4 Testing | Tabletop and restore test due within 30 days of the VMs being built (PA-81); restore procedure shown in Docker | System owner, database administrator | Organisational | Not implemented | Other than satisfied | NC-CP-07, NC-CP-24, PA-81 |
+| CP-4(1) Related Plans | Agreed; not held | System owner, security officer | Organisational | Not implemented | Other than satisfied | NC-CP-08, NC-CP-24, PA-81 |
+| CP-6 Alternate Storage | \<Organisation\>'s second site, unconfirmed | \<Organisation\> | Inherited | Not implemented | Other than satisfied | NC-CP-09, PA-66 |
+| CP-6(1) Separation | Unconfirmed | \<Organisation\> | Inherited | Not implemented | Other than satisfied | NC-CP-10, PA-66 |
+| CP-6(3) Accessibility | Unconfirmed | \<Organisation\> | Inherited | Not implemented | Other than satisfied | NC-CP-11, PA-66 |
+| CP-7 Alternate Processing | Rebuild at the second site, unconfirmed | \<Organisation\>, Windows server administrator | Inherited | Not implemented | Other than satisfied | NC-CP-12, PA-66 |
+| CP-7(1) Separation | Unconfirmed | \<Organisation\> | Inherited | Not implemented | Other than satisfied | NC-CP-13, PA-66 |
+| CP-7(2) Accessibility | Unconfirmed | \<Organisation\> | Inherited | Not implemented | Other than satisfied | NC-CP-14, PA-66 |
+| CP-7(3) Priority of Service | Unconfirmed | \<Organisation\> | Inherited | Not implemented | Other than satisfied | NC-CP-15, PA-66 |
+| CP-8 Telecommunications | \<Organisation\> | \<Organisation\> | Inherited | Not implemented | Other than satisfied | NC-CP-16, PA-115 |
+| CP-8(1) Priority of Service | \<Organisation\> | \<Organisation\> | Inherited | Not implemented | Other than satisfied | NC-CP-17, PA-115 |
+| CP-8(2) Single Points of Failure | \<Organisation\> | \<Organisation\> | Inherited | Not implemented | Other than satisfied | NC-CP-18, PA-115 |
+| CP-9 System Backup | No backups | Database and Windows server administrators | Hybrid | Not implemented | Other than satisfied | NC-CP-19, PA-64 |
+| CP-9(1) Testing | No backups to test; procedure shown in Docker on 9 November 2026 (R03 to R07) | Database administrator | Hybrid | Not implemented | Other than satisfied | NC-CP-20, PA-64 |
+| CP-9(8) Cryptographic Protection | No backups to protect; the default backup is unencrypted (R02) | Database administrator | Hybrid | Not implemented | Other than satisfied | NC-CP-21, PA-64 |
+| CP-10 Recovery | Cannot recover today; restore shown in Docker (R04) | Administrators, system owner | Hybrid | Not implemented | Other than satisfied | NC-CP-22, PA-64 |
+| CP-10(2) Transaction Recovery | PostgreSQL can do this; transaction logs not archived (R09) | Database administrator | Hybrid | Not implemented | Other than satisfied | NC-CP-23, PA-64 |
 
 ### 7.7 Identification and Authentication (IA)
 
@@ -482,28 +482,28 @@ This section gives a brief overview of every control in the 19 families, one lin
 | --- | --- | --- | --- | --- | --- | --- |
 | IA-1 Policy and Procedures | Version \<ver\> approved, and legally reviewed on 9 November 2026; not yet shared | System owner, Head of Cyber | Organisational | Partially implemented | Other than satisfied | NC-IA-01, PA-20 |
 | IA-2 Organizational Users | Each person signs in through \<Organisation\>'s AD FS, with multi-factor authentication (D-AC-23) with their own Active Directory account; tokens are tied to a session. The tested build used its own passwords | Developers | Hybrid | Partially implemented | Other than satisfied | NC-IA-02, PA-25, PA-117 |
-| IA-2(1) MFA, Privileged | Provided by AD FS for every user, including global administrators (D-AC-23); not yet tested or evidenced (PA-95). The earlier acceptance of password-only sign-in stands until then (D-GEN-13) | \<Organisation\>, developers | Hybrid | Planned | Other than satisfied | NC-IA-03, PA-23, PA-95 |
-| IA-2(2) MFA, Non-privileged | Provided by AD FS for every user (D-AC-23); not yet tested or evidenced (PA-95). The earlier acceptance stands until then (D-GEN-13) | \<Organisation\>, developers | Hybrid | Planned | Other than satisfied | NC-IA-04, PA-23, PA-95 |
-| IA-2(8) Replay Resistant | A token works from another client, and traffic is plain HTTP in Docker | Developers, Windows server administrator | Hybrid | Planned | Other than satisfied | NC-IA-05, PA-18, PA-46, PA-117 |
+| IA-2(1) MFA, Privileged | Provided by AD FS for every user, including global administrators (D-AC-23); not yet tested or evidenced (PA-95). The earlier acceptance of password-only sign-in stands until then (D-GEN-13) | \<Organisation\>, developers | Hybrid | Not implemented | Other than satisfied | NC-IA-03, PA-23, PA-95 |
+| IA-2(2) MFA, Non-privileged | Provided by AD FS for every user (D-AC-23); not yet tested or evidenced (PA-95). The earlier acceptance stands until then (D-GEN-13) | \<Organisation\>, developers | Hybrid | Not implemented | Other than satisfied | NC-IA-04, PA-23, PA-95 |
+| IA-2(8) Replay Resistant | A token works from another client, and traffic is plain HTTP in Docker | Developers, Windows server administrator | Hybrid | Not implemented | Other than satisfied | NC-IA-05, PA-18, PA-46, PA-117 |
 | IA-2(12) PIV Credentials | Not applicable | None | Not applicable | Not applicable | Not applicable | TR-IA-01 |
-| IA-3 Device Identification | \<Organisation\>'s network access control; \<System Name\> does not identify devices | \<Organisation\> | Inherited | Planned | Other than satisfied | NC-IA-06, PA-116 |
+| IA-3 Device Identification | \<Organisation\>'s network access control; \<System Name\> does not identify devices | \<Organisation\> | Inherited | Not implemented | Other than satisfied | NC-IA-06, PA-116 |
 | IA-4 Identifier Management | Each person's identifier is their Active Directory account name, issued by \<Organisation\> and never reused. Membership of \<System Name\>'s groups is authorised through ServiceNow, which is not set up. The tested build freed a username when an account was deleted | System owner, global administrator | Hybrid | Partially implemented | Other than satisfied | NC-IA-07, PA-20, PA-47 |
-| IA-4(4) User Status | Active Directory shows staff or contractor status; to be evidenced. The tested build had no such field | Developers, global administrator | System | Planned | Other than satisfied | NC-IA-08, PA-47 |
+| IA-4(4) User Status | Active Directory shows staff or contractor status; to be evidenced. The tested build had no such field | Developers, global administrator | System | Not implemented | Other than satisfied | NC-IA-08, PA-47 |
 | IA-5 Authenticator Management | User passwords and second factors are managed by \<Organisation\> in Active Directory; \<System Name\> holds none. Service secrets are committed in source (PA-19). The tested build used its own passwords | Global administrator, developers | Hybrid | Partially implemented | Other than satisfied | NC-IA-09, PA-19, PA-44 |
 | IA-5(1) Password-based | Password rules and storage are \<Organisation\>'s corporate standard for Active Directory, to be supplied. The tested build used its own passwords, stored with salted PBKDF2-SHA512 | \<Organisation\> | Inherited | Partially implemented | Other than satisfied | NC-IA-10, PA-18, PA-45, PA-49, PA-82 |
 | IA-5(2) Public Key | Not applicable | None | Not applicable | Not applicable | Not applicable | TR-IA-02 |
 | IA-5(6) Protection of Authenticators | User passwords are protected by Active Directory; the signing key and database password are committed in source | Developers, administrators | System | Partially implemented | Other than satisfied | NC-IA-11, PA-19 |
 | IA-6 Authentication Feedback | Sign-in feedback is given by AD FS, not \<System Name\>; not yet evidenced. The tested build gave the same response for a wrong password and an unknown user | \<Organisation\> | Inherited | Partially implemented | Other than satisfied | NC-IA-12, PA-25 |
-| IA-7 Cryptographic Module Authentication | Modules on the VMs not confirmed; standard Windows modules, not in CSS-approved cryptographic mode, as stated | Windows server administrator, \<Organisation\> | Inherited | Planned | Other than satisfied | NC-IA-13, PA-48 |
+| IA-7 Cryptographic Module Authentication | Modules on the VMs not confirmed; standard Windows modules, not in CSS-approved cryptographic mode, as stated | Windows server administrator, \<Organisation\> | Inherited | Not implemented | Other than satisfied | NC-IA-13, PA-48 |
 | IA-8 Non-organizational Users | Only staff and contractors hold accounts | System owner | Not applicable | Not applicable | Not applicable | TR-IA-03 |
 | IA-8(1) PIV from Other Agencies | Not applicable | None | Not applicable | Not applicable | Not applicable | TR-IA-04 |
 | IA-8(2) External Authenticators | Not applicable | None | Not applicable | Not applicable | Not applicable | TR-IA-05 |
 | IA-8(4) Defined Profiles | Not applicable | None | Not applicable | Not applicable | Not applicable | TR-IA-06 |
 | IA-11 Re-authentication | Sessions end after 30 minutes idle and after 8 hours; a change to a person's groups takes effect at their next sign-in | Developers | Hybrid | Partially implemented | Other than satisfied | NC-IA-14; PA-33 closed (I11) |
-| IA-12 Identity Proofing | Relies on \<Organisation\>'s pre-employment checks | \<Organisation\>, system owner | Inherited | Planned | Other than satisfied | NC-IA-15, PA-116 |
-| IA-12(2) Identity Evidence | Relies on \<Organisation\>'s HR | \<Organisation\> | Inherited | Planned | Other than satisfied | NC-IA-16, PA-116 |
-| IA-12(3) Validation and Verification | Relies on \<Organisation\>'s HR | \<Organisation\> | Inherited | Planned | Other than satisfied | NC-IA-17, PA-116 |
-| IA-12(5) Address Confirmation | Notice of proofing, through \<Organisation\>'s HR | \<Organisation\> | Inherited | Planned | Other than satisfied | NC-IA-18, PA-116 |
+| IA-12 Identity Proofing | Relies on \<Organisation\>'s pre-employment checks | \<Organisation\>, system owner | Inherited | Not implemented | Other than satisfied | NC-IA-15, PA-116 |
+| IA-12(2) Identity Evidence | Relies on \<Organisation\>'s HR | \<Organisation\> | Inherited | Not implemented | Other than satisfied | NC-IA-16, PA-116 |
+| IA-12(3) Validation and Verification | Relies on \<Organisation\>'s HR | \<Organisation\> | Inherited | Not implemented | Other than satisfied | NC-IA-17, PA-116 |
+| IA-12(5) Address Confirmation | Notice of proofing, through \<Organisation\>'s HR | \<Organisation\> | Inherited | Not implemented | Other than satisfied | NC-IA-18, PA-116 |
 
 ### 7.8 Incident Response (IR)
 
@@ -514,17 +514,17 @@ This section gives a brief overview of every control in the 19 families, one lin
 | Control | How it is implemented | Who | Type | Status | Assessment | Decision |
 | --- | --- | --- | --- | --- | --- | --- |
 | IR-1 Policy and Procedures | Version \<ver\> approved, and legally reviewed on 10 November 2026; version \<ver\> awaits the Head of Cyber (D-IR-07); not yet shared | System owner, Head of Cyber | Organisational | Partially implemented | Other than satisfied | NC-IR-01, PA-20 |
-| IR-2 Training | Agreed; not started | Security officer | Organisational | Planned | Other than satisfied | NC-IR-02, PA-81, PA-97 |
-| IR-3 Testing | Tabletop agreed; not held. Containment and evidence drill run in Docker (D01 to D08) | Security officer | Organisational | Planned | Other than satisfied | NC-IR-03, PA-81 |
-| IR-3(2) Coordination | Agreed; not held | Security officer, system owner | Organisational | Planned | Other than satisfied | NC-IR-04, PA-81 |
+| IR-2 Training | Agreed; not started | Security officer | Organisational | Not implemented | Other than satisfied | NC-IR-02, PA-81, PA-97 |
+| IR-3 Testing | Tabletop agreed; not held. Containment and evidence drill run in Docker (D01 to D08) | Security officer | Organisational | Not implemented | Other than satisfied | NC-IR-03, PA-81 |
+| IR-3(2) Coordination | Agreed; not held | Security officer, system owner | Organisational | Not implemented | Other than satisfied | NC-IR-04, PA-81 |
 | IR-4 Incident Handling | Set out in section 3 of \<Incident Response Management\>, with severity targets and nine playbooks, including physical incidents and a compromise at \<Organisation\>; containment shown in the test environment (D01, D03); not yet in use | Security officer | Organisational | Partially implemented | Other than satisfied | NC-IR-05, PA-14, PA-118 |
-| IR-4(1) Automated Handling | ServiceNow, not set up | Security officer, \<Organisation\> | Hybrid | Planned | Other than satisfied | NC-IR-06, PA-65 |
-| IR-5 Monitoring | Register in \<Incident Response Management\>, section 3.14 (INC-2026-001); ServiceNow once set up | Security officer | Organisational | Planned | Other than satisfied | NC-IR-07, PA-65, PA-118 |
+| IR-4(1) Automated Handling | ServiceNow, not set up | Security officer, \<Organisation\> | Hybrid | Not implemented | Other than satisfied | NC-IR-06, PA-65 |
+| IR-5 Monitoring | Register in \<Incident Response Management\>, section 3.14 (INC-2026-001); ServiceNow once set up | Security officer | Organisational | Not implemented | Other than satisfied | NC-IR-07, PA-65, PA-118 |
 | IR-6 Reporting | 1 hour to the security officer; ICO within 72 hours of awareness; people affected told when the risk is high; every breach recorded (\<Incident Response Management\>, section 3.8) | Everyone, security officer, legal adviser | Organisational | Partially implemented | Other than satisfied | NC-IR-08, PA-118 |
-| IR-6(1) Automated Reporting | ServiceNow, not set up | Security officer, \<Organisation\> | Hybrid | Planned | Other than satisfied | NC-IR-09, PA-65 |
-| IR-6(3) Supply Chain | The security officer tells any affected supplier | Security officer | Organisational | Planned | Other than satisfied | NC-IR-10, PA-118 |
-| IR-7 Assistance | The security officer and \<Organisation\>'s contact | Security officer, \<Organisation\> | Hybrid | Planned | Other than satisfied | NC-IR-11, PA-118 |
-| IR-7(1) Automation Support | ServiceNow, not set up | \<Organisation\> | Hybrid | Planned | Other than satisfied | NC-IR-12, PA-65 |
+| IR-6(1) Automated Reporting | ServiceNow, not set up | Security officer, \<Organisation\> | Hybrid | Not implemented | Other than satisfied | NC-IR-09, PA-65 |
+| IR-6(3) Supply Chain | The security officer tells any affected supplier | Security officer | Organisational | Not implemented | Other than satisfied | NC-IR-10, PA-118 |
+| IR-7 Assistance | The security officer and \<Organisation\>'s contact | Security officer, \<Organisation\> | Hybrid | Not implemented | Other than satisfied | NC-IR-11, PA-118 |
+| IR-7(1) Automation Support | ServiceNow, not set up | \<Organisation\> | Hybrid | Not implemented | Other than satisfied | NC-IR-12, PA-65 |
 | IR-8 Incident Response Plan | Section 3 of \<Incident Response Management\> is the plan. Version \<ver\> is approved (D-IR-03); the version rebuilt on 17 November 2026 awaits the Head of Cyber (D-IR-07). Not yet shared | Security officer, Head of Cyber | Organisational | Partially implemented | Other than satisfied | NC-IR-13, PA-88, PA-119 |
 
 ### 7.9 Maintenance (MA)
@@ -536,14 +536,14 @@ This section gives a brief overview of every control in the 19 families, one lin
 | Control | How it is implemented | Who | Type | Status | Assessment | Decision |
 | --- | --- | --- | --- | --- | --- | --- |
 | MA-1 Policy and Procedures | Policy \<ver\> approved, \<ver\> awaits the Head of Cyber (D-MA-07); procedures and the MA chapter of \<Control Implementation Register\> at \<ver\>, now in \<Maintenance Management\> approved; legally reviewed on 10 November 2026; not yet shared | System owner, Head of Cyber | Organisational | Partially implemented | Other than satisfied | NC-MA-01, PA-20 |
-| MA-2 Controlled Maintenance | Change records, TPL-12, a preventive schedule and a checklist after maintenance (PRO-MA-1, PRO-MA-6); the checks passed in Docker (M06 to M08); not yet in use. The built-in maintenance pages and schema changes leave no record (M03, M09). \<Organisation\> maintains the hardware | Administrators, security officer, \<Organisation\> | Hybrid | Planned | Other than satisfied | NC-MA-02, PA-31, PA-84, PA-120 |
-| MA-3 Maintenance Tools | Provisional approved tool list (\<Maintenance Management\>, section 3.5); five built-in maintenance pages open to global administrators (M01) and a package manager in the images (M10) | Windows server administrator | Organisational | Planned | Other than satisfied | NC-MA-03, PA-31, PA-67, PA-85 |
-| MA-3(1) Inspect Tools | Version, publisher and hash checked before use; not yet in use | Windows server administrator | Organisational | Planned | Other than satisfied | NC-MA-04, PA-67, PA-120 |
-| MA-3(2) Inspect Media | Defender scan; Defender not yet in place | Windows server administrator | Organisational | Planned | Other than satisfied | NC-MA-05, PA-58 |
-| MA-3(3) Prevent Unauthorized Removal | The system owner approves equipment or data leaving, including data sent for support (PRO-MA-7); not yet in use | System owner | Organisational | Planned | Other than satisfied | NC-MA-06, PA-120 |
-| MA-4 Nonlocal Maintenance | Routes R1 to R5 in \<Maintenance Management\>, section 3.4, with multi-factor sign-in and logging; \<Organisation\>'s route not evidenced; the admin portal is open to every network (M04) and, in the tested build, password-only (PA-23, PA-95); sign-out ends an admin session (M12) | Administrators, \<Organisation\> | Hybrid | Planned | Other than satisfied | NC-MA-07, PA-19, PA-23, PA-83, PA-120 |
-| MA-5 Maintenance Personnel | Provisional approved list with screening, Part B and accounts (\<Maintenance Management\>, section 3.6); suppliers escorted, with temporary accounts | System owner | Organisational | Planned | Other than satisfied | NC-MA-08, PA-67 |
-| MA-6 Timely Maintenance | Support and parts within 24 hours for hardware and the hypervisor; supported software versions (M11); not evidenced | \<Organisation\> | Inherited | Planned | Other than satisfied | NC-MA-09, PA-120 |
+| MA-2 Controlled Maintenance | Change records, TPL-12, a preventive schedule and a checklist after maintenance (PRO-MA-1, PRO-MA-6); the checks passed in Docker (M06 to M08); not yet in use. The built-in maintenance pages and schema changes leave no record (M03, M09). \<Organisation\> maintains the hardware | Administrators, security officer, \<Organisation\> | Hybrid | Not implemented | Other than satisfied | NC-MA-02, PA-31, PA-84, PA-120 |
+| MA-3 Maintenance Tools | Provisional approved tool list (\<Maintenance Management\>, section 3.5); five built-in maintenance pages open to global administrators (M01) and a package manager in the images (M10) | Windows server administrator | Organisational | Not implemented | Other than satisfied | NC-MA-03, PA-31, PA-67, PA-85 |
+| MA-3(1) Inspect Tools | Version, publisher and hash checked before use; not yet in use | Windows server administrator | Organisational | Not implemented | Other than satisfied | NC-MA-04, PA-67, PA-120 |
+| MA-3(2) Inspect Media | Defender scan; Defender not yet in place | Windows server administrator | Organisational | Not implemented | Other than satisfied | NC-MA-05, PA-58 |
+| MA-3(3) Prevent Unauthorized Removal | The system owner approves equipment or data leaving, including data sent for support (PRO-MA-7); not yet in use | System owner | Organisational | Not implemented | Other than satisfied | NC-MA-06, PA-120 |
+| MA-4 Nonlocal Maintenance | Routes R1 to R5 in \<Maintenance Management\>, section 3.4, with multi-factor sign-in and logging; \<Organisation\>'s route not evidenced; the admin portal is open to every network (M04) and, in the tested build, password-only (PA-23, PA-95); sign-out ends an admin session (M12) | Administrators, \<Organisation\> | Hybrid | Not implemented | Other than satisfied | NC-MA-07, PA-19, PA-23, PA-83, PA-120 |
+| MA-5 Maintenance Personnel | Provisional approved list with screening, Part B and accounts (\<Maintenance Management\>, section 3.6); suppliers escorted, with temporary accounts | System owner | Organisational | Not implemented | Other than satisfied | NC-MA-08, PA-67 |
+| MA-6 Timely Maintenance | Support and parts within 24 hours for hardware and the hypervisor; supported software versions (M11); not evidenced | \<Organisation\> | Inherited | Not implemented | Other than satisfied | NC-MA-09, PA-120 |
 
 ### 7.10 Media Protection (MP)
 
@@ -555,11 +555,11 @@ This section gives a brief overview of every control in the 19 families, one lin
 | --- | --- | --- | --- | --- | --- | --- |
 | MP-1 Policy and Procedures | Policy \<ver\> approved, \<ver\> awaits the Head of Cyber (D-MP-07); procedures and the MP chapter of \<Control Implementation Register\> at \<ver\>, now in \<Media Protection Management\> approved; legally reviewed on 10 November 2026; not yet shared | System owner, Head of Cyber | Organisational | Partially implemented | Other than satisfied | NC-MP-01, PA-20 |
 | MP-2 Media Access | Media inventory in \<Media Protection Management\>, section 3.2, with who may reach each; only editors can create exports (P01); \<Organisation\> limits disks and backups; users limit paper | \<Organisation\>, administrators, everyone | Hybrid | Partially implemented | Other than satisfied | NC-MP-02, PA-121 |
-| MP-3 Media Marking | RESTRICTED for all \<System Name\> information, with the document's classification alongside (\<Media Protection Management\>, section 3.3); nothing \<System Name\> shows or produces is marked yet (P04, P07); printouts marked by hand | Developers, everyone | Hybrid | Planned | Other than satisfied | NC-MP-03, PA-87 |
-| MP-4 Media Storage | \<Organisation\>'s data centres and managed devices; locked storage for paper; export copies left unencrypted on the server (P02 to P06, P09), checked each working day until fixed (C49) | \<Organisation\>, Windows server administrator, everyone | Hybrid | Planned | Other than satisfied | NC-MP-04, PA-26, PA-52, PA-86, PA-88, PA-121 |
-| MP-5 Media Transport | Physical transport only by exception, encrypted or sealed, tracked; network backup copies under SC-8 and CP-6, to be encrypted (PA-64); not evidenced | \<Organisation\>, system owner | Inherited | Planned | Other than satisfied | NC-MP-05, PA-64, PA-121 |
-| MP-6 Media Sanitization | Methods by media type to CSS and IEEE 2883-2022, including cryptographic erase for virtual disks (\<Media Protection Management\>, section 3.6); paper to DIN 66399 P-4; recorded on TPL-13; not evidenced | \<Organisation\>, administrators, everyone | Hybrid | Planned | Other than satisfied | NC-MP-06, PA-52, PA-121 |
-| MP-7 Media Use | USB blocked on users' devices unless approved; none passed through to the VMs; ownerless devices handed in; not evidenced | \<Organisation\>, system owner | Inherited | Planned | Other than satisfied | NC-MP-07, PA-121 |
+| MP-3 Media Marking | RESTRICTED for all \<System Name\> information, with the document's classification alongside (\<Media Protection Management\>, section 3.3); nothing \<System Name\> shows or produces is marked yet (P04, P07); printouts marked by hand | Developers, everyone | Hybrid | Not implemented | Other than satisfied | NC-MP-03, PA-87 |
+| MP-4 Media Storage | \<Organisation\>'s data centres and managed devices; locked storage for paper; export copies left unencrypted on the server (P02 to P06, P09), checked each working day until fixed (C49) | \<Organisation\>, Windows server administrator, everyone | Hybrid | Not implemented | Other than satisfied | NC-MP-04, PA-26, PA-52, PA-86, PA-88, PA-121 |
+| MP-5 Media Transport | Physical transport only by exception, encrypted or sealed, tracked; network backup copies under SC-8 and CP-6, to be encrypted (PA-64); not evidenced | \<Organisation\>, system owner | Inherited | Not implemented | Other than satisfied | NC-MP-05, PA-64, PA-121 |
+| MP-6 Media Sanitization | Methods by media type to CSS and IEEE 2883-2022, including cryptographic erase for virtual disks (\<Media Protection Management\>, section 3.6); paper to DIN 66399 P-4; recorded on TPL-13; not evidenced | \<Organisation\>, administrators, everyone | Hybrid | Not implemented | Other than satisfied | NC-MP-06, PA-52, PA-121 |
+| MP-7 Media Use | USB blocked on users' devices unless approved; none passed through to the VMs; ownerless devices handed in; not evidenced | \<Organisation\>, system owner | Inherited | Not implemented | Other than satisfied | NC-MP-07, PA-121 |
 
 ### 7.11 Physical and Environmental Protection (PE)
 
@@ -570,23 +570,23 @@ This section gives a brief overview of every control in the 19 families, one lin
 | Control | How it is implemented | Who | Type | Status | Assessment | Decision |
 | --- | --- | --- | --- | --- | --- | --- |
 | PE-1 Policy and Procedures | Legally reviewed on 10 November 2026; version \<ver\> awaits the Head of Cyber's re-approval (D-PE-09); not yet shared | System owner, Head of Cyber | Organisational | Partially implemented | Other than satisfied | NC-PE-01, PA-20 |
-| PE-2 Physical Access Authorizations | \<Organisation\>'s access list; not evidenced | \<Organisation\> | Inherited | Planned | Other than satisfied | NC-PE-02, PA-122 |
-| PE-3 Physical Access Control | \<Organisation\>'s access control; not evidenced | \<Organisation\> | Inherited | Planned | Other than satisfied | NC-PE-03, PA-122 |
-| PE-4 Access Control for Transmission | \<Organisation\>'s locked rooms and cabinets; not evidenced | \<Organisation\> | Inherited | Planned | Other than satisfied | NC-PE-04, PA-122 |
-| PE-5 Access Control for Output Devices | Managed printers with secure release only (D-PE-P02), and screens locked by \<System Name\> after 25 minutes; printers not yet listed or evidenced | \<Organisation\>, everyone | Hybrid | Planned | Other than satisfied | NC-PE-05, PA-122 |
-| PE-6 Monitoring Physical Access | \<Organisation\> reviews logs monthly; not evidenced | \<Organisation\> | Inherited | Planned | Other than satisfied | NC-PE-06, PA-122 |
-| PE-6(1) Intrusion Alarms | Not evidenced | \<Organisation\> | Inherited | Planned | Other than satisfied | NC-PE-07, PA-122 |
-| PE-8 Visitor Access Records | Kept for 12 months; not evidenced | \<Organisation\> | Inherited | Planned | Other than satisfied | NC-PE-08, PA-122 |
-| PE-9 Power Equipment and Cabling | Not evidenced | \<Organisation\> | Inherited | Planned | Other than satisfied | NC-PE-09, PA-122 |
-| PE-10 Emergency Shutoff | Not evidenced | \<Organisation\> | Inherited | Planned | Other than satisfied | NC-PE-10, PA-122 |
-| PE-11 Emergency Power | Orderly shutdown on backup power; not evidenced | \<Organisation\> | Inherited | Planned | Other than satisfied | NC-PE-11, PA-122 |
-| PE-12 Emergency Lighting | Not evidenced | \<Organisation\> | Inherited | Planned | Other than satisfied | NC-PE-12, PA-122 |
-| PE-13 Fire Protection | Not evidenced | \<Organisation\> | Inherited | Planned | Other than satisfied | NC-PE-13, PA-122 |
-| PE-13(1) Detection Systems | Not evidenced | \<Organisation\> | Inherited | Planned | Other than satisfied | NC-PE-14, PA-122 |
-| PE-14 Environmental Controls | Kept within the ASHRAE recommended envelope and monitored continuously; not evidenced | \<Organisation\> | Inherited | Planned | Other than satisfied | NC-PE-15, PA-122 |
-| PE-15 Water Damage Protection | Not evidenced | \<Organisation\> | Inherited | Planned | Other than satisfied | NC-PE-16, PA-122 |
-| PE-16 Delivery and Removal | Not evidenced | \<Organisation\> | Inherited | Planned | Other than satisfied | NC-PE-17, PA-122 |
-| PE-17 Alternate Work Site | Home only, on managed devices and route, with no home printing; yearly checklist not yet held | Security officer, \<Organisation\> | Hybrid | Planned | Other than satisfied | NC-PE-18, PA-122 |
+| PE-2 Physical Access Authorizations | \<Organisation\>'s access list; not evidenced | \<Organisation\> | Inherited | Not implemented | Other than satisfied | NC-PE-02, PA-122 |
+| PE-3 Physical Access Control | \<Organisation\>'s access control; not evidenced | \<Organisation\> | Inherited | Not implemented | Other than satisfied | NC-PE-03, PA-122 |
+| PE-4 Access Control for Transmission | \<Organisation\>'s locked rooms and cabinets; not evidenced | \<Organisation\> | Inherited | Not implemented | Other than satisfied | NC-PE-04, PA-122 |
+| PE-5 Access Control for Output Devices | Managed printers with secure release only (D-PE-P02), and screens locked by \<System Name\> after 25 minutes; printers not yet listed or evidenced | \<Organisation\>, everyone | Hybrid | Not implemented | Other than satisfied | NC-PE-05, PA-122 |
+| PE-6 Monitoring Physical Access | \<Organisation\> reviews logs monthly; not evidenced | \<Organisation\> | Inherited | Not implemented | Other than satisfied | NC-PE-06, PA-122 |
+| PE-6(1) Intrusion Alarms | Not evidenced | \<Organisation\> | Inherited | Not implemented | Other than satisfied | NC-PE-07, PA-122 |
+| PE-8 Visitor Access Records | Kept for 12 months; not evidenced | \<Organisation\> | Inherited | Not implemented | Other than satisfied | NC-PE-08, PA-122 |
+| PE-9 Power Equipment and Cabling | Not evidenced | \<Organisation\> | Inherited | Not implemented | Other than satisfied | NC-PE-09, PA-122 |
+| PE-10 Emergency Shutoff | Not evidenced | \<Organisation\> | Inherited | Not implemented | Other than satisfied | NC-PE-10, PA-122 |
+| PE-11 Emergency Power | Orderly shutdown on backup power; not evidenced | \<Organisation\> | Inherited | Not implemented | Other than satisfied | NC-PE-11, PA-122 |
+| PE-12 Emergency Lighting | Not evidenced | \<Organisation\> | Inherited | Not implemented | Other than satisfied | NC-PE-12, PA-122 |
+| PE-13 Fire Protection | Not evidenced | \<Organisation\> | Inherited | Not implemented | Other than satisfied | NC-PE-13, PA-122 |
+| PE-13(1) Detection Systems | Not evidenced | \<Organisation\> | Inherited | Not implemented | Other than satisfied | NC-PE-14, PA-122 |
+| PE-14 Environmental Controls | Kept within the ASHRAE recommended envelope and monitored continuously; not evidenced | \<Organisation\> | Inherited | Not implemented | Other than satisfied | NC-PE-15, PA-122 |
+| PE-15 Water Damage Protection | Not evidenced | \<Organisation\> | Inherited | Not implemented | Other than satisfied | NC-PE-16, PA-122 |
+| PE-16 Delivery and Removal | Not evidenced | \<Organisation\> | Inherited | Not implemented | Other than satisfied | NC-PE-17, PA-122 |
+| PE-17 Alternate Work Site | Home only, on managed devices and route, with no home printing; yearly checklist not yet held | Security officer, \<Organisation\> | Hybrid | Not implemented | Other than satisfied | NC-PE-18, PA-122 |
 
 ### 7.12 Planning (PL)
 
@@ -599,10 +599,10 @@ This section gives a brief overview of every control in the 19 families, one lin
 | PL-1 Policy and Procedures | Legally reviewed on 11 November 2026; version \<ver\> awaits the Head of Cyber's re-approval (D-PL-07); procedures \<ver\> approved; not yet shared | System owner, Head of Cyber | Organisational | Partially implemented | Other than satisfied | NC-PL-01, PA-20 |
 | PL-2 Security and Privacy Plans | Security plan approved, with a plan review record, and a register of plans in \<Planning Management\>; not yet shared or in the restricted store (PA-88); privacy plan \<Privacy Plan\> approved, without privacy risk results yet | System owner, authorising official | Organisational | Partially implemented | Other than satisfied | NC-PL-02, NC-PL-06, PA-88, PA-123 |
 | PL-4 Rules of Behavior | \<Security Operating Procedures\> is approved; signatures recorded on TPL-21 and in the register; none signed yet | System owner, everyone | Organisational | Partially implemented | Other than satisfied | NC-PL-03, PA-123 |
-| PL-4(1) Social Media | Rules A43 and A44 in \<Security Operating Procedures\>, approved | System owner | Organisational | Fully implemented | Satisfied | NC-PL-04 (met) |
+| PL-4(1) Social Media | Rules A43 and A44 in \<Security Operating Procedures\>, approved | System owner | Organisational | Implemented | Satisfied | NC-PL-04 (met) |
 | PL-8 Architectures | \<Security Architecture\> \<ver\> is approved, with its security approach; privacy architecture in \<Privacy Plan\>; first yearly review not yet due | System owner | Organisational | Partially implemented | Other than satisfied | NC-PL-05, PA-123 |
-| PL-10 Baseline Selection | Moderate | Authorising official | Organisational | Fully implemented | Satisfied | None |
-| PL-11 Baseline Tailoring | \<Tailoring Register\> \<ver\>, approved by the system owner, with the PM inheritance table | System owner | Organisational | Fully implemented | Satisfied | None |
+| PL-10 Baseline Selection | Moderate | Authorising official | Organisational | Implemented | Satisfied | None |
+| PL-11 Baseline Tailoring | \<Tailoring Register\> \<ver\>, approved by the system owner, with the PM inheritance table | System owner | Organisational | Implemented | Satisfied | None |
 
 ### 7.13 Personnel Security (PS)
 
@@ -613,14 +613,14 @@ This section gives a brief overview of every control in the 19 families, one lin
 | Control | How it is implemented | Who | Type | Status | Assessment | Decision |
 | --- | --- | --- | --- | --- | --- | --- |
 | PS-1 Policy and Procedures | Policy 1.0 approved and legally reviewed; policy 1.1 awaits the Head of Cyber and the legal adviser (D-PS-08); procedures approved, and the design approved as a register chapter at 1.1, now in \<Personnel Security Management\>; not yet shared | System owner, Head of Cyber | Organisational | Partially implemented | Other than satisfied | NC-PS-01, PA-20 |
-| PS-2 Position Risk Designation | Every role in \<Roles and Responsibilities\> is designated, with developers higher risk (\<Personnel Security Management\>, section 3.2); \<Organisation\>'s screening criteria not evidenced | System owner | Organisational | Planned | Other than satisfied | NC-PS-02, PA-125 |
-| PS-3 Personnel Screening | \<Organisation\>'s screening, not evidenced; \<System Name\>'s minimum is identity, right to work, employment history and a basic criminal record check (\<Personnel Security Management\>, section 3.3) | \<Organisation\> | Inherited | Planned | Other than satisfied | NC-PS-03, PA-125 |
-| PS-4 Personnel Termination | 5 working days, or 1 hour for a higher-risk leaver; route not built | Global administrator, \<Organisation\> | Hybrid | Planned | Other than satisfied | NC-PS-04, PA-32, PA-125 |
-| PS-5 Personnel Transfer | 1 working day; route not built | System owner, global administrator | Organisational | Planned | Other than satisfied | NC-PS-05, PA-32 |
+| PS-2 Position Risk Designation | Every role in \<Roles and Responsibilities\> is designated, with developers higher risk (\<Personnel Security Management\>, section 3.2); \<Organisation\>'s screening criteria not evidenced | System owner | Organisational | Not implemented | Other than satisfied | NC-PS-02, PA-125 |
+| PS-3 Personnel Screening | \<Organisation\>'s screening, not evidenced; \<System Name\>'s minimum is identity, right to work, employment history and a basic criminal record check (\<Personnel Security Management\>, section 3.3) | \<Organisation\> | Inherited | Not implemented | Other than satisfied | NC-PS-03, PA-125 |
+| PS-4 Personnel Termination | 5 working days, or 1 hour for a higher-risk leaver; route not built | Global administrator, \<Organisation\> | Hybrid | Not implemented | Other than satisfied | NC-PS-04, PA-32, PA-125 |
+| PS-5 Personnel Transfer | 1 working day; route not built | System owner, global administrator | Organisational | Not implemented | Other than satisfied | NC-PS-05, PA-32 |
 | PS-6 Access Agreements | Agreement exists; none signed | System owner, everyone | Hybrid | Partially implemented | Other than satisfied | NC-PS-06, PA-123, PA-125 |
-| PS-7 External Personnel Security | Stated in contracts; not evidenced | System owner, \<Organisation\> | Hybrid | Planned | Other than satisfied | NC-PS-07, PA-125 |
-| PS-8 Personnel Sanctions | \<Organisation\>'s process; not evidenced | \<Organisation\> | Inherited | Planned | Other than satisfied | NC-PS-08, PA-125 |
-| PS-9 Position Descriptions | The duties of each \<System Name\> role are in \<Roles and Responsibilities\>; \<Organisation\>'s job descriptions not seen | System owner, \<Organisation\> | Hybrid | Planned | Other than satisfied | NC-PS-09, PA-125 |
+| PS-7 External Personnel Security | Stated in contracts; not evidenced | System owner, \<Organisation\> | Hybrid | Not implemented | Other than satisfied | NC-PS-07, PA-125 |
+| PS-8 Personnel Sanctions | \<Organisation\>'s process; not evidenced | \<Organisation\> | Inherited | Not implemented | Other than satisfied | NC-PS-08, PA-125 |
+| PS-9 Position Descriptions | The duties of each \<System Name\> role are in \<Roles and Responsibilities\>; \<Organisation\>'s job descriptions not seen | System owner, \<Organisation\> | Hybrid | Not implemented | Other than satisfied | NC-PS-09, PA-125 |
 
 ### 7.14 Personally Identifiable Information Processing and Transparency (PT)
 
@@ -631,25 +631,25 @@ This section gives a brief overview of every control in the 19 families, one lin
 | Control | How it is implemented | Who | Type | Status | Assessment | Decision |
 | --- | --- | --- | --- | --- | --- | --- |
 | PT-1 Policy and Procedures | Version \<ver\> approved by the system owner, legally reviewed, awaiting the Head of Cyber (D-PT-18); not yet shared | System owner, Head of Cyber | Organisational | Partially implemented | Other than satisfied | NC-PT-01, PA-20 |
-| PT-2 Authority to Process | UK GDPR, the DPA 2018 and the Data (Use and Access) Act 2025; lawful basis for each kind of data drafted in \<PII Processing Management\>, section 3.3, for the legal adviser (D-PT-20) | Legal adviser | Organisational | Planned | Other than satisfied | NC-PT-02, PA-72 |
-| PT-3 Processing Purposes | HR administration and managing project documents; rule and change check (PRO-PT-3) approved; not yet in use | Legal adviser, system owner | Organisational | Planned | Other than satisfied | NC-AU-16, NC-PT-03, PA-75, PA-104, PA-126 |
-| PT-4 Consent | Consent proposed as not the basis, so no tool | Legal adviser | Organisational | Planned | Other than satisfied | NC-PT-04, PA-126 |
-| PT-5 Privacy Notice | \<Organisation\>'s notice, not yet seen; \<System Name\>'s pages do not link to it (Q06) | \<Organisation\>, system owner | Inherited | Planned | Other than satisfied | NC-PT-05, PA-90 |
+| PT-2 Authority to Process | UK GDPR, the DPA 2018 and the Data (Use and Access) Act 2025; lawful basis for each kind of data drafted in \<PII Processing Management\>, section 3.3, for the legal adviser (D-PT-20) | Legal adviser | Organisational | Not implemented | Other than satisfied | NC-PT-02, PA-72 |
+| PT-3 Processing Purposes | HR administration and managing project documents; rule and change check (PRO-PT-3) approved; not yet in use | Legal adviser, system owner | Organisational | Not implemented | Other than satisfied | NC-AU-16, NC-PT-03, PA-75, PA-104, PA-126 |
+| PT-4 Consent | Consent proposed as not the basis, so no tool | Legal adviser | Organisational | Not implemented | Other than satisfied | NC-PT-04, PA-126 |
+| PT-5 Privacy Notice | \<Organisation\>'s notice, not yet seen; \<System Name\>'s pages do not link to it (Q06) | \<Organisation\>, system owner | Inherited | Not implemented | Other than satisfied | NC-PT-05, PA-90 |
 | PT-7 Specific Categories | Project permissions can limit it; HR documents are not marked as special category data (Q01); conditions drafted for the legal adviser | Business owner, legal adviser | Hybrid | Partially implemented | Other than satisfied | NC-PT-06, PA-72, PA-89 |
 | AC-3(14) Individual Access | Through a request to the legal adviser (PRO-PT-1); no search across projects for one person (Q02) | Legal adviser | Organisational | Partially implemented | Other than satisfied | NC-PT-07, PA-89 |
-| AT-3(5) Processing PII | No privacy training yet | Security officer | Organisational | Planned | Other than satisfied | NC-PT-08, PA-97 |
+| AT-3(5) Processing PII | No privacy training yet | Security officer | Organisational | Not implemented | Other than satisfied | NC-PT-08, PA-97 |
 | AU-3(3) Limit PII in Audit | Named fields hold personal data; free text holds no extra personal data (Q04); the application log repeats usernames and IP addresses (Q05) | Developers, auditor | System | Partially implemented | Other than satisfied | NC-PT-09, PA-71, PA-75 |
-| IR-2(3) Breach | Training not yet given | Security officer | Organisational | Planned | Other than satisfied | NC-PT-10, PA-81, PA-97 |
-| IR-8(1) Breaches | \<Incident Response Management\> \<ver\>, section 3.8: notification decision, harm to people, telling them, the 72-hour ICO report and the breach register | Security officer, legal adviser | Organisational | Fully implemented | Satisfied | NC-PT-11 (met) |
-| PE-8(3) Limit PII in Visitor Records | \<Organisation\>'s records, not yet seen | \<Organisation\> | Inherited | Planned | Other than satisfied | NC-PT-12, PA-122 |
+| IR-2(3) Breach | Training not yet given | Security officer | Organisational | Not implemented | Other than satisfied | NC-PT-10, PA-81, PA-97 |
+| IR-8(1) Breaches | \<Incident Response Management\> \<ver\>, section 3.8: notification decision, harm to people, telling them, the 72-hour ICO report and the breach register | Security officer, legal adviser | Organisational | Implemented | Satisfied | NC-PT-11 (met) |
+| PE-8(3) Limit PII in Visitor Records | \<Organisation\>'s records, not yet seen | \<Organisation\> | Inherited | Not implemented | Other than satisfied | NC-PT-12, PA-122 |
 | PL-9 Central Management | One document set, not yet in the Restricted store | System owner | Organisational | Partially implemented | Other than satisfied | NC-PT-13, PA-88 |
 | RA-8 Privacy Impact Assessments | Draft \<Data Protection Impact Assessment\> \<ver\> prepared; the legal adviser completes it (D-PT-20) | Legal adviser | Organisational | Partially implemented | Other than satisfied | NC-PT-14, PA-72 |
-| SA-8(33) Minimization | Rule approved; not yet in use; reviewed in the impact assessment | Developers, legal adviser | Organisational | Planned | Other than satisfied | NC-PT-15, PA-72 |
-| SC-7(24) PII | No monitoring of permitted processing | Developers, security officer | System | Planned | Other than satisfied | NC-PT-16, PA-71 |
-| SI-12(1) Limit PII Elements | Rule approved; not yet in use | Business owner | Organisational | Planned | Other than satisfied | NC-PT-17, PA-126 |
+| SA-8(33) Minimization | Rule approved; not yet in use; reviewed in the impact assessment | Developers, legal adviser | Organisational | Not implemented | Other than satisfied | NC-PT-15, PA-72 |
+| SC-7(24) PII | No monitoring of permitted processing | Developers, security officer | System | Not implemented | Other than satisfied | NC-PT-16, PA-71 |
+| SI-12(1) Limit PII Elements | Rule approved; not yet in use | Business owner | Organisational | Not implemented | Other than satisfied | NC-PT-17, PA-126 |
 | SI-12(2) Minimize PII in Testing | Test stacks use sample data only (Q09) | Developers | Hybrid | Partially implemented | Other than satisfied | NC-PT-18, PA-126 |
-| SI-12(3) Information Disposal | Retention schedule drafted in \<PII Processing Management\>, section 3.7 (D-PT-21); no retention field or disposal (Q08); deleted pages stay until vacuum (Q03) | Developers, business owner | System | Planned | Other than satisfied | NC-PT-19, PA-70 |
-| SI-18 PII Quality Operations | Yearly check (PRO-PT-5) approved; not yet in use | Project access approvers | Organisational | Planned | Other than satisfied | NC-PT-20, PA-126 |
+| SI-12(3) Information Disposal | Retention schedule drafted in \<PII Processing Management\>, section 3.7 (D-PT-21); no retention field or disposal (Q08); deleted pages stay until vacuum (Q03) | Developers, business owner | System | Not implemented | Other than satisfied | NC-PT-19, PA-70 |
+| SI-18 PII Quality Operations | Yearly check (PRO-PT-5) approved; not yet in use | Project access approvers | Organisational | Not implemented | Other than satisfied | NC-PT-20, PA-126 |
 | SI-18(4) Individual Requests | Through the legal adviser (PRO-PT-1); corrections and deletions in the admin portal are not audited (Q03, Q10) | Legal adviser | Organisational | Partially implemented | Other than satisfied | NC-PT-21, NC-PT-22, PA-89 |
 | SI-19 De-identification | No dataset is de-identified or released | None | Organisational | Not applicable | Not applicable | Not applicable |
 | PT-5(2), PT-6, PT-6(1), PT-6(2), PT-7(1), PT-7(2), PT-8 | US-only requirements, which do not apply to \<Organisation\> in the UK | None | Not applicable | Not applicable | Not applicable | TR-PT-01 |
@@ -663,15 +663,15 @@ This section gives a brief overview of every control in the 19 families, one lin
 | Control | How it is implemented | Who | Type | Status | Assessment | Decision |
 | --- | --- | --- | --- | --- | --- | --- |
 | RA-1 Policy and Procedures | Version \<ver\> legally reviewed, awaiting the Head of Cyber (D-RA-06); procedures approved; not yet shared | System owner, Head of Cyber | Organisational | Partially implemented | Other than satisfied | NC-RA-01, PA-20 |
-| RA-2 Security Categorization | Moderate, approved by the authorising official; availability rationale for confirmation (D-RA-07) | System owner, authorising official | Organisational | Fully implemented | Satisfied | None |
+| RA-2 Security Categorization | Moderate, approved by the authorising official; availability rationale for confirmation (D-RA-07) | System owner, authorising official | Organisational | Implemented | Satisfied | None |
 | RA-3 Risk Assessment | \<Risk List\>, on the CSS method in its section 4; first scheduled review not yet due; not reviewed after the changes to sign-in and hosting (PA-127) | System owner | Organisational | Partially implemented | Other than satisfied | NC-RA-02, PA-127 |
 | RA-3(1) Supply Chain | First review held on 11 November 2026 (\<Risk Assessment Management\>, section 3.4); not updated after the changes to sign-in and hosting (PA-127) | System owner, developers | Organisational | Partially implemented | Other than satisfied | NC-RA-03, PA-127 |
 | RA-5 Vulnerability Monitoring | Packages checked by Test-Vulnerability.ps1; 5 High advisories open; no scanner for the images, the VMs or \<System Name\>'s own applications; one timetable in \<Risk Assessment Management\>, section 3.6 | Security officer, Windows server administrator | Hybrid | Partially implemented | Other than satisfied | NC-RA-04, PA-56, PA-62 |
-| RA-5(2) Update Vulnerabilities | No scanner | Windows server administrator | Hybrid | Planned | Other than satisfied | NC-RA-05, PA-62 |
-| RA-5(5) Privileged Access | Credentialed scans planned for the VMs | Windows server administrator | Hybrid | Planned | Other than satisfied | NC-RA-06, PA-62 |
-| RA-5(11) Public Disclosure | \<Organisation\>'s security contact (PRO-RA-5), not yet agreed or published with its terms | Security officer, \<Organisation\> | Hybrid | Planned | Other than satisfied | NC-RA-07, PA-127 |
+| RA-5(2) Update Vulnerabilities | No scanner | Windows server administrator | Hybrid | Not implemented | Other than satisfied | NC-RA-05, PA-62 |
+| RA-5(5) Privileged Access | Credentialed scans planned for the VMs | Windows server administrator | Hybrid | Not implemented | Other than satisfied | NC-RA-06, PA-62 |
+| RA-5(11) Public Disclosure | \<Organisation\>'s security contact (PRO-RA-5), not yet agreed or published with its terms | Security officer, \<Organisation\> | Hybrid | Not implemented | Other than satisfied | NC-RA-07, PA-127 |
 | RA-7 Risk Response | Assessment and privacy assessment findings are decided in \<Decision Register\>; monitoring and audit findings have not arisen | System owner, authorising official | Organisational | Partially implemented | Other than satisfied | NC-RA-08, PA-127 |
-| RA-9 Criticality Analysis | Eleven components and five critical functions in \<Risk Assessment Management\>, section 3.9, with their method: eight reviewed on 11 November 2026, and AD FS with Active Directory added, and the list confirmed by the system owner, on 18 November 2026 (D-RA-12); the application server VM and the bulk export working folder added by the cross-check and confirmed by the system owner (D-RA-14) | System owner, developers | Organisational | Fully implemented | Satisfied | NC-RA-09 (met) |
+| RA-9 Criticality Analysis | Eleven components and five critical functions in \<Risk Assessment Management\>, section 3.9, with their method: eight reviewed on 11 November 2026, and AD FS with Active Directory added, and the list confirmed by the system owner, on 18 November 2026 (D-RA-12); the application server VM and the bulk export working folder added by the cross-check and confirmed by the system owner (D-RA-14) | System owner, developers | Organisational | Implemented | Satisfied | NC-RA-09 (met) |
 
 ### 7.16 System and Services Acquisition (SA)
 
@@ -684,20 +684,20 @@ This section gives a brief overview of every control in the 19 families, one lin
 | SA-1 Policy and Procedures | Version \<ver\> approved by the system owner and legally reviewed; awaits the Head of Cyber's re-approval (D-SA-16); not yet shared | System owner, Head of Cyber | Organisational | Partially implemented | Other than satisfied | NC-SA-01, PA-20 |
 | SA-2 Allocation of Resources | Security requirements set; TPL-23 now records the costs; not yet raised in budgeting | System owner | Organisational | Partially implemented | Other than satisfied | NC-SA-02, PA-128 |
 | SA-3 System Development Life Cycle | Lifecycle mapped to the CSS (\<System and Services Acquisition Management\>, section 3.2); roles named; approved; not yet in routine use | System owner, developers | Organisational | Partially implemented | Other than satisfied | NC-SA-03, PA-128 |
-| SA-4 Acquisition Process | \<Organisation\>'s contract, not yet seen | System owner, \<Organisation\> | Inherited | Planned | Other than satisfied | NC-SA-04, PA-128 |
-| SA-4(1) Functional Properties | Section 7 of this plan and each family's design document describe the controls' functional properties | Developers | Organisational | Fully implemented | Satisfied | NC-SA-05 (met) |
-| SA-4(2) Design Information | \<Security Architecture\> and sections 3 and 4 of this plan | Developers | Organisational | Fully implemented | Satisfied | NC-SA-06 (met) |
-| SA-4(9) Functions, Ports, Protocols | Section 3.7, Table 7, lists the functions, ports, protocols and services | Developers | Organisational | Fully implemented | Satisfied | NC-SA-07 (met) |
+| SA-4 Acquisition Process | \<Organisation\>'s contract, not yet seen | System owner, \<Organisation\> | Inherited | Not implemented | Other than satisfied | NC-SA-04, PA-128 |
+| SA-4(1) Functional Properties | Section 7 of this plan and each family's design document describe the controls' functional properties | Developers | Organisational | Implemented | Satisfied | NC-SA-05 (met) |
+| SA-4(2) Design Information | \<Security Architecture\> and sections 3 and 4 of this plan | Developers | Organisational | Implemented | Satisfied | NC-SA-06 (met) |
+| SA-4(9) Functions, Ports, Protocols | Section 3.7, Table 7, lists the functions, ports, protocols and services | Developers | Organisational | Implemented | Satisfied | NC-SA-07 (met) |
 | SA-4(10) Use of Approved PIV Products | US government identity cards are not used | None | Not applicable | Not applicable | Not applicable | TR-SA-01 |
 | SA-5 System Documentation | Administrator and user guides drafted (\<Administrator Guide\> and \<User Guide\>, version \<ver\>); developers to complete them | Developers | System | Partially implemented | Other than satisfied | NC-SA-08, PA-69 |
 | SA-8 Engineering Principles | NCSC principles and privacy objectives mapped to the specification and design (\<Security Architecture\>, section 6.5); earlier work not checked against them | Developers, security officer | Organisational | Partially implemented | Other than satisfied | NC-SA-09, PA-128 |
 | SA-9 External System Services | GitHub, NuGet, Microsoft's registry, jsDelivr and \<Organisation\> listed with their controls (\<System and Services Acquisition Management\>, section 3.7); providers' compliance not seen | System owner, \<Organisation\> | Hybrid | Partially implemented | Other than satisfied | NC-SA-10, PA-128 |
-| SA-9(2) Functions, Ports, Protocols | \<Organisation\>'s list not yet seen | \<Organisation\> | Inherited | Planned | Other than satisfied | NC-SA-11, PA-128 |
+| SA-9(2) Functions, Ports, Protocols | \<Organisation\>'s list not yet seen | \<Organisation\> | Inherited | Not implemented | Other than satisfied | NC-SA-11, PA-128 |
 | SA-10 Developer Configuration Management | Code is in Git on private repositories; no branch protection, required review or signed tags (S01, S05) | Developers | Hybrid | Partially implemented | Other than satisfied | NC-SA-12, PA-53, PA-91 |
 | SA-11 Developer Testing | Developer test plan of 15 scripts (\<System and Services Acquisition Management\>, section 3.9), run with kept evidence; no unit tests or pipeline, and the build turns the package audit off | Developers | Hybrid | Partially implemented | Other than satisfied | NC-SA-13, PA-68, PA-92 |
 | SA-15 Development Process | CSS-based process and tools documented (\<System and Services Acquisition Management\>, sections 3.2 and 3.10); reviews not yet in use | Developers | Organisational | Partially implemented | Other than satisfied | NC-SA-14, PA-128 |
-| SA-15(3) Criticality Analysis | Done on 11 November 2026 (\<Risk Assessment Management\>, section 3.9) | Developers | Organisational | Fully implemented | Satisfied | NC-SA-15 (met) |
-| SA-22 Unsupported Components | No component within 6 months of the end of support (S09; \<Maintenance Management\>, section 3.8) | Developers, authorising official | Organisational | Fully implemented | Satisfied | NC-SA-16 (met) |
+| SA-15(3) Criticality Analysis | Done on 11 November 2026 (\<Risk Assessment Management\>, section 3.9) | Developers | Organisational | Implemented | Satisfied | NC-SA-15 (met) |
+| SA-22 Unsupported Components | No component within 6 months of the end of support (S09; \<Maintenance Management\>, section 3.8) | Developers, authorising official | Organisational | Implemented | Satisfied | NC-SA-16 (met) |
 
 ### 7.17 System and Communications Protection (SC)
 
@@ -708,30 +708,30 @@ This section gives a brief overview of every control in the 19 families, one lin
 | Control | How it is implemented | Who | Type | Status | Assessment | Decision |
 | --- | --- | --- | --- | --- | --- | --- |
 | SC-1 Policy and Procedures | Version \<ver\> legally reviewed; awaits the Head of Cyber's re-approval (D-SC-06); procedures approved, and the design approved as a register chapter at 1.1, now in \<System and Communications Protection Management\>; not yet shared | System owner, Head of Cyber | Organisational | Partially implemented | Other than satisfied | NC-SC-01, PA-20 |
-| SC-2 Separation of Functionality | The admin portal is a separate application and process | Developers | System | Fully implemented | Satisfied | None |
-| SC-4 Shared Resources | Not assessable until the VMs exist; bulk export leaves document copies in a shared temporary folder (PA-86) | Windows server administrator, developers | Inherited | Planned | Other than satisfied | NC-SC-02, PA-54, PA-86 |
+| SC-2 Separation of Functionality | The admin portal is a separate application and process | Developers | System | Implemented | Satisfied | None |
+| SC-4 Shared Resources | Not assessable until the VMs exist; bulk export leaves document copies in a shared temporary folder (PA-86) | Windows server administrator, developers | Inherited | Not implemented | Other than satisfied | NC-SC-02, PA-54, PA-86 |
 | SC-5 Denial-of-service | Sign-in lockout by AD FS; the apps' rate limiter is switched off (N12); network protection from \<Organisation\> | Developers, \<Organisation\> | Hybrid | Partially implemented | Other than satisfied | NC-SC-03, PA-50 |
-| SC-7 Boundary Protection | \<Organisation\>'s firewalls and logical separation, plus each VM's host firewall and listening addresses (\<System and Communications Protection Management\>, section 3.2); the apps listen on every interface in Docker (N07) | \<Organisation\>, Windows server administrator | Hybrid | Planned | Other than satisfied | NC-SC-04, PA-83 |
-| SC-7(3) Access Points | \<Organisation\>'s managed gateway | \<Organisation\> | Inherited | Planned | Other than satisfied | NC-SC-05, PA-129 |
-| SC-7(4) External Telecoms | \<Organisation\> | \<Organisation\> | Inherited | Planned | Other than satisfied | NC-SC-06, PA-129 |
-| SC-7(5) Deny by Default | \<Organisation\>'s firewalls, and host firewall allow-lists on each VM (\<System and Communications Protection Management\>, section 3.2), not built | \<Organisation\>, Windows server administrator | Hybrid | Planned | Other than satisfied | NC-SC-07, PA-83 |
-| SC-7(7) Split Tunnelling | Not allowed; \<Organisation\>'s VPN | \<Organisation\> | Inherited | Planned | Other than satisfied | NC-SC-08, PA-129 |
-| SC-7(8) Authenticated Proxy | Outbound through \<Organisation\>'s proxy, or blocked | \<Organisation\> | Inherited | Planned | Other than satisfied | NC-SC-09, PA-129 |
-| SC-8 Transmission Protection | Plain HTTP on every app and the internal API calls, and database TLS off (N01, N06); NCSC's TLS profiles, client rules that require TLS and API on loopback over HTTPS planned (PA-18) | Windows server administrator, database administrator, developers | Hybrid | Planned | Other than satisfied | NC-SC-10, PA-18 |
-| SC-8(1) Cryptographic Protection | As SC-8, under the TLS profile in \<System and Communications Protection Management\>, section 3.3 | Windows server administrator, database administrator | Hybrid | Planned | Other than satisfied | NC-SC-11, PA-18 |
+| SC-7 Boundary Protection | \<Organisation\>'s firewalls and logical separation, plus each VM's host firewall and listening addresses (\<System and Communications Protection Management\>, section 3.2); the apps listen on every interface in Docker (N07) | \<Organisation\>, Windows server administrator | Hybrid | Not implemented | Other than satisfied | NC-SC-04, PA-83 |
+| SC-7(3) Access Points | \<Organisation\>'s managed gateway | \<Organisation\> | Inherited | Not implemented | Other than satisfied | NC-SC-05, PA-129 |
+| SC-7(4) External Telecoms | \<Organisation\> | \<Organisation\> | Inherited | Not implemented | Other than satisfied | NC-SC-06, PA-129 |
+| SC-7(5) Deny by Default | \<Organisation\>'s firewalls, and host firewall allow-lists on each VM (\<System and Communications Protection Management\>, section 3.2), not built | \<Organisation\>, Windows server administrator | Hybrid | Not implemented | Other than satisfied | NC-SC-07, PA-83 |
+| SC-7(7) Split Tunnelling | Not allowed; \<Organisation\>'s VPN | \<Organisation\> | Inherited | Not implemented | Other than satisfied | NC-SC-08, PA-129 |
+| SC-7(8) Authenticated Proxy | Outbound through \<Organisation\>'s proxy, or blocked | \<Organisation\> | Inherited | Not implemented | Other than satisfied | NC-SC-09, PA-129 |
+| SC-8 Transmission Protection | Plain HTTP on every app and the internal API calls, and database TLS off (N01, N06); NCSC's TLS profiles, client rules that require TLS and API on loopback over HTTPS planned (PA-18) | Windows server administrator, database administrator, developers | Hybrid | Not implemented | Other than satisfied | NC-SC-10, PA-18 |
+| SC-8(1) Cryptographic Protection | As SC-8, under the TLS profile in \<System and Communications Protection Management\>, section 3.3 | Windows server administrator, database administrator | Hybrid | Not implemented | Other than satisfied | NC-SC-11, PA-18 |
 | SC-10 Network Disconnect | Application sessions end after 30 minutes idle and 8 hours; network disconnect by \<Organisation\> | Developers, \<Organisation\> | Hybrid | Partially implemented | Other than satisfied | NC-SC-12, PA-129 |
-| SC-12 Key Management | Register of every key and cryptoperiod (\<System and Communications Protection Management\>, section 3.4); the signing key and passwords are committed in source, and the key rings are unencrypted (PA-19, PA-93) | Developers, administrators | Hybrid | Planned | Other than satisfied | NC-SC-13, PA-19, PA-93 |
+| SC-12 Key Management | Register of every key and cryptoperiod (\<System and Communications Protection Management\>, section 3.4); the signing key and passwords are committed in source, and the key rings are unencrypted (PA-19, PA-93) | Developers, administrators | Hybrid | Not implemented | Other than satisfied | NC-SC-13, PA-19, PA-93 |
 | SC-13 Cryptographic Protection | HMAC-SHA256 token signing; user passwords are held by Active Directory, not \<System Name\>; TLS, disk and key ring encryption not set up; document checksums use MD5 | Developers, administrators | Hybrid | Partially implemented | Other than satisfied | NC-SC-14, PA-18, PA-52, PA-61, PA-93 |
 | SC-15 Collaborative Devices | Not applicable | None | Not applicable | Not applicable | Not applicable | TR-SC-01 |
-| SC-17 PKI Certificates | \<Organisation\>'s certificate policy, with ECDSA P-256 or RSA 2048 and SHA-256 | \<Organisation\>, Windows server administrator | Inherited | Planned | Other than satisfied | NC-SC-15, PA-129 |
+| SC-17 PKI Certificates | \<Organisation\>'s certificate policy, with ECDSA P-256 or RSA 2048 and SHA-256 | \<Organisation\>, Windows server administrator | Inherited | Not implemented | Other than satisfied | NC-SC-15, PA-129 |
 | SC-18 Mobile Code | Rule approved; UI application and Admin application send no page policy, and the configured policy allows inline scripts and outside hosts (N04, N10) | Developers | System | Partially implemented | Other than satisfied | NC-SC-16, PA-34, PA-51 |
-| SC-20 Authoritative DNS | \<Organisation\> | \<Organisation\> | Inherited | Planned | Other than satisfied | NC-SC-17, PA-129 |
-| SC-21 Recursive DNS | \<Organisation\> | \<Organisation\> | Inherited | Planned | Other than satisfied | NC-SC-18, PA-129 |
-| SC-22 DNS Architecture | \<Organisation\> | \<Organisation\> | Inherited | Planned | Other than satisfied | NC-SC-19, PA-129 |
+| SC-20 Authoritative DNS | \<Organisation\> | \<Organisation\> | Inherited | Not implemented | Other than satisfied | NC-SC-17, PA-129 |
+| SC-21 Recursive DNS | \<Organisation\> | \<Organisation\> | Inherited | Not implemented | Other than satisfied | NC-SC-18, PA-129 |
+| SC-22 DNS Architecture | \<Organisation\> | \<Organisation\> | Inherited | Not implemented | Other than satisfied | NC-SC-19, PA-129 |
 | SC-23 Session Authenticity | Sessions are checked on the server; cookies are not Secure and there is no HSTS (N02, N03) | Developers | System | Partially implemented | Other than satisfied | NC-SC-20, PA-18 |
-| SC-28 Information at Rest | Documents in PostgreSQL, backups, export copies and key rings not encrypted in Docker; BitLocker and encrypted backups planned on the VMs | Windows server administrator, database administrator | Hybrid | Planned | Other than satisfied | NC-SC-21, PA-52, PA-86, PA-93 |
-| SC-28(1) Cryptographic Protection | As SC-28 | Windows server administrator | Hybrid | Planned | Other than satisfied | NC-SC-22, PA-52 |
-| SC-39 Process Isolation | Windows Server | Windows server administrator | Inherited | Planned | Other than satisfied | NC-SC-23, PA-54 |
+| SC-28 Information at Rest | Documents in PostgreSQL, backups, export copies and key rings not encrypted in Docker; BitLocker and encrypted backups planned on the VMs | Windows server administrator, database administrator | Hybrid | Not implemented | Other than satisfied | NC-SC-21, PA-52, PA-86, PA-93 |
+| SC-28(1) Cryptographic Protection | As SC-28 | Windows server administrator | Hybrid | Not implemented | Other than satisfied | NC-SC-22, PA-52 |
+| SC-39 Process Isolation | Windows Server | Windows server administrator | Inherited | Not implemented | Other than satisfied | NC-SC-23, PA-54 |
 
 ### 7.18 System and Information Integrity (SI)
 
@@ -743,21 +743,21 @@ This section gives a brief overview of every control in the 19 families, one lin
 | --- | --- | --- | --- | --- | --- | --- |
 | SI-1 Policy and Procedures | Version \<ver\> awaits the Head of Cyber's re-approval (D-SI-06) and is legally reviewed; procedures approved, and the design approved as a register chapter at 1.1, now in \<System and Information Integrity Management\>; not yet shared | System owner, Head of Cyber | Organisational | Partially implemented | Other than satisfied | NC-SI-01, PA-20 |
 | SI-2 Flaw Remediation | Test-Vulnerability.ps1 finds 7 advisories, 5 High, still open; fixes follow \<Risk Assessment Management\>, section 3.6 | Developers, Windows server administrator | Hybrid | Partially implemented | Other than satisfied | NC-SI-02, PA-56 |
-| SI-2(2) Automated Status | Test-Vulnerability.ps1 exists but is run by hand; dependency alerts off | Developers | Hybrid | Planned | Other than satisfied | NC-SI-03, PA-57, PA-91 |
-| SI-3 Malicious Code Protection | Upload type and signature checks work (H04 to H07); no malware scan of uploads (H08); AMSI scanning and Defender planned | Windows server administrator, developers | Hybrid | Planned | Other than satisfied | NC-SI-04, PA-58 |
+| SI-2(2) Automated Status | Test-Vulnerability.ps1 exists but is run by hand; dependency alerts off | Developers | Hybrid | Not implemented | Other than satisfied | NC-SI-03, PA-57, PA-91 |
+| SI-3 Malicious Code Protection | Upload type and signature checks work (H04 to H07); no malware scan of uploads (H08); AMSI scanning and Defender planned | Windows server administrator, developers | Hybrid | Not implemented | Other than satisfied | NC-SI-04, PA-58 |
 | SI-4 System Monitoring | Failed sign-ins are audited (H11); detection use cases set; reviews and log forwarding not started | Security officer, \<Organisation\> | Hybrid | Partially implemented | Other than satisfied | NC-SI-05, PA-130 |
-| SI-4(2) Real-time Analysis | No log forwarding or automated analysis (H12) | Security officer | Hybrid | Planned | Other than satisfied | NC-SI-06, PA-59 |
-| SI-4(4) Traffic Monitoring | \<Organisation\> | \<Organisation\> | Inherited | Planned | Other than satisfied | NC-SI-07, PA-130 |
-| SI-4(5) System Alerts | Use cases set (\<System and Information Integrity Management\>, section 3.4); nothing raises an alert (H12) | Developers, security officer | System | Planned | Other than satisfied | NC-SI-08, PA-59 |
-| SI-5 Advisories | Sources include CISA's exploited list and NCSC Early Warning; not started | Security officer | Organisational | Planned | Other than satisfied | NC-SI-09, PA-130 |
+| SI-4(2) Real-time Analysis | No log forwarding or automated analysis (H12) | Security officer | Hybrid | Not implemented | Other than satisfied | NC-SI-06, PA-59 |
+| SI-4(4) Traffic Monitoring | \<Organisation\> | \<Organisation\> | Inherited | Not implemented | Other than satisfied | NC-SI-07, PA-130 |
+| SI-4(5) System Alerts | Use cases set (\<System and Information Integrity Management\>, section 3.4); nothing raises an alert (H12) | Developers, security officer | System | Not implemented | Other than satisfied | NC-SI-08, PA-59 |
+| SI-5 Advisories | Sources include CISA's exploited list and NCSC Early Warning; not started | Security officer | Organisational | Not implemented | Other than satisfied | NC-SI-09, PA-130 |
 | SI-7 Integrity | Baseline recorded; MD5 document checksums (H09); the audit chain cannot be recomputed (H10) | Developers, security officer | Hybrid | Partially implemented | Other than satisfied | NC-SI-10, PA-61, PA-74 |
-| SI-7(1) Integrity Checks | No scheduled check | Security officer | Hybrid | Planned | Other than satisfied | NC-SI-11, PA-61 |
-| SI-7(7) Detection and Response | Unexpected changes go to incident response (PRO-SI-6) | Security officer | Organisational | Fully implemented | Satisfied | NC-SI-12 (met) |
+| SI-7(1) Integrity Checks | No scheduled check | Security officer | Hybrid | Not implemented | Other than satisfied | NC-SI-11, PA-61 |
+| SI-7(7) Detection and Response | Unexpected changes go to incident response (PRO-SI-6) | Security officer | Organisational | Implemented | Satisfied | NC-SI-12 (met) |
 | SI-8 Spam Protection | Not applicable; \<System Name\> sends no email | None | Not applicable | Not applicable | Not applicable | TR-SI-01 |
 | SI-8(2) Automatic Updates | Not applicable | None | Not applicable | Not applicable | Not applicable | TR-SI-01 |
-| SI-10 Input Validation | Tested: injection-style input refused, and wrong signatures, disguised executables, unknown types and paths rejected (H03 to H07) | Developers | System | Fully implemented | Satisfied | NC-SI-13 (met) |
+| SI-10 Input Validation | Tested: injection-style input refused, and wrong signatures, disguised executables, unknown types and paths rejected (H03 to H07) | Developers | System | Implemented | Satisfied | NC-SI-13 (met) |
 | SI-11 Error Handling | About 29 API responses return the exception message (H01) | Developers | System | Partially implemented | Other than satisfied | NC-SI-14, PA-60 |
-| SI-12 Information Retention | \<System Name\>'s retention schedule (\<PII Processing Management\>, section 3.7) and audit retention set; not applied | System owner | Hybrid | Planned | Other than satisfied | NC-SI-15, PA-70 |
+| SI-12 Information Retention | \<System Name\>'s retention schedule (\<PII Processing Management\>, section 3.7) and audit retention set; not applied | System owner | Hybrid | Not implemented | Other than satisfied | NC-SI-15, PA-70 |
 | SI-16 Memory Protection | .NET managed memory and non-root containers; Windows settings on the VMs | Windows server administrator | Hybrid | Partially implemented | Other than satisfied | NC-SI-16, PA-54 |
 
 ### 7.19 Supply Chain Risk Management (SR)
@@ -770,16 +770,16 @@ This section gives a brief overview of every control in the 19 families, one lin
 | --- | --- | --- | --- | --- | --- | --- |
 | SR-1 Policy and Procedures | Policy 1.1 awaits the Head of Cyber's re-approval (D-SR-12) and is legally reviewed; procedures and plan 1.1 approved; not yet shared | System owner, Head of Cyber | Organisational | Partially implemented | Other than satisfied | NC-SR-01, PA-20 |
 | SR-2 Supply Chain Risk Management Plan | \<Supply Chain Risk Management\> \<ver\>, with a supplier register and risk tolerance; not yet in the restricted store | System owner | Organisational | Partially implemented | Other than satisfied | NC-SR-02, PA-88 |
-| SR-2(1) Establish SCRM Team | Team named; \<Organisation\>'s part not confirmed; not yet met | System owner | Organisational | Planned | Other than satisfied | NC-SR-03, PA-131 |
+| SR-2(1) Establish SCRM Team | Team named; \<Organisation\>'s part not confirmed; not yet met | System owner | Organisational | Not implemented | Other than satisfied | NC-SR-03, PA-131 |
 | SR-3 Supply Chain Controls | Only OfflineModules packages use the offline feed; no lock files, trust policy or pinned images (U01 to U03, U06) | System owner, developers | Hybrid | Partially implemented | Other than satisfied | NC-SR-04, PA-94 |
 | SR-5 Acquisition Strategies | Packages acquired from nuget.org unchecked; NuGet audit off in the build (U01, U04) | Developers, \<Organisation\> | Hybrid | Partially implemented | Other than satisfied | NC-SR-05, PA-92, PA-94 |
-| SR-6 Supplier Assessments | Supplier register in place; no review yet held on TPL-16 | System owner | Organisational | Planned | Other than satisfied | NC-SR-06, PA-131 |
-| SR-8 Notification Agreements | \<Organisation\>'s terms not seen; open-source advisories watched | \<Organisation\>, suppliers | Inherited | Planned | Other than satisfied | NC-SR-07, PA-131 |
+| SR-6 Supplier Assessments | Supplier register in place; no review yet held on TPL-16 | System owner | Organisational | Not implemented | Other than satisfied | NC-SR-06, PA-131 |
+| SR-8 Notification Agreements | \<Organisation\>'s terms not seen; open-source advisories watched | \<Organisation\>, suppliers | Inherited | Not implemented | Other than satisfied | NC-SR-07, PA-131 |
 | SR-10 Inspection of Systems | Release images match the integrity baseline (U08); no release checksums or bill of materials; \<Organisation\> inspects hardware (not seen) | Developers, \<Organisation\> | Hybrid | Partially implemented | Other than satisfied | NC-SR-08, PA-61, PA-77, PA-78 |
-| SR-11 Component Authenticity | Software and hardware steps approved (PRO-SR-4); no trust policy; CDN files unchecked | Security officer | Organisational | Planned | Other than satisfied | NC-SR-09, PA-34, PA-94 |
-| SR-11(1) Anti-counterfeit Training | \<Organisation\> trains its buyers (not seen) | \<Organisation\> | Inherited | Planned | Other than satisfied | NC-SR-10, PA-131 |
-| SR-11(2) Service and Repair | \<Organisation\>'s process, not seen | \<Organisation\> | Inherited | Planned | Other than satisfied | NC-SR-11, PA-131 |
-| SR-12 Component Disposal | \<Organisation\> disposes, after PRO-MP-3 (not seen) | \<Organisation\> | Inherited | Planned | Other than satisfied | NC-SR-12, PA-131 |
+| SR-11 Component Authenticity | Software and hardware steps approved (PRO-SR-4); no trust policy; CDN files unchecked | Security officer | Organisational | Not implemented | Other than satisfied | NC-SR-09, PA-34, PA-94 |
+| SR-11(1) Anti-counterfeit Training | \<Organisation\> trains its buyers (not seen) | \<Organisation\> | Inherited | Not implemented | Other than satisfied | NC-SR-10, PA-131 |
+| SR-11(2) Service and Repair | \<Organisation\>'s process, not seen | \<Organisation\> | Inherited | Not implemented | Other than satisfied | NC-SR-11, PA-131 |
+| SR-12 Component Disposal | \<Organisation\> disposes, after PRO-MP-3 (not seen) | \<Organisation\> | Inherited | Not implemented | Other than satisfied | NC-SR-12, PA-131 |
 
 ## 8 Referenced artifacts
 

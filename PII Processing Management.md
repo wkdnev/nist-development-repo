@@ -29,35 +29,9 @@ An assessor examines the inventory and the lawful basis for each kind of data, t
 
 ## 2 Summary
 
-Of the 29 controls, 1 is implemented, 8 are partially implemented, 12 are not implemented and 8 are not applicable. No control in the privacy baseline is missing from the design. Every gap is registered in the Risk List (\<Risk List\>) and the Plan of Action and Milestones (\<Plan of Action and Milestones\>).
+The implementation status of each control, how it is met, who is responsible, its assessment result and the risk and plan entries for its gaps are recorded once, in \<System Security Plan\>, section 7.14 (Table 23). This section gives only the overall position.
 
-**Table 2: Status of each control**
-
-| Control | Title | Status | What is missing | Registered as |
-| --- | --- | --- | --- | --- |
-| PT-1 | Policy and Procedures | Partially implemented | Not yet shared. The later version awaits the Head of Cyber | NC-PT-01; PA-20 |
-| PT-2 | Authority to Process Personally Identifiable Information | Not implemented | The lawful basis and conditions are not confirmed | NC-PT-02; PA-72 |
-| PT-3 | Personally Identifiable Information Processing Purposes | Not implemented | The purposes are not confirmed, and the notice has not been seen | NC-PT-03; PA-126, EV-PT-01 |
-| PT-4 | Consent | Not implemented | The position on consent is not confirmed | NC-PT-04; PA-126 |
-| PT-5 | Privacy Notice | Not implemented | The notice has not been seen, and \<System Name\>'s pages do not link to it | NC-PT-05; PA-90, EV-PT-01 |
-| PT-7 | Specific Categories of Personally Identifiable Information | Partially implemented | The conditions are not confirmed, and documents cannot be marked | NC-PT-06; PA-72, PA-89 |
-| AC-3(14) | Individual Access | Partially implemented | No single search across projects for one person | NC-PT-07; PA-89 |
-| AT-3(5) | Processing Personally Identifiable Information | Not implemented | No privacy training given | NC-PT-08; PA-97 |
-| AU-3(3) | Limit Personally Identifiable Information Elements | Partially implemented | The application log repeats personal data | NC-PT-09; PA-71, PA-75 |
-| IR-2(3) | Breach | Not implemented | No breach training given | NC-PT-10; PA-81, PA-97 |
-| IR-8(1) | Breaches | Implemented | Nothing | NC-PT-11 |
-| PE-8(3) | Limit Personally Identifiable Information Elements | Not implemented | \<Organisation\>'s visitor records have not been seen | NC-PT-12; PA-122, EV-PT-02 |
-| PL-9 | Central Management | Partially implemented | The set is not yet in the restricted store | NC-PT-13; PA-88 |
-| RA-8 | Privacy Impact Assessments | Partially implemented | The impact assessment is a draft | NC-PT-14; PA-72 |
-| SA-8(33) | Minimization | Not implemented | Minimisation is not yet reviewed | NC-PT-15; PA-72 |
-| SC-7(24) | Personally Identifiable Information | Not implemented | Permitted processing is not monitored | NC-PT-16; PA-71 |
-| SI-12(1) | Limit Personally Identifiable Information Elements | Not implemented | No project has been reviewed | NC-PT-17; PA-126 |
-| SI-12(2) | Minimize Personally Identifiable Information in Testing, Training, and Research | Partially implemented | The rule for training and research is not in use | NC-PT-18; PA-126 |
-| SI-12(3) | Information Disposal | Not implemented | No retention or disposal, and most periods are not set | NC-PT-19; PA-70 |
-| SI-18 | Personally Identifiable Information Quality Operations | Not implemented | No quality check has been made, and corrections are not audited | NC-PT-20; PA-89, PA-126 |
-| SI-18(4) | Individual Requests | Partially implemented | Corrections and deletions are not audited | NC-PT-21, NC-PT-22; PA-89 |
-| SI-19 | De-identification | Not applicable | Not applicable | Not applicable |
-| PT-5(2), PT-6, PT-6(1), PT-6(2), PT-7(1), PT-7(2), PT-8 | United States requirements | Not applicable | Not applicable | TR-PT-01 |
+No control in the privacy baseline is missing from the design. Every gap is registered in the Risk List (\<Risk List\>) and the Plan of Action and Milestones (\<Plan of Action and Milestones\>).
 
 Two things matter most. The legal adviser has not yet confirmed the lawful basis and conditions, or completed the impact assessment (PA-72, rated Medium), so the legal footing of the processing is drafted but not decided. And \<System Name\> cannot yet serve people's rights in full: it cannot search every project for one person, it does not audit corrections and deletions in the admin portal (PA-89, Medium), and it cannot keep a document for a set period and then dispose of it (PA-70, Medium). The authorising official decided that both must be fixed before production or before real personal data is held (D-PT-14, D-PT-15).
 
@@ -90,7 +64,7 @@ Consent is not the lawful basis for employee data, because employees cannot free
 
 One row for each kind of personal data. The legal adviser confirms each basis and condition (D-PT-20). No data is transferred outside the UK, and no processor outside \<Organisation\> is used. The inventory must match \<Organisation\>'s record of processing (UK GDPR, Article 30; EV-PM-02).
 
-**Table 3: Personal data inventory**
+**Table 2: Personal data inventory**
 
 | Kind of data | Where | Source | Purpose | Article 6 basis | Article 9 and Schedule 1 condition | Recipients | Retention |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -112,7 +86,7 @@ Health and other special category data may be held only in HR projects the busin
 
 ### 3.6 People's rights
 
-**Table 4: Requests and complaints**
+**Table 3: Requests and complaints**
 
 | Request | What happens | Who | Within | Record |
 | --- | --- | --- | --- | --- |
@@ -132,7 +106,7 @@ Until \<System Name\> can search every project for one person in one step, each 
 3. **Retention.** Each kind of record is kept for the period below, then disposed of. The business owner sets each period with the legal adviser (D-PT-21), guided by the ICO's employment records guidance (February 2025). Row A1 was reworded for sign-in through AD FS and confirmed by the system owner on 18 November 2026 (D-PT-23); its period stays with the business owner.
 4. **Disposal.** At the end of its period a document is deleted, the deletion is audited, and the database is vacuumed afterwards so that no readable copy remains. \<System Name\> cannot yet do this (Q03, Q08; PA-70).
 
-**Table 5: Retention schedule**
+**Table 4: Retention schedule**
 
 | ID | Record type | Period | Trigger | Basis for the period | Disposal |
 | --- | --- | --- | --- | --- | --- |
@@ -163,7 +137,7 @@ Every change record says whether the change affects personal data. If it does, t
 
 Eight of the privacy baseline controls are assessed with this family, but part of their design belongs with another. Each is set out in section 4, and its design is held where the table says.
 
-**Table 6: Where the other privacy controls are designed**
+**Table 5: Where the other privacy controls are designed**
 
 | Control | Where its design is held | What it covers |
 | --- | --- | --- |
@@ -178,7 +152,7 @@ Eight of the privacy baseline controls are assessed with this family, but part o
 
 ### 3.10 What \<Organisation\> provides
 
-**Table 7: Asked of \<Organisation\>**
+**Table 6: Asked of \<Organisation\>**
 
 | Provided | Controls | What \<System Name\> relies on | Evidence asked | State |
 | --- | --- | --- | --- | --- |
@@ -195,7 +169,7 @@ The controls are in CSS order: the PT controls first, then the other privacy bas
 
 ### 4.1 PT-1 Policy and Procedures
 
-**Table 8: PT-1 design**
+**Table 7: PT-1 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
@@ -205,7 +179,7 @@ The controls are in CSS order: the PT controls first, then the other privacy bas
 | c.1 | The policy is reviewed on a schedule and after set events | Every 12 months, and after a significant incident, audit finding, change in the law or system change | Reviewed on 11 November 2026. The first yearly review falls due in November 2027 |
 | c.2 | The procedures are reviewed on a schedule and after set events | Every 12 months, and after a change to the steps | As the policy |
 
-**Table 9: PT-1 responsibility and evidence**
+**Table 8: PT-1 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -221,14 +195,14 @@ The controls are in CSS order: the PT controls first, then the other privacy bas
 
 ### 4.2 PT-2 Authority to Process Personally Identifiable Information
 
-**Table 10: PT-2 design**
+**Table 9: PT-2 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Determine and document the legal authority that permits the processing of personal data | UK GDPR, the Data Protection Act 2018 and the Data (Use and Access) Act 2025. For each kind of data, the inventory records the Article 6 lawful basis and, for special category data, the Article 9 and Schedule 1 condition (section 3.3) | The authority is named (D-PT-09). Each basis and condition is a placeholder for the legal adviser (D-PT-20; PA-72) |
 | b | Restrict processing to what that authority permits | Storing, finding, displaying, printing and exporting HR and project documents, within project permissions | Project permissions limit who processes each project's documents. What the legal adviser permits is not yet recorded |
 
-**Table 11: PT-2 responsibility and evidence**
+**Table 10: PT-2 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -244,7 +218,7 @@ The controls are in CSS order: the PT controls first, then the other privacy bas
 
 ### 4.3 PT-3 Personally Identifiable Information Processing Purposes
 
-**Table 12: PT-3 design**
+**Table 11: PT-3 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
@@ -253,7 +227,7 @@ The controls are in CSS order: the PT controls first, then the other privacy bas
 | c | Restrict processing to what is compatible with those purposes | Project permissions, and the rules of behaviour on personal data (\<Security Operating Procedures\>, rules A23 to A29) | Project permissions work in the tested build. The rules are not yet signed |
 | d | Monitor changes in processing, and make sure they meet the requirements | Every change record says whether personal data is affected. The legal adviser reviews those that are, and decides whether the inventory, the notice or the impact assessment must change (PRO-PT-3) | Not yet used |
 
-**Table 13: PT-3 responsibility and evidence**
+**Table 12: PT-3 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -269,13 +243,13 @@ The controls are in CSS order: the PT controls first, then the other privacy bas
 
 ### 4.4 PT-4 Consent
 
-**Table 14: PT-4 design**
+**Table 13: PT-4 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Provide tools for individuals to consent to the processing of their personal data | None. Consent is not the lawful basis for employee data, as employees cannot freely refuse their employer (D-PT-10), which is the ICO's guidance on employment records. Only strictly necessary cookies are set, so no cookie consent is needed | The position awaits the legal adviser's confirmation |
 
-**Table 15: PT-4 responsibility and evidence**
+**Table 14: PT-4 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -291,7 +265,7 @@ The controls are in CSS order: the PT controls first, then the other privacy bas
 
 ### 4.5 PT-5 Privacy Notice
 
-**Table 16: PT-5 design**
+**Table 15: PT-5 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
@@ -301,7 +275,7 @@ The controls are in CSS order: the PT controls first, then the other privacy bas
 | d | Identify the purposes | The notice names \<System Name\> and its two purposes | Not seen (EV-PT-01) |
 | e | Include defined information | As \<Organisation\>'s notice, naming \<System Name\> and its purposes | Not seen (EV-PT-01) |
 
-**Table 17: PT-5 responsibility and evidence**
+**Table 16: PT-5 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -317,13 +291,13 @@ The controls are in CSS order: the PT controls first, then the other privacy bas
 
 ### 4.6 PT-7 Specific Categories of Personally Identifiable Information
 
-**Table 18: PT-7 design**
+**Table 17: PT-7 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Apply defined conditions to specific categories of personal data | Special category data is held only in projects the business owner authorises, under the Article 9 and Schedule 1 conditions in the inventory, with an appropriate policy document where Schedule 1, Part 1 is relied on. Those documents are marked as special category data (section 3.4) | Projects can be limited. The conditions are placeholders for the legal adviser (PA-72), and documents cannot yet be marked (Q01; PA-89) |
 
-**Table 19: PT-7 responsibility and evidence**
+**Table 18: PT-7 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -339,13 +313,13 @@ The controls are in CSS order: the PT controls first, then the other privacy bas
 
 ### 4.7 AC-3(14) Individual Access
 
-**Table 20: AC-3(14) design**
+**Table 19: AC-3(14) design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Give individuals a way to access their personal data | A request to the legal adviser, met within one month by a reasonable and proportionate search of every project and the audit records, recorded on TPL-15 (section 3.6) | The route is written. \<System Name\> cannot search every project for one person in one step, so each project is searched in turn (Q02; PA-89) |
 
-**Table 21: AC-3(14) responsibility and evidence**
+**Table 20: AC-3(14) responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -361,13 +335,13 @@ The controls are in CSS order: the PT controls first, then the other privacy bas
 
 ### 4.8 AT-3(5) Processing Personally Identifiable Information
 
-**Table 22: AT-3(5) design**
+**Table 21: AT-3(5) design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Train defined people in protecting personal data, at first and at a defined frequency | Everyone who handles HR documents, and all administrators: before access and every 12 months. Module M9 of the role curriculum (\<Awareness and Training Management\>, section 3.4) | No training given. The module is not written (PA-97) |
 
-**Table 23: AT-3(5) responsibility and evidence**
+**Table 22: AT-3(5) responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -383,13 +357,13 @@ The controls are in CSS order: the PT controls first, then the other privacy bas
 
 ### 4.9 AU-3(3) Limit Personally Identifiable Information Elements
 
-**Table 24: AU-3(3) design**
+**Table 23: AU-3(3) design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Limit the personal data in audit records to the elements identified in the privacy risk assessment | Username, user ID, IP address, user agent and session ID, and none in the application log (\<Audit and Accountability Management\>) | Audit free text holds no extra personal data (Q04). The application log repeats usernames and IP addresses (Q05; PA-75). The impact assessment that confirms the elements is a draft (PA-72) |
 
-**Table 25: AU-3(3) responsibility and evidence**
+**Table 24: AU-3(3) responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -405,13 +379,13 @@ The controls are in CSS order: the PT controls first, then the other privacy bas
 
 ### 4.10 IR-2(3) Breach
 
-**Table 26: IR-2(3) design**
+**Table 25: IR-2(3) design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Include in incident response training how to identify and respond to a breach, and how to report it | Module M7 for incident roles, and module M9 for everyone who handles HR documents: recognising a breach, reporting it within 1 hour, and the steps in \<Incident Response Management\>, section 3.8 | Not given (PA-81, PA-97) |
 
-**Table 27: IR-2(3) responsibility and evidence**
+**Table 26: IR-2(3) responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -427,7 +401,7 @@ The controls are in CSS order: the PT controls first, then the other privacy bas
 
 ### 4.11 IR-8(1) Breaches
 
-**Table 28: IR-8(1) design**
+**Table 27: IR-8(1) design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
@@ -435,7 +409,7 @@ The controls are in CSS order: the PT controls first, then the other privacy bas
 | b | Include an assessment of the harm, embarrassment, inconvenience or unfairness to the people affected, and how to reduce it | The legal adviser and the security officer judge the harm and what would reduce it (\<Incident Response Management\>, section 3.8, step 3) | Met |
 | c | Identify the privacy requirements that apply | UK GDPR Articles 33 and 34: a report to the ICO within 72 hours of becoming aware, telling people when the risk to them is high, and recording every breach | Met |
 
-**Table 29: IR-8(1) responsibility and evidence**
+**Table 28: IR-8(1) responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -451,13 +425,13 @@ The controls are in CSS order: the PT controls first, then the other privacy bas
 
 ### 4.12 PE-8(3) Limit Personally Identifiable Information Elements
 
-**Table 30: PE-8(3) design**
+**Table 29: PE-8(3) design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Limit the personal data in visitor records to defined elements | Name, organisation, and the date and time of the visit (\<Physical and Environmental Protection Management\>) | Not seen (EV-PT-02; PA-122) |
 
-**Table 31: PE-8(3) responsibility and evidence**
+**Table 30: PE-8(3) responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -473,13 +447,13 @@ The controls are in CSS order: the PT controls first, then the other privacy bas
 
 ### 4.13 PL-9 Central Management
 
-**Table 32: PL-9 design**
+**Table 31: PL-9 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Centrally manage defined controls and related processes | Policies, plans, registers and records are held in one document set, under one owner, checked by one consistency test, and kept in the restricted store (\<Planning Management\>) | One set and one test. Not yet in the restricted store (PA-88) |
 
-**Table 33: PL-9 responsibility and evidence**
+**Table 32: PL-9 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -495,14 +469,14 @@ The controls are in CSS order: the PT controls first, then the other privacy bas
 
 ### 4.14 RA-8 Privacy Impact Assessments
 
-**Table 34: RA-8 design**
+**Table 33: RA-8 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Assess privacy impact before developing or procuring technology that processes personal data | \<Data Protection Impact Assessment\>, completed by the legal adviser with the data protection officer's advice, before production and after any significant change in processing, and reviewed every 12 months (section 3.8) | A draft exists. It is not complete (D-PT-20; PA-72) |
 | b | Assess it before starting a new collection of personal data | The change check in PRO-PT-3 decides whether a change needs a new or revised assessment | Not yet used |
 
-**Table 35: RA-8 responsibility and evidence**
+**Table 34: RA-8 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -518,13 +492,13 @@ The controls are in CSS order: the PT controls first, then the other privacy bas
 
 ### 4.15 SA-8(33) Minimization
 
-**Table 36: SA-8(33) design**
+**Table 35: SA-8(33) design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Apply the privacy principle of minimisation, using defined processes | What is collected is reviewed at design, in each change record, and in the impact assessment | Not yet in use |
 
-**Table 37: SA-8(33) responsibility and evidence**
+**Table 36: SA-8(33) responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -540,7 +514,7 @@ The controls are in CSS order: the PT controls first, then the other privacy bas
 
 ### 4.16 SC-7(24) Personally Identifiable Information
 
-**Table 38: SC-7(24) design**
+**Table 37: SC-7(24) design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
@@ -549,7 +523,7 @@ The controls are in CSS order: the PT controls first, then the other privacy bas
 | c | Document each processing exception | Each exception is approved and recorded in the exception register (\<Security Operating Procedures\>, section 5) | Not yet used |
 | d | Review and remove exceptions that are no longer supported | At each access review | Not yet used |
 
-**Table 39: SC-7(24) responsibility and evidence**
+**Table 38: SC-7(24) responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -565,13 +539,13 @@ The controls are in CSS order: the PT controls first, then the other privacy bas
 
 ### 4.17 SI-12(1) Limit Personally Identifiable Information Elements
 
-**Table 40: SI-12(1) design**
+**Table 39: SI-12(1) design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Limit the personal data processed across the information life cycle to defined elements | Only what each document's purpose requires, as in the inventory. Each project access approver reviews the personal data in their project every 12 months (PRO-PT-5) | No project has been reviewed |
 
-**Table 41: SI-12(1) responsibility and evidence**
+**Table 40: SI-12(1) responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -587,13 +561,13 @@ The controls are in CSS order: the PT controls first, then the other privacy bas
 
 ### 4.18 SI-12(2) Minimize Personally Identifiable Information in Testing, Training, and Research
 
-**Table 42: SI-12(2) design**
+**Table 41: SI-12(2) design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Use defined techniques to minimise personal data in research, testing and training | Sample data only for testing and training, and no real personal data for research | Test stacks hold sample data only (Q09). The rule for training and research is not yet in use |
 
-**Table 43: SI-12(2) responsibility and evidence**
+**Table 42: SI-12(2) responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -609,13 +583,13 @@ The controls are in CSS order: the PT controls first, then the other privacy bas
 
 ### 4.19 SI-12(3) Information Disposal
 
-**Table 44: SI-12(3) design**
+**Table 43: SI-12(3) design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Use defined techniques to dispose of, destroy or erase information after its retention period | At the end of its retention period (section 3.7) a document is deleted, the deletion is audited, and the database is vacuumed so that no readable copy remains. Media are sanitised by \<Media Protection Management\>, section 3.6 | Not built. No document can carry a retention period (Q08), and deleted pages stay until the database is vacuumed (Q03; PA-70). Most periods are not yet set (D-PT-21) |
 
-**Table 45: SI-12(3) responsibility and evidence**
+**Table 44: SI-12(3) responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -631,14 +605,14 @@ The controls are in CSS order: the PT controls first, then the other privacy bas
 
 ### 4.20 SI-18 Personally Identifiable Information Quality Operations
 
-**Table 46: SI-18 design**
+**Table 45: SI-18 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Check the accuracy, relevance, timeliness and completeness of personal data at a defined frequency | Every 12 months each project access approver checks their project's personal data, and records it on TPL-3 (PRO-PT-5) | Not yet used. Policy rule R11 requires it, and awaits the Head of Cyber with the later version of the policy (D-PT-18) |
 | b | Correct or delete personal data that is inaccurate or out of date | The project access approver or an administrator corrects or deletes it, and each correction and deletion is audited | Corrections and deletions in the admin portal write no audit record (Q03, Q10; PA-89) |
 
-**Table 47: SI-18 responsibility and evidence**
+**Table 46: SI-18 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -654,13 +628,13 @@ The controls are in CSS order: the PT controls first, then the other privacy bas
 
 ### 4.21 SI-18(4) Individual Requests
 
-**Table 48: SI-18(4) design**
+**Table 47: SI-18(4) design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Correct or delete personal data when the person asks | Through the legal adviser (PRO-PT-1). The project access approver or an administrator makes the correction or deletion, and it is confirmed in writing on TPL-15. The legal adviser tells anyone the data was disclosed to (UK GDPR, Article 19) | The route is written. Corrections in the admin portal are not audited (Q10; PA-89) |
 
-**Table 49: SI-18(4) responsibility and evidence**
+**Table 48: SI-18(4) responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -676,13 +650,13 @@ The controls are in CSS order: the PT controls first, then the other privacy bas
 
 ### 4.22 SI-19 De-identification
 
-**Table 50: SI-19 design**
+**Table 49: SI-19 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | As CSS sets out for the control | Not applicable: No dataset is de-identified or released, so there is nothing to remove identifiers from | Not applicable |
 
-**Table 51: SI-19 responsibility and evidence**
+**Table 50: SI-19 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -692,13 +666,13 @@ The controls are in CSS order: the PT controls first, then the other privacy bas
 
 ### 4.23 PT-5(2), PT-6, PT-6(1), PT-6(2), PT-7(1), PT-7(2), PT-8: United States requirements
 
-**Table 52: United States requirements design**
+**Table 51: United States requirements design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | As CSS sets out for the control | Not applicable: These rest on United States law and federal bodies: the Privacy Act, Federal Register notices, Social Security numbers, the First Amendment and computer matching. \<Organisation\> operates in the United Kingdom (\<Tailoring Register\>, TR-PT-01) | Not applicable |
 
-**Table 53: United States requirements responsibility and evidence**
+**Table 52: United States requirements responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -710,7 +684,7 @@ The controls are in CSS order: the PT controls first, then the other privacy bas
 
 These are the CSS organisation-defined values for the 6 assessed PT entries and the 16 other privacy controls: 41 in total. They were agreed on 6 November 2026 and restated as requirements on 11 November 2026 (D-PT-P01). Seven more PT entries are tailored as United States only (\<Tailoring Register\>, TR-PT-01).
 
-**Table 54: Privacy parameter register**
+**Table 53: Privacy parameter register**
 
 | CSS identifier | What must be defined | Value |
 | --- | --- | --- |
@@ -758,9 +732,9 @@ These are the CSS organisation-defined values for the 6 assessed PT entries and 
 
 ## Appendix B Privacy controls outside the privacy baseline
 
-CSS does not select these enhancements in its privacy baseline, so they are not assessed. Some of the design goes some way towards them, and Table 55 says where. The United States controls that the baseline does select are tailored out in section 4.
+CSS does not select these enhancements in its privacy baseline, so they are not assessed. Some of the design goes some way towards them, and Table 54 says where. The United States controls that the baseline does select are tailored out in section 4.
 
-**Table 55: Related enhancements not selected**
+**Table 54: Related enhancements not selected**
 
 | Control | What it adds | \<System Name\>'s position |
 | --- | --- | --- |

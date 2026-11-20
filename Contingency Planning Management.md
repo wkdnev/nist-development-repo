@@ -32,35 +32,9 @@ The document is Restricted. It is kept in the restricted document store with the
 
 ## 2 Summary
 
-Of the 23 controls, 2 are implemented, 2 are partially implemented and 19 are not implemented. No control in the baseline is missing from the design. Every gap is registered in the Risk List (\<Risk List\>) and the Plan of Action and Milestones (\<Plan of Action and Milestones\>).
+The implementation status of each control, how it is met, who is responsible, its assessment result and the risk and plan entries for its gaps are recorded once, in \<System Security Plan\>, section 7.6 (Table 15). This section gives only the overall position.
 
-**Table 2: Status of each control**
-
-| Control | Title | Status | What is missing | Registered as |
-| --- | --- | --- | --- | --- |
-| CP-1 | Policy and Procedures | Partially implemented | The policy and procedures are not yet shared or walked through | NC-CP-01; PA-20 |
-| CP-2 | Contingency Plan | Partially implemented | The plan is not shared, its contacts are placeholders, and no offline copy is placed | NC-CP-02; PA-88, PA-114 |
-| CP-2(1) | Coordinate with Related Plans | Not implemented | \<Organisation\>'s plans have not been seen | NC-CP-03; PA-114 |
-| CP-2(3) | Resume Mission and Business Functions | Implemented | Nothing as a plan. It cannot be achieved until backups exist | NC-CP-04; PA-64 |
-| CP-2(8) | Identify Critical Assets | Implemented | Nothing | NC-CP-05 |
-| CP-3 | Contingency Training | Not implemented | No training has been given, and the content is not written | NC-CP-06, NC-CP-24; PA-81, PA-97 |
-| CP-4 | Contingency Plan Testing | Not implemented | No test of the plan has been held on servers | NC-CP-07, NC-CP-24; PA-81 |
-| CP-4(1) | Coordinate with Related Plans | Not implemented | No exercise with the incident response plan has been held | NC-CP-08, NC-CP-24; PA-81 |
-| CP-6 | Alternate Storage Site | Not implemented | The second site is not confirmed | NC-CP-09; PA-66, EV-CP-01 |
-| CP-6(1) | Separation from Primary Site | Not implemented | Separation is not confirmed | NC-CP-10; PA-66, EV-CP-01 |
-| CP-6(3) | Accessibility | Not implemented | Accessibility is not confirmed | NC-CP-11; PA-66, EV-CP-01 |
-| CP-7 | Alternate Processing Site | Not implemented | The second site is not confirmed | NC-CP-12; PA-66, EV-CP-01 |
-| CP-7(1) | Separation from Primary Site | Not implemented | Separation is not confirmed | NC-CP-13; PA-66, EV-CP-01 |
-| CP-7(2) | Accessibility | Not implemented | Accessibility is not confirmed | NC-CP-14; PA-66, EV-CP-01 |
-| CP-7(3) | Priority of Service | Not implemented | Priority of service is not confirmed | NC-CP-15; PA-66, EV-CP-01 |
-| CP-8 | Telecommunications Services | Not implemented | Alternate telecommunications are not confirmed | NC-CP-16; PA-115, EV-CP-02 |
-| CP-8(1) | Priority of Service Provisions | Not implemented | Priority of service is not confirmed | NC-CP-17; PA-115, EV-CP-02 |
-| CP-8(2) | Single Points of Failure | Not implemented | Single points of failure are not confirmed | NC-CP-18; PA-115, EV-CP-02 |
-| CP-9 | System Backup | Not implemented | There are no backups | NC-CP-19; PA-64 |
-| CP-9(1) | Testing for Reliability and Integrity | Not implemented | There are no backups to test | NC-CP-20; PA-64 |
-| CP-9(8) | Cryptographic Protection | Not implemented | The default backup is unencrypted | NC-CP-21; PA-64 |
-| CP-10 | System Recovery and Reconstitution | Not implemented | \<System Name\> cannot be recovered today | NC-CP-22; PA-64 |
-| CP-10(2) | Transaction Recovery | Not implemented | Transaction logs are not archived | NC-CP-23; PA-64 |
+No control in the baseline is missing from the design. Every gap is registered in the Risk List (\<Risk List\>) and the Plan of Action and Milestones (\<Plan of Action and Milestones\>).
 
 The most serious gap is that \<System Name\> has no backups, so nothing could be recovered today (PA-64, rated Medium, to be in place before production). Ten of the 23 controls are \<Organisation\>'s to provide, and none of them is confirmed (PA-66, PA-115).
 
@@ -101,7 +75,7 @@ This analysis follows CSS, Appendix B. \<System Name\>'s availability is rated L
 
 #### 3.3.1 Impact over time
 
-**Table 3: Impact of an outage, by function**
+**Table 2: Impact of an outage, by function**
 
 | Function | 24 hours | 72 hours | 1 week | 2 weeks |
 | --- | --- | --- | --- | --- |
@@ -114,7 +88,7 @@ While \<System Name\> is down nobody can use it, so an outage does not leave lea
 
 #### 3.3.2 Recovery objectives
 
-**Table 4: Recovery objectives**
+**Table 3: Recovery objectives**
 
 | Function | Maximum tolerable downtime | Recovery time objective | Recovery point objective | Priority |
 | --- | --- | --- | --- | --- |
@@ -127,7 +101,7 @@ The recovery time objective includes reconstitution (section 3.7), so users retu
 
 #### 3.3.3 Components, dependencies and order of recovery
 
-**Table 5: Order of recovery**
+**Table 4: Order of recovery**
 
 | Order | Component | Needed for | Depends on | Recovered from |
 | --- | --- | --- | --- | --- |
@@ -142,7 +116,7 @@ The recovery time objective includes reconstitution (section 3.7), so users retu
 
 #### 3.3.4 Essential assets
 
-**Table 6: Essential assets (CP-2(8))**
+**Table 5: Essential assets (CP-2(8))**
 
 | Asset | Why it is essential | Recovery |
 | --- | --- | --- |
@@ -155,7 +129,7 @@ The ASP.NET Data Protection keys are not essential. They protect sign-in cookies
 
 ### 3.4 Roles
 
-**Table 7: Contingency roles**
+**Table 6: Contingency roles**
 
 | Role | Holder | Deputy | Part in recovery |
 | --- | --- | --- | --- |
@@ -232,7 +206,7 @@ Users return only when every step below is done.
 
 ### 3.8 Backups
 
-**Table 8: Backups**
+**Table 7: Backups**
 
 | What | How often | Kept | Where | Protection |
 | --- | --- | --- | --- | --- |
@@ -255,7 +229,7 @@ None of this is confirmed (EV-CP-01, EV-CP-02, PA-66). If it is not available, t
 
 This follows CSS. The first restore test and tabletop exercise take place within 30 days of the VMs being built, and before production (D-CP-10, PA-81).
 
-**Table 9: Test, training and exercise schedule**
+**Table 8: Test, training and exercise schedule**
 
 | Activity | When | Who | Objective | Record |
 | --- | --- | --- | --- | --- |
@@ -270,7 +244,7 @@ Each test or activation ends with an after-action report on TPL-11: the objectiv
 
 ### 3.11 What \<Organisation\> provides
 
-**Table 10: Asked of \<Organisation\>**
+**Table 9: Asked of \<Organisation\>**
 
 | Provided | Controls | What \<System Name\> relies on | Evidence asked | State |
 | --- | --- | --- | --- | --- |
@@ -284,7 +258,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.1 CP-1 Policy and Procedures
 
-**Table 11: CP-1 design**
+**Table 10: CP-1 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
@@ -294,7 +268,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 | c.1 | The policy is reviewed on a schedule and after set events | Every 12 months, and after a significant incident, audit finding or system change | Reviewed on 9 November 2026. The first yearly review falls due in November 2027 |
 | c.2 | The procedures are reviewed on a schedule and after set events | Every 12 months, and after a change to the steps | As the policy |
 
-**Table 12: CP-1 responsibility and evidence**
+**Table 11: CP-1 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -310,7 +284,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.2 CP-2 Contingency Plan
 
-**Table 13: CP-2 design**
+**Table 12: CP-2 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
@@ -329,7 +303,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 | g | Lessons from testing, training and real events are built into testing and training | Each after-action report, on TPL-11, ends with actions and the changes made to the plan and to the training content (section 3.10) | Not yet used |
 | h | The plan is protected from unauthorised disclosure and change | It is Restricted, kept in the restricted document store where only the people in part b can read it and only the system owner can change it. The system owner and security officer each keep a current offline copy | Not yet in the restricted store (PA-88). No offline copy has been placed (PA-114) |
 
-**Table 14: CP-2 responsibility and evidence**
+**Table 13: CP-2 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -345,13 +319,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.3 CP-2(1) Coordinate with Related Plans
 
-**Table 15: CP-2(1) design**
+**Table 14: CP-2(1) design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Develop the plan together with those responsible for related plans | Appendix D lists the related plans. This plan and the incident response plan were written together, and each cites the other. \<Organisation\>'s disaster recovery and business continuity plans provide the network, AD FS, the second site and telecommunications, and the system owner agrees with \<Organisation\> how the plans fit: who declares a disaster, and the recovery times of the services \<System Name\> depends on | The incident response plan is aligned. \<Organisation\>'s plans have not been seen, and their names are placeholders (PA-114) |
 
-**Table 16: CP-2(1) responsibility and evidence**
+**Table 15: CP-2(1) responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -367,13 +341,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.4 CP-2(3) Resume Mission and Business Functions
 
-**Table 17: CP-2(3) design**
+**Table 16: CP-2(3) design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Plan to resume defined functions within a defined time of the plan being invoked | The essential functions resume within 72 hours, including reconstitution, within a maximum tolerable downtime of 120 hours (section 3.3.2). The other functions resume within 7 days | Met as a plan (D-CP-10). It cannot be achieved until backups exist (PA-64) |
 
-**Table 18: CP-2(3) responsibility and evidence**
+**Table 17: CP-2(3) responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -389,13 +363,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.5 CP-2(8) Identify Critical Assets
 
-**Table 19: CP-2(8) design**
+**Table 18: CP-2(8) design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Identify the system assets that the defined functions depend on | Section 3.3.4: the database, the application server, the backups and transaction logs, and the secrets. Section 3.3.3 adds what they depend on from \<Organisation\>, including AD FS | Met |
 
-**Table 20: CP-2(8) responsibility and evidence**
+**Table 19: CP-2(8) responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -411,7 +385,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.6 CP-3 Contingency Training
 
-**Table 21: CP-3 design**
+**Table 20: CP-3 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
@@ -420,7 +394,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 | a.3 | Train them again on a schedule | Every 12 months | Not yet due |
 | b | Review and update the training content on a schedule and after defined events | Every 12 months, and after a plan change, a test or an activation | Content is outlined in section 3.10. None is written |
 
-**Table 22: CP-3 responsibility and evidence**
+**Table 21: CP-3 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -436,7 +410,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.7 CP-4 Contingency Plan Testing
 
-**Table 23: CP-4 design**
+**Table 22: CP-4 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
@@ -444,7 +418,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 | b | Review the results | Each test ends with an after-action report on TPL-11 within 10 working days: objectives, what happened, time to recover and data lost against the objectives, and what went wrong | Not yet used |
 | c | Start corrective action where needed | Each action has an owner and a date. One that is not done within the month becomes an item in \<Plan of Action and Milestones\> | Not yet used |
 
-**Table 24: CP-4 responsibility and evidence**
+**Table 23: CP-4 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -460,13 +434,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.8 CP-4(1) Coordinate with Related Plans
 
-**Table 25: CP-4(1) design**
+**Table 24: CP-4(1) design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Test the plan together with those responsible for related plans | The tabletop exercise is held with the incident response plan, and \<Organisation\>'s IT service desk takes part | Not held (PA-81) |
 
-**Table 26: CP-4(1) responsibility and evidence**
+**Table 25: CP-4(1) responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -482,14 +456,14 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.9 CP-6 Alternate Storage Site
 
-**Table 27: CP-6 design**
+**Table 26: CP-6 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Set up a second site for storing backups, with the agreements needed to store and retrieve them | Encrypted backups are held at a second \<Organisation\> site, with one copy offline or immutable (D-CP-06) | Not confirmed: \<Organisation\> has not been asked (EV-CP-01, PA-66) |
 | b | The second site gives controls equal to the main site's | The same physical and access controls as the main site. Backups are encrypted before they leave the database server, so the site's staff cannot read them | Not confirmed |
 
-**Table 28: CP-6 responsibility and evidence**
+**Table 27: CP-6 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -505,13 +479,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.10 CP-6(1) Separation from Primary Site
 
-**Table 29: CP-6(1) design**
+**Table 28: CP-6(1) design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | The second site is far enough from the main one not to share its threats | \<Organisation\> is asked to show that the two sites do not share the same hazards, such as flood, power supply or a single building | Not confirmed (EV-CP-01) |
 
-**Table 30: CP-6(1) responsibility and evidence**
+**Table 29: CP-6(1) responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -527,13 +501,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.11 CP-6(3) Accessibility
 
-**Table 31: CP-6(3) design**
+**Table 30: CP-6(3) design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Identify what could make the second site hard to reach in a wide-area disruption, and say what would be done | \<Organisation\>'s plans say how the site and its backups are reached if the area is disrupted. \<System Name\> asks for that part of its plans | Not confirmed (EV-CP-01) |
 
-**Table 32: CP-6(3) responsibility and evidence**
+**Table 31: CP-6(3) responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -549,7 +523,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.12 CP-7 Alternate Processing Site
 
-**Table 33: CP-7 design**
+**Table 32: CP-7 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
@@ -557,7 +531,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 | b | The equipment and supplies needed are at the site, or contracts are in place to deliver them in time | \<Organisation\> provides the virtual servers. \<System Name\> needs nothing else there but its backups, its secrets and the tagged release | Not confirmed |
 | c | The second site gives controls equal to the main site's | The servers are rebuilt to the same baseline (\<Configuration Management\>, section 3.4), and the security officer confirms the controls before users return (section 3.7) | Not confirmed |
 
-**Table 34: CP-7 responsibility and evidence**
+**Table 33: CP-7 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -573,13 +547,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.13 CP-7(1) Separation from Primary Site
 
-**Table 35: CP-7(1) design**
+**Table 34: CP-7(1) design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | The second processing site is far enough from the main one not to share its threats | As CP-6(1): the same site holds the backups and runs the rebuilt servers | Not confirmed (EV-CP-01) |
 
-**Table 36: CP-7(1) responsibility and evidence**
+**Table 35: CP-7(1) responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -595,13 +569,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.14 CP-7(2) Accessibility
 
-**Table 37: CP-7(2) design**
+**Table 36: CP-7(2) design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Identify what could make the second processing site hard to reach in a wide-area disruption, and say what would be done | As CP-6(3) | Not confirmed (EV-CP-01) |
 
-**Table 38: CP-7(2) responsibility and evidence**
+**Table 37: CP-7(2) responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -617,13 +591,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.15 CP-7(3) Priority of Service
 
-**Table 39: CP-7(3) design**
+**Table 38: CP-7(3) design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | The agreement for the second site gives priority of service that matches the availability needed | \<Organisation\> is asked what priority \<System Name\> has at the second site. Availability is rated Low, with 72 hours to recover, so a modest priority is enough | Not confirmed (EV-CP-01) |
 
-**Table 40: CP-7(3) responsibility and evidence**
+**Table 39: CP-7(3) responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -639,13 +613,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.16 CP-8 Telecommunications Services
 
-**Table 41: CP-8 design**
+**Table 40: CP-8 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Set up alternate telecommunications, with the agreements needed to resume defined operations within a defined time when the main service fails | Inherited from \<Organisation\> (D-CP-08): its network connects users to both sites, and it is asked what alternate service exists and how quickly it takes over | Not confirmed (EV-CP-02, PA-115) |
 
-**Table 42: CP-8 responsibility and evidence**
+**Table 41: CP-8 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -661,14 +635,14 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.17 CP-8(1) Priority of Service Provisions
 
-**Table 43: CP-8(1) design**
+**Table 42: CP-8(1) design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | The main and alternate service agreements give priority of service that matches the availability needed | \<Organisation\> is asked what priority its agreements give | Not confirmed (EV-CP-02) |
 | b | Ask for Telecommunications Service Priority where a common carrier provides the service | Telecommunications Service Priority is a United States scheme. \<Organisation\> is asked whether it uses any UK equivalent | Not confirmed (EV-CP-02) |
 
-**Table 44: CP-8(1) responsibility and evidence**
+**Table 43: CP-8(1) responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -684,13 +658,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.18 CP-8(2) Single Points of Failure
 
-**Table 45: CP-8(2) design**
+**Table 44: CP-8(2) design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | The alternate service does not share a single point of failure with the main one | \<Organisation\> is asked to show that the two do not share a route, a building entry or a provider | Not confirmed (EV-CP-02) |
 
-**Table 46: CP-8(2) responsibility and evidence**
+**Table 45: CP-8(2) responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -706,7 +680,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.19 CP-9 System Backup
 
-**Table 47: CP-9 design**
+**Table 46: CP-9 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
@@ -715,7 +689,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 | c | Back up the system documentation, including the security and privacy documents, on a schedule | At each change: the document set is under version control, and moves to the restricted document store | One copy only: a private local records repository on the system owner's computer, with every change recorded. There is no second copy, so the documentation could be lost with that computer (PA-64, PA-88) |
 | d | Protect the confidentiality, integrity and availability of the backups | Backups are encrypted, with the key held apart from them. The SHA-256 value of each backup is recorded when it is taken and checked before it is restored. They are kept at the second site, with one copy offline or immutable. 14 daily, 8 weekly and 12 monthly copies are kept. A failed backup alerts the database administrator and the security officer | Nothing exists. The default PostgreSQL backup is unencrypted (R02) |
 
-**Table 48: CP-9 responsibility and evidence**
+**Table 47: CP-9 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -731,13 +705,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.20 CP-9(1) Testing for Reliability and Integrity
 
-**Table 49: CP-9(1) design**
+**Table 48: CP-9(1) design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Test the backups on a schedule, to show the media are reliable and the information intact | Every 6 months, and after a change to the database or the backup method, the database administrator restores the latest backup to a separate server and checks it: row counts against the last known counts, each document page against its stored checksum, and the audit records' hashes against the export taken with the backup (PRO-CP-2). The security officer observes | Shown in the test environment on 9 November 2026: the restore worked (R03, R04) and the data was intact (R05 to R07). There are no backups of the servers to test (PA-64) |
 
-**Table 50: CP-9(1) responsibility and evidence**
+**Table 49: CP-9(1) responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -753,13 +727,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.21 CP-9(8) Cryptographic Protection
 
-**Table 51: CP-9(8) design**
+**Table 50: CP-9(8) design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Use cryptography to stop backups being read or changed without authority | Every backup is encrypted before it leaves the database server. The key is held apart from the backups, where only the system owner and the administrators can reach it, and is listed in the key register (\<System and Communications Protection Management\>, section 3.4) | Not built. The default PostgreSQL backup is a plain archive that anyone holding it can read (R02; PA-64) |
 
-**Table 52: CP-9(8) responsibility and evidence**
+**Table 51: CP-9(8) responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -775,13 +749,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.22 CP-10 System Recovery and Reconstitution
 
-**Table 53: CP-10 design**
+**Table 52: CP-10 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Recover the system and bring it back to a known state within a defined time after a disruption, compromise or failure | Sections 3.6 and 3.7. The servers are rebuilt to the baseline, the latest good backup is restored, and users return only when the data, the functions and the controls have been checked. Monitoring is restarted, and a recovery that amounts to a significant change goes to the authorising official. Recovery and reconstitution together take no more than 72 hours, losing no more than 24 hours of data | \<System Name\> cannot be recovered today: there are no servers and no backups. The restore itself took seconds in the test environment (R04) |
 
-**Table 54: CP-10 responsibility and evidence**
+**Table 53: CP-10 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -797,13 +771,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.23 CP-10(2) Transaction Recovery
 
-**Table 55: CP-10(2) design**
+**Table 54: CP-10(2) design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Provide transaction recovery for systems that are based on transactions | PostgreSQL's transaction logs are archived continuously to the second site, so that a restore can be brought forward to the last consistent point before the failure. That gives a recovery point of minutes | Not built: the logs are not archived (R09; PA-64) |
 
-**Table 56: CP-10(2) responsibility and evidence**
+**Table 55: CP-10(2) responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -827,7 +801,7 @@ On 9 November 2026 Test-BackupRestore.ps1 showed, on a throwaway stack at the v1
 
 These are the CSS organisation-defined values for the 23 CP entries: 38 in total. They were agreed on 6 November 2026 (D-CP-P01), and CP-09\_ODP\[01\] was revised on 9 November 2026 (D-CP-P02). State now says whether each is in place today.
 
-**Table 57: CP parameter register**
+**Table 56: CP parameter register**
 
 | CSS identifier | What must be defined | Value | State now |
 | --- | --- | --- | --- |
@@ -872,7 +846,7 @@ These are the CSS organisation-defined values for the 23 CP entries: 38 in total
 
 ## Appendix C Contacts
 
-**Table 58: Contacts**
+**Table 57: Contacts**
 
 | Role | Name | Phone | Email |
 | --- | --- | --- | --- |
@@ -886,7 +860,7 @@ These are the CSS organisation-defined values for the 23 CP entries: 38 in total
 
 ## Appendix D Associated plans and records
 
-**Table 59: Associated plans**
+**Table 58: Associated plans**
 
 | Plan or record | Owner | How it relates |
 | --- | --- | --- |
@@ -899,9 +873,9 @@ These are the CSS organisation-defined values for the 23 CP entries: 38 in total
 
 ## Appendix E CP controls outside the Moderate baseline
 
-CSS does not select these at Moderate, so they are not assessed. Some of the design goes further than the baseline, and Table 60 says where.
+CSS does not select these at Moderate, so they are not assessed. Some of the design goes further than the baseline, and Table 59 says where.
 
-**Table 60: CP controls not selected at Moderate**
+**Table 59: CP controls not selected at Moderate**
 
 | Control | What it adds | \<System Name\>'s position |
 | --- | --- | --- |

@@ -28,30 +28,9 @@ An assessor examines the provider's evidence for each inherited control, and the
 
 ## 2 Summary
 
-Of the 18 controls, none is fully implemented, 1 is partially implemented and 17 are not implemented. No control in the baseline is missing from the design. Every gap is registered in the Risk List (\<Risk List\>) and the Plan of Action and Milestones (\<Plan of Action and Milestones\>).
+The implementation status of each control, how it is met, who is responsible, its assessment result and the risk and plan entries for its gaps are recorded once, in \<System Security Plan\>, section 7.11 (Table 20). This section gives only the overall position.
 
-**Table 2: Status of each control**
-
-| Control | Title | Status | What is missing | Registered as |
-| --- | --- | --- | --- | --- |
-| PE-1 | Policy and Procedures | Partially implemented | Not yet shared. The later version awaits the Head of Cyber | NC-PE-01; PA-20 |
-| PE-2 | Physical Access Authorizations | Not implemented | \<Organisation\>'s evidence, for either site | NC-PE-02; PA-122, EV-PE-01 |
-| PE-3 | Physical Access Control | Not implemented | \<Organisation\>'s evidence, for either site | NC-PE-03; PA-122, EV-PE-01 |
-| PE-4 | Access Control for Transmission | Not implemented | \<Organisation\>'s evidence, for either site | NC-PE-04; PA-122, EV-PE-01 |
-| PE-5 | Access Control for Output Devices | Not implemented | The managed printers are not listed or evidenced | NC-PE-05; PA-122, EV-PE-05 |
-| PE-6 | Monitoring Physical Access | Not implemented | \<Organisation\>'s evidence, for either site | NC-PE-06; PA-122, EV-PE-01 |
-| PE-6(1) | Intrusion Alarms and Surveillance Equipment | Not implemented | \<Organisation\>'s evidence, for either site | NC-PE-07; PA-122, EV-PE-01 |
-| PE-8 | Visitor Access Records | Not implemented | \<Organisation\>'s evidence, for either site | NC-PE-08; PA-122, EV-PE-01 |
-| PE-9 | Power Equipment and Cabling | Not implemented | \<Organisation\>'s evidence, for either site | NC-PE-09; PA-122, EV-PE-02 |
-| PE-10 | Emergency Shutoff | Not implemented | \<Organisation\>'s evidence, for either site | NC-PE-10; PA-122, EV-PE-02 |
-| PE-11 | Emergency Power | Not implemented | \<Organisation\>'s evidence, for either site | NC-PE-11; PA-122, EV-PE-02 |
-| PE-12 | Emergency Lighting | Not implemented | \<Organisation\>'s evidence, for either site | NC-PE-12; PA-122, EV-PE-02 |
-| PE-13 | Fire Protection | Not implemented | \<Organisation\>'s evidence, for either site | NC-PE-13; PA-122, EV-PE-03 |
-| PE-13(1) | Detection Systems, Automatic Activation and Notification | Not implemented | \<Organisation\>'s evidence, for either site | NC-PE-14; PA-122, EV-PE-03 |
-| PE-14 | Environmental Controls | Not implemented | \<Organisation\>'s evidence, for either site | NC-PE-15; PA-122, EV-PE-03 |
-| PE-15 | Water Damage Protection | Not implemented | \<Organisation\>'s evidence, for either site | NC-PE-16; PA-122, EV-PE-03 |
-| PE-16 | Delivery and Removal | Not implemented | \<Organisation\>'s evidence, for either site | NC-PE-17; PA-122, EV-PE-04 |
-| PE-17 | Alternate Work Site | Not implemented | The yearly check has not been held, and \<Organisation\>'s controls are not evidenced | NC-PE-18; PA-122, EV-PE-05 |
+No control in the baseline is missing from the design. Every gap is registered in the Risk List (\<Risk List\>) and the Plan of Action and Milestones (\<Plan of Action and Milestones\>).
 
 One PE control from the privacy baseline is assessed with the PT family: PE-8(3), which limits the personal data in visitor records to the name, the organisation, and the date and time of the visit (NC-PT-12; PA-122).
 
@@ -74,7 +53,7 @@ These carry out the principles and rules of \<Policy\>, sections PE.3 and PE.4.
 
 **Figure 1: Where \<System Name\> is, and who protects each place**
 
-**Table 3: Sites**
+**Table 2: Sites**
 
 | Site | Use | Location | \<Organisation\> contact | Evidence |
 | --- | --- | --- | --- | --- |
@@ -89,7 +68,7 @@ No \<System Name\> role needs to enter either data centre, as the system owner c
 
 Who provides each PE control, and the evidence that closes it. The first choice of evidence is \<Organisation\>'s ISO/IEC 27001 certificate and Statement of Applicability, with the Annex A control shown, for both sites. A SOC 2 report serves instead if it covers physical access (criterion CC6.4) and, for power, fire, environment and water, the availability criteria (A1.2), as the system owner decided on 17 November 2026 (D-PE-12). The site inspection (TPL-20) adds what was seen.
 
-**Table 4: PE inheritance matrix**
+**Table 3: PE inheritance matrix**
 
 | Control | \<Organisation\> provides | \<System Name\> provides | Closing evidence | State now |
 | --- | --- | --- | --- | --- |
@@ -110,7 +89,7 @@ Who provides each PE control, and the evidence that closes it. The first choice 
 
 ### 3.4 How the evidence is obtained and checked
 
-**Table 5: Steps of the evidence check**
+**Table 4: Steps of the evidence check**
 
 | Step | What happens | Who | Record |
 | --- | --- | --- | --- |
@@ -154,7 +133,7 @@ Both servers' disks are encrypted, and backups are encrypted before they leave t
 
 ### 3.9 What \<Organisation\> provides
 
-**Table 6: Asked of \<Organisation\>**
+**Table 5: Asked of \<Organisation\>**
 
 | Request | Controls | What is asked | State |
 | --- | --- | --- | --- |
@@ -172,7 +151,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.1 PE-1 Policy and Procedures
 
-**Table 7: PE-1 design**
+**Table 6: PE-1 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
@@ -182,7 +161,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 | c.1 | The policy is reviewed on a schedule and after set events | Every 12 months, and after a significant incident, audit finding or change of site | Reviewed on 10 November 2026. The first yearly review falls due in November 2027 |
 | c.2 | The procedures are reviewed on a schedule and after set events | Every 12 months, and after a change to the steps | As the policy |
 
-**Table 8: PE-1 responsibility and evidence**
+**Table 7: PE-1 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -198,7 +177,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.2 PE-2 Physical Access Authorizations
 
-**Table 9: PE-2 design**
+**Table 8: PE-2 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
@@ -207,7 +186,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 | c | Review the list on a schedule | Every 12 months | Not evidenced (EV-PE-01) |
 | d | Remove people from the list when they no longer need access | When the need ends, and when someone leaves | Not evidenced (EV-PE-01) |
 
-**Table 10: PE-2 responsibility and evidence**
+**Table 9: PE-2 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -223,7 +202,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.3 PE-3 Physical Access Control
 
-**Table 11: PE-3 design**
+**Table 10: PE-3 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
@@ -235,7 +214,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 | f | Inventory the entry devices on a schedule | Keys, cards and combinations, every 12 months | Not evidenced (EV-PE-01) |
 | g | Change combinations and keys on a schedule, and when one is lost or compromised or someone leaves | Every 12 months; a combination when someone who knows it leaves; a key when it is lost or not returned | Not evidenced (EV-PE-01) |
 
-**Table 12: PE-3 responsibility and evidence**
+**Table 11: PE-3 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -251,13 +230,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.4 PE-4 Access Control for Transmission
 
-**Table 13: PE-4 design**
+**Table 12: PE-4 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Control physical access to defined distribution and transmission lines | Power and network cabling in each data centre is kept in locked rooms, cabinets and cable trays | Not evidenced (EV-PE-01) |
 
-**Table 14: PE-4 responsibility and evidence**
+**Table 13: PE-4 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -273,13 +252,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.5 PE-5 Access Control for Output Devices
 
-**Table 15: PE-5 design**
+**Table 14: PE-5 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Control physical access to the output of defined devices, so that nobody unauthorised obtains it | Printers: \<System Name\> documents are printed only on \<Organisation\>'s managed printers with secure release, so that a page prints only when its owner is at the printer, and are collected at once. Screens and desks: a screen is locked when left and placed so that others cannot read it, and desks are kept clear of printed documents. \<System Name\> also locks the page after 25 minutes idle (section 3.5) | The printers are not listed or evidenced (EV-PE-05). The page lock worked in the tested build, under AC-11 (\<Access Control Management\>) |
 
-**Table 16: PE-5 responsibility and evidence**
+**Table 15: PE-5 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -295,7 +274,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.6 PE-6 Monitoring Physical Access
 
-**Table 17: PE-6 design**
+**Table 16: PE-6 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
@@ -303,7 +282,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 | b | Review the entry logs on a schedule and after defined events | Monthly, and after a physical security incident or alarm | Not evidenced (EV-PE-01) |
 | c | Share the results of reviews and investigations with the incident response capability | \<Organisation\>'s security contact tells \<System Name\>'s security officer of any physical incident that affects \<System Name\> within 24 hours (D-PE-12), and the security officer handles it under the incident response plan (section 3.7) | Not evidenced (EV-PE-01). The playbook is written (\<Incident Response Management\>, section 3.9) |
 
-**Table 18: PE-6 responsibility and evidence**
+**Table 17: PE-6 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -319,13 +298,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.7 PE-6(1) Intrusion Alarms and Surveillance Equipment
 
-**Table 19: PE-6(1) design**
+**Table 18: PE-6(1) design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Monitor physical access with intrusion alarms and surveillance equipment | Intrusion alarms and CCTV at each data centre | Not evidenced (EV-PE-01) |
 
-**Table 20: PE-6(1) responsibility and evidence**
+**Table 19: PE-6(1) responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -341,7 +320,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.8 PE-8 Visitor Access Records
 
-**Table 21: PE-8 design**
+**Table 20: PE-8 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
@@ -349,7 +328,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 | b | Review them on a schedule | Monthly | Not evidenced (EV-PE-01) |
 | c | Report anomalies to defined people | To \<Organisation\>'s security contact, who tells \<System Name\>'s security officer | Not evidenced (EV-PE-01) |
 
-**Table 22: PE-8 responsibility and evidence**
+**Table 21: PE-8 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -365,13 +344,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.9 PE-9 Power Equipment and Cabling
 
-**Table 23: PE-9 design**
+**Table 22: PE-9 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Protect power equipment and power cabling from damage and destruction | \<Organisation\> protects the power equipment and cabling that serve the hosts, at both sites | Not evidenced (EV-PE-02) |
 
-**Table 24: PE-9 responsibility and evidence**
+**Table 23: PE-9 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -387,7 +366,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.10 PE-10 Emergency Shutoff
 
-**Table 25: PE-10 design**
+**Table 24: PE-10 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
@@ -395,7 +374,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 | b | Place the shutoff switches where authorised people can reach them | Near the exits of the data centre room | Not evidenced (EV-PE-02) |
 | c | Protect the shutoff from being used without authority | Guarded against accidental and unauthorised use, as the system owner required on 17 November 2026 (D-PE-12). \<Organisation\> is asked how | Not evidenced (EV-PE-02) |
 
-**Table 26: PE-10 responsibility and evidence**
+**Table 25: PE-10 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -411,13 +390,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.11 PE-11 Emergency Power
 
-**Table 27: PE-11 design**
+**Table 26: PE-11 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Provide an uninterruptible power supply that allows an orderly shutdown, or a move to long-term backup power, when the main power fails | Enough backup power for an orderly shutdown of both servers. \<Organisation\> warns the administrators when a site is on backup power, and they shut the servers down in order (section 3.7; \<Security Operating Procedures\>, section 4.6) | Not evidenced (EV-PE-02). How long the backup power lasts and how the warning is given are not known |
 
-**Table 28: PE-11 responsibility and evidence**
+**Table 27: PE-11 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -433,13 +412,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.12 PE-12 Emergency Lighting
 
-**Table 29: PE-12 design**
+**Table 28: PE-12 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Have automatic emergency lighting that comes on in a power failure and covers emergency exits and evacuation routes | In each data centre | Not evidenced (EV-PE-02) |
 
-**Table 30: PE-12 responsibility and evidence**
+**Table 29: PE-12 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -455,13 +434,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.13 PE-13 Fire Protection
 
-**Table 31: PE-13 design**
+**Table 30: PE-13 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Have fire detection and suppression systems, with an independent energy source | In each data centre | Not evidenced (EV-PE-03) |
 
-**Table 32: PE-13 responsibility and evidence**
+**Table 31: PE-13 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -477,13 +456,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.14 PE-13(1) Detection Systems, Automatic Activation and Notification
 
-**Table 33: PE-13(1) design**
+**Table 32: PE-13(1) design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Fire detection that works automatically and notifies defined people and emergency responders | It notifies \<Organisation\>'s facilities staff and the fire and rescue service | Not evidenced (EV-PE-03) |
 
-**Table 34: PE-13(1) responsibility and evidence**
+**Table 33: PE-13(1) responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -499,14 +478,14 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.15 PE-14 Environmental Controls
 
-**Table 35: PE-14 design**
+**Table 34: PE-14 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Keep defined environmental levels within defined limits | Temperature and humidity, within the ASHRAE TC 9.9 recommended envelope: 18 to 27°C, a dew point from -9 to 15°C, and at most 60% relative humidity | Not evidenced (EV-PE-03) |
 | b | Monitor them on a schedule | Continuously | Not evidenced (EV-PE-03) |
 
-**Table 36: PE-14 responsibility and evidence**
+**Table 35: PE-14 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -522,13 +501,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.16 PE-15 Water Damage Protection
 
-**Table 37: PE-15 design**
+**Table 36: PE-15 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Protect the system from water leaks with master shutoff or isolation valves that can be reached, work, and are known to key people | In each data centre | Not evidenced (EV-PE-03) |
 
-**Table 38: PE-15 responsibility and evidence**
+**Table 37: PE-15 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -544,14 +523,14 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.17 PE-16 Delivery and Removal
 
-**Table 39: PE-16 design**
+**Table 38: PE-16 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Authorise and control defined items entering and leaving the facility | Hardware and media that hold \<System Name\> information. The system owner approves the removal of anything of \<System Name\>'s (\<Maintenance Management\>, section 3.7) | Not evidenced (EV-PE-04) |
 | b | Keep records of those items | \<Organisation\>'s delivery and removal records; \<System Name\>'s own on TPL-12 and TPL-13 | Not evidenced (EV-PE-04). The forms exist; none is used yet |
 
-**Table 40: PE-16 responsibility and evidence**
+**Table 39: PE-16 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -567,7 +546,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.18 PE-17 Alternate Work Site
 
-**Table 41: PE-17 design**
+**Table 40: PE-17 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
@@ -576,7 +555,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 | c | Assess how well those controls work | Every 12 months the security officer puts a short checklist to every person who works from home, and records the answers on TPL-4 | Not yet held |
 | d | Give employees a way to reach security and privacy staff when there is an incident | The contacts in \<Security Operating Procedures\>, section 6 | The people are named. Their contact details are placeholders |
 
-**Table 42: PE-17 responsibility and evidence**
+**Table 41: PE-17 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -594,7 +573,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 These are the CSS organisation-defined values for the 18 PE entries: 40 in total. They apply to the data centre and the second site alike. They were agreed on 6 November 2026 (D-PE-P01, D-PE-07) and restated as requirements on 10 November 2026 (D-PE-P02). \<Organisation\> must confirm it meets them at both sites.
 
-**Table 43: PE parameter register**
+**Table 42: PE parameter register**
 
 | CSS identifier | What must be defined | Value (requirement) | State now |
 | --- | --- | --- | --- |
@@ -641,9 +620,9 @@ These are the CSS organisation-defined values for the 18 PE entries: 40 in total
 
 ## Appendix B PE controls outside the Moderate baseline
 
-CSS does not select these in the Moderate security baseline, so they are not assessed in this family. One is in the CSS privacy baseline and applies because visitor records hold personal data: it is assessed with the PT family. All but that one would be \<Organisation\>'s to provide, and Table 44 says where its evidence may already show them.
+CSS does not select these in the Moderate security baseline, so they are not assessed in this family. One is in the CSS privacy baseline and applies because visitor records hold personal data: it is assessed with the PT family. All but that one would be \<Organisation\>'s to provide, and Table 43 says where its evidence may already show them.
 
-**Table 44: PE controls not selected at Moderate**
+**Table 43: PE controls not selected at Moderate**
 
 | Control | What it adds | \<System Name\>'s position |
 | --- | --- | --- |

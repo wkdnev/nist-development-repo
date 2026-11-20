@@ -29,29 +29,9 @@ An assessor examines the framework, the contracts, the guides, the external serv
 
 ## 2 Summary
 
-Of the 17 controls, 5 are implemented, 9 are partially implemented, 2 are not implemented and 1 is not applicable. No control in the Moderate baseline is missing from the design. Every gap is registered in the Risk List (\<Risk List\>) and the Plan of Action and Milestones (\<Plan of Action and Milestones\>).
+The implementation status of each control, how it is met, who is responsible, its assessment result and the risk and plan entries for its gaps are recorded once, in \<System Security Plan\>, section 7.16 (Table 25). This section gives only the overall position.
 
-**Table 2: Status of each control**
-
-| Control | Title | Status | What is missing | Registered as |
-| --- | --- | --- | --- | --- |
-| SA-1 | Policy and Procedures | Partially implemented | Not yet shared. The later version awaits the Head of Cyber | NC-SA-01; PA-20 |
-| SA-2 | Allocation of Resources | Partially implemented | Costs not yet raised in budgeting | NC-SA-02; PA-128 |
-| SA-3 | System Development Life Cycle | Partially implemented | The lifecycle is not yet in routine use | NC-SA-03; PA-128 |
-| SA-4 | Acquisition Process | Not implemented | \<Organisation\>'s contract terms have not been seen | NC-SA-04; PA-128, EV-SA-01 |
-| SA-4(1) | Functional Properties of Controls | Implemented | Nothing | NC-SA-05 (met) |
-| SA-4(2) | Design and Implementation Information for Controls | Implemented | Nothing | NC-SA-06 (met) |
-| SA-4(9) | Functions, Ports, Protocols, and Services in Use | Implemented | Nothing | NC-SA-07 (met) |
-| SA-4(10) | Use of Approved PIV Products | Not applicable | Not applicable | TR-SA-01 |
-| SA-5 | System Documentation | Partially implemented | The guides are drafts, not yet confirmed or shared | NC-SA-08; PA-69 |
-| SA-8 | Security and Privacy Engineering Principles | Partially implemented | Earlier work not checked against the principles | NC-SA-09; PA-128 |
-| SA-9 | External System Services | Partially implemented | Providers' terms and service levels not seen, and no review held | NC-SA-10; PA-128, EV-SA-02, EV-SA-03 |
-| SA-9(2) | Identification of Functions, Ports, Protocols, and Services | Not implemented | Providers' lists not seen | NC-SA-11; PA-128, EV-SA-02, EV-SA-03 |
-| SA-10 | Developer Configuration Management | Partially implemented | No branch protection, required review or signed tags | NC-SA-12; PA-53, PA-91 |
-| SA-11 | Developer Testing and Evaluation | Partially implemented | No pipeline or unit tests; ASVS not verified; sign-in through AD FS not yet tested | NC-SA-13; PA-68, PA-92, PA-95 |
-| SA-15 | Development Process, Standards, and Tools | Partially implemented | The process has not been reviewed | NC-SA-14; PA-128 |
-| SA-15(3) | Criticality Analysis | Implemented | Nothing | NC-SA-15 (met) |
-| SA-22 | Unsupported System Components | Implemented | Packages and browser libraries not yet checked for loss of support | NC-SA-16 (met); PA-128 |
+No control in the Moderate baseline is missing from the design. Every gap is registered in the Risk List (\<Risk List\>) and the Plan of Action and Milestones (\<Plan of Action and Milestones\>).
 
 Two things matter most. Nothing stops an unreviewed change reaching a release: no repository protects its default branch or requires a review, and the v1.0 release had no reviewed merge or signed tag (PA-91, rated Medium). And nothing tests a release automatically: there is no build pipeline or unit test, and the build turns the package audit off (PA-68 and PA-92, rated Medium). The authorising official decided that the change workflow and the pipeline must be in place before production (D-SA-14).
 
@@ -74,7 +54,7 @@ These carry out the principles and rules of \<Policy\>, sections SA.3 and SA.4.
 
 \<System Name\> is developed under CSS \<ver\> (CSS, February 2022). Version \<ver\> is in draft (CSS, December 2025), and is adopted when final. The table gives each of the 19 practices, how \<System Name\> meets it, and the gap where it does not. The UK Software Security Code of Practice's principles 1.1 to 3.5 align with these practices. Its fourth theme, communication with customers, is for software that is sold, which \<System Name\> is not.
 
-**Table 3: CSS practices**
+**Table 2: CSS practices**
 
 | Practice | How \<System Name\> meets it | Gap |
 | --- | --- | --- |
@@ -102,7 +82,7 @@ These carry out the principles and rules of \<Policy\>, sections SA.3 and SA.4.
 
 \<System Name\> goes through six stages, each with its security and privacy check (D-SA-05). The check at each stage, and the separate budget line, were confirmed by the system owner on 18 November 2026 (D-SA-20). The roles are in \<Roles and Responsibilities\>, and the privacy roles in \<Privacy Plan\>, section 3.
 
-**Table 4: Lifecycle stages**
+**Table 3: Lifecycle stages**
 
 | Stage | Security and privacy check | Who | Record |
 | --- | --- | --- | --- |
@@ -139,7 +119,7 @@ The NCSC secure design principles and the CSS privacy engineering objectives are
 
 These are the services in SA-09(02)\_ODP. Each states its controls in its contract or service terms, and the system owner reviews each every 12 months on TPL-16 (PRO-SA-3). The rows for AD FS and Active Directory, and for the Starters/Leavers system, were added on 18 November 2026, as \<System Name\> now relies on them for sign-in and access (D-AC-22, D-AC-23). The system owner confirmed them the same day (D-SA-20). The Docker Hub row was added by the SA cross-check, as the test stacks take their database image from it.
 
-**Table 5: External services**
+**Table 4: External services**
 
 | Service | Provider | What it holds or does for \<System Name\> | Basis of trust | Evidence |
 | --- | --- | --- | --- | --- |
@@ -173,9 +153,9 @@ This is the developer security and privacy test plan (SA-11). Each script runs o
 
 The sign-in and access checks ran on the v1.0 build, which used \<System Name\>'s own passwords and groups. They are to be run again with sign-in through AD FS and access by Active Directory groups (D-AC-23; PA-95).
 
-The scripts are one kind of analysis among several that the CSS guidance expects for software written in-house. Table 6 says when each is done, and where it stands.
+The scripts are one kind of analysis among several that the CSS guidance expects for software written in-house. Table 5 says when each is done, and where it stands.
 
-**Table 6: Kinds of analysis**
+**Table 5: Kinds of analysis**
 
 | Kind | What | When | Today |
 | --- | --- | --- | --- |
@@ -189,7 +169,7 @@ The scripts are one kind of analysis among several that the CSS guidance expects
 
 The plan, its results and the evidence are protected as the document set is: restricted, and held in the restricted store once the set moves there (PA-88).
 
-**Table 7: Developer test plan**
+**Table 6: Developer test plan**
 
 | Script | Checks | Security functions covered | Evidence kept with |
 | --- | --- | --- | --- |
@@ -213,7 +193,7 @@ The plan, its results and the evidence are protected as the document set is: res
 
 The process is CSS \<ver\> (section 3.2). The standards are CSS, OWASP ASVS 5.0 Level 2 for the web applications, the NCSC secure design principles and the CSS privacy engineering objectives, with the UK Software Security Code of Practice alongside. Every 12 months the developers and the security officer review the process, standards and tools against the acquisition policy and the personal data policy, and record the review and any change on TPL-23 (PRO-SA-6).
 
-**Table 8: Development tools**
+**Table 7: Development tools**
 
 | Tool | Version or setting | Configuration that matters for security |
 | --- | --- | --- |
@@ -243,7 +223,7 @@ Test-Development.ps1 ran on 11 November 2026. Its results, with their hashes, ar
 
 ### 3.14 What \<Organisation\> and the providers supply
 
-**Table 9: Asked of \<Organisation\> and the providers**
+**Table 8: Asked of \<Organisation\> and the providers**
 
 | Provided | Controls | What \<System Name\> relies on | Evidence asked | State |
 | --- | --- | --- | --- | --- |
@@ -259,7 +239,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.1 SA-1 Policy and Procedures
 
-**Table 10: SA-1 design**
+**Table 9: SA-1 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
@@ -269,7 +249,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 | c.1 | The policy is reviewed on a schedule and after set events | Every 12 months, and after a significant incident, audit finding or system change | Reviewed on 11 November 2026 after the SA pack review. The first yearly review falls due in November 2027 |
 | c.2 | The procedures are reviewed on a schedule and after set events | Every 12 months, and after a change to the steps | Reviewed and approved as version \<ver\> on 11 November 2026. The first yearly review falls due in November 2027 |
 
-**Table 11: SA-1 responsibility and evidence**
+**Table 10: SA-1 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -285,7 +265,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.2 SA-2 Allocation of Resources
 
-**Table 12: SA-2 design**
+**Table 11: SA-2 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
@@ -293,7 +273,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 | b | Determine, document and allocate the resources needed to protect the system, as part of capital planning and investment control | The system owner raises the cost of security and privacy in \<Organisation\>'s yearly budgeting, and records it on TPL-23 (section 3.3) | Not yet raised in budgeting |
 | c | Establish a separate line for security and privacy in programming and budgeting documents | Security and privacy are a separate line in \<System Name\>'s budget request | Not yet raised in budgeting |
 
-**Table 13: SA-2 responsibility and evidence**
+**Table 12: SA-2 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -309,7 +289,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.3 SA-3 System Development Life Cycle
 
-**Table 14: SA-3 design**
+**Table 13: SA-3 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
@@ -318,7 +298,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 | c | Identify the people who hold those roles | Named in \<Roles and Responsibilities\> and in the privacy plan, section 3 | Done |
 | d | Integrate security and privacy risk management into the lifecycle | Each change records its security and privacy effect on TPL-6, and the security officer checks significant designs (PRO-SA-1). A change that affects personal data goes to the legal adviser (PRO-PT-3) | Approved. Not yet in use |
 
-**Table 15: SA-3 responsibility and evidence**
+**Table 14: SA-3 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -334,7 +314,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.4 SA-4 Acquisition Process
 
-**Table 16: SA-4 design**
+**Table 15: SA-4 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
@@ -348,7 +328,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 | h | The contract allocates responsibility for security, privacy and supply chain risk | Each party's responsibilities, including reporting a compromise to the security officer (\<Supply Chain Risk Management\>) | Contract not seen (EV-SA-01) |
 | i | The contract includes acceptance criteria | The tests or evidence that must pass before \<Organisation\> accepts the product or service | Contract not seen (EV-SA-01) |
 
-**Table 17: SA-4 responsibility and evidence**
+**Table 16: SA-4 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -364,13 +344,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.5 SA-4(1) Functional Properties of Controls
 
-**Table 18: SA-4(1) design**
+**Table 17: SA-4(1) design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | The developer describes the functional properties of the controls to be implemented | Each family's design document, and the security plan, section 7, set out what each control does | Done |
 
-**Table 19: SA-4(1) responsibility and evidence**
+**Table 18: SA-4(1) responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -386,13 +366,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.6 SA-4(2) Design and Implementation Information for Controls
 
-**Table 20: SA-4(2) design**
+**Table 19: SA-4(2) design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | The developer provides design and implementation information for the controls, at a defined level of detail | The security-relevant external interfaces and the high-level design (\<Security Architecture\>; \<System Security Plan\>, sections 3 and 4), and how each security function is built, in the family design documents: enough for an assessor to judge each control | Done |
 
-**Table 21: SA-4(2) responsibility and evidence**
+**Table 20: SA-4(2) responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -408,13 +388,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.7 SA-4(9) Functions, Ports, Protocols, and Services in Use
 
-**Table 22: SA-4(9) design**
+**Table 21: SA-4(9) design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | The developer identifies the functions, ports, protocols and services intended for use | \<System Security Plan\>, section 3.7, and the allowed flows in \<Access Control Management\>, section 3.6 | Done |
 
-**Table 23: SA-4(9) responsibility and evidence**
+**Table 22: SA-4(9) responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -430,13 +410,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.8 SA-4(10) Use of Approved PIV Products
 
-**Table 24: SA-4(10) design**
+**Table 23: SA-4(10) design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Use only products on the approved list for PIV capability | Not applicable: It requires products on the United States government's list for PIV identity cards, which \<System Name\> does not use (\<Tailoring Register\>, TR-SA-01) | Not applicable |
 
-**Table 25: SA-4(10) responsibility and evidence**
+**Table 24: SA-4(10) responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -446,7 +426,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.9 SA-5 System Documentation
 
-**Table 26: SA-5 design**
+**Table 25: SA-5 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
@@ -459,7 +439,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 | c | Record attempts to obtain documentation that is missing, and act on it | The system owner records each missing supplier document, and chases the supplier (PRO-SA-4) | Approved. Not yet in use |
 | d | Distribute the documentation to defined people | Administrators, the security officer and users | Drafts not yet distributed |
 
-**Table 27: SA-5 responsibility and evidence**
+**Table 26: SA-5 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -475,13 +455,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.10 SA-8 Security and Privacy Engineering Principles
 
-**Table 28: SA-8 design**
+**Table 27: SA-8 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Apply defined security and privacy engineering principles in the specification, design, development, implementation and modification of the system | The NCSC secure design principles and the CSS privacy engineering objectives, mapped to \<System Name\> in \<Security Architecture\>, section 6.5 (section 3.6). The security officer checks each significant design against them (PRO-SA-1) | Applied to the specification and design. Work before 11 November 2026 was not checked against them; changes are checked from now on |
 
-**Table 29: SA-8 responsibility and evidence**
+**Table 28: SA-8 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -497,7 +477,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.11 SA-9 External System Services
 
-**Table 30: SA-9 design**
+**Table 29: SA-9 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
@@ -505,7 +485,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 | b | Define and document oversight, and user roles and responsibilities, for external services | The system owner oversees each service. Section 3.7 and \<Roles and Responsibilities\> say who uses each | Done |
 | c | Monitor providers' compliance on an ongoing basis by defined means | The system owner's review of each service every 12 months, on TPL-16 (PRO-SA-3) | No review yet held |
 
-**Table 31: SA-9 responsibility and evidence**
+**Table 30: SA-9 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -521,13 +501,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.12 SA-9(2) Identification of Functions, Ports, Protocols, and Services
 
-**Table 32: SA-9(2) design**
+**Table 31: SA-9(2) design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Require providers of defined external services to identify the functions, ports, protocols and other services they need | Every service in section 3.7, including \<Organisation\>'s hosting, network, ServiceNow, AD FS and Active Directory, and GitHub | Providers' lists not seen (EV-SA-02, EV-SA-03) |
 
-**Table 33: SA-9(2) responsibility and evidence**
+**Table 32: SA-9(2) responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -543,7 +523,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.13 SA-10 Developer Configuration Management
 
-**Table 34: SA-10 design**
+**Table 33: SA-10 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
@@ -553,7 +533,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 | d | Document approved changes and their security and privacy effects | Each change records its effect on TPL-6 (PRO-SA-1) | Approved. Not yet in routine use |
 | e | Track security flaws and their resolution, and report findings to defined people | Flaws are tracked in the Risk List and the POA&M, and reported to the system owner and the security officer | Done |
 
-**Table 35: SA-10 responsibility and evidence**
+**Table 34: SA-10 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -569,7 +549,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.14 SA-11 Developer Testing and Evaluation
 
-**Table 36: SA-11 design**
+**Table 35: SA-11 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
@@ -579,7 +559,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 | d | Use a flaw remediation process that can be verified | A fixed flaw is accepted only when its test passes on a repeat run (PRO-SA-2, step 4) | Done, as for the access control fixes |
 | e | Correct the flaws found | Each flaw goes to the Risk List and the POA&M, and is fixed in development | Waiting for the development phase |
 
-**Table 37: SA-11 responsibility and evidence**
+**Table 36: SA-11 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -595,7 +575,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.15 SA-15 Development Process, Standards, and Tools
 
-**Table 38: SA-15 design**
+**Table 37: SA-15 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
@@ -605,7 +585,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 | a.4 | The process documents, manages and protects changes to itself and its tools | Changes to the process or tools are reviewed every 12 months and recorded on TPL-23 (PRO-SA-6) | Approved. Not yet in use |
 | b | Review the process, standards, tools and configurations at a defined frequency, against defined requirements | Every 12 months, against the acquisition policy and the personal data policy | No review yet held |
 
-**Table 39: SA-15 responsibility and evidence**
+**Table 38: SA-15 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -621,14 +601,14 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.16 SA-15(3) Criticality Analysis
 
-**Table 40: SA-15(3) design**
+**Table 39: SA-15(3) design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Perform a criticality analysis at defined decision points | At design and at each major change (\<Risk Assessment Management\>, section 3.9) | Done on 11 November 2026, and redone on 18 November 2026 for sign-in through AD FS |
 | b | At a defined breadth and depth | Every component, in enough depth to identify the critical ones | Done |
 
-**Table 41: SA-15(3) responsibility and evidence**
+**Table 40: SA-15(3) responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -644,14 +624,14 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.17 SA-22 Unsupported System Components
 
-**Table 42: SA-22 design**
+**Table 41: SA-22 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Replace components when support for them is no longer available | Each is replaced before its support ends, with the replacement planned at least 6 months before (section 3.12) | No component within 6 months of the end of support (S09). Packages and browser libraries are not yet checked for loss of support (PA-128) |
 | b | Provide defined options for other support for unsupported components | In-house support, or a supplier's extended support by exception, approved by the authorising official | None needed yet |
 
-**Table 43: SA-22 responsibility and evidence**
+**Table 42: SA-22 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -669,7 +649,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 These are the CSS organisation-defined values for the SA entries: 35 in total. SA-4(10) is tailored (\<Tailoring Register\>, TR-SA-01), and has no parameters. They were agreed on 6 November 2026, and restated as requirements on 11 November 2026 (D-SA-P01). **State now** says whether \<System Name\> meets the value today.
 
-**Table 44: SA parameter register**
+**Table 43: SA parameter register**
 
 | CSS identifier | What must be defined | Value | State now |
 | --- | --- | --- | --- |
@@ -711,9 +691,9 @@ These are the CSS organisation-defined values for the SA entries: 35 in total. S
 
 ## Appendix B Acquisition controls outside the Moderate baseline
 
-CSS does not select these at Moderate, so they are not assessed. Some of the design goes some way towards them, and Table 45 says where. SA-6, SA-7, SA-12, SA-13, SA-14, SA-18 and SA-19 are withdrawn, and so are the enhancements of SA-5. SA-22(1) is now part of SA-22.
+CSS does not select these at Moderate, so they are not assessed. Some of the design goes some way towards them, and Table 44 says where. SA-6, SA-7, SA-12, SA-13, SA-14, SA-18 and SA-19 are withdrawn, and so are the enhancements of SA-5. SA-22(1) is now part of SA-22.
 
-**Table 45: Related controls and enhancements not selected**
+**Table 44: Related controls and enhancements not selected**
 
 | Control | What it adds | \<System Name\>'s position |
 | --- | --- | --- |

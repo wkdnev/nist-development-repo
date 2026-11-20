@@ -27,30 +27,9 @@ An assessor examines the use cases, the baseline, the advisory records and the t
 
 ## 2 Summary
 
-Of the 18 controls, 2 are implemented, 6 are partially implemented, 8 are not implemented and 2 are not applicable. No control in the Moderate baseline is missing from the design. Every gap is registered in the Risk List (\<Risk List\>) and the Plan of Action and Milestones (\<Plan of Action and Milestones\>).
+The implementation status of each control, how it is met, who is responsible, its assessment result and the risk and plan entries for its gaps are recorded once, in \<System Security Plan\>, section 7.18 (Table 27). This section gives only the overall position.
 
-**Table 2: Status of each control**
-
-| Control | Title | Status | What is missing | Registered as |
-| --- | --- | --- | --- | --- |
-| SI-1 | Policy and Procedures | Partially implemented | Not yet shared. The later version awaits the Head of Cyber | NC-SI-01; PA-20 |
-| SI-2 | Flaw Remediation | Partially implemented | 7 package advisories open | NC-SI-02; PA-56 |
-| SI-2(2) | Automated Flaw Remediation Status | Not implemented | Run by hand; dependency alerts off | NC-SI-03; PA-57, PA-91 |
-| SI-3 | Malicious Code Protection | Not implemented | No malware scan of uploads; Defender not set up | NC-SI-04; PA-58 |
-| SI-4 | System Monitoring | Partially implemented | No forwarding, alerts or reviews; no legal opinion | NC-SI-05; PA-130, EV-SI-01 |
-| SI-4(2) | Automated Tools and Mechanisms for Real-time Analysis | Not implemented | No automated analysis | NC-SI-06; PA-59 |
-| SI-4(4) | Inbound and Outbound Communications Traffic | Not implemented | Not evidenced | NC-SI-07; PA-130, EV-SI-01 |
-| SI-4(5) | System-generated Alerts | Not implemented | Nothing raises an alert | NC-SI-08; PA-59 |
-| SI-5 | Security Alerts, Advisories, and Directives | Not implemented | Advisories not yet received | NC-SI-09; PA-130 |
-| SI-7 | Software, Firmware, and Information Integrity | Partially implemented | MD5 checksums; the audit chain cannot be recomputed | NC-SI-10; PA-61, PA-74 |
-| SI-7(1) | Integrity Checks | Not implemented | No scheduled check | NC-SI-11; PA-61 |
-| SI-7(7) | Integration of Detection and Response | Implemented | Nothing | NC-SI-12 (met) |
-| SI-8 | Spam Protection | Not applicable | Not applicable | TR-SI-01 |
-| SI-8(2) | Automatic Updates | Not applicable | Not applicable | TR-SI-01 |
-| SI-10 | Information Input Validation | Implemented | Nothing | NC-SI-13 (met) |
-| SI-11 | Error Handling | Partially implemented | About 29 responses return error detail | NC-SI-14; PA-60 |
-| SI-12 | Information Management and Retention | Not implemented | Retention and disposal not built | NC-SI-15; PA-70 |
-| SI-16 | Memory Protection | Partially implemented | Windows settings not confirmed | NC-SI-16; PA-54 |
+No control in the Moderate baseline is missing from the design. Every gap is registered in the Risk List (\<Risk List\>) and the Plan of Action and Milestones (\<Plan of Action and Milestones\>).
 
 Three things matter most. Seven package advisories are open, five of them High, and are due by 20 November 2026 (PA-56, rated High). Nothing scans uploads for malware, and documents in the database are out of Defender's sight (PA-58, Medium). And nothing raises an alert, so an attack would go unnoticed (PA-59, Medium).
 
@@ -73,7 +52,7 @@ These carry out the principles and rules of \<Policy\>, sections SI.3 and SI.4.
 
 Every upload passes these checks on the server before it is stored (SI-3, SI-10). Documents are held in PostgreSQL and never written to disk, so Defender's file scan cannot see them; \<System Name\> must ask Defender to scan each one first. All API inputs and search terms are validated on the server too, and database queries use parameters.
 
-**Table 3: Upload checks**
+**Table 2: Upload checks**
 
 | Check | How | State now |
 | --- | --- | --- |
@@ -90,7 +69,7 @@ Microsoft Defender runs on both servers, with real-time protection, daily update
 
 Flaws are fixed to the one timetable in \<Risk Assessment Management\>, section 3.6 (D-RA-P02), which replaced the 14-day and 30-day limits of version \<ver\>. Each update is tested on a separate test stack, then installed through change control (PRO-SI-1). Update status is checked monthly and at each release by Test-Vulnerability.ps1, the repositories' dependency alerts and the Windows Update reports from both servers (SI-2(2)).
 
-**Table 4: Advisory sources**
+**Table 3: Advisory sources**
 
 | Source | What it covers | How often | State now |
 | --- | --- | --- | --- |
@@ -109,7 +88,7 @@ Application, Windows and PostgreSQL logs, and the audit trail, are forwarded to 
 
 Since sign-in moved to AD FS (D-AC-23), failed sign-ins and changes to administrator groups happen in \<Organisation\>'s systems, not in \<System Name\>. Use cases U1 and U4 therefore need those events from \<Organisation\> (EV-SI-01). The system owner confirmed this on 18 November 2026 (D-SR-15).
 
-**Table 5: Detection use cases**
+**Table 4: Detection use cases**
 
 | ID | Event | Source | Threshold | Alert to | Response |
 | --- | --- | --- | --- | --- | --- |
@@ -128,7 +107,7 @@ Since sign-in moved to AD FS (D-AC-23), failed sign-ins and changes to administr
 
 The known-good v1.0 release was recorded by Test-Integrity.ps1 on 12 November 2026. Later checks compare against these SHA-256 values (SI-7, SI-7(1)). The full values are kept with the SI evidence. The test images apply to the test environment only; the release packages for the servers get their own baseline when they are built (D-PL-10; PA-61).
 
-**Table 6: Integrity baseline, v1.0**
+**Table 5: Integrity baseline, v1.0**
 
 | Item | SHA-256 (first 16 characters) |
 | --- | --- |
@@ -150,7 +129,7 @@ Users and API callers see a general error message; the detail goes only to the l
 
 Information is kept and disposed of under \<System Name\>'s retention schedule, which is held in \<PII Processing Management\>, section 3.7 (SI-12). This table summarises the periods that other designs set.
 
-**Table 7: Retention**
+**Table 6: Retention**
 
 | Information | Kept for | Source | State now |
 | --- | --- | --- | --- |
@@ -164,7 +143,7 @@ Information is kept and disposed of under \<System Name\>'s retention schedule, 
 
 Test-Integrity.ps1 ran on 12 November 2026 on the build tagged v1.0, in the test stack: 12 checks, 7 passed and 5 gaps. Its results, with their hashes, are kept with the SI evidence.
 
-**Table 8: How integrity is built today**
+**Table 7: How integrity is built today**
 
 | Part | What happens today | Check | Item |
 | --- | --- | --- | --- |
@@ -182,7 +161,7 @@ Test-Integrity.ps1 ran on 12 November 2026 on the build tagged v1.0, in the test
 
 ### 3.9 What \<Organisation\> provides
 
-**Table 9: Asked of \<Organisation\>**
+**Table 8: Asked of \<Organisation\>**
 
 | Provided | Controls | What \<System Name\> relies on | Evidence asked | State |
 | --- | --- | --- | --- | --- |
@@ -198,7 +177,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.1 SI-1 Policy and Procedures
 
-**Table 10: SI-1 design**
+**Table 9: SI-1 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
@@ -208,7 +187,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 | c.1 | The policy is reviewed on a schedule and after set events | Every 12 months, and after a significant incident, audit finding or system change | Reviewed on 12 November 2026 after the SI pack review. The first yearly review falls due in November 2027 |
 | c.2 | The procedures are reviewed on a schedule and after set events | Every 12 months, and after a change to the steps | Reviewed on 12 November 2026. The first yearly review falls due in November 2027 |
 
-**Table 11: SI-1 responsibility and evidence**
+**Table 10: SI-1 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -224,7 +203,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.2 SI-2 Flaw Remediation
 
-**Table 12: SI-2 design**
+**Table 11: SI-2 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
@@ -233,7 +212,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 | c | Install security-relevant updates within a defined time of their release | The one timetable in \<Risk Assessment Management\>, section 3.6: 3 days if exploited; 14 days for Critical and High; 30 for Medium; 90 for Low, or 30 once a fix exists | Not met for the 7 package advisories (PA-56) |
 | d | Make flaw remediation part of configuration management | Each fix goes through change control (\<Configuration Management\>) | Approved. The change workflow is not set up (PA-53) |
 
-**Table 13: SI-2 responsibility and evidence**
+**Table 12: SI-2 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -249,13 +228,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.3 SI-2(2) Automated Flaw Remediation Status
 
-**Table 14: SI-2(2) design**
+**Table 13: SI-2(2) design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Check with automated means, at a defined frequency, whether components have their security updates | Test-Vulnerability.ps1, repository dependency alerts and Windows Update reports, monthly and at each release | The script exists but is run by hand (PA-57); dependency alerts are off (PA-91) |
 
-**Table 15: SI-2(2) responsibility and evidence**
+**Table 14: SI-2(2) responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -271,7 +250,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.4 SI-3 Malicious Code Protection
 
-**Table 16: SI-3 design**
+**Table 15: SI-3 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
@@ -281,7 +260,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 | c.2 | Block or quarantine malicious code, and alert defined people | Block and quarantine; refuse the upload and record it in the audit trail; alert the Windows server administrator and the security officer | Not built (PA-58, PA-59) |
 | d | Deal with false positives and their effect on availability | Each false positive is recorded on TPL-10 with how it was resolved (PRO-SI-2, step 4) | Not yet in use |
 
-**Table 17: SI-3 responsibility and evidence**
+**Table 16: SI-3 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -297,7 +276,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.5 SI-4 System Monitoring
 
-**Table 18: SI-4 design**
+**Table 17: SI-4 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
@@ -310,7 +289,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 | f | Obtain a legal opinion on monitoring | The legal adviser's opinion on monitoring users, before monitoring starts (D-SI-07) | Not given (D-SI-07) |
 | g | Provide monitoring information to defined people at a defined frequency | Application, Windows and PostgreSQL logs to the security officer, weekly | Not started (PA-130) |
 
-**Table 19: SI-4 responsibility and evidence**
+**Table 18: SI-4 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -326,13 +305,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.6 SI-4(2) Automated Tools and Mechanisms for Real-time Analysis
 
-**Table 20: SI-4(2) design**
+**Table 19: SI-4(2) design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Use automated tools to support near real-time analysis of events | \<Organisation\>'s central logging, or CISA's Logging Made Easy if none is available, with alert rules for the detection use cases | No forwarding or automated analysis (H12; PA-59) |
 
-**Table 21: SI-4(2) responsibility and evidence**
+**Table 20: SI-4(2) responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -348,14 +327,14 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.7 SI-4(4) Inbound and Outbound Communications Traffic
 
-**Table 22: SI-4(4) design**
+**Table 21: SI-4(4) design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Set criteria for unusual or unauthorised inbound and outbound traffic | Traffic outside the agreed flows; and outbound, unusually large transfers | Defined |
 | b | Monitor inbound and outbound traffic at a defined frequency for that activity | Continuously, by \<Organisation\> | Not evidenced (EV-SI-01) |
 
-**Table 23: SI-4(4) responsibility and evidence**
+**Table 22: SI-4(4) responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -371,13 +350,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.8 SI-4(5) System-generated Alerts
 
-**Table 24: SI-4(5) design**
+**Table 23: SI-4(5) design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Alert defined people when defined indications of compromise occur | The security officer, for each detection use case in section 3.4 | Nothing raises an alert (H12; PA-59) |
 
-**Table 25: SI-4(5) responsibility and evidence**
+**Table 24: SI-4(5) responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -393,7 +372,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.9 SI-5 Security Alerts, Advisories, and Directives
 
-**Table 26: SI-5 design**
+**Table 25: SI-5 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
@@ -402,7 +381,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 | c | Pass them to defined people | The security officer, administrators and developers | Not yet in use |
 | d | Carry out security directives in time, or tell the issuer how far they are not met | Directives that apply are carried out to the timetable, through change control; the issuer is told if one cannot be met | None received yet |
 
-**Table 27: SI-5 responsibility and evidence**
+**Table 26: SI-5 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -418,14 +397,14 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.10 SI-7 Software, Firmware, and Information Integrity
 
-**Table 28: SI-7 design**
+**Table 27: SI-7 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Use integrity verification tools to detect unauthorised changes to defined software, firmware and information | SHA-256 for the release packages and stored documents, the audit chain for audit records, and \<Organisation\> for the servers' firmware (section 3.5) | Baseline recorded. Documents use MD5 (H09; PA-61); the audit chain cannot be recomputed (H10; PA-74) |
 | b | Take defined actions when unauthorised changes are detected | Treat it as an incident, and restore from a trusted copy or backup; for firmware, tell \<Organisation\>'s security contact | Defined |
 
-**Table 29: SI-7 responsibility and evidence**
+**Table 28: SI-7 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -441,13 +420,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.11 SI-7(1) Integrity Checks
 
-**Table 30: SI-7(1) design**
+**Table 29: SI-7(1) design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Check integrity at start-up, at defined events and at a defined frequency | At start-up, at each release and monthly; firmware monthly and at a change to the hosting, by \<Organisation\> | No scheduled check (PA-61) |
 
-**Table 31: SI-7(1) responsibility and evidence**
+**Table 30: SI-7(1) responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -463,13 +442,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.12 SI-7(7) Integration of Detection and Response
 
-**Table 32: SI-7(7) design**
+**Table 31: SI-7(7) design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Bring the detection of defined unauthorised changes into incident response | Any unexpected change to software, stored documents or audit records is handled as an incident (PRO-SI-6, step 3; \<Incident Response Management\>) | Defined and approved |
 
-**Table 33: SI-7(7) responsibility and evidence**
+**Table 32: SI-7(7) responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -485,13 +464,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.13 SI-8 Spam Protection
 
-**Table 34: SI-8 design**
+**Table 33: SI-8 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Use spam protection at entry and exit points, and update it | Not applicable: \<System Name\> sends and receives no email (\<Tailoring Register\>, TR-SI-01) | Not applicable |
 
-**Table 35: SI-8 responsibility and evidence**
+**Table 34: SI-8 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -501,13 +480,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.14 SI-8(2) Automatic Updates
 
-**Table 36: SI-8(2) design**
+**Table 35: SI-8(2) design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Update spam protection automatically | Not applicable: \<System Name\> sends and receives no email (\<Tailoring Register\>, TR-SI-01) | Not applicable |
 
-**Table 37: SI-8(2) responsibility and evidence**
+**Table 36: SI-8(2) responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -517,13 +496,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.15 SI-10 Information Input Validation
 
-**Table 38: SI-10 design**
+**Table 37: SI-10 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Check the validity of defined inputs | All API inputs, uploads (type, signature, size and name) and search terms, on the server, with parameterised database queries (section 3.2) | Tested: refused or rejected (H03 to H07) |
 
-**Table 39: SI-10 responsibility and evidence**
+**Table 38: SI-10 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -539,14 +518,14 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.16 SI-11 Error Handling
 
-**Table 40: SI-11 design**
+**Table 39: SI-11 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Give error messages that help put things right, without revealing what could be exploited | Users and callers see a general message; the detail goes to the log | About 29 API responses return the exception message (H01; PA-60) |
 | b | Show error detail only to defined people | Administrators and developers, through the logs | Not met while the API returns the detail (PA-60) |
 
-**Table 41: SI-11 responsibility and evidence**
+**Table 40: SI-11 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -562,13 +541,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.17 SI-12 Information Management and Retention
 
-**Table 42: SI-12 design**
+**Table 41: SI-12 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Manage and keep information, and outputs, as laws, policies and operational needs require | \<System Name\>'s retention schedule (\<PII Processing Management\>, section 3.7), with the periods in section 3.7 of this document | Set, with placeholders. Not applied: no retention or disposal is built (PA-70) |
 
-**Table 43: SI-12 responsibility and evidence**
+**Table 42: SI-12 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -584,13 +563,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.18 SI-16 Memory Protection
 
-**Table 44: SI-16 design**
+**Table 43: SI-16 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Use defined controls to protect memory from unauthorised code execution | Windows data execution prevention and address randomisation, and .NET managed memory | .NET managed memory in place. Data execution prevention and address randomisation to confirm on the servers (PA-54) |
 
-**Table 45: SI-16 responsibility and evidence**
+**Table 44: SI-16 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -608,7 +587,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 These are the CSS organisation-defined values for the 18 SI entries: 57 in total. They were agreed on 6 November 2026 (D-SI-P01), and those changed on 12 November 2026 in D-SI-P02. **State now** says whether \<System Name\> meets the value today.
 
-**Table 46: SI parameter register**
+**Table 45: SI parameter register**
 
 | CSS identifier | What must be defined | Value | State now |
 | --- | --- | --- | --- |
@@ -672,9 +651,9 @@ These are the CSS organisation-defined values for the 18 SI entries: 57 in total
 
 ## Appendix B Integrity controls outside the Moderate baseline
 
-CSS does not select these at Moderate, so they are not assessed. SI-8 and SI-8(2) are tailored out (TR-SI-01), and SI-12(1) to SI-12(3), SI-18, SI-18(4) and SI-19 are privacy baseline controls set out in \<PII Processing Management\>. Table 47 says where the design goes some way towards them.
+CSS does not select these at Moderate, so they are not assessed. SI-8 and SI-8(2) are tailored out (TR-SI-01), and SI-12(1) to SI-12(3), SI-18, SI-18(4) and SI-19 are privacy baseline controls set out in \<PII Processing Management\>. Table 46 says where the design goes some way towards them.
 
-**Table 47: Related controls and enhancements not selected**
+**Table 46: Related controls and enhancements not selected**
 
 | Control | What it adds | \<System Name\>'s position |
 | --- | --- | --- |

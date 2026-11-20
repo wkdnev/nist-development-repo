@@ -29,37 +29,9 @@ An assessor examines the register, the allow-lists, the TLS settings and the pag
 
 ## 2 Summary
 
-Of the 25 controls, 1 is implemented, 6 are partially implemented, 17 are not implemented and 1 is not applicable. No control in the Moderate baseline is missing from the design. Every gap is registered in the Risk List (\<Risk List\>) and the Plan of Action and Milestones (\<Plan of Action and Milestones\>).
+The implementation status of each control, how it is met, who is responsible, its assessment result and the risk and plan entries for its gaps are recorded once, in \<System Security Plan\>, section 7.17 (Table 26). This section gives only the overall position.
 
-**Table 2: Status of each control**
-
-| Control | Title | Status | What is missing | Registered as |
-| --- | --- | --- | --- | --- |
-| SC-1 | Policy and Procedures | Partially implemented | Not yet shared. The later version awaits the Head of Cyber | NC-SC-01; PA-20 |
-| SC-2 | Separation of System and User Functionality | Implemented | Nothing | None needed: satisfied |
-| SC-4 | Information in Shared System Resources | Not implemented | Export copies stay in a shared folder; servers not built | NC-SC-02; PA-54, PA-86 |
-| SC-5 | Denial-of-service Protection | Partially implemented | Rate limits switched off; \<Organisation\>'s protections not seen | NC-SC-03; PA-50, PA-129 |
-| SC-7 | Boundary Protection | Not implemented | Host firewalls and listening addresses not set; \<Organisation\>'s firewalls not seen | NC-SC-04; PA-83, EV-SC-02 |
-| SC-7(3) | Access Points | Not implemented | Not evidenced | NC-SC-05; PA-129, EV-SC-02 |
-| SC-7(4) | External Telecommunications Services | Not implemented | Not evidenced | NC-SC-06; PA-129, EV-SC-02 |
-| SC-7(5) | Deny by Default, Allow by Exception | Not implemented | Allow-lists not built | NC-SC-07; PA-83, EV-AC-03 |
-| SC-7(7) | Split Tunneling for Remote Devices | Not implemented | Not evidenced | NC-SC-08; PA-129, EV-SC-03 |
-| SC-7(8) | Route Traffic to Authenticated Proxy Servers | Not implemented | Not evidenced | NC-SC-09; PA-129, EV-SC-03 |
-| SC-8 | Transmission Confidentiality and Integrity | Not implemented | Every flow is plain | NC-SC-10; PA-18 |
-| SC-8(1) | Cryptographic Protection | Not implemented | No TLS | NC-SC-11; PA-18 |
-| SC-10 | Network Disconnect | Partially implemented | The network side is not evidenced | NC-SC-12; PA-129, EV-SC-01 |
-| SC-12 | Cryptographic Key Establishment and Management | Not implemented | Keys in source; key rings unencrypted | NC-SC-13; PA-19, PA-93 |
-| SC-13 | Cryptographic Protection | Partially implemented | TLS, disk and key ring encryption not set up; MD5 checksums | NC-SC-14; PA-18, PA-52, PA-61, PA-93 |
-| SC-15 | Collaborative Computing Devices and Applications | Not applicable | Not applicable | TR-SC-01 |
-| SC-17 | Public Key Infrastructure Certificates | Not implemented | Certificates not issued; policy not seen | NC-SC-15; PA-129, EV-SC-04 |
-| SC-18 | Mobile Code | Partially implemented | No page policy on two applications; outside scripts allowed | NC-SC-16; PA-34, PA-51 |
-| SC-20 | Secure Name/Address Resolution Service (Authoritative Source) | Not implemented | Not evidenced | NC-SC-17; PA-129, EV-SC-05 |
-| SC-21 | Secure Name/Address Resolution Service (Recursive or Caching Resolver) | Not implemented | Not evidenced | NC-SC-18; PA-129, EV-SC-05 |
-| SC-22 | Architecture and Provisioning for Name/Address Resolution Service | Not implemented | Not evidenced | NC-SC-19; PA-129, EV-SC-05 |
-| SC-23 | Session Authenticity | Partially implemented | Cookies not Secure; no HSTS | NC-SC-20; PA-18 |
-| SC-28 | Protection of Information at Rest | Not implemented | Nothing encrypted at rest | NC-SC-21; PA-52, PA-86, PA-93 |
-| SC-28(1) | Cryptographic Protection | Not implemented | Nothing encrypted at rest | NC-SC-22; PA-52 |
-| SC-39 | Process Isolation | Not implemented | Servers not built | NC-SC-23; PA-54 |
+No control in the Moderate baseline is missing from the design. Every gap is registered in the Risk List (\<Risk List\>) and the Plan of Action and Milestones (\<Plan of Action and Milestones\>).
 
 Three things matter most. Every flow is plain today: web, API and database traffic is not encrypted (PA-18, rated High). The token signing key and the database password are held in the source code (PA-19, High). And the key rings that protect the session cookies are unencrypted (PA-93, Medium). The authorising official decided that all three must be fixed before production (NC-SC-10, NC-SC-11, NC-SC-13).
 
@@ -91,7 +63,7 @@ These carry out the principles and rules of \<Policy\>, sections SC.3 and SC.4.
 
 Each server's host firewall denies everything not listed below (SC-7(5)). \<Organisation\>'s firewalls apply the same flows at the network edge (EV-SC-02). A new flow, port or listening address goes through change control and updates these lists first (PRO-SC-4); a temporary exception is recorded on TPL-17 with an end date, and exceptions are reviewed every 12 months (PRO-SC-8). Split tunnelling is not allowed: \<Organisation\>'s VPN prevents it on every remote device (SC-7(7)).
 
-**Table 3: Application server, inbound**
+**Table 2: Application server, inbound**
 
 | Rule | Port | From | Flow |
 | --- | --- | --- | --- |
@@ -100,14 +72,14 @@ Each server's host firewall denies everything not listed below (SC-7(5)). \<Orga
 | A3 | Windows administration \[tool and port, EV-MA-02\] | Z2 only | Not numbered |
 | None | API | Not reachable from the network: loopback only | F3, F4 |
 
-**Table 4: Database server, inbound**
+**Table 3: Database server, inbound**
 
 | Rule | Port | From | Flow |
 | --- | --- | --- | --- |
 | D1 | TCP 5432 | Application VM address only | F5 to F7 |
 | D2 | Windows administration \[tool and port, EV-MA-02\] | Z2 only | Not numbered |
 
-**Table 5: Both servers, outbound**
+**Table 4: Both servers, outbound**
 
 | Rule | Port | To | Purpose |
 | --- | --- | --- | --- |
@@ -121,7 +93,7 @@ Each server's host firewall denies everything not listed below (SC-7(5)). \<Orga
 
 Every flow uses this profile, from NCSC's guidance (updated 15 October 2026). It covers F1 to F7, including the API calls that stay on the application server, and F11, sign-in through AD FS, which \<Organisation\> protects.
 
-**Table 6: TLS profile**
+**Table 5: TLS profile**
 
 | Setting | Required value | State now |
 | --- | --- | --- |
@@ -141,7 +113,7 @@ Sessions are checked on the server on every request. A new session identifier is
 
 Every key and cryptographic use in \<System Name\> is listed here (SC-12, SC-13). Cryptoperiods follow CSS. Values are never recorded, only where they are kept. United States CSS validation is not required: NCSC's profiles and these algorithms are used instead (D-SC-P02).
 
-**Table 7: Cryptographic and key register**
+**Table 6: Cryptographic and key register**
 
 | Item | Purpose | Algorithm and size | Stored in | Owner | Cryptoperiod | State now |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -165,7 +137,7 @@ Certificates come from \<Organisation\>'s certificate authority, under its certi
 
 Acceptable mobile code is JavaScript and WebAssembly served by \<System Name\> itself. Anything else is unacceptable, including scripts from outside services, unless the system owner approves it (SC-18). Each application sends this page policy, and developers check page code at each release (PRO-SC-5).
 
-**Table 8: Page policy**
+**Table 7: Page policy**
 
 | Directive | Required | Configured today | Sent today |
 | --- | --- | --- | --- |
@@ -206,7 +178,7 @@ The information protected at rest is the documents and pages in PostgreSQL, the 
 
 Test-Protection.ps1 ran on 12 November 2026 on the build tagged v1.0, in the test stack: 12 checks, 1 passed and 11 gaps. Its results, with their hashes, are kept with the SC evidence. The test sent its requests to the sign-in pages of that build, which used \<System Name\>'s own passwords; \<System Name\> now has no sign-in page of its own (D-AC-23), so the checks are to be run again on the servers.
 
-**Table 9: How protection is built today**
+**Table 8: How protection is built today**
 
 | Part | What happens today | Check | Item |
 | --- | --- | --- | --- |
@@ -226,7 +198,7 @@ Test-Protection.ps1 ran on 12 November 2026 on the build tagged v1.0, in the tes
 
 ### 3.10 What \<Organisation\> provides
 
-**Table 10: Asked of \<Organisation\>**
+**Table 9: Asked of \<Organisation\>**
 
 | Provided | Controls | What \<System Name\> relies on | Evidence asked | State |
 | --- | --- | --- | --- | --- |
@@ -245,7 +217,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.1 SC-1 Policy and Procedures
 
-**Table 11: SC-1 design**
+**Table 10: SC-1 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
@@ -255,7 +227,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 | c.1 | The policy is reviewed on a schedule and after set events | Every 12 months, and after a significant incident, audit finding or system change | Reviewed on 12 November 2026 after the SC pack review. The first yearly review falls due in November 2027 |
 | c.2 | The procedures are reviewed on a schedule and after set events | Every 12 months, and after a change to the steps | Reviewed on 12 November 2026. The first yearly review falls due in November 2027 |
 
-**Table 12: SC-1 responsibility and evidence**
+**Table 11: SC-1 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -271,13 +243,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.2 SC-2 Separation of System and User Functionality
 
-**Table 13: SC-2 design**
+**Table 12: SC-2 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Separate user functionality, including user interface services, from system management functionality | The admin portal, Admin application, is a separate application and process from the user application, UI application, reached only over \<Organisation\>'s managed administration route (section 3.2) | Separate application and process (B09). The administration route is not yet enforced (PA-83) |
 
-**Table 14: SC-2 responsibility and evidence**
+**Table 13: SC-2 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -293,13 +265,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.3 SC-4 Information in Shared System Resources
 
-**Table 15: SC-4 design**
+**Table 14: SC-4 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Prevent unauthorised and unintended transfer of information through shared system resources | Windows Server clears memory and storage between processes and users. Each application runs as its own Windows service under its own account (D-PL-10), and bulk export copies are deleted once downloaded (section 3.6) | Not assessable until the servers exist. Bulk export leaves copies in a shared temporary folder (PA-86) |
 
-**Table 16: SC-4 responsibility and evidence**
+**Table 15: SC-4 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -315,14 +287,14 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.4 SC-5 Denial-of-service Protection
 
-**Table 17: SC-5 design**
+**Table 16: SC-5 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Protect against or limit the effects of defined denial-of-service events | Limit the effects of network flooding, request flooding and resource exhaustion | Not evidenced (EV-SC-01) |
 | b | Use defined controls to do so | \<Organisation\>'s network protections; a request rate limit in each application; and sign-in lockout, which AD FS applies (section 3.7) | The rate limits are switched off in the code (N12; PA-50). \<Organisation\>'s protections not seen (EV-SC-01) |
 
-**Table 18: SC-5 responsibility and evidence**
+**Table 17: SC-5 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -338,7 +310,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.5 SC-7 Boundary Protection
 
-**Table 19: SC-7 design**
+**Table 18: SC-7 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
@@ -346,7 +318,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 | b | Separate publicly accessible components from internal networks, physically or logically | \<System Name\> has no publicly accessible component. Users reach it only from \<Organisation\>'s network | No public component |
 | c | Connect to external networks only through managed interfaces arranged by the security architecture | Only through \<Organisation\>'s managed interfaces, as \<Security Architecture\> sets out | Not evidenced (EV-SC-02) |
 
-**Table 20: SC-7 responsibility and evidence**
+**Table 19: SC-7 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -362,13 +334,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.6 SC-7(3) Access Points
 
-**Table 21: SC-7(3) design**
+**Table 20: SC-7(3) design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Limit the number of external network connections to the system | \<System Name\> has no connection of its own to an outside network. Its only external connections are \<Organisation\>'s managed gateways | Not evidenced (EV-SC-02) |
 
-**Table 22: SC-7(3) responsibility and evidence**
+**Table 21: SC-7(3) responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -384,7 +356,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.7 SC-7(4) External Telecommunications Services
 
-**Table 23: SC-7(4) design**
+**Table 22: SC-7(4) design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
@@ -397,7 +369,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 | g | Publish information so remote networks can detect unauthorised control plane traffic | Provided by \<Organisation\> | Not evidenced (EV-SC-02) |
 | h | Filter unauthorised control plane traffic from external networks | Provided by \<Organisation\> | Not evidenced (EV-SC-02) |
 
-**Table 24: SC-7(4) responsibility and evidence**
+**Table 23: SC-7(4) responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -413,13 +385,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.8 SC-7(5) Deny by Default, Allow by Exception
 
-**Table 25: SC-7(5) design**
+**Table 24: SC-7(5) design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Deny network traffic by default, and allow it by exception, at managed interfaces or for defined systems | At \<Organisation\>'s managed interfaces and at each server's host firewall, with the allow-lists in section 3.2 | Allow-lists set, but not built (PA-83). \<Organisation\>'s rules not seen (EV-AC-03) |
 
-**Table 26: SC-7(5) responsibility and evidence**
+**Table 25: SC-7(5) responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -435,13 +407,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.9 SC-7(7) Split Tunneling for Remote Devices
 
-**Table 27: SC-7(7) design**
+**Table 26: SC-7(7) design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Prevent split tunnelling for remote devices unless it is securely provisioned with defined safeguards | \<Organisation\>'s VPN prevents split tunnelling on every remote device | Not evidenced (EV-SC-03) |
 
-**Table 28: SC-7(7) responsibility and evidence**
+**Table 27: SC-7(7) responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -457,13 +429,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.10 SC-7(8) Route Traffic to Authenticated Proxy Servers
 
-**Table 29: SC-7(8) design**
+**Table 28: SC-7(8) design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Route defined internal traffic to defined external networks through authenticated proxy servers | All outbound traffic from the servers goes through \<Organisation\>'s authenticated proxy, or is blocked (rule O3 in section 3.2) | Not evidenced (EV-SC-03) |
 
-**Table 30: SC-7(8) responsibility and evidence**
+**Table 29: SC-7(8) responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -479,13 +451,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.11 SC-8 Transmission Confidentiality and Integrity
 
-**Table 31: SC-8 design**
+**Table 30: SC-8 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Protect the confidentiality and integrity of transmitted information | TLS on every flow, F1 to F7 and F11, including those that stay inside a server, under the profile in section 3.3 | Plain HTTP on every application and on the internal API calls, and database TLS off (N01, N06; PA-18) |
 
-**Table 32: SC-8 responsibility and evidence**
+**Table 31: SC-8 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -501,13 +473,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.12 SC-8(1) Cryptographic Protection
 
-**Table 33: SC-8(1) design**
+**Table 32: SC-8(1) design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Use cryptography to prevent unauthorised disclosure, and detect changes, during transmission | TLS under NCSC's profiles, with authenticated encryption (AES-GCM) (section 3.3) | Not in place (PA-18) |
 
-**Table 34: SC-8(1) responsibility and evidence**
+**Table 33: SC-8(1) responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -523,13 +495,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.13 SC-10 Network Disconnect
 
-**Table 35: SC-10 design**
+**Table 34: SC-10 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | End the network connection at the end of a session, or after a defined period of inactivity | Application sessions end after 30 minutes idle and after 8 hours. \<Organisation\> ends network and remote access sessions after 30 minutes idle | Application sessions end as set. The network side is not evidenced (EV-SC-01) |
 
-**Table 36: SC-10 responsibility and evidence**
+**Table 35: SC-10 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -545,13 +517,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.14 SC-12 Cryptographic Key Establishment and Management
 
-**Table 37: SC-12 design**
+**Table 36: SC-12 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Establish and manage cryptographic keys under defined key management requirements | Each key in the register (section 3.4) is generated randomly, held in a protected store outside source code, owned, and changed at its cryptoperiod, which follows CSS, when a holder leaves, and at once if compromise is suspected | The token signing key and database password are in source (N09; PA-19). The key rings are unencrypted (N08; PA-93) |
 
-**Table 38: SC-12 responsibility and evidence**
+**Table 37: SC-12 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -567,14 +539,14 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.15 SC-13 Cryptographic Protection
 
-**Table 39: SC-13 design**
+**Table 38: SC-13 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Determine the cryptographic uses | TLS, token signing, cookie and antiforgery protection, disk encryption, backup encryption and integrity checks (section 3.4) | Done |
 | b | Use the defined types of cryptography for each use | NCSC's TLS profiles, XTS-AES 256, HMAC-SHA256, AES-256 with HMAC-SHA256, and SHA-256. United States CSS validation is not required (D-SC-P02) | Token signing in place. TLS, disk and key ring encryption not set up. Document checksums use MD5 (PA-61) |
 
-**Table 40: SC-13 responsibility and evidence**
+**Table 39: SC-13 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -590,13 +562,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.16 SC-15 Collaborative Computing Devices and Applications
 
-**Table 41: SC-15 design**
+**Table 40: SC-15 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Prohibit remote activation of collaborative devices, and show when they are in use | Not applicable: \<System Name\> has no collaborative computing devices or applications (\<Tailoring Register\>, TR-SC-01) | Not applicable |
 
-**Table 42: SC-15 responsibility and evidence**
+**Table 41: SC-15 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -606,14 +578,14 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.17 SC-17 Public Key Infrastructure Certificates
 
-**Table 43: SC-17 design**
+**Table 42: SC-17 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Issue certificates under a defined certificate policy, or obtain them from an approved provider | From \<Organisation\>'s certificate authority, under its certificate policy, using ECDSA P-256 or RSA 2048-bit with SHA-256 (section 3.4) | Not issued; the policy is not seen (EV-SC-04) |
 | b | Include only approved trust anchors in the trust stores | Only \<Organisation\>'s approved trust anchors | Not evidenced (EV-SC-04) |
 
-**Table 44: SC-17 responsibility and evidence**
+**Table 43: SC-17 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -629,14 +601,14 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.18 SC-18 Mobile Code
 
-**Table 45: SC-18 design**
+**Table 44: SC-18 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Define acceptable and unacceptable mobile code and mobile code technologies | Acceptable: JavaScript and WebAssembly served by \<System Name\> itself. Anything else, including scripts from outside services, is unacceptable unless the system owner approves it (section 3.5) | Defined and approved |
 | b | Authorise, monitor and control the use of mobile code | Each application sends the page policy in section 3.5. Developers check page code at each release (PRO-SC-5) | UI application and Admin application send no page policy, and the configured policy allows inline scripts and outside hosts (N04, N10; PA-34, PA-51) |
 
-**Table 46: SC-18 responsibility and evidence**
+**Table 45: SC-18 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -652,14 +624,14 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.19 SC-20 Secure Name/Address Resolution Service (Authoritative Source)
 
-**Table 47: SC-20 design**
+**Table 46: SC-20 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Provide data origin and integrity artefacts with authoritative name resolution responses | Provided by \<Organisation\>'s DNS (section 3.8) | Not evidenced (EV-SC-05) |
 | b | Indicate the security status of child zones, and enable a chain of trust | Provided by \<Organisation\>'s DNS | Not evidenced (EV-SC-05) |
 
-**Table 48: SC-20 responsibility and evidence**
+**Table 47: SC-20 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -675,13 +647,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.20 SC-21 Secure Name/Address Resolution Service (Recursive or Caching Resolver)
 
-**Table 49: SC-21 design**
+**Table 48: SC-21 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Request and verify data origin authentication and integrity on the name resolution responses received | Provided by \<Organisation\>'s resolvers (section 3.8) | Not evidenced (EV-SC-05) |
 
-**Table 50: SC-21 responsibility and evidence**
+**Table 49: SC-21 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -697,13 +669,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.21 SC-22 Architecture and Provisioning for Name/Address Resolution Service
 
-**Table 51: SC-22 design**
+**Table 50: SC-22 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Make the name resolution service fault-tolerant, with internal and external role separation | Provided by \<Organisation\> (section 3.8) | Not evidenced (EV-SC-05) |
 
-**Table 52: SC-22 responsibility and evidence**
+**Table 51: SC-22 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -719,13 +691,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.22 SC-23 Session Authenticity
 
-**Table 53: SC-23 design**
+**Table 52: SC-23 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Protect the authenticity of communications sessions | Sessions are checked on the server on every request, and carried only over TLS in cookies marked Secure, HttpOnly and SameSite, with HSTS (section 3.3). A new session identifier at each sign-in; only identifiers \<System Name\> issued accepted; sessions ended on the server at sign-out and time-out | Sessions are checked on the server. Cookies are not Secure over HTTP, and there is no HSTS (N02, N03; PA-18). Session handling not yet tested with sign-in through AD FS (PA-95) |
 
-**Table 54: SC-23 responsibility and evidence**
+**Table 53: SC-23 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -741,13 +713,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.23 SC-28 Protection of Information at Rest
 
-**Table 55: SC-28 design**
+**Table 54: SC-28 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Protect the confidentiality and integrity of defined information at rest | Documents and pages in PostgreSQL, the database files, backups, export copies and the data protection key rings, by the means in section 3.6 | Nothing is encrypted at rest in Docker. The servers are not built (PA-52, PA-86, PA-93) |
 
-**Table 56: SC-28 responsibility and evidence**
+**Table 55: SC-28 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -763,13 +735,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.24 SC-28(1) Cryptographic Protection
 
-**Table 57: SC-28(1) design**
+**Table 56: SC-28(1) design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Use cryptography to prevent unauthorised disclosure and change of defined information at rest on defined components | BitLocker with XTS-AES 256 and the TPM on both servers, encrypted backups, and the key ring folders protected with DPAPI (section 3.6) | The servers are not built (PA-52) |
 
-**Table 58: SC-28(1) responsibility and evidence**
+**Table 57: SC-28(1) responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -785,13 +757,13 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 ### 4.25 SC-39 Process Isolation
 
-**Table 59: SC-39 design**
+**Table 58: SC-39 design**
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Keep a separate execution domain for each running process | Windows Server gives each process its own address space, and each application runs as its own Windows service under its own account (D-PL-10) | Not assessable until the servers exist |
 
-**Table 60: SC-39 responsibility and evidence**
+**Table 59: SC-39 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -809,7 +781,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 These are the CSS organisation-defined values for the 25 SC entries: 30 in total. They were agreed on 6 November 2026 (D-SC-P01), and those changed on 12 November 2026 in D-SC-P02. **State now** says whether \<System Name\> meets the value today.
 
-**Table 61: SC parameter register**
+**Table 60: SC parameter register**
 
 | CSS identifier | What must be defined | Value | State now |
 | --- | --- | --- | --- |
@@ -846,9 +818,9 @@ These are the CSS organisation-defined values for the 25 SC entries: 30 in total
 
 ## Appendix B Communications protection controls outside the Moderate baseline
 
-CSS does not select these at Moderate, so they are not assessed. SC-15 is tailored out (TR-SC-01), and SC-7(24) is a privacy baseline control set out in \<PII Processing Management\>. Table 62 says where the design goes some way towards them.
+CSS does not select these at Moderate, so they are not assessed. SC-15 is tailored out (TR-SC-01), and SC-7(24) is a privacy baseline control set out in \<PII Processing Management\>. Table 61 says where the design goes some way towards them.
 
-**Table 62: Related controls and enhancements not selected**
+**Table 61: Related controls and enhancements not selected**
 
 | Control | What it adds | \<System Name\>'s position |
 | --- | --- | --- |

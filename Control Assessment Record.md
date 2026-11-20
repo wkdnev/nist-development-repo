@@ -1227,7 +1227,7 @@ There is one finding for each CSS determination statement, including those about
 | AU-02\_ODP\[02\] | Event types to log are defined | S | \<Audit and Accountability Management\>, sections 3.2 and 3.3 |
 | AU-02\_ODP\[03\] | How often they are logged is defined | S | Every occurrence |
 | AU-02\_ODP\[04\] | Review of selected events is defined | S | Every 12 months |
-| AU-02a. | Event types are identified | S | \<Audit and Accountability Management\>, Table 4 |
+| AU-02a. | Event types are identified | S | \<Audit and Accountability Management\>, Table 3 |
 | AU-02b. | Logging is coordinated with other entities | O-D | Not yet agreed with \<Organisation\> (EV-AU-01) |
 | AU-02c.\[01\] | Event types are specified for logging | S | \<Audit and Accountability Management\>, sections 3.2 and 3.3 |
 | AU-02c.\[02\] | They are logged at the set frequency | O-G | Most account, group and role changes are not logged (PA-14), nor are reading the audit log, start-up and shut-down, or logging changes (PA-76) |
