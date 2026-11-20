@@ -14,11 +14,11 @@ This document is used by every control family. \<System Name\> is the whole stac
 | Database server VM: Windows Server 2025, Microsoft SQL Server 2022, the \<System Name\> database | Users' devices |
 | Service accounts and configuration on both VMs | \<Organisation\>'s remote access, PingFederate, Active Directory, time, logging, proxy and backup services, ServiceNow and the starters and leavers process |
 
-![Figure 1: Target design, showing the \<System Name\> boundary on \<Organisation\>'s network with flows F1 to F7](figures/sd-figure-1.png)
+![Figure 1: Target design, showing the \<System Name\> boundary on \<Organisation\>'s network with flows F1 to F7, F10 and F11](figures/sd-figure-1.png)
 
-**Figure 1: Target design, showing the \<System Name\> boundary on \<Organisation\>'s network with flows F1 to F7**
+**Figure 1: Target design, showing the \<System Name\> boundary on \<Organisation\>'s network with flows F1 to F7, F10 and F11**
 
-The figure shows the two VMs inside the \<System Name\> boundary, on \<Organisation\>'s corporate network. Users' devices reach UI application (F1) and Admin application (F2). Both call API (F3, F4), and only API connects to SQL Server on the database VM (F5) and reads groups from Active Directory over LDAPS (F7); browsers sign in through PingFederate (F6). Both VMs also reach \<Organisation\>'s time, logging, proxy and backup services (F8), which the figure does not draw.
+The figure shows the two VMs inside the \<System Name\> boundary, on \<Organisation\>'s corporate network. Users' devices reach UI application (F1) and Admin application (F2). Both call API (F3, F4), and only API connects to SQL Server on the database VM (F5) and reads groups from Active Directory over LDAPS (F7); browsers sign in through PingFederate (F6), and the two apps fetch PingFederate's metadata and signing certificate, and complete each sign-in, from the application VM (F10). Server and database administrators reach both VMs only over \<Organisation\>'s managed administration route (F11). Both VMs also reach \<Organisation\>'s time, logging, proxy and backup services (F8), which the figure does not draw.
 
 Users sign in through \<Organisation\>'s PingFederate, with multi-factor authentication, which returns a signed OpenID Connect response that names the person and carries no groups. The API reads the person's group membership from Active Directory over LDAPS. \<System Name\> holds no accounts or passwords of its own.
 
@@ -36,6 +36,8 @@ Users sign in through \<Organisation\>'s PingFederate, with multi-factor authent
 | F7 | API | \<Organisation\>'s Active Directory | Reading the signed-in person's group memberships | LDAPS, TCP 636, read-only |
 | F8 | Both VMs | \<Organisation\>'s time service, central logging, proxy and backup site | Time, logs, updates and backups | As \<Organisation\> sets, encrypted |
 | F9 | ServiceNow and the starters and leavers process | People, not \<System Name\> | Access approvals by the Data Owner, and leaver notices | By people, in \<Organisation\>'s services. ServiceNow has no connection to \<System Name\> |
+| F10 | UI application and Admin application | \<Organisation\>'s PingFederate | Fetching PingFederate's OpenID Connect metadata and signing certificate, and completing each sign-in | HTTPS, TCP 443, from the application VM only |
+| F11 | Server and database administrators' managed devices | Both VMs | Server and database administration | Only over \<Organisation\>'s managed administration route (\<Maintenance Management\>, section 3.4), with multi-factor authentication, using named accounts |
 
 The flows are those in \<System Description\>, section 6.5, with the same numbers. F9 is not a technical connection to \<System Name\>, and is not shown on Figure 1. No other flow is allowed. The UI application and the Admin application have no connection to the database. \<System Name\> needs no route to the internet: it serves every script and style itself, and loads nothing from a content delivery service or any other outside host.
 
@@ -111,9 +113,9 @@ This section states how \<System Name\> is protected, as CSS PL-8 requires. It d
 | --- | --- | --- | --- |
 | Z1 Users | Users' managed devices and \<Organisation\>'s corporate network | Not trusted by \<System Name\> | Not applicable |
 | Z2 Administration route | \<Organisation\>'s managed route for administrators | Trusted for administration only | Managed route and administrator sign-in |
-| Z3 Application | Application VM: UI application, Admin application and API | Trusted to enforce access | HTTPS on 443 from Z1 (F1); the Admin application only from Z2 (F2) |
-| Z4 Data | Database VM: SQL Server and the \<System Name\> database | Most protected | Encrypted database connections from the API in Z3 only (F5) |
-| Z5 Provider services | \<Organisation\>'s directory, sign-on, monitoring, ServiceNow and starters and leavers services | Trusted by agreement and evidence | From browsers to PingFederate (F6), outbound from Z3 (F7, F8) or by people (F9), as in section 4 |
+| Z3 Application | Application VM: UI application, Admin application and API | Trusted to enforce access | HTTPS on 443 from Z1 (F1); the Admin application only from Z2 (F2); server administration only from Z2 (F11) |
+| Z4 Data | Database VM: SQL Server and the \<System Name\> database | Most protected | Encrypted database connections from the API in Z3 only (F5); database administration only from Z2 (F11) |
+| Z5 Provider services | \<Organisation\>'s directory, sign-on, monitoring, ServiceNow and starters and leavers services | Trusted by agreement and evidence | From browsers to PingFederate (F6), outbound from Z3 (F7, F8, F10) or by people (F9), as in section 4 |
 
 ### 6.4 Layers of defence
 
@@ -121,8 +123,8 @@ This section states how \<System Name\> is protected, as CSS PL-8 requires. It d
 
 | Layer | Protection | Main controls |
 | --- | --- | --- |
-| Boundary | \<Organisation\>'s firewalls allow only HTTPS into Z3, and the Admin application only from Z2 | SC-7, AC-17, MA-4 |
-| Transport | TLS on every flow, F1 to F8, as \<System Description\>, P-26, sets, under NCSC's profiles (\<System and Communications Protection Management\>, section 3.3); data protection key rings protected with DPAPI | SC-8, SC-13 |
+| Boundary | \<Organisation\>'s firewalls allow only HTTPS into Z3, and the Admin application and server and database administration (F11) only from Z2 | SC-7, AC-17, MA-4 |
+| Transport | TLS on every flow, F1 to F8 and F10, as \<System Description\>, P-26, sets, under NCSC's profiles (\<System and Communications Protection Management\>, section 3.3); data protection key rings protected with DPAPI | SC-8, SC-13 |
 | Identity | Each person's own Active Directory account, signed in through PingFederate with multi-factor authentication; roles and schema access from AD groups, read by the API over LDAPS (F7) | IA-2, IA-5, AC-7 |
 | Authorisation | Roles and schema access checked on every page and API call | AC-3, AC-6 |
 | Sign-in lifetime and screen lock | No session management in \<System Name\>. The sign-in is held only in the authentication cookie, which lasts no longer than PingFederate's sign-in lifetime (P-AC-10; \<System Description\>, P-02); an unattended screen is locked by the operating system on \<Organisation\>'s managed devices and the servers (P-AC-15; P-03) | AC-11, AC-12, SC-23 |

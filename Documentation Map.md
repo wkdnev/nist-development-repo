@@ -265,6 +265,6 @@ ISO 2145 and ISO/IEC 27001 were read through secondary summaries, because the st
 ## 5 Open questions
 
 1. Is Moderate the right security categorisation? The authorising official approves the categorisation (\<System Security Plan\>, section 3.3).
-2. Who are the authorising official, administrators, auditors, security officers and the Data Owner of each schema? \[Names, in \<Roles and Responsibilities\>\].
+2. Who are the authorising official, administrators, auditors, security officers, business owners, the legal adviser's delegate and the Data Owner of each schema? \[Names, in \<Roles and Responsibilities\>\].
 3. Which \<Organisation\> services and evidence cover the inherited controls, and does the Cyber Essentials Plus scope include the two VMs? \[Answer, from the evidence asked for in \<Evidence Requests\>\].
 4. What target dates should High POA&M items have? \[Dates, set by the authorising official (\<Plan of Action and Milestones\>, section 2.1)\].

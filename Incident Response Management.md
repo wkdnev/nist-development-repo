@@ -52,6 +52,7 @@ Controls met here: IR-7, IR-8.
 | Decision maker | \[Name\], system owner | \[Name\] | Decides on stopping the service, recovery and outside reporting of crime |
 | Risk decision | \[Name\], authorising official | None | Decides on the risk arising from the incident |
 | Technical response | \[Name\], \[Name\], and the developers | Each other | Contain, eradicate, recover and preserve evidence |
+| Audit records | \[Name\], auditor | \[Name\], auditor | Searches and exports the audit records the response needs, with a hash, and tells the incident lead what they show. The auditor is the only role that reads the audit log |
 | Legal | \[Name\] | \[Deputy to be named\] | Decides whether to tell the ICO and the people affected, and makes the reports |
 | Support | \[Name\], \<Organisation\>'s security contact | \[Name\] | \<Organisation\>'s monitoring, network and forensic help |
 
@@ -83,7 +84,7 @@ Controls met here: IR-4.
 | Source | What it shows | Who watches |
 | --- | --- | --- |
 | User and staff reports | Anything that looks wrong (section 3.11) | Security officer |
-| Weekly audit log review (\<Procedures\> (AU); \<System Description\>, P-08) | Refused access, changes to schemas and their groups, large exports; failed sign-ins and lockouts from \<Organisation\>'s PingFederate and Active Directory records | The security officer, with the auditor |
+| Weekly audit log review (\<Procedures\> (AU); \<System Description\>, P-08) | Refused access, changes to schemas and their groups, large exports; failed sign-ins and lockouts from \<Organisation\>'s PingFederate and Active Directory records | The auditor, who reports anything suspicious to the security officer. The security officer does not read the audit log |
 | Alerts (\<System Description\>, P-27) | The eight alert events: repeated failed sign-ins; a break in the audit chain; malware detected; a person added to an administrator group; a bulk export above a set size; an administrator sign-in out of hours; an audit logging failure; and an unexpected change to the software | Security officer |
 | Microsoft Defender on both servers | Malicious code | Windows server administrator |
 | Backup and integrity checks (SyOps C8, C12) | Failed backups, changed stored files or release packages | Database and Windows server administrators |

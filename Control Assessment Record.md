@@ -62,7 +62,7 @@ Each entry follows the CSS approach: the objectives come from CSS, and each gets
 | Other than satisfied (E) | CSS has no separate result for missing evidence. This marks objectives where the VMs or \<Organisation\>'s evidence are not available |
 | Not applicable | The objective does not apply, with a reason and any condition recorded in \<Tailoring Register\>. This is the organisation's tailoring decision, not a result under CSS, and the independent assessor may test it |
 
-The three methods are **Examine** (documents, code and configuration), **Test** (running the mechanism) and **Interview** (asking the people responsible). The interview questions are INT-AC-01 to 34 in \<Interview Guide\>, section 3. An answer changes a finding only when the records it describes are seen.
+The three methods are **Examine** (documents, code and configuration), **Test** (running the mechanism) and **Interview** (asking the people responsible). The interview questions are INT-AC-01 to 38 in \<Interview Guide\>, section 3. An answer changes a finding only when the records it describes are seen.
 
 ### AC.3 Executive summary
 
@@ -952,7 +952,7 @@ This records how the assessment is planned and carried out, following CSS. It co
 | Site | \[Where the assessment is done, and on what build and data\] |
 | Examine | Policies, procedures, the SSP, \<System Description\>, the code of the UI application, Admin application, API and shared library, the access rule on each page and API function, the schema definitions and their read and edit groups, the role group settings, configuration and test results. Depth: focused. Coverage: focused, on the functions each control concerns |
 | Test | Repeatable checks of access enforcement by schema and role, privilege, the group lookup in Active Directory over LDAPS, sign-in through PingFederate and the authentication cookie's lifetime, a browser check of the pages, and a probe of what answers without signing in. Depth: focused. Coverage: focused |
-| Interview | The system owner, administrators, Data Owners, auditors and security officers, the Windows server and database administrators, developers, \<Organisation\>'s security contact and a sample of users, using INT-AC-01 to 34. The people are named in \<Roles and Responsibilities\> |
+| Interview | The system owner, administrators, Data Owners, auditors and security officers, the Windows server and database administrators, developers, \<Organisation\>'s security contact, a sample of users, the business owner and the legal adviser's delegate, using INT-AC-01 to 38. The people are named in \<Roles and Responsibilities\> |
 | Previous results reused | \[Results reused from other chapters, if any\] |
 | Boundary | The whole stack on the two Windows Server 2025 VMs: the UI application, Admin application, API and shared library on the application server, and SQL Server 2022 on the database server, with Windows accounts, SQL Server logins and roles, and each application's group managed service account, as well as the Active Directory role and schema groups that give users access. \<Organisation\>'s network, remote access, devices, PingFederate and Active Directory are inherited, and Cyber Essentials Plus supports but does not prove them |
 | Order of assessment | A, access enforcement (AC-3, AC-14, AC-6(10), AC-6(1)); B, privilege (AC-6, AC-6(5), AC-5, AC-6(2), AC-6(9)); C, account lifecycle (AC-2 and its enhancements, AC-6(7)); D, sign-in, sign-in lifetime and screen lock (AC-7, AC-8, AC-2(5), AC-12, AC-11, AC-11(1)), where AC-2(5) and AC-12 rest on PingFederate's sign-in lifetime (P-02) and AC-11 and AC-11(1) on the device screen lock (P-03), as \<System Name\> has no session management of its own; E, network and devices (AC-4, AC-17, AC-18 and AC-19 families); F, organisation (AC-20 family, AC-21, AC-22, AC-1). Access enforcement comes first because the other results depend on it |
@@ -1426,7 +1426,7 @@ This records the Level 1 self-assessment of the 24 CM entries in the CSS Moderat
 
 ### CM.2 How to read this record
 
-The methods are **Examine** (code and configuration), **Test** (Test-ConfigurationManagement.ps1 and checks by hand, with a hash manifest of each run, in the SC and CM evidence) and **Interview**. The interview questions are in \<Interview Guide\>, Table 14. An answer changes a finding only when the records it describes are seen.
+The methods are **Examine** (code and configuration), **Test** (Test-ConfigurationManagement.ps1 and checks by hand, with a hash manifest of each run, in the SC and CM evidence) and **Interview**. The interview questions are in \<Interview Guide\>, Table 16. An answer changes a finding only when the records it describes are seen.
 
 ### CM.3 Executive summary
 
@@ -3757,7 +3757,7 @@ There is one finding for each CSS determination statement, including those about
 | Test | Test-Protection.ps1, on a throwaway test stack built from the release (the SC evidence), and checks by hand |
 | Interview | The Windows server administrator, database administrator, developers and \<Organisation\>'s security contact |
 | Previous results reused | \[Results reused from other chapters, if any\] |
-| Boundary | \<System Name\>'s UI application, Admin application, API, SQL Server database, keys and the two VMs, and flows F1 to F8 in \<System Description\>, section 6.5. \<Organisation\>'s network, VPN, proxy, DNS and certificate authority are provider evidence (EV-SC-01 to EV-SC-05) |
+| Boundary | \<System Name\>'s UI application, Admin application, API, SQL Server database, keys and the two VMs, and flows F1 to F8, F10 and F11 in \<System Description\>, section 6.5. \<Organisation\>'s network, VPN, proxy, DNS and certificate authority are provider evidence (EV-SC-01 to EV-SC-05) |
 | Order of assessment | A, transport and the authenticity of connections (SC-8, SC-8(1), SC-23); B, keys and cryptography (SC-12, SC-13); C, page code (SC-18); D, boundary (SC-7 and enhancements); E, data at rest (SC-28); F, inherited services (SC-17, SC-20 to SC-22, SC-39); G, policy (SC-1) |
 | Needed from providers | EV-SC-01 to EV-SC-05 and EV-AC-03 in \<Evidence Requests\> |
 | Evidence retained | The SC evidence (results, README and MANIFEST); the SC and CM evidence; completed TPL-6, TPL-8, TPL-11 and TPL-23 records |

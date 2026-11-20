@@ -106,7 +106,7 @@ The scanner must:
 1. scan both servers with an account approved for scanning, so that the scan sees what an administrator sees (RA-5(5));
 2. update its definitions before each scan (RA-5(2));
 3. name each flaw by its CVE identifier and rate it by CVSS, so that its results and the package check's can be compared and measured the same way (RA-5b);
-4. find ports, protocols and services that should not be reachable, against the allowed flows F1 to F9 in \<System Description\>, section 6.5, and \<Access Control Management\>, section 3.6;
+4. find ports, protocols and services that should not be reachable, against the allowed flows F1 to F11 in \<System Description\>, section 6.5, and \<Access Control Management\>, section 3.6;
 5. scan \<System Name\>'s three applications at each release, as this section sets out.
 
 Items 4 and 5 come from the CSS guidance on RA-5.
@@ -174,7 +174,7 @@ Controls met here: RA-9.
 | Application server | Runs all three applications, and holds their data protection key rings and the encrypted export working area. Whoever controls it reaches the database through the API | Every item reachable, and the applications' controls bypassed |
 | API | The only route to the database. Reads each person's groups from Active Directory over LDAPS, and checks each request's sign-in, role and schema access for the other two applications | Access controls can be bypassed, and every item read |
 | UI application | Users' pages for items, reached after sign-in through PingFederate | Items shown to the wrong person, or a user's sign-in taken over |
-| Admin application | Sets which Active Directory groups open each schema, administers schemas and system settings, runs fixed diagnostics, and gives auditors the audit log | Schema access granted to the wrong groups, or schemas changed or closed |
+| Admin application | Sets which Active Directory groups open each schema, administers schemas and system settings, runs fixed diagnostics, gives auditors the audit log, lets business owners approve disposals due under the retention schedule, and gives the legal adviser's delegate the search across every schema | Schema access granted to the wrong groups, schemas changed or closed, items disposed of too early, or one person's items found across every schema by someone not entitled to search |
 | Audit records | Show who did what | Misuse cannot be traced or proved |
 | Backup store | Holds a full, encrypted copy of every item | Every item exposed from a stolen backup and its key, or lost |
 | Export working area | Holds encrypted working copies of items for each export job, deleted as \<System Description\>, P-20 sets | Items disclosed outside their schema's access |

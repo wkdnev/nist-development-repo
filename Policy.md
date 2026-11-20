@@ -73,13 +73,15 @@ Items in \<System Name\> are available only to people with an approved need. Con
 | Role | Responsibility |
 | --- | --- |
 | Head of Cyber | Approves all policies, including this one |
-| System owner | Owns this policy and the three role groups; authorises privileged access and adds each member; approves exceptions and accepts risk within their authority |
+| System owner | Owns this policy and the five role groups (\<Code\>\_Admins, \<Code\>\_Auditors, \<Code\>\_Security, \<Code\>\_BusinessOwners and \<Code\>\_LegalSearch); authorises privileged access and adds each member; approves exceptions and accepts risk within their authority |
 | Authorising official | Accepts residual risk and authorises operation |
 | Data Owner | Owns a schema's data and its read and edit groups; authorises, through the ServiceNow access approval workflow, who may read or edit the schema, and decides whether its information may be shared |
 | Line manager | Approves their people's access requests in ServiceNow, confirming the need |
 | Administrator | Manages schemas, the AD groups each schema uses, and system settings, in the Admin application. Cannot add anyone to a group |
-| Auditor | Reviews audit records and privileged activity. Holds no administration role |
-| Security officer | Monitors security information. Holds no administration role |
+| Auditor | Reads the audit log and reviews it weekly, including privileged activity, and reports anything suspicious to the security officer. Holds no administration role |
+| Security officer | Monitors security information, reviews alerts and the central logs, and leads incident response. Does not read the audit log. Holds no administration role |
+| Business owner | Approves, in the Admin application, the disposal of items due under the retention schedule (FR-074). Member of \<Code\>\_BusinessOwners |
+| Legal adviser's delegate | Searches every schema, in the Admin application, for one person's items to answer a request under data protection law (FR-073). Member of \<Code\>\_LegalSearch, named by the legal adviser. Holds no other role |
 | Windows server and database administrators | Keep to these requirements on the servers and in SQL Server |
 | \<Organisation\> security contact | Provides evidence for the controls \<System Name\> inherits |
 | Every user | Follows the Security Operating Procedures (\<Security Operating Procedures\>) |
@@ -254,7 +256,7 @@ Every security-relevant action in \<System Name\> must leave a reliable record t
 2. **R2 Retention:** records must be kept for 12 months online and a further 12 months in an offline archive whose hash is recorded (P-07), with storage sized to match. After 24 months they may be deleted, only with the system owner's recorded approval.
 3. **R3 Time:** time stamps must be in UTC to the nearest second, from \<Organisation\>'s time source, and within 1 second of UTC (P-09).
 4. **R4 Protection:** auditors alone read audit records, and nobody may change or delete them, except as R2 allows.
-5. **R5 Review:** the auditor must review records weekly (P-08) and report findings to the security officer and system owner.
+5. **R5 Review:** the auditor must review the audit log weekly (P-08, NFR-027), compare it with the server, database, PingFederate and Active Directory records, record the review, and report anything suspicious to the security officer. Nobody else reviews or reads the audit log.
 6. **R6 Logging failure:** a logging failure must alert the Windows server administrator and security officer within 1 hour. The system keeps running while it is investigated and restored.
 7. **R7 Tampering:** suspected tampering must alert the security officer and auditor.
 8. **R8 Content of records:** records must not contain passwords, keys, tokens or cookie values, and must hold only the personal data an investigation needs.
@@ -270,7 +272,7 @@ Every security-relevant action in \<System Name\> must leave a reliable record t
 | System owner | Owns this policy, decides which events are logged, and receives review findings |
 | Authorising official | Decides Medium and High risks |
 | Auditor | Reviews records weekly and reports findings |
-| Security officer | Receives findings and alerts, and handles incidents |
+| Security officer | Receives the auditors' reports of anything suspicious and the alerts, reviews the central logs, and handles incidents. Does not read the audit log |
 | Windows server administrator | Receives logging failure alerts, and restores logging on the VMs |
 | Database administrator | Protects and retains the audit data in SQL Server |
 | Developers | Build logging into the application |
@@ -342,7 +344,7 @@ It applies to the UI application, the Admin application, the API, the \<System N
 
 1. **R1 Assessment:** controls must be assessed every 12 months, with results given to the system owner, authorising official and Head of Cyber.
 2. **R2 Independence:** assessors must be independent, having had no part in building or running \<System Name\>.
-3. **R3 Connections:** each connection to another system, including PingFederate, Active Directory over LDAPS, \<Organisation\>'s time, logging, proxy and backup services, and the link between the two servers (flows F5 to F8 in \<System Description\>, section 6.5), must be recorded and approved, reviewed every 12 months, and encrypted. ServiceNow and the starters and leavers process have no connection to \<System Name\>: people carry their decisions across (F9).
+3. **R3 Connections:** each connection to another system, including PingFederate, Active Directory over LDAPS, \<Organisation\>'s time, logging, proxy and backup services, and the link between the two servers (flows F5 to F8 and F10 in \<System Description\>, section 6.5), must be recorded and approved, reviewed every 12 months, and encrypted. ServiceNow and the starters and leavers process have no connection to \<System Name\>: people carry their decisions across (F9).
 4. **R4 Plan of action:** \<Plan of Action and Milestones\> must be updated monthly. Each open item must be fixed within the time set for its rating, counted from go-live: High items within the time the authorising official sets, Medium within 180 days and Low within 365 days. Overdue items are reported to the authorising official each quarter.
 5. **R5 Authorisation:** the authorising official must authorise \<System Name\> before it holds real data, and review the authorisation every 12 months (P-25).
 6. **R6 Monitoring:** the security and privacy measures in \<Assessment, Authorization, and Monitoring Management\>, section 3.8, must be reported monthly to the system owner and quarterly to the authorising official.
@@ -428,7 +430,7 @@ It applies to the UI application, the Admin application, the API, the \<System N
 1. **R1 Baselines:** baselines must be reviewed every 12 months and at each release, keeping the 3 previous configurations.
 2. **R2 Change control:** changes need a ServiceNow change request, approved by the system owner, security officer and Windows server administrator, and tested before release. Records are kept for 3 years.
 3. **R3 Settings:** settings follow the CIS Benchmarks for Windows Server 2025 and SQL Server 2022, with exceptions recorded.
-4. **R4 Routes:** only the flows F1 to F9 in \<System Description\>, section 6.5, are open: HTTPS to the UI application on TCP 443; the Admin application only over \<Organisation\>'s managed administration route; the API on the application server's loopback address only; SQL Server on TCP 1433 from the application server only; and the routes to PingFederate, to Active Directory over LDAPS and to \<Organisation\>'s time, logging, proxy and backup services. Everything else is off, and this is reviewed every 12 months.
+4. **R4 Routes:** only the flows F1 to F11 in \<System Description\>, section 6.5, are open: HTTPS to the UI application on TCP 443; the Admin application only over \<Organisation\>'s managed administration route; server and database administration from the administrators' managed devices to both servers only over that route, with multi-factor authentication, using named accounts (F11); HTTPS on TCP 443 from the application server only to PingFederate, for its OpenID Connect metadata and signing certificate and to complete each sign-in (F10); the API on the application server's loopback address only; SQL Server on TCP 1433 from the application server only; and the routes from users' browsers to PingFederate, to Active Directory over LDAPS and to \<Organisation\>'s time, logging, proxy and backup services. Everything else is off, and this is reviewed every 12 months.
 5. **R5 Approved software:** an approved software list is kept and reviewed every 12 months.
 6. **R6 Installing software:** users may install software on the VMs only with approval.
 7. **R7 Inventory:** the server inventory in \<System Security Plan\> and the software component inventory in \<Configuration Management\> are updated at each change, with each component's version, supplier and licence. \<Organisation\>'s tools detect unauthorised components monthly and alert the Windows server administrator.
@@ -787,7 +789,7 @@ Maintenance gives people powerful access, often at short notice. \<System Name\>
 3. **R3 Check afterwards:** after every job, the administrator must run the checklist in \<Procedures\> (MA), and the security officer must review and sign the result.
 4. **R4 Approved tools:** only tools on the approved list in \<Maintenance Management\> may be used. The list is reviewed every 12 months. Tools are inspected before use, and media holding diagnostic or test programs are scanned for malicious code first.
 5. **R5 Built-in maintenance functions:** the only maintenance function built into \<System Name\> is the fixed diagnostics page in the Admin application, which reads no item content and is used only by administrators. No page changes the database's structure: structure changes are scripts in a release, applied by the database administrator under an approved change record. No diagnostic or test page is included in a release.
-6. **R6 Remote (nonlocal) maintenance:** remote maintenance must use only the routes in \<Maintenance Management\>, with multi-factor sign-in, be logged, and be ended as soon as the work is finished. The Admin application must be reachable only through \<Organisation\>'s managed administration route.
+6. **R6 Remote (nonlocal) maintenance:** remote maintenance must use only the routes in \<Maintenance Management\>, with multi-factor sign-in, be logged, and be ended as soon as the work is finished. The Admin application must be reachable only through \<Organisation\>'s managed administration route, and server and database administration only from the administrators' managed devices over that route, with multi-factor authentication, using named accounts (F11).
 7. **R7 Maintenance people:** only people on the approved list may maintain \<System Name\> without an escort. They must be screened, have signed Part B of \<Security Operating Procedures\> and use a named account. Supplier accounts are temporary, limited to the job and disabled afterwards. Anyone else must be escorted and supervised by someone on the list.
 8. **R8 Equipment removal:** the system owner must approve removing any equipment, and it must be sanitised first.
 9. **R9 Data leaving for maintenance or support:** no copy of \<System Name\> data, database backup, log or screenshot may leave the servers for maintenance or support without the system owner's approval. It must be kept to the minimum, encrypted, recorded and deleted when no longer needed.
@@ -1224,7 +1226,7 @@ It applies to all personal data in \<System Name\>: the items in every schema, t
 4. **R4 Impact assessment:** \<Data Protection Impact Assessment\> must be completed and approved by the legal adviser, with the data protection officer's advice, before production and after any significant change in processing.
 5. **R5 Special category data:** special category data may be held only in schemas the business owner authorises, and those items must be marked as such.
 6. **R6 Retention:** personal data must be kept only for the period in \<PII Processing Management\>, section 3.7, then disposed of, with the disposal audited.
-7. **R7 Rights and complaints:** requests from individuals must go to the legal adviser and be met by a reasonable and proportionate search of every schema, using the search across schemas (FR-073), within one month (P-22). Complaints about how data is handled must be acknowledged within 30 days, investigated, and answered with the outcome.
+7. **R7 Rights and complaints:** requests from individuals must go to the legal adviser and be met by a reasonable and proportionate search of every schema, using the search across schemas (FR-073), which only the legal adviser's delegate runs, within one month (P-22). Complaints about how data is handled must be acknowledged within 30 days, investigated, and answered with the outcome.
 8. **R8 Transparency:** \<Organisation\>'s employee privacy notice must name \<System Name\> and its purposes, be reviewed every 12 months, and be linked from \<System Name\>'s pages.
 9. **R9 Breaches:** personal data breaches must be handled under \<Incident Response Management\>, section 3.8, including the 72-hour report to the ICO, harm to the people affected and the breach register.
 10. **R10 Training and test data:** everyone who handles personal data in items and all administrators must complete privacy training before access and every 12 months. Real personal data must not be used for testing, training or research.
@@ -1241,7 +1243,8 @@ It applies to all personal data in \<System Name\>: the items in every schema, t
 | Data protection officer | Advises on the impact assessment and is the contact for individuals and the ICO, or the legal adviser records why none is required |
 | System owner | Owns this policy and the inventory, and makes sure \<System Name\> follows it |
 | Information owner | Decides what personal data each schema holds |
-| Business owner | Authorises the schemas that may hold special category data, and sets retention periods |
+| Business owner | Authorises the schemas that may hold special category data, sets retention periods, and approves the disposal of items due under the retention schedule (FR-074) |
+| Legal adviser's delegate | Named by the legal adviser; searches every schema for one person's items to answer a request (FR-073), and holds no other role |
 | Data Owners | Make sure their schema holds only the personal data it needs |
 | \<Organisation\> | Provides the employee privacy notice and the record of processing |
 
@@ -1475,8 +1478,8 @@ Information in \<System Name\> must be protected wherever it travels or rests. \
 
 ### SC.4 Mandatory requirements
 
-1. **R1 Flows:** only the flows F1 to F9 in \<System Description\>, section 6.5, as set out in \<System Security Plan\>, section 3.7, Table 7, and \<Security Architecture\>, Table 2, are allowed. Traffic is denied by default at \<Organisation\>'s firewalls and at each VM's host firewall, using the allow-lists in \<System and Communications Protection Management\>, section 3.2.
-2. **R2 Listening addresses:** the UI application listens on TCP 443 only. The Admin application is reachable only over \<Organisation\>'s managed administration route. The API listens only on the application server's loopback address. SQL Server accepts connections on TCP 1433 only from the application server.
+1. **R1 Flows:** only the flows F1 to F11 in \<System Description\>, section 6.5, as set out in \<System Security Plan\>, section 3.7, Table 7, and \<Security Architecture\>, Table 2, are allowed. Traffic is denied by default at \<Organisation\>'s firewalls and at each VM's host firewall, using the allow-lists in \<System and Communications Protection Management\>, section 3.2.
+2. **R2 Listening addresses:** the UI application listens on TCP 443 only. The Admin application is reachable only over \<Organisation\>'s managed administration route. The API listens only on the application server's loopback address. SQL Server accepts connections on TCP 1433 only from the application server. Only the application server reaches PingFederate, on TCP 443 (F10). Server and database administration reaches both servers only from the administrators' managed devices over the managed administration route (F11).
 3. **R3 Transport:** every flow must use TLS under NCSC's profiles. TLS 1.3 is preferred, with hybrid post-quantum key exchange where the platform supports it. TLS 1.2 is allowed only with the GCM profiles. SSL, TLS 1.0 and 1.1, compression and TLS 1.3 early data (0-RTT) must be off.
 4. **R4 Web traffic and cookies:** the apps must serve HTTPS only and redirect HTTP, send HSTS with a maximum age of at least 1 year, and mark every cookie Secure, HttpOnly and SameSite. \<System Name\> has no session management of its own: the authentication cookie lasts no longer than PingFederate's sign-in lifetime (P-02; \<Access Control Management\>, P-AC-10).
 5. **R5 Database:** SQL Server 2022 must accept network connections only over TLS 1.2 or later with strict encryption. The API must connect with Windows authentication under its group managed service account, so no database password exists, and with full certificate and server name checking.
@@ -1586,7 +1589,7 @@ It applies to the UI application, the Admin application, the API, the \<System N
 | Head of Cyber | Approves this policy, as all policies |
 | Authorising official | Decides Medium and High risks |
 | System owner | Owns this policy and the detection use cases |
-| Security officer | Reviews logs and alerts, runs the advisory process, and leads the response to detections |
+| Security officer | Reviews the central logs and alerts, but not the audit log, runs the advisory process, and leads the response to detections |
 | Windows server administrator | Patches the VMs, runs Defender and forwards Windows logs |
 | Database administrator | Patches SQL Server and forwards its logs |
 | Developers | Update packages, build upload scanning, validation and safe errors, and run Test-Integrity.ps1 |

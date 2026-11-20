@@ -46,7 +46,7 @@ Controls met here: PE-2, PE-17.
 | Offices | Where \<System Name\> is used and printed | \[\<Organisation\> offices\] | \[Office security contact\] | EV-PE-05 |
 | Homes | Remote working | Employees' homes | Security officer | C30, TPL-4 |
 
-No \<System Name\> role needs to enter either data centre. The Windows server and database administrators work over \<Organisation\>'s managed route (\<Maintenance Management\>, section 3.4), and the hardware beneath the servers is maintained by \<Organisation\>'s engineers.
+No \<System Name\> role needs to enter either data centre. The Windows server and database administrators work from their managed devices over \<Organisation\>'s managed administration route (flow F11; \<Maintenance Management\>, section 3.4), and the hardware beneath the servers is maintained by \<Organisation\>'s engineers.
 
 ### 3.3 Who provides each control
 

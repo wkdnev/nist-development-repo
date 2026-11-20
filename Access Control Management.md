@@ -55,9 +55,11 @@ Every person signs in with their Active Directory account, through PingFederate.
 | Schema editor | Editors | Yes | Their own AD account; member of a schema's edit group |
 | Auditor | Auditors | Yes, privileged | Their own AD account; holds no administration role |
 | Security officer | Security officers | Yes, privileged | Their own AD account; holds no administration role |
+| Business owner | The business owner | Yes, privileged | Their own AD account; approves the disposal of items due under the retention schedule (FR-074) |
+| Legal adviser's delegate | The person the legal adviser names | Yes, privileged | Their own AD account; holds no other role |
 | Administrator | Administrators | Yes, privileged | Their own AD account; the system owner authorises and adds them to the group; a separate everyday account |
-| Windows administrator | Windows server administrators | Yes, privileged | Named person, through \<Organisation\>'s approved route |
-| Database administrator | SQL Server database administrators | Yes, privileged | Named person, for approved maintenance only |
+| Windows administrator | Windows server administrators | Yes, privileged | Named person, only over \<Organisation\>'s managed administration route, with multi-factor authentication (F11) |
+| Database administrator | SQL Server database administrators | Yes, privileged | Named person, only over \<Organisation\>'s managed administration route, with multi-factor authentication (F11), for approved maintenance only |
 | API service account | The API only | Yes, privileged | The API's group managed service account, which signs in to SQL Server with Windows authentication and reads group membership from Active Directory over LDAPS. Nobody signs in with it. Not a sysadmin, and cannot change the schema (section 3.6) |
 | Local \<System Name\> account | Nobody | No | \<System Name\> holds no accounts or passwords of its own. The first administrator is simply the first member of that AD group |
 | Temporary and emergency | Nobody | No | Prohibited (P-AC-09) |
@@ -79,8 +81,10 @@ Controls met here: AC-2, AC-3, AC-6, AC-6(5).
 | Reader | Read items in a schema | The schema's read group, an AD group | The schema's Data Owner |
 | Editor | Add, manage and export items in a schema | The schema's edit group, an AD group | The same |
 | Administrator | Manage schemas, the AD groups each schema uses, and settings; use the administration dashboard | AD group \<Code\>\_Admins | System owner |
-| Auditor | Read audit logs | AD group \<Code\>\_Auditors | System owner |
-| Security officer | Read security information | AD group \<Code\>\_Security | System owner |
+| Auditor | Read the audit log and review it weekly (P-08) | AD group \<Code\>\_Auditors | System owner |
+| Security officer | Read security information. Does not read the audit log | AD group \<Code\>\_Security | System owner |
+| Business owner | Approve the disposal of items due under the retention schedule (FR-074) | AD group \<Code\>\_BusinessOwners | System owner |
+| Legal adviser's delegate | Search every schema for one person's items to answer a request under data protection law (FR-073). Holds no other role | AD group \<Code\>\_LegalSearch, whose member the legal adviser names | System owner |
 
 The people who hold each role are named in \<Roles and Responsibilities\>. The group names use the application's short code, and are confirmed when the groups are created in Active Directory.
 
@@ -88,7 +92,7 @@ Each group's owner adds and removes its members in Active Directory, with \<Orga
 
 The authorised users of \<System Name\> are the members of its AD groups. Each person's groups are their access, and the approved source for each membership is its ServiceNow request. \<Organisation\> manages the AD accounts themselves. The administrator manages schemas, and which AD groups open each, in \<System Name\>'s Admin app.
 
-The administrator, auditor and security officer groups are privileged. The system owner is their only owner, and authorises each member after role training and a signed Part B of \<Security Operating Procedures\> (PRO-AC-6). An administrator cannot add anyone to a group. On the servers, privileged access is held through Windows administrator group membership and SQL Server roles, and only the named Windows server and database administrators may sign in (section 3.6.2). The API's database service account is privileged and headless, and is managed by the database administrator.
+The five role groups, for administrators, auditors, the security officer, the business owner and the legal adviser's delegate, are privileged. The system owner is their only owner, and authorises each member after role training and a signed Part B of \<Security Operating Procedures\> (PRO-AC-6). An administrator cannot add anyone to a group. On the servers, privileged access is held through Windows administrator group membership and SQL Server roles, and only the named Windows server and database administrators may sign in (section 3.6.2). The API's database service account is privileged and headless, and is managed by the database administrator.
 
 ### 3.4 Permissions
 
@@ -97,17 +101,19 @@ Controls met here: AC-2, AC-3, AC-5, AC-6, AC-6(10).
 
 **Table 3: Permissions by role**
 
-| Function | Reader | Editor | Administrator | Auditor | Security officer |
-| --- | --- | --- | --- | --- | --- |
-| Search and read items | Own schemas | Own schemas | All schemas | No | No |
-| Report a faulty item | Own schemas | Own schemas | All schemas | No | No |
-| Upload, manage and export items | No | Own schemas | All schemas | No | No |
-| Manage users, passwords and group membership | No | No | No: done in Active Directory, by each group's owner | No | No |
-| Manage schemas, and which AD groups open each | No | No | Yes | No | No |
-| Grant administrator | No | No | No: the system owner adds the member to the AD group | No | No |
-| Use the administration dashboard and settings | No | No | Yes | No | No |
-| Read audit logs | No | No | No | Yes | No |
-| Read security information | No | No | No | No | Yes |
+| Function | Reader | Editor | Administrator | Auditor | Security officer | Business owner | Legal adviser's delegate |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Search and read items | Own schemas | Own schemas | All schemas | No | No | No | No |
+| Report a faulty item | Own schemas | Own schemas | All schemas | No | No | No | No |
+| Upload, manage and export items | No | Own schemas | All schemas | No | No | No | No |
+| Manage users, passwords and group membership | No | No | No: done in Active Directory, by each group's owner | No | No | No | No |
+| Manage schemas, and which AD groups open each | No | No | Yes | No | No | No | No |
+| Grant administrator | No | No | No: the system owner adds the member to the AD group | No | No | No | No |
+| Use the administration dashboard and settings | No | No | Yes | No | No | No | No |
+| Read audit logs | No | No | No | Yes | No | No | No |
+| Read security information | No | No | No | No | Yes | No | No |
+| Approve the disposal of items due under the retention schedule (FR-074) | No | No | No | No | No | Yes | No |
+| Search every schema for one person's items, for a request under data protection law (FR-073) | No | No | No | No | No | No | Yes |
 
 ### 3.5 Separation of duties
 
@@ -116,7 +122,7 @@ Controls met here: AC-5.
 
 1. Nobody approves their own access or privilege.
 2. Nobody reviews their own access or their own privileged actions.
-3. Auditors and security officers hold no administration role.
+3. Auditors and security officers hold no administration role, and the legal adviser's delegate holds no other role.
 4. Application, Windows and database administration use separate accounts, held by different people where staffing allows.
 5. Developers hold no administrator access on the servers.
 6. Where staffing cannot meet a rule, it is recorded as an exception, with a compensating check.
@@ -130,6 +136,7 @@ Table 4 shows each pair of duties that one person must not hold together, the ro
 | Asking for access | Approving and granting it | The person asks; their line manager approves; the group's owner authorises, and adds them to the AD group | The ServiceNow workflow, in which nobody can decide their own request, and Active Directory, where only a group's owner can change its members (section 3.13) |
 | Administering schemas and settings | Reviewing audit logs | Administrator administers; auditor reviews | Separate access groups: only the auditor group opens the audit log pages, and it opens no administration page |
 | Administering the system | Reading security information | Administrator administers; security officer reads | Separate access groups |
+| Searching every schema for one person's items | Any other role | Legal adviser's delegate | A separate access group, whose member the legal adviser names; the delegate holds no other role |
 | Holding administrator | Granting it | Administrators; the system owner, who alone manages that AD group | Active Directory: an administrator cannot add a member to the group |
 | Application administration | Windows administration and database administration | Administrator; Windows server administrator; SQL Server database administrator | Separate accounts on separate layers, held by three different people (\<Roles and Responsibilities\>) |
 | Development | Production administration | Developers; Windows server and database administrators | Developers hold no administrator account on the servers |
@@ -150,13 +157,13 @@ Figure 2 shows \<System Name\>'s boundary and the routes into and inside it. It 
 
 | Route | Used by | Design |
 | --- | --- | --- |
-| Sign-in | Everyone | The browser is sent to \<Organisation\>'s PingFederate, which authenticates the user with multi-factor authentication and returns a signed OpenID Connect response naming them. The API then reads their groups from Active Directory over LDAPS. \<System Name\> has no sign-in of its own |
+| Sign-in | Everyone | The browser is sent to \<Organisation\>'s PingFederate (F6), which authenticates the user with multi-factor authentication and returns a signed OpenID Connect response naming them. The app completes the sign-in with PingFederate from the application server (F10). The API then reads their groups from Active Directory over LDAPS. \<System Name\> has no sign-in of its own |
 | Browser to the UI app | Readers, editors, administrators | HTTPS on \<Organisation\>'s network, after signing in |
-| Browser to the Admin app | Administration, audit and security roles | HTTPS, over \<Organisation\>'s managed administration route only |
+| Browser to the Admin app | Administration, audit, security, business owner and legal search roles | HTTPS, over \<Organisation\>'s managed administration route only |
 | Apps to the API | The apps only | Inside the application server; people do not connect directly |
 | API to the database | The API's service account only | Application server to database server only, using TLS with strict encryption and Windows authentication. The UI app and the Admin app have no database connection |
-| Windows administration | Windows server administrators | Named accounts, through \<Organisation\>'s approved route |
-| Database administration | Database administrators | Named accounts, for approved maintenance only |
+| Windows administration (F11) | Windows server administrators | Named accounts, from managed devices, only over \<Organisation\>'s managed administration route, with multi-factor authentication |
+| Database administration (F11) | Database administrators | Named accounts, from managed devices, only over \<Organisation\>'s managed administration route, with multi-factor authentication, for approved maintenance only |
 | Remote access | Approved users and administrators | \<Organisation\>'s remote access service, with multi-factor authentication |
 | Without signing in | Anyone | Only the actions listed in section 3.17 |
 | API to Active Directory | The API's service account only | LDAPS, TCP 636, read-only, to read the signed-in person's group memberships |
@@ -166,8 +173,8 @@ Figure 2 shows \<System Name\>'s boundary and the routes into and inside it. It 
 
 | Layer | Who | Rule |
 | --- | --- | --- |
-| Windows on both VMs | Windows server administrators | Named accounts, through \<Organisation\>'s approved route |
-| SQL Server administration | Database administrators | Named accounts, for approved maintenance only |
+| Windows on both VMs | Windows server administrators | Named accounts, only over \<Organisation\>'s managed administration route, with multi-factor authentication (F11) |
+| SQL Server administration | Database administrators | Named accounts, only over \<Organisation\>'s managed administration route, with multi-factor authentication (F11), for approved maintenance only |
 | API to SQL Server | The API's managed service account | Windows authentication; the rights in the table below. The UI app and the Admin app do not connect |
 | App service accounts on Windows | One for each app | Group managed service accounts; cannot sign in interactively; not administrators (Table 8) |
 
@@ -216,7 +223,7 @@ Controls met here: AC-2, AC-6(5).
 
 | Server | May sign in | How | May not |
 | --- | --- | --- | --- |
-| Application server | The named Windows server administrators | Their own named administrator accounts, through \<Organisation\>'s approved route | Developers, application users, the service accounts, and any shared account |
+| Application server | The named Windows server administrators | Their own named administrator accounts, only over \<Organisation\>'s managed administration route, with multi-factor authentication (F11) | Developers, application users, the service accounts, and any shared account |
 | Database server | The named Windows server administrators, and the named database administrators | The same | The same |
 
 The holders are named in \<Roles and Responsibilities\>. \<Organisation\> creates and removes these accounts through its ServiceNow process, with the system owner's approval (EV-AC-02).
@@ -255,10 +262,11 @@ Controls met here: AC-4.
 | F5 | Application server | Database server | SQL Server over TLS 1.2 or later with strict encryption, TCP 1433 | The API's database connection |
 | F6 | Users' and administrators' browsers | \<Organisation\>'s PingFederate | HTTPS | Signing in. Both ends are \<Organisation\>'s, so this needs no rule for \<System Name\>'s servers |
 | F7 | Application server | \<Organisation\>'s Active Directory domain controllers | LDAPS, TCP 636 | The API reading each signed-in person's group memberships |
-| Administration | Windows server and database administrators, over \<Organisation\>'s managed route | Both servers | Tool and protocol to be supplied by \<Organisation\> | Running the servers |
 | F8 | Both servers | \<Organisation\>'s time service, central logging, proxy and backup site | As \<Organisation\> sets, encrypted | Accurate audit times, log forwarding, updates and backups |
+| F10 | Application server | \<Organisation\>'s PingFederate | HTTPS, TCP 443 | The UI app and the Admin app fetching PingFederate's OpenID Connect metadata and signing certificate, and completing each sign-in |
+| F11 | Server and database administrators' managed devices, over \<Organisation\>'s managed administration route, with multi-factor authentication | Both servers | Tool and protocol to be supplied by \<Organisation\> | Server and database administration, using named accounts |
 
-Everything else should be refused, in and out. \<System Name\> needs no route to the internet, as browsers load all code from \<System Name\> itself. The applications hold PingFederate's public certificate, which checks its sign-in responses, and fetch nothing from an outside host. ServiceNow and the starters and leavers process (F9) have no connection to \<System Name\>. The flows are also listed in \<Security Architecture\>, Table 2.
+Everything else should be refused, in and out. \<System Name\> needs no route to the internet, as browsers load all code from \<System Name\> itself. The applications fetch PingFederate's OpenID Connect metadata and signing certificate, which checks its sign-in responses, from \<Organisation\>'s PingFederate (F10), and fetch nothing from an outside host. ServiceNow and the starters and leavers process (F9) have no connection to \<System Name\>. The flows are also listed in \<Security Architecture\>, Table 2.
 
 What \<System Name\> itself controls is limited to its own apps: the API listens only on the loopback address, each app accepts only HTTPS, and the API accepts requests only from the two apps' addresses.
 
@@ -300,7 +308,7 @@ The P-AC numbers are the access control settings used across the document set. P
 | P-AC-04 | AC-2 | Allowed account types: as listed in Table 1 |
 | P-AC-05 | AC-2 | Who decides access: the person's line manager approves in ServiceNow, then the group's owner authorises and adds them to the AD group. The owner is the system owner for a role group, and the Data Owner for a schema group (section 3.13) |
 | P-AC-06 | AC-2 | As \<System Description\>, P-06: a leaver's AD account is disabled by \<Organisation\> at once, which ends their access to \<System Name\>. Each group's owner removes the membership within 5 working days. Owners are told of a role change within 1 working day |
-| P-AC-07 | AC-2, AC-6(7) | Access review: the three role groups every 3 months (\<System Description\>, P-04); schema groups every 12 months (P-05) |
+| P-AC-07 | AC-2, AC-6(7) | Access review: the five role groups every 3 months (\<System Description\>, P-04); schema groups every 12 months (P-05) |
 | P-AC-08 | AC-2(3) | Unused AD accounts are disabled under \<Organisation\>'s corporate standard, which \<System Name\> accepts. An account no longer required or in breach of policy is disabled by \<Organisation\> on notice. In addition, each month, the owner of each group removes any member who has not signed in to \<System Name\> for 90 days, from the sign-in dates in the audit records that an administrator provides |
 | P-AC-09 | AC-2(2) | Temporary and emergency accounts: not allowed until the system can expire them |
 | P-AC-10 | AC-2(5), AC-12 | Sign-in lifetime: as set in PingFederate for \<System Name\> (\<System Description\>, P-02). \<System Name\> has no idle sign-out of its own |
@@ -310,7 +318,7 @@ The P-AC numbers are the access control settings used across the document set. P
 | P-AC-14 | AC-7 | Failed sign-ins are counted and the account locked by PingFederate and Active Directory, under \<Organisation\>'s corporate standard. \<System Name\> has no sign-in of its own to lock |
 | P-AC-15 | AC-11 | Device screen lock after inactivity, set by \<Organisation\> on its managed devices and the servers (\<System Description\>, P-03). \<System Name\> has no page lock of its own |
 | P-AC-16 | AC-8 | System use notice wording: the wording in section 3.16 |
-| P-AC-17 | AC-6(1), AC-6(10) | Privileged functions: managing schemas and the AD groups each uses; settings; diagnostics; audit log access; database maintenance. Security-relevant information: secrets and security settings, PingFederate's signing certificate, access groups and schema access rules, audit logs, firewall rules and certificates |
+| P-AC-17 | AC-6(1), AC-6(10) | Privileged functions: managing schemas and the AD groups each uses; settings; diagnostics; audit log access; approving disposal; searching every schema for one person's items; database maintenance. Security-relevant information: secrets and security settings, PingFederate's signing certificate, access groups and schema access rules, audit logs, firewall rules and certificates |
 | P-AC-18 | AC-6(2) | Administrators use a separate non-privileged account for everyday item work |
 | P-AC-19 | AC-6(9) | Privileged functions are logged: as P-AC-17 |
 | P-AC-20 | AC-17 | Remote access route: \<Organisation\>'s remote access service, name to be supplied |
@@ -325,7 +333,7 @@ The P-AC numbers are the access control settings used across the document set. P
 Controls met here: AC-6, AC-6(1), AC-6(2), AC-6(9), AC-6(10).
 
 
-**Privileged functions:** managing schemas and the AD groups each uses; changing settings; running diagnostics; reading audit logs; and database maintenance. Managing the members of \<System Name\>'s AD groups is also privileged, and is done in Active Directory by each group's owner.
+**Privileged functions:** managing schemas and the AD groups each uses; changing settings; running diagnostics; reading audit logs; approving the disposal of items due under the retention schedule; searching every schema for one person's items; and database maintenance. Managing the members of \<System Name\>'s AD groups is also privileged, and is done in Active Directory by each group's owner.
 
 **Security-relevant information:** secrets and security settings, PingFederate's signing certificate, access groups and schema access rules, audit logs, firewall rules and certificates.
 
@@ -373,7 +381,7 @@ Controls met here: AC-2, AC-2(3), AC-6(7), AC-14.
 
 | Review | How often | By | Steps |
 | --- | --- | --- | --- |
-| The three role groups | Every 3 months | System owner, auditor; Head of Cyber as an extra check, for administrators | PRO-AC-7 |
+| The five role groups | Every 3 months | System owner, auditor; Head of Cyber as an extra check, for administrators | PRO-AC-7 |
 | Schema groups | Every 12 months | Data Owners | PRO-AC-7 |
 | Members who have not signed in for 90 days | Monthly | Each group's owner, with the sign-in dates an administrator provides | PRO-AC-8 |
 | Audit logs | Weekly (\<System Description\>, P-08) | Auditor, for the application audit log; security officer, for the logs in central logging | \<Security Operating Procedures\> |

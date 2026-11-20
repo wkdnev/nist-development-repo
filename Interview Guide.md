@@ -84,9 +84,9 @@ Questions are numbered INT-XX-nn, where XX is the family code, and each names th
 
 | ID | Question | Statements | Ask to see |
 | --- | --- | --- | --- |
-| INT-AC-16 | How do you monitor account use, and how often? | AC-02g | Weekly review record |
-| INT-AC-17 | Which privileged actions do you look for, and what would you do on finding a problem? | AC-06(09) | Review record, escalation |
-| INT-AC-18 | Are there actions you cannot see in the log? | AC-02(04), AC-06(09) | Known gaps |
+| INT-AC-16 | How do you monitor account use, and how often? Auditors review the audit log weekly; security officers review alerts and the central logs, and do not read the audit log | AC-02g | The auditor's weekly review record; the security officer's TPL-8 review record |
+| INT-AC-17 | Which privileged actions do you look for, and what would you do on finding a problem? An auditor reports anything suspicious to the security officer | AC-06(09) | Review record, escalation |
+| INT-AC-18 | Are there actions you cannot see in the audit log or the central logs? | AC-02(04), AC-06(09) | Known gaps |
 
 ### 3.5 Windows server and database administrators
 
@@ -96,7 +96,7 @@ Questions are numbered INT-XX-nn, where XX is the family code, and each names th
 | --- | --- | --- | --- |
 | INT-AC-19 | Who has administrator rights on each VM and in the database? | AC-06(01), AC-06(05) | Group and role listings |
 | INT-AC-20 | What rights do the group managed service accounts of the three applications have, on the server, in SQL Server and in Active Directory? | AC-06 | Service account settings, SQL Server logins and database role grants |
-| INT-AC-21 | From where, and how, do you administer the VMs? | AC-17, AC-17(04) | Administration route; firewall rules |
+| INT-AC-21 | From where, and how, do you administer the VMs? | AC-17, AC-17(04) | Administration route (flow F11 in \<System Description\>, section 6.5); firewall rules |
 | INT-AC-22 | What are the logon lockout, banner and screen lock settings? | AC-07, AC-08, AC-11 | Policy export |
 | INT-AC-23 | How are your privileged actions logged? | AC-06(09) | Sample log |
 
@@ -132,9 +132,27 @@ Questions are numbered INT-XX-nn, where XX is the family code, and each names th
 | INT-AC-33 | What do you do if you can see an item you should not? | AC-03 | None |
 | INT-AC-34 | Do you use \<System Name\> from a phone, or a personal device, or copy items to USB? | AC-19, AC-20 | None |
 
+### 3.9 Business owner
+
+**Table 11: Questions for the business owner**
+
+| ID | Question | Statements | Ask to see |
+| --- | --- | --- | --- |
+| INT-AC-35 | How were you given the business owner role, who owns the \<Code\>\_BusinessOwners group, and what else can you do in the Admin application? | AC-02c, AC-02e, AC-06 | TPL-2 record; the group's members |
+| INT-AC-36 | Show me how you approve the disposal of items due under the retention schedule (\<System Description\>, FR-074). What stops anyone else approving it? | AC-03, AC-05b, AC-06 | A disposal approval and its audit entry |
+
+### 3.10 Legal adviser's delegate
+
+**Table 12: Questions for the legal adviser's delegate**
+
+| ID | Question | Statements | Ask to see |
+| --- | --- | --- | --- |
+| INT-AC-37 | Who named you to the \<Code\>\_LegalSearch group, and do you hold any other role in \<System Name\>? | AC-02e, AC-05b, AC-06 | The legal adviser's naming in a TPL-2 record; the group's members |
+| INT-AC-38 | When did you last search every schema for one person's items (\<System Description\>, FR-073)? Who asked, and how did you keep the search to that request? | AC-03, AC-06 | TPL-15 request record; the search's audit entry |
+
 ## 4 Awareness and Training (AT)
 
-**Table 11: AT questions**
+**Table 13: AT questions**
 
 | ID | For | Question | Statements | Ask to see |
 | --- | --- | --- | --- | --- |
@@ -145,7 +163,7 @@ Questions are numbered INT-XX-nn, where XX is the family code, and each names th
 
 ## 5 Audit and Accountability (AU)
 
-**Table 12: AU questions**
+**Table 14: AU questions**
 
 | ID | For | Question | Statements | Ask to see |
 | --- | --- | --- | --- | --- |
@@ -158,7 +176,7 @@ Questions are numbered INT-XX-nn, where XX is the family code, and each names th
 
 ## 6 Assessment, Authorization and Monitoring (CA)
 
-**Table 13: CA questions**
+**Table 15: CA questions**
 
 | ID | For | Question | Statements | Ask to see |
 | --- | --- | --- | --- | --- |
@@ -170,7 +188,7 @@ Questions are numbered INT-XX-nn, where XX is the family code, and each names th
 
 ## 7 Configuration Management (CM)
 
-**Table 14: CM questions**
+**Table 16: CM questions**
 
 | ID | For | Question | Statements | Ask to see |
 | --- | --- | --- | --- | --- |
@@ -185,7 +203,7 @@ Questions are numbered INT-XX-nn, where XX is the family code, and each names th
 
 ## 8 Contingency Planning (CP)
 
-**Table 15: CP questions**
+**Table 17: CP questions**
 
 | ID | For | Question | Statements | Ask to see |
 | --- | --- | --- | --- | --- |
@@ -196,7 +214,7 @@ Questions are numbered INT-XX-nn, where XX is the family code, and each names th
 
 ## 9 Identification and Authentication (IA)
 
-**Table 16: IA questions**
+**Table 18: IA questions**
 
 | ID | For | Question | Statements | Ask to see |
 | --- | --- | --- | --- | --- |
@@ -210,7 +228,7 @@ Questions are numbered INT-XX-nn, where XX is the family code, and each names th
 
 ## 10 Incident Response (IR)
 
-**Table 17: IR questions**
+**Table 19: IR questions**
 
 | ID | For | Question | Statements | Ask to see |
 | --- | --- | --- | --- | --- |
@@ -221,7 +239,7 @@ Questions are numbered INT-XX-nn, where XX is the family code, and each names th
 
 ## 11 Maintenance (MA)
 
-**Table 18: MA questions**
+**Table 20: MA questions**
 
 | ID | For | Question | Statements | Ask to see |
 | --- | --- | --- | --- | --- |
@@ -235,7 +253,7 @@ Questions are numbered INT-XX-nn, where XX is the family code, and each names th
 
 ## 12 Media Protection (MP)
 
-**Table 19: MP questions**
+**Table 21: MP questions**
 
 | ID | For | Question | Statements | Ask to see |
 | --- | --- | --- | --- | --- |
@@ -247,7 +265,7 @@ Questions are numbered INT-XX-nn, where XX is the family code, and each names th
 
 ## 13 Physical and Environmental Protection (PE)
 
-**Table 20: PE questions**
+**Table 22: PE questions**
 
 | ID | For | Question | Statements | Ask to see |
 | --- | --- | --- | --- | --- |
@@ -259,7 +277,7 @@ Questions are numbered INT-XX-nn, where XX is the family code, and each names th
 
 ## 14 Planning (PL)
 
-**Table 21: PL questions**
+**Table 23: PL questions**
 
 | ID | For | Question | Statements | Ask to see |
 | --- | --- | --- | --- | --- |
@@ -273,7 +291,7 @@ Questions are numbered INT-XX-nn, where XX is the family code, and each names th
 
 ## 15 Personnel Security (PS)
 
-**Table 22: PS questions**
+**Table 24: PS questions**
 
 | ID | For | Question | Statements | Ask to see |
 | --- | --- | --- | --- | --- |
@@ -286,7 +304,7 @@ Questions are numbered INT-XX-nn, where XX is the family code, and each names th
 
 ## 16 Personally Identifiable Information (PT)
 
-**Table 23: PT questions**
+**Table 25: PT questions**
 
 | ID | For | Question | Statements | Ask to see |
 | --- | --- | --- | --- | --- |
@@ -301,7 +319,7 @@ Questions are numbered INT-XX-nn, where XX is the family code, and each names th
 
 ## 17 Risk Assessment (RA)
 
-**Table 24: RA questions**
+**Table 26: RA questions**
 
 | ID | For | Question | Statements | Ask to see |
 | --- | --- | --- | --- | --- |
@@ -316,7 +334,7 @@ Questions are numbered INT-XX-nn, where XX is the family code, and each names th
 
 ## 18 System and Services Acquisition (SA)
 
-**Table 25: SA questions**
+**Table 27: SA questions**
 
 | ID | For | Question | Statements | Ask to see |
 | --- | --- | --- | --- | --- |
@@ -331,7 +349,7 @@ Questions are numbered INT-XX-nn, where XX is the family code, and each names th
 
 ## 19 System and Communications Protection (SC)
 
-**Table 26: SC questions**
+**Table 28: SC questions**
 
 | ID | For | Question | Statements | Ask to see |
 | --- | --- | --- | --- | --- |
@@ -346,13 +364,13 @@ Questions are numbered INT-XX-nn, where XX is the family code, and each names th
 
 ## 20 System and Information Integrity (SI)
 
-**Table 27: SI questions**
+**Table 29: SI questions**
 
 | ID | For | Question | Statements | Ask to see |
 | --- | --- | --- | --- | --- |
 | INT-SI-01 | Developers | How do you find out a package has a flaw, and how quickly is it fixed? | SI-02a, SI-02c | Package check, change record |
 | INT-SI-02 | Windows server administrator | How are updates tested, and is Defender running on both VMs? | SI-02b, SI-03 | Update and Defender records |
-| INT-SI-03 | Security officer | Show me your last log review. Which detection use case would raise an alert, who is told, and what did you do about the last one? | SI-04d, SI-04(05) | TPL-8 review record, an alert and its PRO-SI-4 response |
+| INT-SI-03 | Security officer | Show me your last review of alerts and the central logs. Which detection use case would raise an alert, who is told, and what did you do about the last one? | SI-04d, SI-04(05) | TPL-8 review record, an alert and its PRO-SI-4 response |
 | INT-SI-04 | Security officer | Which advisories do you receive, and what did you do about the last one? | SI-05 | Advisory record |
 | INT-SI-05 | Developers | How are inputs checked, and what does a user see when something fails? | SI-10, SI-11 | Test results |
 | INT-SI-06 | \<Organisation\>'s security contact | What monitors traffic, and how are firmware updates handled? | SI-04(04), SI-02c | EV-SI-01, EV-SI-02 |
@@ -361,7 +379,7 @@ Questions are numbered INT-XX-nn, where XX is the family code, and each names th
 
 ## 21 Supply Chain Risk Management (SR)
 
-**Table 28: SR questions**
+**Table 30: SR questions**
 
 | ID | For | Question | Statements | Ask to see |
 | --- | --- | --- | --- | --- |

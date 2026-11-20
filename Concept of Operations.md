@@ -14,7 +14,7 @@ The business owner is \[Name\] and the information owner is \[Name\] (\<System D
 
 ## 3 User communities
 
-\<System Name\> has no external or public users. Every role comes from an Active Directory group: the three role groups are owned by the system owner, and each schema's read group and edit group are owned by its Data Owner (\<System Description\>, section 3.3).
+\<System Name\> has no external or public users. Every role comes from an Active Directory group: the five role groups are owned by the system owner, and each schema's read group and edit group are owned by its Data Owner (\<System Description\>, section 3.3).
 
 **Table 1: User communities**
 
@@ -23,10 +23,12 @@ The business owner is \[Name\] and the information owner is \[Name\] (\<System D
 | Readers | Search and read items in their schemas, view and download files, and report a fault in an item | UI application |
 | Editors | A reader's work, and create, upload, bulk upload, manage and bulk export the schema's items. Edit includes read | UI application |
 | Administrators | Manage schemas, which groups open each schema, and system settings; correct, replace and delete items. Can reach every schema. There is one Administrator role and no separate global administrator | Admin application and UI application |
-| Auditors | Read, search and export the audit log. Hold no administration role | Admin application |
-| Security officers | Read security information, review logs and alerts, and lead incident response. Hold no administration role | Admin application |
+| Auditors | Read, search and export the audit log, and review it weekly (\<System Description\>, P-08). Hold no administration role | Admin application |
+| Security officers | Read security information, review alerts and the central logs, and lead incident response. Do not read the audit log. Hold no administration role | Admin application |
+| Business owners | Approve the disposal of items due under the retention schedule (\<System Description\>, FR-074) | Admin application |
+| Legal adviser's delegates | Search every schema for one person's items to answer a request under data protection law (\<System Description\>, FR-073). Hold no other role, and are named by the legal adviser | Admin application |
 | Data Owners | Own a schema's data and its two groups, and authorise who may read or edit it | ServiceNow and the directory |
-| Server and database administrators | Run the servers and the database. Need no application role | The servers, over \<Organisation\>'s managed administration route |
+| Server and database administrators | Run the servers and the database. Need no application role | The servers, only over \<Organisation\>'s managed administration route, with multi-factor authentication and named accounts (flow F11) |
 | Developers | Build and fix the applications. Hold no administrator access on the servers | Development environment |
 
 ## 4 Business workflows
@@ -45,7 +47,7 @@ An item normally moves through four stages: it is added to a schema, found and r
 | Manage schemas | Administrator | Creates, changes, deactivates and deletes schemas, and names each schema's read group and edit group |
 | Start a new person | The person, their line manager, the group's owner | The person requests access in ServiceNow, their line manager approves it, and the group's owner authorises it: the Data Owner for a schema, the system owner for a role. The owner then adds the person to the Active Directory group. \<System Name\> creates no account |
 | Remove a leaver | \<Organisation\>, the group owners | \<Organisation\> disables the person's Active Directory account at once, which ends their access, and the group owners remove their group memberships within 5 working days (\<System Description\>, P-06) |
-| Check activity | Auditor, security officer | The auditor reads and searches the audit log. The security officer reviews logs and alerts weekly (\<System Description\>, P-08) |
+| Check activity | Auditor, security officer | The auditor reads and searches the audit log, reviews it weekly (\<System Description\>, P-08), compares it with the server, database, PingFederate and Active Directory records, records the review, and reports anything suspicious to the security officer. The security officer reviews alerts and the central logs |
 | Answer a request about personal data | Legal adviser and their delegate | The delegate finds every item about the person across all schemas, and the legal adviser answers within the time in P-22 |
 | Dispose of items | Business owner | Items due under the retention schedule are listed, and deleted once approved. The disposal is recorded |
 
@@ -102,7 +104,7 @@ Table 5 says in brief how each part of operation is kept secure. The time limits
 | --- | --- | --- |
 | Changes | Approved by the change control board, after a security impact analysis and a review by a second developer. The running system is checked against the approved baseline | \<Configuration Management\> |
 | Patches and vulnerabilities | The system is scanned regularly, and flaws are fixed within time limits set by their severity | \<Risk Assessment Management\>, section 3.6 |
-| Malicious code and monitoring | Microsoft Defender runs on both servers and uploads are scanned. Audit records and logs are reviewed, and eight events alert the security officer | \<System and Information Integrity Management\>, section 3.4; \<Security Operating Procedures\>, section 4 |
+| Malicious code and monitoring | Microsoft Defender runs on both servers and uploads are scanned. Auditors review the audit log, the security officer reviews the central logs, and eight events alert the security officer | \<System and Information Integrity Management\>, section 3.4; \<Security Operating Procedures\>, section 4 |
 | Encryption | TLS on every flow, encrypted disks and backups, and a register of keys | \<System and Communications Protection Management\> |
 | Backups and recovery | Encrypted backups, tested restores, and recovery within the objectives the business has set | \<Contingency Planning Management\> |
 | Incidents and breaches | Reported to the security officer and handled by severity. The legal adviser decides whether to tell the ICO and the people affected | \<Incident Response Management\> |

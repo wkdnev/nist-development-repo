@@ -49,7 +49,9 @@ Controls met here: AT-2, AT-3.
 | Administrators | Misusing a role that reaches every schema; careless changes to schemas, their groups or settings | Use the administrator role only for administration; open a schema only to the groups its Data Owner has authorised; follow the joiner, mover and leaver steps | Modules M1, M3, M9, M7, M8 |
 | Windows server and database administrators | Unpatched or misconfigured servers; lost backups or keys | Follow the patch timetable, hardening and backup steps; protect keys | Modules M4, M3, M9, M7, M8 |
 | Developers | Vulnerable code or components; secrets in code | Secure coding; checked components; changes reviewed | Modules M5, M3, M7 |
-| Security officer and auditor | Missing an attack or a misuse | Review logs and alerts; respond to incidents | Modules M6, M7; M8 and M9 for the security officer |
+| Security officer and auditor | Missing an attack or a misuse | The auditor reviews the audit log weekly and reports anything suspicious to the security officer; the security officer reviews alerts and the central logs, does not read the audit log, and leads incident response | Modules M6, M7; M8 and M9 for the security officer |
+| Business owners | Approving the disposal of items that should be kept, or keeping items too long | Approve disposal only of items due under the retention schedule (\<System Description\>, FR-074) | The \<System Name\> briefing; module M9 |
+| Legal adviser's delegate | Searching or disclosing more than a request needs | Search every schema only for the one person named in a request under data protection law (\<System Description\>, FR-073), and handle the results as the legal adviser directs | Module M9 |
 | Everyone who handles personal data in \<System Name\> | Using personal data unlawfully | Use it only for its purpose; handle requests and complaints properly | Module M9 |
 
 ### 3.3 Awareness and the \<System Name\> briefing
@@ -87,7 +89,7 @@ Each module ends with a short check of at least 10 questions, with a pass mark o
 | M3 Configuration and change | Make changes only through change control; keep to the baseline | \<Procedures\> (CM); \<Configuration Management\> | 45 minutes | Security officer |
 | M4 Servers and database | Harden, patch to the timetable, scan, back up and protect keys | \<Procedures\>, PRO-SI-1; \<Risk Assessment Management\>, section 3.6; \<Procedures\> (CP); \<System and Communications Protection Management\> | 90 minutes | Security officer |
 | M5 Secure development | Secure coding to ASVS 5.0 Level 2; bring components in through PRO-SR-1; keep secrets out of code; review changes | \<System and Services Acquisition Management\>; \<Procedures\> (SA); \<Procedures\> (SR) | 90 minutes | Security officer |
-| M6 Monitoring and audit review | Review audit records and alerts; use the detection use cases | \<Audit and Accountability Management\>; \<System and Information Integrity Management\>, section 3.4 | 60 minutes | Head of Cyber |
+| M6 Monitoring and audit review | Auditors: read and review the audit log weekly, compare it with the server, database, PingFederate and Active Directory records, record the review, and report anything suspicious to the security officer. Security officers: review the alerts and the central logs, and use the detection use cases; they do not read the audit log | \<Audit and Accountability Management\>; \<System and Information Integrity Management\>, section 3.4 | 60 minutes | Head of Cyber |
 | M7 Incident response (IR-2) | Recognise, report, contain and record an incident; know your part in the playbooks | \<Incident Response Management\>; \<Procedures\> (IR) | 60 minutes | Security officer |
 | M8 Contingency (CP-3) | Know your part in recovery; restore from backup | \<Contingency Planning Management\>; \<Procedures\> (CP) | 45 minutes | System owner |
 | M9 Personal data (AT-3(5)) | Lawful use of personal data; requests and complaints; breaches | \<PII Processing Management\>; \<Procedures\> (PT) | 45 minutes | Legal adviser |
@@ -111,6 +113,8 @@ Every role must complete awareness, the briefing and the SyOps signature before 
 | Developers | Yes | Parts A and B | M5, M3 | M7 |
 | Security officer | Yes | Parts A and B | M6, M9 | M7, M8 |
 | Auditor | Yes | Parts A and B | M6 | M7 |
+| Business owner | Yes | Part A | M9 | None |
+| Legal adviser's delegate | Yes | Parts A and B | M9 | None |
 | Everyone who handles personal data in \<System Name\> | Yes | Part A | M9 | None |
 
 The matrix carries out AT-2, AT-3, AT-3(5) (\<PII Processing Management\>), IR-2 (\<Procedures\>, PRO-IR-3), CP-3 (\<Procedures\>, PRO-CP-4) and PL-4 (\<Security Operating Procedures\>).

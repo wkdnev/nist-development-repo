@@ -17,12 +17,13 @@ A clean template for any application, describing the reference design. It holds 
 | Database | **Microsoft SQL Server 2022**. Each schema is its own database schema. The API connects with **Windows authentication** (no database password) over TLS with strict encryption, TCP 1433 |
 | Sign-in | **PingFederate** by **OpenID Connect**, with MFA, against Active Directory. The signed response names the person and carries no groups |
 | Groups | The **API reads group membership directly from Active Directory over LDAPS** (TCP 636), read-only |
-| Roles | Reader, Editor, **Administrator** (one role: no separate global administrator), Auditor, Security officer. Three role groups: \<Code\>\_Admins, \<Code\>\_Auditors, \<Code\>\_Security |
+| Roles | Reader, Editor, **Administrator** (one role: no separate global administrator), Auditor, Security officer, Business owner, Legal adviser's delegate. Five role groups: \<Code\>\_Admins, \<Code\>\_Auditors, \<Code\>\_Security, \<Code\>\_BusinessOwners, \<Code\>\_LegalSearch |
+| Audit log review | **Auditors** read and review the audit log weekly (P-08, NFR-027) and report anything suspicious to the security officer. The security officer reviews alerts and the central logs, and does not read the audit log |
 | Schema ownership | Each schema's read and edit groups are owned by its **Data Owner**, who authorises access |
 | Access approval | **ServiceNow** workflow (never Jira) |
 | Sessions | **No session management in the application**: no session records, idle lock, idle timeout, session limit, sign-out or session-ending screen. AC-11 and AC-11(1) come from the device screen lock; AC-12 and AC-2(5) from PingFederate's sign-in lifetime. The app holds the sign-in only in its ASP.NET Core authentication cookie, with a lifetime no longer than PingFederate's |
 | Build | Under the organisation's **corporate SDLC**, inherited |
-| Flows | F1 browser to UI; F2 admin route to Admin; F3, F4 apps to API on loopback; F5 API to SQL Server; F6 browser to PingFederate; F7 API to AD over LDAPS; F8 servers to time, logging, proxy and backup; F9 ServiceNow and starters and leavers, people only |
+| Flows | F1 browser to UI; F2 admin route to Admin; F3, F4 apps to API on loopback; F5 API to SQL Server; F6 browser to PingFederate; F7 API to AD over LDAPS; F8 servers to time, logging, proxy and backup; F9 ServiceNow and starters and leavers, people only; F10 application server to PingFederate (OpenID Connect metadata, signing certificate, completing sign-in); F11 administrators' managed devices to both servers over the managed administration route |
 | Parameters | The System Description's P-01 to P-35 (section 4). Refer to them where a family document sets the same value |
 | Figure | `figures/sd-figure-1.png` is the architecture figure |
 

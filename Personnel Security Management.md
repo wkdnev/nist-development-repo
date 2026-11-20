@@ -51,6 +51,8 @@ Every role in \<Roles and Responsibilities\> has a designation. A role is higher
 | Auditor | Higher risk | Reads every audit record |
 | Security officer | Higher risk | Sees logs, alerts and incident records |
 | Data Owner | Standard | Owns a schema's data and its read and edit groups, and authorises who may read or edit it in ServiceNow; nobody approves their own access |
+| Business owner, in the application | Standard | Approves, in the Admin application, the disposal of items due under the retention schedule (\<System Description\>, FR-074); a member of \<Code\>\_BusinessOwners; no privileged technical access |
+| Legal adviser's delegate | Higher risk | Searches every schema for one person's items to answer a request under data protection law (\<System Description\>, FR-073), so can see items in every schema; a member of \<Code\>\_LegalSearch, named by the legal adviser; holds no other role |
 | Windows server administrator | Higher risk | Full control of both servers |
 | Database administrator | Higher risk | Full control of the database that holds every item |
 | Developers | Higher risk | Change the code that handles every item, including personal data; hold no administrator access on the servers |

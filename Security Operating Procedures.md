@@ -40,7 +40,7 @@ Frequencies and time limits are those set in the family documents, and the value
 
 **A6.** When you sign in, \<System Name\> shows this notice, which you must accept before going further: "This system is for authorised use only. Activity is monitored and recorded. Unauthorised use may lead to disciplinary or legal action. By continuing you accept these terms."
 
-**A7.** Everything you do in \<System Name\> is recorded, including sign-ins, searches, items viewed and downloaded, changes and exports. Authorised auditors and the security officer review these records and report what they find to the security officer and system owner. The records may be used in investigations, and in disciplinary or legal proceedings.
+**A7.** Everything you do in \<System Name\> is recorded, including sign-ins, searches, items viewed and downloaded, changes and exports. Authorised auditors review these records every week and report anything suspicious to the security officer. The records may be used in investigations, and in disciplinary or legal proceedings.
 
 **A8.** You have no expectation of privacy in your use of \<System Name\>. By signing these rules you agree to this monitoring. It is carried out only for security, audit and legal compliance.
 
@@ -239,8 +239,8 @@ The detection use cases U1 to U8 in \<System and Information Integrity Managemen
 | C1 | Check all services are healthy | Administrator | The API health check and each application's start page | Health check log on TPL-8, one line a day | SI-4, CP-2 |
 | C2 | Back up the database, which holds every item and file | Database administrator | \<Procedures\>, PRO-CP-1 | Backup job log, checked at C8 | CP-9 |
 | **Weekly** |  |  |  |  |  |
-| C3 | Review failed sign-ins, lockouts and privileged actions | Auditor | Section 4.2 | TPL-8 | AC-2, AC-6(9), AC-7, AU-6 |
-| C4 | Review logs and any alerts | Security officer | \<Procedures\>, PRO-SI-3 and PRO-SI-4 | TPL-8 | SI-4, AU-6 |
+| C3 | Review the audit log, including failed sign-ins, lockouts and privileged actions, against the server, database, PingFederate and Active Directory records | Auditor | Section 4.2 | TPL-8 | AC-2, AC-6(9), AC-7, AU-6 |
+| C4 | Review the central logs and any alerts. The security officer does not read the audit log | Security officer | \<Procedures\>, PRO-SI-3 and PRO-SI-4 | TPL-8 | SI-4, AU-6 |
 | C5 | Check Windows and SQL Server logs, or \<Organisation\>'s report on them | Windows server and database administrators | \[Method set with \<Organisation\>\] | TPL-8 | AU-6, AU-6(3), SI-4 |
 | C6 | Back up system configuration | Windows server administrator | \<Procedures\>, PRO-CP-1 | Backup job log, checked at C8 | CP-9 |
 | C7 | Act on security advisories as they arrive, and confirm none were missed | Security officer | \<Procedures\>, PRO-SI-5 | TPL-7 | SI-5 |
@@ -260,7 +260,7 @@ The detection use cases U1 to U8 in \<System and Information Integrity Managemen
 | C50 | Each week, check CISA's Known Exploited Vulnerabilities catalogue and \<Organisation\>'s alerts against \<System Name\>'s components; fix or mitigate any match within 3 days | Security officer | \<Procedures\>, PRO-RA-4 | TPL-7 | RA-5, SI-2, SI-5 |
 | **Every 3 months** |  |  |  |  |  |
 | C15 | Review privileged access | System owner, auditor | \<Procedures\>, PRO-AC-7 | TPL-3 | AC-2, AC-6(7) |
-| C16 | Check the administrators' actions | Head of Cyber | Audit records | TPL-8 | AC-6(9), AU-6 |
+| C16 | Check the administrators' actions | Head of Cyber | The auditors' review records and their report on the administrators' actions | TPL-8 | AC-6(9), AU-6 |
 | C17 | Report security status to the authorising official | Security officer, system owner | \<Procedures\>, PRO-CA-5 | TPL-8 | CA-7 |
 | **Every 6 months** |  |  |  |  |  |
 | C18 | Test that backups can be restored | Database administrator | \<Procedures\>, PRO-CP-2 | TPL-11 | CP-9(1) |
@@ -278,7 +278,7 @@ The detection use cases U1 to U8 in \<System and Information Integrity Managemen
 | C29 | Check \<Organisation\>'s physical security evidence | System owner | \<Procedures\>, PRO-PE-1 | Response logged in \<Evidence Requests\> | PE-2 to PE-16 |
 | C30 | Assess home working controls | Security officer | \<Procedures\>, PRO-PE-4 | TPL-4 | PE-17 |
 | C31 | Review risk designations and access agreements | System owner | \<Procedures\>, PRO-PS-4 | TPL-3 | PS-2, PS-6 |
-| C32 | Check personal data is accurate, relevant and still needed | Data Owners | \<Procedures\>, PRO-PT-5 | TPL-3 | SI-18, PT-3 |
+| C32 | Check personal data is accurate, relevant and still needed, and approve the disposal of items due under the retention schedule (\<System Description\>, FR-074) | Data Owners; the business owner approves disposal | \<Procedures\>, PRO-PT-5 | TPL-3 | SI-18, PT-3 |
 | C33 | Check the privacy notice names \<System Name\> | System owner | \<Procedures\>, PRO-PT-3 | TPL-4 | PT-5 |
 | C34 | Review exceptions | System owner | Section 5 | Exception register, TPL-17 | PL-4, CA-5 |
 | C35 | Review these SyOps and the other security documents | System owner | Each document's change record | Document change record | PL-4c, PL-2 |
@@ -293,7 +293,7 @@ The detection use cases U1 to U8 in \<System and Information Integrity Managemen
 | C41 | Carry out maintenance | Windows server and database administrators | Sections 4.6 and 4.7 | TPL-12 | MA-2, MA-4 |
 | C42 | Transport, sanitise or dispose of media | \<Organisation\>, Windows server administrator | Section 4.8 | TPL-13 | MP-5, MP-6 |
 | C43 | Handle a security incident or personal data breach | Security officer | Section 4.9 | TPL-10 | IR-4, IR-5, IR-6 |
-| C44 | Handle a request or complaint from a person about their data | Legal adviser | \<Procedures\>, PRO-PT-1 and PRO-PT-2 | TPL-15, TPL-22 | AC-3(14), SI-18(4) |
+| C44 | Handle a request or complaint from a person about their data. Only the legal adviser's delegate runs the search across all schemas (\<System Description\>, FR-073) | Legal adviser; legal adviser's delegate | \<Procedures\>, PRO-PT-1 and PRO-PT-2 | TPL-15, TPL-22 | AC-3(14), SI-18(4) |
 | C51 | Have every code change reviewed by another developer and merged through the protected default branch, and sign each release tag | Developers | \<Procedures\>, PRO-SA-1; Test-Development.ps1 at each release | Pull request or change record, TPL-6 | SA-10, CM-3 |
 
 ### 4.2 Audit review procedure (C3)
@@ -303,7 +303,7 @@ The detection use cases U1 to U8 in \<System and Information Integrity Managemen
 3. They compare changes to \<System Name\>'s Active Directory groups, from \<Organisation\>'s records, with the requests authorised in ServiceNow (TPL-2).
 4. They check the Windows and SQL Server logs, and \<Organisation\>'s record of PingFederate sign-ins, failed sign-ins and lockouts, and of changes to \<System Name\>'s Active Directory groups, or get \<Organisation\>'s report on them.
 5. They run the audit chain check (\<Procedures\>, PRO-AU-2). If tampering is suspected, they preserve the evidence before anything is changed (PRO-AU-2, step 3), and raise it, and anything else unexplained, as a security incident (section 4.9).
-6. They record the date, the period covered, the reviewer and the result on TPL-8.
+6. They record the date, the period covered, the reviewer and the result on TPL-8, and report anything suspicious to the security officer.
 
 ### 4.3 Vulnerability management (C10, C11, C37, C50)
 
@@ -355,7 +355,7 @@ The security officer analyses each change's impact against the criteria in \<Con
 
 ### 4.7 Remote maintenance (C41)
 
-1. Remote maintenance is done only over a route in \<Maintenance Management\>, section 3.4, through \<Organisation\>'s approved route, with multi-factor authentication, for an approved change or an incident.
+1. Remote maintenance is done only over a route in \<Maintenance Management\>, section 3.4, from the administrators' managed devices through \<Organisation\>'s managed administration route (F11), with multi-factor authentication and a named account, for an approved change or an incident.
 2. The connection is logged, limited to the task, and ended as soon as it is finished.
 3. Afterwards the server or database administrator runs the checklist after maintenance (\<Procedures\>, Table MA-2) and records the work on TPL-12, with the connection log reference. The security officer reviews and signs the result within 1 working day.
 4. Outside maintenance staff work only under the supervision of a \<System Name\> administrator (B21).

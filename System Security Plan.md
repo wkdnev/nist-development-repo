@@ -62,7 +62,7 @@ The planned exchanges are below, and are also recorded in \<Assessment, Authoriz
 
 | Exchange | Direction and method | Information | Agreement |
 | --- | --- | --- | --- |
-| \<Organisation\>'s PingFederate and Active Directory | From PingFederate to \<System Name\>, through the user's browser, by OpenID Connect over HTTPS; and from Active Directory to API, by LDAPS (flow F7) | A signed OpenID Connect response that names each user, with no groups; each user's group membership, read by API from Active Directory | \[Agreement covering \<Organisation\>'s hosting and services\] |
+| \<Organisation\>'s PingFederate and Active Directory | From PingFederate to \<System Name\>, through the user's browser, by OpenID Connect over HTTPS (flow F6); from the UI application and Admin application on the application VM to PingFederate, for its OpenID Connect metadata and signing certificate and to complete each sign-in, by HTTPS on TCP 443 (flow F10); and from Active Directory to API, by LDAPS (flow F7) | A signed OpenID Connect response that names each user, with no groups; each user's group membership, read by API from Active Directory | \[Agreement covering \<Organisation\>'s hosting and services\] |
 | ServiceNow, \<Organisation\>'s IT service desk | By people only (flow F9). ServiceNow has no connection to \<System Name\> | Access requests and the Data Owner's authorisations; change requests and approvals; names of requesters | Information exchange agreement with \<Organisation\> (\<Assessment, Authorization, and Monitoring Management\>, section 3.7) |
 | Starters and leavers process, \<Organisation\> | To the owners of a leaver's groups, by people only (flow F9). It has no connection to \<System Name\> | Prompts to add or remove access; staff names and leaving dates | Information exchange agreement with \<Organisation\> (\<Assessment, Authorization, and Monitoring Management\>, section 3.7) |
 | \<Organisation\>'s central logging | Out from both VMs (flow F8); protocol requested from \<Organisation\> | Windows and application security logs | \[Agreement covering \<Organisation\>'s hosting and services\] |
@@ -136,8 +136,10 @@ All users are staff or contractors of \<Organisation\>, so all are internal. \<S
 | Reader | Internal | Searches and reads items in the schemas whose read group they belong to, and reports a fault | \[Number\] |
 | Editor | Internal | A reader's work, and creates, uploads, manages and exports the schema's items | \[Number\] |
 | Administrator | Internal | Manages schemas, which groups open each schema, and system settings, in the Admin application; can reach every schema. There is no separate global administrator. Group members are changed by each group's owner, in Active Directory | \[Number\] |
-| Auditor | Internal | Reads and searches the audit log; holds no administration role | \[Number\] |
-| Security officer | Internal | Reads security information, reviews logs, alerts and scan results, and leads incident response; holds no administration role | \[Number\] |
+| Auditor | Internal | Reads and searches the audit log, and reviews it weekly (P-08); holds no administration role | \[Number\] |
+| Security officer | Internal | Reads security information, reviews alerts, the central logs and scan results, and leads incident response; does not read the audit log; holds no administration role | \[Number\] |
+| Business owner | Internal | Approves the disposal of items due under the retention schedule, in the Admin application (FR-074) | \[Number\] |
+| Legal adviser's delegate | Internal | Searches every schema for one person's items to answer a request under data protection law, in the Admin application (FR-073); holds no other role | \[Number\] |
 | Data Owner | Internal | Owns a schema's data and its read and edit groups, and authorises who may read or edit it, in ServiceNow | \[Number\] |
 | Windows server and database administrators | Internal | Administer the VMs and SQL Server; need no application role | \[Number\] |
 
@@ -154,8 +156,9 @@ The design on the two VMs is below. Flow numbers are those in \<System Descripti
 | API | HTTPS on the application VM's loopback address only | UI application and Admin application to API | F3, F4 |
 | SQL Server | TCP 1433, TLS with strict encryption and Windows authentication, allowed only from the application VM | API on the application VM to the database VM | F5 |
 | Sign-in | HTTPS | User and administrator browsers to \<Organisation\>'s PingFederate | F6 |
+| Sign-in completion | HTTPS, TCP 443, from the application VM only | UI application and Admin application to \<Organisation\>'s PingFederate, for its OpenID Connect metadata and signing certificate and to complete each sign-in | F10 |
 | Group lookup | LDAPS, TCP 636, read-only | API on the application VM to \<Organisation\>'s Active Directory | F7 |
-| Windows administration | Through \<Organisation\>'s managed route; tool and protocol requested in EV-MA-02. All remote maintenance routes, R1 to R5, are in \<Maintenance Management\>, section 3.4 | Administrators to both VMs | Not numbered |
+| Server and database administration | Only through \<Organisation\>'s managed administration route, with multi-factor authentication, using named accounts; tool and protocol requested in EV-MA-02. All remote maintenance routes, R1 to R5, are in \<Maintenance Management\>, section 3.4 | Server and database administrators' managed devices to both VMs | F11 |
 | Time | NTP, UDP 123 | Both VMs to \<Organisation\>'s time service | F8 |
 | Central logging | Set by \<Organisation\> (\<Evidence Requests\>) | Both VMs to \<Organisation\>'s logging | F8 |
 | Updates and backups | Through \<Organisation\>'s authenticated proxy, and to its backup site, encrypted, as \<Organisation\> sets | Both VMs to \<Organisation\>'s proxy and backup site | F8 |
@@ -163,9 +166,9 @@ The design on the two VMs is below. Flow numbers are those in \<System Descripti
 
 ## 4 Security architecture
 
-Users reach UI application, and administrators reach Admin application, by browser. Users sign in through \<Organisation\>'s PingFederate, with multi-factor authentication. API reads their group membership from Active Directory over LDAPS (flow F7), and \<System Name\> holds no accounts or passwords of its own. Both apps call API (F3, F4), and only API connects to SQL Server on the database VM (F5), by Windows authentication with no database password; the two apps get their data through it. Access decisions are made by the access checks in the shared library, and each schema's items sit in their own database schema. \<Organisation\> provides the network, firewalls, remote access, user devices and VM hosting, all outside the boundary. The boundary diagram and data flows F1 to F9 are in [\<Security Architecture\>](Security%20Architecture.md).
+Users reach UI application, and administrators reach Admin application, by browser. Users sign in through \<Organisation\>'s PingFederate, with multi-factor authentication. API reads their group membership from Active Directory over LDAPS (flow F7), and \<System Name\> holds no accounts or passwords of its own. Both apps call API (F3, F4), and only API connects to SQL Server on the database VM (F5), by Windows authentication with no database password; the two apps get their data through it. Access decisions are made by the access checks in the shared library, and each schema's items sit in their own database schema. \<Organisation\> provides the network, firewalls, remote access, user devices and VM hosting, all outside the boundary. The boundary diagram and data flows F1 to F11 are in [\<Security Architecture\>](Security%20Architecture.md).
 
-The figures below show the target design on the two VMs, not the test environment. Where they show \<Organisation\>'s services, the evidence for them is requested in \<Evidence Requests\>. Flow numbers F1 to F9 are those in \<System Description\>, section 6.5, and \<Security Architecture\>, Table 2.
+The figures below show the target design on the two VMs, not the test environment. Where they show \<Organisation\>'s services, the evidence for them is requested in \<Evidence Requests\>. Flow numbers F1 to F11 are those in \<System Description\>, section 6.5, and \<Security Architecture\>, Table 2.
 
 ### 4.1 High-level architecture
 
@@ -173,7 +176,7 @@ The figures below show the target design on the two VMs, not the test environmen
 
 **Figure 1: High-level architecture**
 
-Users reach \<System Name\> only by browser, from managed devices in the office or at home through the VPN. Both VMs sit inside \<Organisation\>'s network, behind its firewalls. \<Organisation\> also provides logging, time, hosting and the second site for backups.
+Users reach \<System Name\> only by browser, from managed devices in the office or at home through the VPN, and the application VM reaches PingFederate to complete each sign-in (F10). Both VMs sit inside \<Organisation\>'s network, behind its firewalls. \<Organisation\> also provides logging, time, hosting and the second site for backups.
 
 ### 4.2 Application architecture
 
@@ -181,7 +184,7 @@ Users reach \<System Name\> only by browser, from managed devices in the office 
 
 **Figure 2: Application architecture**
 
-UI application and Admin application are Blazor Server apps, so the pages run on the server and the browser holds a live connection to the app. Both call API, which is their only route to the database. Access checks and the audit record format come from the shared library, which is built into each app, and the API reads each person's groups from Active Directory over LDAPS (F7). Users and administrators sign in through \<Organisation\>'s PingFederate, with multi-factor authentication, and \<System Name\> holds the sign-in only in its authentication cookie.
+UI application and Admin application are Blazor Server apps, so the pages run on the server and the browser holds a live connection to the app. Both call API, which is their only route to the database. Access checks and the audit record format come from the shared library, which is built into each app, and the API reads each person's groups from Active Directory over LDAPS (F7). Users and administrators sign in through \<Organisation\>'s PingFederate, with multi-factor authentication (F6); the two apps fetch PingFederate's metadata and signing certificate, and complete each sign-in, from the application VM (F10); and \<System Name\> holds the sign-in only in its authentication cookie.
 
 ### 4.3 Network
 
@@ -189,7 +192,7 @@ UI application and Admin application are Blazor Server apps, so the pages run on
 
 **Figure 3: Network**
 
-Both VMs sit inside \<Organisation\>'s network. Home users come in through the VPN, office devices through the office network, and Windows administrators through \<Organisation\>'s approved route. All of these pass the firewalls, whose rules \<Organisation\>'s corporate network team alone sets. The apps use HTTPS, and traffic between the VMs uses TLS.
+Both VMs sit inside \<Organisation\>'s network. Home users come in through the VPN, office devices through the office network, and server and database administrators through \<Organisation\>'s managed administration route (F11). All of these pass the firewalls, whose rules \<Organisation\>'s corporate network team alone sets. The apps use HTTPS, and traffic between the VMs uses TLS.
 
 ### 4.4 Storage
 
@@ -213,7 +216,7 @@ Items, their files and audit records are all held in SQL Server on the database 
 
 **Figure 6: VPN and administrator access**
 
-The VPN's multi-factor authentication protects the network route. \<System Name\>'s own sign-in is through \<Organisation\>'s PingFederate, with multi-factor authentication. Windows administrators reach the VMs through \<Organisation\>'s approved route, whose details are requested in EV-MA-02.
+The VPN's multi-factor authentication protects the network route. \<System Name\>'s own sign-in is through \<Organisation\>'s PingFederate, with multi-factor authentication. Server and database administrators reach the VMs only through \<Organisation\>'s managed administration route, with multi-factor authentication and named accounts (F11), whose details are requested in EV-MA-02.
 
 ## 5 Control applicability and inheritance
 
@@ -259,7 +262,8 @@ Section 7 lists every control. A control counts as satisfied only when every one
 | Developers | Security functions built into the application under \<Organisation\>'s corporate SDLC, and fixing POA&M items |
 | Administrators | Managing schemas, the groups that open each schema, and system settings, in the Admin application |
 | Data Owners | Authorising who may read or edit their schema, in ServiceNow, and owning its read and edit groups |
-| Auditor, security officer | Reviewing audit records, logs, alerts, advisories and scan results, and reporting monthly on security status |
+| Auditor | Reviewing the audit log weekly, comparing it with the server, database, PingFederate and Active Directory records, recording the review, and reporting anything suspicious to the security officer |
+| Security officer | Reviewing alerts, the central logs, advisories and scan results, leading incident response, and reporting monthly on security status. The security officer does not read the audit log |
 | Windows server and database administrators | Securing, patching and scanning the VMs and SQL Server, and running Defender and disk encryption |
 | Change control element | Approving changes: the system owner, security officer and Windows server administrator (\<Configuration Management\>) |
 | Security assessor | Leading the independent Level 2 assessment |
@@ -268,7 +272,8 @@ Section 7 lists every control. A control counts as satisfied only when every one
 | Security officer, system owner, database and Windows server administrators | Incident response and training records (security officer); invoking recovery (system owner); backups and rebuilding (administrators). See \<Incident Response Management\>, \<Contingency Planning Management\> and \<Awareness and Training Management\> |
 | \<Organisation\> | Maintaining hardware, handling disks and backup media, and physical and environmental protection. See \<Maintenance Management\>, \<Media Protection Management\> and \<Physical and Environmental Protection Management\> |
 | Legal adviser | The privacy plan (\<Privacy Plan\>), the impact assessment, the lawful basis, requests and complaints from individuals, and reports to the ICO |
-| Business and information owner | The information types, and retention periods for each schema |
+| Business and information owner | The information types, and retention periods for each schema; the business owner approves the disposal of items due under the retention schedule (FR-074) |
+| Legal adviser's delegate | Searching every schema for one person's items to answer a request under data protection law (FR-073), named by the legal adviser |
 | Supply chain team: system owner, security officer, a developer and \<Organisation\>'s IT service desk | The supply chain plan (\<Supply Chain Risk Management\>), supplier reviews and notices of compromise |
 
 People holding these roles are named in \<Roles and Responsibilities\>. How security is operated is in \<Security Operating Procedures\>.
@@ -296,8 +301,8 @@ The assessment plan is in \<Control Assessment Record\> (AC), section AC.6, wher
 | AC-2(5) Inactivity Logout | Provided by \<Organisation\>: \<System Name\> has no session management. A sign-in lasts no longer than PingFederate's sign-in lifetime (P-AC-10; \<System Description\>, P-02), and \<Organisation\>'s managed devices lock an unattended screen (P-AC-15; P-03) | \<Organisation\> | Inherited | \[Status\] | \[Result\] | \[Decision\] |
 | AC-2(13) High-risk Individuals | \<Organisation\> disables the Active Directory account and ends the person's PingFederate sign-in, within 1 hour; \<System Name\> has no sessions of its own to end | Security officer, \<Organisation\> | Hybrid | \[Status\] | \[Result\] | \[Decision\] |
 | AC-3 Access Enforcement | Schema read and edit decisions are made by the shared library's access checks on every page and API function, from the groups the API reads from Active Directory, denying by default | Developers | System | \[Status\] | \[Result\] | \[Decision\] |
-| AC-4 Information Flow Enforcement | Only flows F1 to F9 in \<System Description\>, section 6.5, exist; network enforcement is by \<Organisation\>'s firewalls and each VM's host firewall | Developers, \<Organisation\> | Hybrid | \[Status\] | \[Result\] | \[Decision\] |
-| AC-5 Separation of Duties | Separate Administrator, Auditor and Security officer roles, in groups with different owners; the Data Owner authorises each request, so nobody approves their own access | System owner | Hybrid | \[Status\] | \[Result\] | \[Decision\] |
+| AC-4 Information Flow Enforcement | Only flows F1 to F11 in \<System Description\>, section 6.5, exist; network enforcement is by \<Organisation\>'s firewalls and each VM's host firewall | Developers, \<Organisation\> | Hybrid | \[Status\] | \[Result\] | \[Decision\] |
+| AC-5 Separation of Duties | Separate Administrator, Auditor, Security officer, Business owner and Legal adviser's delegate roles, each in its own group; the system owner or the Data Owner authorises each request, so nobody approves their own access | System owner | Hybrid | \[Status\] | \[Result\] | \[Decision\] |
 | AC-6 Least Privilege | Access through groups and roles | Developers, database administrator | Hybrid | \[Status\] | \[Result\] | \[Decision\] |
 | AC-6(1) Authorize Access to Security Functions | Security functions need the Administrator or Security officer role | Developers | System | \[Status\] | \[Result\] | \[Decision\] |
 | AC-6(2) Non-privileged Access for Nonsecurity Functions | SyOps requires a separate everyday account | System owner | Organisational | \[Status\] | \[Result\] | \[Decision\] |
@@ -356,7 +361,7 @@ The assessment plan is in \<Control Assessment Record\> (AU), section AU.5, wher
 | AU-3(1) Additional Audit Information | Records show the browser, the user ID, the schema and the item | Developers | System | \[Status\] | \[Result\] | \[Decision\] |
 | AU-4 Audit Log Storage Capacity | Records are held in the database, with storage sized for the retention period | Database administrator | Hybrid | \[Status\] | \[Result\] | \[Decision\] |
 | AU-5 Response to Logging Failures | Response to a logging failure as set out in \<Audit and Accountability Management\> | Windows server administrator, security officer | Hybrid | \[Status\] | \[Result\] | \[Decision\] |
-| AU-6 Review, Analysis and Reporting | Weekly review (\<System Description\>, P-08) defined in PRO-AU-1 and the SyOps | Auditor, security officer | Organisational | \[Status\] | \[Result\] | \[Decision\] |
+| AU-6 Review, Analysis and Reporting | Weekly review of the audit log by the auditor (\<System Description\>, P-08), defined in PRO-AU-1 and the SyOps; the security officer reviews alerts and the central logs, not the audit log | Auditor, security officer | Organisational | \[Status\] | \[Result\] | \[Decision\] |
 | AU-6(1) Automated Process Integration | Integration with \<Organisation\>'s central monitoring | Auditor, \<Organisation\> | Hybrid | \[Status\] | \[Result\] | \[Decision\] |
 | AU-6(3) Correlate Repositories | The application records are correlated with Windows and \<Organisation\>'s records | Auditor, \<Organisation\> | Hybrid | \[Status\] | \[Result\] | \[Decision\] |
 | AU-7 Reduction and Report Generation | The audit page filters and summarises without changing records | Developers | System | \[Status\] | \[Result\] | \[Decision\] |
@@ -615,7 +620,7 @@ The assessment plan is in \<Control Assessment Record\> (PT), section PT.5, wher
 | PT-4 Consent | Consent is not the lawful basis, so no tool | Legal adviser | Organisational | \[Status\] | \[Result\] | \[Decision\] |
 | PT-5 Privacy Notice | \<Organisation\>'s employee privacy notice | \<Organisation\>, system owner | Inherited | \[Status\] | \[Result\] | \[Decision\] |
 | PT-7 Specific Categories | Kept only in schemas the business owner authorises, where schema groups limit who sees it; conditions set by the legal adviser | Business owner, legal adviser | Hybrid | \[Status\] | \[Result\] | \[Decision\] |
-| AC-3(14) Individual Access | Through a request to the legal adviser (PRO-PT-1) | Legal adviser | Organisational | \[Status\] | \[Result\] | \[Decision\] |
+| AC-3(14) Individual Access | Through a request to the legal adviser (PRO-PT-1), whose delegate searches every schema for the person's items (FR-073) | Legal adviser, legal adviser's delegate | Organisational | \[Status\] | \[Result\] | \[Decision\] |
 | AT-3(5) Processing PII | Privacy training in the role curriculum | Security officer | Organisational | \[Status\] | \[Result\] | \[Decision\] |
 | AU-3(3) Limit PII in Audit | Named fields hold personal data; free text holds no extra personal data | Developers, auditor | System | \[Status\] | \[Result\] | \[Decision\] |
 | IR-2(3) Breach | Breach training in incident response training | Security officer | Organisational | \[Status\] | \[Result\] | \[Decision\] |
@@ -627,7 +632,7 @@ The assessment plan is in \<Control Assessment Record\> (PT), section PT.5, wher
 | SC-7(24) PII | As set out in \<PII Processing Management\> | Developers, security officer | System | \[Status\] | \[Result\] | \[Decision\] |
 | SI-12(1) Limit PII Elements | Rule limiting personal data elements | Business owner | Organisational | \[Status\] | \[Result\] | \[Decision\] |
 | SI-12(2) Minimize PII in Testing | Test and development use invented data only, loaded by script | Developers | Hybrid | \[Status\] | \[Result\] | \[Decision\] |
-| SI-12(3) Information Disposal | Retention schedule in \<PII Processing Management\>, section 3.7, with disposal at the end of each period | Developers, business owner | System | \[Status\] | \[Result\] | \[Decision\] |
+| SI-12(3) Information Disposal | Retention schedule in \<PII Processing Management\>, section 3.7, with disposal at the end of each period, approved by the business owner (FR-074) | Developers, business owner | System | \[Status\] | \[Result\] | \[Decision\] |
 | SI-18 PII Quality Operations | Yearly check (PRO-PT-5) | Data Owners | Organisational | \[Status\] | \[Result\] | \[Decision\] |
 | SI-18(4) Individual Requests | Through the legal adviser (PRO-PT-1) | Legal adviser | Organisational | \[Status\] | \[Result\] | \[Decision\] |
 | SI-19 De-identification | No dataset is de-identified or released | None | Organisational | \[Status\] | \[Result\] | \[Decision\] |
@@ -798,7 +803,7 @@ The artifacts this plan relies on are below, in the order CSS lists them. All ar
 
 ## 9 Acronyms
 
-Control family abbreviations, such as AC and SR, are spelled out in Table 8. Numbers such as A43 and C49 are rules and duties in \<Security Operating Procedures\>. Flows F1 to F9 are in \<System Description\>, section 6.5, and \<Security Architecture\>, Table 2, and routes R1 to R5 in \<Maintenance Management\>, section 3.4.
+Control family abbreviations, such as AC and SR, are spelled out in Table 8. Numbers such as A43 and C49 are rules and duties in \<Security Operating Procedures\>. Flows F1 to F11 are in \<System Description\>, section 6.5, and \<Security Architecture\>, Table 2, and routes R1 to R5 in \<Maintenance Management\>, section 3.4.
 
 **Table 30: Acronyms**
 

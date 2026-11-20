@@ -11,8 +11,8 @@ Values in \[brackets\] are for the developers to fill.
 1. Build the two Windows Server 2025 VMs to \<Organisation\>'s hardened build and the baseline in \<Configuration Management\>; turn on full-disk encryption and Microsoft Defender before \<System Name\> is installed.
 2. Install the applications from a release tag only, and check the release checksums. Never install from a working branch. Install each application as a Windows service, under its own group managed service account.
 3. Put the token signing key and the audit chain key in the key store, never in a settings file or in Git. There is no database password: only the API connects to the database, by Windows authentication under its managed service account. Its SQL Server login is not a system administrator, has rights on \<System Name\>'s database only, and cannot change the database structure.
-4. Turn on TLS for every flow, F1 to F8 in \<System Description\>, section 6.5, including the database connection (F5), with strict encryption and the server's certificate and name checked in full.
-5. Publish the Admin application only on \<Organisation\>'s managed administration route (F2; route R3), never on every interface. Bind the API to the application server's loopback address only (F3, F4).
+4. Turn on TLS for every flow, F1 to F8 and F10 in \<System Description\>, section 6.5, including the database connection (F5) and the connection to PingFederate (F10), with strict encryption and the server's certificate and name checked in full.
+5. Publish the Admin application only on \<Organisation\>'s managed administration route (F2; route R3), never on every interface. Bind the API to the application server's loopback address only (F3, F4). Allow server and database administration only from the administrators' managed devices over the managed administration route, with multi-factor authentication and named accounts (F11).
 6. Set up backups, encrypted, with transaction log archiving, as in \<Contingency Planning Management\>.
 7. Run Test-AccessControl.ps1, Test-Identification.ps1 and Test-ConfigurationManagement.ps1 against the built VMs, and keep the results (\<System and Services Acquisition Management\>, section 3.9).
 
@@ -23,7 +23,7 @@ Values in \[brackets\] are for the developers to fill.
 | Setting | Where | Required value | Source |
 | --- | --- | --- | --- |
 | Sign-in lifetime | Each application's authentication cookie settings | No longer than PingFederate's sign-in lifetime (P-AC-10; \<System Description\>, P-02). \<System Name\> has no session management: no page lock, idle sign-out or session limit of its own | \<Access Control Management\> |
-| Sign-in | \<System Name\>'s PingFederate connection (its OpenID Connect client settings) | Password length, lockout and multi-factor authentication are set by \<Organisation\>, not in \<System Name\>. The signed response names the person and carries no groups | \<Policy\> (IA) |
+| Sign-in | \<System Name\>'s PingFederate connection (its OpenID Connect client settings) | Password length, lockout and multi-factor authentication are set by \<Organisation\>, not in \<System Name\>. The signed response names the person and carries no groups. The UI and Admin applications reach PingFederate for its OpenID Connect metadata and signing certificate, and to complete each sign-in, over HTTPS on TCP 443 from the application server only (F10) | \<Policy\> (IA) |
 | Group lookup | API's directory settings | Active Directory read over LDAPS (F7, TCP 636), read-only, under the API's managed service account, with the directory's certificate checked | \<Identification and Authentication Management\> |
 | Database connection | API's connection settings | Microsoft SQL Server 2022 by Windows authentication, with no password; TLS with strict encryption on TCP 1433 (F5), from the application server only | \<Identification and Authentication Management\> |
 | Allowed origins | API's allowed origins | Only UI application and Admin application host names | \<System and Communications Protection Management\> |
@@ -43,7 +43,7 @@ Any change to these settings follows \<Procedures\> (CM), and is checked for dri
 | --- | --- | --- | --- |
 | Name a schema's read and edit groups. Group members are changed only by the groups' owners, on requests authorised in ServiceNow | On request | \<Procedures\> (AC) | TPL-2, TPL-14 |
 | Review group memberships and privileges | Role groups every 3 months; schema groups every 12 months, by their Data Owners (\<System Description\>, P-04 and P-05) | \<Procedures\> (AC) | TPL-3 |
-| Review audit records | Weekly | \<Procedures\> (AU) | TPL-8 |
+| Give the auditors the server and database records they compare with the audit log. Auditors, not administrators, read and review the audit log | Weekly, for the auditors' review (\<System Description\>, P-08) | \<Procedures\> (AU) | TPL-8 |
 | Apply security updates | To the timetable in \<Risk Assessment Management\>, section 3.6 | \<Procedures\>, PRO-SI-1 | TPL-7 |
 | Check for exploited flaws | Weekly | \<Procedures\>, PRO-RA-4 | TPL-7 |
 | Test backups and restores | As in \<Contingency Planning Management\> | \<Procedures\> (CP) | TPL-11 |
@@ -60,6 +60,7 @@ Any change to these settings follows \<Procedures\> (CM), and is checked for dri
 | Sign-in | Each person's Active Directory account, through PingFederate with multi-factor authentication; the API reads their groups from Active Directory over LDAPS | Keep the PingFederate connection; never add a local account | Test-Identification.ps1 |
 | Schema access | Checks the person's schema read or edit group on every page and API call; a schema with no group is closed to all but administrators | Name each schema's groups only through \<Procedures\> (AC); groups' owners review members as P-04 and P-05 set | Test-AccessControl.ps1 |
 | Administrator | Manages schemas, their groups and settings, and can reach every schema. This is the one administration role: there is no separate global administrator | Keep the administrators' group to the named few; review every 3 months | Test-AccessControl.ps1 |
+| Other roles | Auditor, security officer, business owner and legal adviser's delegate, each given by its own role group (\<Code\>\_Auditors, \<Code\>\_Security, \<Code\>\_BusinessOwners, \<Code\>\_LegalSearch). The system owner owns all five role groups. None of these roles holds administration | Never give an administrator one of these roles; role groups are reviewed every 3 months | Test-AccessControl.ps1 |
 | Sign-in lifetime | Holds the sign-in only in the authentication cookie, for no longer than PingFederate's sign-in lifetime. \<System Name\> has no page lock or sign-out of its own | Keep the cookie lifetime in Table 1 | Test-AccessControl.ps1 |
 | Audit | Records of security events, written only by the API and chained by a keyed hash (HMAC-SHA-256) | Run the chain check; keep records as in \<Policy\> (AU) | Test-AuditAndAuth.ps1 |
 | Exports | Bulk exports of a schema's items, run as background jobs | Check the export working area each working day; remove copies | Test-MediaProtection.ps1 |
@@ -67,10 +68,10 @@ Any change to these settings follows \<Procedures\> (CM), and is checked for dri
 
 ## 6 Privacy functions
 
-1. **Requests from individuals:** use the search across all schemas (\<System Description\>, FR-073) to find every item about the person, and record what was found and changed on TPL-15 (\<Procedures\>, PRO-PT-1).
+1. **Requests from individuals:** the legal adviser's delegate, a member of \<Code\>\_LegalSearch named by the legal adviser, uses the search across all schemas (\<System Description\>, FR-073) to find every item about the person; administrators do not run this search. Record what was found and changed on TPL-15 (\<Procedures\>, PRO-PT-1).
 2. **Corrections and deletions:** record each one on TPL-15.
 3. **Special category data:** keep it only in schemas the business owner authorises (\<Policy\> (PT), R5).
-4. **Retention:** dispose of items at the end of the period in \<PII Processing Management\>, section 3.7.
+4. **Retention:** dispose of items at the end of the period in \<PII Processing Management\>, section 3.7, only once the business owner has approved their disposal in the Admin application (\<System Description\>, FR-074).
 5. **Test data:** never copy real personal data to the test environment (PRO-PT-6).
 
 ## 7 Known problems with privileged functions

@@ -211,7 +211,7 @@ Controls met here: CM-7, CM-7(1).
 | Kind | Prohibited or restricted |
 | --- | --- |
 | Functions | Test pages, and any diagnostic not on the fixed list, in production; the interactive API documentation outside development; email or other outbound messages; any interface for other systems |
-| Ports | Everything except the flows in \<System Description\>, section 6.5: HTTPS on TCP 443 to the UI application; the Admin application over the administration route; the API on the loopback address only; SQL Server on TCP 1433 from the application server only; LDAPS on TCP 636 to Active Directory; and \<Organisation\>'s time, logging, proxy and backup services. The flows \<System Name\> asks \<Organisation\> to allow are in \<Access Control Management\>, section 3.6.4 |
+| Ports | Everything except the flows in \<System Description\>, section 6.5: HTTPS on TCP 443 to the UI application; the Admin application over the administration route; the API on the loopback address only; SQL Server on TCP 1433 from the application server only; LDAPS on TCP 636 to Active Directory; HTTPS on TCP 443 from the application server to \<Organisation\>'s PingFederate (F10); server and database administration only over \<Organisation\>'s managed administration route (F11); and \<Organisation\>'s time, logging, proxy and backup services. The flows \<System Name\> asks \<Organisation\> to allow are in \<Access Control Management\>, section 3.6.4 |
 | Protocols | Everything except TLS-protected ones on those routes |
 | Software | Anything not on the approved software list, and any package the applications do not use |
 | Services | Any Windows service not needed for those four things |
@@ -228,7 +228,7 @@ Controls met here: CM-5.
 | --- | --- | --- |
 | The applications | Developers, each change reviewed by a second developer | Permissions and required reviews in the source repositories |
 | What runs on the application server | The named Windows server administrators, installing an approved release | Windows permissions: only they can write to each application's program folder, and no application can change its own files (\<Access Control Management\>, section 3.6.3) |
-| Windows settings | The named Windows server administrators; \<Organisation\>, through Group Policy | Named administrator accounts; \<Organisation\>'s change process |
+| Windows settings | The named Windows server administrators; \<Organisation\>, through Group Policy | Named administrator accounts, only over \<Organisation\>'s managed administration route, with multi-factor authentication (F11); \<Organisation\>'s change process |
 | SQL Server settings and database structure | The named database administrators, the structure only through a release. The API's database account cannot create, alter or drop tables | Database permissions (\<Access Control Management\>, section 3.6) |
 | Application settings and secrets | The named Windows server administrators | Windows permissions on the settings files; secrets in the key store |
 | The hosts, network and firewall | \<Organisation\> | Its physical and logical controls, and its change process (EV-CM-01) |

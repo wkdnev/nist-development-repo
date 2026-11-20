@@ -12,7 +12,7 @@ The facts about \<System Name\> are filled in from the design documents. Everyth
 
 ## 3 Step 2: The processing
 
-**Nature:** items are created or uploaded in bulk or one at a time, described by their catalogue details, searched within one schema at a time, viewed on screen, downloaded, printed on managed printers, and exported in bulk by editors. The full inventory, with each kind of data, is in \<PII Processing Management\>, section 3.3.
+**Nature:** items are created or uploaded in bulk or one at a time, described by their catalogue details, searched within one schema at a time (except that the legal adviser's delegate searches every schema for one person's items to answer a request, FR-073), viewed on screen, downloaded, printed on managed printers, and exported in bulk by editors. The full inventory, with each kind of data, is in \<PII Processing Management\>, section 3.3.
 
 **Scope:** \[number of people whose personal data is held\]; \[number of items\]; \[number of schemas\] (\<System Description\>, P-33). Data is kept until disposed of under the retention schedule in \<PII Processing Management\>, section 3.7.
 
@@ -49,9 +49,9 @@ Consent is not used, because employees cannot freely refuse their employer, as t
 
 **Accuracy:** each schema's Data Owner checks accuracy every 12 months (PRO-PT-5).
 
-**Retention:** periods are in \<PII Processing Management\>, section 3.7, set by the business owner, and items are disposed of at the end of their period, with the disposal recorded (\<System Description\>, FR-074).
+**Retention:** periods are in \<PII Processing Management\>, section 3.7, set by the business owner, and items are disposed of at the end of their period, once the business owner approves the disposal in the Admin application, with the disposal recorded (\<System Description\>, FR-074).
 
-**Rights:** requests go to the legal adviser (PRO-PT-1) and are answered within the time in \<System Description\>, P-22, using the search across all schemas (FR-073) as a reasonable and proportionate search, and complaints acknowledged within 30 days, as the Data (Use and Access) Act 2025 requires.
+**Rights:** requests go to the legal adviser (PRO-PT-1) and are answered within the time in \<System Description\>, P-22, using the search across all schemas (FR-073) as a reasonable and proportionate search, run by the legal adviser's delegate, who is named by the legal adviser and holds no other role, and complaints acknowledged within 30 days, as the Data (Use and Access) Act 2025 requires.
 
 **Transparency:** \<Organisation\>'s employee privacy notice must name \<System Name\> (EV-PT-01). People sign in on \<Organisation\>'s PingFederate page.
 

@@ -189,7 +189,7 @@ These procedures define how access control activities are performed: the workflo
 | --- | --- | --- | --- | --- |
 | First access, or a role group change | The person; their line manager approves | System owner authorises | System owner, as owner of the role groups | ServiceNow request |
 | Schema read or edit access | The person; their line manager approves | Data Owner authorises | Data Owner, as owner of the schema's groups | ServiceNow request |
-| Administrator, auditor or security officer | The person; their line manager approves | System owner authorises, and cannot authorise their own | System owner, as owner of the role groups | ServiceNow request |
+| Administrator, auditor, security officer, business owner or legal adviser's delegate | The person; their line manager approves, and the legal adviser names the legal adviser's delegate | System owner authorises, and cannot authorise their own | System owner, as owner of the five role groups | ServiceNow request |
 | Sharing or export outside a schema | Requesting user | Data Owner | An editor of the schema | Sharing decision record |
 | External system or portable storage use | Requesting user | System owner | Requesting user | Exception record |
 | Exception to a rule | Whoever needs it | System owner, or authorising official if above their authority | Role concerned | \<Risk List\> |
@@ -273,7 +273,7 @@ The API compares the group names on the schema definition with the person's Acti
 
 #### PRO-AC-6 Privileged access
 
-1. The person asks for the role in the ServiceNow workflow. Their line manager approves it, and the system owner authorises any membership of \<Code\>\_Admins, \<Code\>\_Auditors or \<Code\>\_Security. The system owner cannot authorise their own. **Manual**
+1. The person asks for the role in the ServiceNow workflow. Their line manager approves it, and the system owner authorises any membership of the five role groups: \<Code\>\_Admins, \<Code\>\_Auditors, \<Code\>\_Security, \<Code\>\_BusinessOwners and \<Code\>\_LegalSearch. Only the person the legal adviser names is added to \<Code\>\_LegalSearch, and they hold no other role. The system owner cannot authorise their own. **Manual**
 2. The system owner adds the person to the AD group. **Manual**
 3. The system owner records the change in the ServiceNow request. **Manual**
 
@@ -306,7 +306,7 @@ The API compares the group names on the schema definition with the person's Acti
 #### PRO-AC-12 First administrator on a new installation
 
 1. No first administrator account is created, because \<System Name\> holds no accounts and its database has no account or password table. The database administrator creates a SQL Server login for the API's group managed service account, using Windows authentication, so no database password is set.
-2. At build, the Windows server administrator configures \<System Name\>'s PingFederate connection, as an OpenID Connect client of \<Organisation\>'s PingFederate, and records it on TPL-6. **Manual**
+2. At build, the Windows server administrator configures \<System Name\>'s PingFederate connection, as an OpenID Connect client of \<Organisation\>'s PingFederate, allows the application server alone to reach PingFederate over HTTPS on TCP 443 for its metadata, its signing certificate and each sign-in (F10), and records it on TPL-6. **Manual**
 3. The system owner adds the first Administrator to the \<Code\>\_Admins group in Active Directory. There is one Administrator role and no separate global administrator. **Manual**
 
 #### PRO-AC-13 Changing the system use notice
@@ -427,8 +427,8 @@ These procedures define how audit records are reviewed, protected and retained. 
 
 1. The auditor opens the audit log page in the Admin application and filters by date. **Manual**
 2. They follow the audit review procedure in \<Security Operating Procedures\>, section 4.2, including its list of unusual activity.
-3. They compare changes to schemas and to the AD groups each uses, and \<Organisation\>'s record of changes to the members of \<System Name\>'s groups, with the approved ServiceNow requests. **Manual**
-4. They report findings to the security officer and system owner, and record the date, period, reviewer and result on TPL-8, Monitoring and integrity report, in \<Record Templates\>. **Manual**
+3. They compare changes to schemas and to the AD groups each uses, and \<Organisation\>'s record of changes to the members of \<System Name\>'s groups, with the approved ServiceNow requests, and compare the audit log with the server, database, PingFederate and Active Directory records. **Manual**
+4. They report anything suspicious to the security officer, and record the date, period, reviewer and result on TPL-8, Monitoring and integrity report, in \<Record Templates\>. **Manual**
 5. If risk rises, for example after an incident or new threat information, the system owner increases how often or how closely records are reviewed. **Manual**
 
 #### PRO-AU-2 Audit chain check
@@ -466,7 +466,7 @@ These procedures define how audit records are reviewed, protected and retained. 
 
 #### PRO-AU-7 Application log
 
-1. The application logs on the VMs are treated as audit information, because they can repeat details from audit records, under \<Policy\> (AU). Only the server administrators and auditors may read them. **Manual**
+1. The application logs on the VMs hold no audit details, personal data or sign-in identifiers. On the VMs only the server administrators may read them. The security officer reviews them in central logging. **Manual**
 2. Application logs are kept for 30 days and then deleted. **Manual**
 3. They are forwarded to \<Organisation\>'s central logging, and are not otherwise copied off the VMs, except as incident evidence under PRO-AU-2, step 3.
 4. Each month the Windows server administrator checks who can read the logs and how old they are, and records the result on TPL-8. **Manual**
@@ -899,10 +899,10 @@ These procedures carry out \<Policy\> (MA), rules R1 to R12. The lists, routes a
 #### PRO-MA-4 Remote maintenance
 
 1. The system owner approves remote work in the change record, naming the route from \<Maintenance Management\>, section 3.4. **Manual**
-2. The person connects only through that route, with multi-factor sign-in (EV-MA-02). The Admin application is reached only through the managed administration route.
+2. The person connects only through that route, with multi-factor sign-in and a named account (EV-MA-02). Server and database administration reaches the two servers only from the administrators' managed devices over the managed administration route (F11), and the Admin application is reached only through that route.
 3. A supplier's session is watched by an administrator. Each session is logged as set in \<Maintenance Management\>, section 3.4. **Manual**
 4. When the work is finished, the session and network connection are ended, and any temporary account is disabled. **Manual**
-5. The administrator records the job on TPL-12 with the session reference. The security officer reviews the session logs weekly (C3, C5). **Manual**
+5. The administrator records the job on TPL-12 with the session reference. The security officer reviews the session logs weekly (C4, C5). **Manual**
 
 #### PRO-MA-5 Maintenance people
 
@@ -1237,7 +1237,7 @@ These procedures carry out \<Policy\> (PT). Steps marked **Manual** have no syst
 
 1. The business owner sets each retention period in \<PII Processing Management\>, section 3.7. **Manual**
 2. Every 12 months each Data Owner checks that their schema's personal data is accurate, relevant, timely and complete, and records the check on TPL-3. **Manual**
-3. A scheduled task lists the items past their retention period, which are deleted once the business owner approves, and each deletion is audited.
+3. A scheduled task lists the items past their retention period, which are deleted once the business owner, a member of \<Code\>\_BusinessOwners, approves their disposal in the Admin application (\<System Description\>, FR-074), and each deletion is audited.
 
 #### PRO-PT-6 Training and test data
 
@@ -1483,7 +1483,7 @@ These procedures carry out \<Policy\> (SI). The values, detection use cases and 
 
 #### PRO-SI-3 Reviewing monitoring
 
-1. Each week the security officer reviews the forwarded application, Windows and SQL Server logs, and the alerts raised, against the detection use cases in \<System and Information Integrity Management\>, section 3.4.
+1. Each week the security officer reviews the central logs, the forwarded application, Windows and SQL Server logs, and the alerts raised, but not the application audit log, which only auditors read (PRO-AU-1), against the detection use cases in \<System and Information Integrity Management\>, section 3.4.
 2. They record what was reviewed and anything found on TPL-8. **Manual**
 3. The system owner raises monitoring when risk rises, and takes the legal adviser's opinion before monitoring users in a new way. **Manual**
 

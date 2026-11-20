@@ -182,7 +182,8 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | --- | --- |
 | Record number |  |
 | Period covered, and reviewer |  |
-| Logs reviewed, and anything unexplained |  |
+| Central logs reviewed by the security officer, and anything unexplained |  |
+| Audit log review, by an auditor only (P-08, NFR-027): records compared with the server, database, PingFederate and Active Directory records, anything suspicious, and the date it was reported to the security officer |  |
 | Alerts raised, and what was done |  |
 | Integrity checks: release packages, file checksums and audit chain |  |
 | Configuration drift from \<Configuration Management\>, sections 3.4 to 3.6 (PRO-CM-7), and the change record raised for each |  |
@@ -316,6 +317,7 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | Clarification asked for, and dates the time was paused and restarted |  |
 | What they ask: see, correct, delete, restrict, object, or receive in a portable form |  |
 | Legal adviser's decision, and the time allowed |  |
+| Search across all schemas (FR-073): run by the legal adviser's delegate, and date |  |
 | What was done: by, and date |  |
 | People the data was disclosed to, told of a correction, deletion or restriction: date, or why not (UK GDPR, Article 19) |  |
 | Reply sent: date |  |

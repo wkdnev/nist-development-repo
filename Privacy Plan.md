@@ -17,7 +17,8 @@ The boundary, operational context and environment are as \<System Security Plan\
 | Plan owner and privacy representative | \[Name\] | Owns this plan, the impact assessment, individuals' requests and complaints, and reports to the ICO |
 | Data protection officer | \[Name, or the reason none is required\] | Leads \<Organisation\>'s privacy programme (PM-19; UK GDPR, Articles 37 to 39), advises on this plan and the impact assessment, and is the contact for individuals and the ICO. The legal adviser completes this row |
 | Risk decisions | \[Name\] | Decides on privacy risk |
-| Business and information owner | \[Name\] | Decides what data schemas hold, and how long for |
+| Business and information owner | \[Name\] | Decides what data schemas hold, and how long for, and approves the disposal of items due under the retention schedule in the Admin application (\<System Description\>, FR-074) |
+| Legal adviser's delegate | \[Name, named by the legal adviser\] | Searches every schema for one person's items to answer a request under data protection law (\<System Description\>, FR-073). Holds no other role |
 | Data Owners | \[Names, one for each schema\] | Authorise who may read or edit each schema, in ServiceNow, and keep its personal data accurate |
 | System owner | \[Name\] | Makes sure \<System Name\> follows this plan |
 | Breach response | \[Name\] | Leads the response, following \<Incident Response Management\> |
@@ -48,4 +49,4 @@ The requirements are the data protection laws in \<System Description\>, P-31. T
 
 ## 8 Architecture
 
-Privacy relies on the Security Architecture, \<Security Architecture\>. Personal data is in items and audit records in the Microsoft SQL Server database on the database server. Each schema's read and edit groups limit who can read it. Data at rest is encrypted. \<System Name\> receives a person's name from PingFederate at sign-in and reads their group memberships from Active Directory, and shares no data with any other system. ServiceNow and the starters and leavers process have no connection to it: people act on what they produce (flow F9). The plan assumes \<Organisation\>'s notice and contracts cover employees' data.
+Privacy relies on the Security Architecture, \<Security Architecture\>. Personal data is in items and audit records in the Microsoft SQL Server database on the database server. Each schema's read and edit groups limit who can read it. Data at rest is encrypted. \<System Name\> receives a person's name from PingFederate at sign-in (flow F10) and reads their group memberships from Active Directory, and shares no data with any other system. ServiceNow and the starters and leavers process have no connection to it: people act on what they produce (flow F9). The plan assumes \<Organisation\>'s notice and contracts cover employees' data.

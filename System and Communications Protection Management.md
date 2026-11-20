@@ -6,7 +6,7 @@ This document sets out how \<System Name\> is designed and configured to meet th
 
 Section 3 is the design: the principles, the boundary and the allowed flows, with each server's host firewall; transport encryption and sign-in; the cryptographic and key register and certificates; the page policy for mobile code; information at rest; denial of service, shared resources and process isolation; name resolution; what \<Organisation\> provides; and the policy and procedures. Each subsection names the controls it helps to meet.
 
-Other documents hold the rest. Who provides and is responsible for each control, its status and its assessment result are in \<System Security Plan\>, section 7.17 (Table 26). The tests, their results and the records an assessor will ask for are in \<Control Assessment Record\> (SC). Each control's risk is in \<Risk List\>, and what is still open is in \<Plan of Action and Milestones\>. The policy is in \<Policy\> (SC), and the steps people follow are in \<Procedures\> (SC). The flows themselves, F1 to F9, are in \<System Description\>, section 6.5, and \<System Security Plan\>, section 3.7, and the trust zones and layers of defence in \<Security Architecture\>.
+Other documents hold the rest. Who provides and is responsible for each control, its status and its assessment result are in \<System Security Plan\>, section 7.17 (Table 26). The tests, their results and the records an assessor will ask for are in \<Control Assessment Record\> (SC). Each control's risk is in \<Risk List\>, and what is still open is in \<Plan of Action and Milestones\>. The policy is in \<Policy\> (SC), and the steps people follow are in \<Procedures\> (SC). The flows themselves, F1 to F11, are in \<System Description\>, section 6.5, and \<System Security Plan\>, section 3.7, and the trust zones and layers of defence in \<Security Architecture\>.
 
 Much of this family is \<Organisation\>'s network: firewalls, the VPN, the proxy, DNS and the certificate authority. \<System Name\>'s own part is its listening addresses, host firewalls, TLS, keys, pages and the protection of what it stores.
 
@@ -37,7 +37,7 @@ These carry out the principles and rules of \<Policy\>, sections SC.3 and SC.4.
 
 Controls met here: SC-2, SC-7, SC-7(3), SC-7(4), SC-7(5), SC-7(7), SC-7(8), SC-15.
 
-\<System Name\> has no publicly accessible component and no connection of its own to an outside network. Users reach it from \<Organisation\>'s network, administrators over \<Organisation\>'s managed administration route, and everything outside is reached through \<Organisation\>'s managed interfaces and authenticated proxy (SC-7, SC-7(3), SC-7(8)), as \<Security Architecture\> sets out. Its only external connections are \<Organisation\>'s managed gateways, and all outbound traffic from the servers goes through the proxy or is blocked. \<System Name\> has no collaborative computing devices or applications, so SC-15 is tailored out (\<Tailoring Register\>, TR-SC-01). The flows, F1 to F9, are in \<System Description\>, section 6.5, \<System Security Plan\>, section 3.7, Table 7, and \<Security Architecture\>, Table 2.
+\<System Name\> has no publicly accessible component and no connection of its own to an outside network. Users reach it from \<Organisation\>'s network, administrators over \<Organisation\>'s managed administration route, and everything outside is reached through \<Organisation\>'s managed interfaces and authenticated proxy (SC-7, SC-7(3), SC-7(8)), as \<Security Architecture\> sets out. Its only external connections are \<Organisation\>'s managed gateways, and all outbound traffic from the servers goes through the proxy or is blocked. \<System Name\> has no collaborative computing devices or applications, so SC-15 is tailored out (\<Tailoring Register\>, TR-SC-01). The flows, F1 to F11, are in \<System Description\>, section 6.5, \<System Security Plan\>, section 3.7, Table 7, and \<Security Architecture\>, Table 2.
 
 \<System Name\>'s own part is how each application listens and each server's host firewall:
 
@@ -54,7 +54,7 @@ Each server's host firewall denies everything not listed below (SC-7(5)). \<Orga
 | --- | --- | --- | --- |
 | A1 | TCP 443 (UI application) | Users' networks, Z1 \[address ranges from \<Organisation\>\] | F1 |
 | A2 | Admin application port \[to be set\] | \<Organisation\>'s administration route only, Z2 \[address range\] | F2 |
-| A3 | Windows administration \[tool and port, EV-MA-02\] | Z2 only | Not numbered |
+| A3 | Server administration \[tool and port, EV-MA-02\] | Server and database administrators' managed devices, over \<Organisation\>'s managed administration route only, Z2, with multi-factor authentication and named accounts | F11 |
 | None | API | Not reachable from the network: loopback only | F3, F4 |
 
 **Table 2: Database server, inbound**
@@ -62,7 +62,7 @@ Each server's host firewall denies everything not listed below (SC-7(5)). \<Orga
 | Rule | Port | From | Flow |
 | --- | --- | --- | --- |
 | D1 | TCP 1433 (SQL Server) | Application server address only | F5 |
-| D2 | Windows administration \[tool and port, EV-MA-02\] | Z2 only | Not numbered |
+| D2 | Server and database administration \[tool and port, EV-MA-02\] | Server and database administrators' managed devices, over \<Organisation\>'s managed administration route only, Z2, with multi-factor authentication and named accounts | F11 |
 
 **Table 3: Both servers, outbound**
 
@@ -74,12 +74,13 @@ Each server's host firewall denies everything not listed below (SC-7(5)). \<Orga
 | O4 | TCP 1433 (application server only) | Database server | Data (F5) |
 | O5 | Backup \[method to be chosen\] (database server only) | \<Organisation\>'s backup site | Backups (F8) |
 | O6 | TCP 636, LDAPS (application server only) | \<Organisation\>'s Active Directory | Reading the signed-in person's group memberships (F7) |
+| O7 | TCP 443, HTTPS (application server only) | \<Organisation\>'s PingFederate | Fetching PingFederate's OpenID Connect metadata and signing certificate, and completing each sign-in (F10) |
 
 ### 3.3 Transport encryption and sign-in
 
 Controls met here: SC-7(4), SC-8, SC-8(1), SC-10, SC-13, SC-23.
 
-Every flow uses this profile, from NCSC's guidance. It covers F1 to F5, including the API calls that stay on the application server (F3, F4), and F7, the API's LDAPS connection to Active Directory, on which the directory's certificate is checked. F6, sign-in through PingFederate, and F8, the servers' time, logging, proxy and backup traffic, are encrypted as \<Organisation\> sets. F9 is between people and carries nothing to or from \<System Name\>.
+Every flow uses this profile, from NCSC's guidance. It covers F1 to F5, including the API calls that stay on the application server (F3, F4), F7, the API's LDAPS connection to Active Directory, on which the directory's certificate is checked, and F10, the applications' HTTPS connection to PingFederate for its OpenID Connect metadata and signing certificate and to complete each sign-in, on which PingFederate's certificate is checked. F6, sign-in through PingFederate, and F8, the servers' time, logging, proxy and backup traffic, are encrypted as \<Organisation\> sets. F9 is between people and carries nothing to or from \<System Name\>. F11, server and database administration, runs only over \<Organisation\>'s managed administration route, encrypted as \<Organisation\> sets.
 
 **Table 4: TLS profile**
 
@@ -97,7 +98,7 @@ Every flow uses this profile, from NCSC's guidance. It covers F1 to F5, includin
 
 \<System Name\> has no sessions, session identifiers or sign-out of its own (\<Access Control Management\>, section 3.1). The authenticity of each sign-in is protected in two ways instead (SC-23). First, the application accepts only PingFederate's signed OpenID Connect response, and checks that PingFederate signed it (K12), that it was issued for \<System Name\> and that it is still valid. Second, the sign-in is then held only in the application's authentication cookie, which is protected by the application's data protection key ring (K5 to K7) so that it cannot be forged or changed, is marked Secure, HttpOnly and SameSite, is sent only over TLS, and lasts no longer than PingFederate's sign-in lifetime (P-AC-10; \<System Description\>, P-02). The UI application and the Admin application call the API with a signed, short-lived token (K4).
 
-Network connections end when they are no longer needed (SC-10). Each TLS connection on F1 to F5 and F7 is closed when the exchange ends or when it has been idle for the web server's or database's connection time-out, and \<Organisation\> ends network and remote access (VPN) sessions after 30 minutes idle. There is no application session to end: a sign-in ends when PingFederate's sign-in lifetime does (P-AC-10; \<System Description\>, P-02).
+Network connections end when they are no longer needed (SC-10). Each TLS connection on F1 to F5, F7 and F10 is closed when the exchange ends or when it has been idle for the web server's or database's connection time-out, and \<Organisation\> ends network and remote access (VPN) sessions after 30 minutes idle. There is no application session to end: a sign-in ends when PingFederate's sign-in lifetime does (P-AC-10; \<System Description\>, P-02).
 
 ### 3.4 Cryptographic and key register
 
@@ -118,7 +119,7 @@ Every key and cryptographic use in \<System Name\> is listed here (SC-12, SC-13)
 | K9 BitLocker keys (both servers) | Encryption of the servers' disks | XTS-AES 256 with the TPM | TPM; recovery keys in \<Organisation\>'s protected store | Windows server administrator | Life of the disk; recovery key tested every 12 months |
 | K10 Backup encryption key | Encrypted database backups | AES-256 \[method to be chosen\] | Key store, apart from the backups | Database administrator | 1 year |
 | K11 Audit chain key | Keys the hash that chains the audit records (\<Audit and Accountability Management\>, section 3.5) | HMAC-SHA-256, at least 256 random bits | Key store outside the database, readable only by the API's service account | Database administrator | 1 year, and when a holder leaves |
-| K12 PingFederate signing certificate | Signs the OpenID Connect sign-in responses \<System Name\> accepts. \<System Name\> holds only the public part, and trusts nothing else | As \<Organisation\> sets it \[algorithm and size, EV-IA-04\] | \<Organisation\>'s PingFederate; the public part in \<System Name\>'s sign-in settings | \<Organisation\>; Windows server administrator for \<System Name\>'s PingFederate connection | As \<Organisation\> sets it. \<System Name\> follows each change of certificate without a gap |
+| K12 PingFederate signing certificate | Signs the OpenID Connect sign-in responses \<System Name\> accepts. \<System Name\> holds only the public part, and trusts nothing else | As \<Organisation\> sets it \[algorithm and size, EV-IA-04\] | \<Organisation\>'s PingFederate; the public part fetched by the UI application and Admin application from PingFederate's OpenID Connect metadata (F10) | \<Organisation\>; Windows server administrator for \<System Name\>'s PingFederate connection | As \<Organisation\> sets it. \<System Name\> follows each change of certificate without a gap |
 | A1 Password hashing | Not used: \<System Name\> holds no user passwords and no database password | None | Not applicable | Not applicable | Not applicable |
 | A2 Audit chain | Shows audit records were not changed | HMAC-SHA-256 with K11, as the audit design requires | Database | Developers | Not applicable |
 | A3 File checksums | Shows stored files were not changed | SHA-256 | Database | Developers | Not applicable |

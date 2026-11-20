@@ -55,7 +55,7 @@ It is a summary. The detail of each control family is held once, in the design d
 | Database | Microsoft SQL Server 2022, holding every item, file, schema definition and audit record. Each schema is its own database schema |
 | Hosting | Two Windows Server 2025 virtual servers in \<Organisation\>'s data centre: an application server and a database server. Each application runs as a Windows service under its own managed service account |
 | Sign-in | \<Organisation\>'s PingFederate single sign-on service, with multi-factor authentication, against Active Directory. The application holds no accounts and no passwords, and has no session management of its own |
-| Authorisation | Active Directory groups, read directly from Active Directory by the API: three role groups, and a read group and an edit group for each schema |
+| Authorisation | Active Directory groups, read directly from Active Directory by the API: five role groups, and a read group and an edit group for each schema |
 | Information held | The information types in section 3.4, and in every case sign-in identities and audit records |
 | Security categorisation | Moderate: confidentiality Moderate, integrity Moderate, availability Low (CSS), unless the application profile sets otherwise (P-01) |
 | Control baseline | CSS Moderate baseline, with the CSS privacy baseline, as tailored in \<Tailoring Register\>. Program Management is inherited from \<Organisation\> |
@@ -90,7 +90,7 @@ This section is completed for each application built on the reference system. Un
 | Authorising official | \[Name\] | Accepting the risk of operating the application |
 | Information owner | \[Name\] | The information held, its categorisation and who may see it |
 | Business owner | \[Name\] | The business need, the requirements that are theirs to set, and retention |
-| Security officer | \[Name\] | Security monitoring, log review and incident response |
+| Security officer | \[Name\] | Security monitoring, alerts and incident response |
 | Legal adviser or data protection officer | \[Name\] | Lawful basis, the impact assessment, people's requests and breach reporting |
 | Data Owners | \[Names, one for each schema\] | Authorising who may read or edit a schema, through the ServiceNow access approval workflow |
 
@@ -105,13 +105,15 @@ The reference system has the roles below. An application may rename a role, or l
 | Reader | Searches and reads items in their schemas, and reports a fault | UI application | Member of the schema's read group |
 | Editor | A reader's work, and creates, uploads, manages and exports the schema's items | UI application | Member of the schema's edit group. Edit includes read |
 | Administrator | Manages schemas, which groups open each schema, and system settings. Can reach every schema | Admin application and UI application | Member of the administrators' group |
-| Auditor | Reads and searches the audit log. Holds no administration role | Admin application | Member of the auditors' group |
-| Security officer | Reads security information, reviews logs and alerts, leads incident response. Holds no administration role | Admin application | Member of the security group |
+| Auditor | Reads and searches the audit log, and reviews it as P-08 sets. Holds no administration role | Admin application | Member of the auditors' group |
+| Security officer | Reads security information, reviews alerts and the central logs, leads incident response. Does not read the audit log. Holds no administration role | Admin application | Member of the security group |
+| Business owner | Approves the disposal of items due under the retention schedule (FR-074) | Admin application | Member of the business owners' group |
+| Legal adviser's delegate | Searches every schema for one person's items to answer a request under data protection law (FR-073). Holds no other role | Admin application | Member of the legal search group, named by the legal adviser |
 | Data Owner | Owns a schema's data and its two groups. Authorises who may read or edit it, in ServiceNow | ServiceNow and the directory | Named in section 3.2 and \<Roles and Responsibilities\> |
 | Server and database administrators | Run the servers and the database. Need no application role | The servers, over \<Organisation\>'s managed administration route | Named accounts from \<Organisation\> |
 | Developers | Build and fix the applications. Hold no administrator access on the servers | Development environment | Named in \<Roles and Responsibilities\> |
 
-All role and schema groups are Active Directory groups. The system owner owns the three role groups, and each Data Owner owns their schema's two groups. Only a group's owner changes its members.
+All role and schema groups are Active Directory groups. The system owner owns the five role groups, and each Data Owner owns their schema's two groups. Only a group's owner changes its members.
 
 ### 3.4 What information it holds
 
@@ -430,7 +432,7 @@ The application has no session management of its own: no idle lock, no idle time
 | NFR-024 | Let only the API write audit records, and let its database account add records and nothing more | Only the API has a route to the audit table, and its database role is granted insert and select on it and nothing more | \<Audit and Accountability Management\> |
 | NFR-025 | Chain audit records with HMAC-SHA-256 under a key held outside the database, so that a change or removal is detected | The hash covers the record's content and the previous hash, keyed with a secret from the key store | \<Audit and Accountability Management\> |
 | NFR-026 | Keep audit records as P-07 sets | A scheduled archive and deletion, with the archive kept offline | \<Audit and Accountability Management\> |
-| NFR-027 | Review the audit log as P-08 sets, and compare it with the server, database and PingFederate and Active Directory records | A person does this: the security officer, recording the review on a form | \<Audit and Accountability Management\> |
+| NFR-027 | Review the audit log as P-08 sets, and compare it with the server, database and PingFederate and Active Directory records | A person does this: an auditor, recording the review on a form, and reporting anything suspicious to the security officer | \<Audit and Accountability Management\> |
 | NFR-028 | Alert the security officer when an audit record cannot be written | The audit service reports a failed write to central monitoring, which alerts the security officer | \<Audit and Accountability Management\> |
 | NFR-029 | Keep both servers within the clock accuracy in P-09, from \<Organisation\>'s time service | The operating system's time service on each server, pointed at \<Organisation\>'s source | \<Audit and Accountability Management\> |
 | NFR-030 | Plan storage for the full audit retention period, and warn before it fills | Sized when the servers are built, with a disk-space alert | \<Audit and Accountability Management\> |
@@ -647,6 +649,8 @@ The reference stack is below. An application may replace any part of it with a s
 | F7 | API | \<Organisation\>'s Active Directory | Reading the signed-in person's group memberships | LDAPS, TCP 636 |
 | F8 | Both servers | \<Organisation\>'s time service, central logging, proxy and backup site | Time, logs, updates and backups | As \<Organisation\> sets, encrypted |
 | F9 | ServiceNow and the starters and leavers process | People, not the application | Access approvals and leaver notices | By people, in \<Organisation\>'s services. ServiceNow has no connection to the application |
+| F10 | UI application and Admin application | \<Organisation\>'s PingFederate | Fetching PingFederate's OpenID Connect metadata and signing certificate, and completing each sign-in | HTTPS, TCP 443, from the application server only |
+| F11 | Server and database administrators' managed devices | Both servers | Server and database administration | Only over \<Organisation\>'s managed administration route, with multi-factor authentication, using named accounts |
 
 No other flow is allowed. The UI application and the Admin application have no connection to the database. The application needs no route to the internet, and loads nothing from an outside host.
 

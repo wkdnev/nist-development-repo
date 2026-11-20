@@ -108,7 +108,7 @@ As the developer, \<System Name\>'s team provides the design information CSS ask
 
 1. **What each control does** (SA-4(1)): each family's design document, and the security plan, section 7.
 2. **How the controls are designed** (SA-4(2)): the security-relevant external interfaces and the high-level design in \<Security Architecture\> and the security plan, sections 3 and 4, and how each security function is built, in the family design documents: enough for an assessor to judge each control.
-3. **The functions, ports, protocols and services in use** (SA-4(9)): the security plan, section 3.7, the allowed flows F1 to F9 in \<System Description\>, section 6.5, and \<Access Control Management\>, section 3.6.
+3. **The functions, ports, protocols and services in use** (SA-4(9)): the security plan, section 3.7, the allowed flows F1 to F11 in \<System Description\>, section 6.5, and \<Access Control Management\>, section 3.6.
 
 PIV products (SA-4(10)) are not applicable, as \<System Name\> does not use United States government identity cards (TR-SA-01).
 
@@ -151,7 +151,7 @@ These are the services in SA-09(02)\_ODP. Each provider must meet \<System Name\
 | --- | --- | --- | --- | --- |
 | Hosting, network and hardware | \<Organisation\> | Runs the two Windows Server 2025 virtual servers and their network | \<Organisation\>'s service agreement, and its Cyber Essentials Plus certificate | EV-SA-02 |
 | ServiceNow | \<Organisation\> | The access approval workflow, in which the Data Owner authorises each request, and the change and incident workflows. It has no connection to \<System Name\> (flow F9) | \<Organisation\>'s service agreement | EV-SA-02 |
-| PingFederate and Active Directory | \<Organisation\> | PingFederate authenticates every user with multi-factor authentication; Active Directory holds the groups, read by the API over LDAPS, that decide each role and each schema's access | \<Organisation\>'s agreement covering PingFederate (EV-CA-02) | EV-CA-02, EV-SA-02 |
+| PingFederate and Active Directory | \<Organisation\> | PingFederate authenticates every user with multi-factor authentication (flow F6), and the UI application and the Admin application fetch its OpenID Connect metadata and signing certificate, and complete each sign-in, over HTTPS from the application server (flow F10); Active Directory holds the groups, read by the API over LDAPS (flow F7), that decide each role and each schema's access | \<Organisation\>'s agreement covering PingFederate (EV-CA-02) | EV-CA-02, EV-SA-02 |
 | Starters and leavers process | \<Organisation\> | Gives prompt notice of each leaver, through ServiceNow | \<Organisation\>'s service agreement | EV-SA-02 |
 | Source repositories, build pipeline and in-house package feed | \<Organisation\>, under the corporate SDLC | Hold all source code, history and release tags; build and test each release; supply every package | \<Organisation\>'s corporate SDLC, which is inherited (EV-SA-03) | EV-SA-03 |
 | Package registry | nuget.org, through the in-house package feed | Supplies .NET packages and the browser libraries the pages need, which \<System Name\> serves itself | Package signatures, and the check made before a package is used (PRO-SA-7). No agreement | Package checks |

@@ -182,7 +182,7 @@ Controls met here: CP-2, CP-7, CP-10, CP-10(2).
 
 Recovery follows PRO-CP-3 in the order of recovery in section 3.3.3, at the second site if the main one is lost:
 
-1. Confirm \<Organisation\>'s services and the site are available, including PingFederate, without which nobody can sign in.
+1. Confirm \<Organisation\>'s services and the site are available, including PingFederate, without which nobody can sign in, and that the firewall allows every flow F1 to F11 in \<System Description\>, section 6.5, including the application server's route to PingFederate (flow F10) and the administrators' managed administration route (flow F11).
 2. Rebuild the database VM to the baseline in \<Configuration Management\>, sections 3.4 and 3.6.
 3. Restore the latest good backup, then apply the archived transaction logs up to the last consistent point (CP-10(2)). If a backup fails its checks, use the one before it.
 4. Restore the secrets from their protected copy. Change them if a compromise is suspected.
