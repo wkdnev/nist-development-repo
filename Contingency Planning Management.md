@@ -47,11 +47,11 @@ The plan recovers \<System Name\> in three phases: activation and notification, 
 
 **Figure 1: The three phases of recovery**
 
-**Scope:** UI application, Admin application, API, the PostgreSQL database that holds every document page and audit record, the secrets they need, and the two Windows Server 2025 VMs at \<Organisation\>. \<Organisation\>'s own sites, network and services, including AD FS and Active Directory, are covered by its plans (appendix B).
+**Scope:** UI application, Admin application, API, the PostgreSQL database that holds every document page and audit record, the secrets they need, and the two Windows Server 2025 VMs at \<Organisation\>. \<Organisation\>'s own sites, network and services, including PingFederate and Active Directory, are covered by its plans (appendix B).
 
 **Assumptions:**
 
-1. \<Organisation\> provides a second site, network, sign-in through AD FS, directory, name resolution and time (EV-CP-01, EV-CP-02). Unconfirmed.
+1. \<Organisation\> provides a second site, network, sign-in through PingFederate, directory, name resolution and time (EV-CP-01, EV-CP-02). Unconfirmed.
 2. The latest good backup, its transaction logs and the protected copy of the secrets are at the second site.
 3. The tagged release and the baseline in \<Configuration Management\>, section 3.4, can be reached to rebuild the applications.
 4. At least one holder or deputy of each role in section 3.4 is available.
@@ -101,14 +101,14 @@ Controls met here: CP-2, CP-2(8).
 
 | Order | Component | Needed for | Depends on | Recovered from |
 | --- | --- | --- | --- | --- |
-| 1 | \<Organisation\>'s network, AD FS sign-in, directory, name resolution, time and certificates | Everything | \<Organisation\> | \<Organisation\>'s plans (appendix B) |
+| 1 | \<Organisation\>'s network, PingFederate sign-in, directory, name resolution, time and certificates | Everything | \<Organisation\> | \<Organisation\>'s plans (appendix B) |
 | 2 | Database VM and PostgreSQL 18.6 | Every function | 1 | \<Configuration Management\> baseline, then the latest good backup and transaction logs |
 | 3 | Secrets: the database password and the token signing key | Starting API | 1 | The protected copy at the second site (section 3.8) |
 | 4 | Application VM: API | Every function | 2, 3 | The tagged release and \<Configuration Management\> |
 | 5 | UI application | Finding and reading documents | 4 | The tagged release |
 | 6 | Admin application | Administration | 4 | The tagged release |
 
-\<System Name\> cannot be used while AD FS is unavailable, because nobody can sign in. \<Organisation\>'s recovery time for AD FS and Active Directory therefore sets a floor under \<System Name\>'s own. It is not yet known, and is asked for with EV-CP-01 (D-CP-15, PA-114). If it is longer than 72 hours, the system owner takes the recovery objectives back to the authorising official.
+\<System Name\> cannot be used while PingFederate is unavailable, because nobody can sign in. \<Organisation\>'s recovery time for PingFederate and Active Directory therefore sets a floor under \<System Name\>'s own. It is not yet known, and is asked for with EV-CP-01 (D-CP-15, PA-114). If it is longer than 72 hours, the system owner takes the recovery objectives back to the authorising official.
 
 #### 3.3.4 Essential assets
 
@@ -184,7 +184,7 @@ Controls met here: CP-2, CP-7, CP-10, CP-10(2).
 
 Recovery follows PRO-CP-3 in the order of recovery in section 3.3.3, at the second site if the main one is lost:
 
-1. Confirm \<Organisation\>'s services and the site are available, including AD FS, without which nobody can sign in.
+1. Confirm \<Organisation\>'s services and the site are available, including PingFederate, without which nobody can sign in.
 2. Rebuild the database VM to the baseline in \<Configuration Management\>, sections 3.4 and 3.6.
 3. Restore the latest good backup, then apply the archived transaction logs up to the last consistent point (CP-10(2)). If a backup fails its checks, use the one before it.
 4. Restore the secrets from their protected copy. Change them if a compromise is suspected.
@@ -277,7 +277,7 @@ This follows CSS. The first restore test and tabletop exercise take place within
 | Tabletop exercise, with the incident response plan | First within 30 days of the VMs being built; then every 12 months | Everyone in section 3.4, and \<Organisation\>'s IT service desk | Walk through one scenario from activation to deactivation | TPL-11 |
 | Plan review | Every 12 months, and after each test or activation | System owner and authorising official | Keep the plan current and build in what was learned | Change record |
 
-Tabletop scenarios rotate through: ransomware on the database VM; loss of the main site; a backup that fails its checks; a key person being unavailable; and AD FS being unavailable. Training content covers the activation criteria, the call tree, each role's steps and the checks before return; it is reviewed every 12 months and after a plan change, test or activation. Role training is module M8 of the role curriculum (\<Awareness and Training Management\>, section 3.4), and the training register shows who is trained (\<Awareness and Training Management\>, section 3.8). After a change to the plan that alters a person's steps, that person is briefed on the change.
+Tabletop scenarios rotate through: ransomware on the database VM; loss of the main site; a backup that fails its checks; a key person being unavailable; and PingFederate being unavailable. Training content covers the activation criteria, the call tree, each role's steps and the checks before return; it is reviewed every 12 months and after a plan change, test or activation. Role training is module M8 of the role curriculum (\<Awareness and Training Management\>, section 3.4), and the training register shows who is trained (\<Awareness and Training Management\>, section 3.8). After a change to the plan that alters a person's steps, that person is briefed on the change.
 
 Each test has objectives and a scenario set beforehand. Each test or activation ends with an after-action report on TPL-11, written within 10 working days: the objectives, what happened, the time to recover and data lost against the objectives, what went wrong, the actions with owners and dates, and the changes made to this plan and to the training content. An action that is not done within the month becomes an item in \<Plan of Action and Milestones\>.
 
@@ -291,7 +291,7 @@ Controls met here: CP-2(1), CP-4(1), CP-6, CP-6(1), CP-6(3), CP-7, CP-7(1), CP-7
 | --- | --- | --- | --- | --- |
 | A second site for backups and for rebuilt servers | CP-6, CP-6(1), CP-6(3), CP-7, CP-7(1), CP-7(2), CP-7(3) | A site that does not share the main site's hazards, holds the encrypted backups with one offline or immutable copy, can run both servers within 72 hours, and can be reached in a wide-area disruption | EV-CP-01 | Not sent |
 | Alternate telecommunications | CP-8, CP-8(1), CP-8(2) | An alternate service with no single point of failure shared with the main one, and a stated priority | EV-CP-02 | Not sent |
-| Its own disaster recovery and business continuity plans | CP-2(1), CP-4(1) | Who declares a disaster, and the recovery times of the network, AD FS, Active Directory, name resolution and time | EV-CP-01 | Not sent |
+| Its own disaster recovery and business continuity plans | CP-2(1), CP-4(1) | Who declares a disaster, and the recovery times of the network, PingFederate, Active Directory, name resolution and time | EV-CP-01 | Not sent |
 
 ### 3.12 Keeping the plan current
 
@@ -306,7 +306,7 @@ Controls met here: CP-2.
 
 Controls met here: CP-2(1), CP-4(1).
 
-Appendix B lists the related plans. This plan and the incident response plan were written together, and each cites the other. Their tabletop exercise is held together, and \<Organisation\>'s IT service desk takes part (section 3.10). \<Organisation\>'s disaster recovery and business continuity plans provide the network, AD FS, the second site and telecommunications. The system owner agrees with \<Organisation\> how the plans fit: who declares a disaster, and the recovery times of the services \<System Name\> depends on (section 3.3.3).
+Appendix B lists the related plans. This plan and the incident response plan were written together, and each cites the other. Their tabletop exercise is held together, and \<Organisation\>'s IT service desk takes part (section 3.10). \<Organisation\>'s disaster recovery and business continuity plans provide the network, PingFederate, the second site and telecommunications. The system owner agrees with \<Organisation\> how the plans fit: who declares a disaster, and the recovery times of the services \<System Name\> depends on (section 3.3.3).
 
 ### 3.14 Policy and procedures
 

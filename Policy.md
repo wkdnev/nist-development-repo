@@ -61,7 +61,7 @@ Documents in \<System Name\> are available only to people with an approved need.
 | R8 | Duties that could be misused together must be separated | AC-5 |
 | R9 | Account changes and privileged actions must be recorded against the person who made them | AC-2(4), AC-6(9) |
 | R10 | Access and privileges must be reviewed at set intervals | AC-2, AC-6(7) |
-| R11 | Repeated failed sign-ins must lock the account. Idle sessions must lock and end, and every session must have a time limit. A system use notice must be shown before sign-in | AC-2(5), AC-7, AC-8, AC-11, AC-11(1), AC-12 |
+| R11 | Repeated failed sign-ins must lock the account. An unattended device must lock its screen after a set time without activity, and every sign-in must have a time limit, set by PingFederate. \<System Name\> has no sessions of its own. A system use notice must be shown before sign-in | AC-2(5), AC-7, AC-8, AC-11, AC-11(1), AC-12 |
 | R12 | Information must flow only along approved routes. Remote access must use an approved, managed and encrypted route | AC-4, AC-17 family |
 | R13 | Wireless access, mobile devices, external systems and portable storage must follow approved rules | AC-18, AC-19 and AC-20 families |
 | R14 | Information may be shared outside a project only after a decision by its approver. \<System Name\> does not hold public content | AC-21, AC-22 |
@@ -75,7 +75,7 @@ Documents in \<System Name\> are available only to people with an approved need.
 | Head of Cyber | Approves all policies, including this one |
 | System owner | Owns this policy, approves privileged access, approves exceptions and accepts risk within their authority |
 | Authorising official | Accepts residual risk and authorises operation |
-| Global administrator | Carries out approved changes to users, groups, projects and sessions |
+| Global administrator | Carries out approved changes to users, groups and projects |
 | Project access approver | Decides who may read or edit a project, and whether its information may be shared |
 | Auditor | Reviews audit records and privileged activity |
 | Security officer | Monitors security information |
@@ -255,7 +255,7 @@ Every security-relevant action in \<System Name\> must leave a reliable record t
 5. **R5 Review:** the auditor must review records weekly and report findings to the security officer and system owner.
 6. **R6 Logging failure:** a logging failure must alert the Windows server administrator and security officer within 1 hour. The system keeps running while it is investigated and restored.
 7. **R7 Tampering:** suspected tampering must alert the security officer and auditor.
-8. **R8 Content of records:** records must not contain passwords, keys, tokens or session IDs, and must hold only the personal data an investigation needs.
+8. **R8 Content of records:** records must not contain passwords, keys, tokens or cookie values, and must hold only the personal data an investigation needs.
 9. **R9 Other logs:** any other log that repeats audit information, such as an application or server log, is audit information under this policy: it is protected, limited to those who need it, and kept only for the period set in \<Audit and Accountability Management\>.
 
 ### AU.5 Responsibilities
@@ -606,14 +606,14 @@ Every action in \<System Name\> must be traceable to one known person. Access de
 
 1. **R1 Who may have access:** only \<Organisation\>'s staff and contractors, who hold an Active Directory account and whose identity \<Organisation\>'s HR has checked. Non-organisational users are not allowed.
 2. **R2 Identifiers:** a person's Active Directory account name is their identifier. It is unique and named, is never reused, and shows staff or contractor status. \<System Name\> issues no identifiers of its own.
-3. **R3 Sign-in:** every user must sign in through \<Organisation\>'s single sign-on service, AD FS. \<System Name\> must hold no passwords and no accounts of its own. Password rules are those of \<Organisation\>'s corporate standard, which \<System Name\> accepts (D-AC-21, D-AC-23).
+3. **R3 Sign-in:** every user must sign in through \<Organisation\>'s single sign-on service, PingFederate. \<System Name\> must hold no passwords and no accounts of its own. Password rules are those of \<Organisation\>'s corporate standard, which \<System Name\> accepts (D-AC-21, D-AC-23).
 4. **R4 Password changes:** follow \<Organisation\>'s corporate standard. Anyone who thinks their password is known must change it through \<Organisation\>'s service desk and tell the security officer.
 5. **R5 Secrets:** service account secrets and the signing key must be held outside source code, changed every 12 months and when an administrator leaves, and never recorded in clear.
-6. **R6 Multi-factor:** every user must sign in with multi-factor authentication, which AD FS provides (D-AC-23). This carries out the authorising official's decision that multi-factor sign-in is required (D-IA-07).
-7. **R7 Signing in again:** after 30 minutes idle and after 8 hours. A change to a person's groups takes effect when they next sign in.
+6. **R6 Multi-factor:** every user must sign in with multi-factor authentication, which PingFederate provides (D-AC-23). This carries out the authorising official's decision that multi-factor sign-in is required (D-IA-07).
+7. **R7 Signing in again:** when PingFederate's sign-in lifetime for \<System Name\> ends (\<Access Control Management\>, P-AC-10). \<System Name\> has no idle timeout or session limit of its own. A change to a person's groups takes effect when they next sign in.
 8. **R8 Assurance levels:** the identity and authenticator assurance levels in \<Identification and Authentication Management\>, section 3.4, must be met for each user group, and reviewed every 12 months.
 9. **R9 Authenticator inventory:** every authenticator must be listed in \<Identification and Authentication Management\>, section 3.5, with its owner, storage and change period, and reviewed every 12 months.
-10. **R10 Protection:** authenticators and tokens must travel only over encrypted connections, and \<System Name\> must accept only a token that AD FS has signed. A global administrator must be able to end any user's sessions at once.
+10. **R10 Protection:** authenticators and tokens must travel only over encrypted connections, and \<System Name\> must accept only a sign-in response that PingFederate has signed. A user's access is ended by disabling their AD account or removing their group membership, and ending their PingFederate sign-in.
 11. **R11 Loss:** a lost, stolen or exposed authenticator must be reported straight away to \<Organisation\>'s service desk and the security officer, and replaced or reset.
 
 ### IA.5 Responsibilities
@@ -626,9 +626,9 @@ Every action in \<System Name\> must be traceable to one known person. Access de
 | System owner | Owns this policy, authorises privileged roles and manages the members of their AD groups, and reviews the assurance levels and authenticator inventory |
 | Authorising official | Accepts the assurance levels, and decides Medium and High risks, including multi-factor sign-in |
 | Project access approver | Authorises access to their project, and manages the members of its AD groups |
-| Global administrator | Ends sessions when asked. Issues no identifiers or passwords: \<System Name\> has none |
+| Global administrator | Issues no identifiers or passwords and ends no sessions: \<System Name\> has none |
 | Windows server and database administrators | Hold and change the service secrets and signing key |
-| \<Organisation\> | Proves identity through pre-employment checks; provides the Active Directory accounts, AD FS sign-in with multi-factor authentication, and password and second factor resets; identifies devices on its network |
+| \<Organisation\> | Proves identity through pre-employment checks; provides the Active Directory accounts, PingFederate sign-in with multi-factor authentication, and password and second factor resets; identifies devices on its network |
 | Everyone with an account | Protects their authenticators and reports loss or suspected compromise |
 
 ### IA.6 Governance requirements
@@ -637,7 +637,7 @@ The rules in section 1.1 apply to this policy. It adds these.
 
 1. **Communication:** this policy and the procedures must be shared with everyone who uses or administers \<System Name\>, and whenever they change.
 2. **Compliance and management commitment:** the system owner reviews compliance at each review and records the result. Breaches may lead to loss of access and disciplinary action.
-3. **Coordination:** the system owner agrees with \<Organisation\>'s security contact how identity proofing, device identification and sign-in through AD FS are provided, and records it.
+3. **Coordination:** the system owner agrees with \<Organisation\>'s security contact how identity proofing, device identification and sign-in through PingFederate are provided, and records it.
 4. **Laws and standards:** this policy must be consistent with applicable law, including UK GDPR Article 32, which requires appropriate security of personal data, and the Computer Misuse Act 1990; \<Organisation\>'s policies; CSS; and CSS. The legal adviser reviewed it on 9 November 2026.
 
 ### IA.7 Non-compliance and risk acceptance
@@ -656,7 +656,7 @@ The rule on non-compliance in section 1.1 applies to this policy.
 | Identity assurance level | How sure the organisation is that a person is who they claim, from identity proofing |
 | Authenticator assurance level | How sure the organisation is that the person signing in holds the account |
 | Replay resistance | Protection against reusing a captured sign-in or token |
-| Single sign-on | Signing in once, to \<Organisation\>'s AD FS, which then vouches for the person to \<System Name\>. \<System Name\> never sees the password |
+| Single sign-on | Signing in once, to \<Organisation\>'s PingFederate, which then vouches for the person to \<System Name\>. \<System Name\> never sees the password |
 
 ### IA.9 References
 
@@ -666,7 +666,7 @@ The rule on non-compliance in section 1.1 applies to this policy.
 | --- | --- |
 | CSS, IA family, and CSS Moderate baseline | The controls this policy meets |
 | CSS, Digital Identity Guidelines | Choosing assurance levels |
-| CSS, Authentication and Authenticator Management | Password, multi-factor and session rules |
+| CSS, Authentication and Authenticator Management | Password, multi-factor and reauthentication rules |
 | NCSC password guidance | The UK view on password rules |
 | UK GDPR Article 32, and the Computer Misuse Act 1990 | Security of personal data, and unauthorised access |
 | \<Identification and Authentication Management\> and \<Procedures\> (IA) | The settings and procedures |
@@ -1144,7 +1144,7 @@ It applies to everyone who uses, administers or develops \<System Name\>, includ
 | Head of Cyber | Approves this policy, as all policies |
 | Authorising official | Decides Medium and High risks |
 | System owner | Owns this policy; keeps the designations, the personnel security register and the signed agreements; checks screening is confirmed before access; monitors external people |
-| Global administrator | Ends a leaver's sessions, and acts within the time limits |
+| Global administrator | Acts within the time limits. \<System Name\> has no sessions to end: a leaver's access ends when \<Organisation\> disables their AD account and ends their PingFederate sign-in |
 | Line managers | Report movers and leavers within 1 working day |
 | Legal adviser | Reviews this policy and the laws it names |
 | \<Organisation\> | Screens people and holds the results; runs HR and disciplinary processes; holds exit interviews and recovers equipment; disables the network account of a leaver at once; provides job descriptions |
@@ -1435,7 +1435,7 @@ The rule on non-compliance in section 1.1 applies to this policy.
 | Default branch | The branch in each repository that releases are built from |
 | Third-party component | Any package, library, base image or script \<System Name\> uses but didn't write |
 | External service | A service run by someone else that \<System Name\> depends on, such as hosting, source code hosting or a package registry |
-| Security function | A part of \<System Name\> that enforces a control, such as sign-in, project access, audit or session time-out |
+| Security function | A part of \<System Name\> that enforces a control, such as sign-in, project access or audit |
 
 ### SA.9 References
 
@@ -1474,7 +1474,7 @@ Information in \<System Name\> must be protected wherever it travels or rests. \
 1. **R1 Flows:** only the flows in \<System Security Plan\>, section 3.7, Table 7, and \<Security Architecture\>, Table 2, are allowed. Traffic is denied by default at \<Organisation\>'s firewalls and at each VM's host firewall, using the allow-lists in \<System and Communications Protection Management\>, section 3.2.
 2. **R2 Listening addresses:** UI application listens on TCP 443 only. The admin portal is reachable only over \<Organisation\>'s managed administration route. API listens only on the application VM's loopback address. The database accepts connections only from the application VM.
 3. **R3 Transport:** every flow must use TLS under NCSC's profiles. TLS 1.3 is preferred, with hybrid post-quantum key exchange where the platform supports it. TLS 1.2 is allowed only with the GCM profiles. SSL, TLS 1.0 and 1.1, compression and TLS 1.3 early data (0-RTT) must be off.
-4. **R4 Web sessions:** the apps must serve HTTPS only and redirect HTTP, send HSTS with a maximum age of at least 1 year, and mark every cookie Secure, HttpOnly and SameSite. Sessions end after 30 minutes idle and after 8 hours.
+4. **R4 Web traffic and cookies:** the apps must serve HTTPS only and redirect HTTP, send HSTS with a maximum age of at least 1 year, and mark every cookie Secure, HttpOnly and SameSite. \<System Name\> has no sessions of its own: the authentication cookie lasts no longer than PingFederate's sign-in lifetime (\<Access Control Management\>, P-AC-10).
 5. **R5 Database:** PostgreSQL must accept network connections only over TLS, with a minimum of TLS 1.2, and API must connect with full certificate and host name checking.
 6. **R6 Cryptography:** only the algorithms in the cryptographic register may be used: NCSC's TLS profiles, XTS-AES 256 for disk encryption, PBKDF2-SHA512 with at least 600,000 iterations for passwords, and HMAC-SHA256 with a random key of at least 256 bits for tokens. US CSS validation is not required (D-SC-P02).
 7. **R7 Keys:** every key must be in the register, with an owner, a protected store and a cryptoperiod based on CSS. Keys must never be held in source code, tickets, chat or documents. Each key is changed at the end of its cryptoperiod, when someone who held it leaves, and at once if it may be compromised. The data protection key rings are protected with Windows DPAPI and backed up with the server.
@@ -1495,7 +1495,7 @@ Information in \<System Name\> must be protected wherever it travels or rests. \
 | System owner | Owns this policy and the cryptographic register; approves new flows and mobile code exceptions; reviews the boundary with \<Organisation\> every 12 months |
 | Windows server administrator | Sets TLS, certificates, host firewall rules, BitLocker and key ring protection on the VMs |
 | Database administrator | Sets TLS in PostgreSQL, with client rules that require it, and encrypts backups |
-| Developers | Build secure sessions, cookies and page policies; keep keys out of the code; configure the key rings and rate limits; run Test-Protection.ps1 |
+| Developers | Build secure cookies and page policies; keep keys out of the code; configure the key rings and rate limits; run Test-Protection.ps1 |
 | Security officer | Checks the register and test results at each review |
 | \<Organisation\> | Provides firewalls, proxy, DNS, certificates and denial-of-service protection |
 

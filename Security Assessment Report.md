@@ -13,7 +13,7 @@ It covers \<System Name\> v1.0: UI application, Admin application, API and the \
 - **Coverage:** all 316 entries in the Moderate baseline, and the privacy baseline outside PM, were assessed against 1,998 CSS determination statements. The coverage and the statement counts were checked against the CSS catalogue, release 5.2.0, on 12 November 2026.
 - **Result:** 1,083 statements (54%) are satisfied, and 19 controls are fully satisfied. Every other statement is recorded with a reason, and every non-compliance is rated in \<Risk List\>.
 - **Why the rest are not satisfied:** 157 statements (8%) are gaps in the system itself; 306 (15%) await evidence from \<Organisation\> or the VMs; 390 (20%) await a decision, or the start of operation; and 62 do not apply. Section 4.3 breaks these down.
-- **Risk:** 24 risks are recorded. 5 are rated High: a user interferes with another user's session or abuses internal functions (R-AC-02); someone gains full database control (R-AC-04); credentials or documents are intercepted (R-AC-05); a stolen password gives full access (R-AC-10); a known flaw or malicious upload compromises the system (R-SI-01).
+- **Risk:** 24 risks are recorded. 5 are rated High: a user interferes with another user's access or abuses internal functions (R-AC-02); someone gains full database control (R-AC-04); credentials or documents are intercepted (R-AC-05); a stolen password gives full access (R-AC-10); a known flaw or malicious upload compromises the system (R-SI-01).
 - **Remediation:** \<Plan of Action and Milestones\> holds 131 items: 13 High, 55 Medium and 63 Low. 6 are fixed and waiting for a repeat test on the VMs, 2 are closed and 123 are open, 10 of them High.
 - **Inherited controls:** 65 entries depend wholly on \<Organisation\> (\<Assessment, Authorization, and Monitoring Management\>, section 3.6). None of the 74 evidence requests in \<Evidence Requests\> has yet been sent.
 
@@ -100,7 +100,7 @@ A control counts as satisfied only when every one of its statements is satisfied
 
 | Risk | Rating | Treatment | Status |
 | --- | --- | --- | --- |
-| R-AC-02 A user interferes with another user's session or abuses internal functions | High | Fix | Open; treatment in progress |
+| R-AC-02 A user interferes with another user's access or abuses internal functions | High | Fix | Open; treatment in progress |
 | R-AC-04 Someone gains full database control | High | Fix | Open; treatment in progress |
 | R-AC-05 Credentials or documents are intercepted | High before production; low while only on localhost | Fix | Open; treatment in progress |
 | R-AC-10 A stolen password gives full access | High | Accepted to 6 May 2027 (D-GEN-13); end state decided by the authorising official: multi-factor for administrators before production documents, and for all users by 6 May 2027 (D-IA-07) | Accepted to 6 May 2027; remediation planned |
@@ -109,11 +109,11 @@ A control counts as satisfied only when every one of its statements is satisfied
 | R-AC-03 An outsider degrades the service without signing in | Medium | Fix | Open; treatment in progress |
 | R-AC-06 People keep access they no longer need | Medium | Fix | Open; treatment in progress |
 | R-AC-07 Administrator misuse goes unnoticed | Medium | Fix | Open; treatment in progress |
-| R-AC-08 An unattended session is used by someone else | Medium | Fix | Open; treatment in progress |
+| R-AC-08 An unattended signed-in screen is used by someone else | Medium | Fix | Open; treatment in progress |
 | R-AC-11 The system cannot be authorised | Medium | Fix | Open; treatment in progress |
 | R-AT-01 Someone makes a mistake, or is deceived, because they were not trained | Medium | Fix: no access without the briefing, and no privileged role without its modules (\<Awareness and Training Management\>) | Open; proposed on 12 November 2026, and the rating awaits the authorising official (D-RA-10) |
 | R-AU-01 Audit records are changed or removed without detection | Medium | Fix (authorising official, D-AU-06) | Open; treatment in progress |
-| R-AU-02 Personal data and live session IDs are exposed through the application log | Medium | Fix (authorising official, D-AU-06). Until then the application log is treated as audit information (\<Audit and Accountability Management\>) | Open; treatment in progress |
+| R-AU-02 Personal data and sign-in identifiers are exposed through the application log | Medium | Fix (authorising official, D-AU-06). Until then the application log is treated as audit information (\<Audit and Accountability Management\>) | Open; treatment in progress |
 | R-CM-01 \<System Name\> runs software or settings that differ from the approved baseline, and nobody notices | Medium | Fix (authorising official, D-CM-10) | Open; treatment in progress |
 | R-CP-01 Documents cannot be recovered after a failure | Medium | Fix | Open; treatment in progress |
 | R-IR-01 An incident is not contained or reported in time | Medium | Fix: train, exercise and set up tracking before go-live | Open; proposed on 12 November 2026, and the rating awaits the authorising official (D-RA-10) |
@@ -137,10 +137,10 @@ The 301 non-compliances behind these risks are rated 17 High, 56 Medium and 228 
 | PA-04 | High | Export job status, download and cancel do not check that the job belongs to the caller | Fixed on 5 November 2026 (T62); awaiting a repeat test on the VMs |
 | PA-05 | Medium | Bad file reports have no project check. The list also fails for everyone with a database error | Fixed on 5 November 2026 (T23, T60, T61); awaiting a repeat test on the VMs |
 | PA-08 | Low | The API document endpoint refuses access with a server error, not 403 | Fixed on 5 November 2026 (T14); awaiting a repeat test on the VMs |
-| PA-09 | Medium | Document content is sent as publicly cacheable for an hour, so it can stay in shared caches and after sign-out | Fixed on 5 November 2026 (T22); awaiting a repeat test on the VMs |
+| PA-09 | Medium | Document content is sent as publicly cacheable for an hour, so it can stay in shared caches and in the browser after use | Fixed on 5 November 2026 (T22); awaiting a repeat test on the VMs |
 | PA-27 | High | Export and upload checked access to the project named in a request but used a separately named schema, so an editor of one project could reach another | Fixed on 5 November 2026 (T63); awaiting a repeat test on the VMs |
 | PA-24 | Low | The evidence describes uncommitted code on a local branch | Closed on 6 November 2026: committed and tagged v1.0 locally on 6 November 2026. Hashes are in \<System Security Plan\>, section 2 |
-| PA-33 | Low | The 8-hour session limit check gave 200 in one full test run, then passed every other time. The cause was not found, so a real intermittent fault cannot yet be ruled out | Closed on 9 November 2026: the full run was repeated and passed five times in a row (I11). T45 now records its set-up result |
+| PA-33 | Low | The tested build's 8-hour session limit check gave 200 in one full test run, then passed every other time. The cause was not found, so a real intermittent fault cannot yet be ruled out | Closed on 9 November 2026: the full run was repeated and passed five times in a row (I11). T45 now records its set-up result |
 
 ## 7 Evidence
 
@@ -170,7 +170,7 @@ Each script can be run again, and each evidence folder holds a README and a mani
 ## 8 Conditions before authorisation
 
 1. TLS and secure cookies on every connection, and secrets removed from source (PA-18, PA-19), as the authorising official decided.
-2. Sign-in through AD FS, with multi-factor authentication, shown working for every user before any production documents are held (D-AC-23, PA-95; D-IA-07).
+2. Sign-in through PingFederate, with multi-factor authentication, shown working for every user before any production documents are held (D-AC-23, PA-95; D-IA-07).
 3. Every other POA&M item whose latest completion is before go-live closed, including the packages with High advisories (PA-56) and backups (PA-64).
 4. The VMs built, and the tests repeated on them.
 5. \<Organisation\>'s evidence for the inherited controls received, and those controls accepted (\<Assessment, Authorization, and Monitoring Management\>, section 3.6).

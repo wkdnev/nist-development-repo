@@ -48,7 +48,7 @@ This records the initial self-assessment of \<System Name\> against each Moderat
 
 ### AC.2 How to read this record
 
-**Change since this assessment.** On 12 November 2026 the system owner stated that \<System Name\> signs users in through \<Organisation\>'s AD FS, with multi-factor authentication, takes roles and project access from Active Directory groups, and holds no accounts or passwords of its own (D-AC-23). This chapter assessed the v1.0 build, which signed in with its own passwords and held its accounts and groups in its own database. Its findings are a true record of that build and are not changed. The findings on sign-in, passwords, lockout, accounts and group membership are to be made again with AD FS sign-in, when the tests are repeated and \<Organisation\>'s evidence is in (PA-95).
+**Change since this assessment.** On 12 November 2026 the system owner stated that \<System Name\> signs users in through \<Organisation\>'s PingFederate, with multi-factor authentication, by OpenID Connect, reads each user's role and project groups from Active Directory over LDAPS, and holds no accounts or passwords of its own (D-AC-23). This chapter assessed the v1.0 build, which signed in with its own passwords and held its accounts, groups and sessions in its own database. Its findings are a true record of that build and are not changed. The findings on sign-in, passwords, lockout, accounts and group membership are to be made again with PingFederate sign-in, when the tests are repeated and \<Organisation\>'s evidence is in (PA-95). \<System Name\> now has no session management of its own: how long a sign-in lasts is set by PingFederate's sign-in lifetime (P-AC-10), and an unattended screen is locked by \<Organisation\>'s managed devices and the servers (P-AC-15). The results on sign-out, session limits and page lock (AC-2(5), AC-11, AC-11(1), AC-12) describe the v1.0 build only.
 
 This is the Level 1 self-assessment, and it makes no fixes. An independent team led by \[Name\] will use it for the Level 2 assessment. A finding does not by itself require a fix: each non-compliance is rated and decided in \<Risk List\>, and only those to be remediated go to \<Plan of Action and Milestones\>. The AC-3 fixes were made before this approach was agreed and are kept, so AC-3 describes the system with them in place.
 
@@ -88,9 +88,9 @@ The three methods are **Examine** (documents, code and configuration), **Test** 
 | AC-2(2) | Not applicable | None applies | Temporary and emergency accounts are not allowed until the system can expire them (P-AC-09, TR-AC-01). The system cannot expire any account (PA-13), so the Level 2 assessor should check that none exist | TR-AC-01 |
 | AC-2(3) | Other than satisfied | 2 of 6 | A disabled account stops working at once, and the time limits are approved (D-AC-03). But nothing disables accounts automatically, and the procedures have not yet been walked through | NC-05, PA-13 |
 | AC-2(4) | Other than satisfied | 0 of 5 | Most account changes made in the admin portal have no audit call, and the API's records name "System" instead of the person | NC-06, PA-14 |
-| AC-2(5) | Other than satisfied | 1 of 2 | The server ends a session idle for 30 minutes, as tested. The value is approved (D-AC-03), but the rule cannot yet be assessed for server administrators on the VMs | NC-07, PA-20, PA-30 |
+| AC-2(5) | Other than satisfied | 1 of 2 | The tested v1.0 build signed users out after 30 minutes idle. That value was approved (D-AC-03), but the rule cannot yet be assessed for server administrators on the VMs. The design has no idle sign-out: a sign-in lasts as long as PingFederate's sign-in lifetime allows (P-AC-10) | NC-07, PA-20, PA-30 |
 | AC-2(13) | Other than satisfied | 2 of 3 | The mechanism works: disabling ends API and web access immediately. The 1-hour limit and its triggers are approved (D-AC-03), but PRO-AC-4 has not yet been walked through or used | NC-08, PA-20 |
-| AC-3 | Other than satisfied | 0 of 1 | Project access is enforced and tested, but ordinary users can still reach some session functions, and the database role and secrets give too much access | NC-09, PA-02, PA-19, PA-25, PA-26 |
+| AC-3 | Other than satisfied | 0 of 1 | Project access is enforced and tested, but in the v1.0 build ordinary users could reach some session functions, which the design does not have, and the database role and secrets give too much access | NC-09, PA-02, PA-19, PA-25, PA-26 |
 | AC-4 | Other than satisfied | 1 of 2 | The target flows are drawn, but nothing enforces them yet, and browsers also fetch code from an outside service that was not in the design | NC-10, PA-18, PA-26, PA-34 |
 | AC-5 | Other than satisfied | 2 of 3 | Administrator, auditor and security roles exist, an auditor cannot manage users, and the split of duties is approved (D-AC-03). But a global administrator still holds all their rights | NC-11, PA-15 |
 | AC-6 | Other than satisfied | 0 of 1 | Readers and editors are limited to their projects, and the apps do not run as root in Docker. But the apps share a database superuser, global administrators reach everything, and some privileged functions are open to everyone | NC-12, PA-10, PA-19, PA-26, PA-31 |
@@ -99,12 +99,12 @@ The three methods are **Examine** (documents, code and configuration), **Test** 
 | AC-6(5) | Other than satisfied | 1 of 2 | Global administrator is limited to named accounts, and only one exists in the sample data. The privileged roles are approved (D-AC-03), but no approval is enforced in the system, the apps' database role is a superuser, and the VM accounts are not yet limited | NC-15, PA-10, PA-30 |
 | AC-6(7) | Other than satisfied | 2 of 4 | No review has happened. PRO-AC-7 and the review intervals are approved (D-AC-02, D-AC-03), and the Project Role Summary page shows assignments, but the system has no review record | NC-16, PA-16 |
 | AC-6(9) | Other than satisfied | 0 of 1 | Some privileged functions are logged, but many are not, some logs name the wrong actor, and the VM logs are not available | NC-17, PA-14, PA-29, PA-31 |
-| AC-6(10) | Other than satisfied | 0 of 1 | The main administration functions are protected, but ordinary users can still run some privileged functions. These include changing another user's session role, clearing the API cache, writing audit records and starting a database migration | NC-18, PA-02, PA-03, PA-06, PA-07, PA-29 |
+| AC-6(10) | Other than satisfied | 0 of 1 | The main administration functions are protected, but ordinary users can still run some privileged functions. These include, in the v1.0 build, changing another user's session role (a function the design does not have), clearing the API cache, writing audit records and starting a database migration | NC-18, PA-02, PA-03, PA-06, PA-07, PA-29 |
 | AC-7 | Other than satisfied | 4 of 8 | The application mechanism works as tested: five failures lock the account for 15 minutes, and it unlocks afterwards. The values are approved (D-AC-03) | NC-19, PA-20, PA-30, PA-35 |
 | AC-8 | Other than satisfied | 1 of 11 | No notice is shown on either sign-in page. The wording in P-AC-16 is approved by the system owner, subject to legal review (D-AC-06), but it is not built (PA-11) | NC-20, PA-11 |
-| AC-11 | Other than satisfied | 2 of 4 | A browser overlay appears after 25 minutes, but "Continue Session" removes it without a password, so it is not a true lock. The overlay runs in the browser, so it does not by itself stop a browser user reaching the page behind it | NC-21, PA-12, PA-21 |
-| AC-11(1) | Other than satisfied | 0 of 1 | The code draws a dark overlay at 92% opacity, but this has not been seen on screen, so there is no evidence yet that it fully hides what was displayed. Workstation lock screens depend on \<Organisation\> | NC-22, PA-21 |
-| AC-12 | Other than satisfied | 1 of 2 | Sessions end after idling, at the 8-hour limit, on sign-out and when revoked. The values are approved (D-AC-03), but one unexplained test result needs resolving (PA-33), and the VMs are not available | NC-23, PA-20, PA-30, PA-33 |
+| AC-11 | Other than satisfied | 2 of 4 | The tested v1.0 build showed a browser overlay after 25 minutes, but its continue button removed it without a password, so it was not a true lock. The overlay ran in the browser, so it did not by itself stop a browser user reaching the page behind it. The design has no page lock: \<Organisation\>'s managed devices and the servers lock an unattended screen (P-AC-15) | NC-21, PA-12, PA-21 |
+| AC-11(1) | Other than satisfied | 0 of 1 | The v1.0 build's code drew a dark overlay at 92% opacity, but this was not seen on screen, so there is no evidence that it fully hid what was displayed. The design has no page lock, so the device and server lock screens conceal the display, and these depend on \<Organisation\> (P-AC-15) | NC-22, PA-21 |
+| AC-12 | Other than satisfied | 1 of 2 | In the tested v1.0 build, sessions ended after idling, at the 8-hour limit, on sign-out and when revoked. The values were approved (D-AC-03), but one unexplained test result needs resolving (PA-33), and the VMs are not available. The design has no sessions of its own: a sign-in ends when PingFederate's sign-in lifetime ends (P-AC-10) | NC-23, PA-20, PA-30, PA-33 |
 | AC-14 | Other than satisfied | 3 of 4 | The list of what works without signing in is approved (D-AC-12), and the SSP gives its rationale. The result stays open because other endpoints still answer without signing in (PA-03, PA-07), and Windows and PostgreSQL are not yet examined | NC-24, PA-03, PA-07, PA-28 |
 | AC-17 | Other than satisfied | 0 of 4 | The remote access route is not named, and no restrictions are written down | NC-25, PA-18 |
 | AC-17(1) | Other than satisfied | 0 of 2 | Expected from \<Organisation\>, with no evidence yet | NC-26, PA-18, PA-21 |
@@ -134,7 +134,7 @@ Find a control: AC-1 | AC-2 | AC-2(1) | AC-2(2) | AC-2(3) | AC-2(4) | AC-2(5) | 
 
 #### AC.4.1 AC-3 Access Enforcement
 
-**Result: Other than satisfied.** Project access is enforced and tested, but ordinary users can still reach some session functions, and the database role and secrets give too much access. No AC-3 enhancements are in the Moderate baseline.
+**Result: Other than satisfied.** Project access is enforced and tested, but in the v1.0 build ordinary users could reach some session functions, which the design does not have, and the database role and secrets give too much access. No AC-3 enhancements are in the Moderate baseline.
 
 **What it requires:** the system must enforce approved authorisations for logical access to information and system resources, in line with access control policies.
 
@@ -149,7 +149,7 @@ Find a control: AC-1 | AC-2 | AC-2(1) | AC-2(2) | AC-2(3) | AC-2(4) | AC-2(5) | 
 | Part of the stack | Finding | Evidence |
 | --- | --- | --- |
 | Project read and edit | Enforced through access-control-toolkit, denied by default, including pages, tiles, export and bad file reports | T11 to T23, T48, T56 to T64; browser check |
-| Session functions | Any signed-in user can change another user's session role and create session records for them | T33, T34 (PA-02) |
+| Session functions (v1.0 build) | Any signed-in user could change another user's session role and create session records for them. The design has no such functions | T33, T34 (PA-02) |
 | Export to Folder | An editor can write exports to any server folder the service can reach | Code review (PA-26) |
 | API addresses with no project | Access is checked, but the wrong document may be found | Code review (PA-25) |
 | Database and secrets | Apps share a superuser role; secrets are committed | T55, Code (PA-10, PA-19) |
@@ -182,7 +182,7 @@ Every route without parameters in UI application (35) and Admin application (51)
 | Action | Where | Result | Proposed rationale | Assessment |
 | --- | --- | --- | --- | --- |
 | See the sign-in page and sign in | UI application, Admin application, the API sign-in function | 200 | Needed before anyone can identify themselves | Acceptable |
-| See the signed-out and session-expired pages | UI application, Admin application | 200 | Shows the result of ending a session; holds no data | Acceptable |
+| See the v1.0 build's signed-out and sign-in expired pages | UI application, Admin application | 200 | Showed the result of ending a sign-in; held no data. The design has no such pages | Acceptable |
 | Change an expired temporary password | the change password page | Redirects to sign-in unless a correct password was just entered | Part of signing in | Acceptable |
 | See the access denied page | Admin application | 200 | Explains a refusal; holds no data | Acceptable |
 | Load scripts, styles and images | Static files in UI application and Admin application | 200 | Needed to draw the sign-in page; holds no business data | Acceptable; contents not reviewed file by file |
@@ -203,7 +203,7 @@ The UIs deny anything not marked as open, through a fallback policy. The API doe
 
 #### AC.4.3 AC-6(10) Prohibit Non-privileged Users from Executing Privileged Functions
 
-**Result: Other than satisfied.** The main administration functions are protected, but ordinary users can still run some privileged functions. These include changing another user's session role, clearing the API cache, writing audit records and starting a database migration. Moderate has no further enhancements under AC-6(10).
+**Result: Other than satisfied.** The main administration functions are protected, but ordinary users can still run some privileged functions. These include, in the v1.0 build, changing another user's session role (a function the design does not have), clearing the API cache, writing audit records and starting a database migration. Moderate has no further enhancements under AC-6(10).
 
 **What it requires:** the system must stop users without the right authorisation from running privileged functions. The CSS examples include changing or bypassing security controls, creating accounts and managing keys. Hiding a button is not enough, so the refusal has to happen where the function runs.
 
@@ -218,8 +218,8 @@ The UIs deny anything not marked as open, through a fallback policy. The API doe
 | Part of the stack | Finding | Evidence |
 | --- | --- | --- |
 | Managing users, groups, projects, roles and credentials | All 30 admin portal pages require a role or policy. A reader was refused each one tested | T26, T28, T29; code |
-| Listing and ending other users' sessions | Refused for ordinary users in the API and UI application | T24, T25, T27 |
-| Session role and session records | Any signed-in user can change another user's session role and create session records for them | T33, T34 (PA-02) |
+| Listing and ending other users' sessions (v1.0 build; the design has no such function) | Refused for ordinary users in the API and UI application | T24, T25, T27 |
+| Session role and session records (v1.0 build) | Any signed-in user could change another user's session role and create session records for them. The design has no such functions | T33, T34 (PA-02) |
 | Notifications | Any signed-in user can notify anyone and run clean-up. The code comment says "Admin only", but nothing enforces it | T35, T36 (PA-06) |
 | API cache | Anyone can clear it, without signing in | T07, T08 (PA-03) |
 | Audit log | A reader wrote audit records from diagnostic pages, one of them under the name of a diagnostic tool, not a person | Browser check (PA-29) |
@@ -238,7 +238,7 @@ The UIs deny anything not marked as open, through a fallback policy. The API doe
 
 **Interviewed:** nobody yet.
 
-**Not covered:** every action inside every admin page was not exercised, audit records were not checked for this control, and the export and session clean-up background services were only listed. The AC-6(9) and AC-2 assessments return to audit and account functions.
+**Not covered:** every action inside every admin page was not exercised, audit records were not checked for this control, and the v1.0 build's export and session clean-up background services were only listed. The design has no session clean-up. The AC-6(9) and AC-2 assessments return to audit and account functions.
 
 #### AC.4.4 AC-6(1) Authorize Access to Security Functions
 
@@ -263,10 +263,10 @@ The UIs deny anything not marked as open, through a fallback policy. The API doe
 | Users, groups, projects, roles, credentials and schema changes | Only global administrators can reach these pages | T26, T28, T29; code |
 | Audit logs and security pages | A reader is refused, an auditor can read audit logs, and an auditor cannot manage users | T71 to T74 |
 | Global administrators and audit logs | A global administrator can read the logs of their own actions, which the proposed model does not allow | T75 (PA-15) |
-| Security functions outside those roles | Session roles, notification clean-up, the API cache and audit writes are open, as recorded under AC-6(10) | T07, T08, T33 to T36 (PA-02, PA-03, PA-06, PA-29) |
+| Security functions outside those roles | In the v1.0 build, session roles, notification clean-up, the API cache and audit writes are open, as recorded under AC-6(10) | T07, T08, T33 to T36 (PA-02, PA-03, PA-06, PA-29) |
 | User and project information | Any signed-in user can see all users, their administrator flags and all projects | T30, T65, T70 (PA-07) |
 | Signing key and database password | Both are committed in the applications' settings files, so anyone who can read the repositories can read them. The files also name a remote database | Code review (PA-19) |
-| Password hashes, sessions and access groups in the database | All three apps can reach these through one superuser role | T55 (PA-10) |
+| Password hashes, session records and access groups in the v1.0 build's database | All three apps can reach these through one superuser role | T55 (PA-10) |
 | Definition of security-relevant information | The drafts had none. A proposed list is now in P-AC-17 | \<Access Control Management\> (PA-20) |
 | Windows, PostgreSQL, firewall rules, certificates, hypervisor and network | Other than satisfied (E). Nobody is named for these, and any part inherited from \<Organisation\> needs a named service and evidence | PA-30 |
 
@@ -296,7 +296,7 @@ The UIs deny anything not marked as open, through a fallback policy. The API doe
 | --- | --- | --- |
 | Readers and editors | Limited to their own projects, and refused administration | T11 to T29, T48, T56 to T64 |
 | Global administrators | Can read and edit every project, including HR, whether or not their task needs it. The proposed model allows this, and the system owner should decide whether it should | T18; \<Access Control Management\> (PA-15) |
-| Open functions | Session, notification, cache, audit-writing and diagnostic functions go beyond what ordinary users need | AC-6(10) above (PA-02, PA-03, PA-06, PA-07, PA-29) |
+| Open functions | The v1.0 build's session functions and the notification, cache, audit-writing and diagnostic functions go beyond what ordinary users need | AC-6(10) above (PA-02, PA-03, PA-06, PA-07, PA-29) |
 | App processes on the database | All three apps use one superuser role, and the UIs also read the database directly | T55 (PA-10) |
 | App processes in Docker | The web and API containers checked run as user 1654, not root | The user identity in the running containers; the image build file |
 | Export to Folder | An editor can write to any folder the service can reach | Code review (PA-26) |
@@ -394,7 +394,7 @@ The UIs deny anything not marked as open, through a fallback policy. The API doe
 | Administrator password reset | Logged, with the administrator's name | Code review |
 | Global administrator change at the global administrator page | Logged | Code review |
 | Global administrator change at the global administrators page | Not logged | Code review (PA-14) |
-| Ending all of a user's sessions | Not logged | T37 (PA-14) |
+| Ending all of a user's sessions (v1.0 build; the design has no sessions) | Not logged | T37 (PA-14) |
 | Creating or deactivating users, unlocking accounts, group, project and role changes in the admin portal | No audit call found | Code review (PA-14) |
 | API user service | Logs delete and deactivate events against "System", not the person | Code review (PA-14) |
 | Fresh Start and other maintenance pages | No audit call found | Code review (PA-14, PA-31) |
@@ -447,7 +447,7 @@ The UIs deny anything not marked as open, through a fallback policy. The API doe
 
 | Mechanism | Finding | Evidence |
 | --- | --- | --- |
-| Forced password change, lockout, ending sessions when disabled | Automated | T10, T40, T41, T49 |
+| Forced password change, lockout, ending the v1.0 build's sessions when disabled | Automated | T10, T40, T41, T49 |
 | Disabling for inactivity, expiry, access reports | Not automated | T43; code (PA-13, PA-16) |
 | Link to \<Organisation\>'s directory or HR | None, because \<System Name\> uses its own accounts after SSO was removed. A leaver at \<Organisation\> keeps their \<System Name\> account until someone acts | Code review (PA-32) |
 
@@ -544,50 +544,50 @@ AC-08a.01 is written for U.S. Government systems. The system owner needs to deci
 
 #### AC.4.19 AC-2(5) Inactivity Logout
 
-**Result: Other than satisfied.** The server ends a session idle for 30 minutes, as tested. The value is approved (D-AC-03), but the rule cannot yet be assessed for server administrators on the VMs.
+**Result: Other than satisfied.** The tested v1.0 build signed users out after 30 minutes idle. That value was approved (D-AC-03), but the rule cannot yet be assessed for server administrators on the VMs. The design has no idle sign-out: a sign-in lasts as long as PingFederate's sign-in lifetime allows (P-AC-10).
 
 **Table AC-31: AC-2(5) objective**
 
 | Objective | Result | Basis |
 | --- | --- | --- |
-| AC-02(05): users are required to log out at the set time | Other than satisfied | Enforced in the application (T44) with the approved P-AC-10; VM administration not yet available |
+| AC-02(05): users are required to log out at the set time | Other than satisfied | Enforced in the v1.0 build (T44) with the value then approved in P-AC-10, which now sets PingFederate's sign-in lifetime; VM administration not yet available |
 | Windows and PostgreSQL administration sessions | Other than satisfied (E) | VMs not available (PA-30) |
 
 #### AC.4.20 AC-12 Session Termination
 
-**Result: Other than satisfied.** Sessions end after idling, at the 8-hour limit, on sign-out and when revoked. The values are approved (D-AC-03), but one unexplained test result needs resolving (PA-33), and the VMs are not available.
+**Result: Other than satisfied.** In the tested v1.0 build, sessions ended after idling, at the 8-hour limit, on sign-out and when revoked. The values were approved (D-AC-03), but one unexplained test result needs resolving (PA-33), and the VMs are not available. The design has no sessions of its own: a sign-in ends when PingFederate's sign-in lifetime ends (P-AC-10).
 
 **Table AC-32: AC-12 objective**
 
 | Objective | Result | Basis |
 | --- | --- | --- |
-| AC-12: a session is automatically ended under set conditions | Other than satisfied | T38, T44 to T47 pass, including in the v1.0 run of 8 November 2026; P-AC-10 to P-AC-12 approved; T45's one failure on 5 November was not reproduced in five runs (PA-33); the VMs are not available |
-| 8-hour limit reliability | Other than satisfied | T45 returned 200 in one full run. It then returned 401 in 15 repeats on its own and in later full runs. The cause was not found (PA-33) |
+| AC-12: a session is automatically ended under set conditions | Other than satisfied | T38, T44 to T47 pass on the v1.0 build, including in its run of 8 November 2026; P-AC-10 to P-AC-12 were approved with that build's session values, and now set PingFederate's sign-in lifetime and no session limit in the application; T45's one failure on 5 November was not reproduced in five runs (PA-33); the VMs are not available |
+| Reliability of the v1.0 build's 8-hour limit | Other than satisfied | T45 returned 200 in one full run. It then returned 401 in 15 repeats on its own and in later full runs. The cause was not found (PA-33) |
 | Windows and PostgreSQL sessions | Other than satisfied (E) | VMs not available (PA-30) |
 
 #### AC.4.21 AC-11 Device Lock
 
-**Result: Other than satisfied.** A browser overlay appears after 25 minutes, but "Continue Session" removes it without a password, so it is not a true lock. The overlay runs in the browser, so it does not by itself stop a browser user reaching the page behind it.
+**Result: Other than satisfied.** The tested v1.0 build showed a browser overlay after 25 minutes, but its continue button removed it without a password, so it was not a true lock. The overlay ran in the browser, so it did not by itself stop a browser user reaching the page behind it. The design has no page lock: \<Organisation\>'s managed devices and the servers lock an unattended screen (P-AC-15).
 
 **Table AC-33: AC-11 objectives**
 
 | Objective | Result | Basis |
 | --- | --- | --- |
-| AC-11a: further access is prevented by a lock | Other than satisfied | Browser overlay only (T53, code, PA-12) |
-| AC-11b: the lock stays until the user signs in again | Other than satisfied | No password is asked for (code, PA-12) |
+| AC-11a: further access is prevented by a lock | Other than satisfied | v1.0 build: browser overlay only (T53, code, PA-12). The design has no page lock (P-AC-15) |
+| AC-11b: the lock stays until the user signs in again | Other than satisfied | v1.0 build: no password was asked for (code, PA-12) |
 | Workstation and server locks | Other than satisfied (E) | Depends on \<Organisation\>'s builds (PA-21, PA-30) |
 
-The lock was found by code review and has not been exercised in a browser.
+The v1.0 build's overlay was found by code review and was not exercised in a browser.
 
 #### AC.4.22 AC-11(1) Pattern-hiding Displays
 
-**Result: Other than satisfied.** The code draws a dark overlay at 92% opacity, but this has not been seen on screen, so there is no evidence yet that it fully hides what was displayed. Workstation lock screens depend on \<Organisation\>.
+**Result: Other than satisfied.** The v1.0 build's code drew a dark overlay at 92% opacity, but this was not seen on screen, so there is no evidence that it fully hid what was displayed. The design has no page lock, so the device and server lock screens conceal the display, and these depend on \<Organisation\> (P-AC-15).
 
 **Table AC-34: AC-11(1) objective**
 
 | Objective | Result | Basis |
 | --- | --- | --- |
-| AC-11(01): the lock conceals what was on screen | Other than satisfied | Code only, not seen in a browser (T53); workstations have no evidence yet (PA-21) |
+| AC-11(01): the lock conceals what was on screen | Other than satisfied | v1.0 build code only, not seen in a browser (T53); workstations have no evidence yet (PA-21) |
 
 #### AC.4.23 AC-4 Information Flow Enforcement
 
@@ -871,11 +871,11 @@ Findings: **S** satisfied. **O-D** other than satisfied, because a decision or a
 | AC-02(04)\[04\] | Disabling is audited | O-G | Against "System" (PA-14) |
 | AC-02(04)\[05\] | Removal is audited | O-G | Against "System" (PA-14) |
 | AC-02(05)\_ODP | Logout condition is defined | S | D-AC-P06 |
-| AC-02(05) | Users are logged out at that condition | O-E | Application yes (T44); VM administration not available |
+| AC-02(05) | Users are logged out at that condition | O-E | v1.0 build yes (T44); the design relies on PingFederate's sign-in lifetime (P-AC-10); VM administration not available |
 | AC-02(13)\_ODP\[01\] | Time to disable is defined | S | D-AC-P07 |
 | AC-02(13)\_ODP\[02\] | Triggering risks are defined | S | D-AC-P07 |
 | AC-02(13) | Accounts are disabled within the time | O-D | T40, T41 pass; PRO-AC-4 approved, not walked through |
-| AC-03 | Approved authorisations are enforced | O-G | Project access yes; session functions and database no (PA-02, PA-10, PA-19) |
+| AC-03 | Approved authorisations are enforced | O-G | Project access yes; v1.0 build's session functions and database no (PA-02, PA-10, PA-19) |
 | AC-04\_ODP | Flow control policies are defined | S | D-AC-P08 |
 | AC-04 | Flow authorisations are enforced | O-G | Not enforced; outside service loaded (PA-18, PA-34) |
 | AC-05\_ODP | Duties to separate are defined | S | D-AC-P09 |
@@ -922,11 +922,11 @@ Findings: **S** satisfied. **O-D** other than satisfied, because a decision or a
 | AC-08c.03 | Public systems: authorised uses | N/A | TR-AC-04 |
 | AC-11\_ODP\[01\] | How the lock starts is selected | S | D-AC-P16 |
 | AC-11\_ODP\[02\] | Inactivity period is defined | S | D-AC-P16 |
-| AC-11a. | Lock prevents further access | O-G | Browser overlay only (PA-12) |
-| AC-11b. | Lock stays until re-authentication | O-G | No password is asked for (PA-12) |
+| AC-11a. | Lock prevents further access | O-G | v1.0 build: browser overlay only (PA-12); the design has no page lock (P-AC-15) |
+| AC-11b. | Lock stays until re-authentication | O-G | v1.0 build: no password was asked for (PA-12) |
 | AC-11(01) | Lock conceals the display | O-E | Not observed on screen; workstations not available |
 | AC-12\_ODP | Termination conditions are defined | S | D-AC-P17 |
-| AC-12 | Sessions end automatically | O-E | Application yes (T38, T44 to T47), and T45's one failure on 5 November not reproduced in five runs on 8 November (PA-33); VMs not available |
+| AC-12 | Sessions end automatically | O-E | v1.0 build yes (T38, T44 to T47), and T45's one failure on 5 November not reproduced in five runs on 8 November (PA-33); the design has no sessions of its own and relies on PingFederate's sign-in lifetime (P-AC-10); VMs not available |
 | AC-14\_ODP | Actions without sign-in are defined | S | D-AC-P18 |
 | AC-14a. | Actions are identified | O-G | Identified, but other endpoints are open (PA-03, PA-07) |
 | AC-14b.\[01\] | Actions are in the security plan | S | Approved (D-AC-12) |
@@ -1001,7 +1001,7 @@ This records how the assessment was planned and carried out, following CSS. It d
 | Interview | System owner's written answers to INT-AC-01 to 34 only. Account managers, administrators and \<Organisation\>'s security contact are to be interviewed. The people are named in \<Roles and Responsibilities\> |
 | Previous results reused | None |
 | Boundary | The whole stack: the application and database VMs, with Windows accounts, PostgreSQL roles and service accounts as well as application users. \<Organisation\>'s network, remote access, devices and directory are inherited, and Cyber Essentials Plus supports but does not prove them |
-| Order of assessment | A, access enforcement (AC-3, AC-14, AC-6(10), AC-6(1)); B, privilege (AC-6, AC-6(5), AC-5, AC-6(2), AC-6(9)); C, account lifecycle (AC-2 and its enhancements, AC-6(7)); D, sign-in and sessions (AC-7, AC-8, AC-2(5), AC-12, AC-11, AC-11(1)); E, network and devices (AC-4, AC-17, AC-18 and AC-19 families); F, organisation (AC-20 family, AC-21, AC-22, AC-1). Access enforcement comes first because the other results depend on it |
+| Order of assessment | A, access enforcement (AC-3, AC-14, AC-6(10), AC-6(1)); B, privilege (AC-6, AC-6(5), AC-5, AC-6(2), AC-6(9)); C, account lifecycle (AC-2 and its enhancements, AC-6(7)); D, sign-in and the v1.0 build's sessions (AC-7, AC-8, AC-2(5), AC-12, AC-11, AC-11(1)); E, network and devices (AC-4, AC-17, AC-18 and AC-19 families); F, organisation (AC-20 family, AC-21, AC-22, AC-1). Access enforcement comes first because the other results depend on it |
 | Needed from \<Organisation\> | Evidence for the inherited parts of AC-4, AC-17, AC-18, AC-19, AC-20 and AC-6(9), as requested in \<Evidence Requests\> |
 | Approval | Approved by the authorising official (D-GEN-18), as confirmed by the system owner on 8 November 2026 |
 | Evidence retained | \<Access Control Management\>, section A.9, and the AC evidence, with its manifest |
@@ -1149,7 +1149,7 @@ This records the Level 1 self-assessment of the 16 AU entries in the CSS Moderat
 
 ### AU.2 How to read this record
 
-**Change since this assessment.** On 12 November 2026 the system owner stated that \<System Name\> signs in through \<Organisation\>'s AD FS and takes its groups from Active Directory (D-AC-23), that only the API reaches the database (D-AC-18), and that an audit record's session field holds a hash of the session ID (D-AU-11). This chapter assessed the v1.0 build. Its findings are a true record of that build and are not changed. Since then five items have been added for gaps the review of the design found: PA-101 to PA-105. The findings are to be made again when the tests are repeated on the AD FS build (PA-95).
+**Change since this assessment.** On 12 November 2026 the system owner stated that \<System Name\> signs in through \<Organisation\>'s PingFederate and reads its groups from Active Directory over LDAPS (D-AC-23), that only the API reaches the database (D-AC-18), and that an audit record links to one sign-in only through a hash, never the identifier itself (D-AU-11). This chapter assessed the v1.0 build. Its findings are a true record of that build and are not changed. Since then five items have been added for gaps the review of the design found: PA-101 to PA-105. The findings are to be made again when the tests are repeated on the PingFederate build (PA-95).
 
 The methods were **Examine** (code and configuration), **Test** (Test-AuditAndAuth.ps1, checks A01 to A38, results of 6 and 8 November 2026 in the AU and IA evidence) and read-only database checks. The system owner answered INT-AU-01 to 06 in writing, as proposed answers (\<Interview Guide\>). No records were seen, so these change no finding, and the role holders have not been interviewed.
 
@@ -1172,7 +1172,7 @@ The methods were **Examine** (code and configuration), **Test** (Test-AuditAndAu
 | AU-1 | Other than satisfied | 21 of 25 | Policy and procedures not yet shared; first reviews outstanding; legally reviewed | NC-AU-01; PA-20 |
 | AU-2 | Other than satisfied | 7 of 10 | Most account, group and role changes and the PA-76 events not logged; coordination with \<Organisation\> not agreed | NC-AU-02, NC-AU-17; PA-14, PA-76 |
 | AU-3 | Other than satisfied | 0 of 6 | Application records are complete except some named "System"; VMs not available | NC-AU-03; PA-14 |
-| AU-3(1) | Satisfied | 2 of 2 | Session, browser, project and document recorded (A20, A21) | None |
+| AU-3(1) | Satisfied | 2 of 2 | Sign-in reference (the v1.0 build's session), browser, project and document recorded (A20, A21) | None |
 | AU-4 | Other than satisfied | 1 of 2 | No storage planned, as the VMs are not built | NC-AU-04; PA-42 |
 | AU-5 | Other than satisfied | 3 of 5 | Failures reach only the application log; nobody is alerted | NC-AU-05; PA-38 |
 | AU-6 | Other than satisfied | 3 of 6 | Review defined but not started | NC-AU-06; PA-40 |
@@ -1188,7 +1188,7 @@ The methods were **Examine** (code and configuration), **Test** (Test-AuditAndAu
 
 Of the CSS 81 statements, 48 are satisfied, 8 await a decision or approval, 15 show a gap in the system and 10 await evidence from the VMs or \<Organisation\>.
 
-The application records the right detail for most events, in UTC, with a chain hash on each record. The most serious gap is protection: the application's database account can change, delete or empty the audit table, and nothing checks the chain. The chain itself has no key, cannot show that the newest records were removed, and as stored cannot be recomputed (A36, A37). Every audit event is also repeated in the unprotected application log with the username, IP address and session ID (A38). Global administrators can also read the records, against the agreed value. Nobody is alerted when logging fails, and no review has started.
+The application records the right detail for most events, in UTC, with a chain hash on each record. The most serious gap is protection: the application's database account can change, delete or empty the audit table, and nothing checks the chain. The chain itself has no key, cannot show that the newest records were removed, and as stored cannot be recomputed (A36, A37). Every audit event is also repeated in the unprotected application log with the username, IP address and the v1.0 build's session ID (A38). Global administrators can also read the records, against the agreed value. Nobody is alerted when logging fails, and no review has started.
 
 ### AU.4 Findings by determination statement
 
@@ -1268,7 +1268,7 @@ There is one finding for each CSS determination statement, including those about
 | AU-08a. | Internal clocks generate time stamps | O-E | Application yes (code); VMs and time source not available |
 | AU-08b. | Time stamps meet the granularity in UTC | O-E | Application yes (A22); VMs not available |
 | AU-09\_ODP | Who is alerted to tampering is defined | S | \<Audit and Accountability Management\> |
-| AU-09a. | Audit information is protected | O-G | Database account can change, delete and empty it (A26 to A28, PA-36); the application log repeats usernames, IP addresses and session IDs without protection (A38, PA-75) |
+| AU-09a. | Audit information is protected | O-G | Database account can change, delete and empty it (A26 to A28, PA-36); the application log repeats usernames, IP addresses and the v1.0 build's session IDs without protection (A38, PA-75) |
 | AU-09b. | They are alerted to tampering | O-G | Nothing runs the chain check or alerts (PA-37), and the unkeyed chain could not detect tampering or removal of the newest records even if it ran (A36, A37; PA-73, PA-74) |
 | AU-09(04)\_ODP | Who manages audit logging is defined | S | \<Audit and Accountability Management\> |
 | AU-09(04) | Access is limited to them | O-G | Global administrators can read records (A25, PA-39) |
@@ -1297,7 +1297,7 @@ There is one finding for each CSS determination statement, including those about
 | Previous results reused | None |
 | Boundary | Audit records in dbo.AuditLog, the application logs, and the PostgreSQL and Windows logs on both VMs. \<Organisation\>'s central monitoring and time service are inherited |
 | Order of assessment | A, record generation and content (AU-12, AU-2, AU-3, AU-3(1)); B, protection (AU-9, AU-9(4)); C, failure, capacity and retention (AU-5, AU-4, AU-11); D, review and reporting (AU-6, AU-6(1), AU-6(3), AU-7, AU-7(1)); E, time (AU-8); F, policy (AU-1). Generation comes first because every other result depends on records existing |
-| Needed from \<Organisation\> | EV-AU-01 to EV-AU-05 in \<Evidence Requests\>: central monitoring, the time source, storage and backup, the Windows audit policy, and AD FS and Active Directory audit records |
+| Needed from \<Organisation\> | EV-AU-01 to EV-AU-05 in \<Evidence Requests\>: central monitoring, the time source, storage and backup, the Windows audit policy, and PingFederate and Active Directory audit records |
 | Evidence retained | The AU and IA evidence, with its manifest; \<Audit and Accountability Management\>, section 3 |
 
 The authorising official approved this plan (D-GEN-18), as confirmed by the system owner on 8 November 2026. The independent assessor's team, schedule, and depth and coverage are added once agreed. For the Level 2 assessment, the assessor should repeat the tests on the VMs, hold the interviews, examine \<Organisation\>'s evidence and re-determine every statement in section AU.4.
@@ -1310,7 +1310,7 @@ This records the Level 1 self-assessment of the 10 CA entries in the CSS Moderat
 
 ### CA.2 How to read this record
 
-**Change since this assessment.** On 12 November 2026 the design moved to \<Assessment, Authorization, and Monitoring Management\>. The interface record gained the exchange with AD FS and the connection from the two user-facing apps to the API (D-AC-23, D-AC-18). The inherited controls now number 65. Four items were added for the gaps this chapter found: PA-106 to PA-109. The findings below are a true record of 6 and 8 November 2026 and are not changed.
+**Change since this assessment.** On 12 November 2026 the design moved to \<Assessment, Authorization, and Monitoring Management\>. The interface record gained the exchange with PingFederate and the connection from the two user-facing apps to the API (D-AC-23, D-AC-18). The inherited controls now number 65. Four items were added for the gaps this chapter found: PA-106 to PA-109. The findings below are a true record of 6 and 8 November 2026 and are not changed.
 
 The method was **Examine** (the assessment, plan and decision documents). No interviews have been held. This family assesses the assessment process itself, so a self-assessment has clear limits here.
 
@@ -1738,7 +1738,7 @@ This records the Level 1 self-assessment of the 23 CP entries in the CSS Moderat
 
 ### CP.2 How to read this record
 
-**Change since this assessment.** On 15 November 2026 the Contingency Plan was rebuilt as \<Contingency Planning Management\> in the form of the other family documents, with the plan as its section 3 and each control set out part by part (D-CP-14). AD FS was added to what recovery depends on (D-AC-23). Two items were added for gaps this chapter found: PA-114 and PA-115. The findings below are a true record of 6 and 9 November 2026 and are not changed.
+**Change since this assessment.** On 15 November 2026 the Contingency Plan was rebuilt as \<Contingency Planning Management\> in the form of the other family documents, with the plan as its section 3 and each control set out part by part (D-CP-14). PingFederate was added to what recovery depends on (D-AC-23). Two items were added for gaps this chapter found: PA-114 and PA-115. The findings below are a true record of 6 and 9 November 2026 and are not changed.
 
 The methods were **Examine** (documents and the Docker configuration) and **Test** (R01 to R09 by Test-BackupRestore.ps1 on the tagged v1.0 build on 9 November 2026, with hashes in MANIFEST.md, in the CP evidence, on a throwaway stack). The system owner answered the interview questions at Level 1 (\<Interview Guide\>).
 
@@ -1948,11 +1948,11 @@ This records the Level 1 self-assessment of the 24 IA entries in the CSS Moderat
 
 ### IA.2 How to read this record
 
-**Change since this assessment.** On 12 November 2026 the system owner stated that \<System Name\> signs users in through \<Organisation\>'s AD FS, with multi-factor authentication, takes roles and project access from Active Directory groups, and holds no accounts or passwords of its own (D-AC-23). This chapter assessed the v1.0 build, which signed in with its own passwords and held its accounts and groups in its own database. Its findings are a true record of that build and are not changed. The findings on sign-in, passwords, lockout, accounts and group membership are to be made again with AD FS sign-in, when the tests are repeated and \<Organisation\>'s evidence is in (PA-95). On 15 November 2026 the design moved to \<Identification and Authentication Management\> (D-IA-11), and two items were added for gaps found in its review: PA-116 and PA-117.
+**Change since this assessment.** On 12 November 2026 the system owner stated that \<System Name\> signs users in through \<Organisation\>'s PingFederate, with multi-factor authentication, by OpenID Connect, reads each user's role and project groups from Active Directory over LDAPS, and holds no accounts or passwords of its own (D-AC-23). This chapter assessed the v1.0 build, which signed in with its own passwords and held its accounts, groups and sessions in its own database. Its findings are a true record of that build and are not changed. The findings on sign-in, passwords, lockout, accounts and group membership are to be made again with PingFederate sign-in, when the tests are repeated and \<Organisation\>'s evidence is in (PA-95). \<System Name\> now has no session management of its own, so the IA-11 result on sign-out and session limits describes the v1.0 build only; how long a sign-in lasts is set by PingFederate (P-AC-10). On 15 November 2026 the design moved to \<Identification and Authentication Management\> (D-IA-11), and two items were added for gaps found in its review: PA-116 and PA-117.
 
 **N/A** means not applicable, as decided in \<Tailoring Register\>. This is the organisation's tailoring decision, not a result under CSS, and the independent assessor may test it.
 
-The methods were **Examine** (code and configuration) and **Test**: Test-AuditAndAuth.ps1 checks A01 to A35 on 6 November 2026, repeated with A36 to A38 on the tagged v1.0 build on 8 November with the same IA results; Test-Identification.ps1 checks I01 to I11 against CSS on 9 November; and the AC session checks T38 and T44 to T47. Results and hash manifests are in the AU and IA evidence. The system owner answered INT-IA-01 to 06 in writing.
+The methods were **Examine** (code and configuration) and **Test**: Test-AuditAndAuth.ps1 checks A01 to A35 on 6 November 2026, repeated with A36 to A38 on the tagged v1.0 build on 8 November with the same IA results; Test-Identification.ps1 checks I01 to I11 against CSS on 9 November; and the AC checks T38 and T44 to T47 of the v1.0 build's sessions. Results and hash manifests are in the AU and IA evidence. The system owner answered INT-IA-01 to 06 in writing.
 
 **Limit of the current evidence:** \<System Name\> ran in Docker on one PC with sample data, in the build labelled v1.0. The Windows Server 2025 VMs, PostgreSQL on Windows and \<Organisation\>'s services have not been examined.
 
@@ -1998,7 +1998,7 @@ The methods were **Examine** (code and configuration) and **Test**: Test-AuditAn
 
 Of the CSS 92 statements, 41 are satisfied, 14 are not applicable, 7 await a decision or approval, 15 show a gap in the system and 15 await evidence from the VMs or \<Organisation\>.
 
-Password storage, sign-in feedback, lockout, session limits and forced change of temporary passwords work as agreed, and the session limits are stricter than CSS requires. The most serious gaps are password-only sign-in, including for global administrators, accepted to 6 May 2027 with an agreed end state (D-IA-07), and secrets committed in source code. Passwords of 12 to 14 characters are still accepted where CSS requires 15 while sign-in is password-only (PA-82), users cannot change their own password, and the blocked list is short. The assurance levels in \<Identification and Authentication Management\>, section 3.4, were accepted by the authorising official (D-IA-08).
+In the tested v1.0 build, password storage, sign-in feedback, lockout, session limits and forced change of temporary passwords worked as agreed, and the session limits were stricter than CSS requires. The design has no session limits of its own: PingFederate's sign-in lifetime applies (P-AC-10). The most serious gaps are password-only sign-in, including for global administrators, accepted to 6 May 2027 with an agreed end state (D-IA-07), and secrets committed in source code. Passwords of 12 to 14 characters are still accepted where CSS requires 15 while sign-in is password-only (PA-82), users cannot change their own password, and the blocked list is short. The assurance levels in \<Identification and Authentication Management\>, section 3.4, were accepted by the authorising official (D-IA-08).
 
 ### IA.4 Findings by determination statement
 
@@ -2034,7 +2034,7 @@ There is one finding for each CSS determination statement, including those about
 | IA-01c.02\[01\] | Procedures are reviewed at the set frequency | O-D | First review not yet due |
 | IA-01c.02\[02\] | Procedures are reviewed after set events | S | Reviewed and approved as version \<ver\> on 9 November 2026 (D-IA-10) |
 | IA-02\[01\] | Users are uniquely identified and authenticated | O-E | Application yes (A09, A10); VMs not available |
-| IA-02\[02\] | Identity is tied to processes acting for users | O-E | Application yes (session-bound tokens); VMs not available |
+| IA-02\[02\] | Identity is tied to processes acting for users | O-E | v1.0 build yes (tokens bound to its sessions); VMs not available |
 | IA-02(01) | MFA for privileged accounts | O-G | Password alone works (A11, PA-23) |
 | IA-02(02) | MFA for non-privileged accounts | O-G | Password alone works (A12, PA-23) |
 | IA-02(08)\_ODP | Accounts needing replay resistance are selected | S | \<Identification and Authentication Management\> |
@@ -2058,7 +2058,7 @@ There is one finding for each CSS determination statement, including those about
 | IA-05c. | Strength is sufficient | O-G | Password only, with a short blocked list (PA-23, PA-45) |
 | IA-05d. | Administrative procedures are in place | O-D | PRO-IA-2 and PRO-IA-3 approved, not walked through |
 | IA-05e. | Defaults are changed before first use | S | A01 |
-| IA-05f. | Authenticators are changed as set | O-G | Users cannot change their own (A34, PA-44); secrets never rotated (PA-19). A change by reset ends other sessions (I07) |
+| IA-05f. | Authenticators are changed as set | O-G | Users cannot change their own (A34, PA-44); secrets never rotated (PA-19). In the v1.0 build, a change by reset ended other sessions (I07) |
 | IA-05g. | Content is protected | O-G | Secrets committed in source (PA-19) |
 | IA-05h.\[01\] | Individuals must protect authenticators | O-D | \<Security Operating Procedures\> approved; not yet signed |
 | IA-05h.\[02\] | Devices must protect authenticators | O-E | \<Organisation\> (EV-IA-01) |
@@ -2089,7 +2089,7 @@ There is one finding for each CSS determination statement, including those about
 | IA-08(04)\_ODP | Identity profiles are defined | N/A | TR-IA-06 |
 | IA-08(04) | Profiles are followed | N/A | TR-IA-06 |
 | IA-11\_ODP | When to sign in again is defined | S | \<Identification and Authentication Management\> |
-| IA-11 | Users must sign in again then | O-E | Application yes: idle limit (T44), tokens under 8 hours (I08), and the 8-hour limit passed five times in a row (I11, closing PA-33); VMs not available |
+| IA-11 | Users must sign in again then | O-E | v1.0 build yes: idle limit (T44), tokens under 8 hours (I08), and the 8-hour limit passed five times in a row (I11, closing PA-33); the design relies on PingFederate's sign-in lifetime (P-AC-10); VMs not available |
 | IA-12a. | Users are identity proofed | O-E | \<Organisation\>'s pre-employment checks (EV-IA-02) |
 | IA-12b. | Identities resolve to one person | O-E | \<Organisation\> (EV-IA-02) |
 | IA-12c.\[01\] | Evidence is collected | O-E | \<Organisation\> (EV-IA-02) |
@@ -2114,10 +2114,10 @@ There is one finding for each CSS determination statement, including those about
 | Examine | The API's password service, the API's sign-in service, the sign-in service of each UI, the security data model, the settings files and the database, at tag v1.0; \<Policy\> (IA), \<Procedures\> (IA) and \<Identification and Authentication Management\>. Depth: focused. Coverage: focused |
 | Test | A01 to A38 by Test-AuditAndAuth.ps1 (6 and 8 November); I01 to I11 by Test-Identification.ps1 (9 November); T38 and T44 to T47 from the AC tests. Each run has a hash manifest. Depth: focused. Coverage: focused. Windows logon, device identification and cryptographic modules were not tested |
 | Interview | System owner's written answers only. Global administrators, \<Organisation\>'s security contact and HR remain |
-| Previous results reused | The AC session checks from 5 November 2026 |
+| Previous results reused | The AC checks of the v1.0 build's sessions from 5 November 2026 |
 | Boundary | \<System Name\>'s sign-in, accounts, authenticators and secrets. \<Organisation\>'s identity proofing and device identification are inherited |
 | Order of assessment | A, authenticators (IA-5 and enhancements, IA-6, IA-7); B, sign-in and multi-factor (IA-2 and enhancements, IA-11); C, identifiers (IA-4); D, inherited proofing and devices (IA-3, IA-12); E, policy (IA-1). Authenticators come first because sign-in depends on them |
-| Needed from \<Organisation\> | EV-IA-01 to EV-IA-04 in \<Evidence Requests\>: device identification, identity proofing, cryptographic modules, and sign-in through AD FS |
+| Needed from \<Organisation\> | EV-IA-01 to EV-IA-04 in \<Evidence Requests\>: device identification, identity proofing, cryptographic modules, and sign-in through PingFederate |
 | Evidence retained | The AU and IA evidence, with its manifest; \<Identification and Authentication Management\>, sections 3.4 to 3.6 |
 
 The authorising official approved this plan (D-GEN-18), as confirmed by the system owner on 8 November 2026. The independent assessor's team, schedule, and depth and coverage are added once agreed. For the Level 2 assessment, the assessor should repeat the checks on the VMs, test multi-factor sign-in once built, hold the interviews, examine \<Organisation\>'s evidence and re-determine every statement in section IA.4.
@@ -2130,7 +2130,7 @@ This records the Level 1 self-assessment of the 13 IR entries in the CSS Moderat
 
 ### IR.2 How to read this record
 
-**Change since this assessment.** On 17 November 2026 the Incident Response Plan was rebuilt as \<Incident Response Management\> in the form of the other family documents, with the plan as its section 3 and each control set out part by part (D-IR-10). A playbook for a compromise at \<Organisation\> was added, as sign-in now goes through AD FS (D-AC-23). Two items were added for gaps this chapter found: PA-118 and PA-119. The section numbers cited for IR-8 follow the rebuilt document. The findings below are a true record of 6 and 10 November 2026 and are not changed.
+**Change since this assessment.** On 17 November 2026 the Incident Response Plan was rebuilt as \<Incident Response Management\> in the form of the other family documents, with the plan as its section 3 and each control set out part by part (D-IR-10). A playbook for a compromise at \<Organisation\> was added, as sign-in now goes through PingFederate (D-AC-23). Two items were added for gaps this chapter found: PA-118 and PA-119. The section numbers cited for IR-8 follow the rebuilt document. The findings below are a true record of 6 and 10 November 2026 and are not changed.
 
 The methods were **Examine** (documents and code) and **Test**: the containment and evidence drill D01 to D08 by Test-IncidentReadiness.ps1 on the tagged v1.0 build on 10 November 2026, with hashes in MANIFEST.md, in the IR evidence, on a throwaway stack. The system owner answered INT-IR-01 to 04 in writing. \<System Name\> has had no operational incidents, as it is not live; INC-2026-001 records the secrets found in git history.
 
@@ -2166,7 +2166,7 @@ The methods were **Examine** (documents and code) and **Test**: the containment 
 
 Of the CSS 90 statements, 49 are satisfied, 38 await a decision or approval, 3 show a gap in the system and none awaits evidence.
 
-The plan now follows CSS, with severity targets, breach steps, playbooks and evidence handling, but has not been exercised. The drill shows containment works: a suspect user's sessions ended and a disabled account was locked out at once, and audit records exported with a repeatable hash. The gaps are that ServiceNow is not set up for incidents, ending sessions is not audited (D02, PA-14), and the application log repeats personal data (D08, PA-75).
+The plan now follows CSS, with severity targets, breach steps, playbooks and evidence handling, but has not been exercised. The drill shows containment worked in the v1.0 build: a suspect user's sessions ended and a disabled account was locked out at once, and audit records exported with a repeatable hash. The gaps are that ServiceNow is not set up for incidents, ending the v1.0 build's sessions is not audited (D02, PA-14), and the application log repeats personal data (D08, PA-75). The design has no sessions of its own: a person's access is ended by disabling their AD account or removing their group membership, and ending their PingFederate sign-in (P-AC-13).
 
 ### IR.4 Findings by determination statement
 
@@ -2277,10 +2277,10 @@ There is one finding for each CSS determination statement, including those about
 | Procedures | CSS, using the CSS published statements and identifiers (catalog release 5.2.0), with CSS as the reference for the plan |
 | Dates | 6 November 2026; updated on 10 November 2026 after the IR pack review |
 | Site | One PC, using a separate throwaway Docker stack with sample data. The VMs are not built |
-| Examine | \<Policy\> (IR), \<Procedures\> (IR) and \<Incident Response Management\> \<ver\>; TPL-10 and TPL-11; SyOps section 4.9; the session and audit code. Depth: focused. Coverage: focused |
+| Examine | \<Policy\> (IR), \<Procedures\> (IR) and \<Incident Response Management\> \<ver\>; TPL-10 and TPL-11; SyOps section 4.9; the v1.0 build's session and audit code. Depth: focused. Coverage: focused |
 | Test | D01 to D08 by Test-IncidentReadiness.ps1 on 10 November 2026 (ir-test-results-2026-11-10-v1.0.csv, the evidence export and MANIFEST.md). Depth: focused. Coverage: focused. No tabletop exercise has been held |
 | Interview | System owner's written answers only. The security officer, legal adviser and \<Organisation\>'s security contact remain |
-| Previous results reused | The AC session checks T37, T38 and T40 to T42 from 5 November 2026 |
+| Previous results reused | The AC checks T37, T38 and T40 to T42 of the v1.0 build's sessions and accounts from 5 November 2026 |
 | Boundary | \<System Name\>'s incident handling, records and evidence. \<Organisation\>'s monitoring, incident process and forensic help are inherited |
 | Order of assessment | A, the plan and its approval (IR-8); B, handling and records (IR-4, IR-4(1), IR-5); C, reporting (IR-6 and enhancements); D, training and testing (IR-2, IR-3, IR-3(2)); E, assistance (IR-7, IR-7(1)); F, policy (IR-1). The plan comes first because every other result is judged against it |
 | Needed from \<Organisation\> | EV-IR-01 in \<Evidence Requests\>: its incident process and contact route |
@@ -2296,7 +2296,7 @@ This records the Level 1 self-assessment of the 9 MA entries in the CSS Moderate
 
 ### MA.2 How to read this record
 
-**Change since this assessment.** On 17 November 2026 the maintenance design was cut from \<Control Implementation Register\> into \<Maintenance Management\>, with each control set out part by part (D-MA-09). The system owner had decided on 13 November that the applications run as Windows services on the servers (D-PL-10), so the container tools and images tested here belong to the test environment only. Sign-in now goes through AD FS (D-AC-23). One item was added for gaps this chapter found: PA-120. The findings below are a true record of 6 and 10 November 2026 and are not changed.
+**Change since this assessment.** On 17 November 2026 the maintenance design was cut from \<Control Implementation Register\> into \<Maintenance Management\>, with each control set out part by part (D-MA-09). The system owner had decided on 13 November that the applications run as Windows services on the servers (D-PL-10), so the container tools and images tested here belong to the test environment only. Sign-in now goes through PingFederate (D-AC-23). One item was added for gaps this chapter found: PA-120. The findings below are a true record of 6 and 10 November 2026 and are not changed.
 
 The methods were **Examine** (documents and code) and **Test**: checks M01 to M12 by Test-Maintenance.ps1 on the tagged v1.0 build on 10 November 2026, with hashes in MANIFEST.md, in the MA evidence, on a throwaway stack. The system owner answered INT-MA-01 to 04 in writing. No maintenance has taken place on the target VMs, as they are not built.
 
@@ -2328,7 +2328,7 @@ The methods were **Examine** (documents and code) and **Test**: checks M01 to M1
 
 Of the CSS 64 statements, 32 are satisfied, 23 await a decision or approval, 4 show a gap in the system and 5 await evidence from the VMs or \<Organisation\>.
 
-The approach is approved but not yet in use. The tests show that the check after maintenance works and that an admin session ends at sign-out. The gaps are in \<System Name\> itself: five maintenance pages that write no audit record, an admin portal open to every network, and a package manager in the images.
+The approach is approved but not yet in use. The tests show that the check after maintenance works and that, in the v1.0 build, signing out of the admin portal ended the administrator's sign-in. The design has no sign-out of its own. The gaps are in \<System Name\> itself: five maintenance pages that write no audit record, an admin portal open to every network, and a package manager in the images.
 
 ### MA.4 Findings by determination statement
 
@@ -2393,7 +2393,7 @@ There is one finding for each CSS determination statement, including those about
 | MA-04b.\[02\] | Tools are documented in the security plan | S | Routes and tools in \<Maintenance Management\>, sections 3.4 and 3.5, referenced from \<System Security Plan\>, section 3.7. SSP Appendix L is superseded |
 | MA-04c. | Strong authentication is used | O-G | The admin portal is password-only (PA-23); \<Organisation\>'s route is not evidenced (EV-MA-02) |
 | MA-04d. | Records are kept | O-D | TPL-12 with the session reference (PRO-MA-4); not yet in use |
-| MA-04e.\[01\] | Sessions end when finished | O-E | Signing out of the admin portal ends the session (M12); \<Organisation\>'s route not evidenced (EV-MA-02) |
+| MA-04e.\[01\] | Sessions end when finished | O-E | In the v1.0 build, signing out of the admin portal ended the sign-in (M12); the design has no sign-out, and a sign-in lasts no longer than PingFederate's sign-in lifetime (P-AC-10); \<Organisation\>'s route not evidenced (EV-MA-02) |
 | MA-04e.\[02\] | Network connections end when finished | O-E | \<Organisation\>'s route (EV-MA-02) |
 | MA-05a.\[01\] | An authorisation process exists | S | PRO-MA-5, approved (D-MA-02) |
 | MA-05a.\[02\] | A list is kept | S | Provisional list in \<Maintenance Management\>, section 3.6, approved by the system owner (D-MA-08); to be confirmed at VM build (PA-67) |
@@ -2577,7 +2577,7 @@ This records the Level 1 self-assessment of the 18 PE entries in the CSS Moderat
 
 **Change since this assessment.** On 17 November 2026 the physical and environmental protection design was cut from \<Control Implementation Register\> into \<Physical and Environmental Protection Management\>, with each control set out part by part (D-PE-11). A SOC 2 report is now accepted only if it covers the availability criteria as well as physical access, the emergency shutoff must be guarded, and a physical incident is to be reported within 24 hours (D-PE-12). Both data centres are inspected at Level 2. One item was added for the gaps this chapter found: PA-122. The findings below are a true record of 6 and 10 November 2026 and are not changed.
 
-The method was **Examine** (documents). Fifteen of the 18 controls are inherited from \<Organisation\>'s data centres, and the inheritance matrix in \<Physical and Environmental Protection Management\>, section 3.3, shows the evidence that closes each one. Nothing more in PE can be tested in Docker: \<System Name\>'s own part, the screen lock, was tested under AC-11, and output marking under MP-3. No site has been visited.
+The method was **Examine** (documents). Fifteen of the 18 controls are inherited from \<Organisation\>'s data centres, and the inheritance matrix in \<Physical and Environmental Protection Management\>, section 3.3, shows the evidence that closes each one. Nothing more in PE can be tested in Docker: the v1.0 build's page lock was tested under AC-11, and output marking under MP-3. The design has no page lock: \<Organisation\>'s managed devices and the servers lock an unattended screen (P-AC-15). No site has been visited.
 
 **Limit of the current evidence:** none of \<Organisation\>'s evidence (EV-PE-01 to EV-PE-05) has been received, so every inherited statement stays O-E.
 
@@ -2684,7 +2684,7 @@ There is one finding for each CSS determination statement, including those about
 | PE-04\_ODP\[02\] | Controls are defined | S | \<Physical and Environmental Protection Management\> |
 | PE-04 | Access to lines is controlled | O-E | \<Organisation\> (EV-PE-01) |
 | PE-05\_ODP | Output devices are defined | S | \<Physical and Environmental Protection Management\>: managed printers with secure release, and screens (D-PE-P02) |
-| PE-05 | Access to output is controlled | O-E | Managed printers with secure release not yet listed or evidenced (EV-PE-05); \<System Name\> locks the page after 25 minutes (AC-11) |
+| PE-05 | Access to output is controlled | O-E | Managed printers with secure release not yet listed or evidenced (EV-PE-05); \<Organisation\>'s devices lock an unattended screen (P-AC-15), and the v1.0 build's 25-minute page lock is recorded under AC-11 |
 | PE-06\_ODP\[01\] | Review frequency is defined | S | \<Physical and Environmental Protection Management\> |
 | PE-06\_ODP\[02\] | Review events are defined | S | \<Physical and Environmental Protection Management\> |
 | PE-06a. | Access is monitored | O-E | \<Organisation\> (EV-PE-01) |
@@ -2759,10 +2759,10 @@ There is one finding for each CSS determination statement, including those about
 | Dates | 6 November 2026; updated on 10 November 2026 after the PE pack review |
 | Site | No site visited. The data centre and second site are \[to be named\] in \<Physical and Environmental Protection Management\>, section 3.2 |
 | Examine | \<Policy\> (PE), \<Procedures\> (PE) and the PE chapter of \<Control Implementation Register\> at \<ver\>, now in \<Physical and Environmental Protection Management\>, with the inheritance matrix; SyOps A33, A36 to A38; \<Incident Response Management\>, section 3.9. Depth: focused. Coverage: focused |
-| Test | None for PE. The screen lock was tested under AC-11, and output marking under MP-3 (P07) |
+| Test | None for PE. The v1.0 build's page lock was tested under AC-11, and output marking under MP-3 (P07) |
 | Interview | System owner's written answers only. The security officer, a sample of home workers and \<Organisation\>'s facilities contact remain |
 | Site inspection | Once at Level 2, using TPL-20, by the independent assessor or \<Organisation\>'s auditor (PRO-PE-5) |
-| Previous results reused | AC checks of the screen lock and sign-out (AC-11, AC-12); MP check P07 (no marking) |
+| Previous results reused | AC checks of the v1.0 build's page lock and sign-out (AC-11, AC-12); MP check P07 (no marking) |
 | Boundary | Physical and environmental protection of the data centre and second site is inherited from \<Organisation\>. \<System Name\> provides the policy, the printer and screen rules, home working rules, and incident handling |
 | Order of assessment | A, inherited evidence against the matrix (PE-2 to PE-16); B, the site inspection; C, output devices (PE-5); D, home working (PE-17); E, policy (PE-1). The inherited evidence comes first because it closes most statements |
 | Needed from \<Organisation\> | EV-PE-01 to EV-PE-05 in \<Evidence Requests\>: first its ISO/IEC 27001 certificate and Statement of Applicability for Annex A.7, or a SOC 2 report, for both sites |
@@ -2940,7 +2940,7 @@ This records the Level 1 self-assessment of the 9 PS entries in the CSS Moderate
 
 ### PS.2 How to read this record
 
-**Change since this assessment.** On 17 November 2026 the personnel security design was cut from \<Control Implementation Register\> into \<Personnel Security Management\>, with each control set out part by part (D-PS-10). Since sign-in moved to AD FS (D-AC-23), \<System Name\> holds no accounts: a person's access is their membership of \<System Name\>'s groups, and a leaver's access ends when \<Organisation\> disables their Active Directory account. Members who have not signed in for 90 days are removed each month (D-PS-11). One item was added for the gaps this chapter found: PA-125. The findings below are a true record of 6 and 12 November 2026 and are not changed.
+**Change since this assessment.** On 17 November 2026 the personnel security design was cut from \<Control Implementation Register\> into \<Personnel Security Management\>, with each control set out part by part (D-PS-10). Since sign-in moved to PingFederate (D-AC-23), \<System Name\> holds no accounts: a person's access is their membership of \<System Name\>'s groups, and a leaver's access ends when \<Organisation\> disables their Active Directory account. Members who have not signed in for 90 days are removed each month (D-PS-11). One item was added for the gaps this chapter found: PA-125. The findings below are a true record of 6 and 12 November 2026 and are not changed.
 
 The method was **Examine** (documents). This family has no code to test: the leaver and mover route depends on \<Organisation\>'s Starters/Leavers system, which is not yet connected (PA-32). Nobody has yet been given an account, so no agreement is signed and no record exists. No interviews have been held. Check L17 of Test-PlanConsistency.ps1 confirms that every role has a risk designation (the PL evidence).
 
@@ -3080,7 +3080,7 @@ This records the Level 1 self-assessment of personal data handling in \<System N
 
 ### PT.2 How to read this record
 
-**Change since this assessment.** On 18 November 2026 the personal data design was cut from \<Control Implementation Register\> into \<PII Processing Management\>, with each control set out part by part, the inventory and the retention schedule (D-PT-22). Since sign-in moved to AD FS (D-AC-23), \<System Name\> holds no accounts and has no sign-in page of its own, so the inventory and the notice were reworded. The request route now covers every right a person has, and recipients are told of a correction. One item was added for the gaps this chapter found: PA-126. The findings below are a true record of 6 and 11 November 2026 and are not changed.
+**Change since this assessment.** On 18 November 2026 the personal data design was cut from \<Control Implementation Register\> into \<PII Processing Management\>, with each control set out part by part, the inventory and the retention schedule (D-PT-22). Since sign-in moved to PingFederate (D-AC-23), \<System Name\> holds no accounts and has no sign-in page of its own, so the inventory and the notice were reworded. The request route now covers every right a person has, and recipients are told of a correction. One item was added for the gaps this chapter found: PA-126. The findings below are a true record of 6 and 11 November 2026 and are not changed.
 
 **N/A** means the statement does not apply.
 
@@ -3275,7 +3275,7 @@ This records the Level 1 self-assessment of the 10 RA entries in the CSS Moderat
 
 ### RA.2 How to read this record
 
-**Change since this assessment.** On 18 November 2026 the risk assessment design was cut from \<Control Implementation Register\> into \<Risk Assessment Management\>, with each control set out part by part (D-RA-11). Since sign-in moved to AD FS (D-AC-23), \<System Name\> holds no accounts, so the critical components were reworded and AD FS with Active Directory, the application server and the bulk export folder added. The cross-check found that the risk assessment and the supply chain review have not been reviewed after the changes to sign-in and hosting, that nothing scans \<System Name\>'s own applications, and that the public reporting route has no published terms; PA-62 and PA-127 cover them. The findings below are a true record of 6 and 11 November 2026 and are not changed.
+**Change since this assessment.** On 18 November 2026 the risk assessment design was cut from \<Control Implementation Register\> into \<Risk Assessment Management\>, with each control set out part by part (D-RA-11). Since sign-in moved to PingFederate (D-AC-23), \<System Name\> holds no accounts, so the critical components were reworded and PingFederate with Active Directory, the application server and the bulk export folder added. The cross-check found that the risk assessment and the supply chain review have not been reviewed after the changes to sign-in and hosting, that nothing scans \<System Name\>'s own applications, and that the public reporting route has no published terms; PA-62 and PA-127 cover them. The findings below are a true record of 6 and 11 November 2026 and are not changed.
 
 The methods were **Examine** (the risk documents) and **Test**. The test is Test-Vulnerability.ps1, run on 11 November 2026 on the tagged v1.0 build and the throwaway stack's images (checks V01 to V09). It checks the packages, the images and their operating system packages, and whether the risk list, decisions, acceptances, critical components and POA&M agree. The results and their hashes are in the RA evidence. No interviews have been held.
 
@@ -3420,7 +3420,7 @@ This records the Level 1 self-assessment of the 17 SA entries in the CSS Moderat
 
 ### SA.2 How to read this record
 
-**Change since this assessment.** On 18 November 2026 the acquisition design was cut from \<Control Implementation Register\> into \<System and Services Acquisition Management\>, with each control set out part by part (D-SA-19). The developer test plan now lists 15 scripts, AD FS, Active Directory, the Starters/Leavers system and Docker Hub are listed as external services, and the applications run as Windows services (D-PL-10). The cross-check added the kinds of analysis, the basis of trust for each service, and checks that open-source components are still maintained; PA-68 and PA-128 cover what is not done, and PA-68, PA-91 and PA-92 are now due before go-live, as the authorising official decided (D-SA-14). The findings below are a true record of 6 and 11 November 2026 and are not changed.
+**Change since this assessment.** On 18 November 2026 the acquisition design was cut from \<Control Implementation Register\> into \<System and Services Acquisition Management\>, with each control set out part by part (D-SA-19). The developer test plan now lists 15 scripts, PingFederate, Active Directory, the Starters/Leavers system and Docker Hub are listed as external services, and the applications run as Windows services (D-PL-10). The cross-check added the kinds of analysis, the basis of trust for each service, and checks that open-source components are still maintained; PA-68 and PA-128 cover what is not done, and PA-68, PA-91 and PA-92 are now due before go-live, as the authorising official decided (D-SA-14). The findings below are a true record of 6 and 11 November 2026 and are not changed.
 
 The methods were **Examine** (documents, repositories and test evidence) and **Test**. The test is Test-Development.ps1, run on 11 November 2026 (checks S01 to S10). It reads the GitHub settings of the six repositories through the GitHub API (read-only), the Git history at tag v1.0, the build files and the component support dates. The results and their hashes are in the SA evidence. No interviews have been held.
 
@@ -3655,7 +3655,7 @@ This records the Level 1 self-assessment of the 25 SC entries in the CSS Moderat
 
 ### SC.2 How to read this record
 
-**Change since this assessment.** On 18 November 2026 the communications protection design was cut from \<Control Implementation Register\> into \<System and Communications Protection Management\>, with each control set out part by part (D-SC-09). Since sign-in moved to AD FS (D-AC-23), \<System Name\> has no sign-in pages, so the checks that used them are to be run again. The cross-check added the audit chain key and the AD FS token-signing certificate to the key register, and set out session handling; PA-74 and PA-95 cover them. The findings below are a true record of their dates and are not changed.
+**Change since this assessment.** On 18 November 2026 the communications protection design was cut from \<Control Implementation Register\> into \<System and Communications Protection Management\>, with each control set out part by part (D-SC-09). Since sign-in moved to PingFederate (D-AC-23), \<System Name\> has no sign-in pages, so the checks that used them are to be run again. The cross-check added the audit chain key and the PingFederate signing certificate to the key register, and set out how the authentication cookie is handled; PA-74 and PA-95 cover them. The findings below are a true record of their dates and are not changed.
 
 **N/A** means not applicable, as decided in \<Tailoring Register\>, which the independent assessor may test.
 
@@ -3784,7 +3784,7 @@ There is one finding for each CSS determination statement, including those about
 | SC-08(01)\_ODP | Purpose is selected | S | \<System and Communications Protection Management\>, section 3.3 |
 | SC-08(01) | Cryptography protects transmission | O-G | No TLS on any flow (N01, N02, N06; PA-18) |
 | SC-10\_ODP | Time period is defined | S | 30 minutes idle |
-| SC-10 | Network connections end at that time | O-E | Application sessions end at 30 minutes idle and 8 hours; network side not available (EV-SC-01) |
+| SC-10 | Network connections end at that time | O-E | The v1.0 build's sessions ended at 30 minutes idle and 8 hours; the design has no sessions of its own, and a sign-in lasts no longer than PingFederate's sign-in lifetime (P-AC-10); network side not available (EV-SC-01) |
 | SC-12\_ODP | Key requirements are defined | S | \<System and Communications Protection Management\>, section 3.4 |
 | SC-12\[01\] | Keys are established | O-G | Register set (\<System and Communications Protection Management\>, section 3.4); signing key and passwords committed in source (N09, PA-19) |
 | SC-12\[02\] | Keys are managed | O-G | No protected store or rotation (PA-19); key rings unencrypted (N08, PA-93) |
@@ -3816,7 +3816,7 @@ There is one finding for each CSS determination statement, including those about
 | SC-22\[01\] | DNS systems are fault tolerant | O-E | \<Organisation\> (EV-SC-05) |
 | SC-22\[02\] | Internal and external roles are separated | O-E | \<Organisation\> (EV-SC-05) |
 | SC-22\[03\] | Roles are separated by exposure | O-E | \<Organisation\> (EV-SC-05) |
-| SC-23 | Session authenticity is protected | O-G | Sessions are checked on the server, but cookies are not Secure, there is no HSTS and traffic is plain HTTP (N02, N03; PA-18); key rings unencrypted (PA-93) |
+| SC-23 | Session authenticity is protected | O-G | The v1.0 build checked its sessions on the server, but its cookies were not Secure, there was no HSTS and traffic was plain HTTP (N02, N03; PA-18). The design holds the sign-in only in the authentication cookie; key rings unencrypted (PA-93) |
 | SC-28\_ODP\[01\] | Protection is selected | S | Confidentiality and integrity |
 | SC-28\_ODP\[02\] | Information is defined | S | \<Organisation\>'s corporate parameter values |
 | SC-28 | Information at rest is protected | O-E | Documents in PostgreSQL, backups, export copies and key rings not encrypted in Docker; BitLocker planned on the VMs (PA-52, PA-86, PA-93) |
@@ -3840,7 +3840,7 @@ There is one finding for each CSS determination statement, including those about
 | Interview | None held. The Windows server administrator, database administrator, developers and \<Organisation\>'s security contact remain |
 | Previous results reused | CM checks C07 to C10 (secrets, listening addresses, non-root); MP checks on export copies (PA-86); MA check M04 on the admin portal (PA-83) |
 | Boundary | \<System Name\>'s apps, database, keys and the two VMs. \<Organisation\>'s network, VPN, proxy, DNS and certificate authority are provider evidence (EV-SC-01 to EV-SC-05) |
-| Order of assessment | A, transport and sessions (SC-8, SC-8(1), SC-23); B, keys and cryptography (SC-12, SC-13); C, page code (SC-18); D, boundary (SC-7 and enhancements); E, data at rest (SC-28); F, inherited services (SC-17, SC-20 to SC-22, SC-39); G, policy (SC-1) |
+| Order of assessment | A, transport and the v1.0 build's sessions (SC-8, SC-8(1), SC-23); B, keys and cryptography (SC-12, SC-13); C, page code (SC-18); D, boundary (SC-7 and enhancements); E, data at rest (SC-28); F, inherited services (SC-17, SC-20 to SC-22, SC-39); G, policy (SC-1) |
 | Needed from providers | EV-SC-01 to EV-SC-05 and EV-AC-03 in \<Evidence Requests\> |
 | Evidence retained | the SC evidence (results, README and MANIFEST); the SC and CM evidence; completed TPL-6, TPL-8, TPL-11 and TPL-23 records |
 
@@ -3854,7 +3854,7 @@ This records the Level 1 self-assessment of the 18 SI entries in the CSS Moderat
 
 ### SI.2 How to read this record
 
-**Change since this assessment.** On 18 November 2026 the integrity design was cut from \<Control Implementation Register\> into \<System and Information Integrity Management\>, with each control set out part by part (D-SI-10). Detection use cases U1 and U4 now take their events from \<Organisation\>'s AD FS and Active Directory (D-SR-15). The cross-check added a one-off scan of documents already stored (PA-58). The findings below are a true record of their dates and are not changed.
+**Change since this assessment.** On 18 November 2026 the integrity design was cut from \<Control Implementation Register\> into \<System and Information Integrity Management\>, with each control set out part by part (D-SI-10). Detection use cases U1 and U4 now take their events from \<Organisation\>'s PingFederate and Active Directory (D-SR-15). The cross-check added a one-off scan of documents already stored (PA-58). The findings below are a true record of their dates and are not changed.
 
 **N/A** means not applicable, as decided in \<Tailoring Register\>, which the independent assessor may test.
 

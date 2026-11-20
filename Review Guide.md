@@ -70,7 +70,7 @@ For Audit and Accountability, read [Audit and Accountability Management](Audit%2
 
 For Assessment, Authorization, and Monitoring, read [Assessment, Authorization, and Monitoring Management](Assessment,%20Authorization,%20and%20Monitoring%20Management.md) (9,100 words) in the same way. It holds the assessment and authorisation process, the inherited controls, the interface record and the monitoring strategy.
 
-For Identification and Authentication, read [Identification and Authentication Management](Identification%20and%20Authentication%20Management.md) (11,300 words) in the same way. It holds sign-in through AD FS, the assurance levels and the authenticator inventory.
+For Identification and Authentication, read [Identification and Authentication Management](Identification%20and%20Authentication%20Management.md) (11,300 words) in the same way. It holds sign-in through PingFederate, the assurance levels and the authenticator inventory.
 
 For Maintenance, read [Maintenance Management](Maintenance%20Management.md) (7,700 words) in the same way. It holds the remote maintenance routes and the lists of approved tools and people.
 

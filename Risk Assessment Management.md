@@ -44,7 +44,7 @@ Controls met here: RA-2.
 
 Availability is Low because the 120-hour maximum tolerable downtime means a loss of availability has a limited adverse effect; "business critical" means important to \<Organisation\>, not that \<System Name\> must always be available. The information owner and the authorising official are asked to confirm that rationale (D-RA-07).
 
-The fourth information type was named for accounts and credentials. Since sign-in moved to AD FS, \<System Name\> holds neither (D-AC-23), so it is now named for the identities that arrive at sign-in, sessions and audit records. Its levels do not change. The authorising official is asked to see the new name with the availability rationale (D-RA-07).
+The fourth information type was named for accounts and credentials. Since sign-in moved to PingFederate, \<System Name\> holds neither (D-AC-23), so it is now named for the identities that arrive at sign-in and the audit records. Its levels do not change. The authorising official is asked to see the new name with the availability rationale (D-RA-07).
 
 The categorisation is reviewed with the risk assessment, and whenever an information type is added or changed.
 
@@ -77,7 +77,7 @@ Controls met here: RA-3, RA-7.
 | When a risk needs a decision | Decided by the person its rating calls for | System owner or authorising official | \<Decision Register\> |
 | At each review | The categorisation is checked against the information \<System Name\> holds, and any change goes to the authorising official (section 3.2) | System owner | TPL-23 |
 
-Two significant changes have been made since the risk assessment was last reviewed as a whole: sign-in moved to AD FS with multi-factor authentication (D-AC-23), and each application now runs as a Windows service on the servers (D-PL-10). Risk entries were reworded as each family was reviewed, but the risk assessment has not yet been reviewed as a whole, as RA-3 and PRO-RA-1 require after a significant change. The acceptance of password-only sign-in (D-GEN-13), which the move to AD FS overtakes, is still recorded; the authorising official is asked to note it, and to keep it until AD FS sign-in is shown to work (D-RA-15). The review is registered as PA-127, and a draft of it has been prepared for the system owner to check.
+Two significant changes have been made since the risk assessment was last reviewed as a whole: sign-in moved to PingFederate with multi-factor authentication (D-AC-23), and each application now runs as a Windows service on the servers (D-PL-10). Risk entries were reworded as each family was reviewed, but the risk assessment has not yet been reviewed as a whole, as RA-3 and PRO-RA-1 require after a significant change. The acceptance of password-only sign-in (D-GEN-13), which the move to PingFederate overtakes, is still recorded; the authorising official is asked to note it, and to keep it until PingFederate sign-in is shown to work (D-RA-15). The review is registered as PA-127, and a draft of it has been prepared for the system owner to check.
 
 ### 3.4 Supply chain risk assessment
 
@@ -106,7 +106,7 @@ Three changes since the first review alter the supply chain. Each is a significa
 
 | Change | What it adds or removes | State |
 | --- | --- | --- |
-| Sign-in through AD FS, with access decided by Active Directory groups (D-AC-23) | \<Organisation\>'s AD FS and Active Directory become critical dependencies (section 3.9). \<System Name\> no longer holds passwords | Not yet reviewed |
+| Sign-in through PingFederate, with access decided by Active Directory groups that the API reads over LDAPS (D-AC-23) | \<Organisation\>'s PingFederate and Active Directory become critical dependencies (section 3.9). \<System Name\> no longer holds passwords | Not yet reviewed |
 | Access requests through ServiceNow, and leavers through the Starters/Leavers system (D-AC-22) | Two of \<Organisation\>'s corporate services become part of how access is given and removed | Not yet reviewed |
 | Each application runs as a Windows service on Windows Server 2025 (D-PL-10) | The .NET runtime is installed on the application server. Whether the base images still reach a release is to be confirmed | Not yet reviewed |
 
@@ -201,19 +201,19 @@ Controls met here: RA-9.
 | --- | --- | --- | --- |
 | Database server VM | Holds every document, document record and audit record | All documents are exposed or lost | Planned |
 | Application server VM | Runs all three applications, and holds their data protection key rings and the bulk export working folder. Whoever controls it reaches the database through the API | Every document reachable, and the applications' controls bypassed | Planned; added by the cross-check |
-| API | The only route to the database. Checks each request's session, role and project access for the other two applications | Access controls can be bypassed, and every document read | Built |
-| UI application | Users' document pages, reached after sign-in through AD FS | Documents shown to the wrong person, or a user's session taken over | Built |
-| Admin application | Sets which AD groups open each project, and administers projects, documents, sessions and audit records, including raw deletes and maintenance pages | Project access granted, or documents deleted, without trace | Built |
+| API | The only route to the database. Checks each request's sign-in, role and project access for the other two applications | Access controls can be bypassed, and every document read | Built |
+| UI application | Users' document pages, reached after sign-in through PingFederate | Documents shown to the wrong person, or a user's sign-in taken over | Built |
+| Admin application | Sets which AD groups open each project, and administers projects, documents and audit records, including raw deletes and maintenance pages | Project access granted, or documents deleted, without trace | Built |
 | Audit records | Show who did what | Misuse cannot be traced or proved | Built |
 | Backup store | Holds a full copy of every document | Every document exposed from a stolen or unencrypted backup (R02), or lost | Planned (PA-64) |
 | Bulk export working folder | Holds full, unencrypted copies of documents for each export job, left after download and after a restart (PA-86) | Documents disclosed outside their project's permissions | Built; added by the cross-check |
-| Key store | Holds the signing key and service secrets | Sessions and database access can be forged | Planned (PA-19) |
+| Key store | Holds the signing key and service secrets | Calls between the applications, and database access, can be forged | Planned (PA-19) |
 | Data protection key rings | Protect each app's cookies and tokens | Sign-in cookies can be forged or read | Built |
-| AD FS, with Active Directory (\<Organisation\>) | Authenticate every user with multi-factor authentication, and carry the AD groups that decide each role and each project's access (D-AC-23) | Anyone could sign in as another user, or be given any role or project | Inherited from \<Organisation\> |
+| PingFederate, with Active Directory (\<Organisation\>) | PingFederate authenticates every user with multi-factor authentication; Active Directory holds the groups, read by the API over LDAPS, that decide each role and each project's access (D-AC-23) | Anyone could sign in as another user, or be given any role or project | Inherited from \<Organisation\> |
 
-AD FS with Active Directory is critical because \<System Name\> holds no accounts and relies on \<Organisation\> to authenticate every user (D-AC-23). The application server VM and the bulk export working folder are critical because each gives a path to the documents that goes round the other controls. The system owner approved the list (D-RA-09, D-RA-12, D-RA-14).
+PingFederate with Active Directory is critical because \<System Name\> holds no accounts and relies on \<Organisation\> to authenticate every user (D-AC-23). The application server VM and the bulk export working folder are critical because each gives a path to the documents that goes round the other controls. The system owner approved the list (D-RA-09, D-RA-12, D-RA-14).
 
-**Critical functions.** CSS asks for critical functions as well as components. Five functions would expose or lose the documents if they failed: signing in and deciding access (AD FS with Active Directory, API, the key store and the data protection key rings); storing and showing documents (the database server, the application server, API and UI application); administering projects and access (Admin application); recording who did what (the audit records); and recovering documents (the backup store).
+**Critical functions.** CSS asks for critical functions as well as components. Five functions would expose or lose the documents if they failed: signing in and deciding access (PingFederate with Active Directory, API, the key store and the data protection key rings); storing and showing documents (the database server, the application server, API and UI application); administering projects and access (Admin application); recording who did what (the audit records); and recovering documents (the backup store).
 
 The list is reviewed at each major release and after a significant change (PRO-RA-6). The next review is due at the first major release, or at the VM build if sooner.
 
@@ -237,7 +237,7 @@ Controls met here: RA-3, RA-3(1), RA-5, RA-5(11), RA-7, RA-9.
 | The security contact for vulnerability reports | RA-5(11) | It is published, and passes any report about \<System Name\> to the security officer | EV-RA-01 | Not sent |
 | A shared scanning service, or a list of exploited flaws it tracks, if it offers one | RA-5 | Whether \<System Name\> can use it | EV-RA-01 | Not sent |
 | The risk management strategy and risk appetite | RA-3, RA-7 | System risk decisions respect them, and the Head of Cyber confirms the thresholds against them | EV-PM-01 | Not sent |
-| AD FS and Active Directory | RA-9 | They authenticate every user and carry the groups that decide access; they are critical components (section 3.9) | The AC evidence requests in \<Evidence Requests\> | As those requests |
+| PingFederate and Active Directory | RA-9 | PingFederate authenticates every user, and Active Directory holds the groups that decide access; they are critical components (section 3.9) | The AC evidence requests in \<Evidence Requests\> | As those requests |
 | Hosting, network and hardware, and their suppliers | RA-3(1) | Their supply chain risk is managed, and the approved suppliers are known | EV-SR-01, EV-SR-02 | Not sent |
 
 **Today:** no request has been sent, and none of this is evidenced.

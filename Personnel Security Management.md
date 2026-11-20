@@ -49,7 +49,7 @@ Every role in \<Roles and Responsibilities\> has a designation. A role is higher
 | Authorising official | Standard | Decides risk; no \<System Name\> account is needed |
 | Security assessor | Higher risk | Sees the whole document set and its evidence, which describe every weakness. Made higher risk on 17 November 2026 (D-PS-12) |
 | \<Organisation\> security contact | Standard | Provides evidence; no \<System Name\> account is needed |
-| Global administrator | Higher risk | Manages every project, the AD groups each uses, and every session |
+| Global administrator | Higher risk | Manages every project and the AD groups each uses |
 | Administrator | Higher risk | Changes system settings |
 | Auditor | Higher risk | Reads every audit record |
 | Security officer | Higher risk | Sees logs, alerts and incident records |
@@ -97,7 +97,7 @@ Each person signs both before being added to any \<System Name\> group. The acce
 
 Controls met here: PS-3, PS-4, PS-5, PS-6.
 
-\<System Name\> holds no accounts. A person signs in through AD FS with their Active Directory account, and their access is their membership of \<System Name\>'s AD groups (\<Access Control Management\>). So joining means being added to a group, and leaving means \<Organisation\> disabling the Active Directory account.
+\<System Name\> holds no accounts. A person signs in through PingFederate with their Active Directory account, and their access is their membership of \<System Name\>'s AD groups (\<Access Control Management\>). So joining means being added to a group, and leaving means \<Organisation\> disabling the Active Directory account.
 
 ![Figure 1: From joining to leaving](figures/psm-figure-1.png)
 
@@ -109,12 +109,12 @@ Controls met here: PS-3, PS-4, PS-5, PS-6.
 | --- | --- | --- | --- | --- |
 | Joiner | The role's designation is looked up; \<Organisation\> confirms the screening; the person completes training and signs the agreements; only then do the group owners add them to the groups the role needs | System owner; \<Organisation\>; the group owners | Before access | TPL-2; TPL-21; the register |
 | Mover | The line manager tells the system owner and the owners of the person's groups. Each owner confirms whether the person still needs the group, and removes or adds memberships. A higher risk role needs screening confirmed again first | Line manager; system owner; the group owners | 1 working day | TPL-14 |
-| Leaver | \<Organisation\> disables the Active Directory account at once, which ends access. Its Starters/Leavers system tells the group owners, who remove the memberships. A global administrator ends any open session. Any service secret the person knew is changed, and exported files and printouts are recovered or destroyed. Separately, anyone who has not signed in for 90 days is removed from \<System Name\>'s groups each month (\<Access Control Management\>, section 3.14) | \<Organisation\>; the group owners; global administrator; system owner | At once, and memberships within 5 working days | TPL-14 |
-| Higher-risk leaver, dismissal or suspected misuse | \<Organisation\>'s service desk disables the Active Directory account, and a global administrator ends the person's sessions and confirms none remains | \<Organisation\>'s service desk; global administrator | 1 hour of notice | TPL-14; TPL-10 if it is an incident |
+| Leaver | \<Organisation\> disables the Active Directory account at once, and ends the person's PingFederate sign-in, which ends access. Its Starters/Leavers system tells the group owners, who remove the memberships. Any service secret the person knew is changed, and exported files and printouts are recovered or destroyed. Separately, anyone who has not signed in for 90 days is removed from \<System Name\>'s groups each month (\<Access Control Management\>, section 3.14) | \<Organisation\>; the group owners; system owner | At once, and memberships within 5 working days | TPL-14 |
+| Higher-risk leaver, dismissal or suspected misuse | \<Organisation\>'s service desk disables the Active Directory account and ends the person's PingFederate sign-in, so \<System Name\> refuses the person at the next group lookup (P-AC-13) | \<Organisation\>'s service desk | 1 hour of notice | TPL-14; TPL-10 if it is an incident |
 
 **Leavers.** Disabling the Active Directory account revokes the person's password and second factor. Any service secret the person knew is changed (\<Procedures\>, PRO-IA-4). \<Organisation\> holds an exit interview, which covers the person's continuing confidentiality duties and the return of equipment, and recovers their laptop, phone, pass and any other equipment. Exported files and printouts are recovered or destroyed (\<Security Operating Procedures\>, section 4.4). Documents belong to projects, not to people, so a leaver's documents stay with the project and its members. The system owner confirms this on TPL-14.
 
-**Movers.** Each group owner removes the memberships the person no longer needs, and adds any the new role needs through an access request. A change to a person's groups takes effect at their next sign-in, and a global administrator can end their sessions to bring it in at once (\<Identification and Authentication Management\>, section 3.7). No \<System Name\> role gives physical access to the servers (\<Physical and Environmental Protection Management\>, section 3.2), so a move changes logical access only.
+**Movers.** Each group owner removes the memberships the person no longer needs, and adds any the new role needs through an access request. A change to a person's groups takes effect at their next sign-in, and a removed membership is refused at the next group lookup (\<Access Control Management\>, sections 3.14 and 3.15). No \<System Name\> role gives physical access to the servers (\<Physical and Environmental Protection Management\>, section 3.2), so a move changes logical access only.
 
 ### 3.6 Time limits
 
@@ -126,7 +126,7 @@ Controls met here: PS-2, PS-3, PS-4, PS-5, PS-6, PS-7, PS-8.
 | --- | --- | --- | --- |
 | Screening confirmed and agreements signed | Before the person is added to any \<System Name\> group | System owner | TPL-2; TPL-21 |
 | Leaver | \<Organisation\> disables the Active Directory account at once, which ends access; group memberships removed within 5 working days | \<Organisation\>; the owners of the person's groups | TPL-14 |
-| Higher-risk leaver, dismissal or suspected misuse | Active Directory account disabled, and sessions ended, within 1 hour of notice | \<Organisation\>'s service desk; global administrator | TPL-14; TPL-10 if it is an incident |
+| Higher-risk leaver, dismissal or suspected misuse | Active Directory account disabled, and PingFederate sign-in ended, within 1 hour of notice | \<Organisation\>'s service desk | TPL-14; TPL-10 if it is an incident |
 | Mover | Access reviewed, and the system owner told, within 1 working day | Line manager, system owner, the owners of the person's groups | TPL-14 |
 | Supplier's leaver or mover | Supplier tells the system owner within 1 working day | Supplier | TPL-14 |
 | Formal sanction involving \<System Name\> | System owner told within 1 working day | \<Organisation\> | TPL-10 if it is an incident |

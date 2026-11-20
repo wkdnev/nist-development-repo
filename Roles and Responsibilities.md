@@ -25,7 +25,7 @@ This document is used by every control family. It names who holds each role, so 
 
 | Role | Responsibility | Holder |
 | --- | --- | --- |
-| Global administrator | Manages projects, the AD groups each project uses, and sessions; ends a person's sessions when asked; issues no accounts or passwords, as \<System Name\> has none; uses the built-in maintenance pages only under an approved change, with a second person present (\<Procedures\>, PRO-MA-7) | \[Name\] |
+| Global administrator | Manages projects and the AD groups each project uses; confirms with \<Organisation\>'s service desk that a person's account is disabled and their PingFederate sign-in ended when asked; issues no accounts or passwords, and ends no sessions, as \<System Name\> has none; uses the built-in maintenance pages only under an approved change, with a second person present (\<Procedures\>, PRO-MA-7) | \[Name\] |
 | Administrator | Manages system settings in the admin portal | \[Name\] |
 | Auditor | Reviews audit records and privileged activity | \[Name\] |
 | Security officer | Reviews logs and alerts weekly and responds to each alert (\<Procedures\>, PRO-SI-4), passes on advisories from the sources in \<System and Information Integrity Management\>, section 3.3, checks CISA's exploited list weekly and drives a 3-day response, reviews scan results against the vulnerability timetable, receives vulnerability reports, leads incident response, coordinates contingency recovery, keeps its activity log and writes the after-action reports, reviews and signs the check after maintenance and reviews maintenance records monthly, assesses home working controls, writes and runs the role training modules, keeps the training register and records, and reports the training measures monthly (\<Awareness and Training Management\>), reports monthly on security status, and analyses the security impact of each change and sits on the change control board | \[Name\] |
@@ -59,7 +59,7 @@ A deputy acts only while the holder is away, and holds the same screening, train
 | Database administrator | \[Name\] | D-CP-09; \<Contingency Planning Management\>, section 3.4 |
 | Windows server administrator | \[Name\] | D-CP-09; \<Contingency Planning Management\>, section 3.4 |
 | \<Organisation\> security contact | \[Name\] | Table 1 |
-| Global administrator | \[Deputy to be named\] | Needed so that a person's sessions can be ended within 1 hour (\<Personnel Security Management\>, section 3.6) |
+| Global administrator | \[Deputy to be named\] | Needed so that the end of a person's access can be confirmed within 1 hour (\<Personnel Security Management\>, section 3.6) |
 | Legal adviser | \[Deputy to be named\] | \<Incident Response Management\>, section 3.3 |
 | Authorising official | None. A risk decision waits for the authorising official | \<Contingency Planning Management\>, section 3.4 |
 

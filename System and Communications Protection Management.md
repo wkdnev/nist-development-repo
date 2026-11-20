@@ -4,7 +4,7 @@
 
 This document sets out how \<System Name\> is designed and configured to meet the 25 System and Communications Protection (SC) controls and enhancements in the CSS Moderate baseline.
 
-Section 3 is the design: the principles, the boundary and the allowed flows, with each server's host firewall; transport encryption and sessions; the cryptographic and key register and certificates; the page policy for mobile code; information at rest; denial of service, shared resources and process isolation; name resolution; how protection stands today; what \<Organisation\> provides; and the policy and procedures. Each subsection names the controls it helps to meet.
+Section 3 is the design: the principles, the boundary and the allowed flows, with each server's host firewall; transport encryption and sign-in; the cryptographic and key register and certificates; the page policy for mobile code; information at rest; denial of service, shared resources and process isolation; name resolution; how protection stands today; what \<Organisation\> provides; and the policy and procedures. Each subsection names the controls it helps to meet.
 
 Other documents hold the rest. Who provides and is responsible for each control, its status and its assessment result are in \<System Security Plan\>, section 7.17 (Table 26). The tests, their results and the records an assessor will ask for are in \<Control Assessment Record\> (SC). Each control's risk is in \<Risk List\>, and what is still open is in \<Plan of Action and Milestones\>. The policy is in \<Policy\> (SC), and the steps people follow are in \<Procedures\> (SC). The flows themselves are in \<System Security Plan\>, section 3.7, and the trust zones and layers of defence in \<Security Architecture\>.
 
@@ -76,11 +76,11 @@ Each server's host firewall denies everything not listed below (SC-7(5)). \<Orga
 | O4 | TCP 5432 (application VM only) | Database VM | F5 to F7 |
 | O5 | Backup \[method to be chosen, PA-64\] (database VM only) | \<Organisation\>'s backup site | Backups |
 
-### 3.3 Transport encryption and sessions
+### 3.3 Transport encryption and sign-in
 
 Controls met here: SC-7(4), SC-8, SC-8(1), SC-10, SC-13, SC-23.
 
-Every flow uses this profile, from NCSC's guidance (updated 15 October 2026). It covers F1 to F7, including the API calls that stay on the application server, and F11, sign-in through AD FS, which \<Organisation\> protects.
+Every flow uses this profile, from NCSC's guidance (updated 15 October 2026). It covers F1 to F7, including the API calls that stay on the application server, and F11, sign-in through PingFederate, which \<Organisation\> protects.
 
 **Table 4: TLS profile**
 
@@ -96,7 +96,9 @@ Every flow uses this profile, from NCSC's guidance (updated 15 October 2026). It
 | Database | TLS on in PostgreSQL, every client rule requiring TLS, a minimum of TLS 1.2, and API checking the server's certificate and host name in full | TLS off; 5 client rules allow plain connections; 0 of 4 connections use TLS (N06) |
 | API (F3, F4) | API on the loopback address only, over HTTPS with K2 | Plain HTTP on every interface (N01, N07) |
 
-Sessions are checked on the server on every request. A new session identifier is issued at each sign-in, only identifiers \<System Name\> issued are accepted, and the session is ended on the server at sign-out and time-out, so a copied identifier is of no further use. The session cookie is marked Secure, HttpOnly and SameSite, and is sent only over TLS (SC-23). These have not been tested with sign-in through AD FS (PA-95). Application sessions end after 30 minutes idle and after 8 hours; \<Organisation\> ends network and remote access sessions after 30 minutes idle (SC-10).
+\<System Name\> has no sessions, session identifiers or sign-out of its own (\<Access Control Management\>, section 3.1). The authenticity of each sign-in is protected in two ways instead (SC-23). First, the application accepts only PingFederate's signed OpenID Connect response, and checks that PingFederate signed it (K12), that it was issued for \<System Name\> and that it is still valid. Second, the sign-in is then held only in the application's authentication cookie, which is protected by the application's data protection key ring (K5 to K7) so that it cannot be forged or changed, is marked Secure, HttpOnly and SameSite, is sent only over TLS, and lasts no longer than PingFederate's sign-in lifetime (P-AC-10). The UI application and the Admin application call the API with a signed, short-lived token (K4). None of this has been tested with sign-in through PingFederate (PA-95).
+
+Network connections end when they are no longer needed (SC-10). Each TLS connection on F1 to F7 is closed when the exchange ends or when it has been idle for the web server's or database's connection time-out, and \<Organisation\> ends network and remote access (VPN) sessions after 30 minutes idle. There is no application session to end: a sign-in ends when PingFederate's sign-in lifetime does (P-AC-10).
 
 ### 3.4 Cryptographic and key register
 
@@ -111,12 +113,12 @@ Every key and cryptographic use in \<System Name\> is listed here (SC-12, SC-13)
 | K1 Web and admin TLS certificate | HTTPS for F1 and F2 | ECDSA P-256 or RSA 2048, SHA-256; NCSC profiles (section 3.3) | Application VM certificate store, private key not exportable | Windows server administrator | 1 year, or \<Organisation\>'s maximum if shorter | Not issued (PA-18) |
 | K2 API loopback certificate | HTTPS for F3 and F4 | As K1 | Application VM certificate store | Windows server administrator | 1 year | Not issued (PA-18) |
 | K3 Database server certificate | TLS for F5 to F7 | As K1 | Database VM, key file readable only by the PostgreSQL service | Database administrator | 1 year | Not issued; TLS off (PA-18) |
-| K4 Token signing key | Signs API's session tokens | HMAC-SHA256, at least 256 random bits | Protected store \[\<Organisation\>'s store, to be named\] | Developers | 1 year, and when a holder leaves | Committed in source, 57 characters (N09, N11; PA-19) |
-| K5 to K7 Data protection key rings (API, UI application, Admin application) | Protect sign-in and session cookies and antiforgery tokens | AES-256-CBC with HMAC-SHA256 (ASP.NET Core default) | Each app's own folder, protected with Windows DPAPI at machine level, backed up | Developers, Windows server administrator | 90 days (the default automatic change) | Unencrypted in Docker volumes (N08; PA-93) |
+| K4 Token signing key | Signs the short-lived tokens that the UI application and the Admin application send to API | HMAC-SHA256, at least 256 random bits | Protected store \[\<Organisation\>'s store, to be named\] | Developers | 1 year, and when a holder leaves | Committed in source, 57 characters (N09, N11; PA-19) |
+| K5 to K7 Data protection key rings (API, UI application, Admin application) | Protect the authentication cookie and antiforgery tokens | AES-256-CBC with HMAC-SHA256 (ASP.NET Core default) | Each app's own folder, protected with Windows DPAPI at machine level, backed up | Developers, Windows server administrator | 90 days (the default automatic change) | Unencrypted in Docker volumes (N08; PA-93) |
 | K8 Database service account password | API's connection to PostgreSQL, the only one (D-AC-18) | SCRAM-SHA-256 | Protected store | Database administrator | 1 year, and when a holder leaves | Committed in source (N09; PA-19) |
 | K9 BitLocker keys (both VMs) | Encryption of the VMs' disks | XTS-AES 256 with the TPM | TPM; recovery keys in \<Organisation\>'s protected store | Windows server administrator | Life of the disk; recovery key tested every 12 months | VMs not built (PA-52) |
 | K11 Audit chain key | Keys the hash that chains the audit records (\<Audit and Accountability Management\>, section 3.5) | HMAC-SHA-256, at least 256 random bits | Outside the database, where the applications' accounts cannot read it | Database administrator | 1 year, and when a holder leaves | Not built: the chain hash has no key today (R-AU-01; PA-74) |
-| K12 AD FS token-signing certificate | Signs the sign-in tokens \<System Name\> accepts. \<System Name\> holds only the public part, and trusts nothing else (D-AC-23) | As \<Organisation\> sets it \[algorithm and size, EV-IA-04\] | \<Organisation\>'s AD FS; the public part in \<System Name\>'s sign-in settings | \<Organisation\>; Windows server administrator for \<System Name\>'s trust | As \<Organisation\> sets it. \<System Name\> follows each change of certificate without a gap | Not tested: the tested build did not use AD FS (PA-95) |
+| K12 PingFederate signing certificate | Signs the OpenID Connect sign-in responses \<System Name\> accepts. \<System Name\> holds only the public part, and trusts nothing else (D-AC-23) | As \<Organisation\> sets it \[algorithm and size, EV-IA-04\] | \<Organisation\>'s PingFederate; the public part in \<System Name\>'s sign-in settings | \<Organisation\>; Windows server administrator for \<System Name\>'s PingFederate connection | As \<Organisation\> sets it. \<System Name\> follows each change of certificate without a gap | Not tested: the tested build did not use PingFederate (PA-95) |
 | K10 Backup encryption key | Encrypted database backups | AES-256 \[method to be chosen, PA-64\] | Protected store, apart from the backups | Database administrator | 1 year | Not built (PA-64) |
 | A1 Password hashing | Not used: \<System Name\> stores no passwords (D-AC-23). The tested build stored sign-in passwords this way | PBKDF2-SHA512, 600,000 iterations, 128-bit salt | Database | Developers | Not applicable; iterations reviewed every 12 months | In place |
 | A2 Audit chain | Shows audit records weren't changed | HMAC-SHA-256 with K11, as the audit design requires; SHA-256 with no key today | Database | Developers | Not applicable | Unkeyed today (R-AU-01; PA-74) |
@@ -162,7 +164,7 @@ The information protected at rest is the documents and pages in PostgreSQL, the 
 
 Controls met here: SC-2, SC-4, SC-5, SC-39.
 
-1. **Denial of service** (SC-5). \<System Name\> limits the effects of network flooding, request flooding and resource exhaustion. \<Organisation\>'s network protections come first; each application limits its request rates (PA-50); and AD FS locks an account after repeated failed sign-ins. When the service slows or fails under traffic, the security officer and \<Organisation\>'s service desk respond (PRO-SC-6).
+1. **Denial of service** (SC-5). \<System Name\> limits the effects of network flooding, request flooding and resource exhaustion. \<Organisation\>'s network protections come first; each application limits its request rates (PA-50); and PingFederate and Active Directory lock an account after repeated failed sign-ins. When the service slows or fails under traffic, the security officer and \<Organisation\>'s service desk respond (PRO-SC-6).
 2. **Shared resources** (SC-4). Windows Server clears memory and storage between processes and users. Each application runs as its own Windows service under its own account (D-PL-10). Export copies are removed, as above.
 3. **Process isolation** (SC-39). Windows Server gives each process its own address space.
 4. **Separation of functions** (SC-2). The admin portal, Admin application, is a separate application and process from the user application, UI application, and is reached only over \<Organisation\>'s managed administration route (section 3.2).
@@ -182,7 +184,7 @@ Test-Protection.ps1 ran on 12 November 2026 on the build tagged v1.0, in the tes
 | Part | What happens today | Check | Item |
 | --- | --- | --- | --- |
 | Web and API traffic | Plain HTTP on every app and on the internal API calls | N01 | PA-18 |
-| HSTS | Not sent (tested on the sign-in pages of the v1.0 build, before sign-in moved to AD FS) | N02 | PA-18 |
+| HSTS | Not sent (tested on the sign-in pages of the v1.0 build, before sign-in moved to PingFederate) | N02 | PA-18 |
 | Cookies | HttpOnly and SameSite set; Secure follows the request, so it is off over HTTP | N03 | PA-18 |
 | Page policy and headers | UI application and Admin application send no page policy, no-sniff or referrer policy; API does | N04, N05 | PA-51 |
 | Database traffic | TLS off; 5 client rules allow plain connections; 0 of 4 connections use TLS | N06 | PA-18 |
@@ -203,7 +205,7 @@ Controls met here: SC-5, SC-7, SC-7(3), SC-7(4), SC-7(5), SC-7(7), SC-7(8), SC-1
 
 | Provided | Controls | What \<System Name\> relies on | Evidence asked | State |
 | --- | --- | --- | --- | --- |
-| Denial-of-service protection and network session disconnect | SC-5, SC-10 | Network flooding is limited, and network sessions end after 30 minutes idle | EV-SC-01 | Not sent |
+| Denial-of-service protection and network disconnect | SC-5, SC-10 | Network flooding is limited, and network and remote access (VPN) sessions end after 30 minutes idle | EV-SC-01 | Not sent |
 | Managed interfaces, flow policy and exceptions | SC-7, SC-7(3), SC-7(4) | Only \<System Name\>'s flows are allowed at the network edge, and the address ranges and ports for the allow-lists. Each interface protects what crosses it, and prevents, filters and publishes information about unauthorised control plane traffic from outside networks | EV-SC-02 | Not sent |
 | The firewall rules | SC-7(5) | They deny by default and allow \<System Name\>'s flows only | EV-AC-03 | Not sent |
 | The VPN and the authenticated proxy | SC-7(7), SC-7(8) | No split tunnelling, and outbound traffic from the servers goes through the proxy | EV-SC-03 | Not sent |
@@ -236,7 +238,7 @@ CSS does not select these at Moderate, so they are not assessed. SC-15 is tailor
 | SC-7(21) Isolation of System Components | Separates components by boundary | Not required. Done in design: separate application and database servers |
 | SC-8(2) Pre- and Post-transmission Handling | Protects information while it is prepared for or received from transmission | Not required |
 | SC-12(1) to SC-12(3) | Key availability and symmetric and asymmetric key production | Not required. Keys are recorded with their store and owner (section 3.4) |
-| SC-23(1), SC-23(3), SC-23(5) | Invalidate session identifiers at sign-out, unique identifiers, allowed certificate authorities | Not required. Done in design: the session handling in section 3.3, to be tested (PA-95) |
+| SC-23(1), SC-23(3), SC-23(5) | Invalidate session identifiers at sign-out, unique identifiers, allowed certificate authorities | Not required. \<System Name\> has no session identifiers of its own. Done in design: only PingFederate's signed response is accepted, and the sign-in is held only in the protected authentication cookie, whose lifetime is no longer than PingFederate's (section 3.3), to be tested (PA-95) |
 | SC-28(2), SC-28(3) | Offline storage of information at rest; protected key storage | Not required. Done in part: encrypted backups with the key held apart (K10) |
 | SC-39(1), SC-39(2) | Hardware separation and separate execution threads | Not required |
 | SC-45 System Time Synchronization | Synchronises clocks with an authoritative source | Not selected at Moderate in the SC family. Done in design: \<Organisation\>'s time service (rule O1; \<Audit and Accountability Management\>) |

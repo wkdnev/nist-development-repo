@@ -20,7 +20,7 @@ This document is used by every control family. \<System Name\> is the whole stac
 
 The figure shows the two VMs inside the \<System Name\> boundary, on \<Organisation\>'s corporate network. Users' devices reach UI application (F1) and Admin application (F2). Both call API (F3, F4), and only API connects to SQL Server on the database VM (F5) and reads groups from Active Directory over LDAPS (F7); browsers sign in through PingFederate (F6), and both VMs reach \<Organisation\>'s time, logging, proxy and backup services (F8). That is the target design (D-AC-18). Today the two apps also connect to the database themselves (F5, F6), which is to be removed (PA-10). Browsers also load files from cdn.jsdelivr.net (F8), which is to be removed (PA-34).
 
-Users sign in through \<Organisation\>'s AD FS, with multi-factor authentication (D-AC-23), which returns a signed token carrying their Active Directory groups. \<System Name\> holds no accounts or passwords of its own. The tested build checked its own passwords in API, and UI application and Admin application connected to the database themselves.
+Users sign in through \<Organisation\>'s PingFederate, with multi-factor authentication (D-AC-23), which returns a signed OpenID Connect response that names the person and carries no groups. The API reads the person's group membership from Active Directory over LDAPS. \<System Name\> holds no accounts or passwords of its own. The tested build checked its own passwords in API, and UI application and Admin application connected to the database themselves.
 
 ## 3 Data flows
 
@@ -30,15 +30,15 @@ Users sign in through \<Organisation\>'s AD FS, with multi-factor authentication
 | --- | --- | --- | --- | --- | --- |
 | F1 | User's browser | UI application | Document work | HTTP on localhost | HTTPS, to be set up |
 | F2 | Administrator's browser | Admin application | Administration | HTTP on localhost | HTTPS, to be set up; only over \<Organisation\>'s managed route (\<Maintenance Management\>, route R3; PA-83) |
-| F3 | UI application | API | Sign-in, sessions, notifications, bulk work, reports | HTTP inside Docker | HTTPS to API on the VM's loopback address only (D-SC-07; PA-18) |
-| F4 | Admin application | API | Sign-in, sessions, notifications | HTTP inside Docker | HTTPS to API on the VM's loopback address only (D-SC-07; PA-18) |
+| F3 | UI application | API | Sign-in, notifications, bulk work, reports | HTTP inside Docker | HTTPS to API on the VM's loopback address only (D-SC-07; PA-18) |
+| F4 | Admin application | API | Sign-in, notifications | HTTP inside Docker | HTTPS to API on the VM's loopback address only (D-SC-07; PA-18) |
 | F5 | UI application | PostgreSQL | Documents and projects | Inside Docker | Withdrawn: UI application is to get its data through API (D-AC-18; PA-10) |
 | F6 | Admin application | PostgreSQL | Administration data | Inside Docker | Withdrawn: Admin application is to get its data through API (D-AC-18; PA-10) |
 | F7 | API | PostgreSQL | All API data | Inside Docker | Between VMs, TLS to be set up |
 | F8 | User's browser | cdn.jsdelivr.net | Scripts and styles for every page, including sign-in | HTTPS to an outside service | Remove, by serving these files from \<System Name\> (proposed) |
 | F9 | ServiceNow | System owner and approvers | Access and change approvals | Not in use | Planned, with TLS (\<Assessment, Authorization, and Monitoring Management\>) |
 | F10 | Starters/Leavers system | Global administrator | Prompts to add or remove access | Not in use | Planned, with TLS (\<Assessment, Authorization, and Monitoring Management\>) |
-| F11 | User's and administrator's browser | \<Organisation\>'s AD FS | Sign-in with multi-factor authentication; AD FS returns a signed token with the user's AD groups | Not in the tested build | HTTPS, on \<Organisation\>'s network (D-AC-23) |
+| F11 | User's and administrator's browser | \<Organisation\>'s PingFederate | Sign-in with multi-factor authentication; PingFederate returns a signed OpenID Connect response that names the user and carries no groups | Not in the tested build | HTTPS, on \<Organisation\>'s network (D-AC-23) |
 
 One external flow is in use, F8, shown dashed on the diagram because it is to be removed (PA-34). In Docker, the web, admin and API ports are also published on all network interfaces, so the API can be reached directly. The API includes an Azure Blob storage library, but no connection is configured.
 
@@ -128,9 +128,9 @@ This section states how \<System Name\> is protected, as CSS PL-8 requires. It d
 | --- | --- | --- | --- |
 | Boundary | \<Organisation\>'s firewalls allow only HTTPS into Z3, and the admin portal only from Z2 | SC-7, AC-17, MA-4 | Inherited, not evidenced; admin portal open on every interface in Docker (PA-83) |
 | Transport | TLS on F1 to F7, under NCSC's profiles (\<System and Communications Protection Management\>, section 3.3); data protection key rings protected with DPAPI (PA-93) | SC-8, SC-13 | Planned; plain HTTP in Docker (R-AC-05) |
-| Identity | Each person's own Active Directory account, signed in through AD FS with multi-factor authentication; roles and project access from AD groups | IA-2, IA-5, AC-7 | As the system owner states (D-AC-23); not yet tested or evidenced (PA-95) |
+| Identity | Each person's own Active Directory account, signed in through PingFederate with multi-factor authentication; roles and project access from AD groups | IA-2, IA-5, AC-7 | As the system owner states (D-AC-23); not yet tested or evidenced (PA-95) |
 | Authorisation | Project roles checked on every page and API call | AC-3, AC-6 | In place, with known gaps tracked in the POA&M |
-| Session | Page lock after 25 minutes and sign-out after 30 | AC-11, AC-12, SC-23 | In place |
+| Sign-in lifetime and screen lock | No session management in \<System Name\>. The sign-in is held only in the authentication cookie, which lasts no longer than PingFederate's sign-in lifetime (P-AC-10); an unattended screen is locked by the operating system on \<Organisation\>'s managed devices and the servers (P-AC-15) | AC-11, AC-12, SC-23 | Inherited from \<Organisation\>, not evidenced |
 | Data at rest | Full-disk encryption on both VMs; no plain copies left by exports | SC-28, MP-4 | Planned (PA-52); export copies (PA-86) |
 | Audit | Hash-chained audit records, reviewed and kept | AU-2, AU-6, AU-9 | In place; chain hash has no key (R-AU-01) |
 | Host | CIS hardening, Microsoft Defender, patching | CM-6, SI-2, SI-3 | Planned (PA-54, PA-58) |
@@ -146,7 +146,7 @@ This section states how \<System Name\> is protected, as CSS PL-8 requires. It d
 | Principle | Where \<System Name\>'s design meets it | Gap |
 | --- | --- | --- |
 | NCSC 1: Establish the context | Boundary, data flows and trust zones (sections 2, 3 and 6.3); information types and impact in \<System Security Plan\>, section 3.3; risks in \<Risk List\> | Provider evidence not yet seen (\<Evidence Requests\>) |
-| NCSC 2: Make compromise difficult | Deny by default and least privilege (7.2); project roles on every request; layered defences (Table 7); trust zones with the admin portal only from Z2 | TLS (PA-18), AD FS sign-in to be shown working (PA-95), admin portal on every interface in Docker (PA-83) |
+| NCSC 2: Make compromise difficult | Deny by default and least privilege (7.2); project roles on every request; layered defences (Table 7); trust zones with the admin portal only from Z2 | TLS (PA-18), PingFederate sign-in to be shown working (PA-95), admin portal on every interface in Docker (PA-83) |
 | NCSC 3: Make disruption difficult | Separate application and database VMs; recovery times in \<Contingency Planning Management\> | No backups yet (PA-64); no rate limit (PA-50) |
 | NCSC 4: Make compromise detection easier | Hash-chained audit records, weekly review and alerts (\<Audit and Accountability Management\>), detection use cases U1 to U8 (\<System and Information Integrity Management\>, section 3.4); log forwarding to \<Organisation\> | Chain hash has no key (R-AU-01), and only 1 of 15 records recomputes (PA-74); no alerts or forwarding yet (PA-59) |
 | NCSC 5: Reduce the impact of compromise | Data separated by project schema; database reachable only from Z3; separate administration route; critical components in \<Risk Assessment Management\>, section 3.9 | One database role for all apps (PA-10); committed secrets (PA-19) |

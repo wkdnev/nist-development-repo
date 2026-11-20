@@ -22,14 +22,14 @@ It is a draft. Values in \[brackets\] are for the developers to fill or confirm.
 
 | Setting | Where | Required value | Source |
 | --- | --- | --- | --- |
-| Page lock and sign-out | Each application's security settings | Lock after 25 minutes; sign out after 30 | \<Access Control Management\> |
-| Sign-in | The trust in \<Organisation\>'s AD FS | Password length, lockout and multi-factor authentication are set by \<Organisation\>, not in \<System Name\> (D-AC-23) | \<Policy\> (IA) |
+| Sign-in lifetime | Each application's authentication cookie settings | No longer than PingFederate's sign-in lifetime (P-AC-10). \<System Name\> has no page lock, idle sign-out or session limit of its own | \<Access Control Management\> |
+| Sign-in | \<System Name\>'s PingFederate connection (its OpenID Connect client settings) | Password length, lockout and multi-factor authentication are set by \<Organisation\>, not in \<System Name\> (D-AC-23) | \<Policy\> (IA) |
 | Allowed origins | API's allowed origins | Only UI application and Admin application host names | \<System and Communications Protection Management\> |
 | Token signing | API's token settings | Key from the key store, rotated as in \<System and Communications Protection Management\> | \<System and Communications Protection Management\> |
 | Audit | Audit settings in each application | All events in \<Audit and Accountability Management\> on | \<Audit and Accountability Management\> |
 | Exports | Bulk export folder | Copies removed after download (PA-86) | \<Media Protection Management\> |
 | Browser libraries | Page templates | Served by \<System Name\>, not a CDN (PA-34) | \<System and Communications Protection Management\> |
-| Logging | Each application's logging settings | No personal data or session IDs in the application log (PA-75) | \<Audit and Accountability Management\> |
+| Logging | Each application's logging settings | No personal data or sign-in details in the application log (PA-75) | \<Audit and Accountability Management\> |
 
 Any change to these settings follows \<Procedures\> (CM), and is checked for drift monthly (SyOps C47).
 
@@ -55,10 +55,10 @@ Any change to these settings follows \<Procedures\> (CM), and is checked for dri
 
 | Function | What it does | How to maintain it | Tested by |
 | --- | --- | --- | --- |
-| Sign-in | Each person's Active Directory account, through AD FS with multi-factor authentication | Keep the trust in AD FS; never add a local account | Test-Identification.ps1 |
+| Sign-in | Each person's Active Directory account, through PingFederate with multi-factor authentication; the API reads their groups from Active Directory over LDAPS | Keep the PingFederate connection; never add a local account | Test-Identification.ps1 |
 | Project access | Checks the user's project role on every page and API call | Grant roles only through \<Procedures\> (AC); review every 3 months | Test-AccessControl.ps1 |
 | Global administrator | Full rights across \<System Name\> | Keep holders to the named few; review every 3 months | Test-AccessControl.ps1 |
-| Session control | Page lock and sign-out | Keep the timeouts in Table 1 | Test-AccessControl.ps1 |
+| Sign-in lifetime | Holds the sign-in only in the authentication cookie, for no longer than PingFederate's sign-in lifetime. \<System Name\> has no page lock or sign-out of its own | Keep the cookie lifetime in Table 1 | Test-AccessControl.ps1 |
 | Audit | Hash-chained records of security events | Run the chain check; keep records as in \<Policy\> (AU) | Test-AuditAndAuth.ps1 |
 | Exports | Bulk and single exports of documents | Check the export folder each working day; remove copies | Test-MediaProtection.ps1 |
 | Backups | Copies for recovery | Keep encrypted; test restores | Test-BackupRestore.ps1 |
@@ -83,7 +83,7 @@ These are known weaknesses administrators must work around until they are fixed 
 | Document delete in the admin portal | Deletes rows with no audit record; deleted pages stay until the database is vacuumed | Record each deletion on TPL-15 or TPL-6 | PA-89, PA-70 |
 | Global administrator role | One role holds every right | Use a separate everyday account; reviewed every 3 months | PA-14, PA-15 |
 | Admin portal network exposure | Listens on every interface in Docker | Reach it only through the managed route | PA-83 |
-| Application log | Repeats usernames, IP addresses and session IDs | Treat it as audit information; limit access | PA-75 |
+| Application log | Repeats usernames, IP addresses and, in the tested build, session IDs | Treat it as audit information; limit access | PA-75 |
 
 ## 8 References
 

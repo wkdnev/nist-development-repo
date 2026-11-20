@@ -25,7 +25,7 @@ The design for assessing, authorising and monitoring \<System Name\> is held in 
 
 ## IA Identification and Authentication
 
-The identification and authentication design is held in \<Identification and Authentication Management\>: who is identified and how, sign-in through AD FS, the assurance levels, the authenticator inventory, the settings against CSS. It is not repeated here.
+The identification and authentication design is held in \<Identification and Authentication Management\>: who is identified and how, sign-in through PingFederate, the assurance levels, the authenticator inventory, the settings against CSS. It is not repeated here.
 
 ## MA Maintenance
 

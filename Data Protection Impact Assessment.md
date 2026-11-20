@@ -40,7 +40,7 @@ The facts about \<System Name\> are filled in from the documents and tests. Ever
 | HR records (contract, pay, absence, performance) | \[For example, contract or legal obligation\] | Not applicable | Not applicable | No |
 | Health and other special category data in HR records | \[Basis\] | \[For example, Article 9(2)(b), employment\] | \[For example, paragraph 1\] | \[Yes or no\] |
 | Names and contact details in project documents | \[For example, legitimate interests\] | Not applicable | Not applicable | No |
-| Names and groups held from sign-in through AD FS | \[For example, legitimate interests\] | Not applicable | Not applicable | No |
+| Names from sign-in through PingFederate, and groups read from Active Directory | \[For example, legitimate interests\] | Not applicable | Not applicable | No |
 | Audit records and logs | \[For example, legal obligation or legitimate interests\] | Not applicable | Not applicable | No |
 
 Consent is not used, because employees cannot freely refuse their employer (D-PT-10), as the ICO's employment records guidance advises.
@@ -53,7 +53,7 @@ Consent is not used, because employees cannot freely refuse their employer (D-PT
 
 **Rights:** requests go to the legal adviser (PRO-PT-1), with a reasonable and proportionate search and complaints acknowledged within 30 days, as the Data (Use and Access) Act 2025 requires. \<System Name\> cannot yet search all projects for one person in one step (PA-89).
 
-**Transparency:** \<Organisation\>'s employee privacy notice must name \<System Name\> (EV-PT-01). \<System Name\>'s pages don't link to it yet (PA-90). People sign in on \<Organisation\>'s AD FS page.
+**Transparency:** \<Organisation\>'s employee privacy notice must name \<System Name\> (EV-PT-01). \<System Name\>'s pages don't link to it yet (PA-90). People sign in on \<Organisation\>'s PingFederate page.
 
 **Transfers and processors:** none outside \<Organisation\>.
 

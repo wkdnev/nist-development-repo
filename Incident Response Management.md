@@ -34,7 +34,7 @@ Controls met here: IR-8.
 
 The plan follows CSS, which treats incident response as part of managing cyber risk across the six CSF 2.0 functions: preparation (Govern, Identify, Protect), detection (Detect), and handling and recovery (Respond, Recover). It meets the needs of a Moderate system holding Restricted documents, and HR documents with personal data, run by a small named team.
 
-It covers UI application, Admin application, API, the \<System Name\> database, its backups and secrets, and the two VMs at \<Organisation\>. Incidents in \<Organisation\>'s own services, including AD FS and Active Directory, are handled by \<Organisation\>, with this plan for \<System Name\>'s part.
+It covers UI application, Admin application, API, the \<System Name\> database, its backups and secrets, and the two VMs at \<Organisation\>. Incidents in \<Organisation\>'s own services, including PingFederate and Active Directory, are handled by \<Organisation\>, with this plan for \<System Name\>'s part.
 
 ![Figure 1: The steps every incident follows](figures/irm-figure-1.png)
 
@@ -83,7 +83,7 @@ Controls met here: IR-4.
 | Source | What it shows | Who watches | State |
 | --- | --- | --- | --- |
 | User and staff reports | Anything that looks wrong (section 3.11) | Security officer | Ready |
-| Weekly audit log review (\<Procedures\> (AU)) | Refused access, changes to access, large exports; failed sign-ins and lockouts from \<Organisation\>'s AD FS record | The auditor, who reports to the security officer | Manual; audit chain check not yet reliable (PA-74) |
+| Weekly audit log review (\<Procedures\> (AU)) | Refused access, changes to access, large exports; failed sign-ins and lockouts from \<Organisation\>'s PingFederate record | The auditor, who reports to the security officer | Manual; audit chain check not yet reliable (PA-74) |
 | Alerts | Repeated failed sign-ins, audit chain breaks, Defender detections | Security officer | Not built (PA-59) |
 | Microsoft Defender on both VMs | Malicious code | Windows server administrator | VMs not built |
 | Backup and integrity checks (SyOps C8, C12) | Failed backups, changed documents or release packages | Database and Windows server administrators | Not built (PA-64) |
@@ -114,7 +114,7 @@ Controls met here: IR-4.
 Every incident follows these steps, the same severity table and the same record, TPL-10, so that handling is consistent. Greater severity means more people and faster targets, not a different process.
 
 1. **Detect and analyse:** the incident lead confirms whether a report is an incident, sets its severity, and opens a record on TPL-10.
-2. **Contain:** limit the harm, for example by ending sessions, disabling an account, or isolating a VM. Preserve evidence first (section 3.10).
+2. **Contain:** limit the harm, for example by disabling an account and ending the person's PingFederate sign-in, removing a group membership, or isolating a VM. Preserve evidence first (section 3.10).
 3. **Eradicate:** remove the cause, for example by fixing a flaw or changing secrets.
 4. **Recover:** restore normal service, invoking \<Contingency Planning Management\> if needed. The incident plan leads while the outage may be an incident, with the contingency plan in support, and recovery uses a backup taken before the compromise (\<Contingency Planning Management\>, section 3.6.2).
 5. **Close and learn:** within 10 working days of containment, the incident lead records the root cause and lessons, and updates this plan, the training, \<Risk List\> and \<Plan of Action and Milestones\> (PRO-IR-7).
@@ -140,15 +140,15 @@ Controls met here: IR-4.
 
 | Incident | Contain | Eradicate and recover | Usual severity |
 | --- | --- | --- | --- |
-| Stolen or guessed password | End the user's sessions (D01); ask \<Organisation\>'s service desk to disable the Active Directory account; check the audit records for what was read or exported | \<Organisation\>'s service desk resets the password and second factor under PRO-IA-3; access returns once identity is checked | High; Critical for a global administrator |
-| Exposed secret (signing key, database password) | Change the secret; changing the signing key ends every session | Find where it was exposed and remove it; check the audit records for misuse since | High |
-| Compromise of AD FS or of Active Directory accounts, reported by \<Organisation\> | End the sessions of every person affected, or of everyone if \<Organisation\> cannot say who; ask \<Organisation\> which accounts and groups were touched | Check the audit records for what those accounts did; check the members of \<System Name\>'s groups against the approved requests; let people back in once \<Organisation\> confirms the accounts are safe | High; Critical for a privileged account. Adopted by the system owner on 17 November 2026 (D-IR-11) |
+| Stolen or guessed password | Ask \<Organisation\>'s service desk to disable the Active Directory account and end the person's PingFederate sign-in, so that \<System Name\> refuses them at the next group lookup; check the audit records for what was read or exported | \<Organisation\>'s service desk resets the password and second factor under PRO-IA-3; access returns once identity is checked | High; Critical for a global administrator |
+| Exposed secret (signing key, database password) | Change the secret; changing the signing key makes every user sign in again | Find where it was exposed and remove it; check the audit records for misuse since | High |
+| Compromise of PingFederate or of Active Directory accounts, reported by \<Organisation\> | Ask \<Organisation\> to disable the accounts affected and end their PingFederate sign-ins, or to end every PingFederate sign-in to \<System Name\> if it cannot say who; ask \<Organisation\> which accounts and groups were touched | Check the audit records for what those accounts did; check the members of \<System Name\>'s groups against the approved requests; let people back in once \<Organisation\> confirms the accounts are safe | High; Critical for a privileged account. Adopted by the system owner on 17 November 2026 (D-IR-11) |
 | Ransomware or destructive attack on a VM | Isolate the VM through \<Organisation\>; do not power off before evidence is taken | Rebuild and restore from a backup taken before the compromise (\<Contingency Planning Management\>, section 3.6.2); change every secret | Critical |
-| Bulk export or download misuse | End the user's sessions; the group's owner removes the person from the project's AD group, or \<Organisation\>'s service desk disables the account | Work out what left, with the export audit records; treat as a personal data breach if HR documents were included | High; Critical if personal data |
+| Bulk export or download misuse | The group's owner removes the person from the project's AD group, or \<Organisation\>'s service desk disables the account and ends the person's PingFederate sign-in | Work out what left, with the export audit records; treat as a personal data breach if HR documents were included | High; Critical if personal data |
 | Audit record tampering | Export the audit records with a hash before anything changes (D07); restrict database access | Compare with the last exported copy and backups; fix the cause (PA-73, PA-74) | High |
 | Malicious file uploaded | Remove access to the document; stop further uploads if needed | Scan, remove, and check who opened it (PA-58) | Medium; High if opened |
 | Document in the wrong place: filed in the wrong project, or sent or shown to the wrong person | Remove access to the document; find who viewed or exported it, from the audit records | Ask anyone who received a copy to delete it and confirm; file the document correctly; treat it as a personal data breach if it holds personal data (section 3.8) | Medium; High if the document is Restricted or holds personal data. Adopted by the system owner on 17 November 2026 (D-IR-12) |
-| Lost or stolen laptop, phone or printout | \<Organisation\> locks or wipes the device; end the user's sessions (D01); for a printout, find out which documents it held | Confirm the device was encrypted; check the audit records for what the user viewed or exported; treat personal data as a possible breach (section 3.8) | Medium; High if unencrypted or holding personal data |
+| Lost or stolen laptop, phone or printout | \<Organisation\> locks or wipes the device and ends the person's PingFederate sign-in; for a printout, find out which documents it held | Confirm the device was encrypted; check the audit records for what the user viewed or exported; treat personal data as a possible breach (section 3.8) | Medium; High if unencrypted or holding personal data |
 | Physical intrusion, fire, flood or power loss at a data centre | \<Organisation\> secures the site and tells the security officer (\<Procedures\>, PRO-PE-2); take evidence before anything is moved | Invoke the contingency plan if the site is lost (\<Contingency Planning Management\>); after an intrusion, check the VMs and disks for tampering, and change secrets | High |
 
 ### 3.10 Evidence and forensic readiness
@@ -162,7 +162,7 @@ Controls met here: IR-4.
 | Audit records | The \<System Name\> database, table dbo.AuditLog | 12 months online and 12 months archived (\<Audit and Accountability Management\>) | Times stored in UTC (D05). The chain cannot yet be checked (PA-74) |
 | Application logs | Each application's log on the application VM | 30 days (\<Audit and Accountability Management\>, section 3.10) | Repeat audit details with personal data until PA-75 is fixed (D08) |
 | Windows and PostgreSQL logs | The VMs, and \<Organisation\>'s central service if agreed (EV-AU-01) | As \<Organisation\> sets; 12 months is expected (\<Audit and Accountability Management\>, section 3.7) | Not built (PA-43) |
-| AD FS and Active Directory records | \<Organisation\> | As \<Organisation\> sets (EV-AU-05) | Sign-in attempts and changes to group members. No route to them is agreed yet (PA-101) |
+| PingFederate and Active Directory records | \<Organisation\> | As \<Organisation\> sets (EV-AU-05) | Sign-in attempts and changes to group members. No route to them is agreed yet (PA-101) |
 | Backups | The second site (\<Contingency Planning Management\>, section 3.8) | 14 daily, 8 weekly, 12 monthly | A snapshot of the state before an incident |
 
 1. **Before changing anything,** export the evidence and record its SHA-256 hash, as in D07, and note it on TPL-10 with who took it and when.
@@ -210,7 +210,7 @@ Until ServiceNow is set up, incidents and personal data breaches are listed here
 
 | Reference | Opened | Summary | Severity | Personal data breach | Status |
 | --- | --- | --- | --- | --- | --- |
-| INC-2026-001 | 10 November 2026 | The database password, JWT signing key and an old AD FS secret are committed in git history (PA-19). Found by review, not by misuse. No production data is held, and the database is not reachable from outside the host | Medium (D-IR-09) | No: no personal data exposed | Open until every secret is replaced on the VMs (PA-19) and \<Organisation\> confirms the AD FS secret is revoked \[date of \<Organisation\>'s confirmation\], asked for with EV-IR-01 |
+| INC-2026-001 | 10 November 2026 | The database password, JWT signing key and an old PingFederate client secret are committed in git history (PA-19). Found by review, not by misuse. No production data is held, and the database is not reachable from outside the host | Medium (D-IR-09) | No: no personal data exposed | Open until every secret is replaced on the VMs (PA-19) and \<Organisation\> confirms the PingFederate client secret is revoked \[date of \<Organisation\>'s confirmation\], asked for with EV-IR-01 |
 
 ### 3.15 What \<Organisation\> provides
 
@@ -223,7 +223,7 @@ Controls met here: IR-4, IR-4(1), IR-6, IR-6(1), IR-6(3), IR-7, IR-7(1).
 | Its own incident process, and a route for \<System Name\>'s reports | IR-6, IR-6(3) | The security contact takes a report at any time, and tells \<System Name\>'s security officer of a compromise on its side within 24 hours | EV-IR-01, EV-SR-01 | Not sent |
 | Help during an incident | IR-7, IR-4 | Monitoring, network and forensic help; isolating a server; disabling an account; locking or wiping a device | EV-IR-01 | Not sent |
 | ServiceNow, for incident records and reports | IR-4(1), IR-6(1), IR-7(1) | A workflow built to \<System Name\>'s design | None: tracked by PA-65 | Not built |
-| Its monitoring of the network, AD FS and Active Directory | IR-4 | Events that show an attack on \<System Name\> reach the security officer | EV-AU-01, EV-AU-05 | Not sent |
+| Its monitoring of the network, PingFederate and Active Directory | IR-4 | Events that show an attack on \<System Name\> reach the security officer | EV-AU-01, EV-AU-05 | Not sent |
 
 ### 3.16 Keeping the plan
 

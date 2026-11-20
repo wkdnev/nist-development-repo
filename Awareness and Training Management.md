@@ -82,7 +82,7 @@ Each module ends with a short check of at least 10 questions, with a pass mark o
 
 | Module | Learning outcomes | Built on | Length | Delivered by |
 | --- | --- | --- | --- | --- |
-| M1 Privileged access | Use privileged accounts only for privileged tasks; manage projects, the groups each uses, and sessions safely; recognise misuse | \<Procedures\> (AC); \<Security Operating Procedures\>, Part B | 60 minutes | Security officer |
+| M1 Privileged access | Use privileged accounts only for privileged tasks; manage projects and the groups each uses safely; recognise misuse | \<Procedures\> (AC); \<Security Operating Procedures\>, Part B | 60 minutes | Security officer |
 | M2 Approving access | Authorise least access; add and remove members of an AD group correctly; carry out access reviews | \<Procedures\>, PRO-AC-1, PRO-AC-5 to PRO-AC-7; \<Access Control Management\>, section 3.13 | 30 minutes | Security officer |
 | M3 Configuration and change | Make changes only through change control; keep to the baseline | \<Procedures\> (CM); \<Configuration Management\> | 45 minutes | Security officer |
 | M4 Servers and database | Harden, patch to the timetable, scan, back up and protect keys | \<Procedures\>, PRO-SI-1; \<Risk Assessment Management\>, section 3.6; \<Procedures\> (CP); \<System and Communications Protection Management\> | 90 minutes | Security officer |

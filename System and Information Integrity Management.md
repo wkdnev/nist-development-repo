@@ -77,18 +77,18 @@ Controls met here: SI-4, SI-4(2), SI-4(4), SI-4(5).
 
 Application, Windows and PostgreSQL logs, and the audit trail, are forwarded to \<Organisation\>'s central logging \[service to be confirmed, EV-SI-01\]; if none is available, CISA's Logging Made Easy is the fallback. Alert rules in the central logging service analyse the events in near real time. The aim is to detect attacks, misuse and unauthorised local, network and remote connections. The security officer receives the logs and alerts and reviews them weekly (PRO-SI-3), and these events must raise an alert to the security officer (SI-4, SI-4(2), SI-4(5)). The system owner raises the level of monitoring when risk rises (PRO-SI-3, step 3). None is built yet (H12; PA-59).
 
-Since sign-in moved to AD FS (D-AC-23), failed sign-ins and changes to administrator groups happen in \<Organisation\>'s systems, not in \<System Name\>. Use cases U1 and U4 therefore need those events, including the AD FS sign-in logs, from \<Organisation\> (EV-SI-01; D-SR-15).
+Since sign-in moved to PingFederate (D-AC-23), failed sign-ins and changes to administrator groups happen in \<Organisation\>'s systems, not in \<System Name\>. Use cases U1 and U4 therefore need those events, including the PingFederate sign-in logs, from \<Organisation\> (EV-SI-01; D-SR-15).
 
 **Table 3: Detection use cases**
 
 | ID | Event | Source | Threshold | Alert to | Response |
 | --- | --- | --- | --- | --- | --- |
-| U1 | Failed sign-ins | AD FS sign-in logs, from \<Organisation\> (D-AC-23) | 5 for one account, or 20 in total, in 15 minutes | Security officer | PRO-SI-4 |
+| U1 | Failed sign-ins | PingFederate sign-in logs, from \<Organisation\> (D-AC-23) | 5 for one account, or 20 in total, in 15 minutes | Security officer | PRO-SI-4 |
 | U2 | Audit chain break | Chain check (PA-37) | Any | Security officer, auditor | Incident (\<Incident Response Management\>) |
 | U3 | Malware detected | Defender, and the AMSI upload scan | Any | Security officer, Windows server administrator | Incident |
 | U4 | Privilege change | Changes to the membership of \<System Name\>'s AD administrator groups, from \<Organisation\> (D-AC-23) | Any person added to an administrator group | Security officer | Check against the approved request (TPL-2) |
 | U5 | Bulk export | Audit trail | More than \[number\] documents by one user in a day | Security officer | PRO-SI-4 |
-| U6 | Administrator session out of hours | Audit trail: a session started under an administrator role | Outside \[hours\] | Security officer | PRO-SI-4 |
+| U6 | Administrator sign-in out of hours | Audit trail: a sign-in by a person in an administrator group | Outside \[hours\] | Security officer | PRO-SI-4 |
 | U7 | Audit logging failure | Application log (AU-5) | Any | Security officer | PRO-SI-4 |
 | U8 | Unexpected software change | Integrity check (PRO-SI-6) | Any | Security officer | Incident |
 
@@ -152,7 +152,7 @@ Test-Integrity.ps1 ran on the build tagged v1.0, in the test stack: 12 checks, 7
 | Malware scan | No scanner call in the upload path | H08 | PA-58 |
 | Document checksums | MD5, held in a column beside each page | H09 | PA-61 |
 | Audit chain | No broken links, but only 1 of 15 records' hashes can be recomputed | H10 | PA-74 |
-| Failed sign-ins | Recorded in the audit trail of the v1.0 build, which used its own passwords. Since sign-in moved to AD FS, AD FS records them (D-AC-23) | H11 | None |
+| Failed sign-ins | Recorded in the audit trail of the v1.0 build, which used its own passwords. Since sign-in moved to PingFederate, PingFederate records them (D-AC-23) | H11 | None |
 | Alerts | Nothing raises one | H12 | PA-59 |
 | Memory | .NET managed memory; the test containers run as a non-root user (C08). On the servers each application runs as a Windows service under its own account (D-PL-10) | Code review | None |
 
@@ -164,7 +164,7 @@ Controls met here: SI-2, SI-4, SI-4(2), SI-4(4), SI-5, SI-7, SI-7(1).
 
 | Provided | Controls | What \<System Name\> relies on | Evidence asked | State |
 | --- | --- | --- | --- | --- |
-| Network monitoring and central logging | SI-4, SI-4(2), SI-4(4) | Traffic is monitored, \<System Name\>'s logs can be forwarded, and AD FS sign-in and AD group change events reach the security officer | EV-SI-01 | Not sent |
+| Network monitoring and central logging | SI-4, SI-4(2), SI-4(4) | Traffic is monitored, \<System Name\>'s logs can be forwarded, and PingFederate sign-in and AD group change events reach the security officer | EV-SI-01 | Not sent |
 | Firmware updates and integrity checks for the hosting | SI-2, SI-7, SI-7(1) | Firmware is kept up to date and checked | EV-SI-02 | Not sent |
 | NCSC Early Warning and alert forwarding | SI-5 | \<Organisation\> is registered, and alerts that affect \<System Name\> reach the security officer | EV-SI-03 | Not sent |
 
@@ -197,7 +197,7 @@ CSS does not select these at Moderate, so they are not assessed. SI-8 and SI-8(2
 | SI-2(5), SI-2(6) | Automatic updates; removing previous versions after an update | Not required. Done in part: updates go through change control (section 3.3) |
 | SI-3(8), SI-3(10) | Detecting unauthorised commands; analysing malicious code | Not required |
 | SI-4(1), SI-4(10), SI-4(11) | System-wide intrusion detection; visibility of encrypted traffic; analysis of outbound traffic | Not required. Done in part: \<Organisation\>'s network monitoring (section 3.4) |
-| SI-4(12), SI-4(14), SI-4(20) | Automated organisation alerts; wireless intrusion detection; privileged user monitoring | Not required: selected at High only, or not applicable. Done in part: use cases U4 and U6 watch privileged changes and sessions |
+| SI-4(12), SI-4(14), SI-4(20) | Automated organisation alerts; wireless intrusion detection; privileged user monitoring | Not required: selected at High only, or not applicable. Done in part: use cases U4 and U6 watch privileged changes and administrator sign-ins |
 | SI-4(22), SI-4(23) | Unauthorised network services; host-based monitoring | Not required. Done in part: Defender on both servers |
 | SI-6 Security and Privacy Function Verification | Checks that security functions work | Not required: selected at High only. Done in part: the test scripts (\<System and Services Acquisition Management\>, section 3.9) |
 | SI-7(2), SI-7(5), SI-7(15) | Automated notification and response to integrity failures; code authentication | Not required: selected at High only. Done in part: signed release tags (PA-91) |

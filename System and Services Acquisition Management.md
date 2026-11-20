@@ -55,12 +55,12 @@ Controls met here: SA-3, SA-15.
 | PS.3 Archive each release | Git tags, starting with v1.0 | No bill of materials (PA-78) |
 | PW.1 Design to meet requirements | Security approach and principles in \<Security Architecture\>, section 6 | None |
 | PW.2 Review the design | Security officer checks significant designs (PRO-SA-1) | Not yet in routine use |
-| PW.4 Reuse well-secured software | Sign-in through \<Organisation\>'s AD FS; ASP.NET Core data protection; the access-control toolkit | Two packages with advisories (PA-56) |
+| PW.4 Reuse well-secured software | Sign-in through \<Organisation\>'s PingFederate; ASP.NET Core data protection; the access-control toolkit | Two packages with advisories (PA-56) |
 | PW.5 Secure coding practices | .NET defaults; parameterised queries | Raw SQL in the admin portal (PA-89); no written coding standard |
 | PW.6 Secure build settings | Release builds | Package audit off (PA-92); floating base images (PA-77) |
 | PW.7 Review code | Second developer reviews each change (PRO-SA-1) | One author, no reviewed merges (PA-91); no static analysis (PA-92) |
 | PW.8 Test executable code | Fifteen test scripts (section 3.9) | No unit tests or pipeline (PA-68) |
-| PW.9 Secure defaults | Deny by default; lock and sign-out times set | Admin portal on every interface in Docker (PA-83) |
+| PW.9 Secure defaults | Deny by default; the authentication cookie lasts no longer than PingFederate's sign-in lifetime (P-AC-10) | Admin portal on every interface in Docker (PA-83) |
 | RV.1 Identify vulnerabilities | Test-Vulnerability.ps1; CISA's exploited list weekly (SyOps C50) | No scanner for the images, the VMs or the applications (PA-62) |
 | RV.2 Assess and fix vulnerabilities | Timetable in \<Risk Assessment Management\>, section 3.6 | 7 advisories open (PA-56) |
 | RV.3 Find root causes | Lessons in incident records (TPL-10) and risk reviews (TPL-23) | Not yet practised |
@@ -143,7 +143,7 @@ The NCSC secure design principles and the CSS privacy engineering objectives are
 
 Controls met here: SA-9, SA-9(2).
 
-These are the services in SA-09(02)\_ODP. Each provider must meet \<System Name\>'s security and privacy requirements, and states the controls it uses in its contract or service terms. Each provider must also identify the functions, ports, protocols and other services it needs. \<System Name\> relies on \<Organisation\>'s AD FS, Active Directory and Starters/Leavers system for sign-in and access (D-AC-22, D-AC-23, D-SA-20).
+These are the services in SA-09(02)\_ODP. Each provider must meet \<System Name\>'s security and privacy requirements, and states the controls it uses in its contract or service terms. Each provider must also identify the functions, ports, protocols and other services it needs. \<System Name\> relies on \<Organisation\>'s PingFederate, Active Directory and Starters/Leavers system for sign-in and access (D-AC-22, D-AC-23, D-SA-20).
 
 **Oversight.** The system owner oversees each service, and reviews each provider's compliance every 12 months on TPL-16 (PRO-SA-3). Table 4 and \<Roles and Responsibilities\> say who uses each service.
 
@@ -153,7 +153,7 @@ These are the services in SA-09(02)\_ODP. Each provider must meet \<System Name\
 | --- | --- | --- | --- | --- |
 | Hosting, network and hardware | \<Organisation\> | Runs the two VMs and their network | \<Organisation\>'s service agreement, and its Cyber Essentials Plus certificate | EV-SA-02 |
 | ServiceNow | \<Organisation\> | Change, access and incident workflows | \<Organisation\>'s service agreement | EV-SA-02 |
-| AD FS and Active Directory | \<Organisation\> | Authenticate every user with multi-factor authentication, and hold the groups that decide each role and each project's access (D-AC-23) | \<Organisation\>'s agreement covering AD FS (EV-CA-02) | EV-CA-02, EV-SA-02 |
+| PingFederate and Active Directory | \<Organisation\> | PingFederate authenticates every user with multi-factor authentication; Active Directory holds the groups, read by the API over LDAPS, that decide each role and each project's access (D-AC-23) | \<Organisation\>'s agreement covering PingFederate (EV-CA-02) | EV-CA-02, EV-SA-02 |
 | Starters/Leavers system | \<Organisation\> | Raises a leaver request automatically when someone leaves (D-AC-22) | \<Organisation\>'s service agreement | EV-SA-02 |
 | Source code hosting | GitHub | Holds all source code, history and release tags | GitHub's published terms and security reports for the account's plan (EV-SA-03) | EV-SA-03 |
 | Package registry | nuget.org directly; only the in-house OfflineModules packages come through the offline feed (PA-94) | Supplies .NET packages | Package signatures, and the check made before a package is used (PRO-SA-7). No agreement | Package checks (V01) |
@@ -184,7 +184,7 @@ Controls met here: SA-11.
 
 This is the developer security and privacy test plan (SA-11). Each script runs on a separate test stack or only reads, keeps its results with a README and a manifest of SHA-256 hashes in the evidence for its family, and is run at each release until a pipeline runs them (PA-68). The web applications are to be verified to OWASP ASVS 5.0 Level 2.
 
-The sign-in and access checks ran on the v1.0 build, which used \<System Name\>'s own passwords and groups. They are to be run again with sign-in through AD FS and access by Active Directory groups (D-AC-23; PA-95).
+The sign-in and access checks ran on the v1.0 build, which used \<System Name\>'s own passwords and groups. They are to be run again with sign-in through PingFederate and access by Active Directory groups (D-AC-23; PA-95).
 
 The scripts are one kind of analysis among several that the CSS guidance expects for software written in-house. Table 5 says when each is done, and where it stands.
 
@@ -208,12 +208,12 @@ The plan, its results and the evidence are protected as the document set is: res
 
 | Script | Checks | Security functions covered | Evidence kept with |
 | --- | --- | --- | --- |
-| Test-AccessControl.ps1 | T01 to T55 | Project access, roles, sessions and anonymous endpoints | The AC evidence |
+| Test-AccessControl.ps1 | T01 to T55 | Project access, roles and anonymous endpoints, and sessions as built at v1.0 | The AC evidence |
 | Test-AuditAndAuth.ps1 | A01 to A38 | Audit records, and sign-in as built at v1.0 | The AU and IA evidence |
 | Test-Identification.ps1 | I01 to I11 | Identifiers and authenticators, as built at v1.0 | The AU and IA evidence |
 | Test-ConfigurationManagement.ps1 | C01 to C11 | The baseline, images and settings | The CM evidence |
 | Test-Protection.ps1 | N01 to N12 | Encryption in transit, security headers and cookies, keys and secrets, and request limits | The SC evidence |
-| Test-IncidentReadiness.ps1 | D01 to D08 | Ending sessions, clocks, and the logs an incident needs | The IR evidence |
+| Test-IncidentReadiness.ps1 | D01 to D08 | Ending access, sessions as built at v1.0, clocks, and the logs an incident needs | The IR evidence |
 | Test-BackupRestore.ps1 | R01 to R09 | Backup and restore | The CP evidence |
 | Test-Maintenance.ps1 | M01 to M12 | Maintenance pages and tools | The MA evidence |
 | Test-MediaProtection.ps1 | P01 to P09 | Exports and marking | The MP evidence |
@@ -271,7 +271,7 @@ Controls met here: SA-4, SA-9, SA-9(2), SA-10.
 | Provided | Controls | What \<System Name\> relies on | Evidence asked | State |
 | --- | --- | --- | --- | --- |
 | The standard contract, with security and privacy terms | SA-4 | Its terms cover the nine things in section 3.4 | EV-SA-01 | Not sent |
-| Hosting, network, ServiceNow, AD FS, Active Directory and the Starters/Leavers system | SA-9, SA-9(2) | Each states its controls, and the functions, ports, protocols and services it needs | EV-SA-02; EV-CA-02 for the AD FS agreement | Not sent |
+| Hosting, network, ServiceNow, PingFederate, Active Directory and the Starters/Leavers system | SA-9, SA-9(2) | Each states its controls, and the functions, ports, protocols and services it needs | EV-SA-02; EV-CA-02 for the PingFederate agreement | Not sent |
 | GitHub | SA-9, SA-9(2), SA-10 | Its controls for private repositories, and the plan and settings of \<System Name\>'s account | EV-SA-03 | Not sent |
 
 **Today:** no request has been sent, and none of this is evidenced.

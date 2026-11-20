@@ -18,8 +18,8 @@ This guide tells you how to use \<System Name\>'s security and privacy features,
 | Feature | What happens | What to do |
 | --- | --- | --- |
 | Project access | You see only the projects your role allows | If you see a project you shouldn't, report it at once |
-| Page lock | The page locks after 25 minutes without use | Lock your device too when you leave it |
-| Sign-out | You are signed out after 30 minutes without use | Save your work; sign out when you finish |
+| Screen lock | \<System Name\> has no page lock of its own. Your \<Organisation\> device locks its screen after a set time without use | Lock your device whenever you leave it |
+| Sign-in | Your sign-in lasts as long as \<Organisation\>'s PingFederate allows. \<System Name\> does not sign you out itself | Save your work; close the browser when you finish |
 | Exports | You can export documents your role allows | Keep exports on \<Organisation\>'s devices; delete them within 30 days (SyOps A28) |
 | Printing | Documents can be printed | Use secure-release printers only; never print at home (SyOps A33, A38) |
 

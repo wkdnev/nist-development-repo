@@ -46,7 +46,7 @@ Level 1 statements satisfied, by family, on 12 November 2026:
 | Exposure | Internal only. It is reached by browser from \<Organisation\>'s network and VPN, and is not public-facing |
 | Criticality | Business critical, as set by the system owner on 8 November 2026 |
 | Ownership | Owned and operated by \<Organisation\>, with the system owner accountable for it |
-| Common control provider | \<Organisation\>'s IT services: sign-in through AD FS, the Active Directory, network, firewalls, VPN, managed devices, VM hosting, logging, time, physical security and backup site (section 5) |
+| Common control provider | \<Organisation\>'s IT services: sign-in through PingFederate, the Active Directory, network, firewalls, VPN, managed devices, VM hosting, logging, time, physical security and backup site (section 5) |
 | Operational status | Under development. Not in production |
 | Authorisation status | Not authorised |
 | Security categorisation | Moderate, confirmed by the authorising official |
@@ -85,7 +85,7 @@ Other role holders are named in \<Roles and Responsibilities\>.
 
 | Exchange | Direction and method | Information | Agreement | State |
 | --- | --- | --- | --- | --- |
-| \<Organisation\>'s AD FS and Active Directory | From AD FS to \<System Name\>, through the user's browser, by HTTPS | Sign-in tokens, carrying each user's identity and AD groups | \[Agreement covering \<Organisation\>'s hosting and services\] | Stated by the system owner (D-AC-23); not evidenced (PA-95) |
+| \<Organisation\>'s PingFederate and Active Directory | From PingFederate to \<System Name\>, through the user's browser, by OpenID Connect over HTTPS; and from Active Directory to API, by LDAPS (flow F7) | A signed OpenID Connect response that names each user, with no groups; each user's group membership, read by API from Active Directory | \[Agreement covering \<Organisation\>'s hosting and services\] | Stated by the system owner (D-AC-23); not evidenced (PA-95) |
 | ServiceNow, \<Organisation\>'s IT service desk | Both ways, by HTTPS with approved accounts | Access and change requests and approvals; names of requesters | Information exchange agreement with \<Organisation\>, not yet signed: \[dates\] (\<Assessment, Authorization, and Monitoring Management\>, section 3.7) | Planned (PA-63) |
 | Starters/Leavers system, \<Organisation\> | To \<System Name\>'s administrators, by HTTPS with approved accounts | Prompts to add or remove access; staff names and leaving dates | Information exchange agreement with \<Organisation\>, not yet signed: \[dates\] (\<Assessment, Authorization, and Monitoring Management\>, section 3.7) | Planned (PA-63) |
 | \<Organisation\>'s central logging | Out from both VMs; protocol to be confirmed | Windows and application security logs | \[Agreement covering \<Organisation\>'s hosting and services\] | Stated, not evidenced |
@@ -104,7 +104,7 @@ The information types below are taken from the projects in the sample data, and 
 | HR documents, including personal data | C.3.3 Human Resource Management, chiefly C.3.3.2 Staff Acquisition, C.3.3.4 Compensation Management, C.3.3.7 Employee Relations and C.3.3.9 Separation Management | Moderate | Moderate | Low |
 | Invoices and financial documents | C.3.2.4 Accounting; C.3.2.5 Payments | Moderate | Moderate | Low |
 | Business correspondence | C.3.5.7 Information Management; C.3.5.6 Record Retention | Moderate | Low | Low |
-| Sign-in identities, sessions and audit records | C.3.5.5 Information Security; C.2.8.9 Personal Identity and Authentication Information | Moderate | Moderate | Low |
+| Sign-in identities and audit records | C.3.5.5 Information Security; C.2.8.9 Personal Identity and Authentication Information | Moderate | Moderate | Low |
 | **System, as a high-water mark** |  | **Moderate** | **Moderate** | **Low** |
 
 ### 3.4 Component inventory
@@ -125,7 +125,7 @@ This is the intended inventory for the authorisation boundary. Host names, asset
 | PostgreSQL, holding the \<System Name\> database | Database | 18 in Docker; to be confirmed on the VM | Database server VM |
 | Browser libraries | Third-party scripts and styles, including bootstrap-icons 1.11.1 and openseadragon 6.0.2 | Loaded from cdn.jsdelivr.net (PA-34) | Outside the boundary today |
 | ServiceNow | Access request and approval workflows, owned by \<Organisation\>'s IT service desk | Planned for go-live; not yet set up for \<System Name\> | Outside the boundary |
-| AD FS and Active Directory | Sign every user in with multi-factor authentication, and hold the groups that decide roles and project access (D-AC-23). A critical component (\<Risk Assessment Management\>, section 3.9) | \<Organisation\>'s corporate services | Outside the boundary |
+| PingFederate and Active Directory | Sign every user in with multi-factor authentication, and hold the groups that decide roles and project access (D-AC-23). A critical component (\<Risk Assessment Management\>, section 3.9) | \<Organisation\>'s corporate services | Outside the boundary |
 | Starters/Leavers system | Raises leaver requests, and prompts the owners of a leaver's groups | Planned for go-live; not yet set up for \<System Name\> | Outside the boundary |
 | Microsoft Defender | Malicious code protection | Planned (PA-58) | Both VMs |
 | BitLocker full-disk encryption (XTS-AES 256 with the TPM) | Protection at rest | Planned (PA-52) | Both VMs |
@@ -158,7 +158,7 @@ All users are staff or contractors of \<Organisation\>, so all are internal. \<S
 
 | Role | Internal or external | Main privileges | Expected users |
 | --- | --- | --- | --- |
-| Global administrator | Internal | Manages projects, the AD groups each project uses, and sessions, in the admin portal. Group members are changed by each group's owner, in Active Directory | \[Number\] |
+| Global administrator | Internal | Manages projects and the AD groups each project uses, in the admin portal. Group members are changed by each group's owner, in Active Directory | \[Number\] |
 | Administrator | Internal | Manages system settings in the admin portal | \[Number\] |
 | Auditor | Internal | Reads audit records and privileged activity | \[Number\] |
 | Security officer | Internal | Reviews logs, alerts and scan results; leads incident response | \[Number\] |
@@ -185,7 +185,7 @@ The target design on the two VMs is below, with what runs in Docker today. Rules
 
 ## 4 Security architecture
 
-Users reach UI application, and administrators reach Admin application, by browser. Users sign in through \<Organisation\>'s AD FS, with multi-factor authentication (D-AC-23), which gives \<System Name\> their Active Directory groups, and \<System Name\> holds no passwords of its own. Both apps call API, and all three connect to PostgreSQL on the database VM. In the target design, which the figures show, only API connects to the database, and the two apps get their data through it (D-AC-18). Today the two apps also connect to the database themselves, which is to be removed (PA-10). Access decisions go through access-control-toolkit, and each project's documents sit in their own schema. \<Organisation\> provides the network, firewalls, remote access, user devices and VM hosting, all outside the boundary. Today browsers also load code from an outside service (PA-34). The boundary diagram, data flows F1 to F8 and the comparison with Docker are in [\<Security Architecture\>](Security%20Architecture.md).
+Users reach UI application, and administrators reach Admin application, by browser. Users sign in through \<Organisation\>'s PingFederate, with multi-factor authentication (D-AC-23). API reads their group membership from Active Directory over LDAPS (flow F7), and \<System Name\> holds no accounts or passwords of its own. Both apps call API, and all three connect to PostgreSQL on the database VM. In the target design, which the figures show, only API connects to the database, and the two apps get their data through it (D-AC-18). Today the two apps also connect to the database themselves, which is to be removed (PA-10). Access decisions go through access-control-toolkit, and each project's documents sit in their own schema. \<Organisation\> provides the network, firewalls, remote access, user devices and VM hosting, all outside the boundary. Today browsers also load code from an outside service (PA-34). The boundary diagram, data flows F1 to F8 and the comparison with Docker are in [\<Security Architecture\>](Security%20Architecture.md).
 
 The figures below show the target design on the two VMs, not the Docker test stack. Where they show \<Organisation\>'s services, the detail comes from answers its security contacts gave on 6 November 2026. Those answers are statements, not evidence, and are tracked in \<Evidence Requests\>. Flow numbers F1 to F8 match \<Security Architecture\>, Table 2.
 
@@ -203,7 +203,7 @@ Users reach \<System Name\> only by browser, from managed devices in the office 
 
 **Figure 2: Application architecture**
 
-UI application and Admin application are Blazor Server apps, so the pages run on the server and the browser holds a live connection to the app. Both call API, which is to be their only route to the database (D-AC-18). Today they call it for sign-in, sessions and bulk work, and also read and write the database themselves (PA-10). Access decisions and audit records come from shared library and access-control-toolkit, which are built into each app. Users and administrators sign in through \<Organisation\>'s AD FS, with multi-factor authentication (D-AC-23). The tested build used a \<System Name\> password checked by API. Showing this working is tracked as PA-95.
+UI application and Admin application are Blazor Server apps, so the pages run on the server and the browser holds a live connection to the app. Both call API, which is to be their only route to the database (D-AC-18). Today they call it for sign-in and bulk work, and also read and write the database themselves (PA-10). Access decisions and audit records come from shared library and access-control-toolkit, which are built into each app. Users and administrators sign in through \<Organisation\>'s PingFederate, with multi-factor authentication (D-AC-23), and \<System Name\> holds the sign-in only in its authentication cookie. The tested build used a \<System Name\> password checked by API. Showing this working is tracked as PA-95.
 
 ### 4.3 Network
 
@@ -235,7 +235,7 @@ Items, their files and audit records are all held in SQL Server on the database 
 
 **Figure 6: VPN and administrator access**
 
-The VPN's multi-factor authentication protects the network route. \<System Name\>'s own sign-in is through \<Organisation\>'s PingFederate, with multi-factor authentication (D-AC-23). The authorising official's earlier acceptance of password-only sign-in until 6 May 2027, with no production documents held (D-GEN-13), was given before this was known, and stands until AD FS sign-in is shown working (PA-95). Windows administrators reach the VMs through \<Organisation\>'s approved route, whose details are still to come (EV-MA-02).
+The VPN's multi-factor authentication protects the network route. \<System Name\>'s own sign-in is through \<Organisation\>'s PingFederate, with multi-factor authentication (D-AC-23). The authorising official's earlier acceptance of password-only sign-in until 6 May 2027, with no production documents held (D-GEN-13), was given before this was known, and stands until PingFederate sign-in is shown working (PA-95). Windows administrators reach the VMs through \<Organisation\>'s approved route, whose details are still to come (EV-MA-02).
 
 ## 5 Control applicability and inheritance
 
@@ -310,12 +310,12 @@ This section gives a brief overview of every control in the 19 families, one lin
 | --- | --- | --- | --- | --- | --- | --- |
 | AC-1 Policy and Procedures | Approved and legally reviewed; not yet shared | System owner, Head of Cyber | Hybrid | Partially implemented | Other than satisfied | NC-01, PA-20 |
 | AC-2 Account Management | Each person uses their own Active Directory account; access is membership of an AD group, which the group's owner gives on an approved ServiceNow request. Approval, notification and review are not yet in use (\<Access Control Management\>) | Global administrator, project access approvers | Hybrid | Partially implemented | Other than satisfied | NC-02, PA-16, PA-20, PA-32 |
-| AC-2(1) Automated Account Management | Active Directory, AD FS and the Starters/Leavers system manage accounts and sign-in; \<System Name\> applies the groups and can end sessions. Not yet evidenced | \<Organisation\>, developers | Hybrid | Partially implemented | Other than satisfied | NC-03, PA-13, PA-16, PA-32 |
+| AC-2(1) Automated Account Management | Active Directory, PingFederate and the Starters/Leavers system manage accounts and sign-in; \<System Name\> applies the groups it reads from Active Directory. Not yet evidenced | \<Organisation\>, developers | Hybrid | Partially implemented | Other than satisfied | NC-03, PA-13, PA-16, PA-32 |
 | AC-2(2) Temporary and Emergency Accounts | Not used; forbidden by policy | None | Not applicable | Not applicable | Not applicable | TR-AC-01; NC-04 (tailored) |
 | AC-2(3) Disable Accounts | \<Organisation\> disables Active Directory accounts, which stops sign-in; unused accounts follow its corporate standard. In addition, members who have not signed in for 90 days are removed from \<System Name\>'s groups each month (D-PS-11). Not yet evidenced | \<Organisation\> | Inherited | Partially implemented | Other than satisfied | NC-05, PA-13 |
 | AC-2(4) Automated Audit Actions | Account and group changes are audited in Active Directory by \<Organisation\>; \<System Name\> audits sign-ins and its own project settings (PA-14) | \<Organisation\>, developers | Hybrid | Partially implemented | Other than satisfied | NC-06, PA-14 |
-| AC-2(5) Inactivity Logout | Sessions stop working after 30 minutes idle | Developers | System | Partially implemented | Other than satisfied | NC-07, PA-20, PA-30 |
-| AC-2(13) High-risk Individuals | \<Organisation\> disables the Active Directory account and a global administrator ends the sessions, both within 1 hour; the procedure is approved, not yet used | Global administrator, security officer | Hybrid | Partially implemented | Other than satisfied | NC-08, PA-20 |
+| AC-2(5) Inactivity Logout | \<System Name\> has no session management. A sign-in lasts no longer than PingFederate's sign-in lifetime (P-AC-10), and \<Organisation\>'s managed devices lock an unattended screen (P-AC-15). The tested build signed users out after 30 minutes idle | Developers | System | Partially implemented | Other than satisfied | NC-07, PA-20, PA-30 |
+| AC-2(13) High-risk Individuals | \<Organisation\> disables the Active Directory account and ends the person's PingFederate sign-in, within 1 hour; \<System Name\> has no sessions of its own to end. The procedure is approved, not yet used | Global administrator, security officer | Hybrid | Partially implemented | Other than satisfied | NC-08, PA-20 |
 | AC-3 Access Enforcement | Project read and edit decisions go through access-control-toolkit, denying by default | Developers | System | Partially implemented | Other than satisfied | NC-09, PA-02, PA-19, PA-25, PA-26 |
 | AC-4 Information Flow Enforcement | Only flows F1 to F8 exist; network enforcement depends on \<Organisation\>'s firewalls, not yet set | Developers, \<Organisation\> | Hybrid | Partially implemented | Other than satisfied | NC-10, PA-18, PA-26, PA-34 |
 | AC-5 Separation of Duties | Separate administrator, auditor and security roles exist, but a global administrator holds them all | System owner | Hybrid | Partially implemented | Other than satisfied | NC-11, PA-15 |
@@ -326,11 +326,11 @@ This section gives a brief overview of every control in the 19 families, one lin
 | AC-6(7) Review of User Privileges | Review procedure approved; no review held yet | System owner, auditor | Organisational | Not implemented | Other than satisfied | NC-16, PA-16 |
 | AC-6(9) Log Use of Privileged Functions | Some privileged actions are audited; many are not (PA-14) | Developers | System | Partially implemented | Other than satisfied | NC-17, PA-14, PA-29, PA-31 |
 | AC-6(10) Prohibit Non-privileged Users from Executing Privileged Functions | Ordinary users are refused admin functions, except debug pages and some API calls | Developers | System | Partially implemented | Other than satisfied | NC-18, PA-02, PA-03, PA-06, PA-07, PA-29 |
-| AC-7 Unsuccessful Logon Attempts | AD FS and Active Directory count failed sign-ins and lock the account, under \<Organisation\>'s corporate standard. Not yet evidenced. The tested build locked after five failures | \<Organisation\> | Inherited | Partially implemented | Other than satisfied | NC-19, PA-20, PA-30, PA-35 |
+| AC-7 Unsuccessful Logon Attempts | PingFederate and Active Directory count failed sign-ins and lock the account, under \<Organisation\>'s corporate standard. Not yet evidenced. The tested build locked after five failures | \<Organisation\> | Inherited | Partially implemented | Other than satisfied | NC-19, PA-20, PA-30, PA-35 |
 | AC-8 System Use Notification | No notice is shown at sign-in yet; the wording is approved | Developers, Windows server administrator | Hybrid | Not implemented | Other than satisfied | NC-20, PA-11 |
-| AC-11 Device Lock | The page locks after 25 minutes but unlocks without signing in again; device lock by \<Organisation\> | Developers, \<Organisation\> | Hybrid | Partially implemented | Other than satisfied | NC-21, PA-12, PA-21 |
-| AC-11(1) Pattern-hiding Displays | The lock overlay hides the page | Developers | System | Partially implemented | Other than satisfied | NC-22, PA-21 |
-| AC-12 Session Termination | Sessions end on sign-out, when idle, after 8 hours, or when an administrator ends them | Developers | System | Partially implemented | Other than satisfied | NC-23, PA-20, PA-30; PA-33 closed (I11) |
+| AC-11 Device Lock | \<Organisation\>'s managed devices and the servers lock an unattended screen (P-AC-15); \<System Name\> has no page lock of its own. The tested build's page lock unlocked without signing in again | Developers, \<Organisation\> | Hybrid | Partially implemented | Other than satisfied | NC-21, PA-12, PA-21 |
+| AC-11(1) Pattern-hiding Displays | \<Organisation\>'s device lock screen hides the display (P-AC-15); \<System Name\> has no page lock of its own. The tested build's lock overlay hid the page | Developers | System | Partially implemented | Other than satisfied | NC-22, PA-21 |
+| AC-12 Session Termination | A sign-in ends when PingFederate's sign-in lifetime ends (P-AC-10), or when \<Organisation\> ends the PingFederate sign-in or disables the account. \<System Name\> holds the sign-in only in its authentication cookie, no longer than that lifetime, and has no sessions of its own | Developers | System | Partially implemented | Other than satisfied | NC-23, PA-20, PA-30; PA-33 closed (I11) |
 | AC-14 Permitted Actions Without Identification | Only sign-in and its steps work without signing in, except some open API endpoints | Developers | System | Partially implemented | Other than satisfied | NC-24, PA-03, PA-07, PA-28 |
 | AC-17 Remote Access | \<Organisation\>'s VPN with MFA, as stated; not yet evidenced | \<Organisation\> | Hybrid | Not implemented | Other than satisfied | NC-25, PA-18 |
 | AC-17(1) Monitoring and Control | \<Organisation\> monitors VPN sessions, as stated | \<Organisation\> | Hybrid | Not implemented | Other than satisfied | NC-26, PA-18, PA-21 |
@@ -374,7 +374,7 @@ This section gives a brief overview of every control in the 19 families, one lin
 | AU-1 Policy and Procedures | Approved and legally reviewed; not yet shared | System owner, Head of Cyber | Organisational | Partially implemented | Other than satisfied | NC-AU-01, PA-20 |
 | AU-2 Event Logging | Most agreed events are logged; most account, group and role changes in the admin portal are not (PA-14), nor are reading the audit log, start-up and shut-down, or logging changes (PA-76) | System owner, developers | System | Partially implemented | Other than satisfied | NC-AU-02, NC-AU-17, NC-PT-22, PA-14, PA-76, PA-89, PA-101, PA-103 |
 | AU-3 Content of Audit Records | Records show type, time, component, IP address, outcome and username; some API records name "System" | Developers | System | Partially implemented | Other than satisfied | NC-AU-03, PA-14 |
-| AU-3(1) Additional Audit Information | Records show session, browser, project and document | Developers | System | Partially implemented | Satisfied | None |
+| AU-3(1) Additional Audit Information | Records show the sign-in, browser, project and document | Developers | System | Partially implemented | Satisfied | None |
 | AU-4 Audit Log Storage Capacity | Records are held in the database; no capacity planned, as the VMs are not built | Database administrator | Hybrid | Not implemented | Other than satisfied | NC-AU-04, PA-42 |
 | AU-5 Response to Logging Failures | A failed write goes to the application log and the action continues; nobody is alerted | Windows server administrator, security officer | Hybrid | Partially implemented | Other than satisfied | NC-AU-05, PA-38 |
 | AU-6 Review, Analysis and Reporting | Weekly review defined in PRO-AU-1 and the SyOps; not started | Auditor, security officer | Organisational | Not implemented | Other than satisfied | NC-AU-06, PA-40 |
@@ -383,7 +383,7 @@ This section gives a brief overview of every control in the 19 families, one lin
 | AU-7 Reduction and Report Generation | The audit page filters and summarises without changing records; no export or report | Developers | System | Partially implemented | Other than satisfied | NC-AU-09, PA-41 |
 | AU-7(1) Automatic Processing | Search by date, event type, result and username; project, document and sort are missing | Developers | System | Partially implemented | Other than satisfied | NC-AU-10, PA-41 |
 | AU-8 Time Stamps | Application records use UTC; the VMs' time source is not yet evidenced | Developers, \<Organisation\> | Hybrid | Partially implemented | Other than satisfied | NC-AU-11, PA-102 |
-| AU-9 Protection of Audit Information | Ordinary users cannot open the page and records are hash-chained; the app's database account can change them, and nothing runs the chain check. The chain has no key and, as stored, cannot be recomputed; the application log repeats usernames, IP addresses and session IDs | Developers, database administrator | System | Partially implemented | Other than satisfied | NC-AU-12, NC-AU-16, PA-36, PA-37, PA-73, PA-74, PA-75, PA-104 |
+| AU-9 Protection of Audit Information | Ordinary users cannot open the page and records are hash-chained; the app's database account can change them, and nothing runs the chain check. The chain has no key and, as stored, cannot be recomputed; the application log of the tested build repeats usernames, IP addresses and session IDs | Developers, database administrator | System | Partially implemented | Other than satisfied | NC-AU-12, NC-AU-16, PA-36, PA-37, PA-73, PA-74, PA-75, PA-104 |
 | AU-9(4) Access by Subset of Privileged Users | Auditors can read records, and so can global administrators, against the agreed value | System owner, developers | System | Partially implemented | Other than satisfied | NC-AU-13, PA-39 |
 | AU-11 Audit Record Retention | Nothing removes records; the rule of 12 months online and 12 months archived has no capacity or backup behind it yet | Database administrator | Hybrid | Not implemented | Other than satisfied | NC-AU-14, PA-42 |
 | AU-12 Audit Record Generation | All three apps generate records; PostgreSQL statement logging is off, and Windows logs are not yet available | Developers, administrators | Hybrid | Partially implemented | Other than satisfied | NC-AU-15, NC-AU-17, PA-14, PA-43, PA-76, PA-105 |
@@ -481,9 +481,9 @@ This section gives a brief overview of every control in the 19 families, one lin
 | Control | How it is implemented | Who | Type | Status | Assessment | Decision |
 | --- | --- | --- | --- | --- | --- | --- |
 | IA-1 Policy and Procedures | Version \<ver\> approved, and legally reviewed on 9 November 2026; not yet shared | System owner, Head of Cyber | Organisational | Partially implemented | Other than satisfied | NC-IA-01, PA-20 |
-| IA-2 Organizational Users | Each person signs in through \<Organisation\>'s AD FS, with multi-factor authentication (D-AC-23) with their own Active Directory account; tokens are tied to a session. The tested build used its own passwords | Developers | Hybrid | Partially implemented | Other than satisfied | NC-IA-02, PA-25, PA-117 |
-| IA-2(1) MFA, Privileged | Provided by AD FS for every user, including global administrators (D-AC-23); not yet tested or evidenced (PA-95). The earlier acceptance of password-only sign-in stands until then (D-GEN-13) | \<Organisation\>, developers | Hybrid | Not implemented | Other than satisfied | NC-IA-03, PA-23, PA-95 |
-| IA-2(2) MFA, Non-privileged | Provided by AD FS for every user (D-AC-23); not yet tested or evidenced (PA-95). The earlier acceptance stands until then (D-GEN-13) | \<Organisation\>, developers | Hybrid | Not implemented | Other than satisfied | NC-IA-04, PA-23, PA-95 |
+| IA-2 Organizational Users | Each person signs in through \<Organisation\>'s PingFederate, with multi-factor authentication (D-AC-23), with their own Active Directory account; \<System Name\> holds the sign-in only in its authentication cookie. The tested build used its own passwords | Developers | Hybrid | Partially implemented | Other than satisfied | NC-IA-02, PA-25, PA-117 |
+| IA-2(1) MFA, Privileged | Provided by PingFederate for every user, including global administrators (D-AC-23); not yet tested or evidenced (PA-95). The earlier acceptance of password-only sign-in stands until then (D-GEN-13) | \<Organisation\>, developers | Hybrid | Not implemented | Other than satisfied | NC-IA-03, PA-23, PA-95 |
+| IA-2(2) MFA, Non-privileged | Provided by PingFederate for every user (D-AC-23); not yet tested or evidenced (PA-95). The earlier acceptance stands until then (D-GEN-13) | \<Organisation\>, developers | Hybrid | Not implemented | Other than satisfied | NC-IA-04, PA-23, PA-95 |
 | IA-2(8) Replay Resistant | A token works from another client, and traffic is plain HTTP in Docker | Developers, Windows server administrator | Hybrid | Not implemented | Other than satisfied | NC-IA-05, PA-18, PA-46, PA-117 |
 | IA-2(12) PIV Credentials | Not applicable | None | Not applicable | Not applicable | Not applicable | TR-IA-01 |
 | IA-3 Device Identification | \<Organisation\>'s network access control; \<System Name\> does not identify devices | \<Organisation\> | Inherited | Not implemented | Other than satisfied | NC-IA-06, PA-116 |
@@ -493,13 +493,13 @@ This section gives a brief overview of every control in the 19 families, one lin
 | IA-5(1) Password-based | Password rules and storage are \<Organisation\>'s corporate standard for Active Directory, to be supplied. The tested build used its own passwords, stored with salted PBKDF2-SHA512 | \<Organisation\> | Inherited | Partially implemented | Other than satisfied | NC-IA-10, PA-18, PA-45, PA-49, PA-82 |
 | IA-5(2) Public Key | Not applicable | None | Not applicable | Not applicable | Not applicable | TR-IA-02 |
 | IA-5(6) Protection of Authenticators | User passwords are protected by Active Directory; the signing key and database password are committed in source | Developers, administrators | System | Partially implemented | Other than satisfied | NC-IA-11, PA-19 |
-| IA-6 Authentication Feedback | Sign-in feedback is given by AD FS, not \<System Name\>; not yet evidenced. The tested build gave the same response for a wrong password and an unknown user | \<Organisation\> | Inherited | Partially implemented | Other than satisfied | NC-IA-12, PA-25 |
+| IA-6 Authentication Feedback | Sign-in feedback is given by PingFederate, not \<System Name\>; not yet evidenced. The tested build gave the same response for a wrong password and an unknown user | \<Organisation\> | Inherited | Partially implemented | Other than satisfied | NC-IA-12, PA-25 |
 | IA-7 Cryptographic Module Authentication | Modules on the VMs not confirmed; standard Windows modules, not in CSS-approved cryptographic mode, as stated | Windows server administrator, \<Organisation\> | Inherited | Not implemented | Other than satisfied | NC-IA-13, PA-48 |
 | IA-8 Non-organizational Users | Only staff and contractors hold accounts | System owner | Not applicable | Not applicable | Not applicable | TR-IA-03 |
 | IA-8(1) PIV from Other Agencies | Not applicable | None | Not applicable | Not applicable | Not applicable | TR-IA-04 |
 | IA-8(2) External Authenticators | Not applicable | None | Not applicable | Not applicable | Not applicable | TR-IA-05 |
 | IA-8(4) Defined Profiles | Not applicable | None | Not applicable | Not applicable | Not applicable | TR-IA-06 |
-| IA-11 Re-authentication | Sessions end after 30 minutes idle and after 8 hours; a change to a person's groups takes effect at their next sign-in | Developers | Hybrid | Partially implemented | Other than satisfied | NC-IA-14; PA-33 closed (I11) |
+| IA-11 Re-authentication | A sign-in lasts no longer than PingFederate's sign-in lifetime (P-AC-10), after which the user signs in again; a change to a person's groups takes effect at their next sign-in | Developers | Hybrid | Partially implemented | Other than satisfied | NC-IA-14; PA-33 closed (I11) |
 | IA-12 Identity Proofing | Relies on \<Organisation\>'s pre-employment checks | \<Organisation\>, system owner | Inherited | Not implemented | Other than satisfied | NC-IA-15, PA-116 |
 | IA-12(2) Identity Evidence | Relies on \<Organisation\>'s HR | \<Organisation\> | Inherited | Not implemented | Other than satisfied | NC-IA-16, PA-116 |
 | IA-12(3) Validation and Verification | Relies on \<Organisation\>'s HR | \<Organisation\> | Inherited | Not implemented | Other than satisfied | NC-IA-17, PA-116 |
@@ -541,7 +541,7 @@ This section gives a brief overview of every control in the 19 families, one lin
 | MA-3(1) Inspect Tools | Version, publisher and hash checked before use; not yet in use | Windows server administrator | Organisational | Not implemented | Other than satisfied | NC-MA-04, PA-67, PA-120 |
 | MA-3(2) Inspect Media | Defender scan; Defender not yet in place | Windows server administrator | Organisational | Not implemented | Other than satisfied | NC-MA-05, PA-58 |
 | MA-3(3) Prevent Unauthorized Removal | The system owner approves equipment or data leaving, including data sent for support (PRO-MA-7); not yet in use | System owner | Organisational | Not implemented | Other than satisfied | NC-MA-06, PA-120 |
-| MA-4 Nonlocal Maintenance | Routes R1 to R5 in \<Maintenance Management\>, section 3.4, with multi-factor sign-in and logging; \<Organisation\>'s route not evidenced; the admin portal is open to every network (M04) and, in the tested build, password-only (PA-23, PA-95); sign-out ends an admin session (M12) | Administrators, \<Organisation\> | Hybrid | Not implemented | Other than satisfied | NC-MA-07, PA-19, PA-23, PA-83, PA-120 |
+| MA-4 Nonlocal Maintenance | Routes R1 to R5 in \<Maintenance Management\>, section 3.4, with multi-factor sign-in and logging; \<Organisation\>'s route not evidenced; the admin portal is open to every network (M04) and, in the tested build, password-only (PA-23, PA-95); the tested build ended an admin session at sign-out (M12) | Administrators, \<Organisation\> | Hybrid | Not implemented | Other than satisfied | NC-MA-07, PA-19, PA-23, PA-83, PA-120 |
 | MA-5 Maintenance Personnel | Provisional approved list with screening, Part B and accounts (\<Maintenance Management\>, section 3.6); suppliers escorted, with temporary accounts | System owner | Organisational | Not implemented | Other than satisfied | NC-MA-08, PA-67 |
 | MA-6 Timely Maintenance | Support and parts within 24 hours for hardware and the hypervisor; supported software versions (M11); not evidenced | \<Organisation\> | Inherited | Not implemented | Other than satisfied | NC-MA-09, PA-120 |
 
@@ -573,7 +573,7 @@ This section gives a brief overview of every control in the 19 families, one lin
 | PE-2 Physical Access Authorizations | \<Organisation\>'s access list; not evidenced | \<Organisation\> | Inherited | Not implemented | Other than satisfied | NC-PE-02, PA-122 |
 | PE-3 Physical Access Control | \<Organisation\>'s access control; not evidenced | \<Organisation\> | Inherited | Not implemented | Other than satisfied | NC-PE-03, PA-122 |
 | PE-4 Access Control for Transmission | \<Organisation\>'s locked rooms and cabinets; not evidenced | \<Organisation\> | Inherited | Not implemented | Other than satisfied | NC-PE-04, PA-122 |
-| PE-5 Access Control for Output Devices | Managed printers with secure release only (D-PE-P02), and screens locked by \<System Name\> after 25 minutes; printers not yet listed or evidenced | \<Organisation\>, everyone | Hybrid | Not implemented | Other than satisfied | NC-PE-05, PA-122 |
+| PE-5 Access Control for Output Devices | Managed printers with secure release only (D-PE-P02), and screens locked by \<Organisation\>'s managed devices (P-AC-15); printers not yet listed or evidenced | \<Organisation\>, everyone | Hybrid | Not implemented | Other than satisfied | NC-PE-05, PA-122 |
 | PE-6 Monitoring Physical Access | \<Organisation\> reviews logs monthly; not evidenced | \<Organisation\> | Inherited | Not implemented | Other than satisfied | NC-PE-06, PA-122 |
 | PE-6(1) Intrusion Alarms | Not evidenced | \<Organisation\> | Inherited | Not implemented | Other than satisfied | NC-PE-07, PA-122 |
 | PE-8 Visitor Access Records | Kept for 12 months; not evidenced | \<Organisation\> | Inherited | Not implemented | Other than satisfied | NC-PE-08, PA-122 |
@@ -671,7 +671,7 @@ This section gives a brief overview of every control in the 19 families, one lin
 | RA-5(5) Privileged Access | Credentialed scans planned for the VMs | Windows server administrator | Hybrid | Not implemented | Other than satisfied | NC-RA-06, PA-62 |
 | RA-5(11) Public Disclosure | \<Organisation\>'s security contact (PRO-RA-5), not yet agreed or published with its terms | Security officer, \<Organisation\> | Hybrid | Not implemented | Other than satisfied | NC-RA-07, PA-127 |
 | RA-7 Risk Response | Assessment and privacy assessment findings are decided in \<Decision Register\>; monitoring and audit findings have not arisen | System owner, authorising official | Organisational | Partially implemented | Other than satisfied | NC-RA-08, PA-127 |
-| RA-9 Criticality Analysis | Eleven components and five critical functions in \<Risk Assessment Management\>, section 3.9, with their method: eight reviewed on 11 November 2026, and AD FS with Active Directory added, and the list confirmed by the system owner, on 18 November 2026 (D-RA-12); the application server VM and the bulk export working folder added by the cross-check and confirmed by the system owner (D-RA-14) | System owner, developers | Organisational | Implemented | Satisfied | NC-RA-09 (met) |
+| RA-9 Criticality Analysis | Eleven components and five critical functions in \<Risk Assessment Management\>, section 3.9, with their method: eight reviewed on 11 November 2026, and PingFederate with Active Directory added, and the list confirmed by the system owner, on 18 November 2026 (D-RA-12); the application server VM and the bulk export working folder added by the cross-check and confirmed by the system owner (D-RA-14) | System owner, developers | Organisational | Implemented | Satisfied | NC-RA-09 (met) |
 
 ### 7.16 System and Services Acquisition (SA)
 
@@ -710,7 +710,7 @@ This section gives a brief overview of every control in the 19 families, one lin
 | SC-1 Policy and Procedures | Version \<ver\> legally reviewed; awaits the Head of Cyber's re-approval (D-SC-06); procedures approved, and the design approved as a register chapter at 1.1, now in \<System and Communications Protection Management\>; not yet shared | System owner, Head of Cyber | Organisational | Partially implemented | Other than satisfied | NC-SC-01, PA-20 |
 | SC-2 Separation of Functionality | The admin portal is a separate application and process | Developers | System | Implemented | Satisfied | None |
 | SC-4 Shared Resources | Not assessable until the VMs exist; bulk export leaves document copies in a shared temporary folder (PA-86) | Windows server administrator, developers | Inherited | Not implemented | Other than satisfied | NC-SC-02, PA-54, PA-86 |
-| SC-5 Denial-of-service | Sign-in lockout by AD FS; the apps' rate limiter is switched off (N12); network protection from \<Organisation\> | Developers, \<Organisation\> | Hybrid | Partially implemented | Other than satisfied | NC-SC-03, PA-50 |
+| SC-5 Denial-of-service | Sign-in lockout by PingFederate; the apps' rate limiter is switched off (N12); network protection from \<Organisation\> | Developers, \<Organisation\> | Hybrid | Partially implemented | Other than satisfied | NC-SC-03, PA-50 |
 | SC-7 Boundary Protection | \<Organisation\>'s firewalls and logical separation, plus each VM's host firewall and listening addresses (\<System and Communications Protection Management\>, section 3.2); the apps listen on every interface in Docker (N07) | \<Organisation\>, Windows server administrator | Hybrid | Not implemented | Other than satisfied | NC-SC-04, PA-83 |
 | SC-7(3) Access Points | \<Organisation\>'s managed gateway | \<Organisation\> | Inherited | Not implemented | Other than satisfied | NC-SC-05, PA-129 |
 | SC-7(4) External Telecoms | \<Organisation\> | \<Organisation\> | Inherited | Not implemented | Other than satisfied | NC-SC-06, PA-129 |
@@ -719,7 +719,7 @@ This section gives a brief overview of every control in the 19 families, one lin
 | SC-7(8) Authenticated Proxy | Outbound through \<Organisation\>'s proxy, or blocked | \<Organisation\> | Inherited | Not implemented | Other than satisfied | NC-SC-09, PA-129 |
 | SC-8 Transmission Protection | Plain HTTP on every app and the internal API calls, and database TLS off (N01, N06); NCSC's TLS profiles, client rules that require TLS and API on loopback over HTTPS planned (PA-18) | Windows server administrator, database administrator, developers | Hybrid | Not implemented | Other than satisfied | NC-SC-10, PA-18 |
 | SC-8(1) Cryptographic Protection | As SC-8, under the TLS profile in \<System and Communications Protection Management\>, section 3.3 | Windows server administrator, database administrator | Hybrid | Not implemented | Other than satisfied | NC-SC-11, PA-18 |
-| SC-10 Network Disconnect | Application sessions end after 30 minutes idle and 8 hours; network disconnect by \<Organisation\> | Developers, \<Organisation\> | Hybrid | Partially implemented | Other than satisfied | NC-SC-12, PA-129 |
+| SC-10 Network Disconnect | Network disconnect by \<Organisation\>; \<System Name\> has no sessions of its own, and a sign-in lasts no longer than PingFederate's sign-in lifetime (P-AC-10) | Developers, \<Organisation\> | Hybrid | Partially implemented | Other than satisfied | NC-SC-12, PA-129 |
 | SC-12 Key Management | Register of every key and cryptoperiod (\<System and Communications Protection Management\>, section 3.4); the signing key and passwords are committed in source, and the key rings are unencrypted (PA-19, PA-93) | Developers, administrators | Hybrid | Not implemented | Other than satisfied | NC-SC-13, PA-19, PA-93 |
 | SC-13 Cryptographic Protection | HMAC-SHA256 token signing; user passwords are held by Active Directory, not \<System Name\>; TLS, disk and key ring encryption not set up; document checksums use MD5 | Developers, administrators | Hybrid | Partially implemented | Other than satisfied | NC-SC-14, PA-18, PA-52, PA-61, PA-93 |
 | SC-15 Collaborative Devices | Not applicable | None | Not applicable | Not applicable | Not applicable | TR-SC-01 |
@@ -728,7 +728,7 @@ This section gives a brief overview of every control in the 19 families, one lin
 | SC-20 Authoritative DNS | \<Organisation\> | \<Organisation\> | Inherited | Not implemented | Other than satisfied | NC-SC-17, PA-129 |
 | SC-21 Recursive DNS | \<Organisation\> | \<Organisation\> | Inherited | Not implemented | Other than satisfied | NC-SC-18, PA-129 |
 | SC-22 DNS Architecture | \<Organisation\> | \<Organisation\> | Inherited | Not implemented | Other than satisfied | NC-SC-19, PA-129 |
-| SC-23 Session Authenticity | Sessions are checked on the server; cookies are not Secure and there is no HSTS (N02, N03) | Developers | System | Partially implemented | Other than satisfied | NC-SC-20, PA-18 |
+| SC-23 Session Authenticity | The authentication cookie is checked on the server; cookies are not Secure and there is no HSTS (N02, N03) | Developers | System | Partially implemented | Other than satisfied | NC-SC-20, PA-18 |
 | SC-28 Information at Rest | Documents in PostgreSQL, backups, export copies and key rings not encrypted in Docker; BitLocker and encrypted backups planned on the VMs | Windows server administrator, database administrator | Hybrid | Not implemented | Other than satisfied | NC-SC-21, PA-52, PA-86, PA-93 |
 | SC-28(1) Cryptographic Protection | As SC-28 | Windows server administrator | Hybrid | Not implemented | Other than satisfied | NC-SC-22, PA-52 |
 | SC-39 Process Isolation | Windows Server | Windows server administrator | Inherited | Not implemented | Other than satisfied | NC-SC-23, PA-54 |
@@ -844,7 +844,8 @@ Control family abbreviations, such as AC and SR, are spelled out in Table 8. Tes
 | ICO | Information Commissioner's Office |
 | IP | Internet Protocol |
 | MD5 | Message Digest 5, an older checksum |
-| AD FS | Active Directory Federation Services: \<Organisation\>'s single sign-on service |
+| AD | Active Directory, \<Organisation\>'s directory service |
+| LDAPS | Lightweight Directory Access Protocol over TLS |
 | MFA | Multi-factor authentication |
 | NC | Non-compliance entry in \<Risk List\> |
 | NCSC | UK National Cyber Security Centre |

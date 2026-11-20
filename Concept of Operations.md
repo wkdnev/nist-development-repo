@@ -21,7 +21,7 @@ The business and information owner is \[Name\] (\<Roles and Responsibilities\>).
 | Document readers | Search and read documents in their projects, and report bad files | UI application |
 | Project editors | Readers' work, plus upload, bulk upload, bulk export and manage project documents | UI application |
 | Administrators | Manage system settings | Admin portal |
-| Global administrators | Manage projects, the AD groups each project uses, and sessions, in every project | Admin portal and UI application |
+| Global administrators | Manage projects and the AD groups each project uses, in every project | Admin portal and UI application |
 | Auditors | Read audit logs | Admin portal |
 | Security officers | Monitor security information | Admin portal |
 
@@ -53,7 +53,7 @@ A document normally moves through four stages: it is added to a project, found a
 | A request for documents | Someone needs a project's documents elsewhere | The project access approver decides, and an editor exports them as a download |
 | Wrong project | A user opens a project they are not approved for | \<System Name\> refuses, and they request access, which their line manager approves and the project's owner authorises |
 | Forgotten password or lockout | A user cannot sign in | \<Organisation\>'s IT service desk resets the Active Directory password or releases the lock, after checking who they are |
-| Leaving a desk | A user walks away while signed in | The screen locks after 25 minutes idle, and the session ends after 30 |
+| Leaving a desk | A user walks away while signed in | The device's screen lock hides the screen after the inactivity time \<Organisation\> sets (P-AC-15). The sign-in lasts no longer than PingFederate's sign-in lifetime (P-AC-10) |
 | A new starter or a leaver | Staff change | Access is requested and approved for a starter, and removed for a leaver |
 
 ## 6 Operational concepts
@@ -64,10 +64,10 @@ It is not in production. It will run on the corporate network of \<Organisation\
 
 ### 6.2 How access works day to day
 
-1. A person signs in through \<Organisation\>'s single sign-on, AD FS, with multi-factor authentication (D-AC-23). \<System Name\> has no password of its own.
+1. A person signs in through \<Organisation\>'s single sign-on, PingFederate, with multi-factor authentication (D-AC-23). \<System Name\> has no password of its own.
 2. \<System Name\> takes their roles and project access from their Active Directory groups.
 3. Their group memberships decide which projects they see. Each project names a read group and an edit group.
-4. An idle session locks on screen at 25 minutes and ends at 30. Every session ends after 8 hours.
+4. \<System Name\> has no sessions of its own. The sign-in is held only in the application's authentication cookie and lasts no longer than PingFederate's sign-in lifetime (P-AC-10). An unattended screen is locked by the operating system on \<Organisation\>'s managed devices (P-AC-15).
 
 ### 6.3 Modes of operation
 
@@ -76,9 +76,9 @@ It is not in production. It will run on the corporate network of \<Organisation\
 | Mode | What happens |
 | --- | --- |
 | Normal | Everyone can work as usual |
-| AD FS down | Nobody can sign in, because \<Organisation\>'s AD FS authenticates every user. People already signed in carry on until their session ends |
+| PingFederate down | Nobody can sign in, because \<Organisation\>'s PingFederate authenticates every user. People already signed in carry on until their sign-in ends at PingFederate's sign-in lifetime |
 | API down | Nobody can work, because both apps reach the documents only through API |
-| Database down | Session checks fail, so users are signed out, and nobody can open a document |
+| Database down | API cannot read any data, so it refuses every request and nobody can open a document. People stay signed in |
 | Maintenance | Users cannot reach \<System Name\>; there is no notice page explaining why. Users get 2 working days' notice of planned maintenance, and a maintenance page is recommended (REC-53) |
 
 These modes come from reading the design. They have not been exercised.
@@ -106,7 +106,7 @@ None of this has started, as \<System Name\> is not live. Table 5 says in brief 
 | Building and buying | Changes follow the development lifecycle. Suppliers are approved, and packages are to arrive through the offline feed (PA-94) | \<System and Services Acquisition Management\>; \<Supply Chain Risk Management\> |
 | Risk and authorisation | The risk list and plan of action are kept current, and the authorising official is kept informed. Authorisation is decided from the authorisation package | \<Assessment, Authorization, and Monitoring Management\>, section 3.5; \<Security Assessment Report\> |
 
-\<System Name\> is not authorised. No production documents are held until multi-factor authentication through AD FS is shown working (PA-95), or the acceptance of password-only sign-in ends on 6 May 2027.
+\<System Name\> is not authorised. No production documents are held until multi-factor authentication through PingFederate is shown working (PA-95), or the acceptance of password-only sign-in ends on 6 May 2027.
 
 ## 7 Open questions
 

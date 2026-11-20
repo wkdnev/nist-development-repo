@@ -101,7 +101,7 @@ This matrix is proposed and has not been agreed with \<Organisation\>.
 | AC-2(2) | None | Prohibition and periodic check | None | None |
 | AC-2(3) | Disable function | PRO-AC-3, PRO-AC-4 and PRO-AC-8 | Leaver notice | EV-AC-01 |
 | AC-2(4) | Audit records | Reviewing them | None | None |
-| AC-2(5) | Idle sign-out | Setting the value | Server sessions | EV-AC-05 |
+| AC-2(5) | None: no idle sign-out of its own | Setting the value | Server sessions; PingFederate sign-in lifetime (P-AC-10) | EV-AC-05, EV-IA-04 |
 | AC-2(13) | Disable function | PRO-AC-4 | Reporting a significant risk | EV-AC-01 |
 | AC-3 | Access enforcement | Approving access | Windows and network permissions | EV-AC-02, EV-AC-03 |
 | AC-4 | Limits on its own connections | Approving the flows | Firewalls and network | EV-AC-03 |
@@ -115,9 +115,9 @@ This matrix is proposed and has not been agreed with \<Organisation\>.
 | AC-6(10) | Blocking ordinary users | List of privileged functions | Windows and network functions | EV-AC-04 |
 | AC-7 | Lockout | Approving the values | Windows logon lockout | EV-AC-05 |
 | AC-8 | Sign-in notice | Wording | Windows logon banner | EV-AC-06 |
-| AC-11 | Browser lock | Setting the value | Device and server lock | EV-AC-07 |
-| AC-11(1) | Lock overlay | None | Device lock screen | EV-AC-07 |
-| AC-12 | Session ending | Approving the values | Server sessions | EV-AC-05 |
+| AC-11 | None: no page lock of its own | Setting the value | Device and server lock | EV-AC-07 |
+| AC-11(1) | None | None | Device lock screen | EV-AC-07 |
+| AC-12 | None: no sessions of its own | Approving the values | Server sessions; PingFederate sign-in lifetime (P-AC-10) | EV-AC-05, EV-IA-04 |
 | AC-14 | Limits actions without sign-in | Approving the list | Anonymous access on the VMs | EV-AC-03 |
 | AC-17 | None | Who may work remotely | Remote access service | EV-AC-08 |
 | AC-17(1) | None | None | Monitoring and control | EV-AC-09 |
@@ -153,7 +153,7 @@ This matrix is proposed and has not been agreed with \<Organisation\>.
 | EV-AU-02 | AU-8 | The time source for the VMs, and evidence that they stay within 1 second of UTC | Time service configuration | Not sent |  |  |
 | EV-AU-03 | AU-4, AU-11 | Storage and backup for the VMs, to hold 12 months of records online and 12 months in an offline archive | Service description and backup schedule | Not sent |  |  |
 | EV-AU-04 | AU-12 | Which Windows Server events are logged and kept on the VMs | Audit policy and a sample log | Not sent |  |  |
-| EV-AU-05 | AU-2, AU-6, AU-6(3), AU-12 | Which AD FS and Active Directory events are logged for \<System Name\>: sign-in attempts, failed sign-ins, lockouts, and changes to \<System Name\>'s groups and their members. How long they are kept, and how \<System Name\>'s auditor receives them each week or on request | Audit settings, a sample record and the agreed route | Not sent |  |  |
+| EV-AU-05 | AU-2, AU-6, AU-6(3), AU-12 | Which PingFederate and Active Directory events are logged for \<System Name\>: sign-in attempts, failed sign-ins, lockouts, and changes to \<System Name\>'s groups and their members. How long they are kept, and how \<System Name\>'s auditor receives them each week or on request | Audit settings, a sample record and the agreed route | Not sent |  |  |
 
 ## 6 Assessment, Authorization and Monitoring (CA)
 
@@ -162,7 +162,7 @@ This matrix is proposed and has not been agreed with \<Organisation\>.
 | ID | Control | What we need to know | Evidence to provide | Status | Received | Result |
 | --- | --- | --- | --- | --- | --- | --- |
 | EV-CA-01 | CA-6 | Who authorises the common controls \<System Name\> inherits | Name, and the authorisation record | Not sent |  |  |
-| EV-CA-02 | CA-3, CA-6 | The agreements for the exchanges in \<Assessment, Authorization, and Monitoring Management\>, section 3.7: the hosting and services agreement covering AD FS and Active Directory, central logging, the time service and the backup site, and information exchange agreements for ServiceNow and the Starters/Leavers system | Each agreement, with its date and review date | Not sent | None | None |
+| EV-CA-02 | CA-3, CA-6 | The agreements for the exchanges in \<Assessment, Authorization, and Monitoring Management\>, section 3.7: the hosting and services agreement covering PingFederate and Active Directory, central logging, the time service and the backup site, and information exchange agreements for ServiceNow and the Starters/Leavers system | Each agreement, with its date and review date | Not sent | None | None |
 
 ## 7 Configuration Management (CM)
 
@@ -180,7 +180,7 @@ This matrix is proposed and has not been agreed with \<Organisation\>.
 
 | ID | Control | What we need to know | Evidence to provide | Status | Received | Result |
 | --- | --- | --- | --- | --- | --- | --- |
-| EV-CP-01 | CP-6, CP-6(1), CP-6(3), CP-7, CP-7(1), CP-7(2), CP-7(3) | Whether a second site is available and separate from the main one, with room for 14 daily, 8 weekly and 12 monthly encrypted backups and one offline or immutable copy (\<Contingency Planning Management\>, section 3.8), whether it can hold encrypted backups and run rebuilt VMs with equivalent controls, how it is reached in a wide-area failure, and what priority of service applies. Also \<Organisation\>'s disaster recovery and business continuity plans: who declares a disaster, and the recovery times of the network, AD FS, Active Directory, name resolution and time, on which \<System Name\>'s 72 hours depends | Site details, and the service agreement | Not sent |  |  |
+| EV-CP-01 | CP-6, CP-6(1), CP-6(3), CP-7, CP-7(1), CP-7(2), CP-7(3) | Whether a second site is available and separate from the main one, with room for 14 daily, 8 weekly and 12 monthly encrypted backups and one offline or immutable copy (\<Contingency Planning Management\>, section 3.8), whether it can hold encrypted backups and run rebuilt VMs with equivalent controls, how it is reached in a wide-area failure, and what priority of service applies. Also \<Organisation\>'s disaster recovery and business continuity plans: who declares a disaster, and the recovery times of the network, PingFederate, Active Directory, name resolution and time, on which \<System Name\>'s 72 hours depends | Site details, and the service agreement | Not sent |  |  |
 | EV-CP-02 | CP-8, CP-8(1), CP-8(2) | What alternate telecommunications exist, what priority of service applies, and whether main and alternate services share a single point of failure | Service agreements | Not sent |  |  |
 
 ## 9 Identification and Authentication (IA)
@@ -192,7 +192,7 @@ This matrix is proposed and has not been agreed with \<Organisation\>.
 | EV-IA-01 | IA-3, IA-5h | How devices are identified on \<Organisation\>'s network, and how they protect credentials | Network access control description and build standard | Not sent |  |  |
 | EV-IA-02 | IA-12, IA-12(2), IA-12(3), IA-12(5) | What identity evidence HR collects and checks in pre-employment checks, for staff and contractors, and how people are told | HR process and a blank record | Not sent |  |  |
 | EV-IA-03 | IA-7 | Whether the VMs use validated cryptographic modules | Build standard and settings | Not sent |  |  |
-| EV-IA-04 | IA-2(1), IA-2(2), IA-2(8) | How AD FS signs users in to \<System Name\>: the multi-factor methods it requires, its lockout and password standard, how the token is signed, and that it carries the user's Active Directory groups. Also the trust settings for \<System Name\>: the federation protocol, the life of a token, what it carries, how the signing certificate is renewed, and whether the settings meet federation assurance level 2 of CSS | Service description; the relying party settings for \<System Name\>; the password and lockout policy | Not sent |  |  |
+| EV-IA-04 | IA-2(1), IA-2(2), IA-2(8) | How PingFederate signs users in to \<System Name\>: the multi-factor methods it requires, its lockout and password standard, and how its OpenID Connect response is signed. Also the settings of \<System Name\>'s PingFederate connection: the OpenID Connect client settings, the sign-in lifetime (P-AC-10), what the response carries, how the signing certificate is renewed, and whether the settings meet federation assurance level 2 of CSS | Service description; the OpenID Connect client settings for \<System Name\>; the password and lockout policy | Not sent |  |  |
 
 ## 10 Incident Response (IR)
 
@@ -200,7 +200,7 @@ This matrix is proposed and has not been agreed with \<Organisation\>.
 
 | ID | Control | What we need to know | Evidence to provide | Status | Received | Result |
 | --- | --- | --- | --- | --- | --- | --- |
-| EV-IR-01 | IR-3(2), IR-4, IR-6, IR-6(3), IR-7, IR-7(1) | \<Organisation\>'s incident process, how the security contact takes reports from \<System Name\>, and what help it gives: monitoring, forensic help, isolating a server, disabling an account, and locking or wiping a device. How it is reached outside working hours. How soon it tells \<System Name\> of a compromise on its side; 24 hours is asked. Who speaks to the press. Whether it will take part in the yearly exercise. Also confirmation, with its date, that the old AD FS secret found in the source repositories has been revoked (INC-2026-001) | The process, and the contact route | Not sent |  |  |
+| EV-IR-01 | IR-3(2), IR-4, IR-6, IR-6(3), IR-7, IR-7(1) | \<Organisation\>'s incident process, how the security contact takes reports from \<System Name\>, and what help it gives: monitoring, forensic help, isolating a server, disabling an account, and locking or wiping a device. How it is reached outside working hours. How soon it tells \<System Name\> of a compromise on its side; 24 hours is asked. Who speaks to the press. Whether it will take part in the yearly exercise. Also confirmation, with its date, that the old PingFederate client secret found in the source repositories has been revoked (INC-2026-001) | The process, and the contact route | Not sent |  |  |
 
 ## 11 Maintenance (MA)
 
@@ -208,7 +208,7 @@ This matrix is proposed and has not been agreed with \<Organisation\>.
 
 | ID | Control | What we need to know | Evidence to provide | Status | Received | Result |
 | --- | --- | --- | --- | --- | --- | --- |
-| EV-MA-01 | MA-2, MA-3(3), MA-5, MA-6 | How hardware and the hypervisor are maintained, how equipment is sanitised before it leaves, with sanitising certificates, and whether support and parts for the hardware and hypervisor arrive within 24 hours (D-MA-P02). How its engineers are screened. Whether it tells the system owner before work on the hosts, AD FS, Active Directory, the network, the time service or the backup store that affects \<System Name\> | Maintenance process, and the service agreement | Not sent |  |  |
+| EV-MA-01 | MA-2, MA-3(3), MA-5, MA-6 | How hardware and the hypervisor are maintained, how equipment is sanitised before it leaves, with sanitising certificates, and whether support and parts for the hardware and hypervisor arrive within 24 hours (D-MA-P02). How its engineers are screened. Whether it tells the system owner before work on the hosts, PingFederate, Active Directory, the network, the time service or the backup store that affects \<System Name\> | Maintenance process, and the service agreement | Not sent |  |  |
 | EV-MA-02 | MA-4 | The tool and protocol used over the managed route (route R1 in \<Maintenance Management\>), whether it uses multi-factor sign-in, what each session logs, whether sessions and connections end when finished, and the firewall rule that limits the admin portal to the route (PA-83) | Route settings and sample logs | Not sent |  |  |
 
 ## 12 Media Protection (MP)
@@ -288,7 +288,7 @@ PM is outside \<System Name\>'s baseline (TR-PM-01), but \<System Name\> inherit
 | ID | Control | What we need to know | Evidence to provide | Status | Received | Result |
 | --- | --- | --- | --- | --- | --- | --- |
 | EV-SA-01 | SA-4 | What the standard contract says about security and privacy requirements, documentation, responsibilities and acceptance | Standard contract terms | Not sent |  |  |
-| EV-SA-02 | SA-9, SA-9(2) | What controls \<Organisation\>'s hosting, network, ServiceNow, AD FS, Active Directory and Starters/Leavers services use, and which functions, ports, protocols and services they rely on. \<System Name\> relies on them for running, changes, sign-in and access (D-AC-22, D-AC-23). The service levels for each, how they are measured, and the remedies when they are missed | Service descriptions, and a list of ports and services | Not sent |  |  |
+| EV-SA-02 | SA-9, SA-9(2) | What controls \<Organisation\>'s hosting, network, ServiceNow, PingFederate, Active Directory and Starters/Leavers services use, and which functions, ports, protocols and services they rely on. \<System Name\> relies on them for running, changes, sign-in and access (D-AC-22, D-AC-23). The service levels for each, how they are measured, and the remedies when they are missed | Service descriptions, and a list of ports and services | Not sent |  |  |
 | EV-SA-03 | SA-9, SA-9(2) | What security controls GitHub applies to private repositories, and what plan and settings \<System Name\>'s account has (branch protection, alerts and secret scanning depend on the plan) | GitHub's published security and compliance reports, and the account's plan and settings | Not sent |  |  |
 
 ## 20 System and Communications Protection (SC)
@@ -309,7 +309,7 @@ PM is outside \<System Name\>'s baseline (TR-PM-01), but \<System Name\> inherit
 
 | ID | Control | What we need to know | Evidence to provide | Status | Received | Result |
 | --- | --- | --- | --- | --- | --- | --- |
-| EV-SI-01 | SI-4, SI-4(2), SI-4(4) | Network monitoring, its criteria, and how it is reported; whether central logging can receive \<System Name\>'s audit and Windows logs, and how they are sent (\<System and Information Integrity Management\>, section 3.4). Since sign-in is through AD FS, whether AD FS failed sign-in events and changes to \<System Name\>'s AD administrator groups can be sent to the security officer, for detection use cases U1 and U4 (\<System and Information Integrity Management\>, section 3.4) | Service description and a sample report; the central logging connection details | Not sent |  |  |
+| EV-SI-01 | SI-4, SI-4(2), SI-4(4) | Network monitoring, its criteria, and how it is reported; whether central logging can receive \<System Name\>'s audit and Windows logs, and how they are sent (\<System and Information Integrity Management\>, section 3.4). Since sign-in is through PingFederate, whether PingFederate failed sign-in events and changes to \<System Name\>'s AD administrator groups can be sent to the security officer, for detection use cases U1 and U4 (\<System and Information Integrity Management\>, section 3.4) | Service description and a sample report; the central logging connection details | Not sent |  |  |
 | EV-SI-02 | SI-2, SI-7, SI-7(1) | Firmware updates and integrity checks for the VM hosting | Process and a sample record | Not sent |  |  |
 | EV-SI-03 | SI-5 | Whether \<Organisation\> is registered for the NCSC Early Warning service and receives CISA or NCSC alerts for its networks, and how alerts that affect \<System Name\> reach the security officer (\<System and Information Integrity Management\>, section 3.3) | Registration confirmation and the forwarding route | Not sent |  |  |
 

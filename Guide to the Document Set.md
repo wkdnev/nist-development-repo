@@ -224,7 +224,7 @@ Four design documents are also the plan that CSS requires for their family, in t
 The set is written before \<System Name\> goes live, and says so throughout. A reader should expect the following, each of which is tracked.
 
 1. **\<System Name\> is not authorised, and holds no production documents.** The conditions before authorisation are in \<Security Assessment Report\>, section 8.
-2. **The servers are not built.** The tests ran on a test stack with sample data, and are to be repeated on the servers. Sign-in through \<Organisation\>'s AD FS is stated but not yet tested (PA-95).
+2. **The servers are not built.** The tests ran on a test stack with sample data, and are to be repeated on the servers. Sign-in through \<Organisation\>'s PingFederate is stated but not yet tested (PA-95).
 3. **\<Organisation\>'s controls are not evidenced.** The evidence requests in \<Evidence Requests\> have not been sent.
 4. **Nothing has been seen in operation.** Reviews, training and exercises start with operation, so their records do not exist yet.
 5. **The assessment so far is a self-assessment.** The independent assessment, led by \[Name\], has not started.

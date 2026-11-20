@@ -296,7 +296,7 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | Access reviewed: by, and date |  |
 | Active Directory account disabled by \<Organisation\>: date and time |  |
 | Group memberships removed or added: by each owner, and date |  |
-| Sessions ended by a global administrator: date and time |  |
+| PingFederate sign-in ended by \<Organisation\>, if needed: date and time |  |
 | Service secrets the person knew changed (\<Procedures\>, PRO-IA-4): by, and date |  |
 | Exported files and printouts recovered or destroyed: confirmed by |  |
 | Documents still available: confirmed by |  |

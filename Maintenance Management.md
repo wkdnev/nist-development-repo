@@ -44,7 +44,7 @@ Controls met here: MA-2, MA-5.
 | PostgreSQL | \[Name\], database administrator | Change record, route R2 | TPL-12 |
 | \<System Name\> set-up and data repair | \[Name\], global administrator | Change record, route R3, PRO-MA-7 | TPL-12 |
 | Applications | Developers | Change record and release test, route R4 | TPL-6 |
-| The services \<System Name\> depends on: AD FS, Active Directory, the network and firewall, the time service and the backup store | \<Organisation\> | \<Organisation\>'s own process. It is asked to tell the system owner before work that affects \<System Name\> (EV-MA-01), as the system owner decided on 17 November 2026 (D-MA-10) | \<Organisation\>'s notice |
+| The services \<System Name\> depends on: PingFederate, Active Directory, the network and firewall, the time service and the backup store | \<Organisation\> | \<Organisation\>'s own process. It is asked to tell the system owner before work that affects \<System Name\> (EV-MA-01), as the system owner decided on 17 November 2026 (D-MA-10) | \<Organisation\>'s notice |
 
 ### 3.3 How a maintenance job is controlled
 
@@ -83,7 +83,7 @@ MA-4 requires every route used for remote maintenance to be documented in the se
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | R1 Windows administration | Windows server administrator; \<Organisation\>'s engineers | \[Remote desktop or PowerShell remoting, to be confirmed\] | \<Organisation\>'s managed route to the servers' management interface | VPN with multi-factor sign-in, then a named Windows account | Windows Security log and \[\<Organisation\>'s route log\] | Sign out and disconnect; temporary accounts disabled | Not evidenced (EV-MA-02) |
 | R2 Database administration | Database administrator | psql, pg\_dump and pg\_restore | Route R1 to the database server, then PostgreSQL locally | As R1, then a named PostgreSQL account, not the application's | PostgreSQL log (A30) and route R1's logs | Close the session and disconnect | Planned |
-| R3 Admin portal | Global administrator, administrator | Browser | Managed route only, over HTTPS (PA-18) | Sign-in through AD FS, with multi-factor authentication (D-AC-23); the tested build used a password | \<System Name\> audit log; the built-in maintenance pages are not audited (PA-31) | Sign out, which ends the session (M12) | Gap: published on every interface (M04, PA-83) |
+| R3 Admin portal | Global administrator, administrator | Browser | Managed route only, over HTTPS (PA-18) | Sign-in through PingFederate, with multi-factor authentication (D-AC-23); the tested build used a password | \<System Name\> audit log; the built-in maintenance pages are not audited (PA-31) | Close the browser and lock the device. \<System Name\> has no sign-out; the sign-in ends when PingFederate's sign-in lifetime ends (P-AC-10). The tested build's sign-out ended an admin session (M12) | Gap: published on every interface (M04, PA-83) |
 | R4 Application releases | Developers | Release package | No direct route; the Windows server administrator installs the release over R1 | Not applicable | Change record (TPL-6) | Not applicable | Planned (PA-53) |
 | R5 Hardware and hypervisor | \<Organisation\> | \<Organisation\>'s tools | \<Organisation\>'s internal management network | \<Organisation\>'s controls | \<Organisation\>'s records | \<Organisation\>'s process | Inherited; not evidenced (EV-MA-01) |
 
@@ -174,7 +174,7 @@ Controls met here: MA-2, MA-3(3), MA-4, MA-6.
 | Sanitising before equipment leaves | MA-2, MA-3(3) | Disks and equipment are sanitised to CSS, with a certificate | EV-MA-01 | Not sent |
 | Support and parts | MA-6 | Within 24 hours of a failure, for the hardware and the hypervisor | EV-MA-01 | Not sent |
 | The managed route administrators use | MA-4 | Multi-factor sign-in; a log of each session; sessions and connections that end when the work does; a firewall rule that limits the admin portal to the route | EV-MA-02 | Not sent |
-| Maintenance of the services \<System Name\> depends on | MA-2 | Notice before work on AD FS, Active Directory, the network, the time service or the backup store that affects \<System Name\> | EV-MA-01 | Not sent |
+| Maintenance of the services \<System Name\> depends on | MA-2 | Notice before work on PingFederate, Active Directory, the network, the time service or the backup store that affects \<System Name\> | EV-MA-01 | Not sent |
 
 **Today:** no request has been sent, and none of this is evidenced (PA-120).
 

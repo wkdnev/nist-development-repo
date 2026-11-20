@@ -226,7 +226,7 @@ These questions have not been asked yet.
 | INT-IA-04 | Windows server administrator | When were the signing key and service secrets last changed? | IA-05f, IA-05(06) | Rotation record |
 | INT-IA-05 | \<Organisation\>'s security contact | How are devices identified on the network? | IA-03 | EV-IA-01 |
 | INT-IA-06 | \<Organisation\>'s HR | What identity evidence do you check, and how are people told? | IA-12, IA-12(02), IA-12(03), IA-12(05) | EV-IA-02 |
-| INT-IA-07 | Developers, with \<Organisation\>'s security contact | Show me a sign-in through AD FS from start to finish. What does \<System Name\> check in the token, and what happens if I present the same token twice? | IA-02, IA-02(01), IA-02(08) | The trust settings (\<Identification and Authentication Management\>, section 3.3); a test record |
+| INT-IA-07 | Developers, with \<Organisation\>'s security contact | Show me a sign-in through PingFederate from start to finish. What does \<System Name\> check in the OpenID Connect response, and what happens if I present the same response twice? | IA-02, IA-02(01), IA-02(08) | The trust settings (\<Identification and Authentication Management\>, section 3.3); a test record |
 
 ## 10 Incident Response (IR)
 
@@ -310,7 +310,7 @@ These questions have not been asked yet.
 | ID | For | Question | Statements | Ask to see |
 | --- | --- | --- | --- | --- |
 | INT-PS-01 | \<Organisation\>'s HR | What screening is done before someone starts, and when is it repeated? | PS-02b, PS-03 | EV-PS-01 |
-| INT-PS-02 | Global administrator | Show me the last leaver and the last mover. When were you told, and when were the Active Directory account disabled, the group memberships changed and the sessions ended? | PS-04, PS-05 | TPL-14 and audit records |
+| INT-PS-02 | Global administrator | Show me the last leaver and the last mover. When were you told, and when were the Active Directory account disabled, the group memberships changed and the PingFederate sign-in ended? | PS-04, PS-05 | TPL-14 and audit records |
 | INT-PS-03 | System owner | Show me the signed agreement for a sample of people | PS-06 | Signed agreements |
 | INT-PS-04 | \<Organisation\>'s HR | How are exit interviews and disciplinary action handled, and do job descriptions state security duties? | PS-04c, PS-08, PS-09 | EV-PS-02 |
 | INT-PS-05 | System owner | How do you check that external people meet their contract terms? | PS-07 | EV-PS-03 |
@@ -347,7 +347,7 @@ Role holders have not been interviewed. Answers are in section 22.4.
 | INT-RA-04 | Security officer | How would someone report a vulnerability, and what happens next? | RA-05(11) | Route, a sample report |
 | INT-RA-05 | Developers | How do you judge the risk of a new package? | RA-03(01) | Supply chain review |
 | INT-RA-06 | Security officer | A flaw in a component \<System Name\> uses was added to CISA's exploited list today. Walk me through the next 3 days | RA-05d, SI-02 | A TPL-7 record and the emergency change |
-| INT-RA-07 | System owner | Show me the critical components and how they were chosen. What changed when sign-in moved to AD FS? | RA-09 | \<Risk Assessment Management\>, section 3.9; TPL-23 |
+| INT-RA-07 | System owner | Show me the critical components and how they were chosen. What changed when sign-in moved to PingFederate? | RA-09 | \<Risk Assessment Management\>, section 3.9; TPL-23 |
 | INT-RA-08 | Authorising official | How do you decide whether to accept a risk, and how do you know the decision fits \<Organisation\>'s risk appetite? | RA-07, RA-03b | \<Risk List\>, sections 3 and 4.2; \<Decision Register\> |
 
 ## 18 System and Services Acquisition (SA)
@@ -465,7 +465,7 @@ The system owner gave these answers in writing on 5 November 2026, including tho
 
 ### 22.2 AU and IA answers given at Level 1
 
-The system owner agreed these proposed answers in writing on 6 November 2026, answering for each role. No records were seen, so they change no finding. Answers marked as a best guess or suggestion were not confirmed by \<Organisation\>, and the Level 2 assessor should treat them as such. The answers to INT-IA-01 to INT-IA-03 were given before sign-in moved to AD FS (D-AC-23), and are overtaken: \<Organisation\>'s IT service desk, not a global administrator, resets passwords, and no temporary password is used.
+The system owner agreed these proposed answers in writing on 6 November 2026, answering for each role. No records were seen, so they change no finding. Answers marked as a best guess or suggestion were not confirmed by \<Organisation\>, and the Level 2 assessor should treat them as such. The answers to INT-IA-01 to INT-IA-03 were given before sign-in moved to PingFederate (D-AC-23), and are overtaken: \<Organisation\>'s IT service desk, not a global administrator, resets passwords, and no temporary password is used.
 
 **Table 30: AU and IA answers**
 
@@ -483,7 +483,7 @@ The system owner agreed these proposed answers in writing on 6 November 2026, an
 | INT-IA-04 | Not yet, as they are committed in source. New ones will be set on the VMs, then changed every 12 months | PA-19 |
 | INT-IA-05 | By \<Organisation\>'s network controls, with details to come through the evidence request | Best guess. EV-IA-01 |
 | INT-IA-06 | Photo ID and right-to-work checks before hiring, and people are told it has been done | Best guess. EV-IA-02 |
-| INT-IA-07 | Not yet asked: added on 16 November 2026, after sign-in moved to AD FS | Open (PA-95, PA-117) |
+| INT-IA-07 | Not yet asked: added on 16 November 2026, after sign-in moved to PingFederate | Open (PA-95, PA-117) |
 
 ### 22.3 SC and CM answers
 

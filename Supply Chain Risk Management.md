@@ -38,7 +38,7 @@ These carry out the principles and rules of \<Policy\>, sections SR.3 and SR.4.
 
 Controls met here: SR-2.
 
-\<System Name\> is three .NET 10 web applications and a PostgreSQL 18 database, to run as Windows services on two Windows Server 2025 servers hosted by \<Organisation\> (D-PL-10). They are built and tested in container images. Its impact level is Moderate (D-GEN-06), and it is not yet in operation. Users sign in through \<Organisation\>'s AD FS, and access is decided by Active Directory groups (D-AC-23).
+\<System Name\> is three .NET 10 web applications and a PostgreSQL 18 database, to run as Windows services on two Windows Server 2025 servers hosted by \<Organisation\> (D-PL-10). They are built and tested in container images. Its impact level is Moderate (D-GEN-06), and it is not yet in operation. Users sign in through \<Organisation\>'s PingFederate, and access is decided by Active Directory groups (D-AC-23).
 
 This plan covers \<System Name\>, its software packages, container images, browser files, build tools, hosting and hardware.
 
@@ -79,7 +79,7 @@ Criticality follows the critical components in \<Risk Assessment Management\>, s
 
 | Supplier | What it supplies | Criticality | How it reaches \<System Name\> | Evidence | Notification route | Last review | Next review |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| \<Organisation\> | Hosting, network, hardware, service desk, central logging, and sign-in through AD FS and Active Directory (D-AC-23) | High | Contract | EV-SR-01, EV-SR-02 (not yet received) | Security contact to the security officer, within 24 hours (to confirm) | 11 November 2026 (\<Risk Assessment Management\>, section 3.4) | November 2027 |
+| \<Organisation\> | Hosting, network, hardware, service desk, central logging, and sign-in through PingFederate and Active Directory (D-AC-23) | High | Contract | EV-SR-01, EV-SR-02 (not yet received) | Security contact to the security officer, within 24 hours (to confirm) | 11 November 2026 (\<Risk Assessment Management\>, section 3.4) | November 2027 |
 | Microsoft | .NET 10, ASP.NET Core and Entity Framework packages, Windows Server 2025 | High | nuget.org; the VM build | Published lifecycle and security advisories | Microsoft and .NET advisories | 11 November 2026 | November 2027 |
 | Microsoft container registry (mcr.microsoft.com) | .NET SDK and runtime base images | High | Pulled by tag at build (PA-77) | Published image digests | .NET advisories | 11 November 2026 | November 2027 |
 | nuget.org | The package registry for all other packages | High | Restored directly today (PA-94); vulnerability data only once fixed | Repository signatures on every package | GitHub Advisory Database | 12 November 2026 | November 2027 |

@@ -72,7 +72,7 @@ No AU control is tailored. The system owner agreed these on 5 November 2026 (D-I
 | ID | Control or part | Tailoring | Rationale | Condition that must hold | If the condition changes | Decision |
 | --- | --- | --- | --- | --- | --- | --- |
 | TR-IA-01 | IA-2(12) | Not applicable | PIV credentials are a US federal scheme, and \<Organisation\> is a UK company | \<Organisation\> does not serve a US federal customer through \<System Name\> | IA-2(12) applies | Agreed, \[Name\], 5 November 2026 |
-| TR-IA-02 | IA-5(2) | Not applicable | \<System Name\> does not use public key sign-in | Users do not sign in to \<System Name\> with a public key: AD FS decides the factors | IA-5(2) applies. A public key second factor would bring it back | Agreed, \[Name\], 5 November 2026 |
+| TR-IA-02 | IA-5(2) | Not applicable | \<System Name\> does not use public key sign-in | Users do not sign in to \<System Name\> with a public key: PingFederate decides the factors | IA-5(2) applies. A public key second factor would bring it back | Agreed, \[Name\], 5 November 2026 |
 | TR-IA-03 | IA-8 | Not applicable | Only \<Organisation\>'s staff and contractors hold accounts | Each access review confirms no outside user holds an account | IA-8 applies | Agreed, \[Name\], 5 November 2026 |
 | TR-IA-04 | IA-8(1) | Not applicable | As TR-IA-01 and TR-IA-03 | As TR-IA-03 | IA-8(1) applies | Agreed, \[Name\], 5 November 2026 |
 | TR-IA-05 | IA-8(2) | Not applicable | No external authenticators are accepted | As TR-IA-03 | IA-8(2) applies | Agreed, \[Name\], 5 November 2026 |

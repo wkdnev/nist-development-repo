@@ -46,7 +46,7 @@ Sections 5 to 9 cover exceptions, contacts, definitions, the link from each rule
 
 ### 2.3 Your account and password
 
-**A9.** Use only your own account. Never share your password, let anyone else use your session, or use someone else's account.
+**A9.** Use only your own account. Never share your password, let anyone else use your sign-in, or use someone else's account.
 
 **A10.** Sign in to \<System Name\> with your \<Organisation\> account, through single sign-on with multi-factor authentication. \<System Name\> has no password of its own. Follow \<Organisation\>'s rules for that account's password (\<Policy\> (IA), R3).
 
@@ -110,7 +110,7 @@ Sections 5 to 9 cover exceptions, contacts, definitions, the link from each rule
 
 **A35.** Use \<System Name\> only on a device managed by \<Organisation\>. Do not use personal computers, phones or tablets. Phones and tablets cannot reach \<System Name\>.
 
-**A36.** Lock your screen whenever you leave your device, even briefly, and sign out of \<System Name\> when you finish. \<System Name\> locks the page after 25 minutes idle and signs you out after 30.
+**A36.** Lock your screen whenever you leave your device, even briefly, and close the browser when you finish. \<System Name\> does not lock the page or sign you out itself: your device locks its screen after the inactivity period set by \<Organisation\>, and your sign-in lasts as long as PingFederate allows.
 
 **A37.** Keep your desk clear of printed documents and notes, and place your screen so that others cannot read it.
 
@@ -285,7 +285,7 @@ The system does not yet raise alerts, so all monitoring is by hand for now. The 
 | C52 | Review the cryptographic and key register, the host firewall allow-lists, external services and exceptions; schedule keys and certificates due for change | System owner, security officer, \<Organisation\> | \<Procedures\>, PRO-SC-8 | TPL-23 | SC-7(4), SC-12, SC-13 |
 | C53 | Check BitLocker is on for both VMs and that a recovery key works; check backups are encrypted | Windows server administrator, database administrator | \<Procedures\>, PRO-SC-7 | TPL-11 | SC-28, SC-28(1) |
 | **When an event occurs** |  |  |  |  |  |
-| C36 | Grant, change or remove access | The groups' owners; a global administrator ends sessions | Section 4.4 | TPL-2, TPL-14 | AC-2, PS-4, PS-5 |
+| C36 | Grant, change or remove access | The groups' owners; \<Organisation\>'s service desk ends PingFederate sign-ins | Section 4.4 | TPL-2, TPL-14 | AC-2, PS-4, PS-5 |
 | C37 | Apply updates within the time limits in Table 4 | Windows server administrator, database administrator, developers | Section 4.3, through approved change | TPL-6, TPL-7 | SI-2, CM-3 |
 | C38 | Make a change, including an emergency change | Change control element | Section 4.5 | TPL-6 | CM-3, CM-4, CM-5 |
 | C39 | Renew certificates before they expire | Windows server administrator | \<Procedures\>, PRO-SC-2 (PA-18) | TPL-6 | SC-8, SC-17 |
@@ -301,11 +301,11 @@ The system does not yet raise alerts, so all monitoring is by hand for now. The 
 1. The auditor opens the audit log page in the admin portal and filters to the period since the last review.
 2. They look for repeated failed sign-ins, lockouts, refused access, sign-ins at unusual times, account, group and privilege changes, password resets, large exports, configuration changes, reading of the audit log, gaps in the records, and records under unknown names or "System".
 3. They compare account and privilege changes with the approved requests (TPL-2).
-4. They check the Windows and PostgreSQL logs, and \<Organisation\>'s record of AD FS sign-ins and of changes to \<System Name\>'s AD groups, or get \<Organisation\>'s report on them.
+4. They check the Windows and PostgreSQL logs, and \<Organisation\>'s record of PingFederate sign-ins and of changes to \<System Name\>'s AD groups, or get \<Organisation\>'s report on them.
 5. They run the audit chain check (\<Procedures\>, PRO-AU-2) once it is built. If tampering is suspected, they preserve the evidence before anything is changed (PRO-AU-2, step 3), and raise it, and anything else unexplained, as a security incident (section 4.9).
 6. They record the date, the period covered, the reviewer and the result on TPL-8.
 
-The audit log cannot yet be fully relied on. Many privileged actions are not logged (PA-14), ordinary users can add records (PA-29), the application's database account can change them (PA-36), nothing runs the chain check (PA-37), and the chain has no key and as stored cannot be recomputed (PA-73, PA-74). The application log also repeats usernames, IP addresses and session IDs (PA-75).
+The audit log cannot yet be fully relied on. Many privileged actions are not logged (PA-14), ordinary users can add records (PA-29), the application's database account can change them (PA-36), nothing runs the chain check (PA-37), and the chain has no key and as stored cannot be recomputed (PA-73, PA-74). The application log also repeats usernames, IP addresses and, from the tested build, session IDs (PA-75).
 
 ### 4.3 Vulnerability management (C10, C11, C37, C50)
 
@@ -338,7 +338,7 @@ A fix that cannot be made in time goes through PRO-AC-15 and into \<Plan of Acti
 1. **Joiner.** The person asks for access in ServiceNow. Their line manager approves it, and the group's owner authorises it: the system owner for a role, or the project access approver for a project. Before the person is added to a group, they complete training (A54), sign Part A, and Part B if privileged. The owner adds them to the fewest AD groups the role needs. No \<System Name\> account is created.
 2. **Mover.** The person's manager tells the system owner and the owners of the person's groups within 1 working day of a role change. Access no longer needed is removed and recorded on TPL-14.
 3. **Leaver.** \<Organisation\> disables the person's Active Directory account at once, which ends their access, and the owners of their groups remove the memberships within 5 working days. Any exported files or paper are recovered or destroyed, and recorded on TPL-14.
-4. **High-risk leaver or misuse.** \<Organisation\>'s service desk disables the Active Directory account, and a global administrator ends the person's sessions, within 1 hour of notice (\<Procedures\>, PRO-AC-4).
+4. **High-risk leaver or misuse.** \<Organisation\>'s service desk disables the Active Directory account and ends the person's PingFederate sign-in within 1 hour of notice (\<Procedures\>, PRO-AC-4).
 5. **Inactive members.** Members of \<System Name\>'s groups who have not signed in for 90 days are removed from them each month (C9). \<Organisation\> disables unused Active Directory accounts under its own standard.
 
 ### 4.5 Change control (C38)
@@ -384,7 +384,7 @@ The security officer analyses each change's impact against the criteria in \<Con
 
 | Event | First action | Who |
 | --- | --- | --- |
-| Suspected account misuse | End the person's sessions, and have the account disabled (\<Procedures\>, PRO-AC-4) | Global administrator |
+| Suspected account misuse | Have the account disabled and the person's PingFederate sign-in ended (\<Procedures\>, PRO-AC-4) | Global administrator |
 | Exposed password or secret | Change it and report it to the security officer | Whoever finds it |
 | Access to data someone should not see | Stop, and report to the security officer | Whoever finds it |
 | Personal data breach | Report to the security officer at once. The security officer tells the legal adviser, who decides on telling the ICO within 72 hours of becoming aware and the people affected, and records every breach (\<Incident Response Management\>, section 3.8) | Whoever finds it; security officer; legal adviser |
@@ -394,7 +394,7 @@ The security officer analyses each change's impact against the criteria in \<Con
 | Suspected malware or attack | Report to the security officer, who tells \<Organisation\>'s security contact | Whoever finds it |
 
 1. **Report:** tell the security officer within 1 hour. The security officer tells \<Organisation\>'s security contact and any affected supplier. If personal data is involved, the security officer tells the legal adviser at once.
-2. **Contain:** limit the harm, for example by disabling accounts or ending sessions.
+2. **Contain:** limit the harm, for example by disabling accounts or ending PingFederate sign-ins.
 3. **Preserve:** keep logs and evidence, and do not clean up first.
 4. **Investigate:** establish what happened, when, and what data was involved.
 5. **Recover:** fix the cause and restore normal service (section 4.6).

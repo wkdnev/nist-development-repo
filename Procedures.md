@@ -27,7 +27,7 @@ This document holds the security and privacy procedures for \<System Name\>: 139
 | PRO-AC-8 | Inactive accounts | AC Access Control |
 | PRO-AC-9 | Locked account | AC Access Control |
 | PRO-AC-10 | Forgotten password | AC Access Control |
-| PRO-AC-11 | Ending a session | AC Access Control |
+| PRO-AC-11 | Ending access at once | AC Access Control |
 | PRO-AC-12 | First administrator on a new database | AC Access Control |
 | PRO-AC-13 | Changing the system use notice | AC Access Control |
 | PRO-AC-14 | Policy and procedure review | AC Access Control |
@@ -176,7 +176,7 @@ Admin portal pages are under http://localhost:7004 in the current local stack.
 | Joiner | Someone needs access | Request, approve, sign SyOPS, add to AD groups, first sign-in | PRO-AC-1 |
 | Mover | Someone's role changes | Notify, approve new access, change groups, sign in again | PRO-AC-2 |
 | Leaver | Someone leaves or no longer needs access | Notify, deactivate, record | PRO-AC-3 |
-| Urgent disable | A concern is raised about someone | Report, deactivate, confirm no session remains, record | PRO-AC-4 |
+| Urgent disable | A concern is raised about someone | Report, deactivate, end the PingFederate sign-in, record | PRO-AC-4 |
 | Project access | Someone needs a project | Request, approve, change group | PRO-AC-5 |
 | Privileged access | Someone needs a privileged role | Request, approve, change role, record | PRO-AC-6 |
 | Exception | A rule cannot be met | Request, assess, approve, record, review, end | PRO-AC-15 |
@@ -229,7 +229,7 @@ Table AC-4 summarises each procedure: what starts it, who acts, its time limit, 
 | PRO-AC-8 Inactive accounts | Monthly | \<Organisation\>; global administrator; the groups' owners | 90 days without signing in; \<Organisation\>'s corporate standard for the Active Directory account (P-AC-08) | TPL-3 | AC-2(3) |
 | PRO-AC-9 Locked account | A user asks | \<Organisation\>'s IT service desk | \<Organisation\>'s corporate standard (P-AC-14) | \<Organisation\>'s record | AC-7 |
 | PRO-AC-10 Forgotten password | A user asks | \<Organisation\>'s IT service desk | After its identity check | \<Organisation\>'s record | IA-5 |
-| PRO-AC-11 Ending a session | A session must end | Global administrator | At once | Note of the reason; TPL-10 if it is an incident | AC-12 |
+| PRO-AC-11 Ending access at once | A person's access must end at once | \<Organisation\>'s service desk; the groups' owners | At once | Note of the reason; TPL-10 if it is an incident | AC-12 |
 | PRO-AC-12 First administrator | \<System Name\> is first built | Windows server administrator, system owner | At build | TPL-6 | AC-2, IA-5 |
 | PRO-AC-13 Use notice | The wording changes | System owner, legal adviser | Through an approved change | TPL-6 | AC-8 |
 | PRO-AC-14 Policy and procedure review | The review falls due, or an event | System owner | Every 12 months (P-AC-02, P-AC-03) | Change record; TPL-4 | AC-1 |
@@ -243,26 +243,26 @@ Table AC-4 summarises each procedure: what starts it, who acts, its time limit, 
 2. Their line manager approves or refuses it. The system owner then authorises or refuses the role, and the project access approver each project named (P-AC-05). Nobody decides their own request. The ServiceNow workflow keeps the record. **Manual**
 3. Before the person is added to any group, they complete security and privacy awareness training, receive the \<System Name\> briefing from the system owner (\<Awareness and Training Management\>, section 3.3), and sign Part A of \<Security Operating Procedures\>, and Part B if the access is privileged. The security officer records the training on TPL-9, and the system owner records the signature on TPL-21 and in the register of signatures (\<Planning Management\>, section 3.5). No access is given until this is done.
 4. The owner who authorised the request adds the person to the approved AD groups, with \<Organisation\>'s AD tool. No \<System Name\> account is created: the person's Active Directory account is their account. **Manual**
-5. The person signs in through AD FS, and \<System Name\> applies the groups in their sign-in token.
+5. The person signs in through PingFederate, and \<System Name\>'s API reads their groups from Active Directory over LDAPS.
 6. The owner records the groups granted and the date in the ServiceNow request. **Manual**
 
 #### PRO-AC-2 Role change (mover)
 
 1. The line manager raises a change request in ServiceNow within the time in P-AC-06. **Manual**
 2. The approver in P-AC-05 approves the new access in the ServiceNow approval workflow.
-3. Each group's owner removes the old membership and adds any new one in Active Directory. The change takes effect when the person next signs in. If it must take effect at once, a global administrator ends the person's sessions. **Manual**
+3. Each group's owner removes the old membership and adds any new one in Active Directory. The change takes effect when the person next signs in. If it must take effect at once, \<Organisation\>'s service desk ends the person's PingFederate sign-in, so that they must sign in again. **Manual**
 
 #### PRO-AC-3 Leaver
 
 1. \<Organisation\> disables the person's Active Directory account at once, which stops them signing in to \<System Name\>. The Starters/Leavers system prompts the owners of the groups the person belongs to. **Manual**
 2. Each owner removes the person from their AD group within the time in P-AC-06. **Manual**
-3. A global administrator ends any session the person still has open, and the owner records the date in the ServiceNow request.
+3. \<Organisation\>'s service desk ends any PingFederate sign-in the person still has, and the owner records the date in the ServiceNow request. \<System Name\> has no sessions of its own to end.
 
 #### PRO-AC-4 Urgent disable (high-risk individual)
 
 1. Whoever raises the concern tells the system owner and a global administrator.
-2. Within the time in P-AC-13, \<Organisation\>'s service desk disables the person's Active Directory account, and the administrator ends the person's sessions on the session management page of the admin portal. **Manual**
-3. The administrator confirms that no session remains.
+2. Within the time in P-AC-13, \<Organisation\>'s service desk disables the person's Active Directory account and ends their PingFederate sign-in. \<System Name\> has no sessions of its own to end. **Manual**
+3. The administrator confirms with the service desk that the account is disabled and the PingFederate sign-in has ended.
 4. The system owner records the reason and informs anyone who needs to know.
 
 #### PRO-AC-5 Project access
@@ -293,27 +293,27 @@ A group's name must exactly match the project's principal, apart from upper and 
 
 #### PRO-AC-9 Locked account
 
-1. AD FS and Active Directory lock an account after repeated failed sign-ins, and release it, under \<Organisation\>'s corporate standard (P-AC-14). \<System Name\> has no lock of its own.
+1. PingFederate and Active Directory lock an account after repeated failed sign-ins, and release it, under \<Organisation\>'s corporate standard (P-AC-14). \<System Name\> has no lock of its own.
 2. A user who is locked out asks \<Organisation\>'s IT service desk, which checks who they are. **Manual**
 
 #### PRO-AC-10 Forgotten password
 
 1. The user asks \<Organisation\>'s IT service desk, which checks who they are and resets their Active Directory password. \<System Name\> holds no passwords. **Manual**
 
-#### PRO-AC-11 Ending a session
+#### PRO-AC-11 Ending access at once
 
-1. A global administrator opens the admin portal's session management page.
-2. They end the session and record why. **Manual**
+1. \<Organisation\>'s service desk disables the person's Active Directory account, or the group's owner removes the membership, and the service desk ends the person's PingFederate sign-in. \<System Name\> has no sessions of its own to end. **Manual**
+2. Whoever asked for it records why. **Manual**
 
 #### PRO-AC-12 First administrator on a new database
 
 1. No first administrator account is created, because \<System Name\> holds no accounts.
-2. At build, the Windows server administrator sets \<System Name\> to trust \<Organisation\>'s AD FS, and records it on TPL-6. **Manual**
+2. At build, the Windows server administrator configures \<System Name\>'s PingFederate connection, as an OpenID Connect client of \<Organisation\>'s PingFederate, and records it on TPL-6. **Manual**
 3. The system owner adds the first global administrator to the AD group. **Manual**
 
 #### PRO-AC-13 Changing the system use notice
 
-The notice is not built yet (PA-11). Once it is, the system owner approves the wording and a change request updates the first page of both apps, which is shown before the user is sent to AD FS to sign in.
+The notice is not built yet (PA-11). Once it is, the system owner approves the wording and a change request updates the first page of both apps, which is shown before the user is sent to PingFederate to sign in.
 
 #### PRO-AC-14 Policy and procedure review
 
@@ -468,7 +468,7 @@ These procedures define how audit records are reviewed, protected and retained. 
 
 #### PRO-AU-7 Application log
 
-1. Until PA-75 is fixed, the application logs on the VMs repeat usernames, IP addresses and session IDs from audit records, so they are audit information under \<Policy\> (AU). Only administrators and auditors may read them. **Manual**
+1. Until PA-75 is fixed, the application logs on the VMs repeat usernames, IP addresses and, from the tested build, session IDs from audit records, so they are audit information under \<Policy\> (AU). Only administrators and auditors may read them. **Manual**
 2. Application logs are kept for 30 days and then deleted. **Manual**
 3. They are not copied off the VMs, except as incident evidence under PRO-AU-2, step 3.
 4. Each month the Windows server administrator checks who can read the logs and how old they are, and records the result on TPL-8. **Manual**
@@ -714,10 +714,10 @@ These procedures define how identifiers and authenticators are issued, changed a
 | --- | --- | --- | --- | --- | --- |
 | PRO-IA-1 | Identifiers | Each new person | \<Organisation\>; the group's owner | ServiceNow request | IA-2, IA-4, IA-4(4), IA-12 |
 | PRO-IA-2 | Passwords | Each new Active Directory account and reset | \<Organisation\>'s IT service desk | \<Organisation\>'s record | IA-5 |
-| PRO-IA-3 | Suspected compromise, role change, or a lost or stolen authenticator | When it happens | The person; \<Organisation\>'s service desk; global administrator; security officer | ServiceNow request; incident record if needed | IA-5, IR-6 |
+| PRO-IA-3 | Suspected compromise, role change, or a lost or stolen authenticator | When it happens | The person; \<Organisation\>'s service desk; security officer | ServiceNow request; incident record if needed | IA-5, IR-6 |
 | PRO-IA-4 | Changing service secrets and the signing key | Every 12 months, and when an administrator leaves | Windows server and database administrators | TPL-6 | IA-5, IA-5(6) |
 | PRO-IA-5 | Password rules | Not done in \<System Name\> | \<Organisation\> | None | IA-5(1) |
-| PRO-IA-6 | Enrolling and resetting a second factor | When the person first uses AD FS; on loss | The person; \<Organisation\>'s service desk | \<Organisation\>'s record | IA-2(1), IA-2(2) |
+| PRO-IA-6 | Enrolling and resetting a second factor | When the person first uses PingFederate; on loss | The person; \<Organisation\>'s service desk | \<Organisation\>'s record | IA-2(1), IA-2(2) |
 | PRO-IA-7 | Reviewing authenticators and assurance levels | Every 12 months, and after a significant change | System owner, security officer | \<Identification and Authentication Management\> change record | IA-5, IA-12 |
 | PRO-IA-8 | Disabling unused identifiers | Under \<Organisation\>'s standard | \<Organisation\> | \<Organisation\>'s record | AC-2(3), IA-4 |
 
@@ -732,20 +732,20 @@ These procedures define how identifiers and authenticators are issued, changed a
 
 #### PRO-IA-2 Passwords
 
-1. \<System Name\> issues no passwords, temporary or otherwise. Every user signs in through AD FS with their Active Directory account (D-AC-23).
+1. \<System Name\> issues no passwords, temporary or otherwise. Every user signs in through PingFederate with their Active Directory account (D-AC-23).
 2. \<Organisation\>'s IT service desk issues and resets Active Directory passwords under its own procedure, after checking who the person is. **Manual**
 
 #### PRO-IA-3 Suspected compromise, role change, or a lost or stolen authenticator
 
 1. The person, or whoever notices, tells \<Organisation\>'s IT service desk and the security officer straight away. This includes a password written down or seen, and a lost phone or key used as a second factor. **Manual**
-2. The service desk resets the password or the second factor. A global administrator ends the person's \<System Name\> sessions. **Manual**
+2. The service desk resets the password or the second factor, and ends the person's PingFederate sign-in. **Manual**
 3. The security officer decides whether this is a security incident, and if so raises it under \<Procedures\> (IR). **Manual**
 
 #### PRO-IA-4 Changing service secrets and the signing key
 
 1. Every 12 months, and when an administrator leaves, the Windows server administrator and database administrator change the service account secrets, the database password and the signing key in \<Identification and Authentication Management\>, section 3.5. **Not built:** these secrets are committed in source today (PA-19).
 2. They update the protected copy at the second site (\<Contingency Planning Management\>, section 3.8). **Not built** (PA-64)
-3. They record the change on TPL-6: the date, who made it and which secret, never the value. Changing the signing key ends every session, so users are told first. **Manual**
+3. They record the change on TPL-6: the date, who made it and which secret, never the value. Changing the signing key makes every user sign in again, so users are told first. **Manual**
 
 #### PRO-IA-5 Password rules
 
@@ -753,8 +753,8 @@ These procedures define how identifiers and authenticators are issued, changed a
 
 #### PRO-IA-6 Enrolling and resetting a second factor
 
-1. Each person enrols their second factor with \<Organisation\>, for AD FS, under its own procedure. **Manual**
-2. If a second factor is lost or replaced, the person tells \<Organisation\>'s IT service desk, which checks who they are and lets them enrol a new one. A global administrator ends the person's \<System Name\> sessions. **Manual**
+1. Each person enrols their second factor with \<Organisation\>, for PingFederate, under its own procedure. **Manual**
+2. If a second factor is lost or replaced, the person tells \<Organisation\>'s IT service desk, which checks who they are and lets them enrol a new one, and ends the person's PingFederate sign-in. **Manual**
 
 #### PRO-IA-7 Reviewing authenticators and assurance levels
 
@@ -801,7 +801,7 @@ These procedures carry out \<Policy\> (IR) and \<Incident Response Management\>.
 
 1. The security officer leads the steps in \<Incident Response Management\>, section 3.7, using the playbook in its section 3.9 that fits. **Manual**
 2. The administrators preserve evidence first, under PRO-IR-6. **Manual**
-3. They contain the incident to the target for its severity, for example by ending sessions or disabling an account (shown in Docker, D01 and D03). **Manual**
+3. They contain the incident to the target for its severity, for example by disabling an account or ending a person's PingFederate sign-in (shown in Docker, D01 and D03). **Manual**
 4. If recovery is needed, the system owner invokes \<Contingency Planning Management\>; the incident plan leads while the outage may be an incident. **Manual**
 5. The security officer records each action and time on TPL-10. **Manual**
 
@@ -875,8 +875,8 @@ These procedures carry out \<Policy\> (MA), rules R1 to R12. The lists, routes a
 | Check | How | Expected |
 | --- | --- | --- |
 | Services are healthy | The API health check and each application's start page (C1) | All answer |
-| Anonymous access is refused | An API call with no token, and an admin portal page | The call is refused, and the page sends the person to AD FS to sign in |
-| Sign-in works and is audited | Sign in through AD FS, then look at the audit log | A new sign-in record |
+| Anonymous access is refused | An API call with no token, and an admin portal page | The call is refused, and the page sends the person to PingFederate to sign in |
+| Sign-in works and is audited | Sign in through PingFederate, then look at the audit log | A new sign-in record |
 | Audit records are intact | The audit chain check (\<Procedures\>, PRO-AU-2) once it is built; meanwhile, records without a hash | None broken; none without a hash |
 | Documents are intact | Document checksum check (\<Procedures\>, PRO-SI-6) | All match |
 | Defender is running | Defender status on both VMs (PA-58) | On, and up to date |
@@ -1043,7 +1043,7 @@ These procedures carry out \<Policy\> (PE), rules R1 to R10. The values, inherit
 
 1. Users print \<System Name\> documents only on \<Organisation\>'s managed printers with secure release: \[managed printers\]. **Manual** (EV-PE-05)
 2. They release and collect printouts at once, and mark them RESTRICTED (\<Procedures\>, PRO-MP-1). **Manual**
-3. Users lock their screen when they leave it, place it so that others cannot read it, and keep their desk clear of printed documents. \<System Name\> also locks the page after 25 minutes idle. **Manual**
+3. Users lock their screen when they leave it, place it so that others cannot read it, and keep their desk clear of printed documents. \<Organisation\>'s managed devices also lock the screen after the inactivity period in P-AC-15. **Manual**
 
 #### PRO-PE-4 Working from home
 
@@ -1150,7 +1150,7 @@ These procedures carry out \<Policy\> (PS). Steps marked **Manual** rely on peop
 #### PRO-PS-2 Leavers
 
 1. \<Organisation\> disables the person's Active Directory account at once, which ends their access to \<System Name\>. The Starters/Leavers system tells the system owner and the owners of the person's groups, who remove the memberships within 5 working days (\<Procedures\>, PRO-AC-3). **Not built** (PA-32)
-2. For a higher-risk leaver, a dismissal or suspected misuse, anyone who knows tells the system owner and a global administrator. Within 1 hour, \<Organisation\>'s service desk disables the Active Directory account, and the global administrator ends the person's sessions and confirms that none remains (\<Procedures\>, PRO-AC-4). **Manual**
+2. For a higher-risk leaver, a dismissal or suspected misuse, anyone who knows tells the system owner and a global administrator. Within 1 hour, \<Organisation\>'s service desk disables the Active Directory account and ends the person's PingFederate sign-in, and the global administrator confirms that both are done (\<Procedures\>, PRO-AC-4). **Manual**
 3. Disabling the Active Directory account revokes the person's password and second factor. The system owner has any service secret the person knew changed (\<Procedures\>, PRO-IA-4). **Manual**
 4. \<Organisation\> holds the exit interview, including confidentiality duties, and recovers equipment. **Manual** (EV-PS-02)
 5. The system owner confirms that the documents the person managed stay available, and completes TPL-14. **Manual**
