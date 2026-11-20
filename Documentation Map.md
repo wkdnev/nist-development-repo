@@ -128,7 +128,7 @@ Every \<System Name\> document follows this standard, so that readers can naviga
 
 ### 4.1 Master copy and change record
 
-The documents are kept as Markdown, one file for each document, named by its title. That set is the master copy. Figures and the replaced documents are kept with it. No Word or PDF copies are issued. A copy in another format can be made when one is needed, but it is not a controlled copy.
+The documents are kept as Markdown, one file for each document, named by its title. That set is the master copy. Figures and the replaced documents are kept with it. No Word or PDF copies are issued. A copy in another format can be made when one is needed, but it is not a controlled copy. Word copies are made with `tools/export_docx.py`, which gives every table the same style, with a repeating header row and a landscape page for any table of eight or more columns.
 
 Every change to the documents and the test evidence is recorded in a private records repository on the system owner's computer. It has no remote copy and is separate from the code repositories. Each change is dated, and each issue of the set is marked, so any earlier state can be shown. The set moves to \<Organisation\>'s restricted store when that is set up (PA-88). Until then the repository is the change record, and a list of hashes fixes the content of each issue.
 
