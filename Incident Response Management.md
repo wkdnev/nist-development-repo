@@ -26,7 +26,7 @@ An assessor examines the plan, the incident records, the training and exercise r
 
 ## 2 Summary
 
-The implementation status of each control, how it is met, who is responsible, its assessment result and the risk and plan entries for its gaps are recorded once, in \<System Security Plan\>, section 7.8 (Table 17). This section gives only the overall position.
+The implementation status of each control, how it is met, who is responsible, its assessment result and the risk and plan entries for its gaps are recorded in \<System Security Plan\>, section 7.8 (Table 17). This section gives only the overall position.
 
 No control in the baseline is missing from the design. Every gap is registered in the Risk List (\<Risk List\>) and the Plan of Action and Milestones (\<Plan of Action and Milestones\>).
 

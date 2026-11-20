@@ -26,7 +26,7 @@ An assessor examines the designations, the screening confirmations, the signed a
 
 ## 2 Summary
 
-The implementation status of each control, how it is met, who is responsible, its assessment result and the risk and plan entries for its gaps are recorded once, in \<System Security Plan\>, section 7.13 (Table 22). This section gives only the overall position.
+The implementation status of each control, how it is met, who is responsible, its assessment result and the risk and plan entries for its gaps are recorded in \<System Security Plan\>, section 7.13 (Table 22). This section gives only the overall position.
 
 No control in the baseline is missing from the design. Every gap is registered in the Risk List (\<Risk List\>) and the Plan of Action and Milestones (\<Plan of Action and Milestones\>).
 
@@ -111,7 +111,7 @@ Two agreements are signed before access, and again every 12 months and after a m
 | --- | --- | --- | --- | --- |
 | Joiner | The role's designation is looked up; \<Organisation\> confirms the screening; the person completes training and signs the agreements; only then do the group owners add them to the groups the role needs | System owner; \<Organisation\>; the group owners | Before access | TPL-2; TPL-21; the register |
 | Mover | The line manager tells the system owner and the owners of the person's groups. Each owner confirms whether the person still needs the group, and removes or adds memberships. A higher risk role needs screening confirmed again first | Line manager; system owner; the group owners | 1 working day | TPL-14 |
-| Leaver | \<Organisation\> disables the Active Directory account at once, which ends access. Its Starters/Leavers system tells the group owners, who remove the memberships. A global administrator ends any open session. Any service secret the person knew is changed, and exported files and printouts are recovered or destroyed. Separately, anyone who has not signed in for 90 days is removed from \<System Name\>'s groups each month (\<Access Control Management\>, under AC-2(3)) | \<Organisation\>; the group owners; global administrator; system owner | At once, and memberships within 5 working days | TPL-14 |
+| Leaver | \<Organisation\> disables the Active Directory account at once, which ends access. Its Starters/Leavers system tells the group owners, who remove the memberships. A global administrator ends any open session. Any service secret the person knew is changed, and exported files and printouts are recovered or destroyed. Separately, anyone who has not signed in for 90 days is removed from \<System Name\>'s groups each month (\<Access Control Management\>, section 3.14) | \<Organisation\>; the group owners; global administrator; system owner | At once, and memberships within 5 working days | TPL-14 |
 | Higher-risk leaver, dismissal or suspected misuse | \<Organisation\>'s service desk disables the Active Directory account, and a global administrator ends the person's sessions and confirms none remains | \<Organisation\>'s service desk; global administrator | 1 hour of notice | TPL-14; TPL-10 if it is an incident |
 
 ### 3.6 Time limits

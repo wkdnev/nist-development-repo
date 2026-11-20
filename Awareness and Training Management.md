@@ -26,7 +26,7 @@ Training is carried out by people, not by the system, so nothing here is built i
 
 ## 2 Summary
 
-The implementation status of each control, how it is met, who is responsible, its assessment result and the risk and plan entries for its gaps are recorded once, in \<System Security Plan\>, section 7.2 (Table 11). This section gives only the overall position.
+The implementation status of each control, how it is met, who is responsible, its assessment result and the risk and plan entries for its gaps are recorded in \<System Security Plan\>, section 7.2 (Table 11). This section gives only the overall position.
 
 Three training controls outside this family rest on the same curriculum, and are assessed in their own families: privacy training, AT-3(5) (module M9; NC-PT-08, PA-97); incident response training, IR-2 (module M7; NC-IR-02, PA-81); and contingency training, CP-3 (module M8; NC-CP-06, PA-81).
 

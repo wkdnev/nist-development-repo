@@ -764,7 +764,7 @@ These procedures define how identifiers and authenticators are issued, changed a
 
 #### PRO-IA-8 Disabling unused identifiers
 
-1. \<Organisation\> disables Active Directory accounts unused for the period in its corporate standard (\<Access Control Management\>, under AC-2(3)).
+1. \<Organisation\> disables Active Directory accounts unused for the period in its corporate standard (\<Access Control Management\>, section 3.14).
 2. A disabled identifier is never deleted or reused (PRO-IA-1, step 4). **Manual**
 
 ## IR Incident Response

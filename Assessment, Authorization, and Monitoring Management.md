@@ -26,7 +26,7 @@ This family is about processes that people carry out, so an assessor examines do
 
 ## 2 Summary
 
-The implementation status of each control, how it is met, who is responsible, its assessment result and the risk and plan entries for its gaps are recorded once, in \<System Security Plan\>, section 7.4 (Table 13). This section gives only the overall position.
+The implementation status of each control, how it is met, who is responsible, its assessment result and the risk and plan entries for its gaps are recorded in \<System Security Plan\>, section 7.4 (Table 13). This section gives only the overall position.
 
 No control in the baseline is missing from the design. Every gap is registered in the Risk List (\<Risk List\>) and the Plan of Action and Milestones (\<Plan of Action and Milestones\>).
 
