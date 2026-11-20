@@ -2,7 +2,7 @@
 
 ## 1 Purpose
 
-This document shows how the places where \<System Name\> runs and is used are protected, for each of the 18 Physical and Environmental Protection (PE) controls and enhancements in the CSS Moderate baseline. Section 3 sets out the design: the sites, who provides each control, how \<Organisation\>'s evidence is obtained and checked, the rules for offices and for working from home, physical incidents, and the encryption that stands behind the physical controls. Section 4 takes each control in turn. Appendix A lists every value CSS asks the organisation to define, and appendix B the PE controls CSS does not select at Moderate.
+This document shows how the places where \<System Name\> runs and is used are protected, for each of the 18 Physical and Environmental Protection (PE) controls and enhancements in the CSS Moderate baseline. Section 3 sets out the design: the sites, who provides each control, how \<Organisation\>'s evidence is obtained and checked, the rules for offices and for working from home, physical incidents, and the encryption that stands behind the physical controls. Section 4 takes each control in turn. Values CSS asks the organisation to define are set at corporate level by \<Organisation\>. Appendix A the PE controls CSS does not select at Moderate.
 
 The policy is in \<Policy\> (PE), and the steps people follow are in \<Procedures\> (PE).
 
@@ -95,7 +95,7 @@ Who provides each PE control, and the evidence that closes it. The first choice 
 | --- | --- | --- | --- |
 | 1 | \<Organisation\> is asked for its certificate, Statement of Applicability and latest audit findings, or its SOC 2 report, for both sites | System owner | \<Evidence Requests\>, EV-PE-01 |
 | 2 | Where those do not cover a control, the facility evidence is asked for | System owner | EV-PE-01 to EV-PE-05 |
-| 3 | What is received is recorded against each control in the matrix, and each value in appendix A is confirmed as met | System owner | Section 3.3; appendix A |
+| 3 | What is received is recorded against each control in the matrix, and each corporate parameter value is confirmed as met | System owner | Section 3.3 |
 | 4 | Each data centre, the main site and the second site, is inspected once, at Level 2, by the independent assessor, or by \<Organisation\>'s auditor if the assessor cannot visit | Independent assessor | TPL-20 |
 | 5 | Any shortfall is raised as a risk | System owner | \<Risk List\> |
 | 6 | The check is repeated every 12 months, and after a change of site or a significant incident at a site | System owner | Section 3.3 |
@@ -569,60 +569,11 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 | Risk decision | NC-PE-18, rated Low: approve |
 | Open items | PA-122: hold the first yearly check, and obtain \<Organisation\>'s evidence (EV-PE-05) |
 
-## Appendix A Parameter register
+## Appendix A PE controls outside the Moderate baseline
 
-These are the CSS organisation-defined values for the 18 PE entries: 40 in total. They apply to the data centre and the second site alike. They were agreed on 6 November 2026 (D-PE-P01, D-PE-07) and restated as requirements on 10 November 2026 (D-PE-P02). \<Organisation\> must confirm it meets them at both sites.
+CSS does not select these in the Moderate security baseline, so they are not assessed in this family. One is in the CSS privacy baseline and applies because visitor records hold personal data: it is assessed with the PT family. All but that one would be \<Organisation\>'s to provide, and Table 42 says where its evidence may already show them.
 
-**Table 42: PE parameter register**
-
-| CSS identifier | What must be defined | Value (requirement) | State now |
-| --- | --- | --- | --- |
-| PE-01\_ODP\[01\] | Who receives the policy | Everyone who uses or administers \<System Name\> | Not yet shared (PA-20) |
-| PE-01\_ODP\[02\] | Who receives the procedures | Everyone who uses or administers \<System Name\> | Not yet shared (PA-20) |
-| PE-01\_ODP\[03\] | Level of the policy | System level | In place |
-| PE-01\_ODP\[04\] | Official who manages them | System owner | In place |
-| PE-01\_ODP\[05\] | Policy review frequency | Every 12 months | First review due November 2027 |
-| PE-01\_ODP\[06\] | Events requiring policy review | Significant incident, audit finding or change of site | Reviewed after the PE pack review, 10 November 2026 |
-| PE-01\_ODP\[07\] | Procedures review frequency | Every 12 months | First review due November 2027 |
-| PE-01\_ODP\[08\] | Events requiring procedures review | A change to the steps | Reviewed after the PE pack review, 10 November 2026 |
-| PE-02\_ODP | Access list review frequency | Every 12 months | Not evidenced (EV-PE-01) |
-| PE-03\_ODP\[01\] | Entry and exit points | Data centre entrances and exits | Not evidenced (EV-PE-01) |
-| PE-03\_ODP\[02\] | How entry is controlled | Electronic access control with individual cards or credentials | Not evidenced (EV-PE-01) |
-| PE-03\_ODP\[03\] | Systems or devices used | \<Organisation\>'s physical access control system | Not evidenced (EV-PE-01) |
-| PE-03\_ODP\[04\] | Points with access logs | Data centre entrances and exits | Not evidenced (EV-PE-01) |
-| PE-03\_ODP\[05\] | Controls on publicly accessible areas | Staffed reception, with visitors signed in | Not evidenced (EV-PE-01) |
-| PE-03\_ODP\[06\] | When visitors are escorted and monitored | Always | Not evidenced (EV-PE-01) |
-| PE-03\_ODP\[07\] | Physical access devices inventoried | Keys, cards and combinations | Not evidenced (EV-PE-01) |
-| PE-03\_ODP\[08\] | Inventory frequency | Every 12 months | Not evidenced (EV-PE-01) |
-| PE-03\_ODP\[09\] | Combination change frequency | Every 12 months, and when someone with the combination leaves | Not evidenced (EV-PE-01) |
-| PE-03\_ODP\[10\] | Key change frequency | Every 12 months, and when a key is lost or someone leaves without returning it | Not evidenced (EV-PE-01) |
-| PE-04\_ODP\[01\] | Lines protected | Power and network cabling in the data centre | Not evidenced (EV-PE-01) |
-| PE-04\_ODP\[02\] | Controls used | Locked rooms, cabinets and cable trays | Not evidenced (EV-PE-01) |
-| PE-05\_ODP | Output devices | \<Organisation\>'s managed printers with secure release, and screens used for \<System Name\> | Printers not yet listed (EV-PE-05) |
-| PE-06\_ODP\[01\] | Log review frequency | Monthly | Not evidenced (EV-PE-01) |
-| PE-06\_ODP\[02\] | Events requiring log review | A physical security incident or alarm | Not evidenced (EV-PE-01) |
-| PE-08\_ODP\[01\] | How long visitor records are kept | 12 months | Not evidenced (EV-PE-01) |
-| PE-08\_ODP\[02\] | Visitor record review frequency | Monthly | Not evidenced (EV-PE-01) |
-| PE-08\_ODP\[03\] | Who anomalies go to | \<Organisation\>'s security contact, who tells the security officer | Not evidenced (EV-PE-01) |
-| PE-10\_ODP\[01\] | What can be shut off | Hosting equipment for both servers | Not evidenced (EV-PE-02) |
-| PE-10\_ODP\[02\] | Where the switches are | Near the data centre room exits | Not evidenced (EV-PE-02) |
-| PE-11\_ODP | What the backup power allows | An orderly shutdown of both servers | Not evidenced (EV-PE-02) |
-| PE-13(01)\_ODP\[01\] | Who fire detection notifies | \<Organisation\>'s facilities staff | Not evidenced (EV-PE-03) |
-| PE-13(01)\_ODP\[02\] | Emergency responders notified | The fire and rescue service | Not evidenced (EV-PE-03) |
-| PE-14\_ODP\[01\] | Levels kept | Temperature and humidity | Not evidenced (EV-PE-03) |
-| PE-14\_ODP\[02\] | Controls used | Data centre cooling and humidity control | Not evidenced (EV-PE-03) |
-| PE-14\_ODP\[03\] | Acceptable levels | The ASHRAE TC 9.9 recommended envelope: 18 to 27°C, dew point from -9 to 15°C and at most 60% relative humidity | Not evidenced (EV-PE-03) |
-| PE-14\_ODP\[04\] | Monitoring frequency | Continuously | Not evidenced (EV-PE-03) |
-| PE-16\_ODP\[01\] | Items authorised entering | Hardware and media holding \<System Name\> information | Not evidenced (EV-PE-04) |
-| PE-16\_ODP\[02\] | Items authorised leaving | Hardware and media holding \<System Name\> information | Not evidenced (EV-PE-04) |
-| PE-17\_ODP\[01\] | Alternate work sites | Employees' homes, and any place the system owner approves in writing | In place (SyOps A38) |
-| PE-17\_ODP\[02\] | Controls used | \<Organisation\>'s managed devices and route; screen privacy; no printing at home unless approved | Not yet assessed (C30) |
-
-## Appendix B PE controls outside the Moderate baseline
-
-CSS does not select these in the Moderate security baseline, so they are not assessed in this family. One is in the CSS privacy baseline and applies because visitor records hold personal data: it is assessed with the PT family. All but that one would be \<Organisation\>'s to provide, and Table 43 says where its evidence may already show them.
-
-**Table 43: PE controls not selected at Moderate**
+**Table 42: PE controls not selected at Moderate**
 
 | Control | What it adds | \<System Name\>'s position |
 | --- | --- | --- |

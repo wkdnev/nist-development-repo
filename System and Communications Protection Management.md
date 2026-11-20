@@ -4,7 +4,7 @@
 
 This document shows how \<System Name\> protects its communications, its boundary, its keys and the information it holds, for each of the 25 System and Communications Protection (SC) controls in the CSS Moderate baseline.
 
-Section 3 sets out the design: the boundary and the allowed flows, with each server's host firewall; transport encryption and sessions; the cryptographic and key register and certificates; the page policy for mobile code; information at rest; denial of service, shared resources and process isolation; name resolution; how protection stands today; and what \<Organisation\> provides. Section 4 takes each control in turn. Appendix A lists every value CSS asks the organisation to define.
+Section 3 sets out the design: the boundary and the allowed flows, with each server's host firewall; transport encryption and sessions; the cryptographic and key register and certificates; the page policy for mobile code; information at rest; denial of service, shared resources and process isolation; name resolution; how protection stands today; and what \<Organisation\> provides. Section 4 takes each control in turn. Values CSS asks the organisation to define are set at corporate level by \<Organisation\>.
 
 The policy is in \<Policy\> (SC), and the steps people follow are in \<Procedures\> (SC). The flows themselves are in \<System Security Plan\>, section 3.7, and the trust zones and layers of defence in \<Security Architecture\>.
 
@@ -777,50 +777,11 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 | Risk decision | NC-SC-23, rated Low: obtain evidence |
 | Open items | PA-54: the servers' secure settings |
 
-## Appendix A Parameter register
+## Appendix A Communications protection controls outside the Moderate baseline
 
-These are the CSS organisation-defined values for the 25 SC entries: 30 in total. They were agreed on 6 November 2026 (D-SC-P01), and those changed on 12 November 2026 in D-SC-P02. **State now** says whether \<System Name\> meets the value today.
+CSS does not select these at Moderate, so they are not assessed. SC-15 is tailored out (TR-SC-01), and SC-7(24) is a privacy baseline control set out in \<PII Processing Management\>. Table 60 says where the design goes some way towards them.
 
-**Table 60: SC parameter register**
-
-| CSS identifier | What must be defined | Value | State now |
-| --- | --- | --- | --- |
-| SC-01\_ODP\[01\] | Who receives the policy | Everyone who administers or develops \<System Name\> | Not yet shared |
-| SC-01\_ODP\[02\] | Who receives the procedures | Everyone who administers or develops \<System Name\> | Not yet shared |
-| SC-01\_ODP\[03\] | Level of the policy | System level | In place |
-| SC-01\_ODP\[04\] | Official who manages them | System owner | In place |
-| SC-01\_ODP\[05\] | Policy review frequency | Every 12 months | First review due November 2027 |
-| SC-01\_ODP\[06\] | Events requiring policy review | Significant incident, audit finding or system change | Reviewed after the SC pack review, 12 November 2026 |
-| SC-01\_ODP\[07\] | Procedures review frequency | Every 12 months | First review due November 2027 |
-| SC-01\_ODP\[08\] | Events requiring procedures review | A change to the steps | Reviewed after the SC pack review, 12 November 2026 |
-| SC-05\_ODP\[01\] | Denial-of-service events | Network flooding, request flooding and resource exhaustion | Not evidenced |
-| SC-05\_ODP\[02\] | Protect or limit | Limit | Not evidenced |
-| SC-05\_ODP\[03\] | Controls | \<Organisation\>'s network protections; a request rate limit in each app; sign-in lockout | Sign-in lockout is AD FS's (D-AC-23); the rate limiter is switched off (N12, PA-50); \<Organisation\>'s protections not seen (EV-SC-01) |
-| SC-07\_ODP | Separation of public subnetworks | Logical | No public component |
-| SC-07(04)\_ODP | Review of flow exceptions | Every 12 months (PRO-SC-8) | Not yet held |
-| SC-07(05)\_ODP\[01\] | Where deny by default applies | At \<Organisation\>'s managed interfaces and each VM's host firewall | Not built; allow-lists in section 3.2 |
-| SC-07(05)\_ODP\[02\] | Systems covered | The two VMs | VMs not built |
-| SC-07(07)\_ODP | Safeguards against split tunnelling | \<Organisation\>'s VPN prevents split tunnelling on every remote device | Not evidenced (EV-SC-03) |
-| SC-07(08)\_ODP\[01\] | Traffic routed through a proxy | All outbound traffic from the VMs | Not evidenced (EV-SC-03) |
-| SC-07(08)\_ODP\[02\] | External networks | All external networks | Not evidenced (EV-SC-03) |
-| SC-08\_ODP | Protection of transmitted information | Confidentiality and integrity | Plain HTTP and database TLS off (N01, N06; PA-18) |
-| SC-08(01)\_ODP | What cryptography prevents | Unauthorised disclosure, and detects changes, using the TLS profile in section 3.3 | Not in place (PA-18) |
-| SC-10\_ODP | Network disconnect | After 30 minutes idle, and at the end of a session | Application sessions end at 30 minutes idle and 8 hours; network side not evidenced (EV-SC-01) |
-| SC-12\_ODP | Key requirements | Each key in the register (section 3.4): generated randomly, held in a protected store outside source code, owned, and changed at its cryptoperiod based on CSS | Keys committed in source (PA-19); key rings unencrypted (PA-93) |
-| SC-13\_ODP\[01\] | Cryptographic uses | TLS, token signing, cookie and antiforgery protection, disk encryption, backup encryption, and integrity checks | As in section 3.4 |
-| SC-13\_ODP\[02\] | Types of cryptography | The algorithms in section 3.4: NCSC's TLS profiles, XTS-AES 256, HMAC-SHA256, AES-256 with HMAC-SHA256, and SHA-256. US CSS validation is not required (D-SC-P02) | Password hashing and token signing in place; the rest not built |
-| SC-15\_ODP | Exceptions | Not applicable (TR-SC-01) | Not applicable |
-| SC-17\_ODP | Certificate policy | \<Organisation\>'s certificate policy, with the algorithms in section 3.3 | Not seen (EV-SC-04) |
-| SC-28\_ODP\[01\] | Protection at rest | Confidentiality and integrity | Not in place in Docker |
-| SC-28\_ODP\[02\] | Information at rest | Documents and pages in PostgreSQL, the database files, backups, export copies and the data protection key rings | Not encrypted in Docker (PA-52, PA-86, PA-93) |
-| SC-28(01)\_ODP\[01\] | Information | As SC-28\_ODP\[02\] | As above |
-| SC-28(01)\_ODP\[02\] | Components | Both VMs (BitLocker), the backup store (encrypted backups) and the key ring folders (DPAPI) | VMs not built |
-
-## Appendix B Communications protection controls outside the Moderate baseline
-
-CSS does not select these at Moderate, so they are not assessed. SC-15 is tailored out (TR-SC-01), and SC-7(24) is a privacy baseline control set out in \<PII Processing Management\>. Table 61 says where the design goes some way towards them.
-
-**Table 61: Related controls and enhancements not selected**
+**Table 60: Related controls and enhancements not selected**
 
 | Control | What it adds | \<System Name\>'s position |
 | --- | --- | --- |

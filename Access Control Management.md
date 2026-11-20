@@ -8,7 +8,7 @@ An assessor examines the design, the settings and the records, interviews the pe
 
 As \<System Description\> sets out, \<Organisation\>'s PingFederate authenticates every user, with multi-factor authentication, and \<System Name\>'s API reads each user's Active Directory groups directly from Active Directory over LDAPS, to give their roles and schema access (D-AC-23). \<System Name\> holds no accounts or passwords of its own, and has no session management: how long a sign-in lasts is set by PingFederate, and an unattended screen is locked by \<Organisation\>'s managed devices. Both are corporate services that \<System Name\> uses as they stand. The design in section 3 is written on that basis.
 
-\<System Name\> is not yet built on its servers, so "today" means the tested v1.0 code in the test environment. That build signed in with its own passwords, held its groups and sessions in its own database and used PostgreSQL, so its tests do not show PingFederate sign-in, Active Directory groups or SQL Server working. Where that matters, the "Today" columns and notes in section 3 say so. Its findings are kept where they still apply to the reference design. Test results are in the AC evidence. Values that CSS asks the organisation to define are in Appendix A.
+\<System Name\> is not yet built on its servers, so "today" means the tested v1.0 code in the test environment. That build signed in with its own passwords, held its groups and sessions in its own database and used PostgreSQL, so its tests do not show PingFederate sign-in, Active Directory groups or SQL Server working. Where that matters, the "Today" columns and notes in section 3 say so. Its findings are kept where they still apply to the reference design. Test results are in the AC evidence. Values that CSS asks the organisation to define are set at corporate level by \<Organisation\>.
 
 The policy is in \<Policy\> (AC), and the steps people follow are in \<Procedures\> (AC).
 
@@ -544,74 +544,3 @@ Each part of each control is met by the design in section 3. Table 17 shows, for
 | AC-21 Information Sharing | a | 3.9, 3.10 | P-AC-23 |
 | AC-21 | b | 3.10 | P-AC-23 |
 | AC-22 Publicly Accessible Content | All | 3.10 | P-AC-24 |
-
-## Appendix A Parameter register
-
-CSS identifies the values an organisation must define for each control. This register records every such value for the 39 AC entries, using the CSS identifiers: 62 in total. "Proposed" means the value awaits approval. "As built, not approved" means the running system uses the value, but nobody has approved it. "Open" means someone must decide it. **The State before approval column shows the position of the tested build, and the State now column shows it against the reference design in \<System Description\>. None of the values has yet been approved. \<Organisation\>'s security contact is asked to confirm AC-06(01)\_ODP\[02\] and \[04\] (its network and infrastructure teams) and AC-18(01)\_ODP (users and devices). The values for AC-02(02), AC-17(04), AC-19(05) and AC-22 are not applicable under \<Tailoring Register\>.**
-
-**Table 18: Parameter register**
-
-| CSS identifier | What must be defined | Value | Source | State before approval | State now |
-| --- | --- | --- | --- | --- | --- |
-| AC-01\_ODP\[01\] | Who receives the policy | Everyone who uses or administers \<System Name\> | \<Policy\>, section AC.6 | Proposed | Proposed (D-AC-P01), not yet approved |
-| AC-01\_ODP\[02\] | Who receives the procedures | Everyone who uses or administers \<System Name\> | \<Policy\>, section AC.6 | Proposed | Proposed (D-AC-P01), not yet approved |
-| AC-01\_ODP\[03\] | Level of the policy | System level, within \<Organisation\>'s organisational policies | New in this register | Proposed | Proposed (D-AC-P01), not yet approved |
-| AC-01\_ODP\[04\] | Official who manages them | System owner | P-AC-01 | \[Name\], as system owner | Proposed (D-AC-03), not yet approved |
-| AC-01\_ODP\[05\] | Policy review frequency | Every 12 months | P-AC-02 | Proposed | Proposed (D-AC-P01), not yet approved |
-| AC-01\_ODP\[06\] | Events requiring policy review | Significant incident, audit finding or system change | P-AC-02 | Proposed | Proposed (D-AC-P01), not yet approved |
-| AC-01\_ODP\[07\] | Procedures review frequency | Every 12 months | P-AC-03 | Proposed | Proposed (D-AC-P01), not yet approved |
-| AC-01\_ODP\[08\] | Events requiring procedures review | A change to the steps | P-AC-03 | Proposed | Proposed (D-AC-P01), not yet approved |
-| AC-02\_ODP\[01\] | Prerequisites for group and role membership | A confirmed need, approval by the approver in P-AC-05, and a signed SyOPS acknowledgement | PRO-AC-1, PRO-AC-5, PRO-AC-6 | Proposed | Proposed (D-AC-P02), not yet approved |
-| AC-02\_ODP\[02\] | Attributes for each account | The attributes of the person's AD account, and their AD groups, which the API reads from Active Directory over LDAPS | New in this register | Proposed; expiry not built (PA-13) | Stated by the system owner (D-AC-23), not yet approved |
-| AC-02\_ODP\[03\] | Who approves new accounts | No account is created in \<System Name\>. Membership of a group: the person's line manager approves, then the group's owner authorises (D-AC-22, D-AC-23) | P-AC-05 | Proposed | Proposed (D-AC-P02), not yet approved |
-| AC-02\_ODP\[04\] | Basis for account actions | \<Policy\> (AC) and PRO-AC-1 to PRO-AC-6 | Section 3.2 | Proposed | Proposed (D-AC-P02), not yet approved |
-| AC-02\_ODP\[05\] | Others to be notified | System owner | New in this register | Proposed | Proposed (D-AC-P02), not yet approved |
-| AC-02\_ODP\[06\] | Notice when an account is no longer required | Within 1 working day | P-AC-06 | Proposed; route not agreed (PA-32) | Proposed (D-AC-P02), not yet approved; route not yet built (PA-32) |
-| AC-02\_ODP\[07\] | Notice when a user leaves or transfers | Within 1 working day | P-AC-06 | Proposed; route not agreed (PA-32) | Proposed (D-AC-P02), not yet approved; route not yet built (PA-32) |
-| AC-02\_ODP\[08\] | Notice when need changes | Leaver: within 5 working days, on the condition in P-AC-06. Transfer: within 1 working day | P-AC-06 | Proposed; route not agreed (PA-32) | Proposed (D-AC-P02), not yet approved; route not yet built (PA-32) |
-| AC-02\_ODP\[09\] | Attributes that authorise access | Schema read or edit group, and role, as in sections 3.3 and 3.4 | Section 3.4 | Proposed | Proposed (D-AC-P02), not yet approved |
-| AC-02\_ODP\[10\] | Account review frequency | Privileged accounts every 3 months; all others every 12 months | P-AC-07 | Proposed, not built | Proposed (D-AC-P02), not yet approved; no review yet held |
-| AC-02(01)\_ODP | Automated mechanisms | Active Directory, PingFederate and the Starters/Leavers system, for accounts and sign-in; \<System Name\>'s API, for reading and applying AD groups | Section 3.1 | As built, not approved | Proposed, not yet approved |
-| AC-02(02)\_ODP\[01\] | Remove or disable | Disable | P-AC-09 | Proposed | Not applicable (TR-AC-01) |
-| AC-02(02)\_ODP\[02\] | Time before disabling | Not applicable while temporary and emergency accounts are prohibited | P-AC-09 | Proposed | Not applicable (TR-AC-01) |
-| AC-02(03)\_ODP\[01\] | Time to disable an account | A leaver's Active Directory account: at once, by \<Organisation\>; their group memberships within 5 working days. Otherwise within 1 working day of the condition being found | New in this register | Proposed | Stated by the system owner (D-AC-23) |
-| AC-02(03)\_ODP\[02\] | Inactivity period | \<Organisation\>'s corporate standard for unused AD accounts, to be supplied. In addition, 90 days without signing in to \<System Name\>: the person is removed from \<System Name\>'s groups | P-AC-08 | Proposed, not built (PA-13) | Corporate standard accepted (D-AC-23); 90 days in \<System Name\>'s groups added (D-PS-11) |
-| AC-02(05)\_ODP | When users must log out | When PingFederate's sign-in lifetime for \<System Name\> ends; the device screen lock covers an unattended screen | P-AC-10 | As built, not approved: 30 minutes of inactivity in the tested build | Proposed (D-AC-P06), not yet approved; lifetime to be supplied by \<Organisation\> |
-| AC-02(13)\_ODP\[01\] | Time to disable a high-risk individual | Within 1 hour of notice | P-AC-13 | Proposed | Proposed (D-AC-P07), not yet approved |
-| AC-02(13)\_ODP\[02\] | Risks that trigger it | Notice from management or \<Organisation\>'s security contact of misconduct, compromised credentials or a hostile departure | New in this register | Proposed | Proposed (D-AC-P07), not yet approved |
-| AC-04\_ODP | Information flow policies | Only flows F1 to F9 in \<System Description\>, section 6.5, and the routes in section 3.6. The UI app and the Admin app have no database connection (D-AC-18) | Section 3.6 | Proposed | Proposed (D-AC-P08), not yet approved |
-| AC-05\_ODP | Duties requiring separation | Approving and granting access; administering and auditing; application, Windows and database administration; development and production administration | Section 3.5 | Proposed | Proposed (D-AC-P09), not yet approved |
-| AC-06(01)\_ODP\[01\] | Who may access security functions | The privileged roles in section 3.2 | Section 3.3 | Proposed; holders named | Proposed (D-AC-P10), not yet approved |
-| AC-06(01)\_ODP\[02\] | Security functions in hardware | Physical hosts and network equipment, held by \<Organisation\> | PA-30 | Open | Stated by \<Organisation\> (D-AC-P10) |
-| AC-06(01)\_ODP\[03\] | Security functions in software | As listed in P-AC-17 | P-AC-17 | Proposed | Proposed (D-AC-P10), not yet approved |
-| AC-06(01)\_ODP\[04\] | Security functions in firmware | Host firmware, held by \<Organisation\> | PA-30 | Open | Stated by \<Organisation\> (D-AC-P10) |
-| AC-06(01)\_ODP\[05\] | Security-relevant information | As listed in P-AC-17 | P-AC-17 | Proposed | Proposed (D-AC-P10), not yet approved |
-| AC-06(02)\_ODP | Functions requiring a separate everyday account | As listed in P-AC-17 | P-AC-18 | Proposed, not built | Proposed (D-AC-P11), not yet approved; accounts not yet issued (PA-17) |
-| AC-06(05)\_ODP | Who may hold privileged accounts | Administrator, auditor, security officer, Windows administrator and database administrator | Section 3.2 | Proposed; holders named | Proposed (D-AC-P12), not yet approved |
-| AC-06(07)\_ODP\[01\] | Privilege review frequency | Privileged roles every 3 months; all others every 12 months | P-AC-07 | Proposed, not built | Proposed (D-AC-P13), not yet approved; no review yet held (PA-16) |
-| AC-06(07)\_ODP\[02\] | Roles to be reviewed | All roles in section 3.3 | Section 3.3 | Proposed | Proposed (D-AC-P13), not yet approved |
-| AC-07\_ODP\[01\] | Number of failed attempts | Set by PingFederate and Active Directory: \<Organisation\>'s corporate standard, to be supplied | P-AC-14 | As built, not approved | Corporate standard proposed (D-AC-21, D-AC-23), not yet approved |
-| AC-07\_ODP\[02\] | Period for those attempts | Set by PingFederate and Active Directory: \<Organisation\>'s corporate standard, to be supplied | New in this register | As built, not approved | Corporate standard proposed (D-AC-21, D-AC-23), not yet approved |
-| AC-07\_ODP\[03\] | Action when exceeded | Lock the account for a period | P-AC-14 | As built, not approved | Corporate standard proposed (D-AC-21, D-AC-23), not yet approved |
-| AC-07\_ODP\[04\] | Lock period | Set by PingFederate and Active Directory: \<Organisation\>'s corporate standard, to be supplied | P-AC-14 | As built, not approved | Corporate standard proposed (D-AC-21, D-AC-23), not yet approved |
-| AC-07\_ODP\[05\] | Delay algorithm | Not selected | New in this register | Proposed | Not selected |
-| AC-07\_ODP\[06\] | Other action | Not selected | New in this register | Proposed | Not selected |
-| AC-08\_ODP\[01\] | System use notice | The wording in section 3.16 | P-AC-16 | Proposed, not built (PA-11) | Proposed (D-AC-P15), not yet approved; not yet built (PA-11); not yet legally reviewed |
-| AC-08\_ODP\[02\] | Conditions for public systems | Not applicable while \<System Name\> is not public | P-AC-24 | Proposed | Not selected |
-| AC-11\_ODP\[01\] | How the lock starts | After a period of inactivity, by the device screen lock | P-AC-15 | As built, not approved | Proposed (D-AC-P16), not yet approved; provided by \<Organisation\>'s devices |
-| AC-11\_ODP\[02\] | Inactivity period | \<Organisation\>'s device standard, to be supplied | P-AC-15 | As built, not approved: 25 minutes in the tested build | To be supplied by \<Organisation\> |
-| AC-12\_ODP | Conditions that end a session | The end of PingFederate's sign-in lifetime for \<System Name\>; \<Organisation\> ending the PingFederate sign-in or disabling the account | P-AC-10 to P-AC-12 | As built, not approved: 30 minutes idle, 8 hours, sign-out, revocation and 3 sessions in the tested build | Proposed (D-AC-P17), not yet approved; lifetime to be supplied by \<Organisation\> |
-| AC-14\_ODP | Actions without sign-in | As listed in P-AC-25 | P-AC-25 | Proposed; other open endpoints exist | Proposed (D-AC-P18), not yet approved; other open endpoints remain (PA-03, PA-07) |
-| AC-17(04)\_ODP\[01\] | Needs for remote privileged commands | None, unless remote administration is approved | New in this register | Open | Not applicable (TR-AC-05) |
-| AC-17(04)\_ODP\[02\] | Needs for remote access to security-relevant information | None, unless remote administration is approved | New in this register | Open | Not applicable (TR-AC-05) |
-| AC-18(01)\_ODP | Authenticating users, devices or both | Users and devices, stated by \<Organisation\>'s security contact | P-AC-21 | Open | Proposed (D-AC-P20), not yet approved |
-| AC-19(05)\_ODP\[01\] | Full-device or container encryption | To be set by \<Organisation\>'s mobile controls | P-AC-21 | Open | Not applicable (TR-AC-06) |
-| AC-19(05)\_ODP\[02\] | Which mobile devices | To be set by \<Organisation\>'s mobile controls | P-AC-21 | Open | Not applicable (TR-AC-06) |
-| AC-20\_ODP\[01\] | Terms or asserted controls | Establish terms and conditions | P-AC-22 | Proposed | Proposed (D-AC-P22), not yet approved |
-| AC-20\_ODP\[02\] | Terms and conditions | External systems may hold or reach \<System Name\> data only with the system owner's approval | P-AC-22 | Proposed | Proposed (D-AC-P22), not yet approved |
-| AC-20\_ODP\[03\] | Asserted controls | Not selected | New in this register | Proposed | Not selected |
-| AC-20\_ODP\[04\] | Prohibited external systems | Personal devices, personal cloud storage and any unmanaged system | New in this register | Proposed | Proposed (D-AC-P22), not yet approved |
-| AC-20(02)\_ODP | Portable storage restrictions | Not allowed without the system owner's approval | P-AC-22 | Proposed | Proposed (D-AC-P23), not yet approved |
-| AC-21\_ODP\[01\] | When users decide on sharing | Sharing outside a schema, decided by the Data Owner | P-AC-23 | Proposed | Proposed (D-AC-P24), not yet approved |
-| AC-21\_ODP\[02\] | What assists the decision | The manual process in PRO-AC-16 | PRO-AC-16 | Proposed | Proposed (D-AC-P24), not yet approved |
-| AC-22\_ODP | Public content review frequency | Not applicable while \<System Name\> holds no public content | P-AC-24 | Proposed | Not applicable (TR-AC-08) |

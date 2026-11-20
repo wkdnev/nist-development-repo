@@ -2,7 +2,7 @@
 
 ## 1 Purpose
 
-This document shows how \<System Name\> manages the risk that it is harmed through what it is built from, where it is hosted and who supplies it, for each of the 12 Supply Chain Risk Management (SR) controls in the CSS Moderate baseline. Section 3 is the supply chain risk management plan that SR-2 requires, on the headings of CSS: the system context, the team, the risks at each stage, the supplier register, the risk tolerance, how components come in, and notices, inspection, authenticity and disposal. Section 4 takes each control in turn. Appendix A lists every value CSS asks the organisation to define.
+This document shows how \<System Name\> manages the risk that it is harmed through what it is built from, where it is hosted and who supplies it, for each of the 12 Supply Chain Risk Management (SR) controls in the CSS Moderate baseline. Section 3 is the supply chain risk management plan that SR-2 requires, on the headings of CSS: the system context, the team, the risks at each stage, the supplier register, the risk tolerance, how components come in, and notices, inspection, authenticity and disposal. Section 4 takes each control in turn. Values CSS asks the organisation to define are set at corporate level by \<Organisation\>.
 
 The policy is in \<Policy\> (SR), and the steps people follow are in \<Procedures\> (SR). The critical components are in \<Risk Assessment Management\>, section 3.9, the supply chain risk review in its section 3.4, the external services in \<System and Services Acquisition Management\>, section 3.7, and the integrity baseline in \<System and Information Integrity Management\>, section 3.5.
 
@@ -424,52 +424,11 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 | Risk decision | NC-SR-12, rated Low: obtain evidence |
 | Open items | EV-SR-02. PA-131 |
 
-## Appendix A Parameter register
+## Appendix A Supply chain controls outside the Moderate baseline
 
-These are the CSS organisation-defined values for the 12 SR entries: 32 in total. They were agreed on 6 November 2026 and revised on 12 November 2026 (D-SR-P01). **State now** says how far each is in place.
+CSS does not select these at Moderate, so they are not assessed. Table 31 says where the design goes some way towards them.
 
-**Table 31: SR parameter register**
-
-| CSS identifier | What must be defined | Value | State now |
-| --- | --- | --- | --- |
-| SR-01\_ODP\[01\] | Who receives the policy | Developers and administrators | Not yet shared |
-| SR-01\_ODP\[02\] | Who receives the procedures | Developers and administrators | Not yet shared |
-| SR-01\_ODP\[03\] | Level of the policy | System level | In place |
-| SR-01\_ODP\[04\] | Official who manages them | System owner | In place |
-| SR-01\_ODP\[05\] | Policy review frequency | Every 12 months | First review due November 2027 |
-| SR-01\_ODP\[06\] | Events requiring policy review | Significant incident, audit finding or system change | Reviewed after the SR pack review, 12 November 2026 |
-| SR-01\_ODP\[07\] | Procedures review frequency | Every 12 months | First review due November 2027 |
-| SR-01\_ODP\[08\] | Events requiring procedures review | A change to the steps | Reviewed after the SR pack review, 12 November 2026 |
-| SR-02\_ODP\[01\] | What the plan covers | \<System Name\>, its software packages, container images, browser files, build tools, hosting and hardware | Defined |
-| SR-02\_ODP\[02\] | Review frequency | Every 12 months | First review due November 2027 |
-| SR-02(01)\_ODP\[01\] | Team | System owner, security officer, a developer and \<Organisation\>'s IT service desk | Named; \<Organisation\> not yet confirmed |
-| SR-02(01)\_ODP\[02\] | What the team does | Keeps this plan current, reviews suppliers, and handles notices of compromise | Team has not met |
-| SR-03\_ODP\[01\] | What is covered | \<System Name\> and every component in its supplier register | Defined |
-| SR-03\_ODP\[02\] | Who is coordinated with | \<Organisation\>'s IT service desk and the suppliers in section 4 | Defined |
-| SR-03\_ODP\[03\] | Controls | Approved suppliers; every package through the offline feed; lock files and signed-package trust; images pinned by digest; integrity checks on browser files; a bill of materials; monthly and release checks | Only OfflineModules packages use the feed (U01; PA-94); no lock files or trust policy (U02, U03); images floating (U06; PA-77); CDN files unchecked (U09; PA-34); no bill of materials (U07; PA-78) |
-| SR-03\_ODP\[04\] | Where controls are documented | Security and privacy plans, and this plan | Defined |
-| SR-03\_ODP\[05\] | Other document | This plan | Defined |
-| SR-05\_ODP | Strategies and methods | Approved suppliers; every package through the offline feed after the PRO-SR-1 check; lock files and signed-package trust; images pinned by digest; review before a new critical supplier | Packages come straight from nuget.org (U01; PA-94); NuGet audit off in the build (U04; PA-92) |
-| SR-06\_ODP | Review frequency | Every 12 months, and before a new critical supplier is used | No review held on TPL-16; first supply chain review held 11 November 2026 (\<Risk Assessment Management\>, section 3.4) |
-| SR-08\_ODP\[01\] | What is notified | A compromise in the supply chain, within 24 hours | \<Organisation\>'s terms not seen (EV-SR-01); open-source advisories watched (\<System and Information Integrity Management\>, section 3.3) |
-| SR-08\_ODP\[02\] | Other results shared | Assessment or audit results that affect \<System Name\> | Not seen (EV-SR-01) |
-| SR-10\_ODP\[01\] | What is inspected | Release packages, container images, \<System Name\> assemblies and hardware | Images and assemblies match the baseline (U08); release checksums not built (PA-61); hardware not seen (EV-SR-02) |
-| SR-10\_ODP\[02\] | When | At each release, and when something suggests tampering | Defined |
-| SR-10\_ODP\[03\] | Frequency | Each release | Test-SupplyChain.ps1 run on v1.0, 12 November 2026 |
-| SR-10\_ODP\[04\] | Signs of tampering | A SHA-256 value that differs from the release record or baseline, an unexpected package source, or damaged packaging | Defined |
-| SR-11\_ODP\[01\] | Who is told | The source of the counterfeit, and the two below | Defined |
-| SR-11\_ODP\[02\] | External bodies told | The supplier, the package registry (NuGet or GitHub) and, if serious, the NCSC | Defined |
-| SR-11\_ODP\[03\] | Who is told | Security officer and \<Organisation\> | Procedure approved; not yet used |
-| SR-11(01)\_ODP | Who is trained | \<Organisation\>'s buyers, yearly | Not seen (EV-SR-02) |
-| SR-11(02)\_ODP | Components under control | Hardware away for service or repair | Not seen (EV-SR-02) |
-| SR-12\_ODP\[01\] | What is disposed of | Hardware, media, data and documents | Not seen (EV-SR-02) |
-| SR-12\_ODP\[02\] | How | \<Procedures\>, PRO-MP-3 | PRO-MP-3 approved; not yet used |
-
-## Appendix B Supply chain controls outside the Moderate baseline
-
-CSS does not select these at Moderate, so they are not assessed. Table 32 says where the design goes some way towards them.
-
-**Table 32: Related controls and enhancements not selected**
+**Table 31: Related controls and enhancements not selected**
 
 | Control | What it adds | \<System Name\>'s position |
 | --- | --- | --- |

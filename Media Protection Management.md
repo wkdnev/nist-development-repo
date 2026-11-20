@@ -2,7 +2,7 @@
 
 ## 1 Purpose
 
-This document shows how media that hold \<System Name\>'s information are protected, for each of the 7 Media Protection (MP) controls in the CSS Moderate baseline. Section 3 sets out the design: every place the information is held outside the running application, how each is marked, stored, moved and sanitised, the limits on portable storage, and what \<Organisation\> provides. Section 4 takes each control in turn. Appendix A lists every value CSS asks the organisation to define, and appendix B the MP controls CSS does not select at Moderate.
+This document shows how media that hold \<System Name\>'s information are protected, for each of the 7 Media Protection (MP) controls in the CSS Moderate baseline. Section 3 sets out the design: every place the information is held outside the running application, how each is marked, stored, moved and sanitised, the limits on portable storage, and what \<Organisation\> provides. Section 4 takes each control in turn. Values CSS asks the organisation to define are set at corporate level by \<Organisation\>. Appendix A the MP controls CSS does not select at Moderate.
 
 The policy is in \<Policy\> (MP), and the steps people follow are in \<Procedures\> (MP). The rules each user signs for exports, printing and copies are in \<Security Operating Procedures\>, Part A.
 
@@ -309,53 +309,11 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 | Risk decision | NC-MP-07, rated Low: obtain evidence |
 | Open items | PA-121: \<Organisation\>'s evidence |
 
-## Appendix A Parameter register
+## Appendix A MP controls outside the Moderate baseline
 
-These are the CSS organisation-defined values for the 7 MP entries: 33 in total. They were agreed on 6 November 2026 (D-MP-P01), and revised on 10 November 2026 (D-MP-P02).
+CSS does not select these at Moderate, so they are not assessed. Some of the design goes further than the baseline, and Table 21 says where.
 
-**Table 21: MP parameter register**
-
-| CSS identifier | What must be defined | Value | State now |
-| --- | --- | --- | --- |
-| MP-01\_ODP\[01\] | Who receives the policy | Everyone who uses or administers \<System Name\> | Not yet shared (PA-20) |
-| MP-01\_ODP\[02\] | Who receives the procedures | Everyone who uses or administers \<System Name\> | Not yet shared (PA-20) |
-| MP-01\_ODP\[03\] | Level of the policy | System level | In place |
-| MP-01\_ODP\[04\] | Official who manages them | System owner | In place |
-| MP-01\_ODP\[05\] | Policy review frequency | Every 12 months | First review due November 2027 |
-| MP-01\_ODP\[06\] | Events requiring policy review | Significant incident, audit finding or system change | Reviewed after the MP pack review, 10 November 2026 |
-| MP-01\_ODP\[07\] | Procedures review frequency | Every 12 months | First review due November 2027 |
-| MP-01\_ODP\[08\] | Events requiring procedures review | A change to the steps | Reviewed after the MP pack review, 10 November 2026 |
-| MP-02\_ODP\[01\] | Digital media with restricted access | The digital media in section 3.2 | Inventory written |
-| MP-02\_ODP\[02\] | Who may access them | As section 3.2 says for each: the Windows server administrator, database administrator and \<Organisation\>'s hosting staff for disks, volumes and backups; editors in a project for its exports; the user for their own managed device | Exports limited to editors (P01); the rest not evidenced (EV-MP-01) |
-| MP-02\_ODP\[03\] | Non-digital media with restricted access | Printed \<System Name\> documents | Not yet in use |
-| MP-02\_ODP\[04\] | Who may access them | People authorised to read that project | Not yet in use |
-| MP-03\_ODP\[01\] | Media exempt from marking | None | In place |
-| MP-03\_ODP\[02\] | Controlled areas for exempt media | Not applicable, as none is exempt | In place |
-| MP-04\_ODP\[01\] | Digital media physically controlled | The digital media in section 3.2 | Not evidenced (EV-MP-01) |
-| MP-04\_ODP\[02\] | Non-digital media physically controlled | Printed \<System Name\> documents | Not yet in use |
-| MP-04\_ODP\[03\] | Digital media securely stored | The digital media in section 3.2 | Export copies left unencrypted on the server (PA-86) |
-| MP-04\_ODP\[04\] | Non-digital media securely stored | Printed \<System Name\> documents | Not yet in use |
-| MP-04\_ODP\[05\] | Controlled areas for digital media | \<Organisation\>'s data centres, and managed devices for users' copies | Not evidenced (EV-MP-01, EV-MP-03) |
-| MP-04\_ODP\[06\] | Controlled areas for non-digital media | Locked storage in \<Organisation\>'s offices | Not yet in use |
-| MP-05\_ODP\[01\] | Media protected in transport | Physical disks, backup media and printouts, moved only by exception | Not yet used |
-| MP-05\_ODP\[02\] | Controls that protect them | Encryption for digital media, and sealed packaging for paper | Backups not yet encrypted (PA-64) |
-| MP-05\_ODP\[03\] | Controls that keep them under control | The system owner's approval, an authorised courier with tracking, and a TPL-13 record | Not yet used |
-| MP-06\_ODP\[01\] | Media sanitised before disposal | All media in section 3.2, and paper | Not evidenced (EV-MP-02) |
-| MP-06\_ODP\[02\] | Media sanitised before release | The digital media in section 3.2 | Not evidenced (EV-MP-02) |
-| MP-06\_ODP\[03\] | Media sanitised before reuse | The digital media in section 3.2 | Not evidenced (EV-MP-02) |
-| MP-06\_ODP\[04\] | Technique before disposal | The method for each media type in section 3.6, following CSS and IEEE 2883-2022; paper cross-cut to DIN 66399 level P-4 or better | Methods set |
-| MP-06\_ODP\[05\] | Technique before release | The method for each media type in section 3.6 | Methods set |
-| MP-06\_ODP\[06\] | Technique before reuse | The method for each media type in section 3.6 | Methods set |
-| MP-07\_ODP\[01\] | Media types limited | USB and other portable storage | Not evidenced (EV-MP-03) |
-| MP-07\_ODP\[02\] | Restrict or prohibit | Restrict | In place |
-| MP-07\_ODP\[03\] | Where this applies | Users' devices and both servers | Not evidenced (EV-MP-03) |
-| MP-07\_ODP\[04\] | Controls used | Blocked by device control unless an exception is approved; no USB device passed through to the servers | Not evidenced (EV-AC-17, EV-MP-03) |
-
-## Appendix B MP controls outside the Moderate baseline
-
-CSS does not select these at Moderate, so they are not assessed. Some of the design goes further than the baseline, and Table 22 says where.
-
-**Table 22: MP controls not selected at Moderate**
+**Table 21: MP controls not selected at Moderate**
 
 | Control | What it adds | \<System Name\>'s position |
 | --- | --- | --- |

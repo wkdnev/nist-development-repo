@@ -4,7 +4,7 @@
 
 This document shows how \<System Name\> keeps its software and information sound, for each of the 18 System and Information Integrity (SI) controls in the CSS Moderate baseline: fixing flaws, malicious code protection, monitoring, advisories, integrity checks, input validation, error handling, retention and memory protection.
 
-Section 3 sets out the design: the upload checks and malware scanning; flaw remediation and advisories; monitoring and the detection use cases; the integrity baseline and checks; error handling and memory protection; retention; how integrity stands today; and what \<Organisation\> provides. Section 4 takes each control in turn. Appendix A lists every value CSS asks the organisation to define.
+Section 3 sets out the design: the upload checks and malware scanning; flaw remediation and advisories; monitoring and the detection use cases; the integrity baseline and checks; error handling and memory protection; retention; how integrity stands today; and what \<Organisation\> provides. Section 4 takes each control in turn. Values CSS asks the organisation to define are set at corporate level by \<Organisation\>.
 
 The policy is in \<Policy\> (SI), and the steps people follow are in \<Procedures\> (SI). The vulnerability timetable is in \<Risk Assessment Management\>, section 3.6, the retention schedule in \<PII Processing Management\>, section 3.7, and the audit design in \<Audit and Accountability Management\>. The privacy controls SI-12(1) to SI-12(3), SI-18, SI-18(4) and SI-19 are set out in \<PII Processing Management\>.
 
@@ -583,77 +583,11 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 | Risk decision | NC-SI-16, rated Low: obtain evidence |
 | Open items | PA-54 |
 
-## Appendix A Parameter register
+## Appendix A Integrity controls outside the Moderate baseline
 
-These are the CSS organisation-defined values for the 18 SI entries: 57 in total. They were agreed on 6 November 2026 (D-SI-P01), and those changed on 12 November 2026 in D-SI-P02. **State now** says whether \<System Name\> meets the value today.
+CSS does not select these at Moderate, so they are not assessed. SI-8 and SI-8(2) are tailored out (TR-SI-01), and SI-12(1) to SI-12(3), SI-18, SI-18(4) and SI-19 are privacy baseline controls set out in \<PII Processing Management\>. Table 45 says where the design goes some way towards them.
 
-**Table 45: SI parameter register**
-
-| CSS identifier | What must be defined | Value | State now |
-| --- | --- | --- | --- |
-| SI-01\_ODP\[01\] | Who receives the policy | Everyone who administers or develops \<System Name\> | Not yet shared |
-| SI-01\_ODP\[02\] | Who receives the procedures | Everyone who administers or develops \<System Name\> | Not yet shared |
-| SI-01\_ODP\[03\] | Level of the policy | System level | In place |
-| SI-01\_ODP\[04\] | Official who manages them | System owner | In place |
-| SI-01\_ODP\[05\] | Policy review frequency | Every 12 months | First review due November 2027 |
-| SI-01\_ODP\[06\] | Events requiring policy review | Significant incident, audit finding or system change | Reviewed after the SI pack review, 12 November 2026 |
-| SI-01\_ODP\[07\] | Procedures review frequency | Every 12 months | First review due November 2027 |
-| SI-01\_ODP\[08\] | Events requiring procedures review | A change to the steps | Reviewed after the SI pack review, 12 November 2026 |
-| SI-02\_ODP | Time to install updates | The one timetable in \<Risk Assessment Management\>, section 3.6: 3 days if exploited; 14 days Critical and High; 30 days Medium; 90 days Low (30 once a fix exists); from release or detection | 7 advisories open (PA-56) |
-| SI-02(02)\_ODP\[01\] | Automated mechanisms | Test-Vulnerability.ps1, repository dependency alerts and Windows Update reports | Script exists; not scheduled (PA-57); alerts off (PA-91) |
-| SI-02(02)\_ODP\[02\] | Frequency | Monthly, and at each release | Run by hand |
-| SI-03\_ODP\[01\] | Type of protection | Signature-based and behaviour-based | VMs not built |
-| SI-03\_ODP\[02\] | Scan frequency | Weekly | VMs not built |
-| SI-03\_ODP\[03\] | Where real-time scans run | Endpoint (both VMs) and network entry: each upload, through AMSI, before it is stored | No scanner call (H08; PA-58) |
-| SI-03\_ODP\[04\] | Response | Block and quarantine | VMs not built |
-| SI-03\_ODP\[05\] | Other action | Refuse the upload and record it in the audit trail | Not built (PA-58) |
-| SI-03\_ODP\[06\] | Who is alerted | Windows server administrator and security officer | Not built (PA-59) |
-| SI-04\_ODP\[01\] | Monitoring objectives | Detect attacks, misuse and unauthorised connections | Defined |
-| SI-04\_ODP\[02\] | Techniques and methods | Log forwarding to \<Organisation\>'s central logging, the detection use cases in section 3.4, audit records and \<Organisation\>'s network monitoring | No forwarding or alerts (H12; PA-59) |
-| SI-04\_ODP\[03\] | Monitoring information | Application, Windows and PostgreSQL logs | Failed sign-ins are recorded by AD FS since sign-in moved there (D-AC-23); \<System Name\>'s logs are not forwarded |
-| SI-04\_ODP\[04\] | Who receives it | Security officer | Defined |
-| SI-04\_ODP\[05\] | When it is provided | At the set frequency | Defined |
-| SI-04\_ODP\[06\] | Frequency | Weekly | Reviews not started |
-| SI-04(04)\_ODP\[01\] | Inbound monitoring frequency | Continuous, by \<Organisation\> | Not evidenced (EV-SI-01) |
-| SI-04(04)\_ODP\[02\] | Unusual inbound activity | Traffic outside the agreed flows | Defined |
-| SI-04(04)\_ODP\[03\] | Outbound monitoring frequency | Continuous, by \<Organisation\> | Not evidenced (EV-SI-01) |
-| SI-04(04)\_ODP\[04\] | Unusual outbound activity | Traffic outside the agreed flows, or unusually large transfers | Defined |
-| SI-04(05)\_ODP\[01\] | Who is alerted | Security officer | Defined |
-| SI-04(05)\_ODP\[02\] | Compromise indicators | The detection use cases in section 3.4 | No alerts (H12; PA-59) |
-| SI-05\_ODP\[01\] | Sources of advisories | NCSC (including Early Warning), CISA's Known Exploited Vulnerabilities catalogue, Microsoft, .NET and GitHub, and PostgreSQL | Not started; Early Warning not registered (EV-SI-03) |
-| SI-05\_ODP\[02\] | Who advisories go to | Selected personnel | Defined |
-| SI-05\_ODP\[03\] | Personnel | Security officer, administrators and developers | Defined |
-| SI-05\_ODP\[04\] | Elements | Not applicable; personnel are selected | Defined |
-| SI-05\_ODP\[05\] | External organisations | Not applicable; personnel are selected | Defined |
-| SI-07\_ODP\[01\] | Software | UI application, Admin application and API release packages | Baseline recorded (section 3.5); checks not built (PA-61) |
-| SI-07\_ODP\[02\] | Firmware | VM firmware, through \<Organisation\> | Defined |
-| SI-07\_ODP\[03\] | Information | Stored documents and audit records, protected with SHA-256 | Documents use MD5 (H09; PA-61); chain does not verify (H10; PA-74) |
-| SI-07\_ODP\[04\] | Action for software | Treat as an incident, and restore from a trusted copy | Defined |
-| SI-07\_ODP\[05\] | Action for firmware | Tell \<Organisation\>'s security contact | Defined |
-| SI-07\_ODP\[06\] | Action for information | Treat as an incident, and restore from backup | Defined |
-| SI-07(01)\_ODP\[01\] | Software checked | As SI-07\_ODP\[01\] | Defined |
-| SI-07(01)\_ODP\[02\] | When | At startup, at set events and at a set frequency | Defined |
-| SI-07(01)\_ODP\[03\] | Events | Each release | Defined |
-| SI-07(01)\_ODP\[04\] | Frequency | Monthly | Not built (PA-61) |
-| SI-07(01)\_ODP\[05\] | Firmware checked | As SI-07\_ODP\[02\] | Defined |
-| SI-07(01)\_ODP\[06\] | When | At startup, at set events and at a set frequency | Defined |
-| SI-07(01)\_ODP\[07\] | Events | A change to the hosting | Defined |
-| SI-07(01)\_ODP\[08\] | Frequency | Monthly, by \<Organisation\> | Defined |
-| SI-07(01)\_ODP\[09\] | Information checked | As SI-07\_ODP\[03\] | Defined |
-| SI-07(01)\_ODP\[10\] | When | At startup, at set events and at a set frequency | Defined |
-| SI-07(01)\_ODP\[11\] | Events | Each release | Defined |
-| SI-07(01)\_ODP\[12\] | Frequency | Monthly | Not built (PA-37, PA-61) |
-| SI-07(07)\_ODP | Changes that go to incident response | Any unexpected change to software, stored documents or audit records | Defined |
-| SI-08(02)\_ODP | Update frequency | Not applicable (TR-SI-01) | Not applicable (TR-SI-01) |
-| SI-10\_ODP | Inputs checked | All API inputs, uploads (type, signature, size and name) and search terms | Tested: refused or rejected (H03 to H07) |
-| SI-11\_ODP | Who sees error detail | Administrators and developers | About 29 API responses leak detail (H01; PA-60) |
-| SI-16\_ODP | Memory controls | Windows data execution prevention and address randomisation, and .NET managed memory | .NET managed memory and non-root containers in place; DEP and ASLR to confirm on the VMs |
-
-## Appendix B Integrity controls outside the Moderate baseline
-
-CSS does not select these at Moderate, so they are not assessed. SI-8 and SI-8(2) are tailored out (TR-SI-01), and SI-12(1) to SI-12(3), SI-18, SI-18(4) and SI-19 are privacy baseline controls set out in \<PII Processing Management\>. Table 46 says where the design goes some way towards them.
-
-**Table 46: Related controls and enhancements not selected**
+**Table 45: Related controls and enhancements not selected**
 
 | Control | What it adds | \<System Name\>'s position |
 | --- | --- | --- |

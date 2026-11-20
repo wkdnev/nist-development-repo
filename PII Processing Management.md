@@ -4,7 +4,7 @@
 
 This document shows how \<System Name\> processes personal data lawfully, openly and no more than it needs, for each of the 6 Personally Identifiable Information Processing and Transparency (PT) controls that apply and the 16 other controls of the CSS privacy baseline. CSS places none of the PT controls in the Moderate baseline. \<System Name\> applies the privacy baseline because it holds HR documents with personal data, some of it special category data (D-PT-01, D-PT-07).
 
-Section 3 sets out the design: the authority, purposes and lawful basis; every kind of personal data \<System Name\> holds; special category data; the privacy notice; people's rights; minimisation, quality, retention and disposal; the impact assessment; where the privacy controls held in other documents are; and what \<Organisation\> provides. Section 4 takes each control in turn. Appendix A lists every value CSS asks the organisation to define, and appendix B the related enhancements CSS does not select.
+Section 3 sets out the design: the authority, purposes and lawful basis; every kind of personal data \<System Name\> holds; special category data; the privacy notice; people's rights; minimisation, quality, retention and disposal; the impact assessment; where the privacy controls held in other documents are; and what \<Organisation\> provides. Section 4 takes each control in turn. Values CSS asks the organisation to define are set at corporate level by \<Organisation\>. Appendix A the related enhancements CSS does not select.
 
 The policy is in \<Policy\> (PT), and the steps people follow are in \<Procedures\> (PT). Two documents sit beside this one and are owned by the legal adviser: the privacy plan, \<Privacy Plan\>, which PL-2 calls for, and the data protection impact assessment, \<Data Protection Impact Assessment\>.
 
@@ -680,61 +680,11 @@ The controls are in CSS order: the PT controls first, then the other privacy bas
 | Status | Not applicable |
 | Decision | TR-PT-01 |
 
-## Appendix A Parameter register
+## Appendix A Privacy controls outside the privacy baseline
 
-These are the CSS organisation-defined values for the 6 assessed PT entries and the 16 other privacy controls: 41 in total. They were agreed on 6 November 2026 and restated as requirements on 11 November 2026 (D-PT-P01). Seven more PT entries are tailored as United States only (\<Tailoring Register\>, TR-PT-01).
+CSS does not select these enhancements in its privacy baseline, so they are not assessed. Some of the design goes some way towards them, and Table 53 says where. The United States controls that the baseline does select are tailored out in section 4.
 
-**Table 53: Privacy parameter register**
-
-| CSS identifier | What must be defined | Value |
-| --- | --- | --- |
-| PT-01\_ODP\[01\] | Who receives the policy | Everyone who administers \<System Name\> |
-| PT-01\_ODP\[02\] | Who receives the procedures | Everyone who administers \<System Name\> |
-| PT-01\_ODP\[03\] | Level of the policy | System level |
-| PT-01\_ODP\[04\] | Official who manages them | System owner |
-| PT-01\_ODP\[05\] | Policy review frequency | Every 12 months |
-| PT-01\_ODP\[06\] | Events requiring policy review | Significant incident, audit finding, change in the law or system change |
-| PT-01\_ODP\[07\] | Procedures review frequency | Every 12 months |
-| PT-01\_ODP\[08\] | Events requiring procedures review | A change to the steps |
-| PT-02\_ODP\[01\] | Authority | UK GDPR, the Data Protection Act 2018 and the Data (Use and Access) Act 2025, with the lawful basis and conditions for each kind of data in section 3.3 |
-| PT-02\_ODP\[02\] | Processing permitted | Storing, finding, displaying, printing and exporting HR and project documents |
-| PT-02\_ODP\[03\] | Processing restricted | To the purposes in PT-03\_ODP\[01\], within project permissions |
-| PT-03\_ODP\[01\] | Purposes | HR administration and managing project documents |
-| PT-03\_ODP\[02\] | Processing restricted to those purposes | Storing, finding, displaying, printing and exporting documents |
-| PT-03\_ODP\[03\] | How changes are controlled | Each change record says whether personal data is affected; the legal adviser reviews those that are (PRO-PT-3) |
-| PT-03\_ODP\[04\] | Requirements changes must meet | UK GDPR, \<Policy\> (PT) and \<Data Protection Impact Assessment\> |
-| PT-04\_ODP | Consent tools | None, as consent is not the lawful basis for employee data |
-| PT-05\_ODP\[01\] | Notice review frequency | Every 12 months |
-| PT-05\_ODP\[02\] | Information in the notice | As \<Organisation\>'s employee privacy notice, naming \<System Name\> and its purposes, linked from \<System Name\>'s pages, as people sign in on \<Organisation\>'s AD FS page (PA-90) |
-| PT-07\_ODP | Conditions for special categories | Only in projects the business owner authorises, with the Article 9 and Schedule 1 conditions in section 3.3 and the impact assessment |
-| AC-03(14)\_ODP\[01\] | How individuals get access | A request to the legal adviser, met by a reasonable and proportionate search of every project within one month; complaints acknowledged within 30 days (PRO-PT-1) |
-| AC-03(14)\_ODP\[02\] | What they can see | Their personal data in \<System Name\> documents, document records and audit records |
-| AT-03(05)\_ODP\[01\] | Who gets privacy training | Everyone who handles HR documents, and all administrators |
-| AT-03(05)\_ODP\[02\] | Frequency | Before access, and every 12 months |
-| AU-03(03)\_ODP | Personal data allowed in audit records | Username, user ID, IP address, user agent and session ID; none in the application log (PA-75) |
-| PE-08(03)\_ODP | Personal data allowed in visitor records | Name, organisation, and date and time of visit |
-| PL-09\_ODP | What is centrally managed | Policies, plans, registers and records in this document set, in the restricted SharePoint area (PA-88) |
-| SA-08(33)\_ODP | How data is minimised | What is collected is reviewed at design, in each change record, and in the impact assessment |
-| SC-07(24)\_ODP | Processing rules | Project access permissions, and the measures in \<Data Protection Impact Assessment\> |
-| SI-12(01)\_ODP | Elements processed | Only what each document's purpose requires, as in section 3.3 |
-| SI-12(02)\_ODP\[01\] | Technique for research | No real personal data is used |
-| SI-12(02)\_ODP\[02\] | Technique for testing | Sample data only |
-| SI-12(02)\_ODP\[03\] | Technique for training | Sample data only |
-| SI-12(03)\_ODP\[01\] | How information is disposed of | Deleted at the end of its retention period (section 3.7), with the deletion audited and the database vacuumed (PRO-PT-5) |
-| SI-12(03)\_ODP\[02\] | How information is destroyed | \<Procedures\>, PRO-MP-3 |
-| SI-12(03)\_ODP\[03\] | How information is erased | \<Procedures\>, PRO-MP-3 |
-| SI-18\_ODP\[01\] | Accuracy check frequency | Every 12 months |
-| SI-18\_ODP\[02\] | Relevance check frequency | Every 12 months |
-| SI-18\_ODP\[03\] | Timeliness check frequency | Every 12 months |
-| SI-18\_ODP\[04\] | Completeness check frequency | Every 12 months |
-| SI-19\_ODP\[01\] | Elements removed | None, as no dataset is de-identified |
-| SI-19\_ODP\[02\] | Evaluation frequency | Not applicable |
-
-## Appendix B Privacy controls outside the privacy baseline
-
-CSS does not select these enhancements in its privacy baseline, so they are not assessed. Some of the design goes some way towards them, and Table 54 says where. The United States controls that the baseline does select are tailored out in section 4.
-
-**Table 54: Related enhancements not selected**
+**Table 53: Related enhancements not selected**
 
 | Control | What it adds | \<System Name\>'s position |
 | --- | --- | --- |

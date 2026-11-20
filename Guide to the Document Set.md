@@ -217,7 +217,7 @@ Four design documents are also the plan that CSS requires for their family, in t
 | TPL- | A form | \<Record Templates\> |
 | A, B and C with a number | A rule for everyone, a rule for privileged users, and an operating duty | \<Security Operating Procedures\> |
 | A letter and two digits, such as V05 or T22 | A check in a test script | The design document of the family, and the evidence for it |
-| ODP | A value CSS asks the organisation to define | The parameter register, an appendix of each design document |
+| ODP | A value CSS asks the organisation to define | Set at corporate level by \<Organisation\> |
 
 ## 9 What the set does not yet show
 

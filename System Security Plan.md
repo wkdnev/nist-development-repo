@@ -302,7 +302,7 @@ This section gives a brief overview of every control in the 19 families, one lin
 
 ### 7.1 Access Control (AC)
 
-74 of 189 assessment statements satisfied; 0 of 39 controls fully satisfied. Assessed on 5 November 2026: findings are in \<Control Assessment Record\> (AC), whose section AC.6 is the assessment plan, and decisions are in \<Risk List\>. Implementation detail is in \<Policy\> (AC), \<Procedures\> (AC) and \<Access Control Management\>, whose appendix A holds the parameter values.
+74 of 189 assessment statements satisfied; 0 of 39 controls fully satisfied. Assessed on 5 November 2026: findings are in \<Control Assessment Record\> (AC), whose section AC.6 is the assessment plan, and decisions are in \<Risk List\>. Implementation detail is in \<Policy\> (AC), \<Procedures\> (AC) and \<Access Control Management\>.
 
 **Table 10: AC controls**
 
@@ -365,7 +365,7 @@ This section gives a brief overview of every control in the 19 families, one lin
 
 ### 7.3 Audit and Accountability (AU)
 
-48 of 81 assessment statements satisfied; 1 of 16 controls fully satisfied. Assessed on 6 November 2026: findings are in \<Control Assessment Record\> (AU), whose section AU.5 is the assessment plan, and decisions are in \<Risk List\>. Implementation detail is in \<Policy\> (AU), \<Procedures\> (AU) and \<Audit and Accountability Management\>, whose appendix A holds the parameter values.
+48 of 81 assessment statements satisfied; 1 of 16 controls fully satisfied. Assessed on 6 November 2026: findings are in \<Control Assessment Record\> (AU), whose section AU.5 is the assessment plan, and decisions are in \<Risk List\>. Implementation detail is in \<Policy\> (AU), \<Procedures\> (AU) and \<Audit and Accountability Management\>.
 
 **Table 12: AU controls**
 
@@ -390,7 +390,7 @@ This section gives a brief overview of every control in the 19 families, one lin
 
 ### 7.4 Assessment, Authorization, and Monitoring (CA)
 
-64 of 93 assessment statements satisfied; 0 of 10 controls fully satisfied. Assessed on 6 November 2026: findings are in \<Control Assessment Record\> (CA), whose section CA.5 is the assessment plan, and decisions are in \<Risk List\>. Implementation detail is in \<Policy\> (CA), \<Procedures\> (CA) and \<Assessment, Authorization, and Monitoring Management\>, whose appendix A holds the parameter values.
+64 of 93 assessment statements satisfied; 0 of 10 controls fully satisfied. Assessed on 6 November 2026: findings are in \<Control Assessment Record\> (CA), whose section CA.5 is the assessment plan, and decisions are in \<Risk List\>. Implementation detail is in \<Policy\> (CA), \<Procedures\> (CA) and \<Assessment, Authorization, and Monitoring Management\>.
 
 **Table 13: CA controls**
 
@@ -409,7 +409,7 @@ This section gives a brief overview of every control in the 19 families, one lin
 
 ### 7.5 Configuration Management (CM)
 
-90 of 178 assessment statements satisfied; 2 of 24 controls fully satisfied. Assessed on 6 November 2026: findings are in \<Control Assessment Record\> (CM), whose section CM.5 is the assessment plan, and decisions are in \<Risk List\>. Implementation detail is in \<Policy\> (CM), \<Procedures\> (CM) and \<Configuration Management\>, whose appendix A holds the parameter values.
+90 of 178 assessment statements satisfied; 2 of 24 controls fully satisfied. Assessed on 6 November 2026: findings are in \<Control Assessment Record\> (CM), whose section CM.5 is the assessment plan, and decisions are in \<Risk List\>. Implementation detail is in \<Policy\> (CM), \<Procedures\> (CM) and \<Configuration Management\>.
 
 **Table 14: CM controls**
 
@@ -442,7 +442,7 @@ This section gives a brief overview of every control in the 19 families, one lin
 
 ### 7.6 Contingency Planning (CP)
 
-65 of 124 assessment statements satisfied; 2 of 23 controls fully satisfied. Assessed on 6 November 2026, and updated on 9 November 2026 after the CP pack review, with a restore test (R01 to R09): findings are in \<Control Assessment Record\> (CP), whose section CP.5 is the assessment plan, and decisions are in \<Risk List\>. Implementation detail is in \<Policy\> (CP), \<Procedures\> (CP) and \<Contingency Planning Management\>, whose appendix A holds the parameter values.
+65 of 124 assessment statements satisfied; 2 of 23 controls fully satisfied. Assessed on 6 November 2026, and updated on 9 November 2026 after the CP pack review, with a restore test (R01 to R09): findings are in \<Control Assessment Record\> (CP), whose section CP.5 is the assessment plan, and decisions are in \<Risk List\>. Implementation detail is in \<Policy\> (CP), \<Procedures\> (CP) and \<Contingency Planning Management\>.
 
 **Table 15: CP controls**
 
@@ -450,7 +450,7 @@ This section gives a brief overview of every control in the 19 families, one lin
 | --- | --- | --- | --- | --- | --- | --- |
 | CP-1 Policy and Procedures | Version \<ver\> approved, and legally reviewed on 9 November 2026; not yet shared | System owner, Head of Cyber | Organisational | Partially implemented | Other than satisfied | NC-CP-01, PA-20 |
 | CP-2 Contingency Plan | Section 3 of \<Contingency Planning Management\> is the plan, structured after CSS. Version \<ver\> was approved by the system owner and authorising official (D-CP-11); the version rebuilt on 15 November 2026 awaits their approval. Not yet shared | System owner, authorising official | Organisational | Partially implemented | Other than satisfied | NC-CP-02, PA-88, PA-114 |
-| CP-2(1) Related Plans | Related plans named in \<Contingency Planning Management\>, appendix C; coordination not yet shown | System owner, security officer | Organisational | Not implemented | Other than satisfied | NC-CP-03, PA-114 |
+| CP-2(1) Related Plans | Related plans named in \<Contingency Planning Management\>, appendix B; coordination not yet shown | System owner, security officer | Organisational | Not implemented | Other than satisfied | NC-CP-03, PA-114 |
 | CP-2(3) Resume Functions | 72 hours for essential functions, within a maximum tolerable downtime of 120 hours, from the business impact analysis in \<Contingency Planning Management\>, section 3.3. Reaching it depends on backups (PA-64) | System owner | Organisational | Implemented | Satisfied | NC-CP-04 (met) |
 | CP-2(8) Critical Assets | Listed in \<Contingency Planning Management\>, section 3.3.4, including the secrets \<System Name\> needs | System owner | Organisational | Implemented | Satisfied | NC-CP-05 (met) |
 | CP-3 Training | Agreed; not started | System owner | Organisational | Not implemented | Other than satisfied | NC-CP-06, NC-CP-24, PA-81 |
@@ -474,7 +474,7 @@ This section gives a brief overview of every control in the 19 families, one lin
 
 ### 7.7 Identification and Authentication (IA)
 
-41 of 92 assessment statements satisfied; 0 of 24 controls fully satisfied. Assessed on 6 November 2026, and updated on 9 November 2026 after the IA pack review, with checks I01 to I11: findings are in \<Control Assessment Record\> (IA), whose section IA.5 is the assessment plan, and decisions are in \<Risk List\>. Implementation detail is in \<Policy\> (IA), \<Procedures\> (IA) and \<Identification and Authentication Management\>, whose appendix A holds the parameter values.
+41 of 92 assessment statements satisfied; 0 of 24 controls fully satisfied. Assessed on 6 November 2026, and updated on 9 November 2026 after the IA pack review, with checks I01 to I11: findings are in \<Control Assessment Record\> (IA), whose section IA.5 is the assessment plan, and decisions are in \<Risk List\>. Implementation detail is in \<Policy\> (IA), \<Procedures\> (IA) and \<Identification and Authentication Management\>.
 
 **Table 16: IA controls**
 
@@ -507,7 +507,7 @@ This section gives a brief overview of every control in the 19 families, one lin
 
 ### 7.8 Incident Response (IR)
 
-49 of 90 assessment statements satisfied; 0 of 13 controls fully satisfied. Assessed on 6 November 2026 and updated on 10 November 2026: findings are in \<Control Assessment Record\> (IR), whose section IR.5 is the assessment plan, and decisions are in \<Risk List\>. Implementation detail is in \<Policy\> (IR), \<Procedures\> (IR) and \<Incident Response Management\>, whose appendix A holds the parameter values.
+49 of 90 assessment statements satisfied; 0 of 13 controls fully satisfied. Assessed on 6 November 2026 and updated on 10 November 2026: findings are in \<Control Assessment Record\> (IR), whose section IR.5 is the assessment plan, and decisions are in \<Risk List\>. Implementation detail is in \<Policy\> (IR), \<Procedures\> (IR) and \<Incident Response Management\>.
 
 **Table 17: IR controls**
 
@@ -529,7 +529,7 @@ This section gives a brief overview of every control in the 19 families, one lin
 
 ### 7.9 Maintenance (MA)
 
-32 of 64 assessment statements satisfied; 0 of 9 controls fully satisfied. Assessed on 6 November 2026 and updated on 10 November 2026: findings are in \<Control Assessment Record\> (MA), whose section MA.5 is the assessment plan, and decisions are in \<Risk List\>. Implementation detail is in \<Policy\> (MA), \<Procedures\> (MA) and \<Maintenance Management\>, whose appendix A holds the parameter values.
+32 of 64 assessment statements satisfied; 0 of 9 controls fully satisfied. Assessed on 6 November 2026 and updated on 10 November 2026: findings are in \<Control Assessment Record\> (MA), whose section MA.5 is the assessment plan, and decisions are in \<Risk List\>. Implementation detail is in \<Policy\> (MA), \<Procedures\> (MA) and \<Maintenance Management\>.
 
 **Table 18: MA controls**
 
@@ -547,7 +547,7 @@ This section gives a brief overview of every control in the 19 families, one lin
 
 ### 7.10 Media Protection (MP)
 
-46 of 71 assessment statements satisfied; 0 of 7 controls fully satisfied. Assessed on 6 November 2026 and updated on 10 November 2026: findings are in \<Control Assessment Record\> (MP), whose section MP.5 is the assessment plan, and decisions are in \<Risk List\>. Implementation detail is in \<Policy\> (MP), \<Procedures\> (MP) and \<Media Protection Management\>, whose appendix A holds the parameter values.
+46 of 71 assessment statements satisfied; 0 of 7 controls fully satisfied. Assessed on 6 November 2026 and updated on 10 November 2026: findings are in \<Control Assessment Record\> (MP), whose section MP.5 is the assessment plan, and decisions are in \<Risk List\>. Implementation detail is in \<Policy\> (MP), \<Procedures\> (MP) and \<Media Protection Management\>.
 
 **Table 19: MP controls**
 
@@ -563,7 +563,7 @@ This section gives a brief overview of every control in the 19 families, one lin
 
 ### 7.11 Physical and Environmental Protection (PE)
 
-54 of 121 assessment statements satisfied; 0 of 18 controls fully satisfied. Assessed on 6 November 2026 and updated on 10 November 2026 after the PE pack review: findings are in \<Control Assessment Record\> (PE), whose section PE.5 is the assessment plan, and decisions are in \<Risk List\>. Implementation detail is in \<Policy\> (PE), \<Procedures\> (PE) and \<Physical and Environmental Protection Management\>, whose appendix A holds the parameter values and section 3.3 the inheritance matrix, which maps each inherited control to the \<Organisation\> evidence that closes it.
+54 of 121 assessment statements satisfied; 0 of 18 controls fully satisfied. Assessed on 6 November 2026 and updated on 10 November 2026 after the PE pack review: findings are in \<Control Assessment Record\> (PE), whose section PE.5 is the assessment plan, and decisions are in \<Risk List\>. Implementation detail is in \<Policy\> (PE), \<Procedures\> (PE) and \<Physical and Environmental Protection Management\>, whose section 3.3 the inheritance matrix, which maps each inherited control to the \<Organisation\> evidence that closes it.
 
 **Table 20: PE controls**
 
@@ -590,7 +590,7 @@ This section gives a brief overview of every control in the 19 families, one lin
 
 ### 7.12 Planning (PL)
 
-74 of 93 assessment statements satisfied; 3 of 7 controls fully satisfied. Assessed on 6 November 2026 and updated on 11 November 2026 after the PL pack review, with Test-PlanConsistency.ps1: findings are in \<Control Assessment Record\> (PL), whose section PL.5 is the assessment plan, and decisions are in \<Risk List\>. Implementation detail is in \<Policy\> (PL), \<Procedures\> (PL) and \<Planning Management\>, whose appendix A holds the parameter values, section 3.2 the register of plans and section 3.5 the register of signed rules.
+74 of 93 assessment statements satisfied; 3 of 7 controls fully satisfied. Assessed on 6 November 2026 and updated on 11 November 2026 after the PL pack review, with Test-PlanConsistency.ps1: findings are in \<Control Assessment Record\> (PL), whose section PL.5 is the assessment plan, and decisions are in \<Risk List\>. Implementation detail is in \<Policy\> (PL), \<Procedures\> (PL) and \<Planning Management\>, whose section 3.2 the register of plans and section 3.5 the register of signed rules.
 
 **Table 21: PL controls**
 
@@ -606,7 +606,7 @@ This section gives a brief overview of every control in the 19 families, one lin
 
 ### 7.13 Personnel Security (PS)
 
-38 of 68 assessment statements satisfied; 0 of 9 controls fully satisfied. Assessed on 6 November 2026 and updated on 12 November 2026 after the whole-set review: findings are in \<Control Assessment Record\> (PS), whose section PS.5 is the assessment plan, and decisions are in \<Risk List\>. Implementation detail is in \<Policy\> (PS), \<Procedures\> (PS) and \<Personnel Security Management\>, whose appendix A holds the parameter values, section 3.2 the risk designation of every role, section 3.3 the screening standard, section 3.6 the time limits and section 3.9 the personnel security register.
+38 of 68 assessment statements satisfied; 0 of 9 controls fully satisfied. Assessed on 6 November 2026 and updated on 12 November 2026 after the whole-set review: findings are in \<Control Assessment Record\> (PS), whose section PS.5 is the assessment plan, and decisions are in \<Risk List\>. Implementation detail is in \<Policy\> (PS), \<Procedures\> (PS) and \<Personnel Security Management\>, whose section 3.2 the risk designation of every role, section 3.3 the screening standard, section 3.6 the time limits and section 3.9 the personnel security register.
 
 **Table 22: PS controls**
 
@@ -624,7 +624,7 @@ This section gives a brief overview of every control in the 19 families, one lin
 
 ### 7.14 Personally Identifiable Information Processing and Transparency (PT)
 
-58 of 109 assessment statements satisfied; 1 of 29 controls fully satisfied. Assessed on 6 November 2026 and updated on 11 November 2026 after the PT pack review, with checks Q01 to Q10: findings are in \<Control Assessment Record\> (PT), whose section PT.5 is the assessment plan, and decisions are in \<Risk List\>. Implementation detail is in \<Policy\> (PT), \<Procedures\> (PT) and \<PII Processing Management\>, whose appendix A holds the parameter values, section 3.3 the personal data inventory and section 3.7 the retention schedule. The draft impact assessment is \<Data Protection Impact Assessment\>.
+58 of 109 assessment statements satisfied; 1 of 29 controls fully satisfied. Assessed on 6 November 2026 and updated on 11 November 2026 after the PT pack review, with checks Q01 to Q10: findings are in \<Control Assessment Record\> (PT), whose section PT.5 is the assessment plan, and decisions are in \<Risk List\>. Implementation detail is in \<Policy\> (PT), \<Procedures\> (PT) and \<PII Processing Management\>, whose section 3.3 the personal data inventory and section 3.7 the retention schedule. The draft impact assessment is \<Data Protection Impact Assessment\>.
 
 **Table 23: PT controls**
 
@@ -656,7 +656,7 @@ This section gives a brief overview of every control in the 19 families, one lin
 
 ### 7.15 Risk Assessment (RA)
 
-49 of 73 assessment statements satisfied; 2 of 10 controls fully satisfied. Assessed on 6 November 2026 and updated on 11 November 2026 after the RA pack review, with checks V01 to V09: findings are in \<Control Assessment Record\> (RA), whose section RA.5 is the assessment plan, and decisions are in \<Risk List\>. Implementation detail is in \<Policy\> (RA), \<Procedures\> (RA) and \<Risk Assessment Management\>, whose appendix A holds the parameter values and section 3.6 the vulnerability timetable.
+49 of 73 assessment statements satisfied; 2 of 10 controls fully satisfied. Assessed on 6 November 2026 and updated on 11 November 2026 after the RA pack review, with checks V01 to V09: findings are in \<Control Assessment Record\> (RA), whose section RA.5 is the assessment plan, and decisions are in \<Risk List\>. Implementation detail is in \<Policy\> (RA), \<Procedures\> (RA) and \<Risk Assessment Management\>, whose section 3.6 the vulnerability timetable.
 
 **Table 24: RA controls**
 
@@ -675,7 +675,7 @@ This section gives a brief overview of every control in the 19 families, one lin
 
 ### 7.16 System and Services Acquisition (SA)
 
-88 of 159 assessment statements satisfied; 5 of 17 controls fully satisfied. Assessed on 6 November 2026 and updated on 11 November 2026 with Test-Development.ps1 (S01 to S10): findings are in \<Control Assessment Record\> (SA), whose section SA.5 is the assessment plan, and decisions are in \<Risk List\>. Implementation detail is in \<Policy\> (SA), \<Procedures\> (SA) and \<System and Services Acquisition Management\>, whose appendix A holds the parameter values and whose section 3.2 maps the development process to the CSS.
+88 of 159 assessment statements satisfied; 5 of 17 controls fully satisfied. Assessed on 6 November 2026 and updated on 11 November 2026 with Test-Development.ps1 (S01 to S10): findings are in \<Control Assessment Record\> (SA), whose section SA.5 is the assessment plan, and decisions are in \<Risk List\>. Implementation detail is in \<Policy\> (SA), \<Procedures\> (SA) and \<System and Services Acquisition Management\>, whose section 3.2 maps the development process to the CSS.
 
 **Table 25: SA controls**
 
@@ -701,7 +701,7 @@ This section gives a brief overview of every control in the 19 families, one lin
 
 ### 7.17 System and Communications Protection (SC)
 
-49 of 107 assessment statements satisfied; 1 of 25 controls fully satisfied. Assessed on 6 November 2026 and updated on 12 November 2026 with Test-Protection.ps1 (N01 to N12): findings are in \<Control Assessment Record\> (SC), whose section SC.5 is the assessment plan, and decisions are in \<Risk List\>. Implementation detail is in \<Policy\> (SC), \<Procedures\> (SC) and \<System and Communications Protection Management\>, whose appendix A holds the parameter values, section 3.4 the cryptographic and key register, section 3.3 the TLS profile and section 3.2 the host firewall allow-lists.
+49 of 107 assessment statements satisfied; 1 of 25 controls fully satisfied. Assessed on 6 November 2026 and updated on 12 November 2026 with Test-Protection.ps1 (N01 to N12): findings are in \<Control Assessment Record\> (SC), whose section SC.5 is the assessment plan, and decisions are in \<Risk List\>. Implementation detail is in \<Policy\> (SC), \<Procedures\> (SC) and \<System and Communications Protection Management\>, whose section 3.4 the cryptographic and key register, section 3.3 the TLS profile and section 3.2 the host firewall allow-lists.
 
 **Table 26: SC controls**
 
@@ -735,7 +735,7 @@ This section gives a brief overview of every control in the 19 families, one lin
 
 ### 7.18 System and Information Integrity (SI)
 
-74 of 139 assessment statements satisfied; 2 of 18 controls fully satisfied. Assessed on 6 November 2026 and updated on 12 November 2026 with Test-Integrity.ps1 (H01 to H12): findings are in \<Control Assessment Record\> (SI), whose section SI.5 is the assessment plan, and decisions are in \<Risk List\>. Implementation detail is in \<Policy\> (SI), \<Procedures\> (SI) and \<System and Information Integrity Management\>, whose appendix A holds the parameter values, section 3.2 the upload checks, section 3.4 the detection use cases and section 3.5 the integrity baseline. Flaws follow the one timetable in \<Risk Assessment Management\>, section 3.6.
+74 of 139 assessment statements satisfied; 2 of 18 controls fully satisfied. Assessed on 6 November 2026 and updated on 12 November 2026 with Test-Integrity.ps1 (H01 to H12): findings are in \<Control Assessment Record\> (SI), whose section SI.5 is the assessment plan, and decisions are in \<Risk List\>. Implementation detail is in \<Policy\> (SI), \<Procedures\> (SI) and \<System and Information Integrity Management\>, whose section 3.2 the upload checks, section 3.4 the detection use cases and section 3.5 the integrity baseline. Flaws follow the one timetable in \<Risk Assessment Management\>, section 3.6.
 
 **Table 27: SI controls**
 
@@ -762,7 +762,7 @@ This section gives a brief overview of every control in the 19 families, one lin
 
 ### 7.19 Supply Chain Risk Management (SR)
 
-56 of 81 assessment statements satisfied; 0 of 12 controls fully satisfied. Assessed on 6 November 2026 and updated on 12 November 2026 with Test-SupplyChain.ps1 (U01 to U10): findings are in \<Control Assessment Record\> (SR), whose section SR.5 is the assessment plan, and decisions are in \<Risk List\>. Implementation detail is in \<Policy\> (SR), \<Procedures\> (SR) and \<Supply Chain Risk Management\>, whose appendix A holds the parameter values, section 3.5 the supplier register and section 3.7 how components come in. Only the in-house OfflineModules packages come through the offline feed today; every other package comes straight from nuget.org (PA-94).
+56 of 81 assessment statements satisfied; 0 of 12 controls fully satisfied. Assessed on 6 November 2026 and updated on 12 November 2026 with Test-SupplyChain.ps1 (U01 to U10): findings are in \<Control Assessment Record\> (SR), whose section SR.5 is the assessment plan, and decisions are in \<Risk List\>. Implementation detail is in \<Policy\> (SR), \<Procedures\> (SR) and \<Supply Chain Risk Management\>, whose section 3.5 the supplier register and section 3.7 how components come in. Only the in-house OfflineModules packages come through the offline feed today; every other package comes straight from nuget.org (PA-94).
 
 **Table 28: SR controls**
 

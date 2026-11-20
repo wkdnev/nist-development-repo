@@ -2,7 +2,7 @@
 
 ## 1 Purpose
 
-This document shows how security and privacy awareness and training are designed for \<System Name\>, for each of the 6 Awareness and Training (AT) controls and enhancements in the CSS Moderate baseline. It is \<System Name\>'s learning programme plan in the sense of CSS, and follows that publication's cycle: plan the programme, write the content, give the training, then measure and improve it (sections 3.7 and 3.9). Section 3 sets out the programme: who needs what, the briefing, the role curriculum, the training matrix, the register and the measures. Section 4 takes each control in turn. Appendix A lists every value CSS asks the organisation to define.
+This document shows how security and privacy awareness and training are designed for \<System Name\>, for each of the 6 Awareness and Training (AT) controls and enhancements in the CSS Moderate baseline. It is \<System Name\>'s learning programme plan in the sense of CSS, and follows that publication's cycle: plan the programme, write the content, give the training, then measure and improve it (sections 3.7 and 3.9). Section 3 sets out the programme: who needs what, the briefing, the role curriculum, the training matrix, the register and the measures. Section 4 takes each control in turn. Values CSS asks the organisation to define are set at corporate level by \<Organisation\>.
 
 The policy is in \<Policy\> (AT), and the steps people follow are in \<Procedures\> (AT).
 
@@ -330,33 +330,3 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 | Status | Not implemented |
 | Risk decision | NC-AT-06, rated Low: approve |
 | Open items | PA-98: bring the TPL-9 record and the training register into use, in the records store, from the first briefing |
-
-## Appendix A Parameter register
-
-These are the CSS organisation-defined values for the 6 AT entries: 21 in total. State now says how far each is in place on 12 November 2026. The values were agreed on 6 November 2026 and revised on 12 November 2026 (D-AT-P02).
-
-**Table 21: AT parameter register**
-
-| CSS identifier | What must be defined | Value | State now |
-| --- | --- | --- | --- |
-| AT-01\_ODP\[01\] | Who receives the policy | Everyone who uses or administers \<System Name\> | Not yet shared |
-| AT-01\_ODP\[02\] | Who receives the procedures | Everyone who uses, administers or develops \<System Name\> | Not yet shared |
-| AT-01\_ODP\[03\] | Level of the policy | System level | In place |
-| AT-01\_ODP\[04\] | Official who manages them | System owner | In place |
-| AT-01\_ODP\[05\] | Policy review frequency | Every 12 months | First review due November 2027 |
-| AT-01\_ODP\[06\] | Events requiring policy review | Significant incident, audit finding or system change | Reviewed after the AT pack review, 12 November 2026 |
-| AT-01\_ODP\[07\] | Procedures review frequency | Every 12 months | First review due November 2027 |
-| AT-01\_ODP\[08\] | Events requiring procedures review | A change to the steps | Reviewed after the AT pack review, 12 November 2026 |
-| AT-02\_ODP\[01\] | Security training frequency | Every 12 months | No one trained yet |
-| AT-02\_ODP\[02\] | Privacy training frequency | Every 12 months | No one trained yet |
-| AT-02\_ODP\[03\] | Events requiring security training | A significant incident or change | Not yet used |
-| AT-02\_ODP\[04\] | Events requiring privacy training | A significant incident or change | Not yet used |
-| AT-02\_ODP\[05\] | Awareness techniques | The \<System Name\> briefing, the system use notice, \<Organisation\>'s security messages and a quarterly \<System Name\> security note | Briefing outlined (section 3.3); not yet given; \<Organisation\>'s messages not seen (EV-AT-01) |
-| AT-02\_ODP\[06\] | Content update frequency | Every 12 months | Content reviewed 12 November 2026 |
-| AT-02\_ODP\[07\] | Events requiring content update | A significant incident, exercise or change | Not yet used |
-| AT-03\_ODP\[01\] | Roles trained for security | The roles in the training matrix (section 3.5): system owner, global administrator, administrator, Windows server administrator, database administrator, developers, security officer, auditor and project access approvers | Curriculum set (section 3.4); module content not yet written |
-| AT-03\_ODP\[02\] | Roles trained for privacy | The same roles, and everyone who handles HR documents (\<PII Processing Management\>, AT-3(5)) | Curriculum set; not yet given |
-| AT-03\_ODP\[03\] | Training frequency | Every 12 months | No one trained yet |
-| AT-03\_ODP\[04\] | Content update frequency | Every 12 months | Curriculum set 12 November 2026 |
-| AT-03\_ODP\[05\] | Events requiring content update | A significant incident, exercise or change | Not yet used |
-| AT-04\_ODP | How long records are kept | 3 years | Register set (section 3.8); no records yet |

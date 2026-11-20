@@ -2,7 +2,7 @@
 
 ## 1 Purpose
 
-This document shows how people and services are identified and authenticated in \<System Name\>, for each of the 24 Identification and Authentication (IA) controls and enhancements in the CSS Moderate baseline. Section 3 sets out the design: who is identified and how, sign-in through AD FS, the assurance levels, the authenticators, the settings against CSS, sessions, and identity proofing. Section 4 takes each control in turn. Appendix A lists every value CSS asks the organisation to define. Appendix B lists the IA controls CSS does not select at Moderate.
+This document shows how people and services are identified and authenticated in \<System Name\>, for each of the 24 Identification and Authentication (IA) controls and enhancements in the CSS Moderate baseline. Section 3 sets out the design: who is identified and how, sign-in through AD FS, the assurance levels, the authenticators, the settings against CSS, sessions, and identity proofing. Section 4 takes each control in turn. Values CSS asks the organisation to define are set at corporate level by \<Organisation\>. Appendix A lists the IA controls CSS does not select at Moderate.
 
 The policy is in \<Policy\> (IA), and the steps people follow are in \<Procedures\> (IA). Who may do what once signed in is in \<Access Control Management\>.
 
@@ -703,42 +703,11 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 | Risk decision | NC-IA-18, rated Low: obtain evidence |
 | Open items | PA-116 |
 
-## Appendix A Parameter register
+## Appendix A IA controls outside the Moderate baseline
 
-These are the CSS organisation-defined values for the 24 IA entries: 22 in total. They were agreed on 5 and 6 November 2026 (D-IA-P01), and revised on 12 November 2026 for sign-in through AD FS (D-AC-23).
+CSS does not select these at Moderate, so they are not assessed. Some bear on the design, and Table 57 says how.
 
-**Table 57: IA parameter register**
-
-| CSS identifier | What must be defined | Value | State now |
-| --- | --- | --- | --- |
-| IA-01\_ODP\[01\] | Who receives the policy | Everyone who uses or administers \<System Name\> | Not yet shared |
-| IA-01\_ODP\[02\] | Who receives the procedures | Everyone who uses or administers \<System Name\> | Not yet shared |
-| IA-01\_ODP\[03\] | Level of the policy | System level | Met |
-| IA-01\_ODP\[04\] | Official who manages them | System owner | Met |
-| IA-01\_ODP\[05\] | Policy review frequency | Every 12 months | Met: reviewed 9 November 2026 |
-| IA-01\_ODP\[06\] | Events requiring policy review | Significant incident, audit finding or system change | Met: reviewed after the IA pack review |
-| IA-01\_ODP\[07\] | Procedures review frequency | Every 12 months | Met: reviewed 9 November 2026 |
-| IA-01\_ODP\[08\] | Events requiring procedures review | A change to the steps | Met: reviewed after the IA pack review |
-| IA-02(08)\_ODP | Accounts needing replay resistance | Privileged and non-privileged accounts | To be assessed with AD FS sign-in. In the tested build tokens replayed from another client, and traffic was plain HTTP (PA-46, PA-18) |
-| IA-03\_ODP\[01\] | Devices identified | \<Organisation\>'s managed devices | Inherited, unconfirmed (EV-IA-01) |
-| IA-03\_ODP\[02\] | Type of connection | Network | Inherited, unconfirmed (EV-IA-01) |
-| IA-04\_ODP\[01\] | Who authorises identifiers | \<Organisation\>, for the Active Directory account. Membership of a \<System Name\> group: the system owner, or the project access approver for project access, through the ServiceNow workflow | ServiceNow not set up (PA-20) |
-| IA-04\_ODP\[02\] | Time before reuse | Never reused: \<Organisation\>'s rule for Active Directory accounts | To be evidenced by \<Organisation\> |
-| IA-04(04)\_ODP | Status shown | Staff or contractor | Shown by \<Organisation\>'s directory; to be evidenced |
-| IA-05\_ODP\[01\] | Change period by type | User passwords: \<Organisation\>'s corporate standard for Active Directory and AD FS, which \<System Name\> accepts (D-AC-23). Service account secrets and signing key: every 12 months | Secrets never changed; in settings files (PA-19) |
-| IA-05\_ODP\[02\] | Events requiring change | User passwords: \<Organisation\>'s corporate standard for Active Directory and AD FS, which \<System Name\> accepts (D-AC-23), and on suspected compromise. Service secrets and signing key: an administrator leaving | \<Organisation\>'s standard is to be supplied |
-| IA-05(01)\_ODP\[01\] | Blocked list refresh | \<Organisation\>'s corporate standard for Active Directory and AD FS, which \<System Name\> accepts (D-AC-23) | To be supplied by \<Organisation\> |
-| IA-05(01)\_ODP\[02\] | Composition rules | \<Organisation\>'s corporate standard for Active Directory and AD FS, which \<System Name\> accepts (D-AC-23). This replaces the 15 and 12 character rule of D-IA-P02 | To be supplied by \<Organisation\> |
-| IA-08(04)\_ODP | Identity profiles | Not applicable (TR-IA-06) | Not applicable |
-| IA-11\_ODP | When to sign in again | After 30 minutes idle and after 8 hours. A change to a person's groups takes effect at their next sign-in | Met in the application (T44, I08, I11) |
-| IA-12(03)\_ODP | Validation and verification | Evidence checked by \<Organisation\>'s HR during pre-employment checks | Inherited, unconfirmed (EV-IA-02) |
-| IA-12(05)\_ODP | Address confirmation | Notice of proofing | Inherited, unconfirmed (EV-IA-02) |
-
-## Appendix B IA controls outside the Moderate baseline
-
-CSS does not select these at Moderate, so they are not assessed. Some bear on the design, and Table 58 says how.
-
-**Table 58: IA controls not selected at Moderate**
+**Table 57: IA controls not selected at Moderate**
 
 | Control | What it adds | \<System Name\>'s position |
 | --- | --- | --- |

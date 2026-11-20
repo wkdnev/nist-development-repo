@@ -4,7 +4,7 @@
 
 This document shows how \<System Name\> is built and bought securely, for each of the 17 System and Services Acquisition (SA) controls in the CSS Moderate baseline: the lifecycle and resources, contracts, documentation, engineering principles, external services, developer configuration management and testing, the development process, criticality analysis and unsupported components.
 
-Section 3 sets out the design: the development framework; the lifecycle, roles and resources; contracts and design information; documentation; engineering principles; external services; configuration management; the developer test plan; the process, standards and tools; criticality analysis; unsupported components; how \<System Name\> is built today; and what \<Organisation\> and the providers supply. Section 4 takes each control in turn. Appendix A lists every value CSS asks the organisation to define, and appendix B the related controls and enhancements CSS does not select at Moderate.
+Section 3 sets out the design: the development framework; the lifecycle, roles and resources; contracts and design information; documentation; engineering principles; external services; configuration management; the developer test plan; the process, standards and tools; criticality analysis; unsupported components; how \<System Name\> is built today; and what \<Organisation\> and the providers supply. Section 4 takes each control in turn. Values CSS asks the organisation to define are set at corporate level by \<Organisation\>. Appendix A the related controls and enhancements CSS does not select at Moderate.
 
 The policy is in \<Policy\> (SA), and the steps people follow are in \<Procedures\> (SA). Four records sit beside this one, each holding what CSS asks the system's own documents to hold: the engineering principles in \<Security Architecture\>, section 6.5; the functions, ports, protocols and services in \<System Security Plan\>, section 3.7; the critical components in \<Risk Assessment Management\>, section 3.9; and the component support dates in \<Maintenance Management\>, section 3.8.
 
@@ -645,55 +645,11 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 | Risk decision | NC-SA-16, rated Low: approve; now satisfied |
 | Open items | None |
 
-## Appendix A Parameter register
+## Appendix A Acquisition controls outside the Moderate baseline
 
-These are the CSS organisation-defined values for the SA entries: 35 in total. SA-4(10) is tailored (\<Tailoring Register\>, TR-SA-01), and has no parameters. They were agreed on 6 November 2026, and restated as requirements on 11 November 2026 (D-SA-P01). **State now** says whether \<System Name\> meets the value today.
+CSS does not select these at Moderate, so they are not assessed. Some of the design goes some way towards them, and Table 43 says where. SA-6, SA-7, SA-12, SA-13, SA-14, SA-18 and SA-19 are withdrawn, and so are the enhancements of SA-5. SA-22(1) is now part of SA-22.
 
-**Table 43: SA parameter register**
-
-| CSS identifier | What must be defined | Value | State now |
-| --- | --- | --- | --- |
-| SA-01\_ODP\[01\] | Who receives the policy | Developers and administrators | Not yet shared |
-| SA-01\_ODP\[02\] | Who receives the procedures | Developers and administrators | Not yet shared |
-| SA-01\_ODP\[03\] | Level of the policy | System level | Met |
-| SA-01\_ODP\[04\] | Official who manages them | System owner | Met |
-| SA-01\_ODP\[05\] | Policy review frequency | Every 12 months | First review not yet due |
-| SA-01\_ODP\[06\] | Events requiring policy review | Significant incident, audit finding or system change | Met: reviewed after the SA pack review |
-| SA-01\_ODP\[07\] | Procedures review frequency | Every 12 months | First review not yet due |
-| SA-01\_ODP\[08\] | Events requiring procedures review | A change to the steps | Met: reviewed as version \<ver\> |
-| SA-03\_ODP | Lifecycle | CSS \<ver\>, as in section 3.2 | Mapped; not yet in routine use |
-| SA-04\_ODP\[01\] | Contract method | Standard contract language | Contract not seen (EV-SA-01) |
-| SA-04\_ODP\[02\] | Contract language | \<Organisation\>'s standard contract, with security and privacy requirements added | Contract not seen (EV-SA-01) |
-| SA-04(02)\_ODP\[01\] | Design information level | Security-relevant external interfaces and high-level design | Met: \<Security Architecture\> and \<System Security Plan\>, sections 3 and 4 |
-| SA-04(02)\_ODP\[02\] | Other information | Implementation notes for security functions | Met: the design document of each family |
-| SA-04(02)\_ODP\[03\] | Level of detail | Enough for an assessor to judge each control | Met: SSP section 7 and the assessments |
-| SA-05\_ODP\[01\] | What to do about missing documents | Record it and chase the supplier | Met by procedure |
-| SA-05\_ODP\[02\] | Who receives documentation | Administrators, the security officer and users | Guides drafted, not yet shared |
-| SA-08\_ODP\[01\] | Security engineering principles | NCSC secure design principles | Mapped in \<Security Architecture\>, section 6.5 |
-| SA-08\_ODP\[02\] | Privacy engineering principles | The CSS privacy engineering objectives | Mapped in \<Security Architecture\>, section 6.5 |
-| SA-09\_ODP\[01\] | Controls providers must use | Those stated in the contract or service terms | Terms not seen (EV-SA-02, EV-SA-03) |
-| SA-09\_ODP\[02\] | How compliance is monitored | System owner's review every 12 months, on TPL-16 | First review not yet held |
-| SA-09(02)\_ODP | Services concerned | The services in section 3.7 | Lists not seen |
-| SA-10\_ODP\[01\] | When change control applies | Development, implementation and operation | Not enforced (PA-91) |
-| SA-10\_ODP\[02\] | What is controlled | Code, configuration, documents and test scripts | 10 test scripts not in Git (PA-91) |
-| SA-10\_ODP\[03\] | Who is told of flaws | System owner and security officer | Met: through \<Risk List\> and \<Plan of Action and Milestones\> |
-| SA-11\_ODP\[01\] | Test types | Unit, integration and security | Integration and security only; no unit tests (PA-68) |
-| SA-11\_ODP\[02\] | Frequency | Each release | Run by hand; no pipeline (PA-68) |
-| SA-11\_ODP\[03\] | Depth and coverage | Every security function in section 3.9, verified to OWASP ASVS 5.0 Level 2 for the web applications | Security functions covered by scripts; ASVS not yet assessed |
-| SA-15\_ODP\[01\] | Review frequency | Every 12 months | First review not yet due |
-| SA-15\_ODP\[02\] | Security requirements | \<Policy\> (SA) | Met |
-| SA-15\_ODP\[03\] | Privacy requirements | \<Policy\> (PT) | Met |
-| SA-15(03)\_ODP\[01\] | When criticality is analysed | Design, and each major change | Met: first analysis on 11 November 2026 |
-| SA-15(03)\_ODP\[02\] | Breadth | All components | Met: \<Risk Assessment Management\>, section 3.9 |
-| SA-15(03)\_ODP\[03\] | Depth | Enough to identify critical components | Met |
-| SA-22\_ODP\[01\] | Support options | In-house support, or an external provider | Met |
-| SA-22\_ODP\[02\] | External support | A supplier's extended support, by exception approved by the authorising official, with a replacement planned at least 6 months before support ends | Met: no component near the end of support (S09) |
-
-## Appendix B Acquisition controls outside the Moderate baseline
-
-CSS does not select these at Moderate, so they are not assessed. Some of the design goes some way towards them, and Table 44 says where. SA-6, SA-7, SA-12, SA-13, SA-14, SA-18 and SA-19 are withdrawn, and so are the enhancements of SA-5. SA-22(1) is now part of SA-22.
-
-**Table 44: Related controls and enhancements not selected**
+**Table 43: Related controls and enhancements not selected**
 
 | Control | What it adds | \<System Name\>'s position |
 | --- | --- | --- |

@@ -1050,14 +1050,14 @@ There is one finding for each CSS determination statement, including those about
 
 | Statement | Determination, condensed | Finding | Basis |
 | --- | --- | --- | --- |
-| AT-01\_ODP\[01\] | Who receives the policy is defined | S | \<Awareness and Training Management\> \<ver\>, appendix A |
-| AT-01\_ODP\[02\] | Who receives the procedures is defined | S | \<Awareness and Training Management\> \<ver\>, appendix A |
-| AT-01\_ODP\[03\] | Policy level is selected | S | \<Awareness and Training Management\> \<ver\>, appendix A |
+| AT-01\_ODP\[01\] | Who receives the policy is defined | S | \<Organisation\>'s corporate parameter values |
+| AT-01\_ODP\[02\] | Who receives the procedures is defined | S | \<Organisation\>'s corporate parameter values |
+| AT-01\_ODP\[03\] | Policy level is selected | S | \<Organisation\>'s corporate parameter values |
 | AT-01\_ODP\[04\] | Managing official is defined | S | System owner |
-| AT-01\_ODP\[05\] | Policy review frequency is defined | S | \<Awareness and Training Management\> \<ver\>, appendix A |
-| AT-01\_ODP\[06\] | Policy review events are defined | S | \<Awareness and Training Management\> \<ver\>, appendix A |
-| AT-01\_ODP\[07\] | Procedures review frequency is defined | S | \<Awareness and Training Management\> \<ver\>, appendix A |
-| AT-01\_ODP\[08\] | Procedures review events are defined | S | \<Awareness and Training Management\> \<ver\>, appendix A |
+| AT-01\_ODP\[05\] | Policy review frequency is defined | S | \<Organisation\>'s corporate parameter values |
+| AT-01\_ODP\[06\] | Policy review events are defined | S | \<Organisation\>'s corporate parameter values |
+| AT-01\_ODP\[07\] | Procedures review frequency is defined | S | \<Organisation\>'s corporate parameter values |
+| AT-01\_ODP\[08\] | Procedures review events are defined | S | \<Organisation\>'s corporate parameter values |
 | AT-01a.\[01\] | Policy is developed and documented | S | Version \<ver\> approved by the Head of Cyber, subject to legal review (D-AT-01); version \<ver\> awaits re-approval (D-AT-07) |
 | AT-01a.\[02\] | Policy is disseminated | O-D | Not yet shared |
 | AT-01a.\[03\] | Procedures are developed and documented | S | Version \<ver\> approved by the system owner (D-AT-08) |
@@ -1075,13 +1075,13 @@ There is one finding for each CSS determination statement, including those about
 | AT-01c.01\[02\] | Policy is reviewed after set events | S | Reviewed on 12 November 2026 after the AT pack review (D-AT-06) |
 | AT-01c.02\[01\] | Procedures are reviewed at the set frequency | O-D | First review not yet due |
 | AT-01c.02\[02\] | Procedures are reviewed after set events | S | Reviewed and approved as version \<ver\> on 12 November 2026 (D-AT-08) |
-| AT-02\_ODP\[01\] | Security training frequency is defined | S | \<Awareness and Training Management\> \<ver\>, appendix A |
-| AT-02\_ODP\[02\] | Privacy training frequency is defined | S | \<Awareness and Training Management\> \<ver\>, appendix A |
-| AT-02\_ODP\[03\] | Security training events are defined | S | \<Awareness and Training Management\> \<ver\>, appendix A |
-| AT-02\_ODP\[04\] | Privacy training events are defined | S | \<Awareness and Training Management\> \<ver\>, appendix A |
-| AT-02\_ODP\[05\] | Awareness techniques are defined | S | \<Awareness and Training Management\> \<ver\>, appendix A |
-| AT-02\_ODP\[06\] | Content update frequency is defined | S | \<Awareness and Training Management\> \<ver\>, appendix A |
-| AT-02\_ODP\[07\] | Content update events are defined | S | \<Awareness and Training Management\> \<ver\>, appendix A |
+| AT-02\_ODP\[01\] | Security training frequency is defined | S | \<Organisation\>'s corporate parameter values |
+| AT-02\_ODP\[02\] | Privacy training frequency is defined | S | \<Organisation\>'s corporate parameter values |
+| AT-02\_ODP\[03\] | Security training events are defined | S | \<Organisation\>'s corporate parameter values |
+| AT-02\_ODP\[04\] | Privacy training events are defined | S | \<Organisation\>'s corporate parameter values |
+| AT-02\_ODP\[05\] | Awareness techniques are defined | S | \<Organisation\>'s corporate parameter values |
+| AT-02\_ODP\[06\] | Content update frequency is defined | S | \<Organisation\>'s corporate parameter values |
+| AT-02\_ODP\[07\] | Content update events are defined | S | \<Organisation\>'s corporate parameter values |
 | AT-02a.01\[01\] | New users get security training | O-E | \<System Name\> briefing outlined (\<Awareness and Training Management\>, section 3.3), not yet given; \<Organisation\>'s course not seen (EV-AT-01) |
 | AT-02a.01\[02\] | New users get privacy training | O-E | \<System Name\> briefing outlined (\<Awareness and Training Management\>, section 3.3), not yet given; \<Organisation\>'s course not seen (EV-AT-01) |
 | AT-02a.01\[03\] | Users get security training at the set frequency | O-E | \<System Name\> briefing outlined (\<Awareness and Training Management\>, section 3.3), not yet given; \<Organisation\>'s course not seen (EV-AT-01) |
@@ -1098,11 +1098,11 @@ There is one finding for each CSS determination statement, including those about
 | AT-02(03)\[02\] | Training covers reporting social engineering | O-E | \<System Name\> briefing outlined (\<Awareness and Training Management\>, section 3.3, B5), not yet given; \<Organisation\>'s course not seen (EV-AT-01) |
 | AT-02(03)\[03\] | Training covers recognising social mining | O-E | \<System Name\> briefing outlined (\<Awareness and Training Management\>, section 3.3, B3), not yet given; \<Organisation\>'s course not seen (EV-AT-01) |
 | AT-02(03)\[04\] | Training covers reporting social mining | O-E | \<System Name\> briefing outlined (\<Awareness and Training Management\>, section 3.3, B5), not yet given; \<Organisation\>'s course not seen (EV-AT-01) |
-| AT-03\_ODP\[01\] | Roles for security training are defined | S | \<Awareness and Training Management\> \<ver\>, appendix A |
-| AT-03\_ODP\[02\] | Roles for privacy training are defined | S | \<Awareness and Training Management\> \<ver\>, appendix A |
-| AT-03\_ODP\[03\] | Training frequency is defined | S | \<Awareness and Training Management\> \<ver\>, appendix A |
-| AT-03\_ODP\[04\] | Content update frequency is defined | S | \<Awareness and Training Management\> \<ver\>, appendix A |
-| AT-03\_ODP\[05\] | Content update events are defined | S | \<Awareness and Training Management\> \<ver\>, appendix A |
+| AT-03\_ODP\[01\] | Roles for security training are defined | S | \<Organisation\>'s corporate parameter values |
+| AT-03\_ODP\[02\] | Roles for privacy training are defined | S | \<Organisation\>'s corporate parameter values |
+| AT-03\_ODP\[03\] | Training frequency is defined | S | \<Organisation\>'s corporate parameter values |
+| AT-03\_ODP\[04\] | Content update frequency is defined | S | \<Organisation\>'s corporate parameter values |
+| AT-03\_ODP\[05\] | Content update events are defined | S | \<Organisation\>'s corporate parameter values |
 | AT-03a.01\[01\] | Role security training comes before access | O-D | Curriculum and matrix set (\<Awareness and Training Management\>, sections 3.4 and 3.5); module content not yet written or given |
 | AT-03a.01\[02\] | Role privacy training comes before access | O-D | Curriculum and matrix set (\<Awareness and Training Management\>, sections 3.4 and 3.5); module content not yet written or given |
 | AT-03a.01\[03\] | Role security training repeats | O-D | Curriculum and matrix set (\<Awareness and Training Management\>, sections 3.4 and 3.5); module content not yet written or given |
@@ -1112,7 +1112,7 @@ There is one finding for each CSS determination statement, including those about
 | AT-03b.\[01\] | Content is updated at the set frequency | O-D | Curriculum and matrix set (\<Awareness and Training Management\>, sections 3.4 and 3.5); module content not yet written or given |
 | AT-03b.\[02\] | Content is updated after set events | O-D | Curriculum and matrix set (\<Awareness and Training Management\>, sections 3.4 and 3.5); module content not yet written or given |
 | AT-03c. | Lessons from incidents are built in | O-D | Curriculum and matrix set (\<Awareness and Training Management\>, sections 3.4 and 3.5); module content not yet written or given |
-| AT-04\_ODP | Retention is defined | S | \<Awareness and Training Management\> \<ver\>, appendix A |
+| AT-04\_ODP | Retention is defined | S | \<Organisation\>'s corporate parameter values |
 | AT-04a.\[01\] | Security training is documented and monitored | O-D | PRO-AT-4 and the training register approved; no training yet |
 | AT-04a.\[02\] | Privacy training is documented and monitored | O-D | PRO-AT-4 and the training register approved; no training yet |
 | AT-04b. | Records are kept | O-D | PRO-AT-4 and the training register approved; no training yet |
@@ -1835,7 +1835,7 @@ There is one finding for each CSS determination statement, including those about
 | CP-02a.03\[03\] | The plan addresses people and contacts | S | \<Contingency Planning Management\>, section 3.4 |
 | CP-02a.04 | The plan addresses continuing functions in failure | S | \<Contingency Planning Management\>, section 3.6.3: no manual alternative exists, so a reduced service is restored first with the authorising official's agreement |
 | CP-02a.05 | The plan addresses full restoration | S | \<Contingency Planning Management\>, section 3.7 |
-| CP-02a.06 | The plan addresses sharing information | S | \<Contingency Planning Management\>, section 3.5.3 and appendix B: the call tree, daily user updates and contacts. Phone numbers are still to be added |
+| CP-02a.06 | The plan addresses sharing information | S | \<Contingency Planning Management\>, section 3.5.3 and appendix A: the call tree, daily user updates and contacts. Phone numbers are still to be added |
 | CP-02a.07\[01\] | The plan is reviewed | S | Version \<ver\> reviewed by the system owner and authorising official (D-CP-03); version \<ver\> reviewed by both on 9 November 2026 (D-CP-11) |
 | CP-02a.07\[02\] | The plan is approved | S | Version \<ver\> approved by the system owner and authorising official (D-CP-03); version \<ver\> approved by both on 9 November 2026 (D-CP-11) |
 | CP-02b.\[01\] | Copies go to personnel | O-D | Not yet shared |
@@ -2365,7 +2365,7 @@ There is one finding for each CSS determination statement, including those about
 | MA-01c.02\[02\] | Procedures are reviewed after set events | S | Reviewed and approved as version \<ver\> on 10 November 2026 (D-MA-08) |
 | MA-02\_ODP\[01\] | Who approves removal is defined | S | \<Maintenance Management\> |
 | MA-02\_ODP\[02\] | Information to remove is defined | S | \<Maintenance Management\> |
-| MA-02\_ODP\[03\] | Information in records is defined | S | \<Maintenance Management\>, appendix A; TPL-12 extended |
+| MA-02\_ODP\[03\] | Information in records is defined | S | \<Organisation\>'s corporate parameter values; TPL-12 extended |
 | MA-02a.\[01\] | Maintenance is scheduled | O-D | Schedule in PRO-MA-6 and change records in PRO-MA-1; not yet in use |
 | MA-02a.\[02\] | Maintenance is documented | O-D | PRO-MA-1 approved; not yet in use |
 | MA-02a.\[03\] | Records are reviewed | O-D | Monthly review by the security officer (C48); not yet in use |
@@ -2500,7 +2500,7 @@ There is one finding for each CSS determination statement, including those about
 | MP-01c.02\[01\] | Procedures are reviewed at the set frequency | O-D | First review not yet due |
 | MP-01c.02\[02\] | Procedures are reviewed after set events | S | Reviewed and approved as version \<ver\> on 10 November 2026 (D-MP-08) |
 | MP-02\_ODP\[01\] | Digital media are defined | S | \<Media Protection Management\>, section 3.2 (D-MP-P02) |
-| MP-02\_ODP\[02\] | Who may access them is defined | S | \<Media Protection Management\>, appendix A (D-MP-P02) |
+| MP-02\_ODP\[02\] | Who may access them is defined | S | \<Organisation\>'s corporate parameter values (D-MP-P02) |
 | MP-02\_ODP\[03\] | Non-digital media are defined | S | \<Media Protection Management\> |
 | MP-02\_ODP\[04\] | Who may access them is defined | S | \<Media Protection Management\> |
 | MP-02\[01\] | Digital media access is restricted | O-E | Exports limited to editors (P01); disks, volumes and backups with \<Organisation\> (EV-MP-01) |
@@ -2979,14 +2979,14 @@ There is one finding for each CSS determination statement, including those about
 
 | Statement | Determination, condensed | Finding | Basis |
 | --- | --- | --- | --- |
-| PS-01\_ODP\[01\] | Who receives the policy is defined | S | \<Personnel Security Management\>, appendix A |
-| PS-01\_ODP\[02\] | Who receives the procedures is defined | S | \<Personnel Security Management\>, appendix A |
-| PS-01\_ODP\[03\] | Policy level is selected | S | \<Personnel Security Management\>, appendix A |
+| PS-01\_ODP\[01\] | Who receives the policy is defined | S | \<Organisation\>'s corporate parameter values |
+| PS-01\_ODP\[02\] | Who receives the procedures is defined | S | \<Organisation\>'s corporate parameter values |
+| PS-01\_ODP\[03\] | Policy level is selected | S | \<Organisation\>'s corporate parameter values |
 | PS-01\_ODP\[04\] | Managing official is defined | S | System owner |
-| PS-01\_ODP\[05\] | Policy review frequency is defined | S | \<Personnel Security Management\>, appendix A |
-| PS-01\_ODP\[06\] | Policy review events are defined | S | \<Personnel Security Management\>, appendix A |
-| PS-01\_ODP\[07\] | Procedures review frequency is defined | S | \<Personnel Security Management\>, appendix A |
-| PS-01\_ODP\[08\] | Procedures review events are defined | S | \<Personnel Security Management\>, appendix A |
+| PS-01\_ODP\[05\] | Policy review frequency is defined | S | \<Organisation\>'s corporate parameter values |
+| PS-01\_ODP\[06\] | Policy review events are defined | S | \<Organisation\>'s corporate parameter values |
+| PS-01\_ODP\[07\] | Procedures review frequency is defined | S | \<Organisation\>'s corporate parameter values |
+| PS-01\_ODP\[08\] | Procedures review events are defined | S | \<Organisation\>'s corporate parameter values |
 | PS-01a.\[01\] | Policy is developed and documented | S | Version \<ver\> approved by the Head of Cyber (D-PS-01); version \<ver\> awaits re-approval (D-PS-08) |
 | PS-01a.\[02\] | Policy is disseminated | O-D | Not yet shared |
 | PS-01a.\[03\] | Procedures are developed and documented | S | Version \<ver\> approved by the system owner (D-PS-09) |
@@ -3004,45 +3004,45 @@ There is one finding for each CSS determination statement, including those about
 | PS-01c.01\[02\] | Policy is reviewed after set events | S | Reviewed on 12 November 2026 after the whole-set review (D-PS-07) |
 | PS-01c.02\[01\] | Procedures are reviewed at the set frequency | O-D | First review not yet due |
 | PS-01c.02\[02\] | Procedures are reviewed after set events | S | Reviewed and approved as version \<ver\> on 12 November 2026 (D-PS-09) |
-| PS-02\_ODP | Review frequency is defined | S | \<Personnel Security Management\>, appendix A |
+| PS-02\_ODP | Review frequency is defined | S | \<Organisation\>'s corporate parameter values |
 | PS-02a. | Positions have a risk designation | S | All 19 roles in \<Roles and Responsibilities\> are designated in \<Personnel Security Management\>, section 3.2 (D-PS-07; check L17) |
 | PS-02b. | Screening criteria are set | O-E | Minimum set in \<Personnel Security Management\>, section 3.3; \<Organisation\>'s criteria not seen (EV-PS-01) |
 | PS-02c. | Designations are reviewed | O-D | Reviewed and updated on 12 November 2026; first scheduled review not yet due |
-| PS-03\_ODP\[01\] | Rescreening conditions are defined | S | \<Personnel Security Management\>, appendix A |
-| PS-03\_ODP\[02\] | Rescreening frequency is defined | S | \<Personnel Security Management\>, appendix A |
+| PS-03\_ODP\[01\] | Rescreening conditions are defined | S | \<Organisation\>'s corporate parameter values |
+| PS-03\_ODP\[02\] | Rescreening frequency is defined | S | \<Organisation\>'s corporate parameter values |
 | PS-03a. | People are screened before access | O-E | \<Organisation\> (EV-PS-01) |
 | PS-03b.\[01\] | People are rescreened under the conditions | O-E | \<Organisation\> (EV-PS-01) |
 | PS-03b.\[02\] | People are rescreened at the frequency | O-E | \<Organisation\> (EV-PS-01) |
-| PS-04\_ODP\[01\] | Time to disable is defined | S | \<Personnel Security Management\>, appendix A |
-| PS-04\_ODP\[02\] | Exit interview topics are defined | S | \<Personnel Security Management\>, appendix A |
+| PS-04\_ODP\[01\] | Time to disable is defined | S | \<Organisation\>'s corporate parameter values |
+| PS-04\_ODP\[02\] | Exit interview topics are defined | S | \<Organisation\>'s corporate parameter values |
 | PS-04a. | Access is disabled within the time | O-D | PRO-PS-2 \<ver\> approved, with 1 hour for a higher-risk leaver; route not built (PA-32) |
 | PS-04b. | Credentials are revoked | O-D | PRO-PS-2 \<ver\> approved; not yet in use |
 | PS-04c. | Exit interviews are held | O-E | \<Organisation\> (EV-PS-02) |
 | PS-04d. | Equipment is recovered | O-E | \<Organisation\> (EV-PS-02) |
 | PS-04e. | Access to information is retained | O-D | PRO-PS-2 \<ver\> approved; not yet in use |
-| PS-05\_ODP\[01\] | Transfer actions are defined | S | \<Personnel Security Management\>, appendix A |
-| PS-05\_ODP\[02\] | Time to start is defined | S | \<Personnel Security Management\>, appendix A |
-| PS-05\_ODP\[03\] | Who is notified is defined | S | \<Personnel Security Management\>, appendix A |
-| PS-05\_ODP\[04\] | Time to notify is defined | S | \<Personnel Security Management\>, appendix A |
+| PS-05\_ODP\[01\] | Transfer actions are defined | S | \<Organisation\>'s corporate parameter values |
+| PS-05\_ODP\[02\] | Time to start is defined | S | \<Organisation\>'s corporate parameter values |
+| PS-05\_ODP\[03\] | Who is notified is defined | S | \<Organisation\>'s corporate parameter values |
+| PS-05\_ODP\[04\] | Time to notify is defined | S | \<Organisation\>'s corporate parameter values |
 | PS-05a. | Need for access is reviewed on transfer | O-D | PRO-PS-3 \<ver\> approved; route not built (PA-32) |
 | PS-05b. | Actions start within the time | O-D | PRO-PS-3 \<ver\> approved; route not built (PA-32) |
 | PS-05c. | Access is changed as needed | O-D | PRO-PS-3 \<ver\> approved; not yet in use |
 | PS-05d. | People are notified within the time | O-D | PRO-PS-3 \<ver\> approved; route not built (PA-32) |
-| PS-06\_ODP\[01\] | Review frequency is defined | S | \<Personnel Security Management\>, appendix A |
-| PS-06\_ODP\[02\] | Re-sign frequency is defined | S | \<Personnel Security Management\>, appendix A |
+| PS-06\_ODP\[01\] | Review frequency is defined | S | \<Organisation\>'s corporate parameter values |
+| PS-06\_ODP\[02\] | Re-sign frequency is defined | S | \<Organisation\>'s corporate parameter values |
 | PS-06a. | Access agreements exist | S | \<Security Operating Procedures\> \<ver\>, section 9, approved |
 | PS-06b. | Agreements are reviewed | O-D | First review not yet due |
 | PS-06c.01 | People sign before access | O-D | PRO-PS-1 \<ver\> approved; none signed |
 | PS-06c.02 | People re-sign | O-D | None signed yet |
-| PS-07\_ODP\[01\] | Who suppliers notify is defined | S | \<Personnel Security Management\>, appendix A |
-| PS-07\_ODP\[02\] | Time to notify is defined | S | \<Personnel Security Management\>, appendix A |
+| PS-07\_ODP\[01\] | Who suppliers notify is defined | S | \<Organisation\>'s corporate parameter values |
+| PS-07\_ODP\[02\] | Time to notify is defined | S | \<Organisation\>'s corporate parameter values |
 | PS-07a. | Requirements are set for external people | O-E | \<Organisation\> (EV-PS-03) |
 | PS-07b. | Providers must comply | O-E | \<Organisation\> (EV-PS-03) |
 | PS-07c. | Requirements are documented | O-E | \<Organisation\> (EV-PS-03) |
 | PS-07d. | Providers must report leavers and movers | O-E | \<Organisation\> (EV-PS-03) |
 | PS-07e. | Compliance is monitored | O-D | PRO-PS-5 \<ver\> approved; not yet in use |
-| PS-08\_ODP\[01\] | Who is told is defined | S | \<Personnel Security Management\>, appendix A |
-| PS-08\_ODP\[02\] | Time to tell them is defined | S | \<Personnel Security Management\>, appendix A |
+| PS-08\_ODP\[01\] | Who is told is defined | S | \<Organisation\>'s corporate parameter values |
+| PS-08\_ODP\[02\] | Time to tell them is defined | S | \<Organisation\>'s corporate parameter values |
 | PS-08a. | A sanctions process is used | O-E | \<Organisation\> (EV-PS-02) |
 | PS-08b. | People are told within the time | O-D | PRO-PS-6 \<ver\> approved; not yet in use |
 | PS-09\[01\] | Job descriptions include security duties | O-E | \<Roles and Responsibilities\> \<ver\> states the security duties of each \<System Name\> role; \<Organisation\>'s job descriptions not seen (EV-PS-02) |
@@ -3718,14 +3718,14 @@ There is one finding for each CSS determination statement, including those about
 
 | Statement | Determination, condensed | Finding | Basis |
 | --- | --- | --- | --- |
-| SC-01\_ODP\[01\] | Who receives the policy is defined | S | \<System and Communications Protection Management\>, appendix A |
-| SC-01\_ODP\[02\] | Who receives the procedures is defined | S | \<System and Communications Protection Management\>, appendix A |
-| SC-01\_ODP\[03\] | Policy level is selected | S | \<System and Communications Protection Management\>, appendix A |
+| SC-01\_ODP\[01\] | Who receives the policy is defined | S | \<Organisation\>'s corporate parameter values |
+| SC-01\_ODP\[02\] | Who receives the procedures is defined | S | \<Organisation\>'s corporate parameter values |
+| SC-01\_ODP\[03\] | Policy level is selected | S | \<Organisation\>'s corporate parameter values |
 | SC-01\_ODP\[04\] | Managing official is defined | S | System owner |
-| SC-01\_ODP\[05\] | Policy review frequency is defined | S | \<System and Communications Protection Management\>, appendix A |
-| SC-01\_ODP\[06\] | Policy review events are defined | S | \<System and Communications Protection Management\>, appendix A |
-| SC-01\_ODP\[07\] | Procedures review frequency is defined | S | \<System and Communications Protection Management\>, appendix A |
-| SC-01\_ODP\[08\] | Procedures review events are defined | S | \<System and Communications Protection Management\>, appendix A |
+| SC-01\_ODP\[05\] | Policy review frequency is defined | S | \<Organisation\>'s corporate parameter values |
+| SC-01\_ODP\[06\] | Policy review events are defined | S | \<Organisation\>'s corporate parameter values |
+| SC-01\_ODP\[07\] | Procedures review frequency is defined | S | \<Organisation\>'s corporate parameter values |
+| SC-01\_ODP\[08\] | Procedures review events are defined | S | \<Organisation\>'s corporate parameter values |
 | SC-01a.\[01\] | Policy is developed and documented | S | Version \<ver\> approved by the Head of Cyber, subject to legal review (D-SC-01); version \<ver\> awaits re-approval (D-SC-06) |
 | SC-01a.\[02\] | Policy is disseminated | O-D | Not yet shared |
 | SC-01a.\[03\] | Procedures are developed and documented | S | Version \<ver\> approved by the system owner (D-SC-08) |
@@ -3746,9 +3746,9 @@ There is one finding for each CSS determination statement, including those about
 | SC-02 | User and management functions are separated | S | Separate admin application and process (B09; \<System and Communications Protection Management\>, section 3.9) |
 | SC-04\[01\] | Unauthorised transfer through shared resources is prevented | O-E | VMs not available (PA-54); export copies stay in a shared temporary folder (PA-86) |
 | SC-04\[02\] | Unintended transfer through shared resources is prevented | O-E | VMs not available (PA-54); export copies stay in a shared temporary folder (PA-86) |
-| SC-05\_ODP\[01\] | Denial-of-service events are defined | S | \<System and Communications Protection Management\>, appendix A |
+| SC-05\_ODP\[01\] | Denial-of-service events are defined | S | \<Organisation\>'s corporate parameter values |
 | SC-05\_ODP\[02\] | Protect or limit is selected | S | Limit |
-| SC-05\_ODP\[03\] | Controls are defined | S | \<System and Communications Protection Management\>, appendix A |
+| SC-05\_ODP\[03\] | Controls are defined | S | \<Organisation\>'s corporate parameter values |
 | SC-05a. | The effects are limited | O-E | \<Organisation\> (EV-SC-01). No rate limiter; the rate limit is switched off in the code (N12, PA-50) |
 | SC-05b. | The controls are employed | O-E | Lockout tested; network not available |
 | SC-07\_ODP | Separation is selected | S | Logical |
@@ -3770,32 +3770,32 @@ There is one finding for each CSS determination statement, including those about
 | SC-07(04)(f) | Unauthorised control plane traffic is prevented | O-E | \<Organisation\> (EV-SC-02) |
 | SC-07(04)(g) | Information is published for remote networks | O-E | \<Organisation\> (EV-SC-02) |
 | SC-07(04)(h) | Unauthorised control plane traffic is filtered | O-E | \<Organisation\> (EV-SC-02) |
-| SC-07(05)\_ODP\[01\] | Where deny by default applies is selected | S | At managed interfaces and each host firewall (\<System and Communications Protection Management\>, appendix A) |
+| SC-07(05)\_ODP\[01\] | Where deny by default applies is selected | S | At managed interfaces and each host firewall (\<Organisation\>'s corporate parameter values) |
 | SC-07(05)\_ODP\[02\] | Systems are defined | S | The two VMs |
 | SC-07(05)\[01\] | Traffic is denied by default | O-G | Allow-lists set (\<System and Communications Protection Management\>, section 3.2) but not built; the apps listen on every interface (N07, PA-83); \<Organisation\> (EV-AC-03) |
 | SC-07(05)\[02\] | Traffic is allowed by exception | O-G | As SC-07(05)\[01\] |
-| SC-07(07)\_ODP | Safeguards are defined | S | \<Organisation\>'s VPN prevents split tunnelling (\<System and Communications Protection Management\>, appendix A; D-SC-P02) |
+| SC-07(07)\_ODP | Safeguards are defined | S | \<Organisation\>'s VPN prevents split tunnelling (\<Organisation\>'s corporate parameter values; D-SC-P02) |
 | SC-07(07) | Split tunnelling is prevented | O-E | \<Organisation\> (EV-SC-03) |
 | SC-07(08)\_ODP\[01\] | Traffic is defined | S | Outbound from the VMs |
 | SC-07(08)\_ODP\[02\] | External networks are defined | S | All |
 | SC-07(08) | Traffic is routed through authenticated proxies | O-E | \<Organisation\> (EV-SC-03) |
 | SC-08\_ODP | Protection is selected | S | Confidentiality and integrity |
 | SC-08 | Transmitted information is protected | O-G | Plain HTTP on every app and the internal API calls; database TLS off (N01, N06; PA-18) |
-| SC-08(01)\_ODP | Purpose is selected | S | \<System and Communications Protection Management\>, section 3.3 and appendix A |
+| SC-08(01)\_ODP | Purpose is selected | S | \<System and Communications Protection Management\>, section 3.3 |
 | SC-08(01) | Cryptography protects transmission | O-G | No TLS on any flow (N01, N02, N06; PA-18) |
 | SC-10\_ODP | Time period is defined | S | 30 minutes idle |
 | SC-10 | Network connections end at that time | O-E | Application sessions end at 30 minutes idle and 8 hours; network side not available (EV-SC-01) |
-| SC-12\_ODP | Key requirements are defined | S | \<System and Communications Protection Management\>, section 3.4 and appendix A |
+| SC-12\_ODP | Key requirements are defined | S | \<System and Communications Protection Management\>, section 3.4 |
 | SC-12\[01\] | Keys are established | O-G | Register set (\<System and Communications Protection Management\>, section 3.4); signing key and passwords committed in source (N09, PA-19) |
 | SC-12\[02\] | Keys are managed | O-G | No protected store or rotation (PA-19); key rings unencrypted (N08, PA-93) |
-| SC-13\_ODP\[01\] | Cryptographic uses are defined | S | \<System and Communications Protection Management\>, appendix A |
-| SC-13\_ODP\[02\] | Types are defined | S | \<System and Communications Protection Management\>, section 3.3, section 3.4 and appendix A (D-SC-P02) |
+| SC-13\_ODP\[01\] | Cryptographic uses are defined | S | \<Organisation\>'s corporate parameter values |
+| SC-13\_ODP\[02\] | Types are defined | S | \<System and Communications Protection Management\>, section 3.3 and section 3.4 (D-SC-P02) |
 | SC-13a. | Uses are identified | S | \<System and Communications Protection Management\>, section 3.4 |
 | SC-13b. | Types are implemented | O-G | Password hashing and token signing in place (N11); TLS, disk and key ring encryption not; document checksums use MD5 (PA-18, PA-52, PA-93, PA-61) |
 | SC-15\_ODP | Exceptions are defined | N/A | TR-SC-01 |
 | SC-15a. | Remote activation is prohibited | N/A | TR-SC-01 |
 | SC-15b. | Use is indicated to those present | N/A | TR-SC-01 |
-| SC-17\_ODP | Certificate policy is defined | S | \<System and Communications Protection Management\>, appendix A |
+| SC-17\_ODP | Certificate policy is defined | S | \<Organisation\>'s corporate parameter values |
 | SC-17a. | Certificates are issued under the policy | O-E | \<Organisation\> (EV-SC-04) |
 | SC-17b. | Only approved trust anchors are used | O-E | \<Organisation\> (EV-SC-04) |
 | SC-18a.\[01\] | Acceptable mobile code is defined | S | \<System and Communications Protection Management\>, section 3.5 (D-SC-03) |
@@ -3818,10 +3818,10 @@ There is one finding for each CSS determination statement, including those about
 | SC-22\[03\] | Roles are separated by exposure | O-E | \<Organisation\> (EV-SC-05) |
 | SC-23 | Session authenticity is protected | O-G | Sessions are checked on the server, but cookies are not Secure, there is no HSTS and traffic is plain HTTP (N02, N03; PA-18); key rings unencrypted (PA-93) |
 | SC-28\_ODP\[01\] | Protection is selected | S | Confidentiality and integrity |
-| SC-28\_ODP\[02\] | Information is defined | S | \<System and Communications Protection Management\>, appendix A |
+| SC-28\_ODP\[02\] | Information is defined | S | \<Organisation\>'s corporate parameter values |
 | SC-28 | Information at rest is protected | O-E | Documents in PostgreSQL, backups, export copies and key rings not encrypted in Docker; BitLocker planned on the VMs (PA-52, PA-86, PA-93) |
-| SC-28(01)\_ODP\[01\] | Information is defined | S | \<System and Communications Protection Management\>, appendix A |
-| SC-28(01)\_ODP\[02\] | Components are defined | S | \<System and Communications Protection Management\>, appendix A |
+| SC-28(01)\_ODP\[01\] | Information is defined | S | \<Organisation\>'s corporate parameter values |
+| SC-28(01)\_ODP\[02\] | Components are defined | S | \<Organisation\>'s corporate parameter values |
 | SC-28(01)\[01\] | Cryptography prevents disclosure | O-E | VMs not built (PA-52); key rings and export copies unencrypted (PA-86, PA-93) |
 | SC-28(01)\[02\] | Cryptography prevents modification | O-E | VMs not built (PA-52) |
 | SC-39 | Each process has its own execution domain | O-E | Windows Server not available |
@@ -3908,14 +3908,14 @@ There is one finding for each CSS determination statement, including those about
 
 | Statement | Determination, condensed | Finding | Basis |
 | --- | --- | --- | --- |
-| SI-01\_ODP\[01\] | Who receives the policy is defined | S | \<System and Information Integrity Management\>, appendix A |
-| SI-01\_ODP\[02\] | Who receives the procedures is defined | S | \<System and Information Integrity Management\>, appendix A |
-| SI-01\_ODP\[03\] | Policy level is selected | S | \<System and Information Integrity Management\>, appendix A |
+| SI-01\_ODP\[01\] | Who receives the policy is defined | S | \<Organisation\>'s corporate parameter values |
+| SI-01\_ODP\[02\] | Who receives the procedures is defined | S | \<Organisation\>'s corporate parameter values |
+| SI-01\_ODP\[03\] | Policy level is selected | S | \<Organisation\>'s corporate parameter values |
 | SI-01\_ODP\[04\] | Managing official is defined | S | System owner |
-| SI-01\_ODP\[05\] | Policy review frequency is defined | S | \<System and Information Integrity Management\>, appendix A |
-| SI-01\_ODP\[06\] | Policy review events are defined | S | \<System and Information Integrity Management\>, appendix A |
-| SI-01\_ODP\[07\] | Procedures review frequency is defined | S | \<System and Information Integrity Management\>, appendix A |
-| SI-01\_ODP\[08\] | Procedures review events are defined | S | \<System and Information Integrity Management\>, appendix A |
+| SI-01\_ODP\[05\] | Policy review frequency is defined | S | \<Organisation\>'s corporate parameter values |
+| SI-01\_ODP\[06\] | Policy review events are defined | S | \<Organisation\>'s corporate parameter values |
+| SI-01\_ODP\[07\] | Procedures review frequency is defined | S | \<Organisation\>'s corporate parameter values |
+| SI-01\_ODP\[08\] | Procedures review events are defined | S | \<Organisation\>'s corporate parameter values |
 | SI-01a.\[01\] | Policy is developed and documented | S | Version \<ver\> approved by the Head of Cyber, subject to legal review (D-SI-01); version \<ver\> awaits re-approval (D-SI-06) |
 | SI-01a.\[02\] | Policy is disseminated | O-D | Not yet shared |
 | SI-01a.\[03\] | Procedures are developed and documented | S | Version \<ver\> approved by the system owner (D-SI-09) |
@@ -3933,7 +3933,7 @@ There is one finding for each CSS determination statement, including those about
 | SI-01c.01\[02\] | Policy is reviewed after set events | S | Reviewed on 12 November 2026 after the SI pack review (D-SI-08) |
 | SI-01c.02\[01\] | Procedures are reviewed at the set frequency | O-D | First review not yet due |
 | SI-01c.02\[02\] | Procedures are reviewed after set events | S | Reviewed and approved as version \<ver\> on 12 November 2026 (D-SI-09) |
-| SI-02\_ODP | Time to install updates is defined | S | \<System and Information Integrity Management\>, appendix A (\<Risk Assessment Management\>, section 3.6) |
+| SI-02\_ODP | Time to install updates is defined | S | \<Organisation\>'s corporate parameter values (\<Risk Assessment Management\>, section 3.6) |
 | SI-02a.\[01\] | Flaws are identified | S | Test-Vulnerability.ps1, 11 November 2026 (V01) |
 | SI-02a.\[02\] | Flaws are reported | S | \<Plan of Action and Milestones\>, PA-56 |
 | SI-02a.\[03\] | Flaws are corrected | O-G | 7 advisories open, 5 High (PA-56) |
@@ -3944,15 +3944,15 @@ There is one finding for each CSS determination statement, including those about
 | SI-02c.\[01\] | Software updates are installed in time | O-G | Advisories not fixed within the timetable (PA-56) |
 | SI-02c.\[02\] | Firmware updates are installed in time | O-E | \<Organisation\> (EV-SI-02) |
 | SI-02d. | Flaw fixing is part of configuration management | S | PRO-SI-1 \<ver\>, through \<Procedures\> (CM) (D-SI-09) |
-| SI-02(02)\_ODP\[01\] | Mechanisms are defined | S | \<System and Information Integrity Management\>, appendix A |
-| SI-02(02)\_ODP\[02\] | Frequency is defined | S | \<System and Information Integrity Management\>, appendix A |
+| SI-02(02)\_ODP\[01\] | Mechanisms are defined | S | \<Organisation\>'s corporate parameter values |
+| SI-02(02)\_ODP\[02\] | Frequency is defined | S | \<Organisation\>'s corporate parameter values |
 | SI-02(02) | Update status is checked automatically | O-G | Test-Vulnerability.ps1 exists but is run by hand; dependency alerts off (PA-57, PA-91) |
-| SI-03\_ODP\[01\] | Type of protection is selected | S | \<System and Information Integrity Management\>, appendix A |
-| SI-03\_ODP\[02\] | Scan frequency is defined | S | \<System and Information Integrity Management\>, appendix A |
-| SI-03\_ODP\[03\] | Real-time scan locations are selected | S | \<System and Information Integrity Management\>, appendix A |
-| SI-03\_ODP\[04\] | Response is selected | S | \<System and Information Integrity Management\>, appendix A |
-| SI-03\_ODP\[05\] | Other action is defined | S | \<System and Information Integrity Management\>, appendix A |
-| SI-03\_ODP\[06\] | Who is alerted is defined | S | \<System and Information Integrity Management\>, appendix A |
+| SI-03\_ODP\[01\] | Type of protection is selected | S | \<Organisation\>'s corporate parameter values |
+| SI-03\_ODP\[02\] | Scan frequency is defined | S | \<Organisation\>'s corporate parameter values |
+| SI-03\_ODP\[03\] | Real-time scan locations are selected | S | \<Organisation\>'s corporate parameter values |
+| SI-03\_ODP\[04\] | Response is selected | S | \<Organisation\>'s corporate parameter values |
+| SI-03\_ODP\[05\] | Other action is defined | S | \<Organisation\>'s corporate parameter values |
+| SI-03\_ODP\[06\] | Who is alerted is defined | S | \<Organisation\>'s corporate parameter values |
 | SI-03a.\[01\] | Protection detects malicious code at entry | O-G | No scanner call in the upload path (H08; PA-58) |
 | SI-03a.\[02\] | Protection eradicates malicious code at entry | O-G | No scanner call in the upload path (H08; PA-58) |
 | SI-03b. | Protection updates automatically | O-E | On the VMs |
@@ -3961,12 +3961,12 @@ There is one finding for each CSS determination statement, including those about
 | SI-03c.02\[01\] | Response to detection is set | O-E | On the VMs |
 | SI-03c.02\[02\] | Alerts on detection are set | O-E | On the VMs |
 | SI-03d. | False positives are addressed | O-D | PRO-SI-2 \<ver\> approved; not yet in use |
-| SI-04\_ODP\[01\] | Monitoring objectives are defined | S | \<System and Information Integrity Management\>, appendix A |
-| SI-04\_ODP\[02\] | Techniques are defined | S | \<System and Information Integrity Management\>, appendix A |
-| SI-04\_ODP\[03\] | Monitoring information is defined | S | \<System and Information Integrity Management\>, appendix A |
-| SI-04\_ODP\[04\] | Who receives it is defined | S | \<System and Information Integrity Management\>, appendix A |
-| SI-04\_ODP\[05\] | When it is provided is selected | S | \<System and Information Integrity Management\>, appendix A |
-| SI-04\_ODP\[06\] | Frequency is defined | S | \<System and Information Integrity Management\>, appendix A |
+| SI-04\_ODP\[01\] | Monitoring objectives are defined | S | \<Organisation\>'s corporate parameter values |
+| SI-04\_ODP\[02\] | Techniques are defined | S | \<Organisation\>'s corporate parameter values |
+| SI-04\_ODP\[03\] | Monitoring information is defined | S | \<Organisation\>'s corporate parameter values |
+| SI-04\_ODP\[04\] | Who receives it is defined | S | \<Organisation\>'s corporate parameter values |
+| SI-04\_ODP\[05\] | When it is provided is selected | S | \<Organisation\>'s corporate parameter values |
+| SI-04\_ODP\[06\] | Frequency is defined | S | \<Organisation\>'s corporate parameter values |
 | SI-04a.01 | Attacks are monitored for | O-E | \<Organisation\> (EV-SI-01) |
 | SI-04a.02\[01\] | Unauthorised local connections are monitored for | O-E | On the VMs |
 | SI-04a.02\[02\] | Unauthorised network connections are monitored for | O-E | \<Organisation\> (EV-SI-01) |
@@ -3980,54 +3980,54 @@ There is one finding for each CSS determination statement, including those about
 | SI-04f. | A legal opinion on monitoring is obtained | O-D | Legal adviser's opinion on monitoring users requested (D-SI-07) |
 | SI-04g. | Monitoring information is provided | O-E | Reviews not started; \<Organisation\> (EV-SI-01) |
 | SI-04(02) | Automated tools support near real-time analysis | O-G | No log forwarding or alerting (H12; PA-59) |
-| SI-04(04)\_ODP\[01\] | Inbound monitoring frequency is defined | S | \<System and Information Integrity Management\>, appendix A |
-| SI-04(04)\_ODP\[02\] | Unusual inbound activity is defined | S | \<System and Information Integrity Management\>, appendix A |
-| SI-04(04)\_ODP\[03\] | Outbound monitoring frequency is defined | S | \<System and Information Integrity Management\>, appendix A |
-| SI-04(04)\_ODP\[04\] | Unusual outbound activity is defined | S | \<System and Information Integrity Management\>, appendix A |
+| SI-04(04)\_ODP\[01\] | Inbound monitoring frequency is defined | S | \<Organisation\>'s corporate parameter values |
+| SI-04(04)\_ODP\[02\] | Unusual inbound activity is defined | S | \<Organisation\>'s corporate parameter values |
+| SI-04(04)\_ODP\[03\] | Outbound monitoring frequency is defined | S | \<Organisation\>'s corporate parameter values |
+| SI-04(04)\_ODP\[04\] | Unusual outbound activity is defined | S | \<Organisation\>'s corporate parameter values |
 | SI-04(04)(a)\[01\] | Inbound criteria are determined | O-E | \<Organisation\> (EV-SI-01) |
 | SI-04(04)(a)\[02\] | Outbound criteria are determined | O-E | \<Organisation\> (EV-SI-01) |
 | SI-04(04)(b)\[01\] | Inbound traffic is monitored | O-E | \<Organisation\> (EV-SI-01) |
 | SI-04(04)(b)\[02\] | Outbound traffic is monitored | O-E | \<Organisation\> (EV-SI-01) |
-| SI-04(05)\_ODP\[01\] | Who is alerted is defined | S | \<System and Information Integrity Management\>, appendix A |
-| SI-04(05)\_ODP\[02\] | Compromise indicators are defined | S | \<System and Information Integrity Management\>, appendix A |
+| SI-04(05)\_ODP\[01\] | Who is alerted is defined | S | \<Organisation\>'s corporate parameter values |
+| SI-04(05)\_ODP\[02\] | Compromise indicators are defined | S | \<Organisation\>'s corporate parameter values |
 | SI-04(05) | Alerts are raised on those indicators | O-G | Nothing raises an alert on the use cases in \<System and Information Integrity Management\>, section 3.4 (H12; PA-59) |
-| SI-05\_ODP\[01\] | Sources are defined | S | \<System and Information Integrity Management\>, appendix A |
-| SI-05\_ODP\[02\] | Who advisories go to is selected | S | \<System and Information Integrity Management\>, appendix A |
-| SI-05\_ODP\[03\] | Personnel are defined | S | \<System and Information Integrity Management\>, appendix A |
-| SI-05\_ODP\[04\] | Elements are defined | S | \<System and Information Integrity Management\>, appendix A |
-| SI-05\_ODP\[05\] | External organisations are defined | S | \<System and Information Integrity Management\>, appendix A |
+| SI-05\_ODP\[01\] | Sources are defined | S | \<Organisation\>'s corporate parameter values |
+| SI-05\_ODP\[02\] | Who advisories go to is selected | S | \<Organisation\>'s corporate parameter values |
+| SI-05\_ODP\[03\] | Personnel are defined | S | \<Organisation\>'s corporate parameter values |
+| SI-05\_ODP\[04\] | Elements are defined | S | \<Organisation\>'s corporate parameter values |
+| SI-05\_ODP\[05\] | External organisations are defined | S | \<Organisation\>'s corporate parameter values |
 | SI-05a. | Advisories are received | O-D | PRO-SI-5 \<ver\> approved; not yet in use |
 | SI-05b. | Internal advisories are generated | O-D | Internal advisory defined (TPL-7); not yet in use |
 | SI-05c. | Advisories are passed on | O-D | PRO-SI-5 \<ver\> approved; not yet in use |
 | SI-05d. | Directives are implemented in time | O-D | PRO-SI-5 \<ver\> approved; not yet in use |
-| SI-07\_ODP\[01\] | Software is defined | S | \<System and Information Integrity Management\>, appendix A |
-| SI-07\_ODP\[02\] | Firmware is defined | S | \<System and Information Integrity Management\>, appendix A |
-| SI-07\_ODP\[03\] | Information is defined | S | \<System and Information Integrity Management\>, appendix A |
-| SI-07\_ODP\[04\] | Actions for software are defined | S | \<System and Information Integrity Management\>, appendix A |
-| SI-07\_ODP\[05\] | Actions for firmware are defined | S | \<System and Information Integrity Management\>, appendix A |
-| SI-07\_ODP\[06\] | Actions for information are defined | S | \<System and Information Integrity Management\>, appendix A |
+| SI-07\_ODP\[01\] | Software is defined | S | \<Organisation\>'s corporate parameter values |
+| SI-07\_ODP\[02\] | Firmware is defined | S | \<Organisation\>'s corporate parameter values |
+| SI-07\_ODP\[03\] | Information is defined | S | \<Organisation\>'s corporate parameter values |
+| SI-07\_ODP\[04\] | Actions for software are defined | S | \<Organisation\>'s corporate parameter values |
+| SI-07\_ODP\[05\] | Actions for firmware are defined | S | \<Organisation\>'s corporate parameter values |
+| SI-07\_ODP\[06\] | Actions for information are defined | S | \<Organisation\>'s corporate parameter values |
 | SI-07a.\[01\] | Tools detect changes to software | O-G | Baseline recorded (\<System and Information Integrity Management\>, section 3.5); no check runs (PA-61) |
 | SI-07a.\[02\] | Tools detect changes to firmware | O-E | \<Organisation\> (EV-SI-02) |
 | SI-07a.\[03\] | Tools detect changes to information | O-G | Documents use MD5 (H09); only 1 of 15 audit hashes recompute (H10; PA-61, PA-74) |
 | SI-07b.\[01\] | Actions are taken on software changes | O-D | PRO-SI-6 \<ver\> approved; not yet in use |
 | SI-07b.\[02\] | Actions are taken on firmware changes | O-E | \<Organisation\> (EV-SI-02) |
 | SI-07b.\[03\] | Actions are taken on information changes | O-D | PRO-SI-6 \<ver\> approved; not yet in use |
-| SI-07(01)\_ODP\[01\] | Software checked is defined | S | \<System and Information Integrity Management\>, appendix A |
-| SI-07(01)\_ODP\[02\] | When it is checked is selected | S | \<System and Information Integrity Management\>, appendix A |
-| SI-07(01)\_ODP\[03\] | Events are defined | S | \<System and Information Integrity Management\>, appendix A |
-| SI-07(01)\_ODP\[04\] | Frequency is defined | S | \<System and Information Integrity Management\>, appendix A |
-| SI-07(01)\_ODP\[05\] | Firmware checked is defined | S | \<System and Information Integrity Management\>, appendix A |
-| SI-07(01)\_ODP\[06\] | When it is checked is selected | S | \<System and Information Integrity Management\>, appendix A |
-| SI-07(01)\_ODP\[07\] | Events are defined | S | \<System and Information Integrity Management\>, appendix A |
-| SI-07(01)\_ODP\[08\] | Frequency is defined | S | \<System and Information Integrity Management\>, appendix A |
-| SI-07(01)\_ODP\[09\] | Information checked is defined | S | \<System and Information Integrity Management\>, appendix A |
-| SI-07(01)\_ODP\[10\] | When it is checked is selected | S | \<System and Information Integrity Management\>, appendix A |
-| SI-07(01)\_ODP\[11\] | Events are defined | S | \<System and Information Integrity Management\>, appendix A |
-| SI-07(01)\_ODP\[12\] | Frequency is defined | S | \<System and Information Integrity Management\>, appendix A |
+| SI-07(01)\_ODP\[01\] | Software checked is defined | S | \<Organisation\>'s corporate parameter values |
+| SI-07(01)\_ODP\[02\] | When it is checked is selected | S | \<Organisation\>'s corporate parameter values |
+| SI-07(01)\_ODP\[03\] | Events are defined | S | \<Organisation\>'s corporate parameter values |
+| SI-07(01)\_ODP\[04\] | Frequency is defined | S | \<Organisation\>'s corporate parameter values |
+| SI-07(01)\_ODP\[05\] | Firmware checked is defined | S | \<Organisation\>'s corporate parameter values |
+| SI-07(01)\_ODP\[06\] | When it is checked is selected | S | \<Organisation\>'s corporate parameter values |
+| SI-07(01)\_ODP\[07\] | Events are defined | S | \<Organisation\>'s corporate parameter values |
+| SI-07(01)\_ODP\[08\] | Frequency is defined | S | \<Organisation\>'s corporate parameter values |
+| SI-07(01)\_ODP\[09\] | Information checked is defined | S | \<Organisation\>'s corporate parameter values |
+| SI-07(01)\_ODP\[10\] | When it is checked is selected | S | \<Organisation\>'s corporate parameter values |
+| SI-07(01)\_ODP\[11\] | Events are defined | S | \<Organisation\>'s corporate parameter values |
+| SI-07(01)\_ODP\[12\] | Frequency is defined | S | \<Organisation\>'s corporate parameter values |
 | SI-07(01)\[01\] | Software is checked | O-G | Not built (PA-61) |
 | SI-07(01)\[02\] | Firmware is checked | O-E | \<Organisation\> (EV-SI-02) |
 | SI-07(01)\[03\] | Information is checked | O-G | Not built (PA-37, PA-61, PA-74) |
-| SI-07(07)\_ODP | Changes for incident response are defined | S | \<System and Information Integrity Management\>, appendix A |
+| SI-07(07)\_ODP | Changes for incident response are defined | S | \<Organisation\>'s corporate parameter values |
 | SI-07(07) | Detected changes go to incident response | S | PRO-SI-6 \<ver\>, approved (D-SI-09) |
 | SI-08a.\[01\] | Spam is detected at entry | N/A | TR-SI-01 |
 | SI-08a.\[02\] | Spam is detected at exit | N/A | TR-SI-01 |
@@ -4036,16 +4036,16 @@ There is one finding for each CSS determination statement, including those about
 | SI-08b. | Spam protection is updated | N/A | TR-SI-01 |
 | SI-08(02)\_ODP | Update frequency is defined | N/A | TR-SI-01 |
 | SI-08(02) | Spam protection updates automatically | N/A | TR-SI-01 |
-| SI-10\_ODP | Inputs are defined | S | \<System and Information Integrity Management\>, appendix A |
+| SI-10\_ODP | Inputs are defined | S | \<Organisation\>'s corporate parameter values |
 | SI-10 | Validity of inputs is checked | S | Tested on 12 November 2026: injection-style input refused, and wrong signatures, disguised executables, unknown types and paths rejected (H03 to H07) |
-| SI-11\_ODP | Who sees detail is defined | S | \<System and Information Integrity Management\>, appendix A |
+| SI-11\_ODP | Who sees detail is defined | S | \<Organisation\>'s corporate parameter values |
 | SI-11a. | Errors give what is needed without revealing detail | O-G | A malformed upload returns the exception message; about 29 API responses do so (H01; PA-60) |
 | SI-11b. | Error detail goes only to those named | O-G | Exception detail reaches callers, not only administrators (H01; PA-60) |
 | SI-12\[01\] | Information is managed under the rules | O-D | \<PII Processing Management\>, section 3.7, set with placeholders; not applied (PA-70) |
 | SI-12\[02\] | Information is retained under the rules | O-D | \<PII Processing Management\>, section 3.7, set with placeholders; not applied (PA-70) |
 | SI-12\[03\] | Output is managed under the rules | O-D | Export copies not yet deleted reliably (PA-86); schedule not applied (PA-70) |
 | SI-12\[04\] | Output is retained under the rules | O-D | \<PII Processing Management\>, section 3.7, set with placeholders; not applied (PA-70) |
-| SI-16\_ODP | Memory controls are defined | S | \<System and Information Integrity Management\>, appendix A |
+| SI-16\_ODP | Memory controls are defined | S | \<Organisation\>'s corporate parameter values |
 | SI-16 | Controls protect memory | O-E | .NET managed memory and non-root containers in place; Windows DEP and address randomisation to confirm on the VMs |
 
 ### SI.5 Assessment plan
@@ -4121,14 +4121,14 @@ There is one finding for each CSS determination statement, including those about
 
 | Statement | Determination, condensed | Finding | Basis |
 | --- | --- | --- | --- |
-| SR-01\_ODP\[01\] | Who receives the policy is defined | S | \<Supply Chain Risk Management\>, appendix A |
-| SR-01\_ODP\[02\] | Who receives the procedures is defined | S | \<Supply Chain Risk Management\>, appendix A |
-| SR-01\_ODP\[03\] | Policy level is selected | S | \<Supply Chain Risk Management\>, appendix A |
+| SR-01\_ODP\[01\] | Who receives the policy is defined | S | \<Organisation\>'s corporate parameter values |
+| SR-01\_ODP\[02\] | Who receives the procedures is defined | S | \<Organisation\>'s corporate parameter values |
+| SR-01\_ODP\[03\] | Policy level is selected | S | \<Organisation\>'s corporate parameter values |
 | SR-01\_ODP\[04\] | Managing official is defined | S | System owner |
-| SR-01\_ODP\[05\] | Policy review frequency is defined | S | \<Supply Chain Risk Management\>, appendix A |
-| SR-01\_ODP\[06\] | Policy review events are defined | S | \<Supply Chain Risk Management\>, appendix A |
-| SR-01\_ODP\[07\] | Procedures review frequency is defined | S | \<Supply Chain Risk Management\>, appendix A |
-| SR-01\_ODP\[08\] | Procedures review events are defined | S | \<Supply Chain Risk Management\>, appendix A |
+| SR-01\_ODP\[05\] | Policy review frequency is defined | S | \<Organisation\>'s corporate parameter values |
+| SR-01\_ODP\[06\] | Policy review events are defined | S | \<Organisation\>'s corporate parameter values |
+| SR-01\_ODP\[07\] | Procedures review frequency is defined | S | \<Organisation\>'s corporate parameter values |
+| SR-01\_ODP\[08\] | Procedures review events are defined | S | \<Organisation\>'s corporate parameter values |
 | SR-01a.\[01\] | Policy is developed and documented | S | Version \<ver\> approved by the Head of Cyber, subject to legal review (D-SR-01); version \<ver\> awaits re-approval (D-SR-12) |
 | SR-01a.\[02\] | Policy is disseminated | O-D | Not yet shared |
 | SR-01a.\[03\] | Procedures are developed and documented | S | Version \<ver\> approved by the system owner (D-SR-13) |
@@ -4146,8 +4146,8 @@ There is one finding for each CSS determination statement, including those about
 | SR-01c.01\[02\] | Policy is reviewed after set events | S | Reviewed on 12 November 2026 after the SR pack review (D-SR-11) |
 | SR-01c.02\[01\] | Procedures are reviewed at the set frequency | O-D | First review not yet due |
 | SR-01c.02\[02\] | Procedures are reviewed after set events | S | Reviewed and approved as version \<ver\> on 12 November 2026 (D-SR-13) |
-| SR-02\_ODP\[01\] | What the plan covers is defined | S | \<Supply Chain Risk Management\>, appendix A |
-| SR-02\_ODP\[02\] | Review frequency is defined | S | \<Supply Chain Risk Management\>, appendix A |
+| SR-02\_ODP\[01\] | What the plan covers is defined | S | \<Organisation\>'s corporate parameter values |
+| SR-02\_ODP\[02\] | Review frequency is defined | S | \<Organisation\>'s corporate parameter values |
 | SR-02a.\[01\] | Plan is developed | S | \<Supply Chain Risk Management\> \<ver\>, approved (D-SR-13) |
 | SR-02a.\[02\] | Plan addresses research and development | S | \<Supply Chain Risk Management\>, section 3.4 |
 | SR-02a.\[03\] | Plan addresses design | S | \<Supply Chain Risk Management\>, section 3.4 |
@@ -4160,47 +4160,47 @@ There is one finding for each CSS determination statement, including those about
 | SR-02b. | Plan is reviewed and updated | O-D | First review not yet due |
 | SR-02c.\[01\] | Plan is protected from disclosure | O-D | Restricted store not yet in use (PA-88) |
 | SR-02c.\[02\] | Plan is protected from modification | O-D | Restricted store not yet in use (PA-88) |
-| SR-02(01)\_ODP\[01\] | Team is defined | S | \<Supply Chain Risk Management\>, appendix A |
-| SR-02(01)\_ODP\[02\] | Team's activities are defined | S | \<Supply Chain Risk Management\>, appendix A |
+| SR-02(01)\_ODP\[01\] | Team is defined | S | \<Organisation\>'s corporate parameter values |
+| SR-02(01)\_ODP\[02\] | Team's activities are defined | S | \<Organisation\>'s corporate parameter values |
 | SR-02(01) | Team is established | O-D | Named in \<Supply Chain Risk Management\> \<ver\>; \<Organisation\>'s part not confirmed; the team has not met |
-| SR-03\_ODP\[01\] | What is covered is defined | S | \<Supply Chain Risk Management\>, appendix A |
-| SR-03\_ODP\[02\] | Who is coordinated with is defined | S | \<Supply Chain Risk Management\>, appendix A |
-| SR-03\_ODP\[03\] | Controls are defined | S | \<Supply Chain Risk Management\>, appendix A |
-| SR-03\_ODP\[04\] | Where controls are documented is selected | S | \<Supply Chain Risk Management\>, appendix A |
-| SR-03\_ODP\[05\] | Other document is defined | S | \<Supply Chain Risk Management\>, appendix A |
+| SR-03\_ODP\[01\] | What is covered is defined | S | \<Organisation\>'s corporate parameter values |
+| SR-03\_ODP\[02\] | Who is coordinated with is defined | S | \<Organisation\>'s corporate parameter values |
+| SR-03\_ODP\[03\] | Controls are defined | S | \<Organisation\>'s corporate parameter values |
+| SR-03\_ODP\[04\] | Where controls are documented is selected | S | \<Organisation\>'s corporate parameter values |
+| SR-03\_ODP\[05\] | Other document is defined | S | \<Organisation\>'s corporate parameter values |
 | SR-03a.\[01\] | Process to address weaknesses is established | O-D | PRO-SR-1 and PRO-SR-2 \<ver\> approved; not yet in use |
 | SR-03a.\[02\] | Process is coordinated | O-D | Not yet agreed with \<Organisation\> |
 | SR-03b. | Controls are employed | O-G | Only OfflineModules packages use the offline feed; no lock files, trust policy or pinned images (U01 to U03, U06; PA-94, PA-77) |
 | SR-03c. | Controls are documented | S | \<Supply Chain Risk Management\>, sections 3.5 to 3.7, approved (D-SR-13) |
-| SR-05\_ODP | Strategies are defined | S | \<Supply Chain Risk Management\>, appendix A |
+| SR-05\_ODP | Strategies are defined | S | \<Organisation\>'s corporate parameter values |
 | SR-05\[01\] | They protect against supply chain risks | O-G | Packages come straight from nuget.org, unchecked (U01; PA-94) |
 | SR-05\[02\] | They identify supply chain risks | S | Test-SupplyChain.ps1 (U01 to U10) and Test-Vulnerability.ps1 (V01) identify supply chain risks, 12 November 2026 |
 | SR-05\[03\] | They reduce supply chain risks | O-G | Not reduced until PA-94 and PA-92 are fixed |
-| SR-06\_ODP | Review frequency is defined | S | \<Supply Chain Risk Management\>, appendix A |
+| SR-06\_ODP | Review frequency is defined | S | \<Organisation\>'s corporate parameter values |
 | SR-06 | Suppliers are assessed and reviewed | O-D | No supplier review yet held on TPL-16 (PRO-SR-2) |
-| SR-08\_ODP\[01\] | What is notified is selected | S | \<Supply Chain Risk Management\>, appendix A |
-| SR-08\_ODP\[02\] | Results shared are defined | S | \<Supply Chain Risk Management\>, appendix A |
+| SR-08\_ODP\[01\] | What is notified is selected | S | \<Organisation\>'s corporate parameter values |
+| SR-08\_ODP\[02\] | Results shared are defined | S | \<Organisation\>'s corporate parameter values |
 | SR-08 | Notification agreements are in place | O-E | \<Organisation\>'s terms not seen (EV-SR-01); open-source advisories watched (\<System and Information Integrity Management\>, section 3.3) |
-| SR-10\_ODP\[01\] | What is inspected is defined | S | \<Supply Chain Risk Management\>, appendix A |
-| SR-10\_ODP\[02\] | When is selected | S | \<Supply Chain Risk Management\>, appendix A |
-| SR-10\_ODP\[03\] | Frequency is defined | S | \<Supply Chain Risk Management\>, appendix A |
-| SR-10\_ODP\[04\] | Signs of tampering are defined | S | \<Supply Chain Risk Management\>, appendix A |
+| SR-10\_ODP\[01\] | What is inspected is defined | S | \<Organisation\>'s corporate parameter values |
+| SR-10\_ODP\[02\] | When is selected | S | \<Organisation\>'s corporate parameter values |
+| SR-10\_ODP\[03\] | Frequency is defined | S | \<Organisation\>'s corporate parameter values |
+| SR-10\_ODP\[04\] | Signs of tampering are defined | S | \<Organisation\>'s corporate parameter values |
 | SR-10 | Components are inspected for tampering | O-G | Images and assemblies match the baseline (U08); release checksums and bill of materials not built (PA-61, PA-78) |
-| SR-11\_ODP\[01\] | Who is told is selected | S | \<Supply Chain Risk Management\>, appendix A |
-| SR-11\_ODP\[02\] | External bodies are defined | S | \<Supply Chain Risk Management\>, appendix A |
-| SR-11\_ODP\[03\] | Roles told are defined | S | \<Supply Chain Risk Management\>, appendix A |
+| SR-11\_ODP\[01\] | Who is told is selected | S | \<Organisation\>'s corporate parameter values |
+| SR-11\_ODP\[02\] | External bodies are defined | S | \<Organisation\>'s corporate parameter values |
+| SR-11\_ODP\[03\] | Roles told are defined | S | \<Organisation\>'s corporate parameter values |
 | SR-11a.\[01\] | Anti-counterfeit policy is in place | O-D | \<Policy\> (SR) \<ver\>, R11; awaits re-approval (D-SR-12) |
 | SR-11a.\[02\] | Anti-counterfeit procedures are in place | O-D | PRO-SR-4 \<ver\> approved; not yet in use |
 | SR-11a.\[03\] | Procedures detect counterfeits | O-D | PRO-SR-4 \<ver\> approved; not yet in use; no trust policy (U03) |
 | SR-11a.\[04\] | Procedures prevent counterfeits | O-D | PRO-SR-4 \<ver\> approved; not yet in use |
 | SR-11b. | Counterfeits are reported | O-D | PRO-SR-4 \<ver\> approved; not yet in use |
-| SR-11(01)\_ODP | Who is trained is defined | S | \<Supply Chain Risk Management\>, appendix A |
+| SR-11(01)\_ODP | Who is trained is defined | S | \<Organisation\>'s corporate parameter values |
 | SR-11(01) | They are trained to detect counterfeits | O-E | EV-SR-02 |
-| SR-11(02)\_ODP | Components are defined | S | \<Supply Chain Risk Management\>, appendix A |
+| SR-11(02)\_ODP | Components are defined | S | \<Organisation\>'s corporate parameter values |
 | SR-11(02)\[01\] | Control is kept while awaiting repair | O-E | EV-SR-02 |
 | SR-11(02)\[02\] | Control is kept while awaiting return | O-E | EV-SR-02 |
-| SR-12\_ODP\[01\] | What is disposed of is defined | S | \<Supply Chain Risk Management\>, appendix A |
-| SR-12\_ODP\[02\] | How is defined | S | \<Supply Chain Risk Management\>, appendix A |
+| SR-12\_ODP\[01\] | What is disposed of is defined | S | \<Organisation\>'s corporate parameter values |
+| SR-12\_ODP\[02\] | How is defined | S | \<Organisation\>'s corporate parameter values |
 | SR-12 | Components are disposed of that way | O-E | EV-SR-02 |
 
 ### SR.5 Assessment plan

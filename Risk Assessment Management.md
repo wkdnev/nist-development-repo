@@ -4,7 +4,7 @@
 
 This document shows how \<System Name\> assesses risk and responds to it, for each of the 10 Risk Assessment (RA) controls in the CSS Moderate baseline: the security categorisation, the risk assessment and its supply chain part, vulnerability monitoring and scanning, the response to findings, and the critical components.
 
-Section 3 sets out the design: the categorisation, the risk assessment, the supply chain review, what is monitored for vulnerabilities, the vulnerability timetable, how findings are analysed, shared and reported, how risk is responded to, the critical components, how monitoring stands today, and what \<Organisation\> provides. Section 4 takes each control in turn. Appendix A lists every value CSS asks the organisation to define, and appendix B the related controls and enhancements CSS does not select at Moderate.
+Section 3 sets out the design: the categorisation, the risk assessment, the supply chain review, what is monitored for vulnerabilities, the vulnerability timetable, how findings are analysed, shared and reported, how risk is responded to, the critical components, how monitoring stands today, and what \<Organisation\> provides. Section 4 takes each control in turn. Values CSS asks the organisation to define are set at corporate level by \<Organisation\>. Appendix A the related controls and enhancements CSS does not select at Moderate.
 
 The policy is in \<Policy\> (RA), and the steps people follow are in \<Procedures\> (RA). Three records sit beside this one: the risks, and the method that rates them, are in the Risk List, \<Risk List\>; the categorisation is in \<System Security Plan\>, section 3.3, as RA-2 requires; and the suppliers are managed under the supply chain plan, \<Supply Chain Risk Management\>.
 
@@ -477,45 +477,11 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 | Risk decision | NC-RA-09, rated Low: approve; now satisfied |
 | Open items | None |
 
-## Appendix A Parameter register
+## Appendix A Risk assessment controls outside the Moderate baseline
 
-These are the CSS organisation-defined values for the 10 RA entries: 25 in total. They were agreed on 6 November 2026 (D-RA-P01), and the vulnerability timetable on 11 November 2026 (D-RA-P02). **State now** says whether \<System Name\> meets the value today.
+CSS does not select these at Moderate, so they are not assessed. Some of the design goes some way towards them, and Table 31 says where. RA-4, RA-5(1), RA-5(7) and RA-5(9) are withdrawn: RA-5(1) is now part of RA-5f, and the others were moved into other controls.
 
-**Table 31: RA parameter register**
-
-| CSS identifier | What must be defined | Value | State now |
-| --- | --- | --- | --- |
-| RA-01\_ODP\[01\] | Who receives the policy | Everyone who administers \<System Name\> | Not yet shared |
-| RA-01\_ODP\[02\] | Who receives the procedures | Everyone who administers \<System Name\> | Not yet shared |
-| RA-01\_ODP\[03\] | Level of the policy | System level | Met |
-| RA-01\_ODP\[04\] | Official who manages them | System owner | Met |
-| RA-01\_ODP\[05\] | Policy review frequency | Every 12 months | First review not yet due |
-| RA-01\_ODP\[06\] | Events requiring policy review | Significant incident, audit finding or system change | Met: reviewed after the RA pack review |
-| RA-01\_ODP\[07\] | Procedures review frequency | Every 12 months | First review not yet due |
-| RA-01\_ODP\[08\] | Events requiring procedures review | A change to the steps | Met: reviewed as version \<ver\> |
-| RA-03\_ODP\[01\] | Where results are documented | Another document | Met |
-| RA-03\_ODP\[02\] | Document | \<Risk List\> | Met |
-| RA-03\_ODP\[03\] | Review frequency | Every 12 months, and after a significant change, incident or new test result | First review not yet due |
-| RA-03\_ODP\[04\] | Who receives results | System owner, authorising official and Head of Cyber | Not yet shared with the Head of Cyber |
-| RA-03\_ODP\[05\] | Update frequency | Every 12 months | First update not yet due |
-| RA-03(01)\_ODP\[01\] | Items assessed | Packages, base images, suppliers and the VMs | Met: first review in section 3.4 |
-| RA-03(01)\_ODP\[02\] | Update frequency | Every 12 months | First update not yet due |
-| RA-05\_ODP\[01\] | Monitoring frequency | Monthly and at each release; exploited flaws checked weekly | Package check only (V01) |
-| RA-05\_ODP\[02\] | Scan frequency | Monthly and at each release | No scanner (PA-62) |
-| RA-05\_ODP\[03\] | Response times | As in section 3.6 | Not met: 5 High advisories open (PA-56) |
-| RA-05\_ODP\[04\] | Who receives results | The developers, the Windows server administrator, and \<Organisation\>'s security contact for findings that may affect its other systems (D-RA-14) | Met by procedure; not yet in use |
-| RA-05(02)\_ODP\[01\] | When the list is updated | Before each new scan | No scanner (PA-62) |
-| RA-05(02)\_ODP\[02\] | Frequency | Not applicable; updated before each scan | Not applicable |
-| RA-05(05)\_ODP\[01\] | Components | Both VMs | VMs not yet built |
-| RA-05(05)\_ODP\[02\] | Scanning activities | Credentialed scans | VMs not yet built |
-| RA-09\_ODP\[01\] | Items analysed | The components in section 3.9 | Met |
-| RA-09\_ODP\[02\] | Decision points | At each major release and significant change | Met: first review on 11 November 2026 |
-
-## Appendix B Risk assessment controls outside the Moderate baseline
-
-CSS does not select these at Moderate, so they are not assessed. Some of the design goes some way towards them, and Table 32 says where. RA-4, RA-5(1), RA-5(7) and RA-5(9) are withdrawn: RA-5(1) is now part of RA-5f, and the others were moved into other controls.
-
-**Table 32: Related controls and enhancements not selected**
+**Table 31: Related controls and enhancements not selected**
 
 | Control | What it adds | \<System Name\>'s position |
 | --- | --- | --- |

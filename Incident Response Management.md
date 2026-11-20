@@ -2,7 +2,7 @@
 
 ## 1 Purpose
 
-This document shows how security incidents affecting \<System Name\> are prepared for, found, handled and learned from, for each of the 13 Incident Response (IR) controls and enhancements in the CSS Moderate baseline. Section 3 is the incident response plan that IR-8 requires: who does what, how incidents are found, how severe each is and how fast it must be contained, the steps every incident follows, personal data breaches, the playbooks, evidence, and the register. It can be used on its own during an incident. Section 4 takes each control in turn. Appendix A lists every value CSS asks the organisation to define, and appendix B holds the contacts. Appendix C lists the IR controls CSS does not select at Moderate.
+This document shows how security incidents affecting \<System Name\> are prepared for, found, handled and learned from, for each of the 13 Incident Response (IR) controls and enhancements in the CSS Moderate baseline. Section 3 is the incident response plan that IR-8 requires: who does what, how incidents are found, how severe each is and how fast it must be contained, the steps every incident follows, personal data breaches, the playbooks, evidence, and the register. It can be used on its own during an incident. Section 4 takes each control in turn. Values CSS asks the organisation to define are set at corporate level by \<Organisation\>. Appendix A holds the contacts. Appendix B lists the IR controls CSS does not select at Moderate.
 
 The policy is in \<Policy\> (IR), and the steps people follow are in \<Procedures\> (IR).
 
@@ -69,7 +69,7 @@ It covers UI application, Admin application, API, the \<System Name\> database, 
 | Legal | \[Name\] | \[Deputy to be named\] | Decides whether to tell the ICO and the people affected, and makes the reports |
 | Support | \[Name\], \<Organisation\>'s security contact | \[Name\] | \<Organisation\>'s monitoring, network and forensic help |
 
-Contact details are in appendix B.
+Contact details are in appendix A.
 
 The targets in section 3.6 for Critical and High incidents run in clock hours, so someone must be reachable outside working hours. The system owner decided on 17 November 2026 to keep the targets and to agree a route with \<Organisation\> (D-IR-12). That cover is not yet arranged: \[out of hours route to be agreed with \<Organisation\>\] (PA-118).
 
@@ -81,7 +81,7 @@ Preparation covers the CSF 2.0 Govern, Identify and Protect functions as they ap
 2. **Exercises:** a tabletop exercise every 12 months, with the contingency plan, the first within 30 days of the VMs being built and before production (PA-81). Each ends with an after-action report on TPL-11.
 3. **Assets and baseline:** the components and baseline in \<Configuration Management\>, sections 3.4 and 3.5, show what normal looks like.
 4. **Tools:** ServiceNow for incident records (PA-65; TPL-10 until then); the audit records and logs in section 3.10.
-5. **Contacts:** appendix B, checked at each review and exercise.
+5. **Contacts:** appendix A, checked at each review and exercise.
 6. **Copies:** each role holder keeps a copy of this plan and the contacts that can still be read if the document store, ServiceNow or email is out of use, such as a printed copy (PA-119).
 
 ### 3.5 Detection sources
@@ -190,7 +190,7 @@ The measures are reported monthly under \<Procedures\>, PRO-CA-5. The resources 
 
 ### 3.13 Sharing information
 
-Information is shared with \<Organisation\>'s security contact, any affected supplier, and the ICO and the people affected through the legal adviser. Crime or a significant cyber attack is reported by the system owner to the NCSC or to Report Fraud, the national police reporting service that replaced Action Fraud in December 2025. Anything else goes through the system owner. Only \[\<Organisation\> communications contact\] speaks to the press or the public about an incident, with the system owner's agreement. If ServiceNow or email may be compromised, use the phone numbers in appendix B. This document is Restricted, and moves to the restricted document store with the other records (D-GEN-15).
+Information is shared with \<Organisation\>'s security contact, any affected supplier, and the ICO and the people affected through the legal adviser. Crime or a significant cyber attack is reported by the system owner to the NCSC or to Report Fraud, the national police reporting service that replaced Action Fraud in December 2025. Anything else goes through the system owner. Only \[\<Organisation\> communications contact\] speaks to the press or the public about an incident, with the system owner's agreement. If ServiceNow or email may be compromised, use the phone numbers in appendix A. This document is Restricted, and moves to the restricted document store with the other records (D-GEN-15).
 
 ### 3.14 Incident and breach register
 
@@ -387,7 +387,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
-| a | Require people to report suspected incidents to the incident response capability within a defined time | Everyone reports a suspected incident to the security officer within 1 hour. Section 3.11 says what must be reported, and the rules of behaviour repeat it (\<Security Operating Procedures\>, Part A). If ServiceNow or email may be compromised, the phone numbers in appendix B are used | Written. The rules are not yet signed, and the contacts are placeholders |
+| a | Require people to report suspected incidents to the incident response capability within a defined time | Everyone reports a suspected incident to the security officer within 1 hour. Section 3.11 says what must be reported, and the rules of behaviour repeat it (\<Security Operating Procedures\>, Part A). If ServiceNow or email may be compromised, the phone numbers in appendix A are used | Written. The rules are not yet signed, and the contacts are placeholders |
 | b | Report incident information to defined authorities | The security officer tells \<Organisation\>'s security contact. The legal adviser tells the ICO within 72 hours of becoming aware of a reportable personal data breach, and the people affected when the risk to them is high (section 3.8). The system owner reports a crime or a significant cyber attack to the NCSC or to Report Fraud, which replaced Action Fraud | Not yet used. \<Organisation\>'s route for reports is not confirmed (EV-IR-01) |
 
 **Table 25: IR-6 responsibility and evidence**
@@ -527,46 +527,11 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 | Risk decision | NC-IR-13, rated Low: approve |
 | Open items | PA-119: obtain the Head of Cyber's approval, fill in the contacts, and share the plan. PA-88: the restricted store |
 
-## Appendix A Parameter register
-
-These are the CSS organisation-defined values for the 13 IR entries: 26 in total. They were agreed on 6 November 2026 (D-IR-P01), and IR-06\_ODP\[02\] was revised on 10 November 2026 (D-IR-P02).
-
-**Table 36: IR parameter register**
-
-| CSS identifier | What must be defined | Value | State now |
-| --- | --- | --- | --- |
-| IR-01\_ODP\[01\] | Who receives the policy | Everyone who administers \<System Name\> | Not yet shared |
-| IR-01\_ODP\[02\] | Who receives the procedures | Everyone who administers \<System Name\> | Not yet shared |
-| IR-01\_ODP\[03\] | Level of the policy | System level | Met |
-| IR-01\_ODP\[04\] | Official who manages them | System owner | Met |
-| IR-01\_ODP\[05\] | Policy review frequency | Every 12 months | Met: reviewed 10 November 2026 |
-| IR-01\_ODP\[06\] | Events requiring policy review | Significant incident, audit finding or system change | Met: reviewed after the IR pack review |
-| IR-01\_ODP\[07\] | Procedures review frequency | Every 12 months | Met: reviewed 10 November 2026 |
-| IR-01\_ODP\[08\] | Events requiring procedures review | A change to the steps | Met: reviewed after the IR pack review |
-| IR-02\_ODP\[01\] | Time to train after taking a role | 30 days | Content written (section 3.4); no training yet (PA-81) |
-| IR-02\_ODP\[02\] | Training frequency | Every 12 months | No training yet (PA-81) |
-| IR-02\_ODP\[03\] | Content review frequency | Every 12 months | Content written 10 November 2026 |
-| IR-02\_ODP\[04\] | Events requiring content review | A plan change, or an incident | Content written 10 November 2026 |
-| IR-03\_ODP\[01\] | Test frequency | Every 12 months | First tabletop within 30 days of the VMs being built (PA-81) |
-| IR-03\_ODP\[02\] | Tests | Tabletop exercise | Containment shown in Docker (D01, D03); no tabletop yet |
-| IR-04(01)\_ODP | Automated mechanisms | ServiceNow | Not set up (PA-65) |
-| IR-06\_ODP\[01\] | Time to report | Within 1 hour | Not yet in use |
-| IR-06\_ODP\[02\] | Authorities | Security officer; \<Organisation\>'s security contact; the ICO within 72 hours of becoming aware of a reportable personal data breach; the people affected without undue delay when the risk to them is high; and the NCSC or Report Fraud, which replaced Action Fraud in December 2025, for a crime or a significant cyber attack (D-IR-P02; the change of name confirmed by D-IR-12) | Not yet in use |
-| IR-06(01)\_ODP | Automated mechanisms | ServiceNow | Not set up (PA-65) |
-| IR-07(01)\_ODP | Automated mechanisms | ServiceNow | Not set up (PA-65) |
-| IR-08\_ODP\[01\] | Who reviews and approves the plan | Head of Cyber | Version \<ver\> pending (D-IR-07) |
-| IR-08\_ODP\[02\] | Review frequency | Every 12 months | Met |
-| IR-08\_ODP\[03\] | Who is given responsibility for incident response | Security officer | Met (section 3.3) |
-| IR-08\_ODP\[04\] | Personnel who receive copies | Security officer, system owner, administrators and authorising official | Not yet shared |
-| IR-08\_ODP\[05\] | Elements that receive copies | \<Organisation\>'s security contact | Not yet shared |
-| IR-08\_ODP\[06\] | Personnel told of changes | As IR-08\_ODP\[04\] | Not yet shared |
-| IR-08\_ODP\[07\] | Elements told of changes | As IR-08\_ODP\[05\] | Not yet shared |
-
-## Appendix B Contacts
+## Appendix A Contacts
 
 Use the phone if ServiceNow or email may be compromised.
 
-**Table 37: Contacts**
+**Table 36: Contacts**
 
 | Contact | Name | Phone | Email or route |
 | --- | --- | --- | --- |
@@ -582,11 +547,11 @@ Use the phone if ServiceNow or email may be compromised.
 | National Cyber Security Centre | Incident reporting | \[number to confirm\] | NCSC online incident report |
 | Report Fraud, which replaced Action Fraud | Cyber crime and fraud reporting | 0300 123 2040 | Report Fraud online report |
 
-## Appendix C IR controls outside the Moderate baseline
+## Appendix B IR controls outside the Moderate baseline
 
-CSS does not select these in the Moderate security baseline, so they are not assessed in this family. Two are in the CSS privacy baseline and apply because \<System Name\> holds personal data: they are assessed with the PT family. Some of the design goes further than the baseline, and Table 38 says where.
+CSS does not select these in the Moderate security baseline, so they are not assessed in this family. Two are in the CSS privacy baseline and apply because \<System Name\> holds personal data: they are assessed with the PT family. Some of the design goes further than the baseline, and Table 37 says where.
 
-**Table 38: IR controls not selected at Moderate**
+**Table 37: IR controls not selected at Moderate**
 
 | Control | What it adds | \<System Name\>'s position |
 | --- | --- | --- |

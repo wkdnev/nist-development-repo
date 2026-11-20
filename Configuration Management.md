@@ -2,7 +2,7 @@
 
 ## 1 Purpose
 
-This document shows how \<System Name\>'s configuration is recorded, controlled and changed, for each of the 24 Configuration Management (CM) controls and enhancements in the CSS Moderate baseline. It is also the Configuration Management Plan that CM-9 requires, and follows the outline in CSS, Appendix D. Section 3 sets out the design: roles and processes, the configuration items, the baseline, the software components, the secure settings, change control, impact analysis, least functionality, who may change what, the inventory, and the library. Section 4 takes each control in turn. Appendix A lists every value CSS asks the organisation to define. Appendix B sets out the development, test and production environments. Appendix C lists the CM controls CSS does not select at Moderate.
+This document shows how \<System Name\>'s configuration is recorded, controlled and changed, for each of the 24 Configuration Management (CM) controls and enhancements in the CSS Moderate baseline. It is also the Configuration Management Plan that CM-9 requires, and follows the outline in CSS, Appendix D. Section 3 sets out the design: roles and processes, the configuration items, the baseline, the software components, the secure settings, change control, impact analysis, least functionality, who may change what, the inventory, and the library. Section 4 takes each control in turn. Values CSS asks the organisation to define are set at corporate level by \<Organisation\>. Appendix A sets out the development, test and production environments. Appendix B lists the CM controls CSS does not select at Moderate.
 
 The policy is in \<Policy\> (CM), and the steps people follow are in \<Procedures\> (CM).
 
@@ -717,7 +717,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
-| a | A plan that covers roles, responsibilities, and configuration management processes and procedures | This document is the plan. Roles and processes are in section 3.2, the route a change follows in section 3.7, the environments in appendix B, and the procedures are \<Procedures\> (CM) | Written |
+| a | A plan that covers roles, responsibilities, and configuration management processes and procedures | This document is the plan. Roles and processes are in section 3.2, the route a change follows in section 3.7, the environments in appendix A, and the procedures are \<Procedures\> (CM) | Written |
 | b | It sets how configuration items are identified through the life of the system, and how their configuration is managed | Section 3.2: an item is identified when it enters the baseline, named by its component and version, and managed through the change procedure for its whole life | Written |
 | c | It defines the configuration items and places them under configuration management | Section 3.3 | Written |
 | d | It is reviewed and approved by defined people | The system owner | Version \<ver\> was approved (D-CM-12, D-SC-07). This restructured version awaits the system owner's approval |
@@ -831,77 +831,11 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 | Risk decision | NC-CM-24, rated Low: approve |
 | Open items | PA-112: confirm the tools with \<Organisation\> (EV-CM-02) |
 
-## Appendix A Parameter register
-
-These are the CSS organisation-defined values for the 24 CM entries: 57 in total. State now says whether each value is met today. Forty-six were agreed in the meeting of 6 November 2026, and the other 11 by the system owner later the same day (D-CM-P01, D-CM-P02). Four were extended on 8 November 2026 (D-CM-08).
-
-**Table 62: CM parameter register**
-
-| CSS identifier | What must be defined | Value | State now |
-| --- | --- | --- | --- |
-| CM-01\_ODP\[01\] | Who receives the policy | Everyone who changes or administers \<System Name\> | Not yet: shared when issued (PA-20) |
-| CM-01\_ODP\[02\] | Who receives the procedures | Everyone who changes or administers \<System Name\> | Not yet: shared when issued (PA-20) |
-| CM-01\_ODP\[03\] | Level of the policy | System level | Met |
-| CM-01\_ODP\[04\] | Official who manages them | System owner | Met |
-| CM-01\_ODP\[05\] | Policy review frequency | Every 12 months | Met: set |
-| CM-01\_ODP\[06\] | Events requiring policy review | Significant incident, audit finding or system change | Met: reviewed on 8 November 2026 |
-| CM-01\_ODP\[07\] | Procedures review frequency | Every 12 months | Met: set |
-| CM-01\_ODP\[08\] | Events requiring procedures review | A change to the steps | Met: reviewed on 8 November 2026 |
-| CM-02\_ODP\[01\] | Baseline review frequency | Every 12 months | Not yet due |
-| CM-02\_ODP\[02\] | Circumstances | Each release | Partly: v1.0 is tagged, but images are not pinned (C01, C02; PA-77) |
-| CM-02(02)\_ODP | Automated mechanisms | Git tags, pinned image digests and the deployment files | Partly: Git tags yes; digests not pinned (PA-77) |
-| CM-02(03)\_ODP | Previous versions kept | 3 | Not yet: only v1.0 exists |
-| CM-02(07)\_ODP\[01\] | Systems issued for travel | None; no \<System Name\> device is issued for travel | Met |
-| CM-02(07)\_ODP\[02\] | Configurations | Not applicable while none is issued | Met |
-| CM-02(07)\_ODP\[03\] | Controls on return | Not applicable while none is issued | Met |
-| CM-03\_ODP\[01\] | Record retention | 3 years | Met: set |
-| CM-03\_ODP\[02\] | Change control element | System owner, security officer and Windows server administrator | Met: chartered in section 3.8 |
-| CM-03\_ODP\[03\] | How it convenes | At a set frequency, and when a change needs it | Met: set |
-| CM-03\_ODP\[04\] | Frequency | Monthly | Not yet: the board starts with the ServiceNow workflow (PA-53) |
-| CM-03\_ODP\[05\] | Conditions | An urgent or security change | Met: set |
-| CM-03(04)\_ODP\[01\] | Security representative | Security officer | Met |
-| CM-03(04)\_ODP\[02\] | Privacy representative | Legal adviser | Met |
-| CM-03(04)\_ODP\[03\] | Element | As CM-03\_ODP\[02\] | Met |
-| CM-06\_ODP\[01\] | Secure configurations | CIS Benchmarks, and the settings for the hosting and applications in section 3.6 | Not assessable: VMs not built (PA-54) |
-| CM-06\_ODP\[02\] | Components | Windows Server 2025, PostgreSQL 18, the application hosting and the three applications | Not assessable: VMs not built (PA-54) |
-| CM-06\_ODP\[03\] | Operational requirements | Recorded exceptions | Met: set |
-| CM-07\_ODP\[01\] | Capabilities | Storing, searching and viewing documents, and administering them | Met |
-| CM-07\_ODP\[02\] | Functions prohibited | Diagnostic, test and maintenance pages in production | Not met: they remain (PA-07, PA-31) |
-| CM-07\_ODP\[03\] | Ports | Everything except HTTPS to the application, the database from the application VM, and administration from \<Organisation\>'s network | Partly: database local in Docker (C09); VMs not built |
-| CM-07\_ODP\[04\] | Protocols | Everything except TLS-protected ones on those routes | Not met: plain HTTP in Docker (PA-18) |
-| CM-07\_ODP\[05\] | Software | Anything not on the approved list | Not met: unused packages in release builds (C05, C06; PA-79) |
-| CM-07\_ODP\[06\] | Services | Anything not needed for those capabilities | Not assessable: VMs not built |
-| CM-07(01)\_ODP\[01\] | Review frequency | Every 12 months | Not yet due |
-| CM-07(01)\_ODP\[02\] | Functions | As CM-07\_ODP\[02\] | Met: set |
-| CM-07(01)\_ODP\[03\] | Ports | As CM-07\_ODP\[03\] | Met: set |
-| CM-07(01)\_ODP\[04\] | Protocols | As CM-07\_ODP\[04\] | Met: set |
-| CM-07(01)\_ODP\[05\] | Software | As CM-07\_ODP\[05\] | Met: set |
-| CM-07(01)\_ODP\[06\] | Services | As CM-07\_ODP\[06\] | Met: set |
-| CM-07(02)\_ODP\[01\] | Prevention rule | Authorised software rules | Accepted risk: not technically enforced (NC-CM-15) |
-| CM-07(02)\_ODP\[02\] | Rules | The approved software list | Accepted risk: not technically enforced (NC-CM-15) |
-| CM-07(05)\_ODP\[01\] | Authorised software | The approved software list | Not yet: list to be written when the VMs are built (PA-55) |
-| CM-07(05)\_ODP\[02\] | Review frequency | Every 12 months | Met: set |
-| CM-08\_ODP\[01\] | Inventory information | Name, type, version, location and owner; for software, also supplier and licence | Partly: software components in section 3.5 (C04); servers when built |
-| CM-08\_ODP\[02\] | Review frequency | At each change | Met: set; PRO-CM-1 |
-| CM-08(03)\_ODP\[01\] | Mechanism, hardware | \<Organisation\>'s tools | Not assessable: \<Organisation\> (EV-CM-02) |
-| CM-08(03)\_ODP\[02\] | Mechanism, software | \<Organisation\>'s tools | Not assessable: \<Organisation\> (EV-CM-02) |
-| CM-08(03)\_ODP\[03\] | Mechanism, firmware | \<Organisation\>'s tools | Not assessable: \<Organisation\> (EV-CM-02) |
-| CM-08(03)\_ODP\[04\] | Frequency | Monthly | Not assessable: \<Organisation\> (EV-CM-02) |
-| CM-08(03)\_ODP\[05\] | Action | Disable network access, and tell the person below | Met: set; PRO-CM-6 |
-| CM-08(03)\_ODP\[06\] | Who is told | Windows server administrator | Met: set |
-| CM-09\_ODP | Who approves the plan | System owner | Met: version \<ver\> approved |
-| CM-11\_ODP\[01\] | Installation policy | Allowed on the VMs only with approval; \<Organisation\>'s policy covers workstations | Met: set |
-| CM-11\_ODP\[02\] | Enforcement | ServiceNow approval; Windows user rights | Not assessable: VMs not built |
-| CM-11\_ODP\[03\] | Compliance monitoring | Every 12 months, with the functions review | Not yet due |
-| CM-12\_ODP | Information | Documents and audit records | Met. Revised on 13 November 2026: \<System Name\> holds no accounts, which are in Active Directory (D-CM-14) |
-| CM-12(01)\_ODP\[01\] | Information by type | Restricted documents, by project | Met |
-| CM-12(01)\_ODP\[02\] | Components | Both VMs, using \<Organisation\>'s tools if available | Not yet: tools to be confirmed (EV-CM-02) |
-
-## Appendix B Environments
+## Appendix A Environments
 
 The CSS guidance on CM-9 asks the plan to say how the development, test and operational environments are controlled. \<System Name\> has three, and nothing moves from one to the next except as a tagged release.
 
-**Table 63: Environments**
+**Table 62: Environments**
 
 | Environment | What it is | What it may hold | Who may change it | Today |
 | --- | --- | --- | --- | --- |
@@ -911,17 +845,17 @@ The CSS guidance on CM-9 asks the plan to say how the development, test and oper
 
 A release is tested in the test environment before it reaches production (section 3.7, step 4). CSS asks for a separate test environment only at High, as CM-4(1); \<System Name\> has one already. The tests are to be repeated on the production servers once they are built, because the test environment differs from them.
 
-## Appendix C CM controls outside the Moderate baseline
+## Appendix B CM controls outside the Moderate baseline
 
-CSS does not select these at Moderate, so they are not assessed. Some of the design goes further than the baseline, and Table 64 says where.
+CSS does not select these at Moderate, so they are not assessed. Some of the design goes further than the baseline, and Table 63 says where.
 
-**Table 64: CM controls not selected at Moderate**
+**Table 63: CM controls not selected at Moderate**
 
 | Control | What it adds | \<System Name\>'s position |
 | --- | --- | --- |
 | CM-3(1) Automated Documentation, Notification, and Prohibition of Changes | A workflow that records each change, tells the approvers, and blocks a change until approved | Not required. Done in part once the ServiceNow workflow is built (PA-53) |
 | CM-3(6) Cryptography Management | Cryptographic mechanisms under configuration management | Not required. Keys and certificates are in the key register (\<System and Communications Protection Management\>, section 3.4), and a new key or certificate goes through change control |
-| CM-4(1) Separate Test Environments | Changes analysed in a separate test environment | Not required. Done: appendix B |
+| CM-4(1) Separate Test Environments | Changes analysed in a separate test environment | Not required. Done: appendix A |
 | CM-5(1) Automated Access Enforcement and Audit Records | Automated enforcement of who may change the system, with audit records | Not required. Done in part: Windows and database permissions enforce it, and their logs record it |
 | CM-6(1), CM-6(2) Automated Management and Verification; Respond to Unauthorized Changes | Automated checking of settings, and a set response to an unauthorised change | Not required. Done in part in design: the monthly benchmark scan, and the drift procedure (PA-80) |
 | CM-7(4) Unauthorized Software, Deny-by-exception | A list of software that must not run | Not required. \<System Name\> uses the stricter alternative, CM-7(5), an approved list, though it is not enforced by the system |

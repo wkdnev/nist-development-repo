@@ -2,7 +2,7 @@
 
 ## 1 Purpose
 
-This document shows how \<System Name\>'s plans are written, approved, shared, reviewed and protected, for each of the 7 Planning (PL) controls and enhancements in the CSS Moderate baseline. Section 3 sets out the design: the register of every plan in force, what the security plan and the privacy plan must hold and where each part is, how a plan is approved and kept current, the rules of behaviour and who has signed them, the architecture, and the baseline and its tailoring. Section 4 takes each control in turn. Appendix A lists every value CSS asks the organisation to define, and appendix B the PL controls CSS does not select at Moderate.
+This document shows how \<System Name\>'s plans are written, approved, shared, reviewed and protected, for each of the 7 Planning (PL) controls and enhancements in the CSS Moderate baseline. Section 3 sets out the design: the register of every plan in force, what the security plan and the privacy plan must hold and where each part is, how a plan is approved and kept current, the rules of behaviour and who has signed them, the architecture, and the baseline and its tailoring. Section 4 takes each control in turn. Values CSS asks the organisation to define are set at corporate level by \<Organisation\>. Appendix A the PL controls CSS does not select at Moderate.
 
 The policy is in \<Policy\> (PL), and the steps people follow are in \<Procedures\> (PL). The plans themselves are separate documents, listed in section 3.2.
 
@@ -321,35 +321,11 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 | Risk decision | None: the control is satisfied |
 | Open items | The authorising official's acceptance (D-PL-09) |
 
-## Appendix A Parameter register
+## Appendix A PL controls outside the Moderate baseline
 
-These are the CSS organisation-defined values for the 7 PL entries: 15 in total. They were agreed on 6 November 2026 (D-PL-P01), and the value for signing again was refined on 11 November 2026 (D-PL-P02).
+CSS does not select these in the Moderate security baseline, so they are not assessed in this family. One is in the CSS privacy baseline, and is assessed with the PT family. The design already does what two of the others ask, and Table 21 says where.
 
-**Table 21: PL parameter register**
-
-| CSS identifier | What must be defined | Value |
-| --- | --- | --- |
-| PL-01\_ODP\[01\] | Who receives the policy | Everyone who administers \<System Name\> |
-| PL-01\_ODP\[02\] | Who receives the procedures | Everyone who administers \<System Name\> |
-| PL-01\_ODP\[03\] | Level of the policy | System level |
-| PL-01\_ODP\[04\] | Official who manages them | System owner |
-| PL-01\_ODP\[05\] | Policy review frequency | Every 12 months |
-| PL-01\_ODP\[06\] | Events requiring policy review | Significant incident, audit finding or system change |
-| PL-01\_ODP\[07\] | Procedures review frequency | Every 12 months |
-| PL-01\_ODP\[08\] | Events requiring procedures review | A change to the steps |
-| PL-02\_ODP\[01\] | Who planning is coordinated with | Head of Cyber, administrators and \<Organisation\>'s security contact |
-| PL-02\_ODP\[02\] | Who receives copies and changes | Head of Cyber, administrators and \<Organisation\>'s security contact |
-| PL-02\_ODP\[03\] | Plan review frequency | Every 12 months |
-| PL-04\_ODP\[01\] | Rules review frequency | Every 12 months |
-| PL-04\_ODP\[02\] | When people re-sign | At the set frequency, and after a material change to the rules: a new or stricter rule, a changed consequence, new monitoring or a new privileged duty (D-PL-P02) |
-| PL-04\_ODP\[03\] | Re-sign frequency | Every 12 months |
-| PL-08\_ODP | Architecture review frequency | Every 12 months |
-
-## Appendix B PL controls outside the Moderate baseline
-
-CSS does not select these in the Moderate security baseline, so they are not assessed in this family. One is in the CSS privacy baseline, and is assessed with the PT family. The design already does what two of the others ask, and Table 22 says where.
-
-**Table 22: PL controls not selected at Moderate**
+**Table 21: PL controls not selected at Moderate**
 
 | Control | What it adds | \<System Name\>'s position |
 | --- | --- | --- |

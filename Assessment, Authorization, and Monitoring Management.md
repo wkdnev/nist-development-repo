@@ -2,7 +2,7 @@
 
 ## 1 Purpose
 
-This document shows how \<System Name\> is assessed, authorised to operate and monitored afterwards, and how its connections to other systems are approved, for each of the 10 Assessment, Authorization, and Monitoring (CA) controls and enhancements in the CSS Moderate baseline. Section 3 sets out the design: the cycle, assessment, the plan of action, authorisation, inherited controls, information exchanges, continuous monitoring and significant change. Section 4 takes each control in turn. Appendix A lists every value CSS asks the organisation to define. Appendix B lists the CA controls CSS does not select at Moderate.
+This document shows how \<System Name\> is assessed, authorised to operate and monitored afterwards, and how its connections to other systems are approved, for each of the 10 Assessment, Authorization, and Monitoring (CA) controls and enhancements in the CSS Moderate baseline. Section 3 sets out the design: the cycle, assessment, the plan of action, authorisation, inherited controls, information exchanges, continuous monitoring and significant change. Section 4 takes each control in turn. Values CSS asks the organisation to define are set at corporate level by \<Organisation\>. Appendix A lists the CA controls CSS does not select at Moderate.
 
 The policy is in \<Policy\> (CA), and the steps people follow are in \<Procedures\> (CA). The design follows CSS for assessment and authorisation, CSS for monitoring, and CSS for information exchanges.
 
@@ -502,45 +502,11 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 | Risk decision | NC-CA-10, rated Low: approve |
 | Open items | PA-63: authorise each connection when the servers are built |
 
-## Appendix A Parameter register
-
-These are the CSS organisation-defined values for the 10 CA entries: 25 in total. State now says whether each is met today. The values were agreed on 6 and 8 November 2026 (D-CA-P01).
-
-**Table 31: CA parameter register**
-
-| CSS identifier | What must be defined | Value | State now |
-| --- | --- | --- | --- |
-| CA-01\_ODP\[01\] | Who receives the policy | Everyone who administers \<System Name\> | Not yet: shared when issued (PA-20) |
-| CA-01\_ODP\[02\] | Who receives the procedures | Everyone who administers \<System Name\> | Not yet: shared when issued (PA-20) |
-| CA-01\_ODP\[03\] | Level of the policy | System level | Met |
-| CA-01\_ODP\[04\] | Official who manages them | System owner | Met |
-| CA-01\_ODP\[05\] | Policy review frequency | Every 12 months | Met: set |
-| CA-01\_ODP\[06\] | Events requiring policy review | Significant incident, audit finding or system change | Met: reviewed on 8 November 2026 |
-| CA-01\_ODP\[07\] | Procedures review frequency | Every 12 months | Met: set |
-| CA-01\_ODP\[08\] | Events requiring procedures review | A change to the steps | Met: reviewed on 8 November 2026 |
-| CA-02\_ODP\[01\] | Assessment frequency | Every 12 months, and after a significant change | Met: Level 1 done; Level 2 to come |
-| CA-02\_ODP\[02\] | Who receives results | System owner, authorising official and Head of Cyber | Met: \<Security Assessment Report\> issued on 8 November 2026 |
-| CA-03\_ODP\[01\] | How exchanges are managed | Another type of agreement | Met: set |
-| CA-03\_ODP\[02\] | Type of agreement | The type set for each exchange in section 3.7 | Not yet: no agreement signed |
-| CA-03\_ODP\[03\] | Review frequency | Every 12 months | Not yet: no agreement signed |
-| CA-05\_ODP | POA&M update frequency | Monthly | Met: updated on 8 November 2026; monthly from go-live |
-| CA-06\_ODP | Authorisation update frequency | Every 12 months, and after a significant change | Not yet: not authorised |
-| CA-07\_ODP\[01\] | System-level metrics | The measures in section 3.8 | Not yet: monitoring starts at go-live |
-| CA-07\_ODP\[02\] | Monitoring frequency | Monthly, with the duties in \<Security Operating Procedures\> at their own frequency | Not yet: starts at go-live |
-| CA-07\_ODP\[03\] | Assessment frequency | Every 12 months | Not yet: starts at go-live |
-| CA-07\_ODP\[04\] | Who receives security status | System owner and authorising official | Not yet: starts at go-live |
-| CA-07\_ODP\[05\] | Security reporting frequency | Monthly to the system owner, quarterly to the authorising official | Not yet: starts at go-live |
-| CA-07\_ODP\[06\] | Who receives privacy status | System owner and authorising official | Not yet: starts at go-live |
-| CA-07\_ODP\[07\] | Privacy reporting frequency | Monthly to the system owner, quarterly to the authorising official | Not yet: starts at go-live |
-| CA-09\_ODP\[01\] | Components | The application VM and the database VM | Not assessable: VMs not built |
-| CA-09\_ODP\[02\] | When a connection ends | When it is no longer needed, or a VM is rebuilt | Met: set; PRO-CA-2 |
-| CA-09\_ODP\[03\] | Review frequency | Every 12 months | Not yet: VMs not built |
-
-## Appendix B CA controls outside the Moderate baseline
+## Appendix A CA controls outside the Moderate baseline
 
 CSS does not select these at Moderate, so they are not assessed.
 
-**Table 32: CA controls not selected at Moderate**
+**Table 31: CA controls not selected at Moderate**
 
 | Control | What it adds | \<System Name\>'s position |
 | --- | --- | --- |

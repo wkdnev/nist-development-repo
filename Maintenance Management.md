@@ -2,7 +2,7 @@
 
 ## 1 Purpose
 
-This document shows how \<System Name\> is maintained, for each of the 9 Maintenance (MA) controls and enhancements in the CSS Moderate baseline. Section 3 sets out the design: who maintains what, how a job is controlled from approval to review, the routes for remote maintenance, the approved tools and people, what may leave and how, the components whose support matters, and what \<Organisation\> provides. Section 4 takes each control in turn. Appendix A lists every value CSS asks the organisation to define, and appendix B the MA controls CSS does not select at Moderate.
+This document shows how \<System Name\> is maintained, for each of the 9 Maintenance (MA) controls and enhancements in the CSS Moderate baseline. Section 3 sets out the design: who maintains what, how a job is controlled from approval to review, the routes for remote maintenance, the approved tools and people, what may leave and how, the components whose support matters, and what \<Organisation\> provides. Section 4 takes each control in turn. Values CSS asks the organisation to define are set at corporate level by \<Organisation\>. Appendix A the MA controls CSS does not select at Moderate.
 
 The policy is in \<Policy\> (MA), and the steps people follow are in \<Procedures\> (MA). Fixing flaws and releasing new versions follow their own designs, in \<System and Information Integrity Management\> and \<Configuration Management\>, and use the same change records.
 
@@ -393,35 +393,11 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 | Risk decision | NC-MA-09, rated Low: obtain evidence |
 | Open items | PA-120: obtain \<Organisation\>'s evidence (EV-MA-01) |
 
-## Appendix A Parameter register
+## Appendix A MA controls outside the Moderate baseline
 
-These are the CSS organisation-defined values for the 9 MA entries: 15 in total. They were agreed on 6 November 2026 (D-MA-P01), and two were revised on 10 November 2026 (D-MA-P02).
+CSS does not select these at Moderate, so they are not assessed. Some of the design goes further than the baseline, and Table 28 says where.
 
-**Table 28: MA parameter register**
-
-| CSS identifier | What must be defined | Value | State now |
-| --- | --- | --- | --- |
-| MA-01\_ODP\[01\] | Who receives the policy | Everyone who maintains \<System Name\> | Not yet shared (PA-20) |
-| MA-01\_ODP\[02\] | Who receives the procedures | Everyone who maintains \<System Name\> | Not yet shared (PA-20) |
-| MA-01\_ODP\[03\] | Level of the policy | System level | In place |
-| MA-01\_ODP\[04\] | Official who manages them | System owner | In place |
-| MA-01\_ODP\[05\] | Policy review frequency | Every 12 months | First review due November 2027 |
-| MA-01\_ODP\[06\] | Events requiring policy review | Significant incident, audit finding or system change | Reviewed after the MA pack review, 10 November 2026 |
-| MA-01\_ODP\[07\] | Procedures review frequency | Every 12 months | First review due November 2027 |
-| MA-01\_ODP\[08\] | Events requiring procedures review | A change to the steps | Reviewed after the MA pack review, 10 November 2026 |
-| MA-02\_ODP\[01\] | Who approves removal | System owner | Not yet used |
-| MA-02\_ODP\[02\] | Information removed before equipment leaves | All \<System Name\> information, including configuration and secrets | Not yet used; sanitising not evidenced (EV-MA-01) |
-| MA-02\_ODP\[03\] | Information in maintenance records | Date and time; component; what was done; who did it, their organisation and contact; any escort; on site or remote, the route and session reference; tools used; parts removed or replaced, with any case or return number; data taken away; the check afterwards and its reviewer | TPL-12 extended (\<Record Templates\> \<ver\>); not yet used |
-| MA-03\_ODP | Tool review frequency | Every 12 months | Provisional list in section 3.5; first review at server build (C28) |
-| MA-03(03)\_ODP | Who may allow equipment or data to leave | System owner | Not yet used |
-| MA-06\_ODP\[01\] | Components supported | The security-critical components in section 3.8 | Table written. The container engine was removed on 17 November 2026, as the applications run as Windows services (D-PL-10, D-MA-10) |
-| MA-06\_ODP\[02\] | Time to obtain support and parts | 24 hours for hardware and the hypervisor; software kept on supported versions, with a replacement planned at least 6 months before support ends | Not evidenced (EV-MA-01) |
-
-## Appendix B MA controls outside the Moderate baseline
-
-CSS does not select these at Moderate, so they are not assessed. Some of the design goes further than the baseline, and Table 29 says where.
-
-**Table 29: MA controls not selected at Moderate**
+**Table 28: MA controls not selected at Moderate**
 
 | Control | What it adds | \<System Name\>'s position |
 | --- | --- | --- |

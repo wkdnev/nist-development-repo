@@ -2,7 +2,7 @@
 
 ## 1 Purpose
 
-This document shows how audit logging and accountability are designed for \<System Name\>, for each of the 16 Audit and Accountability (AU) controls and enhancements in the CSS Moderate baseline. Section 3 sets out the design: where audit records come from, which events are logged and why, what a record holds, how records are stored and protected, time, retention, review, and alerts. Section 4 takes each control in turn. Appendix A lists every value CSS asks the organisation to define. Appendix B gives the logging settings for the database server. Appendix C shows the logging that other controls require, and the AU controls CSS does not select at Moderate. The design follows the good practice in CSS.
+This document shows how audit logging and accountability are designed for \<System Name\>, for each of the 16 Audit and Accountability (AU) controls and enhancements in the CSS Moderate baseline. Section 3 sets out the design: where audit records come from, which events are logged and why, what a record holds, how records are stored and protected, time, retention, review, and alerts. Section 4 takes each control in turn. Values CSS asks the organisation to define are set at corporate level by \<Organisation\>. Appendix A gives the logging settings for the database server. Appendix B shows the logging that other controls require, and the AU controls CSS does not select at Moderate. The design follows the good practice in CSS.
 
 The policy is in \<Policy\> (AU), and the steps people follow are in \<Procedures\> (AU) and \<Security Operating Procedures\>, section 4.2.
 
@@ -115,7 +115,7 @@ Every application record has the same fields. Table 4 shows which part of AU-3 e
 | Details, Duration | Free text for the event, and how long it took | Supports investigation |
 | Chain hash | A value calculated from the record and the one before it | AU-9 |
 
-**Records from the servers.** PostgreSQL and Windows records must hold the same six kinds of content. Windows events do so by design. PostgreSQL does so once its log line is set to carry the time, the user, the database and the client address (appendix B). Neither has been examined, as the servers are not built (PA-43).
+**Records from the servers.** PostgreSQL and Windows records must hold the same six kinds of content. Windows events do so by design. PostgreSQL does so once its log line is set to carry the time, the user, the database and the client address (appendix A). Neither has been examined, as the servers are not built (PA-43).
 
 **Limits on content (rule R8; AU-3(3)).** A record never holds a password, key or token. It holds only the personal data an investigation needs: the named fields above. The free text holds no further personal data (check Q04), and is to be reviewed again (PA-71).
 
@@ -280,7 +280,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
-| a | Identify the types of event the system can log | For the applications, the event types and actions in Table 3. For the servers, the events PostgreSQL and Windows Server 2025 log, in Table 2 and appendix B. For \<Organisation\>'s services, the events in Table 2 | The tested build can log the event types in Table 3, except those the table marks as not logged |
+| a | Identify the types of event the system can log | For the applications, the event types and actions in Table 3. For the servers, the events PostgreSQL and Windows Server 2025 log, in Table 2 and appendix A. For \<Organisation\>'s services, the events in Table 2 | The tested build can log the event types in Table 3, except those the table marks as not logged |
 | b | Coordinate event logging with the other parts of the organisation that need audit information | The system owner agrees with \<Organisation\>'s security contact two things, and records them: which logs \<Organisation\>'s monitoring needs from \<System Name\> and its servers; and which of \<Organisation\>'s own records, of AD FS, Active Directory, the network and the VPN, \<System Name\>'s auditor receives (section 3.11) | Not done. The request has not been sent (EV-AU-01, EV-AU-05), and whether central monitoring will take \<System Name\>'s logs is open (D-AU-07) |
 | c | Select the event types to log, and how often | The events in section 3.3 for the applications, and in section 3.2 for PostgreSQL, Windows and \<Organisation\>'s services. Each is logged at every occurrence | Partly. Most account, group and role changes in the admin portal are not logged (PA-14). Reading the audit log, start-up and shut-down, and changes to logging are not logged (PA-76). Whether configuration changes are logged is not confirmed (PA-103). PostgreSQL logging is off, and Windows is not built (PA-43) |
 | d | Say why the selected events are enough to investigate an incident | Table 3 gives, for each event, what an investigator learns from it. Together they answer who signed in, what they saw or changed, what they were refused, who changed access or settings, and when nothing could be logged | Written and approved (D-AU-03, D-AU-09) |
@@ -621,48 +621,11 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 | Risk decision | NC-AU-15, rated Medium: remediate; NC-AU-17, rated Low: remediate (system owner, Low) |
 | Open items | PA-14, PA-76: log the missing events. PA-43: set database logging, and collect Windows logs. PA-105: the system owner recommends that selection by release is accepted, as the events change rarely and a release is reviewed, tested and recorded (D-AU-12). The decision is the authorising official's. If it is not accepted, a setting is added |
 
-## Appendix A Parameter register
-
-These are the CSS organisation-defined values for the 16 AU entries: 28 in total. State now says whether the tested build met each value, from the checks of 8 November 2026 and the Level 1 assessment. The values were agreed by the system owner on 5, 6 and 8 November 2026 (D-AU-P01, D-AU-P02).
-
-**Table 43: AU parameter register**
-
-| CSS identifier | What must be defined | Value | State now |
-| --- | --- | --- | --- |
-| AU-01\_ODP\[01\] | Who receives the policy | Everyone who administers or reviews \<System Name\> | Not yet: shared once version \<ver\> is approved (PA-20) |
-| AU-01\_ODP\[02\] | Who receives the procedures | Everyone who administers or reviews \<System Name\> | Not yet: shared once version \<ver\> is approved (PA-20) |
-| AU-01\_ODP\[03\] | Level of the policy | System level | Met |
-| AU-01\_ODP\[04\] | Official who manages them | System owner | Met |
-| AU-01\_ODP\[05\] | Policy review frequency | Every 12 months | Met: set; first review due November 2027 |
-| AU-01\_ODP\[06\] | Events requiring policy review | Significant incident, audit finding or system change | Met: this review is one |
-| AU-01\_ODP\[07\] | Procedures review frequency | Every 12 months | Met: set |
-| AU-01\_ODP\[08\] | Events requiring procedures review | A change to the steps | Met: set |
-| AU-02\_ODP\[01\] | Event types the system can log | The event types and actions in section 3.3, Table 3 | Met |
-| AU-02\_ODP\[02\] | Event types selected for logging | Sections 3.2 and 3.3 | Partly: account, group and role changes and the PA-76 events are not logged; PostgreSQL and Windows not set (PA-14, PA-43, PA-76) |
-| AU-02\_ODP\[03\] | How often they are logged | Every occurrence | Met for the events that are logged |
-| AU-02\_ODP\[04\] | Review of selected events | Every 12 months | Met: set |
-| AU-03(01)\_ODP | Additional record content | Session reference (a hash of the session ID, never the ID itself), browser, project and document | Met for the four fields (A20, A21); the form of the session reference is not yet checked (PA-104) |
-| AU-04\_ODP | Retention requirement for capacity | 24 months: 12 months online and 12 months archived | Not assessable: VMs not built (PA-42) |
-| AU-05\_ODP\[01\] | Who is alerted to a logging failure | Windows server administrator and security officer | Not met: no alert route (A35, PA-38) |
-| AU-05\_ODP\[02\] | Time to alert | Within 1 hour | Not met (PA-38) |
-| AU-05\_ODP\[03\] | Additional actions | Investigate and restore; the system keeps running | Met: the system keeps running (A32) |
-| AU-06\_ODP\[01\] | Review frequency | Weekly | Not yet: review starts at go-live (PA-40) |
-| AU-06\_ODP\[02\] | Activity to look for | The list in \<Security Operating Procedures\>, section 4.2 | Met |
-| AU-06\_ODP\[03\] | Who receives findings | Security officer and system owner | Met: set |
-| AU-06(01)\_ODP | Automated mechanisms | The admin portal's audit page, plus \<Organisation\>'s central monitoring if confirmed (D-AU-07) | Partly: audit page only (PA-40) |
-| AU-07(01)\_ODP | Fields to search and sort | Date, event type, result, username, project and document | Partly: four of six fields, no sort choice (PA-41) |
-| AU-08\_ODP | Time stamp granularity | To the nearest second, in UTC. Clocks synchronised from \<Organisation\>'s time source, \[Organisation time source\], within 1 second of UTC; drift over 5 seconds reported | Partly: the applications use UTC (A22); VMs not built (EV-AU-02) |
-| AU-09\_ODP | Who is alerted to tampering | Security officer and auditor | Not met: nothing runs the chain check or alerts, and the chain cannot yet detect tampering (A36, A37; PA-37, PA-73, PA-74) |
-| AU-09(04)\_ODP | Who manages audit logging | Auditors read records; nobody can change them; global administrators have no access | Not met: global administrators can read records (A25) and the application account can change them (A26 to A28) |
-| AU-11\_ODP | Retention period | 12 months online, then 12 months in an offline archive; application logs 30 days | Not assessable: VMs not built (PA-42); application logs not yet controlled (PA-75) |
-| AU-12\_ODP\[01\] | Components generating records | API, UI application, Admin application, Windows Server and PostgreSQL | Partly: the applications log; PostgreSQL logging is off and Windows is not assessed (A30, PA-43) |
-| AU-12\_ODP\[02\] | Who selects logged events | System owner | Met |
-
-## Appendix B Server logging settings
+## Appendix A Server logging settings
 
 These are the settings for PostgreSQL on the database server, so that it logs the events in Table 2 with the content AU-3 requires. The system owner adopted them as the design on 12 November 2026 (D-AU-12). The database administrator applies them at build and records any value that has to differ, with the reason. None is applied yet (PA-43). The Windows audit policy is \<Organisation\>'s Group Policy, and its settings are asked for under EV-AU-04.
 
-**Table 44: PostgreSQL logging settings**
+**Table 43: PostgreSQL logging settings**
 
 | Setting | Value | What it gives |
 | --- | --- | --- |
@@ -678,13 +641,13 @@ These are the settings for PostgreSQL on the database server, so that it logs th
 
 Changing any of these is itself a change to logging: it is made through a recorded change (\<Configuration Management\>), and PostgreSQL logs the reload.
 
-## Appendix C The rest of the CSS catalogue
+## Appendix B The rest of the CSS catalogue
 
-### C.1 Logging that other controls require
+### B.1 Logging that other controls require
 
-The CSS guidance on AU-2 points out that other controls ask for particular events to be logged. Table 45 shows where each of those in the Moderate baseline is met.
+The CSS guidance on AU-2 points out that other controls ask for particular events to be logged. Table 44 shows where each of those in the Moderate baseline is met.
 
-**Table 45: Logging required by other controls**
+**Table 44: Logging required by other controls**
 
 | Control | What it asks to be logged | Met by |
 | --- | --- | --- |
@@ -697,11 +660,11 @@ The CSS guidance on AU-2 points out that other controls ask for particular event
 | SI-4 System Monitoring | Events that show an attack or misuse | The detection use cases U1 to U8 (\<System and Information Integrity Management\>, section 3.4) |
 | PM-21 Accounting of Disclosures | Disclosures of personal data | The export and download records of Table 3 |
 
-### C.2 AU controls outside the Moderate baseline
+### B.2 AU controls outside the Moderate baseline
 
-CSS does not select these at Moderate, so they are not assessed. Some of the design goes further than the baseline, and Table 46 says where.
+CSS does not select these at Moderate, so they are not assessed. Some of the design goes further than the baseline, and Table 45 says where.
 
-**Table 46: AU controls not selected at Moderate**
+**Table 45: AU controls not selected at Moderate**
 
 | Control | What it adds | \<System Name\>'s position |
 | --- | --- | --- |

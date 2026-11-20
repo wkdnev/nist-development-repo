@@ -2,7 +2,7 @@
 
 ## 1 Purpose
 
-This document shows how \<System Name\> makes sure the people who use and run it are trustworthy, and stay so, for each of the 9 Personnel Security (PS) controls in the CSS Moderate baseline. Section 3 sets out the design: the risk designation of every role, the minimum screening, the access agreements, what happens when people join, move and leave, the time limits, external people, sanctions, the personnel security register, and what \<Organisation\> provides. Section 4 takes each control in turn. Appendix A lists every value CSS asks the organisation to define, and appendix B the PS controls CSS does not select at Moderate.
+This document shows how \<System Name\> makes sure the people who use and run it are trustworthy, and stay so, for each of the 9 Personnel Security (PS) controls in the CSS Moderate baseline. Section 3 sets out the design: the risk designation of every role, the minimum screening, the access agreements, what happens when people join, move and leave, the time limits, external people, sanctions, the personnel security register, and what \<Organisation\> provides. Section 4 takes each control in turn. Values CSS asks the organisation to define are set at corporate level by \<Organisation\>. Appendix A the PS controls CSS does not select at Moderate.
 
 The policy is in \<Policy\> (PS), and the steps people follow are in \<Procedures\> (PS). How access is requested, granted and removed is in \<Access Control Management\>, and the duties of each role are in \<Roles and Responsibilities\>.
 
@@ -399,43 +399,11 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 | Risk decision | NC-PS-09, rated Low: obtain evidence |
 | Open items | PA-125: obtain \<Organisation\>'s evidence (EV-PS-02) |
 
-## Appendix A Parameter register
+## Appendix A PS controls outside the Moderate baseline
 
-These are the CSS organisation-defined values for the 9 PS entries: 23 in total. They were agreed on 6 November 2026 (D-PS-P01) and revised on 12 November 2026 (D-PS-P02).
+CSS does not select these at Moderate, so they are not assessed. Some of the design goes further than the baseline, and Table 26 says where.
 
-**Table 26: PS parameter register**
-
-| CSS identifier | What must be defined | Value | State now |
-| --- | --- | --- | --- |
-| PS-01\_ODP\[01\] | Who receives the policy | Everyone who administers \<System Name\>, and every line manager of a \<System Name\> user | Not yet shared |
-| PS-01\_ODP\[02\] | Who receives the procedures | The same people | Not yet shared |
-| PS-01\_ODP\[03\] | Level of the policy | System level | In place |
-| PS-01\_ODP\[04\] | Official who manages them | System owner | \[Name\] is named |
-| PS-01\_ODP\[05\] | Policy review frequency | Every 12 months | First review due November 2027 |
-| PS-01\_ODP\[06\] | Events requiring policy review | Significant incident, audit finding or system change | Reviewed after the whole-set review, 12 November 2026 |
-| PS-01\_ODP\[07\] | Procedures review frequency | Every 12 months | First review due November 2027 |
-| PS-01\_ODP\[08\] | Events requiring procedures review | A change to the steps | Reviewed after the whole-set review, 12 November 2026 |
-| PS-02\_ODP | Designation review frequency | Every 12 months, and when a role's access changes | Reviewed 12 November 2026 (section 3.2) |
-| PS-03\_ODP\[01\] | When people are rescreened | Before moving into a higher risk role, and at the set frequency | Not yet used; \<Organisation\>'s practice not seen (EV-PS-01) |
-| PS-03\_ODP\[02\] | Rescreening frequency | Every 5 years for higher risk roles | Not yet used; \<Organisation\>'s practice not seen (EV-PS-01) |
-| PS-04\_ODP\[01\] | Time to disable a leaver | 5 working days, on the condition in \<Access Control Management\>, P-AC-06; 1 hour for a higher-risk leaver, a dismissal or suspected misuse | Route not built (PA-32) |
-| PS-04\_ODP\[02\] | Exit interview topics | Confidentiality duties, and returning equipment | \<Organisation\>'s process, not seen (EV-PS-02) |
-| PS-05\_ODP\[01\] | What happens on a transfer | Review of access, and any change needed | Not yet used |
-| PS-05\_ODP\[02\] | Time to start | 1 working day | Route not built (PA-32) |
-| PS-05\_ODP\[03\] | Who is notified | System owner | Not yet used |
-| PS-05\_ODP\[04\] | Time to notify | 1 working day | Route not built (PA-32) |
-| PS-06\_ODP\[01\] | Agreement review frequency | Every 12 months | First review due November 2027 |
-| PS-06\_ODP\[02\] | Re-sign frequency | Every 12 months, and after a material change to the rules | None signed yet |
-| PS-07\_ODP\[01\] | Who suppliers notify | System owner | Contract terms not seen (EV-PS-03) |
-| PS-07\_ODP\[02\] | Time to notify | 1 working day | Contract terms not seen (EV-PS-03) |
-| PS-08\_ODP\[01\] | Who is told of a sanction | System owner | Not yet used |
-| PS-08\_ODP\[02\] | Time to tell them | 1 working day | Not yet used |
-
-## Appendix B PS controls outside the Moderate baseline
-
-CSS does not select these at Moderate, so they are not assessed. Some of the design goes further than the baseline, and Table 27 says where.
-
-**Table 27: PS controls not selected at Moderate**
+**Table 26: PS controls not selected at Moderate**
 
 | Control | What it adds | \<System Name\>'s position |
 | --- | --- | --- |

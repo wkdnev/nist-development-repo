@@ -10,7 +10,7 @@ These are the security operating procedures (SyOps) for \<System Name\>. They ha
 
 Sections 5 to 9 cover exceptions, contacts, definitions, the link from each rule to its CSS control, and acknowledgement.
 
-\<System Name\> is not yet in production, so nothing in Part C is in practice yet. Frequencies and time limits are those approved in the family documents, and the values are in each family's parameter register. Role holders are named in \<Roles and Responsibilities\>. Items in square brackets are placeholders for the system owner to complete.
+\<System Name\> is not yet in production, so nothing in Part C is in practice yet. Frequencies and time limits are those approved in the family documents, and the values are set at corporate level by \<Organisation\>. Role holders are named in \<Roles and Responsibilities\>. Items in square brackets are placeholders for the system owner to complete.
 
 **Table 1: Who reads which part**
 

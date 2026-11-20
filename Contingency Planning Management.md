@@ -2,7 +2,7 @@
 
 ## 1 Purpose
 
-This document shows how \<System Name\> is recovered after a failure, for each of the 23 Contingency Planning (CP) controls and enhancements in the CSS Moderate baseline. Section 3 is the contingency plan that CP-2 requires: the business impact analysis, the roles, and the three phases of activation and notification, recovery, and reconstitution, with backups, the second site, and testing and training. It can be used on its own in an emergency. Section 4 takes each control in turn. Appendix A lists every value CSS asks the organisation to define. Appendix B holds the contacts, and appendix C the associated plans. Appendix D lists the CP controls CSS does not select at Moderate.
+This document shows how \<System Name\> is recovered after a failure, for each of the 23 Contingency Planning (CP) controls and enhancements in the CSS Moderate baseline. Section 3 is the contingency plan that CP-2 requires: the business impact analysis, the roles, and the three phases of activation and notification, recovery, and reconstitution, with backups, the second site, and testing and training. It can be used on its own in an emergency. Section 4 takes each control in turn. Values CSS asks the organisation to define are set at corporate level by \<Organisation\>. Appendix A holds the contacts, and appendix B the associated plans. Appendix C lists the CP controls CSS does not select at Moderate.
 
 The policy is in \<Policy\> (CP), and the steps people follow are in \<Procedures\> (CP).
 
@@ -26,9 +26,9 @@ An assessor examines the plan, the business impact analysis, the backup and rest
 
 ### 1.1 Distribution and protection
 
-Copies go to the people in section 3.4 and the authorising official. \<Organisation\>'s IT service desk receives sections 3.5, 3.6 and 3.9 and appendix B, which it needs to act (CP-02\_ODP\[04\]). The same people are told of every change, with a note of what changed (CP-2f).
+Copies go to the people in section 3.4 and the authorising official. \<Organisation\>'s IT service desk receives sections 3.5, 3.6 and 3.9 and appendix A, which it needs to act (CP-02\_ODP\[04\]). The same people are told of every change, with a note of what changed (CP-2f).
 
-The document is Restricted. It is kept in the restricted document store with the other records (D-GEN-15), where only the people above can read it and only the system owner can change it (CP-2h). The system owner and security officer each keep a current offline copy, so that the plan can be used when \<System Name\> and the document store are down. The offline copy is section 3 with appendices B and C, which together are the whole plan: the system owner decided against a separate plan document (D-CP-15).
+The document is Restricted. It is kept in the restricted document store with the other records (D-GEN-15), where only the people above can read it and only the system owner can change it (CP-2h). The system owner and security officer each keep a current offline copy, so that the plan can be used when \<System Name\> and the document store are down. The offline copy is section 3 with appendices A and B, which together are the whole plan: the system owner decided against a separate plan document (D-CP-15).
 
 ## 2 Summary
 
@@ -59,7 +59,7 @@ The plan recovers \<System Name\> in three phases: activation and notification, 
 
 **Figure 1: The three phases of recovery**
 
-**Scope:** UI application, Admin application, API, the PostgreSQL database that holds every document page and audit record, the secrets they need, and the two Windows Server 2025 VMs at \<Organisation\>. \<Organisation\>'s own sites, network and services, including AD FS and Active Directory, are covered by its plans (appendix C).
+**Scope:** UI application, Admin application, API, the PostgreSQL database that holds every document page and audit record, the secrets they need, and the two Windows Server 2025 VMs at \<Organisation\>. \<Organisation\>'s own sites, network and services, including AD FS and Active Directory, are covered by its plans (appendix B).
 
 **Assumptions:**
 
@@ -105,7 +105,7 @@ The recovery time objective includes reconstitution (section 3.7), so users retu
 
 | Order | Component | Needed for | Depends on | Recovered from |
 | --- | --- | --- | --- | --- |
-| 1 | \<Organisation\>'s network, AD FS sign-in, directory, name resolution, time and certificates | Everything | \<Organisation\> | \<Organisation\>'s plans (appendix C) |
+| 1 | \<Organisation\>'s network, AD FS sign-in, directory, name resolution, time and certificates | Everything | \<Organisation\> | \<Organisation\>'s plans (appendix B) |
 | 2 | Database VM and PostgreSQL 18.6 | Every function | 1 | \<Configuration Management\> baseline, then the latest good backup and transaction logs |
 | 3 | Secrets: the database password and the token signing key | Starting API | 1 | The protected copy at the second site (section 3.8) |
 | 4 | Application VM: API | Every function | 2, 3 | The tagged release and \<Configuration Management\> |
@@ -140,7 +140,7 @@ The ASP.NET Data Protection keys are not essential. They protect sign-in cookies
 | Servers | \[Name\], Windows server administrator | \[Name\] | Rebuilds the VMs and restores the secrets |
 | Service | \<Organisation\>'s IT service desk | Its own rota | Provides the second site and connectivity |
 
-Deputies were agreed on 6 November 2026 (D-CP-09). Contact details are in appendix B.
+Deputies were agreed on 6 November 2026 (D-CP-09). Contact details are in appendix A.
 
 ### 3.5 Activation and notification
 
@@ -290,7 +290,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 | --- | --- | --- | --- |
 | a.1 | A plan that identifies the essential functions and the contingency needs that go with them | Section 3.3.1: four functions, of which signing in, finding and reading documents is essential | Written |
 | a.2 | It gives recovery objectives, the order of restoration, and measures | Section 3.3.2 gives the maximum tolerable downtime, recovery time and recovery point for each function, and its priority. Section 3.3.3 gives the order. Each test and activation measures the time to recover and the data lost against them (section 3.10) | Written, and agreed by the system owner (D-CP-10) |
-| a.3 | It gives the contingency roles and responsibilities, and the people with their contact details | Section 3.4 names each role, its holder and deputy. Appendix B holds the contact details | Roles and deputies are named (D-CP-09). Every phone number and email is still a placeholder (PA-114) |
+| a.3 | It gives the contingency roles and responsibilities, and the people with their contact details | Section 3.4 names each role, its holder and deputy. Appendix A holds the contact details | Roles and deputies are named (D-CP-09). Every phone number and email is still a placeholder (PA-114) |
 | a.4 | It says how the essential functions are kept going despite a disruption | There is no manual alternative for reading documents. Section 3.6.3 allows a reduced service: sign-in, finding and reading first, with uploads and administration off, once the authorising official accepts the risk | Written |
 | a.5 | It provides for full restoration in the end, with the planned controls still in force | Section 3.7: users return only when the data, the functions and the controls have all been checked, and a full backup is taken at once | Written |
 | a.6 | It says how contingency information is shared | Section 3.5.3: who tells whom, by phone first and then in writing, and daily updates to users | Written |
@@ -323,7 +323,7 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 
 | Part | CSS requires | Design | Today |
 | --- | --- | --- | --- |
-| All | Develop the plan together with those responsible for related plans | Appendix C lists the related plans. This plan and the incident response plan were written together, and each cites the other. \<Organisation\>'s disaster recovery and business continuity plans provide the network, AD FS, the second site and telecommunications, and the system owner agrees with \<Organisation\> how the plans fit: who declares a disaster, and the recovery times of the services \<System Name\> depends on | The incident response plan is aligned. \<Organisation\>'s plans have not been seen, and their names are placeholders (PA-114) |
+| All | Develop the plan together with those responsible for related plans | Appendix B lists the related plans. This plan and the incident response plan were written together, and each cites the other. \<Organisation\>'s disaster recovery and business continuity plans provide the network, AD FS, the second site and telecommunications, and the system owner agrees with \<Organisation\> how the plans fit: who declares a disaster, and the recovery times of the services \<System Name\> depends on | The incident response plan is aligned. \<Organisation\>'s plans have not been seen, and their names are placeholders (PA-114) |
 
 **Table 15: CP-2(1) responsibility and evidence**
 
@@ -791,56 +791,9 @@ The controls are in CSS order. Each has two tables. The first takes each part of
 | Risk decision | NC-CP-23, rated Medium: remediate before production |
 | Open items | PA-64 |
 
-## Appendix A Parameter register
+## Appendix A Contacts
 
-These are the CSS organisation-defined values for the 23 CP entries: 38 in total. They were agreed on 6 November 2026 (D-CP-P01), and CP-09\_ODP\[01\] was revised on 9 November 2026 (D-CP-P02). State now says whether each is in place today.
-
-**Table 56: CP parameter register**
-
-| CSS identifier | What must be defined | Value | State now |
-| --- | --- | --- | --- |
-| CP-01\_ODP\[01\] | Who receives the policy | Everyone who administers \<System Name\> | Not yet shared |
-| CP-01\_ODP\[02\] | Who receives the procedures | Everyone who administers \<System Name\> | Not yet shared |
-| CP-01\_ODP\[03\] | Level of the policy | System level | Met |
-| CP-01\_ODP\[04\] | Official who manages them | System owner | Met |
-| CP-01\_ODP\[05\] | Policy review frequency | Every 12 months | Met: reviewed 9 November 2026 |
-| CP-01\_ODP\[06\] | Events requiring policy review | Significant incident, audit finding or system change | Met: reviewed after the CP pack review |
-| CP-01\_ODP\[07\] | Procedures review frequency | Every 12 months | Met: reviewed 9 November 2026 |
-| CP-01\_ODP\[08\] | Events requiring procedures review | A change to the steps | Met: reviewed after the CP pack review |
-| CP-02\_ODP\[01\] | Who reviews the plan | System owner and authorising official | Met: version \<ver\> approved 9 November 2026 |
-| CP-02\_ODP\[02\] | Who approves the plan | System owner and authorising official | Met: version \<ver\> approved 9 November 2026 |
-| CP-02\_ODP\[03\] | Key personnel who receive copies | System owner, administrators and security officer | Not yet shared |
-| CP-02\_ODP\[04\] | Elements who receive copies | \<Organisation\>'s IT service desk | Not yet shared |
-| CP-02\_ODP\[05\] | Review frequency | Every 12 months | Met |
-| CP-02\_ODP\[06\] | Key personnel told of changes | As CP-02\_ODP\[03\] | Not yet shared |
-| CP-02\_ODP\[07\] | Elements told of changes | As CP-02\_ODP\[04\] | Not yet shared |
-| CP-02(03)\_ODP\[01\] | Functions resumed | Essential | Planned (section 3.3) |
-| CP-02(03)\_ODP\[02\] | Time to resume | Within 72 hours | Planned; cannot be met until PA-64 |
-| CP-02(08)\_ODP | Functions supported | Essential | Met (section 3.3.4) |
-| CP-03\_ODP\[01\] | Time to train after taking a role | 30 days | No training yet (PA-81) |
-| CP-03\_ODP\[02\] | Training frequency | Every 12 months | No training yet (PA-81) |
-| CP-03\_ODP\[03\] | Content review frequency | Every 12 months | Content outlined in section 3.10 |
-| CP-03\_ODP\[04\] | Events requiring content review | A plan change, a test or an activation | Content outlined in section 3.10 |
-| CP-04\_ODP\[01\] | Test frequency | Every 12 months | No test yet (PA-81) |
-| CP-04\_ODP\[02\] | Tests of effectiveness | Tabletop exercise and restore test | Restore procedure shown in Docker on 9 November 2026; not on the VMs |
-| CP-04\_ODP\[03\] | Tests of readiness | Tabletop exercise and restore test | No test yet (PA-81) |
-| CP-07\_ODP\[01\] | Operations transferred | Essential functions | Second site unconfirmed (PA-66) |
-| CP-07\_ODP\[02\] | Time to transfer | Within 72 hours | Second site unconfirmed (PA-66) |
-| CP-08\_ODP\[01\] | Operations resumed | Essential functions | Unconfirmed (EV-CP-02) |
-| CP-08\_ODP\[02\] | Time to resume | Within 72 hours | Unconfirmed (EV-CP-02) |
-| CP-09\_ODP\[01\] | Components backed up | The database, which holds the documents and audit records; each VM's system configuration; and the secrets needed to run \<System Name\> (D-CP-P02) | No backups (PA-64) |
-| CP-09\_ODP\[02\] | User-level backup frequency | Daily, with transaction logs archived continuously | No backups (PA-64) |
-| CP-09\_ODP\[03\] | System-level backup frequency | Weekly | No backups (PA-64) |
-| CP-09\_ODP\[04\] | Documentation backup frequency | At each change | Library copy only; moves to SharePoint (D-GEN-15) |
-| CP-09(01)\_ODP\[01\] | Reliability test frequency | Every 6 months | Shown in Docker on 9 November 2026 (R03, R04) |
-| CP-09(01)\_ODP\[02\] | Integrity test frequency | Every 6 months | Shown in Docker on 9 November 2026 (R05 to R07) |
-| CP-09(08)\_ODP | Information protected | All backups | Default backups are unencrypted (R02, PA-64) |
-| CP-10\_ODP\[01\] | Recovery time | Within 72 hours, losing no more than 24 hours of data | Not possible until PA-64 |
-| CP-10\_ODP\[02\] | Reconstitution time | Within 72 hours, losing no more than 24 hours of data | Not possible until PA-64 |
-
-## Appendix B Contacts
-
-**Table 57: Contacts**
+**Table 56: Contacts**
 
 | Role | Name | Phone | Email |
 | --- | --- | --- | --- |
@@ -852,9 +805,9 @@ These are the CSS organisation-defined values for the 23 CP entries: 38 in total
 | \<Organisation\>'s IT service desk | \[name to add\] | \[phone to add\] | \[email to add\] |
 | \<Organisation\>'s security contact | \[name to add\] | \[phone to add\] | \[email to add\] |
 
-## Appendix C Associated plans and records
+## Appendix B Associated plans and records
 
-**Table 58: Associated plans**
+**Table 57: Associated plans**
 
 | Plan or record | Owner | How it relates |
 | --- | --- | --- |
@@ -865,11 +818,11 @@ These are the CSS organisation-defined values for the 23 CP entries: 38 in total
 | TPL-9 and TPL-11 in \<Record Templates\> | System owner | Training records, test records and after-action reports |
 | \<System Security Plan\>, sections 3.4 and 4 | System owner | The inventory and diagrams of what is rebuilt |
 
-## Appendix D CP controls outside the Moderate baseline
+## Appendix C CP controls outside the Moderate baseline
 
-CSS does not select these at Moderate, so they are not assessed. Some of the design goes further than the baseline, and Table 59 says where.
+CSS does not select these at Moderate, so they are not assessed. Some of the design goes further than the baseline, and Table 58 says where.
 
-**Table 59: CP controls not selected at Moderate**
+**Table 58: CP controls not selected at Moderate**
 
 | Control | What it adds | \<System Name\>'s position |
 | --- | --- | --- |

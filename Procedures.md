@@ -679,7 +679,7 @@ These procedures carry out \<Policy\> (CP) and \<Contingency Planning Management
 1. Whoever finds a failure tells \<Organisation\>'s IT service desk and the security officer. **Manual**
 2. Within 4 hours the database and Windows server administrators assess the outage: cause, damage, expected duration, possible data loss and whether it may be a security incident. If it may be, the security officer starts the incident response plan. **Manual**
 3. The system owner, or their deputy, invokes \<Contingency Planning Management\> if any criterion in its section 5.1 is met, and records the decision and time. **Manual**
-4. The system owner tells the people in \<Contingency Planning Management\>, section 3.4, and \<Organisation\>'s IT service desk, by phone and then in writing, using its contact list (appendix B). **Manual**
+4. The system owner tells the people in \<Contingency Planning Management\>, section 3.4, and \<Organisation\>'s IT service desk, by phone and then in writing, using its contact list (appendix A). **Manual**
 5. The system owner tells users through \<Organisation\>'s usual staff channel, and updates them at least daily. **Manual**
 6. The security officer keeps an activity log of decisions and actions, with times, until deactivation. **Manual**
 
@@ -791,7 +791,7 @@ These procedures carry out \<Policy\> (IR) and \<Incident Response Management\>.
 
 #### PRO-IR-1 Reporting an incident
 
-1. Anyone who suspects an incident tells the security officer within 1 hour, by phone if ServiceNow or email may be affected (\<Incident Response Management\>, appendix B). **Manual**
+1. Anyone who suspects an incident tells the security officer within 1 hour, by phone if ServiceNow or email may be affected (\<Incident Response Management\>, appendix A). **Manual**
 2. The security officer opens a record on TPL-10, or a ServiceNow ticket once it exists, and sets the severity (\<Incident Response Management\>, section 3.6). **Not built** (PA-65)
 3. The security officer tells the people in the severity table, \<Organisation\>'s security contact, and any affected supplier. **Manual**
 4. If personal data may be involved, the security officer starts PRO-IR-5 at once. **Manual**
@@ -1029,7 +1029,7 @@ These procedures carry out \<Policy\> (PE), rules R1 to R10. The values, inherit
 
 1. The system owner asks \<Organisation\> first for its ISO/IEC 27001 certificate, Statement of Applicability and latest audit findings for Annex A.7, or a SOC 2 report covering physical access (CC6.4) and the availability criteria (A1.2), for both the data centre and the second site (EV-PE-01). **Manual**
 2. Where those do not cover a control, the system owner asks for the facility evidence in EV-PE-01 to EV-PE-05. **Manual**
-3. The system owner records what was received against each control in the inheritance matrix (\<Physical and Environmental Protection Management\>, section 3.3), and confirms the values in \<Physical and Environmental Protection Management\>, appendix A, are met. **Manual**
+3. The system owner records what was received against each control in the inheritance matrix (\<Physical and Environmental Protection Management\>, section 3.3), and confirms that \<Organisation\>'s corporate parameter values are met. **Manual**
 4. Any shortfall is raised in \<Risk List\>. **Manual**
 5. The system owner repeats this every 12 months, and after a change of site or a significant incident at a site. **Manual**
 
