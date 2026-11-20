@@ -258,7 +258,7 @@ Each requirement is to be verified before the application is authorised. \<Secur
 | FR-026 | Report an item or file as faulty, with the kind of fault, a priority and a description | Reader | A dialog and a page, each sending the report to the API, which stores it with the reporter's name and the time |
 | FR-027 | List a schema's reports, and filter them by status and priority | Reader, editor | The API reads the reports of one schema after checking the person's access to it |
 | FR-028 | Move a report through its states, and record the corrective action | Editor | An editor changes the state on the report. The API checks edit access to the schema first |
-| FR-029 | Item each report and each change of state in the audit log | System | The API writes an audit record when a report is created or changes state |
+| FR-029 | Record each report and each change of state in the audit log | System | The API writes an audit record when a report is created or changes state |
 
 #### 5.1.5 Creating, uploading and managing items
 
@@ -276,7 +276,7 @@ Each requirement is to be verified before the application is authorised. \<Secur
 | FR-037 | Replace a stored file | Administrator | The API stores the new file in place of the old one, keeps the checksum of both in the audit record, and audits the change |
 | FR-038 | Delete an item, after confirming | Administrator | The API removes the item and its files, and writes an audit record of what was deleted and by whom |
 | FR-039 | Store each file with a SHA-256 checksum, so that a change can be detected | System | The API calculates the checksum when the file is stored and holds it on the item |
-| FR-040 | Item who created or uploaded each item, and when | System | The signed-in name and the time are written to the item by the API |
+| FR-040 | Record who created or uploaded each item, and when | System | The signed-in name and the time are written to the item by the API |
 
 #### 5.1.6 Bulk upload
 
@@ -301,7 +301,7 @@ Each requirement is to be verified before the application is authorised. \<Secur
 | FR-048 | Let only the person who started a job see, download or cancel it | System | Each job holds the name of its starter, and the API compares it with the caller on every status, download and cancel request |
 | FR-049 | Deliver exports only as downloads. There is no export to a folder or another system | System | The download is the only output |
 | FR-050 | Encrypt an export's working copies, and delete them as P-20 sets | System | The API writes working copies to an encrypted working area, deletes them after the download, and a background task removes any left past the limit |
-| FR-051 | Item every export in the audit log, with who, which schema and how many items | System | An audit record is written for each export |
+| FR-051 | Record every export in the audit log, with who, which schema and how many items | System | An audit record is written for each export |
 | FR-052 | Raise an alert on an export above a set size | System | A rule in central monitoring on the export audit records |
 
 #### 5.1.8 Notifications
@@ -338,11 +338,11 @@ Each requirement is to be verified before the application is authorised. \<Secur
 
 | No. | Requirement | Who | How it is implemented |
 | --- | --- | --- | --- |
-| FR-067 | Item every event type in section 7.6 in one audit log, with who, what, when, where and the result | System | The function that carries out an action calls the audit service in the API, which adds one item |
+| FR-067 | Record every event type in section 7.6 in one audit log, with who, what, when, where and the result | System | The function that carries out an action calls the audit service in the API, which adds one item |
 | FR-068 | Accept audit records only from the application's own components, and let no user write or change one | System | The API accepts audit events only on calls bearing the token of the UI application or Admin application, and its database account may only add rows |
 | FR-069 | Chain the audit records with a keyed hash, and check the chain on a schedule and on request | System | Each audit record stores a keyed hash of its own content and the previous record's hash. A scheduled task recomputes the chain and reports a break |
 | FR-070 | Read, filter, search, sort and export the audit log | Auditor | The Admin application asks the API, which runs parameterised queries on the audit table. Only the auditor role may do this |
-| FR-071 | Item each reading and export of the audit log | System | The API writes an audit record when the audit log is read or exported |
+| FR-071 | Record each reading and export of the audit log | System | The API writes an audit record when the audit log is read or exported |
 | FR-072 | Show the security officer a report of every page and function and the access it requires | Security officer | A page that lists each page and API function with the access rule it declares |
 
 #### 5.1.11 Privacy and the life of an item
