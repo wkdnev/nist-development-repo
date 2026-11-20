@@ -1,135 +1,27 @@
 # \<System Name\> Security Assessment Report
 
-**\<ref\> | Version \<ver\> | Version \<ver\> issued; the authorising official's acceptance is pending (D-GEN-20)**
-
-**Contents**
-
-[1 Document control](#1-document-control)
-
-[2 Purpose and scope](#2-purpose-and-scope)
-
-[3 Executive summary](#3-executive-summary)
-
-[4 Assessment approach](#4-assessment-approach)
-
-[5 Results](#5-results)
-
-[6 Risk position](#6-risk-position)
-
-[7 Weaknesses fixed or closed during the assessment](#7-weaknesses-fixed-or-closed-during-the-assessment)
-
-[8 Evidence](#8-evidence)
-
-[9 Conditions before authorisation](#9-conditions-before-authorisation)
-
-[10 Authorisation package](#10-authorisation-package)
-
-| **SECTION 1** |
-| --- |
-
-## 1 Document control
-
-### 1.1 Document details
-
-**Table 1: Document details**
-
-| Item | Detail |
-| --- | --- |
-| Reference | \<ref\> |
-| Title | \<System Name\> Security Assessment Report |
-| Version | \<ver\> |
-| Status | Version \<ver\> issued by the system owner (D-GEN-19); the authorising official's acceptance of version \<ver\> is pending (D-GEN-20). Version \<ver\> was received by the authorising official on 8 November 2026 |
-| Date | 8 November 2026 |
-| Owner | System owner |
-| Applies to | All 19 control families in the Moderate baseline |
-| Classification | Restricted |
-| Next review | After the Level 2 assessment, and after a significant change |
-| Format | \<Documentation Map\>, section 5 |
-
-### 1.2 Approval
-
-**Table 2: Approval**
-
-| Role | Name | Decision | Date |
-| --- | --- | --- | --- |
-| System owner | \[Name\] | Version \<ver\> issued on 8 November 2026; version \<ver\> issued on 12 November 2026 (D-GEN-19) | 12 November 2026 |
-| Authorising official | \[Name\] | Version \<ver\> received and accepted as an accurate record, as confirmed by the system owner. Version \<ver\> pending (D-GEN-20) | 8 November 2026 |
-| Head of Cyber | \[Name\] | Version \<ver\> received, as confirmed by the system owner. Version \<ver\> not yet sent | 8 November 2026 |
-| Security assessor | \[Name\] | Replaces this report with the Level 2 report |  |
-
-### 1.3 Change history
-
-**Table 3: Change history**
-
-| Version | Date | Change |
-| --- | --- | --- |
-| \<ver\> | 18 November 2026 | Generated parts rebuilt from their sources |
-| \<ver\> | 18 November 2026 | No code references: page addresses, setting names, folder paths and file paths are described in plain words, and names of groups, scripts and releases are shown as plain text. No value, finding or decision is changed. Generated parts rebuilt from their sources |
-| \<ver\> | 18 November 2026 | Generated parts rebuilt from their sources |
-| \<ver\> | 18 November 2026 | Generated parts rebuilt from their sources |
-| \<ver\> | 18 November 2026 | Generated parts rebuilt from their sources |
-| \<ver\> | 18 November 2026 | Generated parts rebuilt from their sources |
-| \<ver\> | 17 November 2026 | Generated parts rebuilt from their sources |
-| \<ver\> | 17 November 2026 | Generated parts rebuilt from their sources |
-| \<ver\> | 17 November 2026 | Generated parts rebuilt from their sources |
-| \<ver\> | 17 November 2026 | Generated parts rebuilt from their sources |
-| \<ver\> | 17 November 2026 | Generated parts rebuilt from their sources |
-| \<ver\> | 17 November 2026 | Generated parts rebuilt from their sources |
-| \<ver\> | 17 November 2026 | Generated parts rebuilt from their sources |
-| \<ver\> | 15 November 2026 | Generated parts rebuilt from their sources |
-| \<ver\> | 15 November 2026 | Generated parts rebuilt from their sources |
-| \<ver\> | 13 November 2026 | Generated parts rebuilt from their sources |
-| \<ver\> | 13 November 2026 | Generated parts rebuilt from their sources |
-| \<ver\> | 13 November 2026 | The assessor row says the Level 2 team meets CA-2(1) once each member has completed TPL-19. Generated parts rebuilt from their sources |
-| \<ver\> | 12 November 2026 | Generated parts rebuilt from their sources |
-| \<ver\> | 12 November 2026 | The report cites \<Assessment, Authorization, and Monitoring Management\> for the authorisation package. Generated parts rebuilt from their sources |
-| \<ver\> | 12 November 2026 | References to the assessment, authorisation and monitoring design point to \<Assessment, Authorization, and Monitoring Management\>, where it is now held (D-CA-11). Generated parts rebuilt from their sources |
-| \<ver\> | 12 November 2026 | No document sends the reader to the application's code: source file, class and setting names are replaced by what they stand for, stated in plain words. No value, finding or decision is changed. Generated parts rebuilt from their sources |
-| \<ver\> | 12 November 2026 | Generated parts rebuilt from their sources |
-| \<ver\> | 12 November 2026 | Generated parts rebuilt from their sources |
-| \<ver\> | 12 November 2026 | References to the audit design point to \<Audit and Accountability Management\>, where it is now held (D-AU-10). Generated parts rebuilt from their sources |
-| \<ver\> | 12 November 2026 | Generated parts rebuilt from their sources |
-| \<ver\> | 12 November 2026 | References to the training design point to \<Awareness and Training Management\>, where it is now held (D-AT-09) |
-| \<ver\> | 12 November 2026 | Generated parts rebuilt from their sources |
-| \<ver\> | 12 November 2026 | Version numbers are shown as a placeholder, as the system owner asked (D-GEN-28). No other change |
-| \<ver\> | 12 November 2026 | The document number is replaced by a placeholder on the line under the title and in the details table, as the system owner asked (D-GEN-27). No other change |
-| \<ver\> | 12 November 2026 | The name of the system is shown as a placeholder, as the system owner asked (D-GEN-26). No other change |
-| \<ver\> | 12 November 2026 | References to the register, the policy and the assessment record follow their new section and table numbers (D-GEN-24) |
-| \<ver\> | 12 November 2026 | Documents are cited by name in angle brackets, in place of their numbers, as the system owner asked (D-GEN-23). No other change |
-| \<ver\> | 12 November 2026 | Whole-set review (D-GEN-19): reissued as 1.1, and now generated from the assessments, the risk list and the POA&M. Results by family in NIST order and by cause; the satisfied controls listed; all 24 risks; items fixed during the assessment; an index of the 15 test scripts and their results; the statement of independence; totals at 1,998 statements. The combined documents are cited by their new numbers and chapters (D-GEN-21). The document standard is cited as \<Documentation Map\>, section 5 |
-| \<ver\> | 8 November 2026 | First issue, from the CA pack review (CA-D1) |
-
-| **SECTION 2** |
-| --- |
-
-## 2 Purpose and scope
+## 1 Purpose and scope
 
 This report brings together the results of the Level 1 self-assessment of all 19 control families, so that the authorising official can see in one place how far \<System Name\> meets the NIST SP 800-53 Rev 5 Moderate baseline, what the remaining risk is, and what must happen before it can be authorised. It is the assessment report in the authorisation package (NIST SP 800-37 Rev 2, tasks A-4 and R-1), and it meets CA-2e and CA-2f. It covers the privacy controls as well, so it is also the privacy assessment report.
 
 It covers \<System Name\> v1.0: UI application, Admin application, API and the \<System Name\> database, on the two planned Windows Server 2025 VMs at \<Organisation\>. The detail for each family is in its assessment, which takes precedence over this summary. The figures in this report are generated from the assessments, the risk list and the POA&M, and Test-PlanConsistency.ps1 checks that they agree.
 
-| **SECTION 3** |
-| --- |
-
-## 3 Executive summary
+## 2 Executive summary
 
 **\<System Name\> is not ready to be authorised, and it holds no production documents.** That is the expected position for a system that is not yet built on its VMs: most of what is outstanding is a decision not yet carried out, evidence not yet available, or a code fix waiting for the development phase.
 
 - **Coverage:** all 316 entries in the Moderate baseline, and the privacy baseline outside PM, were assessed against 1,998 NIST SP 800-53A determination statements. The coverage and the statement counts were checked against NIST's catalogue, release 5.2.0, on 12 November 2026.
 - **Result:** 1,083 statements (54%) are satisfied, and 19 controls are fully satisfied. Every other statement is recorded with a reason, and every non-compliance is rated in \<Risk List\>.
-- **Why the rest are not satisfied:** 157 statements (8%) are gaps in the system itself; 306 (15%) await evidence from \<Organisation\> or the VMs; 390 (20%) await a decision, or the start of operation; and 62 do not apply. Section 5.3 breaks these down.
+- **Why the rest are not satisfied:** 157 statements (8%) are gaps in the system itself; 306 (15%) await evidence from \<Organisation\> or the VMs; 390 (20%) await a decision, or the start of operation; and 62 do not apply. Section 4.3 breaks these down.
 - **Risk:** 24 risks are recorded. 5 are rated High: a user interferes with another user's session or abuses internal functions (R-AC-02); someone gains full database control (R-AC-04); credentials or documents are intercepted (R-AC-05); a stolen password gives full access (R-AC-10); a known flaw or malicious upload compromises the system (R-SI-01).
 - **Remediation:** \<Plan of Action and Milestones\> holds 131 items: 13 High, 55 Medium and 63 Low. 6 are fixed and waiting for a repeat test on the VMs, 2 are closed and 123 are open, 10 of them High.
-- **Inherited controls:** 65 entries depend wholly on \<Organisation\> (\<Assessment, Authorization, and Monitoring Management\>, section 4.6). None of the 74 evidence requests in \<Evidence Requests\> has yet been sent.
+- **Inherited controls:** 65 entries depend wholly on \<Organisation\> (\<Assessment, Authorization, and Monitoring Management\>, section 3.6). None of the 74 evidence requests in \<Evidence Requests\> has yet been sent.
 
-**Recommendation to the authorising official:** do not authorise yet. Authorisation should wait for, at least, the conditions in section 9.
+**Recommendation to the authorising official:** do not authorise yet. Authorisation should wait for, at least, the conditions in section 8.
 
-| **SECTION 4** |
-| --- |
+## 3 Assessment approach
 
-## 4 Assessment approach
-
-**Table 4: Assessment approach**
+**Table 1: Assessment approach**
 
 | Item | Detail |
 | --- | --- |
@@ -137,19 +29,16 @@ It covers \<System Name\> v1.0: UI application, Admin application, API and the \
 | Independence | Level 1 is a self-assessment. The same assistant drafted the documents and assessed them, for the system owner, so it is not independent. Level 2 provides the independence |
 | Dates | 5 to 12 November 2026. Each family was assessed on 5 or 6 November, and reassessed after its pack review between 8 and 12 November |
 | Procedures | NIST SP 800-53A Rev 5, catalog release 5.2.0, one finding for every determination statement |
-| Methods | Examine (documents, code and configuration), Test (15 test scripts, with results and hash manifests in the evidence store; section 8) and Interview (the system owner's written answers only) |
+| Methods | Examine (documents, code and configuration), Test (15 test scripts, with results and hash manifests in the evidence store; section 7) and Interview (the system owner's written answers only) |
 | Environment | A throwaway Docker stack on one PC with sample data, built from the code tagged v1.0 |
 | Limits | The VMs, PostgreSQL on Windows and \<Organisation\>'s services were not examined, and the role holders were not interviewed. Nothing has been seen in operation, because \<System Name\> is not in use. Level 2 must repeat the tests on the VMs |
 | Plans | Each family's assessment plan is in its chapter of \<Control Assessment Record\>, and all 19 were approved by the authorising official (D-GEN-18) |
 
-| **SECTION 5** |
-| --- |
+## 4 Results
 
-## 5 Results
+### 4.1 Results by family
 
-### 5.1 Results by family
-
-**Table 5: Results by family**
+**Table 2: Results by family**
 
 | Family | Entries | Controls satisfied | Statements satisfied | Awaiting a decision or operation | Gap in the system | Awaiting evidence | Not applicable | Assessment |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -176,9 +65,9 @@ It covers \<System Name\> v1.0: UI application, Admin application, API and the \
 
 A control counts as satisfied only when every one of its statements is satisfied or does not apply.
 
-### 5.2 Controls fully satisfied
+### 4.2 Controls fully satisfied
 
-**Table 6: Controls fully satisfied**
+**Table 3: Controls fully satisfied**
 
 | Family | Controls |
 | --- | --- |
@@ -192,9 +81,9 @@ A control counts as satisfied only when every one of its statements is satisfied
 | SC | SC-2 |
 | SI | SI-7(7), SI-10 |
 
-### 5.3 Why statements are other than satisfied
+### 4.3 Why statements are other than satisfied
 
-**Table 7: Other than satisfied, by cause**
+**Table 4: Other than satisfied, by cause**
 
 | Cause | Statements | What closes it |
 | --- | --- | --- |
@@ -205,12 +94,9 @@ A control counts as satisfied only when every one of its statements is satisfied
 | The policy or procedures have not yet been shared | 45 | The system owner shares them with their recipients, and records it |
 | **Total** | **853** |  |
 
-| **SECTION 6** |
-| --- |
+## 5 Risk position
 
-## 6 Risk position
-
-**Table 8: Risks**
+**Table 5: Risks**
 
 | Risk | Rating | Treatment | Status |
 | --- | --- | --- | --- |
@@ -241,12 +127,9 @@ A control counts as satisfied only when every one of its statements is satisfied
 
 The 301 non-compliances behind these risks are rated 17 High, 56 Medium and 228 Low. The full register, with causes, consequences and decisions, is \<Risk List\>.
 
-| **SECTION 7** |
-| --- |
+## 6 Weaknesses fixed or closed during the assessment
 
-## 7 Weaknesses fixed or closed during the assessment
-
-**Table 9: Items fixed or closed**
+**Table 6: Items fixed or closed**
 
 | Item | Rating | Weakness | Outcome |
 | --- | --- | --- | --- |
@@ -256,17 +139,14 @@ The 301 non-compliances behind these risks are rated 17 High, 56 Medium and 228 
 | PA-08 | Low | The API document endpoint refuses access with a server error, not 403 | Fixed on 5 November 2026 (T14); awaiting a repeat test on the VMs |
 | PA-09 | Medium | Document content is sent as publicly cacheable for an hour, so it can stay in shared caches and after sign-out | Fixed on 5 November 2026 (T22); awaiting a repeat test on the VMs |
 | PA-27 | High | Export and upload checked access to the project named in a request but used a separately named schema, so an editor of one project could reach another | Fixed on 5 November 2026 (T63); awaiting a repeat test on the VMs |
-| PA-24 | Low | The evidence describes uncommitted code on a local branch | Closed on 6 November 2026: committed and tagged v1.0 locally on 6 November 2026. Hashes are in \<System Security Plan\>, section 3 |
+| PA-24 | Low | The evidence describes uncommitted code on a local branch | Closed on 6 November 2026: committed and tagged v1.0 locally on 6 November 2026. Hashes are in \<System Security Plan\>, section 2 |
 | PA-33 | Low | The 8-hour session limit check gave 200 in one full test run, then passed every other time. The cause was not found, so a real intermittent fault cannot yet be ruled out | Closed on 9 November 2026: the full run was repeated and passed five times in a row (I11). T45 now records its set-up result |
 
-| **SECTION 8** |
-| --- |
-
-## 8 Evidence
+## 7 Evidence
 
 Each script can be run again, and each evidence folder holds a README and a manifest of SHA-256 hashes for its results. A gap in a result is a real weakness, recorded in \<Plan of Action and Milestones\>. It is not a script failure.
 
-**Table 10: Test scripts and results**
+**Table 7: Test scripts and results**
 
 | Script | Families | Checks | Number | Passed | Gaps | Latest results |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -287,22 +167,16 @@ Each script can be run again, and each evidence folder holds a README and a mani
 | Test-PlanConsistency.ps1 | All | L01 onward | Reported in the PL evidence | All | None | The PL evidence |
 | **Total, apart from the consistency checks** |  |  | **236** | **132** | **104** |  |
 
-| **SECTION 9** |
-| --- |
-
-## 9 Conditions before authorisation
+## 8 Conditions before authorisation
 
 1. TLS and secure cookies on every connection, and secrets removed from source (PA-18, PA-19), as the authorising official decided.
 2. Sign-in through AD FS, with multi-factor authentication, shown working for every user before any production documents are held (D-AC-23, PA-95; D-IA-07).
 3. Every other POA&M item whose latest completion is before go-live closed, including the packages with High advisories (PA-56) and backups (PA-64).
 4. The VMs built, and the tests repeated on them.
-5. \<Organisation\>'s evidence for the inherited controls received, and those controls accepted (\<Assessment, Authorization, and Monitoring Management\>, section 4.6).
+5. \<Organisation\>'s evidence for the inherited controls received, and those controls accepted (\<Assessment, Authorization, and Monitoring Management\>, section 3.6).
 6. The independent Level 2 assessment held, and this report replaced by its report.
 7. The authorisation decision recorded on TPL-18, with its terms, conditions and end date.
 
-| **SECTION 10** |
-| --- |
+## 9 Authorisation package
 
-## 10 Authorisation package
-
-The authorising official receives: this report, whose section 3 is the executive summary; \<System Security Plan\>, the system security plan; \<Privacy Plan\>, the privacy plan; \<Control Assessment Record\>, the assessment record, with a chapter for each of the 19 families; \<Plan of Action and Milestones\>, the plan of action; \<Risk List\>, the risks; \<Decision Register\>, the decisions; and the evidence folders with their hash manifests. \<Assessment, Authorization, and Monitoring Management\>, section 4.5, lists the package and records the decision.
+The authorising official receives: this report, whose section 2 is the executive summary; \<System Security Plan\>, the system security plan; \<Privacy Plan\>, the privacy plan; \<Control Assessment Record\>, the assessment record, with a chapter for each of the 19 families; \<Plan of Action and Milestones\>, the plan of action; \<Risk List\>, the risks; \<Decision Register\>, the decisions; and the evidence folders with their hash manifests. \<Assessment, Authorization, and Monitoring Management\>, section 3.5, lists the package and records the decision.

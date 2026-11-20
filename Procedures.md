@@ -1,338 +1,165 @@
 # \<System Name\> Security Procedures
 
-**\<ref\> | Version \<ver\> | The layout introduced in version \<ver\> awaits the system owner's approval; every procedure is as the system owner approved it**
+## 1 How to use this document
 
-**Contents**
+This document holds the security and privacy procedures for \<System Name\>: 139 procedures in 19 chapters, one chapter for each NIST SP 800-53 Rev 5 control family that applies, in NIST order. A procedure says who does what, when, and what record is kept. The rules the procedures carry out are in \<Policy\>, and the design, values and decisions they use are in each family's design document (\<Documentation Map\>, section 2.2).
 
-[1 Document control](#1-document-control)
-
-[2 How to use this document](#2-how-to-use-this-document)
-
-[3 Index of procedures](#3-index-of-procedures)
-
-[AC Access Control](#ac-access-control)
-
-[AT Awareness and Training](#at-awareness-and-training)
-
-[AU Audit and Accountability](#au-audit-and-accountability)
-
-[CA Assessment, Authorization, and Monitoring](#ca-assessment-authorization-and-monitoring)
-
-[CM Configuration Management](#cm-configuration-management)
-
-[CP Contingency Planning](#cp-contingency-planning)
-
-[IA Identification and Authentication](#ia-identification-and-authentication)
-
-[IR Incident Response](#ir-incident-response)
-
-[MA Maintenance](#ma-maintenance)
-
-[MP Media Protection](#mp-media-protection)
-
-[PE Physical and Environmental Protection](#pe-physical-and-environmental-protection)
-
-[PL Planning](#pl-planning)
-
-[PS Personnel Security](#ps-personnel-security)
-
-[PT Personally Identifiable Information Processing and Transparency](#pt-personally-identifiable-information-processing-and-transparency)
-
-[RA Risk Assessment](#ra-risk-assessment)
-
-[SA System and Services Acquisition](#sa-system-and-services-acquisition)
-
-[SC System and Communications Protection](#sc-system-and-communications-protection)
-
-[SI System and Information Integrity](#si-system-and-information-integrity)
-
-[SR Supply Chain Risk Management](#sr-supply-chain-risk-management)
-
-| **SECTION 1** |
-| --- |
-
-## 1 Document control
-
-### 1.1 Document details
-
-**Table 1: Document details**
-
-| Item | Detail |
-| --- | --- |
-| Reference | \<ref\> |
-| Title | \<System Name\> Security Procedures |
-| Version | \<ver\> |
-| Status | Version \<ver\> is laid out for easier reading, as the system owner asked on 12 November 2026 (D-GEN-22), and that layout awaits the system owner's approval. No procedure, step, table or time limit changed, so each family's procedures stand as the system owner approved them (Table 4) |
-| Date | 12 November 2026 |
-| Owner | System owner |
-| Applies to | The 19 control families listed in Table 4 |
-| Classification | Restricted |
-| Next review | Every 12 months, and after a significant change |
-| Format | \<Documentation Map\>, section 5 |
-
-### 1.2 Approval
-
-**Table 2: Approval**
-
-| Role | Name | Decision | Date |
-| --- | --- | --- | --- |
-| System owner | \[Name\] | Approved each family's procedures, as Table 4 shows. The layout introduced in version \<ver\> awaits approval | Pending |
-
-### 1.3 Change history
-
-From version \<ver\> the document has one version, one approval and one change history. A change to any procedure raises the document's version, and the row below names the procedures that changed.
-
-**Table 3: Change history**
-
-| Version | Date | Change |
-| --- | --- | --- |
-| \<ver\> | 18 November 2026 | Whole-set review: section 2 points to each family's design document; the joiner workflow and approval route follow sign-in through AD FS, as \<System Name\> creates no accounts (D-AC-23) |
-| \<ver\> | 18 November 2026 | No procedure names code: page addresses, configuration file and setting names, and script paths are described in plain words (PRO-AC, PRO-AU, PRO-CM, PRO-CP, PRO-IR and PRO-SC). No step is changed |
-| \<ver\> | 18 November 2026 | References to the communications protection design point to \<System and Communications Protection Management\>, where it is now held (D-SC-09). References to the integrity design point to \<System and Information Integrity Management\>, where it is now held (D-SI-10). References to the supply chain plan follow its new sections, as it is rebuilt in the family form and renamed Supply Chain Risk Management (D-SR-14) |
-| \<ver\> | 18 November 2026 | Chapter SA, from the cross-check: PRO-SA-2 adds the OWASP ASVS verification; PRO-SA-3 asks for service levels and remedies; PRO-SA-5 checks that packages and browser libraries are still maintained |
-| \<ver\> | 18 November 2026 | References to the acquisition design point to \<System and Services Acquisition Management\>, where it is now held (D-SA-19). Chapter SA: PRO-SA-2 names where results are kept without a folder path |
-| \<ver\> | 18 November 2026 | Chapter RA, from the cross-check: PRO-RA-1 checks the categorisation at each review; PRO-RA-2 also runs after a significant change; PRO-RA-3 adds a web application scan at each release; PRO-RA-5 shares findings with \<Organisation\> and publishes the reporting route with its terms |
-| \<ver\> | 18 November 2026 | References to the risk assessment design point to \<Risk Assessment Management\>, where it is now held (D-RA-11) |
-| \<ver\> | 18 November 2026 | PRO-PT-1 covers every request a person may make about their data, the time limit, and telling recipients of a correction (UK GDPR, Articles 12 and 19; Data (Use and Access) Act 2025) |
-| \<ver\> | 18 November 2026 | References to the personal data design point to \<PII Processing Management\>, where it is now held (D-PT-22). PRO-PT-1: the search covers every project and the audit records, as \<System Name\> holds no accounts (D-AC-23) |
-| \<ver\> | 17 November 2026 | Chapter AC: PRO-AC-1 step 3 corrected in grammar, and the signature is recorded by the system owner on TPL-21. Chapter PS: the people who act on leavers and movers follow sign-in through AD FS, and PRO-PS-5 covers external assessors |
-| \<ver\> | 17 November 2026 | PRO-AC-8: each month, members who have not signed in for 90 days are removed from \<System Name\>'s groups by the groups' owners (D-PS-11) |
-| \<ver\> | 17 November 2026 | References to the personnel security design point to \<Personnel Security Management\>, where it is now held (D-PS-10). Chapter PS: joiners, movers and leavers follow sign-in through AD FS, as \<System Name\> holds no accounts (D-AC-23). Chapter AC: PRO-AC-1 no longer speaks of creating an account, and PRO-AC-4 names the session management page in plain words |
-| \<ver\> | 17 November 2026 | Chapter PL: the consistency test is named in plain words, and PRO-PL-3 says what the person signs |
-| \<ver\> | 17 November 2026 | References to the planning design point to \<Planning Management\>, where it is now held (D-PL-12) |
-| \<ver\> | 17 November 2026 | Chapter PE: both data centres are inspected; every home worker completes the yearly checklist; and a clear desk is part of protecting output, as rule A37 says |
-| \<ver\> | 17 November 2026 | PRO-PE-2: \<Organisation\> tells the security officer of a physical incident within 24 hours (D-PE-12) |
-| \<ver\> | 17 November 2026 | References to the physical and environmental protection design point to \<Physical and Environmental Protection Management\>, where it is now held (D-PE-11). PRO-PE-1: a SOC 2 report is asked to cover the availability criteria as well as physical access, so that it evidences power, fire and environment |
-| \<ver\> | 17 November 2026 | Chapter MP: printing is on managed printers with secure release, as rule A33 says; cryptographic erase destroys every copy of a key; and the sanitising record holds the tool used |
-| \<ver\> | 17 November 2026 | PRO-MP-5: the export folder is checked each working day in place of weekly (D-MP-10) |
-| \<ver\> | 17 November 2026 | References to the media protection design point to \<Media Protection Management\>, where it is now held (D-MP-09) |
-| \<ver\> | 17 November 2026 | Chapter MA: the check after maintenance follows sign-in through AD FS; the tool inspection is recorded; and two steps follow the decision that the applications run as Windows services (D-PL-10). The test script is named in plain words |
-| \<ver\> | 17 November 2026 | References to the maintenance design point to \<Maintenance Management\>, where it is now held (D-MA-09) |
-| \<ver\> | 17 November 2026 | Chapter IR: Report Fraud is named in place of Action Fraud, and PRO-IR-2 cites the playbooks by their present section. Chapter AU: PRO-AU-2 and PRO-AU-3 send an incident to PRO-IR-2 |
-| \<ver\> | 17 November 2026 | References to the incident response design follow the new section numbers of \<Incident Response Management\> (D-IR-10) |
-| \<ver\> | 15 November 2026 | References to the identification and authentication design point to \<Identification and Authentication Management\>, where it is now held (D-IA-11) |
-| \<ver\> | 15 November 2026 | References to the contingency design follow the new section numbers of \<Contingency Planning Management\> (D-CP-14) |
-| \<ver\> | 13 November 2026 | References to the configuration management design follow the new section numbers of \<Configuration Management\> (D-CM-13) |
-| \<ver\> | 12 November 2026 | PRO-CA-5, step 1, states the analysis of the measures and what happens when one is past its threshold (D-CA-12) |
-| \<ver\> | 12 November 2026 | References to the assessment, authorisation and monitoring design point to \<Assessment, Authorization, and Monitoring Management\>, where it is now held (D-CA-11) |
-| \<ver\> | 12 November 2026 | No document sends the reader to the application's code: source file, class and setting names are replaced by what they stand for, stated in plain words. No value, finding or decision is changed |
-| \<ver\> | 12 November 2026 | PRO-AU-4, step 3: records under a legal hold or held as incident evidence are not deleted until released |
-| \<ver\> | 12 November 2026 | References to the audit design point to \<Audit and Accountability Management\>, where it is now held (D-AU-10). PRO-AU-1 and PRO-AU-6 follow sign-in through AD FS: the system owner adds an auditor to the AD group, and the weekly review uses \<Organisation\>'s record of group changes (D-AC-23) |
-| \<ver\> | 12 November 2026 | References to the training design point to \<Awareness and Training Management\>, where it is now held (D-AT-09). PRO-AT-1 says "before access", as no account is created in the system (D-AC-23) |
-| \<ver\> | 12 November 2026 | PRO-AC-13 places the system use notice on the first page of each app, before sign-in through AD FS |
-| \<ver\> | 12 November 2026 | The index of procedures follows the new titles of PRO-IA-1, PRO-IA-2 and PRO-IA-5 |
-| \<ver\> | 12 November 2026 | The access control and identification procedures follow D-AC-23: group owners add and remove members in Active Directory, and \<Organisation\>'s service desk handles accounts, passwords, lockouts and second factors. PRO-AC-1 to PRO-AC-10, PRO-AC-12, PRO-IA-1 to PRO-IA-3, PRO-IA-5, PRO-IA-6 and PRO-IA-8 change |
-| \<ver\> | 12 November 2026 | Version numbers are shown as a placeholder, as the system owner asked (D-GEN-28). No other change |
-| \<ver\> | 12 November 2026 | The document number is replaced by a placeholder on the line under the title and in the details table, as the system owner asked (D-GEN-27). No other change |
-| \<ver\> | 12 November 2026 | The name of the system is shown as a placeholder, as the system owner asked (D-GEN-26). No other change |
-| \<ver\> | 12 November 2026 | PRO-AC-1, PRO-AC-5 and PRO-AC-6 follow the access request workflow the system owner decided (D-AC-22): the person raises the request, their line manager approves it, and the system owner or project access approver authorises it |
-| \<ver\> | 12 November 2026 | References to the access control design point to \<Access Control Management\>, where it is now held |
-| \<ver\> | 12 November 2026 | References to documents that no longer exist now name where their content is, as the system owner asked. No other change |
-| \<ver\> | 12 November 2026 | References to the register, the policy and the assessment record follow their new section and table numbers (D-GEN-24) |
-| \<ver\> | 12 November 2026 | Documents are cited by name in angle brackets, in place of their numbers, as the system owner asked (D-GEN-23). No other change |
-| \<ver\> | 12 November 2026 | Laid out for easier reading, as the system owner asked (D-GEN-22). One document control section replaces the status, approval and change history of each chapter, and Table 4 records what each chapter was approved as. Section 3 is a new index of all 139 procedures. Each procedure is headed by its number. Sections and tables in each chapter renumbered. Every procedure, step, table and time limit is kept word for word |
-| \<ver\> | 12 November 2026 | The system owner confirmed the combined form of this document (D-GEN-21). The status and approval now say so. No chapter changed |
-| \<ver\> | 12 November 2026 | First issue. The 19 sets of family procedures, brought into one document as chapters in NIST order (whole-set review, WS-D13, D-GEN-21). No content changed |
-
-### 1.4 What each chapter was approved as
-
-Until version \<ver\> each chapter carried its own version, approval and change history. Table 4 records where each stood. The earlier change histories are kept in the change record (\<Documentation Map\>, section 5.1).
-
-**Table 4: Chapters**
-
-| Chapter | Family | Procedures | Last chapter version | Approval at that version |
-| --- | --- | --- | --- | --- |
-| AC | Access Control | PRO-AC-1 to PRO-AC-17 | \<ver\> | Version \<ver\> approved by the system owner; version \<ver\> approved on 8 November 2026 (D-AC-17); version \<ver\> approved on 12 November 2026 (D-AT-06); version \<ver\> makes editorial changes only, issued by the system owner under D-GEN-19 |
-| AT | Awareness and Training | PRO-AT-1 to PRO-AT-5 | \<ver\> | Approved by the system owner; version \<ver\> makes editorial changes only, issued by the system owner under D-GEN-19 |
-| AU | Audit and Accountability | PRO-AU-1 to PRO-AU-7 | \<ver\> | Version \<ver\> approved by the system owner; version \<ver\> approved on 8 November 2026 (D-AU-09) |
-| CA | Assessment, Authorization, and Monitoring | PRO-CA-1 to PRO-CA-7 | \<ver\> | Approved by the system owner |
-| CM | Configuration Management | PRO-CM-1 to PRO-CM-9 | \<ver\> | Approved by the system owner |
-| CP | Contingency Planning | PRO-CP-1 to PRO-CP-7 | \<ver\> | Approved by the system owner |
-| IA | Identification and Authentication | PRO-IA-1 to PRO-IA-8 | \<ver\> | Approved by the system owner; version \<ver\> makes editorial changes only, issued by the system owner under D-GEN-19 |
-| IR | Incident Response | PRO-IR-1 to PRO-IR-7 | \<ver\> | Approved by the system owner |
-| MA | Maintenance | PRO-MA-1 to PRO-MA-7 | \<ver\> | Approved by the system owner (D-MA-08) |
-| MP | Media Protection | PRO-MP-1 to PRO-MP-6 | \<ver\> | Approved by the system owner (D-MP-08) |
-| PE | Physical and Environmental Protection | PRO-PE-1 to PRO-PE-5 | \<ver\> | Approved by the system owner (D-PE-10) |
-| PL | Planning | PRO-PL-1 to PRO-PL-6 | \<ver\> | Approved by the system owner (D-PL-08) |
-| PS | Personnel Security | PRO-PS-1 to PRO-PS-7 | \<ver\> | Version \<ver\> approved by the system owner (D-PS-09) |
-| PT | Personally Identifiable Information Processing and Transparency | PRO-PT-1 to PRO-PT-6 | \<ver\> | Approved by the system owner (D-PT-19) |
-| RA | Risk Assessment | PRO-RA-1 to PRO-RA-6 | \<ver\> | Approved by the system owner (D-RA-09) |
-| SA | System and Services Acquisition | PRO-SA-1 to PRO-SA-7 | \<ver\> | Approved by the system owner (D-SA-18) |
-| SC | System and Communications Protection | PRO-SC-1 to PRO-SC-8 | \<ver\> | Approved by the system owner (D-SC-08) |
-| SI | System and Information Integrity | PRO-SI-1 to PRO-SI-8 | \<ver\> | Approved by the system owner (D-SI-09) |
-| SR | Supply Chain Risk Management | PRO-SR-1 to PRO-SR-6 | \<ver\> | Approved by the system owner |
-
-| **SECTION 2** |
-| --- |
-
-## 2 How to use this document
-
-This document holds the security and privacy procedures for \<System Name\>: 139 procedures in 19 chapters, one chapter for each NIST SP 800-53 Rev 5 control family that applies, in NIST order. A procedure says who does what, when, and what record is kept. The rules the procedures carry out are in \<Policy\>, and the design, values and decisions they use are in each family's design document (\<Documentation Map\>, section 3.2).
-
-- **Finding a procedure.** Section 3 lists every procedure with a link to it. Each procedure is headed by its number, such as PRO-AC-3, which never changes.
+- **Finding a procedure.** Section 2 lists every procedure. Each procedure is headed by its number, such as PRO-AC-3, which never changes.
 - **Reading a chapter.** Most chapters start with a table that summarises each procedure: what starts it, who acts, the time limit, the record and the controls it serves. The steps follow.
 - **Manual steps.** A step marked **Manual** has no support in the system yet, so a person must carry it out and record it. \<Plan of Action and Milestones\> holds the work to build that support.
 - **Records.** Records use the forms in \<Record Templates\>, TPL-1 to TPL-24, or a ServiceNow record with the same fields once the ServiceNow workflows are in use.
 - **Not yet in use.** \<System Name\> is not live. The procedures are approved but have not been walked through, and each is walked through once on form TPL-4 before go-live.
 - **Citing.** Cite a procedure by its number, as \<Procedures\>, PRO-AC-3. Cite a chapter as \<Procedures\> (AC), a section as \<Procedures\>, section AC.2, and a table as \<Procedures\>, Table AC-4.
 
-| **SECTION 3** |
-| --- |
+## 2 Index of procedures
 
-## 3 Index of procedures
-
-**Table 5: Index of procedures**
+**Table 1: Index of procedures**
 
 | Procedure | Title | Chapter |
 | --- | --- | --- |
-| [PRO-AC-1](#pro-ac-1-new-user-joiner) | New user (joiner) | AC Access Control |
-| [PRO-AC-2](#pro-ac-2-role-change-mover) | Role change (mover) | AC Access Control |
-| [PRO-AC-3](#pro-ac-3-leaver) | Leaver | AC Access Control |
-| [PRO-AC-4](#pro-ac-4-urgent-disable-high-risk-individual) | Urgent disable (high-risk individual) | AC Access Control |
-| [PRO-AC-5](#pro-ac-5-project-access) | Project access | AC Access Control |
-| [PRO-AC-6](#pro-ac-6-privileged-access) | Privileged access | AC Access Control |
-| [PRO-AC-7](#pro-ac-7-access-review) | Access review | AC Access Control |
-| [PRO-AC-8](#pro-ac-8-inactive-accounts) | Inactive accounts | AC Access Control |
-| [PRO-AC-9](#pro-ac-9-locked-account) | Locked account | AC Access Control |
-| [PRO-AC-10](#pro-ac-10-forgotten-password) | Forgotten password | AC Access Control |
-| [PRO-AC-11](#pro-ac-11-ending-a-session) | Ending a session | AC Access Control |
-| [PRO-AC-12](#pro-ac-12-first-administrator-on-a-new-database) | First administrator on a new database | AC Access Control |
-| [PRO-AC-13](#pro-ac-13-changing-the-system-use-notice) | Changing the system use notice | AC Access Control |
-| [PRO-AC-14](#pro-ac-14-policy-and-procedure-review) | Policy and procedure review | AC Access Control |
-| [PRO-AC-15](#pro-ac-15-exception-management) | Exception management | AC Access Control |
-| [PRO-AC-16](#pro-ac-16-sharing-and-export-requests) | Sharing and export requests | AC Access Control |
-| [PRO-AC-17](#pro-ac-17-non-compliance-and-risk-decisions) | Non-compliance and risk decisions | AC Access Control |
-| [PRO-AT-1](#pro-at-1-awareness-and-the-docuview-briefing) | Awareness and the \<System Name\> briefing | AT Awareness and Training |
-| [PRO-AT-2](#pro-at-2-role-training) | Role training | AT Awareness and Training |
-| [PRO-AT-3](#pro-at-3-keeping-content-current) | Keeping content current | AT Awareness and Training |
-| [PRO-AT-4](#pro-at-4-records-and-the-register) | Records and the register | AT Awareness and Training |
-| [PRO-AT-5](#pro-at-5-measures-and-checking) | Measures and checking | AT Awareness and Training |
-| [PRO-AU-1](#pro-au-1-weekly-review) | Weekly review | AU Audit and Accountability |
-| [PRO-AU-2](#pro-au-2-audit-chain-check) | Audit chain check | AU Audit and Accountability |
-| [PRO-AU-3](#pro-au-3-logging-failure) | Logging failure | AU Audit and Accountability |
-| [PRO-AU-4](#pro-au-4-capacity-and-retention) | Capacity and retention | AU Audit and Accountability |
-| [PRO-AU-5](#pro-au-5-changing-the-logged-events) | Changing the logged events | AU Audit and Accountability |
-| [PRO-AU-6](#pro-au-6-auditor-access) | Auditor access | AU Audit and Accountability |
-| [PRO-AU-7](#pro-au-7-application-log) | Application log | AU Audit and Accountability |
-| [PRO-CA-1](#pro-ca-1-assessing-controls) | Assessing controls | CA Assessment, Authorization, and Monitoring |
-| [PRO-CA-2](#pro-ca-2-managing-connections) | Managing connections | CA Assessment, Authorization, and Monitoring |
-| [PRO-CA-3](#pro-ca-3-keeping-the-plan-up-to-date) | Keeping the plan up to date | CA Assessment, Authorization, and Monitoring |
-| [PRO-CA-4](#pro-ca-4-authorising) | Authorising | CA Assessment, Authorization, and Monitoring |
-| [PRO-CA-5](#pro-ca-5-monitoring) | Monitoring | CA Assessment, Authorization, and Monitoring |
-| [PRO-CA-6](#pro-ca-6-deciding-whether-a-change-is-significant) | Deciding whether a change is significant | CA Assessment, Authorization, and Monitoring |
-| [PRO-CA-7](#pro-ca-7-inherited-controls) | Inherited controls | CA Assessment, Authorization, and Monitoring |
-| [PRO-CM-1](#pro-cm-1-making-a-change) | Making a change | CM Configuration Management |
-| [PRO-CM-2](#pro-cm-2-reviewing-the-baseline) | Reviewing the baseline | CM Configuration Management |
-| [PRO-CM-3](#pro-cm-3-secure-settings) | Secure settings | CM Configuration Management |
-| [PRO-CM-4](#pro-cm-4-software) | Software | CM Configuration Management |
-| [PRO-CM-5](#pro-cm-5-reviewing-functions-and-ports) | Reviewing functions and ports | CM Configuration Management |
-| [PRO-CM-6](#pro-cm-6-unauthorised-components) | Unauthorised components | CM Configuration Management |
-| [PRO-CM-7](#pro-cm-7-monitoring-for-drift) | Monitoring for drift | CM Configuration Management |
-| [PRO-CM-8](#pro-cm-8-emergency-change) | Emergency change | CM Configuration Management |
-| [PRO-CM-9](#pro-cm-9-licence-review) | Licence review | CM Configuration Management |
-| [PRO-CP-1](#pro-cp-1-taking-backups) | Taking backups | CP Contingency Planning |
-| [PRO-CP-2](#pro-cp-2-testing-a-restore) | Testing a restore | CP Contingency Planning |
-| [PRO-CP-3](#pro-cp-3-recovering) | Recovering | CP Contingency Planning |
-| [PRO-CP-4](#pro-cp-4-training-and-testing) | Training and testing | CP Contingency Planning |
-| [PRO-CP-5](#pro-cp-5-activation-and-notification) | Activation and notification | CP Contingency Planning |
-| [PRO-CP-6](#pro-cp-6-reconstitution-and-deactivation) | Reconstitution and deactivation | CP Contingency Planning |
-| [PRO-CP-7](#pro-cp-7-maintaining-and-sharing-the-plan) | Maintaining and sharing the plan | CP Contingency Planning |
-| [PRO-IA-1](#pro-ia-1-identifiers) | Identifiers | IA Identification and Authentication |
-| [PRO-IA-2](#pro-ia-2-passwords) | Passwords | IA Identification and Authentication |
-| [PRO-IA-3](#pro-ia-3-suspected-compromise-role-change-or-a-lost-or-stolen-authenticator) | Suspected compromise, role change, or a lost or stolen authenticator | IA Identification and Authentication |
-| [PRO-IA-4](#pro-ia-4-changing-service-secrets-and-the-signing-key) | Changing service secrets and the signing key | IA Identification and Authentication |
-| [PRO-IA-5](#pro-ia-5-password-rules) | Password rules | IA Identification and Authentication |
-| [PRO-IA-6](#pro-ia-6-enrolling-and-resetting-a-second-factor) | Enrolling and resetting a second factor | IA Identification and Authentication |
-| [PRO-IA-7](#pro-ia-7-reviewing-authenticators-and-assurance-levels) | Reviewing authenticators and assurance levels | IA Identification and Authentication |
-| [PRO-IA-8](#pro-ia-8-disabling-unused-identifiers) | Disabling unused identifiers | IA Identification and Authentication |
-| [PRO-IR-1](#pro-ir-1-reporting-an-incident) | Reporting an incident | IR Incident Response |
-| [PRO-IR-2](#pro-ir-2-handling-an-incident) | Handling an incident | IR Incident Response |
-| [PRO-IR-3](#pro-ir-3-training-and-testing) | Training and testing | IR Incident Response |
-| [PRO-IR-4](#pro-ir-4-getting-help) | Getting help | IR Incident Response |
-| [PRO-IR-5](#pro-ir-5-handling-a-personal-data-breach) | Handling a personal data breach | IR Incident Response |
-| [PRO-IR-6](#pro-ir-6-preserving-evidence) | Preserving evidence | IR Incident Response |
-| [PRO-IR-7](#pro-ir-7-closing-an-incident-and-learning) | Closing an incident and learning | IR Incident Response |
-| [PRO-MA-1](#pro-ma-1-scheduling-approving-checking-and-recording-maintenance) | Scheduling, approving, checking and recording maintenance | MA Maintenance |
-| [PRO-MA-2](#pro-ma-2-removing-equipment) | Removing equipment | MA Maintenance |
-| [PRO-MA-3](#pro-ma-3-maintenance-tools) | Maintenance tools | MA Maintenance |
-| [PRO-MA-4](#pro-ma-4-remote-maintenance) | Remote maintenance | MA Maintenance |
-| [PRO-MA-5](#pro-ma-5-maintenance-people) | Maintenance people | MA Maintenance |
-| [PRO-MA-6](#pro-ma-6-preventive-maintenance-schedule) | Preventive maintenance schedule | MA Maintenance |
-| [PRO-MA-7](#pro-ma-7-built-in-maintenance-pages-and-data-leaving-for-support) | Built-in maintenance pages and data leaving for support | MA Maintenance |
-| [PRO-MP-1](#pro-mp-1-printouts) | Printouts | MP Media Protection |
-| [PRO-MP-2](#pro-mp-2-disks-volumes-and-backups) | Disks, volumes and backups | MP Media Protection |
-| [PRO-MP-3](#pro-mp-3-sanitising-media) | Sanitising media | MP Media Protection |
-| [PRO-MP-4](#pro-mp-4-portable-storage-and-ownerless-devices) | Portable storage and ownerless devices | MP Media Protection |
-| [PRO-MP-5](#pro-mp-5-export-copies-and-users-copies) | Export copies and users' copies | MP Media Protection |
-| [PRO-MP-6](#pro-mp-6-media-inventory) | Media inventory | MP Media Protection |
-| [PRO-PE-1](#pro-pe-1-checking-abc-technologies-evidence) | Checking \<Organisation\>'s evidence | PE Physical and Environmental Protection |
-| [PRO-PE-2](#pro-pe-2-physical-incidents) | Physical incidents | PE Physical and Environmental Protection |
-| [PRO-PE-3](#pro-pe-3-screens-and-printers) | Screens and printers | PE Physical and Environmental Protection |
-| [PRO-PE-4](#pro-pe-4-working-from-home) | Working from home | PE Physical and Environmental Protection |
-| [PRO-PE-5](#pro-pe-5-site-inspection) | Site inspection | PE Physical and Environmental Protection |
-| [PRO-PL-1](#pro-pl-1-keeping-the-plans-current) | Keeping the plans current | PL Planning |
-| [PRO-PL-2](#pro-pl-2-sharing-the-plans) | Sharing the plans | PL Planning |
-| [PRO-PL-3](#pro-pl-3-signing-the-rules) | Signing the rules | PL Planning |
-| [PRO-PL-4](#pro-pl-4-tailoring) | Tailoring | PL Planning |
-| [PRO-PL-5](#pro-pl-5-reviewing-the-architecture) | Reviewing the architecture | PL Planning |
-| [PRO-PL-6](#pro-pl-6-protecting-the-plans) | Protecting the plans | PL Planning |
-| [PRO-PS-1](#pro-ps-1-before-access) | Before access | PS Personnel Security |
-| [PRO-PS-2](#pro-ps-2-leavers) | Leavers | PS Personnel Security |
-| [PRO-PS-3](#pro-ps-3-movers) | Movers | PS Personnel Security |
-| [PRO-PS-4](#pro-ps-4-reviewing-designations-and-agreements) | Reviewing designations and agreements | PS Personnel Security |
-| [PRO-PS-5](#pro-ps-5-external-people) | External people | PS Personnel Security |
-| [PRO-PS-6](#pro-ps-6-sanctions) | Sanctions | PS Personnel Security |
-| [PRO-PS-7](#pro-ps-7-checking) | Checking | PS Personnel Security |
-| [PRO-PT-1](#pro-pt-1-requests-from-individuals) | Requests from individuals | PT Personally Identifiable Information Processing and Transparency |
-| [PRO-PT-2](#pro-pt-2-complaints) | Complaints | PT Personally Identifiable Information Processing and Transparency |
-| [PRO-PT-3](#pro-pt-3-changes-in-processing) | Changes in processing | PT Personally Identifiable Information Processing and Transparency |
-| [PRO-PT-4](#pro-pt-4-impact-assessment) | Impact assessment | PT Personally Identifiable Information Processing and Transparency |
-| [PRO-PT-5](#pro-pt-5-accuracy-retention-and-disposal) | Accuracy, retention and disposal | PT Personally Identifiable Information Processing and Transparency |
-| [PRO-PT-6](#pro-pt-6-training-and-test-data) | Training and test data | PT Personally Identifiable Information Processing and Transparency |
-| [PRO-RA-1](#pro-ra-1-reviewing-risk) | Reviewing risk | RA Risk Assessment |
-| [PRO-RA-2](#pro-ra-2-reviewing-the-supply-chain) | Reviewing the supply chain | RA Risk Assessment |
-| [PRO-RA-3](#pro-ra-3-scanning-and-analysing) | Scanning and analysing | RA Risk Assessment |
-| [PRO-RA-4](#pro-ra-4-responding-to-an-exploited-flaw) | Responding to an exploited flaw | RA Risk Assessment |
-| [PRO-RA-5](#pro-ra-5-sharing-results-and-receiving-reports) | Sharing results and receiving reports | RA Risk Assessment |
-| [PRO-RA-6](#pro-ra-6-reviewing-critical-components) | Reviewing critical components | RA Risk Assessment |
-| [PRO-SA-1](#pro-sa-1-developing-a-change) | Developing a change | SA System and Services Acquisition |
-| [PRO-SA-2](#pro-sa-2-testing-a-release) | Testing a release | SA System and Services Acquisition |
-| [PRO-SA-3](#pro-sa-3-buying-a-product-or-service) | Buying a product or service | SA System and Services Acquisition |
-| [PRO-SA-4](#pro-sa-4-documentation) | Documentation | SA System and Services Acquisition |
-| [PRO-SA-5](#pro-sa-5-unsupported-components) | Unsupported components | SA System and Services Acquisition |
-| [PRO-SA-6](#pro-sa-6-budgeting-and-reviews) | Budgeting and reviews | SA System and Services Acquisition |
-| [PRO-SA-7](#pro-sa-7-adding-a-third-party-component) | Adding a third-party component | SA System and Services Acquisition |
-| [PRO-SC-1](#pro-sc-1-setting-up-and-checking-tls) | Setting up and checking TLS | SC System and Communications Protection |
-| [PRO-SC-2](#pro-sc-2-managing-certificates) | Managing certificates | SC System and Communications Protection |
-| [PRO-SC-3](#pro-sc-3-changing-keys) | Changing keys | SC System and Communications Protection |
-| [PRO-SC-4](#pro-sc-4-changing-the-boundary) | Changing the boundary | SC System and Communications Protection |
-| [PRO-SC-5](#pro-sc-5-checking-page-code) | Checking page code | SC System and Communications Protection |
-| [PRO-SC-6](#pro-sc-6-responding-to-denial-of-service) | Responding to denial of service | SC System and Communications Protection |
-| [PRO-SC-7](#pro-sc-7-testing-encryption-at-rest) | Testing encryption at rest | SC System and Communications Protection |
-| [PRO-SC-8](#pro-sc-8-reviewing-the-register-and-boundary) | Reviewing the register and boundary | SC System and Communications Protection |
-| [PRO-SI-1](#pro-si-1-fixing-flaws) | Fixing flaws | SI System and Information Integrity |
-| [PRO-SI-2](#pro-si-2-handling-malicious-code) | Handling malicious code | SI System and Information Integrity |
-| [PRO-SI-3](#pro-si-3-reviewing-monitoring) | Reviewing monitoring | SI System and Information Integrity |
-| [PRO-SI-4](#pro-si-4-responding-to-an-alert) | Responding to an alert | SI System and Information Integrity |
-| [PRO-SI-5](#pro-si-5-acting-on-advisories) | Acting on advisories | SI System and Information Integrity |
-| [PRO-SI-6](#pro-si-6-checking-integrity) | Checking integrity | SI System and Information Integrity |
-| [PRO-SI-7](#pro-si-7-managing-information) | Managing information | SI System and Information Integrity |
-| [PRO-SI-8](#pro-si-8-testing-integrity-controls) | Testing integrity controls | SI System and Information Integrity |
-| [PRO-SR-1](#pro-sr-1-bringing-in-a-component) | Bringing in a component | SR Supply Chain Risk Management |
-| [PRO-SR-2](#pro-sr-2-reviewing-suppliers-and-the-plan) | Reviewing suppliers and the plan | SR Supply Chain Risk Management |
-| [PRO-SR-3](#pro-sr-3-inspecting-a-release) | Inspecting a release | SR Supply Chain Risk Management |
-| [PRO-SR-4](#pro-sr-4-authenticity-and-counterfeits) | Authenticity and counterfeits | SR Supply Chain Risk Management |
-| [PRO-SR-5](#pro-sr-5-notices-and-advisories) | Notices and advisories | SR Supply Chain Risk Management |
-| [PRO-SR-6](#pro-sr-6-disposal) | Disposal | SR Supply Chain Risk Management |
-
-| **CHAPTER AC** |
-| --- |
+| PRO-AC-1 | New user (joiner) | AC Access Control |
+| PRO-AC-2 | Role change (mover) | AC Access Control |
+| PRO-AC-3 | Leaver | AC Access Control |
+| PRO-AC-4 | Urgent disable (high-risk individual) | AC Access Control |
+| PRO-AC-5 | Project access | AC Access Control |
+| PRO-AC-6 | Privileged access | AC Access Control |
+| PRO-AC-7 | Access review | AC Access Control |
+| PRO-AC-8 | Inactive accounts | AC Access Control |
+| PRO-AC-9 | Locked account | AC Access Control |
+| PRO-AC-10 | Forgotten password | AC Access Control |
+| PRO-AC-11 | Ending a session | AC Access Control |
+| PRO-AC-12 | First administrator on a new database | AC Access Control |
+| PRO-AC-13 | Changing the system use notice | AC Access Control |
+| PRO-AC-14 | Policy and procedure review | AC Access Control |
+| PRO-AC-15 | Exception management | AC Access Control |
+| PRO-AC-16 | Sharing and export requests | AC Access Control |
+| PRO-AC-17 | Non-compliance and risk decisions | AC Access Control |
+| PRO-AT-1 | Awareness and the \<System Name\> briefing | AT Awareness and Training |
+| PRO-AT-2 | Role training | AT Awareness and Training |
+| PRO-AT-3 | Keeping content current | AT Awareness and Training |
+| PRO-AT-4 | Records and the register | AT Awareness and Training |
+| PRO-AT-5 | Measures and checking | AT Awareness and Training |
+| PRO-AU-1 | Weekly review | AU Audit and Accountability |
+| PRO-AU-2 | Audit chain check | AU Audit and Accountability |
+| PRO-AU-3 | Logging failure | AU Audit and Accountability |
+| PRO-AU-4 | Capacity and retention | AU Audit and Accountability |
+| PRO-AU-5 | Changing the logged events | AU Audit and Accountability |
+| PRO-AU-6 | Auditor access | AU Audit and Accountability |
+| PRO-AU-7 | Application log | AU Audit and Accountability |
+| PRO-CA-1 | Assessing controls | CA Assessment, Authorization, and Monitoring |
+| PRO-CA-2 | Managing connections | CA Assessment, Authorization, and Monitoring |
+| PRO-CA-3 | Keeping the plan up to date | CA Assessment, Authorization, and Monitoring |
+| PRO-CA-4 | Authorising | CA Assessment, Authorization, and Monitoring |
+| PRO-CA-5 | Monitoring | CA Assessment, Authorization, and Monitoring |
+| PRO-CA-6 | Deciding whether a change is significant | CA Assessment, Authorization, and Monitoring |
+| PRO-CA-7 | Inherited controls | CA Assessment, Authorization, and Monitoring |
+| PRO-CM-1 | Making a change | CM Configuration Management |
+| PRO-CM-2 | Reviewing the baseline | CM Configuration Management |
+| PRO-CM-3 | Secure settings | CM Configuration Management |
+| PRO-CM-4 | Software | CM Configuration Management |
+| PRO-CM-5 | Reviewing functions and ports | CM Configuration Management |
+| PRO-CM-6 | Unauthorised components | CM Configuration Management |
+| PRO-CM-7 | Monitoring for drift | CM Configuration Management |
+| PRO-CM-8 | Emergency change | CM Configuration Management |
+| PRO-CM-9 | Licence review | CM Configuration Management |
+| PRO-CP-1 | Taking backups | CP Contingency Planning |
+| PRO-CP-2 | Testing a restore | CP Contingency Planning |
+| PRO-CP-3 | Recovering | CP Contingency Planning |
+| PRO-CP-4 | Training and testing | CP Contingency Planning |
+| PRO-CP-5 | Activation and notification | CP Contingency Planning |
+| PRO-CP-6 | Reconstitution and deactivation | CP Contingency Planning |
+| PRO-CP-7 | Maintaining and sharing the plan | CP Contingency Planning |
+| PRO-IA-1 | Identifiers | IA Identification and Authentication |
+| PRO-IA-2 | Passwords | IA Identification and Authentication |
+| PRO-IA-3 | Suspected compromise, role change, or a lost or stolen authenticator | IA Identification and Authentication |
+| PRO-IA-4 | Changing service secrets and the signing key | IA Identification and Authentication |
+| PRO-IA-5 | Password rules | IA Identification and Authentication |
+| PRO-IA-6 | Enrolling and resetting a second factor | IA Identification and Authentication |
+| PRO-IA-7 | Reviewing authenticators and assurance levels | IA Identification and Authentication |
+| PRO-IA-8 | Disabling unused identifiers | IA Identification and Authentication |
+| PRO-IR-1 | Reporting an incident | IR Incident Response |
+| PRO-IR-2 | Handling an incident | IR Incident Response |
+| PRO-IR-3 | Training and testing | IR Incident Response |
+| PRO-IR-4 | Getting help | IR Incident Response |
+| PRO-IR-5 | Handling a personal data breach | IR Incident Response |
+| PRO-IR-6 | Preserving evidence | IR Incident Response |
+| PRO-IR-7 | Closing an incident and learning | IR Incident Response |
+| PRO-MA-1 | Scheduling, approving, checking and recording maintenance | MA Maintenance |
+| PRO-MA-2 | Removing equipment | MA Maintenance |
+| PRO-MA-3 | Maintenance tools | MA Maintenance |
+| PRO-MA-4 | Remote maintenance | MA Maintenance |
+| PRO-MA-5 | Maintenance people | MA Maintenance |
+| PRO-MA-6 | Preventive maintenance schedule | MA Maintenance |
+| PRO-MA-7 | Built-in maintenance pages and data leaving for support | MA Maintenance |
+| PRO-MP-1 | Printouts | MP Media Protection |
+| PRO-MP-2 | Disks, volumes and backups | MP Media Protection |
+| PRO-MP-3 | Sanitising media | MP Media Protection |
+| PRO-MP-4 | Portable storage and ownerless devices | MP Media Protection |
+| PRO-MP-5 | Export copies and users' copies | MP Media Protection |
+| PRO-MP-6 | Media inventory | MP Media Protection |
+| PRO-PE-1 | Checking \<Organisation\>'s evidence | PE Physical and Environmental Protection |
+| PRO-PE-2 | Physical incidents | PE Physical and Environmental Protection |
+| PRO-PE-3 | Screens and printers | PE Physical and Environmental Protection |
+| PRO-PE-4 | Working from home | PE Physical and Environmental Protection |
+| PRO-PE-5 | Site inspection | PE Physical and Environmental Protection |
+| PRO-PL-1 | Keeping the plans current | PL Planning |
+| PRO-PL-2 | Sharing the plans | PL Planning |
+| PRO-PL-3 | Signing the rules | PL Planning |
+| PRO-PL-4 | Tailoring | PL Planning |
+| PRO-PL-5 | Reviewing the architecture | PL Planning |
+| PRO-PL-6 | Protecting the plans | PL Planning |
+| PRO-PS-1 | Before access | PS Personnel Security |
+| PRO-PS-2 | Leavers | PS Personnel Security |
+| PRO-PS-3 | Movers | PS Personnel Security |
+| PRO-PS-4 | Reviewing designations and agreements | PS Personnel Security |
+| PRO-PS-5 | External people | PS Personnel Security |
+| PRO-PS-6 | Sanctions | PS Personnel Security |
+| PRO-PS-7 | Checking | PS Personnel Security |
+| PRO-PT-1 | Requests from individuals | PT Personally Identifiable Information Processing and Transparency |
+| PRO-PT-2 | Complaints | PT Personally Identifiable Information Processing and Transparency |
+| PRO-PT-3 | Changes in processing | PT Personally Identifiable Information Processing and Transparency |
+| PRO-PT-4 | Impact assessment | PT Personally Identifiable Information Processing and Transparency |
+| PRO-PT-5 | Accuracy, retention and disposal | PT Personally Identifiable Information Processing and Transparency |
+| PRO-PT-6 | Training and test data | PT Personally Identifiable Information Processing and Transparency |
+| PRO-RA-1 | Reviewing risk | RA Risk Assessment |
+| PRO-RA-2 | Reviewing the supply chain | RA Risk Assessment |
+| PRO-RA-3 | Scanning and analysing | RA Risk Assessment |
+| PRO-RA-4 | Responding to an exploited flaw | RA Risk Assessment |
+| PRO-RA-5 | Sharing results and receiving reports | RA Risk Assessment |
+| PRO-RA-6 | Reviewing critical components | RA Risk Assessment |
+| PRO-SA-1 | Developing a change | SA System and Services Acquisition |
+| PRO-SA-2 | Testing a release | SA System and Services Acquisition |
+| PRO-SA-3 | Buying a product or service | SA System and Services Acquisition |
+| PRO-SA-4 | Documentation | SA System and Services Acquisition |
+| PRO-SA-5 | Unsupported components | SA System and Services Acquisition |
+| PRO-SA-6 | Budgeting and reviews | SA System and Services Acquisition |
+| PRO-SA-7 | Adding a third-party component | SA System and Services Acquisition |
+| PRO-SC-1 | Setting up and checking TLS | SC System and Communications Protection |
+| PRO-SC-2 | Managing certificates | SC System and Communications Protection |
+| PRO-SC-3 | Changing keys | SC System and Communications Protection |
+| PRO-SC-4 | Changing the boundary | SC System and Communications Protection |
+| PRO-SC-5 | Checking page code | SC System and Communications Protection |
+| PRO-SC-6 | Responding to denial of service | SC System and Communications Protection |
+| PRO-SC-7 | Testing encryption at rest | SC System and Communications Protection |
+| PRO-SC-8 | Reviewing the register and boundary | SC System and Communications Protection |
+| PRO-SI-1 | Fixing flaws | SI System and Information Integrity |
+| PRO-SI-2 | Handling malicious code | SI System and Information Integrity |
+| PRO-SI-3 | Reviewing monitoring | SI System and Information Integrity |
+| PRO-SI-4 | Responding to an alert | SI System and Information Integrity |
+| PRO-SI-5 | Acting on advisories | SI System and Information Integrity |
+| PRO-SI-6 | Checking integrity | SI System and Information Integrity |
+| PRO-SI-7 | Managing information | SI System and Information Integrity |
+| PRO-SI-8 | Testing integrity controls | SI System and Information Integrity |
+| PRO-SR-1 | Bringing in a component | SR Supply Chain Risk Management |
+| PRO-SR-2 | Reviewing suppliers and the plan | SR Supply Chain Risk Management |
+| PRO-SR-3 | Inspecting a release | SR Supply Chain Risk Management |
+| PRO-SR-4 | Authenticity and counterfeits | SR Supply Chain Risk Management |
+| PRO-SR-5 | Notices and advisories | SR Supply Chain Risk Management |
+| PRO-SR-6 | Disposal | SR Supply Chain Risk Management |
 
 ## AC Access Control
 
 Procedures PRO-AC-1 to PRO-AC-17.
-
-[AC.1 Purpose](#ac1-purpose) · [AC.2 Workflows](#ac2-workflows) · [AC.3 Approval routes](#ac3-approval-routes) · [AC.4 Review activities](#ac4-review-activities) · [AC.5 Procedures](#ac5-procedures)
 
 ### AC.1 Purpose
 
@@ -369,7 +196,7 @@ Admin portal pages are under http://localhost:7004 in the current local stack.
 | External system or portable storage use | Requesting user | System owner | Requesting user | Exception record |
 | Exception to a rule | Whoever needs it | System owner, or authorising official if above their authority | Role concerned | \<Risk List\> |
 | Urgent disable | Anyone | No prior approval needed; system owner told at once | Global administrator | Incident record |
-| Change to policy or procedures | Document owner | System owner | Document owner | Document change history |
+| Change to policy or procedures | Document owner | System owner | Document owner | Document change record |
 
 ### AC.4 Review activities
 
@@ -381,7 +208,7 @@ Admin portal pages are under http://localhost:7004 in the current local stack.
 | All other access review | Every 12 months | Project access approvers | Signed review | PRO-AC-7 |
 | Inactive members | Monthly | Global administrator; the groups' owners | Members who have not signed in for 90 days removed from their groups, date recorded | PRO-AC-8 |
 | Open exceptions | With each access review | System owner | Exceptions ended or renewed | PRO-AC-15 |
-| Policy and procedures | Every 12 months, and after a change | System owner | Updated change history | PRO-AC-14 |
+| Policy and procedures | Every 12 months, and after a change | System owner | Updated change record | PRO-AC-14 |
 | Audit logs | Weekly | Auditor | Review record | \<Security Operating Procedures\> |
 
 ### AC.5 Procedures
@@ -405,7 +232,7 @@ Table AC-4 summarises each procedure: what starts it, who acts, its time limit, 
 | PRO-AC-11 Ending a session | A session must end | Global administrator | At once | Note of the reason; TPL-10 if it is an incident | AC-12 |
 | PRO-AC-12 First administrator | \<System Name\> is first built | Windows server administrator, system owner | At build | TPL-6 | AC-2, IA-5 |
 | PRO-AC-13 Use notice | The wording changes | System owner, legal adviser | Through an approved change | TPL-6 | AC-8 |
-| PRO-AC-14 Policy and procedure review | The review falls due, or an event | System owner | Every 12 months (P-AC-02, P-AC-03) | Change history; TPL-4 | AC-1 |
+| PRO-AC-14 Policy and procedure review | The review falls due, or an event | System owner | Every 12 months (P-AC-02, P-AC-03) | Change record; TPL-4 | AC-1 |
 | PRO-AC-15 Exception | A rule cannot be met | Requester, security officer, system owner or authorising official | End date no more than 12 months away | TPL-17; \<Risk List\> | AC-1, PL-4, CA-5 |
 | PRO-AC-16 Sharing and export | Information must leave a project | Requester, project access approver, project editor | Before anything is shared | TPL-2, as the sharing decision | AC-21, AC-20(2) |
 | PRO-AC-17 Non-compliance | A gap is found | System owner, authorising official | As set in \<Risk List\> | \<Risk List\>; TPL-1 for an acceptance | CA-5, RA-7 |
@@ -414,7 +241,7 @@ Table AC-4 summarises each procedure: what starts it, who acts, its time limit, 
 
 1. The person raises an access request in ServiceNow, naming the projects and level needed, and the reason. **Manual**
 2. Their line manager approves or refuses it. The system owner then authorises or refuses the role, and the project access approver each project named (P-AC-05). Nobody decides their own request. The ServiceNow workflow keeps the record. **Manual**
-3. Before the person is added to any group, they complete security and privacy awareness training, receive the \<System Name\> briefing from the system owner (\<Awareness and Training Management\>, section 4.3), and sign Part A of \<Security Operating Procedures\>, and Part B if the access is privileged. The security officer records the training on TPL-9, and the system owner records the signature on TPL-21 and in the register of signatures (\<Planning Management\>, section 4.5). No access is given until this is done.
+3. Before the person is added to any group, they complete security and privacy awareness training, receive the \<System Name\> briefing from the system owner (\<Awareness and Training Management\>, section 3.3), and sign Part A of \<Security Operating Procedures\>, and Part B if the access is privileged. The security officer records the training on TPL-9, and the system owner records the signature on TPL-21 and in the register of signatures (\<Planning Management\>, section 3.5). No access is given until this is done.
 4. The owner who authorised the request adds the person to the approved AD groups, with \<Organisation\>'s AD tool. No \<System Name\> account is created: the person's Active Directory account is their account. **Manual**
 5. The person signs in through AD FS, and \<System Name\> applies the groups in their sign-in token.
 6. The owner records the groups granted and the date in the ServiceNow request. **Manual**
@@ -491,7 +318,7 @@ The notice is not built yet (PA-11). Once it is, the system owner approves the w
 #### PRO-AC-14 Policy and procedure review
 
 1. At the intervals in P-AC-02 and P-AC-03, the system owner reviews both documents.
-2. They record the result in each document's change history and update \<Plan of Action and Milestones\>.
+2. They record the result in each document's change record and update \<Plan of Action and Milestones\>.
 
 #### PRO-AC-15 Exception management
 
@@ -511,22 +338,17 @@ The notice is not built yet (PA-11). Once it is, the system owner approves the w
 #### PRO-AC-17 Non-compliance and risk decisions
 
 1. Whoever finds a non-compliance, whether through an assessment, a review, a test or an incident, reports it to the system owner.
-2. The system owner records it in \<Risk List\>, section 6, and rates the risk by the method in \<Risk List\>, section 5.
+2. The system owner records it in \<Risk List\>, section 5, and rates the risk by the method in \<Risk List\>, section 4.
 3. The system owner proposes a treatment: accept, remediate, approve, evidence or tailor.
 4. The system owner decides Low risks. The authorising official decides Medium and High risks.
-5. **If accepted:** the decision maker records the reason, any compensating measure, the name, the date and the review date in \<Risk List\>, section 4. The non-compliance remains in place.
+5. **If accepted:** the decision maker records the reason, any compensating measure, the name, the date and the review date in \<Risk List\>, section 3. The non-compliance remains in place.
 6. **If remediated:** the system owner adds an item to \<Plan of Action and Milestones\> with a milestone, a resource and a date. The fix follows that plan. It does not start until this decision is made, unless the authorising official directs urgent action.
 7. **If approved, evidenced or tailored:** the system owner records the value in \<Access Control Management\>, the evidence request in \<Evidence Requests\>, or the rationale in \<Tailoring Register\>.
 8. The system owner reviews accepted risks at the interval in \<Risk List\>, and sooner if the system or the threat changes. A risk that has become too high goes back to step 4.
 
-| **CHAPTER AT** |
-| --- |
-
 ## AT Awareness and Training
 
 Procedures PRO-AT-1 to PRO-AT-5.
-
-[AT.1 Purpose](#at1-purpose) · [AT.2 Procedures](#at2-procedures)
 
 ### AT.1 Purpose
 
@@ -547,14 +369,14 @@ These procedures carry out \<Policy\> (AT). Steps marked **Manual** rely on peop
 #### PRO-AT-1 Awareness and the \<System Name\> briefing
 
 1. Before a person is given access, they complete \<Organisation\>'s security and privacy awareness course. **Manual** (EV-AT-01)
-2. The system owner gives the \<System Name\> briefing (\<Awareness and Training Management\>, section 4.3), and the user passes its short check. **Manual**
+2. The system owner gives the \<System Name\> briefing (\<Awareness and Training Management\>, section 3.3), and the user passes its short check. **Manual**
 3. The user signs \<Security Operating Procedures\> Part A, and Part B if privileged, on TPL-21. **Manual**
 4. The security officer records the course, briefing and check on TPL-9, and every 12 months asks each user to repeat them. **Manual**
 5. Between courses, the security officer sends a quarterly \<System Name\> security note, built from recent advisories and reports. **Manual**
 
 #### PRO-AT-2 Role training
 
-1. When a role is requested, the system owner looks up its modules in the training matrix (\<Awareness and Training Management\>, section 4.5). **Manual**
+1. When a role is requested, the system owner looks up its modules in the training matrix (\<Awareness and Training Management\>, section 3.5). **Manual**
 2. The person completes the role modules before privileged access is granted, and the incident response and contingency modules within 30 days of taking the role. **Manual**
 3. The security officer delivers the modules, and the Head of Cyber delivers them to the security officer and auditor. Each ends with a check, with a pass mark of 80%; anyone below it repeats the module. **Manual**
 4. \<Organisation\>'s administrators complete the \<System Name\> modules for their role. \<Organisation\> evidences any general administrator training. **Manual** (EV-AT-01)
@@ -568,25 +390,20 @@ These procedures carry out \<Policy\> (AT). Steps marked **Manual** rely on peop
 #### PRO-AT-4 Records and the register
 
 1. The security officer records each completion on TPL-9: the content version, the check result and the next due date. **Manual**
-2. The security officer adds it to the training register (\<Awareness and Training Management\>, section 4.8). **Manual**
+2. The security officer adds it to the training register (\<Awareness and Training Management\>, section 3.8). **Manual**
 3. Before granting a role, the system owner confirms in the register that its required modules are complete (\<Procedures\>, PRO-AC-6). **Manual**
-4. Records are kept for 3 years, as in \<System Name\>'s retention schedule (\<PII Processing Management\>, section 4.7). \<Organisation\> keeps its course records, and provides them on request. **Manual**
+4. Records are kept for 3 years, as in \<System Name\>'s retention schedule (\<PII Processing Management\>, section 3.7). \<Organisation\> keeps its course records, and provides them on request. **Manual**
 
 #### PRO-AT-5 Measures and checking
 
-1. Each month, the security officer reports the measures in \<Awareness and Training Management\>, section 4.9, with the CA-7 measures on TPL-8. **Manual**
+1. Each month, the security officer reports the measures in \<Awareness and Training Management\>, section 3.9, with the CA-7 measures on TPL-8. **Manual**
 2. Anyone overdue is reminded. Anyone overdue by more than 30 days has privileged access suspended until complete. **Manual**
 3. At each review, the system owner runs Test-PlanConsistency.ps1. Check L14 confirms that every security role has its training defined in the matrix. **Manual**
 4. No phishing simulation is run unless HR and the legal adviser have agreed it (\<Policy\> (AT), R8). **Manual**
 
-| **CHAPTER AU** |
-| --- |
-
 ## AU Audit and Accountability
 
 Procedures PRO-AU-1 to PRO-AU-7.
-
-[AU.1 Purpose](#au1-purpose) · [AU.2 Procedure summary](#au2-procedure-summary) · [AU.3 Procedures](#au3-procedures)
 
 ### AU.1 Purpose
 
@@ -611,7 +428,7 @@ These procedures define how audit records are reviewed, protected and retained. 
 #### PRO-AU-1 Weekly review
 
 1. The auditor opens the audit log page in the admin portal and filters by date. **Manual**
-2. They follow the audit review procedure in \<Security Operating Procedures\>, section 5.2, including its list of unusual activity.
+2. They follow the audit review procedure in \<Security Operating Procedures\>, section 4.2, including its list of unusual activity.
 3. They compare changes to projects and to the AD groups each uses, and \<Organisation\>'s record of changes to the members of \<System Name\>'s groups, with the approved ServiceNow requests. **Manual**
 4. They report findings to the security officer and system owner, and record the date, period, reviewer and result on TPL-8, Monitoring and integrity report, in \<Record Templates\>. **Manual**
 5. If risk rises, for example after an incident or new threat information, the system owner increases how often or how closely records are reviewed. **Manual**
@@ -640,13 +457,13 @@ These procedures define how audit records are reviewed, protected and retained. 
 #### PRO-AU-5 Changing the logged events
 
 1. The system owner decides on any change to the logged events, and reviews the list every 12 months. **Manual**
-2. Developers make the change through the normal release process, because the events are built into each release. The list of events is \<Audit and Accountability Management\>, Table 7, and it is changed there first.
+2. Developers make the change through the normal release process, because the events are built into each release. The list of events is \<Audit and Accountability Management\>, Table 4, and it is changed there first.
 
 #### PRO-AU-6 Auditor access
 
-1. Auditor access is requested through ServiceNow, approved by the line manager and authorised by the system owner (\<Access Control Management\>, section 4.13). An auditor must not hold a global administrator or other administrator role. **Manual**
+1. Auditor access is requested through ServiceNow, approved by the line manager and authorised by the system owner (\<Access Control Management\>, section 3.13). An auditor must not hold a global administrator or other administrator role. **Manual**
 2. The system owner, who owns the AD group DocViewer\_Auditors, adds the person to it and records the change against the ServiceNow request.
-3. Auditor access is removed when the person changes role or leaves, under \<Security Operating Procedures\>, section 5.4.
+3. Auditor access is removed when the person changes role or leaves, under \<Security Operating Procedures\>, section 4.4.
 4. The system owner confirms the list of auditors at each quarterly access review. **Manual**
 
 #### PRO-AU-7 Application log
@@ -656,14 +473,9 @@ These procedures define how audit records are reviewed, protected and retained. 
 3. They are not copied off the VMs, except as incident evidence under PRO-AU-2, step 3.
 4. Each month the Windows server administrator checks who can read the logs and how old they are, and records the result on TPL-8. **Manual**
 
-| **CHAPTER CA** |
-| --- |
-
 ## CA Assessment, Authorization, and Monitoring
 
 Procedures PRO-CA-1 to PRO-CA-7.
-
-[CA.1 Purpose](#ca1-purpose) · [CA.2 Procedures](#ca2-procedures)
 
 ### CA.1 Purpose
 
@@ -674,12 +486,12 @@ These procedures carry out \<Policy\> (CA). Steps marked **Manual** have no syst
 | Procedure | Activity | How often | Who | Record | Controls |
 | --- | --- | --- | --- | --- | --- |
 | PRO-CA-1 | Plan, carry out and report an assessment | Every 12 months, and after a significant change | System owner, security assessor, authorising official | Approved plan; TPL-19; \<Security Assessment Report\> | CA-2, CA-2(1) |
-| PRO-CA-2 | Approve, review and end connections | Before each connection; every 12 months; when ended | System owner, Windows server administrator | \<Assessment, Authorization, and Monitoring Management\>, section 4.7 | CA-3, CA-9 |
-| PRO-CA-3 | Keep the plan of action up to date | Monthly; overdue items quarterly | System owner | \<Plan of Action and Milestones\> change history | CA-5 |
+| PRO-CA-2 | Approve, review and end connections | Before each connection; every 12 months; when ended | System owner, Windows server administrator | \<Assessment, Authorization, and Monitoring Management\>, section 3.7 | CA-3, CA-9 |
+| PRO-CA-3 | Keep the plan of action up to date | Monthly; overdue items quarterly | System owner | \<Plan of Action and Milestones\> change record | CA-5 |
 | PRO-CA-4 | Authorise and re-authorise | Before operation; every 12 months; after a significant change | System owner, authorising official | TPL-18 | CA-6 |
 | PRO-CA-5 | Monitor and report | Monthly to the system owner; quarterly to the authorising official; yearly independent check | Security officer, system owner, security assessor | TPL-8; TPL-19 | CA-7, CA-7(1), CA-7(4) |
 | PRO-CA-6 | Decide whether a change is significant | Each change | System owner, security officer, authorising official | TPL-6; TPL-18 | CA-6, CA-7 |
-| PRO-CA-7 | List and accept inherited controls | Before operation; every 12 months | System owner, authorising official, \<Organisation\> | \<Assessment, Authorization, and Monitoring Management\>, section 4.6; TPL-18 | CA-6 |
+| PRO-CA-7 | List and accept inherited controls | Before operation; every 12 months | System owner, authorising official, \<Organisation\> | \<Assessment, Authorization, and Monitoring Management\>, section 3.6; TPL-18 | CA-6 |
 
 ### CA.2 Procedures
 
@@ -693,7 +505,7 @@ These procedures carry out \<Policy\> (CA). Steps marked **Manual** have no syst
 
 1. Before any new connection, the system owner records it in \<Assessment, Authorization, and Monitoring Management\> with its interface, security needs, privacy needs, information, responsibilities, the agreement type under NIST SP 800-47 and its review date, and approves it. **Manual**
 2. Every 12 months the system owner and the other system's owner review each connection, and end any no longer needed. **Manual**
-3. When a connection is no longer needed, or a VM is rebuilt, the Windows server administrator removes it, the system owner records the end date in \<Assessment, Authorization, and Monitoring Management\>, section 4.7, and the other system's owner is told. **Manual**
+3. When a connection is no longer needed, or a VM is rebuilt, the Windows server administrator removes it, the system owner records the end date in \<Assessment, Authorization, and Monitoring Management\>, section 3.7, and the other system's owner is told. **Manual**
 
 #### PRO-CA-3 Keeping the plan up to date
 
@@ -704,36 +516,31 @@ These procedures carry out \<Policy\> (CA). Steps marked **Manual** have no syst
 
 #### PRO-CA-4 Authorising
 
-1. Before \<System Name\> holds production documents, the system owner gives the authorising official the authorisation package listed in \<Assessment, Authorization, and Monitoring Management\>, section 4.5. **Manual**
+1. Before \<System Name\> holds production documents, the system owner gives the authorising official the authorisation package listed in \<Assessment, Authorization, and Monitoring Management\>, section 3.5. **Manual**
 2. The authorising official decides whether to authorise, accepts the remaining risk by name, and records the decision on TPL-18, with its terms, conditions and end date. **Manual**
 3. Every 12 months, and after a significant change, the authorising official reviews the authorisation. **Manual**
 
 #### PRO-CA-5 Monitoring
 
-1. Each month the security officer collects the measures in \<Assessment, Authorization, and Monitoring Management\>, section 4.8, reads them together with the audit review findings, the vulnerability results and the incident records, and looks for a trend across three months. They report on TPL-8 to the system owner, act on any measure past its threshold, and record the action. A measure not put right in the month becomes an item in \<Plan of Action and Milestones\>. **Manual**
+1. Each month the security officer collects the measures in \<Assessment, Authorization, and Monitoring Management\>, section 3.8, reads them together with the audit review findings, the vulnerability results and the incident records, and looks for a trend across three months. They report on TPL-8 to the system owner, act on any measure past its threshold, and record the action. A measure not put right in the month becomes an item in \<Plan of Action and Milestones\>. **Manual**
 2. Each quarter the system owner reports the same measures, and any change in risk, to the authorising official. **Manual**
 3. Each year an independent assessor, who has completed TPL-19, checks a sample of the monitoring. **Manual**
 
 #### PRO-CA-6 Deciding whether a change is significant
 
-1. Every change is recorded on TPL-6, and the system owner checks it against the list of significant changes in \<Assessment, Authorization, and Monitoring Management\>, section 4.9. **Manual**
+1. Every change is recorded on TPL-6, and the system owner checks it against the list of significant changes in \<Assessment, Authorization, and Monitoring Management\>, section 3.9. **Manual**
 2. If it is significant, the security officer assesses its effect on security and privacy before it is made. **Manual**
 3. The authorising official decides whether \<System Name\> must be re-assessed or re-authorised, and records the decision on TPL-18. **Manual**
 
 #### PRO-CA-7 Inherited controls
 
-1. The system owner keeps the list of controls inherited from \<Organisation\> in \<Assessment, Authorization, and Monitoring Management\>, section 4.6, and requests \<Organisation\>'s evidence for them (\<Evidence Requests\>). **Manual**
+1. The system owner keeps the list of controls inherited from \<Organisation\> in \<Assessment, Authorization, and Monitoring Management\>, section 3.6, and requests \<Organisation\>'s evidence for them (\<Evidence Requests\>). **Manual**
 2. Before \<System Name\> operates, the authorising official accepts the inherited controls on TPL-18, or records which are not accepted. **Manual**
 3. Every 12 months the system owner reviews the list with \<Organisation\>'s security contact. **Manual**
-
-| **CHAPTER CM** |
-| --- |
 
 ## CM Configuration Management
 
 Procedures PRO-CM-1 to PRO-CM-9.
-
-[CM.1 Purpose](#cm1-purpose) · [CM.2 Procedures](#cm2-procedures)
 
 ### CM.1 Purpose
 
@@ -746,39 +553,39 @@ These procedures define how \<System Name\>'s configuration is changed and recor
 | PRO-CM-1 | Make a change | Each change | Requester, security officer, change control board, developers or administrators | TPL-6, or the ServiceNow change | CM-3, CM-3(2), CM-3(4), CM-4, CM-4(2), CM-5 |
 | PRO-CM-2 | Review the baseline and keep previous versions | Every 12 months and each release | System owner, Windows server administrator | TPL-6; the configuration library | CM-2, CM-2(2), CM-2(3) |
 | PRO-CM-3 | Apply secure settings | When built, and each change | Windows server, database administrators, developers | TPL-6 for each exception | CM-6 |
-| PRO-CM-4 | Approve software and components | On request, and every 12 months | System owner, Windows server administrator, developers | TPL-7; \<Configuration Management\>, section 4.5 | CM-7(2), CM-7(5), CM-8, CM-11 |
+| PRO-CM-4 | Approve software and components | On request, and every 12 months | System owner, Windows server administrator, developers | TPL-7; \<Configuration Management\>, section 3.5 | CM-7(2), CM-7(5), CM-8, CM-11 |
 | PRO-CM-5 | Review functions, ports and services | Every 12 months | Windows server administrator, developers | TPL-3 | CM-7, CM-7(1) |
 | PRO-CM-6 | Deal with unauthorised components | On any alert | Windows server administrator, security officer | TPL-8 | CM-8(3) |
 | PRO-CM-7 | Monitor for drift | Monthly | Windows server and database administrators | TPL-8 | CM-2, CM-6, CA-7 |
 | PRO-CM-8 | Make an emergency change | When needed | System owner or deputy, change control board | TPL-6 within 1 working day | CM-3 |
-| PRO-CM-9 | Review licences | Each release, and every 12 months | Developers, system owner | \<Configuration Management\>, section 4.5; \<Decision Register\> | CM-10 |
+| PRO-CM-9 | Review licences | Each release, and every 12 months | Developers, system owner | \<Configuration Management\>, section 3.5; \<Decision Register\> | CM-10 |
 
 ### CM.2 Procedures
 
 #### PRO-CM-1 Making a change
 
 1. Whoever needs the change raises a ServiceNow change request, or TPL-6 until ServiceNow is set up, stating the reason. **Not built** (PA-53)
-2. The security officer assesses the security and privacy impact against the criteria in \<Configuration Management\>, section 4.9, including the significant change test in \<Assessment, Authorization, and Monitoring Management\>, section 4.9, and records it on the change. A significant change goes to the authorising official before it is made. **Manual**
-3. The system owner, security officer and Windows server administrator approve or refuse it in ServiceNow, as the change control board under its charter in \<Configuration Management\>, section 4.8. **Not built** (PA-53)
+2. The security officer assesses the security and privacy impact against the criteria in \<Configuration Management\>, section 3.9, including the significant change test in \<Assessment, Authorization, and Monitoring Management\>, section 3.9, and records it on the change. A significant change goes to the authorising official before it is made. **Manual**
+3. The system owner, security officer and Windows server administrator approve or refuse it in ServiceNow, as the change control board under its charter in \<Configuration Management\>, section 3.8. **Not built** (PA-53)
 4. Developers or administrators make the change, and test it before release, using the test scripts where they apply. **Manual**
 5. They check that the affected controls still work, and record the result. **Manual**
-6. They update the baseline and component inventory in \<Configuration Management\>, sections 4.4 and 4.5, tag the release, record the pinned image digests (PA-77) and produce the bill of materials (PA-78). They update \<System Security Plan\>, section 4.4, if a server changed. **Manual**
+6. They update the baseline and component inventory in \<Configuration Management\>, sections 3.4 and 3.5, tag the release, record the pinned image digests (PA-77) and produce the bill of materials (PA-78). They update \<System Security Plan\>, section 3.4, if a server changed. **Manual**
 
 #### PRO-CM-2 Reviewing the baseline
 
 1. Every 12 months and at each release, the system owner and Windows server administrator review the baseline. **Manual**
-2. They keep the 3 previous configurations, each as its tagged code, pinned image digests, settings and bill of materials, in the configuration library (\<Configuration Management\>, section 4.13). **Manual**
+2. They keep the 3 previous configurations, each as its tagged code, pinned image digests, settings and bill of materials, in the configuration library (\<Configuration Management\>, section 3.13). **Manual**
 
 #### PRO-CM-3 Secure settings
 
-1. The Windows server administrator and database administrator apply the CIS Benchmarks when the VMs are built, and developers apply the application and hosting settings in \<Configuration Management\>, section 4.6. **Not built** (PA-54)
+1. The Windows server administrator and database administrator apply the CIS Benchmarks when the VMs are built, and developers apply the application and hosting settings in \<Configuration Management\>, section 3.6. **Not built** (PA-54)
 2. They record each exception on TPL-6, with a reason, and the system owner approves it. **Manual**
 
 #### PRO-CM-4 Software
 
 1. The Windows server administrator keeps the approved software list and reviews it every 12 months. **Manual**
 2. A user who needs software on a VM raises a ServiceNow request, and the system owner approves or refuses it. **Manual**
-3. Before a new package, image or runtime enters the baseline, the developer records its supplier, version, licence and purpose in \<Configuration Management\>, section 4.5, and checks it on TPL-7 for known vulnerabilities. A licence that is not a standard open source licence goes to the system owner for a decision on \<Decision Register\>. **Manual**
+3. Before a new package, image or runtime enters the baseline, the developer records its supplier, version, licence and purpose in \<Configuration Management\>, section 3.5, and checks it on TPL-7 for known vulnerabilities. A licence that is not a standard open source licence goes to the system owner for a decision on \<Decision Register\>. **Manual**
 
 #### PRO-CM-5 Reviewing functions and ports
 
@@ -793,7 +600,7 @@ These procedures define how \<System Name\>'s configuration is changed and recor
 
 1. Each month the Windows server administrator scans both VMs against the CIS Benchmarks with CIS-CAT or an equivalent tool, and runs Test-ConfigurationManagement.ps1. **Not built** (PA-80)
 2. The database administrator compares the PostgreSQL settings with the baseline. **Manual**
-3. Any difference from \<Configuration Management\>, sections 4.4 to 4.6, is reported to the security officer on TPL-8. **Manual**
+3. Any difference from \<Configuration Management\>, sections 3.4 to 3.6, is reported to the security officer on TPL-8. **Manual**
 4. The difference is put back, or raised as a change under PRO-CM-1 if it should stay. **Manual**
 
 #### PRO-CM-8 Emergency change
@@ -805,18 +612,13 @@ These procedures define how \<System Name\>'s configuration is changed and recor
 
 #### PRO-CM-9 Licence review
 
-1. At each release, the developer checks that every component in \<Configuration Management\>, section 4.5, still has the licence recorded there. **Manual**
+1. At each release, the developer checks that every component in \<Configuration Management\>, section 3.5, still has the licence recorded there. **Manual**
 2. Every 12 months, the system owner confirms that each licence decision on \<Decision Register\> still applies, including the ImageSharp community licence (D-CM-09). **Manual**
 3. A component whose licence no longer permits \<System Name\>'s use is replaced, or licensed, through PRO-CM-1. **Manual**
-
-| **CHAPTER CP** |
-| --- |
 
 ## CP Contingency Planning
 
 Procedures PRO-CP-1 to PRO-CP-7.
-
-[CP.1 Purpose](#cp1-purpose) · [CP.2 Procedures](#cp2-procedures)
 
 ### CP.1 Purpose
 
@@ -829,10 +631,10 @@ These procedures carry out \<Policy\> (CP) and \<Contingency Planning Management
 | PRO-CP-1 | Taking backups | Daily, weekly and at each change | Database and Windows server administrators | Backup job log; TPL-8 | CP-9, CP-9(8), CP-10(2) |
 | PRO-CP-2 | Testing a restore | Every 6 months, and after a change to the database or backups | Database administrator, observed by the security officer | TPL-11 | CP-9(1) |
 | PRO-CP-3 | Recovering | When the plan is invoked | Administrators, security officer | Activity log; TPL-11 | CP-7, CP-10, CP-10(2) |
-| PRO-CP-4 | Training and testing | Training within 30 days and yearly; tests as \<Contingency Planning Management\>, section 4.10 | System owner, security officer | TPL-9; TPL-11 after-action report | CP-3, CP-4, CP-4(1) |
+| PRO-CP-4 | Training and testing | Training within 30 days and yearly; tests as \<Contingency Planning Management\>, section 3.10 | System owner, security officer | TPL-9; TPL-11 after-action report | CP-3, CP-4, CP-4(1) |
 | PRO-CP-5 | Activation and notification | On a failure | Anyone; system owner decides | Activity log | CP-2 |
 | PRO-CP-6 | Reconstitution and deactivation | After recovery, before users return | Administrators, security officer, system owner | Activity log; TPL-11 | CP-10 |
-| PRO-CP-7 | Maintaining and sharing the plan | Every 12 months, and after a test, activation or change | System owner | Change history; distribution record | CP-2, CP-2(1) |
+| PRO-CP-7 | Maintaining and sharing the plan | Every 12 months, and after a test, activation or change | System owner | Change record; distribution record | CP-2, CP-2(1) |
 
 ### CP.2 Procedures
 
@@ -841,7 +643,7 @@ These procedures carry out \<Policy\> (CP) and \<Contingency Planning Management
 1. The database administrator takes a full, encrypted backup of the database every day, which includes every document page and audit record, and sends it to the second site. **Not built** (PA-64)
 2. PostgreSQL's transaction logs are archived continuously, encrypted, to the second site. **Not built** (PA-64)
 3. The Windows server administrator backs up each VM's system configuration weekly, encrypted. **Not built** (PA-64)
-4. Copies are kept as \<Contingency Planning Management\>, section 4.8: 14 daily, 8 weekly and 12 monthly, and one copy is offline or immutable. **Not built** (PA-64)
+4. Copies are kept as \<Contingency Planning Management\>, section 3.8: 14 daily, 8 weekly and 12 monthly, and one copy is offline or immutable. **Not built** (PA-64)
 5. The backup encryption key and the protected copy of the secrets are held apart from the backups, and only the system owner and administrators can reach them. **Not built** (PA-64, PA-19)
 6. A failed backup alerts the database administrator and the security officer, who fix it within 1 working day. **Not built** (PA-64)
 7. The system owner copies changed documentation to the controlled library. **Manual**
@@ -858,7 +660,7 @@ These procedures carry out \<Policy\> (CP) and \<Contingency Planning Management
 #### PRO-CP-3 Recovering
 
 1. The Windows server administrator confirms with \<Organisation\> that the site, network and services are available, at the second site if the main one is lost. **Manual**
-2. They rebuild the database VM to the baseline in \<Configuration Management\>, sections 4.4 and 4.6. **Manual**
+2. They rebuild the database VM to the baseline in \<Configuration Management\>, sections 3.4 and 3.6. **Manual**
 3. The database administrator restores the latest good backup and applies the archived transaction logs to the last consistent point. If a backup fails the checks in PRO-CP-2, they use the one before it. **Not built** (PA-64)
 4. The Windows server administrator restores the secrets from their protected copy, and changes them if a compromise is suspected. **Manual**
 5. They rebuild the application VM from the tagged release, and start API, then UI application, then Admin application. **Manual**
@@ -866,9 +668,9 @@ These procedures carry out \<Policy\> (CP) and \<Contingency Planning Management
 
 #### PRO-CP-4 Training and testing
 
-1. The system owner trains each person with a contingency role within 30 days of taking it and every 12 months, using the content in \<Contingency Planning Management\>, section 4.10, and records it on TPL-9 and in the training register (\<Awareness and Training Management\>, section 4.8). This is module M8 in the training matrix (\<Awareness and Training Management\>, section 4.5), with its 80% check. **Manual**
+1. The system owner trains each person with a contingency role within 30 days of taking it and every 12 months, using the content in \<Contingency Planning Management\>, section 3.10, and records it on TPL-9 and in the training register (\<Awareness and Training Management\>, section 3.8). This is module M8 in the training matrix (\<Awareness and Training Management\>, section 3.5), with its 80% check. **Manual**
 2. The system owner reviews the training content every 12 months, and after a plan change, test or activation. **Manual**
-3. The system owner and security officer run the restore test and tabletop exercise in \<Contingency Planning Management\>, section 4.10, with objectives and a scenario set beforehand. The tabletop is held with the incident response plan. **Manual**
+3. The system owner and security officer run the restore test and tabletop exercise in \<Contingency Planning Management\>, section 3.10, with objectives and a scenario set beforehand. The tabletop is held with the incident response plan. **Manual**
 4. Within 10 working days of each test or activation, the security officer writes an after-action report on TPL-11: objectives, what happened, time and data lost against the objectives, problems, actions with owners and dates, and plan changes. **Manual**
 5. Actions that need a fix go to \<Plan of Action and Milestones\>. **Manual**
 
@@ -876,8 +678,8 @@ These procedures carry out \<Policy\> (CP) and \<Contingency Planning Management
 
 1. Whoever finds a failure tells \<Organisation\>'s IT service desk and the security officer. **Manual**
 2. Within 4 hours the database and Windows server administrators assess the outage: cause, damage, expected duration, possible data loss and whether it may be a security incident. If it may be, the security officer starts the incident response plan. **Manual**
-3. The system owner, or their deputy, invokes \<Contingency Planning Management\> if any criterion in its section 6.1 is met, and records the decision and time. **Manual**
-4. The system owner tells the people in \<Contingency Planning Management\>, section 4.4, and \<Organisation\>'s IT service desk, by phone and then in writing, using appendix A. **Manual**
+3. The system owner, or their deputy, invokes \<Contingency Planning Management\> if any criterion in its section 5.1 is met, and records the decision and time. **Manual**
+4. The system owner tells the people in \<Contingency Planning Management\>, section 3.4, and \<Organisation\>'s IT service desk, by phone and then in writing, using appendix A. **Manual**
 5. The system owner tells users through \<Organisation\>'s usual staff channel, and updates them at least daily. **Manual**
 6. The security officer keeps an activity log of decisions and actions, with times, until deactivation. **Manual**
 
@@ -886,7 +688,7 @@ These procedures carry out \<Policy\> (CP) and \<Contingency Planning Management
 1. The database administrator runs the checks in PRO-CP-2, step 3, on the recovered database, and records the newest record restored. **Manual**
 2. The administrators test the functions: sign in, find and read a document, upload and remove a test document in a test project, and sign in to Admin application, checking that each writes an audit record. **Manual**
 3. The security officer confirms that the controls match the main site, including encryption in transit, accounts against current staff, and audit logging. **Manual**
-4. The system owner declares recovery, and tells users and the people in \<Contingency Planning Management\>, section 4.4. **Manual**
+4. The system owner declares recovery, and tells users and the people in \<Contingency Planning Management\>, section 3.4. **Manual**
 5. The database administrator takes a full backup at once, and confirms it reached the second site. **Not built** (PA-64)
 6. Temporary access is removed. A return from the second site to the main site is made as a planned change under \<Configuration Management\>. **Manual**
 7. The system owner closes the activation, and the after-action report follows PRO-CP-4, step 4. **Manual**
@@ -895,17 +697,12 @@ These procedures carry out \<Policy\> (CP) and \<Contingency Planning Management
 
 1. The system owner reviews \<Contingency Planning Management\> every 12 months, and after a test, activation or significant change, with the authorising official. **Manual**
 2. They check it still agrees with the incident response plan and \<Organisation\>'s plans in its appendix B. **Manual**
-3. Once approved, they send the plan to the people in its section 1.4, tell them what changed, and record who received it. **Manual**
+3. Once approved, they send the plan to the people in its section 1.1, tell them what changed, and record who received it. **Manual**
 4. They make sure the offline copies held by the system owner and security officer are current. **Manual**
-
-| **CHAPTER IA** |
-| --- |
 
 ## IA Identification and Authentication
 
 Procedures PRO-IA-1 to PRO-IA-8.
-
-[IA.1 Purpose](#ia1-purpose) · [IA.2 Procedures](#ia2-procedures)
 
 ### IA.1 Purpose
 
@@ -921,7 +718,7 @@ These procedures define how identifiers and authenticators are issued, changed a
 | PRO-IA-4 | Changing service secrets and the signing key | Every 12 months, and when an administrator leaves | Windows server and database administrators | TPL-6 | IA-5, IA-5(6) |
 | PRO-IA-5 | Password rules | Not done in \<System Name\> | \<Organisation\> | None | IA-5(1) |
 | PRO-IA-6 | Enrolling and resetting a second factor | When the person first uses AD FS; on loss | The person; \<Organisation\>'s service desk | \<Organisation\>'s record | IA-2(1), IA-2(2) |
-| PRO-IA-7 | Reviewing authenticators and assurance levels | Every 12 months, and after a significant change | System owner, security officer | \<Identification and Authentication Management\> change history | IA-5, IA-12 |
+| PRO-IA-7 | Reviewing authenticators and assurance levels | Every 12 months, and after a significant change | System owner, security officer | \<Identification and Authentication Management\> change record | IA-5, IA-12 |
 | PRO-IA-8 | Disabling unused identifiers | Under \<Organisation\>'s standard | \<Organisation\> | \<Organisation\>'s record | AC-2(3), IA-4 |
 
 ### IA.2 Procedures
@@ -946,8 +743,8 @@ These procedures define how identifiers and authenticators are issued, changed a
 
 #### PRO-IA-4 Changing service secrets and the signing key
 
-1. Every 12 months, and when an administrator leaves, the Windows server administrator and database administrator change the service account secrets, the database password and the signing key in \<Identification and Authentication Management\>, section 4.5. **Not built:** these secrets are committed in source today (PA-19).
-2. They update the protected copy at the second site (\<Contingency Planning Management\>, section 4.8). **Not built** (PA-64)
+1. Every 12 months, and when an administrator leaves, the Windows server administrator and database administrator change the service account secrets, the database password and the signing key in \<Identification and Authentication Management\>, section 3.5. **Not built:** these secrets are committed in source today (PA-19).
+2. They update the protected copy at the second site (\<Contingency Planning Management\>, section 3.8). **Not built** (PA-64)
 3. They record the change on TPL-6: the date, who made it and which secret, never the value. Changing the signing key ends every session, so users are told first. **Manual**
 
 #### PRO-IA-5 Password rules
@@ -961,23 +758,18 @@ These procedures define how identifiers and authenticators are issued, changed a
 
 #### PRO-IA-7 Reviewing authenticators and assurance levels
 
-1. Every 12 months, and after a significant change, the system owner and security officer check that the authenticator inventory in \<Identification and Authentication Management\>, section 4.5, is complete and that each change period was met. **Manual**
-2. They confirm the assurance levels in \<Identification and Authentication Management\>, section 4.4, still fit the documents held, and take any change to the authorising official. **Manual**
-3. The result is recorded in the change history of \<Identification and Authentication Management\>. **Manual**
+1. Every 12 months, and after a significant change, the system owner and security officer check that the authenticator inventory in \<Identification and Authentication Management\>, section 3.5, is complete and that each change period was met. **Manual**
+2. They confirm the assurance levels in \<Identification and Authentication Management\>, section 3.4, still fit the documents held, and take any change to the authorising official. **Manual**
+3. The result is recorded in the change record of \<Identification and Authentication Management\>. **Manual**
 
 #### PRO-IA-8 Disabling unused identifiers
 
 1. \<Organisation\> disables Active Directory accounts unused for the period in its corporate standard (\<Access Control Management\>, under AC-2(3)).
 2. A disabled identifier is never deleted or reused (PRO-IA-1, step 4). **Manual**
 
-| **CHAPTER IR** |
-| --- |
-
 ## IR Incident Response
 
 Procedures PRO-IR-1 to PRO-IR-7.
-
-[IR.1 Purpose](#ir1-purpose) · [IR.2 Procedures](#ir2-procedures)
 
 ### IR.1 Purpose
 
@@ -988,10 +780,10 @@ These procedures carry out \<Policy\> (IR) and \<Incident Response Management\>.
 | Procedure | What it does | When | Who | Record | Controls |
 | --- | --- | --- | --- | --- | --- |
 | PRO-IR-1 | Reporting an incident | Within 1 hour of noticing | Anyone; security officer | TPL-10 | IR-6, IR-6(1), IR-6(3) |
-| PRO-IR-2 | Handling an incident | Each incident, to the targets in \<Incident Response Management\>, section 4.6 | Security officer; administrators | TPL-10 | IR-4, IR-4(1), IR-5 |
+| PRO-IR-2 | Handling an incident | Each incident, to the targets in \<Incident Response Management\>, section 3.6 | Security officer; administrators | TPL-10 | IR-4, IR-4(1), IR-5 |
 | PRO-IR-3 | Training and testing | Within 30 days of a role, every 12 months; tabletop every 12 months | Security officer | TPL-9; TPL-11 | IR-2, IR-3, IR-3(2) |
 | PRO-IR-4 | Getting help | As needed | Users; security officer | ServiceNow request | IR-7, IR-7(1) |
-| PRO-IR-5 | Handling a personal data breach | When personal data may be involved | Security officer; legal adviser | TPL-10; \<Incident Response Management\>, section 4.14 | IR-6 |
+| PRO-IR-5 | Handling a personal data breach | When personal data may be involved | Security officer; legal adviser | TPL-10; \<Incident Response Management\>, section 3.14 | IR-6 |
 | PRO-IR-6 | Preserving evidence | Before anything is changed | Administrators | TPL-10 | IR-4, AU-9 |
 | PRO-IR-7 | Closing an incident and learning | Within 10 working days of containment | Security officer; system owner | TPL-10 | IR-4, IR-8 |
 
@@ -1000,14 +792,14 @@ These procedures carry out \<Policy\> (IR) and \<Incident Response Management\>.
 #### PRO-IR-1 Reporting an incident
 
 1. Anyone who suspects an incident tells the security officer within 1 hour, by phone if ServiceNow or email may be affected (\<Incident Response Management\>, appendix B). **Manual**
-2. The security officer opens a record on TPL-10, or a ServiceNow ticket once it exists, and sets the severity (\<Incident Response Management\>, section 4.6). **Not built** (PA-65)
+2. The security officer opens a record on TPL-10, or a ServiceNow ticket once it exists, and sets the severity (\<Incident Response Management\>, section 3.6). **Not built** (PA-65)
 3. The security officer tells the people in the severity table, \<Organisation\>'s security contact, and any affected supplier. **Manual**
 4. If personal data may be involved, the security officer starts PRO-IR-5 at once. **Manual**
 5. If a crime or a significant cyber attack is suspected, the system owner reports it to the NCSC or to Report Fraud, which replaced Action Fraud. **Manual**
 
 #### PRO-IR-2 Handling an incident
 
-1. The security officer leads the steps in \<Incident Response Management\>, section 4.7, using the playbook in its section 4.9 that fits. **Manual**
+1. The security officer leads the steps in \<Incident Response Management\>, section 3.7, using the playbook in its section 3.9 that fits. **Manual**
 2. The administrators preserve evidence first, under PRO-IR-6. **Manual**
 3. They contain the incident to the target for its severity, for example by ending sessions or disabling an account (shown in Docker, D01 and D03). **Manual**
 4. If recovery is needed, the system owner invokes \<Contingency Planning Management\>; the incident plan leads while the outage may be an incident. **Manual**
@@ -1015,7 +807,7 @@ These procedures carry out \<Policy\> (IR) and \<Incident Response Management\>.
 
 #### PRO-IR-3 Training and testing
 
-1. The security officer trains each person with an incident role within 30 days of taking it, every 12 months and after a plan change, and records it on TPL-9 and in the training register (\<Awareness and Training Management\>, section 4.8). This is module M7 in the training matrix (\<Awareness and Training Management\>, section 4.5), with its 80% check. The content is the plan, the severity levels, the playbooks, preserving evidence, the breach steps and the contacts. **Manual**
+1. The security officer trains each person with an incident role within 30 days of taking it, every 12 months and after a plan change, and records it on TPL-9 and in the training register (\<Awareness and Training Management\>, section 3.8). This is module M7 in the training matrix (\<Awareness and Training Management\>, section 3.5), with its 80% check. The content is the plan, the severity levels, the playbooks, preserving evidence, the breach steps and the contacts. **Manual**
 2. The security officer reviews the content every 12 months, and after a plan change or an incident. **Manual**
 3. Every 12 months the security officer runs a tabletop exercise with the people named in \<Incident Response Management\> and \<Contingency Planning Management\>, rotating through the playbooks, and writes an after-action report on TPL-11. The first is within 30 days of the VMs being built (PA-81). **Manual**
 
@@ -1029,7 +821,7 @@ These procedures carry out \<Policy\> (IR) and \<Incident Response Management\>.
 1. The security officer tells the legal adviser as soon as personal data may be involved, with what is known. **Manual**
 2. The legal adviser assesses the risk to people. If it is likely, the legal adviser reports to the ICO within 72 hours of the organisation becoming aware, with the reasons for any delay. **Manual**
 3. If the risk to people is high, the legal adviser tells them without undue delay, unless the data could not be read. **Manual**
-4. The security officer records every breach in \<Incident Response Management\>, section 4.14: the facts, effects, action taken, and the reason if not reported. **Manual**
+4. The security officer records every breach in \<Incident Response Management\>, section 3.14: the facts, effects, action taken, and the reason if not reported. **Manual**
 
 #### PRO-IR-6 Preserving evidence
 
@@ -1044,14 +836,9 @@ These procedures carry out \<Policy\> (IR) and \<Incident Response Management\>.
 2. The system owner updates \<Incident Response Management\>, \<Risk List\> and \<Plan of Action and Milestones\> with the changes, and the training content if needed. **Manual**
 3. The system owner closes the record and the register entry. **Manual**
 
-| **CHAPTER MA** |
-| --- |
-
 ## MA Maintenance
 
 Procedures PRO-MA-1 to PRO-MA-7.
-
-[MA.1 Purpose](#ma1-purpose) · [MA.2 Summary](#ma2-summary) · [MA.3 Procedures](#ma3-procedures)
 
 ### MA.1 Purpose
 
@@ -1076,7 +863,7 @@ These procedures carry out \<Policy\> (MA), rules R1 to R12. The lists, routes a
 #### PRO-MA-1 Scheduling, approving, checking and recording maintenance
 
 1. The administrator raises a change record, following \<Procedures\> (CM). It names the component, the work, who will do it, the tools, the route and any downtime. **Manual**
-2. The change is approved before work starts. Emergency maintenance follows the emergency change rule in \<Security Operating Procedures\>, section 5.5, and is recorded within 1 working day. **Manual**
+2. The change is approved before work starts. Emergency maintenance follows the emergency change rule in \<Security Operating Procedures\>, section 4.5, and is recorded within 1 working day. **Manual**
 3. If users are affected, the system owner tells them at least 2 working days before planned maintenance. **Manual**
 4. The administrator watches any work done by someone who is not on the list of maintenance people (PRO-MA-5). **Manual**
 5. When the work is finished, the administrator runs the checklist in Table MA-2 and records the result on TPL-12. On a test stack, the maintenance test script runs the first three checks. **Manual**
@@ -1100,12 +887,12 @@ These procedures carry out \<Policy\> (MA), rules R1 to R12. The lists, routes a
 #### PRO-MA-2 Removing equipment
 
 1. The system owner approves the removal of any equipment in the change record. **Manual**
-2. \<Organisation\> sanitises it first by the method in \<Media Protection Management\>, section 4.6 (NIST SP 800-88 Revision 2 and IEEE 2883-2022), following \<Procedures\>, PRO-MP-3, and confirms in writing with a certificate (EV-MA-01). **Manual**
+2. \<Organisation\> sanitises it first by the method in \<Media Protection Management\>, section 3.6 (NIST SP 800-88 Revision 2 and IEEE 2883-2022), following \<Procedures\>, PRO-MP-3, and confirms in writing with a certificate (EV-MA-01). **Manual**
 3. The administrator records the removal, the approval and the certificate on TPL-12, and any media on TPL-13. **Manual**
 
 #### PRO-MA-3 Maintenance tools
 
-1. The Windows server administrator keeps the approved tool list in \<Maintenance Management\>, section 4.5, and reviews it with the system owner every 12 months (C28). A new tool needs the system owner's approval before first use. **Manual**
+1. The Windows server administrator keeps the approved tool list in \<Maintenance Management\>, section 3.5, and reviews it with the system owner every 12 months (C28). A new tool needs the system owner's approval before first use. **Manual**
 2. Tools are inspected before use for changes that are not expected: the version, publisher and file hash are compared with the list, and the result is recorded on TPL-12. **Manual**
 3. Media holding diagnostic or test programs are scanned by Defender before use. **Not built** (PA-58)
 4. No shell or package manager carried inside a release is used on the servers (PA-85). **Manual**
@@ -1113,15 +900,15 @@ These procedures carry out \<Policy\> (MA), rules R1 to R12. The lists, routes a
 
 #### PRO-MA-4 Remote maintenance
 
-1. The system owner approves remote work in the change record, naming the route from \<Maintenance Management\>, section 4.4. **Manual**
+1. The system owner approves remote work in the change record, naming the route from \<Maintenance Management\>, section 3.4. **Manual**
 2. The person connects only through that route, with multi-factor sign-in (EV-MA-02). The admin portal is reached only through the managed route. **Not built** (PA-83)
-3. A supplier's session is watched by an administrator. Each session is logged as set in \<Maintenance Management\>, section 4.4. **Manual**
+3. A supplier's session is watched by an administrator. Each session is logged as set in \<Maintenance Management\>, section 3.4. **Manual**
 4. When the work is finished, the session and network connection are ended, and any temporary account is disabled. **Manual**
 5. The administrator records the job on TPL-12 with the session reference. The security officer reviews the session logs weekly (C3, C5). **Manual**
 
 #### PRO-MA-5 Maintenance people
 
-1. The system owner approves the list of maintenance organisations and people in \<Maintenance Management\>, section 4.6. **Manual**
+1. The system owner approves the list of maintenance organisations and people in \<Maintenance Management\>, section 3.6. **Manual**
 2. Before giving access, the administrator checks the person is on the list, is screened, has signed Part B of \<Security Operating Procedures\> and has a named account. **Manual**
 3. A supplier gets a temporary account limited to the job, disabled when the job ends. **Manual**
 4. Anyone not on the list is escorted and supervised by someone who is, and has no access to \<System Name\>'s data. **Manual**
@@ -1137,16 +924,16 @@ Flaw fixes (SI-2) and releases (CM-3) follow their own procedures. They are list
 | --- | --- | --- | --- | --- |
 | Vacuum, analyse and check indexes | PostgreSQL | Database administrator | Monthly | TPL-12 |
 | Check disk space and growth | Both VMs and the database | Windows server and database administrators | Monthly | TPL-8 |
-| Apply updates (SI-2) | Windows, PostgreSQL, .NET | As \<Security Operating Procedures\>, section 5.3 | Monthly, and within the fix times | TPL-7 |
+| Apply updates (SI-2) | Windows, PostgreSQL, .NET | As \<Security Operating Procedures\>, section 4.3 | Monthly, and within the fix times | TPL-7 |
 | Renew certificates | Both VMs | Windows server administrator | 30 days before expiry (C39) | TPL-6 |
 | Clear old application logs | Application VM | Windows server administrator | Monthly (C46) | TPL-8 |
 | Build each release on the patched .NET runtime (CM-3) | Applications | Developers | Each release, checked monthly (C11) | TPL-6 |
-| Check support end dates | Components in \<Maintenance Management\>, section 4.8 | Developers, Windows server administrator | Monthly (C11) | TPL-7 |
+| Check support end dates | Components in \<Maintenance Management\>, section 3.8 | Developers, Windows server administrator | Monthly (C11) | TPL-7 |
 | Maintain hardware and hypervisor | Hosts | \<Organisation\> | \<Organisation\>'s schedule | \<Organisation\>'s report (EV-MA-01) |
 
 #### PRO-MA-7 Built-in maintenance pages and data leaving for support
 
-1. A built-in maintenance page (\<Maintenance Management\>, section 4.5) is used only under an approved change record that names the page and the reason. **Manual**
+1. A built-in maintenance page (\<Maintenance Management\>, section 3.5) is used only under an approved change record that names the page and the reason. **Manual**
 2. The global administrator opens it with a second person present: the security officer or the system owner. **Manual**
 3. Before Fresh Start, Database Update or Legacy Cleanup, a backup is taken and checked (\<Procedures\>, PRO-CP-1). **Manual**
 4. The page, the action and the outcome are recorded on TPL-12, because the pages write no audit record (PA-31). **Manual**
@@ -1154,14 +941,9 @@ Flaw fixes (SI-2) and releases (CM-3) follow their own procedures. They are list
 6. It is cut to the minimum, with personal data removed where possible (the application log repeats personal data, PA-75), encrypted, and sent by an approved route. **Manual**
 7. It is recorded on TPL-12 or TPL-13, and the receiver confirms deletion when it is no longer needed. **Manual**
 
-| **CHAPTER MP** |
-| --- |
-
 ## MP Media Protection
 
 Procedures PRO-MP-1 to PRO-MP-6.
-
-[MP.1 Purpose](#mp1-purpose) · [MP.2 Summary](#mp2-summary) · [MP.3 Procedures](#mp3-procedures)
 
 ### MP.1 Purpose
 
@@ -1178,7 +960,7 @@ These procedures carry out \<Policy\> (MP), rules R1 to R12. The media inventory
 | PRO-MP-3 | Sanitises media by the method for its type, and checks certificates | \<Organisation\>, administrators, system owner | Before reuse, release or disposal; check every 12 months | TPL-13 | MP-6 |
 | PRO-MP-4 | Controls portable storage and ownerless devices | \<Organisation\>, system owner, security officer | Always; exceptions when asked | TPL-17, TPL-13 | MP-7 |
 | PRO-MP-5 | Controls export copies on the server and users' copies | Windows server administrator, everyone | Each working day (C49); each export | TPL-8 | MP-2, MP-4, MP-6 |
-| PRO-MP-6 | Keeps the media inventory up to date | System owner | Every 12 months, and after a change | \<Media Protection Management\> change history | MP-2, MP-4 |
+| PRO-MP-6 | Keeps the media inventory up to date | System owner | Every 12 months, and after a change | \<Media Protection Management\> change record | MP-2, MP-4 |
 
 ### MP.3 Procedures
 
@@ -1197,7 +979,7 @@ These procedures carry out \<Policy\> (MP), rules R1 to R12. The media inventory
 
 #### PRO-MP-3 Sanitising media
 
-1. Before any media is reused, released or disposed of, the person responsible sanitises it by the method set for its type in \<Media Protection Management\>, section 4.6, following NIST SP 800-88 Revision 2 and IEEE 2883-2022. **Manual** (EV-MP-02)
+1. Before any media is reused, released or disposed of, the person responsible sanitises it by the method set for its type in \<Media Protection Management\>, section 3.6, following NIST SP 800-88 Revision 2 and IEEE 2883-2022. **Manual** (EV-MP-02)
 2. For encrypted virtual disks and backups, every copy of the keys is destroyed, including recovery keys and the copy at the second site (cryptographic erase), and \<Organisation\> deletes the volumes. Each copy of the key is listed on TPL-13. **Manual** (PA-52, PA-64)
 3. \<Organisation\> purges or destroys physical disks and gives a certificate. **Manual** (EV-MP-02)
 4. Each action is recorded on TPL-13 with the item, serial, method, tool, verification and certificate. **Manual**
@@ -1218,17 +1000,12 @@ These procedures carry out \<Policy\> (MP), rules R1 to R12. The media inventory
 
 #### PRO-MP-6 Media inventory
 
-1. The system owner reviews the media inventory in \<Media Protection Management\>, section 4.2, every 12 months and after a change that creates a new copy of \<System Name\> information. **Manual**
+1. The system owner reviews the media inventory in \<Media Protection Management\>, section 3.2, every 12 months and after a change that creates a new copy of \<System Name\> information. **Manual**
 2. Any new place is added, with its protection, access and sanitising method, before it is used. **Manual**
-
-| **CHAPTER PE** |
-| --- |
 
 ## PE Physical and Environmental Protection
 
 Procedures PRO-PE-1 to PRO-PE-5.
-
-[PE.1 Purpose](#pe1-purpose) · [PE.2 Summary](#pe2-summary) · [PE.3 Procedures](#pe3-procedures)
 
 ### PE.1 Purpose
 
@@ -1240,7 +1017,7 @@ These procedures carry out \<Policy\> (PE), rules R1 to R10. The values, inherit
 
 | Procedure | What it does | Who | When | Record | Controls |
 | --- | --- | --- | --- | --- | --- |
-| PRO-PE-1 | Obtains and reviews \<Organisation\>'s evidence for both sites | System owner | Every 12 months, and after a change of site | \<Evidence Requests\>; \<Physical and Environmental Protection Management\>, section 4.3 | PE-2 to PE-16 |
+| PRO-PE-1 | Obtains and reviews \<Organisation\>'s evidence for both sites | System owner | Every 12 months, and after a change of site | \<Evidence Requests\>; \<Physical and Environmental Protection Management\>, section 3.3 | PE-2 to PE-16 |
 | PRO-PE-2 | Handles physical incidents | Security officer, \<Organisation\> | When one occurs | TPL-10 | PE-6, IR-4 |
 | PRO-PE-3 | Protects screens and printouts | Everyone | Always | None | PE-5 |
 | PRO-PE-4 | Controls home working | Everyone, security officer | Always; checked every 12 months (C30) | TPL-4 | PE-17 |
@@ -1252,7 +1029,7 @@ These procedures carry out \<Policy\> (PE), rules R1 to R10. The values, inherit
 
 1. The system owner asks \<Organisation\> first for its ISO/IEC 27001 certificate, Statement of Applicability and latest audit findings for Annex A.7, or a SOC 2 report covering physical access (CC6.4) and the availability criteria (A1.2), for both the data centre and the second site (EV-PE-01). **Manual**
 2. Where those do not cover a control, the system owner asks for the facility evidence in EV-PE-01 to EV-PE-05. **Manual**
-3. The system owner records what was received against each control in the inheritance matrix (\<Physical and Environmental Protection Management\>, section 4.3), and confirms the values in \<Physical and Environmental Protection Management\>, appendix A, are met. **Manual**
+3. The system owner records what was received against each control in the inheritance matrix (\<Physical and Environmental Protection Management\>, section 3.3), and confirms the values in \<Physical and Environmental Protection Management\>, appendix A, are met. **Manual**
 4. Any shortfall is raised in \<Risk List\>. **Manual**
 5. The system owner repeats this every 12 months, and after a change of site or a significant incident at a site. **Manual**
 
@@ -1260,7 +1037,7 @@ These procedures carry out \<Policy\> (PE), rules R1 to R10. The values, inherit
 
 1. Anyone who loses a device or printout, or sees a physical security problem, reports it to the security officer at once. **Manual**
 2. \<Organisation\>'s security contact tells the security officer of any physical incident at a site that affects \<System Name\>, including fire, flood and power loss, within 24 hours. **Manual** (EV-PE-01)
-3. The security officer handles it with the physical incident playbook in \<Incident Response Management\>, section 4.9, and calls the contingency plan if a site is lost. **Manual**
+3. The security officer handles it with the physical incident playbook in \<Incident Response Management\>, section 3.9, and calls the contingency plan if a site is lost. **Manual**
 
 #### PRO-PE-3 Screens and printers
 
@@ -1272,7 +1049,7 @@ These procedures carry out \<Policy\> (PE), rules R1 to R10. The values, inherit
 
 1. People work remotely only from home, unless the system owner has approved another place in writing, on \<Organisation\>'s managed devices and route. **Manual** (EV-PE-05)
 2. They do not print \<System Name\> documents at home unless the system owner has approved it, and they work where others in the home cannot see the screen. **Manual**
-3. Anyone working from home reports any concern or incident to the security officer at once, using the contacts in \<Security Operating Procedures\>, section 7. **Manual**
+3. Anyone working from home reports any concern or incident to the security officer at once, using the contacts in \<Security Operating Procedures\>, section 6. **Manual**
 4. Every 12 months, the security officer puts a short checklist to every person who works from home (managed device, VPN, screen privacy, no printing, reporting) and records the answers on TPL-4 (C30). **Manual**
 
 #### PRO-PE-5 Site inspection
@@ -1281,14 +1058,9 @@ These procedures carry out \<Policy\> (PE), rules R1 to R10. The values, inherit
 2. The inspection covers entry control and logs, visitors, keys and cards, cabling, power and emergency shutoff, lighting, fire, environment, water and deliveries. **Manual**
 3. The system owner records the result in the inheritance matrix and raises any shortfall in \<Risk List\>. The inspection is repeated after a change of site. **Manual**
 
-| **CHAPTER PL** |
-| --- |
-
 ## PL Planning
 
 Procedures PRO-PL-1 to PRO-PL-6.
-
-[PL.1 Purpose](#pl1-purpose) · [PL.2 Procedures](#pl2-procedures)
 
 ### PL.1 Purpose
 
@@ -1298,33 +1070,33 @@ These procedures carry out \<Policy\> (PL). Steps marked **Manual** have no syst
 
 | Procedure | When | Who | Record | Controls |
 | --- | --- | --- | --- | --- |
-| PRO-PL-1 Keeping the plans current | After an assessment, significant change or problem in use, and every 12 months | System owner | Plan review log and change history in each plan; Test-PlanConsistency.ps1 results | PL-2c, PL-2d |
-| PRO-PL-2 Sharing the plans | When a plan is approved or changed | System owner | Plan review log entry naming the recipients | PL-2b |
-| PRO-PL-3 Signing the rules | Before access, every 12 months, and after a material change | System owner, everyone | TPL-21; register of signatures in \<Planning Management\>, section 4.5 | PL-4b, PL-4d |
+| PRO-PL-1 Keeping the plans current | After an assessment, significant change or problem in use, and every 12 months | System owner | Plan review record and change record in each plan; Test-PlanConsistency.ps1 results | PL-2c, PL-2d |
+| PRO-PL-2 Sharing the plans | When a plan is approved or changed | System owner | Plan review record entry naming the recipients | PL-2b |
+| PRO-PL-3 Signing the rules | Before access, every 12 months, and after a material change | System owner, everyone | TPL-21; register of signatures in \<Planning Management\>, section 3.5 | PL-4b, PL-4d |
 | PRO-PL-4 Tailoring | When a control or part is proposed as not applicable | Proposer, system owner, authorising official | Entry in \<Tailoring Register\> and \<Decision Register\> | PL-11 |
-| PRO-PL-5 Reviewing the architecture | Every 12 months, and after a significant change | System owner | Change history and review log in \<Security Architecture\> | PL-8b, PL-8c |
+| PRO-PL-5 Reviewing the architecture | Every 12 months, and after a significant change | System owner | Change record and review record in \<Security Architecture\> | PL-8b, PL-8c |
 | PRO-PL-6 Protecting the plans | Always; checked at each review | System owner | Access list of the restricted SharePoint area | PL-2e |
 
 ### PL.2 Procedures
 
 #### PRO-PL-1 Keeping the plans current
 
-1. After each assessment, significant change or problem found in use, the system owner updates the affected plans and adds a line to each change history. **Manual**
+1. After each assessment, significant change or problem found in use, the system owner updates the affected plans and adds a line to each change record. **Manual**
 2. The system owner runs the plan consistency test on the document set and corrects every gap before issuing the plans.
-3. Every 12 months, the system owner reviews each plan in the register in \<Planning Management\>, section 4.2, and records the review in its plan review log: who, their role, the date, the outcome and actions. **Manual**
+3. Every 12 months, the system owner reviews each plan in the register in \<Planning Management\>, section 3.2, and records the review in its plan review record: who, their role, the date, the outcome and actions. **Manual**
 4. The SSP goes to the Head of Cyber for concurrence and to the authorising official to accept as an accurate record. **Manual**
 
 #### PRO-PL-2 Sharing the plans
 
 1. When the SSP, privacy plan or supply chain plan is approved or changed, the system owner sends a link to the restricted copy to the Head of Cyber, administrators and \<Organisation\>'s security contact. **Manual**
-2. The system owner records the recipients and the date in the plan review log. **Manual**
+2. The system owner records the recipients and the date in the plan review record. **Manual**
 
 #### PRO-PL-3 Signing the rules
 
 1. Before access, the system owner gives the person \<Security Operating Procedures\>: Part A for everyone, and Parts A and B for administrators. **Manual**
 2. The person signs the declaration that they have read and understood the rules and agree to follow them, on paper or electronically, and the system owner completes TPL-21. **Manual**
-3. The system owner adds the signature to the register in \<Planning Management\>, section 4.5. The access request (TPL-2) checks the register before access is given. **Manual**
-4. When SyOps changes, the system owner decides whether the change is material, as defined in \<Policy\> (PL), R7, and records the answer in the SyOps change history. If it is, everyone signs again within 30 days, or loses access. **Manual**
+3. The system owner adds the signature to the register in \<Planning Management\>, section 3.5. The access request (TPL-2) checks the register before access is given. **Manual**
+4. When SyOps changes, the system owner decides whether the change is material, as defined in \<Policy\> (PL), R7, and records the answer in the SyOps change record. If it is, everyone signs again within 30 days, or loses access. **Manual**
 5. Every 12 months, everyone signs again. **Manual**
 
 #### PRO-PL-4 Tailoring
@@ -1336,23 +1108,18 @@ These procedures carry out \<Policy\> (PL). Steps marked **Manual** have no syst
 #### PRO-PL-5 Reviewing the architecture
 
 1. Every 12 months, and after a significant change, the system owner reviews \<Security Architecture\> against the system as built. **Manual**
-2. Changes are carried into the SSP, the privacy plan, the ConOps, the critical components list in \<Risk Assessment Management\>, section 4.9 and any procurement, and each is noted in the review log. **Manual**
+2. Changes are carried into the SSP, the privacy plan, the ConOps, the critical components list in \<Risk Assessment Management\>, section 3.9 and any procurement, and each is noted in the review record. **Manual**
 3. New open questions go to \<Decision Register\> or \<Plan of Action and Milestones\>, not into the architecture. **Manual**
 
 #### PRO-PL-6 Protecting the plans
 
 1. Plans and assessment evidence are kept only in the restricted SharePoint area (D-GEN-15). Only named people have access. **Manual**
 2. Working copies are never kept in a code repository or a folder that syncs to one. **Manual**
-3. At each review, the system owner checks the area's access list against \<Roles and Responsibilities\> and records the check in the plan review log. **Manual**
-
-| **CHAPTER PS** |
-| --- |
+3. At each review, the system owner checks the area's access list against \<Roles and Responsibilities\> and records the check in the plan review record. **Manual**
 
 ## PS Personnel Security
 
 Procedures PRO-PS-1 to PRO-PS-7.
-
-[PS.1 Purpose](#ps1-purpose) · [PS.2 Procedures](#ps2-procedures)
 
 ### PS.1 Purpose
 
@@ -1374,8 +1141,8 @@ These procedures carry out \<Policy\> (PS). Steps marked **Manual** rely on peop
 
 #### PRO-PS-1 Before access
 
-1. The system owner looks up the role's risk designation in \<Personnel Security Management\>, section 4.2. **Manual**
-2. The system owner asks \<Organisation\> to confirm that the person has passed its screening, and that it covers the minimum in \<Personnel Security Management\>, section 4.3. For a higher risk role, the confirmation must be less than 5 years old. **Manual** (EV-PS-01)
+1. The system owner looks up the role's risk designation in \<Personnel Security Management\>, section 3.2. **Manual**
+2. The system owner asks \<Organisation\> to confirm that the person has passed its screening, and that it covers the minimum in \<Personnel Security Management\>, section 3.3. For a higher risk role, the confirmation must be less than 5 years old. **Manual** (EV-PS-01)
 3. The system owner records the confirmation on TPL-2 and in the personnel security register: who confirmed it and the date only. No screening result is recorded. **Manual**
 4. The person signs \<Organisation\>'s confidentiality agreement, and \<Security Operating Procedures\> Part A, and Part B if privileged, on TPL-21. **Manual**
 5. Only then is the person added to the \<System Name\> groups for their role (\<Procedures\>, PRO-AC-1). **Manual**
@@ -1418,14 +1185,9 @@ These procedures carry out \<Policy\> (PS). Steps marked **Manual** rely on peop
 1. At each review, the system owner runs Test-PlanConsistency.ps1 and confirms that check L17 passes: every role in \<Roles and Responsibilities\> has a risk designation. **Manual**
 2. The system owner compares a sample of the members of \<System Name\>'s groups with the personnel security register, and records the result with the review. **Manual**
 
-| **CHAPTER PT** |
-| --- |
-
 ## PT Personally Identifiable Information Processing and Transparency
 
 Procedures PRO-PT-1 to PRO-PT-6.
-
-[PT.1 Purpose](#pt1-purpose) · [PT.2 Procedures](#pt2-procedures)
 
 ### PT.1 Purpose
 
@@ -1464,7 +1226,7 @@ These procedures carry out \<Policy\> (PT). Steps marked **Manual** have no syst
 #### PRO-PT-3 Changes in processing
 
 1. Each change record (TPL-6) says whether the change affects personal data. **Manual**
-2. If it does, the legal adviser reviews it and decides whether the inventory (\<PII Processing Management\>, section 4.3), the privacy notice or the impact assessment must change. **Manual**
+2. If it does, the legal adviser reviews it and decides whether the inventory (\<PII Processing Management\>, section 3.3), the privacy notice or the impact assessment must change. **Manual**
 3. The system owner asks \<Organisation\> to keep the privacy notice current, and reviews it every 12 months (EV-PT-01). **Manual**
 
 #### PRO-PT-4 Impact assessment
@@ -1475,7 +1237,7 @@ These procedures carry out \<Policy\> (PT). Steps marked **Manual** have no syst
 
 #### PRO-PT-5 Accuracy, retention and disposal
 
-1. The business owner sets each retention period in \<PII Processing Management\>, section 4.7. **Manual** (D-PT-21)
+1. The business owner sets each retention period in \<PII Processing Management\>, section 3.7. **Manual** (D-PT-21)
 2. Every 12 months each project access approver checks that its personal data is accurate, relevant, timely and complete, and records the check on TPL-3. **Manual**
 3. Documents past their retention period are deleted, each deletion is audited, and the database is vacuumed afterwards. **Not built** (PA-70, PA-89)
 
@@ -1484,14 +1246,9 @@ These procedures carry out \<Policy\> (PT). Steps marked **Manual** have no syst
 1. Everyone who handles HR documents, and all administrators, complete privacy training before access and every 12 months. The module covers the purposes, the rules in SyOps A23 to A29, recognising and reporting a breach within an hour, requests and complaints. It is recorded on TPL-9. **Manual**
 2. Developers use only sample data for testing, and trainers use only sample data for training. Test-PersonalData.ps1 checks this on each test stack. **Manual**
 
-| **CHAPTER RA** |
-| --- |
-
 ## RA Risk Assessment
 
 Procedures PRO-RA-1 to PRO-RA-6.
-
-[RA.1 Purpose](#ra1-purpose) · [RA.2 Procedures](#ra2-procedures)
 
 ### RA.1 Purpose
 
@@ -1506,22 +1263,22 @@ These procedures carry out \<Policy\> (RA). Steps marked **Manual** have no syst
 | PRO-RA-3 Scanning and analysing | Monthly and at each release | Windows server administrator, developers, security officer | TPL-7 | RA-5, RA-5(2), RA-5(5), SI-2 |
 | PRO-RA-4 Responding to an exploited flaw | When a flaw affecting \<System Name\> is listed in CISA's catalogue or confirmed exploited | Security officer, developers, system owner | TPL-7; TPL-6 emergency change | RA-5d, SI-2, CM-3 |
 | PRO-RA-5 Sharing results and receiving reports | After each scan; on any report | Security officer | TPL-7 | RA-5e, RA-5(11) |
-| PRO-RA-6 Reviewing critical components | At each major release and significant change | System owner, developers | \<Risk Assessment Management\>, section 4.9; TPL-23 | RA-9 |
+| PRO-RA-6 Reviewing critical components | At each major release and significant change | System owner, developers | \<Risk Assessment Management\>, section 3.9; TPL-23 | RA-9 |
 
 ### RA.2 Procedures
 
 #### PRO-RA-1 Reviewing risk
 
-1. Every 12 months, and after a significant change, incident or new test result, the system owner reviews each risk in \<Risk List\> against the method in its section 5, and updates its rating, status and last-reviewed date. **Manual**
-2. They check that each acceptance in section 4 is within its review date, and that Medium and High risks have a decision. Test-Vulnerability.ps1, checks V05 to V07, does this mechanically. **Manual**
+1. Every 12 months, and after a significant change, incident or new test result, the system owner reviews each risk in \<Risk List\> against the method in its section 4, and updates its rating, status and last-reviewed date. **Manual**
+2. They check that each acceptance in section 3 is within its review date, and that Medium and High risks have a decision. Test-Vulnerability.ps1, checks V05 to V07, does this mechanically. **Manual**
 3. They record the review on TPL-23 and share it with the authorising official and the Head of Cyber. **Manual**
 4. The system owner decides Low risks, and the authorising official decides Medium and High risks, recording them in \<Decision Register\>. **Manual**
-5. At each review the system owner checks that the categorisation in \<System Security Plan\>, section 4.3, still fits the information \<System Name\> holds, and puts any change to the authorising official. **Manual**
+5. At each review the system owner checks that the categorisation in \<System Security Plan\>, section 3.3, still fits the information \<System Name\> holds, and puts any change to the authorising official. **Manual**
 
 #### PRO-RA-2 Reviewing the supply chain
 
 1. Every 12 months, before adding a supplier or a new kind of component, and after a significant change to the system or where it runs, the system owner and developers review packages, base images, suppliers and the VMs for origin, support, known problems and end of support. **Manual**
-2. They use \<Supply Chain Risk Management\>, section 4.4, the latest package and image check, and the CM bill of materials once built (PA-78). **Manual**
+2. They use \<Supply Chain Risk Management\>, section 3.4, the latest package and image check, and the CM bill of materials once built (PA-78). **Manual**
 3. They record the result on TPL-23, and any new risk in \<Risk List\>. **Manual**
 
 #### PRO-RA-3 Scanning and analysing
@@ -1530,13 +1287,13 @@ These procedures carry out \<Policy\> (RA). Steps marked **Manual** have no syst
 2. Monthly and at each release, the Windows server administrator runs a credentialed scan of both VMs, using an account approved for that purpose. **Not built** (PA-62)
 3. At each release, developers run Test-Vulnerability.ps1, which checks the packages and the images' operating system packages. An image scanner is **Not built** (PA-62). **Manual**
 4. At each release, developers run a web application scan of UI application, Admin application and API. **Not built** (PA-62)
-5. Within 5 working days, the security officer reviews the results on TPL-7. For each finding they record its severity under \<Risk Assessment Management\>, section 4.6, whether \<System Name\> uses the affected part, and the due date. **Manual**
+5. Within 5 working days, the security officer reviews the results on TPL-7. For each finding they record its severity under \<Risk Assessment Management\>, section 3.6, whether \<System Name\> uses the affected part, and the due date. **Manual**
 6. A finding that does not apply, such as a flaw in a feature \<System Name\> does not call, is marked as a false positive on TPL-7 with the reason, and checked again at the next scan. **Manual**
 7. The people responsible fix or mitigate each finding within its time. A fix that cannot meet its time goes to a risk decision, with its compensating measure. **Manual**
 
 #### PRO-RA-4 Responding to an exploited flaw
 
-1. The security officer checks CISA's Known Exploited Vulnerabilities catalogue and \<Organisation\>'s alerts at least weekly against the components in \<System Security Plan\>, section 4.4. **Manual**
+1. The security officer checks CISA's Known Exploited Vulnerabilities catalogue and \<Organisation\>'s alerts at least weekly against the components in \<System Security Plan\>, section 3.4. **Manual**
 2. A listed flaw in a \<System Name\> component is recorded on TPL-7 the same day, with a due date 3 days away. **Manual**
 3. Developers or the administrator apply the fix, or a mitigation such as disabling the feature or blocking its route, as an emergency change (\<Procedures\> (CM)). **Manual**
 4. The security officer confirms the fix or mitigation, and tells the system owner. If it cannot be done in 3 days, the authorising official decides at once. **Manual**
@@ -1549,17 +1306,12 @@ These procedures carry out \<Policy\> (RA). Steps marked **Manual** have no syst
 
 #### PRO-RA-6 Reviewing critical components
 
-1. At each major release and significant change, the system owner and developers review the critical components in \<Risk Assessment Management\>, section 4.9, using its method. **Manual**
+1. At each major release and significant change, the system owner and developers review the critical components in \<Risk Assessment Management\>, section 3.9, using its method. **Manual**
 2. They update the list, check each component is in \<System Security Plan\> (Test-Vulnerability.ps1, V08), and record the review on TPL-23. **Manual**
-
-| **CHAPTER SA** |
-| --- |
 
 ## SA System and Services Acquisition
 
 Procedures PRO-SA-1 to PRO-SA-7.
-
-[SA.1 Purpose](#sa1-purpose) · [SA.2 Procedures](#sa2-procedures)
 
 ### SA.1 Purpose
 
@@ -1572,8 +1324,8 @@ These procedures carry out \<Policy\> (SA). Steps marked **Manual** have no syst
 | PRO-SA-1 Developing a change | Every change | Developers, security officer | TPL-6 change record; the merge review | SA-3, SA-8, SA-10, SA-15 |
 | PRO-SA-2 Testing a release | Each release | Developers, security officer | Test results with a README and a manifest, in the evidence for each family | SA-11 |
 | PRO-SA-3 Buying a product or service | Each purchase; every 12 months for each external service | System owner | TPL-16 supplier review | SA-4, SA-9, SA-9(2) |
-| PRO-SA-4 Documentation | Each release | Developers, system owner | \<Administrator Guide\> and \<User Guide\> change history | SA-5 |
-| PRO-SA-5 Unsupported components | Monthly, and 6 months before support ends | Developers, authorising official | TPL-7; \<Maintenance Management\>, section 4.8 | SA-22, MA-6 |
+| PRO-SA-4 Documentation | Each release | Developers, system owner | \<Administrator Guide\> and \<User Guide\> change record | SA-5 |
+| PRO-SA-5 Unsupported components | Monthly, and 6 months before support ends | Developers, authorising official | TPL-7; \<Maintenance Management\>, section 3.8 | SA-22, MA-6 |
 | PRO-SA-6 Budgeting and reviews | Every 12 months | System owner, developers, security officer | TPL-23 | SA-2, SA-15 |
 | PRO-SA-7 Adding a third-party component | Before a new package, image or script is added | Developers | TPL-6 change record | SA-4, SR-3, RA-3(1) |
 
@@ -1581,15 +1333,15 @@ These procedures carry out \<Policy\> (SA). Steps marked **Manual** have no syst
 
 #### PRO-SA-1 Developing a change
 
-1. Developers plan and design the change against the SSDF practices in \<System and Services Acquisition Management\>, section 4.2, and note its security and privacy effect on TPL-6. **Manual**
-2. The security officer checks significant designs against the principles in \<Security Architecture\>, section 7.5, and developers update the critical components in \<Risk Assessment Management\>, section 4.9, at each major change. **Manual**
+1. Developers plan and design the change against the SSDF practices in \<System and Services Acquisition Management\>, section 3.2, and note its security and privacy effect on TPL-6. **Manual**
+2. The security officer checks significant designs against the principles in \<Security Architecture\>, section 6.5, and developers update the critical components in \<Risk Assessment Management\>, section 3.9, at each major change. **Manual**
 3. Another developer reviews and approves the change before it merges into the default branch. Until branches are protected, the reviewer records the approval on TPL-6. **Not built** (PA-91)
 4. The change follows \<Procedures\> (CM). **Not built** (PA-53)
 
 #### PRO-SA-2 Testing a release
 
 1. A build pipeline runs unit, integration and security tests at each release, with the package vulnerability audit on. **Not built** (PA-68, PA-92)
-2. Until then, developers run the test scripts in the developer test plan (\<System and Services Acquisition Management\>, section 4.9) on a separate test stack. **Manual**
+2. Until then, developers run the test scripts in the developer test plan (\<System and Services Acquisition Management\>, section 3.9) on a separate test stack. **Manual**
 3. Developers keep the results with a README and a manifest, in the evidence for the family, and raise each flaw in \<Risk List\> and \<Plan of Action and Milestones\>. **Manual**
 4. The security officer confirms that each fixed flaw passes when the test is run again. **Manual**
 5. Before go-live, and at each major release, the developers verify the web applications to OWASP ASVS 5.0 Level 2, and record the result. **Not built** (PA-68)
@@ -1598,7 +1350,7 @@ These procedures carry out \<Policy\> (SA). Steps marked **Manual** have no syst
 
 1. The system owner uses \<Organisation\>'s standard contract, adding security and privacy requirements, documentation, responsibilities and acceptance criteria. **Manual** (EV-SA-01)
 2. The contract or service terms state the controls, the provider's functions, ports, protocols and services, and the service levels with how they are measured and the remedies when they are missed. **Manual** (EV-SA-02, EV-SA-03)
-3. Every 12 months the system owner reviews each external service in \<System and Services Acquisition Management\>, section 4.7, including GitHub and the registries, and records the review on TPL-16. **Manual**
+3. Every 12 months the system owner reviews each external service in \<System and Services Acquisition Management\>, section 3.7, including GitHub and the registries, and records the review on TPL-16. **Manual**
 
 #### PRO-SA-4 Documentation
 
@@ -1608,7 +1360,7 @@ These procedures carry out \<Policy\> (SA). Steps marked **Manual** have no syst
 
 #### PRO-SA-5 Unsupported components
 
-1. The monthly check (SyOps C11) compares each component in \<Maintenance Management\>, section 4.8, with its vendor's support dates, and checks that each package and browser library is still maintained, is not deprecated, and has no known flaw without a fix. **Manual**
+1. The monthly check (SyOps C11) compares each component in \<Maintenance Management\>, section 3.8, with its vendor's support dates, and checks that each package and browser library is still maintained, is not deprecated, and has no known flaw without a fix. **Manual**
 2. Developers plan a replacement at least 6 months before support ends. **Manual**
 3. Any exception goes to the authorising official, with the risk stated. **Manual**
 
@@ -1621,16 +1373,11 @@ These procedures carry out \<Policy\> (SA). Steps marked **Manual** have no syst
 
 1. Before adding a package, base image or script, a developer checks its origin, licence, maintainer activity, support period and known vulnerabilities. **Manual**
 2. The developer records the check on TPL-6, and pins the version (or digest for an image). **Manual**
-3. The component is added to \<System Security Plan\>, section 4.4, and to the bill of materials once built (PA-78). **Manual**
-
-| **CHAPTER SC** |
-| --- |
+3. The component is added to \<System Security Plan\>, section 3.4, and to the bill of materials once built (PA-78). **Manual**
 
 ## SC System and Communications Protection
 
 Procedures PRO-SC-1 to PRO-SC-8.
-
-[SC.1 Purpose](#sc1-purpose) · [SC.2 Procedures](#sc2-procedures)
 
 ### SC.1 Purpose
 
@@ -1653,7 +1400,7 @@ These procedures carry out \<Policy\> (SC). The values, cryptographic register a
 
 #### PRO-SC-1 Setting up and checking TLS
 
-1. The Windows server administrator installs the certificates (PRO-SC-2) and configures the apps to serve HTTPS only, with TLS 1.3 preferred, TLS 1.2 limited to NCSC's GCM profiles, and SSL, TLS 1.0, TLS 1.1, compression and 0-RTT off (\<System and Communications Protection Management\>, section 4.3). **Not built** (PA-18)
+1. The Windows server administrator installs the certificates (PRO-SC-2) and configures the apps to serve HTTPS only, with TLS 1.3 preferred, TLS 1.2 limited to NCSC's GCM profiles, and SSL, TLS 1.0, TLS 1.1, compression and 0-RTT off (\<System and Communications Protection Management\>, section 3.3). **Not built** (PA-18)
 2. Developers make sure each app redirects HTTP, sends HSTS for at least 1 year, marks every cookie Secure, and calls API on the loopback address over HTTPS. **Not built** (PA-18)
 3. The database administrator turns on TLS in PostgreSQL, changes every client rule so that it requires TLS, and sets the minimum to TLS 1.2. API connects with full certificate and host name checking. **Not built** (PA-18)
 4. Developers run Test-Protection.ps1 against the VMs, and an outside TLS check against the web address, and file the results on TPL-8. **Manual**
@@ -1673,14 +1420,14 @@ These procedures carry out \<Policy\> (SC). The values, cryptographic register a
 #### PRO-SC-4 Changing the boundary
 
 1. Anyone needing a new flow, port, external service or listening address raises a change on TPL-6, with its business need. **Manual**
-2. The system owner approves it, updates \<System Security Plan\>, section 4.7, \<Security Architecture\>, Table 5, and the allow-lists in \<System and Communications Protection Management\>, section 4.2, before the rule is made. **Manual**
+2. The system owner approves it, updates \<System Security Plan\>, section 3.7, \<Security Architecture\>, Table 2, and the allow-lists in \<System and Communications Protection Management\>, section 3.2, before the rule is made. **Manual**
 3. A temporary exception is recorded on TPL-17, with an end date, and removed when no longer needed. **Manual**
 4. The Windows server administrator applies the host firewall rule, and \<Organisation\> applies any network rule. **Not built** (PA-83 for the admin portal)
 
 #### PRO-SC-5 Checking page code
 
 1. Developers serve every script and style from \<System Name\> itself. **Not built** (PA-34)
-2. Each app sends its security headers, with the page policy in \<System and Communications Protection Management\>, section 4.5. **Not built** (PA-51)
+2. Each app sends its security headers, with the page policy in \<System and Communications Protection Management\>, section 3.5. **Not built** (PA-51)
 3. At each release, developers run Test-Protection.ps1 (N04, N05, N10) and file the result on TPL-8. Any new mobile code needs the system owner's approval first. **Manual**
 
 #### PRO-SC-6 Responding to denial of service
@@ -1699,14 +1446,9 @@ These procedures carry out \<Policy\> (SC). The values, cryptographic register a
 1. Every 12 months the system owner, the security officer and \<Organisation\>'s security contact review the cryptographic register, the allow-lists, the external services and any exceptions, and record the result on TPL-23. **Manual**
 2. Keys or certificates near the end of their cryptoperiod, and algorithms that NCSC no longer recommends, are scheduled for change. **Manual**
 
-| **CHAPTER SI** |
-| --- |
-
 ## SI System and Information Integrity
 
 Procedures PRO-SI-1 to PRO-SI-8.
-
-[SI.1 Purpose](#si1-purpose) · [SI.2 Procedures](#si2-procedures)
 
 ### SI.1 Purpose
 
@@ -1732,7 +1474,7 @@ These procedures carry out \<Policy\> (SI). The values, detection use cases and 
 1. Each month and at each release, developers run Test-Vulnerability.ps1, and the Windows server administrator reviews the Windows Update report from both VMs. **Manual** (PA-57)
 2. The security officer records each flaw, its severity and its clock start on TPL-7. **Manual**
 3. The person responsible tests the update on a separate stack for its effect and side effects. **Manual**
-4. They install it through the change process in \<Procedures\> (CM), within the timetable in \<Risk Assessment Management\>, section 4.6. **Manual**
+4. They install it through the change process in \<Procedures\> (CM), within the timetable in \<Risk Assessment Management\>, section 3.6. **Manual**
 
 #### PRO-SI-2 Handling malicious code
 
@@ -1743,7 +1485,7 @@ These procedures carry out \<Policy\> (SI). The values, detection use cases and 
 
 #### PRO-SI-3 Reviewing monitoring
 
-1. Each week the security officer reviews the forwarded application, Windows and PostgreSQL logs, and the alerts raised, against the detection use cases in \<System and Information Integrity Management\>, section 4.4. **Not built** (PA-59)
+1. Each week the security officer reviews the forwarded application, Windows and PostgreSQL logs, and the alerts raised, against the detection use cases in \<System and Information Integrity Management\>, section 3.4. **Not built** (PA-59)
 2. They record what was reviewed and anything found on TPL-8. **Manual**
 3. The system owner raises monitoring when risk rises, and takes the legal adviser's opinion before monitoring users in a new way (D-SI-07). **Manual**
 
@@ -1761,13 +1503,13 @@ These procedures carry out \<Policy\> (SI). The values, detection use cases and 
 
 #### PRO-SI-6 Checking integrity
 
-1. At start-up, at each release and monthly, the Windows server administrator checks release packages against the baseline in \<System and Information Integrity Management\>, section 4.5. **Not built** (PA-61)
+1. At start-up, at each release and monthly, the Windows server administrator checks release packages against the baseline in \<System and Information Integrity Management\>, section 3.5. **Not built** (PA-61)
 2. The security officer runs the audit chain check and the document checksum check at the same times. **Not built** (PA-37, PA-61, PA-74)
 3. An unexpected change is handled as an incident, and the item is restored from a trusted copy. **Manual**
 
 #### PRO-SI-7 Managing information
 
-1. The system owner applies \<System Name\>'s retention schedule (\<PII Processing Management\>, section 4.7) to documents and outputs. **Not built** (PA-70)
+1. The system owner applies \<System Name\>'s retention schedule (\<PII Processing Management\>, section 3.7) to documents and outputs. **Not built** (PA-70)
 2. The database administrator keeps audit records for 12 months online and 12 months archived, and application logs for 30 days. **Not built** (PA-42)
 3. Disposal is recorded on TPL-13 and in the audit trail. **Manual**
 
@@ -1776,14 +1518,9 @@ These procedures carry out \<Policy\> (SI). The values, detection use cases and 
 1. Developers run Test-Integrity.ps1 on a separate test stack at each release, after a significant change and at each review, and file the result on TPL-8. **Manual**
 2. Any new gap goes to \<Risk List\> and \<Plan of Action and Milestones\>. **Manual**
 
-| **CHAPTER SR** |
-| --- |
-
 ## SR Supply Chain Risk Management
 
 Procedures PRO-SR-1 to PRO-SR-6.
-
-[SR.1 Purpose](#sr1-purpose) · [SR.2 Procedures](#sr2-procedures)
 
 ### SR.1 Purpose
 
@@ -1808,7 +1545,7 @@ These procedures carry out \<Policy\> (SR). Steps marked **Manual** rely on peop
 2. The developer adds the package and everything it pulls in to the offline feed, which records its SHA-256 value, and restores only from the feed. **Not built** (PA-94)
 3. The developer updates the project's lock file, and confirms the restore passes the signed-package trust policy and NuGet's audit. **Not built** (PA-94, PA-92)
 4. An image is pinned by digest, and a browser file is served by \<System Name\> or carries an integrity check. **Not built** (PA-77, PA-34)
-5. The developer records the change on TPL-6, and the system owner adds any new supplier to the register in \<Supply Chain Risk Management\>, section 5. **Manual**
+5. The developer records the change on TPL-6, and the system owner adds any new supplier to the register in \<Supply Chain Risk Management\>, section 4. **Manual**
 
 #### PRO-SR-2 Reviewing suppliers and the plan
 
@@ -1820,7 +1557,7 @@ These procedures carry out \<Policy\> (SR). Steps marked **Manual** rely on peop
 #### PRO-SR-3 Inspecting a release
 
 1. A developer produces the release's bill of materials, with each component's version, supplier, hash and licence. **Not built** (PA-78)
-2. A developer runs Test-SupplyChain.ps1, which checks the package sources, lock files, trust policy, feed index, image pinning, bill of materials and CDN files, and compares the release images and assemblies with the recorded SHA-256 baseline (\<System and Information Integrity Management\>, section 4.5). **Manual**
+2. A developer runs Test-SupplyChain.ps1, which checks the package sources, lock files, trust policy, feed index, image pinning, bill of materials and CDN files, and compares the release images and assemblies with the recorded SHA-256 baseline (\<System and Information Integrity Management\>, section 3.5). **Manual**
 3. Before installation, the Windows server administrator checks the release's SHA-256 values against the release record. **Not built** (PA-61)
 4. The security officer reviews any mismatch as a suspected incident under \<Procedures\> (IR). **Manual**
 
@@ -1833,7 +1570,7 @@ These procedures carry out \<Policy\> (SR). Steps marked **Manual** rely on peop
 #### PRO-SR-5 Notices and advisories
 
 1. \<Organisation\> reports a compromise to the security officer within 24 hours. **Manual** (EV-SR-01)
-2. For open-source suppliers, the security officer treats their published advisories as notice, through the sources in \<System and Information Integrity Management\>, section 4.3. **Manual**
+2. For open-source suppliers, the security officer treats their published advisories as notice, through the sources in \<System and Information Integrity Management\>, section 3.3. **Manual**
 3. The security officer records each notice that applies on TPL-7, and follows \<Procedures\> (IR) for a compromise. **Manual**
 
 #### PRO-SR-6 Disposal

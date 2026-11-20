@@ -23,7 +23,7 @@ A script, `tests\Test-PlanConsistency.ps1`, checks 24 things every time the set 
 - that the totals in the plan and the report match the assessment;
 - that every risk entry, fix and decision a document names exists;
 - that version numbers quoted in one document match the document they quote;
-- that Table 11 of the plan matches its control rows.
+- that Table 8 of the plan matches its control rows.
 
 What only a person can judge:
 
@@ -42,7 +42,7 @@ Read these straight through. They are short, and everything else assumes them.
 
 | Order | Document | Size | Why now | Look for |
 | --- | --- | --- | --- | --- |
-| 1 | [Documentation Map](Documentation%20Map.md), sections 1 to 4 | 2,500 of 5,500 | It lists every document and says where each family's material is | Whether the set looks complete for what you expect |
+| 1 | [Documentation Map](Documentation%20Map.md), sections 1 to 3 | 2,500 of 5,500 | It lists every document and says where each family's material is | Whether the set looks complete for what you expect |
 | 2 | [Concept of Operations](Concept%20of%20Operations.md) | 2,700 | Why \<System Name\> exists, who uses it and how | Whether the business picture is right. Several business facts are still placeholders |
 | 3 | [Security Architecture](Security%20Architecture.md) | 3,400 | The boundary, the components and the eight data flows | Whether the boundary and flows match what will be built |
 | 4 | [Roles and Responsibilities](Roles%20and%20Responsibilities.md) | 2,500 | Every other document names roles, and this one names the people | Whether each holder is right, and the two deputies still to be named |
@@ -51,7 +51,7 @@ Read these straight through. They are short, and everything else assumes them.
 
 | Order | Document | Size | Why now | Look for |
 | --- | --- | --- | --- | --- |
-| 5 | [System Security Plan](System%20Security%20Plan.md), sections 1 to 7 | 6,000 of 20,400 | The central document. These sections describe the system, its information, its laws and who is responsible | Categorisation, the inventory, the laws table and the six figures. Leave section 8 for stage 5 |
+| 5 | [System Security Plan](System%20Security%20Plan.md), sections 1 to 6 | 6,000 of 20,400 | The central document. These sections describe the system, its information, its laws and who is responsible | Categorisation, the inventory, the laws table and the six figures. Leave section 7 for stage 5 |
 | 6 | [Tailoring Register](Tailoring%20Register.md) | 2,800 | It says which controls do not apply, and why. That sets the scope of everything after | Whether each "not applicable" is justified, and the condition that must stay true |
 
 ### Stage 3: The rules, one family at a time
@@ -94,7 +94,7 @@ For system and communications protection, read [System and Communications Protec
 
 For system and information integrity, read [System and Information Integrity Management](System%20and%20Information%20Integrity%20Management.md) (8,600 words) in the same way. It holds the upload checks, the detection use cases and the integrity baseline.
 
-For supply chain risk management, read [Supply Chain Risk Management](Supply%20Chain%20Risk%20Management.md) (7,400 words) in the same way. Its section 4 is the supply chain plan, with the supplier register.
+For supply chain risk management, read [Supply Chain Risk Management](Supply%20Chain%20Risk%20Management.md) (7,400 words) in the same way. Its section 3 is the supply chain plan, with the supplier register.
 
 **Review them across, not down.** For each family, read its Policy chapter, then its Procedures chapter, then its Register chapter. That way a rule, the steps that carry it out and the values they use are all in mind at once, and gaps between them show. Reading one whole document and then the next loses that.
 
@@ -138,10 +138,10 @@ Review these after the rules, because each one judges or acts on what came befor
 | Order | Document | Size | Why now | Look for |
 | --- | --- | --- | --- | --- |
 | 15 | [Security Assessment Report](Security%20Assessment%20Report.md) | 4,500 | The results of all 19 families in a few pages | Whether the conclusion is fair, and the conditions before authorisation |
-| 16 | [System Security Plan](System%20Security%20Plan.md), section 8 | 14,500 | One line for each of the 316 controls | Sample it. Take five controls you know well and check the line is true |
+| 16 | [System Security Plan](System%20Security%20Plan.md), section 7 | 14,500 | One line for each of the 316 controls | Sample it. Take five controls you know well and check the line is true |
 | 17 | [Control Assessment Record](Control%20Assessment%20Record.md) | 79,800 | The finding behind every line: 1,998 statements | Do not read it through. For each family, read the summary and the result table, then sample ten findings |
-| 18 | [Risk List](Risk%20List.md), sections 1 to 5 | 4,000 of 16,500 | The 24 risks, how they are rated and who may accept them | Whether the ratings are right. Section 6 is reference |
-| 19 | [Plan of Action and Milestones](Plan%20of%20Action%20and%20Milestones.md) | 20,000 | The 94 fixes, and the road to authorisation in section 6 | Owners, effort and order. The milestone dates are still to be set |
+| 18 | [Risk List](Risk%20List.md), sections 1 to 4 | 4,000 of 16,500 | The 24 risks, how they are rated and who may accept them | Whether the ratings are right. Section 5 is reference |
+| 19 | [Plan of Action and Milestones](Plan%20of%20Action%20and%20Milestones.md) | 20,000 | The 94 fixes, and the road to authorisation in section 5 | Owners, effort and order. The milestone dates are still to be set |
 
 ### Stage 6: Reference documents
 
@@ -152,7 +152,7 @@ Look things up in these. Reading them end to end is poor use of a reviewer's tim
 | [Decision Register](Decision%20Register.md) | 27,100 | Check who decided something and when. Each approver should review only the decisions in their own name, against their sign-off sheet |
 | [Evidence Requests](Evidence%20Requests.md) | 7,900 | See what \<Organisation\> is asked for. \<Organisation\> should review this one in full |
 | [Interview Guide](Interview%20Guide.md) | 12,700 | Prepare the Level 2 interviews. The security assessor should review it |
-| [Risk List](Risk%20List.md), section 6 | 12,500 | Find the entry for one control that is not met |
+| [Risk List](Risk%20List.md), section 5 | 12,500 | Find the entry for one control that is not met |
 
 ### Stage 7: The guides
 
@@ -169,13 +169,13 @@ One person need not review everything. Splitting by role is faster, and puts eac
 | --- | --- | --- |
 | System owner | Stages 1 and 2, Security Operating Procedures, Plan of Action and Milestones | Everything else |
 | Head of Cyber | Policy, Incident Response Management | System Security Plan, Risk List |
-| Authorising official | Security Assessment Report, Risk List sections 1 to 5, System Security Plan sections 1 to 7 | Plan of Action and Milestones, Contingency Planning Management |
+| Authorising official | Security Assessment Report, Risk List sections 1 to 4, System Security Plan sections 1 to 6 | Plan of Action and Milestones, Contingency Planning Management |
 | Legal adviser | Privacy Plan, Data Protection Impact Assessment, the PT chapter of Policy, Procedures and the Register | The laws table in the System Security Plan, and the monitoring rules in Security Operating Procedures |
 | Business and information owner | Concept of Operations, the retention schedule in the Register (section PT.4) | Contingency Planning Management, for the recovery times |
 | Developers | Security Architecture, Access Control Management, Administrator Guide, User Guide, the CM, SA, SC and SI chapters of the Register | Plan of Action and Milestones, for the fixes that are theirs |
 | Security officer | Incident Response Management, Security Operating Procedures Part C, the AU, IR and SI chapters of Procedures | Record Templates |
 | \<Organisation\>'s security contact | Evidence Requests | The inherited controls in the Register (section CA.7) |
-| Security assessor | Control Assessment Record, Interview Guide, Security Assessment Report | System Security Plan section 8 |
+| Security assessor | Control Assessment Record, Interview Guide, Security Assessment Report | System Security Plan section 7 |
 
 ## 5 Three shorter paths
 
@@ -183,9 +183,9 @@ Not every review needs the whole set.
 
 | If the reviewer has | Read |
 | --- | --- |
-| One hour | Security Assessment Report, then System Security Plan sections 2 to 4 |
-| Half a day | Stage 1, System Security Plan sections 1 to 7, Security Assessment Report, Risk List sections 1 to 5, and the road to authorisation in Plan of Action and Milestones section 6 |
-| One family to review | That family's chapter in Policy, Procedures and the Register, then its section in the System Security Plan (8.1 to 8.19), its chapter in the Control Assessment Record, and its part of Risk List section 6. Table 5 of the Documentation Map lists all of these for each family |
+| One hour | Security Assessment Report, then System Security Plan sections 1 to 3 |
+| Half a day | Stage 1, System Security Plan sections 1 to 6, Security Assessment Report, Risk List sections 1 to 4, and the road to authorisation in Plan of Action and Milestones section 5 |
+| One family to review | That family's chapter in Policy, Procedures and the Register, then its section in the System Security Plan (7.1 to 7.19), its chapter in the Control Assessment Record, and its part of Risk List section 5. Table 2 of the Documentation Map lists all of these for each family |
 
 ## 6 Handling review comments
 

@@ -1,143 +1,12 @@
 # \<System Name\> Risk List
 
-**\<ref\> | Version \<ver\> | Approved by the system owner; risk decisions recorded**
+## 1 Purpose and summary
 
-**Contents**
+This list is used by every control family, and this version covers the AC, AU, IA, SC, CM, SI, RA, CA, IR, CP, AT, MA, MP, PE, PL, PS, PT, SA and SR families. The top risks are a stolen password, full database control and interception of traffic. The risk of reading another project's documents has been reduced by the AC-3 fixes. The authorising official confirmed the method on 6 November 2026, only the items in section 3 have been accepted, and residual risk assumes the linked POA&M items are done. Four operational risks were added on 12 November 2026 after the whole-set review: incident handling (R-IR-01), training (R-AT-01), stored data and keys (R-SC-01) and the supply chain (R-SR-01). Their ratings are proposed, and await the authorising official (D-RA-10). \<System Name\> is not in production, and the current stack holds only sample data. It will run on two VMs on \<Organisation\>'s network.
 
-[1 Document control](#1-document-control)
+## 2 Risk register
 
-[2 Purpose and summary](#2-purpose-and-summary)
-
-[3 Risk register](#3-risk-register)
-
-[4 Risk acceptance](#4-risk-acceptance)
-
-[5 Risk method](#5-risk-method)
-
-[6 Non-compliance register](#6-non-compliance-register)
-
-| **SECTION 1** |
-| --- |
-
-## 1 Document control
-
-### 1.1 Document details
-
-**Table 1: Document details**
-
-| Item | Detail |
-| --- | --- |
-| Reference | \<ref\> |
-| Title | \<System Name\> Risk List |
-| Version | \<ver\> |
-| Status | Approved by the system owner as the current record; risk decisions recorded |
-| Date | 5 November 2026 |
-| Owner | System owner |
-| Applies to | All control families; AC, AU, IA, SC, CM, SI, RA, CA, IR, CP, AT, MA, MP, PE, PL, PS, PT, SA and SR assessed in this version |
-| Classification | Restricted |
-| Next review | Every 3 months once in operation, and after a significant change |
-| Format | \<Documentation Map\>, section 5 |
-
-### 1.2 Approval
-
-**Table 2: Approval**
-
-| Role | Name | Decision | Date |
-| --- | --- | --- | --- |
-| System owner | \[Name\] | Approved as the current record | 7 November 2026 |
-| Authorising official | \[Name\] | Approved as an accurate record; not authorised | 7 November 2026 |
-
-### 1.3 Change history
-
-**Table 3: Change history**
-
-| Version | Date | Change |
-| --- | --- | --- |
-| \<ver\> | 18 November 2026 | Whole-set review: five entries name the design document that now holds each family's former register chapter; NC-SA-13 no longer counts the test scripts; NC-PT-05 and NC-SC-16 are worded without code terms. No rating or decision is changed |
-| \<ver\> | 18 November 2026 | Citations of other documents brought up to their current versions |
-| \<ver\> | 18 November 2026 | References to the integrity design point to \<System and Information Integrity Management\>, where it is now held (D-SI-10). Nineteen SC, SI and SR entries name the new POA&M items PA-129, PA-130 and PA-131, which risks R-AC-11, R-AC-07 and R-SR-01 list. NC-SI-03, NC-SI-10 and NC-SI-15 also name PA-91, PA-74 and PA-70, as the security plan already did. No rating or decision is changed. Citations of other documents brought up to their current versions |
-| \<ver\> | 18 November 2026 | NC-SA-10 and NC-SA-13 say what the cross-check found. No rating or decision is changed |
-| \<ver\> | 18 November 2026 | References to the acquisition design point to \<System and Services Acquisition Management\>, where it is now held (D-SA-19). Seven SA entries name the new POA&M item, PA-128; four of them named none, and three only an evidence request. Risk R-SA-01 lists it. NC-SA-05 points to the family design documents. No rating or decision is changed |
-| \<ver\> | 18 November 2026 | Four RA entries say what the cross-check found. No rating or decision is changed |
-| \<ver\> | 18 November 2026 | References to the risk assessment design point to \<Risk Assessment Management\>, where it is now held (D-RA-11). Four RA entries name the new POA&M item, PA-127; two of them named none, and two only an evidence request. Risk R-AC-11 lists it. No rating or decision is changed. Citations of other documents brought up to their current versions |
-| \<ver\> | 18 November 2026 | References to the personal data design point to \<PII Processing Management\>, where it is now held (D-PT-22). Five PT entries name the new POA&M item, PA-126; four of them named none. NC-PT-17 and NC-PT-20 cite the accuracy and disposal procedure, PRO-PT-5, in place of the impact assessment procedure. No rating or decision is changed. Citations of other documents brought up to their current versions |
-| \<ver\> | 17 November 2026 | Citations of other documents brought up to their current versions |
-| \<ver\> | 17 November 2026 | References to the personnel security design point to \<Personnel Security Management\>, where it is now held (D-PS-10). Seven PS entries name the new POA&M item, PA-125. Six of them named only an evidence request, or nothing. No rating or decision is changed. Citations of other documents brought up to their current versions |
-| \<ver\> | 17 November 2026 | Risk R-AC-11, that the system cannot be authorised for want of provider evidence, names PA-124, for \<Organisation\>'s programme. No rating is changed |
-| \<ver\> | 17 November 2026 | Citations of other documents brought up to their current versions |
-| \<ver\> | 17 November 2026 | Three PL entries name the new POA&M item, PA-123, and the central management entry names PA-88. None had an item. No rating or decision is changed. Citations of other documents brought up to their current versions |
-| \<ver\> | 17 November 2026 | NC-PT-12, for the personal data in visitor records, names PA-122. It had no item. No rating or decision is changed. Citations of other documents brought up to their current versions |
-| \<ver\> | 17 November 2026 | The 17 PE entries that named only an evidence request now name the new POA&M item, PA-122. No rating or decision is changed. Citations of other documents brought up to their current versions |
-| \<ver\> | 17 November 2026 | Citations of other documents brought up to their current versions |
-| \<ver\> | 17 November 2026 | Citations of other documents brought up to their current versions |
-| \<ver\> | 17 November 2026 | Citations of other documents brought up to their current versions |
-| \<ver\> | 17 November 2026 | NC-MP-04: the interim check of the export folder is each working day (D-MP-10). No rating or decision is changed. Citations of other documents brought up to their current versions |
-| \<ver\> | 17 November 2026 | The MP entries name the new POA&M item, PA-121. Two entries, for media access and media use, had no item. No rating or decision is changed. Citations of other documents brought up to their current versions |
-| \<ver\> | 17 November 2026 | Citations of other documents brought up to their current versions |
-| \<ver\> | 17 November 2026 | References to the maintenance design point to \<Maintenance Management\>, where it is now held (D-MA-09). The MA entries name the new POA&M item, PA-120. Two entries, for tool inspection and removal control, had no item. No rating or decision is changed. Citations of other documents brought up to their current versions |
-| \<ver\> | 17 November 2026 | Citations of other documents brought up to their current versions |
-| \<ver\> | 17 November 2026 | Citations of other documents brought up to their current versions |
-| \<ver\> | 17 November 2026 | Four non-compliances linked to the items that fix them: NC-IR-02 and NC-PT-10 to PA-97, NC-IR-05 to PA-14, and NC-IR-07 to PA-65. Breach training (IR-2(3)) had no item. Citations of other documents brought up to their current versions |
-| \<ver\> | 17 November 2026 | Citations of other documents brought up to their current versions |
-| \<ver\> | 17 November 2026 | Citations of other documents brought up to their current versions |
-| \<ver\> | 17 November 2026 | References to the incident response design follow the new section numbers of \<Incident Response Management\> (D-IR-10). The IR entries name their POA&M items, PA-118, PA-119 and PA-88. No rating or decision is changed. Citations of other documents brought up to their current versions |
-| \<ver\> | 16 November 2026 | Citations of other documents brought up to their current versions |
-| \<ver\> | 15 November 2026 | The IA entries name the new POA&M items, PA-116 and PA-117. No rating or decision is changed. Citations of other documents brought up to their current versions |
-| \<ver\> | 15 November 2026 | Citations of other documents brought up to their current versions |
-| \<ver\> | 15 November 2026 | Citations of other documents brought up to their current versions |
-| \<ver\> | 15 November 2026 | The CP entries name their POA&M items, PA-81, PA-88, PA-114 and PA-115. No rating or decision is changed. Citations of other documents brought up to their current versions |
-| \<ver\> | 13 November 2026 | Citations of other documents brought up to their current versions |
-| \<ver\> | 13 November 2026 | Citations of other documents brought up to their current versions |
-| \<ver\> | 13 November 2026 | Citations of other documents brought up to their current versions |
-| \<ver\> | 13 November 2026 | NC-CM-21 names PA-113. No rating or decision is changed. Citations of other documents brought up to their current versions |
-| \<ver\> | 13 November 2026 | Citations of other documents brought up to their current versions |
-| \<ver\> | 13 November 2026 | References to the configuration management design follow the new section numbers of \<Configuration Management\> (D-CM-13). NC-CM-21 pointed to the wrong table, and now points to the component list. The CM entries name their POA&M items, PA-110 to PA-112 and PA-88. No rating or decision is changed. Citations of other documents brought up to their current versions |
-| \<ver\> | 13 November 2026 | Citations of other documents brought up to their current versions |
-| \<ver\> | 13 November 2026 | Citations of other documents brought up to their current versions |
-| \<ver\> | 12 November 2026 | Citations of other documents brought up to their current versions |
-| \<ver\> | 12 November 2026 | Citations of other documents brought up to their current versions |
-| \<ver\> | 12 November 2026 | The CA entries name their POA&M items, PA-106 to PA-108. No rating or decision is changed. Citations of other documents brought up to their current versions |
-| \<ver\> | 12 November 2026 | No document sends the reader to the application's code: source file, class and setting names are replaced by what they stand for, stated in plain words. No value, finding or decision is changed. Citations of other documents brought up to their current versions |
-| \<ver\> | 12 November 2026 | Citations of other documents brought up to their current versions |
-| \<ver\> | 12 November 2026 | NC-AU-15 names PA-105. No rating or decision is changed. Citations of other documents brought up to their current versions |
-| \<ver\> | 12 November 2026 | NC-AU-16 names PA-104. No rating or decision is changed. Citations of other documents brought up to their current versions |
-| \<ver\> | 12 November 2026 | References to the audit design point to \<Audit and Accountability Management\>, where it is now held (D-AU-10). NC-AU-02 and NC-AU-11 name the new POA&M items PA-101 to PA-103. No rating or decision is changed. Citations of other documents brought up to their current versions |
-| \<ver\> | 12 November 2026 | The training entries NC-AT-02 to NC-AT-06, NC-PT-08 and NC-CP-06 name their POA&M items (PA-96 to PA-100, PA-81), and R-AT-01 is treated through them. No rating or decision is changed. Citations of other documents brought up to their current versions |
-| \<ver\> | 12 November 2026 | Citations of other documents brought up to their current versions |
-| \<ver\> | 12 November 2026 | References to the training design point to \<Awareness and Training Management\>, where it is now held (D-AT-09). Citations of other documents brought up to their current versions |
-| \<ver\> | 12 November 2026 | Citations of other documents brought up to their current versions |
-| \<ver\> | 12 November 2026 | Citations of other documents brought up to their current versions |
-| \<ver\> | 12 November 2026 | Citations of other documents brought up to their current versions |
-| \<ver\> | 12 November 2026 | D-AC-23 noted against R-AC-10 and the AC and IA entries; NC-IA-03 and NC-IA-04 name PA-95. No rating, treatment or decision is changed. Citations of other documents brought up to their current versions |
-| \<ver\> | 12 November 2026 | Version numbers are shown as a placeholder, as the system owner asked (D-GEN-28). No other change. Citations of other documents brought up to their current versions |
-| \<ver\> | 12 November 2026 | The document number is replaced by a placeholder on the line under the title and in the details table, as the system owner asked (D-GEN-27). No other change. Citations of other documents brought up to their current versions |
-| \<ver\> | 12 November 2026 | The name of the system is shown as a placeholder, as the system owner asked (D-GEN-26). No other change. Citations of other documents brought up to their current versions |
-| \<ver\> | 12 November 2026 | Citations of other documents brought up to their current versions |
-| \<ver\> | 12 November 2026 | Citations of other documents brought up to their current versions |
-| \<ver\> | 12 November 2026 | Citations of other documents brought up to their current versions |
-| \<ver\> | 12 November 2026 | Citations of other documents brought up to their current versions |
-| \<ver\> | 12 November 2026 | References to the access control design point to \<Access Control Management\>, where it is now held. Citations of other documents brought up to their current versions |
-| \<ver\> | 12 November 2026 | Citations of other documents brought up to their current versions |
-| \<ver\> | 12 November 2026 | The earlier rows of the change history are folded into one row, as the system owner decided (D-GEN-25). No other change. Citations of other documents brought up to their current versions |
-| \<ver\> | 12 November 2026 | Citations of other documents brought up to their current versions |
-| \<ver\> | 12 November 2026 | Citations of other documents brought up to their current versions |
-| \<ver\> | 12 November 2026 | Citations of other documents brought up to their current versions |
-| \<ver\> | 12 November 2026 | References to the register, the policy and the assessment record follow their new section and table numbers (D-GEN-24). Citations of other documents brought up to their current versions |
-| \<ver\> to \<ver\> | 5 to 12 November 2026 | The earlier versions. Their history is kept in the change record (\<Documentation Map\>, section 5.1) |
-
-| **SECTION 2** |
-| --- |
-
-## 2 Purpose and summary
-
-This list is used by every control family, and this version covers the AC, AU, IA, SC, CM, SI, RA, CA, IR, CP, AT, MA, MP, PE, PL, PS, PT, SA and SR families. The top risks are a stolen password, full database control and interception of traffic. The risk of reading another project's documents has been reduced by the AC-3 fixes. The authorising official confirmed the method on 6 November 2026, only the items in section 4 have been accepted, and residual risk assumes the linked POA&M items are done. Four operational risks were added on 12 November 2026 after the whole-set review: incident handling (R-IR-01), training (R-AT-01), stored data and keys (R-SC-01) and the supply chain (R-SR-01). Their ratings are proposed, and await the authorising official (D-RA-10). \<System Name\> is not in production, and the current stack holds only sample data. It will run on two VMs on \<Organisation\>'s network.
-
-| **SECTION 3** |
-| --- |
-
-## 3 Risk register
-
-**Table 4: Risk register**
+**Table 1: Risk register**
 
 | ID | Risk | Cause | Consequence | Likelihood | Impact | Rating | Treatment | Residual | Owner | POA&M | Status | Last reviewed |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -166,12 +35,9 @@ This list is used by every control family, and this version covers the AC, AU, I
 | R-SC-01 | Stored documents or keys are read from a disk, backup or export copy | In Docker, the database, backups, export copies and the data protection key rings are not encrypted at rest; BitLocker and encrypted backups are planned for the VMs but not built; checksums use MD5 | Documents disclosed without signing in; sessions forged from a copied key ring | Low | High | Medium | Fix | Low | System owner | PA-52, PA-61, PA-86, PA-93 | Open; proposed on 12 November 2026, and the rating awaits the authorising official (D-RA-10) | 12 November 2026 |
 | R-SR-01 | A compromised or counterfeit component reaches the build | Most packages are restored straight from nuget.org, with no lock files, trust policy or audit; images are pulled by floating tag; there is no bill of materials; browser files from the CDN have no integrity check (U01 to U04, U06, U07, U09) | Malicious code runs inside \<System Name\> with access to every document | Low | High | Medium | Fix (PA-94 proposed by the system owner; awaits the authorising official) | Low | System owner | PA-34, PA-77, PA-78, PA-92, PA-94, PA-131 | Open; proposed on 12 November 2026, and the rating awaits the authorising official (D-RA-10) | 12 November 2026 |
 
-| **SECTION 4** |
-| --- |
+## 3 Risk acceptance
 
-## 4 Risk acceptance
-
-**Table 5: Risk acceptance**
+**Table 2: Risk acceptance**
 
 | Risk | Decision | Name | Date | Review date |
 | --- | --- | --- | --- | --- |
@@ -187,20 +53,17 @@ This list is used by every control family, and this version covers the AC, AU, I
 | NC-CM-16 (R-AC-04): the approved software list is not technically enforced; it is reviewed every 12 months (PA-55) | Accepted, Medium, for 12 months | \[Name\] | 6 November 2026 | 6 November 2027 |
 | NC-09, 10, 12, 13, 15, 18, NC-AU-12, NC-IA-09, NC-CM-13: parts other than TLS and secrets (PA-18, PA-19) open in production while their POA&M items are fixed | Accepted, High, until remediated, for no more than 6 months after production | \[Name\] | 6 November 2026 | 6 months after production |
 
-| **SECTION 5** |
-| --- |
-
-## 5 Risk method
+## 4 Risk method
 
 \<System Name\> is not required to meet every control. The organisation takes a risk-based approach: every non-compliance is identified and documented, its risk is understood, and a named person decides what happens to it. A risk that is acceptable may be accepted with a recorded decision. A risk that is too high requires a remediation plan in \<Plan of Action and Milestones\>. Finding a non-compliance does not by itself start a fix.
 
 This method follows the risk response in NIST SP 800-37 Rev 2 (tasks R-2 and R-3). The risk model follows NIST SP 800-30 Rev 1: a threat source exploits a weakness, with a likelihood, to cause an impact. The system owner agreed the method, and the authorising official confirmed it on 6 November 2026.
 
-### 5.1 Rating
+### 4.1 Rating
 
 Likelihood and impact are each rated Low, Medium or High. Impact considers the confidentiality, integrity and availability of the documents \<System Name\> holds, and the effect on \<Organisation\>.
 
-**Table 6: Risk rating**
+**Table 3: Risk rating**
 
 | Likelihood | Impact Low | Impact Medium | Impact High |
 | --- | --- | --- | --- |
@@ -210,7 +73,7 @@ Likelihood and impact are each rated Low, Medium or High. Impact considers the c
 
 The matrix weights impact more than likelihood on purpose. A High impact can never rate below Medium, and a Low impact never above Low, because \<System Name\>'s harm is driven by what it holds: one disclosure of HR documents matters more than how often an attempt is made. NIST SP 800-30 Rev 1 allows the organisation to set this (Appendix I).
 
-**Table 6a: Likelihood scale**
+**Table 3a: Likelihood scale**
 
 | Level | Meaning |
 | --- | --- |
@@ -218,7 +81,7 @@ The matrix weights impact more than likelihood on purpose. A High impact can nev
 | Medium | The threat source is able, but something in place makes success less likely, or the weakness needs inside knowledge; possible within a year |
 | Low | Needs rare skill, access or a chain of failures, or a compensating control is in place and tested; unlikely within a year |
 
-**Table 6b: Impact scale**
+**Table 3b: Impact scale**
 
 | Level | Meaning |
 | --- | --- |
@@ -226,7 +89,7 @@ The matrix weights impact more than likelihood on purpose. A High impact can nev
 | Medium | Serious adverse effect on part of the service: some documents disclosed or changed, or a loss of service beyond the 72-hour recovery time |
 | Low | Limited adverse effect: no documents disclosed, and a short loss of service within the recovery time |
 
-**Table 6c: Threat sources considered**
+**Table 3c: Threat sources considered**
 
 | Source (SP 800-30 Rev 1, Table D-2) | Examples for \<System Name\> |
 | --- | --- |
@@ -242,7 +105,7 @@ The matrix weights impact more than likelihood on purpose. A High impact can nev
 - Where the evidence is a single test or a document review, not operation over time, the rating is the higher of the two plausible levels.
 - Ratings are reviewed every 12 months, and after a significant change, incident or new test result (\<Procedures\>, PRO-RA-1).
 
-**Table 6d: Provisional ratings**
+**Table 3d: Provisional ratings**
 
 A rating marked provisional was set before the evidence was seen. Each is settled, and the word removed, when the evidence below arrives.
 
@@ -259,9 +122,9 @@ A rating marked provisional was set before the evidence was seen. Each is settle
 | NC-37 | AC-20(2) | Medium, provisional | EV-AC-17: portable storage controls |
 | NC-SC-21, NC-SC-22 | SC-28, SC-28(1) | Medium, provisional | The VM build: BitLocker, encrypted backups and protected key rings in place and tested (PA-52, PA-93) |
 
-### 5.2 Who may decide
+### 4.2 Who may decide
 
-**Table 7: Decision rules by rating**
+**Table 4: Decision rules by rating**
 
 | Rating | Default position | Who decides | Conditions of acceptance |
 | --- | --- | --- | --- |
@@ -271,32 +134,29 @@ A rating marked provisional was set before the evidence was seen. Each is settle
 
 These thresholds are \<System Name\>'s own. They are to be confirmed against \<Organisation\>'s risk management strategy and risk appetite (PM-9, EV-PM-01) by the Head of Cyber (D-PM-03). Until then they stand as agreed by the system owner and authorising official.
 
-### 5.3 Treatments
+### 4.3 Treatments
 
-**Table 8: Treatments**
+**Table 5: Treatments**
 
 | Treatment | Meaning | Where it is recorded |
 | --- | --- | --- |
-| Accept | The risk is understood and tolerated, and the non-compliance remains | Section 4 of this document, and the control's line in \<System Security Plan\>, section 8 |
+| Accept | The risk is understood and tolerated, and the non-compliance remains | Section 3 of this document, and the control's line in \<System Security Plan\>, section 7 |
 | Remediate | The non-compliance is to be fixed, on a plan and not immediately | \<Plan of Action and Milestones\>, with milestones |
 | Approve | The mechanism exists or no mechanism is needed, and only a decision or value is outstanding | \<Access Control Management\>, appendix B |
-| Evidence | The control is expected to be inherited, and \<Organisation\> must supply the evidence | \<Evidence Requests\> and the control's line in \<System Security Plan\>, section 8, then rated when the evidence is seen |
-| Tailor | The control or part is proposed as not applicable, with a rationale | \<System Security Plan\>, section 6 |
+| Evidence | The control is expected to be inherited, and \<Organisation\> must supply the evidence | \<Evidence Requests\> and the control's line in \<System Security Plan\>, section 7, then rated when the evidence is seen |
+| Tailor | The control or part is proposed as not applicable, with a rationale | \<System Security Plan\>, section 5 |
 
-| **SECTION 6** |
-| --- |
-
-## 6 Non-compliance register
+## 5 Non-compliance register
 
 This register has one entry for each control that is not fully satisfied, by family in NIST order. **The authorising official decided some items on 6 November 2026, and chose to remediate TLS and committed secrets (PA-18, PA-19) before production, the other High items within 6 months after production, and the Medium items through the plan. Multi-factor authentication (NC-IA-03, NC-IA-04) is accepted to 6 May 2027 (\<Decision Register\>).** Cause codes are D (a decision or approval is outstanding), G (a gap in the system) and E (evidence is not yet available from the VMs or \<Organisation\>). Ratings marked "provisional" will be set when the evidence is seen.
 
-### 6.1 Access Control (AC)
+### 5.1 Access Control (AC)
 
 On 12 November 2026 the system owner stated that \<System Name\> signs users in through \<Organisation\>'s AD FS, with multi-factor authentication, takes roles and project access from Active Directory groups, and holds no accounts or passwords of its own (D-AC-23). The entries below on \<System Name\>'s own passwords, lockout and accounts record what was found on the build tested before that. They and their decisions stand until the family is reassessed with AD FS sign-in (PA-95).
 
 There is one entry for each of the 39 AC controls, because none is yet fully satisfied. The system owner decided the Low items on 5 November 2026 (\<Decision Register\>). The treatment shown for the others is a proposal.
 
-**Table 9: AC non-compliance register**
+**Table 6: AC non-compliance register**
 
 | ID | Control | Non-compliance | Cause | Risk | Rating | Proposed treatment | Reason | POA&M | Decision |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -340,26 +200,26 @@ There is one entry for each of the 39 AC controls, because none is yet fully sat
 | NC-38 | AC-21 | Nothing assists sharing decisions, and restrictions are not recorded on documents | D, G | R-AC-11 | Low | Accept | The approver's manual decision under PRO-AC-16 is proportionate | PA-22 | Accepted |
 | NC-39 | AC-22 | The no-public-content decision is not approved | D | R-AC-11 | Low | Tailor | Not applicable if P-AC-24 is approved | PA-22 | Tailored |
 
-### 6.2 Awareness and Training (AT)
+### 5.2 Awareness and Training (AT)
 
 There is one entry for each AT control, as none is yet satisfied. The decisions are recorded in \<Decision Register\>.
 
-**Table 10: AT non-compliance register**
+**Table 7: AT non-compliance register**
 
 | ID | Control | Non-compliance | Cause | Risk | Rating | Proposed treatment | Reason | POA&M | Decision |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | NC-AT-01 | AT-1 | Policy \<ver\> is legally reviewed and awaits the Head of Cyber (D-AT-07); procedures approved; not yet shared | D | R-AC-11 | Low | Approve | No system change is needed | PA-20 | Approve |
-| NC-AT-02 | AT-2 | The \<System Name\> briefing is outlined (\<Awareness and Training Management\>, section 4.3) but not yet given; \<Organisation\>'s course not seen | E | R-AT-01 | Low | Evidence | Briefing given with the SyOps signature; course expected from \<Organisation\> | EV-AT-01, PA-96, PA-99 | Obtain evidence |
+| NC-AT-02 | AT-2 | The \<System Name\> briefing is outlined (\<Awareness and Training Management\>, section 3.3) but not yet given; \<Organisation\>'s course not seen | E | R-AT-01 | Low | Evidence | Briefing given with the SyOps signature; course expected from \<Organisation\> | EV-AT-01, PA-96, PA-99 | Obtain evidence |
 | NC-AT-03 | AT-2(2) | Insider threat scenarios outlined in the briefing; \<Organisation\>'s content not seen | E | R-AT-01 | Low | Evidence | As NC-AT-02 | EV-AT-01, PA-96, PA-99 | Obtain evidence |
 | NC-AT-04 | AT-2(3) | Social engineering scenarios outlined in the briefing; \<Organisation\>'s content not seen | E | R-AT-01 | Low | Evidence | As NC-AT-02 | EV-AT-01, PA-96, PA-99 | Obtain evidence |
-| NC-AT-05 | AT-3 | Role curriculum set (\<Awareness and Training Management\>, section 4.4); module content not yet written or given | D | R-AT-01 | Low | Approve | The security officer writes it from the curriculum (PRO-AT-2) | PA-97, PA-99, PA-100 | Approve |
+| NC-AT-05 | AT-3 | Role curriculum set (\<Awareness and Training Management\>, section 3.4); module content not yet written or given | D | R-AT-01 | Low | Approve | The security officer writes it from the curriculum (PRO-AT-2) | PA-97, PA-99, PA-100 | Approve |
 | NC-AT-06 | AT-4 | Training register set; no records yet | D | R-AT-01 | Low | Approve | In PRO-AT-4 | PA-98 | Approve |
 
-### 6.3 Audit and Accountability (AU)
+### 5.3 Audit and Accountability (AU)
 
 There is one entry for each AU control that is not satisfied. AU-3(1) is satisfied in the application, so it has none. The system owner decided the Low items on 6 November 2026 (\<Decision Register\>); the others are proposals.
 
-**Table 11: AU non-compliance register**
+**Table 8: AU non-compliance register**
 
 | ID | Control | Non-compliance | Cause | Risk | Rating | Proposed treatment | Reason | POA&M | Decision |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -381,11 +241,11 @@ There is one entry for each AU control that is not satisfied. AU-3(1) is satisfi
 | NC-AU-16 | AU-9, PT-3 | Each audit event is repeated in the application log with the username, IP address and session ID, and that log is not protected, reviewed or kept to a set period (A38) | G | R-AU-02 | Medium | Remediate | Personal data must be kept to what an investigation needs, and audit information protected wherever it is held. Until fixed, \<Audit and Accountability Management\> treats the application log as audit information | PA-75, PA-104 | Remediate (D-AU-06) |
 | NC-AU-17 | AU-2, AU-12 | Reading the audit log, start-up and shut-down, changes to logging and chain check results are not logged | G | R-AU-01 | Low | Remediate | Access to the audit log and gaps in logging must themselves be traceable | PA-76 | Remediate (system owner, Low) |
 
-### 6.4 Assessment, Authorization and Monitoring (CA)
+### 5.4 Assessment, Authorization and Monitoring (CA)
 
 There is one entry for each CA control, as none is yet satisfied. The decisions are recorded in \<Decision Register\>.
 
-**Table 12: CA non-compliance register**
+**Table 9: CA non-compliance register**
 
 | ID | Control | Non-compliance | Cause | Risk | Rating | Proposed treatment | Reason | POA&M | Decision |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -400,11 +260,11 @@ There is one entry for each CA control, as none is yet satisfied. The decisions 
 | NC-CA-09 | CA-7(4) | Risk monitoring not started | D | R-AC-11 | Low | Approve | Starts at go-live | PA-108 | Approve |
 | NC-CA-10 | CA-9 | The link between the VMs is planned, not approved | D | R-AC-11 | Low | Approve | When the VMs are built | PA-63 | Approve |
 
-### 6.5 Configuration Management (CM)
+### 5.5 Configuration Management (CM)
 
 There is one entry for each CM control. CM-2(7) and CM-3(4) became satisfied once their values were agreed. The decisions are recorded in \<Decision Register\>.
 
-**Table 13: CM non-compliance register**
+**Table 10: CM non-compliance register**
 
 | ID | Control | Non-compliance | Cause | Risk | Rating | Proposed treatment | Reason | POA&M | Decision |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -428,7 +288,7 @@ There is one entry for each CM control. CM-2(7) and CM-3(4) became satisfied onc
 | NC-CM-18 | CM-8(1) | Updates are not yet in use | D | R-AC-11 | Low | Approve | In PRO-CM-1 | PA-111 | Approve |
 | NC-CM-19 | CM-8(3) | Detection is not evidenced | E | R-AC-11 | Low | Evidence | \<Organisation\> | EV-CM-02, PA-112 | Obtain evidence |
 | NC-CM-20 | CM-9 | The plan is approved, and moves to SharePoint when all families are done | D | R-AC-11 | Low | Approve | No system change is needed | PA-88 | Approve |
-| NC-CM-21 | CM-10 | \<System Name\>'s own components are reviewed in \<Configuration Management\>, section 4.5, and ImageSharp is under the free community licence (D-CM-09); \<Organisation\>'s licences are not yet evidenced | E | R-AC-11 | Low | Evidence | Obtain \<Organisation\>'s licence record; re-check component licences at each release | EV-CM-03, PA-112, PA-113 | Obtain evidence |
+| NC-CM-21 | CM-10 | \<System Name\>'s own components are reviewed in \<Configuration Management\>, section 3.5, and ImageSharp is under the free community licence (D-CM-09); \<Organisation\>'s licences are not yet evidenced | E | R-AC-11 | Low | Evidence | Obtain \<Organisation\>'s licence record; re-check component licences at each release | EV-CM-03, PA-112, PA-113 | Obtain evidence |
 | NC-CM-22 | CM-11 | Installation approval is not yet in use | D, E | R-AC-11 | Low | Approve | In PRO-CM-4 | PA-110 | Approve |
 | NC-CM-23 | CM-12 | Approved access list not yet built | D | R-AC-11 | Low | Approve | D-AC-14 | PA-111 | Approve |
 | NC-CM-24 | CM-12(1) | No automated tools agreed | D | R-AC-11 | Low | Approve | Value proposed; tools confirmed through EV-CM-02 | EV-CM-02, PA-112 | Approve |
@@ -436,11 +296,11 @@ There is one entry for each CM control. CM-2(7) and CM-3(4) became satisfied onc
 | NC-CM-26 | CM-8, CM-8(1) | No bill of materials at release; the component inventory is kept by hand in \<Configuration Management\> (C04) | G | R-CM-01 | Low | Remediate | Keeps the inventory accurate at each release | PA-78 | Remediate (system owner, Low) |
 | NC-CM-27 | CM-7 | Unused or development-only packages are in release builds (C05, C06) | G | R-CM-01 | Low | Remediate | Least functionality; a small change | PA-79 | Remediate (system owner, Low) |
 
-### 6.6 Contingency Planning (CP)
+### 5.6 Contingency Planning (CP)
 
 There is one entry for each CP control. CP-2(3) and CP-2(8) are now satisfied by the approved plan. The decisions are recorded in \<Decision Register\>.
 
-**Table 14: CP non-compliance register**
+**Table 11: CP non-compliance register**
 
 | ID | Control | Non-compliance | Cause | Risk | Rating | Proposed treatment | Reason | POA&M | Decision |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -469,13 +329,13 @@ There is one entry for each CP control. CP-2(3) and CP-2(8) are now satisfied by
 | NC-CP-23 | CP-10(2) | Transaction logs are not archived, so data since the last backup would be lost (R09). Archiving is set up on the VMs with PA-64 | G | R-CP-01 | Medium | Remediate | With PA-64; archiving gives a recovery point of minutes | PA-64 | Remediate before production |
 | NC-CP-24 | CP-3, CP-4, CP-4(1) | No contingency training or test has been held, and none is scheduled | D | R-CP-01 | Low | Remediate | The first restore test and tabletop are set for within 30 days of the VMs being built, and before production (D-CP-10) | PA-81 | Remediate (system owner, Low) |
 
-### 6.7 Identification and Authentication (IA)
+### 5.7 Identification and Authentication (IA)
 
 On 12 November 2026 the system owner stated that \<System Name\> signs users in through \<Organisation\>'s AD FS, with multi-factor authentication, takes roles and project access from Active Directory groups, and holds no accounts or passwords of its own (D-AC-23). The entries below on \<System Name\>'s own passwords, lockout and accounts record what was found on the build tested before that. They and their decisions stand until the family is reassessed with AD FS sign-in (PA-95).
 
 There is one entry for each IA control that is neither satisfied nor tailored out in \<Tailoring Register\>.
 
-**Table 15: IA non-compliance register**
+**Table 12: IA non-compliance register**
 
 | ID | Control | Non-compliance | Cause | Risk | Rating | Proposed treatment | Reason | POA&M | Decision |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -498,11 +358,11 @@ There is one entry for each IA control that is neither satisfied nor tailored ou
 | NC-IA-17 | IA-12(3) | Validation is not evidenced | E | R-AC-11 | Low | Evidence | \<Organisation\>'s HR | EV-IA-02, PA-116 | Obtain evidence |
 | NC-IA-18 | IA-12(5) | Notice of proofing is not evidenced | E | R-AC-11 | Low | Evidence | \<Organisation\>'s HR | EV-IA-02, PA-116 | Obtain evidence |
 
-### 6.8 Incident Response (IR)
+### 5.8 Incident Response (IR)
 
 There is one entry for each IR control, as none is yet satisfied. The decisions are recorded in \<Decision Register\>.
 
-**Table 16: IR non-compliance register**
+**Table 13: IR non-compliance register**
 
 | ID | Control | Non-compliance | Cause | Risk | Rating | Proposed treatment | Reason | POA&M | Decision |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -520,11 +380,11 @@ There is one entry for each IR control, as none is yet satisfied. The decisions 
 | NC-IR-12 | IR-7(1) | ServiceNow is not set up for incidents | G | R-IR-01 | Low | Remediate | With the other ServiceNow workflows | PA-65 | Remediate |
 | NC-IR-13 | IR-8 | The plan is approved (D-IR-03); not yet shared | D | R-IR-01 | Low | Approve | \<Incident Response Management\> is written | PA-88, PA-119 | Approve |
 
-### 6.9 Maintenance (MA)
+### 5.9 Maintenance (MA)
 
 There is one entry for each MA control, as none is yet satisfied. The decisions are recorded in \<Decision Register\>.
 
-**Table 17: MA non-compliance register**
+**Table 14: MA non-compliance register**
 
 | ID | Control | Non-compliance | Cause | Risk | Rating | Proposed treatment | Reason | POA&M | Decision |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -538,11 +398,11 @@ There is one entry for each MA control, as none is yet satisfied. The decisions 
 | NC-MA-08 | MA-5 | A provisional list of maintenance people, with screening, Part B and accounts, is written (\<Maintenance Management\>); not yet confirmed at VM build | D | R-PE-01 | Low | Approve | Confirm at VM build | PA-67 | Approve |
 | NC-MA-09 | MA-6 | Support and parts within 24 hours aren't evidenced. .NET 10 and PostgreSQL 18 are supported versions (M11) | E | R-CP-01 | Low | Evidence | Expected from \<Organisation\> | EV-MA-01; PA-120 | Obtain evidence |
 
-### 6.10 Media Protection (MP)
+### 5.10 Media Protection (MP)
 
 There is one entry for each MP control, as none is yet satisfied. The decisions are recorded in \<Decision Register\>.
 
-**Table 18: MP non-compliance register**
+**Table 15: MP non-compliance register**
 
 | ID | Control | Non-compliance | Cause | Risk | Rating | Proposed treatment | Reason | POA&M | Decision |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -554,11 +414,11 @@ There is one entry for each MP control, as none is yet satisfied. The decisions 
 | NC-MP-06 | MP-6 | Sanitising isn't evidenced; methods by media type are now set to NIST SP 800-88 Revision 2 and IEEE 2883-2022, with cryptographic erase for virtual disks | E | R-PE-01 | Low | Evidence | Expected from \<Organisation\>; cryptographic erase relies on PA-52 | EV-MP-02; PA-52, PA-121 | Obtain evidence |
 | NC-MP-07 | MP-7 | USB blocking on users' devices and the VMs isn't evidenced | E | R-PE-01 | Low | Evidence | Expected from \<Organisation\> | EV-AC-17, EV-MP-03; PA-121 | Obtain evidence |
 
-### 6.11 Physical and Environmental Protection (PE)
+### 5.11 Physical and Environmental Protection (PE)
 
 There is one entry for each PE control, as none is yet satisfied. The decisions are recorded in \<Decision Register\>.
 
-**Table 19: PE non-compliance register**
+**Table 16: PE non-compliance register**
 
 | ID | Control | Non-compliance | Cause | Risk | Rating | Proposed treatment | Reason | POA&M | Decision |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -581,11 +441,11 @@ There is one entry for each PE control, as none is yet satisfied. The decisions 
 | NC-PE-17 | PE-16 | Delivery and removal control isn't evidenced | E | R-PE-01 | Low | Evidence | Inherited from \<Organisation\> | EV-PE-04; PA-122 | Obtain evidence |
 | NC-PE-18 | PE-17 | Home working controls are not yet assessed (C30 checklist) or evidenced; no printing at home unless approved | D, E | R-PE-01 | Low | Approve; obtain evidence | In PRO-PE-4 | EV-PE-05; PA-122 | Approve |
 
-### 6.12 Planning (PL)
+### 5.12 Planning (PL)
 
 There is one entry for each PL control not yet satisfied. PL-10 and PL-11 are satisfied. PL-4(1) is now satisfied by the approved rules. The decisions are recorded in \<Decision Register\>.
 
-**Table 20: PL non-compliance register**
+**Table 17: PL non-compliance register**
 
 | ID | Control | Non-compliance | Cause | Risk | Rating | Proposed treatment | Reason | POA&M | Decision |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -593,20 +453,20 @@ There is one entry for each PL control not yet satisfied. PL-10 and PL-11 are sa
 | NC-PL-02 | PL-2 | The plan isn't yet shared; privacy risk results aren't ready; \<Organisation\>'s enterprise architecture is unseen | D, E | R-AC-11 | Low | Approve | \<Privacy Plan\> is approved; results follow PA-72 | EV-PL-01; PA-123 | Approve |
 | NC-PL-03 | PL-4 | Rules are approved; none signed yet; TPL-21 and the register of signatures are ready | D | R-AC-11 | Low | Approve | In PRO-PL-2 | PA-123 | Approve |
 | NC-PL-04 | PL-4(1) | The social media rule awaits approval | D | R-AC-11 | Low | Approve | In \<Security Operating Procedures\> \<ver\> | None | Approve; now satisfied |
-| NC-PL-05 | PL-8 | First yearly architecture review not yet due; no procurement yet | D | R-AC-11 | Low | Approve | Security approach in \<Security Architecture\> \<ver\>; critical components in \<Risk Assessment Management\>, section 4.9 | PA-123 | Approve |
+| NC-PL-05 | PL-8 | First yearly architecture review not yet due; no procurement yet | D | R-AC-11 | Low | Approve | Security approach in \<Security Architecture\> \<ver\>; critical components in \<Risk Assessment Management\>, section 3.9 | PA-123 | Approve |
 | NC-PL-06 | PL-2e | The plans and evidence are not yet in the restricted store. Since 12 November 2026 the Git working copy whose remote is GitHub ignores them, and they are kept in a private local repository with no remote | D | R-AC-11 | Medium | Remediate | Nothing has been committed to the code repository, and the folders are now ignored by it | PA-88 | Move to SharePoint (D-GEN-15, D-PL-06) |
 
-### 6.13 Personnel Security (PS)
+### 5.13 Personnel Security (PS)
 
 There is one entry for each PS control, as none is yet satisfied. The decisions are recorded in \<Decision Register\>.
 
-**Table 21: PS non-compliance register**
+**Table 18: PS non-compliance register**
 
 | ID | Control | Non-compliance | Cause | Risk | Rating | Proposed treatment | Reason | POA&M | Decision |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | NC-PS-01 | PS-1 | Policy \<ver\> awaits the Head of Cyber and legal review (D-PS-08); version \<ver\> is approved and legally reviewed; procedures approved; not yet shared | D | R-AC-11 | Low | Approve | No system change is needed | PA-20 | Approve |
-| NC-PS-02 | PS-2 | Every role is designated (\<Personnel Security Management\>, section 4.2); \<Organisation\>'s screening criteria aren't evidenced, and the first scheduled review isn't due | D, E | R-PS-01 | Low | Approve | In \<Personnel Security Management\> | EV-PS-01; PA-125 | Approve |
-| NC-PS-03 | PS-3 | A minimum is set (\<Personnel Security Management\>, section 4.3); \<Organisation\>'s screening isn't evidenced | E | R-PS-01 | Low | Evidence | Expected from \<Organisation\> | EV-PS-01; PA-125 | Obtain evidence |
+| NC-PS-02 | PS-2 | Every role is designated (\<Personnel Security Management\>, section 3.2); \<Organisation\>'s screening criteria aren't evidenced, and the first scheduled review isn't due | D, E | R-PS-01 | Low | Approve | In \<Personnel Security Management\> | EV-PS-01; PA-125 | Approve |
+| NC-PS-03 | PS-3 | A minimum is set (\<Personnel Security Management\>, section 3.3); \<Organisation\>'s screening isn't evidenced | E | R-PS-01 | Low | Evidence | Expected from \<Organisation\> | EV-PS-01; PA-125 | Obtain evidence |
 | NC-PS-04 | PS-4 | The leaver route isn't built, including the 1-hour route for a higher-risk leaver; exit process isn't evidenced | D, E | R-PS-01 | Low | Remediate | With PA-32 | PA-32, PA-125, EV-PS-02 | Remediate |
 | NC-PS-05 | PS-5 | The mover route isn't built | D | R-PS-01 | Low | Remediate | With PA-32 | PA-32 | Remediate |
 | NC-PS-06 | PS-6 | Agreements exist; none signed | D | R-PS-01 | Low | Approve | In PRO-PS-1 | PA-123, PA-125 | Approve |
@@ -614,11 +474,11 @@ There is one entry for each PS control, as none is yet satisfied. The decisions 
 | NC-PS-08 | PS-8 | Sanctions process isn't evidenced | D, E | R-PS-01 | Low | Evidence | Expected from \<Organisation\> | EV-PS-02; PA-125 | Obtain evidence |
 | NC-PS-09 | PS-9 | \<System Name\>'s role duties are in \<Roles and Responsibilities\>; \<Organisation\>'s job descriptions haven't been seen | E | R-PS-01 | Low | Evidence | Expected from \<Organisation\> | EV-PS-02; PA-125 | Obtain evidence |
 
-### 6.14 Personally Identifiable Information (PT)
+### 5.14 Personally Identifiable Information (PT)
 
 There is one entry for each PT control and other privacy baseline control not yet satisfied. SI-19 does not apply. The decisions are recorded in \<Decision Register\>.
 
-**Table 22: PT non-compliance register**
+**Table 19: PT non-compliance register**
 
 | ID | Control | Non-compliance | Cause | Risk | Rating | Proposed treatment | Reason | POA&M | Decision |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -632,7 +492,7 @@ There is one entry for each PT control and other privacy baseline control not ye
 | NC-PT-08 | AT-3(5) | Privacy training hasn't been given | D | R-PT-01 | Low | Approve | Given before access | PA-97 | Approve |
 | NC-PT-09 | AU-3(3) | Audit free text holds no extra personal data (Q04), but the application log repeats usernames and IP addresses (Q05) | D | R-PT-01 | Low | Remediate | A small check | PA-71, PA-75 | Remediate |
 | NC-PT-10 | IR-2(3) | Breach training hasn't been given | D | R-PT-01 | Low | Approve | With incident response training | PA-81, PA-97 | Approve |
-| NC-PT-11 | IR-8(1) | Now covered in \<Incident Response Management\>, section 4.8: harm, telling people and the breach register | D | R-PT-01 | Low | Approve | Added at the next review of \<Incident Response Management\> | None | Approve; now satisfied |
+| NC-PT-11 | IR-8(1) | Now covered in \<Incident Response Management\>, section 3.8: harm, telling people and the breach register | D | R-PT-01 | Low | Approve | Added at the next review of \<Incident Response Management\> | None | Approve; now satisfied |
 | NC-PT-12 | PE-8(3) | Visitor records haven't been seen | E | R-PT-01 | Low | Evidence | Expected from \<Organisation\> | EV-PT-02; PA-122 | Obtain evidence |
 | NC-PT-13 | PL-9 | Documents aren't yet in the Restricted store | D | R-AC-11 | Low | Approve | Move to SharePoint now (D-GEN-15, PA-88) | PA-88 | Approve |
 | NC-PT-14 | RA-8 | No impact assessment has been done | D | R-PT-01 | Medium | Remediate | Before production | PA-72 | Remediate |
@@ -645,11 +505,11 @@ There is one entry for each PT control and other privacy baseline control not ye
 | NC-PT-21 | SI-18(4) | Corrections in the admin portal aren't audited (Q10); the route is in PRO-PT-1 | D | R-PT-01 | Low | Approve | In PRO-PT-1 | PA-89 | Approve |
 | NC-PT-22 | AU-2, SI-18(4) | Deleting or correcting a document in the admin portal writes no audit record (Q03, Q10) | G | R-PT-01 | Medium | Remediate | Only global administrators can delete; the pages show who last modified a document | PA-89 | Remediate |
 
-### 6.15 Risk Assessment (RA)
+### 5.15 Risk Assessment (RA)
 
-There is one entry for each RA control except RA-2, which is satisfied. RA-9 became satisfied when the critical components list, now in \<Risk Assessment Management\>, section 4.9, was approved. The first supply chain review was held on 11 November 2026 (D-RA-09), and the RA findings were checked with Test-Vulnerability.ps1. The decisions are recorded in \<Decision Register\>.
+There is one entry for each RA control except RA-2, which is satisfied. RA-9 became satisfied when the critical components list, now in \<Risk Assessment Management\>, section 3.9, was approved. The first supply chain review was held on 11 November 2026 (D-RA-09), and the RA findings were checked with Test-Vulnerability.ps1. The decisions are recorded in \<Decision Register\>.
 
-**Table 23: RA non-compliance register**
+**Table 20: RA non-compliance register**
 
 | ID | Control | Non-compliance | Cause | Risk | Rating | Proposed treatment | Reason | POA&M | Decision |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -663,36 +523,36 @@ There is one entry for each RA control except RA-2, which is satisfied. RA-9 bec
 | NC-RA-08 | RA-7 | Only assessment findings have arisen | D | R-AC-11 | Low | Approve | In PRO-RA-1 | PA-127 | Approve |
 | NC-RA-09 | RA-9 | None: the list is approved, extended and reviewed (\<Risk Assessment Management\>) | D | R-AC-11 | Low | Approve | In \<Risk Assessment Management\> | None | Approve; now satisfied |
 
-### 6.16 System and Services Acquisition (SA)
+### 5.16 System and Services Acquisition (SA)
 
 There is one entry for each assessed SA control. SA-4(1), SA-4(2), SA-4(9), SA-15(3) and SA-22 became satisfied on 11 November 2026, and stay listed for traceability. SA-4(10) is tailored (TR-SA-01). The decisions are recorded in \<Decision Register\>.
 
-**Table 24: SA non-compliance register**
+**Table 21: SA non-compliance register**
 
 | ID | Control | Non-compliance | Cause | Risk | Rating | Proposed treatment | Reason | POA&M | Decision |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | NC-SA-01 | SA-1 | Policy \<ver\> is legally reviewed and awaits the Head of Cyber (D-SA-16); procedures approved; not yet shared | D | R-AC-11 | Low | Approve | No system change is needed | PA-20 | Approve |
 | NC-SA-02 | SA-2 | Security and privacy costs aren't yet raised in budgeting; the yearly review now records them (TPL-23) | D | R-AC-11 | Low | Approve | At the next yearly budgeting | PA-128 | Approve |
-| NC-SA-03 | SA-3 | The lifecycle follows NIST SSDF \<ver\>, mapped in \<System and Services Acquisition Management\>, section 4.2; not yet in routine use | D | R-SA-01 | Low | Approve | In PRO-SA-1 | PA-128 | Approve |
+| NC-SA-03 | SA-3 | The lifecycle follows NIST SSDF \<ver\>, mapped in \<System and Services Acquisition Management\>, section 3.2; not yet in routine use | D | R-SA-01 | Low | Approve | In PRO-SA-1 | PA-128 | Approve |
 | NC-SA-04 | SA-4 | Contract terms haven't been seen | E | R-SA-01 | Low | Evidence | Expected from \<Organisation\> | EV-SA-01; PA-128 | Obtain evidence |
-| NC-SA-05 | SA-4(1) | None: the SSP, section 8, and the family design documents describe each control's functional properties | None | R-SA-01 | Low | Approve | Now satisfied | None | Approve; now satisfied |
+| NC-SA-05 | SA-4(1) | None: the SSP, section 7, and the family design documents describe each control's functional properties | None | R-SA-01 | Low | Approve | Now satisfied | None | Approve; now satisfied |
 | NC-SA-06 | SA-4(2) | None: \<Security Architecture\> and the SSP figures give the design information | None | R-SA-01 | Low | Approve | Now satisfied | None | Approve; now satisfied |
-| NC-SA-07 | SA-4(9) | None: the functions, ports, protocols and services are in \<System Security Plan\>, section 4.7 | None | R-SA-01 | Low | Approve | Now satisfied | None | Approve; now satisfied |
+| NC-SA-07 | SA-4(9) | None: the functions, ports, protocols and services are in \<System Security Plan\>, section 3.7 | None | R-SA-01 | Low | Approve | Now satisfied | None | Approve; now satisfied |
 | NC-SA-08 | SA-5 | No approved administrator or user guide; drafts \<Administrator Guide\> and \<User Guide\> \<ver\> await the developers (S10) | D, G | R-SA-01 | Low | Remediate | Confirmed before go-live | PA-69 | Remediate |
 | NC-SA-09 | SA-8 | Principles mapped for specification and design in \<Security Architecture\>; development, implementation and changes not yet checked against them | D | R-SA-01 | Low | Approve | Applied from now on | PA-128 | Approve |
 | NC-SA-10 | SA-9 | Providers' compliance hasn't been seen; service levels are not recorded | D, E | R-SA-01 | Low | Evidence | Expected from \<Organisation\> and GitHub | EV-SA-02, EV-SA-03; PA-128 | Obtain evidence |
 | NC-SA-11 | SA-9(2) | Providers' lists haven't been seen, including GitHub's | E | R-SA-01 | Low | Evidence | Expected from the providers | EV-SA-02, EV-SA-03; PA-128 | Obtain evidence |
 | NC-SA-12 | SA-10 | No repository protects its default branch, requires review or alerts on dependencies; the v1.0 release had no reviewed merge or signed tag; 10 test scripts aren't in Git (S01 to S07) | D, G | R-SA-01 | Medium | Remediate | Before production (D-SA-14) | PA-53, PA-91 | Remediate |
 | NC-SA-13 | SA-11 | No build pipeline, test gate or unit tests; the build turns the package audit off; the test scripts are run by hand (S06, S08); the web applications are not verified to OWASP ASVS 5.0 Level 2 | D, G | R-SA-01 | Medium | Remediate | Before production (D-SA-14) | PA-68, PA-92 | Remediate |
-| NC-SA-14 | SA-15 | Process and tools documented in \<System and Services Acquisition Management\>, sections 4.2 and 4.10; not yet reviewed against the requirements | D | R-SA-01 | Low | Approve | In PRO-SA-6 | PA-128 | Approve |
-| NC-SA-15 | SA-15(3) | None: criticality is analysed in \<Risk Assessment Management\>, section 4.9 | None | R-SA-01 | Low | Approve | Now satisfied | None | Approve; now satisfied |
+| NC-SA-14 | SA-15 | Process and tools documented in \<System and Services Acquisition Management\>, sections 3.2 and 3.10; not yet reviewed against the requirements | D | R-SA-01 | Low | Approve | In PRO-SA-6 | PA-128 | Approve |
+| NC-SA-15 | SA-15(3) | None: criticality is analysed in \<Risk Assessment Management\>, section 3.9 | None | R-SA-01 | Low | Approve | Now satisfied | None | Approve; now satisfied |
 | NC-SA-16 | SA-22 | None: no component is within 6 months of the end of its support (S09) | None | R-SI-01 | Low | Approve | Now satisfied | None | Approve; now satisfied |
 
-### 6.17 System and Communications Protection (SC)
+### 5.17 System and Communications Protection (SC)
 
 There is one entry for each SC control that is neither satisfied nor tailored out. SC-2 is satisfied in the application. The decisions are recorded in \<Decision Register\>.
 
-**Table 25: SC non-compliance register**
+**Table 22: SC non-compliance register**
 
 | ID | Control | Non-compliance | Cause | Risk | Rating | Proposed treatment | Reason | POA&M | Decision |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -720,36 +580,36 @@ There is one entry for each SC control that is neither satisfied nor tailored ou
 | NC-SC-22 | SC-28(1) | As SC-28 | E | R-SC-01 | Medium, provisional | Remediate | Set on the VMs | PA-52 | Remediate |
 | NC-SC-23 | SC-39 | Not assessable until the VMs exist | E | R-AC-11 | Low | Evidence | Windows Server | PA-54 | Obtain evidence |
 
-### 6.18 System and Information Integrity (SI)
+### 5.18 System and Information Integrity (SI)
 
 There is one entry for each SI control that is not tailored out (SI-8, SI-8(2): TR-SI-01). The decisions are recorded in \<Decision Register\>.
 
-**Table 26: SI non-compliance register**
+**Table 23: SI non-compliance register**
 
 | ID | Control | Non-compliance | Cause | Risk | Rating | Proposed treatment | Reason | POA&M | Decision |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | NC-SI-01 | SI-1 | Policy \<ver\> is legally reviewed and awaits the Head of Cyber (D-SI-06); procedures approved; not yet shared | D | R-AC-11 | Low | Approve | No system change is needed | PA-20 | Approve |
-| NC-SI-02 | SI-2 | 7 advisories are open in two packages, and the process is not in use; SI now follows the one timetable in \<Risk Assessment Management\>, section 4.6 | D, G, E | R-SI-01 | High | Remediate | Before production, as agreed by the system owner | PA-56 | Remediate |
+| NC-SI-02 | SI-2 | 7 advisories are open in two packages, and the process is not in use; SI now follows the one timetable in \<Risk Assessment Management\>, section 3.6 | D, G, E | R-SI-01 | High | Remediate | Before production, as agreed by the system owner | PA-56 | Remediate |
 | NC-SI-03 | SI-2(2) | Update status is checked by hand | G | R-SI-01 | Medium | Remediate | Simple once the VMs exist | PA-57, PA-91 | Remediate |
 | NC-SI-04 | SI-3 | Uploads are not scanned; Defender is not yet in place | G, E | R-SI-01 | Medium | Remediate | Scan at upload, as agreed by the system owner | PA-58 | Remediate |
 | NC-SI-05 | SI-4 | Monitoring is not started or evidenced | D, E | R-AC-07 | Low | Evidence | \<Organisation\> and the VMs | EV-SI-01; PA-130 | Obtain evidence |
 | NC-SI-06 | SI-4(2) | No automated analysis | G | R-AC-07 | Medium | Remediate | With PA-59 | PA-59 | Remediate |
 | NC-SI-07 | SI-4(4) | Traffic monitoring is not evidenced | E | R-AC-11 | Low | Evidence | \<Organisation\> | EV-SI-01; PA-130 | Obtain evidence |
-| NC-SI-08 | SI-4(5) | Nothing raises an alert (H12); detection use cases are set in \<System and Information Integrity Management\>, section 4.4 | G | R-AC-07 | Medium | Remediate | Attacks would go unnoticed | PA-59 | Remediate |
+| NC-SI-08 | SI-4(5) | Nothing raises an alert (H12); detection use cases are set in \<System and Information Integrity Management\>, section 3.4 | G | R-AC-07 | Medium | Remediate | Attacks would go unnoticed | PA-59 | Remediate |
 | NC-SI-09 | SI-5 | Sources extended to CISA's exploited list and NCSC Early Warning; not started | D | R-AC-11 | Low | Approve | In PRO-SI-5 | PA-130 | Approve |
 | NC-SI-10 | SI-7 | MD5 checksums, and no release checksum | G, E | R-AC-07 | Low | Remediate | Move to SHA-256 | PA-61, PA-74 | Remediate |
 | NC-SI-11 | SI-7(1) | Checks do not run | G, E | R-AC-07 | Low | Remediate | With PA-61 | PA-61 | Remediate |
 | NC-SI-12 | SI-7(7) | Not yet in use | D | R-AC-11 | Low | Approve | In PRO-SI-6 | None | Approve; now satisfied |
 | NC-SI-13 | SI-10 | Validation and upload checks tested: injection-style input refused, and wrong signatures, disguised executables, unknown types and paths rejected (H03 to H07) | E | R-AC-02 | Low | Evidence | Test on a throwaway stack | None | None; now satisfied |
 | NC-SI-14 | SI-11 | About 29 API responses return the exception message (H01) | G | R-AC-02 | Medium | Remediate | Generic messages, as agreed by the system owner | PA-60 | Remediate |
-| NC-SI-15 | SI-12 | \<System Name\>'s retention schedule is set (\<PII Processing Management\>, section 4.7, with placeholders); not yet applied | D | R-AC-11 | Low | Approve | In PRO-SI-7 | PA-70 | Approve |
+| NC-SI-15 | SI-12 | \<System Name\>'s retention schedule is set (\<PII Processing Management\>, section 3.7, with placeholders); not yet applied | D | R-AC-11 | Low | Approve | In PRO-SI-7 | PA-70 | Approve |
 | NC-SI-16 | SI-16 | .NET managed memory and non-root containers in place; Windows protections not assessable until the VMs exist | E | R-AC-11 | Low | Evidence | Windows Server | PA-54 | Obtain evidence |
 
-### 6.19 Supply Chain Risk Management (SR)
+### 5.19 Supply Chain Risk Management (SR)
 
 There is one entry for each SR control, as none is yet satisfied. The entries were restated on 12 November 2026 from Test-SupplyChain.ps1 (U01 to U10), after the SR pack review (D-SR-11). The decisions are recorded in \<Decision Register\>.
 
-**Table 27: SR non-compliance register**
+**Table 24: SR non-compliance register**
 
 | ID | Control | Non-compliance | Cause | Risk | Rating | Proposed treatment | Reason | POA&M | Decision |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -759,7 +619,7 @@ There is one entry for each SR control, as none is yet satisfied. The entries we
 | NC-SR-04 | SR-3 | Only the OfflineModules packages come through the offline feed; the rest (50 of 59 for API) come straight from nuget.org, with no lock files or signed-package trust policy (U01 to U03) | G | R-SR-01 | Medium | Remediate | Route every package through the feed, add lock files and a trust policy | PA-94 | Remediate (proposed by the system owner; awaits the authorising official) |
 | NC-SR-05 | SR-5 | Packages are acquired from nuget.org unchecked, and NuGet's audit is off in the build (U01, U04) | G | R-SR-01 | Low | Remediate | With PA-94 and PA-92 | PA-94, PA-92 | Remediate |
 | NC-SR-06 | SR-6 | No supplier review has been held with TPL-16 | D | R-SR-01 | Low | Approve | In PRO-SR-2 | PA-131 | Approve |
-| NC-SR-07 | SR-8 | \<Organisation\>'s notification terms haven't been seen; open-source suppliers notify through advisories (\<System and Information Integrity Management\>, section 4.3) | E | R-SR-01 | Low | Evidence | Expected from \<Organisation\> | EV-SR-01; PA-131 | Obtain evidence |
+| NC-SR-07 | SR-8 | \<Organisation\>'s notification terms haven't been seen; open-source suppliers notify through advisories (\<System and Information Integrity Management\>, section 3.3) | E | R-SR-01 | Low | Evidence | Expected from \<Organisation\> | EV-SR-01; PA-131 | Obtain evidence |
 | NC-SR-08 | SR-10 | Release images and assemblies match the baseline (U08), but releases have no checksums or bill of materials, and images are not pinned (U06, U07) | G | R-AC-07 | Low | Remediate | With PA-61, PA-77 and PA-78 | PA-61, PA-77, PA-78 | Remediate |
 | NC-SR-09 | SR-11 | Software steps approved; no trust policy, and CDN files have no integrity check (U03, U09) | G | R-SR-01 | Low | Remediate | With PA-94 and PA-34 | PA-94, PA-34 | Remediate |
 | NC-SR-10 | SR-11(1) | Buyers' training hasn't been seen | E | R-SR-01 | Low | Evidence | Expected from \<Organisation\> | EV-SR-02; PA-131 | Obtain evidence |

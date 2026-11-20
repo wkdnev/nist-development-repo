@@ -1,96 +1,12 @@
 # \<System Name\> Configuration Management
 
-**\<ref\> | Version \<ver\> | Draft for the system owner's approval**
+## 1 Purpose
 
-**Contents**
-
-[1 Document control](#1-document-control)
-
-[2 Purpose](#2-purpose)
-
-[3 Summary](#3-summary)
-
-[4 The design](#4-the-design)
-
-[5 Each control and enhancement](#5-each-control-and-enhancement)
-
-[Appendix A How configuration was built in the tested build](#appendix-a-how-configuration-was-built-in-the-tested-build)
-
-[Appendix B Parameter register](#appendix-b-parameter-register)
-
-[Appendix C Environments](#appendix-c-environments)
-
-[Appendix D CM controls outside the Moderate baseline](#appendix-d-cm-controls-outside-the-moderate-baseline)
-
-| **SECTION 1** |
-| --- |
-
-## 1 Document control
-
-### 1.1 Document details
-
-**Table 1: Document details**
-
-| Item | Detail |
-| --- | --- |
-| Reference | \<ref\> |
-| Title | \<System Name\> Configuration Management |
-| Version | \<ver\> |
-| Status | Draft for the system owner's approval. Until 13 November 2026 this was the Configuration Management Plan, whose version \<ver\> the system owner approved. It has been rebuilt in the form of the other family documents, with no agreed value changed |
-| Date | 13 November 2026 |
-| Owner | System owner |
-| Applies to | Configuration Management family |
-| Classification | Restricted |
-| Next review | Every 12 months, and after a significant change |
-| Format | \<Documentation Map\>, section 5 |
-
-### 1.2 Approval
-
-**Table 2: Approval**
-
-| Role | Name | Decision | Date |
-| --- | --- | --- | --- |
-| System owner | \[Name\] | Pending for this version. Version \<ver\> approved (D-CM-12); version \<ver\> approved with the SC pack review (D-SC-07) | 8 November 2026 |
-
-### 1.3 Change history
-
-**Table 3: Change history**
-
-| Version | Date | Change |
-| --- | --- | --- |
-| \<ver\> | 18 November 2026 | No code references: page addresses, setting names, folder paths and file paths are described in plain words, and names of groups, scripts and releases are shown as plain text. No value, finding or decision is changed |
-| \<ver\> | 18 November 2026 | References to the communications protection design point to \<System and Communications Protection Management\>, where it is now held (D-SC-09) |
-| \<ver\> | 18 November 2026 | References to the personal data design point to \<PII Processing Management\>, where it is now held (D-PT-22) |
-| \<ver\> | 15 November 2026 | References to the identification and authentication design point to \<Identification and Authentication Management\>, where it is now held (D-IA-11) |
-| \<ver\> | 13 November 2026 | Appendix C: wording of the development environment |
-| \<ver\> | 13 November 2026 | Cross-check against NIST's guidance for the family: the baseline includes network placement; each change records who made it; the environments are set out in a new appendix C; the CM controls outside the Moderate baseline are listed in a new appendix D; and the Administrator Guide's statement on the server build is noted against the open fact |
-| \<ver\> | 13 November 2026 | The fact still to be supplied on the server build is worded as one placeholder |
-| \<ver\> | 13 November 2026 | The system owner's decisions on the review (D-CM-14): the applications run as Windows services (D-PL-10); the value for CM-12 no longer lists accounts; the owner and licence of the internal access control component are tracked (PA-113); and who builds the servers to which standard is recorded as a fact still to be supplied |
-| \<ver\> | 13 November 2026 | Rebuilt in the form of the other family documents, at the system owner's request (D-CM-13), and renamed from Configuration Management Plan to Configuration Management. It remains the plan that CM-9 requires. Each control is set out part by part, with change control, least functionality and who may change what each given a section. No agreed value is changed |
-| \<ver\> | 12 November 2026 | References to the assessment, authorisation and monitoring design point to \<Assessment, Authorization, and Monitoring Management\>, where it is now held (D-CA-11) |
-| \<ver\> | 12 November 2026 | References to the audit design point to \<Audit and Accountability Management\>, where it is now held (D-AU-10) |
-| \<ver\> | 12 November 2026 | Application settings name the trust in AD FS (D-AC-23) |
-| \<ver\> | 12 November 2026 | Version numbers are shown as a placeholder, as the system owner asked (D-GEN-28). No other change |
-| \<ver\> | 12 November 2026 | The document number is replaced by a placeholder on the line under the title and in the details table, as the system owner asked (D-GEN-27). No other change |
-| \<ver\> | 12 November 2026 | The name of the system is shown as a placeholder, as the system owner asked (D-GEN-26). No other change |
-| \<ver\> | 12 November 2026 | References to the access control design point to \<Access Control Management\>, where it is now held |
-| \<ver\> | 12 November 2026 | The earlier rows of the change history are folded into one row, as the system owner decided (D-GEN-25). No other change |
-| \<ver\> | 12 November 2026 | References to the register, the policy and the assessment record follow their new section and table numbers (D-GEN-24) |
-| \<ver\> | 12 November 2026 | Documents are cited by name in angle brackets, in place of their numbers, as the system owner asked (D-GEN-23). No other change |
-| \<ver\> | 12 November 2026 | The combined documents are cited by their new numbers and chapters (D-GEN-21). The document standard is cited as \<Documentation Map\>, section 5. The contents list is rebuilt so that its links work in Markdown |
-| \<ver\> | 12 November 2026 | Sweep after the SC policy's legal review: the application hosting benchmark follows NCSC's TLS profiles and protects the key rings, in place of "TLS 1.2 or later" (D-SC-07). Approved by the system owner |
-| \<ver\> to \<ver\> | 6 to 8 November 2026 | The earlier versions. Their history is kept in the change record (\<Documentation Map\>, section 5.1) |
-
-| **SECTION 2** |
-| --- |
-
-## 2 Purpose
-
-This document shows how \<System Name\>'s configuration is recorded, controlled and changed, for each of the 24 Configuration Management (CM) controls and enhancements in the NIST SP 800-53 Rev 5 Moderate baseline. It is also the Configuration Management Plan that CM-9 requires, and follows the outline in NIST SP 800-128, Appendix D. Section 4 sets out the design: roles and processes, the configuration items, the baseline, the software components, the secure settings, change control, impact analysis, least functionality, who may change what, the inventory, and the library. Section 5 takes each control in turn. Appendix A records how configuration was built in the tested build. Appendix B lists every value NIST asks the organisation to define. Appendix C sets out the development, test and production environments. Appendix D lists the CM controls NIST does not select at Moderate.
+This document shows how \<System Name\>'s configuration is recorded, controlled and changed, for each of the 24 Configuration Management (CM) controls and enhancements in the NIST SP 800-53 Rev 5 Moderate baseline. It is also the Configuration Management Plan that CM-9 requires, and follows the outline in NIST SP 800-128, Appendix D. Section 3 sets out the design: roles and processes, the configuration items, the baseline, the software components, the secure settings, change control, impact analysis, least functionality, who may change what, the inventory, and the library. Section 4 takes each control in turn. Appendix A records how configuration was built in the tested build. Appendix B lists every value NIST asks the organisation to define. Appendix C sets out the development, test and production environments. Appendix D lists the CM controls NIST does not select at Moderate.
 
 This is the only place the configuration management design is held. Other documents point here. The policy is in \<Policy\> (CM), and the steps people follow are in \<Procedures\> (CM).
 
-An assessor examines the baseline, the inventory, the settings, the change records and the board's decisions, interviews those who make and approve changes, and tests that the system is configured as the documents say (NIST SP 800-53A). So for each control section 5 gives:
+An assessor examines the baseline, the inventory, the settings, the change records and the board's decisions, interviews those who make and approve changes, and tests that the system is configured as the documents say (NIST SP 800-53A). So for each control section 4 gives:
 
 - **each part of the control**, as NIST letters them, with the design that meets it and the position today;
 - **who provides it**, and who is responsible;
@@ -100,7 +16,7 @@ An assessor examines the baseline, the inventory, the settings, the change recor
 
 **Design and today.** The Design column is what the system owner has agreed. The Today column is what was found in the build labelled v1.0, tested in Docker on 6 and 8 November 2026, and the position of the servers, which are not yet built.
 
-**Table 4: Status values**
+**Table 1: Status values**
 
 | Status | Meaning |
 | --- | --- |
@@ -108,14 +24,11 @@ An assessor examines the baseline, the inventory, the settings, the change recor
 | Partially implemented | Some of the design is in place; the open items say what is missing |
 | Not implemented | None of the design is in place yet |
 
-| **SECTION 3** |
-| --- |
-
-## 3 Summary
+## 2 Summary
 
 Of the 24 controls, 2 are implemented, 7 are partially implemented and 15 are not implemented. No control in the baseline is missing from the design. Every gap is registered in the Risk List (\<Risk List\>) and the Plan of Action and Milestones (\<Plan of Action and Milestones\>).
 
-**Table 5: Status of each control**
+**Table 2: Status of each control**
 
 | Control | Title | Status | What is missing | Registered as |
 | --- | --- | --- | --- | --- |
@@ -146,12 +59,9 @@ Of the 24 controls, 2 are implemented, 7 are partially implemented and 15 are no
 
 Most of this family is a process that has not started, because \<System Name\> is not in use and its servers are not built. Three gaps are in the system itself: the change workflow is not set up (PA-53), diagnostic and maintenance pages remain in the release (PA-07, PA-31), and a release cannot yet be rebuilt exactly (PA-77). One risk is accepted: software is not technically restricted on the servers, by decision (NC-CM-15, NC-CM-16).
 
-| **SECTION 4** |
-| --- |
+## 3 The design
 
-## 4 The design
-
-### 4.1 Principles
+### 3.1 Principles
 
 1. **Known baseline.** The approved configuration is recorded and versioned, so that any release can be rebuilt exactly.
 2. **Controlled change.** No change happens without an impact analysis, approval and testing.
@@ -162,9 +72,9 @@ Most of this family is a process that has not started, because \<System Name\> i
 
 These carry out the principles and rules of \<Policy\>, sections CM.3 and CM.4.
 
-### 4.2 Roles and processes
+### 3.2 Roles and processes
 
-**Table 6: Configuration management roles**
+**Table 3: Configuration management roles**
 
 | Role | Part in configuration management |
 | --- | --- |
@@ -181,25 +91,25 @@ The holders are named in \<Roles and Responsibilities\>. The processes are the n
 
 **Identifying configuration items.** An item is identified when it enters the baseline, and is managed through the change procedure, PRO-CM-1, for its whole life. Each is named by its component and its version or tag, for example API v1.0 or Npgsql 10.0.2. Each release is named by its tag.
 
-### 4.3 Configuration items
+### 3.3 Configuration items
 
-**Table 7: Configuration items**
+**Table 4: Configuration items**
 
 | Item | Held in | Controlled by |
 | --- | --- | --- |
 | Application code, API, UI application, Admin application, shared library | Git repositories, tagged v1.0 | Developers, PRO-CM-1 |
 | Access-control toolkit (OfflineModules.AccessControl 0.2.0) | Its own repository, commit 20524d8 | Developers, PRO-CM-1 |
-| Software components: packages, base images, runtime and database | Section 4.5 | Developers, PRO-CM-1 and PRO-CM-4 |
+| Software components: packages, base images, runtime and database | Section 3.5 | Developers, PRO-CM-1 and PRO-CM-4 |
 | Container and deployment files | workspace repository, tagged v1.0 | Developers, PRO-CM-1 |
 | Application settings and environment values, without secrets | Settings files and deployment files; secrets outside the baseline once PA-19 is fixed | Developers, Windows server administrator |
 | Windows Server 2025 and PostgreSQL settings | CIS Benchmarks and recorded exceptions; VMs not built | Windows server and database administrators |
 | Security documents | Restricted document store | System owner |
 
-### 4.4 Baseline
+### 3.4 Baseline
 
 The baseline is what a release must contain so that it can be rebuilt exactly. The current baseline is v1.0. Checks C01 to C03 test it.
 
-**Table 8: Baseline v1.0**
+**Table 5: Baseline v1.0**
 
 | Item | Baseline | State now |
 | --- | --- | --- |
@@ -208,18 +118,18 @@ The baseline is what a release must contain so that it can be rebuilt exactly. T
 | Access-control toolkit | Commit 20524d8, packaged as 0.2.0 | Met |
 | Application base images | mcr.microsoft.com/dotnet/aspnet:10.0 and sdk:10.0, to be pinned by digest; .NET runtime 10.0.14 observed on 8 November 2026 | Not met: floating tags (C01; PA-77) |
 | Database image | postgres:18, to be pinned by digest; observed as PostgreSQL 18.6, digest sha256:3a4264520e12… | Not met: floating tag (C02; PA-77) |
-| Software components | Section 4.5 | Met: listed by hand; no bill of materials yet (PA-78) |
-| Settings | Section 4.6; settings files at tag v1.0, with secrets moved out (PA-19) | Partly: secrets still in settings files (C07) |
+| Software components | Section 3.5 | Met: listed by hand; no bill of materials yet (PA-78) |
+| Settings | Section 3.6; settings files at tag v1.0, with secrets moved out (PA-19) | Partly: secrets still in settings files (C07) |
 | Windows Server and PostgreSQL on the VMs | CIS Benchmarks with recorded exceptions | Not assessable: VMs not built (PA-54) |
-| Network placement and connections | The two servers, their zones and the flows between them, as \<Security Architecture\> and \<Access Control Management\>, section 4.6.4, set out; the connections in \<Assessment, Authorization, and Monitoring Management\>, section 4.7 | Recorded as the design. Not built |
+| Network placement and connections | The two servers, their zones and the flows between them, as \<Security Architecture\> and \<Access Control Management\>, section 3.6.4, set out; the connections in \<Assessment, Authorization, and Monitoring Management\>, section 3.7 | Recorded as the design. Not built |
 
-The system owner and the Windows server administrator review the baseline every 12 months and at each release (PRO-CM-2). The three previous configurations are kept (section 4.13).
+The system owner and the Windows server administrator review the baseline every 12 months and at each release (PRO-CM-2). The three previous configurations are kept (section 3.13).
 
-### 4.5 Software components and licences
+### 3.5 Software components and licences
 
 Every package, image, runtime and database \<System Name\> is built from, with its licence. The check of 8 November 2026 wrote the same list from the build, and the two agreed (C04). A new component is recorded here, and checked for known vulnerabilities, before it enters the baseline (PRO-CM-4). Licences are checked again at each release and every 12 months (PRO-CM-9).
 
-**Table 9: Software components**
+**Table 6: Software components**
 
 | Component | Version | Supplier | Licence | Used by | Note |
 | --- | --- | --- | --- | --- | --- |
@@ -240,15 +150,15 @@ Every package, image, runtime and database \<System Name\> is built from, with i
 | Swashbuckle.AspNetCore | 10.1.7 | Swashbuckle project | MIT | API | Development only; to leave release builds (PA-79) |
 | Azure.Storage.Blobs | 12.27.0 | Microsoft | MIT | API | Not used; to be removed (PA-79) |
 
-### 4.6 Secure settings for every layer
+### 3.6 Secure settings for every layer
 
-**Table 10: Secure settings**
+**Table 7: Secure settings**
 
 | Layer | Guidance | Key settings | Where set | State now |
 | --- | --- | --- | --- | --- |
-| Windows Server 2025, both VMs | CIS Benchmark, Level 1 member server | Unneeded services and accounts removed, default passwords changed, auto-run off, Defender on, audit policy as \<Audit and Accountability Management\>, section 4.2 | Group policy and VM build | Not assessable: VMs not built (PA-54) |
+| Windows Server 2025, both VMs | CIS Benchmark, Level 1 member server | Unneeded services and accounts removed, default passwords changed, auto-run off, Defender on, audit policy as \<Audit and Accountability Management\>, section 3.2 | Group policy and VM build | Not assessable: VMs not built (PA-54) |
 | PostgreSQL 18 | CIS Benchmark for PostgreSQL | TLS required; scram-sha-256 passwords; listens only on the database VM's address; connections and changes logged | The server and client access settings of PostgreSQL | Not met in Docker: TLS off (B02), logging off (A30) |
-| Application hosting | Microsoft's guidance for hosting ASP.NET Core as a Windows service | HTTPS only with HSTS, under NCSC's TLS profiles in \<System and Communications Protection Management\>, section 4.3; data protection key rings protected with DPAPI; each application under its own low-privilege account | Each service's configuration | Decided on 13 November 2026: each application runs as a Windows service, under its own service account (D-PL-10, D-AC-19). Not built, as the servers are not built |
+| Application hosting | Microsoft's guidance for hosting ASP.NET Core as a Windows service | HTTPS only with HSTS, under NCSC's TLS profiles in \<System and Communications Protection Management\>, section 3.3; data protection key rings protected with DPAPI; each application under its own low-privilege account | Each service's configuration | Decided on 13 November 2026: each application runs as a Windows service, under its own service account (D-PL-10, D-AC-19). Not built, as the servers are not built |
 | .NET runtime | Microsoft ASP.NET Core security guidance | Production environment; detailed errors off; API documentation off | Environment values | Met in Docker (C08, C11) |
 | Application security settings | \<Access Control Management\>, \<Identification and Authentication Management\> and \<System and Communications Protection Management\> | Session time-outs, the trust in AD FS, cookie flags, content security policy and allowed origins, at the values in those documents | Settings files at tag v1.0 | As assessed in the AC, IA and SC assessments |
 
@@ -256,7 +166,7 @@ Each departure from the guidance is recorded on TPL-6 with a reason, and approve
 
 One fact is still to be supplied: \[who builds the two servers and to which standard\]. The Administrator Guide, \<Administrator Guide\>, has them built from \<Organisation\>'s hardened build and then brought to this baseline. If that is confirmed, \<Organisation\>'s build standard is asked for as evidence, and the CIS Benchmark scan shows what the build leaves to be done. Until it is, the design stands as written: the CIS Benchmark, applied by the Windows server administrator. If \<Organisation\> builds them, its standard is asked for as evidence, compared with the benchmark, and any shortfall recorded as a departure.
 
-### 4.7 Change control
+### 3.7 Change control
 
 Every change to a configuration item follows one route. Figure 1 shows it.
 
@@ -264,28 +174,28 @@ Every change to a configuration item follows one route. Figure 1 shows it.
 
 **Figure 1: The route every change follows**
 
-**Table 11: Steps of a change**
+**Table 8: Steps of a change**
 
 | Step | Who | What | Record |
 | --- | --- | --- | --- |
 | 1 Request | Whoever needs the change | States what is to change and why | A ServiceNow change, or TPL-6 until ServiceNow is set up |
-| 2 Impact analysis | Security officer | Answers the questions in section 4.9, and rates the impact | On the change, with the rating |
+| 2 Impact analysis | Security officer | Answers the questions in section 3.9, and rates the impact | On the change, with the rating |
 | 3 Decision | Change control board | Approves, refuses, defers or asks for more. A significant or High impact change goes to the authorising official first | On the change, with the date and members present |
 | 4 Make and test | Developers or administrators | Make the change, and test it on a separate test environment before release | Test result on the change |
 | 5 Verify | Those who made it | Check that the controls named in the analysis still work | Result on the change |
 | 6 Update | Those who made it | Update the baseline, the component list and the inventory; tag the release; record the pinned image versions; produce the bill of materials | This document; the release record |
 
-**Who made each change.** The change record names who made it. The servers and the database record it independently: Windows logs each administrator sign-in, installed service and policy change, and PostgreSQL logs each change to a table, role or permission (\<Audit and Accountability Management\>, section 4.2). The monthly comparison with the baseline finds a change that has no record.
+**Who made each change.** The change record names who made it. The servers and the database record it independently: Windows logs each administrator sign-in, installed service and policy change, and PostgreSQL logs each change to a table, role or permission (\<Audit and Accountability Management\>, section 3.2). The monthly comparison with the baseline finds a change that has no record.
 
 **Emergency changes.** An emergency change is allowed only to stop or limit an incident or an outage. The system owner, or their deputy, approves it by phone or in person before it is made. It is recorded within 1 working day, with the impact analysis done afterwards, and the board confirms or reverses it at its next meeting (PRO-CM-8).
 
 **Today:** the ServiceNow workflow is not set up, and no change has followed this route. Changes so far are commits in the source repositories (PA-53).
 
-### 4.8 Change control board charter
+### 3.8 Change control board charter
 
 This charter follows NIST SP 800-128, Appendix H.
 
-**Table 12: Change control board charter**
+**Table 9: Change control board charter**
 
 | Item | Rule |
 | --- | --- |
@@ -293,87 +203,87 @@ This charter follows NIST SP 800-128, Appendix H.
 | Members | The system owner (chair), the security officer and the Windows server administrator. The legal adviser joins for any change touching personal data, as privacy representative. The database administrator and developers attend when their work is affected |
 | Quorum | The system owner, or their deputy, and the security officer |
 | Meetings | Monthly, and whenever a change needs a decision sooner |
-| Inputs | A change request on TPL-6 or in ServiceNow, with its impact analysis (section 4.9) and test plan |
+| Inputs | A change request on TPL-6 or in ServiceNow, with its impact analysis (section 3.9) and test plan |
 | Decisions | Approve, refuse, defer, or ask for more analysis. Each decision is recorded on the change with the date and the members present |
 | Conflicts | Nobody approves a change they requested or made |
-| Significant changes | Referred to the authorising official before they are made (\<Assessment, Authorization, and Monitoring Management\>, section 4.9) |
+| Significant changes | Referred to the authorising official before they are made (\<Assessment, Authorization, and Monitoring Management\>, section 3.9) |
 | Emergency changes | Made under PRO-CM-8 and reviewed at the next meeting |
 | Records | Kept for 3 years (CM-03\_ODP\[01\]) |
 
-### 4.9 Security impact analysis
+### 3.9 Security impact analysis
 
 The security officer answers each question on the change before the board decides. This follows NIST SP 800-128, Appendix I.
 
-**Table 13: Impact analysis criteria**
+**Table 10: Impact analysis criteria**
 
 | Question | What to check |
 | --- | --- |
-| What changes? | The configuration items in section 4.3 and the components in section 4.5 affected |
+| What changes? | The configuration items in section 3.3 and the components in section 3.5 affected |
 | Which controls are affected? | The families touched, for example access, sign-in, audit, encryption, boundary or backup, and the procedures that rely on them |
 | Does it touch personal data? | If so, the legal adviser joins the decision |
-| Does it add or change a connection or component? | Connections need \<Assessment, Authorization, and Monitoring Management\>, section 4.7; components need section 4.5 and a vulnerability check on TPL-7 |
-| Is it a significant change? | The test in \<Assessment, Authorization, and Monitoring Management\>, section 4.9 |
+| Does it add or change a connection or component? | Connections need \<Assessment, Authorization, and Monitoring Management\>, section 3.7; components need section 3.5 and a vulnerability check on TPL-7 |
+| Is it a significant change? | The test in \<Assessment, Authorization, and Monitoring Management\>, section 3.9 |
 | How will it be tested? | The test scripts in the test scripts folder that apply, on a separate stack, and what proves the affected controls still work |
 | How is it undone? | The back-out plan |
 | What must be updated? | This plan, \<System Security Plan\> and any family document the change affects |
 
 The security officer rates the impact Low, Medium or High. A High impact needs the authorising official's agreement as well as the board's.
 
-### 4.10 Least functionality
+### 3.10 Least functionality
 
-\<System Name\> is configured to do four things: store, search and show documents, and administer them. Table 14 lists what is prohibited or restricted.
+\<System Name\> is configured to do four things: store, search and show documents, and administer them. Table 11 lists what is prohibited or restricted.
 
-**Table 14: What is prohibited or restricted**
+**Table 11: What is prohibited or restricted**
 
 | Kind | Prohibited or restricted | Today |
 | --- | --- | --- |
 | Functions | Diagnostic, test and maintenance pages in production; the API documentation page outside development | The documentation page is off (B06). Diagnostic, test and maintenance pages remain (PA-07, PA-31) |
-| Ports | Everything except HTTPS to the applications, the database from the application server only, and administration from \<Organisation\>'s network. The flows \<System Name\> asks \<Organisation\> to allow are in \<Access Control Management\>, section 4.6.4 | The database is reachable only locally in the test environment (C09). The servers are not built |
+| Ports | Everything except HTTPS to the applications, the database from the application server only, and administration from \<Organisation\>'s network. The flows \<System Name\> asks \<Organisation\> to allow are in \<Access Control Management\>, section 3.6.4 | The database is reachable only locally in the test environment (C09). The servers are not built |
 | Protocols | Everything except TLS-protected ones on those routes | Plain HTTP in the test environment (PA-18) |
 | Software | Anything not on the approved software list, and any package the applications do not use | An unused package and a development-only package are in the release (C05, C06; PA-79). Each image holds a shell and a package manager (PA-85) |
 | Services | Any Windows service not needed for those four things | Not assessable: the servers are not built |
 
 The Windows server administrator and the developers review all five every 12 months, and remove what is not needed (PRO-CM-5).
 
-### 4.11 Who may change what
+### 3.11 Who may change what
 
-**Table 15: Access restrictions for change**
+**Table 12: Access restrictions for change**
 
 | What | Who may change it | How it is limited |
 | --- | --- | --- |
 | The applications | Developers, each change reviewed by a second developer | Permissions and required reviews in the source repositories (PA-91) |
-| What runs on the application server | The named Windows server administrators, installing an approved release | Windows permissions: only they can write to each application's program folder, and no application can change its own files (\<Access Control Management\>, section 4.6.3) |
+| What runs on the application server | The named Windows server administrators, installing an approved release | Windows permissions: only they can write to each application's program folder, and no application can change its own files (\<Access Control Management\>, section 3.6.3) |
 | Windows settings | The named Windows server administrators; \<Organisation\>, through Group Policy | Named administrator accounts; \<Organisation\>'s change process |
-| PostgreSQL settings and structure | The named database administrators. The API's database account cannot create, alter or drop tables | Database permissions (\<Access Control Management\>, section 4.6) |
+| PostgreSQL settings and structure | The named database administrators. The API's database account cannot create, alter or drop tables | Database permissions (\<Access Control Management\>, section 3.6) |
 | Application settings and secrets | The named Windows server administrators | Windows permissions on the settings files; secrets in the key store (PA-19) |
 | The hosts, network and firewall | \<Organisation\> | Its physical and logical controls, and its change process (EV-CM-01) |
 | This document set | The system owner | The restricted document store, under version control (PA-88) |
 
-Nobody approves a change they requested or made. Every change by any of these people follows the route in section 4.7.
+Nobody approves a change they requested or made. Every change by any of these people follows the route in section 3.7.
 
-### 4.12 Inventory and where information is held
+### 3.12 Inventory and where information is held
 
-**Inventory.** Two lists make up the inventory, and no component is in both. The servers and the other components of the system are in \<System Security Plan\>, section 4.4. The software components are in section 4.5. Each entry gives the name, type, version, location and owner, and for software also the supplier and licence. Both are updated as step 6 of every change.
+**Inventory.** Two lists make up the inventory, and no component is in both. The servers and the other components of the system are in \<System Security Plan\>, section 3.4. The software components are in section 3.5. Each entry gives the name, type, version, location and owner, and for software also the supplier and licence. Both are updated as step 6 of every change.
 
-**Where information is held.** Documents and audit records are in PostgreSQL on the database server, each project in its own schema. The application server holds only working files. \<System Security Plan\>, section 5.4, holds the record.
+**Where information is held.** Documents and audit records are in PostgreSQL on the database server, each project in its own schema. The application server holds only working files. \<System Security Plan\>, section 4.4, holds the record.
 
 **Who has access to it.** The approved access list names the members of each of \<System Name\>'s AD groups, the Windows server and database administrators, and \<Organisation\>'s staff with access to the hosts and backups. The first list is made before any production documents are held (D-AC-14).
 
-### 4.13 Library, tools, monitoring and retention
+### 3.13 Library, tools, monitoring and retention
 
-**Table 16: Library, tools, monitoring and retention**
+**Table 13: Library, tools, monitoring and retention**
 
 | Item | Detail |
 | --- | --- |
 | Configuration library | Git repositories for code and deployment files; an image registry holding images by digest, \[registry to be chosen when the VMs are built\]; the restricted document store for documents; release records with their bill of materials |
 | Tools | Git and its tags; Docker; ServiceNow for changes (PA-53); CIS-CAT or an equivalent scanner (PA-80); Test-ConfigurationManagement.ps1; \<Organisation\>'s discovery tools (EV-CM-02) |
-| Monitoring | Monthly drift check under PRO-CM-7, reported on TPL-8 to the security officer, and included in the monthly measures in \<Assessment, Authorization, and Monitoring Management\>, section 4.8 |
+| Monitoring | Monthly drift check under PRO-CM-7, reported on TPL-8 to the security officer, and included in the monthly measures in \<Assessment, Authorization, and Monitoring Management\>, section 3.8 |
 | Retention | Change records for 3 years; the 3 previous configurations, each with tag, digests, settings and bill of materials; superseded documents for 3 years |
 | Disposal | Removed configurations are deleted from the library only after their retention period, with the system owner's approval |
 
-### 4.14 What \<Organisation\> provides
+### 3.14 What \<Organisation\> provides
 
-**Table 17: Asked of \<Organisation\>**
+**Table 14: Asked of \<Organisation\>**
 
 | Provided | Controls | What \<System Name\> relies on | Evidence asked | State |
 | --- | --- | --- | --- | --- |
@@ -383,16 +293,13 @@ Nobody approves a change they requested or made. Every change by any of these pe
 | Group Policy settings on the servers | CM-6 | The corporate standard for lockout, the logon banner and the screen lock (D-AC-21) | EV-AC-05 to EV-AC-07 | Not sent |
 | ServiceNow, for the change workflow | CM-3 | A workflow built by the Application Support Team to \<System Name\>'s design | None: tracked by PA-53 | Not built |
 
-| **SECTION 5** |
-| --- |
-
-## 5 Each control and enhancement
+## 4 Each control and enhancement
 
 The controls are in NIST order. Each has two tables. The first takes each part of the control and gives what NIST requires, the design that meets it, and the position today. The second says who provides and is responsible for the control, what enforces it, the rules and procedures that apply, the tests run, the records an assessor will ask for, its status, the risk decision, and what is still open.
 
-### 5.1 CM-1 Policy and Procedures
+### 4.1 CM-1 Policy and Procedures
 
-**Table 18: CM-1 design**
+**Table 15: CM-1 design**
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
@@ -402,13 +309,13 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | c.1 | The policy is reviewed on a schedule and after set events | Every 12 months, and after a significant incident, audit finding or system change | Reviewed on 8 November 2026. The first yearly review falls due in November 2027 |
 | c.2 | The procedures are reviewed on a schedule and after set events | Every 12 months, and after a change to the steps | As the policy |
 
-**Table 19: CM-1 responsibility and evidence**
+**Table 16: CM-1 responsibility and evidence**
 
 | | |
 | --- | --- |
 | Provided by | People, following the procedures |
 | Responsible | System owner, Head of Cyber |
-| Enforced by | Not a system function. The documents are under version control, and each review is recorded in the change history |
+| Enforced by | Not a system function. The documents are under version control, and each review is recorded in the change record |
 | Rules and procedures | The whole policy (\<Policy\>, sections CM.3 and CM.4); all nine procedures (\<Procedures\> (CM)) |
 | Tests | None. Examined from the documents |
 | Records an assessor will ask for | The policy and procedures with their approvals; proof they were shared; walk-through records on TPL-4; review records. The approvals exist; the rest do not yet |
@@ -416,18 +323,18 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | Risk decision | NC-CM-01, rated Low: approve |
 | Open items | PA-20: share the policy and procedures, and walk through each procedure |
 
-### 5.2 CM-2 Baseline Configuration
+### 4.2 CM-2 Baseline Configuration
 
-**Table 20: CM-2 design**
+**Table 17: CM-2 design**
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
-| a | Write down and keep a current baseline configuration of the system | Section 4.4. The baseline is what a release must contain so that it can be rebuilt exactly: the applications at a tag, each image and component at a pinned version, the settings in section 4.6, and the server build to the CIS Benchmarks | Baseline v1.0 is recorded, and the applications are tagged (C03). The images are not pinned, so the release cannot be rebuilt exactly (C01, C02; PA-77). No baseline exists for the servers, as the servers are not built (PA-54) |
+| a | Write down and keep a current baseline configuration of the system | Section 3.4. The baseline is what a release must contain so that it can be rebuilt exactly: the applications at a tag, each image and component at a pinned version, the settings in section 3.6, and the server build to the CIS Benchmarks | Baseline v1.0 is recorded, and the applications are tagged (C03). The images are not pinned, so the release cannot be rebuilt exactly (C01, C02; PA-77). No baseline exists for the servers, as the servers are not built (PA-54) |
 | b.1 | Review and update the baseline on a schedule | Every 12 months, by the system owner and the Windows server administrator (PRO-CM-2) | Not yet due |
 | b.2 | Review and update it when defined circumstances require | At each release | Done for v1.0 |
 | b.3 | Review and update it when components are installed or changed | Step 6 of every change updates the baseline and the component list (PRO-CM-1) | Not yet used: no change has been made under the procedure |
 
-**Table 21: CM-2 responsibility and evidence**
+**Table 18: CM-2 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -441,15 +348,15 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | Risk decision | NC-CM-02, rated Low: obtain evidence; NC-CM-25, rated Medium: remediate (authorising official, D-CM-10) |
 | Open items | PA-77: pin each image. PA-54: set the server baseline when the servers are built. PA-80: compare the servers with the baseline each month |
 
-### 5.3 CM-2(2) Automation Support for Accuracy and Currency
+### 4.3 CM-2(2) Automation Support for Accuracy and Currency
 
-**Table 22: CM-2(2) design**
+**Table 19: CM-2(2) design**
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Keep the baseline current, complete, accurate and available by automated means | Three means: release tags in the source repositories; image versions pinned by digest; and the deployment files, which state the exact configuration. A bill of materials is produced by the build at each release | Release tags are in use. Images are not pinned (PA-77), no bill of materials is produced (PA-78), and the change workflow is not set up (PA-53) |
 
-**Table 23: CM-2(2) responsibility and evidence**
+**Table 20: CM-2(2) responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -463,15 +370,15 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | Risk decision | NC-CM-03, rated Low: approve; NC-CM-25, rated Medium: remediate (authorising official, D-CM-10) |
 | Open items | PA-53, PA-77, PA-78 |
 
-### 5.4 CM-2(3) Retention of Previous Configurations
+### 4.4 CM-2(3) Retention of Previous Configurations
 
-**Table 24: CM-2(3) design**
+**Table 21: CM-2(3) design**
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
-| All | Keep a defined number of earlier baselines, so that a release can be rolled back | The 3 previous configurations are kept in the configuration library, each as its tagged applications, pinned image versions, settings and bill of materials (section 4.13) | Only v1.0 exists, so there is nothing earlier to keep yet |
+| All | Keep a defined number of earlier baselines, so that a release can be rolled back | The 3 previous configurations are kept in the configuration library, each as its tagged applications, pinned image versions, settings and bill of materials (section 3.13) | Only v1.0 exists, so there is nothing earlier to keep yet |
 
-**Table 25: CM-2(3) responsibility and evidence**
+**Table 22: CM-2(3) responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -485,16 +392,16 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | Risk decision | NC-CM-04, rated Low: approve |
 | Open items | PA-53: with the change workflow. The number builds up with releases |
 
-### 5.5 CM-2(7) Configure Systems and Components for High-risk Areas
+### 4.5 CM-2(7) Configure Systems and Components for High-risk Areas
 
-**Table 26: CM-2(7) design**
+**Table 23: CM-2(7) design**
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
-| a | Issue specially configured devices to people travelling to high-risk places | No \<System Name\> device is issued to anyone, for travel or otherwise. \<System Name\> is reached only from \<Organisation\>'s managed devices, and phones and tablets cannot reach it (\<Access Control Management\>, section 4.6.5) | Met: none is issued (D-CM-05) |
+| a | Issue specially configured devices to people travelling to high-risk places | No \<System Name\> device is issued to anyone, for travel or otherwise. \<System Name\> is reached only from \<Organisation\>'s managed devices, and phones and tablets cannot reach it (\<Access Control Management\>, section 3.6.5) | Met: none is issued (D-CM-05) |
 | b | Apply defined controls to the devices when the person returns | Not applicable while none is issued. If that changes, the system owner sets the configuration and the checks on return before the first device is issued | Met |
 
-**Table 27: CM-2(7) responsibility and evidence**
+**Table 24: CM-2(7) responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -508,27 +415,27 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | Risk decision | NC-CM-05, rated Low: approve; now satisfied |
 | Open items | None |
 
-### 5.6 CM-3 Configuration Change Control
+### 4.6 CM-3 Configuration Change Control
 
-**Table 28: CM-3 design**
+**Table 25: CM-3 design**
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
-| a | Decide and record which kinds of change are under configuration control | Every change to a configuration item in section 4.3: the applications, components, images, deployment files, settings, the servers' and database's settings, and the security documents. Routine patches follow the same route | Set in this document |
-| b | Review each proposed change and approve or refuse it, with security and privacy impact in mind | The change control board decides each change, on its impact analysis (sections 4.8 and 4.9). Nobody approves a change they requested or made | Not in use: the ServiceNow change workflow is not set up (PA-53) |
+| a | Decide and record which kinds of change are under configuration control | Every change to a configuration item in section 3.3: the applications, components, images, deployment files, settings, the servers' and database's settings, and the security documents. Routine patches follow the same route | Set in this document |
+| b | Review each proposed change and approve or refuse it, with security and privacy impact in mind | The change control board decides each change, on its impact analysis (sections 3.8 and 3.9). Nobody approves a change they requested or made | Not in use: the ServiceNow change workflow is not set up (PA-53) |
 | c | Record the decision on each change | On the change request, with the date and the members present | Not in use |
-| d | Make the approved changes | Developers or administrators make the change through a release, and nothing else reaches the servers (section 4.7) | Changes so far are commits in the source repositories only |
+| d | Make the approved changes | Developers or administrators make the change through a release, and nothing else reaches the servers (section 3.7) | Changes so far are commits in the source repositories only |
 | e | Keep the records of changes for a defined time | 3 years | Set. No records yet |
 | f | Monitor and review the activity around controlled changes | The board reviews the month's changes, emergency changes and drift reports at each meeting. The monthly comparison with the baseline finds any change made outside the route (PRO-CM-7) | Not in use (PA-53, PA-80) |
-| g | Coordinate and oversee change control through a defined body that meets on a schedule | The change control board: the system owner, the security officer and the Windows server administrator. It meets monthly, and whenever an urgent or security change needs it (section 4.8) | Chartered. It has not met |
+| g | Coordinate and oversee change control through a defined body that meets on a schedule | The change control board: the system owner, the security officer and the Windows server administrator. It meets monthly, and whenever an urgent or security change needs it (section 3.8) | Chartered. It has not met |
 
-**Table 29: CM-3 responsibility and evidence**
+**Table 26: CM-3 responsibility and evidence**
 
 | | |
 | --- | --- |
 | Provided by | Shared: \<System Name\> and \<Organisation\> |
 | Responsible | System owner, security officer, Windows server administrator |
-| Enforced by | The change workflow in ServiceNow, once built; until then form TPL-6. Only the Windows server administrators can write to the applications' program folders (\<Access Control Management\>, section 4.6.3) |
+| Enforced by | The change workflow in ServiceNow, once built; until then form TPL-6. Only the Windows server administrators can write to the applications' program folders (\<Access Control Management\>, section 3.6.3) |
 | Rules and procedures | Policy principle P2; rule R2 (\<Policy\>, sections CM.3 and CM.4); PRO-CM-1, PRO-CM-8 (\<Procedures\> (CM)) |
 | Tests | None: the workflow does not exist to test |
 | Records an assessor will ask for | The list of changes; each change request with its impact analysis, decision, test result and verification; the board's meeting records. None exist yet |
@@ -536,15 +443,15 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | Risk decision | NC-CM-06, rated Medium: remediate |
 | Open items | PA-53: set up the change workflow and the release test gate. PA-91: protect the source repositories. PA-84: record schema changes |
 
-### 5.7 CM-3(2) Testing, Validation, and Documentation of Changes
+### 4.7 CM-3(2) Testing, Validation, and Documentation of Changes
 
-**Table 30: CM-3(2) design**
+**Table 27: CM-3(2) design**
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Test, validate and document each change before it is finished | Each change is tested on a separate test environment before release, with the security tests that apply, and the result is recorded on the change (PRO-CM-1, step 4). A release that fails a test does not go out | The security tests exist and were run on the v1.0 build. Nothing makes a release wait for them (PA-53) |
 
-**Table 31: CM-3(2) responsibility and evidence**
+**Table 28: CM-3(2) responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -558,15 +465,15 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | Risk decision | NC-CM-07, rated Low: remediate |
 | Open items | PA-53: set up the release test gate |
 
-### 5.8 CM-3(4) Security and Privacy Representatives
+### 4.8 CM-3(4) Security and Privacy Representatives
 
-**Table 32: CM-3(4) design**
+**Table 29: CM-3(4) design**
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
-| All | Make defined security and privacy representatives members of the change control body | The security officer is a member of the board. The legal adviser joins, as privacy representative, for any change that touches personal data (section 4.8) | Met: both are named in the charter |
+| All | Make defined security and privacy representatives members of the change control body | The security officer is a member of the board. The legal adviser joins, as privacy representative, for any change that touches personal data (section 3.8) | Met: both are named in the charter |
 
-**Table 33: CM-3(4) responsibility and evidence**
+**Table 30: CM-3(4) responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -580,15 +487,15 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | Risk decision | NC-CM-08, rated Low: approve; now satisfied |
 | Open items | None |
 
-### 5.9 CM-4 Impact Analyses
+### 4.9 CM-4 Impact Analyses
 
-**Table 34: CM-4 design**
+**Table 31: CM-4 design**
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
-| All | Analyse each change for its security and privacy impact before it is made | The security officer answers the eight questions in section 4.9 on every change, rates the impact Low, Medium or High, and records it on the change before the board decides. A High impact also needs the authorising official's agreement. A significant change goes to the authorising official (\<Assessment, Authorization, and Monitoring Management\>, section 4.9) | Defined. Not in use: no change has gone through it (PA-53) |
+| All | Analyse each change for its security and privacy impact before it is made | The security officer answers the eight questions in section 3.9 on every change, rates the impact Low, Medium or High, and records it on the change before the board decides. A High impact also needs the authorising official's agreement. A significant change goes to the authorising official (\<Assessment, Authorization, and Monitoring Management\>, section 3.9) | Defined. Not in use: no change has gone through it (PA-53) |
 
-**Table 35: CM-4 responsibility and evidence**
+**Table 32: CM-4 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -602,15 +509,15 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | Risk decision | NC-CM-09, rated Low: approve |
 | Open items | PA-53: set up the change workflow |
 
-### 5.10 CM-4(2) Verification of Controls
+### 4.10 CM-4(2) Verification of Controls
 
-**Table 36: CM-4(2) design**
+**Table 33: CM-4(2) design**
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
 | All | After a change, check that the controls it affected are still in place, working as intended and giving the result wanted | After each change, those who made it run the tests for the controls named in the impact analysis, and record the result on the change (PRO-CM-1, step 5) | Defined. Not in use (PA-53) |
 
-**Table 37: CM-4(2) responsibility and evidence**
+**Table 34: CM-4(2) responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -624,15 +531,15 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | Risk decision | NC-CM-10, rated Low: approve |
 | Open items | PA-53: set up the change workflow |
 
-### 5.11 CM-5 Access Restrictions for Change
+### 4.11 CM-5 Access Restrictions for Change
 
-**Table 38: CM-5 design**
+**Table 35: CM-5 design**
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
-| All | Define, record, approve and enforce the physical and logical limits on who can change the system | Section 4.11. Only developers can change the applications, in the source repositories, and each change needs a second person's review. Only the named Windows server administrators can change the servers or install a release. Only the named database administrators can change PostgreSQL. No application account can change its own program files. Each change leaves a record of who made it, in the change record and in the Windows and PostgreSQL logs. Physical access to the hosts is \<Organisation\>'s | Not assessable: the servers are not built. The source repositories do not yet require a review (PA-91). \<Organisation\>'s restrictions are not evidenced (EV-CM-01) |
+| All | Define, record, approve and enforce the physical and logical limits on who can change the system | Section 3.11. Only developers can change the applications, in the source repositories, and each change needs a second person's review. Only the named Windows server administrators can change the servers or install a release. Only the named database administrators can change PostgreSQL. No application account can change its own program files. Each change leaves a record of who made it, in the change record and in the Windows and PostgreSQL logs. Physical access to the hosts is \<Organisation\>'s | Not assessable: the servers are not built. The source repositories do not yet require a review (PA-91). \<Organisation\>'s restrictions are not evidenced (EV-CM-01) |
 
-**Table 39: CM-5 responsibility and evidence**
+**Table 36: CM-5 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -641,23 +548,23 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | Enforced by | Windows permissions on the servers; database permissions; repository permissions; \<Organisation\>'s physical controls |
 | Rules and procedures | Policy rule R2 (\<Policy\>, sections CM.3 and CM.4); PRO-CM-1 (\<Procedures\> (CM)) |
 | Tests | None: nothing to test until the servers are built |
-| Records an assessor will ask for | The list of who may change what; Windows and database permissions; repository settings; \<Organisation\>'s access lists and change process (EV-CM-01). The list exists in section 4.11 |
+| Records an assessor will ask for | The list of who may change what; Windows and database permissions; repository settings; \<Organisation\>'s access lists and change process (EV-CM-01). The list exists in section 3.11 |
 | Status | Not implemented |
 | Risk decision | NC-CM-11, rated Low: obtain evidence |
 | Open items | PA-112: obtain \<Organisation\>'s evidence (EV-CM-01). PA-91: require a review in the source repositories |
 
-### 5.12 CM-6 Configuration Settings
+### 4.12 CM-6 Configuration Settings
 
-**Table 40: CM-6 design**
+**Table 37: CM-6 design**
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
-| a | Set and record configuration settings, from a defined secure standard, that are as restrictive as the work allows | Section 4.6. The CIS Benchmarks for Windows Server 2025 and PostgreSQL 18, and the settings there for the application hosting, the .NET runtime and the applications | Recorded. The applications run as Windows services (D-PL-10) |
+| a | Set and record configuration settings, from a defined secure standard, that are as restrictive as the work allows | Section 3.6. The CIS Benchmarks for Windows Server 2025 and PostgreSQL 18, and the settings there for the application hosting, the .NET runtime and the applications | Recorded. The applications run as Windows services (D-PL-10) |
 | b | Apply the settings | The Windows server and database administrators apply the benchmarks when the servers are built, and the developers apply the hosting and application settings (PRO-CM-3) | Not applied: the servers are not built (PA-54). In the test environment the runtime settings are met (C08, C11), and PostgreSQL has TLS and logging off |
 | c | Identify, record and approve each departure from the settings | Each departure is recorded on TPL-6 with its reason, and approved by the system owner | None recorded yet |
 | d | Monitor and control changes to the settings | Each month the Windows server administrator scans both servers against the benchmarks, the database administrator compares the PostgreSQL settings, and any difference is reported to the security officer and put back or raised as a change (PRO-CM-7) | Not built (PA-80) |
 
-**Table 41: CM-6 responsibility and evidence**
+**Table 38: CM-6 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -671,16 +578,16 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | Risk decision | NC-CM-12, rated Low: obtain evidence |
 | Open items | PA-54: apply the benchmarks when the servers are built. PA-80: the monthly comparison |
 
-### 5.13 CM-7 Least Functionality
+### 4.13 CM-7 Least Functionality
 
-**Table 42: CM-7 design**
+**Table 39: CM-7 design**
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
-| a | Configure the system to provide only the capabilities its purpose needs | \<System Name\> stores, searches, shows and administers documents, and nothing else (section 4.10) | Partly. The API documentation page is off outside development (B06), the database is reachable only locally (B07), and the applications do not run as root (B08) |
-| b | Prohibit or restrict defined functions, ports, protocols, software and services | Table 14 in section 4.10 lists what is prohibited in each of the five kinds | Not met in part. Diagnostic, test and maintenance pages remain in the release (PA-07, PA-31). Plain HTTP is used in the test environment (PA-18). Unused packages are built in (C05, C06; PA-79), and each image holds a shell and a package manager (PA-85) |
+| a | Configure the system to provide only the capabilities its purpose needs | \<System Name\> stores, searches, shows and administers documents, and nothing else (section 3.10) | Partly. The API documentation page is off outside development (B06), the database is reachable only locally (B07), and the applications do not run as root (B08) |
+| b | Prohibit or restrict defined functions, ports, protocols, software and services | Table 11 in section 3.10 lists what is prohibited in each of the five kinds | Not met in part. Diagnostic, test and maintenance pages remain in the release (PA-07, PA-31). Plain HTTP is used in the test environment (PA-18). Unused packages are built in (C05, C06; PA-79), and each image holds a shell and a package manager (PA-85) |
 
-**Table 43: CM-7 responsibility and evidence**
+**Table 40: CM-7 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -694,16 +601,16 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | Risk decision | NC-CM-13, rated High: remediate; NC-CM-27, rated Low: remediate (system owner, Low) |
 | Open items | PA-07, PA-31: remove the diagnostic, test and maintenance pages. PA-79: remove the unused packages. PA-85: use minimal images. PA-18: TLS on every route |
 
-### 5.14 CM-7(1) Periodic Review
+### 4.14 CM-7(1) Periodic Review
 
-**Table 44: CM-7(1) design**
+**Table 41: CM-7(1) design**
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
-| a | Review the system on a schedule, to find functions, ports, protocols, software and services that are not needed or not secure | Every 12 months the Windows server administrator and the developers review all five kinds against Table 14, and record the result on TPL-3 (PRO-CM-5) | Not yet held: the first is due 12 months after go-live (PA-110) |
+| a | Review the system on a schedule, to find functions, ports, protocols, software and services that are not needed or not secure | Every 12 months the Windows server administrator and the developers review all five kinds against Table 11, and record the result on TPL-3 (PRO-CM-5) | Not yet held: the first is due 12 months after go-live (PA-110) |
 | b | Disable or remove what the review finds | Anything not needed is removed through a change | Not yet used |
 
-**Table 45: CM-7(1) responsibility and evidence**
+**Table 42: CM-7(1) responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -717,15 +624,15 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | Risk decision | NC-CM-14, rated Low: approve |
 | Open items | PA-110: hold the first review |
 
-### 5.15 CM-7(2) Prevent Program Execution
+### 4.15 CM-7(2) Prevent Program Execution
 
-**Table 46: CM-7(2) design**
+**Table 43: CM-7(2) design**
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Prevent programs from running unless they are allowed by defined rules | The approved software list says what may run on the servers. It is not enforced by the system: the system owner decided against Windows application control (D-CM-06). Software is installed only by the named Windows server administrators, on an approved request | The risk is accepted by the authorising official for 12 months, to 6 November 2027 (NC-CM-15). The list is not yet written (PA-55) |
 
-**Table 47: CM-7(2) responsibility and evidence**
+**Table 44: CM-7(2) responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -734,22 +641,22 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | Enforced by | Not enforced by the system. Installation rights are limited to the Windows server administrators |
 | Rules and procedures | Policy rule R5 (\<Policy\>, sections CM.3 and CM.4); PRO-CM-4 (\<Procedures\> (CM)) |
 | Tests | None |
-| Records an assessor will ask for | The approved software list; the acceptance of the risk (\<Risk List\>, section 4) |
+| Records an assessor will ask for | The approved software list; the acceptance of the risk (\<Risk List\>, section 3) |
 | Status | Not implemented |
 | Risk decision | NC-CM-15, rated Medium: accepted |
 | Open items | PA-55: write the list. The acceptance is reviewed by 6 November 2027 |
 
-### 5.16 CM-7(5) Authorized Software, Allow-by-exception
+### 4.16 CM-7(5) Authorized Software, Allow-by-exception
 
-**Table 48: CM-7(5) design**
+**Table 45: CM-7(5) design**
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
-| a | Identify the software allowed to run | The approved software list, kept by the Windows server administrator. For the applications themselves, the component list in section 4.5 | The component list exists. The list for the servers is not written (PA-55) |
+| a | Identify the software allowed to run | The approved software list, kept by the Windows server administrator. For the applications themselves, the component list in section 3.5 | The component list exists. The list for the servers is not written (PA-55) |
 | b | Deny everything else, and allow by exception | By procedure, not by the system: nothing is installed without an approved request (PRO-CM-4). Not technically enforced, by decision (D-CM-06) | The risk is accepted for 12 months, to 6 November 2027 (NC-CM-16) |
 | c | Review and update the list on a schedule | Every 12 months | Not yet due |
 
-**Table 49: CM-7(5) responsibility and evidence**
+**Table 46: CM-7(5) responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -763,16 +670,16 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | Risk decision | NC-CM-16, rated Medium: accepted |
 | Open items | PA-55: write the list |
 
-### 5.17 CM-8 System Component Inventory
+### 4.17 CM-8 System Component Inventory
 
-**Table 50: CM-8 design**
+**Table 47: CM-8 design**
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
-| a | Keep an inventory that reflects the system accurately, includes every component, counts none twice, is detailed enough to track and report, and holds defined information | Two lists, with no overlap: the servers and other components in \<System Security Plan\>, section 4.4, and the software components in section 4.5. Each entry gives name, type, version, location and owner, and for software also the supplier and licence. A bill of materials from each build checks the software list | The software list is complete for v1.0, and matched a list written from the build (C04). It is kept by hand, with no bill of materials (PA-78). Server names, asset numbers and exact versions wait for the servers (PA-54) |
+| a | Keep an inventory that reflects the system accurately, includes every component, counts none twice, is detailed enough to track and report, and holds defined information | Two lists, with no overlap: the servers and other components in \<System Security Plan\>, section 3.4, and the software components in section 3.5. Each entry gives name, type, version, location and owner, and for software also the supplier and licence. A bill of materials from each build checks the software list | The software list is complete for v1.0, and matched a list written from the build (C04). It is kept by hand, with no bill of materials (PA-78). Server names, asset numbers and exact versions wait for the servers (PA-54) |
 | b | Review and update the inventory on a schedule | At each change (PRO-CM-1, step 6) | Not yet used |
 
-**Table 51: CM-8 responsibility and evidence**
+**Table 48: CM-8 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -786,15 +693,15 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | Risk decision | NC-CM-17, rated Low: obtain evidence; NC-CM-26, rated Low: remediate (system owner, Low) |
 | Open items | PA-54: complete the server entries. PA-78: produce a bill of materials at each release |
 
-### 5.18 CM-8(1) Updates During Installation and Removal
+### 4.18 CM-8(1) Updates During Installation and Removal
 
-**Table 52: CM-8(1) design**
+**Table 49: CM-8(1) design**
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Update the inventory as part of installing, removing and updating components | A change is not closed until the inventory is updated: it is step 6 of every change (PRO-CM-1) | Not in use: no change has gone through the procedure (PA-111) |
 
-**Table 53: CM-8(1) responsibility and evidence**
+**Table 50: CM-8(1) responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -808,16 +715,16 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | Risk decision | NC-CM-18, rated Low: approve; NC-CM-26, rated Low: remediate (system owner, Low) |
 | Open items | PA-78: the bill of materials. PA-111: bring the update step into use with the first change |
 
-### 5.19 CM-8(3) Automated Unauthorized Component Detection
+### 4.19 CM-8(3) Automated Unauthorized Component Detection
 
-**Table 54: CM-8(3) design**
+**Table 51: CM-8(3) design**
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Detect unauthorised hardware, software and firmware by automated means, on a schedule | \<Organisation\>'s discovery tools check its network, including both servers, every month | Not evidenced (EV-CM-02) |
 | b | Take defined action when one is found | The tool alerts the Windows server administrator, who removes the component or disables its network access, tells the security officer, and records it on TPL-8 (PRO-CM-6) | Not yet used |
 
-**Table 55: CM-8(3) responsibility and evidence**
+**Table 52: CM-8(3) responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -831,19 +738,19 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | Risk decision | NC-CM-19, rated Low: obtain evidence |
 | Open items | PA-112: obtain \<Organisation\>'s evidence (EV-CM-02) |
 
-### 5.20 CM-9 Configuration Management Plan
+### 4.20 CM-9 Configuration Management Plan
 
-**Table 56: CM-9 design**
+**Table 53: CM-9 design**
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
-| a | A plan that covers roles, responsibilities, and configuration management processes and procedures | This document is the plan. Roles and processes are in section 4.2, the route a change follows in section 4.7, the environments in appendix C, and the procedures are \<Procedures\> (CM) | Written |
-| b | It sets how configuration items are identified through the life of the system, and how their configuration is managed | Section 4.2: an item is identified when it enters the baseline, named by its component and version, and managed through the change procedure for its whole life | Written |
-| c | It defines the configuration items and places them under configuration management | Section 4.3 | Written |
+| a | A plan that covers roles, responsibilities, and configuration management processes and procedures | This document is the plan. Roles and processes are in section 3.2, the route a change follows in section 3.7, the environments in appendix C, and the procedures are \<Procedures\> (CM) | Written |
+| b | It sets how configuration items are identified through the life of the system, and how their configuration is managed | Section 3.2: an item is identified when it enters the baseline, named by its component and version, and managed through the change procedure for its whole life | Written |
+| c | It defines the configuration items and places them under configuration management | Section 3.3 | Written |
 | d | It is reviewed and approved by defined people | The system owner | Version \<ver\> was approved (D-CM-12, D-SC-07). This restructured version awaits the system owner's approval |
 | e | It is protected from unauthorised disclosure and change | It is classified Restricted and held in the restricted document store, under version control | Not yet in the restricted store: held in a private local records repository until the store is set up (PA-88) |
 
-**Table 57: CM-9 responsibility and evidence**
+**Table 54: CM-9 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -852,22 +759,22 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | Enforced by | Not a system function. Version control records every change to the plan |
 | Rules and procedures | The whole policy (\<Policy\>, sections CM.3 and CM.4); all nine procedures (\<Procedures\> (CM)) |
 | Tests | None |
-| Records an assessor will ask for | This document with its approval; its change history; where it is held and who can reach it |
+| Records an assessor will ask for | This document with its approval; its change record; where it is held and who can reach it |
 | Status | Partially implemented |
 | Risk decision | NC-CM-20, rated Low: approve |
 | Open items | PA-88: move the document set to the restricted store. The plan is not yet in use, as no change has gone through it (PA-53) |
 
-### 5.21 CM-10 Software Usage Restrictions
+### 4.21 CM-10 Software Usage Restrictions
 
-**Table 58: CM-10 design**
+**Table 55: CM-10 design**
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
-| a | Use software and its documentation within its contracts and copyright law | Every component's licence is recorded in section 4.5 before it enters the baseline, and must permit \<System Name\>'s use. A licence that is not a standard open source licence goes to the system owner for a recorded decision. Licences are checked again at each release and every 12 months (PRO-CM-9) | All 16 components are recorded with their licences. One needed a decision: ImageSharp, used under its free community licence (D-CM-09). One internal component's owner and licence are to be confirmed. \<Organisation\>'s licences for Windows Server and the hosting are not evidenced (EV-CM-03) |
+| a | Use software and its documentation within its contracts and copyright law | Every component's licence is recorded in section 3.5 before it enters the baseline, and must permit \<System Name\>'s use. A licence that is not a standard open source licence goes to the system owner for a recorded decision. Licences are checked again at each release and every 12 months (PRO-CM-9) | All 16 components are recorded with their licences. One needed a decision: ImageSharp, used under its free community licence (D-CM-09). One internal component's owner and licence are to be confirmed. \<Organisation\>'s licences for Windows Server and the hosting are not evidenced (EV-CM-03) |
 | b | Track software licensed by quantity, to control copying and distribution | \<System Name\>'s own components are not licensed by quantity. Windows Server and anything else licensed by quantity is \<Organisation\>'s, and is tracked in its licence record | Not evidenced (EV-CM-03) |
 | c | Control and record any use of peer-to-peer file sharing | None is allowed: no peer-to-peer software is on the approved list, and \<Organisation\>'s network controls apply | \<Organisation\>'s controls are not evidenced (EV-CM-03) |
 
-**Table 59: CM-10 responsibility and evidence**
+**Table 56: CM-10 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -881,9 +788,9 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | Risk decision | NC-CM-21, rated Low: obtain evidence |
 | Open items | PA-112: obtain \<Organisation\>'s licence record (EV-CM-03). PA-113: record the owner and licence of the internal access control component |
 
-### 5.22 CM-11 User-installed Software
+### 4.22 CM-11 User-installed Software
 
-**Table 60: CM-11 design**
+**Table 57: CM-11 design**
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
@@ -891,7 +798,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | b | Enforce the rules by defined means | The approval in ServiceNow, and Windows user rights: only the named Windows server administrators can install | Not assessable: the servers are not built |
 | c | Check compliance on a schedule | Every 12 months, with the functions review: what is installed is compared with the approved software list | Not yet due (PA-110) |
 
-**Table 61: CM-11 responsibility and evidence**
+**Table 58: CM-11 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -905,17 +812,17 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | Risk decision | NC-CM-22, rated Low: approve |
 | Open items | PA-110: hold the first yearly check. PA-55: write the list |
 
-### 5.23 CM-12 Information Location
+### 4.23 CM-12 Information Location
 
-**Table 62: CM-12 design**
+**Table 59: CM-12 design**
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
-| a | Identify and record where defined information is, and the components that process and store it | Documents and audit records are held in PostgreSQL on the database server, with each project in its own schema. The application server holds only working files: export output for up to 24 hours, each application's key ring, and logs. Backups go to \<Organisation\>'s backup site. \<System Security Plan\>, sections 4.4 and 5.4, hold the record | Recorded |
+| a | Identify and record where defined information is, and the components that process and store it | Documents and audit records are held in PostgreSQL on the database server, with each project in its own schema. The application server holds only working files: export output for up to 24 hours, each application's key ring, and logs. Backups go to \<Organisation\>'s backup site. \<System Security Plan\>, sections 3.4 and 4.4, hold the record | Recorded |
 | b | Identify and record who has access to the system and components where it is held | The approved access list: the members of each of \<System Name\>'s AD groups, the named Windows server and database administrators, and \<Organisation\>'s staff with access to the hosts and backups | Not built: the first list is to be made before any production documents are held (D-AC-14; PA-111) |
 | c | Record changes to where the information is held | A change of location is a change to the baseline, and a new site is a significant change. Each is recorded on the change and in \<System Security Plan\> | Not yet used |
 
-**Table 63: CM-12 responsibility and evidence**
+**Table 60: CM-12 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -929,15 +836,15 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | Risk decision | NC-CM-23, rated Low: approve |
 | Open items | PA-111: build the approved access list |
 
-### 5.24 CM-12(1) Automated Tools to Support Information Location
+### 4.24 CM-12(1) Automated Tools to Support Information Location
 
-**Table 64: CM-12(1) design**
+**Table 61: CM-12(1) design**
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Use automated tools to find defined information on defined components | Restricted documents are held by project in the database, so the database itself lists them. For anything outside it, \<Organisation\>'s tools are to scan both servers for stray copies, if it has such tools | The value is agreed. The tools are not confirmed (EV-CM-02) |
 
-**Table 65: CM-12(1) responsibility and evidence**
+**Table 62: CM-12(1) responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -951,14 +858,11 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | Risk decision | NC-CM-24, rated Low: approve |
 | Open items | PA-112: confirm the tools with \<Organisation\> (EV-CM-02) |
 
-| **APPENDIX A** |
-| --- |
-
 ## Appendix A How configuration was built in the tested build
 
 This records the position of the build labelled v1.0 when it was examined and tested in Docker on 6 and 8 November 2026. It is the basis of the Today columns.
 
-**Table 66: How configuration was built in the tested build**
+**Table 63: How configuration was built in the tested build**
 
 | Part | What happens today | Where |
 | --- | --- | --- |
@@ -966,16 +870,13 @@ This records the position of the build labelled v1.0 when it was examined and te
 | Change control | Git commits only. ServiceNow is planned | PA-53 |
 | Least functionality | The API documentation page is off outside development (B06), the database is local only (B07), and the application does not run as root (B08). Diagnostic and maintenance pages remain | PA-07, PA-31 |
 | Software list | Not yet written, and not technically enforced, by decision | PA-55 |
-| Inventory | Servers in \<System Security Plan\>, section 4.4; software components in section 4.5 (C04) | PA-54 |
-
-| **APPENDIX B** |
-| --- |
+| Inventory | Servers in \<System Security Plan\>, section 3.4; software components in section 3.5 (C04) | PA-54 |
 
 ## Appendix B Parameter register
 
 These are NIST's organisation-defined values for the 24 CM entries: 57 in total. State now says whether each value is met today. Forty-six were agreed in the meeting of 6 November 2026, and the other 11 by the system owner later the same day (D-CM-P01, D-CM-P02). Four were extended on 8 November 2026 (D-CM-08).
 
-**Table 67: CM parameter register**
+**Table 64: CM parameter register**
 
 | NIST identifier | What must be defined | Value | State now |
 | --- | --- | --- | --- |
@@ -995,14 +896,14 @@ These are NIST's organisation-defined values for the 24 CM entries: 57 in total.
 | CM-02(07)\_ODP\[02\] | Configurations | Not applicable while none is issued | Met |
 | CM-02(07)\_ODP\[03\] | Controls on return | Not applicable while none is issued | Met |
 | CM-03\_ODP\[01\] | Record retention | 3 years | Met: set |
-| CM-03\_ODP\[02\] | Change control element | System owner, security officer and Windows server administrator | Met: chartered in section 4.8 |
+| CM-03\_ODP\[02\] | Change control element | System owner, security officer and Windows server administrator | Met: chartered in section 3.8 |
 | CM-03\_ODP\[03\] | How it convenes | At a set frequency, and when a change needs it | Met: set |
 | CM-03\_ODP\[04\] | Frequency | Monthly | Not yet: the board starts with the ServiceNow workflow (PA-53) |
 | CM-03\_ODP\[05\] | Conditions | An urgent or security change | Met: set |
 | CM-03(04)\_ODP\[01\] | Security representative | Security officer | Met |
 | CM-03(04)\_ODP\[02\] | Privacy representative | Legal adviser | Met |
 | CM-03(04)\_ODP\[03\] | Element | As CM-03\_ODP\[02\] | Met |
-| CM-06\_ODP\[01\] | Secure configurations | CIS Benchmarks, and the settings for the hosting and applications in section 4.6 | Not assessable: VMs not built (PA-54) |
+| CM-06\_ODP\[01\] | Secure configurations | CIS Benchmarks, and the settings for the hosting and applications in section 3.6 | Not assessable: VMs not built (PA-54) |
 | CM-06\_ODP\[02\] | Components | Windows Server 2025, PostgreSQL 18, the application hosting and the three applications | Not assessable: VMs not built (PA-54) |
 | CM-06\_ODP\[03\] | Operational requirements | Recorded exceptions | Met: set |
 | CM-07\_ODP\[01\] | Capabilities | Storing, searching and viewing documents, and administering them | Met |
@@ -1021,7 +922,7 @@ These are NIST's organisation-defined values for the 24 CM entries: 57 in total.
 | CM-07(02)\_ODP\[02\] | Rules | The approved software list | Accepted risk: not technically enforced (NC-CM-15) |
 | CM-07(05)\_ODP\[01\] | Authorised software | The approved software list | Not yet: list to be written when the VMs are built (PA-55) |
 | CM-07(05)\_ODP\[02\] | Review frequency | Every 12 months | Met: set |
-| CM-08\_ODP\[01\] | Inventory information | Name, type, version, location and owner; for software, also supplier and licence | Partly: software components in section 4.5 (C04); servers when built |
+| CM-08\_ODP\[01\] | Inventory information | Name, type, version, location and owner; for software, also supplier and licence | Partly: software components in section 3.5 (C04); servers when built |
 | CM-08\_ODP\[02\] | Review frequency | At each change | Met: set; PRO-CM-1 |
 | CM-08(03)\_ODP\[01\] | Mechanism, hardware | \<Organisation\>'s tools | Not assessable: \<Organisation\> (EV-CM-02) |
 | CM-08(03)\_ODP\[02\] | Mechanism, software | \<Organisation\>'s tools | Not assessable: \<Organisation\> (EV-CM-02) |
@@ -1037,14 +938,11 @@ These are NIST's organisation-defined values for the 24 CM entries: 57 in total.
 | CM-12(01)\_ODP\[01\] | Information by type | Restricted documents, by project | Met |
 | CM-12(01)\_ODP\[02\] | Components | Both VMs, using \<Organisation\>'s tools if available | Not yet: tools to be confirmed (EV-CM-02) |
 
-| **APPENDIX C** |
-| --- |
-
 ## Appendix C Environments
 
 NIST's guidance on CM-9 asks the plan to say how the development, test and operational environments are controlled. \<System Name\> has three, and nothing moves from one to the next except as a tagged release.
 
-**Table 68: Environments**
+**Table 65: Environments**
 
 | Environment | What it is | What it may hold | Who may change it | Today |
 | --- | --- | --- | --- | --- |
@@ -1052,25 +950,22 @@ NIST's guidance on CM-9 asks the plan to say how the development, test and opera
 | Test | A separate, throwaway copy of the whole system, built from a tagged release and removed after each test run | Sample data only | Developers | In use for every test recorded in the evidence store. It runs in Docker on one PC, not on servers like the production ones |
 | Production | The application server and the database server at \<Organisation\> | Production documents, once \<System Name\> is authorised | The named Windows server and database administrators only, installing an approved release | Not built |
 
-A release is tested in the test environment before it reaches production (section 4.7, step 4). NIST asks for a separate test environment only at High, as CM-4(1); \<System Name\> has one already. The tests are to be repeated on the production servers once they are built, because the test environment differs from them.
-
-| **APPENDIX D** |
-| --- |
+A release is tested in the test environment before it reaches production (section 3.7, step 4). NIST asks for a separate test environment only at High, as CM-4(1); \<System Name\> has one already. The tests are to be repeated on the production servers once they are built, because the test environment differs from them.
 
 ## Appendix D CM controls outside the Moderate baseline
 
-NIST does not select these at Moderate, so they are not assessed. Some of the design goes further than the baseline, and Table 69 says where.
+NIST does not select these at Moderate, so they are not assessed. Some of the design goes further than the baseline, and Table 66 says where.
 
-**Table 69: CM controls not selected at Moderate**
+**Table 66: CM controls not selected at Moderate**
 
 | Control | What it adds | \<System Name\>'s position |
 | --- | --- | --- |
 | CM-3(1) Automated Documentation, Notification, and Prohibition of Changes | A workflow that records each change, tells the approvers, and blocks a change until approved | Not required. Done in part once the ServiceNow workflow is built (PA-53) |
-| CM-3(6) Cryptography Management | Cryptographic mechanisms under configuration management | Not required. Keys and certificates are in the key register (\<System and Communications Protection Management\>, section 4.4), and a new key or certificate goes through change control |
+| CM-3(6) Cryptography Management | Cryptographic mechanisms under configuration management | Not required. Keys and certificates are in the key register (\<System and Communications Protection Management\>, section 3.4), and a new key or certificate goes through change control |
 | CM-4(1) Separate Test Environments | Changes analysed in a separate test environment | Not required. Done: appendix C |
 | CM-5(1) Automated Access Enforcement and Audit Records | Automated enforcement of who may change the system, with audit records | Not required. Done in part: Windows and database permissions enforce it, and their logs record it |
 | CM-6(1), CM-6(2) Automated Management and Verification; Respond to Unauthorized Changes | Automated checking of settings, and a set response to an unauthorised change | Not required. Done in part in design: the monthly benchmark scan, and the drift procedure (PA-80) |
 | CM-7(4) Unauthorized Software, Deny-by-exception | A list of software that must not run | Not required. \<System Name\> uses the stricter alternative, CM-7(5), an approved list, though it is not enforced by the system |
 | CM-8(2), CM-8(4) Automated Maintenance; Accountability Information | An inventory kept by automated means, naming who is accountable for each component | Not required. Each entry names an owner. The bill of materials will keep the software list by automated means (PA-78) |
-| CM-13 Data Action Mapping | A map of what the system does with personal data | In no security baseline. The personal data inventory is in \<PII Processing Management\>, section 4.3 |
+| CM-13 Data Action Mapping | A map of what the system does with personal data | In no security baseline. The personal data inventory is in \<PII Processing Management\>, section 3.3 |
 | CM-14 Signed Components | Components installed only if signed with an approved certificate | In no baseline. Release tags are to be signed, and packages checked for their signature (PA-91, PA-94) |

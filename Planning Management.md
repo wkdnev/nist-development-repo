@@ -1,96 +1,12 @@
 # \<System Name\> Planning Management
 
-**\<ref\> | Version \<ver\> | Draft for the system owner's approval**
+## 1 Purpose
 
-**Contents**
+This document shows how \<System Name\>'s plans are written, approved, shared, reviewed and protected, for each of the 7 Planning (PL) controls and enhancements in the NIST SP 800-53 Rev 5 Moderate baseline. Section 3 sets out the design: the register of every plan in force, what the security plan and the privacy plan must hold and where each part is, how a plan is approved and kept current, the rules of behaviour and who has signed them, the architecture, and the baseline and its tailoring. Section 4 takes each control in turn. Appendix A lists every value NIST asks the organisation to define, and appendix B the PL controls NIST does not select at Moderate.
 
-[1 Document control](#1-document-control)
+This is the only place this design is held. Other documents point here. The policy is in \<Policy\> (PL), and the steps people follow are in \<Procedures\> (PL). The plans themselves are separate documents, listed in section 3.2.
 
-[2 Purpose](#2-purpose)
-
-[3 Summary](#3-summary)
-
-[4 The design](#4-the-design)
-
-[5 Each control and enhancement](#5-each-control-and-enhancement)
-
-[Appendix A Parameter register](#appendix-a-parameter-register)
-
-[Appendix B PL controls outside the Moderate baseline](#appendix-b-pl-controls-outside-the-moderate-baseline)
-
-| **SECTION 1** |
-| --- |
-
-## 1 Document control
-
-### 1.1 Document details
-
-**Table 1: Document details**
-
-| Item | Detail |
-| --- | --- |
-| Reference | \<ref\> |
-| Title | \<System Name\> Planning Management |
-| Version | \<ver\> |
-| Status | Draft for the system owner's approval |
-| Date | 17 November 2026 |
-| Owner | System owner |
-| Applies to | Planning family |
-| Classification | Restricted |
-| Next review | Every 12 months, and after a significant change |
-| Format | \<Documentation Map\>, section 5 |
-
-### 1.2 Approval
-
-**Table 2: Approval**
-
-| Role | Name | Decision | Date |
-| --- | --- | --- | --- |
-| System owner | \[Name\] | Pending | Pending |
-
-### 1.3 Change history
-
-**Table 3: Change history**
-
-| Version | Date | Change |
-| --- | --- | --- |
-| \<ver\> | 18 November 2026 | The register of plans in force shows the current version of each plan |
-| \<ver\> | 18 November 2026 | The register of plans in force shows the current version of each plan |
-| \<ver\> | 18 November 2026 | The register of plans in force shows the current version of each plan |
-| \<ver\> | 18 November 2026 | The register of plans in force shows the current version of each plan |
-| \<ver\> | 18 November 2026 | The register of plans in force shows the current version of each plan |
-| \<ver\> | 18 November 2026 | The register of plans in force shows the current version of each plan |
-| \<ver\> | 18 November 2026 | The register of plans in force shows the current version of each plan |
-| \<ver\> | 18 November 2026 | The register of plans in force shows the current version of each plan |
-| \<ver\> | 18 November 2026 | The register of plans in force shows the current version of each plan |
-| \<ver\> | 18 November 2026 | The register of plans in force shows the current version of each plan |
-| \<ver\> | 18 November 2026 | The register of plans in force shows the current version of each plan |
-| \<ver\> | 18 November 2026 | References to the risk assessment design point to \<Risk Assessment Management\>, where it is now held (D-RA-11). The register of plans in force shows the current version of each plan |
-| \<ver\> | 18 November 2026 | The register of plans in force shows the current version of each plan |
-| \<ver\> | 18 November 2026 | The register of plans in force shows the current version of each plan |
-| \<ver\> | 18 November 2026 | The register of plans in force shows the current version of each plan |
-| \<ver\> | 17 November 2026 | The register of plans in force shows the current version of each plan |
-| \<ver\> | 17 November 2026 | The register of plans in force shows the current version of each plan |
-| \<ver\> | 17 November 2026 | The register of plans in force shows the current version of each plan |
-| \<ver\> | 17 November 2026 | The register of plans in force shows the current version of each plan |
-| \<ver\> | 17 November 2026 | The register of plans in force shows the current version of each plan |
-| \<ver\> | 17 November 2026 | The register of plans in force shows the current version of each plan |
-| \<ver\> | 17 November 2026 | The system owner's decisions on the cross-check (D-PL-14): signed rules of behaviour are kept while the person has access and for 3 years after, and the wording of the declaration is confirmed. The register of plans in force shows the current version of each plan |
-| \<ver\> | 17 November 2026 | Cross-check against NIST's guidance for the family: the acknowledgement is a signed declaration that the rules were read, understood and agreed; the retention of signed forms is shown as not yet set; the open questions in the concept of operations are shown; who planning is coordinated with is named; and the PL controls outside the Moderate baseline are listed in a new appendix B. The register of plans in force shows the current version of each plan |
-| \<ver\> | 17 November 2026 | The system owner's decisions on the review (D-PL-13): the table of where each required part of the plans is held is confirmed |
-| \<ver\> | 17 November 2026 | First draft. The register of plans in force shows the current version of each plan |
-| \<ver\> | 17 November 2026 | First draft, at the system owner's request (D-PL-12). The planning chapter of \<Control Implementation Register\> moved here in full, so that this design is held only in this document, and each control is set out part by part. The register of plans in force and the register of signatures are now kept here. No agreed value is changed |
-
-| **SECTION 2** |
-| --- |
-
-## 2 Purpose
-
-This document shows how \<System Name\>'s plans are written, approved, shared, reviewed and protected, for each of the 7 Planning (PL) controls and enhancements in the NIST SP 800-53 Rev 5 Moderate baseline. Section 4 sets out the design: the register of every plan in force, what the security plan and the privacy plan must hold and where each part is, how a plan is approved and kept current, the rules of behaviour and who has signed them, the architecture, and the baseline and its tailoring. Section 5 takes each control in turn. Appendix A lists every value NIST asks the organisation to define, and appendix B the PL controls NIST does not select at Moderate.
-
-This is the only place this design is held. Other documents point here. The policy is in \<Policy\> (PL), and the steps people follow are in \<Procedures\> (PL). The plans themselves are separate documents, listed in section 4.2.
-
-An assessor examines the plans against what NIST requires them to hold, their approvals and review records, who received them and how they are protected, the signed rules of behaviour, and the architecture; and interviews those who keep the plans and a sample of those who signed the rules (NIST SP 800-53A). So for each control section 5 gives:
+An assessor examines the plans against what NIST requires them to hold, their approvals and review records, who received them and how they are protected, the signed rules of behaviour, and the architecture; and interviews those who keep the plans and a sample of those who signed the rules (NIST SP 800-53A). So for each control section 4 gives:
 
 - **each part of the control**, as NIST letters them, with the design that meets it and the position today;
 - **who provides it**, and who is responsible;
@@ -98,7 +14,7 @@ An assessor examines the plans against what NIST requires them to hold, their ap
 - **the records an assessor will ask for**, and whether they exist yet;
 - **its status**, the risk decision, and what is still open.
 
-**Table 4: Status values**
+**Table 1: Status values**
 
 | Status | Meaning |
 | --- | --- |
@@ -106,14 +22,11 @@ An assessor examines the plans against what NIST requires them to hold, their ap
 | Partially implemented | Some of the design is in place; the open items say what is missing |
 | Not implemented | None of the design is in place yet |
 
-| **SECTION 3** |
-| --- |
-
-## 3 Summary
+## 2 Summary
 
 Of the 7 controls, 3 are implemented, 4 are partially implemented and none is not implemented. No control in the baseline is missing from the design. Every gap is registered in the Risk List (\<Risk List\>) and the Plan of Action and Milestones (\<Plan of Action and Milestones\>).
 
-**Table 5: Status of each control**
+**Table 2: Status of each control**
 
 | Control | Title | Status | What is missing | Registered as |
 | --- | --- | --- | --- | --- |
@@ -129,12 +42,9 @@ One PL control from the privacy baseline is assessed with the PT family: PL-9, c
 
 The plans are written and agree with each other: a test of 24 checks runs on the whole set before each issue. Three things remain. The plans are not yet in the restricted store, and are held on one computer (PA-88, rated Medium). Nobody has signed the rules of behaviour, because nobody has access yet. And the plans have not been shared with the people who should receive them (PA-123).
 
-| **SECTION 4** |
-| --- |
+## 3 The design
 
-## 4 The design
-
-### 4.1 Principles
+### 3.1 Principles
 
 1. **One current set.** The System Security Plan is the single statement of how controls are met, and every plan it relies on is listed in one register.
 2. **Rules before access.** Nobody gets access without signing the rules.
@@ -147,11 +57,11 @@ These carry out the principles and rules of \<Policy\>, sections PL.3 and PL.4.
 
 **Figure 1: How a plan is kept current**
 
-### 4.2 Register of plans in force
+### 3.2 Register of plans in force
 
 Every plan and planning record in force, with its owner, version, approver and next review. The design documents for each control family are not plans, and are listed in \<Documentation Map\>.
 
-**Table 6: Plans in force**
+**Table 3: Plans in force**
 
 | Plan or record | Document | Version | Owner | Approved by | Next review |
 | --- | --- | --- | --- | --- | --- |
@@ -172,72 +82,72 @@ Every plan and planning record in force, with its owner, version, approver and n
 
 The versions in the register are checked by the plan consistency test (check L22), and are brought up to date whenever a plan is given a new version. The register is to be kept in the restricted document store with the plans (D-GEN-15).
 
-### 4.3 What the plans hold
+### 3.3 What the plans hold
 
-PL-2 lists 15 things a security plan and a privacy plan must hold. The security plan is \<System Security Plan\>, written to NIST SP 800-18 Revision 2, and the privacy plan is \<Privacy Plan\>. The system owner confirmed Table 7 on 17 November 2026 (D-PL-13).
+PL-2 lists 15 things a security plan and a privacy plan must hold. The security plan is \<System Security Plan\>, written to NIST SP 800-18 Revision 2, and the privacy plan is \<Privacy Plan\>. The system owner confirmed Table 4 on 17 November 2026 (D-PL-13).
 
-**Table 7: Where each required part of the plans is held**
+**Table 4: Where each required part of the plans is held**
 
 | Part | NIST requires | Security plan | Privacy plan | Today |
 | --- | --- | --- | --- | --- |
-| a.1 | Consistent with the enterprise architecture | \<System Security Plan\>, section 5; \<Security Architecture\>, sections 5 and 7.3 | \<Privacy Plan\>, section 9 | \<Organisation\>'s architecture has not been seen (EV-PL-01) |
-| a.2 | Defines the components of the system | \<System Security Plan\>, sections 4.1 and 4.4; \<Security Architecture\>, section 3 | \<Privacy Plan\>, section 3 | Met |
-| a.3 | Describes the operational context | \<System Security Plan\>, sections 2 and 3; \<Concept of Operations\> | \<Privacy Plan\>, section 3 | Met. Three questions for the business owner are still open in \<Concept of Operations\>, section 8: who will use \<System Name\> and from where, which business processes it supports, and the hours and numbers it must serve (PA-123) |
-| a.4 | Names the people in each role | \<System Security Plan\>, section 7; \<Roles and Responsibilities\> | \<Privacy Plan\>, section 4 | Met |
-| a.5 | Identifies the types of information | \<System Security Plan\>, section 4.3 | \<Privacy Plan\>, section 5 | Met |
-| a.6 | Gives the security categorisation, with its reasons | \<System Security Plan\>, section 4.3 | \<Privacy Plan\>, section 5 | Met; approved by the authorising official |
-| a.7 | Describes the threats of concern | \<Risk List\>, section 3 | \<Privacy Plan\>, section 6 | Met |
+| a.1 | Consistent with the enterprise architecture | \<System Security Plan\>, section 4; \<Security Architecture\>, sections 4 and 6.3 | \<Privacy Plan\>, section 8 | \<Organisation\>'s architecture has not been seen (EV-PL-01) |
+| a.2 | Defines the components of the system | \<System Security Plan\>, sections 3.1 and 3.4; \<Security Architecture\>, section 2 | \<Privacy Plan\>, section 2 | Met |
+| a.3 | Describes the operational context | \<System Security Plan\>, sections 1 and 2; \<Concept of Operations\> | \<Privacy Plan\>, section 2 | Met. Three questions for the business owner are still open in \<Concept of Operations\>, section 7: who will use \<System Name\> and from where, which business processes it supports, and the hours and numbers it must serve (PA-123) |
+| a.4 | Names the people in each role | \<System Security Plan\>, section 6; \<Roles and Responsibilities\> | \<Privacy Plan\>, section 3 | Met |
+| a.5 | Identifies the types of information | \<System Security Plan\>, section 3.3 | \<Privacy Plan\>, section 4 | Met |
+| a.6 | Gives the security categorisation, with its reasons | \<System Security Plan\>, section 3.3 | \<Privacy Plan\>, section 4 | Met; approved by the authorising official |
+| a.7 | Describes the threats of concern | \<Risk List\>, section 2 | \<Privacy Plan\>, section 5 | Met |
 | a.8 | Gives the results of a privacy risk assessment | \<Data Protection Impact Assessment\> | \<Data Protection Impact Assessment\> | Not met: the impact assessment is a draft (PA-72) |
-| a.9 | Describes the environment, and the connections to other systems | \<System Security Plan\>, sections 4.1, 4.2 and 5 | \<Privacy Plan\>, section 3 | Met |
-| a.10 | Gives an overview of the requirements | \<System Security Plan\>, sections 2 and 6 | \<Privacy Plan\>, section 7 | Met |
-| a.11 | Identifies the baselines and overlays | \<System Security Plan\>, section 6; \<Tailoring Register\> | \<Privacy Plan\>, section 7 | Met |
-| a.12 | Describes each control, in place or planned, with the reason for any tailoring | \<System Security Plan\>, section 8: one row for each control; \<Tailoring Register\> | \<Privacy Plan\>, section 7 | Met |
-| a.13 | Includes the risk decisions on architecture and design | \<Risk List\>; \<Decision Register\> | \<Privacy Plan\>, section 6; \<Decision Register\> | Met |
-| a.14 | Includes the activities that need planning and coordination with defined people | The operating calendar in \<Security Operating Procedures\>, Part C; \<Plan of Action and Milestones\>. They are coordinated with the Head of Cyber, the administrators and \<Organisation\>'s security contact | \<Privacy Plan\>, section 8 | Met |
+| a.9 | Describes the environment, and the connections to other systems | \<System Security Plan\>, sections 3.1, 3.2 and 4 | \<Privacy Plan\>, section 2 | Met |
+| a.10 | Gives an overview of the requirements | \<System Security Plan\>, sections 1 and 5 | \<Privacy Plan\>, section 6 | Met |
+| a.11 | Identifies the baselines and overlays | \<System Security Plan\>, section 5; \<Tailoring Register\> | \<Privacy Plan\>, section 6 | Met |
+| a.12 | Describes each control, in place or planned, with the reason for any tailoring | \<System Security Plan\>, section 7: one row for each control; \<Tailoring Register\> | \<Privacy Plan\>, section 6 | Met |
+| a.13 | Includes the risk decisions on architecture and design | \<Risk List\>; \<Decision Register\> | \<Privacy Plan\>, section 5; \<Decision Register\> | Met |
+| a.14 | Includes the activities that need planning and coordination with defined people | The operating calendar in \<Security Operating Procedures\>, Part C; \<Plan of Action and Milestones\>. They are coordinated with the Head of Cyber, the administrators and \<Organisation\>'s security contact | \<Privacy Plan\>, section 7 | Met |
 | a.15 | Reviewed and approved by the authorising official before it is put into effect | Approved by the system owner, with the Head of Cyber's concurrence, and accepted by the authorising official as an accurate record | Approved by the legal adviser and the authorising official | Version \<ver\> of the security plan was accepted; later versions await acceptance (D-GEN-20), and the Head of Cyber's concurrence is pending (D-PL-06). The privacy plan was approved (D-PT-05) |
 
-### 4.4 Approval, review, sharing and protection
+### 3.4 Approval, review, sharing and protection
 
-**Table 8: How a plan is kept current**
+**Table 5: How a plan is kept current**
 
 | Step | What happens | Who | Record |
 | --- | --- | --- | --- |
-| 1 Update | After an assessment, a significant change or a problem found in use, the affected plans are updated | System owner | A line in each plan's change history |
+| 1 Update | After an assessment, a significant change or a problem found in use, the affected plans are updated | System owner | A line in each plan's change record |
 | 2 Check | The plan consistency test is run on the whole document set, and every gap is corrected before the plans are issued. It has 24 checks: for example, that the plan and the assessment agree on the status of every control, and that every section one document cites exists in the other | System owner | The test result, kept with its hash |
 | 3 Approve | The security plan goes to the Head of Cyber for concurrence and to the authorising official to accept as an accurate record. The privacy plan is approved by the legal adviser and the authorising official | System owner | \<Decision Register\> |
-| 4 Share | A link to the restricted copy goes to the Head of Cyber, the administrators and \<Organisation\>'s security contact | System owner | Plan review log, naming the recipients |
-| 5 Protect | The plans and the evidence are kept only in the restricted document store. The access list is checked against \<Roles and Responsibilities\> at each review | System owner | Plan review log |
-| 6 Review | Every plan in the register is reviewed every 12 months: who reviewed it, their role, the date, the outcome and the actions | System owner | Plan review log (\<System Security Plan\>, section 1.4) |
+| 4 Share | A link to the restricted copy goes to the Head of Cyber, the administrators and \<Organisation\>'s security contact | System owner | Plan review record, naming the recipients |
+| 5 Protect | The plans and the evidence are kept only in the restricted document store. The access list is checked against \<Roles and Responsibilities\> at each review | System owner | Plan review record |
+| 6 Review | Every plan in the register is reviewed every 12 months: who reviewed it, their role, the date, the outcome and the actions | System owner | Plan review record, kept in the change record (\<Documentation Map\>, section 4.1) |
 
-### 4.5 Rules of behaviour and the register of signatures
+### 3.5 Rules of behaviour and the register of signatures
 
 The Security Operating Procedures are the rules of behaviour (D-PL-05). Part A applies to everyone, and Part B, the privileged rules, to administrators as well. The rules on social media, public websites and work credentials on outside sites are A25 and A43 to A45.
 
 1. Before access, the person is given the rules, and signs a declaration that they have read and understood them and agree to follow them, on paper or electronically. The system owner completes TPL-21.
 2. The signature is added to the register below. The access request checks the register before access is given.
-3. Everyone signs again every 12 months, and after a material change to the rules: a new or stricter rule, a changed consequence, new monitoring or a new privileged duty (D-PL-P02). The system owner decides whether a change is material, and records it in the change history of the rules. After a material change everyone signs within 30 days, or loses access.
+3. Everyone signs again every 12 months, and after a material change to the rules: a new or stricter rule, a changed consequence, new monitoring or a new privileged duty (D-PL-P02). The system owner decides whether a change is material, and records it in the change record of the rules. After a material change everyone signs within 30 days, or loses access.
 
 Signed forms are kept for as long as the person has access, and for 3 years after it ends, as the system owner decided on 17 November 2026 (D-PL-14). The declaration each person signs is: "I have read and understood these rules, and I agree to follow them."
 
 No one has signed yet: first signatures are taken on the version current when the remaining family reviews end (D-PL-P02).
 
-**Table 9: Register of signatures**
+**Table 6: Register of signatures**
 
 | TPL-21 record | Name | Role | Parts | SyOps version | Reason | Date signed | Next due |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | None yet |  |  |  |  |  |  |  |
 
-### 4.6 Architecture
+### 3.6 Architecture
 
-The security architecture is \<Security Architecture\>, which states the protection goals, the design principles, the trust zones, the layers of defence, and the assumptions and dependencies. The privacy architecture is section 9 of \<Privacy Plan\>. The system owner reviews the architecture against the system as built every 12 months and after a significant change. Each change is carried into the security plan, the privacy plan, the concept of operations, the list of critical components, the procedures and any procurement. New open questions go to \<Decision Register\> or \<Plan of Action and Milestones\>, and not into the architecture.
+The security architecture is \<Security Architecture\>, which states the protection goals, the design principles, the trust zones, the layers of defence, and the assumptions and dependencies. The privacy architecture is section 8 of \<Privacy Plan\>. The system owner reviews the architecture against the system as built every 12 months and after a significant change. Each change is carried into the security plan, the privacy plan, the concept of operations, the list of critical components, the procedures and any procurement. New open questions go to \<Decision Register\> or \<Plan of Action and Milestones\>, and not into the architecture.
 
-### 4.7 Baseline and tailoring
+### 3.7 Baseline and tailoring
 
 The baseline is NIST SP 800-53B Moderate, with the privacy baseline. It was chosen from the categorisation of \<System Name\>'s information, which is Moderate for confidentiality and integrity and Low for availability. A control, or a part of one, is set aside only through \<Tailoring Register\>, with a rationale, a condition that must hold, what happens if the condition changes, and a recorded decision. Each condition is checked at the yearly review.
 
-### 4.8 What \<Organisation\> provides
+### 3.8 What \<Organisation\> provides
 
-**Table 10: Asked of \<Organisation\>**
+**Table 7: Asked of \<Organisation\>**
 
 | Provided | Controls | What \<System Name\> relies on | Evidence asked | State |
 | --- | --- | --- | --- | --- |
@@ -245,16 +155,13 @@ The baseline is NIST SP 800-53B Moderate, with the privacy baseline. It was chos
 | Who runs the hypervisor beneath the servers, and whether it is within the Cyber Essentials Plus scope | PL-8 | The answer settles a dependency recorded in the architecture (D-PL-11) | EV-PL-01 | Not sent |
 | The restricted document store | PL-2 | A SharePoint area where only named people can read or change the plans | Not an evidence request: tracked by PA-88 | Not in use |
 
-| **SECTION 5** |
-| --- |
-
-## 5 Each control and enhancement
+## 4 Each control and enhancement
 
 The controls are in NIST order. Each has two tables. The first takes each part of the control and gives what NIST requires, the design that meets it, and the position today. The second says who provides and is responsible for the control, what enforces it, the rules and procedures that apply, the tests run, the records an assessor will ask for, its status, the risk decision, and what is still open.
 
-### 5.1 PL-1 Policy and Procedures
+### 4.1 PL-1 Policy and Procedures
 
-**Table 11: PL-1 design**
+**Table 8: PL-1 design**
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
@@ -264,7 +171,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | c.1 | The policy is reviewed on a schedule and after set events | Every 12 months, and after a significant incident, audit finding or system change | Reviewed on 11 November 2026. The first yearly review falls due in November 2027 |
 | c.2 | The procedures are reviewed on a schedule and after set events | Every 12 months, and after a change to the steps | As the policy |
 
-**Table 12: PL-1 responsibility and evidence**
+**Table 9: PL-1 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -278,19 +185,19 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | Risk decision | NC-PL-01, rated Low: approve |
 | Open items | PA-20: share the policy and procedures. The Head of Cyber's approval of the later version (D-PL-07) |
 
-### 5.2 PL-2 System Security and Privacy Plans
+### 4.2 PL-2 System Security and Privacy Plans
 
-**Table 13: PL-2 design**
+**Table 10: PL-2 design**
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
-| a | Develop security and privacy plans that hold the 15 things NIST lists, from the fit with the enterprise architecture to approval by the authorising official | \<System Security Plan\> is the security plan and \<Privacy Plan\> the privacy plan. Section 4.3 shows where each of the 15 is held | Thirteen of the 15 are met. \<Organisation\>'s enterprise architecture has not been seen (EV-PL-01), and the privacy risk results wait on the impact assessment, which is a draft (PA-72) |
-| b | Give copies of the plans to defined people, and tell them of later changes | The Head of Cyber, the administrators and \<Organisation\>'s security contact receive a link to the restricted copy when a plan is approved or changed. Each issue is recorded in the plan review log (section 4.4) | Not yet shared (PA-123) |
-| c | Review the plans on a schedule | Every 12 months, and after an assessment, a significant change or a problem found in use. Each review is recorded in the plan review log | The plan review log was started on 11 November 2026. The first yearly review falls due in November 2027 |
-| d | Update the plans for changes to the system and for problems found in use or in assessments | The affected plans are updated, each with a line in its change history, and the consistency test of 24 checks is run on the whole set before a plan is issued | Done at each change. The test passes on the current set |
+| a | Develop security and privacy plans that hold the 15 things NIST lists, from the fit with the enterprise architecture to approval by the authorising official | \<System Security Plan\> is the security plan and \<Privacy Plan\> the privacy plan. Section 3.3 shows where each of the 15 is held | Thirteen of the 15 are met. \<Organisation\>'s enterprise architecture has not been seen (EV-PL-01), and the privacy risk results wait on the impact assessment, which is a draft (PA-72) |
+| b | Give copies of the plans to defined people, and tell them of later changes | The Head of Cyber, the administrators and \<Organisation\>'s security contact receive a link to the restricted copy when a plan is approved or changed. Each issue is recorded in the plan review record (section 3.4) | Not yet shared (PA-123) |
+| c | Review the plans on a schedule | Every 12 months, and after an assessment, a significant change or a problem found in use. Each review is recorded in the plan review record | The plan review record was started on 11 November 2026. The first yearly review falls due in November 2027 |
+| d | Update the plans for changes to the system and for problems found in use or in assessments | The affected plans are updated, each with a line in its change record, and the consistency test of 24 checks is run on the whole set before a plan is issued | Done at each change. The test passes on the current set |
 | e | Protect the plans from unauthorised disclosure and change | The plans and the assessment evidence are Restricted. They are kept only in the restricted document store, where only named people can read or change them, and never in a code repository | Not met: the set is on the system owner's computer, outside the restricted store. Every change is recorded in a private local repository, with a manifest of hashes for each issue (NC-PL-06; PA-88) |
 
-**Table 14: PL-2 responsibility and evidence**
+**Table 11: PL-2 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -299,23 +206,23 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | Enforced by | Not a system function. The consistency test; the restricted document store, once used |
 | Rules and procedures | Policy rules R1 to R5 (\<Policy\>, section PL.4); PRO-PL-1, PRO-PL-2, PRO-PL-6 (\<Procedures\> (PL)) |
 | Tests | The plan consistency test, 24 checks on the whole document set, run before each issue: all pass |
-| Records an assessor will ask for | The plans with their approvals; the plan review log (\<System Security Plan\>, section 1.4); the record of who received each issue; the access list of the restricted store. The approvals and the log exist |
+| Records an assessor will ask for | The plans with their approvals; the plan review record (\<Documentation Map\>, section 4.1); the record of who received each issue; the access list of the restricted store. The approvals and the log exist |
 | Status | Partially implemented |
 | Risk decision | NC-PL-02, rated Low: approve; NC-PL-06, rated Medium: move to SharePoint (D-GEN-15, D-PL-06) |
 | Open items | PA-123: share the plans, and obtain \<Organisation\>'s architecture standards. PA-88: the restricted store. PA-72: the impact assessment |
 
-### 5.3 PL-4 Rules of Behavior
+### 4.3 PL-4 Rules of Behavior
 
-**Table 15: PL-4 design**
+**Table 12: PL-4 design**
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
 | a | Set rules for everyone who needs access, describing their responsibilities and the behaviour expected for use of the system, security and privacy, and give the rules to them | \<Security Operating Procedures\> is the rules of behaviour. Part A applies to everyone, and Part B, the privileged rules, to administrators as well. The privacy rules are A23 to A29 | Approved by the system owner (D-PL-05) |
-| b | Receive each person's documented acknowledgement before giving them access | Each person signs a declaration, before access, that they have read and understood the rules and agree to follow them. The signature is recorded on TPL-21 and in the register in section 4.5, and the access request checks the register before access is given | Nobody has signed. The form and the register are ready (PA-123) |
+| b | Receive each person's documented acknowledgement before giving them access | Each person signs a declaration, before access, that they have read and understood the rules and agree to follow them. The signature is recorded on TPL-21 and in the register in section 3.5, and the access request checks the register before access is given | Nobody has signed. The form and the register are ready (PA-123) |
 | c | Review and update the rules on a schedule | Every 12 months | The first yearly review falls due in November 2027 |
 | d | Have people who signed an earlier version read and sign again, on a schedule or when the rules change | Every 12 months, and after a material change to the rules: a new or stricter rule, a changed consequence, new monitoring or a new privileged duty. After a material change everyone signs again within 30 days, or loses access | Nobody has signed yet |
 
-**Table 16: PL-4 responsibility and evidence**
+**Table 13: PL-4 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -329,9 +236,9 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | Risk decision | NC-PL-03, rated Low: approve |
 | Open items | PA-123: take the first signatures before access is given |
 
-### 5.4 PL-4(1) Social Media and External Site/Application Usage Restrictions
+### 4.4 PL-4(1) Social Media and External Site/Application Usage Restrictions
 
-**Table 17: PL-4(1) design**
+**Table 14: PL-4(1) design**
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
@@ -339,7 +246,7 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | b | And on posting the organisation's information on public websites | Rules A25 and A43 | Met |
 | c | And on using the organisation's identifiers and authentication secrets to create accounts on external sites and applications | Rule A44: work credentials are not used on outside sites | Met |
 
-**Table 18: PL-4(1) responsibility and evidence**
+**Table 15: PL-4(1) responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -353,20 +260,20 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | Risk decision | NC-PL-04, rated Low: approve; now satisfied |
 | Open items | None |
 
-### 5.5 PL-8 Security and Privacy Architectures
+### 4.5 PL-8 Security and Privacy Architectures
 
-**Table 19: PL-8 design**
+**Table 16: PL-8 design**
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
-| a.1 | A security architecture that describes the requirements and approach for protecting confidentiality, integrity and availability | \<Security Architecture\>, section 7: the protection goals, design principles, trust zones and layers of defence | Met |
-| a.2 | A privacy architecture that describes the requirements and approach for processing personal data so as to limit the risk to individuals | \<Privacy Plan\>, section 9 | Met |
-| a.3 | Both describe how they fit into and support the enterprise architecture | \<Security Architecture\>, sections 5 and 7.3: what is inherited from \<Organisation\>, and where the trust zones meet its network | Written. \<Organisation\>'s own architecture standards have not been seen (EV-PL-01) |
-| a.4 | Both describe their assumptions about, and dependencies on, external systems and services | \<Security Architecture\>, section 7.6, and \<Privacy Plan\>, section 9 | Met |
+| a.1 | A security architecture that describes the requirements and approach for protecting confidentiality, integrity and availability | \<Security Architecture\>, section 6: the protection goals, design principles, trust zones and layers of defence | Met |
+| a.2 | A privacy architecture that describes the requirements and approach for processing personal data so as to limit the risk to individuals | \<Privacy Plan\>, section 8 | Met |
+| a.3 | Both describe how they fit into and support the enterprise architecture | \<Security Architecture\>, sections 4 and 6.3: what is inherited from \<Organisation\>, and where the trust zones meet its network | Written. \<Organisation\>'s own architecture standards have not been seen (EV-PL-01) |
+| a.4 | Both describe their assumptions about, and dependencies on, external systems and services | \<Security Architecture\>, section 6.6, and \<Privacy Plan\>, section 8 | Met |
 | b | Review and update the architectures on a schedule, to reflect changes in the enterprise architecture | Every 12 months, and after a significant change, the system owner reviews the architecture against the system as built | The first yearly review falls due in November 2027 |
-| c | Carry planned changes to the architecture into the plans, the concept of operations, the criticality analysis, the procedures and procurement | Each change is carried into the security plan, the privacy plan, the concept of operations, the list of critical components (\<Risk Assessment Management\>, section 4.9), the procedures and any procurement, and each is noted in the review log (PRO-PL-5) | Done for the documents at each change. There has been no procurement |
+| c | Carry planned changes to the architecture into the plans, the concept of operations, the criticality analysis, the procedures and procurement | Each change is carried into the security plan, the privacy plan, the concept of operations, the list of critical components (\<Risk Assessment Management\>, section 3.9), the procedures and any procurement, and each is noted in the review record (PRO-PL-5) | Done for the documents at each change. There has been no procurement |
 
-**Table 20: PL-8 responsibility and evidence**
+**Table 17: PL-8 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -375,20 +282,20 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | Enforced by | Not a system function |
 | Rules and procedures | Policy rule R9 (\<Policy\>, section PL.4); PRO-PL-5 (\<Procedures\> (PL)) |
 | Tests | None. Examined from the documents |
-| Records an assessor will ask for | The architecture with its approval and review log; an example of a change carried into the other documents |
+| Records an assessor will ask for | The architecture with its approval and review record; an example of a change carried into the other documents |
 | Status | Partially implemented |
 | Risk decision | NC-PL-05, rated Low: approve |
 | Open items | PA-123: hold the first yearly review, and obtain \<Organisation\>'s architecture standards (EV-PL-01) |
 
-### 5.6 PL-10 Baseline Selection
+### 4.6 PL-10 Baseline Selection
 
-**Table 21: PL-10 design**
+**Table 18: PL-10 design**
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
-| All | Select a control baseline for the system | The NIST SP 800-53B Moderate baseline, with the privacy baseline, chosen from the categorisation in \<System Security Plan\>, section 4.3 | Selected, and approved by the authorising official (D-GEN-06) |
+| All | Select a control baseline for the system | The NIST SP 800-53B Moderate baseline, with the privacy baseline, chosen from the categorisation in \<System Security Plan\>, section 3.3 | Selected, and approved by the authorising official (D-GEN-06) |
 
-**Table 22: PL-10 responsibility and evidence**
+**Table 19: PL-10 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -402,15 +309,15 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | Risk decision | None: the control is satisfied |
 | Open items | None |
 
-### 5.7 PL-11 Baseline Tailoring
+### 4.7 PL-11 Baseline Tailoring
 
-**Table 23: PL-11 design**
+**Table 20: PL-11 design**
 
 | Part | NIST requires | Design | Today |
 | --- | --- | --- | --- |
 | All | Tailor the selected baseline by applying defined tailoring actions | A control or a part of one is set aside only through \<Tailoring Register\>, with a rationale, a condition that must hold, and a recorded decision. Each condition is checked at the yearly review (PRO-PL-4) | In use. The tailoring register is approved by the system owner (D-PL-09). The authorising official's acceptance of it as a record is pending |
 
-**Table 24: PL-11 responsibility and evidence**
+**Table 21: PL-11 responsibility and evidence**
 
 | | |
 | --- | --- |
@@ -424,14 +331,11 @@ The controls are in NIST order. Each has two tables. The first takes each part o
 | Risk decision | None: the control is satisfied |
 | Open items | The authorising official's acceptance (D-PL-09) |
 
-| **APPENDIX A** |
-| --- |
-
 ## Appendix A Parameter register
 
 These are NIST's organisation-defined values for the 7 PL entries: 15 in total. They were agreed on 6 November 2026 (D-PL-P01), and the value for signing again was refined on 11 November 2026 (D-PL-P02).
 
-**Table 25: PL parameter register**
+**Table 22: PL parameter register**
 
 | NIST identifier | What must be defined | Value |
 | --- | --- | --- |
@@ -451,19 +355,16 @@ These are NIST's organisation-defined values for the 7 PL entries: 15 in total. 
 | PL-04\_ODP\[03\] | Re-sign frequency | Every 12 months |
 | PL-08\_ODP | Architecture review frequency | Every 12 months |
 
-| **APPENDIX B** |
-| --- |
-
 ## Appendix B PL controls outside the Moderate baseline
 
-NIST does not select these in the Moderate security baseline, so they are not assessed in this family. One is in NIST's privacy baseline, and is assessed with the PT family. The design already does what two of the others ask, and Table 26 says where.
+NIST does not select these in the Moderate security baseline, so they are not assessed in this family. One is in NIST's privacy baseline, and is assessed with the PT family. The design already does what two of the others ask, and Table 23 says where.
 
-**Table 26: PL controls not selected at Moderate**
+**Table 23: PL controls not selected at Moderate**
 
 | Control | What it adds | \<System Name\>'s position |
 | --- | --- | --- |
 | PL-7 Concept of Operations | A concept of operations that says how the organisation means to operate the system, reviewed on a schedule | Not required. Done: \<Concept of Operations\> is in the register of plans, and is reviewed every 12 months. Three of its questions for the business owner are still open |
-| PL-8(1) Defense in Depth | Controls placed in layers, so that one failure does not expose the system | Not required. Done in design: the layers of defence in \<Security Architecture\>, section 7.4 |
+| PL-8(1) Defense in Depth | Controls placed in layers, so that one failure does not expose the system | Not required. Done in design: the layers of defence in \<Security Architecture\>, section 6.4 |
 | PL-8(2) Supplier Diversity | Controls in different layers obtained from different suppliers | Not required |
 | PL-9 Central Management | Defined controls and processes managed centrally | Privacy baseline, so it applies. The whole document set is managed as one, by one owner, with one consistency test. Assessed with the PT family; partly in place, as the set is not yet in the restricted store (NC-PT-13; PA-88) |
 | PL-2(1), PL-2(2), PL-2(3), PL-3, PL-5, PL-6 | Withdrawn by NIST | Not applicable |

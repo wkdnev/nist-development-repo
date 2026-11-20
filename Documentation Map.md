@@ -1,332 +1,160 @@
 # \<System Name\> Documentation Map
 
-**\<ref\> | Version \<ver\> | Issued by the system owner**
+## 1 Scope and assumptions
 
-**Contents**
-
-[1 Document control](#1-document-control)
-
-[2 Scope and assumptions](#2-scope-and-assumptions)
-
-[3 The document set](#3-the-document-set)
-
-[4 Following a control](#4-following-a-control)
-
-[5 Document standard](#5-document-standard)
-
-[6 Open questions](#6-open-questions)
-
-| **SECTION 1** |
-| --- |
-
-## 1 Document control
-
-### 1.1 Document details
-
-**Table 1: Document details**
-
-| Item | Detail |
-| --- | --- |
-| Reference | \<ref\> |
-| Title | \<System Name\> Documentation Map |
-| Version | \<ver\> |
-| Status | Version \<ver\> issued by the system owner on 12 November 2026, after the combined form of the set was confirmed. Version \<ver\> was issued earlier that day, and version \<ver\> was agreed on 8 November 2026 |
-| Date | 5 November 2026 |
-| Owner | System owner |
-| Applies to | All control families; AC, AU, IA, SC, CM, SI, RA, CA, IR, CP, AT, MA, MP, PE, PL, PS, PT, SA and SR assessed in this version |
-| Classification | Restricted |
-| Next review | Whenever a document is added or renumbered |
-| Format | \<Documentation Map\>, section 5 |
-
-### 1.2 Approval
-
-**Table 2: Approval**
-
-| Role | Name | Decision | Date |
-| --- | --- | --- | --- |
-| System owner | \[Name\] | Approved | 7 November 2026 |
-
-### 1.3 Change history
-
-**Table 3: Change history**
-
-| Version | Date | Change |
-| --- | --- | --- |
-| \<ver\> | 18 November 2026 | Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Planning Management\> \<ver\>, \<Plan of Action and Milestones\> \<ver\>, \<System Description\> \<ver\> |
-| \<ver\> | 18 November 2026 | Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Planning Management\> \<ver\>, \<Plan of Action and Milestones\> \<ver\>, \<System Description\> \<ver\> |
-| \<ver\> | 18 November 2026 | System Description added to the list of documents, as the system owner asked. Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Decision Register\> \<ver\>, \<Guide to the Document Set\> \<ver\>, \<System Description\> \<ver\> |
-| \<ver\> | 18 November 2026 | Guide to the Document Set added to the list of documents, as the system owner asked. Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Decision Register\> \<ver\>, \<Guide to the Document Set\> \<ver\> |
-| \<ver\> | 18 November 2026 | Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Administrator Guide\> \<ver\>, \<Concept of Operations\> \<ver\>, \<Decision Register\> \<ver\>, \<Data Protection Impact Assessment\> \<ver\>, \<Interview Guide\> \<ver\>, \<Planning Management\> \<ver\>, \<Plan of Action and Milestones\> \<ver\>, \<Privacy Plan\> \<ver\>, \<Security Assessment Report\> \<ver\>, \<System Security Plan\> \<ver\>, \<Security Operating Procedures\> \<ver\>, \<Record Templates\> \<ver\>, \<Control Assessment Record\> \<ver\> |
-| \<ver\> | 18 November 2026 | Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Access Control Management\> \<ver\>, \<Security Architecture\> \<ver\>, \<Audit and Accountability Management\> \<ver\>, \<Configuration Management\> \<ver\>, \<Concept of Operations\> \<ver\>, \<Contingency Planning Management\> \<ver\>, \<Decision Register\> \<ver\>, \<Data Protection Impact Assessment\> \<ver\>, \<Interview Guide\> \<ver\>, \<Planning Management\> \<ver\>, \<Plan of Action and Milestones\> \<ver\>, \<Privacy Plan\> \<ver\>, \<Risk List\> \<ver\>, \<Roles and Responsibilities\> \<ver\>, \<Security Assessment Report\> \<ver\>, \<System Security Plan\> \<ver\>, \<Security Operating Procedures\> \<ver\>, \<Tailoring Register\> \<ver\>, \<Policy\> \<ver\>, \<Procedures\> \<ver\>, \<Control Assessment Record\> \<ver\> |
-| \<ver\> | 18 November 2026 | Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Audit and Accountability Management\> \<ver\>, \<Decision Register\> \<ver\>, \<Interview Guide\> \<ver\>, \<Planning Management\> \<ver\>, \<Plan of Action and Milestones\> \<ver\>, \<Risk List\> \<ver\>, \<System and Communications Protection Management\> \<ver\>, \<System and Information Integrity Management\> \<ver\>, \<Supply Chain Risk Management\> \<ver\>, \<System Security Plan\> \<ver\>, \<Policy\> \<ver\>, \<Control Assessment Record\> \<ver\> |
-| \<ver\> | 18 November 2026 | Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Decision Register\> \<ver\>, \<System and Information Integrity Management\> \<ver\>, \<Control Implementation Register\> \<ver\> |
-| \<ver\> | 18 November 2026 | Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Evidence Requests\> \<ver\> |
-| \<ver\> | 18 November 2026 | Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Decision Register\> \<ver\>, \<Policy\> \<ver\>, \<Procedures\> \<ver\>, \<Control Assessment Record\> \<ver\> |
-| \<ver\> | 18 November 2026 | System and Communications Protection Management and System and Information Integrity Management added to the list of documents, and the supply chain plan renamed Supply Chain Risk Management, as the system owner asked. Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Access Control Management\> \<ver\>, \<Administrator Guide\> \<ver\>, \<Security Architecture\> \<ver\>, \<Awareness and Training Management\> \<ver\>, \<Audit and Accountability Management\> \<ver\>, \<Configuration Management\> \<ver\>, \<Concept of Operations\> \<ver\>, \<Contingency Planning Management\> \<ver\>, \<Decision Register\> \<ver\>, \<Evidence Requests\> \<ver\>, \<Interview Guide\> \<ver\>, \<Incident Response Management\> \<ver\>, \<Maintenance Management\> \<ver\>, \<Planning Management\> \<ver\>, \<Plan of Action and Milestones\> \<ver\>, \<Risk Assessment Management\> \<ver\>, \<Risk List\> \<ver\>, \<Roles and Responsibilities\> \<ver\>, \<Security Assessment Report\> \<ver\>, \<System and Communications Protection Management\> \<ver\>, \<System and Information Integrity Management\> \<ver\>, \<Supply Chain Risk Management\> \<ver\>, \<System Security Plan\> \<ver\>, \<Security Operating Procedures\> \<ver\>, \<Record Templates\> \<ver\>, \<Policy\> \<ver\>, \<Procedures\> \<ver\>, \<Control Implementation Register\> \<ver\>, \<Control Assessment Record\> \<ver\> |
-| \<ver\> | 18 November 2026 | Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Evidence Requests\> \<ver\>, \<Interview Guide\> \<ver\>, \<Planning Management\> \<ver\>, \<Plan of Action and Milestones\> \<ver\>, \<Risk List\> \<ver\>, \<System and Services Acquisition Management\> \<ver\>, \<Record Templates\> \<ver\>, \<Procedures\> \<ver\>, \<Control Assessment Record\> \<ver\> |
-| \<ver\> | 18 November 2026 | Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Decision Register\> \<ver\>, \<Evidence Requests\> \<ver\>, \<Planning Management\> \<ver\>, \<Risk Assessment Management\> \<ver\>, \<System and Services Acquisition Management\> \<ver\>, \<System Security Plan\> \<ver\> |
-| \<ver\> | 18 November 2026 | System and Services Acquisition Management added to the list of documents, as the system owner asked. Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Administrator Guide\> \<ver\>, \<Security Architecture\> \<ver\>, \<Awareness and Training Management\> \<ver\>, \<Concept of Operations\> \<ver\>, \<Decision Register\> \<ver\>, \<Evidence Requests\> \<ver\>, \<Interview Guide\> \<ver\>, \<Planning Management\> \<ver\>, \<Plan of Action and Milestones\> \<ver\>, \<Risk List\> \<ver\>, \<System and Services Acquisition Management\> \<ver\>, \<Security Assessment Report\> \<ver\>, \<System Security Plan\> \<ver\>, \<Security Operating Procedures\> \<ver\>, \<Record Templates\> \<ver\>, \<Policy\> \<ver\>, \<Procedures\> \<ver\>, \<Control Implementation Register\> \<ver\>, \<Control Assessment Record\> \<ver\> |
-| \<ver\> | 18 November 2026 | Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Decision Register\> \<ver\>, \<Evidence Requests\> \<ver\>, \<Interview Guide\> \<ver\>, \<Planning Management\> \<ver\>, \<Plan of Action and Milestones\> \<ver\>, \<Risk Assessment Management\> \<ver\>, \<Risk List\> \<ver\>, \<System Security Plan\> \<ver\>, \<Security Operating Procedures\> \<ver\>, \<Policy\> \<ver\>, \<Procedures\> \<ver\>, \<Control Assessment Record\> \<ver\> |
-| \<ver\> | 18 November 2026 | Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Decision Register\> \<ver\>, \<Planning Management\> \<ver\>, \<Plan of Action and Milestones\> \<ver\>, \<PII Processing Management\> \<ver\>, \<Risk Assessment Management\> \<ver\>, \<System Security Plan\> \<ver\>, \<Record Templates\> \<ver\>, \<Policy\> \<ver\>, \<Control Assessment Record\> \<ver\> |
-| \<ver\> | 18 November 2026 | Risk Assessment Management added to the list of documents, as the system owner asked. Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Administrator Guide\> \<ver\>, \<Security Architecture\> \<ver\>, \<Awareness and Training Management\> \<ver\>, \<Assessment, Authorization, and Monitoring Management\> \<ver\>, \<Concept of Operations\> \<ver\>, \<Decision Register\> \<ver\>, \<Interview Guide\> \<ver\>, \<Planning Management\> \<ver\>, \<Plan of Action and Milestones\> \<ver\>, \<Risk Assessment Management\> \<ver\>, \<Risk List\> \<ver\>, \<Security Assessment Report\> \<ver\>, \<Supply Chain Risk Management\> \<ver\>, \<System Security Plan\> \<ver\>, \<Security Operating Procedures\> \<ver\>, \<Policy\> \<ver\>, \<Procedures\> \<ver\>, \<Control Implementation Register\> \<ver\>, \<Control Assessment Record\> \<ver\> |
-| \<ver\> | 18 November 2026 | Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Decision Register\> \<ver\>, \<Data Protection Impact Assessment\> \<ver\>, \<Interview Guide\> \<ver\>, \<Planning Management\> \<ver\>, \<Plan of Action and Milestones\> \<ver\>, \<Privacy Plan\> \<ver\>, \<PII Processing Management\> \<ver\>, \<System Security Plan\> \<ver\>, \<Security Operating Procedures\> \<ver\>, \<Record Templates\> \<ver\>, \<Procedures\> \<ver\>, \<Control Assessment Record\> \<ver\> |
-| \<ver\> | 18 November 2026 | Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Decision Register\> \<ver\>, \<PII Processing Management\> \<ver\> |
-| \<ver\> | 18 November 2026 | Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Audit and Accountability Management\> \<ver\>, \<Planning Management\> \<ver\>, \<Privacy Plan\> \<ver\> |
-| \<ver\> | 18 November 2026 | PII Processing Management added to the list of documents, as the system owner asked. Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Administrator Guide\> \<ver\>, \<Security Architecture\> \<ver\>, \<Awareness and Training Management\> \<ver\>, \<Configuration Management\> \<ver\>, \<Decision Register\> \<ver\>, \<Data Protection Impact Assessment\> \<ver\>, \<Interview Guide\> \<ver\>, \<Planning Management\> \<ver\>, \<Program Management\> \<ver\>, \<Plan of Action and Milestones\> \<ver\>, \<Privacy Plan\> \<ver\>, \<PII Processing Management\> \<ver\>, \<Risk List\> \<ver\>, \<Security Assessment Report\> \<ver\>, \<System Security Plan\> \<ver\>, \<Policy\> \<ver\>, \<Procedures\> \<ver\>, \<Control Implementation Register\> \<ver\>, \<Control Assessment Record\> \<ver\> |
-| \<ver\> | 17 November 2026 | Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Decision Register\> \<ver\>, \<Planning Management\> \<ver\>, \<Plan of Action and Milestones\> \<ver\>, \<Personnel Security Management\> \<ver\>, \<Risk List\> \<ver\>, \<Record Templates\> \<ver\>, \<Control Implementation Register\> \<ver\>, \<Control Assessment Record\> \<ver\> |
-| \<ver\> | 17 November 2026 | Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Decision Register\> \<ver\>, \<Evidence Requests\> \<ver\>, \<Interview Guide\> \<ver\>, \<Planning Management\> \<ver\>, \<Plan of Action and Milestones\> \<ver\>, \<Personnel Security Management\> \<ver\>, \<Security Operating Procedures\> \<ver\>, \<Record Templates\> \<ver\>, \<Policy\> \<ver\>, \<Procedures\> \<ver\>, \<Control Assessment Record\> \<ver\> |
-| \<ver\> | 17 November 2026 | Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Access Control Management\> \<ver\>, \<Decision Register\> \<ver\>, \<Planning Management\> \<ver\>, \<Personnel Security Management\> \<ver\>, \<System Security Plan\> \<ver\>, \<Security Operating Procedures\> \<ver\>, \<Procedures\> \<ver\>, \<Control Assessment Record\> \<ver\> |
-| \<ver\> | 17 November 2026 | Personnel Security Management added to the list of documents, as the system owner asked. Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Concept of Operations\> \<ver\>, \<Decision Register\> \<ver\>, \<Evidence Requests\> \<ver\>, \<Planning Management\> \<ver\>, \<Plan of Action and Milestones\> \<ver\>, \<Personnel Security Management\> \<ver\>, \<Risk List\> \<ver\>, \<Roles and Responsibilities\> \<ver\>, \<Security Assessment Report\> \<ver\>, \<System Security Plan\> \<ver\>, \<Security Operating Procedures\> \<ver\>, \<Policy\> \<ver\>, \<Procedures\> \<ver\>, \<Control Implementation Register\> \<ver\>, \<Control Assessment Record\> \<ver\> |
-| \<ver\> | 17 November 2026 | Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Decision Register\> \<ver\>, \<Program Management\> \<ver\> |
-| \<ver\> | 17 November 2026 | Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Decision Register\> \<ver\>, \<Evidence Requests\> \<ver\>, \<Interview Guide\> \<ver\>, \<Planning Management\> \<ver\>, \<Program Management\> \<ver\>, \<Plan of Action and Milestones\> \<ver\>, \<System Security Plan\> \<ver\> |
-| \<ver\> | 17 November 2026 | Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Decision Register\> \<ver\>, \<Evidence Requests\> \<ver\>, \<Program Management\> \<ver\> |
-| \<ver\> | 17 November 2026 | Program Management added to the list of documents, as the system owner asked. Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Decision Register\> \<ver\>, \<Evidence Requests\> \<ver\>, \<Interview Guide\> \<ver\>, \<Planning Management\> \<ver\>, \<Program Management\> \<ver\>, \<Plan of Action and Milestones\> \<ver\>, \<Risk List\> \<ver\>, \<Security Assessment Report\> \<ver\>, \<System Security Plan\> \<ver\>, \<Tailoring Register\> \<ver\>, \<Control Assessment Record\> \<ver\> |
-| \<ver\> | 17 November 2026 | Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Decision Register\> \<ver\>, \<Planning Management\> \<ver\>, \<Plan of Action and Milestones\> \<ver\>, \<Risk List\> \<ver\>, \<Record Templates\> \<ver\>, \<Control Implementation Register\> \<ver\>, \<Control Assessment Record\> \<ver\> |
-| \<ver\> | 17 November 2026 | The references cite NIST SP 800-18 Revision 2, published in June 2026, in place of Revision 1, which it supersedes. Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Interview Guide\> \<ver\>, \<Planning Management\> \<ver\>, \<Plan of Action and Milestones\> \<ver\>, \<Security Operating Procedures\> \<ver\>, \<Record Templates\> \<ver\>, \<Procedures\> \<ver\>, \<Control Assessment Record\> \<ver\> |
-| \<ver\> | 17 November 2026 | Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Decision Register\> \<ver\>, \<Planning Management\> \<ver\> |
-| \<ver\> | 17 November 2026 | Planning Management added to the list of documents, as the system owner asked. Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Decision Register\> \<ver\>, \<Interview Guide\> \<ver\>, \<Planning Management\> \<ver\>, \<Plan of Action and Milestones\> \<ver\>, \<Risk List\> \<ver\>, \<Security Assessment Report\> \<ver\>, \<System Security Plan\> \<ver\>, \<Record Templates\> \<ver\>, \<Policy\> \<ver\>, \<Procedures\> \<ver\>, \<Control Implementation Register\> \<ver\>, \<Control Assessment Record\> \<ver\> |
-| \<ver\> | 17 November 2026 | Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Decision Register\> \<ver\>, \<Physical and Environmental Protection Management\> \<ver\> |
-| \<ver\> | 17 November 2026 | Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Decision Register\> \<ver\>, \<Evidence Requests\> \<ver\>, \<Interview Guide\> \<ver\>, \<Physical and Environmental Protection Management\> \<ver\>, \<Plan of Action and Milestones\> \<ver\>, \<Risk List\> \<ver\>, \<System Security Plan\> \<ver\>, \<Security Operating Procedures\> \<ver\>, \<Record Templates\> \<ver\>, \<Policy\> \<ver\>, \<Procedures\> \<ver\>, \<Control Implementation Register\> \<ver\>, \<Control Assessment Record\> \<ver\> |
-| \<ver\> | 17 November 2026 | Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Decision Register\> \<ver\>, \<Physical and Environmental Protection Management\> \<ver\>, \<Procedures\> \<ver\> |
-| \<ver\> | 17 November 2026 | Physical and Environmental Protection Management added to the list of documents, as the system owner asked. Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Audit and Accountability Management\> \<ver\>, \<Concept of Operations\> \<ver\>, \<Decision Register\> \<ver\>, \<Evidence Requests\> \<ver\>, \<Maintenance Management\> \<ver\>, \<Media Protection Management\> \<ver\>, \<Physical and Environmental Protection Management\> \<ver\>, \<Plan of Action and Milestones\> \<ver\>, \<Risk List\> \<ver\>, \<Roles and Responsibilities\> \<ver\>, \<Security Assessment Report\> \<ver\>, \<System Security Plan\> \<ver\>, \<Policy\> \<ver\>, \<Procedures\> \<ver\>, \<Control Implementation Register\> \<ver\>, \<Control Assessment Record\> \<ver\> |
-| \<ver\> | 17 November 2026 | Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Decision Register\> \<ver\>, \<Maintenance Management\> \<ver\>, \<Media Protection Management\> \<ver\>, \<Plan of Action and Milestones\> \<ver\>, \<Risk List\> \<ver\>, \<Record Templates\> \<ver\>, \<Control Implementation Register\> \<ver\>, \<Control Assessment Record\> \<ver\> |
-| \<ver\> | 17 November 2026 | Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Decision Register\> \<ver\>, \<Evidence Requests\> \<ver\>, \<Interview Guide\> \<ver\>, \<Media Protection Management\> \<ver\>, \<Plan of Action and Milestones\> \<ver\>, \<Risk List\> \<ver\>, \<Record Templates\> \<ver\>, \<Policy\> \<ver\>, \<Procedures\> \<ver\>, \<Control Implementation Register\> \<ver\>, \<Control Assessment Record\> \<ver\> |
-| \<ver\> | 17 November 2026 | Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Plan of Action and Milestones\> \<ver\>, \<Risk List\> \<ver\>, \<Roles and Responsibilities\> \<ver\>, \<Control Implementation Register\> \<ver\>, \<Control Assessment Record\> \<ver\> |
-| \<ver\> | 17 November 2026 | Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Administrator Guide\> \<ver\>, \<Decision Register\> \<ver\>, \<Data Protection Impact Assessment\> \<ver\>, \<Interview Guide\> \<ver\>, \<Media Protection Management\> \<ver\>, \<Plan of Action and Milestones\> \<ver\>, \<Privacy Plan\> \<ver\>, \<Risk List\> \<ver\>, \<System Security Plan\> \<ver\>, \<Security Operating Procedures\> \<ver\>, \<Policy\> \<ver\>, \<Procedures\> \<ver\>, \<Control Implementation Register\> \<ver\>, \<Control Assessment Record\> \<ver\> |
-| \<ver\> | 17 November 2026 | Media Protection Management added to the list of documents, as the system owner asked. Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Administrator Guide\> \<ver\>, \<Concept of Operations\> \<ver\>, \<Decision Register\> \<ver\>, \<Evidence Requests\> \<ver\>, \<Maintenance Management\> \<ver\>, \<Media Protection Management\> \<ver\>, \<Plan of Action and Milestones\> \<ver\>, \<Risk List\> \<ver\>, \<Security Assessment Report\> \<ver\>, \<System Security Plan\> \<ver\>, \<Security Operating Procedures\> \<ver\>, \<Record Templates\> \<ver\>, \<Policy\> \<ver\>, \<Procedures\> \<ver\>, \<Control Implementation Register\> \<ver\>, \<Control Assessment Record\> \<ver\> |
-| \<ver\> | 17 November 2026 | Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Interview Guide\> \<ver\>, \<Maintenance Management\> \<ver\>, \<Plan of Action and Milestones\> \<ver\>, \<Risk List\> \<ver\>, \<Security Operating Procedures\> \<ver\>, \<Record Templates\> \<ver\>, \<Procedures\> \<ver\>, \<Control Implementation Register\> \<ver\>, \<Control Assessment Record\> \<ver\> |
-| \<ver\> | 17 November 2026 | Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Decision Register\> \<ver\>, \<Maintenance Management\> \<ver\> |
-| \<ver\> | 17 November 2026 | Maintenance Management added to the list of documents, as the system owner asked. Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Security Architecture\> \<ver\>, \<Concept of Operations\> \<ver\>, \<Decision Register\> \<ver\>, \<Evidence Requests\> \<ver\>, \<Identification and Authentication Management\> \<ver\>, \<Interview Guide\> \<ver\>, \<Maintenance Management\> \<ver\>, \<Plan of Action and Milestones\> \<ver\>, \<Risk List\> \<ver\>, \<Security Assessment Report\> \<ver\>, \<System Security Plan\> \<ver\>, \<Security Operating Procedures\> \<ver\>, \<Policy\> \<ver\>, \<Procedures\> \<ver\>, \<Control Implementation Register\> \<ver\>, \<Control Assessment Record\> \<ver\> |
-| \<ver\> | 17 November 2026 | Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Decision Register\> \<ver\>, \<Incident Response Management\> \<ver\>, \<Plan of Action and Milestones\> \<ver\>, \<Risk List\> \<ver\>, \<System Security Plan\> \<ver\>, \<Control Implementation Register\> \<ver\>, \<Control Assessment Record\> \<ver\> |
-| \<ver\> | 17 November 2026 | Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Plan of Action and Milestones\> \<ver\>, \<Risk List\> \<ver\>, \<Control Implementation Register\> \<ver\>, \<Control Assessment Record\> \<ver\> |
-| \<ver\> | 17 November 2026 | Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Decision Register\> \<ver\>, \<Evidence Requests\> \<ver\>, \<Incident Response Management\> \<ver\>, \<Plan of Action and Milestones\> \<ver\>, \<Risk List\> \<ver\>, \<System Security Plan\> \<ver\>, \<Security Operating Procedures\> \<ver\>, \<Tailoring Register\> \<ver\>, \<User Guide\> \<ver\>, \<Policy\> \<ver\>, \<Procedures\> \<ver\>, \<Control Implementation Register\> \<ver\>, \<Control Assessment Record\> \<ver\> |
-| \<ver\> | 17 November 2026 | Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Decision Register\> \<ver\>, \<Evidence Requests\> \<ver\>, \<Incident Response Management\> \<ver\>, \<Plan of Action and Milestones\> \<ver\>, \<Risk List\> \<ver\>, \<System Security Plan\> \<ver\>, \<Control Implementation Register\> \<ver\>, \<Control Assessment Record\> \<ver\> |
-| \<ver\> | 17 November 2026 | Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Decision Register\> \<ver\>, \<Plan of Action and Milestones\> \<ver\>, \<Risk List\> \<ver\>, \<System Security Plan\> \<ver\>, \<Control Implementation Register\> \<ver\>, \<Control Assessment Record\> \<ver\> |
-| \<ver\> | 17 November 2026 | The Incident Response Plan is renamed Incident Response Management, as it now has the form of the other family documents. Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Decision Register\> \<ver\>, \<Data Protection Impact Assessment\> \<ver\>, \<Interview Guide\> \<ver\>, \<Incident Response Management\> \<ver\>, \<Plan of Action and Milestones\> \<ver\>, \<Privacy Plan\> \<ver\>, \<Risk List\> \<ver\>, \<Roles and Responsibilities\> \<ver\>, \<Security Assessment Report\> \<ver\>, \<System Security Plan\> \<ver\>, \<Security Operating Procedures\> \<ver\>, \<Tailoring Register\> \<ver\>, \<Record Templates\> \<ver\>, \<Policy\> \<ver\>, \<Procedures\> \<ver\>, \<Control Implementation Register\> \<ver\>, \<Control Assessment Record\> \<ver\> |
-| \<ver\> | 16 November 2026 | Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Administrator Guide\> \<ver\>, \<Concept of Operations\> \<ver\>, \<Identification and Authentication Management\> \<ver\>, \<Interview Guide\> \<ver\>, \<Plan of Action and Milestones\> \<ver\>, \<Risk List\> \<ver\>, \<Security Operating Procedures\> \<ver\>, \<Control Implementation Register\> \<ver\>, \<Control Assessment Record\> \<ver\> |
-| \<ver\> | 16 November 2026 | Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Decision Register\> \<ver\>, \<Evidence Requests\> \<ver\>, \<Identification and Authentication Management\> \<ver\> |
-| \<ver\> | 15 November 2026 | Identification and Authentication Management added to the list of documents, as the system owner asked. Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Administrator Guide\> \<ver\>, \<Configuration Management\> \<ver\>, \<Decision Register\> \<ver\>, \<Identification and Authentication Management\> \<ver\>, \<Plan of Action and Milestones\> \<ver\>, \<Risk List\> \<ver\>, \<Security Assessment Report\> \<ver\>, \<System Security Plan\> \<ver\>, \<Policy\> \<ver\>, \<Procedures\> \<ver\>, \<Control Implementation Register\> \<ver\>, \<Control Assessment Record\> \<ver\> |
-| \<ver\> | 15 November 2026 | Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Contingency Planning Management\> \<ver\>, \<Decision Register\> \<ver\>, \<Plan of Action and Milestones\> \<ver\>, \<Risk List\> \<ver\>, \<System Security Plan\> \<ver\>, \<Control Implementation Register\> \<ver\>, \<Control Assessment Record\> \<ver\> |
-| \<ver\> | 15 November 2026 | Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Contingency Planning Management\> \<ver\>, \<Decision Register\> \<ver\>, \<Evidence Requests\> \<ver\>, \<Plan of Action and Milestones\> \<ver\>, \<Risk List\> \<ver\>, \<Control Implementation Register\> \<ver\>, \<Control Assessment Record\> \<ver\> |
-| \<ver\> | 15 November 2026 | The Contingency Plan is renamed Contingency Planning Management, as it now has the form of the other family documents. Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Contingency Planning Management\> \<ver\>, \<Decision Register\> \<ver\>, \<Evidence Requests\> \<ver\>, \<Interview Guide\> \<ver\>, \<Incident Response Management\> \<ver\>, \<Plan of Action and Milestones\> \<ver\>, \<Risk List\> \<ver\>, \<Roles and Responsibilities\> \<ver\>, \<Security Assessment Report\> \<ver\>, \<System Security Plan\> \<ver\>, \<Security Operating Procedures\> \<ver\>, \<Procedures\> \<ver\>, \<Control Implementation Register\> \<ver\>, \<Control Assessment Record\> \<ver\> |
-| \<ver\> | 13 November 2026 | Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Configuration Management\> \<ver\>, \<Plan of Action and Milestones\> \<ver\>, \<Risk List\> \<ver\>, \<Control Implementation Register\> \<ver\>, \<Control Assessment Record\> \<ver\> |
-| \<ver\> | 13 November 2026 | Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Configuration Management\> \<ver\>, \<Plan of Action and Milestones\> \<ver\>, \<Risk List\> \<ver\>, \<Record Templates\> \<ver\>, \<Control Implementation Register\> \<ver\>, \<Control Assessment Record\> \<ver\> |
-| \<ver\> | 13 November 2026 | Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Configuration Management\> \<ver\>, \<Plan of Action and Milestones\> \<ver\>, \<Risk List\> \<ver\>, \<Control Implementation Register\> \<ver\>, \<Control Assessment Record\> \<ver\> |
-| \<ver\> | 13 November 2026 | Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Security Architecture\> \<ver\>, \<Configuration Management\> \<ver\>, \<Decision Register\> \<ver\>, \<Plan of Action and Milestones\> \<ver\>, \<Risk List\> \<ver\>, \<Security Assessment Report\> \<ver\>, \<System Security Plan\> \<ver\>, \<Control Implementation Register\> \<ver\>, \<Control Assessment Record\> \<ver\> |
-| \<ver\> | 13 November 2026 | Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Contingency Planning Management\> \<ver\>, \<Plan of Action and Milestones\> \<ver\>, \<Risk List\> \<ver\>, \<Control Implementation Register\> \<ver\>, \<Control Assessment Record\> \<ver\> |
-| \<ver\> | 13 November 2026 | The Configuration Management Plan is renamed Configuration Management, as it now has the form of the other family documents. Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Configuration Management\> \<ver\>, \<Contingency Planning Management\> \<ver\>, \<Decision Register\> \<ver\>, \<Evidence Requests\> \<ver\>, \<Interview Guide\> \<ver\>, \<Incident Response Management\> \<ver\>, \<Plan of Action and Milestones\> \<ver\>, \<Risk List\> \<ver\>, \<Security Assessment Report\> \<ver\>, \<System Security Plan\> \<ver\>, \<Security Operating Procedures\> \<ver\>, \<Record Templates\> \<ver\>, \<Policy\> \<ver\>, \<Procedures\> \<ver\>, \<Control Implementation Register\> \<ver\>, \<Control Assessment Record\> \<ver\> |
-| \<ver\> | 13 November 2026 | Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Assessment, Authorization, and Monitoring Management\> \<ver\>, \<Decision Register\> \<ver\>, \<Plan of Action and Milestones\> \<ver\>, \<Risk List\> \<ver\>, \<Control Implementation Register\> \<ver\>, \<Control Assessment Record\> \<ver\> |
-| \<ver\> | 13 November 2026 | Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Assessment, Authorization, and Monitoring Management\> \<ver\>, \<Decision Register\> \<ver\>, \<Plan of Action and Milestones\> \<ver\>, \<Risk List\> \<ver\>, \<Security Assessment Report\> \<ver\>, \<System Security Plan\> \<ver\>, \<Record Templates\> \<ver\>, \<Control Implementation Register\> \<ver\>, \<Control Assessment Record\> \<ver\> |
-| \<ver\> | 12 November 2026 | Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Assessment, Authorization, and Monitoring Management\> \<ver\>, \<Decision Register\> \<ver\>, \<Evidence Requests\> \<ver\>, \<Plan of Action and Milestones\> \<ver\>, \<Risk List\> \<ver\>, \<Security Assessment Report\> \<ver\>, \<Procedures\> \<ver\>, \<Control Implementation Register\> \<ver\>, \<Control Assessment Record\> \<ver\> |
-| \<ver\> | 12 November 2026 | Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Assessment, Authorization, and Monitoring Management\> \<ver\>, \<Decision Register\> \<ver\>, \<Plan of Action and Milestones\> \<ver\>, \<Risk List\> \<ver\>, \<System Security Plan\> \<ver\>, \<Control Implementation Register\> \<ver\>, \<Control Assessment Record\> \<ver\> |
-| \<ver\> | 12 November 2026 | Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Decision Register\> \<ver\>, \<Security Assessment Report\> \<ver\> |
-| \<ver\> | 12 November 2026 | Assessment, Authorization, and Monitoring Management added to the list of documents, as the system owner asked. Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Security Architecture\> \<ver\>, \<Assessment, Authorization, and Monitoring Management\> \<ver\>, \<Configuration Management\> \<ver\>, \<Concept of Operations\> \<ver\>, \<Decision Register\> \<ver\>, \<Evidence Requests\> \<ver\>, \<Interview Guide\> \<ver\>, \<Plan of Action and Milestones\> \<ver\>, \<Risk List\> \<ver\>, \<Security Assessment Report\> \<ver\>, \<System Security Plan\> \<ver\>, \<Security Operating Procedures\> \<ver\>, \<Tailoring Register\> \<ver\>, \<Policy\> \<ver\>, \<Procedures\> \<ver\>, \<Control Implementation Register\> \<ver\>, \<Control Assessment Record\> \<ver\> |
-| \<ver\> | 12 November 2026 | Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Access Control Management\> \<ver\>, \<Administrator Guide\> \<ver\>, \<Audit and Accountability Management\> \<ver\>, \<Decision Register\> \<ver\>, \<Plan of Action and Milestones\> \<ver\>, \<Risk List\> \<ver\>, \<Security Assessment Report\> \<ver\>, \<Supply Chain Risk Management\> \<ver\>, \<System Security Plan\> \<ver\>, \<Security Operating Procedures\> \<ver\>, \<User Guide\> \<ver\>, \<Procedures\> \<ver\>, \<Control Implementation Register\> \<ver\>, \<Control Assessment Record\> \<ver\> |
-| \<ver\> | 12 November 2026 | Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Audit and Accountability Management\> \<ver\>, \<Decision Register\> \<ver\>, \<Plan of Action and Milestones\> \<ver\>, \<Risk List\> \<ver\>, \<System Security Plan\> \<ver\>, \<Control Implementation Register\> \<ver\>, \<Control Assessment Record\> \<ver\> |
-| \<ver\> | 12 November 2026 | Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Audit and Accountability Management\> \<ver\>, \<Decision Register\> \<ver\>, \<Plan of Action and Milestones\> \<ver\>, \<Risk List\> \<ver\>, \<Roles and Responsibilities\> \<ver\>, \<Security Assessment Report\> \<ver\>, \<System Security Plan\> \<ver\>, \<Security Operating Procedures\> \<ver\>, \<Procedures\> \<ver\>, \<Control Implementation Register\> \<ver\>, \<Control Assessment Record\> \<ver\> |
-| \<ver\> | 12 November 2026 | Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Audit and Accountability Management\> \<ver\>, \<Decision Register\> \<ver\>, \<Plan of Action and Milestones\> \<ver\>, \<Risk List\> \<ver\>, \<Security Assessment Report\> \<ver\>, \<System Security Plan\> \<ver\>, \<Control Implementation Register\> \<ver\>, \<Control Assessment Record\> \<ver\> |
-| \<ver\> | 12 November 2026 | Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Control Assessment Record\> \<ver\> |
-| \<ver\> | 12 November 2026 | Audit and Accountability Management added to the list of documents, as the system owner asked. Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Administrator Guide\> \<ver\>, \<Security Architecture\> \<ver\>, \<Awareness and Training Management\> \<ver\>, \<Audit and Accountability Management\> \<ver\>, \<Configuration Management\> \<ver\>, \<Decision Register\> \<ver\>, \<Evidence Requests\> \<ver\>, \<Interview Guide\> \<ver\>, \<Incident Response Management\> \<ver\>, \<Plan of Action and Milestones\> \<ver\>, \<Risk List\> \<ver\>, \<Security Assessment Report\> \<ver\>, \<System Security Plan\> \<ver\>, \<Security Operating Procedures\> \<ver\>, \<Policy\> \<ver\>, \<Procedures\> \<ver\>, \<Control Implementation Register\> \<ver\>, \<Control Assessment Record\> \<ver\> |
-| \<ver\> | 12 November 2026 | Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Awareness and Training Management\> \<ver\>, \<Decision Register\> \<ver\>, \<Interview Guide\> \<ver\>, \<Plan of Action and Milestones\> \<ver\>, \<Risk List\> \<ver\>, \<Security Assessment Report\> \<ver\>, \<System Security Plan\> \<ver\>, \<Policy\> \<ver\>, \<Control Implementation Register\> \<ver\>, \<Control Assessment Record\> \<ver\> |
-| \<ver\> | 12 November 2026 | Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Awareness and Training Management\> \<ver\>, \<Decision Register\> \<ver\>, \<Plan of Action and Milestones\> \<ver\>, \<Risk List\> \<ver\>, \<System Security Plan\> \<ver\>, \<Control Implementation Register\> \<ver\>, \<Control Assessment Record\> \<ver\> |
-| \<ver\> | 12 November 2026 | Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Decision Register\> \<ver\>, \<Control Assessment Record\> \<ver\> |
-| \<ver\> | 12 November 2026 | Awareness and Training Management added to the list of documents, as the system owner asked. Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Awareness and Training Management\> \<ver\>, \<Concept of Operations\> \<ver\>, \<Decision Register\> \<ver\>, \<Interview Guide\> \<ver\>, \<Plan of Action and Milestones\> \<ver\>, \<Risk List\> \<ver\>, \<Roles and Responsibilities\> \<ver\>, \<Security Assessment Report\> \<ver\>, \<System Security Plan\> \<ver\>, \<Security Operating Procedures\> \<ver\>, \<Record Templates\> \<ver\>, \<Policy\> \<ver\>, \<Procedures\> \<ver\>, \<Control Implementation Register\> \<ver\>, \<Control Assessment Record\> \<ver\> |
-| \<ver\> | 12 November 2026 | Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Access Control Management\> \<ver\>, \<Decision Register\> \<ver\>, \<Plan of Action and Milestones\> \<ver\>, \<Risk List\> \<ver\>, \<System Security Plan\> \<ver\>, \<Procedures\> \<ver\>, \<Control Implementation Register\> \<ver\>, \<Control Assessment Record\> \<ver\> |
-| \<ver\> | 12 November 2026 | Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Decision Register\> \<ver\>, \<Plan of Action and Milestones\> \<ver\>, \<Risk List\> \<ver\>, \<System Security Plan\> \<ver\>, \<Tailoring Register\> \<ver\>, \<Control Implementation Register\> \<ver\>, \<Control Assessment Record\> \<ver\> |
-| \<ver\> | 12 November 2026 | Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Security Architecture\> \<ver\>, \<Decision Register\> \<ver\>, \<Plan of Action and Milestones\> \<ver\>, \<Risk List\> \<ver\>, \<System Security Plan\> \<ver\>, \<Procedures\> \<ver\>, \<Control Implementation Register\> \<ver\>, \<Control Assessment Record\> \<ver\> |
-| \<ver\> | 12 November 2026 | Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Administrator Guide\> \<ver\>, \<Security Architecture\> \<ver\>, \<Configuration Management\> \<ver\>, \<Concept of Operations\> \<ver\>, \<Contingency Planning Management\> \<ver\>, \<Decision Register\> \<ver\>, \<Evidence Requests\> \<ver\>, \<Interview Guide\> \<ver\>, \<Incident Response Management\> \<ver\>, \<Plan of Action and Milestones\> \<ver\>, \<Risk List\> \<ver\>, \<Roles and Responsibilities\> \<ver\>, \<Security Assessment Report\> \<ver\>, \<System Security Plan\> \<ver\>, \<Security Operating Procedures\> \<ver\>, \<Tailoring Register\> \<ver\>, \<User Guide\> \<ver\>, \<Policy\> \<ver\>, \<Procedures\> \<ver\>, \<Control Implementation Register\> \<ver\>, \<Control Assessment Record\> \<ver\> |
-| \<ver\> | 12 November 2026 | Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Access Control Management\> \<ver\>, \<Decision Register\> \<ver\> |
-| \<ver\> | 12 November 2026 | Version numbers are shown as a placeholder, as in every document. No other change. Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Access Control Management\> \<ver\>, \<Administrator Guide\> \<ver\>, \<Security Architecture\> \<ver\>, \<Configuration Management\> \<ver\>, \<Concept of Operations\> \<ver\>, \<Contingency Planning Management\> \<ver\>, \<Decision Register\> \<ver\>, \<Data Protection Impact Assessment\> \<ver\>, \<Evidence Requests\> \<ver\>, \<Interview Guide\> \<ver\>, \<Incident Response Management\> \<ver\>, \<Plan of Action and Milestones\> \<ver\>, \<Privacy Plan\> \<ver\>, \<Risk List\> \<ver\>, \<Roles and Responsibilities\> \<ver\>, \<Security Assessment Report\> \<ver\>, \<Supply Chain Risk Management\> \<ver\>, \<System Security Plan\> \<ver\>, \<Security Operating Procedures\> \<ver\>, \<Tailoring Register\> \<ver\>, \<Record Templates\> \<ver\>, \<User Guide\> \<ver\>, \<Policy\> \<ver\>, \<Procedures\> \<ver\>, \<Control Implementation Register\> \<ver\>, \<Control Assessment Record\> \<ver\> |
-| \<ver\> | 12 November 2026 | The document number is replaced by a placeholder on the line under the title, as in every document. No other change. Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Access Control Management\> \<ver\>, \<Administrator Guide\> \<ver\>, \<Security Architecture\> \<ver\>, \<Configuration Management\> \<ver\>, \<Concept of Operations\> \<ver\>, \<Contingency Planning Management\> \<ver\>, \<Decision Register\> \<ver\>, \<Data Protection Impact Assessment\> \<ver\>, \<Evidence Requests\> \<ver\>, \<Interview Guide\> \<ver\>, \<Incident Response Management\> \<ver\>, \<Plan of Action and Milestones\> \<ver\>, \<Privacy Plan\> \<ver\>, \<Risk List\> \<ver\>, \<Roles and Responsibilities\> \<ver\>, \<Security Assessment Report\> \<ver\>, \<Supply Chain Risk Management\> \<ver\>, \<System Security Plan\> \<ver\>, \<Security Operating Procedures\> \<ver\>, \<Tailoring Register\> \<ver\>, \<Record Templates\> \<ver\>, \<User Guide\> \<ver\>, \<Policy\> \<ver\>, \<Procedures\> \<ver\>, \<Control Implementation Register\> \<ver\>, \<Control Assessment Record\> \<ver\> |
-| \<ver\> | 12 November 2026 | The name of the system is shown as a placeholder, as the system owner asked. No other change. Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Access Control Management\> \<ver\>, \<Administrator Guide\> \<ver\>, \<Security Architecture\> \<ver\>, \<Configuration Management\> \<ver\>, \<Concept of Operations\> \<ver\>, \<Contingency Planning Management\> \<ver\>, \<Decision Register\> \<ver\>, \<Data Protection Impact Assessment\> \<ver\>, \<Evidence Requests\> \<ver\>, \<Interview Guide\> \<ver\>, \<Incident Response Management\> \<ver\>, \<Plan of Action and Milestones\> \<ver\>, \<Privacy Plan\> \<ver\>, \<Risk List\> \<ver\>, \<Roles and Responsibilities\> \<ver\>, \<Security Assessment Report\> \<ver\>, \<Supply Chain Risk Management\> \<ver\>, \<System Security Plan\> \<ver\>, \<Security Operating Procedures\> \<ver\>, \<Tailoring Register\> \<ver\>, \<Record Templates\> \<ver\>, \<User Guide\> \<ver\>, \<Policy\> \<ver\>, \<Procedures\> \<ver\>, \<Control Implementation Register\> \<ver\>, \<Control Assessment Record\> \<ver\> |
-| \<ver\> | 12 November 2026 | Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Access Control Management\> \<ver\> |
-| \<ver\> | 12 November 2026 | Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Access Control Management\> \<ver\>, \<Security Architecture\> \<ver\>, \<Decision Register\> \<ver\>, \<Plan of Action and Milestones\> \<ver\>, \<Risk List\> \<ver\>, \<System Security Plan\> \<ver\>, \<Control Implementation Register\> \<ver\>, \<Control Assessment Record\> \<ver\> |
-| \<ver\> | 12 November 2026 | Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Access Control Management\> \<ver\>, \<Concept of Operations\> \<ver\>, \<Decision Register\> \<ver\>, \<Plan of Action and Milestones\> \<ver\>, \<Risk List\> \<ver\>, \<Roles and Responsibilities\> \<ver\>, \<System Security Plan\> \<ver\>, \<Procedures\> \<ver\>, \<Control Implementation Register\> \<ver\>, \<Control Assessment Record\> \<ver\> |
-| \<ver\> | 12 November 2026 | Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Access Control Management\> \<ver\>, \<Decision Register\> \<ver\> |
-| \<ver\> | 12 November 2026 | Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Access Control Management\> \<ver\>, \<Decision Register\> \<ver\> |
-| \<ver\> | 12 November 2026 | Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Access Control Management\> \<ver\>, \<Decision Register\> \<ver\>, \<Plan of Action and Milestones\> \<ver\>, \<Risk List\> \<ver\>, \<System Security Plan\> \<ver\>, \<Control Implementation Register\> \<ver\>, \<Control Assessment Record\> \<ver\> |
-| \<ver\> | 12 November 2026 | Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Access Control Management\> \<ver\>, \<Security Architecture\> \<ver\>, \<Decision Register\> \<ver\>, \<Plan of Action and Milestones\> \<ver\>, \<Risk List\> \<ver\>, \<System Security Plan\> \<ver\>, \<Control Implementation Register\> \<ver\>, \<Control Assessment Record\> \<ver\> |
-| \<ver\> | 12 November 2026 | Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Access Control Management\> \<ver\> |
-| \<ver\> | 12 November 2026 | Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Access Control Management\> \<ver\> |
-| \<ver\> | 12 November 2026 | Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Access Control Management\> \<ver\>, \<Administrator Guide\> \<ver\>, \<Configuration Management\> \<ver\>, \<Decision Register\> \<ver\>, \<Interview Guide\> \<ver\>, \<Plan of Action and Milestones\> \<ver\>, \<Risk List\> \<ver\>, \<Roles and Responsibilities\> \<ver\>, \<System Security Plan\> \<ver\>, \<Policy\> \<ver\>, \<Procedures\> \<ver\>, \<Control Implementation Register\> \<ver\>, \<Control Assessment Record\> \<ver\> |
-| \<ver\> | 12 November 2026 | Access Control Management added to the list of documents, as the system owner asked. Citations of other documents brought up to their current versions. The list of documents follows the new versions:  |
-| \<ver\> | 12 November 2026 | The row for superseded documents and the note on former document numbers are removed, as the system owner asked: every reference to a former document now names where its content is. Citations of other documents brought up to their current versions. The list of documents follows the new versions: \<Concept of Operations\> \<ver\>, \<Decision Register\> \<ver\>, \<Plan of Action and Milestones\> \<ver\>, \<Risk List\> \<ver\>, \<System Security Plan\> \<ver\>, \<Policy\> \<ver\>, \<Procedures\> \<ver\>, \<Control Implementation Register\> \<ver\>, \<Control Assessment Record\> \<ver\> |
-| \<ver\> | 12 November 2026 | The numbers of cross-family decisions are removed from the text, as the system owner asked. No other change. Citations of other documents brought up to their current versions. The list of documents and the control map follow the new versions:  |
-| \<ver\> | 12 November 2026 | The earlier rows of the change history are folded into one row, as the system owner decided. No other change. Citations of other documents brought up to their current versions. The list of documents and the control map follow the new versions: \<Security Architecture\> \<ver\>, \<Configuration Management\> \<ver\>, \<Concept of Operations\> \<ver\>, \<Decision Register\> \<ver\>, \<Evidence Requests\> \<ver\>, \<Interview Guide\> \<ver\>, \<Incident Response Management\> \<ver\>, \<Plan of Action and Milestones\> \<ver\>, \<Privacy Plan\> \<ver\>, \<Risk List\> \<ver\>, \<Roles and Responsibilities\> \<ver\>, \<Supply Chain Risk Management\> \<ver\>, \<System Security Plan\> \<ver\>, \<Security Operating Procedures\> \<ver\>, \<Tailoring Register\> \<ver\>, \<Record Templates\> \<ver\>, \<Policy\> \<ver\>, \<Control Implementation Register\> \<ver\>, \<Control Assessment Record\> \<ver\> |
-| \<ver\> | 12 November 2026 | The list of documents and the control map follow the new versions: \<Decision Register\> \<ver\>, \<Evidence Requests\> \<ver\>, \<Interview Guide\> \<ver\>, \<Plan of Action and Milestones\> \<ver\>, \<Risk List\> \<ver\>, \<System Security Plan\> \<ver\>, \<Tailoring Register\> \<ver\>, \<Record Templates\> \<ver\>, \<Control Implementation Register\> \<ver\>, \<Control Assessment Record\> \<ver\> |
-| \<ver\> | 12 November 2026 | The control map of 316 rows is removed, as the system owner decided: it repeated the control rows of the security plan and the risk list. Section 4 now says where each fact about a control is held. The list of documents and the control map follow the new versions: \<Decision Register\> \<ver\>, \<Plan of Action and Milestones\> \<ver\>, \<Risk List\> \<ver\>, \<System Security Plan\> \<ver\>, \<Control Implementation Register\> \<ver\>, \<Control Assessment Record\> \<ver\> |
-| \<ver\> | 12 November 2026 | The list of documents and the control map follow the new versions: \<Decision Register\> \<ver\>, \<Plan of Action and Milestones\> \<ver\>, \<Risk List\> \<ver\>, \<System Security Plan\> \<ver\>, \<Control Implementation Register\> \<ver\>, \<Control Assessment Record\> \<ver\> |
-| \<ver\> | 12 November 2026 | Simplified, as the system owner asked. Document references are shown as a placeholder for the organisation to assign; file names and script names are removed; the evidence column shows a placeholder; the list of former document numbers is kept with the superseded documents instead of in section 6; the history before version \<ver\> is one row. The list of documents and the control map follow the new versions: \<Decision Register\> \<ver\>, \<System Security Plan\> \<ver\>, \<Control Implementation Register\> \<ver\>, \<Control Assessment Record\> \<ver\> |
-| \<ver\> to \<ver\> | 5 to 12 November 2026 | The earlier versions. Their history is kept in the change record (\<Documentation Map\>, section 5.1) |
-
-| **SECTION 2** |
-| --- |
-
-## 2 Scope and assumptions
-
-This set covers the 19 control families of NIST SP 800-53 Rev 5 that apply to \<System Name\>: Access Control (AC), Awareness and Training (AT), Audit and Accountability (AU), Assessment, Authorization, and Monitoring (CA), Configuration Management (CM), Contingency Planning (CP), Identification and Authentication (IA), Incident Response (IR), Maintenance (MA), Media Protection (MP), Physical and Environmental Protection (PE), Planning (PL), Personnel Security (PS), Personally Identifiable Information Processing and Transparency (PT), Risk Assessment (RA), System and Services Acquisition (SA), System and Communications Protection (SC), System and Information Integrity (SI) and Supply Chain Risk Management (SR). The Moderate baseline applies, with NIST's privacy baseline for personal data, which makes 316 controls. Program Management (PM) is the twentieth family. It is outside the baseline for a single system, and \<System Name\> inherits it from \<Organisation\> (\<Tailoring Register\>, section 5). Wherever this set lists the families, it uses NIST order.
+This set covers the 19 control families of NIST SP 800-53 Rev 5 that apply to \<System Name\>: Access Control (AC), Awareness and Training (AT), Audit and Accountability (AU), Assessment, Authorization, and Monitoring (CA), Configuration Management (CM), Contingency Planning (CP), Identification and Authentication (IA), Incident Response (IR), Maintenance (MA), Media Protection (MP), Physical and Environmental Protection (PE), Planning (PL), Personnel Security (PS), Personally Identifiable Information Processing and Transparency (PT), Risk Assessment (RA), System and Services Acquisition (SA), System and Communications Protection (SC), System and Information Integrity (SI) and Supply Chain Risk Management (SR). The Moderate baseline applies, with NIST's privacy baseline for personal data, which makes 316 controls. Program Management (PM) is the twentieth family. It is outside the baseline for a single system, and \<System Name\> inherits it from \<Organisation\> (\<Tailoring Register\>, section 4). Wherever this set lists the families, it uses NIST order.
 
 - **System:** the \<System Name\> application built from the API, UI application, Admin application, shared library and workspace repository repositories. It is a separate product from the template-built \<System Name\>; that product's documents were used only as a guide to document types and content.
 - **Version described:** \<System Name\> v1.0, run in Docker for development and test only. The production system, two Windows Server 2025 VMs at \<Organisation\>, is not yet built.
 - **Baseline:** Moderate, confirmed by the authorising official.
 - **Evidence basis:** code read and tests run on one PC against a throwaway database, and the system owner's written answers. This is a Level 1 self-assessment. It is not independent, and nothing here is a claim of compliance.
-- **Master copy:** the documents are kept as Markdown. Section 5.1 says how they are controlled.
+- **Master copy:** the documents are kept as Markdown. Section 4.1 says how they are controlled.
 
-| **SECTION 3** |
-| --- |
-
-## 3 The document set
+## 2 The document set
 
 The set has 44 documents. \<Guide to the Document Set\> is the place to start. Each fact lives in one place, and the other documents point to it. Every family has its design in a document of its own, in the same form, as the system owner asked: access control in \<Access Control Management\>, awareness and training in \<Awareness and Training Management\>, audit and accountability in \<Audit and Accountability Management\>, assessment, authorisation and monitoring in \<Assessment, Authorization, and Monitoring Management\>, configuration management in \<Configuration Management\>, contingency planning in \<Contingency Planning Management\>, identification and authentication in \<Identification and Authentication Management\>, incident response in \<Incident Response Management\>, maintenance in \<Maintenance Management\>, media protection in \<Media Protection Management\>, physical and environmental protection in \<Physical and Environmental Protection Management\>, planning in \<Planning Management\>, program management in \<Program Management\>, personnel security in \<Personnel Security Management\>, personal data in \<PII Processing Management\>, risk assessment in \<Risk Assessment Management\>, system and services acquisition in \<System and Services Acquisition Management\>, system and communications protection in \<System and Communications Protection Management\>, system and information integrity in \<System and Information Integrity Management\>, and supply chain risk management in \<Supply Chain Risk Management\>.
 
-### 3.1 The documents
+### 2.1 The documents
 
-**Table 4: The documents**
+**Table 1: The documents**
 
-| Reference | Document | Group | Purpose | Version | Status |
-| --- | --- | --- | --- | --- | --- |
-| \<ref\> | \<System Security Plan\> | Plans and descriptions | How \<System Name\> implements each of the 316 controls, or does not yet, with the system description, architecture figures, inheritance and responsibilities | \<ver\> | The corrections made since version \<ver\> await the system owner's approval; version \<ver\> approved by the system owner |
-| \<ref\> | \<Privacy Plan\> | Plans and descriptions | How personal data in \<System Name\> is governed: the privacy plan that PL-2 calls for | \<ver\> | References updated; version \<ver\> legally reviewed; version \<ver\> approved by the legal adviser and authorising official |
-| \<ref\> | \<System Description\> | Plans and descriptions | One description of the whole system for a person or an AI without the source code: its purpose, users, high-level requirements, architecture, technologies and design, its security family by family, and how the design differs from what is built | \<ver\> | Draft for the system owner's approval |
-| \<ref\> | \<Security Architecture\> | Plans and descriptions | System boundary, components, data flows and what is inherited from \<Organisation\> | \<ver\> | Approved by the system owner |
-| \<ref\> | \<Concept of Operations\> | Plans and descriptions | Why \<System Name\> exists, who uses it, the business workflows it supports and its operational scenarios | \<ver\> | Approved by the system owner |
-| \<ref\> | \<Roles and Responsibilities\> | Plans and descriptions | Who holds each role, so that other documents name roles and not people | \<ver\> | Approved by the system owner |
-| \<ref\> | \<Configuration Management\> | Plans and descriptions | The configuration management design, and the plan CM-9 requires: the configuration items, the baseline, the components, the secure settings, change control, least functionality and the inventory, each of the 24 CM controls, and the parameter values | \<ver\> | Draft for the system owner's approval |
-| \<ref\> | \<Contingency Planning Management\> | Plans and descriptions | The contingency design, and the contingency plan CP-2 requires: the business impact analysis, the roles, activation, recovery and reconstitution, backups, the second site, and testing and training, each of the 23 CP controls, and the parameter values | \<ver\> | Draft for the approval of the system owner and the authorising official |
-| \<ref\> | \<System and Communications Protection Management\> | Plans and descriptions | The communications protection design: the boundary and allowed flows with the host firewall allow-lists, the TLS profile and sessions, the cryptographic and key register and certificates, the page policy, information at rest, denial of service and name resolution, each of the 25 SC controls, and the parameter values | \<ver\> | Draft for the system owner's approval |
-| \<ref\> | \<System and Information Integrity Management\> | Plans and descriptions | The integrity design: the upload checks and malware scanning, flaw remediation and advisories, monitoring and the detection use cases, the integrity baseline, error handling, retention, each of the 18 SI controls, and the parameter values | \<ver\> | Draft for the system owner's approval |
-| \<ref\> | \<System and Services Acquisition Management\> | Plans and descriptions | The acquisition design: the development framework, the lifecycle and resources, contracts and design information, documentation, engineering principles, external services, developer configuration management, the developer test plan, the tools, each of the 17 SA controls, and the parameter values | \<ver\> | Draft for the system owner's approval |
-| \<ref\> | \<Risk Assessment Management\> | Plans and descriptions | The risk assessment design: the security categorisation, the risk assessment and its method, the supply chain review, what is monitored for vulnerabilities, the vulnerability timetable, how findings are analysed, shared and answered, the critical components, each of the 10 RA controls, and the parameter values | \<ver\> | Draft for the system owner's approval |
-| \<ref\> | \<PII Processing Management\> | Plans and descriptions | The personal data design: the authority, purposes and lawful basis, the personal data inventory, special category data, the privacy notice, people's rights, minimisation and the retention schedule, each of the 22 privacy baseline controls, and the parameter values | \<ver\> | Draft for the system owner's approval |
-| \<ref\> | \<Personnel Security Management\> | Plans and descriptions | The personnel security design: the risk designation of every role, the screening standard, the access agreements, joiners, movers and leavers, the time limits, the personnel security register, each of the 9 PS controls, and the parameter values | \<ver\> | Draft for the system owner's approval |
-| \<ref\> | \<Program Management\> | Plans and descriptions | How \<System Name\> relies on \<Organisation\>'s security and privacy programme: who provides each of the 36 Program Management controls, what \<System Name\> adds, and the evidence asked for | \<ver\> | Draft for the system owner's approval |
-| \<ref\> | \<Planning Management\> | Plans and descriptions | The planning design: the register of plans in force, what the plans hold, how they are approved, shared, reviewed and protected, the rules of behaviour and the register of signatures, each of the 7 PL controls, and the parameter values | \<ver\> | Draft for the system owner's approval |
-| \<ref\> | \<Physical and Environmental Protection Management\> | Plans and descriptions | The physical and environmental protection design: the sites, the inheritance matrix, how \<Organisation\>'s evidence is checked, the rules for offices and home working, each of the 18 PE controls, and the parameter values | \<ver\> | Draft for the system owner's approval |
-| \<ref\> | \<Media Protection Management\> | Plans and descriptions | The media protection design: the media inventory, the marking scheme, storage and export copies, transport, the sanitising methods and portable storage, each of the 7 MP controls, and the parameter values | \<ver\> | Draft for the system owner's approval |
-| \<ref\> | \<Maintenance Management\> | Plans and descriptions | The maintenance design: who maintains what, how a job is controlled, the remote maintenance routes, the approved tools and people, what may leave, the security-critical components, each of the 9 MA controls, and the parameter values | \<ver\> | Draft for the system owner's approval |
-| \<ref\> | \<Incident Response Management\> | Plans and descriptions | The incident response design, and the plan IR-8 requires: roles, detection, severity and targets, the steps of handling, personal data breaches, playbooks, evidence and the register, each of the 13 IR controls, and the parameter values | \<ver\> | Draft for approval by the Head of Cyber |
-| \<ref\> | \<Supply Chain Risk Management\> | Plans and descriptions | The supply chain risk management plan that SR-2 requires: the system context, the team, the risks at each stage, the supplier register, the risk tolerance and how components come in, with each of the 12 SR controls and the parameter values | \<ver\> | Draft for the system owner's approval |
-| \<ref\> | \<Data Protection Impact Assessment\> | Plans and descriptions | The data protection impact assessment, drafted for the legal adviser to complete | \<ver\> | Draft for the legal adviser to complete |
-| \<ref\> | \<Policy\> | Rules and how they are carried out | The security and privacy policy: one chapter of rules for each of the 19 families | \<ver\> | The layout introduced in version \<ver\> awaits the system owner's approval; the content of every chapter is unchanged |
-| \<ref\> | \<Procedures\> | Rules and how they are carried out | The procedures that carry out the policy: one chapter for each family, each step naming who acts and the record kept | \<ver\> | The layout introduced in version \<ver\> awaits the system owner's approval; every procedure is as the system owner approved it |
-| \<ref\> | \<Control Implementation Register\> | Rules and how they are carried out | Formerly the register of decisions, values and registers. Every family now has its design in a document of its own, so each chapter points to it: \<Access Control Management\>, \<Awareness and Training Management\>, \<Audit and Accountability Management\>, \<Assessment, Authorization, and Monitoring Management\>, \<Identification and Authentication Management\>, \<Maintenance Management\>, \<Media Protection Management\>, \<Physical and Environmental Protection Management\>, \<Planning Management\>, \<Personnel Security Management\>, \<PII Processing Management\>, \<Risk Assessment Management\>, \<System and Services Acquisition Management\>, \<System and Communications Protection Management\> and \<System and Information Integrity Management\> | \<ver\> | The layout introduced in version \<ver\> awaits the system owner's approval; the content of every chapter is unchanged |
-| \<ref\> | \<Assessment, Authorization, and Monitoring Management\> | Rules and how they are carried out | The assessment, authorisation and monitoring design: assessment, the plan of action, authorisation, the inherited controls, the interface record, the monitoring strategy and significant change, each of the 10 CA controls, and the parameter values | \<ver\> | Draft for the system owner's approval |
-| \<ref\> | \<Identification and Authentication Management\> | Rules and how they are carried out | The identification and authentication design: who is identified and how, sign-in through AD FS, the assurance levels, the authenticator inventory and the settings against NIST SP 800-63B, each of the 24 IA controls, and the parameter values | \<ver\> | Draft for the system owner's approval |
-| \<ref\> | \<Audit and Accountability Management\> | Rules and how they are carried out | The audit design: the sources of audit records, the events logged, what a record holds, storage and protection, time, retention, review and alerts, each of the 16 Audit and Accountability controls, and the parameter values | \<ver\> | Draft for the system owner's approval |
-| \<ref\> | \<Awareness and Training Management\> | Rules and how they are carried out | The training design: who needs what, the briefing, the role curriculum, the training matrix and register, each of the 6 Awareness and Training controls, and the parameter values | \<ver\> | Draft for the system owner's approval |
-| \<ref\> | \<Access Control Management\> | Rules and how they are carried out | The access control design: how \<System Name\> is designed and configured for each of the 39 Access Control controls and enhancements, the status of each, the parameter values and the control index | \<ver\> | Draft for the system owner's approval |
-| \<ref\> | \<Security Operating Procedures\> | Rules and how they are carried out | Rules of behaviour for everyone and for privileged users, and how security is operated day to day, with the record that proves each duty | \<ver\> | Approved by the system owner |
-| \<ref\> | \<Record Templates\> | Rules and how they are carried out | The forms that show controls operating, TPL-1 to TPL-24 | \<ver\> | Approved by the system owner, live document |
-| \<ref\> | \<Tailoring Register\> | Rules and how they are carried out | The case for each control treated as not applicable, and the decision that Program Management is outside the baseline | \<ver\> | Approved by the system owner, live document |
-| \<ref\> | \<Control Assessment Record\> | Assessment and authorisation | The Level 1 self-assessment: a finding for each of the 1,998 determination statements, one chapter for each family | \<ver\> | The layout introduced in version \<ver\> awaits the system owner's approval; the content of every chapter is unchanged |
-| \<ref\> | \<Security Assessment Report\> | Assessment and authorisation | The results of all 19 families in one report for the authorising official, with the risk position and the conditions before authorisation | \<ver\> | Version \<ver\> issued; the authorising official's acceptance is pending |
-| \<ref\> | \<Risk List\> | Assessment and authorisation | Each risk with its rating, treatment and acceptance, and a non-compliance entry for every control that is not satisfied | \<ver\> | Approved by the system owner; risk decisions recorded |
-| \<ref\> | \<Plan of Action and Milestones\> | Assessment and authorisation | Each weakness with its fix, owner, milestone and latest completion, and the road to authorisation | \<ver\> | Approved by the system owner |
-| \<ref\> | \<Decision Register\> | Assessment and authorisation | Every approval and decision, who made it, when, and the evidence of it | \<ver\> | Issued by the system owner, live document |
-| \<ref\> | \<Evidence Requests\> | Assessment and authorisation | The evidence needed from \<Organisation\>, and who does what for each control | \<ver\> | Issued by the system owner, live document; not yet sent |
-| \<ref\> | \<Interview Guide\> | Assessment and authorisation | The interview questions by role, the statements each supports, and the answers given at Level 1 | \<ver\> | Issued by the system owner, live document |
-| \<ref\> | \<Guide to the Document Set\> | Guides and index | The place to start: how the documents relate, a route through them for an auditor, one control followed from end to end, and where each family is documented | \<ver\> | Draft for the system owner's approval |
-| \<ref\> | \<Administrator Guide\> | Guides and index | How administrators set up and run \<System Name\> securely; a draft for the developers to confirm | \<ver\> | Draft for the developers to confirm |
-| \<ref\> | \<User Guide\> | Guides and index | How users work securely in \<System Name\>; a draft for the developers to confirm | \<ver\> | Draft for the developers to confirm |
-| \<ref\> | \<Documentation Map\> | Guides and index | This map: every document, where each family is documented, where each fact about a control is held, and the document standard | \<ver\> | Issued by the system owner |
+| Document | Group | Purpose |
+| --- | --- | --- |
+| \<System Security Plan\> | Plans and descriptions | How \<System Name\> implements each of the 316 controls, or does not yet, with the system description, architecture figures, inheritance and responsibilities |
+| \<Privacy Plan\> | Plans and descriptions | How personal data in \<System Name\> is governed: the privacy plan that PL-2 calls for |
+| \<System Description\> | Plans and descriptions | One description of the whole system for a person or an AI without the source code: its purpose, users, high-level requirements, architecture, technologies and design, its security family by family, and how the design differs from what is built |
+| \<Security Architecture\> | Plans and descriptions | System boundary, components, data flows and what is inherited from \<Organisation\> |
+| \<Concept of Operations\> | Plans and descriptions | Why \<System Name\> exists, who uses it, the business workflows it supports and its operational scenarios |
+| \<Roles and Responsibilities\> | Plans and descriptions | Who holds each role, so that other documents name roles and not people |
+| \<Configuration Management\> | Plans and descriptions | The configuration management design, and the plan CM-9 requires: the configuration items, the baseline, the components, the secure settings, change control, least functionality and the inventory, each of the 24 CM controls, and the parameter values |
+| \<Contingency Planning Management\> | Plans and descriptions | The contingency design, and the contingency plan CP-2 requires: the business impact analysis, the roles, activation, recovery and reconstitution, backups, the second site, and testing and training, each of the 23 CP controls, and the parameter values |
+| \<System and Communications Protection Management\> | Plans and descriptions | The communications protection design: the boundary and allowed flows with the host firewall allow-lists, the TLS profile and sessions, the cryptographic and key register and certificates, the page policy, information at rest, denial of service and name resolution, each of the 25 SC controls, and the parameter values |
+| \<System and Information Integrity Management\> | Plans and descriptions | The integrity design: the upload checks and malware scanning, flaw remediation and advisories, monitoring and the detection use cases, the integrity baseline, error handling, retention, each of the 18 SI controls, and the parameter values |
+| \<System and Services Acquisition Management\> | Plans and descriptions | The acquisition design: the development framework, the lifecycle and resources, contracts and design information, documentation, engineering principles, external services, developer configuration management, the developer test plan, the tools, each of the 17 SA controls, and the parameter values |
+| \<Risk Assessment Management\> | Plans and descriptions | The risk assessment design: the security categorisation, the risk assessment and its method, the supply chain review, what is monitored for vulnerabilities, the vulnerability timetable, how findings are analysed, shared and answered, the critical components, each of the 10 RA controls, and the parameter values |
+| \<PII Processing Management\> | Plans and descriptions | The personal data design: the authority, purposes and lawful basis, the personal data inventory, special category data, the privacy notice, people's rights, minimisation and the retention schedule, each of the 22 privacy baseline controls, and the parameter values |
+| \<Personnel Security Management\> | Plans and descriptions | The personnel security design: the risk designation of every role, the screening standard, the access agreements, joiners, movers and leavers, the time limits, the personnel security register, each of the 9 PS controls, and the parameter values |
+| \<Program Management\> | Plans and descriptions | How \<System Name\> relies on \<Organisation\>'s security and privacy programme: who provides each of the 36 Program Management controls, what \<System Name\> adds, and the evidence asked for |
+| \<Planning Management\> | Plans and descriptions | The planning design: the register of plans in force, what the plans hold, how they are approved, shared, reviewed and protected, the rules of behaviour and the register of signatures, each of the 7 PL controls, and the parameter values |
+| \<Physical and Environmental Protection Management\> | Plans and descriptions | The physical and environmental protection design: the sites, the inheritance matrix, how \<Organisation\>'s evidence is checked, the rules for offices and home working, each of the 18 PE controls, and the parameter values |
+| \<Media Protection Management\> | Plans and descriptions | The media protection design: the media inventory, the marking scheme, storage and export copies, transport, the sanitising methods and portable storage, each of the 7 MP controls, and the parameter values |
+| \<Maintenance Management\> | Plans and descriptions | The maintenance design: who maintains what, how a job is controlled, the remote maintenance routes, the approved tools and people, what may leave, the security-critical components, each of the 9 MA controls, and the parameter values |
+| \<Incident Response Management\> | Plans and descriptions | The incident response design, and the plan IR-8 requires: roles, detection, severity and targets, the steps of handling, personal data breaches, playbooks, evidence and the register, each of the 13 IR controls, and the parameter values |
+| \<Supply Chain Risk Management\> | Plans and descriptions | The supply chain risk management plan that SR-2 requires: the system context, the team, the risks at each stage, the supplier register, the risk tolerance and how components come in, with each of the 12 SR controls and the parameter values |
+| \<Data Protection Impact Assessment\> | Plans and descriptions | The data protection impact assessment, drafted for the legal adviser to complete |
+| \<Policy\> | Rules and how they are carried out | The security and privacy policy: one chapter of rules for each of the 19 families |
+| \<Procedures\> | Rules and how they are carried out | The procedures that carry out the policy: one chapter for each family, each step naming who acts and the record kept |
+| \<Control Implementation Register\> | Rules and how they are carried out | Formerly the register of decisions, values and registers. Every family now has its design in a document of its own, so each chapter points to it: \<Access Control Management\>, \<Awareness and Training Management\>, \<Audit and Accountability Management\>, \<Assessment, Authorization, and Monitoring Management\>, \<Identification and Authentication Management\>, \<Maintenance Management\>, \<Media Protection Management\>, \<Physical and Environmental Protection Management\>, \<Planning Management\>, \<Personnel Security Management\>, \<PII Processing Management\>, \<Risk Assessment Management\>, \<System and Services Acquisition Management\>, \<System and Communications Protection Management\> and \<System and Information Integrity Management\> |
+| \<Assessment, Authorization, and Monitoring Management\> | Rules and how they are carried out | The assessment, authorisation and monitoring design: assessment, the plan of action, authorisation, the inherited controls, the interface record, the monitoring strategy and significant change, each of the 10 CA controls, and the parameter values |
+| \<Identification and Authentication Management\> | Rules and how they are carried out | The identification and authentication design: who is identified and how, sign-in through AD FS, the assurance levels, the authenticator inventory and the settings against NIST SP 800-63B, each of the 24 IA controls, and the parameter values |
+| \<Audit and Accountability Management\> | Rules and how they are carried out | The audit design: the sources of audit records, the events logged, what a record holds, storage and protection, time, retention, review and alerts, each of the 16 Audit and Accountability controls, and the parameter values |
+| \<Awareness and Training Management\> | Rules and how they are carried out | The training design: who needs what, the briefing, the role curriculum, the training matrix and register, each of the 6 Awareness and Training controls, and the parameter values |
+| \<Access Control Management\> | Rules and how they are carried out | The access control design: how \<System Name\> is designed and configured for each of the 39 Access Control controls and enhancements, the status of each, the parameter values and the control index |
+| \<Security Operating Procedures\> | Rules and how they are carried out | Rules of behaviour for everyone and for privileged users, and how security is operated day to day, with the record that proves each duty |
+| \<Record Templates\> | Rules and how they are carried out | The forms that show controls operating, TPL-1 to TPL-24 |
+| \<Tailoring Register\> | Rules and how they are carried out | The case for each control treated as not applicable, and the decision that Program Management is outside the baseline |
+| \<Control Assessment Record\> | Assessment and authorisation | The Level 1 self-assessment: a finding for each of the 1,998 determination statements, one chapter for each family |
+| \<Security Assessment Report\> | Assessment and authorisation | The results of all 19 families in one report for the authorising official, with the risk position and the conditions before authorisation |
+| \<Risk List\> | Assessment and authorisation | Each risk with its rating, treatment and acceptance, and a non-compliance entry for every control that is not satisfied |
+| \<Plan of Action and Milestones\> | Assessment and authorisation | Each weakness with its fix, owner, milestone and latest completion, and the road to authorisation |
+| \<Decision Register\> | Assessment and authorisation | Every approval and decision, who made it, when, and the evidence of it |
+| \<Evidence Requests\> | Assessment and authorisation | The evidence needed from \<Organisation\>, and who does what for each control |
+| \<Interview Guide\> | Assessment and authorisation | The interview questions by role, the statements each supports, and the answers given at Level 1 |
+| \<Guide to the Document Set\> | Guides and index | The place to start: how the documents relate, a route through them for an auditor, one control followed from end to end, and where each family is documented |
+| \<Administrator Guide\> | Guides and index | How administrators set up and run \<System Name\> securely; a draft for the developers to confirm |
+| \<User Guide\> | Guides and index | How users work securely in \<System Name\>; a draft for the developers to confirm |
+| \<Documentation Map\> | Guides and index | This map: every document, where each family is documented, where each fact about a control is held, and the document standard |
 
-### 3.2 Where each family is documented
+### 2.2 Where each family is documented
 
-Table 5 gives, for each family, the chapter or section of every document that holds its material. The control index is the table that follows each control of the family through its policy rule, procedure, setting and record.
+Table 2 gives, for each family, the chapter or section of every document that holds its material. The control index is the table that follows each control of the family through its policy rule, procedure, setting and record.
 
-**Table 5: Where each family is documented**
+**Table 2: Where each family is documented**
 
 | Family | Policy and procedures | Register or plan | Control index | \<System Security Plan\> | Assessment | \<Risk List\> | \<Decision Register\> | \<Evidence Requests\> | \<Interview Guide\> | Evidence |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| AC Access Control | \<Policy\> (AC) and \<Procedures\> (AC) | \<Access Control Management\> | \<Access Control Management\>, section 5 | Section 8.1 | \<Control Assessment Record\> (AC) | Section 6.1 | Section 4 | Section 4 | Section 4 | \<evidence\> |
-| AT Awareness and Training | \<Policy\> (AT) and \<Procedures\> (AT) | \<Awareness and Training Management\> | \<Awareness and Training Management\>, section 5 | Section 8.2 | \<Control Assessment Record\> (AT) | Section 6.2 | Section 5 | Section 5 | Section 5 | \<evidence\> |
-| AU Audit and Accountability | \<Policy\> (AU) and \<Procedures\> (AU) | \<Audit and Accountability Management\> | \<Audit and Accountability Management\>, section 5 | Section 8.3 | \<Control Assessment Record\> (AU) | Section 6.3 | Section 6 | Section 6 | Section 6 | \<evidence\> |
-| CA Assessment, Authorization, and Monitoring | \<Policy\> (CA) and \<Procedures\> (CA) | \<Assessment, Authorization, and Monitoring Management\> | \<Assessment, Authorization, and Monitoring Management\>, section 5 | Section 8.4 | \<Control Assessment Record\> (CA) | Section 6.4 | Section 7 | Section 7 | Section 7 | \<evidence\> |
-| CM Configuration Management | \<Policy\> (CM) and \<Procedures\> (CM) | \<Configuration Management\> | \<Configuration Management\>, section 5 | Section 8.5 | \<Control Assessment Record\> (CM) | Section 6.5 | Section 8 | Section 8 | Section 8 | \<evidence\> |
-| CP Contingency Planning | \<Policy\> (CP) and \<Procedures\> (CP) | \<Contingency Planning Management\> | \<Contingency Planning Management\>, section 5 | Section 8.6 | \<Control Assessment Record\> (CP) | Section 6.6 | Section 9 | Section 9 | Section 9 | \<evidence\> |
-| IA Identification and Authentication | \<Policy\> (IA) and \<Procedures\> (IA) | \<Identification and Authentication Management\> | \<Identification and Authentication Management\>, section 5 | Section 8.7 | \<Control Assessment Record\> (IA) | Section 6.7 | Section 10 | Section 10 | Section 10 | \<evidence\> |
-| IR Incident Response | \<Policy\> (IR) and \<Procedures\> (IR) | \<Incident Response Management\> | \<Incident Response Management\>, section 5 | Section 8.8 | \<Control Assessment Record\> (IR) | Section 6.8 | Section 11 | Section 11 | Section 11 | \<evidence\> |
-| MA Maintenance | \<Policy\> (MA) and \<Procedures\> (MA) | \<Maintenance Management\> | \<Maintenance Management\>, section 5 | Section 8.9 | \<Control Assessment Record\> (MA) | Section 6.9 | Section 12 | Section 12 | Section 12 | \<evidence\> |
-| MP Media Protection | \<Policy\> (MP) and \<Procedures\> (MP) | \<Media Protection Management\> | \<Media Protection Management\>, section 5 | Section 8.10 | \<Control Assessment Record\> (MP) | Section 6.10 | Section 13 | Section 13 | Section 13 | \<evidence\> |
-| PE Physical and Environmental Protection | \<Policy\> (PE) and \<Procedures\> (PE) | \<Physical and Environmental Protection Management\> | \<Physical and Environmental Protection Management\>, section 5 | Section 8.11 | \<Control Assessment Record\> (PE) | Section 6.11 | Section 14 | Section 14 | Section 14 | \<evidence\> |
-| PL Planning | \<Policy\> (PL) and \<Procedures\> (PL) | \<Planning Management\> | \<Planning Management\>, section 5 | Section 8.12 | \<Control Assessment Record\> (PL) | Section 6.12 | Section 15 | Section 15 | Section 15 | \<evidence\> |
-| PM Program Management | None: inherited from \<Organisation\> | \<Program Management\> | \<Program Management\>, section 5 | None: outside the baseline | Not assessed | None | Section 16 | Section 16 | INT-PM-01, in section 15 | \<evidence\> |
-| PS Personnel Security | \<Policy\> (PS) and \<Procedures\> (PS) | \<Personnel Security Management\> | \<Personnel Security Management\>, section 5 | Section 8.13 | \<Control Assessment Record\> (PS) | Section 6.13 | Section 17 | Section 17 | Section 16 | \<evidence\> |
-| PT Personally Identifiable Information Processing and Transparency | \<Policy\> (PT) and \<Procedures\> (PT) | \<PII Processing Management\>, \<Privacy Plan\> and \<Data Protection Impact Assessment\> | \<PII Processing Management\>, section 5 | Section 8.14 | \<Control Assessment Record\> (PT) | Section 6.14 | Section 18 | Section 18 | Section 17 | \<evidence\> |
-| RA Risk Assessment | \<Policy\> (RA) and \<Procedures\> (RA) | \<Risk Assessment Management\> | \<Risk Assessment Management\>, section 5 | Section 8.15 | \<Control Assessment Record\> (RA) | Section 6.15 | Section 19 | Section 19 | Section 18 | \<evidence\> |
-| SA System and Services Acquisition | \<Policy\> (SA) and \<Procedures\> (SA) | \<System and Services Acquisition Management\> | \<System and Services Acquisition Management\>, section 5 | Section 8.16 | \<Control Assessment Record\> (SA) | Section 6.16 | Section 20 | Section 20 | Section 19 | \<evidence\> |
-| SC System and Communications Protection | \<Policy\> (SC) and \<Procedures\> (SC) | \<System and Communications Protection Management\> | \<System and Communications Protection Management\>, section 5 | Section 8.17 | \<Control Assessment Record\> (SC) | Section 6.17 | Section 21 | Section 21 | Section 20 | \<evidence\> |
-| SI System and Information Integrity | \<Policy\> (SI) and \<Procedures\> (SI) | \<System and Information Integrity Management\> | \<System and Information Integrity Management\>, section 5 | Section 8.18 | \<Control Assessment Record\> (SI) | Section 6.18 | Section 22 | Section 22 | Section 21 | \<evidence\> |
-| SR Supply Chain Risk Management | \<Policy\> (SR) and \<Procedures\> (SR) | \<Supply Chain Risk Management\> | \<Supply Chain Risk Management\>, section 5 | Section 8.19 | \<Control Assessment Record\> (SR) | Section 6.19 | Section 23 | Section 23 | Section 22 | \<evidence\> |
+| AC Access Control | \<Policy\> (AC) and \<Procedures\> (AC) | \<Access Control Management\> | \<Access Control Management\>, section 4 | Section 7.1 | \<Control Assessment Record\> (AC) | Section 5.1 | Section 3 | Section 3 | Section 3 | \<evidence\> |
+| AT Awareness and Training | \<Policy\> (AT) and \<Procedures\> (AT) | \<Awareness and Training Management\> | \<Awareness and Training Management\>, section 4 | Section 7.2 | \<Control Assessment Record\> (AT) | Section 5.2 | Section 4 | Section 4 | Section 4 | \<evidence\> |
+| AU Audit and Accountability | \<Policy\> (AU) and \<Procedures\> (AU) | \<Audit and Accountability Management\> | \<Audit and Accountability Management\>, section 4 | Section 7.3 | \<Control Assessment Record\> (AU) | Section 5.3 | Section 5 | Section 5 | Section 5 | \<evidence\> |
+| CA Assessment, Authorization, and Monitoring | \<Policy\> (CA) and \<Procedures\> (CA) | \<Assessment, Authorization, and Monitoring Management\> | \<Assessment, Authorization, and Monitoring Management\>, section 4 | Section 7.4 | \<Control Assessment Record\> (CA) | Section 5.4 | Section 6 | Section 6 | Section 6 | \<evidence\> |
+| CM Configuration Management | \<Policy\> (CM) and \<Procedures\> (CM) | \<Configuration Management\> | \<Configuration Management\>, section 4 | Section 7.5 | \<Control Assessment Record\> (CM) | Section 5.5 | Section 7 | Section 7 | Section 7 | \<evidence\> |
+| CP Contingency Planning | \<Policy\> (CP) and \<Procedures\> (CP) | \<Contingency Planning Management\> | \<Contingency Planning Management\>, section 4 | Section 7.6 | \<Control Assessment Record\> (CP) | Section 5.6 | Section 8 | Section 8 | Section 8 | \<evidence\> |
+| IA Identification and Authentication | \<Policy\> (IA) and \<Procedures\> (IA) | \<Identification and Authentication Management\> | \<Identification and Authentication Management\>, section 4 | Section 7.7 | \<Control Assessment Record\> (IA) | Section 5.7 | Section 9 | Section 9 | Section 9 | \<evidence\> |
+| IR Incident Response | \<Policy\> (IR) and \<Procedures\> (IR) | \<Incident Response Management\> | \<Incident Response Management\>, section 4 | Section 7.8 | \<Control Assessment Record\> (IR) | Section 5.8 | Section 10 | Section 10 | Section 10 | \<evidence\> |
+| MA Maintenance | \<Policy\> (MA) and \<Procedures\> (MA) | \<Maintenance Management\> | \<Maintenance Management\>, section 4 | Section 7.9 | \<Control Assessment Record\> (MA) | Section 5.9 | Section 11 | Section 11 | Section 11 | \<evidence\> |
+| MP Media Protection | \<Policy\> (MP) and \<Procedures\> (MP) | \<Media Protection Management\> | \<Media Protection Management\>, section 4 | Section 7.10 | \<Control Assessment Record\> (MP) | Section 5.10 | Section 12 | Section 12 | Section 12 | \<evidence\> |
+| PE Physical and Environmental Protection | \<Policy\> (PE) and \<Procedures\> (PE) | \<Physical and Environmental Protection Management\> | \<Physical and Environmental Protection Management\>, section 4 | Section 7.11 | \<Control Assessment Record\> (PE) | Section 5.11 | Section 13 | Section 13 | Section 13 | \<evidence\> |
+| PL Planning | \<Policy\> (PL) and \<Procedures\> (PL) | \<Planning Management\> | \<Planning Management\>, section 4 | Section 7.12 | \<Control Assessment Record\> (PL) | Section 5.12 | Section 14 | Section 14 | Section 14 | \<evidence\> |
+| PM Program Management | None: inherited from \<Organisation\> | \<Program Management\> | \<Program Management\>, section 4 | None: outside the baseline | Not assessed | None | Section 15 | Section 15 | INT-PM-01, in section 14 | \<evidence\> |
+| PS Personnel Security | \<Policy\> (PS) and \<Procedures\> (PS) | \<Personnel Security Management\> | \<Personnel Security Management\>, section 4 | Section 7.13 | \<Control Assessment Record\> (PS) | Section 5.13 | Section 16 | Section 16 | Section 15 | \<evidence\> |
+| PT Personally Identifiable Information Processing and Transparency | \<Policy\> (PT) and \<Procedures\> (PT) | \<PII Processing Management\>, \<Privacy Plan\> and \<Data Protection Impact Assessment\> | \<PII Processing Management\>, section 4 | Section 7.14 | \<Control Assessment Record\> (PT) | Section 5.14 | Section 17 | Section 17 | Section 16 | \<evidence\> |
+| RA Risk Assessment | \<Policy\> (RA) and \<Procedures\> (RA) | \<Risk Assessment Management\> | \<Risk Assessment Management\>, section 4 | Section 7.15 | \<Control Assessment Record\> (RA) | Section 5.15 | Section 18 | Section 18 | Section 17 | \<evidence\> |
+| SA System and Services Acquisition | \<Policy\> (SA) and \<Procedures\> (SA) | \<System and Services Acquisition Management\> | \<System and Services Acquisition Management\>, section 4 | Section 7.16 | \<Control Assessment Record\> (SA) | Section 5.16 | Section 19 | Section 19 | Section 18 | \<evidence\> |
+| SC System and Communications Protection | \<Policy\> (SC) and \<Procedures\> (SC) | \<System and Communications Protection Management\> | \<System and Communications Protection Management\>, section 4 | Section 7.17 | \<Control Assessment Record\> (SC) | Section 5.17 | Section 20 | Section 20 | Section 19 | \<evidence\> |
+| SI System and Information Integrity | \<Policy\> (SI) and \<Procedures\> (SI) | \<System and Information Integrity Management\> | \<System and Information Integrity Management\>, section 4 | Section 7.18 | \<Control Assessment Record\> (SI) | Section 5.18 | Section 21 | Section 21 | Section 20 | \<evidence\> |
+| SR Supply Chain Risk Management | \<Policy\> (SR) and \<Procedures\> (SR) | \<Supply Chain Risk Management\> | \<Supply Chain Risk Management\>, section 4 | Section 7.19 | \<Control Assessment Record\> (SR) | Section 5.19 | Section 22 | Section 22 | Section 21 | \<evidence\> |
 
-### 3.3 Records outside the documents
+### 2.3 Records outside the documents
 
-**Table 6: Records outside the documents**
+**Table 3: Records outside the documents**
 
 | Record | Where | What it shows |
 | --- | --- | --- |
 | Test evidence | \<evidence\> | The results of each test, with a note that explains them and a list of hashes that fixes their content |
 | Figures | With the documents | The architecture figures used in \<System Security Plan\> and \<Security Architecture\> |
-| Change record | The private records repository described in section 5.1 | Every change to the documents and evidence, with its date |
-| Sign-off sheets | To be filed in the restricted store (\<Decision Register\>, section 24) | Each approver's signature for the decisions recorded for them |
+| Change record | The private records repository described in section 4.1 | Every change to the documents and evidence, with its date |
+| Sign-off sheets | To be filed in the restricted store (\<Decision Register\>, section 23) | Each approver's signature for the decisions recorded for them |
 
-| **SECTION 4** |
-| --- |
+## 3 Following a control
 
-## 4 Following a control
+Each fact about a control is held in one document, and the others point to it. To follow one control from its requirement to its fix, start at its row in \<System Security Plan\>, section 7, which names the risk entry and the fix. Table 4 says where each fact is held.
 
-Each fact about a control is held in one document, and the others point to it. To follow one control from its requirement to its fix, start at its row in \<System Security Plan\>, section 8, which names the risk entry and the fix. Table 7 says where each fact is held.
-
-**Table 7: Where each fact about a control is held**
+**Table 4: Where each fact about a control is held**
 
 | Fact | Held in |
 | --- | --- |
-| What the control is, its type, how far it is implemented, and its result | \<System Security Plan\>, section 8 |
-| The rule, the procedure and the setting | The family's chapter of \<Policy\>, \<Procedures\> and \<Control Implementation Register\>, or its plan (Table 5) |
+| What the control is, its type, how far it is implemented, and its result | \<System Security Plan\>, section 7 |
+| The rule, the procedure and the setting | The family's chapter of \<Policy\>, \<Procedures\> and \<Control Implementation Register\>, or its plan (Table 2) |
 | The finding for each determination statement | The family's chapter of \<Control Assessment Record\> |
-| What is not met, its cause, risk, rating and treatment | \<Risk List\>, section 6 |
-| The fix, its owner and its timing | \<Plan of Action and Milestones\>, section 4 |
+| What is not met, its cause, risk, rating and treatment | \<Risk List\>, section 5 |
+| The fix, its owner and its timing | \<Plan of Action and Milestones\>, section 3 |
 | Evidence asked of \<Organisation\> | \<Evidence Requests\> |
 | Why a control does not apply | \<Tailoring Register\> |
 | Who decided, and when | \<Decision Register\> |
 
-| **SECTION 5** |
-| --- |
-
-## 5 Document standard
+## 4 Document standard
 
 Every \<System Name\> document follows this standard, so that readers can navigate, cite and audit them in the same way. It was a separate document until 12 November 2026.
 
-### 5.1 Master copy and change record
+### 4.1 Master copy and change record
 
 The documents are kept as Markdown, one file for each document, named by its title. That set is the master copy. Figures and the replaced documents are kept with it. No Word or PDF copies are issued. A copy in another format can be made when one is needed, but it is not a controlled copy.
 
 Every change to the documents and the test evidence is recorded in a private records repository on the system owner's computer. It has no remote copy and is separate from the code repositories. Each change is dated, and each issue of the set is marked, so any earlier state can be shown. The set moves to \<Organisation\>'s restricted store when that is set up (PA-88). Until then the repository is the change record, and a list of hashes fixes the content of each issue.
 
-### 5.2 Parts of every document
+### 4.2 Parts of every document
 
-**Table 8: Parts of every document**
+**Table 5: Parts of every document**
 
 | Order | Part | Contents |
 | --- | --- | --- |
 | 1 | Title | The document's full title, as the top-level heading |
-| 2 | Identity line | Reference, version and status, in bold. The reference is shown as \<ref\> until the organisation assigns one |
-| 3 | Contents | A linked list of the main sections |
-| 4 | Section 1 Document control | Document details, approval and change history |
-| 5 | Section 2 Purpose | Why the document exists and what it covers |
-| 6 | Numbered sections | The document's content |
+| 2 | Section 1 Purpose | Why the document exists and what it covers |
+| 3 | Numbered sections | The document's content |
 
-A combined document uses its section 2 to explain its chapters, and then has one chapter for each family (section 5.4).
+Documents carry no contents list, section links, document control section, approval table or change history. Versions and changes are kept in the change record (section 4.1), and decisions in \<Decision Register\>.
 
-### 5.3 Titles and references
+A combined document uses its section 1 to explain its chapters, and then has one chapter for each family (section 4.4).
 
-Each document is known by its title. In the text a document is cited by its title in angle brackets, as in \<Procedures\>. A document reference is shown as \<ref\> in Table 4 until the organisation gives each document its own.
+### 4.3 Titles and references
 
-### 5.4 Combined documents and chapters
+Each document is known by its title. In the text a document is cited by its title in angle brackets, as in \<Procedures\>.
 
-\<Policy\>, \<Procedures\>, \<Control Implementation Register\> and \<Control Assessment Record\> each hold one chapter for each control family, in NIST order. A chapter is named by its family code. Its sections carry the code, as in PS.3, and its tables are numbered Table PS-1, Table PS-2 and so on. Each of these documents has one version, one approval and one change history, for the whole document. Table 4 of each records what every chapter was approved as before that. In \<Procedures\> each procedure is headed by its own number, such as PRO-PS-2.
+### 4.4 Combined documents and chapters
 
-**Table 9: How to cite a combined document**
+\<Policy\>, \<Procedures\>, \<Control Implementation Register\> and \<Control Assessment Record\> each hold one chapter for each control family, in NIST order. A chapter is named by its family code. Its sections carry the code, as in PS.3, and its tables are numbered Table PS-1, Table PS-2 and so on. Each of these documents has one version for the whole document. In \<Procedures\> each procedure is headed by its own number, such as PRO-PS-2.
+
+**Table 6: How to cite a combined document**
 
 | To cite | Write |
 | --- | --- |
@@ -337,55 +165,52 @@ Each document is known by its title. In the text a document is cited by its titl
 | A rule | \<Policy\> (PS), R3 |
 | A procedure | \<Procedures\>, PRO-PS-2 |
 
-### 5.5 Versions and approval
+### 4.5 Versions and changes
 
 1. Versions start at 0.1 and go to 1.0 on first approval.
-2. Any change to an approved document is a new version, with a row in its change history that says what changed. A change history shows the five latest versions. Earlier rows are folded into one row, and their detail stays in the change record (section 5.1).
-3. A change that alters no rule, value, finding or decision is editorial. The system owner issues it, the earlier approval carries over, and the change history says that nothing of substance changed. Renumbering and a corrected reference are editorial.
-4. Any other change needs the decision of the document's approver, recorded in \<Decision Register\>, before the status says it is approved. Until then the status names the version that is approved and the version that is waiting.
-5. A change to one chapter of a combined document is a new version of the document, and its change history names the chapter that changed.
+2. Any change is a new version. What changed is recorded in the change record (section 4.1), not in the document.
+3. A change that alters no rule, value, finding or decision is editorial. Renumbering and a corrected reference are editorial.
+4. Any other change needs the decision of the document's approver, recorded in \<Decision Register\>.
+5. A change to one chapter of a combined document is a new version of the document.
 6. Moving a document into a combined document changes no content.
-7. Records are not rewritten. Change histories, decided entries in \<Decision Register\> and review logs keep the names, section numbers and versions of their date.
-8. Where a live statement cites another document at a version, the citation is kept at the current version. An automatic check covers this for the plan and the assessment.
-9. Proof of each approval is the approver's signed sheet (\<Record Templates\>, TPL-24), listed in \<Decision Register\>, section 24.
-
-### 5.6 Order of families
+7. Records are not rewritten. Decided entries in \<Decision Register\> keep the names, section numbers and versions of their date.
+8. Where a live statement cites another document at a version, the citation is kept at the current version.
+9. Proof of each approval is the approver's signed sheet (\<Record Templates\>, TPL-24), listed in \<Decision Register\>, section 23.
+### 4.6 Order of families
 
 Wherever a document has a part for each family, the families are in NIST order: AC, AT, AU, CA, CM, CP, IA, IR, MA, MP, PE, PL, PM, PS, PT, RA, SA, SC, SI, SR. A new family takes its place in that order, and the sections and tables after it are renumbered, with every reference to them.
 
-### 5.7 Live documents
+### 4.7 Live documents
 
 \<Decision Register\>, \<Tailoring Register\>, \<Evidence Requests\>, \<Record Templates\> and \<Interview Guide\> are live documents, which grow as decisions are made and evidence arrives. Each live document follows these rules:
 
 1. It has one numbered section for each family, in NIST order, with cross-family content in its own section.
 2. It has a family coverage table showing the state of every family, and steps for adding a family.
 3. Its identifiers carry the family code, such as D-AU-01, so that adding an entry never renumbers an existing one.
-4. Each addition increases the version number and adds a row to the change history.
+4. Each addition increases the version number and is recorded in the change record.
 5. This map is updated at the same time.
 
-### 5.8 Headings and numbering
+### 4.8 Headings and numbering
 
-**Table 10: Heading layers**
+**Table 7: Heading layers**
 
 | Layer | Number | Markdown | Used for |
 | --- | --- | --- | --- |
 | Title | None | `#` | The document title |
-| Section | 1 | `##`, below a band | Main sections |
+| Section | 1 | `##` | Main sections |
 | Subsection | 1.1 | `###` | Topics in a section |
 | Sub-subsection | 1.1.1 | `####` | Individual items, such as one control |
-| Chapter | PS | `##`, below a band | One family in a combined document. Its sections are one layer lower, so PS.1 is `###` |
+| Chapter | PS | `##` | One family in a combined document. Its sections are one layer lower, so PS.1 is `###` |
 
 Do not go deeper than three numbered layers below a section or chapter. Create a subsection only when there are at least two at that level. Section numbers use Arabic numerals with no full stop after the last.
 
-Each main section starts with a band, a one-cell table reading SECTION and its number, or CHAPTER and its code, directly above the heading. The band is layout and is not numbered as a table. The contents list at the top of each document links to every main section.
-
 Use numbered lists for steps and for rules that are cited, and bullets for items with no order. Numbered lists restart in each section unless the numbering must carry on, as in the rules in \<Security Operating Procedures\>.
 
-### 5.9 Tables and figures
+### 4.9 Tables and figures
 
-Number tables and figures separately, each from 1 in every document and in order of appearance, independent of section numbers. In a combined document each chapter numbers its own. When adding or removing one, renumber those that follow, with every reference to them. A table added between two others without renumbering takes a letter, as in Table 6a.
+Number tables and figures separately, each from 1 in every document and in order of appearance, independent of section numbers. In a combined document each chapter numbers its own. When adding or removing one, renumber those that follow, with every reference to them. A table added between two others without renumbering takes a letter, as in Table 3a.
 
-**Table 11: Captions**
+**Table 8: Captions**
 
 | Item | Format | Position |
 | --- | --- | --- |
@@ -394,11 +219,11 @@ Number tables and figures separately, each from 1 in every document and in order
 
 Every table has a caption and a header row. A figure is a PNG image in the `figures` folder, with alternative text, and the text beside it says what the figure shows, so that nothing depends on the image alone. Give a cell a colour or a mark only when it means something, and always say the meaning in words too.
 
-### 5.10 Fixed identifiers
+### 4.10 Fixed identifiers
 
 These identifiers do not change when a document is renumbered or moved, so citations of them stay valid.
 
-**Table 12: Fixed identifiers**
+**Table 9: Fixed identifiers**
 
 | Identifier | What it names | Where it is defined |
 | --- | --- | --- |
@@ -407,26 +232,26 @@ These identifiers do not change when a document is renumbered or moved, so citat
 | P-AC-01 | An access control setting | \<Control Implementation Register\> (AC) |
 | AC-02\_ODP\[01\], AC-02a. | NIST's own identifier for a parameter or a determination statement | \<Control Implementation Register\>, \<Control Assessment Record\> |
 | D-AC-01 | A decision. D-AC-P01 is the approval of parameter values | \<Decision Register\> |
-| NC-01, NC-AU-01 | A non-compliance entry. The 39 AC entries have no family code | \<Risk List\>, section 6 |
-| R-AC-01 | A risk | \<Risk List\>, section 3 |
-| PA-01 | A POA&M item | \<Plan of Action and Milestones\>, section 4 |
-| REC-1 | A step on the road to authorisation | \<Plan of Action and Milestones\>, section 6 |
+| NC-01, NC-AU-01 | A non-compliance entry. The 39 AC entries have no family code | \<Risk List\>, section 5 |
+| R-AC-01 | A risk | \<Risk List\>, section 2 |
+| PA-01 | A POA&M item | \<Plan of Action and Milestones\>, section 3 |
+| REC-1 | A step on the road to authorisation | \<Plan of Action and Milestones\>, section 5 |
 | TR-AC-01 | A tailoring entry | \<Tailoring Register\> |
 | EV-AC-01 | An evidence request | \<Evidence Requests\> |
 | INT-AC-01 | An interview question | \<Interview Guide\> |
 | TPL-1 | A record template | \<Record Templates\> |
 | A1, B1, C1 | A rule or duty in the operating procedures | \<Security Operating Procedures\> |
-| T01, A01, L01 | A test check. The letter shows the script | \<Security Assessment Report\>, section 8 |
+| T01, A01, L01 | A test check. The letter shows the script | \<Security Assessment Report\>, section 7 |
 
-### 5.11 Checks on the set
+### 4.11 Checks on the set
 
 An automatic check reads the whole set and confirms that the documents agree with each other, from the totals in the plan and the report to the links, the references between documents and the count of facts still to be supplied. Its results are kept as \<evidence\>. A gap it reports is a real inconsistency, which is corrected in the documents.
 
-### 5.12 Sources used
+### 4.12 Sources used
 
 No single standard sets a required layout, so this standard combines the sources in the table below.
 
-**Table 13: Sources used**
+**Table 10: Sources used**
 
 | Source | What it supports here |
 | --- | --- |
@@ -437,13 +262,10 @@ No single standard sets a required layout, so this standard combines the sources
 
 ISO 2145 and ISO/IEC 27001 were read through secondary summaries, because the standards are paid for. Check them directly before relying on this standard for an external audit.
 
-| **SECTION 6** |
-| --- |
-
-## 6 Open questions
+## 5 Open questions
 
 1. Is Moderate the right security categorisation? Answered: Moderate, confirmed by the authorising official.
 2. Who are the authorising official, global administrators, auditors and project access approvers? Answered: named in \<Roles and Responsibilities\>.
 3. Which \<Organisation\> services and evidence cover the inherited controls, and does the Cyber Essentials Plus scope include these two VMs? Still open: the evidence requests in \<Evidence Requests\> have not been sent.
 4. Will password-only sign-in stay? Answered: no. Sign-in is through AD FS, with multi-factor authentication (D-AC-23), which is still to be shown working (PA-95).
-5. What target dates should the open High POA&M items have? Answered: TLS and committed secrets before production, and the other High items within 6 months after production (\<Decision Register\>). The milestone dates themselves are still to be set (\<Plan of Action and Milestones\>, section 3.1).
+5. What target dates should the open High POA&M items have? Answered: TLS and committed secrets before production, and the other High items within 6 months after production (\<Decision Register\>). The milestone dates themselves are still to be set (\<Plan of Action and Milestones\>, section 2.1).

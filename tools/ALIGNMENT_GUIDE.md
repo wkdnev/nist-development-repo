@@ -25,15 +25,14 @@ Working rules for bringing each document in the set into line with `System Descr
 | Sessions | **No session management in the application**: no session records, idle lock, idle timeout, session limit, sign-out or session-ending screen. AC-11 and AC-11(1) come from the device screen lock; AC-12 and AC-2(5) from PingFederate's sign-in lifetime. The app holds the sign-in only in its ASP.NET Core authentication cookie, with a lifetime no longer than PingFederate's |
 | Build | Under the organisation's **corporate SDLC**, inherited |
 | Flows | F1 browser to UI; F2 admin route to Admin; F3, F4 apps to API on loopback; F5 API to SQL Server; F6 browser to PingFederate; F7 API to AD over LDAPS; F8 servers to time, logging, proxy and backup; F9 ServiceNow and starters and leavers, people only |
-| Parameters | The System Description's P-01 to P-35 (section 5). Refer to them where a family document sets the same value |
+| Parameters | The System Description's P-01 to P-35 (section 4). Refer to them where a family document sets the same value |
 | Figure | `figures/sd-figure-1.png` replaces `figures/arch-figure-1.png` |
 
 ## 3 Review and approval information is removed
 
-The set is treated as **not yet reviewed or approved**.
+The set is treated as **not yet reviewed or approved**. Documents carry no contents list, section or appendix bands, section links, document control section, status line, approval table or change history. These were removed from every document by `tools/strip_control.py`, which also renumbered sections and tables and their cross-references. Do not add them back.
 
-- Document control: Status "Draft, not yet reviewed or approved"; Date 20 November 2026; Classification `\<Classification\>`; approval rows Pending.
-- Change history: replace with one row describing the alignment, plus "Earlier: the earlier versions. Their history is kept in the change record".
+- Changes are kept in the change record (\<Documentation Map\>, section 4.1), not in the document. Where text says something is recorded in a document's change history, it now says change record.
 - "Approved (D-x)" becomes "Proposed (D-x), not yet approved"; "Approved;" becomes "Not yet approved;".
 - "Reviewed on (date)", "legally reviewed", "approved by the Head of Cyber", "the system owner approved these values on (date)" and similar: remove, or say not yet reviewed or approved.
 - Risk decisions "approved" or "accepted" become "acceptance proposed, not yet decided".
@@ -44,4 +43,4 @@ The set is treated as **not yet reviewed or approved**.
 1. Run `python3 tools/align_terms.py "<Document>.md"` for the mechanical term pass.
 2. Read the whole document. Fix what the term pass cannot: sentences about tokens carrying groups, session controls, global administrator rows in tables, PostgreSQL-specific features such as SCRAM-SHA-256, and anything that contradicts section 2.
 3. Grep afterwards for: `session`, `token`, `global admin`, `project`, `AD FS`, `PostgreSQL`, `superuser`, `SCRAM`, `Jira`, `Approved`, `reviewed on`, `approved by`, `accepted`, `a administrator`.
-4. Keep the document's own structure, numbering and plain-English style. No em dashes.
+4. Keep the document's own structure, numbering and plain-English style. No em dashes. If a section or table is added or removed, renumber those that follow and every reference to them, across the set.

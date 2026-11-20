@@ -1,202 +1,6 @@
 # \<System Name\> Control Assessment Record
 
-**\<ref\> | Version \<ver\> | The layout introduced in version \<ver\> awaits the system owner's approval; the content of every chapter is unchanged**
-
-**Contents**
-
-[1 Document control](#1-document-control)
-
-[2 How to use this document](#2-how-to-use-this-document)
-
-[AC Access Control](#ac-access-control)
-
-[AT Awareness and Training](#at-awareness-and-training)
-
-[AU Audit and Accountability](#au-audit-and-accountability)
-
-[CA Assessment, Authorization, and Monitoring](#ca-assessment-authorization-and-monitoring)
-
-[CM Configuration Management](#cm-configuration-management)
-
-[CP Contingency Planning](#cp-contingency-planning)
-
-[IA Identification and Authentication](#ia-identification-and-authentication)
-
-[IR Incident Response](#ir-incident-response)
-
-[MA Maintenance](#ma-maintenance)
-
-[MP Media Protection](#mp-media-protection)
-
-[PE Physical and Environmental Protection](#pe-physical-and-environmental-protection)
-
-[PL Planning](#pl-planning)
-
-[PS Personnel Security](#ps-personnel-security)
-
-[PT Personally Identifiable Information Processing and Transparency](#pt-personally-identifiable-information-processing-and-transparency)
-
-[RA Risk Assessment](#ra-risk-assessment)
-
-[SA System and Services Acquisition](#sa-system-and-services-acquisition)
-
-[SC System and Communications Protection](#sc-system-and-communications-protection)
-
-[SI System and Information Integrity](#si-system-and-information-integrity)
-
-[SR Supply Chain Risk Management](#sr-supply-chain-risk-management)
-
-| **SECTION 1** |
-| --- |
-
-## 1 Document control
-
-### 1.1 Document details
-
-**Table 1: Document details**
-
-| Item | Detail |
-| --- | --- |
-| Reference | \<ref\> |
-| Title | \<System Name\> Control Assessment Record |
-| Version | \<ver\> |
-| Status | Version \<ver\> has one status, approval and change history for the whole document, as the system owner asked on 12 November 2026 (D-GEN-24), and that layout awaits the system owner's approval. No rule, value, finding or decision changed, so each chapter stands as it was approved (Table 4) |
-| Date | 13 November 2026 |
-| Owner | System owner |
-| Applies to | The 19 control families listed in Table 4 |
-| Classification | Restricted |
-| Next review | Every 12 months, and after a significant change |
-| Format | \<Documentation Map\>, section 5 |
-
-### 1.2 Approval
-
-**Table 2: Approval**
-
-| Role | Name | Decision | Date |
-| --- | --- | --- | --- |
-| System owner | \[Name\] | The layout introduced in version \<ver\> awaits approval. The approval of each chapter's content is in Table 4 | Pending |
-
-### 1.3 Change history
-
-From version \<ver\> the document has one version, one approval and one change history. A change to any chapter raises the document's version, and the row below names the chapter that changed.
-
-**Table 3: Change history**
-
-| Version | Date | Change |
-| --- | --- | --- |
-| \<ver\> | 18 November 2026 | chapter PL: Citations of other documents brought up to their current versions; chapter PS: Citations of other documents brought up to their current versions; chapter PT: Citations of other documents brought up to their current versions; chapter SA: Citations of other documents brought up to their current versions |
-| \<ver\> | 18 November 2026 | No code references: page addresses, setting names, folder paths and file paths are described in plain words, and names of groups, scripts and releases are shown as plain text. No value, finding or decision is changed. Whole-set review: folder paths, page addresses and code terms are replaced by plain words. No value, finding or decision is changed; chapter AT: Citations of other documents brought up to their current versions; chapter PL: Citations of other documents brought up to their current versions; chapter PS: Citations of other documents brought up to their current versions; chapter PT: Citations of other documents brought up to their current versions; chapter RA: Citations of other documents brought up to their current versions; chapter SA: Citations of other documents brought up to their current versions; chapter SC: Citations of other documents brought up to their current versions; chapter SI: Citations of other documents brought up to their current versions; chapter SR: Citations of other documents brought up to their current versions |
-| \<ver\> | 18 November 2026 | Chapters SC, SI and SR: a note of the changes since the assessment. No finding is changed; chapter AT: Citations of other documents brought up to their current versions; chapter PS: Citations of other documents brought up to their current versions; chapter RA: Citations of other documents brought up to their current versions; chapter SA: Citations of other documents brought up to their current versions; chapter SC: Citations of other documents brought up to their current versions; chapter SI: Citations of other documents brought up to their current versions; chapter SR: Citations of other documents brought up to their current versions |
-| \<ver\> | 18 November 2026 | chapter AT: Citations of other documents brought up to their current versions; chapter PS: Citations of other documents brought up to their current versions; chapter RA: Citations of other documents brought up to their current versions; chapter SA: Citations of other documents brought up to their current versions; chapter SC: Citations of other documents brought up to their current versions; chapter SI: Citations of other documents brought up to their current versions; chapter SR: Citations of other documents brought up to their current versions |
-| \<ver\> | 18 November 2026 | References to the communications protection design point to \<System and Communications Protection Management\>, where it is now held (D-SC-09). References to the integrity design point to \<System and Information Integrity Management\>, where it is now held (D-SI-10). References to the supply chain plan follow its new sections, as it is rebuilt in the family form and renamed Supply Chain Risk Management (D-SR-14); chapter AT: Citations of other documents brought up to their current versions; chapter PE: Citations of other documents brought up to their current versions; chapter PL: Citations of other documents brought up to their current versions; chapter PS: Citations of other documents brought up to their current versions; chapter PT: Citations of other documents brought up to their current versions; chapter RA: Citations of other documents brought up to their current versions; chapter SA: Citations of other documents brought up to their current versions; chapter SC: Citations of other documents brought up to their current versions; chapter SI: Citations of other documents brought up to their current versions; chapter SR: Citations of other documents brought up to their current versions |
-| \<ver\> | 18 November 2026 | Chapter SA: a note of the changes since the assessment. No finding is changed; chapter RA: Citations of other documents brought up to their current versions |
-| \<ver\> | 18 November 2026 | References to the acquisition design point to \<System and Services Acquisition Management\>, where it is now held (D-SA-19); chapter AT: Citations of other documents brought up to their current versions; chapter PL: Citations of other documents brought up to their current versions; chapter PS: Citations of other documents brought up to their current versions; chapter RA: Citations of other documents brought up to their current versions; chapter SA: Citations of other documents brought up to their current versions; chapter SC: Citations of other documents brought up to their current versions; chapter SI: Citations of other documents brought up to their current versions; chapter SR: Citations of other documents brought up to their current versions |
-| \<ver\> | 18 November 2026 | Chapter RA: a note of the changes since the assessment. No finding is changed; chapter AT: Citations of other documents brought up to their current versions; chapter PL: Citations of other documents brought up to their current versions; chapter PS: Citations of other documents brought up to their current versions; chapter RA: Citations of other documents brought up to their current versions; chapter SA: Citations of other documents brought up to their current versions; chapter SC: Citations of other documents brought up to their current versions; chapter SI: Citations of other documents brought up to their current versions; chapter SR: Citations of other documents brought up to their current versions |
-| \<ver\> | 18 November 2026 | chapter AT: Citations of other documents brought up to their current versions; chapter PS: Citations of other documents brought up to their current versions; chapter RA: Citations of other documents brought up to their current versions; chapter SA: Citations of other documents brought up to their current versions; chapter SC: Citations of other documents brought up to their current versions; chapter SI: Citations of other documents brought up to their current versions; chapter SR: Citations of other documents brought up to their current versions |
-| \<ver\> | 18 November 2026 | References to the risk assessment design point to \<Risk Assessment Management\>, where it is now held (D-RA-11); chapter AT: Citations of other documents brought up to their current versions; chapter PL: Citations of other documents brought up to their current versions; chapter PS: Citations of other documents brought up to their current versions; chapter RA: Citations of other documents brought up to their current versions; chapter SA: Citations of other documents brought up to their current versions; chapter SC: Citations of other documents brought up to their current versions; chapter SI: Citations of other documents brought up to their current versions; chapter SR: Citations of other documents brought up to their current versions |
-| \<ver\> | 18 November 2026 | Chapter PT: a note of the changes since the assessment. No finding is changed; chapter PL: Citations of other documents brought up to their current versions; chapter PS: Citations of other documents brought up to their current versions; chapter PT: Citations of other documents brought up to their current versions |
-| \<ver\> | 18 November 2026 | References to the personal data design point to \<PII Processing Management\>, where it is now held (D-PT-22); chapter AT: Citations of other documents brought up to their current versions; chapter PL: Citations of other documents brought up to their current versions; chapter PS: Citations of other documents brought up to their current versions; chapter PT: Citations of other documents brought up to their current versions; chapter RA: Citations of other documents brought up to their current versions; chapter SA: Citations of other documents brought up to their current versions; chapter SC: Citations of other documents brought up to their current versions; chapter SI: Citations of other documents brought up to their current versions; chapter SR: Citations of other documents brought up to their current versions |
-| \<ver\> | 17 November 2026 | chapter PT: Citations of other documents brought up to their current versions; chapter RA: Citations of other documents brought up to their current versions; chapter SA: Citations of other documents brought up to their current versions; chapter SC: Citations of other documents brought up to their current versions; chapter SI: Citations of other documents brought up to their current versions |
-| \<ver\> | 17 November 2026 | Chapter PS: a note of the changes since the assessment. No finding is changed; chapter AT: Citations of other documents brought up to their current versions; chapter PL: Citations of other documents brought up to their current versions; chapter PS: Citations of other documents brought up to their current versions; chapter RA: Citations of other documents brought up to their current versions; chapter SA: Citations of other documents brought up to their current versions; chapter SC: Citations of other documents brought up to their current versions; chapter SI: Citations of other documents brought up to their current versions; chapter SR: Citations of other documents brought up to their current versions |
-| \<ver\> | 17 November 2026 | chapter PL: Citations of other documents brought up to their current versions; chapter PS: Citations of other documents brought up to their current versions |
-| \<ver\> | 17 November 2026 | References to the personnel security design point to \<Personnel Security Management\>, where it is now held (D-PS-10); chapter AT: Citations of other documents brought up to their current versions; chapter PL: Citations of other documents brought up to their current versions; chapter PS: Citations of other documents brought up to their current versions; chapter PT: Citations of other documents brought up to their current versions; chapter RA: Citations of other documents brought up to their current versions; chapter SA: Citations of other documents brought up to their current versions; chapter SC: Citations of other documents brought up to their current versions; chapter SI: Citations of other documents brought up to their current versions; chapter SR: Citations of other documents brought up to their current versions |
-| \<ver\> | 17 November 2026 | chapter PL: Citations of other documents brought up to their current versions; chapter RA: Citations of other documents brought up to their current versions |
-| \<ver\> | 17 November 2026 | chapter PS: Citations of other documents brought up to their current versions; chapter PT: Citations of other documents brought up to their current versions; chapter RA: Citations of other documents brought up to their current versions; chapter SA: Citations of other documents brought up to their current versions; chapter SC: Citations of other documents brought up to their current versions; chapter SI: Citations of other documents brought up to their current versions |
-| \<ver\> | 17 November 2026 | Chapter PL: a note of the changes since the assessment. No finding is changed; chapter PL: Citations of other documents brought up to their current versions; chapter PS: Citations of other documents brought up to their current versions |
-| \<ver\> | 17 November 2026 | References to the planning design point to \<Planning Management\>, where it is now held (D-PL-12). Chapter PL: the assumptions of the security architecture are cited by their present section, 7.6. No finding is changed; chapter AT: Citations of other documents brought up to their current versions; chapter PS: Citations of other documents brought up to their current versions; chapter PT: Citations of other documents brought up to their current versions; chapter RA: Citations of other documents brought up to their current versions; chapter SA: Citations of other documents brought up to their current versions; chapter SC: Citations of other documents brought up to their current versions; chapter SI: Citations of other documents brought up to their current versions; chapter SR: Citations of other documents brought up to their current versions |
-| \<ver\> | 17 November 2026 | Chapter PE: a note of the changes since the assessment. No finding is changed; chapter AT: Citations of other documents brought up to their current versions; chapter PL: Citations of other documents brought up to their current versions; chapter PS: Citations of other documents brought up to their current versions; chapter PT: Citations of other documents brought up to their current versions; chapter RA: Citations of other documents brought up to their current versions; chapter SA: Citations of other documents brought up to their current versions; chapter SC: Citations of other documents brought up to their current versions; chapter SI: Citations of other documents brought up to their current versions; chapter SR: Citations of other documents brought up to their current versions |
-| \<ver\> | 17 November 2026 | References to the physical and environmental protection design point to \<Physical and Environmental Protection Management\>, where it is now held (D-PE-11); chapter AT: Citations of other documents brought up to their current versions; chapter PL: Citations of other documents brought up to their current versions; chapter PS: Citations of other documents brought up to their current versions; chapter PT: Citations of other documents brought up to their current versions; chapter RA: Citations of other documents brought up to their current versions; chapter SA: Citations of other documents brought up to their current versions; chapter SC: Citations of other documents brought up to their current versions; chapter SI: Citations of other documents brought up to their current versions; chapter SR: Citations of other documents brought up to their current versions |
-| \<ver\> | 17 November 2026 | chapter PE: Citations of other documents brought up to their current versions; chapter PL: Citations of other documents brought up to their current versions; chapter PS: Citations of other documents brought up to their current versions; chapter PT: Citations of other documents brought up to their current versions; chapter RA: Citations of other documents brought up to their current versions; chapter SA: Citations of other documents brought up to their current versions; chapter SC: Citations of other documents brought up to their current versions; chapter SI: Citations of other documents brought up to their current versions |
-| \<ver\> | 17 November 2026 | Chapter MP: a note of the changes since the assessment. No finding is changed; chapter AT: Citations of other documents brought up to their current versions; chapter PE: Citations of other documents brought up to their current versions; chapter PL: Citations of other documents brought up to their current versions; chapter PS: Citations of other documents brought up to their current versions; chapter PT: Citations of other documents brought up to their current versions; chapter RA: Citations of other documents brought up to their current versions; chapter SA: Citations of other documents brought up to their current versions; chapter SC: Citations of other documents brought up to their current versions; chapter SI: Citations of other documents brought up to their current versions; chapter SR: Citations of other documents brought up to their current versions |
-| \<ver\> | 17 November 2026 | chapter PE: Citations of other documents brought up to their current versions; chapter PL: Citations of other documents brought up to their current versions; chapter PS: Citations of other documents brought up to their current versions; chapter PT: Citations of other documents brought up to their current versions; chapter RA: Citations of other documents brought up to their current versions; chapter SA: Citations of other documents brought up to their current versions; chapter SC: Citations of other documents brought up to their current versions; chapter SI: Citations of other documents brought up to their current versions |
-| \<ver\> | 17 November 2026 | chapter AT: Citations of other documents brought up to their current versions; chapter PE: Citations of other documents brought up to their current versions; chapter PL: Citations of other documents brought up to their current versions; chapter PS: Citations of other documents brought up to their current versions; chapter PT: Citations of other documents brought up to their current versions; chapter RA: Citations of other documents brought up to their current versions; chapter SA: Citations of other documents brought up to their current versions; chapter SC: Citations of other documents brought up to their current versions; chapter SI: Citations of other documents brought up to their current versions; chapter SR: Citations of other documents brought up to their current versions |
-| \<ver\> | 17 November 2026 | References to the media protection design point to \<Media Protection Management\>, where it is now held (D-MP-09); chapter AT: Citations of other documents brought up to their current versions; chapter PE: Citations of other documents brought up to their current versions; chapter PL: Citations of other documents brought up to their current versions; chapter PS: Citations of other documents brought up to their current versions; chapter PT: Citations of other documents brought up to their current versions; chapter RA: Citations of other documents brought up to their current versions; chapter SA: Citations of other documents brought up to their current versions; chapter SC: Citations of other documents brought up to their current versions; chapter SI: Citations of other documents brought up to their current versions; chapter SR: Citations of other documents brought up to their current versions |
-| \<ver\> | 17 November 2026 | Chapter MA: a note of the changes since the assessment. No finding is changed; chapter MP: Citations of other documents brought up to their current versions; chapter PE: Citations of other documents brought up to their current versions; chapter PL: Citations of other documents brought up to their current versions; chapter PS: Citations of other documents brought up to their current versions; chapter PT: Citations of other documents brought up to their current versions; chapter RA: Citations of other documents brought up to their current versions; chapter SA: Citations of other documents brought up to their current versions; chapter SC: Citations of other documents brought up to their current versions; chapter SI: Citations of other documents brought up to their current versions |
-| \<ver\> | 17 November 2026 | References to the maintenance design point to \<Maintenance Management\>, where it is now held (D-MA-09); chapter AT: Citations of other documents brought up to their current versions; chapter MP: Citations of other documents brought up to their current versions; chapter PE: Citations of other documents brought up to their current versions; chapter PL: Citations of other documents brought up to their current versions; chapter PS: Citations of other documents brought up to their current versions; chapter PT: Citations of other documents brought up to their current versions; chapter RA: Citations of other documents brought up to their current versions; chapter SA: Citations of other documents brought up to their current versions; chapter SC: Citations of other documents brought up to their current versions; chapter SI: Citations of other documents brought up to their current versions; chapter SR: Citations of other documents brought up to their current versions |
-| \<ver\> | 17 November 2026 | chapter MA: Citations of other documents brought up to their current versions; chapter MP: Citations of other documents brought up to their current versions; chapter PE: Citations of other documents brought up to their current versions; chapter PL: Citations of other documents brought up to their current versions; chapter PS: Citations of other documents brought up to their current versions; chapter PT: Citations of other documents brought up to their current versions; chapter RA: Citations of other documents brought up to their current versions; chapter SA: Citations of other documents brought up to their current versions; chapter SC: Citations of other documents brought up to their current versions; chapter SI: Citations of other documents brought up to their current versions |
-| \<ver\> | 17 November 2026 | chapter MA: Citations of other documents brought up to their current versions; chapter MP: Citations of other documents brought up to their current versions; chapter PE: Citations of other documents brought up to their current versions; chapter PL: Citations of other documents brought up to their current versions; chapter PS: Citations of other documents brought up to their current versions; chapter PT: Citations of other documents brought up to their current versions; chapter RA: Citations of other documents brought up to their current versions; chapter SA: Citations of other documents brought up to their current versions; chapter SC: Citations of other documents brought up to their current versions; chapter SI: Citations of other documents brought up to their current versions |
-| \<ver\> | 17 November 2026 | Chapter IR: a note of the changes since the assessment, and five section numbers cited for IR-8 corrected to those of the rebuilt document. No finding is changed; chapter AT: Citations of other documents brought up to their current versions; chapter MA: Citations of other documents brought up to their current versions; chapter MP: Citations of other documents brought up to their current versions; chapter PE: Citations of other documents brought up to their current versions; chapter PL: Citations of other documents brought up to their current versions; chapter PS: Citations of other documents brought up to their current versions; chapter PT: Citations of other documents brought up to their current versions; chapter RA: Citations of other documents brought up to their current versions; chapter SA: Citations of other documents brought up to their current versions; chapter SC: Citations of other documents brought up to their current versions; chapter SI: Citations of other documents brought up to their current versions; chapter SR: Citations of other documents brought up to their current versions |
-| \<ver\> | 17 November 2026 | chapter MA: Citations of other documents brought up to their current versions; chapter MP: Citations of other documents brought up to their current versions; chapter PE: Citations of other documents brought up to their current versions; chapter PL: Citations of other documents brought up to their current versions; chapter PS: Citations of other documents brought up to their current versions; chapter PT: Citations of other documents brought up to their current versions; chapter RA: Citations of other documents brought up to their current versions; chapter SA: Citations of other documents brought up to their current versions; chapter SC: Citations of other documents brought up to their current versions; chapter SI: Citations of other documents brought up to their current versions |
-| \<ver\> | 17 November 2026 | chapter MA: Citations of other documents brought up to their current versions; chapter MP: Citations of other documents brought up to their current versions; chapter PE: Citations of other documents brought up to their current versions; chapter PL: Citations of other documents brought up to their current versions; chapter PS: Citations of other documents brought up to their current versions; chapter PT: Citations of other documents brought up to their current versions; chapter RA: Citations of other documents brought up to their current versions; chapter SA: Citations of other documents brought up to their current versions; chapter SC: Citations of other documents brought up to their current versions; chapter SI: Citations of other documents brought up to their current versions |
-| \<ver\> | 17 November 2026 | References to the incident response design follow the new section numbers of \<Incident Response Management\> (D-IR-10); chapter AT: Citations of other documents brought up to their current versions; chapter MA: Citations of other documents brought up to their current versions; chapter MP: Citations of other documents brought up to their current versions; chapter PE: Citations of other documents brought up to their current versions; chapter PL: Citations of other documents brought up to their current versions; chapter PS: Citations of other documents brought up to their current versions; chapter PT: Citations of other documents brought up to their current versions; chapter RA: Citations of other documents brought up to their current versions; chapter SA: Citations of other documents brought up to their current versions; chapter SC: Citations of other documents brought up to their current versions; chapter SI: Citations of other documents brought up to their current versions; chapter SR: Citations of other documents brought up to their current versions |
-| \<ver\> | 16 November 2026 | Chapter IA: the note of changes since the assessment names the new document and items, and EV-IA-04 is added to the evidence needed. No finding is changed; chapter MA: Citations of other documents brought up to their current versions; chapter MP: Citations of other documents brought up to their current versions; chapter PE: Citations of other documents brought up to their current versions; chapter PL: Citations of other documents brought up to their current versions; chapter PS: Citations of other documents brought up to their current versions; chapter PT: Citations of other documents brought up to their current versions; chapter RA: Citations of other documents brought up to their current versions; chapter SA: Citations of other documents brought up to their current versions; chapter SC: Citations of other documents brought up to their current versions; chapter SI: Citations of other documents brought up to their current versions |
-| \<ver\> | 15 November 2026 | References to the identification and authentication design point to \<Identification and Authentication Management\>, where it is now held (D-IA-11); chapter AT: Citations of other documents brought up to their current versions; chapter MA: Citations of other documents brought up to their current versions; chapter MP: Citations of other documents brought up to their current versions; chapter PE: Citations of other documents brought up to their current versions; chapter PL: Citations of other documents brought up to their current versions; chapter PS: Citations of other documents brought up to their current versions; chapter PT: Citations of other documents brought up to their current versions; chapter RA: Citations of other documents brought up to their current versions; chapter SA: Citations of other documents brought up to their current versions; chapter SC: Citations of other documents brought up to their current versions; chapter SI: Citations of other documents brought up to their current versions; chapter SR: Citations of other documents brought up to their current versions |
-| \<ver\> | 15 November 2026 | Chapter CP: a note of the changes since the assessment. No finding is changed; chapter MA: Citations of other documents brought up to their current versions; chapter MP: Citations of other documents brought up to their current versions; chapter PE: Citations of other documents brought up to their current versions; chapter PL: Citations of other documents brought up to their current versions; chapter PS: Citations of other documents brought up to their current versions; chapter PT: Citations of other documents brought up to their current versions; chapter RA: Citations of other documents brought up to their current versions; chapter SA: Citations of other documents brought up to their current versions; chapter SC: Citations of other documents brought up to their current versions; chapter SI: Citations of other documents brought up to their current versions |
-| \<ver\> | 15 November 2026 | chapter MA: Citations of other documents brought up to their current versions; chapter MP: Citations of other documents brought up to their current versions; chapter PE: Citations of other documents brought up to their current versions; chapter PL: Citations of other documents brought up to their current versions; chapter PS: Citations of other documents brought up to their current versions; chapter PT: Citations of other documents brought up to their current versions; chapter RA: Citations of other documents brought up to their current versions; chapter SA: Citations of other documents brought up to their current versions; chapter SC: Citations of other documents brought up to their current versions; chapter SI: Citations of other documents brought up to their current versions |
-| \<ver\> | 15 November 2026 | References to the contingency design follow the new section numbers of \<Contingency Planning Management\> (D-CP-14). Two findings in chapter CP cited the wrong sections of the plan, and now cite the recovery objectives and reconstitution; chapter MA: Citations of other documents brought up to their current versions; chapter MP: Citations of other documents brought up to their current versions; chapter PE: Citations of other documents brought up to their current versions; chapter PL: Citations of other documents brought up to their current versions; chapter PS: Citations of other documents brought up to their current versions; chapter PT: Citations of other documents brought up to their current versions; chapter RA: Citations of other documents brought up to their current versions; chapter SA: Citations of other documents brought up to their current versions; chapter SC: Citations of other documents brought up to their current versions; chapter SI: Citations of other documents brought up to their current versions |
-| \<ver\> | 13 November 2026 | chapter MA: Citations of other documents brought up to their current versions; chapter MP: Citations of other documents brought up to their current versions; chapter PE: Citations of other documents brought up to their current versions; chapter PL: Citations of other documents brought up to their current versions; chapter PS: Citations of other documents brought up to their current versions; chapter PT: Citations of other documents brought up to their current versions; chapter RA: Citations of other documents brought up to their current versions; chapter SA: Citations of other documents brought up to their current versions; chapter SC: Citations of other documents brought up to their current versions; chapter SI: Citations of other documents brought up to their current versions |
-| \<ver\> | 13 November 2026 | Chapter CM: a note of the changes since the assessment. No finding is changed; chapter MA: Citations of other documents brought up to their current versions; chapter MP: Citations of other documents brought up to their current versions; chapter PE: Citations of other documents brought up to their current versions; chapter PL: Citations of other documents brought up to their current versions; chapter PS: Citations of other documents brought up to their current versions; chapter PT: Citations of other documents brought up to their current versions; chapter RA: Citations of other documents brought up to their current versions; chapter SA: Citations of other documents brought up to their current versions; chapter SC: Citations of other documents brought up to their current versions; chapter SI: Citations of other documents brought up to their current versions |
-| \<ver\> | 13 November 2026 | chapter MA: Citations of other documents brought up to their current versions; chapter MP: Citations of other documents brought up to their current versions; chapter PE: Citations of other documents brought up to their current versions; chapter PL: Citations of other documents brought up to their current versions; chapter PS: Citations of other documents brought up to their current versions; chapter PT: Citations of other documents brought up to their current versions; chapter RA: Citations of other documents brought up to their current versions; chapter SA: Citations of other documents brought up to their current versions; chapter SC: Citations of other documents brought up to their current versions; chapter SI: Citations of other documents brought up to their current versions |
-| \<ver\> | 13 November 2026 | chapter MA: Citations of other documents brought up to their current versions; chapter MP: Citations of other documents brought up to their current versions; chapter PE: Citations of other documents brought up to their current versions; chapter PL: Citations of other documents brought up to their current versions; chapter PS: Citations of other documents brought up to their current versions; chapter PT: Citations of other documents brought up to their current versions; chapter RA: Citations of other documents brought up to their current versions; chapter SA: Citations of other documents brought up to their current versions; chapter SC: Citations of other documents brought up to their current versions; chapter SI: Citations of other documents brought up to their current versions |
-| \<ver\> | 13 November 2026 | chapter MA: Citations of other documents brought up to their current versions; chapter MP: Citations of other documents brought up to their current versions; chapter PE: Citations of other documents brought up to their current versions; chapter PL: Citations of other documents brought up to their current versions; chapter PS: Citations of other documents brought up to their current versions; chapter PT: Citations of other documents brought up to their current versions; chapter RA: Citations of other documents brought up to their current versions; chapter SA: Citations of other documents brought up to their current versions; chapter SC: Citations of other documents brought up to their current versions; chapter SI: Citations of other documents brought up to their current versions |
-| \<ver\> | 13 November 2026 | References to the configuration management design follow the new section numbers of \<Configuration Management\> (D-CM-13); chapter AT: Citations of other documents brought up to their current versions; chapter MA: Citations of other documents brought up to their current versions; chapter MP: Citations of other documents brought up to their current versions; chapter PE: Citations of other documents brought up to their current versions; chapter PL: Citations of other documents brought up to their current versions; chapter PS: Citations of other documents brought up to their current versions; chapter PT: Citations of other documents brought up to their current versions; chapter RA: Citations of other documents brought up to their current versions; chapter SA: Citations of other documents brought up to their current versions; chapter SC: Citations of other documents brought up to their current versions; chapter SI: Citations of other documents brought up to their current versions; chapter SR: Citations of other documents brought up to their current versions |
-| \<ver\> | 13 November 2026 | chapter MA: Citations of other documents brought up to their current versions; chapter MP: Citations of other documents brought up to their current versions; chapter PE: Citations of other documents brought up to their current versions; chapter PL: Citations of other documents brought up to their current versions; chapter PS: Citations of other documents brought up to their current versions; chapter PT: Citations of other documents brought up to their current versions; chapter RA: Citations of other documents brought up to their current versions; chapter SA: Citations of other documents brought up to their current versions; chapter SC: Citations of other documents brought up to their current versions; chapter SI: Citations of other documents brought up to their current versions |
-| \<ver\> | 13 November 2026 | Chapter CA: a note of the changes since the assessment. Each plan says the Level 2 team meets CA-2(1) once TPL-19 is completed. No finding is changed; chapter MA: Citations of other documents brought up to their current versions; chapter MP: Citations of other documents brought up to their current versions; chapter PE: Citations of other documents brought up to their current versions; chapter PL: Citations of other documents brought up to their current versions; chapter PS: Citations of other documents brought up to their current versions; chapter PT: Citations of other documents brought up to their current versions; chapter RA: Citations of other documents brought up to their current versions; chapter SA: Citations of other documents brought up to their current versions; chapter SC: Citations of other documents brought up to their current versions; chapter SI: Citations of other documents brought up to their current versions |
-| \<ver\> | 12 November 2026 | chapter MA: Citations of other documents brought up to their current versions; chapter MP: Citations of other documents brought up to their current versions; chapter PE: Citations of other documents brought up to their current versions; chapter PL: Citations of other documents brought up to their current versions; chapter PS: Citations of other documents brought up to their current versions; chapter PT: Citations of other documents brought up to their current versions; chapter RA: Citations of other documents brought up to their current versions; chapter SA: Citations of other documents brought up to their current versions; chapter SC: Citations of other documents brought up to their current versions; chapter SI: Citations of other documents brought up to their current versions |
-| \<ver\> | 12 November 2026 | chapter MA: Citations of other documents brought up to their current versions; chapter MP: Citations of other documents brought up to their current versions; chapter PE: Citations of other documents brought up to their current versions; chapter PL: Citations of other documents brought up to their current versions; chapter PS: Citations of other documents brought up to their current versions; chapter PT: Citations of other documents brought up to their current versions; chapter RA: Citations of other documents brought up to their current versions; chapter SA: Citations of other documents brought up to their current versions; chapter SC: Citations of other documents brought up to their current versions; chapter SI: Citations of other documents brought up to their current versions |
-| \<ver\> | 12 November 2026 | References to the assessment, authorisation and monitoring design point to \<Assessment, Authorization, and Monitoring Management\>, where it is now held (D-CA-11); chapter AT: Citations of other documents brought up to their current versions; chapter MA: Citations of other documents brought up to their current versions; chapter MP: Citations of other documents brought up to their current versions; chapter PE: Citations of other documents brought up to their current versions; chapter PL: Citations of other documents brought up to their current versions; chapter PS: Citations of other documents brought up to their current versions; chapter PT: Citations of other documents brought up to their current versions; chapter RA: Citations of other documents brought up to their current versions; chapter SA: Citations of other documents brought up to their current versions; chapter SC: Citations of other documents brought up to their current versions; chapter SI: Citations of other documents brought up to their current versions; chapter SR: Citations of other documents brought up to their current versions |
-| \<ver\> | 12 November 2026 | No document sends the reader to the application's code: source file, class and setting names are replaced by what they stand for, stated in plain words. No value, finding or decision is changed; chapter CA: Citations of other documents brought up to their current versions; chapter MA: Citations of other documents brought up to their current versions; chapter MP: Citations of other documents brought up to their current versions; chapter PE: Citations of other documents brought up to their current versions; chapter PL: Citations of other documents brought up to their current versions; chapter PS: Citations of other documents brought up to their current versions; chapter PT: Citations of other documents brought up to their current versions; chapter RA: Citations of other documents brought up to their current versions; chapter SA: Citations of other documents brought up to their current versions; chapter SC: Citations of other documents brought up to their current versions; chapter SI: Citations of other documents brought up to their current versions; chapter SR: Citations of other documents brought up to their current versions |
-| \<ver\> | 12 November 2026 | chapter CA: Citations of other documents brought up to their current versions; chapter MA: Citations of other documents brought up to their current versions; chapter MP: Citations of other documents brought up to their current versions; chapter PE: Citations of other documents brought up to their current versions; chapter PL: Citations of other documents brought up to their current versions; chapter PS: Citations of other documents brought up to their current versions; chapter PT: Citations of other documents brought up to their current versions; chapter RA: Citations of other documents brought up to their current versions; chapter SA: Citations of other documents brought up to their current versions; chapter SC: Citations of other documents brought up to their current versions; chapter SI: Citations of other documents brought up to their current versions |
-| \<ver\> | 12 November 2026 | Chapter AU: a note of the changes since the assessment, and EV-AU-05 added to the evidence needed. No finding is changed; chapter CA: Citations of other documents brought up to their current versions; chapter MA: Citations of other documents brought up to their current versions; chapter MP: Citations of other documents brought up to their current versions; chapter PE: Citations of other documents brought up to their current versions; chapter PL: Citations of other documents brought up to their current versions; chapter PS: Citations of other documents brought up to their current versions; chapter PT: Citations of other documents brought up to their current versions; chapter RA: Citations of other documents brought up to their current versions; chapter SA: Citations of other documents brought up to their current versions; chapter SC: Citations of other documents brought up to their current versions; chapter SI: Citations of other documents brought up to their current versions |
-| \<ver\> | 12 November 2026 | chapter CA: Citations of other documents brought up to their current versions; chapter MA: Citations of other documents brought up to their current versions; chapter MP: Citations of other documents brought up to their current versions; chapter PE: Citations of other documents brought up to their current versions; chapter PL: Citations of other documents brought up to their current versions; chapter PS: Citations of other documents brought up to their current versions; chapter PT: Citations of other documents brought up to their current versions; chapter RA: Citations of other documents brought up to their current versions; chapter SA: Citations of other documents brought up to their current versions; chapter SC: Citations of other documents brought up to their current versions; chapter SI: Citations of other documents brought up to their current versions |
-| \<ver\> | 12 November 2026 | Two citations of the event tables point to \<Audit and Accountability Management\>, sections 4.2 and 4.3. No finding is changed |
-| \<ver\> | 12 November 2026 | References to the audit design point to \<Audit and Accountability Management\>, where it is now held (D-AU-10); chapter AT: Citations of other documents brought up to their current versions; chapter CA: Citations of other documents brought up to their current versions; chapter MA: Citations of other documents brought up to their current versions; chapter MP: Citations of other documents brought up to their current versions; chapter PE: Citations of other documents brought up to their current versions; chapter PL: Citations of other documents brought up to their current versions; chapter PS: Citations of other documents brought up to their current versions; chapter PT: Citations of other documents brought up to their current versions; chapter RA: Citations of other documents brought up to their current versions; chapter SA: Citations of other documents brought up to their current versions; chapter SC: Citations of other documents brought up to their current versions; chapter SI: Citations of other documents brought up to their current versions; chapter SR: Citations of other documents brought up to their current versions |
-| \<ver\> | 12 November 2026 | chapter AT: Citations of other documents brought up to their current versions; chapter CA: Citations of other documents brought up to their current versions; chapter MA: Citations of other documents brought up to their current versions; chapter MP: Citations of other documents brought up to their current versions; chapter PE: Citations of other documents brought up to their current versions; chapter PL: Citations of other documents brought up to their current versions; chapter PS: Citations of other documents brought up to their current versions; chapter PT: Citations of other documents brought up to their current versions; chapter RA: Citations of other documents brought up to their current versions; chapter SA: Citations of other documents brought up to their current versions; chapter SC: Citations of other documents brought up to their current versions; chapter SI: Citations of other documents brought up to their current versions; chapter SR: Citations of other documents brought up to their current versions |
-| \<ver\> | 12 November 2026 | chapter AT: Citations of other documents brought up to their current versions; chapter CA: Citations of other documents brought up to their current versions; chapter MA: Citations of other documents brought up to their current versions; chapter MP: Citations of other documents brought up to their current versions; chapter PE: Citations of other documents brought up to their current versions; chapter PL: Citations of other documents brought up to their current versions; chapter PS: Citations of other documents brought up to their current versions; chapter PT: Citations of other documents brought up to their current versions; chapter RA: Citations of other documents brought up to their current versions; chapter SA: Citations of other documents brought up to their current versions; chapter SC: Citations of other documents brought up to their current versions; chapter SI: Citations of other documents brought up to their current versions |
-| \<ver\> | 12 November 2026 | Chapter AT cites the version of \<Awareness and Training Management\> that now holds the training design. No finding is changed |
-| \<ver\> | 12 November 2026 | References to the training design point to \<Awareness and Training Management\>, where it is now held (D-AT-09); chapter AT: Citations of other documents brought up to their current versions; chapter CA: Citations of other documents brought up to their current versions; chapter MA: Citations of other documents brought up to their current versions; chapter MP: Citations of other documents brought up to their current versions; chapter PE: Citations of other documents brought up to their current versions; chapter PL: Citations of other documents brought up to their current versions; chapter PS: Citations of other documents brought up to their current versions; chapter PT: Citations of other documents brought up to their current versions; chapter RA: Citations of other documents brought up to their current versions; chapter SA: Citations of other documents brought up to their current versions; chapter SC: Citations of other documents brought up to their current versions; chapter SI: Citations of other documents brought up to their current versions; chapter SR: Citations of other documents brought up to their current versions |
-| \<ver\> | 12 November 2026 | chapter AT: Citations of other documents brought up to their current versions; chapter CA: Citations of other documents brought up to their current versions; chapter MA: Citations of other documents brought up to their current versions; chapter MP: Citations of other documents brought up to their current versions; chapter PE: Citations of other documents brought up to their current versions; chapter PL: Citations of other documents brought up to their current versions; chapter PS: Citations of other documents brought up to their current versions; chapter PT: Citations of other documents brought up to their current versions; chapter RA: Citations of other documents brought up to their current versions; chapter SA: Citations of other documents brought up to their current versions; chapter SC: Citations of other documents brought up to their current versions; chapter SI: Citations of other documents brought up to their current versions |
-| \<ver\> | 12 November 2026 | chapter AT: Citations of other documents brought up to their current versions; chapter CA: Citations of other documents brought up to their current versions; chapter MA: Citations of other documents brought up to their current versions; chapter MP: Citations of other documents brought up to their current versions; chapter PE: Citations of other documents brought up to their current versions; chapter PL: Citations of other documents brought up to their current versions; chapter PS: Citations of other documents brought up to their current versions; chapter PT: Citations of other documents brought up to their current versions; chapter RA: Citations of other documents brought up to their current versions; chapter SA: Citations of other documents brought up to their current versions; chapter SC: Citations of other documents brought up to their current versions; chapter SI: Citations of other documents brought up to their current versions |
-| \<ver\> | 12 November 2026 | chapter AT: Citations of other documents brought up to their current versions; chapter CA: Citations of other documents brought up to their current versions; chapter MA: Citations of other documents brought up to their current versions; chapter MP: Citations of other documents brought up to their current versions; chapter PE: Citations of other documents brought up to their current versions; chapter PL: Citations of other documents brought up to their current versions; chapter PS: Citations of other documents brought up to their current versions; chapter PT: Citations of other documents brought up to their current versions; chapter RA: Citations of other documents brought up to their current versions; chapter SA: Citations of other documents brought up to their current versions; chapter SC: Citations of other documents brought up to their current versions; chapter SI: Citations of other documents brought up to their current versions |
-| \<ver\> | 12 November 2026 | The AC and IA chapters note that sign-in is now stated to be through AD FS (D-AC-23), and that their findings on the system's own sign-in are to be made again (PA-95). No finding is changed; chapter AT: Citations of other documents brought up to their current versions; chapter CA: Citations of other documents brought up to their current versions; chapter MA: Citations of other documents brought up to their current versions; chapter MP: Citations of other documents brought up to their current versions; chapter PE: Citations of other documents brought up to their current versions; chapter PL: Citations of other documents brought up to their current versions; chapter PS: Citations of other documents brought up to their current versions; chapter PT: Citations of other documents brought up to their current versions; chapter RA: Citations of other documents brought up to their current versions; chapter SA: Citations of other documents brought up to their current versions; chapter SC: Citations of other documents brought up to their current versions; chapter SI: Citations of other documents brought up to their current versions; chapter SR: Citations of other documents brought up to their current versions |
-| \<ver\> | 12 November 2026 | Version numbers are shown as a placeholder, as the system owner asked (D-GEN-28). No other change; chapter AT: Citations of other documents brought up to their current versions; chapter CA: Citations of other documents brought up to their current versions; chapter MA: Citations of other documents brought up to their current versions; chapter MP: Citations of other documents brought up to their current versions; chapter PE: Citations of other documents brought up to their current versions; chapter PL: Citations of other documents brought up to their current versions; chapter PS: Citations of other documents brought up to their current versions; chapter PT: Citations of other documents brought up to their current versions; chapter RA: Citations of other documents brought up to their current versions; chapter SA: Citations of other documents brought up to their current versions; chapter SC: Citations of other documents brought up to their current versions; chapter SI: Citations of other documents brought up to their current versions; chapter SR: Citations of other documents brought up to their current versions |
-| \<ver\> | 12 November 2026 | The document number is replaced by a placeholder on the line under the title and in the details table, as the system owner asked (D-GEN-27). No other change; chapter AT: Citations of other documents brought up to their current versions; chapter CA: Citations of other documents brought up to their current versions; chapter MA: Citations of other documents brought up to their current versions; chapter MP: Citations of other documents brought up to their current versions; chapter PE: Citations of other documents brought up to their current versions; chapter PL: Citations of other documents brought up to their current versions; chapter PS: Citations of other documents brought up to their current versions; chapter PT: Citations of other documents brought up to their current versions; chapter RA: Citations of other documents brought up to their current versions; chapter SA: Citations of other documents brought up to their current versions; chapter SC: Citations of other documents brought up to their current versions; chapter SI: Citations of other documents brought up to their current versions; chapter SR: Citations of other documents brought up to their current versions |
-| \<ver\> | 12 November 2026 | The name of the system is shown as a placeholder, as the system owner asked (D-GEN-26). No other change; chapter AT: Citations of other documents brought up to their current versions; chapter CA: Citations of other documents brought up to their current versions; chapter MA: Citations of other documents brought up to their current versions; chapter MP: Citations of other documents brought up to their current versions; chapter PE: Citations of other documents brought up to their current versions; chapter PL: Citations of other documents brought up to their current versions; chapter PS: Citations of other documents brought up to their current versions; chapter PT: Citations of other documents brought up to their current versions; chapter RA: Citations of other documents brought up to their current versions; chapter SA: Citations of other documents brought up to their current versions; chapter SC: Citations of other documents brought up to their current versions; chapter SI: Citations of other documents brought up to their current versions; chapter SR: Citations of other documents brought up to their current versions |
-| \<ver\> | 12 November 2026 | chapter AT: Citations of other documents brought up to their current versions; chapter CA: Citations of other documents brought up to their current versions; chapter MA: Citations of other documents brought up to their current versions; chapter MP: Citations of other documents brought up to their current versions; chapter PE: Citations of other documents brought up to their current versions; chapter PL: Citations of other documents brought up to their current versions; chapter PS: Citations of other documents brought up to their current versions; chapter PT: Citations of other documents brought up to their current versions; chapter RA: Citations of other documents brought up to their current versions; chapter SA: Citations of other documents brought up to their current versions; chapter SC: Citations of other documents brought up to their current versions; chapter SI: Citations of other documents brought up to their current versions |
-| \<ver\> | 12 November 2026 | chapter AT: Citations of other documents brought up to their current versions; chapter CA: Citations of other documents brought up to their current versions; chapter MA: Citations of other documents brought up to their current versions; chapter MP: Citations of other documents brought up to their current versions; chapter PE: Citations of other documents brought up to their current versions; chapter PL: Citations of other documents brought up to their current versions; chapter PS: Citations of other documents brought up to their current versions; chapter PT: Citations of other documents brought up to their current versions; chapter RA: Citations of other documents brought up to their current versions; chapter SA: Citations of other documents brought up to their current versions; chapter SC: Citations of other documents brought up to their current versions; chapter SI: Citations of other documents brought up to their current versions |
-| \<ver\> | 12 November 2026 | chapter AT: Citations of other documents brought up to their current versions; chapter CA: Citations of other documents brought up to their current versions; chapter MA: Citations of other documents brought up to their current versions; chapter MP: Citations of other documents brought up to their current versions; chapter PE: Citations of other documents brought up to their current versions; chapter PL: Citations of other documents brought up to their current versions; chapter PS: Citations of other documents brought up to their current versions; chapter PT: Citations of other documents brought up to their current versions; chapter RA: Citations of other documents brought up to their current versions; chapter SA: Citations of other documents brought up to their current versions; chapter SC: Citations of other documents brought up to their current versions; chapter SI: Citations of other documents brought up to their current versions |
-| \<ver\> | 12 November 2026 | chapter AT: Citations of other documents brought up to their current versions; chapter CA: Citations of other documents brought up to their current versions; chapter MA: Citations of other documents brought up to their current versions; chapter MP: Citations of other documents brought up to their current versions; chapter PE: Citations of other documents brought up to their current versions; chapter PL: Citations of other documents brought up to their current versions; chapter PS: Citations of other documents brought up to their current versions; chapter PT: Citations of other documents brought up to their current versions; chapter RA: Citations of other documents brought up to their current versions; chapter SA: Citations of other documents brought up to their current versions; chapter SC: Citations of other documents brought up to their current versions; chapter SI: Citations of other documents brought up to their current versions |
-| \<ver\> | 12 November 2026 | References to the access control design point to \<Access Control Management\>, where it is now held; chapter AT: Citations of other documents brought up to their current versions; chapter CA: Citations of other documents brought up to their current versions; chapter MA: Citations of other documents brought up to their current versions; chapter MP: Citations of other documents brought up to their current versions; chapter PE: Citations of other documents brought up to their current versions; chapter PL: Citations of other documents brought up to their current versions; chapter PS: Citations of other documents brought up to their current versions; chapter PT: Citations of other documents brought up to their current versions; chapter RA: Citations of other documents brought up to their current versions; chapter SA: Citations of other documents brought up to their current versions; chapter SC: Citations of other documents brought up to their current versions; chapter SI: Citations of other documents brought up to their current versions; chapter SR: Citations of other documents brought up to their current versions |
-| \<ver\> | 12 November 2026 | References to documents that no longer exist now name where their content is, as the system owner asked. No other change; chapter AT: Citations of other documents brought up to their current versions; chapter CA: Citations of other documents brought up to their current versions; chapter MA: Citations of other documents brought up to their current versions; chapter MP: Citations of other documents brought up to their current versions; chapter PE: Citations of other documents brought up to their current versions; chapter PL: Citations of other documents brought up to their current versions; chapter PS: Citations of other documents brought up to their current versions; chapter PT: Citations of other documents brought up to their current versions; chapter RA: Citations of other documents brought up to their current versions; chapter SA: Citations of other documents brought up to their current versions; chapter SC: Citations of other documents brought up to their current versions; chapter SI: Citations of other documents brought up to their current versions; chapter SR: Citations of other documents brought up to their current versions |
-| \<ver\> | 12 November 2026 | The basis of PE-17d follows the move of contact details to the roles document. The finding is unchanged. The earlier rows of the change history are folded into one row, as the system owner decided (D-GEN-25). No other change. A reference to the information types table of the security plan is corrected to Table 7; chapter AT: Citations of other documents brought up to their current versions; chapter CA: Citations of other documents brought up to their current versions; chapter MA: Citations of other documents brought up to their current versions; chapter MP: Citations of other documents brought up to their current versions; chapter PE: Citations of other documents brought up to their current versions; chapter PL: Citations of other documents brought up to their current versions; chapter PS: Citations of other documents brought up to their current versions; chapter PT: Citations of other documents brought up to their current versions; chapter RA: Citations of other documents brought up to their current versions; chapter SA: Citations of other documents brought up to their current versions; chapter SC: Citations of other documents brought up to their current versions; chapter SI: Citations of other documents brought up to their current versions; chapter SR: Citations of other documents brought up to their current versions |
-| \<ver\> | 12 November 2026 | The finding codes and the parts of the assessment plan that are the same for every family are stated once, in sections 2.1 and 2.2, and removed from the chapters. No finding or result is changed; chapter AT: Citations of other documents brought up to their current versions; chapter CA: Citations of other documents brought up to their current versions; chapter MA: Citations of other documents brought up to their current versions; chapter MP: Citations of other documents brought up to their current versions; chapter PE: Citations of other documents brought up to their current versions; chapter PL: Citations of other documents brought up to their current versions; chapter PS: Citations of other documents brought up to their current versions; chapter PT: Citations of other documents brought up to their current versions; chapter RA: Citations of other documents brought up to their current versions; chapter SA: Citations of other documents brought up to their current versions; chapter SC: Citations of other documents brought up to their current versions; chapter SI: Citations of other documents brought up to their current versions |
-| \<ver\> | 12 November 2026 | chapter AT: Citations of other documents brought up to their current versions; chapter CA: Citations of other documents brought up to their current versions; chapter MA: Citations of other documents brought up to their current versions; chapter MP: Citations of other documents brought up to their current versions; chapter PE: Citations of other documents brought up to their current versions; chapter PL: Citations of other documents brought up to their current versions; chapter PS: Citations of other documents brought up to their current versions; chapter PT: Citations of other documents brought up to their current versions; chapter RA: Citations of other documents brought up to their current versions; chapter SA: Citations of other documents brought up to their current versions; chapter SC: Citations of other documents brought up to their current versions; chapter SI: Citations of other documents brought up to their current versions |
-| \<ver\> | 12 November 2026 | chapter AT: Citations of other documents brought up to their current versions; chapter CA: Citations of other documents brought up to their current versions; chapter MA: Citations of other documents brought up to their current versions; chapter MP: Citations of other documents brought up to their current versions; chapter PE: Citations of other documents brought up to their current versions; chapter PL: Citations of other documents brought up to their current versions; chapter PS: Citations of other documents brought up to their current versions; chapter PT: Citations of other documents brought up to their current versions; chapter RA: Citations of other documents brought up to their current versions; chapter SA: Citations of other documents brought up to their current versions; chapter SC: Citations of other documents brought up to their current versions; chapter SI: Citations of other documents brought up to their current versions |
-| \<ver\> | 12 November 2026 | chapter PL: Citations of other documents brought up to their current versions |
-| \<ver\> to \<ver\> | 12 November 2026 | The earlier versions. Their history is kept in the change record (\<Documentation Map\>, section 5.1) |
-
-### 1.4 What each chapter was approved as
-
-Until version \<ver\> each chapter carried its own version, approval and change history. Table 4 records where each stood. The earlier change histories are kept in the change record (\<Documentation Map\>, section 5.1).
-
-**Table 4: Chapters**
-
-| Chapter | Family | Last chapter version | Status at that version |
-| --- | --- | --- | --- |
-| AC | Access Control | \<ver\> | Level 1 self-assessment signed off by the system owner; version \<ver\> records the policy's legal review; version \<ver\> makes editorial changes only, issued by the system owner under D-GEN-19 |
-| AT | Awareness and Training | \<ver\> | Level 1 self-assessment signed off by the system owner; version \<ver\> approved by the system owner (D-AT-08); version \<ver\> records the policy's legal review |
-| AU | Audit and Accountability | \<ver\> | Level 1 self-assessment signed off by the system owner; version \<ver\> records the policy's legal review; version \<ver\> makes editorial changes only, issued by the system owner under D-GEN-19 |
-| CA | Assessment, Authorization, and Monitoring | \<ver\> | Level 1 self-assessment signed off by the system owner; version \<ver\> records the policy's legal review |
-| CM | Configuration Management | \<ver\> | Level 1 self-assessment signed off by the system owner; version \<ver\> records the policy's legal review; version \<ver\> makes editorial changes only, issued by the system owner under D-GEN-19 |
-| CP | Contingency Planning | \<ver\> | Level 1 self-assessment signed off by the system owner; version \<ver\> approved by the system owner (D-CP-13) |
-| IA | Identification and Authentication | \<ver\> | Level 1 self-assessment signed off by the system owner; version \<ver\> approved by the system owner; version \<ver\> makes editorial changes only, issued by the system owner under D-GEN-19 |
-| IR | Incident Response | \<ver\> | Level 1 self-assessment signed off by the system owner; version \<ver\> approved by the system owner (D-IR-08) |
-| MA | Maintenance | \<ver\> | Level 1 self-assessment signed off by the system owner; version \<ver\> approved by the system owner (D-MA-08) |
-| MP | Media Protection | \<ver\> | Level 1 self-assessment signed off by the system owner; version \<ver\> approved by the system owner (D-MP-08) |
-| PE | Physical and Environmental Protection | \<ver\> | Level 1 self-assessment signed off by the system owner; version \<ver\> approved by the system owner (D-PE-10) |
-| PL | Planning | \<ver\> | Level 1 self-assessment signed off by the system owner; version \<ver\> approved by the system owner (D-PL-08) |
-| PS | Personnel Security | \<ver\> | Level 1 self-assessment signed off by the system owner; version \<ver\> approved by the system owner (D-PS-09) |
-| PT | Personally Identifiable Information Processing and Transparency | \<ver\> | Level 1 self-assessment signed off by the system owner; version \<ver\> approved by the system owner (D-PT-19); version \<ver\> records the policy's legal review |
-| RA | Risk Assessment | \<ver\> | Level 1 self-assessment signed off by the system owner; version \<ver\> approved by the system owner (D-RA-09); version \<ver\> records the policy's legal review |
-| SA | System and Services Acquisition | \<ver\> | Level 1 self-assessment signed off by the system owner; version \<ver\> approved by the system owner (D-SA-18); version \<ver\> records the policy's legal review |
-| SC | System and Communications Protection | \<ver\> | Level 1 self-assessment signed off by the system owner; version \<ver\> approved by the system owner (D-SC-08); version \<ver\> records the policy's legal review |
-| SI | System and Information Integrity | \<ver\> | Level 1 self-assessment signed off by the system owner; version \<ver\> approved by the system owner (D-SI-09); version \<ver\> records the policy's legal review |
-| SR | Supply Chain Risk Management | \<ver\> | Level 1 self-assessment signed off by the system owner; version \<ver\> approved by the system owner (D-SR-13); version \<ver\> records the policy's legal review |
-
-| **SECTION 2** |
-| --- |
-
-## 2 How to use this document
+## 1 How to use this document
 
 This document is the record of the Level 1 self-assessment of \<System Name\> against NIST SP 800-53A Rev 5. It has one chapter for each of the 19 control families assessed, in NIST order, and each chapter gives a finding for every determination statement. The totals across all chapters are in \<Security Assessment Report\>, which is generated from this record.
 
@@ -206,11 +10,11 @@ Level 1 is a self-assessment and is not independent. Each chapter holds its own 
 - **Citing.** Cite a chapter as \<Control Assessment Record\> (PS), a section as \<Control Assessment Record\>, section PS.3, and a table as \<Control Assessment Record\>, Table PS-1.
 - **Versions.** The document has one version. A change to any chapter is a new version of the document.
 
-### 2.1 Findings
+### 1.1 Findings
 
 Findings follow NIST SP 800-53A. Each determination statement gets one of these.
 
-**Table 5: Finding codes**
+**Table 1: Finding codes**
 
 | Code | Meaning |
 | --- | --- |
@@ -222,26 +26,21 @@ Findings follow NIST SP 800-53A. Each determination statement gets one of these.
 
 The AC chapter was assessed first and uses the result scale in its Table AC-1.
 
-### 2.2 What is the same in every assessment plan
+### 1.2 What is the same in every assessment plan
 
 Each chapter ends with its assessment plan. These parts are the same for every family, so they are stated once here, and a chapter repeats one only where it differs.
 
-**Table 6: Assessment plan, common to every chapter**
+**Table 2: Assessment plan, common to every chapter**
 
 | Item | Detail |
 | --- | --- |
-| System | \<System Name\> v1.0, at the commits in \<System Security Plan\>, section 3 |
+| System | \<System Name\> v1.0, at the commits in \<System Security Plan\>, section 2 |
 | Security categorisation | Moderate, confirmed by the authorising official |
 | Assessor | Level 1: Claude, an AI assistant, working for the system owner. Level 2: an independent team led by \[Name\], which meets CA-2(1) at Moderate once TPL-19 is completed |
 | Level 2 team and schedule | \[Name\]'s team: \[members, dates and the depth and coverage to be agreed with the independent assessor\] |
 | Approval | Approved by the authorising official (D-GEN-18), as confirmed by the system owner on 8 November 2026 |
 
-| **CHAPTER AC** |
-| --- |
-
 ## AC Access Control
-
-[AC.1 Purpose](#ac1-purpose) · [AC.2 How to read this record](#ac2-how-to-read-this-record) · [AC.3 Executive summary](#ac3-executive-summary) · [AC.4 Control results](#ac4-control-results) · [AC.5 Findings by determination statement](#ac5-findings-by-determination-statement) · [AC.6 Assessment plan](#ac6-assessment-plan)
 
 ### AC.1 Purpose
 
@@ -264,7 +63,7 @@ Each entry follows the NIST SP 800-53A approach: the objectives come from NIST, 
 | Other than satisfied (E) | NIST has no separate result for missing evidence. This marks objectives where the VMs or \<Organisation\>'s evidence are not available |
 | Not applicable | The system owner decided the objective does not apply, with a reason and any condition recorded in \<Tailoring Register\>. This is an organisation's tailoring decision, not a result under NIST SP 800-53A, and the independent assessor may test it |
 
-The three methods are **Examine** (documents, code and configuration), **Test** (running the mechanism) and **Interview** (asking the people responsible). The system owner has answered INT-AC-01 to 34 in writing (\<Interview Guide\>, section 23.1). No records were seen, so these answers change no finding, and the role holders and \<Organisation\> have not been interviewed.
+The three methods are **Examine** (documents, code and configuration), **Test** (running the mechanism) and **Interview** (asking the people responsible). The system owner has answered INT-AC-01 to 34 in writing (\<Interview Guide\>, section 22.1). No records were seen, so these answers change no finding, and the role holders and \<Organisation\> have not been interviewed.
 
 **Limit of the current evidence:** \<System Name\> ran in Docker on one PC with sample data. The 75 checks were re-run on the tagged v1.0 build on 8 November 2026 and gave the same results (ac-test-results-2026-11-08-v1.0.csv, with hashes in MANIFEST.md). The Windows Server 2025 VMs, PostgreSQL on Windows and \<Organisation\>'s services have not been examined.
 
@@ -325,13 +124,13 @@ The three methods are **Examine** (documents, code and configuration), **Test** 
 
 \<System Name\> does not yet fully satisfy any of the 39 entries, because each has at least one statement outstanding or is not applicable. At statement level the position is clearer. Of NIST's 189 statements, 74 are satisfied, 29 are not applicable under \<Tailoring Register\>, 22 await a decision or approval, 39 show a gap in the system, 21 await evidence from the VMs or \<Organisation\>, and 4 are parameters not selected.
 
-The organisation takes a risk-based approach, and does not require every control to be met. Every entry therefore has a non-compliance record in \<Risk List\>, with a risk rating and a proposed treatment: accept, remediate, approve, obtain evidence or tailor. The system owner decided the Low items on 5 November 2026; the Medium and High items await the authorising official. The most serious gaps are the High items in \<Plan of Action and Milestones\>, and \<Plan of Action and Milestones\>, section 6, gives the recommended order of work. This assessment made no fixes, apart from the AC-3 fixes already kept.
+The organisation takes a risk-based approach, and does not require every control to be met. Every entry therefore has a non-compliance record in \<Risk List\>, with a risk rating and a proposed treatment: accept, remediate, approve, obtain evidence or tailor. The system owner decided the Low items on 5 November 2026; the Medium and High items await the authorising official. The most serious gaps are the High items in \<Plan of Action and Milestones\>, and \<Plan of Action and Milestones\>, section 5, gives the recommended order of work. This assessment made no fixes, apart from the AC-3 fixes already kept.
 
 ### AC.4 Control results
 
 Controls appear in the order they were assessed, which section AC.6 explains. On 8 November 2026 each result and objective here was brought into line with the decisions of 5 and 6 November. Section AC.5 holds the finding for each statement and takes precedence.
 
-Find a control: [AC-1](#ac439-ac-1-policy-and-procedures) | [AC-2](#ac410-ac-2-account-management) | [AC-2(1)](#ac411-ac-21-automated-system-account-management) | [AC-2(2)](#ac413-ac-22-automated-temporary-and-emergency-account-management) | [AC-2(3)](#ac412-ac-23-disable-accounts) | [AC-2(4)](#ac415-ac-24-automated-audit-actions) | [AC-2(5)](#ac419-ac-25-inactivity-logout) | [AC-2(13)](#ac414-ac-213-disable-accounts-for-high-risk-individuals) | [AC-3](#ac41-ac-3-access-enforcement) | [AC-4](#ac423-ac-4-information-flow-enforcement) | [AC-5](#ac47-ac-5-separation-of-duties) | [AC-6](#ac45-ac-6-least-privilege) | [AC-6(1)](#ac44-ac-61-authorize-access-to-security-functions) | [AC-6(2)](#ac48-ac-62-non-privileged-access-for-nonsecurity-functions) | [AC-6(5)](#ac46-ac-65-privileged-accounts) | [AC-6(7)](#ac416-ac-67-review-of-user-privileges) | [AC-6(9)](#ac49-ac-69-log-use-of-privileged-functions) | [AC-6(10)](#ac43-ac-610-prohibit-non-privileged-users-from-executing-privileged-functions) | [AC-7](#ac417-ac-7-unsuccessful-logon-attempts) | [AC-8](#ac418-ac-8-system-use-notification) | [AC-11](#ac421-ac-11-device-lock) | [AC-11(1)](#ac422-ac-111-pattern-hiding-displays) | [AC-12](#ac420-ac-12-session-termination) | [AC-14](#ac42-ac-14-permitted-actions-without-identification-or-authentication) | [AC-17](#ac424-ac-17-remote-access) | [AC-17(1)](#ac425-ac-171-monitoring-and-control) | [AC-17(2)](#ac426-ac-172-protection-of-confidentiality-and-integrity-using-encryption) | [AC-17(3)](#ac427-ac-173-managed-access-control-points) | [AC-17(4)](#ac428-ac-174-privileged-commands-and-access) | [AC-18](#ac429-ac-18-wireless-access) | [AC-18(1)](#ac430-ac-181-authentication-and-encryption) | [AC-18(3)](#ac431-ac-183-disable-wireless-networking) | [AC-19](#ac432-ac-19-access-control-for-mobile-devices) | [AC-19(5)](#ac433-ac-195-full-device-or-container-based-encryption) | [AC-20](#ac434-ac-20-use-of-external-systems) | [AC-20(1)](#ac435-ac-201-limits-on-authorized-use) | [AC-20(2)](#ac436-ac-202-portable-storage-devices) | [AC-21](#ac437-ac-21-information-sharing) | [AC-22](#ac438-ac-22-publicly-accessible-content)
+Find a control: AC-1 | AC-2 | AC-2(1) | AC-2(2) | AC-2(3) | AC-2(4) | AC-2(5) | AC-2(13) | AC-3 | AC-4 | AC-5 | AC-6 | AC-6(1) | AC-6(2) | AC-6(5) | AC-6(7) | AC-6(9) | AC-6(10) | AC-7 | AC-8 | AC-11 | AC-11(1) | AC-12 | AC-14 | AC-17 | AC-17(1) | AC-17(2) | AC-17(3) | AC-17(4) | AC-18 | AC-18(1) | AC-18(3) | AC-19 | AC-19(5) | AC-20 | AC-20(1) | AC-20(2) | AC-21 | AC-22
 
 #### AC.4.1 AC-3 Access Enforcement
 
@@ -986,7 +785,7 @@ The lock was found by code review and has not been exercised in a browser.
 
 ### AC.5 Findings by determination statement
 
-This section records one finding for each NIST SP 800-53A determination statement, including those about organisation-defined parameters, in control order. It is current, and it takes precedence over the grouped objectives in section AC.4, which record what was examined and tested before the system owner's decisions of 5 November 2026. Statement wording is condensed, and the identifiers are NIST's. Findings are dated 5 November 2026 unless the basis or the change history says otherwise.
+This section records one finding for each NIST SP 800-53A determination statement, including those about organisation-defined parameters, in control order. It is current, and it takes precedence over the grouped objectives in section AC.4, which record what was examined and tested before the system owner's decisions of 5 November 2026. Statement wording is condensed, and the identifiers are NIST's. Findings are dated 5 November 2026 unless the basis or the change record says otherwise.
 
 Findings: **S** satisfied. **O-D** other than satisfied, because a decision or approval is outstanding. **O-G** other than satisfied, because of a gap in the system. **O-E** other than satisfied, because evidence from the VMs or \<Organisation\> is not available. **N/S** the parameter applies only if selected, and is not selected. N/A not applicable, as decided in \<Tailoring Register\>.
 
@@ -1209,12 +1008,7 @@ This records how the assessment was planned and carried out, following NIST SP 8
 
 The authorising official approved this plan (D-GEN-18), as confirmed by the system owner on 8 November 2026. For the Level 2 assessment, the assessor should repeat the tests on the VMs, hold the interviews, examine \<Organisation\>'s evidence and re-determine every statement in section AC.5.
 
-| **CHAPTER AT** |
-| --- |
-
 ## AT Awareness and Training
-
-[AT.1 Purpose](#at1-purpose) · [AT.2 How to read this record](#at2-how-to-read-this-record) · [AT.3 Executive summary](#at3-executive-summary) · [AT.4 Findings by determination statement](#at4-findings-by-determination-statement) · [AT.5 Assessment plan](#at5-assessment-plan)
 
 ### AT.1 Purpose
 
@@ -1288,36 +1082,36 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | AT-02\_ODP\[05\] | Awareness techniques are defined | S | \<Awareness and Training Management\> \<ver\>, appendix A |
 | AT-02\_ODP\[06\] | Content update frequency is defined | S | \<Awareness and Training Management\> \<ver\>, appendix A |
 | AT-02\_ODP\[07\] | Content update events are defined | S | \<Awareness and Training Management\> \<ver\>, appendix A |
-| AT-02a.01\[01\] | New users get security training | O-E | \<System Name\> briefing outlined (\<Awareness and Training Management\>, section 4.3), not yet given; \<Organisation\>'s course not seen (EV-AT-01) |
-| AT-02a.01\[02\] | New users get privacy training | O-E | \<System Name\> briefing outlined (\<Awareness and Training Management\>, section 4.3), not yet given; \<Organisation\>'s course not seen (EV-AT-01) |
-| AT-02a.01\[03\] | Users get security training at the set frequency | O-E | \<System Name\> briefing outlined (\<Awareness and Training Management\>, section 4.3), not yet given; \<Organisation\>'s course not seen (EV-AT-01) |
-| AT-02a.01\[04\] | Users get privacy training at the set frequency | O-E | \<System Name\> briefing outlined (\<Awareness and Training Management\>, section 4.3), not yet given; \<Organisation\>'s course not seen (EV-AT-01) |
-| AT-02a.02\[01\] | Security training follows changes and events | O-E | \<System Name\> briefing outlined (\<Awareness and Training Management\>, section 4.3), not yet given; \<Organisation\>'s course not seen (EV-AT-01) |
-| AT-02a.02\[02\] | Privacy training follows changes and events | O-E | \<System Name\> briefing outlined (\<Awareness and Training Management\>, section 4.3), not yet given; \<Organisation\>'s course not seen (EV-AT-01) |
-| AT-02b. | Awareness techniques are used | O-E | \<System Name\> briefing outlined (\<Awareness and Training Management\>, section 4.3), not yet given; \<Organisation\>'s course not seen (EV-AT-01) |
-| AT-02c.\[01\] | Content is updated at the set frequency | O-E | \<System Name\> briefing outlined (\<Awareness and Training Management\>, section 4.3), not yet given; \<Organisation\>'s course not seen (EV-AT-01) |
-| AT-02c.\[02\] | Content is updated after set events | O-E | \<System Name\> briefing outlined (\<Awareness and Training Management\>, section 4.3), not yet given; \<Organisation\>'s course not seen (EV-AT-01) |
+| AT-02a.01\[01\] | New users get security training | O-E | \<System Name\> briefing outlined (\<Awareness and Training Management\>, section 3.3), not yet given; \<Organisation\>'s course not seen (EV-AT-01) |
+| AT-02a.01\[02\] | New users get privacy training | O-E | \<System Name\> briefing outlined (\<Awareness and Training Management\>, section 3.3), not yet given; \<Organisation\>'s course not seen (EV-AT-01) |
+| AT-02a.01\[03\] | Users get security training at the set frequency | O-E | \<System Name\> briefing outlined (\<Awareness and Training Management\>, section 3.3), not yet given; \<Organisation\>'s course not seen (EV-AT-01) |
+| AT-02a.01\[04\] | Users get privacy training at the set frequency | O-E | \<System Name\> briefing outlined (\<Awareness and Training Management\>, section 3.3), not yet given; \<Organisation\>'s course not seen (EV-AT-01) |
+| AT-02a.02\[01\] | Security training follows changes and events | O-E | \<System Name\> briefing outlined (\<Awareness and Training Management\>, section 3.3), not yet given; \<Organisation\>'s course not seen (EV-AT-01) |
+| AT-02a.02\[02\] | Privacy training follows changes and events | O-E | \<System Name\> briefing outlined (\<Awareness and Training Management\>, section 3.3), not yet given; \<Organisation\>'s course not seen (EV-AT-01) |
+| AT-02b. | Awareness techniques are used | O-E | \<System Name\> briefing outlined (\<Awareness and Training Management\>, section 3.3), not yet given; \<Organisation\>'s course not seen (EV-AT-01) |
+| AT-02c.\[01\] | Content is updated at the set frequency | O-E | \<System Name\> briefing outlined (\<Awareness and Training Management\>, section 3.3), not yet given; \<Organisation\>'s course not seen (EV-AT-01) |
+| AT-02c.\[02\] | Content is updated after set events | O-E | \<System Name\> briefing outlined (\<Awareness and Training Management\>, section 3.3), not yet given; \<Organisation\>'s course not seen (EV-AT-01) |
 | AT-02d. | Lessons from incidents are built in | O-D | PRO-AT-3 \<ver\> approved; not yet in use |
-| AT-02(02)\[01\] | Training covers recognising insider threat | O-E | \<System Name\> briefing outlined (\<Awareness and Training Management\>, section 4.3, B4), not yet given; \<Organisation\>'s course not seen (EV-AT-01) |
-| AT-02(02)\[02\] | Training covers reporting insider threat | O-E | \<System Name\> briefing outlined (\<Awareness and Training Management\>, section 4.3, B4 and B5), not yet given; \<Organisation\>'s course not seen (EV-AT-01) |
-| AT-02(03)\[01\] | Training covers recognising social engineering | O-E | \<System Name\> briefing outlined (\<Awareness and Training Management\>, section 4.3, B3), not yet given; \<Organisation\>'s course not seen (EV-AT-01) |
-| AT-02(03)\[02\] | Training covers reporting social engineering | O-E | \<System Name\> briefing outlined (\<Awareness and Training Management\>, section 4.3, B5), not yet given; \<Organisation\>'s course not seen (EV-AT-01) |
-| AT-02(03)\[03\] | Training covers recognising social mining | O-E | \<System Name\> briefing outlined (\<Awareness and Training Management\>, section 4.3, B3), not yet given; \<Organisation\>'s course not seen (EV-AT-01) |
-| AT-02(03)\[04\] | Training covers reporting social mining | O-E | \<System Name\> briefing outlined (\<Awareness and Training Management\>, section 4.3, B5), not yet given; \<Organisation\>'s course not seen (EV-AT-01) |
+| AT-02(02)\[01\] | Training covers recognising insider threat | O-E | \<System Name\> briefing outlined (\<Awareness and Training Management\>, section 3.3, B4), not yet given; \<Organisation\>'s course not seen (EV-AT-01) |
+| AT-02(02)\[02\] | Training covers reporting insider threat | O-E | \<System Name\> briefing outlined (\<Awareness and Training Management\>, section 3.3, B4 and B5), not yet given; \<Organisation\>'s course not seen (EV-AT-01) |
+| AT-02(03)\[01\] | Training covers recognising social engineering | O-E | \<System Name\> briefing outlined (\<Awareness and Training Management\>, section 3.3, B3), not yet given; \<Organisation\>'s course not seen (EV-AT-01) |
+| AT-02(03)\[02\] | Training covers reporting social engineering | O-E | \<System Name\> briefing outlined (\<Awareness and Training Management\>, section 3.3, B5), not yet given; \<Organisation\>'s course not seen (EV-AT-01) |
+| AT-02(03)\[03\] | Training covers recognising social mining | O-E | \<System Name\> briefing outlined (\<Awareness and Training Management\>, section 3.3, B3), not yet given; \<Organisation\>'s course not seen (EV-AT-01) |
+| AT-02(03)\[04\] | Training covers reporting social mining | O-E | \<System Name\> briefing outlined (\<Awareness and Training Management\>, section 3.3, B5), not yet given; \<Organisation\>'s course not seen (EV-AT-01) |
 | AT-03\_ODP\[01\] | Roles for security training are defined | S | \<Awareness and Training Management\> \<ver\>, appendix A |
 | AT-03\_ODP\[02\] | Roles for privacy training are defined | S | \<Awareness and Training Management\> \<ver\>, appendix A |
 | AT-03\_ODP\[03\] | Training frequency is defined | S | \<Awareness and Training Management\> \<ver\>, appendix A |
 | AT-03\_ODP\[04\] | Content update frequency is defined | S | \<Awareness and Training Management\> \<ver\>, appendix A |
 | AT-03\_ODP\[05\] | Content update events are defined | S | \<Awareness and Training Management\> \<ver\>, appendix A |
-| AT-03a.01\[01\] | Role security training comes before access | O-D | Curriculum and matrix set (\<Awareness and Training Management\>, sections 4.4 and 4.5); module content not yet written or given |
-| AT-03a.01\[02\] | Role privacy training comes before access | O-D | Curriculum and matrix set (\<Awareness and Training Management\>, sections 4.4 and 4.5); module content not yet written or given |
-| AT-03a.01\[03\] | Role security training repeats | O-D | Curriculum and matrix set (\<Awareness and Training Management\>, sections 4.4 and 4.5); module content not yet written or given |
-| AT-03a.01\[04\] | Role privacy training repeats | O-D | Curriculum and matrix set (\<Awareness and Training Management\>, sections 4.4 and 4.5); module content not yet written or given |
-| AT-03a.02\[01\] | Role security training follows system changes | O-D | Curriculum and matrix set (\<Awareness and Training Management\>, sections 4.4 and 4.5); module content not yet written or given |
-| AT-03a.02\[02\] | Role privacy training follows system changes | O-D | Curriculum and matrix set (\<Awareness and Training Management\>, sections 4.4 and 4.5); module content not yet written or given |
-| AT-03b.\[01\] | Content is updated at the set frequency | O-D | Curriculum and matrix set (\<Awareness and Training Management\>, sections 4.4 and 4.5); module content not yet written or given |
-| AT-03b.\[02\] | Content is updated after set events | O-D | Curriculum and matrix set (\<Awareness and Training Management\>, sections 4.4 and 4.5); module content not yet written or given |
-| AT-03c. | Lessons from incidents are built in | O-D | Curriculum and matrix set (\<Awareness and Training Management\>, sections 4.4 and 4.5); module content not yet written or given |
+| AT-03a.01\[01\] | Role security training comes before access | O-D | Curriculum and matrix set (\<Awareness and Training Management\>, sections 3.4 and 3.5); module content not yet written or given |
+| AT-03a.01\[02\] | Role privacy training comes before access | O-D | Curriculum and matrix set (\<Awareness and Training Management\>, sections 3.4 and 3.5); module content not yet written or given |
+| AT-03a.01\[03\] | Role security training repeats | O-D | Curriculum and matrix set (\<Awareness and Training Management\>, sections 3.4 and 3.5); module content not yet written or given |
+| AT-03a.01\[04\] | Role privacy training repeats | O-D | Curriculum and matrix set (\<Awareness and Training Management\>, sections 3.4 and 3.5); module content not yet written or given |
+| AT-03a.02\[01\] | Role security training follows system changes | O-D | Curriculum and matrix set (\<Awareness and Training Management\>, sections 3.4 and 3.5); module content not yet written or given |
+| AT-03a.02\[02\] | Role privacy training follows system changes | O-D | Curriculum and matrix set (\<Awareness and Training Management\>, sections 3.4 and 3.5); module content not yet written or given |
+| AT-03b.\[01\] | Content is updated at the set frequency | O-D | Curriculum and matrix set (\<Awareness and Training Management\>, sections 3.4 and 3.5); module content not yet written or given |
+| AT-03b.\[02\] | Content is updated after set events | O-D | Curriculum and matrix set (\<Awareness and Training Management\>, sections 3.4 and 3.5); module content not yet written or given |
+| AT-03c. | Lessons from incidents are built in | O-D | Curriculum and matrix set (\<Awareness and Training Management\>, sections 3.4 and 3.5); module content not yet written or given |
 | AT-04\_ODP | Retention is defined | S | \<Awareness and Training Management\> \<ver\>, appendix A |
 | AT-04a.\[01\] | Security training is documented and monitored | O-D | PRO-AT-4 and the training register approved; no training yet |
 | AT-04a.\[02\] | Privacy training is documented and monitored | O-D | PRO-AT-4 and the training register approved; no training yet |
@@ -1336,9 +1130,9 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | Test | Not applicable to this family. Check L14 of Test-PlanConsistency.ps1 (the PL evidence) |
 | Interview | None held. The system owner, the security officer, one person from each role in the matrix and a sample of users remain |
 | Boundary | \<System Name\>'s own briefing, role training and records. \<Organisation\>'s general course and its administrators' training are provider evidence (EV-AT-01) |
-| Order of assessment | A, the programme (AT-1, \<Awareness and Training Management\>, section 4.2); B, awareness (AT-2, AT-2(2), AT-2(3)); C, role training (AT-3); D, records (AT-4) |
+| Order of assessment | A, the programme (AT-1, \<Awareness and Training Management\>, section 3.2); B, awareness (AT-2, AT-2(2), AT-2(3)); C, role training (AT-3); D, records (AT-4) |
 | Needed from providers | EV-AT-01 in \<Evidence Requests\> |
-| Evidence retained | TPL-9 and TPL-21 records; the training register in \<Awareness and Training Management\>, section 4.8; the monthly measures on TPL-8; the PL evidence |
+| Evidence retained | TPL-9 and TPL-21 records; the training register in \<Awareness and Training Management\>, section 3.8; the monthly measures on TPL-8; the PL evidence |
 
 For the Level 2 assessment, the assessor should:
 
@@ -1347,12 +1141,7 @@ For the Level 2 assessment, the assessor should:
 - examine EV-AT-01;
 - hold the interviews, and re-determine every statement in section AT.4.
 
-| **CHAPTER AU** |
-| --- |
-
 ## AU Audit and Accountability
-
-[AU.1 Purpose](#au1-purpose) · [AU.2 How to read this record](#au2-how-to-read-this-record) · [AU.3 Executive summary](#au3-executive-summary) · [AU.4 Findings by determination statement](#au4-findings-by-determination-statement) · [AU.5 Assessment plan](#au5-assessment-plan)
 
 ### AU.1 Purpose
 
@@ -1403,7 +1192,7 @@ The application records the right detail for most events, in UTC, with a chain h
 
 ### AU.4 Findings by determination statement
 
-There is one finding for each NIST SP 800-53A determination statement, including those about organisation-defined parameters. Statement wording is condensed, and the identifiers are NIST's. Findings are dated 6 November 2026 unless the basis or the change history says otherwise. The notes for AU-06\_ODP\[02\], AU-09a and AU-09b were updated on 8 November 2026 from checks A36 to A38, and no finding code changed.
+There is one finding for each NIST SP 800-53A determination statement, including those about organisation-defined parameters. Statement wording is condensed, and the identifiers are NIST's. Findings are dated 6 November 2026 unless the basis or the change record says otherwise. The notes for AU-06\_ODP\[02\], AU-09a and AU-09b were updated on 8 November 2026 from checks A36 to A38, and no finding code changed.
 
 **Table AU-3: Finding for each determination statement**
 
@@ -1435,12 +1224,12 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | AU-01c.02\[01\] | Procedures are reviewed at the set frequency | O-D | First review not yet due |
 | AU-01c.02\[02\] | Procedures are reviewed after set events | S | Reviewed on 8 November 2026 after the AU pack review; version \<ver\> approved (D-AU-09) |
 | AU-02\_ODP\[01\] | Event types the system can log are defined | S | \<Audit and Accountability Management\> |
-| AU-02\_ODP\[02\] | Event types to log are defined | S | \<Audit and Accountability Management\>, sections 4.2 and 4.3 |
+| AU-02\_ODP\[02\] | Event types to log are defined | S | \<Audit and Accountability Management\>, sections 3.2 and 3.3 |
 | AU-02\_ODP\[03\] | How often they are logged is defined | S | Every occurrence |
 | AU-02\_ODP\[04\] | Review of selected events is defined | S | Every 12 months |
-| AU-02a. | Event types are identified | S | \<Audit and Accountability Management\>, Table 7 |
+| AU-02a. | Event types are identified | S | \<Audit and Accountability Management\>, Table 4 |
 | AU-02b. | Logging is coordinated with other entities | O-D | Not yet agreed with \<Organisation\> (EV-AU-01) |
-| AU-02c.\[01\] | Event types are specified for logging | S | \<Audit and Accountability Management\>, sections 4.2 and 4.3 |
+| AU-02c.\[01\] | Event types are specified for logging | S | \<Audit and Accountability Management\>, sections 3.2 and 3.3 |
 | AU-02c.\[02\] | They are logged at the set frequency | O-G | Most account, group and role changes are not logged (PA-14), nor are reading the audit log, start-up and shut-down, or logging changes (PA-76) |
 | AU-02d. | Rationale is provided | S | the audit chapter of \<Control Implementation Register\>, version \<ver\> approved (D-AU-03); version \<ver\> approved (D-AU-09) |
 | AU-02e. | Selected events are reviewed | O-D | First review not yet due |
@@ -1460,7 +1249,7 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | AU-05a. | They are alerted to a logging failure | O-G | Application log only (A31, A35, PA-38) |
 | AU-05b. | The actions are taken | O-D | PRO-AU-3 approved, not walked through. System keeps running (A32) |
 | AU-06\_ODP\[01\] | Review frequency is defined | S | Weekly |
-| AU-06\_ODP\[02\] | Activity to look for is defined | S | \<Security Operating Procedures\>, section 5.2 |
+| AU-06\_ODP\[02\] | Activity to look for is defined | S | \<Security Operating Procedures\>, section 4.2 |
 | AU-06\_ODP\[03\] | Who receives findings is defined | S | \<Audit and Accountability Management\> |
 | AU-06a. | Records are reviewed and analysed | O-G | No review has started (PA-40) |
 | AU-06b. | Findings are reported | O-G | No review has started (PA-40) |
@@ -1509,16 +1298,11 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | Boundary | Audit records in dbo.AuditLog, the application logs, and the PostgreSQL and Windows logs on both VMs. \<Organisation\>'s central monitoring and time service are inherited |
 | Order of assessment | A, record generation and content (AU-12, AU-2, AU-3, AU-3(1)); B, protection (AU-9, AU-9(4)); C, failure, capacity and retention (AU-5, AU-4, AU-11); D, review and reporting (AU-6, AU-6(1), AU-6(3), AU-7, AU-7(1)); E, time (AU-8); F, policy (AU-1). Generation comes first because every other result depends on records existing |
 | Needed from \<Organisation\> | EV-AU-01 to EV-AU-05 in \<Evidence Requests\>: central monitoring, the time source, storage and backup, the Windows audit policy, and AD FS and Active Directory audit records |
-| Evidence retained | The AU and IA evidence, with its manifest; \<Audit and Accountability Management\>, appendix A and section 5 |
+| Evidence retained | The AU and IA evidence, with its manifest; \<Audit and Accountability Management\>, appendix A and section 4 |
 
 The authorising official approved this plan (D-GEN-18), as confirmed by the system owner on 8 November 2026. The independent assessor's team, schedule, and depth and coverage are added once agreed. For the Level 2 assessment, the assessor should repeat the tests on the VMs, hold the interviews, examine \<Organisation\>'s evidence and re-determine every statement in section AU.4.
 
-| **CHAPTER CA** |
-| --- |
-
 ## CA Assessment, Authorization, and Monitoring
-
-[CA.1 Purpose](#ca1-purpose) · [CA.2 How to read this record](#ca2-how-to-read-this-record) · [CA.3 Executive summary](#ca3-executive-summary) · [CA.4 Findings by determination statement](#ca4-findings-by-determination-statement) · [CA.5 Assessment plan](#ca5-assessment-plan)
 
 ### CA.1 Purpose
 
@@ -1560,7 +1344,7 @@ The assessments, plans, assessment report and plan of action exist, and all 19 a
 
 ### CA.4 Findings by determination statement
 
-There is one finding for each NIST SP 800-53A determination statement, including those about organisation-defined parameters. Findings are dated 6 November 2026 unless the basis or the change history says otherwise.
+There is one finding for each NIST SP 800-53A determination statement, including those about organisation-defined parameters. Findings are dated 6 November 2026 unless the basis or the change record says otherwise.
 
 **Table CA-3: Finding for each determination statement**
 
@@ -1594,11 +1378,11 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | CA-02\_ODP\[01\] | Assessment frequency is defined | S | \<Assessment, Authorization, and Monitoring Management\> |
 | CA-02\_ODP\[02\] | Who receives results is defined | S | \<Assessment, Authorization, and Monitoring Management\> |
 | CA-02a. | An assessor is selected | S | \[Name\]'s team |
-| CA-02b.01 | The plan describes scope | S | Each family assessment's plan, section 6 (section 7 for AC) |
-| CA-02b.02 | The plan describes procedures | S | Each family assessment's plan, section 6 (section 7 for AC) |
-| CA-02b.03\[01\] | The plan describes the environment | S | Each family assessment, sections 3 and 6 (3 and 7 for AC) |
-| CA-02b.03\[02\] | The plan describes the team | S | Each family assessment, sections 2 and 6 (2 and 7 for AC) |
-| CA-02b.03\[03\] | The plan describes roles and responsibilities | S | Each family assessment, sections 2 and 6 (2 and 7 for AC) |
+| CA-02b.01 | The plan describes scope | S | Each family assessment's plan, section 5 (section 6 for AC) |
+| CA-02b.02 | The plan describes procedures | S | Each family assessment's plan, section 5 (section 6 for AC) |
+| CA-02b.03\[01\] | The plan describes the environment | S | Each family assessment, sections 2 and 5 (3 and 7 for AC) |
+| CA-02b.03\[02\] | The plan describes the team | S | Each family assessment, sections 1 and 5 (2 and 7 for AC) |
+| CA-02b.03\[03\] | The plan describes roles and responsibilities | S | Each family assessment, sections 1 and 5 (2 and 7 for AC) |
 | CA-02c. | The authorising official approves the plan | S | All 19 assessment plans approved (D-GEN-18), as confirmed by the system owner on 8 November 2026 |
 | CA-02d.\[01\] | Controls are assessed for effect, at the set frequency | O-D | Level 1 only; Level 2 not held |
 | CA-02d.\[02\] | Controls are assessed for outcome, at the set frequency | O-D | Level 1 only; Level 2 not held |
@@ -1609,12 +1393,12 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | CA-03\_ODP\[02\] | Type of agreement is defined | S | \<Assessment, Authorization, and Monitoring Management\> |
 | CA-03\_ODP\[03\] | Review frequency is defined | S | \<Assessment, Authorization, and Monitoring Management\> |
 | CA-03a. | Exchanges are approved and managed | O-D | Recorded; connections not yet built or approved |
-| CA-03b.\[01\] | Interfaces are documented | S | \<Assessment, Authorization, and Monitoring Management\>, section 4.7 (D-CA-03) |
-| CA-03b.\[02\] | Security needs are documented | S | \<Assessment, Authorization, and Monitoring Management\>, section 4.7 (D-CA-03) |
-| CA-03b.\[03\] | Privacy needs are documented | S | \<Assessment, Authorization, and Monitoring Management\>, section 4.7 (D-CA-03) |
-| CA-03b.\[04\] | Controls are documented | S | \<Assessment, Authorization, and Monitoring Management\>, section 4.7 (D-CA-03) |
-| CA-03b.\[05\] | Responsibilities are documented | S | \<Assessment, Authorization, and Monitoring Management\>, section 4.7 (D-CA-03) |
-| CA-03b.\[06\] | Impact level is documented | S | \<Assessment, Authorization, and Monitoring Management\>, section 4.7 (D-CA-03) |
+| CA-03b.\[01\] | Interfaces are documented | S | \<Assessment, Authorization, and Monitoring Management\>, section 3.7 (D-CA-03) |
+| CA-03b.\[02\] | Security needs are documented | S | \<Assessment, Authorization, and Monitoring Management\>, section 3.7 (D-CA-03) |
+| CA-03b.\[03\] | Privacy needs are documented | S | \<Assessment, Authorization, and Monitoring Management\>, section 3.7 (D-CA-03) |
+| CA-03b.\[04\] | Controls are documented | S | \<Assessment, Authorization, and Monitoring Management\>, section 3.7 (D-CA-03) |
+| CA-03b.\[05\] | Responsibilities are documented | S | \<Assessment, Authorization, and Monitoring Management\>, section 3.7 (D-CA-03) |
+| CA-03b.\[06\] | Impact level is documented | S | \<Assessment, Authorization, and Monitoring Management\>, section 3.7 (D-CA-03) |
 | CA-03c. | Agreements are reviewed | O-D | First review not yet due |
 | CA-05\_ODP | Update frequency is defined | S | \<Assessment, Authorization, and Monitoring Management\> |
 | CA-05a. | A plan of action and milestones exists | S | \<Plan of Action and Milestones\> |
@@ -1633,7 +1417,7 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | CA-07\_ODP\[05\] | Security reporting frequency is defined | S | \<Assessment, Authorization, and Monitoring Management\> |
 | CA-07\_ODP\[06\] | Who receives privacy status is defined | S | \<Assessment, Authorization, and Monitoring Management\> |
 | CA-07\_ODP\[07\] | Privacy reporting frequency is defined | S | \<Assessment, Authorization, and Monitoring Management\> |
-| CA-07\[01\] | A monitoring strategy is developed | S | \<Assessment, Authorization, and Monitoring Management\>, section 4.8 (D-CA-03) |
+| CA-07\[01\] | A monitoring strategy is developed | S | \<Assessment, Authorization, and Monitoring Management\>, section 3.8 (D-CA-03) |
 | CA-07\[02\] | Monitoring is carried out | O-D | Not started |
 | CA-07a. | Metrics are established | S | \<Assessment, Authorization, and Monitoring Management\> (D-CA-03) |
 | CA-07b.\[01\] | Monitoring frequencies are established | S | \<Assessment, Authorization, and Monitoring Management\> (D-CA-03) |
@@ -1645,7 +1429,7 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | CA-07g.\[01\] | Security status is reported | O-D | Not started |
 | CA-07g.\[02\] | Privacy status is reported | O-D | Not started |
 | CA-07(01) | Independent assessors monitor controls | O-D | Not started |
-| CA-07(04) | Risk monitoring is part of the monitoring strategy | S | \<Assessment, Authorization, and Monitoring Management\>, section 4.8: the measures cover effectiveness, compliance and change |
+| CA-07(04) | Risk monitoring is part of the monitoring strategy | S | \<Assessment, Authorization, and Monitoring Management\>, section 3.8: the measures cover effectiveness, compliance and change |
 | CA-07(04)(a) | Risk monitoring covers effectiveness | O-D | Not started |
 | CA-07(04)(b) | Risk monitoring covers compliance | O-D | Not started |
 | CA-07(04)(c) | Risk monitoring covers change | O-D | Not started |
@@ -1653,10 +1437,10 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | CA-09\_ODP\[02\] | When a connection ends is defined | S | \<Assessment, Authorization, and Monitoring Management\> |
 | CA-09\_ODP\[03\] | Review frequency is defined | S | \<Assessment, Authorization, and Monitoring Management\> |
 | CA-09a. | Internal connections are authorised | O-D | Recorded; connection not yet built or approved |
-| CA-09b.\[01\] | Interfaces are documented | S | \<Assessment, Authorization, and Monitoring Management\>, section 4.7 (D-CA-03) |
-| CA-09b.\[02\] | Security needs are documented | S | \<Assessment, Authorization, and Monitoring Management\>, section 4.7 (D-CA-03) |
-| CA-09b.\[03\] | Privacy needs are documented | S | \<Assessment, Authorization, and Monitoring Management\>, section 4.7 (D-CA-03) |
-| CA-09b.\[04\] | The information is documented | S | \<Assessment, Authorization, and Monitoring Management\>, section 4.7 (D-CA-03) |
+| CA-09b.\[01\] | Interfaces are documented | S | \<Assessment, Authorization, and Monitoring Management\>, section 3.7 (D-CA-03) |
+| CA-09b.\[02\] | Security needs are documented | S | \<Assessment, Authorization, and Monitoring Management\>, section 3.7 (D-CA-03) |
+| CA-09b.\[03\] | Privacy needs are documented | S | \<Assessment, Authorization, and Monitoring Management\>, section 3.7 (D-CA-03) |
+| CA-09b.\[04\] | The information is documented | S | \<Assessment, Authorization, and Monitoring Management\>, section 3.7 (D-CA-03) |
 | CA-09c. | Connections are ended when set | O-D | VMs not built |
 | CA-09d. | Continued need is reviewed | O-D | First review not yet due |
 
@@ -1674,19 +1458,14 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | Test | Not applicable to this family at Level 1 |
 | Interview | None held. The system owner, authorising official, security officer and security assessor remain |
 | Previous results reused | None |
-| Boundary | The assessment, authorisation and monitoring processes for \<System Name\>, and the connections in \<Assessment, Authorization, and Monitoring Management\>, section 4.7 |
+| Boundary | The assessment, authorisation and monitoring processes for \<System Name\>, and the connections in \<Assessment, Authorization, and Monitoring Management\>, section 3.7 |
 | Order of assessment | A, plan and assessment (CA-2, CA-2(1)); B, remediation (CA-5); C, authorisation and inherited controls (CA-6); D, connections (CA-3, CA-9); E, monitoring (CA-7, CA-7(1), CA-7(4)); F, policy (CA-1). Assessment comes first because every other CA result depends on it |
-| Needed from \<Organisation\> | EV-CA-01 in \<Evidence Requests\>, for the inherited controls in \<Assessment, Authorization, and Monitoring Management\>, section 4.6; and the agreements in \<Assessment, Authorization, and Monitoring Management\>, section 4.7 |
-| Evidence retained | The documents above, at the versions in their change histories |
+| Needed from \<Organisation\> | EV-CA-01 in \<Evidence Requests\>, for the inherited controls in \<Assessment, Authorization, and Monitoring Management\>, section 3.6; and the agreements in \<Assessment, Authorization, and Monitoring Management\>, section 3.7 |
+| Evidence retained | The documents above, at the versions in their change records |
 
 The authorising official approved this plan (D-GEN-18), as confirmed by the system owner on 8 November 2026. The independent assessor's team, schedule, and depth and coverage are added once agreed. For the Level 2 assessment, the assessor should confirm their independence, examine the monitoring reports once started, hold the interviews and re-determine every statement in section CA.4.
 
-| **CHAPTER CM** |
-| --- |
-
 ## CM Configuration Management
-
-[CM.1 Purpose](#cm1-purpose) · [CM.2 How to read this record](#cm2-how-to-read-this-record) · [CM.3 Executive summary](#cm3-executive-summary) · [CM.4 Findings by determination statement](#cm4-findings-by-determination-statement) · [CM.5 Assessment plan](#cm5-assessment-plan)
 
 ### CM.1 Purpose
 
@@ -1696,7 +1475,7 @@ This records the Level 1 self-assessment of the 24 CM entries in the NIST SP 800
 
 **Change since this assessment.** On 13 November 2026 the Configuration Management Plan was rebuilt as \<Configuration Management\> in the form of the other family documents, with each control set out part by part (D-CM-13). The system owner decided that the applications run as Windows services (D-PL-10), and removed accounts from the value for CM-12 (D-CM-14). Four items were added for gaps this chapter found: PA-110 to PA-113. The findings below are a true record of 6 and 8 November 2026 and are not changed.
 
-The methods were **Examine** (code and configuration) and **Test** (checks B06 to B08 on 6 November 2026, and C01 to C11 by \Test-ConfigurationManagement.ps1 on the tagged v1.0 build on 8 November 2026, with hashes in MANIFEST.md, in the SC and CM evidence, on a throwaway stack). The system owner answered the interview questions at Level 1 (\<Interview Guide\>, Table 34). Those answers changed no finding, and the role holders have not been interviewed.
+The methods were **Examine** (code and configuration) and **Test** (checks B06 to B08 on 6 November 2026, and C01 to C11 by \Test-ConfigurationManagement.ps1 on the tagged v1.0 build on 8 November 2026, with hashes in MANIFEST.md, in the SC and CM evidence, on a throwaway stack). The system owner answered the interview questions at Level 1 (\<Interview Guide\>, Table 31). Those answers changed no finding, and the role holders have not been interviewed.
 
 **Limit of the current evidence:** \<System Name\> ran in Docker on one PC with sample data, in the build tagged v1.0. The Windows Server 2025 VMs and \<Organisation\>'s services have not been examined.
 
@@ -1745,7 +1524,7 @@ Most of this family is a process that has not started, because \<System Name\> i
 
 ### CM.4 Findings by determination statement
 
-There is one finding for each NIST SP 800-53A determination statement, including those about organisation-defined parameters. Findings are dated 6 November 2026 unless the basis or the change history says otherwise.
+There is one finding for each NIST SP 800-53A determination statement, including those about organisation-defined parameters. Findings are dated 6 November 2026 unless the basis or the change record says otherwise.
 
 **Table CM-3: Finding for each determination statement**
 
@@ -1778,7 +1557,7 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | CM-01c.02\[02\] | Procedures are reviewed after set events | S | Reviewed on 8 November 2026 after the CM pack review; version \<ver\> approved (D-CM-12) |
 | CM-02\_ODP\[01\] | Review frequency is defined | S | Every 12 months |
 | CM-02\_ODP\[02\] | Circumstances are defined | S | Each release |
-| CM-02a.\[01\] | A current baseline is documented | O-G | Documented in \<Configuration Management\>, section 4.4, but the images are not pinned, so it cannot be rebuilt exactly (C01, C02; PA-77); VMs not built |
+| CM-02a.\[01\] | A current baseline is documented | O-G | Documented in \<Configuration Management\>, section 3.4, but the images are not pinned, so it cannot be rebuilt exactly (C01, C02; PA-77); VMs not built |
 | CM-02a.\[02\] | It is under configuration control | O-E | Git tags yes; VMs not built |
 | CM-02b.01 | Reviewed at the set frequency | O-D | First review not yet due |
 | CM-02b.02 | Reviewed in the set circumstances | O-D | PRO-CM-2 approved; not yet in use |
@@ -1875,7 +1654,7 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | CM-07(05)(c) | The list is reviewed | O-D | List not yet written (PA-55) |
 | CM-08\_ODP\[01\] | Inventory information is defined | S | \<Configuration Management\> |
 | CM-08\_ODP\[02\] | Review frequency is defined | S | At each change |
-| CM-08a.01 | Inventory reflects the system | O-E | Software components listed in \<Configuration Management\>, section 4.5 (C04); servers when the VMs are built (PA-54) |
+| CM-08a.01 | Inventory reflects the system | O-E | Software components listed in \<Configuration Management\>, section 3.5 (C04); servers when the VMs are built (PA-54) |
 | CM-08a.02 | It includes all components | O-E | VMs not built (PA-54) |
 | CM-08a.03 | It has no duplicates | O-E | VMs not built (PA-54) |
 | CM-08a.04 | It has the right granularity | O-E | VMs not built (PA-54) |
@@ -1899,17 +1678,17 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | CM-09\_ODP | Who approves the plan is defined | S | System owner |
 | CM-09\[01\] | A plan is developed and documented | S | \<Configuration Management\> (D-CM-03) |
 | CM-09\[02\] | The plan is implemented | O-D | Not yet in use |
-| CM-09a.\[01\] | It addresses roles | S | \<Configuration Management\>, section 4.2 |
-| CM-09a.\[02\] | It addresses responsibilities | S | \<Configuration Management\>, section 4.2 |
-| CM-09a.\[03\] | It addresses processes | S | \<Configuration Management\>, section 4.2 |
-| CM-09b.\[01\] | It identifies configuration items | S | \<Configuration Management\>, section 4.2 |
-| CM-09b.\[02\] | It manages them through the life cycle | S | \<Configuration Management\>, section 4.2 |
-| CM-09c.\[01\] | It defines the items | S | \<Configuration Management\>, section 4.3 |
-| CM-09c.\[02\] | It places them under control | S | \<Configuration Management\>, section 4.3 |
+| CM-09a.\[01\] | It addresses roles | S | \<Configuration Management\>, section 3.2 |
+| CM-09a.\[02\] | It addresses responsibilities | S | \<Configuration Management\>, section 3.2 |
+| CM-09a.\[03\] | It addresses processes | S | \<Configuration Management\>, section 3.2 |
+| CM-09b.\[01\] | It identifies configuration items | S | \<Configuration Management\>, section 3.2 |
+| CM-09b.\[02\] | It manages them through the life cycle | S | \<Configuration Management\>, section 3.2 |
+| CM-09c.\[01\] | It defines the items | S | \<Configuration Management\>, section 3.3 |
+| CM-09c.\[02\] | It places them under control | S | \<Configuration Management\>, section 3.3 |
 | CM-09d. | It is reviewed and approved | S | Approved (D-CM-03) |
 | CM-09e.\[01\] | It is protected from disclosure | O-D | Moves to SharePoint when all families are done (D-GEN-15) |
 | CM-09e.\[02\] | It is protected from modification | O-D | Moves to SharePoint when all families are done (D-GEN-15) |
-| CM-10a. | Software follows contracts and copyright | O-E | \<System Name\>'s components reviewed (\<Configuration Management\>, section 4.5), with ImageSharp under its community licence (D-CM-09); \<Organisation\>'s licences not evidenced (EV-CM-03) |
+| CM-10a. | Software follows contracts and copyright | O-E | \<System Name\>'s components reviewed (\<Configuration Management\>, section 3.5), with ImageSharp under its community licence (D-CM-09); \<Organisation\>'s licences not evidenced (EV-CM-03) |
 | CM-10b. | Quantity licences are tracked | O-E | \<Organisation\> (EV-CM-03) |
 | CM-10c. | Peer-to-peer use is controlled | O-E | \<Organisation\> (EV-CM-03) |
 | CM-11\_ODP\[01\] | Installation policy is defined | S | \<Configuration Management\> |
@@ -1919,9 +1698,9 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | CM-11b. | They are enforced | O-E | VMs not built |
 | CM-11c. | Compliance is monitored | O-D | Value agreed; first check not yet due |
 | CM-12\_ODP | Information is defined | S | \<Configuration Management\> |
-| CM-12a.\[01\] | Location is documented | S | \<System Security Plan\>, sections 4.3 and 4.4 |
-| CM-12a.\[02\] | Processing components are documented | S | \<System Security Plan\>, section 4.4 |
-| CM-12a.\[03\] | Storage components are documented | S | \<System Security Plan\>, section 4.4 |
+| CM-12a.\[01\] | Location is documented | S | \<System Security Plan\>, sections 3.3 and 3.4 |
+| CM-12a.\[02\] | Processing components are documented | S | \<System Security Plan\>, section 3.4 |
+| CM-12a.\[03\] | Storage components are documented | S | \<System Security Plan\>, section 3.4 |
 | CM-12b.\[01\] | Users with access are identified | O-D | Approved access list not yet built (D-AC-14) |
 | CM-12b.\[02\] | Users with access are documented | O-D | Approved access list not yet built (D-AC-14) |
 | CM-12c.\[01\] | Location changes are documented | O-D | PRO-CM-1 approved; not yet in use |
@@ -1947,16 +1726,11 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | Boundary | The code, images, components and settings of \<System Name\> v1.0, and the Windows Server and PostgreSQL configuration of both VMs. \<Organisation\>'s discovery tools and licences are inherited |
 | Order of assessment | A, baseline and inventory (CM-2, CM-8, CM-10); B, change control (CM-3, CM-4, CM-5); C, secure settings and least functionality (CM-6, CM-7 and enhancements, CM-11); D, the plan and information location (CM-9, CM-12); E, policy (CM-1). The baseline comes first because every other result is judged against it |
 | Needed from \<Organisation\> | EV-CM-01 to EV-CM-03 in \<Evidence Requests\>: physical change restrictions, discovery tools, and licences |
-| Evidence retained | The SC and CM evidence, with its manifest; \<Configuration Management\>, sections 4.4 to 4.6 |
+| Evidence retained | The SC and CM evidence, with its manifest; \<Configuration Management\>, sections 3.4 to 3.6 |
 
 The authorising official approved this plan (D-GEN-18), as confirmed by the system owner on 8 November 2026. The independent assessor's team, schedule, and depth and coverage are added once agreed. For the Level 2 assessment, the assessor should repeat the checks on the VMs, hold the interviews, examine \<Organisation\>'s evidence and re-determine every statement in section CM.4.
 
-| **CHAPTER CP** |
-| --- |
-
 ## CP Contingency Planning
-
-[CP.1 Purpose](#cp1-purpose) · [CP.2 How to read this record](#cp2-how-to-read-this-record) · [CP.3 Executive summary](#cp3-executive-summary) · [CP.4 Findings by determination statement](#cp4-findings-by-determination-statement) · [CP.5 Assessment plan](#cp5-assessment-plan)
 
 ### CP.1 Purpose
 
@@ -1964,7 +1738,7 @@ This records the Level 1 self-assessment of the 23 CP entries in the NIST SP 800
 
 ### CP.2 How to read this record
 
-**Change since this assessment.** On 15 November 2026 the Contingency Plan was rebuilt as \<Contingency Planning Management\> in the form of the other family documents, with the plan as its section 4 and each control set out part by part (D-CP-14). AD FS was added to what recovery depends on (D-AC-23). Two items were added for gaps this chapter found: PA-114 and PA-115. The findings below are a true record of 6 and 9 November 2026 and are not changed.
+**Change since this assessment.** On 15 November 2026 the Contingency Plan was rebuilt as \<Contingency Planning Management\> in the form of the other family documents, with the plan as its section 3 and each control set out part by part (D-CP-14). AD FS was added to what recovery depends on (D-AC-23). Two items were added for gaps this chapter found: PA-114 and PA-115. The findings below are a true record of 6 and 9 November 2026 and are not changed.
 
 The methods were **Examine** (documents and the Docker configuration) and **Test** (R01 to R09 by Test-BackupRestore.ps1 on the tagged v1.0 build on 9 November 2026, with hashes in MANIFEST.md, in the CP evidence, on a throwaway stack). The system owner answered the interview questions at Level 1 (\<Interview Guide\>).
 
@@ -2052,16 +1826,16 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | CP-02\_ODP\[05\] | Review frequency is defined | S | \<Contingency Planning Management\> |
 | CP-02\_ODP\[06\] | Personnel told of changes are defined | S | \<Contingency Planning Management\> |
 | CP-02\_ODP\[07\] | Elements told of changes are defined | S | \<Contingency Planning Management\> |
-| CP-02a.01 | The plan identifies essential functions | S | \<Contingency Planning Management\>, section 4.3 |
-| CP-02a.02\[01\] | The plan gives recovery objectives | S | \<Contingency Planning Management\>, section 4.3.2 |
-| CP-02a.02\[02\] | The plan gives restoration priorities | S | \<Contingency Planning Management\>, section 4.3 |
-| CP-02a.02\[03\] | The plan gives measures | S | \<Contingency Planning Management\>, sections 4.3.2 and 4.10: time to recover and data lost against the objectives, and the restore test result |
-| CP-02a.03\[01\] | The plan addresses roles | S | \<Contingency Planning Management\>, section 4.4 |
-| CP-02a.03\[02\] | The plan addresses responsibilities | S | \<Contingency Planning Management\>, section 4.4 |
-| CP-02a.03\[03\] | The plan addresses people and contacts | S | \<Contingency Planning Management\>, section 4.4 |
-| CP-02a.04 | The plan addresses continuing functions in failure | S | \<Contingency Planning Management\>, section 4.6.3: no manual alternative exists, so a reduced service is restored first with the authorising official's agreement |
-| CP-02a.05 | The plan addresses full restoration | S | \<Contingency Planning Management\>, section 4.7 |
-| CP-02a.06 | The plan addresses sharing information | S | \<Contingency Planning Management\>, section 4.5.3 and appendix C: the call tree, daily user updates and contacts. Phone numbers are still to be added |
+| CP-02a.01 | The plan identifies essential functions | S | \<Contingency Planning Management\>, section 3.3 |
+| CP-02a.02\[01\] | The plan gives recovery objectives | S | \<Contingency Planning Management\>, section 3.3.2 |
+| CP-02a.02\[02\] | The plan gives restoration priorities | S | \<Contingency Planning Management\>, section 3.3 |
+| CP-02a.02\[03\] | The plan gives measures | S | \<Contingency Planning Management\>, sections 3.3.2 and 3.10: time to recover and data lost against the objectives, and the restore test result |
+| CP-02a.03\[01\] | The plan addresses roles | S | \<Contingency Planning Management\>, section 3.4 |
+| CP-02a.03\[02\] | The plan addresses responsibilities | S | \<Contingency Planning Management\>, section 3.4 |
+| CP-02a.03\[03\] | The plan addresses people and contacts | S | \<Contingency Planning Management\>, section 3.4 |
+| CP-02a.04 | The plan addresses continuing functions in failure | S | \<Contingency Planning Management\>, section 3.6.3: no manual alternative exists, so a reduced service is restored first with the authorising official's agreement |
+| CP-02a.05 | The plan addresses full restoration | S | \<Contingency Planning Management\>, section 3.7 |
+| CP-02a.06 | The plan addresses sharing information | S | \<Contingency Planning Management\>, section 3.5.3 and appendix C: the call tree, daily user updates and contacts. Phone numbers are still to be added |
 | CP-02a.07\[01\] | The plan is reviewed | S | Version \<ver\> reviewed by the system owner and authorising official (D-CP-03); version \<ver\> reviewed by both on 9 November 2026 (D-CP-11) |
 | CP-02a.07\[02\] | The plan is approved | S | Version \<ver\> approved by the system owner and authorising official (D-CP-03); version \<ver\> approved by both on 9 November 2026 (D-CP-11) |
 | CP-02b.\[01\] | Copies go to personnel | O-D | Not yet shared |
@@ -2089,8 +1863,8 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | CP-03a.01 | Training is given within the set time | O-D | PRO-CP-4 approved; not yet in use |
 | CP-03a.02 | Training is given when required by changes | O-D | PRO-CP-4 approved; not yet in use |
 | CP-03a.03 | Training is given at the set frequency | O-D | PRO-CP-4 approved; not yet in use |
-| CP-03b.\[01\] | Content is reviewed at the set frequency | O-D | Content outlined in \<Contingency Planning Management\>, section 4.10; first review not yet due |
-| CP-03b.\[02\] | Content is reviewed after set events | O-D | Content outlined in \<Contingency Planning Management\>, section 4.10; no training given yet (PA-81) |
+| CP-03b.\[01\] | Content is reviewed at the set frequency | O-D | Content outlined in \<Contingency Planning Management\>, section 3.10; first review not yet due |
+| CP-03b.\[02\] | Content is reviewed after set events | O-D | Content outlined in \<Contingency Planning Management\>, section 3.10; no training given yet (PA-81) |
 | CP-04\_ODP\[01\] | Test frequency is defined | S | \<Contingency Planning Management\> |
 | CP-04\_ODP\[02\] | Tests of effectiveness are defined | S | \<Contingency Planning Management\> |
 | CP-04\_ODP\[03\] | Tests of readiness are defined | S | \<Contingency Planning Management\> |
@@ -2142,7 +1916,7 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | CP-10\_ODP\[01\] | Recovery time is defined | S | \<Contingency Planning Management\> |
 | CP-10\_ODP\[02\] | Reconstitution time is defined | S | \<Contingency Planning Management\> |
 | CP-10\[01\] | Recovery is possible within the time | O-G | Restore shown in Docker in 4.5 seconds (R04, R08); no backups on the VMs (PA-64) |
-| CP-10\[02\] | Reconstitution is possible within the time | O-G | Checks defined in \<Contingency Planning Management\>, section 4.7, and shown in Docker (R05 to R07); no backups on the VMs (PA-64) |
+| CP-10\[02\] | Reconstitution is possible within the time | O-G | Checks defined in \<Contingency Planning Management\>, section 3.7, and shown in Docker (R05 to R07); no backups on the VMs (PA-64) |
 | CP-10(02) | Transaction recovery is in place | O-G | Transaction logs are not archived: archive\_mode is off (R09, PA-64) |
 
 ### CP.5 Assessment plan
@@ -2162,16 +1936,11 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | Boundary | \<System Name\>'s database, applications, secrets and the two VMs. \<Organisation\>'s second site, network and telecommunications are inherited |
 | Order of assessment | A, recovery objectives and the plan (CP-2 and enhancements); B, backups and recovery (CP-9, CP-10 and enhancements); C, training and testing (CP-3, CP-4); D, inherited sites and telecommunications (CP-6 to CP-8); E, policy (CP-1). The objectives come first because every other result is judged against them |
 | Needed from \<Organisation\> | EV-CP-01 and EV-CP-02 in \<Evidence Requests\>: the second site, and telecommunications |
-| Evidence retained | The CP evidence, with its manifest; \<Contingency Planning Management\>, sections 4.3 and 4.8 |
+| Evidence retained | The CP evidence, with its manifest; \<Contingency Planning Management\>, sections 3.3 and 3.8 |
 
 The authorising official approved this plan (D-GEN-18), as confirmed by the system owner on 8 November 2026. The independent assessor's team, schedule, and depth and coverage are added once agreed. For the Level 2 assessment, the assessor should repeat the restore test on the VMs with encrypted backups at the second site, observe a tabletop exercise, hold the interviews, examine \<Organisation\>'s evidence and re-determine every statement in section CP.4.
 
-| **CHAPTER IA** |
-| --- |
-
 ## IA Identification and Authentication
-
-[IA.1 Purpose](#ia1-purpose) · [IA.2 How to read this record](#ia2-how-to-read-this-record) · [IA.3 Executive summary](#ia3-executive-summary) · [IA.4 Findings by determination statement](#ia4-findings-by-determination-statement) · [IA.5 Assessment plan](#ia5-assessment-plan)
 
 ### IA.1 Purpose
 
@@ -2229,7 +1998,7 @@ The methods were **Examine** (code and configuration) and **Test**: Test-AuditAn
 
 Of NIST's 92 statements, 41 are satisfied, 14 are not applicable, 7 await a decision or approval, 15 show a gap in the system and 15 await evidence from the VMs or \<Organisation\>.
 
-Password storage, sign-in feedback, lockout, session limits and forced change of temporary passwords work as agreed, and the session limits are stricter than NIST SP 800-63B Revision 4 requires. The most serious gaps are password-only sign-in, including for global administrators, accepted to 6 May 2027 with an agreed end state (D-IA-07), and secrets committed in source code. Passwords of 12 to 14 characters are still accepted where 800-63B-4 requires 15 while sign-in is password-only (PA-82), users cannot change their own password, and the blocked list is short. The assurance levels in \<Identification and Authentication Management\>, section 4.4, were accepted by the authorising official (D-IA-08).
+Password storage, sign-in feedback, lockout, session limits and forced change of temporary passwords work as agreed, and the session limits are stricter than NIST SP 800-63B Revision 4 requires. The most serious gaps are password-only sign-in, including for global administrators, accepted to 6 May 2027 with an agreed end state (D-IA-07), and secrets committed in source code. Passwords of 12 to 14 characters are still accepted where 800-63B-4 requires 15 while sign-in is password-only (PA-82), users cannot change their own password, and the blocked list is short. The assurance levels in \<Identification and Authentication Management\>, section 3.4, were accepted by the authorising official (D-IA-08).
 
 ### IA.4 Findings by determination statement
 
@@ -2349,16 +2118,11 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | Boundary | \<System Name\>'s sign-in, accounts, authenticators and secrets. \<Organisation\>'s identity proofing and device identification are inherited |
 | Order of assessment | A, authenticators (IA-5 and enhancements, IA-6, IA-7); B, sign-in and multi-factor (IA-2 and enhancements, IA-11); C, identifiers (IA-4); D, inherited proofing and devices (IA-3, IA-12); E, policy (IA-1). Authenticators come first because sign-in depends on them |
 | Needed from \<Organisation\> | EV-IA-01 to EV-IA-04 in \<Evidence Requests\>: device identification, identity proofing, cryptographic modules, and sign-in through AD FS |
-| Evidence retained | The AU and IA evidence, with its manifest; \<Identification and Authentication Management\>, sections 4.4 to 4.6 and appendix A |
+| Evidence retained | The AU and IA evidence, with its manifest; \<Identification and Authentication Management\>, sections 3.4 to 3.6 and appendix A |
 
 The authorising official approved this plan (D-GEN-18), as confirmed by the system owner on 8 November 2026. The independent assessor's team, schedule, and depth and coverage are added once agreed. For the Level 2 assessment, the assessor should repeat the checks on the VMs, test multi-factor sign-in once built, hold the interviews, examine \<Organisation\>'s evidence and re-determine every statement in section IA.4.
 
-| **CHAPTER IR** |
-| --- |
-
 ## IR Incident Response
-
-[IR.1 Purpose](#ir1-purpose) · [IR.2 How to read this record](#ir2-how-to-read-this-record) · [IR.3 Executive summary](#ir3-executive-summary) · [IR.4 Findings by determination statement](#ir4-findings-by-determination-statement) · [IR.5 Assessment plan](#ir5-assessment-plan)
 
 ### IR.1 Purpose
 
@@ -2366,7 +2130,7 @@ This records the Level 1 self-assessment of the 13 IR entries in the NIST SP 800
 
 ### IR.2 How to read this record
 
-**Change since this assessment.** On 17 November 2026 the Incident Response Plan was rebuilt as \<Incident Response Management\> in the form of the other family documents, with the plan as its section 4 and each control set out part by part (D-IR-10). A playbook for a compromise at \<Organisation\> was added, as sign-in now goes through AD FS (D-AC-23). Two items were added for gaps this chapter found: PA-118 and PA-119. The section numbers cited for IR-8 follow the rebuilt document. The findings below are a true record of 6 and 10 November 2026 and are not changed.
+**Change since this assessment.** On 17 November 2026 the Incident Response Plan was rebuilt as \<Incident Response Management\> in the form of the other family documents, with the plan as its section 3 and each control set out part by part (D-IR-10). A playbook for a compromise at \<Organisation\> was added, as sign-in now goes through AD FS (D-AC-23). Two items were added for gaps this chapter found: PA-118 and PA-119. The section numbers cited for IR-8 follow the rebuilt document. The findings below are a true record of 6 and 10 November 2026 and are not changed.
 
 The methods were **Examine** (documents and code) and **Test**: the containment and evidence drill D01 to D08 by Test-IncidentReadiness.ps1 on the tagged v1.0 build on 10 November 2026, with hashes in MANIFEST.md, in the IR evidence, on a throwaway stack. The system owner answered INT-IR-01 to 04 in writing. \<System Name\> has had no operational incidents, as it is not live; INC-2026-001 records the secrets found in git history.
 
@@ -2444,8 +2208,8 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | IR-02a.01 | Training is given within the set time | O-D | PRO-IR-3 approved; not yet in use |
 | IR-02a.02 | Training is given when required by changes | O-D | PRO-IR-3 approved; not yet in use |
 | IR-02a.03 | Training is given at the set frequency | O-D | PRO-IR-3 approved; not yet in use |
-| IR-02b.\[01\] | Content is reviewed at the set frequency | O-D | Content written in \<Incident Response Management\>, section 4.4, and PRO-IR-3; first review not yet due |
-| IR-02b.\[02\] | Content is reviewed after set events | O-D | Content written in \<Incident Response Management\>, section 4.4, and PRO-IR-3; no event yet |
+| IR-02b.\[01\] | Content is reviewed at the set frequency | O-D | Content written in \<Incident Response Management\>, section 3.4, and PRO-IR-3; first review not yet due |
+| IR-02b.\[02\] | Content is reviewed after set events | O-D | Content written in \<Incident Response Management\>, section 3.4, and PRO-IR-3; no event yet |
 | IR-03\_ODP\[01\] | Test frequency is defined | S | \<Incident Response Management\> |
 | IR-03\_ODP\[02\] | Tests are defined | S | \<Incident Response Management\> |
 | IR-03 | Capability is tested | O-D | No exercise yet held |
@@ -2453,7 +2217,7 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | IR-04a.\[01\] | A handling capability is in place, consistent with the plan | O-D | Plan approved; not yet in use |
 | IR-04a.\[02\] | It includes preparation | O-D | Plan approved; not yet in use |
 | IR-04a.\[03\] | It includes detection and analysis | O-D | Plan approved; not yet in use |
-| IR-04a.\[04\] | It includes containment | O-D | Playbooks in \<Incident Response Management\>, section 4.9; containment shown in Docker (D01, D03); not yet in use |
+| IR-04a.\[04\] | It includes containment | O-D | Playbooks in \<Incident Response Management\>, section 3.9; containment shown in Docker (D01, D03); not yet in use |
 | IR-04a.\[05\] | It includes eradication | O-D | Plan approved; not yet in use |
 | IR-04a.\[06\] | It includes recovery | O-D | Plan approved; not yet in use |
 | IR-04b. | Handling is coordinated with contingency planning | O-D | Plans approved; not yet in use |
@@ -2485,16 +2249,16 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | IR-08\_ODP\[05\] | Elements receiving copies are defined | S | \<Incident Response Management\> |
 | IR-08\_ODP\[06\] | Personnel told of changes are defined | S | \<Incident Response Management\> |
 | IR-08\_ODP\[07\] | Elements told of changes are defined | S | \<Incident Response Management\> |
-| IR-08a.01 | The plan gives a roadmap | S | \<Incident Response Management\>, section 4 |
-| IR-08a.02 | The plan describes the structure | S | \<Incident Response Management\>, section 4.3 |
-| IR-08a.03 | The plan gives the approach | S | \<Incident Response Management\>, section 4.2 |
-| IR-08a.04 | The plan meets \<System Name\>'s needs | S | \<Incident Response Management\>, sections 4.2, 4.6, 4.8 and 4.9: severity set for Restricted and HR documents, the personal data breach steps, and playbooks for \<System Name\>'s likely incidents |
-| IR-08a.05 | The plan defines reportable incidents | S | \<Incident Response Management\>, section 4.11 |
-| IR-08a.06 | The plan gives measures | S | \<Incident Response Management\>, section 4.12: measures with targets, reported monthly |
-| IR-08a.07 | The plan defines resources and support | S | \<Incident Response Management\>, section 4.12 |
-| IR-08a.08 | The plan addresses sharing | S | \<Incident Response Management\>, section 4.13 |
+| IR-08a.01 | The plan gives a roadmap | S | \<Incident Response Management\>, section 3 |
+| IR-08a.02 | The plan describes the structure | S | \<Incident Response Management\>, section 3.3 |
+| IR-08a.03 | The plan gives the approach | S | \<Incident Response Management\>, section 3.2 |
+| IR-08a.04 | The plan meets \<System Name\>'s needs | S | \<Incident Response Management\>, sections 3.2, 3.6, 3.8 and 3.9: severity set for Restricted and HR documents, the personal data breach steps, and playbooks for \<System Name\>'s likely incidents |
+| IR-08a.05 | The plan defines reportable incidents | S | \<Incident Response Management\>, section 3.11 |
+| IR-08a.06 | The plan gives measures | S | \<Incident Response Management\>, section 3.12: measures with targets, reported monthly |
+| IR-08a.07 | The plan defines resources and support | S | \<Incident Response Management\>, section 3.12 |
+| IR-08a.08 | The plan addresses sharing | S | \<Incident Response Management\>, section 3.13 |
 | IR-08a.09 | The plan is reviewed and approved | S | Approved by the Head of Cyber (D-IR-03) |
-| IR-08a.10 | The plan designates responsibility | S | \<Incident Response Management\>, section 4.3 |
+| IR-08a.10 | The plan designates responsibility | S | \<Incident Response Management\>, section 3.3 |
 | IR-08b.\[01\] | Copies go to personnel | O-D | Not yet shared |
 | IR-08b.\[02\] | Copies go to elements | O-D | Not yet shared |
 | IR-08c. | The plan is updated | O-D | First review not yet due |
@@ -2513,23 +2277,18 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | Procedures | SP 800-53A Rev 5, using NIST's published statements and identifiers (catalog release 5.2.0), with NIST SP 800-61 Revision 3 as the reference for the plan |
 | Dates | 6 November 2026; updated on 10 November 2026 after the IR pack review |
 | Site | One PC, using a separate throwaway Docker stack with sample data. The VMs are not built |
-| Examine | \<Policy\> (IR), \<Procedures\> (IR) and \<Incident Response Management\> \<ver\>; TPL-10 and TPL-11; SyOps section 5.9; the session and audit code. Depth: focused. Coverage: focused |
+| Examine | \<Policy\> (IR), \<Procedures\> (IR) and \<Incident Response Management\> \<ver\>; TPL-10 and TPL-11; SyOps section 4.9; the session and audit code. Depth: focused. Coverage: focused |
 | Test | D01 to D08 by Test-IncidentReadiness.ps1 on 10 November 2026 (ir-test-results-2026-11-10-v1.0.csv, the evidence export and MANIFEST.md). Depth: focused. Coverage: focused. No tabletop exercise has been held |
 | Interview | System owner's written answers only. The security officer, legal adviser and \<Organisation\>'s security contact remain |
 | Previous results reused | The AC session checks T37, T38 and T40 to T42 from 5 November 2026 |
 | Boundary | \<System Name\>'s incident handling, records and evidence. \<Organisation\>'s monitoring, incident process and forensic help are inherited |
 | Order of assessment | A, the plan and its approval (IR-8); B, handling and records (IR-4, IR-4(1), IR-5); C, reporting (IR-6 and enhancements); D, training and testing (IR-2, IR-3, IR-3(2)); E, assistance (IR-7, IR-7(1)); F, policy (IR-1). The plan comes first because every other result is judged against it |
 | Needed from \<Organisation\> | EV-IR-01 in \<Evidence Requests\>: its incident process and contact route |
-| Evidence retained | The IR evidence, with its manifest; \<Incident Response Management\>, sections 4.9, 4.10 and 4.14 |
+| Evidence retained | The IR evidence, with its manifest; \<Incident Response Management\>, sections 3.9, 3.10 and 3.14 |
 
 The authorising official approved this plan (D-GEN-18), as confirmed by the system owner on 8 November 2026. The independent assessor's team, schedule, and depth and coverage are added once agreed. For the Level 2 assessment, the assessor should observe the first tabletop exercise, repeat the drill on the VMs, examine the incident register and TPL-10 records, hold the interviews, examine \<Organisation\>'s evidence and re-determine every statement in section IR.4.
 
-| **CHAPTER MA** |
-| --- |
-
 ## MA Maintenance
-
-[MA.1 Purpose](#ma1-purpose) · [MA.2 How to read this record](#ma2-how-to-read-this-record) · [MA.3 Executive summary](#ma3-executive-summary) · [MA.4 Findings by determination statement](#ma4-findings-by-determination-statement) · [MA.5 Assessment plan](#ma5-assessment-plan)
 
 ### MA.1 Purpose
 
@@ -2617,7 +2376,7 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | MA-02e. | Controls are checked afterwards | O-D | Checklist in PRO-MA-1 (\<Procedures\>, Table MA-2); the first three checks passed in Docker after a simulated restart (M06 to M08); not yet in use on the VMs |
 | MA-02f. | Information is in maintenance records | O-D | TPL-12 holds the fields; not yet in use. Schema changes leave no record in the database (M09, PA-84) |
 | MA-03\_ODP | Tool review frequency is defined | S | \<Maintenance Management\> |
-| MA-03a.\[01\] | Tool use is approved | S | Provisional tool list in \<Maintenance Management\>, section 4.5, approved by the system owner (D-MA-08); to be confirmed at VM build (PA-67) |
+| MA-03a.\[01\] | Tool use is approved | S | Provisional tool list in \<Maintenance Management\>, section 3.5, approved by the system owner (D-MA-08); to be confirmed at VM build (PA-67) |
 | MA-03a.\[02\] | Tool use is controlled | O-G | Five built-in maintenance pages are open to global administrators (M01), and the images hold a package manager (M10); controlled only by PRO-MA-7 (PA-31, PA-85) |
 | MA-03a.\[03\] | Tool use is monitored | O-G | The built-in maintenance pages write no audit record, so their use cannot be monitored (M03, PA-31) |
 | MA-03b. | Tools are reviewed | O-D | First review at VM build, then every 12 months (C28) |
@@ -2631,16 +2390,16 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | MA-04a.\[01\] | Remote maintenance is approved | O-D | PRO-MA-4 approved; not yet in use |
 | MA-04a.\[02\] | Remote maintenance is monitored | O-D | PRO-MA-4 approved; not yet in use |
 | MA-04b.\[01\] | Tools are allowed only as policy says | O-G | The admin portal, route R3, is published on every network interface, not only the managed route (M04, PA-83) |
-| MA-04b.\[02\] | Tools are documented in the security plan | S | Routes and tools in \<Maintenance Management\>, sections 4.4 and 4.5, referenced from \<System Security Plan\>, section 4.7. SSP Appendix L is superseded |
+| MA-04b.\[02\] | Tools are documented in the security plan | S | Routes and tools in \<Maintenance Management\>, sections 3.4 and 3.5, referenced from \<System Security Plan\>, section 3.7. SSP Appendix L is superseded |
 | MA-04c. | Strong authentication is used | O-G | The admin portal is password-only (PA-23); \<Organisation\>'s route is not evidenced (EV-MA-02) |
 | MA-04d. | Records are kept | O-D | TPL-12 with the session reference (PRO-MA-4); not yet in use |
 | MA-04e.\[01\] | Sessions end when finished | O-E | Signing out of the admin portal ends the session (M12); \<Organisation\>'s route not evidenced (EV-MA-02) |
 | MA-04e.\[02\] | Network connections end when finished | O-E | \<Organisation\>'s route (EV-MA-02) |
 | MA-05a.\[01\] | An authorisation process exists | S | PRO-MA-5, approved (D-MA-02) |
-| MA-05a.\[02\] | A list is kept | S | Provisional list in \<Maintenance Management\>, section 4.6, approved by the system owner (D-MA-08); to be confirmed at VM build (PA-67) |
-| MA-05b. | Unescorted people have the access needed | O-D | Screening and Part B dates are placeholders in \<Maintenance Management\>, section 4.6 |
+| MA-05a.\[02\] | A list is kept | S | Provisional list in \<Maintenance Management\>, section 3.6, approved by the system owner (D-MA-08); to be confirmed at VM build (PA-67) |
+| MA-05b. | Unescorted people have the access needed | O-D | Screening and Part B dates are placeholders in \<Maintenance Management\>, section 3.6 |
 | MA-05c. | Others are supervised | O-D | PRO-MA-5 approved; not yet in use |
-| MA-06\_ODP\[01\] | Components are defined | S | \<Maintenance Management\>, section 4.8 (D-MA-P02) |
+| MA-06\_ODP\[01\] | Components are defined | S | \<Maintenance Management\>, section 3.8 (D-MA-P02) |
 | MA-06\_ODP\[02\] | Time is defined | S | 24 hours for hardware and the hypervisor (D-MA-P02) |
 | MA-06 | Support and parts arrive within the time | O-E | \<Organisation\> (EV-MA-01). .NET 10 and PostgreSQL 18 are supported versions (M11) |
 
@@ -2654,23 +2413,18 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | Procedures | SP 800-53A Rev 5, using NIST's published statements and identifiers (catalog release 5.2.0) |
 | Dates | 6 November 2026; updated on 10 November 2026 after the MA pack review |
 | Site | One PC, using a separate throwaway Docker stack with sample data. The VMs are not built |
-| Examine | \<Policy\> (MA), \<Procedures\> (MA) and the MA chapter of \<Control Implementation Register\> at \<ver\>, now in \<Maintenance Management\>; TPL-12; SyOps sections 5.6 and 5.7; the admin portal maintenance pages, the test stack's compose file and the image build file. Depth: focused. Coverage: focused |
+| Examine | \<Policy\> (MA), \<Procedures\> (MA) and the MA chapter of \<Control Implementation Register\> at \<ver\>, now in \<Maintenance Management\>; TPL-12; SyOps sections 4.6 and 4.7; the admin portal maintenance pages, the test stack's compose file and the image build file. Depth: focused. Coverage: focused |
 | Test | M01 to M12 by Test-Maintenance.ps1 on 10 November 2026 (ma-test-results-2026-11-10-v1.0.csv and MANIFEST.md). Depth: focused. Coverage: focused |
 | Interview | System owner's written answers only. The Windows server administrator, database administrator, global administrator and \<Organisation\>'s IT service desk remain |
 | Previous results reused | AC checks T03, T26 and T38 (5 November 2026); IA check A11 (global administrator password-only); CM checks C09 and C10 |
 | Boundary | Maintenance of the VMs, database and applications, and \<System Name\>'s built-in maintenance functions. Hardware and hypervisor maintenance, the managed route and support are inherited from \<Organisation\> |
 | Order of assessment | A, tools and built-in functions (MA-3 and enhancements); B, remote routes (MA-4); C, controlled maintenance and records (MA-2); D, people (MA-5); E, timely maintenance (MA-6); F, policy (MA-1). Tools come first because the largest gaps are there |
 | Needed from \<Organisation\> | EV-MA-01 and EV-MA-02 in \<Evidence Requests\>: its maintenance process, sanitising, service agreement, and the managed route's settings and logs |
-| Evidence retained | The MA evidence, with its manifest; \<Maintenance Management\>, sections 4.4 to 4.8 |
+| Evidence retained | The MA evidence, with its manifest; \<Maintenance Management\>, sections 3.4 to 3.8 |
 
 For the Level 2 assessment, the assessor should repeat the tests on the VMs, examine TPL-12 records and change records for real maintenance, observe a remote session over the managed route, hold the interviews, examine \<Organisation\>'s evidence and re-determine every statement in section MA.4.
 
-| **CHAPTER MP** |
-| --- |
-
 ## MP Media Protection
-
-[MP.1 Purpose](#mp1-purpose) · [MP.2 How to read this record](#mp2-how-to-read-this-record) · [MP.3 Executive summary](#mp3-executive-summary) · [MP.4 Findings by determination statement](#mp4-findings-by-determination-statement) · [MP.5 Assessment plan](#mp5-assessment-plan)
 
 ### MP.1 Purpose
 
@@ -2745,7 +2499,7 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | MP-01c.01\[02\] | Policy is reviewed after set events | S | Reviewed on 10 November 2026 after the MP pack review (D-MP-06) |
 | MP-01c.02\[01\] | Procedures are reviewed at the set frequency | O-D | First review not yet due |
 | MP-01c.02\[02\] | Procedures are reviewed after set events | S | Reviewed and approved as version \<ver\> on 10 November 2026 (D-MP-08) |
-| MP-02\_ODP\[01\] | Digital media are defined | S | \<Media Protection Management\>, section 4.2 (D-MP-P02) |
+| MP-02\_ODP\[01\] | Digital media are defined | S | \<Media Protection Management\>, section 3.2 (D-MP-P02) |
 | MP-02\_ODP\[02\] | Who may access them is defined | S | \<Media Protection Management\>, appendix A (D-MP-P02) |
 | MP-02\_ODP\[03\] | Non-digital media are defined | S | \<Media Protection Management\> |
 | MP-02\_ODP\[04\] | Who may access them is defined | S | \<Media Protection Management\> |
@@ -2778,13 +2532,13 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | MP-06\_ODP\[01\] | Media for disposal are defined | S | \<Media Protection Management\> |
 | MP-06\_ODP\[02\] | Media for release are defined | S | \<Media Protection Management\> |
 | MP-06\_ODP\[03\] | Media for reuse are defined | S | \<Media Protection Management\> |
-| MP-06\_ODP\[04\] | Technique for disposal is defined | S | \<Media Protection Management\>, section 4.6: NIST SP 800-88 Revision 2 and IEEE 2883-2022 (D-MP-P02) |
-| MP-06\_ODP\[05\] | Technique for release is defined | S | \<Media Protection Management\>, section 4.6 (D-MP-P02) |
-| MP-06\_ODP\[06\] | Technique for reuse is defined | S | \<Media Protection Management\>, section 4.6 (D-MP-P02) |
+| MP-06\_ODP\[04\] | Technique for disposal is defined | S | \<Media Protection Management\>, section 3.6: NIST SP 800-88 Revision 2 and IEEE 2883-2022 (D-MP-P02) |
+| MP-06\_ODP\[05\] | Technique for release is defined | S | \<Media Protection Management\>, section 3.6 (D-MP-P02) |
+| MP-06\_ODP\[06\] | Technique for reuse is defined | S | \<Media Protection Management\>, section 3.6 (D-MP-P02) |
 | MP-06a.\[01\] | Media are sanitised before disposal | O-E | \<Organisation\> (EV-MP-02) |
 | MP-06a.\[02\] | Media are sanitised before release | O-E | \<Organisation\> (EV-MP-02) |
 | MP-06a.\[03\] | Media are sanitised before reuse | O-E | \<Organisation\> (EV-MP-02) |
-| MP-06b. | Mechanisms match the classification | O-E | Methods by media type set in \<Media Protection Management\>, section 4.6, including cryptographic erase; not evidenced (EV-MP-02, PA-52) |
+| MP-06b. | Mechanisms match the classification | O-E | Methods by media type set in \<Media Protection Management\>, section 3.6, including cryptographic erase; not evidenced (EV-MP-02, PA-52) |
 | MP-07\_ODP\[01\] | Media types are defined | S | \<Media Protection Management\> |
 | MP-07\_ODP\[02\] | Restrict or prohibit is selected | S | \<Media Protection Management\> |
 | MP-07\_ODP\[03\] | Systems are defined | S | \<Media Protection Management\> |
@@ -2802,23 +2556,18 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | Procedures | SP 800-53A Rev 5, using NIST's published statements and identifiers (catalog release 5.2.0), with NIST SP 800-88 Revision 2 as the reference for sanitising |
 | Dates | 6 November 2026; updated on 10 November 2026 after the MP pack review |
 | Site | One PC, using a separate throwaway Docker stack with sample data. The VMs are not built |
-| Examine | \<Policy\> (MP), \<Procedures\> (MP) and the MP chapter of \<Control Implementation Register\> at \<ver\>, now in \<Media Protection Management\>; TPL-13; SyOps A28, A30 to A35 and section 5.8; the export code and UI application pages. Depth: focused. Coverage: focused |
+| Examine | \<Policy\> (MP), \<Procedures\> (MP) and the MP chapter of \<Control Implementation Register\> at \<ver\>, now in \<Media Protection Management\>; TPL-13; SyOps A28, A30 to A35 and section 4.8; the export code and UI application pages. Depth: focused. Coverage: focused |
 | Test | P01 to P09 by Test-MediaProtection.ps1 on 10 November 2026 (mp-test-results-2026-11-10-v1.0.csv and MANIFEST.md). Depth: focused. Coverage: focused |
 | Interview | System owner's written answers only. The database administrator, a sample of users and \<Organisation\>'s IT service desk remain |
 | Previous results reused | AC check T62 (export ownership); CP check R02 (unencrypted backup); AU check A38 (personal data in the log) |
 | Boundary | \<System Name\>'s exports, marking, users' copies and printouts. Storage, transport and sanitising of physical disks and backup media, and device control, are inherited from \<Organisation\> |
 | Order of assessment | A, the media inventory (MP-2, MP-4); B, export copies (MP-4, MP-6); C, marking (MP-3); D, sanitising (MP-6); E, transport (MP-5); F, portable storage (MP-7); G, policy (MP-1). The inventory comes first because every other result depends on it |
 | Needed from \<Organisation\> | EV-MP-01 to EV-MP-03 in \<Evidence Requests\>: media handling, sanitising certificates and device control |
-| Evidence retained | The MP evidence, with its manifest; \<Media Protection Management\>, sections 4.2 to 4.6 |
+| Evidence retained | The MP evidence, with its manifest; \<Media Protection Management\>, sections 3.2 to 3.6 |
 
 For the Level 2 assessment, the assessor should repeat the tests on the VMs, examine the export folder and a sample of users' devices, examine TPL-13 records and \<Organisation\>'s certificates, test USB blocking, hold the interviews and re-determine every statement in section MP.4.
 
-| **CHAPTER PE** |
-| --- |
-
 ## PE Physical and Environmental Protection
-
-[PE.1 Purpose](#pe1-purpose) · [PE.2 How to read this record](#pe2-how-to-read-this-record) · [PE.3 Executive summary](#pe3-executive-summary) · [PE.4 Findings by determination statement](#pe4-findings-by-determination-statement) · [PE.5 Assessment plan](#pe5-assessment-plan)
 
 ### PE.1 Purpose
 
@@ -2828,7 +2577,7 @@ This records the Level 1 self-assessment of the 18 PE entries in the NIST SP 800
 
 **Change since this assessment.** On 17 November 2026 the physical and environmental protection design was cut from \<Control Implementation Register\> into \<Physical and Environmental Protection Management\>, with each control set out part by part (D-PE-11). A SOC 2 report is now accepted only if it covers the availability criteria as well as physical access, the emergency shutoff must be guarded, and a physical incident is to be reported within 24 hours (D-PE-12). Both data centres are inspected at Level 2. One item was added for the gaps this chapter found: PA-122. The findings below are a true record of 6 and 10 November 2026 and are not changed.
 
-The method was **Examine** (documents). Fifteen of the 18 controls are inherited from \<Organisation\>'s data centres, and the inheritance matrix in \<Physical and Environmental Protection Management\>, section 4.3, shows the evidence that closes each one. Nothing more in PE can be tested in Docker: \<System Name\>'s own part, the screen lock, was tested under AC-11, and output marking under MP-3. No site has been visited.
+The method was **Examine** (documents). Fifteen of the 18 controls are inherited from \<Organisation\>'s data centres, and the inheritance matrix in \<Physical and Environmental Protection Management\>, section 3.3, shows the evidence that closes each one. Nothing more in PE can be tested in Docker: \<System Name\>'s own part, the screen lock, was tested under AC-11, and output marking under MP-3. No site has been visited.
 
 **Limit of the current evidence:** none of \<Organisation\>'s evidence (EV-PE-01 to EV-PE-05) has been received, so every inherited statement stays O-E.
 
@@ -2997,7 +2746,7 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | PE-17a. | Controls at work sites are determined | S | \<Physical and Environmental Protection Management\>, approved (D-PE-03) |
 | PE-17b. | Those controls are used | O-E | \<Organisation\> (EV-PE-05) |
 | PE-17c. | Their effectiveness is assessed | O-D | Yearly checklist (PRO-PE-4, C30, TPL-4); not yet assessed |
-| PE-17d. | People can reach security staff | O-D | Security officer named in \<Security Operating Procedures\>, section 7; the contact details in \<Roles and Responsibilities\>, section 7, are still placeholders |
+| PE-17d. | People can reach security staff | O-D | Security officer named in \<Security Operating Procedures\>, section 6; the contact details in \<Roles and Responsibilities\>, section 6, are still placeholders |
 
 ### PE.5 Assessment plan
 
@@ -3008,8 +2757,8 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | Scope | The 18 PE entries in the SP 800-53B Moderate baseline, with 121 determination statements, at the data centre, the second site, the offices and homes |
 | Procedures | SP 800-53A Rev 5, using NIST's published statements and identifiers (catalog release 5.2.0) |
 | Dates | 6 November 2026; updated on 10 November 2026 after the PE pack review |
-| Site | No site visited. The data centre and second site are \[to be named\] in \<Physical and Environmental Protection Management\>, section 4.2 |
-| Examine | \<Policy\> (PE), \<Procedures\> (PE) and the PE chapter of \<Control Implementation Register\> at \<ver\>, now in \<Physical and Environmental Protection Management\>, with the inheritance matrix; SyOps A33, A36 to A38; \<Incident Response Management\>, section 4.9. Depth: focused. Coverage: focused |
+| Site | No site visited. The data centre and second site are \[to be named\] in \<Physical and Environmental Protection Management\>, section 3.2 |
+| Examine | \<Policy\> (PE), \<Procedures\> (PE) and the PE chapter of \<Control Implementation Register\> at \<ver\>, now in \<Physical and Environmental Protection Management\>, with the inheritance matrix; SyOps A33, A36 to A38; \<Incident Response Management\>, section 3.9. Depth: focused. Coverage: focused |
 | Test | None for PE. The screen lock was tested under AC-11, and output marking under MP-3 (P07) |
 | Interview | System owner's written answers only. The security officer, a sample of home workers and \<Organisation\>'s facilities contact remain |
 | Site inspection | Once at Level 2, using TPL-20, by the independent assessor or \<Organisation\>'s auditor (PRO-PE-5) |
@@ -3017,16 +2766,11 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | Boundary | Physical and environmental protection of the data centre and second site is inherited from \<Organisation\>. \<System Name\> provides the policy, the printer and screen rules, home working rules, and incident handling |
 | Order of assessment | A, inherited evidence against the matrix (PE-2 to PE-16); B, the site inspection; C, output devices (PE-5); D, home working (PE-17); E, policy (PE-1). The inherited evidence comes first because it closes most statements |
 | Needed from \<Organisation\> | EV-PE-01 to EV-PE-05 in \<Evidence Requests\>: first its ISO/IEC 27001 certificate and Statement of Applicability for Annex A.7, or a SOC 2 report, for both sites |
-| Evidence retained | \<Physical and Environmental Protection Management\>, sections 4.2 and 4.3; \<Evidence Requests\>; completed TPL-20 |
+| Evidence retained | \<Physical and Environmental Protection Management\>, sections 3.2 and 3.3; \<Evidence Requests\>; completed TPL-20 |
 
 For the Level 2 assessment, the assessor should examine \<Organisation\>'s certificate, Statement of Applicability or SOC 2 report against the inheritance matrix, inspect the data centre with TPL-20, interview the security officer and a sample of home workers, and re-determine every statement in section PE.4.
 
-| **CHAPTER PL** |
-| --- |
-
 ## PL Planning
-
-[PL.1 Purpose](#pl1-purpose) · [PL.2 How to read this record](#pl2-how-to-read-this-record) · [PL.3 Executive summary](#pl3-executive-summary) · [PL.4 Findings by determination statement](#pl4-findings-by-determination-statement) · [PL.5 Assessment plan](#pl5-assessment-plan)
 
 ### PL.1 Purpose
 
@@ -3104,65 +2848,65 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | PL-02\_ODP\[03\] | Review frequency is defined | S | \<Planning Management\> |
 | PL-02a.01\[01\] | Security plan fits the enterprise architecture | O-E | \<Organisation\>'s architecture not seen (EV-PL-01) |
 | PL-02a.01\[02\] | Privacy plan fits the enterprise architecture | O-E | \<Organisation\>'s architecture not seen (EV-PL-01) |
-| PL-02a.02\[01\] | Security plan defines the boundary | S | \<System Security Plan\>, section 4.1; \<Security Architecture\>, section 3 |
-| PL-02a.02\[02\] | Privacy plan defines the boundary | S | \<Privacy Plan\>, section 3 |
+| PL-02a.02\[01\] | Security plan defines the boundary | S | \<System Security Plan\>, section 3.1; \<Security Architecture\>, section 2 |
+| PL-02a.02\[02\] | Privacy plan defines the boundary | S | \<Privacy Plan\>, section 2 |
 | PL-02a.03\[01\] | Security plan describes the operational context | S | \<System Security Plan\>, \<Concept of Operations\> |
-| PL-02a.03\[02\] | Privacy plan describes the operational context | S | \<Privacy Plan\>, section 3 |
+| PL-02a.03\[02\] | Privacy plan describes the operational context | S | \<Privacy Plan\>, section 2 |
 | PL-02a.04\[01\] | Security plan identifies people in roles | S | \<System Security Plan\>, \<Roles and Responsibilities\> |
-| PL-02a.04\[02\] | Privacy plan identifies people in roles | S | \<Privacy Plan\>, section 4 |
-| PL-02a.05\[01\] | Security plan identifies information types | S | \<System Security Plan\>, Table 7 |
-| PL-02a.05\[02\] | Privacy plan identifies information types | S | \<Privacy Plan\>, section 5 |
+| PL-02a.04\[02\] | Privacy plan identifies people in roles | S | \<Privacy Plan\>, section 3 |
+| PL-02a.05\[01\] | Security plan identifies information types | S | \<System Security Plan\>, Table 4 |
+| PL-02a.05\[02\] | Privacy plan identifies information types | S | \<Privacy Plan\>, section 4 |
 | PL-02a.06\[01\] | Security plan gives the categorisation | S | \<System Security Plan\>, approved by \[Name\] |
-| PL-02a.06\[02\] | Privacy plan gives the categorisation | S | \<Privacy Plan\>, section 5 |
+| PL-02a.06\[02\] | Privacy plan gives the categorisation | S | \<Privacy Plan\>, section 4 |
 | PL-02a.07\[01\] | Security plan describes threats | S | \<System Security Plan\>, \<Risk List\> |
-| PL-02a.07\[02\] | Privacy plan describes threats | S | \<Privacy Plan\>, section 6 |
+| PL-02a.07\[02\] | Privacy plan describes threats | S | \<Privacy Plan\>, section 5 |
 | PL-02a.08\[01\] | Security plan gives privacy risk results | O-D | No impact assessment yet (PA-72) |
 | PL-02a.08\[02\] | Privacy plan gives privacy risk results | O-D | No impact assessment yet (PA-72) |
 | PL-02a.09\[01\] | Security plan describes the environment | S | \<System Security Plan\>, \<Security Architecture\> |
-| PL-02a.09\[02\] | Privacy plan describes the environment | S | \<Privacy Plan\>, section 3 |
+| PL-02a.09\[02\] | Privacy plan describes the environment | S | \<Privacy Plan\>, section 2 |
 | PL-02a.10\[01\] | Security plan gives requirements | S | \<System Security Plan\> |
-| PL-02a.10\[02\] | Privacy plan gives requirements | S | \<Privacy Plan\>, section 7 |
+| PL-02a.10\[02\] | Privacy plan gives requirements | S | \<Privacy Plan\>, section 6 |
 | PL-02a.11\[01\] | Security plan identifies baselines and overlays | S | \<System Security Plan\>, Moderate |
-| PL-02a.11\[02\] | Privacy plan identifies baselines and overlays | S | \<Privacy Plan\>, section 7 |
-| PL-02a.12\[01\] | Security plan describes controls | S | \<System Security Plan\>, section 8, one row for each control |
-| PL-02a.12\[02\] | Privacy plan describes controls | S | \<Privacy Plan\>, section 7; \<System Security Plan\>, section 8.14 |
+| PL-02a.11\[02\] | Privacy plan identifies baselines and overlays | S | \<Privacy Plan\>, section 6 |
+| PL-02a.12\[01\] | Security plan describes controls | S | \<System Security Plan\>, section 7, one row for each control |
+| PL-02a.12\[02\] | Privacy plan describes controls | S | \<Privacy Plan\>, section 6; \<System Security Plan\>, section 7.14 |
 | PL-02a.13\[01\] | Security plan includes risk determinations | S | \<Risk List\>, \<Decision Register\> |
-| PL-02a.13\[02\] | Privacy plan includes risk determinations | S | \<Privacy Plan\>, section 6; \<Decision Register\> |
-| PL-02a.14\[01\] | Security plan includes activities to coordinate | S | \<Security Operating Procedures\>, Table 8, \<Plan of Action and Milestones\> |
-| PL-02a.14\[02\] | Privacy plan includes activities to coordinate | S | \<Privacy Plan\>, section 8 |
+| PL-02a.13\[02\] | Privacy plan includes risk determinations | S | \<Privacy Plan\>, section 5; \<Decision Register\> |
+| PL-02a.14\[01\] | Security plan includes activities to coordinate | S | \<Security Operating Procedures\>, Table 5, \<Plan of Action and Milestones\> |
+| PL-02a.14\[02\] | Privacy plan includes activities to coordinate | S | \<Privacy Plan\>, section 7 |
 | PL-02a.15\[01\] | Security plan is reviewed and approved | S | Approved by the system owner and accepted by \[Name\] as an accurate record at version \<ver\> of the plan; later versions await his acceptance (D-GEN-20); the Head of Cyber's concurrence requested (D-PL-06) |
 | PL-02a.15\[02\] | Privacy plan is reviewed and approved | S | Approved by \[Name\] and \[Name\] (D-PT-05) |
-| PL-02b.\[01\] | Copies are distributed | O-D | Not yet shared; each issue to be recorded in the plan review log (PRO-PL-2) |
-| PL-02b.\[02\] | Changes are communicated | O-D | Not yet shared; each issue to be recorded in the plan review log (PRO-PL-2) |
-| PL-02c. | Plans are reviewed | O-D | First yearly review not yet due; plan review log started on 11 November 2026 |
-| PL-02d.\[01\] | Plans are updated for changes | S | \<System Security Plan\> change history and plan review log |
+| PL-02b.\[01\] | Copies are distributed | O-D | Not yet shared; each issue to be recorded in the plan review record (PRO-PL-2) |
+| PL-02b.\[02\] | Changes are communicated | O-D | Not yet shared; each issue to be recorded in the plan review record (PRO-PL-2) |
+| PL-02c. | Plans are reviewed | O-D | First yearly review not yet due; plan review record started on 11 November 2026 |
+| PL-02d.\[01\] | Plans are updated for changes | S | \<System Security Plan\> change record and plan review record |
 | PL-02d.\[02\] | Plans are updated for problems in use | O-D | Not yet in use |
-| PL-02d.\[03\] | Plans are updated for assessment problems | S | \<System Security Plan\> change history; Test-PlanConsistency.ps1 (L01 to L12) run on 11 November 2026 |
+| PL-02d.\[03\] | Plans are updated for assessment problems | S | \<System Security Plan\> change record; Test-PlanConsistency.ps1 (L01 to L12) run on 11 November 2026 |
 | PL-02e.\[01\] | Plans are protected from disclosure | O-D | Not yet in the restricted store. Held on the system owner's computer, where the code repository has ignored them since 12 November 2026 (NC-PL-06, PA-88) |
 | PL-02e.\[02\] | Plans are protected from change | O-D | Not yet in the restricted store. Every change has been recorded in a private local repository since 12 November 2026, with a manifest of hashes for each issue (NC-PL-06, PA-88) |
 | PL-04\_ODP\[01\] | Review frequency is defined | S | \<Planning Management\> |
 | PL-04\_ODP\[02\] | When people re-sign is selected | S | \<Planning Management\> (D-PL-P02) |
 | PL-04\_ODP\[03\] | Re-sign frequency is defined | S | \<Planning Management\> |
 | PL-04a.\[01\] | Security rules are established | S | \<Security Operating Procedures\> \<ver\>, Parts A and B |
-| PL-04a.\[02\] | Privacy rules are established | S | \<Security Operating Procedures\> \<ver\>, section 3.5, rules A23 to A29 |
-| PL-04b. | People acknowledge before access | O-D | TPL-21 and the register of signatures ready (\<Planning Management\>, section 4.5); none signed |
+| PL-04a.\[02\] | Privacy rules are established | S | \<Security Operating Procedures\> \<ver\>, section 2.5, rules A23 to A29 |
+| PL-04b. | People acknowledge before access | O-D | TPL-21 and the register of signatures ready (\<Planning Management\>, section 3.5); none signed |
 | PL-04c. | Rules are reviewed | O-D | First review not yet due |
 | PL-04d. | People re-sign | O-D | None signed yet; signing again after a material change (D-PL-P02) |
 | PL-04(01)(a) | Rules restrict social media and external sites | S | \<Security Operating Procedures\> \<ver\>, rule A43 |
 | PL-04(01)(b) | Rules restrict posting information | S | \<Security Operating Procedures\> \<ver\>, rules A25 and A43 |
 | PL-04(01)(c) | Rules restrict using work credentials | S | \<Security Operating Procedures\> \<ver\>, rule A44 |
 | PL-08\_ODP | Review frequency is defined | S | \<Planning Management\> |
-| PL-08a.01 | Security architecture states requirements and approach | S | \<Security Architecture\> \<ver\>, section 7 |
-| PL-08a.02 | Privacy architecture states requirements and approach | S | \<Privacy Plan\>, section 9 |
-| PL-08a.03\[01\] | Security architecture fits the enterprise | S | \<Security Architecture\>, sections 5 and 7.3 |
-| PL-08a.03\[02\] | Privacy architecture fits the enterprise | S | \<Privacy Plan\>, section 9 |
-| PL-08a.04\[01\] | Security architecture states assumptions | S | \<Security Architecture\>, section 7.6 |
-| PL-08a.04\[02\] | Privacy architecture states assumptions | S | \<Privacy Plan\>, section 9 |
+| PL-08a.01 | Security architecture states requirements and approach | S | \<Security Architecture\> \<ver\>, section 6 |
+| PL-08a.02 | Privacy architecture states requirements and approach | S | \<Privacy Plan\>, section 8 |
+| PL-08a.03\[01\] | Security architecture fits the enterprise | S | \<Security Architecture\>, sections 4 and 6.3 |
+| PL-08a.03\[02\] | Privacy architecture fits the enterprise | S | \<Privacy Plan\>, section 8 |
+| PL-08a.04\[01\] | Security architecture states assumptions | S | \<Security Architecture\>, section 6.6 |
+| PL-08a.04\[02\] | Privacy architecture states assumptions | S | \<Privacy Plan\>, section 8 |
 | PL-08b. | Architecture is reviewed | O-D | First review not yet due |
-| PL-08c.\[01\] | Changes are in the security plan | S | \<System Security Plan\>, sections 4 and 5 |
-| PL-08c.\[02\] | Changes are in the privacy plan | S | \<Privacy Plan\>, section 9 |
+| PL-08c.\[01\] | Changes are in the security plan | S | \<System Security Plan\>, sections 3 and 4 |
+| PL-08c.\[02\] | Changes are in the privacy plan | S | \<Privacy Plan\>, section 8 |
 | PL-08c.\[03\] | Changes are in the Concept of Operations | S | \<Concept of Operations\> |
-| PL-08c.\[04\] | Changes are in the criticality analysis | S | Critical components in \<Risk Assessment Management\>, section 4.9; changes carried there by PRO-PL-5 |
+| PL-08c.\[04\] | Changes are in the criticality analysis | S | Critical components in \<Risk Assessment Management\>, section 3.9; changes carried there by PRO-PL-5 |
 | PL-08c.\[05\] | Changes are in procedures | S | Each family's procedures; PRO-PL-5 |
 | PL-08c.\[06\] | Changes are in procurements | O-D | PRO-SA-3 approved; no procurement yet |
 | PL-10 | A baseline is selected | S | Moderate, approved by \[Name\] (D-GEN-06) |
@@ -3174,7 +2918,7 @@ There is one finding for each NIST SP 800-53A determination statement, including
 
 | Item | Detail |
 | --- | --- |
-| Scope | The 7 PL entries in the SP 800-53B Moderate baseline, with 93 determination statements, covering every plan in the register in \<Planning Management\>, section 4.2 |
+| Scope | The 7 PL entries in the SP 800-53B Moderate baseline, with 93 determination statements, covering every plan in the register in \<Planning Management\>, section 3.2 |
 | Procedures | SP 800-53A Rev 5, using NIST's published statements and identifiers (catalog release 5.2.0); plan contents compared with NIST SP 800-18 Rev 2 |
 | Dates | 6 November 2026; updated on 11 November 2026 after the PL pack review |
 | Examine | \<Policy\> (PL) and \<Procedures\> (PL) \<ver\>, the PL chapter of \<Control Implementation Register\> at \<ver\>, now in \<Planning Management\>, \<System Security Plan\>, \<Privacy Plan\>, \<Security Architecture\> \<ver\>, \<Concept of Operations\>, \<Security Operating Procedures\> \<ver\>, \<Tailoring Register\> \<ver\> and \<Risk Assessment Management\>. Depth: focused. Coverage: focused |
@@ -3184,16 +2928,11 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | Boundary | Planning is organisational. The only technical element is where the plans are kept (PA-88) |
 | Order of assessment | A, the register of plans and the SSP (PL-2); B, the rules and signatures (PL-4, PL-4(1)); C, the architecture (PL-8); D, the baseline and tailoring (PL-10, PL-11); E, policy (PL-1). The SSP comes first because every other family relies on it |
 | Needed from \<Organisation\> | EV-PL-01 in \<Evidence Requests\>: the enterprise architecture standards that \<System Name\> must fit, and the hypervisor question (D-PL-11) |
-| Evidence retained | the PL evidence (results, README and MANIFEST); the plan review log in \<System Security Plan\>; TPL-21 forms and the register of signatures, once signed |
+| Evidence retained | the PL evidence (results, README and MANIFEST); the plan review record in \<System Security Plan\>; TPL-21 forms and the register of signatures, once signed |
 
 For the Level 2 assessment, the assessor should run Test-PlanConsistency.ps1 on the issued set, sample signed TPL-21 forms against the register and the access requests, check the restricted store's access list, interview the Head of Cyber and a sample of users, and re-determine every statement in section PL.4.
 
-| **CHAPTER PS** |
-| --- |
-
 ## PS Personnel Security
-
-[PS.1 Purpose](#ps1-purpose) · [PS.2 How to read this record](#ps2-how-to-read-this-record) · [PS.3 Executive summary](#ps3-executive-summary) · [PS.4 Findings by determination statement](#ps4-findings-by-determination-statement) · [PS.5 Assessment plan](#ps5-assessment-plan)
 
 ### PS.1 Purpose
 
@@ -3266,8 +3005,8 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | PS-01c.02\[01\] | Procedures are reviewed at the set frequency | O-D | First review not yet due |
 | PS-01c.02\[02\] | Procedures are reviewed after set events | S | Reviewed and approved as version \<ver\> on 12 November 2026 (D-PS-09) |
 | PS-02\_ODP | Review frequency is defined | S | \<Personnel Security Management\>, appendix A |
-| PS-02a. | Positions have a risk designation | S | All 19 roles in \<Roles and Responsibilities\> are designated in \<Personnel Security Management\>, section 4.2 (D-PS-07; check L17) |
-| PS-02b. | Screening criteria are set | O-E | Minimum set in \<Personnel Security Management\>, section 4.3; \<Organisation\>'s criteria not seen (EV-PS-01) |
+| PS-02a. | Positions have a risk designation | S | All 19 roles in \<Roles and Responsibilities\> are designated in \<Personnel Security Management\>, section 3.2 (D-PS-07; check L17) |
+| PS-02b. | Screening criteria are set | O-E | Minimum set in \<Personnel Security Management\>, section 3.3; \<Organisation\>'s criteria not seen (EV-PS-01) |
 | PS-02c. | Designations are reviewed | O-D | Reviewed and updated on 12 November 2026; first scheduled review not yet due |
 | PS-03\_ODP\[01\] | Rescreening conditions are defined | S | \<Personnel Security Management\>, appendix A |
 | PS-03\_ODP\[02\] | Rescreening frequency is defined | S | \<Personnel Security Management\>, appendix A |
@@ -3291,7 +3030,7 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | PS-05d. | People are notified within the time | O-D | PRO-PS-3 \<ver\> approved; route not built (PA-32) |
 | PS-06\_ODP\[01\] | Review frequency is defined | S | \<Personnel Security Management\>, appendix A |
 | PS-06\_ODP\[02\] | Re-sign frequency is defined | S | \<Personnel Security Management\>, appendix A |
-| PS-06a. | Access agreements exist | S | \<Security Operating Procedures\> \<ver\>, section 10, approved |
+| PS-06a. | Access agreements exist | S | \<Security Operating Procedures\> \<ver\>, section 9, approved |
 | PS-06b. | Agreements are reviewed | O-D | First review not yet due |
 | PS-06c.01 | People sign before access | O-D | PRO-PS-1 \<ver\> approved; none signed |
 | PS-06c.02 | People re-sign | O-D | None signed yet |
@@ -3318,13 +3057,13 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | Scope | The 9 PS entries in the Moderate baseline, with 68 determination statements |
 | Procedures | SP 800-53A Rev 5, using NIST's published statements and identifiers (catalog release 5.2.0) |
 | Dates | 6 November 2026; updated on 12 November 2026 after the whole-set review |
-| Examine | \<Policy\> (PS), \<Procedures\> (PS) and the PS chapter of \<Control Implementation Register\> at \<ver\>, now in \<Personnel Security Management\>; \<Roles and Responsibilities\>; \<Security Operating Procedures\>, sections 5.4 and 10; \<Procedures\>, PRO-AC-3 and PRO-AC-4. Depth: focused. Coverage: focused |
+| Examine | \<Policy\> (PS), \<Procedures\> (PS) and the PS chapter of \<Control Implementation Register\> at \<ver\>, now in \<Personnel Security Management\>; \<Roles and Responsibilities\>; \<Security Operating Procedures\>, sections 4.4 and 9; \<Procedures\>, PRO-AC-3 and PRO-AC-4. Depth: focused. Coverage: focused |
 | Test | Not applicable to this family today. Check L17 of Test-PlanConsistency.ps1 (the PL evidence). The leaver and mover route is tested once it is built (PA-32) |
 | Interview | None held. The system owner, the global administrator, a line manager and \<Organisation\>'s HR remain (INT-PS-01 to INT-PS-05) |
 | Boundary | \<System Name\>'s own designations, agreements, time limits and register. \<Organisation\>'s screening, HR and disciplinary processes are provider evidence (EV-PS-01 to EV-PS-03) |
 | Order of assessment | A, designations (PS-2); B, screening (PS-3); C, agreements (PS-6); D, leavers and movers (PS-4, PS-5); E, external people (PS-7); F, sanctions and role descriptions (PS-8, PS-9); G, policy (PS-1) |
 | Needed from providers | EV-PS-01, EV-PS-02 and EV-PS-03 in \<Evidence Requests\> |
-| Evidence retained | TPL-2, TPL-14 and TPL-21 records; the personnel security register in \<Personnel Security Management\>, section 4.9; the PL evidence |
+| Evidence retained | TPL-2, TPL-14 and TPL-21 records; the personnel security register in \<Personnel Security Management\>, section 3.9; the PL evidence |
 
 For the Level 2 assessment, the assessor should:
 
@@ -3333,12 +3072,7 @@ For the Level 2 assessment, the assessor should:
 - examine EV-PS-01 to EV-PS-03;
 - hold the interviews, and re-determine every statement in section PS.4.
 
-| **CHAPTER PT** |
-| --- |
-
 ## PT Personally Identifiable Information Processing and Transparency
-
-[PT.1 Purpose](#pt1-purpose) · [PT.2 How to read this record](#pt2-how-to-read-this-record) · [PT.3 Executive summary](#pt3-executive-summary) · [PT.4 Findings by determination statement](#pt4-findings-by-determination-statement) · [PT.5 Assessment plan](#pt5-assessment-plan)
 
 ### PT.1 Purpose
 
@@ -3350,7 +3084,7 @@ This records the Level 1 self-assessment of personal data handling in \<System N
 
 **N/A** means the statement does not apply.
 
-The methods were **Examine** (documents and code) and **Test**. The test is Test-PersonalData.ps1, run on 11 November 2026 on the tagged v1.0 build and a fresh throwaway stack (checks Q01 to Q10). The results and their hashes are in the PT evidence. No interviews have been held. Legal positions are placeholders until the legal adviser completes \<Data Protection Impact Assessment\> and \<PII Processing Management\>, section 4.3.
+The methods were **Examine** (documents and code) and **Test**. The test is Test-PersonalData.ps1, run on 11 November 2026 on the tagged v1.0 build and a fresh throwaway stack (checks Q01 to Q10). The results and their hashes are in the PT evidence. No interviews have been held. Legal positions are placeholders until the legal adviser completes \<Data Protection Impact Assessment\> and \<PII Processing Management\>, section 3.3.
 
 ### PT.3 Executive summary
 
@@ -3377,7 +3111,7 @@ The methods were **Examine** (documents and code) and **Test**. The test is Test
 | AT-3(5) | Other than satisfied | 2 of 3 | Training not yet given | NC-PT-08 |
 | AU-3(3) | Other than satisfied | 1 of 2 | Application log repeats personal data (Q05) | NC-PT-09 |
 | IR-2(3) | Other than satisfied | 0 of 2 | Training not yet given | NC-PT-10 |
-| IR-8(1) | Satisfied | 3 of 3 | \<Incident Response Management\>, section 4.8 | NC-PT-11 |
+| IR-8(1) | Satisfied | 3 of 3 | \<Incident Response Management\>, section 3.8 | NC-PT-11 |
 | PE-8(3) | Other than satisfied | 1 of 2 | Visitor records not seen | NC-PT-12 |
 | PL-9 | Other than satisfied | 1 of 2 | Not yet in the restricted store | NC-PT-13 |
 | RA-8 | Other than satisfied | 0 of 3 | Impact assessment drafted, not completed | NC-PT-14 |
@@ -3430,7 +3164,7 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | PT-02\_ODP\[01\] | Authority is defined | S | \<PII Processing Management\>, including the Data (Use and Access) Act 2025 |
 | PT-02\_ODP\[02\] | Permitted processing is defined | S | \<PII Processing Management\> |
 | PT-02\_ODP\[03\] | Restricted processing is defined | S | \<PII Processing Management\> |
-| PT-02a. | The authority permitting processing is determined and documented | O-D | Basis and conditions for each kind of data are placeholders in \<PII Processing Management\>, section 4.3, for the legal adviser (D-PT-20) |
+| PT-02a. | The authority permitting processing is determined and documented | O-D | Basis and conditions for each kind of data are placeholders in \<PII Processing Management\>, section 3.3, for the legal adviser (D-PT-20) |
 | PT-02b. | Processing is restricted to what is authorised | O-D | Rule approved; not yet in use; lawful basis not confirmed |
 | PT-03\_ODP\[01\] | Purposes are defined | S | \<PII Processing Management\> |
 | PT-03\_ODP\[02\] | Processing restricted to the purposes is defined | S | \<PII Processing Management\> |
@@ -3465,8 +3199,8 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | IR-02(03)\[01\] | Training on identifying and responding to a breach | O-D | Training not yet given (\<Control Assessment Record\> (IR)) |
 | IR-02(03)\[02\] | Training on reporting a breach | O-D | Training not yet given |
 | IR-08(01)(a) | Plan decides whether notice of a breach is needed | S | \<Incident Response Management\>: the legal adviser decides on notifying the ICO |
-| IR-08(01)(b) | Plan assesses harm to individuals, and how to reduce it | S | \<Incident Response Management\> \<ver\>, section 4.8: harm to people and telling them |
-| IR-08(01)(c) | Plan identifies privacy requirements | S | \<Incident Response Management\> \<ver\>, section 4.8: the 72-hour ICO report and the breach register |
+| IR-08(01)(b) | Plan assesses harm to individuals, and how to reduce it | S | \<Incident Response Management\> \<ver\>, section 3.8: harm to people and telling them |
+| IR-08(01)(c) | Plan identifies privacy requirements | S | \<Incident Response Management\> \<ver\>, section 3.8: the 72-hour ICO report and the breach register |
 | PE-08(03)\_ODP | Personal data allowed in visitor records is defined | S | \<PII Processing Management\> |
 | PE-08(03) | Visitor records hold only that personal data | O-E | EV-PT-02: \<Organisation\>'s records not seen |
 | PL-09\_ODP | What is centrally managed is defined | S | \<PII Processing Management\> |
@@ -3519,10 +3253,10 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | Item | Detail |
 | --- | --- |
 | Security categorisation | Moderate, confirmed by the authorising official; privacy baseline applied (D-PT-01) |
-| Scope | 6 PT controls and 16 privacy baseline controls outside Moderate, with 109 determination statements, covering every kind of personal data in \<PII Processing Management\>, section 4.3 |
+| Scope | 6 PT controls and 16 privacy baseline controls outside Moderate, with 109 determination statements, covering every kind of personal data in \<PII Processing Management\>, section 3.3 |
 | Procedures | SP 800-53A Rev 5, using NIST's published statements and identifiers (catalog release 5.2.0); UK GDPR, the DPA 2018 and the Data (Use and Access) Act 2025 for what the organisation must comply with |
 | Dates | 6 November 2026; updated on 11 November 2026 after the PT pack review |
-| Examine | \<Policy\> (PT), \<Procedures\> (PT) and the PT chapter of \<Control Implementation Register\> at \<ver\>, now in \<PII Processing Management\>, \<Data Protection Impact Assessment\> \<ver\>, \<Privacy Plan\>, \<Incident Response Management\>, section 4.8, SyOps A23 to A29; the audit record format, the admin portal's document management and the repositories' search. Depth: focused. Coverage: focused |
+| Examine | \<Policy\> (PT), \<Procedures\> (PT) and the PT chapter of \<Control Implementation Register\> at \<ver\>, now in \<PII Processing Management\>, \<Data Protection Impact Assessment\> \<ver\>, \<Privacy Plan\>, \<Incident Response Management\>, section 3.8, SyOps A23 to A29; the audit record format, the admin portal's document management and the repositories' search. Depth: focused. Coverage: focused |
 | Test | Test-PersonalData.ps1, checks Q01 to Q10, on a fresh throwaway stack (evidence in the PT evidence) |
 | Interview | System owner's written answers only. The legal adviser, the business owner, the data protection officer and an administrator who would handle a request remain |
 | Previous results reused | AU checks on audit records; IR readiness drill (D02, D08) for the application log; MP export checks (P02 to P06) for export copies |
@@ -3533,12 +3267,7 @@ There is one finding for each NIST SP 800-53A determination statement, including
 
 For the Level 2 assessment, the assessor should examine the completed impact assessment and the lawful bases, run Test-PersonalData.ps1 on the built VMs, walk through a sample subject access request and complaint with the legal adviser, interview the business owner on retention, and re-determine every statement in section PT.4.
 
-| **CHAPTER RA** |
-| --- |
-
 ## RA Risk Assessment
-
-[RA.1 Purpose](#ra1-purpose) · [RA.2 How to read this record](#ra2-how-to-read-this-record) · [RA.3 Executive summary](#ra3-executive-summary) · [RA.4 Findings by determination statement](#ra4-findings-by-determination-statement) · [RA.5 Assessment plan](#ra5-assessment-plan)
 
 ### RA.1 Purpose
 
@@ -3575,7 +3304,7 @@ The methods were **Examine** (the risk documents) and **Test**. The test is Test
 | RA-5(5) | Other than satisfied | 2 of 3 | VMs not yet built | NC-RA-06 |
 | RA-5(11) | Other than satisfied | 0 of 1 | Route not yet confirmed with \<Organisation\> | NC-RA-07 |
 | RA-7 | Other than satisfied | 2 of 4 | No monitoring or audit findings yet | NC-RA-08 |
-| RA-9 | Satisfied | 3 of 3 | \<Risk Assessment Management\>, section 4.9, reviewed | Met |
+| RA-9 | Satisfied | 3 of 3 | \<Risk Assessment Management\>, section 3.9, reviewed | Met |
 
 Of NIST's 73 statements, 49 are satisfied, 13 await a decision or approval, 9 show a gap in the system and 2 await evidence from the VMs or \<Organisation\>.
 
@@ -3614,16 +3343,16 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | RA-01c.01\[02\] | Policy is reviewed after set events | S | Reviewed on 11 November 2026 after the RA pack review (D-RA-08) |
 | RA-01c.02\[01\] | Procedures are reviewed at the set frequency | O-D | First review not yet due |
 | RA-01c.02\[02\] | Procedures are reviewed after set events | S | Reviewed and approved as version \<ver\> on 11 November 2026 (D-RA-09) |
-| RA-02a. | The system and its information are categorised | S | \<System Security Plan\>, section 4.3; availability rationale awaits the information owner and authorising official (D-RA-07) |
-| RA-02b. | Results and rationale are documented | S | \<System Security Plan\>, section 4.3 |
+| RA-02a. | The system and its information are categorised | S | \<System Security Plan\>, section 3.3; availability rationale awaits the information owner and authorising official (D-RA-07) |
+| RA-02b. | Results and rationale are documented | S | \<System Security Plan\>, section 3.3 |
 | RA-02c. | The authorising official approves the categorisation | S | \[Name\] (D-GEN-06) |
 | RA-03\_ODP\[01\] | Where results go is selected | S | \<Risk Assessment Management\> |
 | RA-03\_ODP\[02\] | Document is defined | S | \<Risk List\> |
 | RA-03\_ODP\[03\] | Review frequency is defined | S | \<Risk Assessment Management\> |
 | RA-03\_ODP\[04\] | Who receives results is defined | S | \<Risk Assessment Management\> |
 | RA-03\_ODP\[05\] | Update frequency is defined | S | \<Risk Assessment Management\> |
-| RA-03a.01 | Threats and vulnerabilities are identified | S | \<Risk List\> \<ver\>: threat sources in section 5, Table 6c; causes in section 3 |
-| RA-03a.02 | Likelihood and magnitude of harm are determined | S | \<Risk List\> \<ver\>, section 5: scales in Tables 6a and 6b, matrix in Table 6 |
+| RA-03a.01 | Threats and vulnerabilities are identified | S | \<Risk List\> \<ver\>: threat sources in section 4, Table 3c; causes in section 2 |
+| RA-03a.02 | Likelihood and magnitude of harm are determined | S | \<Risk List\> \<ver\>, section 4: scales in Tables 3a and 3b, matrix in Table 3 |
 | RA-03a.03 | Likelihood and impact on privacy are determined | S | \<Risk List\>, R-PT-01 and R-AU-02, rated by the same method; \<Data Protection Impact Assessment\> drafted |
 | RA-03b. | Results are integrated with higher-level decisions | O-E | \<Organisation\>'s risk appetite and organisational risk not seen (EV-RA-01, EV-PM-01, D-PM-03) |
 | RA-03c. | Results are documented | S | \<Risk List\> |
@@ -3632,11 +3361,11 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | RA-03f. | The assessment is updated | O-D | First update not yet due |
 | RA-03(01)\_ODP\[01\] | Items assessed are defined | S | \<Risk Assessment Management\> |
 | RA-03(01)\_ODP\[02\] | Update frequency is defined | S | \<Risk Assessment Management\> |
-| RA-03(01)(a) | Supply chain risks are assessed | S | First review held on 11 November 2026: \<Risk Assessment Management\>, section 4.4 (D-RA-09) |
+| RA-03(01)(a) | Supply chain risks are assessed | S | First review held on 11 November 2026: \<Risk Assessment Management\>, section 3.4 (D-RA-09) |
 | RA-03(01)(b) | The supply chain assessment is updated | O-D | First yearly update not yet due |
 | RA-05\_ODP\[01\] | Monitoring frequency is defined | S | \<Risk Assessment Management\> |
 | RA-05\_ODP\[02\] | Scan frequency is defined | S | \<Risk Assessment Management\> |
-| RA-05\_ODP\[03\] | Response times are defined | S | \<Risk Assessment Management\>, section 4.6 (D-RA-P02) |
+| RA-05\_ODP\[03\] | Response times are defined | S | \<Risk Assessment Management\>, section 3.6 (D-RA-P02) |
 | RA-05\_ODP\[04\] | Who receives results is defined | S | \<Risk Assessment Management\> |
 | RA-05a.\[01\] | Systems are monitored for vulnerabilities | O-G | Packages checked by Test-Vulnerability.ps1 (V01); images and VMs not monitored (V02, PA-62) |
 | RA-05a.\[02\] | Systems are scanned for vulnerabilities | O-G | No scanner for the images or VMs (V02, PA-62) |
@@ -3656,12 +3385,12 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | RA-05(05) | Privileged access is used for scans | O-E | On the VMs |
 | RA-05(11) | A channel for reports exists | O-D | Route agreed (D-RA-05) and set in PRO-RA-5; not yet confirmed with \<Organisation\> (EV-RA-01) |
 | RA-07\[01\] | Assessment findings are responded to | S | \<Risk List\>, \<Decision Register\> and \<Plan of Action and Milestones\> |
-| RA-07\[02\] | Privacy assessment findings are responded to | S | PT assessment findings answered in \<Risk List\>, section 6.14, and \<Plan of Action and Milestones\> (PA-70 to PA-72, PA-89, PA-90) |
+| RA-07\[02\] | Privacy assessment findings are responded to | S | PT assessment findings answered in \<Risk List\>, section 5.14, and \<Plan of Action and Milestones\> (PA-70 to PA-72, PA-89, PA-90) |
 | RA-07\[03\] | Monitoring findings are responded to | O-D | Monitoring not started; PRO-RA-1 reviews new test results |
 | RA-07\[04\] | Audit findings are responded to | O-D | No audit held |
 | RA-09\_ODP\[01\] | Items analysed are defined | S | \<Risk Assessment Management\> |
 | RA-09\_ODP\[02\] | Decision points are defined | S | \<Risk Assessment Management\> |
-| RA-09 | Critical components are identified | S | \<Risk Assessment Management\>, section 4.9, with its method, reviewed on 11 November 2026 (D-RA-09) |
+| RA-09 | Critical components are identified | S | \<Risk Assessment Management\>, section 3.9, with its method, reviewed on 11 November 2026 (D-RA-09) |
 
 ### RA.5 Assessment plan
 
@@ -3672,7 +3401,7 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | Scope | The 10 RA entries in the Moderate baseline, with 73 determination statements |
 | Procedures | SP 800-53A Rev 5, using NIST's published statements and identifiers (catalog release 5.2.0); NIST SP 800-30 Rev 1 for the risk method |
 | Dates | 6 November 2026; updated on 11 November 2026 after the RA pack review |
-| Examine | \<Policy\> (RA), \<Procedures\> (RA) and the RA chapter of \<Control Implementation Register\> at \<ver\>, now in \<Risk Assessment Management\>; \<Risk List\> \<ver\>; \<System Security Plan\>, section 4; \<Supply Chain Risk Management\>; \<Decision Register\>; \<Plan of Action and Milestones\>. Depth: focused. Coverage: focused |
+| Examine | \<Policy\> (RA), \<Procedures\> (RA) and the RA chapter of \<Control Implementation Register\> at \<ver\>, now in \<Risk Assessment Management\>; \<Risk List\> \<ver\>; \<System Security Plan\>, section 3; \<Supply Chain Risk Management\>; \<Decision Register\>; \<Plan of Action and Milestones\>. Depth: focused. Coverage: focused |
 | Test | Test-Vulnerability.ps1, checks V01 to V09, on the v1.0 tag and the images the throwaway stack runs (evidence in the RA evidence) |
 | Interview | None held. The system owner, the security officer, the Windows server administrator and \<Organisation\>'s security contact remain |
 | Previous results reused | CM checks on image tags and the bill of materials (C01 to C11); MA check M10 for package managers in the images |
@@ -3683,12 +3412,7 @@ There is one finding for each NIST SP 800-53A determination statement, including
 
 For the Level 2 assessment, the assessor should run Test-Vulnerability.ps1 and a credentialed scan on the built VMs, sample TPL-7 records against the timetable, interview the security officer on an exploited flaw, and re-determine every statement in section RA.4.
 
-| **CHAPTER SA** |
-| --- |
-
 ## SA System and Services Acquisition
-
-[SA.1 Purpose](#sa1-purpose) · [SA.2 How to read this record](#sa2-how-to-read-this-record) · [SA.3 Executive summary](#sa3-executive-summary) · [SA.4 Findings by determination statement](#sa4-findings-by-determination-statement) · [SA.5 Assessment plan](#sa5-assessment-plan)
 
 ### SA.1 Purpose
 
@@ -3718,9 +3442,9 @@ The methods were **Examine** (documents, repositories and test evidence) and **T
 | SA-2 | Other than satisfied | 2 of 6 | Costs not yet raised in budgeting | NC-SA-02 |
 | SA-3 | Other than satisfied | 5 of 9 | SSDF mapped; not yet in routine use | NC-SA-03 |
 | SA-4 | Other than satisfied | 2 of 18 | Contract not seen | NC-SA-04 |
-| SA-4(1) | Satisfied | 1 of 1 | SSP section 8 and the register chapters | Met |
+| SA-4(1) | Satisfied | 1 of 1 | SSP section 7 and the register chapters | Met |
 | SA-4(2) | Satisfied | 4 of 4 | \<Security Architecture\> and the SSP | Met |
-| SA-4(9) | Satisfied | 4 of 4 | \<System Security Plan\>, section 4.7 | Met |
+| SA-4(9) | Satisfied | 4 of 4 | \<System Security Plan\>, section 3.7 | Met |
 | SA-5 | Other than satisfied | 2 of 22 | Guides drafted; awaiting the developers | NC-SA-08 |
 | SA-8 | Other than satisfied | 6 of 12 | Principles mapped for specification and design only | NC-SA-09 |
 | SA-9 | Other than satisfied | 4 of 8 | Providers' compliance not seen; no review held | NC-SA-10 |
@@ -3728,7 +3452,7 @@ The methods were **Examine** (documents, repositories and test evidence) and **T
 | SA-10 | Other than satisfied | 7 of 14 | No branch protection, required review or signed tags (S01, S05) | NC-SA-12 |
 | SA-11 | Other than satisfied | 10 of 12 | No unit tests or pipeline (S08) | NC-SA-13 |
 | SA-15 | Other than satisfied | 9 of 12 | Process not yet reviewed | NC-SA-14 |
-| SA-15(3) | Satisfied | 6 of 6 | \<Risk Assessment Management\>, section 4.9 | Met |
+| SA-15(3) | Satisfied | 6 of 6 | \<Risk Assessment Management\>, section 3.9 | Met |
 | SA-22 | Satisfied | 4 of 4 | No component near the end of support (S09) | Met |
 
 Of NIST's 159 statements, 88 are satisfied, 46 await a decision or approval, 5 show a gap in the system and 20 await evidence from providers.
@@ -3775,12 +3499,12 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | SA-02c.\[01\] | Budget line for security | O-D | Not yet raised in budgeting; TPL-23 now records the costs |
 | SA-02c.\[02\] | Budget line for privacy | O-D | Not yet raised in budgeting; TPL-23 now records the costs |
 | SA-03\_ODP | Lifecycle is defined | S | \<System and Services Acquisition Management\>: NIST SSDF \<ver\>, section SA.3 |
-| SA-03a.\[01\] | Lifecycle includes security | O-D | SSDF mapped in \<System and Services Acquisition Management\>, section 4.2; not yet in routine use |
-| SA-03a.\[02\] | Lifecycle includes privacy | O-D | SSDF mapped in \<System and Services Acquisition Management\>, section 4.2; not yet in routine use |
+| SA-03a.\[01\] | Lifecycle includes security | O-D | SSDF mapped in \<System and Services Acquisition Management\>, section 3.2; not yet in routine use |
+| SA-03a.\[02\] | Lifecycle includes privacy | O-D | SSDF mapped in \<System and Services Acquisition Management\>, section 3.2; not yet in routine use |
 | SA-03b.\[01\] | Security roles are documented | S | \<Roles and Responsibilities\> |
 | SA-03b.\[02\] | Privacy roles are documented | S | \<Privacy Plan\>, approved (D-PT-05) |
 | SA-03c.\[01\] | People with security roles are identified | S | \<Roles and Responsibilities\> |
-| SA-03c.\[02\] | People with privacy roles are identified | S | \<Privacy Plan\>, section 4 |
+| SA-03c.\[02\] | People with privacy roles are identified | S | \<Privacy Plan\>, section 3 |
 | SA-03d.\[01\] | Security risk management is part of the lifecycle | O-D | PRO-SA-1 approved; not yet in use |
 | SA-03d.\[02\] | Privacy risk management is part of the lifecycle | O-D | PRO-PT-2 and PRO-PT-3 approved; not yet in use |
 | SA-04\_ODP\[01\] | Contract method is selected | S | \<System and Services Acquisition Management\> |
@@ -3801,46 +3525,46 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | SA-04h.\[02\] | Contracts allocate responsibility for privacy | O-E | EV-SA-01 |
 | SA-04h.\[03\] | Contracts allocate responsibility for supply chain risk | O-E | EV-SA-01 |
 | SA-04i. | Contracts include acceptance criteria | O-E | EV-SA-01 |
-| SA-04(01) | Developer describes the controls' functional properties | S | \<System Security Plan\>, section 8, and each family's register chapter describe the controls' functional properties |
+| SA-04(01) | Developer describes the controls' functional properties | S | \<System Security Plan\>, section 7, and each family's register chapter describe the controls' functional properties |
 | SA-04(02)\_ODP\[01\] | Design information is selected | S | \<System and Services Acquisition Management\> |
 | SA-04(02)\_ODP\[02\] | Other information is defined | S | \<System and Services Acquisition Management\> |
 | SA-04(02)\_ODP\[03\] | Level of detail is defined | S | \<System and Services Acquisition Management\> |
-| SA-04(02) | Developer provides design information | S | \<Security Architecture\> \<ver\> and \<System Security Plan\>, sections 4 and 5 |
-| SA-04(09)\[01\] | Developer identifies functions | S | \<System Security Plan\>, section 4.7, Table 10 |
-| SA-04(09)\[02\] | Developer identifies ports | S | \<System Security Plan\>, section 4.7, Table 10 |
-| SA-04(09)\[03\] | Developer identifies protocols | S | \<System Security Plan\>, section 4.7, Table 10 |
-| SA-04(09)\[04\] | Developer identifies services | S | \<System Security Plan\>, section 4.7, Table 10 |
+| SA-04(02) | Developer provides design information | S | \<Security Architecture\> \<ver\> and \<System Security Plan\>, sections 3 and 4 |
+| SA-04(09)\[01\] | Developer identifies functions | S | \<System Security Plan\>, section 3.7, Table 7 |
+| SA-04(09)\[02\] | Developer identifies ports | S | \<System Security Plan\>, section 3.7, Table 7 |
+| SA-04(09)\[03\] | Developer identifies protocols | S | \<System Security Plan\>, section 3.7, Table 7 |
+| SA-04(09)\[04\] | Developer identifies services | S | \<System Security Plan\>, section 3.7, Table 7 |
 | SA-05\_ODP\[01\] | Actions for missing documents are defined | S | \<System and Services Acquisition Management\> |
 | SA-05\_ODP\[02\] | Who receives documentation is defined | S | \<System and Services Acquisition Management\> |
-| SA-05a.01\[01\] | Administrator guide covers secure configuration | O-D | \<Administrator Guide\> \<ver\>, section 4; awaiting the developers (S10, PA-69) |
-| SA-05a.01\[02\] | Administrator guide covers secure installation | O-D | \<Administrator Guide\> \<ver\>, section 3; awaiting the developers (S10, PA-69) |
-| SA-05a.01\[03\] | Administrator guide covers secure operation | O-D | \<Administrator Guide\> \<ver\>, section 5; awaiting the developers (S10, PA-69) |
-| SA-05a.02\[01\] | Covers using security functions | O-D | \<Administrator Guide\> \<ver\>, section 6; awaiting the developers (S10, PA-69) |
-| SA-05a.02\[02\] | Covers maintaining security functions | O-D | \<Administrator Guide\> \<ver\>, section 6; awaiting the developers (S10, PA-69) |
-| SA-05a.02\[03\] | Covers using privacy functions | O-D | \<Administrator Guide\> \<ver\>, section 7; awaiting the developers (S10, PA-69) |
-| SA-05a.02\[04\] | Covers maintaining privacy functions | O-D | \<Administrator Guide\> \<ver\>, section 7; awaiting the developers (S10, PA-69) |
-| SA-05a.03\[01\] | Covers known problems configuring privileged functions | O-D | \<Administrator Guide\> \<ver\>, section 8; awaiting the developers (S10, PA-69) |
-| SA-05a.03\[02\] | Covers known problems using privileged functions | O-D | \<Administrator Guide\> \<ver\>, section 8; awaiting the developers (S10, PA-69) |
-| SA-05b.01\[01\] | User guide covers security functions | O-D | \<User Guide\> \<ver\>, section 4; awaiting the developers (S10, PA-69) |
-| SA-05b.01\[02\] | User guide covers using them | O-D | \<User Guide\> \<ver\>, section 4; awaiting the developers (S10, PA-69) |
-| SA-05b.01\[03\] | User guide covers privacy functions | O-D | \<User Guide\> \<ver\>, section 5; awaiting the developers (S10, PA-69) |
-| SA-05b.01\[04\] | User guide covers using them | O-D | \<User Guide\> \<ver\>, section 5; awaiting the developers (S10, PA-69) |
-| SA-05b.02\[01\] | User guide covers working securely | O-D | \<User Guide\> \<ver\>, section 4; awaiting the developers (S10, PA-69) |
-| SA-05b.02\[02\] | User guide covers protecting privacy | O-D | \<User Guide\> \<ver\>, section 5; awaiting the developers (S10, PA-69) |
-| SA-05b.03\[01\] | User guide covers security responsibilities | O-D | \<User Guide\> \<ver\>, section 6; awaiting the developers (S10, PA-69) |
-| SA-05b.03\[02\] | User guide covers privacy responsibilities | O-D | \<User Guide\> \<ver\>, section 5; awaiting the developers (S10, PA-69) |
+| SA-05a.01\[01\] | Administrator guide covers secure configuration | O-D | \<Administrator Guide\> \<ver\>, section 3; awaiting the developers (S10, PA-69) |
+| SA-05a.01\[02\] | Administrator guide covers secure installation | O-D | \<Administrator Guide\> \<ver\>, section 2; awaiting the developers (S10, PA-69) |
+| SA-05a.01\[03\] | Administrator guide covers secure operation | O-D | \<Administrator Guide\> \<ver\>, section 4; awaiting the developers (S10, PA-69) |
+| SA-05a.02\[01\] | Covers using security functions | O-D | \<Administrator Guide\> \<ver\>, section 5; awaiting the developers (S10, PA-69) |
+| SA-05a.02\[02\] | Covers maintaining security functions | O-D | \<Administrator Guide\> \<ver\>, section 5; awaiting the developers (S10, PA-69) |
+| SA-05a.02\[03\] | Covers using privacy functions | O-D | \<Administrator Guide\> \<ver\>, section 6; awaiting the developers (S10, PA-69) |
+| SA-05a.02\[04\] | Covers maintaining privacy functions | O-D | \<Administrator Guide\> \<ver\>, section 6; awaiting the developers (S10, PA-69) |
+| SA-05a.03\[01\] | Covers known problems configuring privileged functions | O-D | \<Administrator Guide\> \<ver\>, section 7; awaiting the developers (S10, PA-69) |
+| SA-05a.03\[02\] | Covers known problems using privileged functions | O-D | \<Administrator Guide\> \<ver\>, section 7; awaiting the developers (S10, PA-69) |
+| SA-05b.01\[01\] | User guide covers security functions | O-D | \<User Guide\> \<ver\>, section 3; awaiting the developers (S10, PA-69) |
+| SA-05b.01\[02\] | User guide covers using them | O-D | \<User Guide\> \<ver\>, section 3; awaiting the developers (S10, PA-69) |
+| SA-05b.01\[03\] | User guide covers privacy functions | O-D | \<User Guide\> \<ver\>, section 4; awaiting the developers (S10, PA-69) |
+| SA-05b.01\[04\] | User guide covers using them | O-D | \<User Guide\> \<ver\>, section 4; awaiting the developers (S10, PA-69) |
+| SA-05b.02\[01\] | User guide covers working securely | O-D | \<User Guide\> \<ver\>, section 3; awaiting the developers (S10, PA-69) |
+| SA-05b.02\[02\] | User guide covers protecting privacy | O-D | \<User Guide\> \<ver\>, section 4; awaiting the developers (S10, PA-69) |
+| SA-05b.03\[01\] | User guide covers security responsibilities | O-D | \<User Guide\> \<ver\>, section 5; awaiting the developers (S10, PA-69) |
+| SA-05b.03\[02\] | User guide covers privacy responsibilities | O-D | \<User Guide\> \<ver\>, section 4; awaiting the developers (S10, PA-69) |
 | SA-05c.\[01\] | Attempts to get missing documents are recorded | O-D | PRO-SA-4 approved; not yet in use |
 | SA-05c.\[02\] | Actions are taken for missing documents | O-D | PRO-SA-4 approved; not yet in use |
 | SA-05d. | Documentation is distributed | O-D | Drafts not yet distributed |
 | SA-08\_ODP\[01\] | Security principles are defined | S | \<System and Services Acquisition Management\> |
 | SA-08\_ODP\[02\] | Privacy principles are defined | S | \<System and Services Acquisition Management\> |
-| SA-08\[01\] | Security principles in specification | S | \<Security Architecture\> \<ver\>, section 7.5, maps the NCSC principles to the specification |
-| SA-08\[02\] | Security principles in design | S | \<Security Architecture\> \<ver\>, section 7.5, maps the NCSC principles to the design |
+| SA-08\[01\] | Security principles in specification | S | \<Security Architecture\> \<ver\>, section 6.5, maps the NCSC principles to the specification |
+| SA-08\[02\] | Security principles in design | S | \<Security Architecture\> \<ver\>, section 6.5, maps the NCSC principles to the design |
 | SA-08\[03\] | Security principles in development | O-D | Checked from now on through PRO-SA-1; earlier development not checked |
 | SA-08\[04\] | Security principles in implementation | O-D | Checked from now on through PRO-SA-1; earlier development not checked |
 | SA-08\[05\] | Security principles in modification | O-D | Checked from now on through PRO-SA-1 |
-| SA-08\[06\] | Privacy principles in specification | S | \<Security Architecture\> \<ver\>, section 7.5, maps the privacy objectives to the specification |
-| SA-08\[07\] | Privacy principles in design | S | \<Security Architecture\> \<ver\>, section 7.5, maps the privacy objectives to the design |
+| SA-08\[06\] | Privacy principles in specification | S | \<Security Architecture\> \<ver\>, section 6.5, maps the privacy objectives to the specification |
+| SA-08\[07\] | Privacy principles in design | S | \<Security Architecture\> \<ver\>, section 6.5, maps the privacy objectives to the design |
 | SA-08\[08\] | Privacy principles in development | O-D | Checked from now on through PRO-SA-1; earlier development not checked |
 | SA-08\[09\] | Privacy principles in implementation | O-D | Checked from now on through PRO-SA-1; earlier development not checked |
 | SA-08\[10\] | Privacy principles in modification | O-D | Checked from now on through PRO-SA-1 |
@@ -3849,7 +3573,7 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | SA-09a.\[01\] | Providers comply with security requirements | O-E | EV-SA-02, EV-SA-03 |
 | SA-09a.\[02\] | Providers comply with privacy requirements | O-E | EV-SA-02, EV-SA-03 |
 | SA-09a.\[03\] | Providers use the set controls | O-E | EV-SA-02, EV-SA-03 |
-| SA-09b.\[01\] | Oversight is defined and documented | S | \<System and Services Acquisition Management\>, section 4.7, and PRO-SA-3 |
+| SA-09b.\[01\] | Oversight is defined and documented | S | \<System and Services Acquisition Management\>, section 3.7, and PRO-SA-3 |
 | SA-09b.\[02\] | User roles are defined and documented | S | \<Roles and Responsibilities\> |
 | SA-09c. | Compliance is monitored on an ongoing basis | O-D | No review yet held; TPL-16 every 12 months |
 | SA-09(02)\_ODP | Services are defined | S | \<System and Services Acquisition Management\> |
@@ -3871,9 +3595,9 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | SA-11\_ODP\[01\] | Test types are selected | S | \<System and Services Acquisition Management\> |
 | SA-11\_ODP\[02\] | Frequency is defined | S | \<System and Services Acquisition Management\> |
 | SA-11\_ODP\[03\] | Depth and coverage are defined | S | \<System and Services Acquisition Management\> |
-| SA-11a.\[01\] | Security assessment plan is developed | S | Developer test plan in \<System and Services Acquisition Management\>, section 4.9 |
+| SA-11a.\[01\] | Security assessment plan is developed | S | Developer test plan in \<System and Services Acquisition Management\>, section 3.9 |
 | SA-11a.\[02\] | Security assessment plan is implemented | S | Implemented: the scripts ran on the v1.0 build (the evidence store) |
-| SA-11a.\[03\] | Privacy assessment plan is developed | S | Privacy tests in the plan: Test-PersonalData.ps1 (\<System and Services Acquisition Management\>, section 4.9) |
+| SA-11a.\[03\] | Privacy assessment plan is developed | S | Privacy tests in the plan: Test-PersonalData.ps1 (\<System and Services Acquisition Management\>, section 3.9) |
 | SA-11a.\[04\] | Privacy assessment plan is implemented | S | Implemented: Q01 to Q10 ran on 11 November 2026 (the PT evidence) |
 | SA-11b. | Testing is performed at the set depth and frequency | O-G | Run by hand, with no unit tests or pipeline (S08; PA-68) |
 | SA-11c.\[01\] | Evidence of the plan is produced | S | Each run has a README and MANIFEST in the evidence store |
@@ -3883,24 +3607,24 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | SA-15\_ODP\[01\] | Review frequency is defined | S | \<System and Services Acquisition Management\> |
 | SA-15\_ODP\[02\] | Security requirements are defined | S | \<System and Services Acquisition Management\> |
 | SA-15\_ODP\[03\] | Privacy requirements are defined | S | \<System and Services Acquisition Management\> |
-| SA-15a.01\[01\] | Process addresses security | S | \<System and Services Acquisition Management\>, section 4.2 (SSDF), and \<Policy\> (SA) \<ver\> |
-| SA-15a.01\[02\] | Process addresses privacy | S | \<System and Services Acquisition Management\>, section 4.2, and \<Policy\> (PT) |
-| SA-15a.02\[01\] | Process identifies standards | S | SSDF, ASVS 5.0 and the NCSC principles (\<System and Services Acquisition Management\>, sections 4.2 and 4.9) |
-| SA-15a.02\[02\] | Process identifies tools | S | \<System and Services Acquisition Management\>, section 4.10 |
-| SA-15a.03\[01\] | Process documents the tools | S | \<System and Services Acquisition Management\>, section 4.10 |
-| SA-15a.03\[02\] | Process documents tool configurations | S | \<System and Services Acquisition Management\>, section 4.10, including the audit setting turned off (PA-92) |
+| SA-15a.01\[01\] | Process addresses security | S | \<System and Services Acquisition Management\>, section 3.2 (SSDF), and \<Policy\> (SA) \<ver\> |
+| SA-15a.01\[02\] | Process addresses privacy | S | \<System and Services Acquisition Management\>, section 3.2, and \<Policy\> (PT) |
+| SA-15a.02\[01\] | Process identifies standards | S | SSDF, ASVS 5.0 and the NCSC principles (\<System and Services Acquisition Management\>, sections 3.2 and 3.9) |
+| SA-15a.02\[02\] | Process identifies tools | S | \<System and Services Acquisition Management\>, section 3.10 |
+| SA-15a.03\[01\] | Process documents the tools | S | \<System and Services Acquisition Management\>, section 3.10 |
+| SA-15a.03\[02\] | Process documents tool configurations | S | \<System and Services Acquisition Management\>, section 3.10, including the audit setting turned off (PA-92) |
 | SA-15a.04 | Process manages changes to itself and its tools | O-D | PRO-SA-6 \<ver\> approved; not yet in use |
 | SA-15b.\[01\] | Process is reviewed against security requirements | O-D | No review yet held |
 | SA-15b.\[02\] | Process is reviewed against privacy requirements | O-D | No review yet held |
 | SA-15(03)\_ODP\[01\] | Decision points are defined | S | \<System and Services Acquisition Management\> |
 | SA-15(03)\_ODP\[02\] | Breadth is defined | S | \<System and Services Acquisition Management\> |
 | SA-15(03)\_ODP\[03\] | Depth is defined | S | \<System and Services Acquisition Management\> |
-| SA-15(03)(a) | Criticality analysis at the set points | S | \<Risk Assessment Management\>, section 4.9, analysed on 11 November 2026 |
-| SA-15(03)(b)\[01\] | Analysis at the set breadth | S | \<Risk Assessment Management\>, section 4.9: all components considered |
-| SA-15(03)(b)\[02\] | Analysis at the set depth | S | \<Risk Assessment Management\>, section 4.9: critical components identified |
+| SA-15(03)(a) | Criticality analysis at the set points | S | \<Risk Assessment Management\>, section 3.9, analysed on 11 November 2026 |
+| SA-15(03)(b)\[01\] | Analysis at the set breadth | S | \<Risk Assessment Management\>, section 3.9: all components considered |
+| SA-15(03)(b)\[02\] | Analysis at the set depth | S | \<Risk Assessment Management\>, section 3.9: critical components identified |
 | SA-22\_ODP\[01\] | Support options are selected | S | \<System and Services Acquisition Management\> |
 | SA-22\_ODP\[02\] | External support is defined | S | \<System and Services Acquisition Management\> |
-| SA-22a. | Components are replaced when support ends | S | No component within 6 months of support ending (S09; \<Maintenance Management\>, section 4.8) |
+| SA-22a. | Components are replaced when support ends | S | No component within 6 months of support ending (S09; \<Maintenance Management\>, section 3.8) |
 | SA-22b. | Options for other support are provided | S | In-house support, or a supplier's extended support by exception (\<System and Services Acquisition Management\>) |
 
 ### SA.5 Assessment plan
@@ -3912,10 +3636,10 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | Scope | The 17 SA entries in the Moderate baseline, 16 assessed (SA-4(10) tailored), with 159 determination statements |
 | Procedures | SP 800-53A Rev 5, using NIST's published statements and identifiers (catalog release 5.2.0); NIST SSDF \<ver\> for the development process |
 | Dates | 6 November 2026; updated on 11 November 2026 after the SA pack review |
-| Examine | \<Policy\> (SA), \<Procedures\> (SA) and the SA chapter of \<Control Implementation Register\> at \<ver\>, now in \<System and Services Acquisition Management\>; \<Security Architecture\> \<ver\>; \<System Security Plan\>, sections 4, 5 and 8; \<Risk Assessment Management\>; \<Maintenance Management\>; the draft guides; the test evidence folders. Depth: focused. Coverage: focused |
+| Examine | \<Policy\> (SA), \<Procedures\> (SA) and the SA chapter of \<Control Implementation Register\> at \<ver\>, now in \<System and Services Acquisition Management\>; \<Security Architecture\> \<ver\>; \<System Security Plan\>, sections 3, 4 and 7; \<Risk Assessment Management\>; \<Maintenance Management\>; the draft guides; the test evidence folders. Depth: focused. Coverage: focused |
 | Test | Test-Development.ps1, checks S01 to S10, read-only, against the six GitHub repositories, the v1.0 history and the build files (evidence in the SA evidence) |
 | Interview | None held. The developers, the system owner and \<Organisation\>'s contract owner remain |
-| Previous results reused | All family test evidence as the developer test results (\<System and Services Acquisition Management\>, section 4.9); RA checks V01 to V04 on packages and images; MA check M11 on component versions |
+| Previous results reused | All family test evidence as the developer test results (\<System and Services Acquisition Management\>, section 3.9); RA checks V01 to V04 on packages and images; MA check M11 on component versions |
 | Boundary | \<System Name\>'s development and acquisition. \<Organisation\>'s contracts and services, and GitHub's own controls, are provider evidence (EV-SA-01 to EV-SA-03) |
 | Order of assessment | A, change control (SA-10); B, developer testing (SA-11); C, process and tools (SA-3, SA-15); D, documentation (SA-5); E, external services and contracts (SA-4, SA-9); F, policy and resources (SA-1, SA-2) |
 | Needed from providers | EV-SA-01, EV-SA-02 and EV-SA-03 in \<Evidence Requests\> |
@@ -3923,12 +3647,7 @@ There is one finding for each NIST SP 800-53A determination statement, including
 
 For the Level 2 assessment, the assessor should run Test-Development.ps1 again after PA-91, sample merged changes for a recorded review, check the confirmed guides against the screens, and re-determine every statement in section SA.4.
 
-| **CHAPTER SC** |
-| --- |
-
 ## SC System and Communications Protection
-
-[SC.1 Purpose](#sc1-purpose) · [SC.2 How to read this record](#sc2-how-to-read-this-record) · [SC.3 Executive summary](#sc3-executive-summary) · [SC.4 Findings by determination statement](#sc4-findings-by-determination-statement) · [SC.5 Assessment plan](#sc5-assessment-plan)
 
 ### SC.1 Purpose
 
@@ -4024,7 +3743,7 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | SC-01c.01\[02\] | Policy is reviewed after set events | S | Reviewed on 12 November 2026 after the SC pack review (D-SC-07) |
 | SC-01c.02\[01\] | Procedures are reviewed at the set frequency | O-D | First review not yet due |
 | SC-01c.02\[02\] | Procedures are reviewed after set events | S | Reviewed and approved as version \<ver\> on 12 November 2026 (D-SC-08) |
-| SC-02 | User and management functions are separated | S | Separate admin application and process (B09; \<System and Communications Protection Management\>, section 4.9) |
+| SC-02 | User and management functions are separated | S | Separate admin application and process (B09; \<System and Communications Protection Management\>, section 3.9) |
 | SC-04\[01\] | Unauthorised transfer through shared resources is prevented | O-E | VMs not available (PA-54); export copies stay in a shared temporary folder (PA-86) |
 | SC-04\[02\] | Unintended transfer through shared resources is prevented | O-E | VMs not available (PA-54); export copies stay in a shared temporary folder (PA-86) |
 | SC-05\_ODP\[01\] | Denial-of-service events are defined | S | \<System and Communications Protection Management\>, appendix A |
@@ -4053,7 +3772,7 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | SC-07(04)(h) | Unauthorised control plane traffic is filtered | O-E | \<Organisation\> (EV-SC-02) |
 | SC-07(05)\_ODP\[01\] | Where deny by default applies is selected | S | At managed interfaces and each host firewall (\<System and Communications Protection Management\>, appendix A) |
 | SC-07(05)\_ODP\[02\] | Systems are defined | S | The two VMs |
-| SC-07(05)\[01\] | Traffic is denied by default | O-G | Allow-lists set (\<System and Communications Protection Management\>, section 4.2) but not built; the apps listen on every interface (N07, PA-83); \<Organisation\> (EV-AC-03) |
+| SC-07(05)\[01\] | Traffic is denied by default | O-G | Allow-lists set (\<System and Communications Protection Management\>, section 3.2) but not built; the apps listen on every interface (N07, PA-83); \<Organisation\> (EV-AC-03) |
 | SC-07(05)\[02\] | Traffic is allowed by exception | O-G | As SC-07(05)\[01\] |
 | SC-07(07)\_ODP | Safeguards are defined | S | \<Organisation\>'s VPN prevents split tunnelling (\<System and Communications Protection Management\>, appendix A; D-SC-P02) |
 | SC-07(07) | Split tunnelling is prevented | O-E | \<Organisation\> (EV-SC-03) |
@@ -4062,16 +3781,16 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | SC-07(08) | Traffic is routed through authenticated proxies | O-E | \<Organisation\> (EV-SC-03) |
 | SC-08\_ODP | Protection is selected | S | Confidentiality and integrity |
 | SC-08 | Transmitted information is protected | O-G | Plain HTTP on every app and the internal API calls; database TLS off (N01, N06; PA-18) |
-| SC-08(01)\_ODP | Purpose is selected | S | \<System and Communications Protection Management\>, section 4.3 and appendix A |
+| SC-08(01)\_ODP | Purpose is selected | S | \<System and Communications Protection Management\>, section 3.3 and appendix A |
 | SC-08(01) | Cryptography protects transmission | O-G | No TLS on any flow (N01, N02, N06; PA-18) |
 | SC-10\_ODP | Time period is defined | S | 30 minutes idle |
 | SC-10 | Network connections end at that time | O-E | Application sessions end at 30 minutes idle and 8 hours; network side not available (EV-SC-01) |
-| SC-12\_ODP | Key requirements are defined | S | \<System and Communications Protection Management\>, section 4.4 and appendix A |
-| SC-12\[01\] | Keys are established | O-G | Register set (\<System and Communications Protection Management\>, section 4.4); signing key and passwords committed in source (N09, PA-19) |
+| SC-12\_ODP | Key requirements are defined | S | \<System and Communications Protection Management\>, section 3.4 and appendix A |
+| SC-12\[01\] | Keys are established | O-G | Register set (\<System and Communications Protection Management\>, section 3.4); signing key and passwords committed in source (N09, PA-19) |
 | SC-12\[02\] | Keys are managed | O-G | No protected store or rotation (PA-19); key rings unencrypted (N08, PA-93) |
 | SC-13\_ODP\[01\] | Cryptographic uses are defined | S | \<System and Communications Protection Management\>, appendix A |
-| SC-13\_ODP\[02\] | Types are defined | S | \<System and Communications Protection Management\>, section 4.3, section 4.4 and appendix A (D-SC-P02) |
-| SC-13a. | Uses are identified | S | \<System and Communications Protection Management\>, section 4.4 |
+| SC-13\_ODP\[02\] | Types are defined | S | \<System and Communications Protection Management\>, section 3.3, section 3.4 and appendix A (D-SC-P02) |
+| SC-13a. | Uses are identified | S | \<System and Communications Protection Management\>, section 3.4 |
 | SC-13b. | Types are implemented | O-G | Password hashing and token signing in place (N11); TLS, disk and key ring encryption not; document checksums use MD5 (PA-18, PA-52, PA-93, PA-61) |
 | SC-15\_ODP | Exceptions are defined | N/A | TR-SC-01 |
 | SC-15a. | Remote activation is prohibited | N/A | TR-SC-01 |
@@ -4079,11 +3798,11 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | SC-17\_ODP | Certificate policy is defined | S | \<System and Communications Protection Management\>, appendix A |
 | SC-17a. | Certificates are issued under the policy | O-E | \<Organisation\> (EV-SC-04) |
 | SC-17b. | Only approved trust anchors are used | O-E | \<Organisation\> (EV-SC-04) |
-| SC-18a.\[01\] | Acceptable mobile code is defined | S | \<System and Communications Protection Management\>, section 4.5 (D-SC-03) |
-| SC-18a.\[02\] | Unacceptable mobile code is defined | S | \<System and Communications Protection Management\>, section 4.5 (D-SC-03) |
-| SC-18a.\[03\] | Acceptable technologies are defined | S | \<System and Communications Protection Management\>, section 4.5 (D-SC-03) |
-| SC-18a.\[04\] | Unacceptable technologies are defined | S | \<System and Communications Protection Management\>, section 4.5 (D-SC-03) |
-| SC-18b.\[01\] | Use is authorised | S | Approved in \<System and Communications Protection Management\>, section 4.5 (D-SC-03) |
+| SC-18a.\[01\] | Acceptable mobile code is defined | S | \<System and Communications Protection Management\>, section 3.5 (D-SC-03) |
+| SC-18a.\[02\] | Unacceptable mobile code is defined | S | \<System and Communications Protection Management\>, section 3.5 (D-SC-03) |
+| SC-18a.\[03\] | Acceptable technologies are defined | S | \<System and Communications Protection Management\>, section 3.5 (D-SC-03) |
+| SC-18a.\[04\] | Unacceptable technologies are defined | S | \<System and Communications Protection Management\>, section 3.5 (D-SC-03) |
+| SC-18b.\[01\] | Use is authorised | S | Approved in \<System and Communications Protection Management\>, section 3.5 (D-SC-03) |
 | SC-18b.\[02\] | Use is monitored | O-G | Nothing monitors it; checked only by Test-Protection.ps1 at release (N04, N10; PA-51) |
 | SC-18b.\[03\] | Use is controlled | O-G | UI application and Admin application send no page policy; the configured policy allows inline scripts, eval and outside hosts (N04, N10, N12; PA-34, PA-51) |
 | SC-20a.\[01\] | Origin authentication comes with DNS answers | O-E | \<Organisation\> (EV-SC-05) |
@@ -4116,7 +3835,7 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | Scope | The 25 SC entries in the Moderate baseline, 24 assessed (SC-15 tailored), with 107 determination statements |
 | Procedures | SP 800-53A Rev 5, using NIST's published statements and identifiers (catalog release 5.2.0); NCSC's TLS guidance and NIST SP 800-57 for the values |
 | Dates | 6 November 2026; updated on 12 November 2026 after the SC pack review |
-| Examine | \<Policy\> (SC), \<Procedures\> (SC) and the SC chapter of \<Control Implementation Register\> at \<ver\>, now in \<System and Communications Protection Management\>; \<Security Architecture\> \<ver\>; \<System Security Plan\>, sections 4.7, 5 and 8; the start-up configuration, the security headers component, the API's sign-in service, the API's password service, the settings files and the test stack's compose file at tag v1.0. Depth: focused. Coverage: focused |
+| Examine | \<Policy\> (SC), \<Procedures\> (SC) and the SC chapter of \<Control Implementation Register\> at \<ver\>, now in \<System and Communications Protection Management\>; \<Security Architecture\> \<ver\>; \<System Security Plan\>, sections 3.7, 4 and 7; the start-up configuration, the security headers component, the API's sign-in service, the API's password service, the settings files and the test stack's compose file at tag v1.0. Depth: focused. Coverage: focused |
 | Test | Test-Protection.ps1, checks N01 to N12, on the throwaway docuview-test stack (evidence in the SC evidence); B09 by hand on 6 November 2026 |
 | Interview | None held. The Windows server administrator, database administrator, developers and \<Organisation\>'s security contact remain |
 | Previous results reused | CM checks C07 to C10 (secrets, listening addresses, non-root); MP checks on export copies (PA-86); MA check M04 on the admin portal (PA-83) |
@@ -4125,14 +3844,9 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | Needed from providers | EV-SC-01 to EV-SC-05 and EV-AC-03 in \<Evidence Requests\> |
 | Evidence retained | the SC evidence (results, README and MANIFEST); the SC and CM evidence; completed TPL-6, TPL-8, TPL-11 and TPL-23 records |
 
-For the Level 2 assessment, the assessor should run Test-Protection.ps1 against the VMs, run an outside TLS scan of the web address, check the host firewall rules against \<System and Communications Protection Management\>, section 4.2, confirm BitLocker and the key ring protection, hold the interviews, and re-determine every statement in section SC.4.
-
-| **CHAPTER SI** |
-| --- |
+For the Level 2 assessment, the assessor should run Test-Protection.ps1 against the VMs, run an outside TLS scan of the web address, check the host firewall rules against \<System and Communications Protection Management\>, section 3.2, confirm BitLocker and the key ring protection, hold the interviews, and re-determine every statement in section SC.4.
 
 ## SI System and Information Integrity
-
-[SI.1 Purpose](#si1-purpose) · [SI.2 How to read this record](#si2-how-to-read-this-record) · [SI.3 Executive summary](#si3-executive-summary) · [SI.4 Findings by determination statement](#si4-findings-by-determination-statement) · [SI.5 Assessment plan](#si5-assessment-plan)
 
 ### SI.1 Purpose
 
@@ -4219,7 +3933,7 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | SI-01c.01\[02\] | Policy is reviewed after set events | S | Reviewed on 12 November 2026 after the SI pack review (D-SI-08) |
 | SI-01c.02\[01\] | Procedures are reviewed at the set frequency | O-D | First review not yet due |
 | SI-01c.02\[02\] | Procedures are reviewed after set events | S | Reviewed and approved as version \<ver\> on 12 November 2026 (D-SI-09) |
-| SI-02\_ODP | Time to install updates is defined | S | \<System and Information Integrity Management\>, appendix A (\<Risk Assessment Management\>, section 4.6) |
+| SI-02\_ODP | Time to install updates is defined | S | \<System and Information Integrity Management\>, appendix A (\<Risk Assessment Management\>, section 3.6) |
 | SI-02a.\[01\] | Flaws are identified | S | Test-Vulnerability.ps1, 11 November 2026 (V01) |
 | SI-02a.\[02\] | Flaws are reported | S | \<Plan of Action and Milestones\>, PA-56 |
 | SI-02a.\[03\] | Flaws are corrected | O-G | 7 advisories open, 5 High (PA-56) |
@@ -4276,7 +3990,7 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | SI-04(04)(b)\[02\] | Outbound traffic is monitored | O-E | \<Organisation\> (EV-SI-01) |
 | SI-04(05)\_ODP\[01\] | Who is alerted is defined | S | \<System and Information Integrity Management\>, appendix A |
 | SI-04(05)\_ODP\[02\] | Compromise indicators are defined | S | \<System and Information Integrity Management\>, appendix A |
-| SI-04(05) | Alerts are raised on those indicators | O-G | Nothing raises an alert on the use cases in \<System and Information Integrity Management\>, section 4.4 (H12; PA-59) |
+| SI-04(05) | Alerts are raised on those indicators | O-G | Nothing raises an alert on the use cases in \<System and Information Integrity Management\>, section 3.4 (H12; PA-59) |
 | SI-05\_ODP\[01\] | Sources are defined | S | \<System and Information Integrity Management\>, appendix A |
 | SI-05\_ODP\[02\] | Who advisories go to is selected | S | \<System and Information Integrity Management\>, appendix A |
 | SI-05\_ODP\[03\] | Personnel are defined | S | \<System and Information Integrity Management\>, appendix A |
@@ -4292,7 +4006,7 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | SI-07\_ODP\[04\] | Actions for software are defined | S | \<System and Information Integrity Management\>, appendix A |
 | SI-07\_ODP\[05\] | Actions for firmware are defined | S | \<System and Information Integrity Management\>, appendix A |
 | SI-07\_ODP\[06\] | Actions for information are defined | S | \<System and Information Integrity Management\>, appendix A |
-| SI-07a.\[01\] | Tools detect changes to software | O-G | Baseline recorded (\<System and Information Integrity Management\>, section 4.5); no check runs (PA-61) |
+| SI-07a.\[01\] | Tools detect changes to software | O-G | Baseline recorded (\<System and Information Integrity Management\>, section 3.5); no check runs (PA-61) |
 | SI-07a.\[02\] | Tools detect changes to firmware | O-E | \<Organisation\> (EV-SI-02) |
 | SI-07a.\[03\] | Tools detect changes to information | O-G | Documents use MD5 (H09); only 1 of 15 audit hashes recompute (H10; PA-61, PA-74) |
 | SI-07b.\[01\] | Actions are taken on software changes | O-D | PRO-SI-6 \<ver\> approved; not yet in use |
@@ -4327,10 +4041,10 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | SI-11\_ODP | Who sees detail is defined | S | \<System and Information Integrity Management\>, appendix A |
 | SI-11a. | Errors give what is needed without revealing detail | O-G | A malformed upload returns the exception message; about 29 API responses do so (H01; PA-60) |
 | SI-11b. | Error detail goes only to those named | O-G | Exception detail reaches callers, not only administrators (H01; PA-60) |
-| SI-12\[01\] | Information is managed under the rules | O-D | \<PII Processing Management\>, section 4.7, set with placeholders; not applied (PA-70) |
-| SI-12\[02\] | Information is retained under the rules | O-D | \<PII Processing Management\>, section 4.7, set with placeholders; not applied (PA-70) |
+| SI-12\[01\] | Information is managed under the rules | O-D | \<PII Processing Management\>, section 3.7, set with placeholders; not applied (PA-70) |
+| SI-12\[02\] | Information is retained under the rules | O-D | \<PII Processing Management\>, section 3.7, set with placeholders; not applied (PA-70) |
 | SI-12\[03\] | Output is managed under the rules | O-D | Export copies not yet deleted reliably (PA-86); schedule not applied (PA-70) |
-| SI-12\[04\] | Output is retained under the rules | O-D | \<PII Processing Management\>, section 4.7, set with placeholders; not applied (PA-70) |
+| SI-12\[04\] | Output is retained under the rules | O-D | \<PII Processing Management\>, section 3.7, set with placeholders; not applied (PA-70) |
 | SI-16\_ODP | Memory controls are defined | S | \<System and Information Integrity Management\>, appendix A |
 | SI-16 | Controls protect memory | O-E | .NET managed memory and non-root containers in place; Windows DEP and address randomisation to confirm on the VMs |
 
@@ -4343,7 +4057,7 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | Scope | The 18 SI entries in the Moderate baseline, 16 assessed (SI-8 and SI-8(2) tailored), with 139 determination statements |
 | Procedures | SP 800-53A Rev 5, using NIST's published statements and identifiers (catalog release 5.2.0) |
 | Dates | 6 November 2026; updated on 12 November 2026 after the SI pack review |
-| Examine | \<Policy\> (SI), \<Procedures\> (SI) and the SI chapter of \<Control Implementation Register\> at \<ver\>, now in \<System and Information Integrity Management\>; \<Risk Assessment Management\>, section 4.6; \<PII Processing Management\>, section 4.7; the upload, validation, audit and error-handling code at tag v1.0. Depth: focused. Coverage: focused |
+| Examine | \<Policy\> (SI), \<Procedures\> (SI) and the SI chapter of \<Control Implementation Register\> at \<ver\>, now in \<System and Information Integrity Management\>; \<Risk Assessment Management\>, section 3.6; \<PII Processing Management\>, section 3.7; the upload, validation, audit and error-handling code at tag v1.0. Depth: focused. Coverage: focused |
 | Test | Test-Integrity.ps1, checks H01 to H12, on the throwaway docuview-test stack (evidence in the SI evidence); Test-Vulnerability.ps1 (the RA evidence) |
 | Interview | None held. The security officer, Windows server administrator and \<Organisation\>'s security contact remain |
 | Previous results reused | RA check V01 (packages); AU checks A36 and A37 (audit chain); CM check C08 (non-root containers) |
@@ -4354,12 +4068,7 @@ There is one finding for each NIST SP 800-53A determination statement, including
 
 For the Level 2 assessment, the assessor should run Test-Integrity.ps1 and Test-Vulnerability.ps1 against the VMs, upload the EICAR test file once scanning is built, check Defender and the alert rules, compare release packages with the baseline, hold the interviews, and re-determine every statement in section SI.4.
 
-| **CHAPTER SR** |
-| --- |
-
 ## SR Supply Chain Risk Management
-
-[SR.1 Purpose](#sr1-purpose) · [SR.2 How to read this record](#sr2-how-to-read-this-record) · [SR.3 Executive summary](#sr3-executive-summary) · [SR.4 Findings by determination statement](#sr4-findings-by-determination-statement) · [SR.5 Assessment plan](#sr5-assessment-plan)
 
 ### SR.1 Purpose
 
@@ -4367,7 +4076,7 @@ This records the Level 1 self-assessment of the 12 SR entries in the NIST SP 800
 
 ### SR.2 How to read this record
 
-**Change since this assessment.** On 18 November 2026 the supply chain plan was rebuilt in the family form and renamed Supply Chain Risk Management (D-SR-14). Its parameter register is now appendix A, and section 4 is the plan. The findings below are a true record of their dates and are not changed.
+**Change since this assessment.** On 18 November 2026 the supply chain plan was rebuilt in the family form and renamed Supply Chain Risk Management (D-SR-14). Its parameter register is now appendix A, and section 3 is the plan. The findings below are a true record of their dates and are not changed.
 
 The methods were **Examine** (code, settings and documents) and **Test**. The test is Test-SupplyChain.ps1, run on 12 November 2026 (checks U01 to U10) on the build tagged v1.0 and the images built from it, with no running stack. The results and their hashes are in the SR evidence.
 
@@ -4440,14 +4149,14 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | SR-02\_ODP\[01\] | What the plan covers is defined | S | \<Supply Chain Risk Management\>, appendix A |
 | SR-02\_ODP\[02\] | Review frequency is defined | S | \<Supply Chain Risk Management\>, appendix A |
 | SR-02a.\[01\] | Plan is developed | S | \<Supply Chain Risk Management\> \<ver\>, approved (D-SR-13) |
-| SR-02a.\[02\] | Plan addresses research and development | S | \<Supply Chain Risk Management\>, section 4.4 |
-| SR-02a.\[03\] | Plan addresses design | S | \<Supply Chain Risk Management\>, section 4.4 |
-| SR-02a.\[04\] | Plan addresses manufacturing | S | \<Supply Chain Risk Management\>, section 4.4 |
-| SR-02a.\[05\] | Plan addresses acquisition | S | \<Supply Chain Risk Management\>, section 4.4 |
-| SR-02a.\[06\] | Plan addresses delivery | S | \<Supply Chain Risk Management\>, section 4.4 |
-| SR-02a.\[07\] | Plan addresses integration | S | \<Supply Chain Risk Management\>, section 4.4 |
-| SR-02a.\[08\] | Plan addresses operation and maintenance | S | \<Supply Chain Risk Management\>, section 4.4 |
-| SR-02a.\[09\] | Plan addresses disposal | S | \<Supply Chain Risk Management\>, section 4.4 |
+| SR-02a.\[02\] | Plan addresses research and development | S | \<Supply Chain Risk Management\>, section 3.4 |
+| SR-02a.\[03\] | Plan addresses design | S | \<Supply Chain Risk Management\>, section 3.4 |
+| SR-02a.\[04\] | Plan addresses manufacturing | S | \<Supply Chain Risk Management\>, section 3.4 |
+| SR-02a.\[05\] | Plan addresses acquisition | S | \<Supply Chain Risk Management\>, section 3.4 |
+| SR-02a.\[06\] | Plan addresses delivery | S | \<Supply Chain Risk Management\>, section 3.4 |
+| SR-02a.\[07\] | Plan addresses integration | S | \<Supply Chain Risk Management\>, section 3.4 |
+| SR-02a.\[08\] | Plan addresses operation and maintenance | S | \<Supply Chain Risk Management\>, section 3.4 |
+| SR-02a.\[09\] | Plan addresses disposal | S | \<Supply Chain Risk Management\>, section 3.4 |
 | SR-02b. | Plan is reviewed and updated | O-D | First review not yet due |
 | SR-02c.\[01\] | Plan is protected from disclosure | O-D | Restricted store not yet in use (PA-88) |
 | SR-02c.\[02\] | Plan is protected from modification | O-D | Restricted store not yet in use (PA-88) |
@@ -4462,7 +4171,7 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | SR-03a.\[01\] | Process to address weaknesses is established | O-D | PRO-SR-1 and PRO-SR-2 \<ver\> approved; not yet in use |
 | SR-03a.\[02\] | Process is coordinated | O-D | Not yet agreed with \<Organisation\> |
 | SR-03b. | Controls are employed | O-G | Only OfflineModules packages use the offline feed; no lock files, trust policy or pinned images (U01 to U03, U06; PA-94, PA-77) |
-| SR-03c. | Controls are documented | S | \<Supply Chain Risk Management\>, sections 4.5 to 4.7, approved (D-SR-13) |
+| SR-03c. | Controls are documented | S | \<Supply Chain Risk Management\>, sections 3.5 to 3.7, approved (D-SR-13) |
 | SR-05\_ODP | Strategies are defined | S | \<Supply Chain Risk Management\>, appendix A |
 | SR-05\[01\] | They protect against supply chain risks | O-G | Packages come straight from nuget.org, unchecked (U01; PA-94) |
 | SR-05\[02\] | They identify supply chain risks | S | Test-SupplyChain.ps1 (U01 to U10) and Test-Vulnerability.ps1 (V01) identify supply chain risks, 12 November 2026 |
@@ -4471,7 +4180,7 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | SR-06 | Suppliers are assessed and reviewed | O-D | No supplier review yet held on TPL-16 (PRO-SR-2) |
 | SR-08\_ODP\[01\] | What is notified is selected | S | \<Supply Chain Risk Management\>, appendix A |
 | SR-08\_ODP\[02\] | Results shared are defined | S | \<Supply Chain Risk Management\>, appendix A |
-| SR-08 | Notification agreements are in place | O-E | \<Organisation\>'s terms not seen (EV-SR-01); open-source advisories watched (\<System and Information Integrity Management\>, section 4.3) |
+| SR-08 | Notification agreements are in place | O-E | \<Organisation\>'s terms not seen (EV-SR-01); open-source advisories watched (\<System and Information Integrity Management\>, section 3.3) |
 | SR-10\_ODP\[01\] | What is inspected is defined | S | \<Supply Chain Risk Management\>, appendix A |
 | SR-10\_ODP\[02\] | When is selected | S | \<Supply Chain Risk Management\>, appendix A |
 | SR-10\_ODP\[03\] | Frequency is defined | S | \<Supply Chain Risk Management\>, appendix A |
@@ -4503,7 +4212,7 @@ There is one finding for each NIST SP 800-53A determination statement, including
 | Scope | The 12 SR entries in the Moderate baseline, with 81 determination statements |
 | Procedures | SP 800-53A Rev 5, using NIST's published statements and identifiers (catalog release 5.2.0) |
 | Dates | 6 November 2026; updated on 12 November 2026 after the SR pack review |
-| Examine | \<Policy\> (SR), \<Procedures\> (SR) and \<Supply Chain Risk Management\> \<ver\>; \<Risk Assessment Management\>, sections 4.9 and 4.4; the four package source settings files, the image build file, the compose file, each app's restored package list and the offline feed index at tag v1.0. Depth: focused. Coverage: focused |
+| Examine | \<Policy\> (SR), \<Procedures\> (SR) and \<Supply Chain Risk Management\> \<ver\>; \<Risk Assessment Management\>, sections 3.9 and 3.4; the four package source settings files, the image build file, the compose file, each app's restored package list and the offline feed index at tag v1.0. Depth: focused. Coverage: focused |
 | Test | Test-SupplyChain.ps1, checks U01 to U10, with no running stack (evidence in the SR evidence); Test-Vulnerability.ps1 (the RA evidence) |
 | Interview | None held. The developers, security officer and \<Organisation\>'s IT service desk remain |
 | Previous results reused | RA checks V01 and V03 (packages and image pinning); SI integrity baseline (the SI evidence); CM checks C04 and C05 (inventory and unused components) |

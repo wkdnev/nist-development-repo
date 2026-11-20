@@ -1,129 +1,6 @@
 # \<System Name\> Provider Evidence Request and Responsibility Matrix
 
-**\<ref\> | Version \<ver\> | Issued by the system owner, live document; not yet sent**
-
-**Contents**
-
-[1 Document control](#1-document-control)
-
-[2 Purpose](#2-purpose)
-
-[3 Cross-family requests](#3-cross-family-requests)
-
-[4 Access Control (AC)](#4-access-control-ac)
-
-[5 Awareness and Training (AT)](#5-awareness-and-training-at)
-
-[6 Audit and Accountability (AU)](#6-audit-and-accountability-au)
-
-[7 Assessment, Authorization and Monitoring (CA)](#7-assessment-authorization-and-monitoring-ca)
-
-[8 Configuration Management (CM)](#8-configuration-management-cm)
-
-[9 Contingency Planning (CP)](#9-contingency-planning-cp)
-
-[10 Identification and Authentication (IA)](#10-identification-and-authentication-ia)
-
-[11 Incident Response (IR)](#11-incident-response-ir)
-
-[12 Maintenance (MA)](#12-maintenance-ma)
-
-[13 Media Protection (MP)](#13-media-protection-mp)
-
-[14 Physical and Environmental Protection (PE)](#14-physical-and-environmental-protection-pe)
-
-[15 Planning (PL)](#15-planning-pl)
-
-[16 Program Management (PM)](#16-program-management-pm)
-
-[17 Personnel Security (PS)](#17-personnel-security-ps)
-
-[18 Personally Identifiable Information (PT)](#18-personally-identifiable-information-pt)
-
-[19 Risk Assessment (RA)](#19-risk-assessment-ra)
-
-[20 System and Services Acquisition (SA)](#20-system-and-services-acquisition-sa)
-
-[21 System and Communications Protection (SC)](#21-system-and-communications-protection-sc)
-
-[22 System and Information Integrity (SI)](#22-system-and-information-integrity-si)
-
-[23 Supply Chain Risk Management (SR)](#23-supply-chain-risk-management-sr)
-
-[24 Answers given on 6 November 2026](#24-answers-given-on-6-november-2026)
-
-| **SECTION 1** |
-| --- |
-
-## 1 Document control
-
-### 1.1 Document details
-
-**Table 1: Document details**
-
-| Item | Detail |
-| --- | --- |
-| Reference | \<ref\> |
-| Title | \<System Name\> Provider Evidence Request and Responsibility Matrix |
-| Version | \<ver\> |
-| Status | Issued by the system owner as version \<ver\> on 12 November 2026 (D-GEN-19). A live document. Not yet sent to \<Organisation\> |
-| Date | 5 November 2026 |
-| Owner | System owner |
-| Applies to | All control families; AC, AU, IA, SC, CM, SI, RA, CA, IR, CP, AT, MA, MP, PE, PL, PS, PT, SA and SR assessed in this version |
-| Classification | Restricted |
-| Next review | When a family is added, and when evidence is received |
-| Format | \<Documentation Map\>, section 5 |
-
-### 1.2 Approval
-
-The system owner approves each request before it is sent, and records who at \<Organisation\> agreed each responsibility.
-
-### 1.3 Change history
-
-**Table 2: Change history**
-
-| Version | Date | Change |
-| --- | --- | --- |
-| \<ver\> | 18 November 2026 | EV-SI-01 also asks for AD FS failed sign-in events and AD administrator group changes, which detection use cases U1 and U4 now need (D-SI-10) |
-| \<ver\> | 18 November 2026 | References to the communications protection design point to \<System and Communications Protection Management\>, where it is now held (D-SC-09). References to the integrity design point to \<System and Information Integrity Management\>, where it is now held (D-SI-10). References to the supply chain plan follow its new sections, as it is rebuilt in the family form and renamed Supply Chain Risk Management (D-SR-14) |
-| \<ver\> | 18 November 2026 | EV-SA-02 also asks for the service levels of \<Organisation\>'s services, how they are measured, and the remedies |
-| \<ver\> | 18 November 2026 | EV-RA-01 proposes 90 days as the time a reporter is asked to wait before disclosing (D-RA-14) |
-| \<ver\> | 18 November 2026 | EV-SA-02 also asks for the controls, functions, ports, protocols and services of AD FS, Active Directory and the Starters/Leavers system |
-| \<ver\> | 18 November 2026 | EV-RA-01 also asks where the security contact is published and on what terms, and whether findings that may affect \<Organisation\>'s other systems should go to it |
-| \<ver\> | 17 November 2026 | EV-PS-03 also asks for the terms that bind the independent assessors, if they are external |
-| \<ver\> | 17 November 2026 | References to the personnel security design point to \<Personnel Security Management\>, where it is now held (D-PS-10). EV-PS-02 also asks for \<Organisation\>'s confidentiality agreement, one of the two access agreements |
-| \<ver\> | 17 November 2026 | EV-PM-01 asks first for \<Organisation\>'s ISO/IEC 27001 certificate and scope, as evidence of the programme |
-| \<ver\> | 17 November 2026 | EV-PM-01 asks \<Organisation\> to name the senior accountable official for risk management |
-| \<ver\> | 17 November 2026 | References to the Program Management controls \<System Name\> inherits point to \<Program Management\>, where the list is now held (D-PM-05). EV-PM-01, EV-PM-04 and EV-PL-01 name the three PM enhancements and the architecture controls they also serve |
-| \<ver\> | 17 November 2026 | EV-PE-02 asks how long backup power lasts and how the administrators are warned |
-| \<ver\> | 17 November 2026 | References to the physical and environmental protection design point to \<Physical and Environmental Protection Management\>, where it is now held (D-PE-11). EV-PE-01 asks that a SOC 2 report cover the availability criteria as well as physical access, how soon a physical incident is reported, and for the name of each site. EV-PE-02 asks how the emergency shutoff is guarded |
-| \<ver\> | 17 November 2026 | EV-MP-03 also asks how print jobs are held and cleared on \<Organisation\>'s managed printers |
-| \<ver\> | 17 November 2026 | EV-MP-01 also asks where the audit archive and the copy of the secrets are held, and what its offices provide for printouts |
-| \<ver\> | 17 November 2026 | References to the maintenance design point to \<Maintenance Management\>, where it is now held (D-MA-09). EV-MA-01 also asks how \<Organisation\>'s engineers are screened, and for notice of its maintenance that affects \<System Name\> |
-| \<ver\> | 17 November 2026 | EV-IR-01 asks for everything the incident response plan relies on \<Organisation\> for |
-| \<ver\> | 17 November 2026 | EV-IR-01 also asks \<Organisation\> to confirm that the old AD FS secret of INC-2026-001 is revoked |
-| \<ver\> | 16 November 2026 | EV-IA-04 also asks for the trust settings between AD FS and \<System Name\> |
-| \<ver\> | 15 November 2026 | EV-CP-01 also asks for \<Organisation\>'s recovery plans and its recovery times for the services \<System Name\> depends on, including AD FS |
-| \<ver\> | 15 November 2026 | References to the contingency design follow the new section numbers of \<Contingency Planning Management\> (D-CP-14) |
-| \<ver\> | 13 November 2026 | References to the configuration management design follow the new section numbers of \<Configuration Management\> (D-CM-13) |
-| \<ver\> | 12 November 2026 | EV-CA-02 also asks for the agreement that covers AD FS and Active Directory |
-| \<ver\> | 12 November 2026 | References to the assessment, authorisation and monitoring design point to \<Assessment, Authorization, and Monitoring Management\>, where it is now held (D-CA-11) |
-| \<ver\> | 12 November 2026 | EV-AU-05 added: AD FS and Active Directory audit records for \<System Name\>, and how the auditor receives them |
-| \<ver\> | 12 November 2026 | EV-AC-01 and EV-IA-04 now ask for evidence of Active Directory and AD FS (D-AC-23) |
-| \<ver\> | 12 November 2026 | Version numbers are shown as a placeholder, as the system owner asked (D-GEN-28). No other change |
-| \<ver\> | 12 November 2026 | The document number is replaced by a placeholder on the line under the title and in the details table, as the system owner asked (D-GEN-27). No other change |
-| \<ver\> | 12 November 2026 | The name of the system is shown as a placeholder, as the system owner asked (D-GEN-26). No other change |
-| \<ver\> | 12 November 2026 | The earlier rows of the change history are folded into one row, as the system owner decided (D-GEN-25). No other change |
-| \<ver\> | 12 November 2026 | The steps for adding a control family are removed, as all 19 families are now in the document; the numbering rule they held is kept in section 2 |
-| \<ver\> | 12 November 2026 | References to the register, the policy and the assessment record follow their new section and table numbers (D-GEN-24) |
-| \<ver\> | 12 November 2026 | Documents are cited by name in angle brackets, in place of their numbers, as the system owner asked (D-GEN-23). No other change |
-| \<ver\> | 12 November 2026 | EV-PS-01 asks for the screening standard and whether it covers the four checks \<System Name\> expects (D-PS-07). The AC procedures are cited as PRO-AC-1 to PRO-AC-16 (WS-D11). Whole-set review (WS-D8): family sections are in NIST order, with the answers given on 6 November 2026 after them as section 24; sections and tables renumbered. No request changed. Whole-set review (WS-F12): section 2.2, a covering request, with the recipient, the reply date as a placeholder and how to reply. Issued as version \<ver\>. Not yet sent. The combined documents are cited by their new numbers and chapters (D-GEN-21). The document standard is cited as \<Documentation Map\>, section 5. The contents list is rebuilt so that its links work in Markdown |
-| \<ver\> to \<ver\> | 5 to 12 November 2026 | The earlier versions. Their history is kept in the change record (\<Documentation Map\>, section 5.1) |
-
-| **SECTION 2** |
-| --- |
-
-## 2 Purpose
+## 1 Purpose
 
 \<System Name\> depends on \<Organisation\> for its network, devices, hosting and staff processes. NIST SP 800-37 Rev 2 expects the plan to show which parts of a control the provider delivers, and the provider's own details must be available. This document lists the evidence needed and who is responsible for what. Cyber Essentials Plus supports these claims, but it is a different scheme and does not prove a NIST control, so each request asks for the specific service and evidence.
 
@@ -131,9 +8,9 @@ Evidence is enough when it names the service, shows that it covers the two \<Sys
 
 Status values are **Not sent**, **Sent**, **Received**, **Accepted**, **Rejected** and **Not needed**.
 
-Requests are numbered EV-XX-nn, where XX is the family code. A request in section 3 is reused wherever it already answers the need, so that \<Organisation\> is not asked twice.
+Requests are numbered EV-XX-nn, where XX is the family code. A request in section 2 is reused wherever it already answers the need, so that \<Organisation\> is not asked twice.
 
-**Table 3: Family coverage**
+**Table 1: Family coverage**
 
 | Family | Section | State |
 | --- | --- | --- |
@@ -158,26 +35,23 @@ Requests are numbered EV-XX-nn, where XX is the family code. A request in sectio
 | SI System and Information Integrity | 22 | Drafted, not sent |
 | SR Supply Chain Risk Management | 23 | Drafted, not sent |
 
-### 2.2 Covering request
+### 1.2 Covering request
 
 The requests go to \<Organisation\> as one pack, with this covering note. The pack has not yet been sent.
 
 1. **To:** \[Name\], \<Organisation\>'s security contact, with \[Name\] as deputy.
 2. **From:** \[Name\], system owner.
 3. **Date sent:** \[Date\].
-4. **Reply needed by:** \[Date\]. The records and the list of applicable policies promised on 6 November 2026 are due by 20 November 2026 (section 24).
-5. **What is asked:** the 74 requests in sections 3 to 23. Each has an ID, what is needed and the evidence that is acceptable.
+4. **Reply needed by:** \[Date\]. The records and the list of applicable policies promised on 6 November 2026 are due by 20 November 2026 (section 23).
+5. **What is asked:** the 74 requests in sections 2 to 22. Each has an ID, what is needed and the evidence that is acceptable.
 6. **How to reply:** for each request ID, give the document or record, its date and its owner, or say that none exists. One reply can answer several requests.
 7. **Where to send it:** \[The restricted records location\].
 8. **How it is used:** each reply is recorded against its request here. A finding changes only when the evidence is accepted.
 9. **Why it matters:** 306 determination statements wait on evidence that is not yet available, and all 61 inherited controls rest on these replies.
 
-| **SECTION 3** |
-| --- |
+## 2 Cross-family requests
 
-## 3 Cross-family requests
-
-**Table 4: Cross-family requests**
+**Table 2: Cross-family requests**
 
 | ID | What is needed | Acceptable evidence | Status | Received | Reference |
 | --- | --- | --- | --- | --- | --- |
@@ -187,14 +61,11 @@ The requests go to \<Organisation\> as one pack, with this covering note. The pa
 | EV-GEN-04 | The \<Organisation\> policies that apply to \<System Name\> | A list with owners and versions, and copies of the relevant sections | Not sent |  |  |
 | EV-GEN-05 | Any NIST-based control statements \<Organisation\> already holds | Existing common control or responsibility documents, or confirmation that none exists | Not sent |  |  |
 
-| **SECTION 4** |
-| --- |
+## 3 Access Control (AC)
 
-## 4 Access Control (AC)
+### 3.1 Evidence requests
 
-### 4.1 Evidence requests
-
-**Table 5: AC evidence requests**
+**Table 3: AC evidence requests**
 
 | ID | Controls | What is needed | Acceptable evidence | Status | Received | Reference |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -216,11 +87,11 @@ The requests go to \<Organisation\> as one pack, with this covering note. The pa
 | EV-AC-16 | AC-20 | How unmanaged or personal devices are prevented from reaching internal systems | Network access control or policy, with its enforcement | Not sent |  |  |
 | EV-AC-17 | AC-20(2) | USB and portable storage controls | Device control settings or policy | Not sent |  |  |
 
-### 4.2 Responsibility matrix
+### 3.2 Responsibility matrix
 
 This matrix is proposed and has not been agreed with \<Organisation\>.
 
-**Table 6: AC responsibility matrix**
+**Table 4: AC responsibility matrix**
 
 | Control | \<System Name\> application | Organisation (system owner and role holders) | \<Organisation\> | Request |
 | --- | --- | --- | --- | --- |
@@ -264,23 +135,17 @@ This matrix is proposed and has not been agreed with \<Organisation\>.
 | AC-21 | None | Sharing decisions | None | None |
 | AC-22 | Requires sign-in | No-public-content decision | None | None |
 
-| **SECTION 5** |
-| --- |
+## 4 Awareness and Training (AT)
 
-## 5 Awareness and Training (AT)
-
-**Table 7: AT evidence requests**
+**Table 5: AT evidence requests**
 
 | ID | Control | What we need to know | Evidence to provide | Status | Received | Result |
 | --- | --- | --- | --- | --- | --- | --- |
 | EV-AT-01 | AT-2, AT-2(2), AT-2(3), AT-3, AT-4 | What \<Organisation\>'s security training covers, including privacy, insider threat and social engineering, how often it is taken, how it is updated, and who has completed it; and the role training \<Organisation\> gives its own administrators of the \<System Name\> servers, with its records | Training content showing the insider threat and social engineering parts, and sample completion records for users and administrators | Not sent |  |  |
 
-| **SECTION 6** |
-| --- |
+## 5 Audit and Accountability (AU)
 
-## 6 Audit and Accountability (AU)
-
-**Table 8: AU evidence requests**
+**Table 6: AU evidence requests**
 
 | ID | Control | What we need to know | Evidence to provide | Status | Received | Result |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -290,49 +155,37 @@ This matrix is proposed and has not been agreed with \<Organisation\>.
 | EV-AU-04 | AU-12 | Which Windows Server events are logged and kept on the VMs | Audit policy and a sample log | Not sent |  |  |
 | EV-AU-05 | AU-2, AU-6, AU-6(3), AU-12 | Which AD FS and Active Directory events are logged for \<System Name\>: sign-in attempts, failed sign-ins, lockouts, and changes to \<System Name\>'s groups and their members. How long they are kept, and how \<System Name\>'s auditor receives them each week or on request | Audit settings, a sample record and the agreed route | Not sent |  |  |
 
-| **SECTION 7** |
-| --- |
+## 6 Assessment, Authorization and Monitoring (CA)
 
-## 7 Assessment, Authorization and Monitoring (CA)
-
-**Table 9: CA evidence requests**
+**Table 7: CA evidence requests**
 
 | ID | Control | What we need to know | Evidence to provide | Status | Received | Result |
 | --- | --- | --- | --- | --- | --- | --- |
 | EV-CA-01 | CA-6 | Who authorises the common controls \<System Name\> inherits | Name, and the authorisation record | Not sent |  |  |
-| EV-CA-02 | CA-3, CA-6 | The agreements for the exchanges in \<Assessment, Authorization, and Monitoring Management\>, section 4.7: the hosting and services agreement covering AD FS and Active Directory, central logging, the time service and the backup site, and information exchange agreements for ServiceNow and the Starters/Leavers system | Each agreement, with its date and review date | Not sent | None | None |
+| EV-CA-02 | CA-3, CA-6 | The agreements for the exchanges in \<Assessment, Authorization, and Monitoring Management\>, section 3.7: the hosting and services agreement covering AD FS and Active Directory, central logging, the time service and the backup site, and information exchange agreements for ServiceNow and the Starters/Leavers system | Each agreement, with its date and review date | Not sent | None | None |
 
-| **SECTION 8** |
-| --- |
+## 7 Configuration Management (CM)
 
-## 8 Configuration Management (CM)
-
-**Table 10: CM evidence requests**
+**Table 8: CM evidence requests**
 
 | ID | Control | What we need to know | Evidence to provide | Status | Received | Result |
 | --- | --- | --- | --- | --- | --- | --- |
 | EV-CM-01 | CM-5 | Physical and logical restrictions on changing the VMs and hosting | Access lists and change process | Not sent |  |  |
 | EV-CM-02 | CM-8(3), CM-12(1) | Tools that detect unauthorised components, and any that locate information | Tool names, and a sample report | Not sent |  |  |
-| EV-CM-03 | CM-10 | Licences for the software on the VMs and hosting, and peer-to-peer controls. \<System Name\>'s own components are recorded in \<Configuration Management\>, section 4.5 | Licence record and policy | Not sent |  |  |
+| EV-CM-03 | CM-10 | Licences for the software on the VMs and hosting, and peer-to-peer controls. \<System Name\>'s own components are recorded in \<Configuration Management\>, section 3.5 | Licence record and policy | Not sent |  |  |
 
-| **SECTION 9** |
-| --- |
+## 8 Contingency Planning (CP)
 
-## 9 Contingency Planning (CP)
-
-**Table 11: CP evidence requests**
+**Table 9: CP evidence requests**
 
 | ID | Control | What we need to know | Evidence to provide | Status | Received | Result |
 | --- | --- | --- | --- | --- | --- | --- |
-| EV-CP-01 | CP-6, CP-6(1), CP-6(3), CP-7, CP-7(1), CP-7(2), CP-7(3) | Whether a second site is available and separate from the main one, with room for 14 daily, 8 weekly and 12 monthly encrypted backups and one offline or immutable copy (\<Contingency Planning Management\>, section 4.8), whether it can hold encrypted backups and run rebuilt VMs with equivalent controls, how it is reached in a wide-area failure, and what priority of service applies. Also \<Organisation\>'s disaster recovery and business continuity plans: who declares a disaster, and the recovery times of the network, AD FS, Active Directory, name resolution and time, on which \<System Name\>'s 72 hours depends | Site details, and the service agreement | Not sent |  |  |
+| EV-CP-01 | CP-6, CP-6(1), CP-6(3), CP-7, CP-7(1), CP-7(2), CP-7(3) | Whether a second site is available and separate from the main one, with room for 14 daily, 8 weekly and 12 monthly encrypted backups and one offline or immutable copy (\<Contingency Planning Management\>, section 3.8), whether it can hold encrypted backups and run rebuilt VMs with equivalent controls, how it is reached in a wide-area failure, and what priority of service applies. Also \<Organisation\>'s disaster recovery and business continuity plans: who declares a disaster, and the recovery times of the network, AD FS, Active Directory, name resolution and time, on which \<System Name\>'s 72 hours depends | Site details, and the service agreement | Not sent |  |  |
 | EV-CP-02 | CP-8, CP-8(1), CP-8(2) | What alternate telecommunications exist, what priority of service applies, and whether main and alternate services share a single point of failure | Service agreements | Not sent |  |  |
 
-| **SECTION 10** |
-| --- |
+## 9 Identification and Authentication (IA)
 
-## 10 Identification and Authentication (IA)
-
-**Table 12: IA evidence requests**
+**Table 10: IA evidence requests**
 
 | ID | Control | What we need to know | Evidence to provide | Status | Received | Result |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -341,35 +194,26 @@ This matrix is proposed and has not been agreed with \<Organisation\>.
 | EV-IA-03 | IA-7 | Whether the VMs use validated cryptographic modules | Build standard and settings | Not sent |  |  |
 | EV-IA-04 | IA-2(1), IA-2(2), IA-2(8) | How AD FS signs users in to \<System Name\>: the multi-factor methods it requires, its lockout and password standard, how the token is signed, and that it carries the user's Active Directory groups. Also the trust settings for \<System Name\>: the federation protocol, the life of a token, what it carries, how the signing certificate is renewed, and whether the settings meet federation assurance level 2 of NIST SP 800-63C | Service description; the relying party settings for \<System Name\>; the password and lockout policy | Not sent |  |  |
 
-| **SECTION 11** |
-| --- |
+## 10 Incident Response (IR)
 
-## 11 Incident Response (IR)
-
-**Table 13: IR evidence requests**
+**Table 11: IR evidence requests**
 
 | ID | Control | What we need to know | Evidence to provide | Status | Received | Result |
 | --- | --- | --- | --- | --- | --- | --- |
 | EV-IR-01 | IR-3(2), IR-4, IR-6, IR-6(3), IR-7, IR-7(1) | \<Organisation\>'s incident process, how the security contact takes reports from \<System Name\>, and what help it gives: monitoring, forensic help, isolating a server, disabling an account, and locking or wiping a device. How it is reached outside working hours. How soon it tells \<System Name\> of a compromise on its side; 24 hours is asked. Who speaks to the press. Whether it will take part in the yearly exercise. Also confirmation, with its date, that the old AD FS secret found in the source repositories has been revoked (INC-2026-001) | The process, and the contact route | Not sent |  |  |
 
-| **SECTION 12** |
-| --- |
+## 11 Maintenance (MA)
 
-## 12 Maintenance (MA)
-
-**Table 14: MA evidence requests**
+**Table 12: MA evidence requests**
 
 | ID | Control | What we need to know | Evidence to provide | Status | Received | Result |
 | --- | --- | --- | --- | --- | --- | --- |
 | EV-MA-01 | MA-2, MA-3(3), MA-5, MA-6 | How hardware and the hypervisor are maintained, how equipment is sanitised before it leaves, with sanitising certificates, and whether support and parts for the hardware and hypervisor arrive within 24 hours (D-MA-P02). How its engineers are screened. Whether it tells the system owner before work on the hosts, AD FS, Active Directory, the network, the time service or the backup store that affects \<System Name\> | Maintenance process, and the service agreement | Not sent |  |  |
 | EV-MA-02 | MA-4 | The tool and protocol used over the managed route (route R1 in \<Maintenance Management\>), whether it uses multi-factor sign-in, what each session logs, whether sessions and connections end when finished, and the firewall rule that limits the admin portal to the route (PA-83) | Route settings and sample logs | Not sent |  |  |
 
-| **SECTION 13** |
-| --- |
+## 12 Media Protection (MP)
 
-## 13 Media Protection (MP)
-
-**Table 15: MP evidence requests**
+**Table 13: MP evidence requests**
 
 | ID | Control | What we need to know | Evidence to provide | Status | Received | Result |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -377,40 +221,31 @@ This matrix is proposed and has not been agreed with \<Organisation\>.
 | EV-MP-02 | MP-6 | How disks and backup media are sanitised, whether it follows NIST SP 800-88 Revision 2 and IEEE 2883-2022, how virtual disks are erased when a VM is removed, and how each action is verified | Process, and a sample certificate | Not sent |  |  |
 | EV-MP-03 | MP-4, MP-6, MP-7 | How USB and portable storage are blocked on users' devices, that no USB device is passed through to the VMs, how exceptions work, and that users' devices are disk-encrypted. How print jobs are held, released and cleared on its managed printers, and how a printer's storage is sanitised | Device control settings | Not sent |  |  |
 
-| **SECTION 14** |
-| --- |
+## 13 Physical and Environmental Protection (PE)
 
-## 14 Physical and Environmental Protection (PE)
-
-**Table 16: PE evidence requests**
+**Table 14: PE evidence requests**
 
 | ID | Control | What we need to know | Evidence to provide | Status | Received | Result |
 | --- | --- | --- | --- | --- | --- | --- |
-| EV-PE-01 | PE-2, PE-3, PE-4, PE-6, PE-6(1), PE-8 | Who can enter the data centre, how entry is controlled and logged, how visitors, keys and lines are managed, how access is monitored, and how incidents reach \<System Name\>'s security officer. Also confirm the values in \<Physical and Environmental Protection Management\>. First choice of evidence: \<Organisation\>'s ISO/IEC 27001 certificate, Statement of Applicability and latest audit findings for Annex A.7, or a SOC 2 report covering physical access (CC6.4) and the availability criteria (A1.2), for both the main data centre and the second site (\<Physical and Environmental Protection Management\>, section 4.3). How soon the security contact tells \<System Name\>'s security officer of a physical incident; 24 hours is asked. The name, address and facilities contact of each site | Physical security policy, and audit or certification report | Not sent |  |  |
+| EV-PE-01 | PE-2, PE-3, PE-4, PE-6, PE-6(1), PE-8 | Who can enter the data centre, how entry is controlled and logged, how visitors, keys and lines are managed, how access is monitored, and how incidents reach \<System Name\>'s security officer. Also confirm the values in \<Physical and Environmental Protection Management\>. First choice of evidence: \<Organisation\>'s ISO/IEC 27001 certificate, Statement of Applicability and latest audit findings for Annex A.7, or a SOC 2 report covering physical access (CC6.4) and the availability criteria (A1.2), for both the main data centre and the second site (\<Physical and Environmental Protection Management\>, section 3.3). How soon the security contact tells \<System Name\>'s security officer of a physical incident; 24 hours is asked. The name, address and facilities contact of each site | Physical security policy, and audit or certification report | Not sent |  |  |
 | EV-PE-02 | PE-9, PE-10, PE-11, PE-12 | How power is protected, whether there is an emergency shutoff, whether backup power allows an orderly shutdown, and what emergency lighting exists, and how the shutoff is guarded against accidental or unauthorised use. How long the backup power lasts, and how \<System Name\>'s administrators are warned that a site is on backup power | Facilities description, and maintenance records | Not sent |  |  |
 | EV-PE-03 | PE-13, PE-13(1), PE-14, PE-15 | What fire detection and suppression exist, who they notify, what temperature and humidity levels apply, how they are monitored, and how water damage is prevented | Facilities description, and maintenance records | Not sent |  |  |
 | EV-PE-04 | PE-16 | How hardware and media are authorised and recorded when entering or leaving | Process, and sample records | Not sent |  |  |
 | EV-PE-05 | PE-5, PE-17 | What office controls protect printers and screens, which managed printers have secure (pull) print release, and what controls apply to managed devices and the route at home | Office security rules, and remote working policy | Not sent |  |  |
 
-| **SECTION 15** |
-| --- |
+## 14 Planning (PL)
 
-## 15 Planning (PL)
-
-**Table 17: PL evidence requests**
+**Table 15: PL evidence requests**
 
 | ID | Control | What we need to know | Evidence to provide | Status | Received | Result |
 | --- | --- | --- | --- | --- | --- | --- |
 | EV-PL-01 | PL-2, PL-8, PM-7, PM-7(1) | Whether \<Organisation\> has an enterprise architecture that \<System Name\>'s plan must fit; and whether \<Organisation\> runs the VM hypervisor, and whether it is inside the Cyber Essentials Plus scope (D-PL-11) | The relevant architecture standards; the hypervisor's owner and the CE+ scope statement | Not sent |  |  |
 
-| **SECTION 16** |
-| --- |
+## 15 Program Management (PM)
 
-## 16 Program Management (PM)
+PM is outside \<System Name\>'s baseline (TR-PM-01), but \<System Name\> inherits PM controls as common controls. These requests ask \<Organisation\> to show the programme exists. The full list of PM controls and what relies on each is in \<Program Management\>, section 3.3 (D-PM-02).
 
-PM is outside \<System Name\>'s baseline (TR-PM-01), but \<System Name\> inherits PM controls as common controls. These requests ask \<Organisation\> to show the programme exists. The full list of PM controls and what relies on each is in \<Program Management\>, section 4.3 (D-PM-02).
-
-**Table 18: PM evidence requests**
+**Table 16: PM evidence requests**
 
 | ID | Control | What we need to know | Evidence to provide | Status | Received | Result |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -419,48 +254,36 @@ PM is outside \<System Name\>'s baseline (TR-PM-01), but \<System Name\> inherit
 | EV-PM-03 | PM-6, PM-10, PM-14, PM-30, PM-31 | How \<Organisation\> authorises systems, tests and monitors them, measures performance, and manages supply chain risk | The authorisation process, continuous monitoring strategy, supply chain risk management strategy and performance measures | Not sent |  |  |
 | EV-PM-04 | PM-18 to PM-23, PM-20(1), PM-25 to PM-27 | Whether \<Organisation\> has a privacy programme, who leads it, and whether a data protection officer is appointed | The privacy programme plan, the data protection officer's name or the reason none is required, and the complaint and reporting processes | Not sent |  |  |
 
-| **SECTION 17** |
-| --- |
+## 16 Personnel Security (PS)
 
-## 17 Personnel Security (PS)
-
-**Table 19: PS evidence requests**
+**Table 17: PS evidence requests**
 
 | ID | Control | What we need to know | Evidence to provide | Status | Received | Result |
 | --- | --- | --- | --- | --- | --- | --- |
-| EV-PS-01 | PS-2, PS-3 | What pre-employment screening is done, against what standard, whether it covers identity, right to work, employment history and a basic criminal record check (\<Personnel Security Management\>, section 4.3), whether it is repeated, and when | Screening policy or standard, and confirmation, with the date only, for each person with \<System Name\> access | Not sent |  |  |
+| EV-PS-01 | PS-2, PS-3 | What pre-employment screening is done, against what standard, whether it covers identity, right to work, employment history and a basic criminal record check (\<Personnel Security Management\>, section 3.3), whether it is repeated, and when | Screening policy or standard, and confirmation, with the date only, for each person with \<System Name\> access | Not sent |  |  |
 | EV-PS-02 | PS-4, PS-6, PS-8, PS-9 | How exit interviews, returned equipment and disciplinary action work, and whether job descriptions refer to security duties. A copy of the confidentiality agreement each person signs, and when it is signed | HR processes, and sample job descriptions | Not sent |  |  |
 | EV-PS-03 | PS-7 | What contracts require of external people, and how suppliers report leavers and movers, and, if the independent assessment team are not \<Organisation\>'s staff, the terms of their engagement | Standard contract terms | Not sent |  |  |
 
-| **SECTION 18** |
-| --- |
+## 17 Personally Identifiable Information (PT)
 
-## 18 Personally Identifiable Information (PT)
-
-**Table 20: PT evidence requests**
+**Table 18: PT evidence requests**
 
 | ID | Control | What we need to know | Evidence to provide | Status | Received | Result |
 | --- | --- | --- | --- | --- | --- | --- |
 | EV-PT-01 | PT-3, PT-5 | Whether the employee privacy notice names \<System Name\> and its purposes, how people get it, and how often it is reviewed | The notice, and how it is given to employees | Not sent |  |  |
 | EV-PT-02 | PE-8(3) | What personal data visitor records hold | A blank visitor record | Not sent |  |  |
 
-| **SECTION 19** |
-| --- |
+## 18 Risk Assessment (RA)
 
-## 19 Risk Assessment (RA)
-
-**Table 21: RA evidence requests**
+**Table 19: RA evidence requests**
 
 | ID | Control | What we need to know | Evidence to provide | Status | Received | Result |
 | --- | --- | --- | --- | --- | --- | --- |
 | EV-RA-01 | RA-3, RA-5(11) | Agreement to use the security contact for vulnerability reports about \<System Name\>, and whether \<Organisation\> offers a shared scanning service or a list of exploited flaws it tracks. How organisational risk feeds into system risk is asked in EV-PM-01. Where the security contact is published, and its terms: that research in good faith is authorised, how long a reporter is asked to wait for a fix before disclosing (\<System Name\> proposes 90 days, D-RA-14), and that indefinite secrecy is not required (NIST RA-5(11)). Whether findings that may affect \<Organisation\>'s other systems should be sent to the security contact (RA-5e) | Risk statement, and written agreement; the published contact and its terms | Not sent |  |  |
 
-| **SECTION 20** |
-| --- |
+## 19 System and Services Acquisition (SA)
 
-## 20 System and Services Acquisition (SA)
-
-**Table 22: SA evidence requests**
+**Table 20: SA evidence requests**
 
 | ID | Control | What we need to know | Evidence to provide | Status | Received | Result |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -468,54 +291,42 @@ PM is outside \<System Name\>'s baseline (TR-PM-01), but \<System Name\> inherit
 | EV-SA-02 | SA-9, SA-9(2) | What controls \<Organisation\>'s hosting, network, ServiceNow, AD FS, Active Directory and Starters/Leavers services use, and which functions, ports, protocols and services they rely on. \<System Name\> relies on them for running, changes, sign-in and access (D-AC-22, D-AC-23). The service levels for each, how they are measured, and the remedies when they are missed | Service descriptions, and a list of ports and services | Not sent |  |  |
 | EV-SA-03 | SA-9, SA-9(2) | What security controls GitHub applies to private repositories, and what plan and settings \<System Name\>'s account has (branch protection, alerts and secret scanning depend on the plan) | GitHub's published security and compliance reports, and the account's plan and settings | Not sent |  |  |
 
-| **SECTION 21** |
-| --- |
+## 20 System and Communications Protection (SC)
 
-## 21 System and Communications Protection (SC)
-
-**Table 23: SC evidence requests**
+**Table 21: SC evidence requests**
 
 | ID | Control | What we need to know | Evidence to provide | Status | Received | Result |
 | --- | --- | --- | --- | --- | --- | --- |
 | EV-SC-01 | SC-5, SC-10 | Denial-of-service protection, and network session disconnect | Service description and settings | Not sent |  |  |
-| EV-SC-02 | SC-7, SC-7(3), SC-7(4) | Managed interfaces, external connections, flow policy and exceptions | Network diagram, rule set and exception list; the address ranges and ports needed to complete the host firewall allow-lists in \<System and Communications Protection Management\>, section 4.2 | Not sent |  |  |
+| EV-SC-02 | SC-7, SC-7(3), SC-7(4) | Managed interfaces, external connections, flow policy and exceptions | Network diagram, rule set and exception list; the address ranges and ports needed to complete the host firewall allow-lists in \<System and Communications Protection Management\>, section 3.2 | Not sent |  |  |
 | EV-SC-03 | SC-7(7), SC-7(8) | Split tunnelling, and the authenticated proxy for the VMs | VPN and proxy configuration | Not sent |  |  |
 | EV-SC-04 | SC-17 | The certificate policy and trust anchors | Certificate policy and trust store list; the certificate authority's chain, the key types and lifetimes it issues (ECDSA P-256 or RSA 2048 with SHA-256 needed), and how to request and revoke a certificate | Not sent |  |  |
 | EV-SC-05 | SC-20, SC-21, SC-22 | DNS authentication, integrity, fault tolerance and role separation | DNS service description and settings | Not sent |  |  |
 
-| **SECTION 22** |
-| --- |
+## 21 System and Information Integrity (SI)
 
-## 22 System and Information Integrity (SI)
-
-**Table 24: SI evidence requests**
+**Table 22: SI evidence requests**
 
 | ID | Control | What we need to know | Evidence to provide | Status | Received | Result |
 | --- | --- | --- | --- | --- | --- | --- |
-| EV-SI-01 | SI-4, SI-4(2), SI-4(4) | Network monitoring, its criteria, and how it is reported; whether central logging can receive \<System Name\>'s audit and Windows logs, and how they are sent (\<System and Information Integrity Management\>, section 4.4). Since sign-in is through AD FS, whether AD FS failed sign-in events and changes to \<System Name\>'s AD administrator groups can be sent to the security officer, for detection use cases U1 and U4 (\<System and Information Integrity Management\>, section 4.4) | Service description and a sample report; the central logging connection details | Not sent |  |  |
+| EV-SI-01 | SI-4, SI-4(2), SI-4(4) | Network monitoring, its criteria, and how it is reported; whether central logging can receive \<System Name\>'s audit and Windows logs, and how they are sent (\<System and Information Integrity Management\>, section 3.4). Since sign-in is through AD FS, whether AD FS failed sign-in events and changes to \<System Name\>'s AD administrator groups can be sent to the security officer, for detection use cases U1 and U4 (\<System and Information Integrity Management\>, section 3.4) | Service description and a sample report; the central logging connection details | Not sent |  |  |
 | EV-SI-02 | SI-2, SI-7, SI-7(1) | Firmware updates and integrity checks for the VM hosting | Process and a sample record | Not sent |  |  |
-| EV-SI-03 | SI-5 | Whether \<Organisation\> is registered for the NCSC Early Warning service and receives CISA or NCSC alerts for its networks, and how alerts that affect \<System Name\> reach the security officer (\<System and Information Integrity Management\>, section 4.3) | Registration confirmation and the forwarding route | Not sent |  |  |
+| EV-SI-03 | SI-5 | Whether \<Organisation\> is registered for the NCSC Early Warning service and receives CISA or NCSC alerts for its networks, and how alerts that affect \<System Name\> reach the security officer (\<System and Information Integrity Management\>, section 3.3) | Registration confirmation and the forwarding route | Not sent |  |  |
 
-| **SECTION 23** |
-| --- |
+## 22 Supply Chain Risk Management (SR)
 
-## 23 Supply Chain Risk Management (SR)
-
-**Table 25: SR evidence requests**
+**Table 23: SR evidence requests**
 
 | ID | Control | What we need to know | Evidence to provide | Status | Received | Result |
 | --- | --- | --- | --- | --- | --- | --- |
-| EV-SR-01 | SR-2(1), SR-3, SR-6, SR-8 | Who the approved suppliers are, and how they report a compromise; confirmation that the IT service desk sits on \<System Name\>'s supply chain team and will take part in the yearly supplier review (\<Supply Chain Risk Management\>, section 4.5); the contract term for reporting a compromise to the security officer within 24 hours | The approved supplier list, and notification terms | Not sent |  |  |
+| EV-SR-01 | SR-2(1), SR-3, SR-6, SR-8 | Who the approved suppliers are, and how they report a compromise; confirmation that the IT service desk sits on \<System Name\>'s supply chain team and will take part in the yearly supplier review (\<Supply Chain Risk Management\>, section 3.5); the contract term for reporting a compromise to the security officer within 24 hours | The approved supplier list, and notification terms | Not sent |  |  |
 | EV-SR-02 | SR-10, SR-11(1), SR-11(2), SR-12 | How hardware is inspected, how buyers are trained, how equipment is controlled during repair, and how it is disposed of | Procedures, a training record and a sample disposal record | Not sent |  |  |
 
-| **SECTION 24** |
-| --- |
-
-## 24 Answers given on 6 November 2026
+## 23 Answers given on 6 November 2026
 
 \[Name\] and \[Name\] agreed these proposed answers in a meeting, as reported by the system owner. Several began as best guesses. They are statements, not evidence, so findings do not change until the records arrive. \[Name\] is to send the records and the list of applicable policies by 20 November 2026. These replace the "Not sent" status above.
 
-**Table 26: \<Organisation\>'s stated answers**
+**Table 24: \<Organisation\>'s stated answers**
 
 | Requests | Answer stated |
 | --- | --- |

@@ -1,92 +1,12 @@
 # \<System Name\> Record Templates
 
-**\<ref\> | Version \<ver\> | Approved by the system owner, live document**
+## 1 Purpose
 
-**Contents**
-
-[1 Document control](#1-document-control)
-
-[2 Purpose](#2-purpose)
-
-[3 Templates](#3-templates)
-
-| **SECTION 1** |
-| --- |
-
-## 1 Document control
-
-### 1.1 Document details
-
-**Table 1: Document details**
-
-| Item | Detail |
-| --- | --- |
-| Reference | \<ref\> |
-| Title | \<System Name\> Record Templates |
-| Version | \<ver\> |
-| Status | Approved by the system owner, live document |
-| Date | 5 November 2026 |
-| Owner | System owner |
-| Applies to | All control families |
-| Classification | Restricted. Completed records may hold names and access details |
-| Next review | When a family is added, and every 12 months |
-| Format | \<Documentation Map\>, section 5 |
-
-### 1.2 Approval
-
-**Table 2: Approval**
-
-| Role | Name | Decision | Date |
-| --- | --- | --- | --- |
-| System owner | \[Name\] | Approved | 7 November 2026 |
-
-### 1.3 Change history
-
-**Table 3: Change history**
-
-| Version | Date | Change |
-| --- | --- | --- |
-| \<ver\> | 18 November 2026 | Whole-set review: TPL-3 reviews group memberships, as \<System Name\> holds no accounts (D-AC-23) |
-| \<ver\> | 18 November 2026 | References to the supply chain plan follow its new sections, as it is rebuilt in the family form and renamed Supply Chain Risk Management (D-SR-14) |
-| \<ver\> | 18 November 2026 | TPL-16 records whether the service levels were met (SA-9) |
-| \<ver\> | 18 November 2026 | References to the acquisition design point to \<System and Services Acquisition Management\>, where it is now held (D-SA-19) |
-| \<ver\> | 18 November 2026 | TPL-15 and TPL-22 records are kept for 3 years after they are closed (D-PT-24) |
-| \<ver\> | 18 November 2026 | TPL-15 records every kind of request, when the time was paused for clarification, and who was told of a correction |
-| \<ver\> | 17 November 2026 | TPL-14 records are kept for 3 years (D-PS-12) |
-| \<ver\> | 17 November 2026 | TPL-14 records each step of a leaver or mover as it now happens: the Active Directory account, the group memberships, the sessions, the service secrets and exported copies. TPL-3 records inactive members and the review of risk designations. TPL-2 no longer speaks of an account type |
-| \<ver\> | 17 November 2026 | TPL-21 records are kept while the person has access, and for 3 years after (D-PL-14) |
-| \<ver\> | 17 November 2026 | TPL-21 carries the declaration that the rules were read, understood and agreed, which PL-4 asks to be acknowledged |
-| \<ver\> | 17 November 2026 | References to the planning design point to \<Planning Management\>, where it is now held (D-PL-12) |
-| \<ver\> | 17 November 2026 | TPL-20 checks each requirement in full: leavers removed from the access list, visitor records kept and reviewed, the fire systems' own energy source, and how long backup power lasts |
-| \<ver\> | 17 November 2026 | TPL-12 and TPL-13 records are kept for 3 years (D-MP-11) |
-| \<ver\> | 17 November 2026 | TPL-13 holds the tool used, the copies of the key destroyed and who verified the sanitising, following NIST SP 800-88 Revision 2 |
-| \<ver\> | 17 November 2026 | References to the media protection design point to \<Media Protection Management\>, where it is now held (D-MP-09) |
-| \<ver\> | 17 November 2026 | TPL-12 has a field for the inspection of tools and the scan of media, which MA-3(1) and MA-3(2) require |
-| \<ver\> | 17 November 2026 | References to the incident response design follow the new section numbers of \<Incident Response Management\> (D-IR-10) |
-| \<ver\> | 13 November 2026 | TPL-6 records the impact rating, and the authorising official's agreement for a High impact or significant change, as \<Configuration Management\>, section 4.9, requires |
-| \<ver\> | 13 November 2026 | References to the configuration management design follow the new section numbers of \<Configuration Management\> (D-CM-13) |
-| \<ver\> | 13 November 2026 | TPL-18 lists the privacy plan and impact assessment in the package, and records the legal adviser's privacy review |
-| \<ver\> | 12 November 2026 | References to the training design point to \<Awareness and Training Management\>, where it is now held (D-AT-09) |
-| \<ver\> | 12 November 2026 | Version numbers are shown as a placeholder, as the system owner asked (D-GEN-28). No other change |
-| \<ver\> | 12 November 2026 | The document number is replaced by a placeholder on the line under the title and in the details table, as the system owner asked (D-GEN-27). No other change |
-| \<ver\> | 12 November 2026 | The name of the system is shown as a placeholder, as the system owner asked (D-GEN-26). No other change |
-| \<ver\> | 12 November 2026 | The earlier rows of the change history are folded into one row, as the system owner decided (D-GEN-25). No other change |
-| \<ver\> | 12 November 2026 | The steps for adding a control family are removed, as all 19 families are now in the document; the numbering rule they held is kept in section 2 |
-| \<ver\> | 12 November 2026 | References to the register, the policy and the assessment record follow their new section and table numbers (D-GEN-24) |
-| \<ver\> | 12 November 2026 | Documents are cited by name in angle brackets, in place of their numbers, as the system owner asked (D-GEN-23). No other change |
-| \<ver\> | 12 November 2026 | References to \<Procedures\> follow its new table and section numbers |
-| \<ver\> to \<ver\> | 5 to 12 November 2026 | The earlier versions. Their history is kept in the change record (\<Documentation Map\>, section 5.1) |
-
-| **SECTION 2** |
-| --- |
-
-## 2 Purpose
-
-An assessor looks for records that show a control operating, as well as a statement that it should. These templates make those records consistent. They are written for any family: each has a family field, and Table 4 shows which controls use it. Completed records are evidence, are kept where D-GEN-15 decides, and are not stored in this document.
+An assessor looks for records that show a control operating, as well as a statement that it should. These templates make those records consistent. They are written for any family: each has a family field, and Table 1 shows which controls use it. Completed records are evidence, are kept where D-GEN-15 decides, and are not stored in this document.
 
 Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-001.
 
-**Table 4: Templates and where they are used**
+**Table 1: Templates and where they are used**
 
 | Template | Purpose | AC controls and procedures | Other families |
 | --- | --- | --- | --- |
@@ -106,23 +26,20 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | TPL-14 Leaver or mover record | Records what happened to someone's access when they left or moved. Kept for 3 years | AC-2 | PS-4, PS-5; PRO-PS-2, PRO-PS-3 |
 | TPL-15 Privacy request | Records a request from an individual about their data: to see, correct, delete, restrict, object or receive it in a portable form. Kept for 3 years after it is closed | AC-3(14) | SI-18(4); PRO-PT-1 |
 | TPL-16 Supplier review | Records a yearly review of a supplier or external service | None | SA-9, SR-2, SR-6, SR-8; PRO-SA-3, PRO-SR-2 |
-| TPL-17 Exception request | Records a request to depart from a SyOps rule, the decision and its end date. The approved requests form the exception register | AC-20, AC-20(2); PRO-AC-15 | PL-4, CM-2(7), MP-7, PE-17; \<Security Operating Procedures\>, section 6 |
+| TPL-17 Exception request | Records a request to depart from a SyOps rule, the decision and its end date. The approved requests form the exception register | AC-20, AC-20(2); PRO-AC-15 | PL-4, CM-2(7), MP-7, PE-17; \<Security Operating Procedures\>, section 5 |
 | TPL-18 Authorisation decision | Records the authorising official's decision, its terms and conditions, the risks accepted and its end date | None | CA-6; PRO-CA-4, PRO-CA-7 |
 | TPL-19 Assessor independence statement | Records an assessor's confirmation that they had no part in building or running \<System Name\> | None | CA-2(1), CA-7(1); PRO-CA-1, PRO-CA-5 |
 | TPL-20 Site inspection checklist | Records a one-off inspection of a data centre's physical and environmental controls | None | PE-2 to PE-16; PRO-PE-5 |
 | TPL-21 Rules of behaviour acknowledgement | Records that a person has signed the rules of behaviour, which version and parts, and how. Kept while the person has access, and for 3 years after | AC-2 | PL-4, PL-4(1), PS-6; PRO-PL-3 |
 | TPL-22 Data protection complaint | Records a complaint about how personal data is handled, its acknowledgement within 30 days, the investigation and the outcome. Kept for 3 years after it is closed | None | PT-2, PM-26; PRO-PT-2 |
 | TPL-23 Risk and supply chain review | Records a review of the risk list, the supply chain or the critical components: what was looked at, what changed, and who saw the result | None | RA-3, RA-3(1), RA-7, RA-9; PRO-RA-1, PRO-RA-2, PRO-RA-6 |
-| TPL-24 Approval sign-off record | Records that a named person made or confirms the decisions listed, so that an approval does not rest on someone else's report | AC-1 | CA-6, PL-2, PM-10 and every policy control (xx-1); \<Decision Register\>, section 24 |
+| TPL-24 Approval sign-off record | Records that a named person made or confirms the decisions listed, so that an approval does not rest on someone else's report | AC-1 | CA-6, PL-2, PM-10 and every policy control (xx-1); \<Decision Register\>, section 23 |
 
-| **SECTION 3** |
-| --- |
+## 2 Templates
 
-## 3 Templates
+### 2.1 TPL-1 Risk acceptance
 
-### 3.1 TPL-1 Risk acceptance
-
-**Table 5: TPL-1 Risk acceptance record**
+**Table 2: TPL-1 Risk acceptance record**
 
 | Field | Entry |
 | --- | --- |
@@ -140,9 +57,9 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | Decided by (name and role) |  |
 | Decision and date |  |
 
-### 3.2 TPL-2 Access request
+### 2.2 TPL-2 Access request
 
-**Table 6: TPL-2 Access request record**
+**Table 3: TPL-2 Access request record**
 
 | Field | Entry |
 | --- | --- |
@@ -151,7 +68,7 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | Type: new, change or removal |  |
 | Role, project or group |  |
 | Reason and intended use |  |
-| Prerequisites met, such as the signed rules of behaviour (TPL-21, checked against the register of signatures in \<Planning Management\>, section 4.5) |  |
+| Prerequisites met, such as the signed rules of behaviour (TPL-21, checked against the register of signatures in \<Planning Management\>, section 3.5) |  |
 | Screening confirmed by \<Organisation\>: by whom, and the date only (\<Procedures\>, PRO-PS-1) |  |
 | Requested by and date |  |
 | Approved by (name and role), decision and date |  |
@@ -159,9 +76,9 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | Change made by and date |  |
 | Change checked by and date |  |
 
-### 3.3 TPL-3 Access review
+### 2.3 TPL-3 Access review
 
-**Table 7: TPL-3 Access review summary**
+**Table 4: TPL-3 Access review summary**
 
 | Field | Entry |
 | --- | --- |
@@ -178,15 +95,15 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | Actions completed, by and date |  |
 | Signed off by the system owner, and date |  |
 
-**Table 8: TPL-3 Access review detail**
+**Table 5: TPL-3 Access review detail**
 
 | Account | Person | Role or group | Last sign-in | Still needed? | Action | Reviewer |
 | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  |  |  |  |
 
-### 3.4 TPL-4 Procedure walk-through
+### 2.4 TPL-4 Procedure walk-through
 
-**Table 9: TPL-4 Procedure walk-through record**
+**Table 6: TPL-4 Procedure walk-through record**
 
 | Field | Entry |
 | --- | --- |
@@ -203,9 +120,9 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | Result: works as written, or works after changes |  |
 | Signed off by and date |  |
 
-### 3.5 TPL-5 Approved access list
+### 2.5 TPL-5 Approved access list
 
-**Table 10: TPL-5 Approved access list header**
+**Table 7: TPL-5 Approved access list header**
 
 | Field | Entry |
 | --- | --- |
@@ -214,22 +131,22 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | Approved by and date |  |
 | Next review date |  |
 
-**Table 11: TPL-5 Approved access list entries**
+**Table 8: TPL-5 Approved access list entries**
 
 | Person | Account | Account type | Roles and groups | Projects | Reason | Approval record (TPL-2) |
 | --- | --- | --- | --- | --- | --- | --- |
 |  |  |  |  |  |  |  |
 
-### 3.6 TPL-6 Change record
+### 2.6 TPL-6 Change record
 
-**Table 12: TPL-6 Change record**
+**Table 9: TPL-6 Change record**
 
 | Field | Entry |
 | --- | --- |
 | Record number |  |
 | What is changing, and why |  |
 | Type of change |  |
-| Impact analysis (\<Configuration Management\>, section 4.9): items and components affected, controls affected, personal data, connections, and whether it is a significant change |  |
+| Impact analysis (\<Configuration Management\>, section 3.9): items and components affected, controls affected, personal data, connections, and whether it is a significant change |  |
 | Impact rating: Low, Medium or High. The authorising official's agreement and date, if the impact is High or the change is significant |  |
 | Test plan and back-out plan |  |
 | Emergency change: yes or no (PRO-CM-8) |  |
@@ -239,9 +156,9 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | Verified after the change: by, and result |  |
 | Baseline, inventory and documents updated |  |
 
-### 3.7 TPL-7 Vulnerability and patch review
+### 2.7 TPL-7 Vulnerability and patch review
 
-**Table 13: TPL-7 Vulnerability and patch review**
+**Table 10: TPL-7 Vulnerability and patch review**
 
 | Field | Entry |
 | --- | --- |
@@ -256,9 +173,9 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | For an advisory (PRO-SI-5): the source, who was told inside \<System Name\> and \<Organisation\>, and the date |  |
 | Reviewed by the security officer: date |  |
 
-### 3.8 TPL-8 Monitoring and integrity report
+### 2.8 TPL-8 Monitoring and integrity report
 
-**Table 14: TPL-8 Monitoring and integrity report**
+**Table 11: TPL-8 Monitoring and integrity report**
 
 | Field | Entry |
 | --- | --- |
@@ -267,16 +184,16 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | Logs reviewed, and anything unexplained |  |
 | Alerts raised, and what was done |  |
 | Integrity checks: release packages, document checksums and audit chain |  |
-| Configuration drift from \<Configuration Management\>, sections 4.4 to 4.6 (PRO-CM-7), and the change record raised for each |  |
+| Configuration drift from \<Configuration Management\>, sections 3.4 to 3.6 (PRO-CM-7), and the change record raised for each |  |
 | Open plan items |  |
 | Oldest unpatched update, in days |  |
 | Failed sign-ins |  |
 | Incidents raised |  |
 | Sent to the system owner: date |  |
 
-### 3.9 TPL-9 Training record
+### 2.9 TPL-9 Training record
 
-**Table 15: TPL-9 Training record**
+**Table 12: TPL-9 Training record**
 
 | Field | Entry |
 | --- | --- |
@@ -290,19 +207,19 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | Security Operating Procedures acknowledged: date and TPL-21 record number |  |
 | Recorded by |  |
 
-### 3.10 TPL-10 Incident record
+### 2.10 TPL-10 Incident record
 
-**Table 16: TPL-10 Incident record**
+**Table 13: TPL-10 Incident record**
 
 | Field | Entry |
 | --- | --- |
 | Record number |  |
-| Reported by, date and time, and how it was detected (\<Incident Response Management\>, section 4.5) |  |
+| Reported by, date and time, and how it was detected (\<Incident Response Management\>, section 3.5) |  |
 | What happened, and what it affected |  |
 | Severity, decided by the security officer, and its containment target |  |
 | Personal data involved: yes or no. Legal adviser told: date and time |  |
 | ICO told: yes or no, date and time, and the reason if not |  |
-| People affected told: yes or no, date and how, and the reason if not. Breach register entry made (\<Incident Response Management\>, section 4.14) |  |
+| People affected told: yes or no, date and how, and the reason if not. Breach register entry made (\<Incident Response Management\>, section 3.14) |  |
 | \<Organisation\>'s security contact and suppliers told: date and time |  |
 | Evidence preserved: each item, its SHA-256 hash, who holds it, where, and each hand-over |  |
 | Containment, eradication and recovery: what was done, by whom, and when |  |
@@ -311,9 +228,9 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | Lessons, and changes to plans, training, \<Risk List\> and \<Plan of Action and Milestones\> |  |
 | Closed by, and date |  |
 
-### 3.11 TPL-11 Exercise and restore test
+### 2.11 TPL-11 Exercise and restore test
 
-**Table 17: TPL-11 Exercise and restore test record**
+**Table 14: TPL-11 Exercise and restore test record**
 
 | Field | Entry |
 | --- | --- |
@@ -329,9 +246,9 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | Actions, owner and date |  |
 | Reviewed by, and date |  |
 
-### 3.12 TPL-12 Maintenance record
+### 2.12 TPL-12 Maintenance record
 
-**Table 18: TPL-12 Maintenance record**
+**Table 15: TPL-12 Maintenance record**
 
 | Field | Entry |
 | --- | --- |
@@ -351,9 +268,9 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | Checklist after maintenance (\<Procedures\>, Table MA-2): run by, result, and signed by the security officer |  |
 | Monthly review against the change record (C48): by, date and result |  |
 
-### 3.13 TPL-13 Media record
+### 2.13 TPL-13 Media record
 
-**Table 19: TPL-13 Media record**
+**Table 16: TPL-13 Media record**
 
 | Field | Entry |
 | --- | --- |
@@ -362,14 +279,14 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | Action: transport, sanitising or portable storage exception |  |
 | Date, and who did it |  |
 | For transport: from, to, protection and courier |  |
-| For sanitising: serial, method (\<Media Protection Management\>, section 4.6, M1 to M6), tool used, each copy of the key destroyed for a cryptographic erase, how and by whom it was verified, and certificate |  |
+| For sanitising: serial, method (\<Media Protection Management\>, section 3.6, M1 to M6), tool used, each copy of the key destroyed for a cryptographic erase, how and by whom it was verified, and certificate |  |
 | For an exception: purpose, period and approved by |  |
 | For an ownerless device: where found, by whom, and handed to |  |
 | For the yearly certificate check: sample checked, by, date and result |  |
 
-### 3.14 TPL-14 Leaver or mover record
+### 2.14 TPL-14 Leaver or mover record
 
-**Table 20: TPL-14 Leaver or mover record**
+**Table 17: TPL-14 Leaver or mover record**
 
 | Field | Entry |
 | --- | --- |
@@ -386,9 +303,9 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | Rescreening needed: yes or no |  |
 | Exit interview and equipment confirmed by \<Organisation\>: date |  |
 
-### 3.15 TPL-15 Privacy request
+### 2.15 TPL-15 Privacy request
 
-**Table 21: TPL-15 Privacy request**
+**Table 18: TPL-15 Privacy request**
 
 | Field | Entry |
 | --- | --- |
@@ -402,15 +319,15 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | People the data was disclosed to, told of a correction, deletion or restriction: date, or why not (UK GDPR, Article 19) |  |
 | Reply sent: date |  |
 
-### 3.16 TPL-16 Supplier review
+### 2.16 TPL-16 Supplier review
 
-**Table 22: TPL-16 Supplier review**
+**Table 19: TPL-16 Supplier review**
 
 | Field | Entry |
 | --- | --- |
 | Record number |  |
 | Supplier or service |  |
-| Criticality, from the supplier register (\<Supply Chain Risk Management\>, section 4.5) |  |
+| Criticality, from the supplier register (\<Supply Chain Risk Management\>, section 3.5) |  |
 | What it provides to \<System Name\> |  |
 | Controls the contract requires, and evidence seen |  |
 | Service levels: met or not, and any remedy used |  |
@@ -422,9 +339,9 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | For an open-source supplier: published security policy, maintainer activity and advisory history |  |
 | Reviewed by, and date |  |
 
-### 3.17 TPL-17 Exception request
+### 2.17 TPL-17 Exception request
 
-**Table 23: TPL-17 Exception request**
+**Table 20: TPL-17 Exception request**
 
 | Field | Entry |
 | --- | --- |
@@ -440,9 +357,9 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | Reviewed at access review: dates |  |
 | Ended or renewed, and date |  |
 
-### 3.18 TPL-18 Authorisation decision
+### 2.18 TPL-18 Authorisation decision
 
-**Table 24: TPL-18 Authorisation decision**
+**Table 21: TPL-18 Authorisation decision**
 
 | Field | Entry |
 | --- | --- |
@@ -459,9 +376,9 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | Authorising official's name, signature and date |  |
 | Copied to the system owner and Head of Cyber, and date |  |
 
-### 3.19 TPL-19 Assessor independence statement
+### 2.19 TPL-19 Assessor independence statement
 
-**Table 25: TPL-19 Assessor independence statement**
+**Table 22: TPL-19 Assessor independence statement**
 
 | Field | Entry |
 | --- | --- |
@@ -474,11 +391,11 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | Assessor's signature and date |  |
 | Accepted by the authorising official, and date |  |
 
-### 3.20 TPL-20 Site inspection checklist
+### 2.20 TPL-20 Site inspection checklist
 
 For the Level 2 assessor or \<Organisation\>'s auditor, once per site (\<Procedures\>, PRO-PE-5). Each line is marked Seen, Evidenced by document, or Not seen.
 
-**Table 26: TPL-20 Site inspection checklist**
+**Table 23: TPL-20 Site inspection checklist**
 
 | Field | Entry |
 | --- | --- |
@@ -496,11 +413,11 @@ For the Level 2 assessor or \<Organisation\>'s auditor, once per site (\<Procedu
 | Shortfalls found, and where raised in \<Risk List\> |  |
 | Signed by inspector; reviewed by system owner |  |
 
-### 3.21 TPL-21 Rules of behaviour acknowledgement
+### 2.21 TPL-21 Rules of behaviour acknowledgement
 
-Completed for each person before access, every 12 months, and after a material change to the rules (\<Procedures\>, PRO-PL-3). Each completed form is added to the register of signatures in \<Planning Management\>, section 4.5.
+Completed for each person before access, every 12 months, and after a material change to the rules (\<Procedures\>, PRO-PL-3). Each completed form is added to the register of signatures in \<Planning Management\>, section 3.5.
 
-**Table 27: TPL-21 Rules of behaviour acknowledgement**
+**Table 24: TPL-21 Rules of behaviour acknowledgement**
 
 | Field | Entry |
 | --- | --- |
@@ -515,11 +432,11 @@ Completed for each person before access, every 12 months, and after a material c
 | Received and recorded by the system owner, and date |  |
 | Access request (TPL-2) this signature supports |  |
 
-### 3.22 TPL-22 Data protection complaint
+### 2.22 TPL-22 Data protection complaint
 
 Completed by the legal adviser for each complaint about how personal data in \<System Name\> is handled (\<Procedures\>, PRO-PT-2; Data (Use and Access) Act 2025).
 
-**Table 28: TPL-22 Data protection complaint**
+**Table 25: TPL-22 Data protection complaint**
 
 | Field | Entry |
 | --- | --- |
@@ -534,11 +451,11 @@ Completed by the legal adviser for each complaint about how personal data in \<S
 | Weakness found, and \<Risk List\> entry |  |
 | Closed by the legal adviser, and date |  |
 
-### 3.23 TPL-23 Risk and supply chain review
+### 2.23 TPL-23 Risk and supply chain review
 
 Completed by the system owner for each review of the risk list, the supply chain, the critical components, or the cryptographic register and boundary (\<Procedures\>, PRO-RA-1, PRO-RA-2 and PRO-RA-6; \<Procedures\>, PRO-SC-8).
 
-**Table 29: TPL-23 Risk and supply chain review**
+**Table 26: TPL-23 Risk and supply chain review**
 
 | Field | Entry |
 | --- | --- |
@@ -552,16 +469,16 @@ Completed by the system owner for each review of the risk list, the supply chain
 | Components or suppliers added or removed |  |
 | Yearly review only: security and privacy costs raised in budgeting, and the amounts (SA-2) |  |
 | Cryptographic register and boundary review only: keys and certificates due for change, algorithms NCSC no longer recommends, allow-list rules and exceptions kept or removed (SC-7(4), SC-12, SC-13) |  |
-| Yearly review only: tools, standards and the SSDF table in \<System and Services Acquisition Management\>, section 4.2 reviewed, and changes (SA-15) |  |
+| Yearly review only: tools, standards and the SSDF table in \<System and Services Acquisition Management\>, section 3.2 reviewed, and changes (SA-15) |  |
 | Decisions needed, and from whom (\<Decision Register\>) |  |
 | Shared with the authorising official and Head of Cyber, and date |  |
 | Signed by the system owner, and date |  |
 
-### 3.24 TPL-24 Approval sign-off record
+### 2.24 TPL-24 Approval sign-off record
 
-Completed for each approver, and filed by the system owner in the Restricted store. The approver signs it, or replies to an email that lists the same decisions; the email is then attached. One sheet covers every decision the person has made up to its date (\<Decision Register\>, section 24). Nobody signs for anyone else.
+Completed for each approver, and filed by the system owner in the Restricted store. The approver signs it, or replies to an email that lists the same decisions; the email is then attached. One sheet covers every decision the person has made up to its date (\<Decision Register\>, section 23). Nobody signs for anyone else.
 
-**Table 30: TPL-24 Approval sign-off record**
+**Table 27: TPL-24 Approval sign-off record**
 
 | Field | Entry |
 | --- | --- |

@@ -1,169 +1,16 @@
 # \<System Name\> Security Policy
 
-**\<ref\> | Version \<ver\> | The layout introduced in version \<ver\> awaits the system owner's approval; the content of every chapter is unchanged**
+## 1 How to use this document
 
-**Contents**
+This document is the security and privacy policy for \<System Name\>. It holds one policy for each of the 19 NIST SP 800-53 Rev 5 control families that apply, as chapters in NIST order. A policy says what must be true and who is accountable for it. How each rule is carried out is in \<Procedures\>, and the design, values and decisions are in each family's design document (\<Documentation Map\>, section 2.2).
 
-[1 Document control](#1-document-control)
-
-[2 How to use this document](#2-how-to-use-this-document)
-
-[AC Access Control](#ac-access-control)
-
-[AT Awareness and Training](#at-awareness-and-training)
-
-[AU Audit and Accountability](#au-audit-and-accountability)
-
-[CA Assessment, Authorization, and Monitoring](#ca-assessment-authorization-and-monitoring)
-
-[CM Configuration Management](#cm-configuration-management)
-
-[CP Contingency Planning](#cp-contingency-planning)
-
-[IA Identification and Authentication](#ia-identification-and-authentication)
-
-[IR Incident Response](#ir-incident-response)
-
-[MA Maintenance](#ma-maintenance)
-
-[MP Media Protection](#mp-media-protection)
-
-[PE Physical and Environmental Protection](#pe-physical-and-environmental-protection)
-
-[PL Planning](#pl-planning)
-
-[PS Personnel Security](#ps-personnel-security)
-
-[PT Personally Identifiable Information Processing and Transparency](#pt-personally-identifiable-information-processing-and-transparency)
-
-[RA Risk Assessment](#ra-risk-assessment)
-
-[SA System and Services Acquisition](#sa-system-and-services-acquisition)
-
-[SC System and Communications Protection](#sc-system-and-communications-protection)
-
-[SI System and Information Integrity](#si-system-and-information-integrity)
-
-[SR Supply Chain Risk Management](#sr-supply-chain-risk-management)
-
-| **SECTION 1** |
-| --- |
-
-## 1 Document control
-
-### 1.1 Document details
-
-**Table 1: Document details**
-
-| Item | Detail |
-| --- | --- |
-| Reference | \<ref\> |
-| Title | \<System Name\> Security Policy |
-| Version | \<ver\> |
-| Status | Version \<ver\> has one status, approval and change history for the whole document, as the system owner asked on 12 November 2026 (D-GEN-24), and that layout awaits the system owner's approval. No rule, value, finding or decision changed, so each chapter stands as it was approved (Table 4) |
-| Date | 12 November 2026 |
-| Owner | System owner |
-| Applies to | The 19 control families listed in Table 4 |
-| Classification | Restricted |
-| Next review | Every 12 months, and after a significant change |
-| Format | \<Documentation Map\>, section 5 |
-
-### 1.2 Approval
-
-**Table 2: Approval**
-
-| Role | Name | Decision | Date |
-| --- | --- | --- | --- |
-| System owner | \[Name\] | The layout introduced in version \<ver\> awaits approval. The approval of each chapter's content is in Table 4 | Pending |
-
-### 1.3 Change history
-
-From version \<ver\> the document has one version, one approval and one change history. A change to any chapter raises the document's version, and the row below names the chapter that changed.
-
-**Table 3: Change history**
-
-| Version | Date | Change |
-| --- | --- | --- |
-| \<ver\> | 18 November 2026 | Whole-set review: sections 2 and 2.1 point to each family's design document, as the register now holds none |
-| \<ver\> | 18 November 2026 | Chapter SR: the offline feed is defined without naming its folder. For the Head of Cyber with the later version (D-SR-12) |
-| \<ver\> | 18 November 2026 | Chapter SC: rules R5 and R10 and the database administrator's responsibility describe the settings in plain words, not by their configuration names. No requirement is changed. For the Head of Cyber with the later version (D-SC-06) |
-| \<ver\> | 18 November 2026 | References to the communications protection design point to \<System and Communications Protection Management\>, where it is now held (D-SC-09). References to the integrity design point to \<System and Information Integrity Management\>, where it is now held (D-SI-10) |
-| \<ver\> | 18 November 2026 | References to the acquisition design point to \<System and Services Acquisition Management\>, where it is now held (D-SA-19) |
-| \<ver\> | 18 November 2026 | Chapter RA: rule R6 covers \<System Name\>'s own applications, and rule R9 requires the reporting route to be published with terms that authorise research in good faith, from the RA cross-check. For the Head of Cyber with the later version (D-RA-06) |
-| \<ver\> | 18 November 2026 | Chapter PT: rule R11 added, requiring personal data to be kept accurate and checked every 12 months (SI-18), as the system owner decided (D-PT-24). For the Head of Cyber with the later version (D-PT-18) |
-| \<ver\> | 18 November 2026 | References to the risk assessment design point to \<Risk Assessment Management\>, where it is now held (D-RA-11) |
-| \<ver\> | 18 November 2026 | References to the personal data design point to \<PII Processing Management\>, where it is now held (D-PT-22). Chapter PT: the scope and rule R8 follow sign-in through AD FS, as \<System Name\> holds no accounts and has no sign-in page of its own (D-AC-23). For the Head of Cyber with the later version (D-PT-18) |
-| \<ver\> | 17 November 2026 | Chapter PS: the definition of an external person includes an independent assessor. For the Head of Cyber with the later version (D-PS-08) |
-| \<ver\> | 17 November 2026 | References to the personnel security design point to \<Personnel Security Management\>, where it is now held (D-PS-10). Chapter PS: rule R2 and the global administrator's responsibility follow sign-in through AD FS, as \<System Name\> holds no accounts (D-AC-23). For the Head of Cyber with the later version (D-PS-08) |
-| \<ver\> | 17 November 2026 | References to the planning design point to \<Planning Management\>, where it is now held (D-PL-12) |
-| \<ver\> | 17 November 2026 | Chapter PE, rule R5: the inspection covers both data centres, as rule R4 already holds the second site to the same requirements |
-| \<ver\> | 17 November 2026 | References to the physical and environmental protection design point to \<Physical and Environmental Protection Management\>, where it is now held (D-PE-11) |
-| \<ver\> | 17 November 2026 | Chapter MP, scope: the list of media names every kind in the media inventory. No rule is changed |
-| \<ver\> | 17 November 2026 | Chapter MP, rule R5: the export folder is checked each working day in place of weekly, as the system owner decided (D-MP-10). For the Head of Cyber with the later version (D-MP-07) |
-| \<ver\> | 17 November 2026 | References to the media protection design point to \<Media Protection Management\>, where it is now held (D-MP-09) |
-| \<ver\> | 17 November 2026 | References to the maintenance design point to \<Maintenance Management\>, where it is now held (D-MA-09) |
-| \<ver\> | 17 November 2026 | Chapter IR, rule R10: Report Fraud is named in place of Action Fraud, which it replaced in December 2025. No change to the rule |
-| \<ver\> | 17 November 2026 | References to the incident response design follow the new section numbers of \<Incident Response Management\> (D-IR-10) |
-| \<ver\> | 15 November 2026 | References to the identification and authentication design point to \<Identification and Authentication Management\>, where it is now held (D-IA-11) |
-| \<ver\> | 13 November 2026 | References to the configuration management design follow the new section numbers of \<Configuration Management\> (D-CM-13) |
-| \<ver\> | 12 November 2026 | References to the assessment, authorisation and monitoring design point to \<Assessment, Authorization, and Monitoring Management\>, where it is now held (D-CA-11) |
-| \<ver\> | 12 November 2026 | References to the audit design point to \<Audit and Accountability Management\>, where it is now held (D-AU-10) |
-| \<ver\> | 12 November 2026 | Principle 1 of chapter AT says "no access", as no account is created in the system (D-AC-23) |
-| \<ver\> | 12 November 2026 | References to the training design point to \<Awareness and Training Management\>, where it is now held (D-AT-09). Rule R1 of chapter AT says "before getting access", as no account is created in the system (D-AC-23) |
-| \<ver\> | 12 November 2026 | The identification and authentication policy follows D-AC-23: sign-in through AD FS with multi-factor authentication, Active Directory accounts as identifiers, and no passwords held by the system. Requirements R1 to R4, R6, R7, R10 and R11 of chapter IA change, so the chapter awaits the Head of Cyber |
-| \<ver\> | 12 November 2026 | Version numbers are shown as a placeholder, as the system owner asked (D-GEN-28). No other change |
-| \<ver\> | 12 November 2026 | The document number is replaced by a placeholder on the line under the title and in the details table, as the system owner asked (D-GEN-27). No other change |
-| \<ver\> | 12 November 2026 | The name of the system is shown as a placeholder, as the system owner asked (D-GEN-26). No other change |
-| \<ver\> | 12 November 2026 | References to the access control design point to \<Access Control Management\>, where it is now held |
-| \<ver\> | 12 November 2026 | References to documents that no longer exist now name where their content is, as the system owner asked. No other change |
-| \<ver\> | 12 November 2026 | The rules common to every policy are stated once, in section 2.1, and removed from the chapters, each of which keeps what is particular to it (D-GEN-25). No rule is changed, so the change is editorial |
-| \<ver\> | 12 November 2026 | One status, approval and change history for the whole document, as the system owner asked (D-GEN-24). The status, approval and change history of each chapter are removed, and Table 4 records what each chapter was approved as. Sections and tables in each chapter renumbered. No rule, value, finding or decision changed |
-| \<ver\> | 12 November 2026 | Documents are cited by name in angle brackets, in place of their numbers, as the system owner asked (D-GEN-23). No other change |
-| \<ver\> | 12 November 2026 | The system owner confirmed the combined form of this document (D-GEN-21). The status and approval now say so. No chapter changed |
-| \<ver\> | 12 November 2026 | First issue. The 19 family policies, brought into one document as chapters in NIST order (whole-set review, WS-D13, D-GEN-21). No content changed. Each chapter keeps its version, approval and change history |
-
-### 1.4 What each chapter was approved as
-
-Until version \<ver\> each chapter carried its own version, approval and change history. Table 4 records where each stood. The earlier change histories are kept in the change record (\<Documentation Map\>, section 5.1).
-
-**Table 4: Chapters**
-
-| Chapter | Family | Last chapter version | Status at that version |
-| --- | --- | --- | --- |
-| AC | Access Control | \<ver\> | Version \<ver\> approved by the Head of Cyber; version \<ver\> approved on 8 November 2026 (D-AC-16); legally reviewed on 12 November 2026; version \<ver\> makes editorial changes only, issued by the system owner under D-GEN-19 |
-| AT | Awareness and Training | \<ver\> | Version \<ver\> approved by the Head of Cyber; version \<ver\> awaiting re-approval (D-AT-07); legally reviewed on 12 November 2026 |
-| AU | Audit and Accountability | \<ver\> | Version \<ver\> approved by the Head of Cyber; version \<ver\> approved on 8 November 2026 (D-AU-08); legally reviewed on 12 November 2026; version \<ver\> makes editorial changes only, issued by the system owner under D-GEN-19 |
-| CA | Assessment, Authorization, and Monitoring | \<ver\> | Approved by the Head of Cyber; legally reviewed on 12 November 2026; version \<ver\> makes editorial changes only, issued by the system owner under D-GEN-19 |
-| CM | Configuration Management | \<ver\> | Version \<ver\> approved by the Head of Cyber; version \<ver\> approved on 8 November 2026 (D-CM-11); legally reviewed on 12 November 2026; version \<ver\> makes editorial changes only, issued by the system owner under D-GEN-19 |
-| CP | Contingency Planning | \<ver\> | Version \<ver\> approved by the Head of Cyber; version \<ver\> approved on 9 November 2026 (D-CP-12); legal review completed on 9 November 2026 |
-| IA | Identification and Authentication | \<ver\> | Version \<ver\> approved by the Head of Cyber; version \<ver\> approved on 9 November 2026 (D-IA-09); legal review completed on 9 November 2026 |
-| IR | Incident Response | \<ver\> | Version \<ver\> approved by the Head of Cyber; version \<ver\> awaiting re-approval (D-IR-07); legal review completed on 10 November 2026 |
-| MA | Maintenance | \<ver\> | Version \<ver\> approved by the Head of Cyber; version \<ver\> awaiting re-approval (D-MA-07); legal review completed on 10 November 2026 |
-| MP | Media Protection | \<ver\> | Version \<ver\> approved by the Head of Cyber; version \<ver\> awaiting re-approval (D-MP-07); legal review completed on 10 November 2026 |
-| PE | Physical and Environmental Protection | \<ver\> | Version \<ver\> approved by the Head of Cyber; version \<ver\> awaiting re-approval (D-PE-09); legally reviewed on 10 November 2026 |
-| PL | Planning | \<ver\> | Version \<ver\> approved by the Head of Cyber; version \<ver\> awaiting re-approval (D-PL-07); legally reviewed on 11 November 2026 |
-| PS | Personnel Security | \<ver\> | Version \<ver\> approved by the Head of Cyber and legally reviewed on 12 November 2026; version \<ver\> awaiting re-approval and legal review (D-PS-08) |
-| PT | Personally Identifiable Information Processing and Transparency | \<ver\> | Version \<ver\> approved by the Head of Cyber; version \<ver\> awaiting re-approval (D-PT-18); legally reviewed on 11 November 2026 |
-| RA | Risk Assessment | \<ver\> | Version \<ver\> approved by the Head of Cyber; version \<ver\> awaiting re-approval (D-RA-06); legally reviewed on 11 November 2026 |
-| SA | System and Services Acquisition | \<ver\> | Version \<ver\> approved by the Head of Cyber; version \<ver\> awaiting re-approval (D-SA-16); legally reviewed on 11 November 2026 |
-| SC | System and Communications Protection | \<ver\> | Version \<ver\> approved by the Head of Cyber; version \<ver\> awaiting re-approval (D-SC-06); legally reviewed on 12 November 2026 |
-| SI | System and Information Integrity | \<ver\> | Version \<ver\> approved by the Head of Cyber; version \<ver\> awaiting re-approval (D-SI-06); legally reviewed on 12 November 2026 |
-| SR | Supply Chain Risk Management | \<ver\> | Version \<ver\> approved by the Head of Cyber; version \<ver\> awaiting re-approval (D-SR-12); legally reviewed on 12 November 2026 |
-
-| **SECTION 2** |
-| --- |
-
-## 2 How to use this document
-
-This document is the security and privacy policy for \<System Name\>. It holds one policy for each of the 19 NIST SP 800-53 Rev 5 control families that apply, as chapters in NIST order. A policy says what must be true and who is accountable for it. How each rule is carried out is in \<Procedures\>, and the design, values and decisions are in each family's design document (\<Documentation Map\>, section 3.2).
-
-The Head of Cyber approves each policy, and the legal adviser reviews it. Table 4 shows where each chapter stands. Where a chapter awaits the Head of Cyber, the decision is listed in \<Decision Register\>.
+The Head of Cyber approves each policy, and the legal adviser reviews it. None is yet reviewed or approved. The decisions each chapter needs are listed in \<Decision Register\>.
 
 - **Chapters.** Each chapter is named by its family code. Its sections carry the code, so PS.3 is section 3 of the Personnel Security chapter, and its tables are numbered Table PS-1, Table PS-2 and so on.
 - **Citing.** Cite a chapter as \<Policy\> (PS), a section as \<Policy\>, section PS.3, and a table as \<Policy\>, Table PS-1.
 - **Versions.** The document has one version. A change to any chapter is a new version of the document.
 
-### 2.1 Rules common to every policy
+### 1.1 Rules common to every policy
 
 These rules apply to every chapter. They are stated once here. A chapter repeats one only where its rule differs or adds to it.
 
@@ -174,12 +21,7 @@ These rules apply to every chapter. They are stated once here. A chapter repeats
 5. **Compliance and management commitment:** the system owner reviews compliance at each review and records the result.
 6. **Non-compliance:** a control counts as non-compliant until shown otherwise. Each non-compliance is recorded and rated in \<Risk List\>, and a named person decides its treatment: the system owner for Low risks, and the authorising official for Medium and High risks. A fix is made only through \<Plan of Action and Milestones\>. Section AC.7 sets out the approach in full.
 
-| **CHAPTER AC** |
-| --- |
-
 ## AC Access Control
-
-[AC.1 Purpose and scope](#ac1-purpose-and-scope) · [AC.2 The organisation's position](#ac2-the-organisations-position) · [AC.3 Control principles](#ac3-control-principles) · [AC.4 Mandatory requirements](#ac4-mandatory-requirements) · [AC.5 Responsibilities](#ac5-responsibilities) · [AC.6 Governance requirements](#ac6-governance-requirements) · [AC.7 Non-compliance and risk acceptance](#ac7-non-compliance-and-risk-acceptance) · [AC.8 Definitions](#ac8-definitions) · [AC.9 References](#ac9-references)
 
 ### AC.1 Purpose and scope
 
@@ -245,7 +87,7 @@ The people holding each role are named in \<Roles and Responsibilities\>.
 
 ### AC.6 Governance requirements
 
-The rules in section 2.1 apply to this policy. It adds these.
+The rules in section 1.1 apply to this policy. It adds these.
 
 1. **Ownership (P-AC-01):** the system owner manages this policy and the procedures.
 2. **Communication:** this policy and the procedures must be shared with everyone who uses or administers \<System Name\>, and whenever they change.
@@ -261,7 +103,7 @@ The rules in section 2.1 apply to this policy. It adds these.
 The organisation takes a risk-based approach to these requirements. No system meets every control, and a non-compliance is acceptable when its risk is understood and has been accepted by the right person.
 
 1. Every non-compliance must be identified, documented and recorded in \<Risk List\>.
-2. Its risk must be rated by the method in \<Risk List\>, section 5.
+2. Its risk must be rated by the method in \<Risk List\>, section 4.
 3. A named person must decide its treatment: accept, remediate, approve a value, obtain evidence or tailor the control. The system owner decides Low risks and the authorising official decides Medium and High risks.
 4. A risk that is too high to accept requires a remediation plan in \<Plan of Action and Milestones\>. A High risk may be accepted only for a limited period while that plan runs.
 5. A remediation is carried out through that plan and its milestones, and does not begin simply because a non-compliance was found.
@@ -298,12 +140,7 @@ The organisation takes a risk-based approach to these requirements. No system me
 | \<Roles and Responsibilities\>, Roles and Responsibilities | The people holding each role |
 | UK GDPR, Data Protection Act 2018, Computer Misuse Act 1990 | The laws this policy must be consistent with |
 
-| **CHAPTER AT** |
-| --- |
-
 ## AT Awareness and Training
-
-[AT.1 Purpose and scope](#at1-purpose-and-scope) · [AT.2 The organisation's position](#at2-the-organisations-position) · [AT.3 Control principles](#at3-control-principles) · [AT.4 Mandatory requirements](#at4-mandatory-requirements) · [AT.5 Responsibilities](#at5-responsibilities) · [AT.6 Governance requirements](#at6-governance-requirements) · [AT.7 Non-compliance and risk acceptance](#at7-non-compliance-and-risk-acceptance) · [AT.8 Definitions](#at8-definitions) · [AT.9 References](#at9-references)
 
 ### AT.1 Purpose and scope
 
@@ -353,7 +190,7 @@ It applies to everyone who uses, administers or develops \<System Name\>, includ
 
 ### AT.6 Governance requirements
 
-The rules in section 2.1 apply to this policy. It adds these.
+The rules in section 1.1 apply to this policy. It adds these.
 
 1. **Communication:** this policy and the procedures must be shared with everyone who uses, administers or develops \<System Name\>, and whenever they change.
 2. **Compliance and management commitment:** the system owner reviews the measures monthly and compliance at each review, and records the result.
@@ -362,7 +199,7 @@ The rules in section 2.1 apply to this policy. It adds these.
 
 ### AT.7 Non-compliance and risk acceptance
 
-The rule on non-compliance in section 2.1 applies to this policy.
+The rule on non-compliance in section 1.1 applies to this policy.
 
 ### AT.8 Definitions
 
@@ -389,12 +226,7 @@ The rule on non-compliance in section 2.1 applies to this policy.
 | ICO data protection audit framework: training and awareness | Privacy training and evidence of understanding |
 | \<Awareness and Training Management\>, \<Procedures\> (AT), \<Security Operating Procedures\> and \<PII Processing Management\> | The curriculum, procedures, rules and privacy training |
 
-| **CHAPTER AU** |
-| --- |
-
 ## AU Audit and Accountability
-
-[AU.1 Purpose and scope](#au1-purpose-and-scope) · [AU.2 The organisation's position](#au2-the-organisations-position) · [AU.3 Control principles](#au3-control-principles) · [AU.4 Mandatory requirements](#au4-mandatory-requirements) · [AU.5 Responsibilities](#au5-responsibilities) · [AU.6 Governance requirements](#au6-governance-requirements) · [AU.7 Non-compliance and risk acceptance](#au7-non-compliance-and-risk-acceptance) · [AU.8 Definitions](#au8-definitions) · [AU.9 References](#au9-references)
 
 ### AU.1 Purpose and scope
 
@@ -443,7 +275,7 @@ Every security-relevant action in \<System Name\> must leave a reliable record t
 
 ### AU.6 Governance requirements
 
-The rules in section 2.1 apply to this policy. It adds these.
+The rules in section 1.1 apply to this policy. It adds these.
 
 1. **Communication:** this policy and the procedures must be shared with everyone who administers or reviews \<System Name\>, and whenever they change.
 2. **Coordination:** the system owner agrees with \<Organisation\>'s security contact how logs from inherited services are shared, and records it.
@@ -451,7 +283,7 @@ The rules in section 2.1 apply to this policy. It adds these.
 
 ### AU.7 Non-compliance and risk acceptance
 
-The rule on non-compliance in section 2.1 applies to this policy.
+The rule on non-compliance in section 1.1 applies to this policy.
 
 ### AU.8 Definitions
 
@@ -480,17 +312,12 @@ The rule on non-compliance in section 2.1 applies to this policy.
 | NIST SP 800-92, Guide to Computer Security Log Management | Good practice for log management |
 | \<Procedures\> (AU), Audit and Accountability Procedures | The steps people follow |
 | \<Audit and Accountability Management\>, Audit and Accountability Management | The approved settings, events and parameter values |
-| \<Security Operating Procedures\>, Security Operating Procedures, section 5.2 | The audit review steps and the list of unusual activity |
+| \<Security Operating Procedures\>, Security Operating Procedures, section 4.2 | The audit review steps and the list of unusual activity |
 | \<Risk List\>, Risk List | Non-compliances, ratings and decisions |
 | \<Policy\> (AC), Access Control Policy | The risk-based approach in \<Policy\>, section AC.7 |
 | UK GDPR, Data Protection Act 2018, Computer Misuse Act 1990 | The laws this policy must be consistent with |
 
-| **CHAPTER CA** |
-| --- |
-
 ## CA Assessment, Authorization, and Monitoring
-
-[CA.1 Purpose and scope](#ca1-purpose-and-scope) · [CA.2 The organisation's position](#ca2-the-organisations-position) · [CA.3 Control principles](#ca3-control-principles) · [CA.4 Mandatory requirements](#ca4-mandatory-requirements) · [CA.5 Responsibilities](#ca5-responsibilities) · [CA.6 Governance requirements](#ca6-governance-requirements) · [CA.7 Non-compliance and risk acceptance](#ca7-non-compliance-and-risk-acceptance) · [CA.8 Definitions](#ca8-definitions) · [CA.9 References](#ca9-references)
 
 ### CA.1 Purpose and scope
 
@@ -516,9 +343,9 @@ It applies to UI application, Admin application, API, the \<System Name\> databa
 3. **R3 Connections:** each connection, including ServiceNow, the Starters/Leavers system and the link between the VMs, must be recorded and approved, reviewed every 12 months, and use TLS.
 4. **R4 Plan of action:** \<Plan of Action and Milestones\> must be updated monthly. Each open item must be fixed within the time set for its rating, counted from go-live: High items as the authorising official has decided, Medium within 180 days and Low within 365 days. Overdue items are reported to the authorising official each quarter.
 5. **R5 Authorisation:** the authorising official must authorise \<System Name\> before it holds production documents, and review the authorisation every 12 months.
-6. **R6 Monitoring:** the security and privacy measures in \<Assessment, Authorization, and Monitoring Management\>, section 4.8, must be reported monthly to the system owner and quarterly to the authorising official.
+6. **R6 Monitoring:** the security and privacy measures in \<Assessment, Authorization, and Monitoring Management\>, section 3.8, must be reported monthly to the system owner and quarterly to the authorising official.
 7. **R7 Significant change:** a significant change must be assessed before it is made, and the authorising official decides whether \<System Name\> must be re-assessed or re-authorised.
-8. **R8 Authorisation package:** the authorising official receives the authorisation package listed in \<Assessment, Authorization, and Monitoring Management\>, section 4.5, and records each decision on TPL-18, with its terms, conditions and end date.
+8. **R8 Authorisation package:** the authorising official receives the authorisation package listed in \<Assessment, Authorization, and Monitoring Management\>, section 3.5, and records each decision on TPL-18, with its terms, conditions and end date.
 9. **R9 Inherited controls:** the controls inherited from \<Organisation\> must be listed, and accepted by the authorising official, before \<System Name\> operates.
 
 ### CA.5 Responsibilities
@@ -537,7 +364,7 @@ It applies to UI application, Admin application, API, the \<System Name\> databa
 
 ### CA.6 Governance requirements
 
-The rules in section 2.1 apply to this policy. It adds these.
+The rules in section 1.1 apply to this policy. It adds these.
 
 1. **Communication:** this policy and the procedures must be shared with everyone who administers \<System Name\>, and whenever they change.
 2. **Coordination:** the system owner agrees with \<Organisation\>'s security contact how inherited controls are provided, and records it.
@@ -545,7 +372,7 @@ The rules in section 2.1 apply to this policy. It adds these.
 
 ### CA.7 Non-compliance and risk acceptance
 
-The rule on non-compliance in section 2.1 applies to this policy.
+The rule on non-compliance in section 1.1 applies to this policy.
 
 ### CA.8 Definitions
 
@@ -555,11 +382,11 @@ The rule on non-compliance in section 2.1 applies to this policy.
 | --- | --- |
 | Assessment | Testing and examining controls to decide whether they work as intended. Level 1 is the system owner's self-assessment; Level 2 is the independent assessment |
 | Authorisation | The authorising official's decision, recorded on TPL-18, that \<System Name\> may operate and that its remaining risk is accepted |
-| Authorisation package | What the authorising official receives before deciding, listed in \<Assessment, Authorization, and Monitoring Management\>, section 4.5 |
-| Continuous monitoring | Checking controls, risks and changes on a set schedule after authorisation, under the strategy in \<Assessment, Authorization, and Monitoring Management\>, section 4.8 |
+| Authorisation package | What the authorising official receives before deciding, listed in \<Assessment, Authorization, and Monitoring Management\>, section 3.5 |
+| Continuous monitoring | Checking controls, risks and changes on a set schedule after authorisation, under the strategy in \<Assessment, Authorization, and Monitoring Management\>, section 3.8 |
 | Independent assessor | An assessor who has had no part in designing, building, running or administering \<System Name\>, and who confirms it on TPL-19 |
 | Inherited control | A control provided by \<Organisation\>, which \<System Name\> relies on but does not run |
-| Significant change | A change likely to alter \<System Name\>'s security or privacy risk, as listed in \<Assessment, Authorization, and Monitoring Management\>, section 4.9 |
+| Significant change | A change likely to alter \<System Name\>'s security or privacy risk, as listed in \<Assessment, Authorization, and Monitoring Management\>, section 3.9 |
 
 ### CA.9 References
 
@@ -575,12 +402,7 @@ The rule on non-compliance in section 2.1 applies to this policy.
 | \<Risk List\> and \<Plan of Action and Milestones\> | Risks, decisions and remediation |
 | UK GDPR, Data Protection Act 2018 | The laws this policy must be consistent with |
 
-| **CHAPTER CM** |
-| --- |
-
 ## CM Configuration Management
-
-[CM.1 Purpose and scope](#cm1-purpose-and-scope) · [CM.2 The organisation's position](#cm2-the-organisations-position) · [CM.3 Control principles](#cm3-control-principles) · [CM.4 Mandatory requirements](#cm4-mandatory-requirements) · [CM.5 Responsibilities](#cm5-responsibilities) · [CM.6 Governance requirements](#cm6-governance-requirements) · [CM.7 Non-compliance and risk acceptance](#cm7-non-compliance-and-risk-acceptance) · [CM.8 Definitions](#cm8-definitions) · [CM.9 References](#cm9-references)
 
 ### CM.1 Purpose and scope
 
@@ -611,7 +433,7 @@ It applies to UI application, Admin application, API, the \<System Name\> databa
 8. **R8 Reproducible releases:** each release must be reproducible: code at a tag, and every image and component at a pinned version or digest recorded in the baseline.
 9. **R9 Licences:** every component's licence must be known and permit \<System Name\>'s use before it enters the baseline; the system owner records any licence decision in \<Decision Register\>.
 10. **R10 Every layer:** secure settings apply to every layer: Windows Server, PostgreSQL, the application hosting and the application itself, as set in \<Configuration Management\>.
-11. **R11 Impact analysis:** every change has a recorded security and privacy impact analysis against the criteria in \<Configuration Management\>, including the significant change test in \<Assessment, Authorization, and Monitoring Management\>, section 4.9.
+11. **R11 Impact analysis:** every change has a recorded security and privacy impact analysis against the criteria in \<Configuration Management\>, including the significant change test in \<Assessment, Authorization, and Monitoring Management\>, section 3.9.
 12. **R12 Drift:** the running configuration is compared with the baseline every month, and any drift is reported to the security officer and corrected or approved through change control.
 
 ### CM.5 Responsibilities
@@ -631,7 +453,7 @@ It applies to UI application, Admin application, API, the \<System Name\> databa
 
 ### CM.6 Governance requirements
 
-The rules in section 2.1 apply to this policy. It adds these.
+The rules in section 1.1 apply to this policy. It adds these.
 
 1. **Communication:** this policy and the procedures must be shared with everyone who changes or administers \<System Name\>, and whenever they change.
 2. **Coordination:** the system owner agrees with \<Organisation\>'s security contact how changes on its services are coordinated, and records it.
@@ -639,7 +461,7 @@ The rules in section 2.1 apply to this policy. It adds these.
 
 ### CM.7 Non-compliance and risk acceptance
 
-The rule on non-compliance in section 2.1 applies to this policy.
+The rule on non-compliance in section 1.1 applies to this policy.
 
 ### CM.8 Definitions
 
@@ -666,15 +488,10 @@ The rule on non-compliance in section 2.1 applies to this policy.
 | CIS Benchmarks | Secure settings for Windows Server and PostgreSQL |
 | Cyber Essentials | \<Organisation\>'s scheme: secure configuration and updates |
 | \<Procedures\> (CM) and \<Configuration Management\> | The procedures and plan |
-| \<Assessment, Authorization, and Monitoring Management\>, section 4.9 | What counts as a significant change |
+| \<Assessment, Authorization, and Monitoring Management\>, section 3.9 | What counts as a significant change |
 | Copyright, Designs and Patents Act 1988 | Software licences |
 
-| **CHAPTER CP** |
-| --- |
-
 ## CP Contingency Planning
-
-[CP.1 Purpose and scope](#cp1-purpose-and-scope) · [CP.2 The organisation's position](#cp2-the-organisations-position) · [CP.3 Control principles](#cp3-control-principles) · [CP.4 Mandatory requirements](#cp4-mandatory-requirements) · [CP.5 Responsibilities](#cp5-responsibilities) · [CP.6 Governance requirements](#cp6-governance-requirements) · [CP.7 Non-compliance and risk acceptance](#cp7-non-compliance-and-risk-acceptance) · [CP.8 Definitions](#cp8-definitions) · [CP.9 References](#cp9-references)
 
 ### CP.1 Purpose and scope
 
@@ -724,7 +541,7 @@ It applies to UI application, Admin application, API, the \<System Name\> databa
 
 ### CP.6 Governance requirements
 
-The rules in section 2.1 apply to this policy. It adds these.
+The rules in section 1.1 apply to this policy. It adds these.
 
 1. **Ownership:** the system owner manages this policy, the plan and the procedures.
 2. **Approval:** the Head of Cyber approves this policy, as all policies; the system owner and authorising official approve the plan; and the system owner approves the procedures.
@@ -735,7 +552,7 @@ The rules in section 2.1 apply to this policy. It adds these.
 
 ### CP.7 Non-compliance and risk acceptance
 
-The rule on non-compliance in section 2.1 applies to this policy.
+The rule on non-compliance in section 1.1 applies to this policy.
 
 ### CP.8 Definitions
 
@@ -765,12 +582,7 @@ The rule on non-compliance in section 2.1 applies to this policy.
 | \<Contingency Planning Management\> and \<Procedures\> (CP) | The plan and procedures |
 | \<Incident Response Management\> | The incident response plan this plan works with |
 
-| **CHAPTER IA** |
-| --- |
-
 ## IA Identification and Authentication
-
-[IA.1 Purpose and scope](#ia1-purpose-and-scope) · [IA.2 The organisation's position](#ia2-the-organisations-position) · [IA.3 Control principles](#ia3-control-principles) · [IA.4 Mandatory requirements](#ia4-mandatory-requirements) · [IA.5 Responsibilities](#ia5-responsibilities) · [IA.6 Governance requirements](#ia6-governance-requirements) · [IA.7 Non-compliance and risk acceptance](#ia7-non-compliance-and-risk-acceptance) · [IA.8 Definitions](#ia8-definitions) · [IA.9 References](#ia9-references)
 
 ### IA.1 Purpose and scope
 
@@ -799,8 +611,8 @@ Every action in \<System Name\> must be traceable to one known person. Access de
 5. **R5 Secrets:** service account secrets and the signing key must be held outside source code, changed every 12 months and when an administrator leaves, and never recorded in clear.
 6. **R6 Multi-factor:** every user must sign in with multi-factor authentication, which AD FS provides (D-AC-23). This carries out the authorising official's decision that multi-factor sign-in is required (D-IA-07).
 7. **R7 Signing in again:** after 30 minutes idle and after 8 hours. A change to a person's groups takes effect when they next sign in.
-8. **R8 Assurance levels:** the identity and authenticator assurance levels in \<Identification and Authentication Management\>, section 4.4, must be met for each user group, and reviewed every 12 months.
-9. **R9 Authenticator inventory:** every authenticator must be listed in \<Identification and Authentication Management\>, section 4.5, with its owner, storage and change period, and reviewed every 12 months.
+8. **R8 Assurance levels:** the identity and authenticator assurance levels in \<Identification and Authentication Management\>, section 3.4, must be met for each user group, and reviewed every 12 months.
+9. **R9 Authenticator inventory:** every authenticator must be listed in \<Identification and Authentication Management\>, section 3.5, with its owner, storage and change period, and reviewed every 12 months.
 10. **R10 Protection:** authenticators and tokens must travel only over encrypted connections, and \<System Name\> must accept only a token that AD FS has signed. A global administrator must be able to end any user's sessions at once.
 11. **R11 Loss:** a lost, stolen or exposed authenticator must be reported straight away to \<Organisation\>'s service desk and the security officer, and replaced or reset.
 
@@ -821,7 +633,7 @@ Every action in \<System Name\> must be traceable to one known person. Access de
 
 ### IA.6 Governance requirements
 
-The rules in section 2.1 apply to this policy. It adds these.
+The rules in section 1.1 apply to this policy. It adds these.
 
 1. **Communication:** this policy and the procedures must be shared with everyone who uses or administers \<System Name\>, and whenever they change.
 2. **Compliance and management commitment:** the system owner reviews compliance at each review and records the result. Breaches may lead to loss of access and disciplinary action.
@@ -830,7 +642,7 @@ The rules in section 2.1 apply to this policy. It adds these.
 
 ### IA.7 Non-compliance and risk acceptance
 
-The rule on non-compliance in section 2.1 applies to this policy.
+The rule on non-compliance in section 1.1 applies to this policy.
 
 ### IA.8 Definitions
 
@@ -859,12 +671,7 @@ The rule on non-compliance in section 2.1 applies to this policy.
 | UK GDPR Article 32, and the Computer Misuse Act 1990 | Security of personal data, and unauthorised access |
 | \<Identification and Authentication Management\> and \<Procedures\> (IA) | The settings and procedures |
 
-| **CHAPTER IR** |
-| --- |
-
 ## IR Incident Response
-
-[IR.1 Purpose and scope](#ir1-purpose-and-scope) · [IR.2 The organisation's position](#ir2-the-organisations-position) · [IR.3 Control principles](#ir3-control-principles) · [IR.4 Mandatory requirements](#ir4-mandatory-requirements) · [IR.5 Responsibilities](#ir5-responsibilities) · [IR.6 Governance requirements](#ir6-governance-requirements) · [IR.7 Non-compliance and risk acceptance](#ir7-non-compliance-and-risk-acceptance) · [IR.8 Definitions](#ir8-definitions) · [IR.9 References](#ir9-references)
 
 ### IR.1 Purpose and scope
 
@@ -886,7 +693,7 @@ Incidents are reported at once, without blame. \<System Name\> holds Restricted 
 ### IR.4 Mandatory requirements
 
 1. **R1 Reporting:** everyone must report a suspected incident to the security officer within 1 hour.
-2. **R2 Severity and targets:** the security officer must set each incident's severity, and contain it within the target in \<Incident Response Management\>, section 4.6.
+2. **R2 Severity and targets:** the security officer must set each incident's severity, and contain it within the target in \<Incident Response Management\>, section 3.6.
 3. **R3 Others told:** the security officer must tell \<Organisation\>'s security contact and any affected supplier.
 4. **R4 Personal data breaches:** the legal adviser must tell the ICO within 72 hours of the organisation becoming aware of a reportable breach, and tell the people affected without undue delay when the risk to them is high. Every breach must be recorded, with the reason if it is not reported.
 5. **R5 Records:** incidents are tracked and recorded on TPL-10, and in ServiceNow once it is set up.
@@ -913,7 +720,7 @@ Incidents are reported at once, without blame. \<System Name\> holds Restricted 
 
 ### IR.6 Governance requirements
 
-The rules in section 2.1 apply to this policy. It adds these.
+The rules in section 1.1 apply to this policy. It adds these.
 
 1. **Approval:** the Head of Cyber approves this policy, as all policies, and the plan; the system owner approves the procedures.
 2. **Communication:** this policy and the procedures must be shared with everyone who administers \<System Name\>, and whenever they change.
@@ -922,7 +729,7 @@ The rules in section 2.1 apply to this policy. It adds these.
 
 ### IR.7 Non-compliance and risk acceptance
 
-The rule on non-compliance in section 2.1 applies to this policy.
+The rule on non-compliance in section 1.1 applies to this policy.
 
 ### IR.8 Definitions
 
@@ -950,12 +757,7 @@ The rule on non-compliance in section 2.1 applies to this policy.
 | UK GDPR Articles 33 and 34; Data Protection Act 2018; Computer Misuse Act 1990 | The legal duties |
 | \<Incident Response Management\> and \<Procedures\> (IR) | The plan and procedures |
 
-| **CHAPTER MA** |
-| --- |
-
 ## MA Maintenance
-
-[MA.1 Purpose and scope](#ma1-purpose-and-scope) · [MA.2 The organisation's position](#ma2-the-organisations-position) · [MA.3 Control principles](#ma3-control-principles) · [MA.4 Mandatory requirements](#ma4-mandatory-requirements) · [MA.5 Responsibilities](#ma5-responsibilities) · [MA.6 Governance requirements](#ma6-governance-requirements) · [MA.7 Non-compliance and risk acceptance](#ma7-non-compliance-and-risk-acceptance) · [MA.8 Definitions](#ma8-definitions) · [MA.9 References](#ma9-references)
 
 ### MA.1 Purpose and scope
 
@@ -1008,7 +810,7 @@ Maintenance gives people powerful access, often at short notice, and \<System Na
 
 ### MA.6 Governance requirements
 
-The rules in section 2.1 apply to this policy. It adds these.
+The rules in section 1.1 apply to this policy. It adds these.
 
 1. **Communication:** this policy and the procedures must be shared with everyone who maintains \<System Name\>, and whenever they change.
 2. **Coordination:** the system owner agrees with \<Organisation\> how its maintenance, routes and support are carried out and evidenced, and records it.
@@ -1016,7 +818,7 @@ The rules in section 2.1 apply to this policy. It adds these.
 
 ### MA.7 Non-compliance and risk acceptance
 
-The rule on non-compliance in section 2.1 applies to this policy.
+The rule on non-compliance in section 1.1 applies to this policy.
 
 ### MA.8 Definitions
 
@@ -1045,12 +847,7 @@ The rule on non-compliance in section 2.1 applies to this policy.
 | UK GDPR Articles 28 and 32; Computer Misuse Act 1990 | The legal duties |
 | \<Maintenance Management\>, \<Procedures\> (MA), \<Procedures\> (CM) and \<Security Operating Procedures\> | The settings, procedures, change control and rules people sign |
 
-| **CHAPTER MP** |
-| --- |
-
 ## MP Media Protection
-
-[MP.1 Purpose and scope](#mp1-purpose-and-scope) · [MP.2 The organisation's position](#mp2-the-organisations-position) · [MP.3 Control principles](#mp3-control-principles) · [MP.4 Mandatory requirements](#mp4-mandatory-requirements) · [MP.5 Responsibilities](#mp5-responsibilities) · [MP.6 Governance requirements](#mp6-governance-requirements) · [MP.7 Non-compliance and risk acceptance](#mp7-non-compliance-and-risk-acceptance) · [MP.8 Definitions](#mp8-definitions) · [MP.9 References](#mp9-references)
 
 ### MP.1 Purpose and scope
 
@@ -1100,7 +897,7 @@ It applies to every place \<System Name\> information is held outside the runnin
 
 ### MP.6 Governance requirements
 
-The rules in section 2.1 apply to this policy. It adds these.
+The rules in section 1.1 apply to this policy. It adds these.
 
 1. **Communication:** this policy and the procedures must be shared with everyone who uses or administers \<System Name\>, and whenever they change.
 2. **Coordination:** the system owner agrees with \<Organisation\> how it handles media and evidences that, and records it.
@@ -1108,7 +905,7 @@ The rules in section 2.1 apply to this policy. It adds these.
 
 ### MP.7 Non-compliance and risk acceptance
 
-The rule on non-compliance in section 2.1 applies to this policy.
+The rule on non-compliance in section 1.1 applies to this policy.
 
 ### MP.8 Definitions
 
@@ -1137,12 +934,7 @@ The rule on non-compliance in section 2.1 applies to this policy.
 | UK GDPR Articles 5(1)(f) and 32; Data Protection Act 2018 | The legal duties |
 | \<Media Protection Management\>, \<Procedures\> (MP) and \<Security Operating Procedures\> | The inventory and methods, the procedures, and the rules people sign |
 
-| **CHAPTER PE** |
-| --- |
-
 ## PE Physical and Environmental Protection
-
-[PE.1 Purpose and scope](#pe1-purpose-and-scope) · [PE.2 The organisation's position](#pe2-the-organisations-position) · [PE.3 Control principles](#pe3-control-principles) · [PE.4 Mandatory requirements](#pe4-mandatory-requirements) · [PE.5 Responsibilities](#pe5-responsibilities) · [PE.6 Governance requirements](#pe6-governance-requirements) · [PE.7 Non-compliance and risk acceptance](#pe7-non-compliance-and-risk-acceptance) · [PE.8 Definitions](#pe8-definitions) · [PE.9 References](#pe9-references)
 
 ### PE.1 Purpose and scope
 
@@ -1189,7 +981,7 @@ It applies to the data centre that hosts the two VMs, the second site that holds
 
 ### PE.6 Governance requirements
 
-The rules in section 2.1 apply to this policy. It adds these.
+The rules in section 1.1 apply to this policy. It adds these.
 
 1. **Communication:** this policy and the procedures must be shared with everyone who uses or administers \<System Name\>, and whenever they change.
 2. **Policy review:** every 12 months, and after a significant incident, audit finding or change of site.
@@ -1198,7 +990,7 @@ The rules in section 2.1 apply to this policy. It adds these.
 
 ### PE.7 Non-compliance and risk acceptance
 
-The rule on non-compliance in section 2.1 applies to this policy.
+The rule on non-compliance in section 1.1 applies to this policy.
 
 ### PE.8 Definitions
 
@@ -1226,12 +1018,7 @@ The rule on non-compliance in section 2.1 applies to this policy.
 | Regulatory Reform (Fire Safety) Order 2005; UK GDPR Article 32 | The legal duties |
 | \<Physical and Environmental Protection Management\>, \<Procedures\> (PE), \<Incident Response Management\> and \<Security Operating Procedures\> | The values and matrix, procedures, incident plan and the rules people sign |
 
-| **CHAPTER PL** |
-| --- |
-
 ## PL Planning
-
-[PL.1 Purpose and scope](#pl1-purpose-and-scope) · [PL.2 The organisation's position](#pl2-the-organisations-position) · [PL.3 Control principles](#pl3-control-principles) · [PL.4 Mandatory requirements](#pl4-mandatory-requirements) · [PL.5 Responsibilities](#pl5-responsibilities) · [PL.6 Governance requirements](#pl6-governance-requirements) · [PL.7 Non-compliance and risk acceptance](#pl7-non-compliance-and-risk-acceptance) · [PL.8 Definitions](#pl8-definitions) · [PL.9 References](#pl9-references)
 
 ### PL.1 Purpose and scope
 
@@ -1252,13 +1039,13 @@ It applies to every system plan for \<System Name\>: the System Security Plan, t
 
 ### PL.4 Mandatory requirements
 
-1. **R1 Register of plans:** every plan in force must be listed in \<Planning Management\>, section 4.2, with its owner, version, approver and next review.
+1. **R1 Register of plans:** every plan in force must be listed in \<Planning Management\>, section 3.2, with its owner, version, approver and next review.
 2. **R2 Approval:** the System Security Plan must be approved by the system owner, with the Head of Cyber's concurrence, and accepted by the authorising official as an accurate record. The privacy plan must be approved by the legal adviser and the authorising official. The supply chain plan is approved by the system owner.
-3. **R3 Review and change records:** each system plan must keep a plan review log (who reviewed, their role, the date, the outcome and actions) separate from its change history. Plans are reviewed every 12 months and after an assessment, significant change or problem found in use.
-4. **R4 Sharing:** the SSP and its changes must be shared with the Head of Cyber, administrators and \<Organisation\>'s security contact, and each issue recorded in the plan review log.
+3. **R3 Review and change records:** each system plan must keep a plan review record (who reviewed, their role, the date, the outcome and actions) separate from its change record. Plans are reviewed every 12 months and after an assessment, significant change or problem found in use.
+4. **R4 Sharing:** the SSP and its changes must be shared with the Head of Cyber, administrators and \<Organisation\>'s security contact, and each issue recorded in the plan review record.
 5. **R5 Protection:** plans and assessment evidence are Restricted. They must be kept in the restricted SharePoint area (D-GEN-15), never in a code repository or a public location, and only people who need them may read or change them.
 6. **R6 Rules of behaviour:** the Security Operating Procedures are the rules of behaviour. Part A applies to everyone, and Part B, the privileged rules, to administrators as well. Everyone signs before access, and the signature is recorded on TPL-21 and in the register of signatures.
-7. **R7 Signing again:** everyone signs again every 12 months, and after a material change to the rules: a new or stricter rule, a changed consequence, new monitoring or a new privileged duty. The system owner decides whether a change is material and records it in the SyOps change history.
+7. **R7 Signing again:** everyone signs again every 12 months, and after a material change to the rules: a new or stricter rule, a changed consequence, new monitoring or a new privileged duty. The system owner decides whether a change is material and records it in the SyOps change record.
 8. **R8 Social media:** \<System Name\> information must not be placed on social media or external sites, and work credentials must not be used on them.
 9. **R9 Architecture:** \<Security Architecture\> must state the security approach, trust zones, layers of defence, and assumptions and dependencies, and be reviewed every 12 months and after a significant change. Its changes must be reflected in the SSP, the privacy plan, the ConOps, the critical components list and procurement.
 10. **R10 Baseline and tailoring:** NIST SP 800-53 Rev 5 Moderate, with the privacy baseline, is the baseline. It may be tailored only through \<Tailoring Register\>, with a rationale, a condition and a recorded decision.
@@ -1271,23 +1058,23 @@ It applies to every system plan for \<System Name\>: the System Security Plan, t
 | --- | --- |
 | Head of Cyber | Approves this policy, as all policies, and concurs with the SSP |
 | Authorising official | Accepts the SSP as an accurate record, approves the privacy plan, accepts the tailoring register as a record, and makes the authorisation decision |
-| System owner | Owns this policy, the plans and the register of plans; keeps the review logs, the signed rules and the register of signatures; decides whether a change to the rules is material |
+| System owner | Owns this policy, the plans and the register of plans; keeps the review records, the signed rules and the register of signatures; decides whether a change to the rules is material |
 | Legal adviser | Reviews this policy and approves the privacy plan |
 | Administrators | Sign Parts A and B of the rules |
 | Everyone | Signs Part A of the rules, and follows them |
 
 ### PL.6 Governance requirements
 
-The rules in section 2.1 apply to this policy. It adds these.
+The rules in section 1.1 apply to this policy. It adds these.
 
 1. **Communication:** this policy and the procedures must be shared with everyone who administers \<System Name\>, and whenever they change.
-2. **Compliance and management commitment:** the system owner reviews compliance at each review, runs Test-PlanConsistency.ps1, and records the result in the plan review log.
+2. **Compliance and management commitment:** the system owner reviews compliance at each review, runs Test-PlanConsistency.ps1, and records the result in the plan review record.
 3. **Coordination:** the system owner coordinates the plans with the Head of Cyber, administrators, the legal adviser and \<Organisation\>'s security contact.
 4. **Laws and standards:** this policy must be consistent with applicable law, including UK GDPR and the Data Protection Act 2018 for the privacy plan; \<Organisation\>'s policies; and NIST SP 800-53 Rev 5. The legal adviser reviewed it on 11 November 2026.
 
 ### PL.7 Non-compliance and risk acceptance
 
-The rule on non-compliance in section 2.1 applies to this policy.
+The rule on non-compliance in section 1.1 applies to this policy.
 
 ### PL.8 Definitions
 
@@ -1296,8 +1083,8 @@ The rule on non-compliance in section 2.1 applies to this policy.
 | Term | Meaning |
 | --- | --- |
 | System plans | The System Security Plan, privacy plan and supply chain risk management plan, as in NIST SP 800-18 Rev 2 |
-| Plan review log | A record of each review of a plan: who, their role, the date, the outcome and actions |
-| Change history | A record of each change to a plan: version, date and what changed |
+| Plan review record | A record of each review of a plan: who, their role, the date, the outcome and actions |
+| Change record | A record of each change to a plan: version, date and what changed |
 | Rules of behaviour | \<Security Operating Procedures\>: Part A for everyone, and Part B for privileged users |
 | Material change | A change to the rules that adds or tightens a rule, changes a consequence, adds monitoring or adds a privileged duty |
 | Tailoring | Deciding, with a rationale, that a baseline control or part does not apply, or applies in a changed form |
@@ -1314,12 +1101,7 @@ The rule on non-compliance in section 2.1 applies to this policy.
 | UK GDPR and the Data Protection Act 2018 | The legal basis for the privacy plan |
 | \<Planning Management\>, \<Procedures\> (PL), \<Security Operating Procedures\>, \<Security Architecture\> and \<Tailoring Register\> | The register and values, procedures, rules, architecture and tailoring |
 
-| **CHAPTER PS** |
-| --- |
-
 ## PS Personnel Security
-
-[PS.1 Purpose and scope](#ps1-purpose-and-scope) · [PS.2 The organisation's position](#ps2-the-organisations-position) · [PS.3 Control principles](#ps3-control-principles) · [PS.4 Mandatory requirements](#ps4-mandatory-requirements) · [PS.5 Responsibilities](#ps5-responsibilities) · [PS.6 Governance requirements](#ps6-governance-requirements) · [PS.7 Non-compliance and risk acceptance](#ps7-non-compliance-and-risk-acceptance) · [PS.8 Definitions](#ps8-definitions) · [PS.9 References](#ps9-references)
 
 ### PS.1 Purpose and scope
 
@@ -1369,7 +1151,7 @@ It applies to everyone who uses, administers or develops \<System Name\>, includ
 
 ### PS.6 Governance requirements
 
-The rules in section 2.1 apply to this policy. It adds these.
+The rules in section 1.1 apply to this policy. It adds these.
 
 1. **Communication:** this policy and the procedures must be shared with everyone who administers \<System Name\> and every line manager of a \<System Name\> user, and whenever they change.
 2. **Coordination:** the system owner agrees with \<Organisation\> how its screening, HR and disciplinary processes are used and evidenced, and records it (EV-PS-01 to EV-PS-03).
@@ -1387,7 +1169,7 @@ The rules in section 2.1 apply to this policy. It adds these.
 
 ### PS.7 Non-compliance and risk acceptance
 
-The rule on non-compliance in section 2.1 applies to this policy.
+The rule on non-compliance in section 1.1 applies to this policy.
 
 ### PS.8 Definitions
 
@@ -1398,7 +1180,7 @@ The rule on non-compliance in section 2.1 applies to this policy.
 | Risk designation | How much harm the holder of a role could do, which sets the screening and attention the role receives |
 | Higher risk role | A role with privileged technical access, or one that can see or change security records |
 | Screening | The checks an employer makes on a person before and during employment |
-| Access agreement | A signed undertaking: \<Organisation\>'s confidentiality agreement and the acknowledgement in \<Security Operating Procedures\>, section 10 |
+| Access agreement | A signed undertaking: \<Organisation\>'s confidentiality agreement and the acknowledgement in \<Security Operating Procedures\>, section 9 |
 | External person | Someone who works on \<System Name\>, or assesses it, but is not employed by \<Organisation\>, such as a contractor, a supplier's engineer or an independent assessor |
 | Leaver, mover | Someone who leaves \<Organisation\> or stops needing \<System Name\>; someone who changes role |
 
@@ -1413,12 +1195,7 @@ The rule on non-compliance in section 2.1 applies to this policy.
 | NPSA, Employment screening: a good practice guide; BS 7858:2019 | What a fuller screening standard covers, for comparison with \<Organisation\>'s own |
 | \<Personnel Security Management\>, \<Procedures\> (PS), \<Roles and Responsibilities\>, \<Security Operating Procedures\> and \<Access Control Management\> | The designations and register, the procedures, the roles, the rules people sign and the account time limits |
 
-| **CHAPTER PT** |
-| --- |
-
 ## PT Personally Identifiable Information Processing and Transparency
-
-[PT.1 Purpose and scope](#pt1-purpose-and-scope) · [PT.2 The organisation's position](#pt2-the-organisations-position) · [PT.3 Control principles](#pt3-control-principles) · [PT.4 Mandatory requirements](#pt4-mandatory-requirements) · [PT.5 Responsibilities](#pt5-responsibilities) · [PT.6 Governance requirements](#pt6-governance-requirements) · [PT.7 Non-compliance and risk acceptance](#pt7-non-compliance-and-risk-acceptance) · [PT.8 Definitions](#pt8-definitions) · [PT.9 References](#pt9-references)
 
 ### PT.1 Purpose and scope
 
@@ -1440,14 +1217,14 @@ It applies to all personal data in \<System Name\>: HR documents, other project 
 ### PT.4 Mandatory requirements
 
 1. **R1 Purposes:** personal data may be processed only for HR administration and managing project documents.
-2. **R2 Basis and conditions:** each kind of personal data must have an Article 6 lawful basis recorded in \<PII Processing Management\>, section 4.3, confirmed by the legal adviser. Special category data must also have an Article 9 condition and, where needed, a Schedule 1 condition. Where a Schedule 1, Part 1 condition is relied on, an appropriate policy document must be in place. Consent is not used for employee data.
-3. **R3 Inventory and record of processing:** \<PII Processing Management\>, section 4.3 must list every kind of personal data, and match \<Organisation\>'s record of processing (UK GDPR, Article 30; EV-PM-02).
+2. **R2 Basis and conditions:** each kind of personal data must have an Article 6 lawful basis recorded in \<PII Processing Management\>, section 3.3, confirmed by the legal adviser. Special category data must also have an Article 9 condition and, where needed, a Schedule 1 condition. Where a Schedule 1, Part 1 condition is relied on, an appropriate policy document must be in place. Consent is not used for employee data.
+3. **R3 Inventory and record of processing:** \<PII Processing Management\>, section 3.3 must list every kind of personal data, and match \<Organisation\>'s record of processing (UK GDPR, Article 30; EV-PM-02).
 4. **R4 Impact assessment:** \<Data Protection Impact Assessment\> must be completed and approved by the legal adviser, with the data protection officer's advice, before production and after any significant change in processing.
 5. **R5 Special category data:** special category data may be held only in projects the business owner authorises, and those documents must be marked as such.
-6. **R6 Retention:** personal data must be kept only for the period in \<PII Processing Management\>, section 4.7, then disposed of, with the disposal audited.
+6. **R6 Retention:** personal data must be kept only for the period in \<PII Processing Management\>, section 3.7, then disposed of, with the disposal audited.
 7. **R7 Rights and complaints:** requests from individuals must go to the legal adviser and be met by a reasonable and proportionate search of every project within one month. Complaints about how data is handled must be acknowledged within 30 days, investigated, and answered with the outcome.
 8. **R8 Transparency:** \<Organisation\>'s employee privacy notice must name \<System Name\> and its purposes, be reviewed every 12 months, and be linked from \<System Name\>'s pages.
-9. **R9 Breaches:** personal data breaches must be handled under \<Incident Response Management\>, section 4.8, including the 72-hour report to the ICO, harm to the people affected and the breach register.
+9. **R9 Breaches:** personal data breaches must be handled under \<Incident Response Management\>, section 3.8, including the 72-hour report to the ICO, harm to the people affected and the breach register.
 10. **R10 Training and test data:** everyone who handles HR documents and all administrators must complete privacy training before access and every 12 months. Real personal data must not be used for testing, training or research.
 11. **R11 Accuracy:** personal data must be kept accurate and up to date. Each project's personal data must be checked every 12 months, and anything inaccurate or out of date corrected or deleted.
 
@@ -1466,7 +1243,7 @@ It applies to all personal data in \<System Name\>: HR documents, other project 
 
 ### PT.6 Governance requirements
 
-The rules in section 2.1 apply to this policy. It adds these.
+The rules in section 1.1 apply to this policy. It adds these.
 
 1. **Communication:** this policy and the procedures must be shared with everyone who administers \<System Name\>, and whenever they change.
 2. **Policy review:** every 12 months, and after a significant incident, audit finding, change in the law or change in processing.
@@ -1476,7 +1253,7 @@ The rules in section 2.1 apply to this policy. It adds these.
 
 ### PT.7 Non-compliance and risk acceptance
 
-The rule on non-compliance in section 2.1 applies to this policy.
+The rule on non-compliance in section 1.1 applies to this policy.
 
 ### PT.8 Definitions
 
@@ -1502,12 +1279,7 @@ The rule on non-compliance in section 2.1 applies to this policy.
 | ICO guidance: keeping employment records (February 2025); data protection impact assessments | How the law applies to HR records |
 | \<PII Processing Management\>, \<Data Protection Impact Assessment\>, \<Privacy Plan\>, \<Procedures\> (PT), \<Incident Response Management\> and \<Security Operating Procedures\> | The inventory, impact assessment, privacy plan, procedures, breach handling and the rules people sign |
 
-| **CHAPTER RA** |
-| --- |
-
 ## RA Risk Assessment
-
-[RA.1 Purpose and scope](#ra1-purpose-and-scope) · [RA.2 The organisation's position](#ra2-the-organisations-position) · [RA.3 Control principles](#ra3-control-principles) · [RA.4 Mandatory requirements](#ra4-mandatory-requirements) · [RA.5 Responsibilities](#ra5-responsibilities) · [RA.6 Governance requirements](#ra6-governance-requirements) · [RA.7 Non-compliance and risk acceptance](#ra7-non-compliance-and-risk-acceptance) · [RA.8 Definitions](#ra8-definitions) · [RA.9 References](#ra9-references)
 
 ### RA.1 Purpose and scope
 
@@ -1529,16 +1301,16 @@ It applies to UI application, Admin application, API, the \<System Name\> databa
 
 ### RA.4 Mandatory requirements
 
-1. **R1 Risk record:** \<Risk List\> is the record of risk assessment. It must use the method in its section 5, which follows NIST SP 800-30 Rev 1, and give each risk a status and the date it was last reviewed.
+1. **R1 Risk record:** \<Risk List\> is the record of risk assessment. It must use the method in its section 4, which follows NIST SP 800-30 Rev 1, and give each risk a status and the date it was last reviewed.
 2. **R2 Risk review:** the risk assessment must be reviewed every 12 months, and after a significant change, incident or new test result, and shared with the system owner, the authorising official and the Head of Cyber.
 3. **R3 Categorisation:** the system must keep a security categorisation under FIPS 199 and NIST SP 800-60, with its rationale, approved by the authorising official.
 4. **R4 Organisational risk:** system risk decisions must respect \<Organisation\>'s risk management strategy and risk appetite once confirmed (D-PM-03).
 5. **R5 Supply chain:** supply chain risk from packages, base images, suppliers and the VMs must be reviewed every 12 months, and recorded on TPL-23.
 6. **R6 Scanning:** vulnerability scans must run monthly and at each release, with definitions updated before each scan, and credentialed scans of both VMs. The packages, \<System Name\>'s own applications, the container images and their operating system packages must all be covered.
-7. **R7 Response times:** each vulnerability must be fixed or mitigated within the time in \<Risk Assessment Management\>, section 4.6, for its severity, counted from the fix's release, or from detection if that is later. Critical and High within 14 days, Medium within 30 days, Low within 90 days or 30 days once a vendor update exists. Severity is the vendor's rating, or else the CVSS base score.
+7. **R7 Response times:** each vulnerability must be fixed or mitigated within the time in \<Risk Assessment Management\>, section 3.6, for its severity, counted from the fix's release, or from detection if that is later. Critical and High within 14 days, Medium within 30 days, Low within 90 days or 30 days once a vendor update exists. Severity is the vendor's rating, or else the CVSS base score.
 8. **R8 Exploited flaws:** a flaw listed in CISA's Known Exploited Vulnerabilities catalogue, or confirmed by its vendor as exploited, must be fixed or mitigated within 3 days as an emergency change. A fix that cannot meet any time goes to a risk decision under section RA.7.
 9. **R9 Reports:** vulnerability reports must be received through \<Organisation\>'s security contact, which must be published with terms that authorise research in good faith, and flaws found in another party's component must be reported to its maintainer.
-10. **R10 Critical components:** critical components must be identified by the method in \<Risk Assessment Management\>, section 4.9, and reviewed at each major release and significant change.
+10. **R10 Critical components:** critical components must be identified by the method in \<Risk Assessment Management\>, section 3.9, and reviewed at each major release and significant change.
 
 ### RA.5 Responsibilities
 
@@ -1557,7 +1329,7 @@ It applies to UI application, Admin application, API, the \<System Name\> databa
 
 ### RA.6 Governance requirements
 
-The rules in section 2.1 apply to this policy. It adds these.
+The rules in section 1.1 apply to this policy. It adds these.
 
 1. **Communication:** this policy and the procedures must be shared with everyone who administers \<System Name\>, and whenever they change.
 2. **Compliance and management commitment:** the system owner reviews compliance at each review, runs Test-Vulnerability.ps1, and records the result.
@@ -1566,7 +1338,7 @@ The rules in section 2.1 apply to this policy. It adds these.
 
 ### RA.7 Non-compliance and risk acceptance
 
-The rule on non-compliance in section 2.1 applies to this policy. A vulnerability that cannot be fixed in time is recorded the same way, with its compensating measure.
+The rule on non-compliance in section 1.1 applies to this policy. A vulnerability that cannot be fixed in time is recorded the same way, with its compensating measure.
 
 ### RA.8 Definitions
 
@@ -1596,12 +1368,7 @@ The rule on non-compliance in section 2.1 applies to this policy. A vulnerabilit
 | CISA Known Exploited Vulnerabilities catalogue | The list of exploited flaws |
 | \<Risk List\>, \<Risk Assessment Management\>, \<Procedures\> (RA), \<Plan of Action and Milestones\> and \<Supply Chain Risk Management\> | The risks, values, procedures, plan of action and supply chain plan |
 
-| **CHAPTER SA** |
-| --- |
-
 ## SA System and Services Acquisition
-
-[SA.1 Purpose and scope](#sa1-purpose-and-scope) · [SA.2 The organisation's position](#sa2-the-organisations-position) · [SA.3 Control principles](#sa3-control-principles) · [SA.4 Mandatory requirements](#sa4-mandatory-requirements) · [SA.5 Responsibilities](#sa5-responsibilities) · [SA.6 Governance requirements](#sa6-governance-requirements) · [SA.7 Non-compliance and risk acceptance](#sa7-non-compliance-and-risk-acceptance) · [SA.8 Definitions](#sa8-definitions) · [SA.9 References](#sa9-references)
 
 ### SA.1 Purpose and scope
 
@@ -1622,14 +1389,14 @@ It applies to \<System Name\>'s in-house development and build environment, and 
 
 ### SA.4 Mandatory requirements
 
-1. **R1 Framework:** \<System Name\> must be developed under NIST SSDF \<ver\>, with each practice mapped to how it is met in \<System and Services Acquisition Management\>, section 4.2.
+1. **R1 Framework:** \<System Name\> must be developed under NIST SSDF \<ver\>, with each practice mapped to how it is met in \<System and Services Acquisition Management\>, section 3.2.
 2. **R2 Resources:** the system owner must raise security and privacy costs in yearly budgeting, and record them.
 3. **R3 Contracts:** contracts must use \<Organisation\>'s standard terms, with security and privacy requirements, documentation, responsibilities and acceptance criteria added.
 4. **R4 Design information:** design and the functions, ports, protocols and services \<System Name\> needs must be documented, and kept current with each change.
 5. **R5 Documentation:** administrator and user guides covering secure installation, configuration, operation and use must be kept with the code and confirmed at each release.
-6. **R6 Principles:** design must follow the NCSC secure design principles and NIST's privacy engineering objectives, as mapped in \<Security Architecture\>, section 7.5.
+6. **R6 Principles:** design must follow the NCSC secure design principles and NIST's privacy engineering objectives, as mapped in \<Security Architecture\>, section 6.5.
 7. **R7 Change control:** code, configuration and documents must be held in Git, with each default branch protected, at least one approving review before a change merges, dependency alerts on, and release tags signed. Test scripts must be under version control. Until this is in place, the gap is tracked in PA-91.
-8. **R8 Build and test:** each release must pass unit, integration and security tests covering every security function, to the depth in \<System and Services Acquisition Management\>, section 4.9. Builds must not turn package vulnerability checks off.
+8. **R8 Build and test:** each release must pass unit, integration and security tests covering every security function, to the depth in \<System and Services Acquisition Management\>, section 3.9. Builds must not turn package vulnerability checks off.
 9. **R9 Third parties:** each new third-party component must be checked for origin, licence, support and known vulnerabilities before it is added. External services, including GitHub and the package and container registries, must state their controls and be reviewed every 12 months.
 10. **R10 Support:** components must be replaced before support ends, with a replacement planned at least 6 months before. Any exception needs the authorising official's approval.
 
@@ -1647,7 +1414,7 @@ It applies to \<System Name\>'s in-house development and build environment, and 
 
 ### SA.6 Governance requirements
 
-The rules in section 2.1 apply to this policy. It adds these.
+The rules in section 1.1 apply to this policy. It adds these.
 
 1. **Communication:** this policy and the procedures must be shared with developers and administrators, and whenever they change.
 2. **Compliance and management commitment:** the system owner reviews compliance at each review, runs Test-Development.ps1, and records the result.
@@ -1656,7 +1423,7 @@ The rules in section 2.1 apply to this policy. It adds these.
 
 ### SA.7 Non-compliance and risk acceptance
 
-The rule on non-compliance in section 2.1 applies to this policy.
+The rule on non-compliance in section 1.1 applies to this policy.
 
 ### SA.8 Definitions
 
@@ -1683,12 +1450,7 @@ The rule on non-compliance in section 2.1 applies to this policy.
 | UK Software Security Code of Practice | Peer practice the policy aligns with |
 | \<System and Services Acquisition Management\>, \<Procedures\> (SA), \<Security Architecture\>, \<Administrator Guide\> and \<User Guide\> | The values, procedures, design and guides |
 
-| **CHAPTER SC** |
-| --- |
-
 ## SC System and Communications Protection
-
-[SC.1 Purpose and scope](#sc1-purpose-and-scope) · [SC.2 The organisation's position](#sc2-the-organisations-position) · [SC.3 Control principles](#sc3-control-principles) · [SC.4 Mandatory requirements](#sc4-mandatory-requirements) · [SC.5 Responsibilities](#sc5-responsibilities) · [SC.6 Governance requirements](#sc6-governance-requirements) · [SC.7 Non-compliance and risk acceptance](#sc7-non-compliance-and-risk-acceptance) · [SC.8 Definitions](#sc8-definitions) · [SC.9 References](#sc9-references)
 
 ### SC.1 Purpose and scope
 
@@ -1709,7 +1471,7 @@ Information in \<System Name\> must be protected wherever it travels or rests. \
 
 ### SC.4 Mandatory requirements
 
-1. **R1 Flows:** only the flows in \<System Security Plan\>, section 4.7, Table 10, and \<Security Architecture\>, Table 5, are allowed. Traffic is denied by default at \<Organisation\>'s firewalls and at each VM's host firewall, using the allow-lists in \<System and Communications Protection Management\>, section 4.2.
+1. **R1 Flows:** only the flows in \<System Security Plan\>, section 3.7, Table 7, and \<Security Architecture\>, Table 2, are allowed. Traffic is denied by default at \<Organisation\>'s firewalls and at each VM's host firewall, using the allow-lists in \<System and Communications Protection Management\>, section 3.2.
 2. **R2 Listening addresses:** UI application listens on TCP 443 only. The admin portal is reachable only over \<Organisation\>'s managed administration route. API listens only on the application VM's loopback address. The database accepts connections only from the application VM.
 3. **R3 Transport:** every flow must use TLS under NCSC's profiles. TLS 1.3 is preferred, with hybrid post-quantum key exchange where the platform supports it. TLS 1.2 is allowed only with the GCM profiles. SSL, TLS 1.0 and 1.1, compression and TLS 1.3 early data (0-RTT) must be off.
 4. **R4 Web sessions:** the apps must serve HTTPS only and redirect HTTP, send HSTS with a maximum age of at least 1 year, and mark every cookie Secure, HttpOnly and SameSite. Sessions end after 30 minutes idle and after 8 hours.
@@ -1739,7 +1501,7 @@ Information in \<System Name\> must be protected wherever it travels or rests. \
 
 ### SC.6 Governance requirements
 
-The rules in section 2.1 apply to this policy. It adds these.
+The rules in section 1.1 apply to this policy. It adds these.
 
 1. **Communication:** this policy and the procedures must be shared with everyone who administers or develops \<System Name\>, and whenever they change.
 2. **Compliance and management commitment:** the system owner reviews compliance at each review, runs Test-Protection.ps1 and checks the register, and records the result.
@@ -1748,7 +1510,7 @@ The rules in section 2.1 apply to this policy. It adds these.
 
 ### SC.7 Non-compliance and risk acceptance
 
-The rule on non-compliance in section 2.1 applies to this policy.
+The rule on non-compliance in section 1.1 applies to this policy.
 
 ### SC.8 Definitions
 
@@ -1774,14 +1536,9 @@ The rule on non-compliance in section 2.1 applies to this policy.
 | NIST SP 800-57 Part 1 Rev 5 | Cryptoperiods and key management |
 | PostgreSQL 18 documentation, Secure TCP/IP Connections with SSL | Database TLS enforcement |
 | Microsoft, ASP.NET Core Data Protection key encryption at rest | The key ring protection |
-| \<System and Communications Protection Management\>, \<Procedures\> (SC), \<Security Architecture\> and \<System Security Plan\>, section 4.7 | The values, procedures, design and flows |
-
-| **CHAPTER SI** |
-| --- |
+| \<System and Communications Protection Management\>, \<Procedures\> (SC), \<Security Architecture\> and \<System Security Plan\>, section 3.7 | The values, procedures, design and flows |
 
 ## SI System and Information Integrity
-
-[SI.1 Purpose and scope](#si1-purpose-and-scope) · [SI.2 The organisation's position](#si2-the-organisations-position) · [SI.3 Control principles](#si3-control-principles) · [SI.4 Mandatory requirements](#si4-mandatory-requirements) · [SI.5 Responsibilities](#si5-responsibilities) · [SI.6 Governance requirements](#si6-governance-requirements) · [SI.7 Non-compliance and risk acceptance](#si7-non-compliance-and-risk-acceptance) · [SI.8 Definitions](#si8-definitions) · [SI.9 References](#si9-references)
 
 ### SI.1 Purpose and scope
 
@@ -1803,17 +1560,17 @@ It applies to UI application, Admin application, API, the \<System Name\> databa
 
 ### SI.4 Mandatory requirements
 
-1. **R1 Flaw remediation:** flaws must be fixed to the one timetable in \<Risk Assessment Management\>, section 4.6: 3 days for a flaw known to be exploited, 14 days for Critical and High, 30 days for Medium, and 90 days for Low (30 once a vendor fix exists), counted from the fix's release or its detection if later. Updates are tested first and installed through change control.
+1. **R1 Flaw remediation:** flaws must be fixed to the one timetable in \<Risk Assessment Management\>, section 3.6: 3 days for a flaw known to be exploited, 14 days for Critical and High, 30 days for Medium, and 90 days for Low (30 once a vendor fix exists), counted from the fix's release or its detection if later. Updates are tested first and installed through change control.
 2. **R2 Update status:** Test-Vulnerability.ps1 must run monthly and at each release, dependency alerts must be on for every repository, and Windows Update status must be reported from both VMs.
 3. **R3 Malicious code:** Microsoft Defender must run on both VMs, with real-time protection, daily updates and a weekly full scan. Every upload must be passed to Defender through the Windows Antimalware Scan Interface (AMSI) before it is stored. A flagged file is refused, recorded in the audit trail and reported to the security officer.
 4. **R4 Upload checks:** only the allowed document types may be uploaded. Each file's type and signature must match its extension, its size must be within the limit for the user's role, and its name must not contain a path.
-5. **R5 Monitoring:** application, Windows and PostgreSQL logs must be forwarded to \<Organisation\>'s central logging and reviewed weekly. The detection use cases in \<System and Information Integrity Management\>, section 4.4, must raise alerts to the security officer.
+5. **R5 Monitoring:** application, Windows and PostgreSQL logs must be forwarded to \<Organisation\>'s central logging and reviewed weekly. The detection use cases in \<System and Information Integrity Management\>, section 3.4, must raise alerts to the security officer.
 6. **R6 Monitoring people:** users must be monitored only after the legal adviser's opinion (D-SI-07), only as far as needed, and with staff told what is monitored and why.
 7. **R7 Advisories:** advisories must be received from NCSC (including Early Warning), CISA's Known Exploited Vulnerabilities catalogue (weekly), Microsoft, .NET and GitHub, and PostgreSQL, and passed to the people who act on them.
 8. **R8 Integrity:** release packages, stored documents and audit records must be protected with SHA-256 and checked against the recorded baseline at start-up, at each release and monthly. An unexpected change is handled as an incident.
 9. **R9 Input validation:** all API inputs, uploads and search terms must be validated on the server, and database queries must use parameters.
 10. **R10 Errors:** users and API callers must receive general error messages. Exception detail goes only to the logs, for administrators and developers.
-11. **R11 Retention:** information must be kept and disposed of under \<System Name\>'s retention schedule (\<PII Processing Management\>, section 4.7): audit records for 12 months online and 12 archived, application logs for 30 days, and export copies deleted once downloaded.
+11. **R11 Retention:** information must be kept and disposed of under \<System Name\>'s retention schedule (\<PII Processing Management\>, section 3.7): audit records for 12 months online and 12 archived, application logs for 30 days, and export copies deleted once downloaded.
 12. **R12 Checking:** Test-Integrity.ps1 must run at each release, after a significant change and at each review.
 
 ### SI.5 Responsibilities
@@ -1834,7 +1591,7 @@ It applies to UI application, Admin application, API, the \<System Name\> databa
 
 ### SI.6 Governance requirements
 
-The rules in section 2.1 apply to this policy. It adds these.
+The rules in section 1.1 apply to this policy. It adds these.
 
 1. **Communication:** this policy and the procedures must be shared with everyone who administers or develops \<System Name\>, and whenever they change.
 2. **Compliance and management commitment:** the system owner reviews compliance at each review, runs Test-Integrity.ps1, and records the result.
@@ -1843,7 +1600,7 @@ The rules in section 2.1 apply to this policy. It adds these.
 
 ### SI.7 Non-compliance and risk acceptance
 
-The rule on non-compliance in section 2.1 applies to this policy.
+The rule on non-compliance in section 1.1 applies to this policy.
 
 ### SI.8 Definitions
 
@@ -1870,12 +1627,7 @@ The rule on non-compliance in section 2.1 applies to this policy.
 | ICO, Employment practices and data protection: monitoring workers (October 2023) | Monitoring people |
 | \<System and Information Integrity Management\>, \<Procedures\> (SI), \<Risk Assessment Management\>, \<PII Processing Management\> and \<Audit and Accountability Management\> | The values, procedures, timetable, retention schedule and audit settings |
 
-| **CHAPTER SR** |
-| --- |
-
 ## SR Supply Chain Risk Management
-
-[SR.1 Purpose and scope](#sr1-purpose-and-scope) · [SR.2 The organisation's position](#sr2-the-organisations-position) · [SR.3 Control principles](#sr3-control-principles) · [SR.4 Mandatory requirements](#sr4-mandatory-requirements) · [SR.5 Responsibilities](#sr5-responsibilities) · [SR.6 Governance requirements](#sr6-governance-requirements) · [SR.7 Non-compliance and risk acceptance](#sr7-non-compliance-and-risk-acceptance) · [SR.8 Definitions](#sr8-definitions) · [SR.9 References](#sr9-references)
 
 ### SR.1 Purpose and scope
 
@@ -1906,7 +1658,7 @@ It applies to the software packages, container images and browser files \<System
 7. **R7 Monitoring components:** packages and images must be checked for known flaws monthly and at each release, with NuGet's audit on in every build.
 8. **R8 Bill of materials:** each release must have a bill of materials that lists every component with its version, hash and licence.
 9. **R9 Inspection:** each release must be inspected against its recorded SHA-256 values before installation, and when tampering is suspected. \<Organisation\> must inspect hardware.
-10. **R10 Supplier reviews and notices:** critical suppliers must be reviewed every 12 months on TPL-16. \<Organisation\> must report a compromise to the security officer within 24 hours, and open-source suppliers' advisories must be watched (\<System and Information Integrity Management\>, section 4.3).
+10. **R10 Supplier reviews and notices:** critical suppliers must be reviewed every 12 months on TPL-16. \<Organisation\> must report a compromise to the security officer within 24 hours, and open-source suppliers' advisories must be watched (\<System and Information Integrity Management\>, section 3.3).
 11. **R11 Authenticity:** a suspected counterfeit or look-alike component, hardware or software, must be refused and reported to the security officer, \<Organisation\> and, where it applies, the package registry and the NCSC.
 12. **R12 Disposal and checking:** components must be disposed of following \<Procedures\>, PRO-MP-3, and Test-SupplyChain.ps1 must run at each release, after a significant change and at each review.
 
@@ -1925,7 +1677,7 @@ It applies to the software packages, container images and browser files \<System
 
 ### SR.6 Governance requirements
 
-The rules in section 2.1 apply to this policy. It adds these.
+The rules in section 1.1 apply to this policy. It adds these.
 
 1. **Communication:** this policy and the procedures must be shared with developers and administrators, and whenever they change.
 2. **Compliance and management commitment:** the system owner reviews compliance at each review, runs Test-SupplyChain.ps1, and records the result.
@@ -1934,7 +1686,7 @@ The rules in section 2.1 apply to this policy. It adds these.
 
 ### SR.7 Non-compliance and risk acceptance
 
-The rule on non-compliance in section 2.1 applies to this policy.
+The rule on non-compliance in section 1.1 applies to this policy.
 
 ### SR.8 Definitions
 
@@ -1943,7 +1695,7 @@ The rule on non-compliance in section 2.1 applies to this policy.
 | Term | Meaning |
 | --- | --- |
 | Supplier | Anyone who provides a component or service \<System Name\> depends on, including open-source projects and package registries |
-| Critical component | A component whose failure or compromise would harm \<System Name\>'s confidentiality, integrity or availability (\<Risk Assessment Management\>, section 4.9) |
+| Critical component | A component whose failure or compromise would harm \<System Name\>'s confidentiality, integrity or availability (\<Risk Assessment Management\>, section 3.9) |
 | Offline feed | The in-house offline package repository, whose packages are recorded with SHA-256 values |
 | Lock file | A file that records the exact version and content hash of every package a project restores |
 | Bill of materials | A list of every component in a release, with its version, supplier, hash and licence |

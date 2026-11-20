@@ -1,129 +1,52 @@
 # \<System Name\> System Description
 
-**\<ref\> | Version \<ver\> | Secure by Design reference: to be confirmed for each application**
-
-**Contents**
-
-[1 Document control](#1-document-control)
-
-[2 Purpose, and how to use this document](#2-purpose-and-how-to-use-this-document)
-
-[3 The reference system at a glance](#3-the-reference-system-at-a-glance)
-
-[4 Application profile](#4-application-profile)
-
-[5 Parameters](#5-parameters)
-
-[6 Requirements](#6-requirements)
-
-[7 Architecture](#7-architecture)
-
-[8 Design](#8-design)
-
-[9 Secure by Design principles](#9-secure-by-design-principles)
-
-[10 Security, family by family](#10-security-family-by-family)
-
-[11 What \<Organisation\> provides](#11-what-organisation-provides)
-
-[12 Questions and answers](#12-questions-and-answers)
-
-[13 Terms](#13-terms)
-
-| **SECTION 1** |
-| --- |
-
-## 1 Document control
-
-### 1.1 Document details
-
-**Table 1: Document details**
-
-| Item | Detail |
-| --- | --- |
-| Reference | \<ref\> |
-| Title | \<System Name\> System Description |
-| Version | \<ver\> |
-| Status | Secure by Design reference. Each application confirms the profile in section 4 and the parameters in section 5 before the set is issued for it |
-| Date | 20 November 2026 |
-| Owner | System owner |
-| Applies to | Every control family |
-| Classification | \<Classification\> |
-| Next review | Every 12 months, and after a significant change to the reference system or to an application built on it |
-| Format | \<Documentation Map\>, section 5 |
-
-### 1.2 Approval
-
-**Table 2: Approval**
-
-| Role | Name | Decision | Date |
-| --- | --- | --- | --- |
-| System owner | \[Name\] | Pending | Pending |
-| Authorising official | \[Name\] | Pending | Pending |
-
-### 1.3 Change history
-
-**Table 3: Change history**
-
-| Version | Date | Change |
-| --- | --- | --- |
-| \<ver\> | 20 November 2026 | The system owner confirmed SQL Server 2022, sign-in by OpenID Connect, no sign-out in the application, and the API-to-Active Directory LDAPS flow (F7) |
-| \<ver\> | 20 November 2026 | Rewritten as a generic Secure by Design reference system for a series of internal digital library applications. Names of the organisation, the people and the first application are replaced by placeholders. The record of one tested build, its weaknesses and its self-assessment results is removed, because this document describes the design that every application is built to. An application profile (section 4), a parameter table (section 5) and a statement of the Secure by Design principles (section 9) are added. The reference system, as confirmed by the system owner point by point, is an internal digital library with UI, Admin and API applications on Windows Server 2025 and .NET 10, Microsoft SQL Server, sign-in through PingFederate with groups read directly from Active Directory, separate schemas each owned by a Data Owner, access approval in ServiceNow, no session management in the application, and development under the corporate SDLC |
-| \<ver\> | 18 November 2026 | First issue, describing a single document management application |
-
-| **SECTION 2** |
-| --- |
-
-## 2 Purpose, and how to use this document
+## 1 Purpose, and how to use this document
 
 This document describes the reference system that a series of \<Organisation\>'s internal digital library applications are designed and built to. It says what such an application is for, how it is built, what it runs on, how it is designed and what it must do, from a security standpoint. Every other document in the set is written against it. An application that follows this design starts with its security and privacy controls already designed, rather than added after it is built: that is what Secure by Design means here.
 
 The document is written so that a person, or an AI assistant, can answer questions about the security of an application built on the reference system against NIST SP 800-53 Rev 5 without the source code. Everything a reader needs is stated in plain words. No part of it points to code.
 
-It is a summary. The detail of each control family is held once, in the design document named in section 10, and that document is the authority if the two ever differ. Each control has one line in \<System Security Plan\>, and \<Guide to the Document Set\> shows how the whole set fits together.
+It is a summary. The detail of each control family is held once, in the design document named in section 9, and that document is the authority if the two ever differ. Each control has one line in \<System Security Plan\>, and \<Guide to the Document Set\> shows how the whole set fits together.
 
-### 2.1 Placeholders
+### 1.1 Placeholders
 
-**Table 4: Placeholders used in this document**
+**Table 1: Placeholders used in this document**
 
 | Placeholder | Meaning | Where it is set |
 | --- | --- | --- |
-| \<System Name\> | The name of the application the set is issued for | Section 4.1 |
-| \<Organisation\> | The organisation that owns and operates the application and provides the services in section 11 | Section 4.1 |
+| \<System Name\> | The name of the application the set is issued for | Section 3.1 |
+| \<Organisation\> | The organisation that owns and operates the application and provides the services in section 10 | Section 3.1 |
 | \<Document Name\> | Another document in the set, such as \<Access Control Management\> | \<Documentation Map\> |
-| \<ref\>, \<ver\> | The document's reference and version | \<Documentation Map\> |
-| \<Classification\> | The protective marking of the set | Section 4.1 |
-| P-nn | A value the application confirms or changes, such as a retention period | Section 5 |
-| AF-nnn | A function particular to one application | Section 4.5 |
+| \<ver\> | A document's version, where a record cites one | The change record (\<Documentation Map\>, section 4.1) |
+| \<Classification\> | The protective marking of the set | Section 3.1 |
+| P-nn | A value the application confirms or changes, such as a retention period | Section 4 |
+| AF-nnn | A function particular to one application | Section 3.5 |
 | \[Text in square brackets\] | A fact that must be supplied for the application. Do not guess it | Where it appears |
 
-### 2.2 How an application adopts the set
+### 1.2 How an application adopts the set
 
-1. **Complete the application profile** in section 4: its name, purpose, owners, users, information types and its own functions.
-2. **Confirm the parameters** in section 5. Keep the reference value, or record a different value with the reason.
-3. **Item each departure** from the reference design in section 4.6, with the risk it brings and the control that answers it. A departure is decided by the system owner and recorded in \<Decision Register\>.
+1. **Complete the application profile** in section 3: its name, purpose, owners, users, information types and its own functions.
+2. **Confirm the parameters** in section 4. Keep the reference value, or record a different value with the reason.
+3. **Item each departure** from the reference design in section 3.6, with the risk it brings and the control that answers it. A departure is decided by the system owner and recorded in \<Decision Register\>.
 4. **Categorise the application** from its information types, under FIPS 199 and NIST SP 800-60. If it comes out above Moderate in any objective, the Moderate baseline in this set is not enough and the system owner must decide how to proceed before going further.
 5. **Carry the profile into the set.** Replace the placeholders throughout, fill in the square brackets, and confirm each control in \<Control Implementation Register\>.
-6. **Build to the design, then assess.** The application is tested against the requirements in section 6, and any shortfall becomes an item in \<Plan of Action and Milestones\>.
+6. **Build to the design, then assess.** The application is tested against the requirements in section 5, and any shortfall becomes an item in \<Plan of Action and Milestones\>.
 
-### 2.3 Rules for anyone answering questions from this document, human or AI
+### 1.3 Rules for anyone answering questions from this document, human or AI
 
 1. **This is the design.** It states what an application built on the reference system must do. Whether a given application does it is shown by that application's assessment, in \<Security Assessment Report\> and \<Plan of Action and Milestones\>. Do not claim that any application meets a requirement because it is written here.
-2. **Check the profile first.** An application may set a different parameter or record a departure in section 4. Where it has, that is the answer for that application.
+2. **Check the profile first.** An application may set a different parameter or record a departure in section 3. Where it has, that is the answer for that application.
 3. **Say when something is not known.** Text in square brackets is a fact nobody has yet supplied. Do not guess it.
-4. **Name the owner.** Where a requirement is met by \<Organisation\> and not by the application, say so; section 11 lists those services.
+4. **Name the owner.** Where a requirement is met by \<Organisation\> and not by the application, say so; section 10 lists those services.
 
-| **SECTION 3** |
-| --- |
+## 2 The reference system at a glance
 
-## 3 The reference system at a glance
-
-**Table 5: Key facts**
+**Table 2: Key facts**
 
 | Fact | Reference value |
 | --- | --- |
 | What it is | An internal digital library: a browser-based application in which staff store, search and view digital items, such as scanned and electronic documents, kept apart in separate schemas. It holds Moderate-impact information, including personal data |
-| Owner and operator | \<Organisation\>. Its system owner, authorising official and information owner are named in section 4.2 |
+| Owner and operator | \<Organisation\>. Its system owner, authorising official and information owner are named in section 3.2 |
 | Users | \<Organisation\>'s staff and contractors only. No external or public users |
 | Exposure | Internal only. Reached by browser from \<Organisation\>'s network or its VPN, on managed devices. Not reachable from the internet |
 | Applications | Three: the UI application for readers and editors, a separate Admin application, and an API that is the only route to the data, with a shared library built into all three |
@@ -131,22 +54,19 @@ It is a summary. The detail of each control family is held once, in the design d
 | Hosting | Two Windows Server 2025 virtual servers in \<Organisation\>'s data centre: an application server and a database server. Each application runs as a Windows service under its own managed service account |
 | Sign-in | \<Organisation\>'s PingFederate single sign-on service, with multi-factor authentication, against Active Directory. The application holds no accounts and no passwords, and has no session management of its own |
 | Authorisation | Active Directory groups, read directly from Active Directory by the API: three role groups, and a read group and an edit group for each schema |
-| Information held | The information types in section 4.4, and in every case sign-in identities and audit records |
+| Information held | The information types in section 3.4, and in every case sign-in identities and audit records |
 | Security categorisation | Moderate: confidentiality Moderate, integrity Moderate, availability Low (FIPS 199), unless the application profile sets otherwise (P-01) |
 | Control baseline | NIST SP 800-53 Rev 5, Moderate baseline, with NIST's privacy baseline, as tailored in \<Tailoring Register\>. Program Management is inherited from \<Organisation\> |
 | Law | UK GDPR, the Data Protection Act 2018, the Data (Use and Access) Act 2025 and the Computer Misuse Act 1990 (P-31) |
 | Development | Built in-house under \<Organisation\>'s corporate software development life cycle (SDLC) |
 
-| **SECTION 4** |
-| --- |
-
-## 4 Application profile
+## 3 Application profile
 
 This section is completed for each application built on the reference system. Until it is, every other section describes the reference system only.
 
-### 4.1 Identity of the application
+### 3.1 Identity of the application
 
-**Table 6: Application identity**
+**Table 3: Application identity**
 
 | Item | Value |
 | --- | --- |
@@ -158,9 +78,9 @@ This section is completed for each application built on the reference system. Un
 | Classification of the document set (\<Classification\>) | \[Marking\] |
 | Release this set describes | \[Release\] |
 
-### 4.2 Owners and named roles
+### 3.2 Owners and named roles
 
-**Table 7: Owners and named roles**
+**Table 4: Owners and named roles**
 
 | Role | Name | Responsible for |
 | --- | --- | --- |
@@ -172,11 +92,11 @@ This section is completed for each application built on the reference system. Un
 | Legal adviser or data protection officer | \[Name\] | Lawful basis, the impact assessment, people's requests and breach reporting |
 | Data Owners | \[Names, one for each schema\] | Authorising who may read or edit a schema, through the ServiceNow access approval workflow |
 
-### 4.3 Who uses it
+### 3.3 Who uses it
 
-The reference system has the roles below. An application may rename a role, or leave one out where it has no use for it, and items that in section 4.6.
+The reference system has the roles below. An application may rename a role, or leave one out where it has no use for it, and items that in section 3.6.
 
-**Table 8: Users and roles**
+**Table 5: Users and roles**
 
 | Role | What they do | Where | How the role is given |
 | --- | --- | --- | --- |
@@ -185,17 +105,17 @@ The reference system has the roles below. An application may rename a role, or l
 | Administrator | Manages schemas, which groups open each schema, and system settings. Can reach every schema | Admin application and UI application | Member of the administrators' group |
 | Auditor | Reads and searches the audit log. Holds no administration role | Admin application | Member of the auditors' group |
 | Security officer | Reads security information, reviews logs and alerts, leads incident response. Holds no administration role | Admin application | Member of the security group |
-| Data Owner | Owns a schema's data and its two groups. Authorises who may read or edit it, in ServiceNow | ServiceNow and the directory | Named in section 4.2 and \<Roles and Responsibilities\> |
+| Data Owner | Owns a schema's data and its two groups. Authorises who may read or edit it, in ServiceNow | ServiceNow and the directory | Named in section 3.2 and \<Roles and Responsibilities\> |
 | Server and database administrators | Run the servers and the database. Need no application role | The servers, over \<Organisation\>'s managed administration route | Named accounts from \<Organisation\> |
 | Developers | Build and fix the applications. Hold no administrator access on the servers | Development environment | Named in \<Roles and Responsibilities\> |
 
 All role and schema groups are Active Directory groups. The system owner owns the three role groups, and each Data Owner owns their schema's two groups. Only a group's owner changes its members.
 
-### 4.4 What information it holds
+### 3.4 What information it holds
 
 Each application lists the information it holds and rates each type under NIST SP 800-60. The application's categorisation is the highest rating in each column. The last row is held by every application built on the reference system.
 
-**Table 9: Information types and impact**
+**Table 6: Information types and impact**
 
 | Information type | Personal data? | Confidentiality | Integrity | Availability |
 | --- | --- | --- | --- | --- |
@@ -204,23 +124,23 @@ Each application lists the information it holds and rates each type under NIST S
 | Sign-in identities and audit records | Yes | Moderate | Moderate | Low |
 | **The application, taking the highest of each** | | **\[Rating\]** | **\[Rating\]** | **\[Rating\]** |
 
-The reference system is designed for Moderate confidentiality, Moderate integrity and Low availability. An application rated Low in any objective may keep the Moderate controls. An application rated High in any objective is outside this reference system (section 2.2, step 4).
+The reference system is designed for Moderate confidentiality, Moderate integrity and Low availability. An application rated Low in any objective may keep the Moderate controls. An application rated High in any objective is outside this reference system (section 1.2, step 4).
 
-### 4.5 Functions particular to the application
+### 3.5 Functions particular to the application
 
-The functional requirements in section 6.1 are common to every application built on the reference system. The functions only this application has are listed here, numbered AF-001 onwards, in the same form. Each must name who may use it and the access check that guards it, and must be built from the common components: the same sign-in, schema access checks, input validation, audit and file handling.
+The functional requirements in section 5.1 are common to every application built on the reference system. The functions only this application has are listed here, numbered AF-001 onwards, in the same form. Each must name who may use it and the access check that guards it, and must be built from the common components: the same sign-in, schema access checks, input validation, audit and file handling.
 
-**Table 10: Application functions**
+**Table 7: Application functions**
 
 | No. | Requirement | Who | How it is implemented |
 | --- | --- | --- | --- |
 | AF-001 | \[Function\] | \[Role\] | \[Which part does the work, where the data is held and where the access check is made\] |
 
-A function that would break a statement in section 6.1.11, "What the application does not do", is a departure and goes in section 4.6.
+A function that would break a statement in section 5.1.11, "What the application does not do", is a departure and goes in section 3.6.
 
-### 4.6 Departures from the reference design
+### 3.6 Departures from the reference design
 
-**Table 11: Departures**
+**Table 8: Departures**
 
 | No. | Reference design | What this application does instead | Why | Risk, and the control that answers it | Decision |
 | --- | --- | --- | --- | --- | --- |
@@ -228,14 +148,11 @@ A function that would break a statement in section 6.1.11, "What the application
 
 An application with no departures says "None".
 
-| **SECTION 5** |
-| --- |
-
-## 5 Parameters
+## 4 Parameters
 
 These are the values the controls depend on. NIST SP 800-53 calls many of them organisation-defined parameters. Each has a reference value that the design in this set is written to. An application keeps it or sets its own, and states the reason in the last column. A change to P-01 or to any time in P-11 to P-14 changes the categorisation or the contingency plan, and needs the authorising official's agreement.
 
-**Table 12: Parameters**
+**Table 9: Parameters**
 
 | No. | Parameter | Reference value | Main controls | This application, and why |
 | --- | --- | --- | --- | --- |
@@ -265,7 +182,7 @@ These are the values the controls depend on. NIST SP 800-53 calls many of them o
 | P-24 | Training | Before access, and every 12 months; role modules before privileged access | AT-2, AT-3 | \[\] |
 | P-25 | Authorisation | Before real data is held, and reviewed at least every 12 months | CA-6 | \[\] |
 | P-26 | Transport encryption | TLS 1.3 preferred; TLS 1.2 with AES-GCM allowed; HSTS for one year | SC-8, SC-13 | \[\] |
-| P-27 | Events that raise an alert | The eight in section 8.10 | SI-4 | \[\] |
+| P-27 | Events that raise an alert | The eight in section 7.10 | SI-4 | \[\] |
 | P-28 | Application security verification standard | OWASP ASVS 5.0, Level 2 | SA-11 | \[\] |
 | P-29 | Check of the running system against its baseline | Monthly, and at each release | CM-3, SI-7 | \[\] |
 | P-30 | Vulnerability scanning | Servers monthly; packages and code at each release | RA-5 | \[\] |
@@ -275,22 +192,19 @@ These are the values the controls depend on. NIST SP 800-53 calls many of them o
 | P-34 | Response times for the main functions | \[From the business owner\] | SC-5 | \[\] |
 | P-35 | Accessibility standard and languages | \[From the business owner\]. Reference: WCAG 2.2 Level AA, English | PL-2 | \[\] |
 
-| **SECTION 6** |
-| --- |
+## 5 Requirements
 
-## 6 Requirements
-
-This section lists what every application built on the reference system must do. Section 6.1 gives the common functional requirements, FR-001 onwards. Section 6.2 gives the non-functional requirements, NFR-001 onwards: the qualities the system must have, with the document that holds the detail. The functions particular to one application are in section 4.5.
+This section lists what every application built on the reference system must do. Section 5.1 gives the common functional requirements, FR-001 onwards. Section 5.2 gives the non-functional requirements, NFR-001 onwards: the qualities the system must have, with the document that holds the detail. The functions particular to one application are in section 3.5.
 
 The **How it is implemented** column says, in a sentence or two, how the reference design does it: which part does the work, where the data is held, and where the check is made. It stands in for the source code. The API is the only part that reads or writes the database: the UI application and the Admin application ask the API for everything. Where a person and not the system meets the requirement, it says so.
 
 Each requirement is to be verified before the application is authorised. \<Security Assessment Report\> records the result for the application, and a requirement not met becomes an item in \<Plan of Action and Milestones\>.
 
-### 6.1 Functional requirements
+### 5.1 Functional requirements
 
-#### 6.1.1 Sign-in and the person's own account
+#### 5.1.1 Sign-in and the person's own account
 
-**Table 13: Functional requirements: sign-in and the person's own account**
+**Table 10: Functional requirements: sign-in and the person's own account**
 
 | No. | Requirement | Who | How it is implemented |
 | --- | --- | --- | --- |
@@ -306,9 +220,9 @@ Each requirement is to be verified before the application is authorised. \<Secur
 | FR-010 | Link to the employee privacy notice, and say what the application records about its users | Everyone | A link and a short statement on the home page and the About page |
 | FR-011 | Hold no user accounts, passwords, password resets or session management | System | Accounts, passwords and lockout live in Active Directory and PingFederate. The database has no account or password table |
 
-#### 6.1.2 Schemas and search
+#### 5.1.2 Schemas and search
 
-**Table 14: Functional requirements: schemas and search**
+**Table 11: Functional requirements: schemas and search**
 
 | No. | Requirement | Who | How it is implemented |
 | --- | --- | --- | --- |
@@ -319,9 +233,9 @@ Each requirement is to be verified before the application is authorised. \<Secur
 | FR-016 | Keep a person's recent searches, if kept at all, in their own browser only | Reader | Held in the browser's own storage on the person's device. Not sent to the server |
 | FR-017 | Save a list of results, not the items' content, as a file | Reader | The UI application writes the rows on screen to a file and hands it to the browser. The save is audited |
 
-#### 6.1.3 Viewing items and files
+#### 5.1.3 Viewing items and files
 
-**Table 15: Functional requirements: viewing items and files**
+**Table 12: Functional requirements: viewing items and files**
 
 | No. | Requirement | Who | How it is implemented |
 | --- | --- | --- | --- |
@@ -334,9 +248,9 @@ Each requirement is to be verified before the application is authorised. \<Secur
 | FR-024 | Send content so that it is not kept in shared caches or in the browser after use | System | The API sets response headers that forbid shared caching and storing |
 | FR-025 | Mark what the application shows, prints and exports with its classification | System | A banner and watermark on the viewer, on printed pages and in export files |
 
-#### 6.1.4 Reporting a fault in an item
+#### 5.1.4 Reporting a fault in an item
 
-**Table 16: Functional requirements: reporting a fault in an item**
+**Table 13: Functional requirements: reporting a fault in an item**
 
 | No. | Requirement | Who | How it is implemented |
 | --- | --- | --- | --- |
@@ -345,9 +259,9 @@ Each requirement is to be verified before the application is authorised. \<Secur
 | FR-028 | Move a report through its states, and record the corrective action | Editor | An editor changes the state on the report. The API checks edit access to the schema first |
 | FR-029 | Item each report and each change of state in the audit log | System | The API writes an audit record when a report is created or changes state |
 
-#### 6.1.5 Creating, uploading and managing items
+#### 5.1.5 Creating, uploading and managing items
 
-**Table 17: Functional requirements: creating, uploading and managing items**
+**Table 14: Functional requirements: creating, uploading and managing items**
 
 | No. | Requirement | Who | How it is implemented |
 | --- | --- | --- | --- |
@@ -363,9 +277,9 @@ Each requirement is to be verified before the application is authorised. \<Secur
 | FR-039 | Store each file with a SHA-256 checksum, so that a change can be detected | System | The API calculates the checksum when the file is stored and holds it on the item |
 | FR-040 | Item who created or uploaded each item, and when | System | The signed-in name and the time are written to the item by the API |
 
-#### 6.1.6 Bulk upload
+#### 5.1.6 Bulk upload
 
-**Table 18: Functional requirements: bulk upload**
+**Table 15: Functional requirements: bulk upload**
 
 | No. | Requirement | Who | How it is implemented |
 | --- | --- | --- | --- |
@@ -375,9 +289,9 @@ Each requirement is to be verified before the application is authorised. \<Secur
 | FR-044 | Show the result for each file and for the batch, and notify the person when it ends | Editor | The API returns a result for each file, and creates a notification for the person |
 | FR-045 | Check the person's edit access against the schema the files are stored in, not only the schema named in the request | System | The API takes the database schema from the schema definition it has just checked, not from a name in the request |
 
-#### 6.1.7 Bulk export
+#### 5.1.7 Bulk export
 
-**Table 19: Functional requirements: bulk export**
+**Table 16: Functional requirements: bulk export**
 
 | No. | Requirement | Who | How it is implemented |
 | --- | --- | --- | --- |
@@ -389,9 +303,9 @@ Each requirement is to be verified before the application is authorised. \<Secur
 | FR-051 | Item every export in the audit log, with who, which schema and how many items | System | An audit record is written for each export |
 | FR-052 | Raise an alert on an export above a set size | System | A rule in central monitoring on the export audit records |
 
-#### 6.1.8 Notifications
+#### 5.1.8 Notifications
 
-**Table 20: Functional requirements: notifications**
+**Table 17: Functional requirements: notifications**
 
 | No. | Requirement | Who | How it is implemented |
 | --- | --- | --- | --- |
@@ -400,9 +314,9 @@ Each requirement is to be verified before the application is authorised. \<Secur
 | FR-055 | Remove old notifications on a schedule | System | A background task in the API. No user can start it |
 | FR-056 | Send no email or message outside the application | System | The application has no mail or messaging component, and no outbound route for one |
 
-#### 6.1.9 Administration
+#### 5.1.9 Administration
 
-**Table 21: Functional requirements: administration**
+**Table 18: Functional requirements: administration**
 
 | No. | Requirement | Who | How it is implemented |
 | --- | --- | --- | --- |
@@ -417,22 +331,22 @@ Each requirement is to be verified before the application is authorised. \<Secur
 | FR-065 | Hold no pages for user accounts, passwords, roles or group membership: these are managed in Active Directory | System | No such page or table exists |
 | FR-066 | Answer a health check without sign-in, giving no detail | System | One API function that returns a fixed answer and reads no data |
 
-#### 6.1.10 Audit and security information
+#### 5.1.10 Audit and security information
 
-**Table 22: Functional requirements: audit and security information**
+**Table 19: Functional requirements: audit and security information**
 
 | No. | Requirement | Who | How it is implemented |
 | --- | --- | --- | --- |
-| FR-067 | Item every event type in section 8.6 in one audit log, with who, what, when, where and the result | System | The function that carries out an action calls the audit service in the API, which adds one item |
+| FR-067 | Item every event type in section 7.6 in one audit log, with who, what, when, where and the result | System | The function that carries out an action calls the audit service in the API, which adds one item |
 | FR-068 | Accept audit records only from the application's own components, and let no user write or change one | System | The API accepts audit events only on calls bearing the token of the UI application or Admin application, and its database account may only add rows |
 | FR-069 | Chain the audit records with a keyed hash, and check the chain on a schedule and on request | System | Each audit record stores a keyed hash of its own content and the previous record's hash. A scheduled task recomputes the chain and reports a break |
 | FR-070 | Read, filter, search, sort and export the audit log | Auditor | The Admin application asks the API, which runs parameterised queries on the audit table. Only the auditor role may do this |
 | FR-071 | Item each reading and export of the audit log | System | The API writes an audit record when the audit log is read or exported |
 | FR-072 | Show the security officer a report of every page and function and the access it requires | Security officer | A page that lists each page and API function with the access rule it declares |
 
-#### 6.1.11 Privacy and the life of an item
+#### 5.1.11 Privacy and the life of an item
 
-**Table 23: Functional requirements: privacy and the life of an item**
+**Table 20: Functional requirements: privacy and the life of an item**
 
 | No. | Requirement | Who | How it is implemented |
 | --- | --- | --- | --- |
@@ -442,11 +356,11 @@ Each requirement is to be verified before the application is authorised. \<Secur
 | FR-076 | Keep personal data out of the free text of audit records and out of the application logs | System | Audit free text is built from fixed wording and identifiers, and the application logs carry no usernames, addresses or cookie values |
 | FR-077 | Use only invented data in test and development. Real personal data is never used there | Developers | Test environments are built from a script that loads invented schemas and items |
 
-#### 6.1.12 What the application does not do
+#### 5.1.12 What the application does not do
 
-Each statement below narrows what can go wrong. An application that needs one of these is outside the reference design for that part, and records it in section 4.6.
+Each statement below narrows what can go wrong. An application that needs one of these is outside the reference design for that part, and records it in section 3.6.
 
-**Table 24: What the application does not do**
+**Table 21: What the application does not do**
 
 | No. | The application does not provide | How this is ensured |
 | --- | --- | --- |
@@ -457,11 +371,11 @@ Each statement below narrows what can go wrong. An application that needs one of
 | FR-082 | Automated decisions about people | No function scores, ranks or decides about a person |
 | FR-083 | Storage outside the location in P-23, or a cloud service at run time | Both servers and the backups are in \<Organisation\>'s data centres |
 
-### 6.2 Non-functional requirements
+### 5.2 Non-functional requirements
 
-#### 6.2.1 Access control
+#### 5.2.1 Access control
 
-**Table 25: Non-functional requirements: access control**
+**Table 22: Non-functional requirements: access control**
 
 | No. | Requirement | How it is implemented | Held in |
 | --- | --- | --- | --- |
@@ -476,9 +390,9 @@ Each statement below narrows what can go wrong. An application that needs one of
 | NFR-009 | End a leaver's access as P-06 sets | \<Organisation\>'s leavers process disables the Active Directory account, so the next sign-in and group lookup fail | \<Access Control Management\> |
 | NFR-010 | Require every user to sign the rules of behaviour before being added to a group | A person does this: the group's owner sees the signed form before adding the member | \<Planning Management\> |
 
-#### 6.2.2 Identification and authentication
+#### 5.2.2 Identification and authentication
 
-**Table 26: Non-functional requirements: identification and authentication**
+**Table 23: Non-functional requirements: identification and authentication**
 
 | No. | Requirement | How it is implemented | Held in |
 | --- | --- | --- | --- |
@@ -491,11 +405,11 @@ Each statement below narrows what can go wrong. An application that needs one of
 | NFR-017 | Authenticate the API to the database with its own Windows account, which is not a system administrator, over TLS | Windows authentication with the API's managed service account, so no database password exists. Its SQL Server login has rights on the application's database only | \<Identification and Authentication Management\> |
 | NFR-018 | Show nothing that helps an attacker when sign-in or access fails | One general message for every failure. The reason is written to the logs only | \<Identification and Authentication Management\> |
 
-#### 6.2.3 Sign-in lifetime and forms
+#### 5.2.3 Sign-in lifetime and forms
 
 The application has no session management of its own: no idle lock, no idle timeout, no limit on sign-ins at once and no screen for ending sign-ins. Session lock and session termination (AC-11 and AC-12) are therefore provided outside the application, by PingFederate and by \<Organisation\>'s managed devices.
 
-**Table 27: Non-functional requirements: sign-in lifetime and forms**
+**Table 24: Non-functional requirements: sign-in lifetime and forms**
 
 | No. | Requirement | How it is implemented | Held in |
 | --- | --- | --- | --- |
@@ -503,9 +417,9 @@ The application has no session management of its own: no idle lock, no idle time
 | NFR-020 | Rely on the device screen lock in P-03 to hide the application when a person leaves their device | \<Organisation\>'s device policy | \<Access Control Management\> |
 | NFR-021 | Protect every form with an anti-forgery token | Built into the web framework: each form carries a token, checked on submission | \<System and Communications Protection Management\> |
 
-#### 6.2.4 Audit and accountability
+#### 5.2.4 Audit and accountability
 
-**Table 28: Non-functional requirements: audit and accountability**
+**Table 25: Non-functional requirements: audit and accountability**
 
 | No. | Requirement | How it is implemented | Held in |
 | --- | --- | --- | --- |
@@ -519,9 +433,9 @@ The application has no session management of its own: no idle lock, no idle time
 | NFR-029 | Keep both servers within the clock accuracy in P-09, from \<Organisation\>'s time service | The operating system's time service on each server, pointed at \<Organisation\>'s source | \<Audit and Accountability Management\> |
 | NFR-030 | Plan storage for the full audit retention period, and warn before it fills | Sized when the servers are built, with a disk-space alert | \<Audit and Accountability Management\> |
 
-#### 6.2.5 Cryptography and data protection
+#### 5.2.5 Cryptography and data protection
 
-**Table 29: Non-functional requirements: cryptography and data protection**
+**Table 26: Non-functional requirements: cryptography and data protection**
 
 | No. | Requirement | How it is implemented | Held in |
 | --- | --- | --- | --- |
@@ -535,27 +449,27 @@ The application has no session management of its own: no idle lock, no idle time
 | NFR-038 | Use only approved algorithms: AES-256, SHA-256 and HMAC-SHA-256. No MD5 or SHA-1 for protection. No cryptography written in-house | The algorithms built into Windows, .NET and SQL Server | \<System and Communications Protection Management\> |
 | NFR-039 | Hold a SHA-256 checksum for each stored file and each release, and check them as P-29 sets | Calculated by the API when a file is stored and by the build when a release is made, and compared by a scheduled check | \<System and Information Integrity Management\> |
 
-#### 6.2.6 Network and boundary
+#### 5.2.6 Network and boundary
 
-**Table 30: Non-functional requirements: network and boundary**
+**Table 27: Non-functional requirements: network and boundary**
 
 | No. | Requirement | How it is implemented | Held in |
 | --- | --- | --- | --- |
 | NFR-040 | Internal only: no route to the application from the internet, and none from it to the internet | No firewall rule or address translation exposes either server, and outbound traffic is blocked or sent through the proxy | \<System and Communications Protection Management\> |
-| NFR-041 | Allow only the flows in section 7.5, at \<Organisation\>'s firewalls and at each server's own firewall | Rules written by \<Organisation\> on its firewalls, and host firewall rules on each server | \<System and Communications Protection Management\> |
+| NFR-041 | Allow only the flows in section 6.5, at \<Organisation\>'s firewalls and at each server's own firewall | Rules written by \<Organisation\> on its firewalls, and host firewall rules on each server | \<System and Communications Protection Management\> |
 | NFR-042 | Listen for users on TCP 443 only; the API on the application server's loopback address only; the database to the application server only | Set by the address and port each application is bound to, and by the database's list of permitted clients | \<System and Communications Protection Management\> |
 | NFR-043 | Reach the Admin application only over \<Organisation\>'s managed administration route, with multi-factor authentication | The Admin application is bound to the administration network, with a firewall rule to match | \<Maintenance Management\> |
 | NFR-044 | Remote users only through \<Organisation\>'s VPN, from a managed device, with no split tunnelling | \<Organisation\>'s VPN and its device checks | \<Access Control Management\> |
 | NFR-045 | Keep the UI application, the Admin application, the API and the database apart, so that user functions are separate from management functions | Four separate programs on two servers | \<System and Communications Protection Management\> |
 | NFR-046 | Limit how fast any one client may send requests | A request limit for each client, built into each application and switched on in every environment | \<System and Communications Protection Management\> |
 
-#### 6.2.7 Application and information integrity
+#### 5.2.7 Application and information integrity
 
-**Table 31: Non-functional requirements: application and information integrity**
+**Table 28: Non-functional requirements: application and information integrity**
 
 | No. | Requirement | How it is implemented | Held in |
 | --- | --- | --- | --- |
-| NFR-047 | Validate all input on the server: every API request, upload and search term | Every API function checks its inputs for type, length and range before use, and uploads go through the checks in section 8.5 | \<System and Information Integrity Management\> |
+| NFR-047 | Validate all input on the server: every API request, upload and search term | Every API function checks its inputs for type, length and range before use, and uploads go through the checks in section 7.5 | \<System and Information Integrity Management\> |
 | NFR-048 | Use parameters in every database query | Queries are built with placeholders for values, and names of columns and schemas come only from fixed lists or checked schema definitions | \<System and Information Integrity Management\> |
 | NFR-049 | Run only code the application itself serves: a page policy with no inline scripts and no outside hosts, and headers that stop content-type guessing and limit referrer information | A content security policy header and related headers, added to every response by each application | \<System and Communications Protection Management\> |
 | NFR-050 | Serve every script and style from the application. No content delivery service | Browser libraries are packaged with the UI application | \<System and Communications Protection Management\> |
@@ -566,14 +480,14 @@ The application has no session management of its own: no idle lock, no idle time
 | NFR-055 | Scan for vulnerabilities as P-30 sets | \<Organisation\>'s scanner for the servers, and a package and code scan for each release | \<Risk Assessment Management\> |
 | NFR-056 | Raise an alert on the events in P-27, to a named person, within the time set for its severity | Rules in central monitoring, each with a named recipient | \<System and Information Integrity Management\> |
 
-#### 6.2.8 Availability and recovery
+#### 5.2.8 Availability and recovery
 
-**Table 32: Non-functional requirements: availability and recovery**
+**Table 29: Non-functional requirements: availability and recovery**
 
 | No. | Requirement | How it is implemented | Held in |
 | --- | --- | --- | --- |
 | NFR-057 | Tolerate an outage up to the maximum tolerable downtime in P-14 | A business decision, recorded in the business impact analysis | \<Contingency Planning Management\> |
-| NFR-058 | Recover within the recovery time objective in P-12 | By rebuilding the servers and restoring the latest backup, in the order in section 8.11 | \<Contingency Planning Management\> |
+| NFR-058 | Recover within the recovery time objective in P-12 | By rebuilding the servers and restoring the latest backup, in the order in section 7.11 | \<Contingency Planning Management\> |
 | NFR-059 | Lose no more data than the recovery point objective in P-13 | A daily backup, with the database's transaction log archived between backups | \<Contingency Planning Management\> |
 | NFR-060 | Back up the database daily, and keep copies as P-15 sets | A scheduled database backup, copied by \<Organisation\>'s backup service | \<Contingency Planning Management\> |
 | NFR-061 | Test recovery as P-16 sets | People do this, to a written plan, and record the result | \<Contingency Planning Management\> |
@@ -582,9 +496,9 @@ The application has no session management of its own: no idle lock, no idle time
 | NFR-064 | When PingFederate or Active Directory is down nobody can sign in or be authorised, and no local sign-in is provided | The applications redirect to PingFederate and read groups only from Active Directory | \<Concept of Operations\> |
 | NFR-065 | Provide the hours of service in P-32 | \[From the business owner\] | \<Concept of Operations\> |
 
-#### 6.2.9 Capacity and performance
+#### 5.2.9 Capacity and performance
 
-**Table 33: Non-functional requirements: capacity and performance**
+**Table 30: Non-functional requirements: capacity and performance**
 
 | No. | Requirement | How it is implemented | Held in |
 | --- | --- | --- | --- |
@@ -594,9 +508,9 @@ The application has no session management of its own: no idle lock, no idle time
 | NFR-069 | Run bulk uploads and exports in the background, so that other users are not held up | Jobs run on a queue in the API, apart from the request that started them | \<Security Architecture\> |
 | NFR-070 | Send results and large files a part at a time, so that the time taken does not grow with the size of an item or a schema | Paging is done in the database, and large files are sent in parts | \<Security Architecture\> |
 
-#### 6.2.10 Privacy
+#### 5.2.10 Privacy
 
-**Table 34: Non-functional requirements: privacy**
+**Table 31: Non-functional requirements: privacy**
 
 | No. | Requirement | How it is implemented | Held in |
 | --- | --- | --- | --- |
@@ -607,21 +521,21 @@ The application has no session management of its own: no idle lock, no idle time
 | NFR-075 | Keep all data in the location in P-23 | Servers, backups and the second site are all in that location, and nothing is sent elsewhere | \<PII Processing Management\> |
 | NFR-076 | Complete the data protection impact assessment before real data is held, and review it at each significant change | A person does this: the legal adviser | \<Data Protection Impact Assessment\> |
 
-#### 6.2.11 Platform and compatibility
+#### 5.2.11 Platform and compatibility
 
-**Table 35: Non-functional requirements: platform and compatibility**
+**Table 32: Non-functional requirements: platform and compatibility**
 
 | No. | Requirement | How it is implemented | Held in |
 | --- | --- | --- | --- |
-| NFR-077 | Run on the reference stack in section 7.4, or on the stack the profile records, each part within its vendor's support | Fixed by the release's build settings and the server build | \<System and Services Acquisition Management\> |
+| NFR-077 | Run on the reference stack in section 6.4, or on the stack the profile records, each part within its vendor's support | Fixed by the release's build settings and the server build | \<System and Services Acquisition Management\> |
 | NFR-078 | Run each application as a service under its own low-privilege account | Each application is installed as a service by the release procedure | \<Configuration Management\> |
 | NFR-079 | Work in a current browser on a device \<Organisation\> manages, with nothing installed on it | The pages use only standard browser features, and no plug-in or installed program | \<System Security Plan\> |
 | NFR-080 | Use only the components on the approved list; remove what is not used | The component list in the configuration management design, checked at each release | \<Configuration Management\> |
 | NFR-081 | Meet the accessibility standard in P-35 | Tested at each release | \<Concept of Operations\> |
 
-#### 6.2.12 Build, change and supply chain
+#### 5.2.12 Build, change and supply chain
 
-**Table 36: Non-functional requirements: build, change and supply chain**
+**Table 33: Non-functional requirements: build, change and supply chain**
 
 | No. | Requirement | How it is implemented | Held in |
 | --- | --- | --- | --- |
@@ -637,9 +551,9 @@ The application has no session management of its own: no idle lock, no idle time
 | NFR-091 | Configure both servers to the CIS Benchmark, with only the functions, ports and services the application needs | Policy applied by \<Organisation\>, checked with a benchmark tool | \<Configuration Management\> |
 | NFR-092 | Keep secrets out of source code, and scan every change for them | A secret scan in the pipeline that blocks a merge | \<System and Services Acquisition Management\> |
 
-#### 6.2.13 Operation and assurance
+#### 5.2.13 Operation and assurance
 
-**Table 37: Non-functional requirements: operation and assurance**
+**Table 34: Non-functional requirements: operation and assurance**
 
 | No. | Requirement | How it is implemented | Held in |
 | --- | --- | --- | --- |
@@ -653,22 +567,19 @@ The application has no session management of its own: no idle lock, no idle time
 | NFR-100 | Comply with the laws in P-31 | Through the privacy design and the legal adviser's review | \<Planning Management\> |
 | NFR-101 | Provide an administrator guide and a user guide | Two guides, written by the developers | \<Administrator Guide\> |
 
-| **SECTION 7** |
-| --- |
+## 6 Architecture
 
-## 7 Architecture
-
-### 7.1 Boundary
+### 6.1 Boundary
 
 ![Figure 1: The reference system's boundary on the organisation's network](figures/sd-figure-1.png)
 
 **Figure 1: The reference system's boundary on the organisation's network**
 
-The authorisation boundary is the whole stack on two servers: the application server, which runs the three applications, and the database server, which runs the database. Everything else is outside it and is provided by \<Organisation\>: the network and firewalls, the VPN, users' devices, the sign-on service and directory, the virtual platform and hardware, central logging, time, certificates, name resolution, ServiceNow and the starters and leavers process (section 11).
+The authorisation boundary is the whole stack on two servers: the application server, which runs the three applications, and the database server, which runs the database. Everything else is outside it and is provided by \<Organisation\>: the network and firewalls, the VPN, users' devices, the sign-on service and directory, the virtual platform and hardware, central logging, time, certificates, name resolution, ServiceNow and the starters and leavers process (section 10).
 
-### 7.2 Hardware and hosting
+### 6.2 Hardware and hosting
 
-**Table 38: Hardware and hosting**
+**Table 35: Hardware and hosting**
 
 | Item | Reference design |
 | --- | --- |
@@ -682,26 +593,26 @@ The authorisation boundary is the whole stack on two servers: the application se
 
 An application built on the reference system has no hardware of its own, no wireless, no mobile application and no removable media in normal use.
 
-### 7.3 Software components
+### 6.3 Software components
 
-**Table 39: Software components**
+**Table 36: Software components**
 
 | Component | What it is | What it does | Runs on |
 | --- | --- | --- | --- |
-| UI application | A web application whose pages run on the server | Every function in section 6.1 used by readers and editors, and the functions in section 4.5 | Application server |
+| UI application | A web application whose pages run on the server | Every function in section 5.1 used by readers and editors, and the functions in section 3.5 | Application server |
 | Admin application | A second web application of the same kind, separate from the UI application | Schemas and their groups, settings, the audit log for auditors, security information and the dashboard | Application server, reachable only over the administration route |
 | API | A web service | The only route to the database: every read and write, the Active Directory group lookup, access decisions for the other two applications, background jobs, and writing the audit log | Application server, on its loopback address only |
 | Shared library | A library built into all three applications | The data model, the access checks and the audit record format, so that every application makes the same decision the same way | Built in |
 | Database | Microsoft SQL Server | Holds every item, file, schema definition and audit record, with each schema in its own database schema | Database server |
 | Browser libraries | Any third-party script or style the pages need | For example a document viewer or an icon set | The user's browser, served by the application itself |
 
-The components are named \[Code\]\_Web, \[Code\]\_Admin, \[Code\]\_API and \[Code\]\_Shared, using the short code in section 4.1.
+The components are named \[Code\]\_Web, \[Code\]\_Admin, \[Code\]\_API and \[Code\]\_Shared, using the short code in section 3.1.
 
-### 7.4 Technologies
+### 6.4 Technologies
 
-The reference stack is below. An application may replace any part of it with a supported equivalent that meets the same requirements, and records the change in section 4.6. The family design documents name the reference stack where a control depends on it.
+The reference stack is below. An application may replace any part of it with a supported equivalent that meets the same requirements, and records the change in section 3.6. The family design documents name the reference stack where a control depends on it.
 
-**Table 40: Reference technology stack**
+**Table 37: Reference technology stack**
 
 | Layer | Reference technology | Why it is chosen |
 | --- | --- | --- |
@@ -720,9 +631,9 @@ The reference stack is below. An application may replace any part of it with a s
 | Packages | NuGet, through an in-house checked package feed | One controlled source for every component |
 | Test environment | A throwaway copy of the whole system, built from a tagged release, with invented data | Testing never touches production or real data |
 
-### 7.5 Data flows
+### 6.5 Data flows
 
-**Table 41: Data flows**
+**Table 38: Data flows**
 
 | Flow | From | To | Purpose | Reference design |
 | --- | --- | --- | --- | --- |
@@ -737,9 +648,9 @@ The reference stack is below. An application may replace any part of it with a s
 
 No other flow is allowed. The UI application and the Admin application have no connection to the database. The application needs no route to the internet, and loads nothing from an outside host.
 
-### 7.6 Trust zones and layers of defence
+### 6.6 Trust zones and layers of defence
 
-**Table 42: Trust zones**
+**Table 39: Trust zones**
 
 | Zone | What is in it | Trust |
 | --- | --- | --- |
@@ -749,11 +660,11 @@ No other flow is allowed. The UI application and the Admin application have no c
 | Z4 Data | The database server | Most protected. Reached only from Z3 |
 | Z5 Provider services | \<Organisation\>'s directory, sign-on, monitoring, ServiceNow and starters and leavers services | Trusted by agreement and evidence |
 
-The layers are the boundary, transport, identity, authorisation, data at rest, audit, the host, recovery and people. Each is described in section 8, the principles behind them are in section 9, and \<Security Architecture\> holds the architecture.
+The layers are the boundary, transport, identity, authorisation, data at rest, audit, the host, recovery and people. Each is described in section 7, the principles behind them are in section 8, and \<Security Architecture\> holds the architecture.
 
-### 7.7 Environments
+### 6.7 Environments
 
-**Table 43: Environments**
+**Table 40: Environments**
 
 | Environment | What it is | Data |
 | --- | --- | --- |
@@ -761,12 +672,9 @@ The layers are the boundary, transport, identity, authorisation, data at rest, a
 | Test | A separate, throwaway copy of the whole system, built from a tagged release and removed after each test run. Configured as production is, including TLS | Invented data only. Real personal data is never used |
 | Development | Developers' computers | Invented data only |
 
-| **SECTION 8** |
-| --- |
+## 7 Design
 
-## 8 Design
-
-### 8.1 Identity and sign-in
+### 7.1 Identity and sign-in
 
 1. A person opens the application. Not being signed in, they are sent to \<Organisation\>'s PingFederate.
 2. PingFederate checks their password and second factor against Active Directory. The application never sees either.
@@ -776,7 +684,7 @@ The layers are the boundary, transport, identity, authorisation, data at rest, a
 
 The application holds no accounts, no passwords and no password hashes. There is no local sign-in to fall back on, so nobody can sign in while PingFederate or Active Directory is down. Failed sign-ins and lockouts happen in PingFederate and Active Directory, under \<Organisation\>'s standard. A leaver's Active Directory account is disabled by \<Organisation\> at once, which ends their access. The target is federation assurance level 2 and authenticator assurance level 2 of NIST SP 800-63.
 
-### 8.2 Authorisation
+### 7.2 Authorisation
 
 Every request passes four checks, in order. Anything not granted is refused.
 
@@ -785,19 +693,19 @@ Every request passes four checks, in order. Anything not granted is refused.
 3. The person's groups allow the schema, to read or to edit.
 4. The person's groups allow the page or function.
 
-A schema with no group is closed to everyone but administrators. Checks are made where the function runs, not only in the menu, and the database schema is taken from the checked schema definition, never from the request. Content is sent so that it is not kept in shared caches. The permissions of each role are in section 4.3 and \<Access Control Management\>.
+A schema with no group is closed to everyone but administrators. Checks are made where the function runs, not only in the menu, and the database schema is taken from the checked schema definition, never from the request. Content is sent so that it is not kept in shared caches. The permissions of each role are in section 3.3 and \<Access Control Management\>.
 
 **Duties kept apart.** Nobody approves their own access: the Data Owner authorises each request in ServiceNow. Auditors and security officers hold no administration role. Application, server and database administration use separate accounts held by different people. Developers hold no administrator access on the servers.
 
 **Without signing in,** a person may only be sent to PingFederate, see the access-denied page, load static files, and check that the API is healthy. No diagnostic, cache or test function is reachable without sign-in, and none is included in a release.
 
-### 8.3 Sign-in lifetime
+### 7.3 Sign-in lifetime
 
 The application has no session management. Once signed in, the person's identity is held in the standard ASP.NET Core authentication cookie, marked Secure, HttpOnly and SameSite, whose lifetime follows PingFederate's (P-02). The application has no idle lock, no idle timeout, no limit on sign-ins at once, no sign-out of its own and no screen for ending sign-ins. Session lock (AC-11) is provided by the screen lock on \<Organisation\>'s managed devices (P-03), and session termination (AC-12) by the sign-in lifetime set in PingFederate. Both are recorded as provided by \<Organisation\> in \<Tailoring Register\>.
 
-### 8.4 Data and storage
+### 7.4 Data and storage
 
-**Table 44: Where data is held**
+**Table 41: Where data is held**
 
 | Data | Held in | Protected by |
 | --- | --- | --- |
@@ -812,7 +720,7 @@ The application has no session management. Once signed in, the person's identity
 
 The application holds no user accounts. The names and groups that arrive at sign-in are held only in the authentication cookie, in the audit records, and in items, such as who created or uploaded a record.
 
-### 8.5 Files: upload, viewing and export
+### 7.5 Files: upload, viewing and export
 
 **Upload.** Every upload is checked on the server before it is stored: the type must be one of those in P-19; the file's first bytes must match its type; its size must be within the limit for the person's role; and its name must not contain a path. Each upload is then passed to the anti-malware service, and a flagged file is refused, audited and reported.
 
@@ -820,11 +728,11 @@ The application holds no user accounts. The names and groups that arrive at sign
 
 **Export.** Only an editor of the schema, or a administrator, may bulk export. A job can be seen, downloaded or cancelled only by the person who started it. Exports are delivered as downloads, marked with their classification, and every export is audited. Taking exported items outside \<Organisation\>'s systems needs the Data Owner's decision.
 
-### 8.6 Audit
+### 7.6 Audit
 
 One application audit log, written only by the API. The other two applications send their events to the API, which accepts them only from those two applications.
 
-**Table 45: What is audited**
+**Table 42: What is audited**
 
 | Event type | Examples |
 | --- | --- |
@@ -841,9 +749,9 @@ One application audit log, written only by the API. The other two applications s
 
 Each record holds the event type and action, the time in UTC, the application that raised it, the IP address and browser, the result, the username and user ID, the schema and item, fixed-form free text, and a chain hash. It never holds a password, key, token or cookie. Records are read only by auditors, reviewed as P-08 sets, and kept as P-07 sets. Failed passwords, lockouts and group membership changes are recorded by PingFederate and Active Directory, not by the application. The operating system and the database keep their own logs.
 
-### 8.7 Cryptography and keys
+### 7.7 Cryptography and keys
 
-**Table 46: Cryptography**
+**Table 43: Cryptography**
 
 | Use | Reference design |
 | --- | --- |
@@ -860,68 +768,62 @@ Each record holds the event type and action, the time in UTC, the application th
 
 Every key has an owner, a store and a cryptoperiod in the key register, in \<System and Communications Protection Management\>. Keys are never held in source code or settings files. United States FIPS 140 validation is not required: NCSC's profiles are used instead.
 
-### 8.8 Network and boundary
+### 7.8 Network and boundary
 
-\<Organisation\>'s firewalls and each server's own firewall deny everything but the flows in section 7.5. The UI application listens on TCP 443 only. The Admin application is reachable only over the administration route. The API listens only on the application server's loopback address, so nothing off the server can call it. The database accepts connections only from the application server. Outbound traffic goes through \<Organisation\>'s authenticated proxy, or is blocked. Remote users come in through \<Organisation\>'s VPN, which does not allow split tunnelling. \<Organisation\> writes and holds every firewall rule; the application states the flows it needs.
+\<Organisation\>'s firewalls and each server's own firewall deny everything but the flows in section 6.5. The UI application listens on TCP 443 only. The Admin application is reachable only over the administration route. The API listens only on the application server's loopback address, so nothing off the server can call it. The database accepts connections only from the application server. Outbound traffic goes through \<Organisation\>'s authenticated proxy, or is blocked. Remote users come in through \<Organisation\>'s VPN, which does not allow split tunnelling. \<Organisation\> writes and holds every firewall rule; the application states the flows it needs.
 
-### 8.9 Pages and input
+### 7.9 Pages and input
 
 Pages may run only code the application itself serves. Each application sends a page security policy that allows no inline scripts and no outside hosts, with headers that stop content-type guessing and limit referrer information. All input to the API, every upload and every search term is validated on the server, and database queries use parameters. Users and callers see a general error message; the detail goes only to the logs. Each application limits how fast requests may arrive.
 
-### 8.10 Monitoring, flaws and integrity
+### 7.10 Monitoring, flaws and integrity
 
 Application, operating system and database logs are forwarded to \<Organisation\>'s central logging, and the security officer reviews them as P-08 sets. Eight events raise an alert: repeated failed sign-ins; a break in the audit chain; malware detected; a person added to an administrator group; a bulk export above a set size; an administrator sign-in out of hours; an audit logging failure; and an unexpected change to the software. Advisories come from NCSC, CISA and the vendors of every component, and CISA's list of known exploited vulnerabilities is checked weekly. Releases, stored files and audit records are checked against a recorded baseline at start-up, at each release and as P-29 sets.
 
-### 8.11 Backup and recovery
+### 7.11 Backup and recovery
 
 The database is backed up daily, encrypted, with transaction logs archived, and copies are kept as P-15 sets. Recovery is in order: \<Organisation\>'s network, PingFederate and Active Directory; the database server and its backup; the secrets; the API; the UI application; the Admin application. After a restore, row counts, file checksums and the audit chain are checked, and the members of the application's groups are checked against current staff before users return. Recovery is tested as P-16 sets.
 
-### 8.12 Build, release and supply chain
+### 7.12 Build, release and supply chain
 
-Every application is built in-house under \<Organisation\>'s corporate software development life cycle (SDLC), which is inherited from \<Organisation\>. The reference system relies on the SDLC to provide these security practices, which together meet NIST's Secure Software Development Framework: threats modelled before a significant change is built, and the change checked against the principles in section 9; each change reviewed by a second developer and merged through a protected branch; a build pipeline with automated tests, a package scan, a code scan and a secret scan; releases through change control from a signed tag with recorded checksums; every package through one checked feed, with lock files; and a software bill of materials for each release. Where the SDLC does not provide one of these, the application provides it itself or records a departure in section 4.6. The suppliers are in a register with their criticality.
+Every application is built in-house under \<Organisation\>'s corporate software development life cycle (SDLC), which is inherited from \<Organisation\>. The reference system relies on the SDLC to provide these security practices, which together meet NIST's Secure Software Development Framework: threats modelled before a significant change is built, and the change checked against the principles in section 8; each change reviewed by a second developer and merged through a protected branch; a build pipeline with automated tests, a package scan, a code scan and a secret scan; releases through change control from a signed tag with recorded checksums; every package through one checked feed, with lock files; and a software bill of materials for each release. Where the SDLC does not provide one of these, the application provides it itself or records a departure in section 3.6. The suppliers are in a register with their criticality.
 
-### 8.13 Operation and maintenance
+### 7.13 Operation and maintenance
 
 Day-to-day duties are in \<Security Operating Procedures\>, each with the record that proves it. Every user signs rules of behaviour before access. Maintenance is approved first as a change, and remote maintenance uses only \<Organisation\>'s managed route with multi-factor authentication. Changes are approved by a change control board of the system owner, the security officer and a server administrator.
 
-### 8.14 Privacy
+### 7.14 Privacy
 
-The personal data an application holds, and the purposes it is processed for, are set in its profile (section 4.4) and in \<PII Processing Management\>. Consent is not the lawful basis for staff data. The application makes no automated decisions about people and transfers no data outside the location in P-23. A person's request about their data goes to the legal adviser and is answered within the time in P-22; a personal data breach goes to the legal adviser, who decides on the report to the regulator as P-21 sets. Retention and disposal are built in (FR-074), and the impact assessment is completed before real data is held.
+The personal data an application holds, and the purposes it is processed for, are set in its profile (section 3.4) and in \<PII Processing Management\>. Consent is not the lawful basis for staff data. The application makes no automated decisions about people and transfers no data outside the location in P-23. A person's request about their data goes to the legal adviser and is answered within the time in P-22; a personal data breach goes to the legal adviser, who decides on the report to the regulator as P-21 sets. Retention and disposal are built in (FR-074), and the impact assessment is completed before real data is held.
 
-| **SECTION 9** |
-| --- |
-
-## 9 Secure by Design principles
+## 8 Secure by Design principles
 
 These principles are fixed for every application built on the reference system. A departure from one is decided by the authorising official, not the system owner.
 
-**Table 47: Principles and where the design meets them**
+**Table 44: Principles and where the design meets them**
 
 | Principle | What it means here | Where it is met |
 | --- | --- | --- |
-| Deny by default | Anything not expressly granted is refused, for people, services and network flows | NFR-001, NFR-007, NFR-041; section 8.2 |
+| Deny by default | Anything not expressly granted is refused, for people, services and network flows | NFR-001, NFR-007, NFR-041; section 7.2 |
 | Least privilege | Each person, service and administrator has only the access their work needs | NFR-005, NFR-017, NFR-024 |
-| No trust from network position | Being on the internal network grants nothing; every request is authenticated and authorised | Section 7.6, zone Z1; section 8.2 |
-| Defence in depth | No single control stands alone: boundary, transport, identity, authorisation, data at rest, audit, host, recovery and people | Section 7.6 |
+| No trust from network position | Being on the internal network grants nothing; every request is authenticated and authorised | Section 6.6, zone Z1; section 7.2 |
+| Defence in depth | No single control stands alone: boundary, transport, identity, authorisation, data at rest, audit, host, recovery and people | Section 6.6 |
 | Fail secure | An error, a time-out or a missing dependency refuses access | NFR-052 |
 | Secure defaults | The application is secure as delivered: TLS on, rate limits on, no diagnostic pages, no default accounts | NFR-031, NFR-046, FR-063, FR-011 |
 | No local credentials | Identity is \<Organisation\>'s; the application holds no passwords, and its secrets are in a key store | NFR-013, NFR-036, NFR-092 |
-| Keep the attack surface small | Internal only, one route to the data, no outbound messages, no interface for other systems, only the components needed | Section 6.1.12; NFR-040, NFR-080 |
+| Keep the attack surface small | Internal only, one route to the data, no outbound messages, no interface for other systems, only the components needed | Section 5.1.12; NFR-040, NFR-080 |
 | Separation | User functions apart from management functions; each schema's data apart; duties apart | NFR-004, NFR-006, NFR-045 |
-| Accountability | Every significant action is attributed to a person and recorded in a log that cannot be changed unnoticed | Section 8.6; NFR-025 |
-| Privacy by design | Only the personal data needed, kept only as long as needed, with people's rights supported by the system | Section 6.1.11; section 8.14 |
-| Secure development | Threats modelled, changes reviewed, releases built, tested and signed, components from one checked source | Section 8.12 |
+| Accountability | Every significant action is attributed to a person and recorded in a log that cannot be changed unnoticed | Section 7.6; NFR-025 |
+| Privacy by design | Only the personal data needed, kept only as long as needed, with people's rights supported by the system | Section 5.1.11; section 7.14 |
+| Secure development | Threats modelled, changes reviewed, releases built, tested and signed, components from one checked source | Section 7.12 |
 
 The principles draw on NIST SP 800-160 Volume 1, NIST SP 800-218, NCSC's secure design principles and CISA's Secure by Design guidance.
 
-| **SECTION 10** |
-| --- |
+## 9 Security, family by family
 
-## 10 Security, family by family
+Table 45 gives each NIST SP 800-53 Rev 5 control family, the reference design in brief, and the document that holds the full design, where every control is set out part by part. The number of controls in each family, and which are met by the system, shared, met by people, inherited or not applicable, are in \<Tailoring Register\>.
 
-Table 48 gives each NIST SP 800-53 Rev 5 control family, the reference design in brief, and the document that holds the full design, where every control is set out part by part. The number of controls in each family, and which are met by the system, shared, met by people, inherited or not applicable, are in \<Tailoring Register\>.
-
-**Table 48: The control families**
+**Table 45: The control families**
 
 | Family | Reference design in brief | Full design |
 | --- | --- | --- |
@@ -946,14 +848,11 @@ Table 48 gives each NIST SP 800-53 Rev 5 control family, the reference design in
 | SI System and Information Integrity | Uploads are checked and scanned for malware, flaws are fixed to the timetable, logs are forwarded and eight events raise alerts, and releases are checked against a baseline | \<System and Information Integrity Management\> |
 | SR Supply Chain Risk Management | A supplier register with criticality, every package through one checked source with lock files and a bill of materials, and each release inspected against its record | \<Supply Chain Risk Management\> |
 
-| **SECTION 11** |
-| --- |
-
-## 11 What \<Organisation\> provides
+## 10 What \<Organisation\> provides
 
 An application built on the reference system relies on \<Organisation\> for much of its protection. These controls are inherited, and \<Organisation\> supplies the evidence for them; the requests are in \<Evidence Requests\>. A certification such as Cyber Essentials Plus or ISO/IEC 27001 supports these services but does not by itself prove a NIST control.
 
-**Table 49: Services provided by \<Organisation\>**
+**Table 46: Services provided by \<Organisation\>**
 
 | Service | What the application relies on |
 | --- | --- |
@@ -969,14 +868,11 @@ An application built on the reference system relies on \<Organisation\> for much
 | People | Pre-employment screening, the employee privacy notice, awareness training and the disciplinary process |
 | Media | Storing, transporting and sanitising disks and backup media |
 
-| **SECTION 12** |
-| --- |
+## 11 Questions and answers
 
-## 12 Questions and answers
+These are questions an assessor is likely to ask, each with the reference answer and where the full answer is held. For a given application, check its profile in section 3 first.
 
-These are questions an assessor is likely to ask, each with the reference answer and where the full answer is held. For a given application, check its profile in section 4 first.
-
-**Table 50: Common questions**
+**Table 47: Common questions**
 
 | Question | Reference answer | Held in |
 | --- | --- | --- |
@@ -987,35 +883,32 @@ These are questions an assessor is likely to ask, each with the reference answer
 | What are the session limits? | The application has none of its own. The sign-in lasts as long as PingFederate allows (P-02), and the device screen lock hides it when idle (P-03) | \<Access Control Management\> |
 | Is data encrypted in transit? | Yes, on every flow, as P-26 sets | \<System and Communications Protection Management\> |
 | Is data encrypted at rest? | Yes: full-disk encryption on both servers, encrypted backups and encrypted export working copies | \<System and Communications Protection Management\> |
-| Where are items stored? | In the database, each schema in its own database schema | Section 8.4 |
+| Where are items stored? | In the database, each schema in its own database schema | Section 7.4 |
 | Where are secrets kept? | In a key store, never in source code or settings files | \<System and Communications Protection Management\> |
-| What is logged, and for how long? | The events in section 8.6, kept as P-07 sets | \<Audit and Accountability Management\> |
+| What is logged, and for how long? | The events in section 7.6, kept as P-07 sets | \<Audit and Accountability Management\> |
 | Can an administrator change the audit log? | No. Only the API writes it, its database account can only add records, and the keyed chain shows any change | \<Audit and Accountability Management\> |
-| Is the system reachable from the internet? | No. It is internal only | Section 7.5 |
+| Is the system reachable from the internet? | No. It is internal only | Section 6.5 |
 | Are uploads scanned for malware? | Yes, each one, before it is stored | \<System and Information Integrity Management\> |
 | How quickly are vulnerabilities fixed? | As P-11 sets | \<Risk Assessment Management\> |
 | What are the recovery objectives? | As P-12 to P-14 set | \<Contingency Planning Management\> |
-| What third-party software is used? | The reference stack in section 7.4, or the stack in the application's profile | \<Configuration Management\> |
-| What external services does it depend on? | \<Organisation\>'s services in section 11; for building, the source repositories and the package feed | \<System and Services Acquisition Management\> |
+| What third-party software is used? | The reference stack in section 6.4, or the stack in the application's profile | \<Configuration Management\> |
+| What external services does it depend on? | \<Organisation\>'s services in section 10; for building, the source repositories and the package feed | \<System and Services Acquisition Management\> |
 | Does it hold personal data? | Yes, at least the identities in its audit records, and whatever the profile's information types hold | \<PII Processing Management\> |
 | Which controls are inherited? | Those \<Organisation\> provides, listed in \<Tailoring Register\> | \<Assessment, Authorization, and Monitoring Management\> |
 | Is the application authorised to operate? | Only once its authorising official signs the decision; see \<Security Assessment Report\> | \<Security Assessment Report\> |
 | What happens if PingFederate or Active Directory is down? | Nobody can sign in. If Active Directory cannot be read, requests are refused | \<Concept of Operations\> |
 | Is multi-factor authentication used for administrators? | Yes, for every user, through the sign-on service; and again on the VPN and the administration route | \<Identification and Authentication Management\> |
 
-| **SECTION 13** |
-| --- |
+## 12 Terms
 
-## 13 Terms
-
-**Table 51: Terms**
+**Table 48: Terms**
 
 | Term | Meaning |
 | --- | --- |
 | Reference system | The design in this document, which every application in the series is built to |
-| Application profile | Section 4: the facts and choices particular to one application |
-| Parameter | A value the controls depend on, numbered P-nn in section 5, with a reference value an application keeps or changes |
-| Departure | A part of an application that differs from the reference design, recorded in section 4.6 |
+| Application profile | Section 3: the facts and choices particular to one application |
+| Parameter | A value the controls depend on, numbered P-nn in section 4, with a reference value an application keeps or changes |
+| Departure | A part of an application that differs from the reference design, recorded in section 3.6 |
 | Schema | A set of items with its own read group and edit group, kept apart from every other schema |
 | Item | A digital object the library holds in a schema, such as a scanned or electronic document, with its catalogue details and files |
 | Sign-on service | \<Organisation\>'s PingFederate single sign-on service, which authenticates users against Active Directory with multi-factor authentication |
