@@ -67,21 +67,21 @@ The requests go to \<Organisation\> as one pack, with this covering note.
 
 | ID | Controls | What is needed | Acceptable evidence |
 | --- | --- | --- | --- |
-| EV-AC-01 | AC-2h, AC-2l, AC-2(13) | How Active Directory accounts are created, changed and disabled for starters, movers and leavers, and how quickly; who owns each \<System Name\> AD group (the system owner owns the five role groups, \<Code\>\_Admins, \<Code\>\_Auditors, \<Code\>\_Security, \<Code\>\_BusinessOwners and \<Code\>\_LegalSearch, and each Data Owner owns their schema's read and edit groups) and how a change to its members is recorded; and how \<System Name\>'s system owner is told about leavers, movers and high-risk individuals | Process document; the starters and leavers prompt and ServiceNow workflow set up for \<System Name\>; proof that corporate network accounts are disabled immediately, and that \<System Name\> cannot be reached without one |
+| EV-AC-01 | AC-2h, AC-2l, AC-2(13) | How Active Directory accounts are created, changed and disabled for starters, movers and leavers, and how quickly; who owns each \<System Name\> AD group (the system owner owns the five role groups, \<Code\>\_Admins, \<Code\>\_Auditors, \<Code\>\_Security, \<Code\>\_BusinessOwners and \<Code\>\_LegalSearch, and each Data Owner owns their schema's read and edit groups) and how a change to its members is recorded; and how \<System Name\>'s system owner is told about leavers, movers and high-risk individuals; confirmation that Active Directory accounts unused for 90 days are disabled within 1 working day (\<System Description\>, P-38) | Process document; the starters and leavers prompt and ServiceNow workflow set up for \<System Name\>; proof that corporate network accounts are disabled immediately, and that \<System Name\> cannot be reached without one |
 | EV-AC-02 | AC-2, AC-6(5) | How Windows administrator accounts on the VMs, and SQL Server administrator logins on the database server, are created, approved and removed | Process, and the group membership for the VMs and SQL Server once built |
 | EV-AC-03 | AC-4 | Firewall and network controls for flows F1 to F8, F10 and F11 in \<System Description\>, section 6.5, and how changes are approved. F10 runs from the application server only to \<Organisation\>'s PingFederate over HTTPS, TCP 443; F11 runs from server and database administrators' managed devices to both servers, only over the managed administration route. F9 is carried by people and has no network connection to \<System Name\> | Rule set or export for the VMs; change process |
 | EV-AC-04 | AC-6(1) | Who holds security functions on the network, hypervisor and firmware | Named roles and access lists |
 | EV-AC-05 | AC-7 | Windows logon lockout settings on the VMs | Group policy report or settings export |
 | EV-AC-06 | AC-8 | Windows logon banner on the VMs | Group policy report and a screenshot |
-| EV-AC-07 | AC-11, AC-11(1) | Screen lock on workstations and servers after the inactivity time in \<System Description\>, P-03, and that it hides the display. \<System Name\> has no page lock of its own | Group policy or device management settings |
+| EV-AC-07 | AC-11, AC-11(1) | Screen lock on workstations and servers after 15 minutes without activity (\<System Description\>, P-03), or \<Organisation\>'s setting if different, and that it hides the display. \<System Name\> has no page lock of its own | Group policy or device management settings |
 | EV-AC-08 | AC-17 | The remote access service: its name, usage restrictions, connection requirements, guidance and authorisation route | Service description and policy |
 | EV-AC-09 | AC-17(1) | Automated monitoring and control of remote access | Tool name, sample log or report |
 | EV-AC-10 | AC-17(2) | Encryption of remote access sessions | Configuration showing the protocol and cipher settings |
 | EV-AC-11 | AC-17(3) | Remote access routed through managed access points | Network diagram and gateway list |
-| EV-AC-12 | AC-17(4) | Whether the VMs' administration ports can be reached from external networks, and the approved administration route (flow F11 in \<System Description\>, section 6.5), with its multi-factor authentication and named accounts | Firewall rules and a written confirmation |
+| EV-AC-12 | AC-17(4) | That the VMs' administration ports cannot be reached from external networks except through the VPN and then the approved administration route (flow F11 in \<System Description\>, section 6.5), with multi-factor authentication at both and named accounts; and how VPN and administration route connections are logged, so that privileged remote access can be matched to its change or incident record (\<System Description\>, P-54) | Firewall rules and a written confirmation |
 | EV-AC-13 | AC-18, AC-18(1) | Wireless network requirements, authorisation, authentication and encryption | Wireless policy and configuration |
 | EV-AC-14 | AC-18(3) | That the VMs and standard builds have wireless disabled when not needed | Build standard; check on the built VMs |
-| EV-AC-15 | AC-19, AC-19(5) | Mobile device rules and encryption, and whether a phone or tablet could reach \<System Name\> | Mobile policy; device management settings |
+| EV-AC-15 | AC-19, AC-19(5) | That managed laptops are the only mobile devices that can reach \<System Name\>, that they are encrypted with BitLocker full-device encryption, and that a phone, tablet or unmanaged device cannot reach it (\<System Description\>, P-47) | Mobile policy; device management settings |
 | EV-AC-16 | AC-20 | How unmanaged or personal devices are prevented from reaching internal systems | Network access control or policy, with its enforcement |
 | EV-AC-17 | AC-20(2) | USB and portable storage controls | Device control settings or policy |
 
@@ -95,12 +95,12 @@ This matrix is proposed to \<Organisation\>.
 | --- | --- | --- | --- | --- |
 | AC-1 | None | Policy, procedures and review | Coordination on inherited controls | EV-GEN-04 |
 | AC-2 | No accounts of its own: roles and schema access from Active Directory groups, read by the API over LDAPS | Data Owners' approval in ServiceNow, group reviews and role holders | Active Directory accounts and groups; leaver and mover notice; Windows accounts | EV-AC-01, EV-AC-02 |
-| AC-2(1) | Group lookup on every sign-in | Manual procedures where none exist | Active Directory and the ServiceNow workflow | EV-AC-01 |
+| AC-2(1) | Group and account-state lookup on every request, held for at most 5 minutes; last sign-in report (FR-085) | Manual procedures where none exist | Active Directory and the ServiceNow workflow | EV-AC-01 |
 | AC-2(2) | None | Prohibition and periodic check | None | None |
-| AC-2(3) | None: a disabled AD account fails the next sign-in and group lookup | PRO-AC-3, PRO-AC-4 and PRO-AC-8 | Disabling the AD account; leaver notice | EV-AC-01 |
+| AC-2(3) | Refuses a disabled AD account within 5 minutes; last sign-in report (FR-085) | PRO-AC-3, PRO-AC-4 and PRO-AC-8; the security officer's monthly check | Disabling the AD account, and unused accounts after 90 days (P-38); leaver notice | EV-AC-01 |
 | AC-2(4) | Audit records | Reviewing them | None | None |
-| AC-2(5) | None: no session management of its own | Setting the value | Windows server sign-ins; PingFederate sign-in lifetime (\<System Description\>, P-02) | EV-AC-05, EV-IA-04 |
-| AC-2(13) | None: a disabled AD account fails the next sign-in and group lookup | PRO-AC-4 | Reporting a significant risk; disabling the AD account | EV-AC-01 |
+| AC-2(5) | Sign out (FR-084), ending the cookie and the PingFederate sign-in | The sign-out rule (P-53) | Device screen lock; PingFederate sign-out | EV-AC-07, EV-IA-04 |
+| AC-2(13) | Refuses a disabled AD account within 5 minutes, even while a sign-in is open | PRO-AC-4 | Reporting a significant risk; disabling the AD account | EV-AC-01 |
 | AC-3 | Access enforcement by role and schema on every request | Data Owners authorise access in ServiceNow | Windows and network permissions | EV-AC-02, EV-AC-03 |
 | AC-4 | Limits on its own connections | Approving the flows | Firewalls and network | EV-AC-03 |
 | AC-5 | Role separation | Duties and staffing | Separation of its own administrators | EV-AC-04 |
@@ -111,26 +111,26 @@ This matrix is proposed to \<Organisation\>.
 | AC-6(7) | Assignment report | Carrying out the review | None | None |
 | AC-6(9) | Audit records | Reviewing them | Server logging, if centralised | EV-AC-02 |
 | AC-6(10) | Blocking ordinary users | List of privileged functions | Windows and network functions | EV-AC-04 |
-| AC-7 | None: no sign-in of its own to lock | Approving the values | PingFederate and Active Directory lockout; Windows logon lockout | EV-AC-05, EV-IA-04 |
-| AC-8 | Sign-in notice | Wording | Windows logon banner | EV-AC-06 |
+| AC-7 | None: no sign-in of its own to lock | Approving the values (P-42) | PingFederate and Active Directory lockout; Windows logon lockout | EV-AC-05, EV-IA-04 |
+| AC-8 | Sign-in notice, accepted before anything else is shown | Wording, approved by the legal adviser | Windows logon banner; any PingFederate banner | EV-AC-06, EV-IA-04 |
 | AC-11 | None: no page lock of its own | Setting the value (P-03) | Device and server lock | EV-AC-07 |
 | AC-11(1) | None | None | Device lock screen | EV-AC-07 |
-| AC-12 | None: no session management of its own | Approving the values | Windows server sign-ins; PingFederate sign-in lifetime (\<System Description\>, P-02) | EV-AC-05, EV-IA-04 |
+| AC-12 | The authentication cookie ends 8 hours after sign-in; an open page re-checks every 5 minutes (P-02, NFR-102) | Approving the values | PingFederate sign-in lifetime, at least as long as P-02 | EV-IA-04 |
 | AC-14 | Limits actions without sign-in | Approving the list | Anonymous access on the VMs | EV-AC-03 |
 | AC-17 | None | Who may work remotely | Remote access service | EV-AC-08 |
 | AC-17(1) | None | None | Monitoring and control | EV-AC-09 |
 | AC-17(2) | HTTPS for its own traffic | None | Remote access encryption | EV-AC-10 |
 | AC-17(3) | None | None | Managed access points | EV-AC-11 |
-| AC-17(4) | None | Deciding whether it is allowed | Administration route | EV-AC-12 |
+| AC-17(4) | Audits privileged functions in the Admin application | Defined needs and their records (P-54) | VPN and administration route, with multi-factor authentication and logging | EV-AC-12 |
 | AC-18 | None | None | Wireless controls | EV-AC-13 |
 | AC-18(1) | None | None | Wireless controls | EV-AC-13 |
 | AC-18(3) | None | None | VM and device builds | EV-AC-14 |
-| AC-19 | None | Whether mobile use is allowed | Mobile controls | EV-AC-15 |
+| AC-19 | None | Managed laptops only (P-47) | Mobile device management | EV-AC-15 |
 | AC-19(5) | None | None | Device encryption | EV-AC-15 |
 | AC-20 | None | Terms and approvals | Device and network rules | EV-AC-16 |
 | AC-20(1) | None | Approvals, if any are given | None | None |
 | AC-20(2) | None | Rule | USB controls | EV-AC-17 |
-| AC-21 | None | Sharing decisions | None | None |
+| AC-21 | Schema groups | Sharing decisions (TPL-25) | None | None |
 | AC-22 | Requires sign-in | No-public-content decision | None | None |
 
 ## 4 Awareness and Training (AT)
@@ -147,7 +147,7 @@ This matrix is proposed to \<Organisation\>.
 
 | ID | Control | What we need to know | Evidence to provide |
 | --- | --- | --- | --- |
-| EV-AU-01 | AU-2, AU-6(1), AU-6(3) | Whether \<Organisation\> has central log monitoring, and what it needs from \<System Name\> and the VMs | Service description and scope |
+| EV-AU-01 | AU-2, AU-6(1), AU-6(3) | Whether \<Organisation\> has central log monitoring, and what it needs from \<System Name\> and the VMs, including the short security events the API writes to its application log for the alert use cases U5, U6 and U9, and SQL Server Audit records of reads of the item tables by logins other than the API's; and how the auditor is given read access to the Windows and SQL Server logs there, without a sign-in to the servers | Service description and scope |
 | EV-AU-02 | AU-8 | The time source for the VMs, and evidence that they stay within 1 second of UTC | Time service configuration |
 | EV-AU-03 | AU-4, AU-11 | Storage and backup for the VMs, to hold 12 months of records online and 12 months in an offline archive | Service description and backup schedule |
 | EV-AU-04 | AU-12 | Which Windows Server events are logged and kept on the VMs | Audit policy and a sample log |
@@ -190,7 +190,7 @@ This matrix is proposed to \<Organisation\>.
 | EV-IA-01 | IA-3, IA-5h | How devices are identified on \<Organisation\>'s network, and how they protect credentials | Network access control description and build standard |
 | EV-IA-02 | IA-12, IA-12(2), IA-12(3), IA-12(5) | What identity evidence HR collects and checks in pre-employment checks, for staff and contractors, and how people are told | HR process and a blank record |
 | EV-IA-03 | IA-7 | Whether the VMs use validated cryptographic modules | Build standard and settings |
-| EV-IA-04 | IA-2(1), IA-2(2), IA-2(8) | How PingFederate signs users in to \<System Name\>: the multi-factor methods it requires, its lockout and password standard, and how its OpenID Connect response is signed. Also the settings of \<System Name\>'s PingFederate connection: the OpenID Connect client settings, the sign-in lifetime (\<System Description\>, P-02), how the application server alone reaches PingFederate to fetch its OpenID Connect metadata and signing certificate and to complete each sign-in (flow F10, HTTPS, TCP 443), what the response carries (it names the person and carries no groups), how the signing certificate is renewed, and whether the settings meet federation assurance level 2 of CSS | Service description; the OpenID Connect client settings for \<System Name\>; the password and lockout policy |
+| EV-IA-04 | IA-2(1), IA-2(2), IA-2(8) | How PingFederate signs users in to \<System Name\>: the multi-factor methods it requires, its lockout and password standard, and how its OpenID Connect response is signed. Also the settings of \<System Name\>'s PingFederate connection: the OpenID Connect client settings, the sign-in lifetime, which must be at least as long as \<System Name\>'s own 8-hour session (\<System Description\>, P-02), whether PingFederate's sign-out endpoint is enabled for \<System Name\>'s Sign out (FR-084), whether PingFederate shows its own system use banner and its wording, confirmation of the lockout setting in P-42 (10 failed attempts in 15 minutes, locked for 15 minutes), how the application server alone reaches PingFederate to fetch its OpenID Connect metadata and signing certificate and to complete each sign-in (flow F10, HTTPS, TCP 443), what the response carries (it names the person and carries no groups), how the signing certificate is renewed, and whether the settings meet federation assurance level 2 of CSS | Service description; the OpenID Connect client settings for \<System Name\>; the password and lockout policy |
 | EV-IA-05 | IA-2, IA-9, AC-3, SC-8 | How \<System Name\>'s API reads group membership from Active Directory over LDAPS (flow F7, TCP 636): the domain controllers it may query, their certificates and the chain that validates them, and the read-only rights of the API's group managed service account | Directory connection settings, the certificate chain, and the service account's rights |
 
 ## 10 Incident Response (IR)
@@ -309,7 +309,7 @@ PM is outside \<System Name\>'s baseline (TR-PM-01), but \<System Name\> inherit
 
 | ID | Control | What we need to know | Evidence to provide |
 | --- | --- | --- | --- |
-| EV-SI-01 | SI-4, SI-4(2), SI-4(4) | Network monitoring, its criteria, and how it is reported; whether central logging can receive \<System Name\>'s application, Windows and SQL Server logs and the audit events that raise alerts, and how they are sent (\<System and Information Integrity Management\>, section 3.4). Since sign-in is through PingFederate, whether PingFederate failed sign-in events and changes to \<System Name\>'s administrators' group (\<Code\>\_Admins) can be sent to the security officer, for detection use cases U1 and U4 (\<System and Information Integrity Management\>, section 3.4) | Service description and a sample report; the central logging connection details |
+| EV-SI-01 | SI-4, SI-4(2), SI-4(4) | Network monitoring, its criteria, and how it is reported; whether central logging can receive \<System Name\>'s application, Windows and SQL Server logs and the audit events that raise alerts, and how they are sent (\<System and Information Integrity Management\>, section 3.4). Since sign-in is through PingFederate, whether PingFederate failed sign-in events and changes to \<System Name\>'s administrators' group (\<Code\>\_Admins) can be sent to the security officer, for detection use cases U1 and U4; and whether the application security events for U5, U6 and U9 can raise alerts (\<System and Information Integrity Management\>, section 3.4) | Service description and a sample report; the central logging connection details |
 | EV-SI-02 | SI-2, SI-7, SI-7(1) | Firmware updates and integrity checks for the VM hosting | Process and a sample record |
 | EV-SI-03 | SI-5 | Whether \<Organisation\> is registered for the NCSC Early Warning service and receives CISA or NCSC alerts for its networks, and how alerts that affect \<System Name\> reach the security officer (\<System and Information Integrity Management\>, section 3.3) | Registration confirmation and the forwarding route |
 
