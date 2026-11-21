@@ -739,7 +739,7 @@ This section is the security architecture that PL-8 calls for: the protection go
 | NCSC 1: Establish the context | Boundary, data flows and trust zones (sections 6.1, 6.5 and 6.6); information types and impact in \<System Security Plan\>, section 3.3; risks in \<Risk List\> |
 | NCSC 2: Make compromise difficult | Deny by default and least privilege (section 8); schema access checked on every request; layered defences (Table 40b); trust zones with the Admin application only from Z2 |
 | NCSC 3: Make disruption difficult | Separate application and database VMs; recovery times in \<Contingency Planning Management\> |
-| NCSC 4: Make compromise detection easier | Hash-chained audit records, weekly review and alerts (\<Audit and Accountability Management\>), detection use cases U1 to U8 (\<System and Information Integrity Management\>, section 3.4); log forwarding to \<Organisation\> |
+| NCSC 4: Make compromise detection easier | Hash-chained audit records, weekly review and alerts (\<Audit and Accountability Management\>), detection use cases U1 to U9 (\<System and Information Integrity Management\>, section 3.4); log forwarding to \<Organisation\> |
 | NCSC 5: Reduce the impact of compromise | Each schema's items in its own database schema; database reachable only from Z3; separate administration route; critical components in \<Risk Assessment Management\>, section 3.9 |
 | CSS privacy: Predictability | Purposes and processing rules in \<PII Processing Management\>; privacy notice through \<Organisation\> |
 | CSS privacy: Manageability | Requests, corrections and deletions through PRO-PT-1; retention schedule |
