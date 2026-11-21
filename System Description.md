@@ -415,7 +415,7 @@ Each statement below narrows what can go wrong. An application that needs one of
 | NFR-006 | Keep duties apart: nobody approves or reviews their own access; auditors and security officers hold no administration role; application, server and database administration are held by different people | Separate Active Directory groups with different owners, and role rules that give auditors and security officers no administration page | \<Access Control Management\> |
 | NFR-007 | Allow without sign-in only the actions in P-51 | A short fixed list of open pages and functions in each application. Everything else falls under the default rule | \<Access Control Management\> |
 | NFR-008 | Review group members as P-04 and P-05 set | A person does this: each group's owner checks its members against a list and signs a form | \<Access Control Management\> |
-| NFR-009 | End a leaver's access as P-06 sets | \<Organisation\>'s leavers process disables the Active Directory account. The next sign-in fails, and the API refuses the disabled account within 5 minutes even while a sign-in is open (FR-002) | \<Access Control Management\> |
+| NFR-009 | End a leaver's access as P-06 sets | \<Organisation\>'s leavers process disables the Active Directory account. A new sign-in fails, and the API refuses the disabled account within 5 minutes even while a sign-in is open (FR-002) | \<Access Control Management\> |
 | NFR-010 | Require every user to sign the rules of behaviour before being added to a group | A person does this: the group's owner sees the signed form before adding the member | \<Planning Management\> |
 
 #### 5.2.2 Identification and authentication

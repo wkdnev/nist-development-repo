@@ -139,7 +139,7 @@ Questions are numbered INT-XX-nn, where XX is the family code, and each names th
 
 | ID | Question | Statements | Ask to see |
 | --- | --- | --- | --- |
-| INT-AC-35 | How were you given the business owner role, who owns the \<Code\>\_BusinessOwners group, and what else can you do in the Admin application? | AC-02c, AC-02e, AC-06 | TPL-2 record; the group's members |
+| INT-AC-35 | How were you given the business owner role, who owns the \<Code\>\_BusinessOwners group, and what else can you do in \<System Name\>? | AC-02c, AC-02e, AC-06 | TPL-2 record; the group's members |
 | INT-AC-36 | Show me how you approve the disposal of items due under the retention schedule (\<System Description\>, FR-074). What stops anyone else approving it? | AC-03, AC-05b, AC-06 | A disposal approval and its audit entry |
 
 ### 3.10 Legal adviser's delegate

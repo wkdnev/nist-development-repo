@@ -767,7 +767,7 @@ These procedures define how identifiers and authenticators are issued, changed a
 
 #### PRO-IA-8 Disabling unused identifiers
 
-1. \<Organisation\> disables Active Directory accounts unused for the period in its corporate standard (\<Access Control Management\>, section 3.14).
+1. \<Organisation\> disables Active Directory accounts unused for 90 days within 1 working day (\<System Description\>, P-38; \<Access Control Management\>, section 3.14).
 2. A disabled identifier is never deleted or reused (PRO-IA-1, step 4). **Manual**
 
 ## IR Incident Response
@@ -1242,7 +1242,7 @@ These procedures carry out \<Policy\> (PT). Steps marked **Manual** have no syst
 
 1. The business owner sets each retention period in \<PII Processing Management\>, section 3.7. **Manual**
 2. Every 12 months each Data Owner checks that their schema's personal data is accurate, relevant, timely and complete, and records the check on TPL-3. **Manual**
-3. A scheduled task lists the items past their retention period, which are deleted once the business owner, a member of \<Code\>\_BusinessOwners, approves their disposal in the Admin application (\<System Description\>, FR-074), and each deletion is audited.
+3. A scheduled task lists the items past their retention period, which are deleted once the business owner, a member of \<Code\>\_BusinessOwners, approves their disposal in the UI application (\<System Description\>, FR-074), and each deletion is audited.
 
 #### PRO-PT-6 Training and test data
 

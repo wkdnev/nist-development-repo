@@ -22,7 +22,7 @@ Values in \[brackets\] are for the developers to fill.
 
 | Setting | Where | Required value | Source |
 | --- | --- | --- | --- |
-| Sign-in lifetime | Each application's authentication cookie settings | No longer than PingFederate's sign-in lifetime (\<System Description\>, P-02). \<System Name\> has no session management: no page lock, idle sign-out or session limit of its own | \<Access Control Management\> |
+| Sign-in lifetime | Each application's authentication cookie settings | Absolute lifetime of 8 hours, no sliding expiry, never longer than PingFederate's sign-in (\<System Description\>, P-02); no groups in the cookie; open pages re-check the person every 5 minutes (NFR-102). Sign out clears the cookie and calls PingFederate's sign-out (FR-084). No page lock, idle sign-out or session limit | \<Access Control Management\> |
 | Sign-in | \<System Name\>'s PingFederate connection (its OpenID Connect client settings) | Password length, lockout and multi-factor authentication are set by \<Organisation\>, not in \<System Name\>. The signed response names the person and carries no groups. The UI and Admin applications reach PingFederate for its OpenID Connect metadata and signing certificate, and to complete each sign-in, over HTTPS on TCP 443 from the application server only (F10) | \<Policy\> (IA) |
 | Group lookup | API's directory settings | Active Directory read over LDAPS (F7, TCP 636), read-only, under the API's managed service account, with the directory's certificate checked | \<Identification and Authentication Management\> |
 | Database connection | API's connection settings | Microsoft SQL Server 2022 by Windows authentication, with no password; TLS with strict encryption on TCP 1433 (F5), from the application server only | \<Identification and Authentication Management\> |
@@ -58,10 +58,10 @@ Any change to these settings follows \<Procedures\> (CM), and is checked for dri
 | Function | What it does | How to maintain it | Tested by |
 | --- | --- | --- | --- |
 | Sign-in | Each person's Active Directory account, through PingFederate with multi-factor authentication; the API reads their groups from Active Directory over LDAPS | Keep the PingFederate connection; never add a local account | Test-Identification.ps1 |
-| Schema access | Checks the person's schema read or edit group on every page and API call; a schema with no group is closed to all but administrators | Name each schema's groups only through \<Procedures\> (AC); groups' owners review members as P-04 and P-05 set | Test-AccessControl.ps1 |
-| Administrator | Manages schemas, their groups and settings, and can reach every schema. This is the one administration role: there is no separate global administrator | Keep the administrators' group to the named few; review every 3 months | Test-AccessControl.ps1 |
+| Schema access | Checks the person's schema read or edit group on every page and API call; a schema with no group is closed to everyone, administrators included | Name each schema's groups only through \<Procedures\> (AC); groups' owners review members as P-04 and P-05 set | Test-AccessControl.ps1 |
+| Administrator | Manages schemas, their groups (a change only with the Data Owner's approval in a change record, which raises alert U9) and settings. Opens no item content. This is the one administration role: there is no separate global administrator | Keep the administrators' group to the named few; review every 3 months | Test-AccessControl.ps1 |
 | Other roles | Auditor, security officer, business owner and legal adviser's delegate, each given by its own role group (\<Code\>\_Auditors, \<Code\>\_Security, \<Code\>\_BusinessOwners, \<Code\>\_LegalSearch). The system owner owns all five role groups. None of these roles holds administration | Never give an administrator one of these roles; role groups are reviewed every 3 months | Test-AccessControl.ps1 |
-| Sign-in lifetime | Holds the sign-in only in the authentication cookie, for no longer than PingFederate's sign-in lifetime. \<System Name\> has no page lock or sign-out of its own | Keep the cookie lifetime in Table 1 | Test-AccessControl.ps1 |
+| Sign-in lifetime and sign-out | The authentication cookie is the session: 8 hours at most, re-checked every 5 minutes, ended by Sign out. No page lock | Keep the cookie settings in Table 1 | Test-AccessControl.ps1 |
 | Audit | Records of security events, written only by the API and chained by a keyed hash (HMAC-SHA-256) | Run the chain check; keep records as in \<Policy\> (AU) | Test-AuditAndAuth.ps1 |
 | Exports | Bulk exports of a schema's items, run as background jobs | Check the export working area each working day; remove copies | Test-MediaProtection.ps1 |
 | Backups | Copies for recovery | Keep encrypted; test restores | Test-BackupRestore.ps1 |
@@ -71,7 +71,7 @@ Any change to these settings follows \<Procedures\> (CM), and is checked for dri
 1. **Requests from individuals:** the legal adviser's delegate, a member of \<Code\>\_LegalSearch named by the legal adviser, uses the search across all schemas (\<System Description\>, FR-073) to find every item about the person; administrators do not run this search. Record what was found and changed on TPL-15 (\<Procedures\>, PRO-PT-1).
 2. **Corrections and deletions:** record each one on TPL-15.
 3. **Special category data:** keep it only in schemas the business owner authorises (\<Policy\> (PT), R5).
-4. **Retention:** dispose of items at the end of the period in \<PII Processing Management\>, section 3.7, only once the business owner has approved their disposal in the Admin application (\<System Description\>, FR-074).
+4. **Retention:** dispose of items at the end of the period in \<PII Processing Management\>, section 3.7, only once the business owner has approved their disposal in the UI application (\<System Description\>, FR-074).
 5. **Test data:** never copy real personal data to the test environment (PRO-PT-6).
 
 ## 7 Known problems with privileged functions

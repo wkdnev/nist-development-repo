@@ -91,7 +91,7 @@ Controls met here: PE-5.
 1. \<System Name\> items are printed only on \<Organisation\>'s managed printers with secure release: \[managed printers\]. A page prints only when its owner is at the printer.
 2. A printout is collected at once, marked \<Classification\>, locked away when not in use, and shredded when no longer needed (\<Media Protection Management\>, section 3.4).
 3. A screen is locked when its user leaves it, and placed so that others cannot read it.
-4. \<Organisation\>'s managed devices lock the screen after the inactivity period it sets (P-03; \<Access Control Management\>, section 3.15). \<System Name\> has no session management, page lock or idle timeout of its own.
+4. \<Organisation\>'s managed devices lock the screen after the inactivity period it sets (P-03; \<Access Control Management\>, section 3.15). \<System Name\> has no page lock or idle timeout of its own.
 5. Desks are kept clear of printouts and notes.
 
 ### 3.6 Working from home

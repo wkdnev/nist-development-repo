@@ -74,7 +74,7 @@ Controls met here: IA-2, IA-2(1), IA-2(2), IA-2(8), IA-6, IA-11.
 | 3 | PingFederate returns a signed OpenID Connect response that names the person. It carries no groups | PingFederate |
 | 4 | \<System Name\> completes the sign-in with PingFederate over HTTPS from the application server (flow F10), and checks the response: that PingFederate signed it, that it was issued for \<System Name\>, that it is within its short life, and that it has not been used before | \<System Name\> |
 | 5 | The API reads the person's groups from Active Directory over LDAPS (flow F7), which give their roles and schema access. \<System Name\> holds the sign-in only in its authentication cookie, and records the sign-in | \<System Name\> |
-| 6 | The sign-in lasts until PingFederate's sign-in lifetime ends (\<System Description\>, P-02), or until \<Organisation\> ends the person's PingFederate sign-in or disables their account. \<System Name\> has no sessions, idle timeout or sign-out of its own. The person then signs in again | PingFederate and \<Organisation\> |
+| 6 | The application's sign-in lasts 8 hours at most, never longer than PingFederate's sign-in (\<System Description\>, P-02). It ends sooner at Sign out (FR-084), or within 5 minutes of the account being disabled or the membership removed. The person then signs in again | \<System Name\>, PingFederate and \<Organisation\> |
 
 **Table 3: The trust between PingFederate and \<System Name\>**
 
@@ -109,7 +109,7 @@ Identity assurance is how sure we are that a person is who they claim. Authentic
 
 | User group | Harm if impersonated | Identity assurance | Authenticator assurance: target | Federation |
 | --- | --- | --- | --- | --- |
-| Administrators | High: every schema's items and every setting | \<Organisation\>'s pre-employment checks, with the request authorised by the system owner (PRO-IA-1) | AAL2: multi-factor sign-in through PingFederate | PingFederate, at federation assurance level 2, to be set with \<Organisation\> |
+| Administrators | High: which groups open each schema, and every setting; no item content | \<Organisation\>'s pre-employment checks, with the request authorised by the system owner (PRO-IA-1) | AAL2: multi-factor sign-in through PingFederate | PingFederate, at federation assurance level 2, to be set with \<Organisation\> |
 | Editors | Moderate: one schema's items | As above, with the request authorised by the schema's Data Owner | AAL2: multi-factor sign-in through PingFederate | PingFederate, at federation assurance level 2, to be set with \<Organisation\> |
 | Readers, auditors and security officers | Moderate: reading one schema's items, the audit log or security information | As above | AAL2: multi-factor sign-in through PingFederate | PingFederate, at federation assurance level 2, to be set with \<Organisation\> |
 | Legal adviser's delegate | High: searching every schema for one person's items (\<System Description\>, FR-073) | \<Organisation\>'s pre-employment checks, named by the legal adviser, with the request authorised by the system owner (PRO-IA-1) | AAL2: multi-factor sign-in through PingFederate | PingFederate, at federation assurance level 2, to be set with \<Organisation\> |
@@ -167,7 +167,7 @@ Controls met here: IA-2(1), IA-2(2), IA-2(8), IA-5, IA-5(1), IA-6, IA-11.
 | Scheduled changes | Must not be required | \<Organisation\>'s corporate standard |
 | Blocklist | Must be checked | \<Organisation\>'s corporate standard |
 | Storage | Salted, with a costly function | Active Directory. \<System Name\> stores no passwords |
-| Rate limiting | At most 100 failures | Lockout by PingFederate and Active Directory, under the corporate standard (P-42) |
+| Rate limiting | At most 100 failures | Lockout by PingFederate and Active Directory, as P-42 sets: 10 failed attempts in 15 minutes lock the account for 15 minutes |
 | Inactivity timeout | No more than 1 hour | None in \<System Name\>. PingFederate's sign-in lifetime (\<System Description\>, P-02) limits the sign-in, and the device screen lock hides an unattended screen (\<System Description\>, P-03) |
 | Overall sign-in limit | No more than 24 hours | PingFederate's sign-in lifetime (P-02). \<System Name\> has no limit of its own |
 | Second factor | Required | Provided by PingFederate |
@@ -179,11 +179,11 @@ Controls met here: IA-2(1), IA-2(2), IA-2(8), IA-5, IA-5(1), IA-6, IA-11.
 
 Controls met here: IA-2, IA-11.
 
-\<System Name\> has no session management: no sessions, idle timeout, session limit, page lock or sign-out of its own (\<Access Control Management\>, section 3.1).
+\<System Name\>'s session is its authentication cookie (\<Access Control Management\>, section 3.15). It has no idle timeout, session limit or page lock.
 
-1. A sign-in lasts until PingFederate's sign-in lifetime for \<System Name\> ends (P-02), or until \<Organisation\> ends the person's PingFederate sign-in or disables their account. \<System Name\> holds the sign-in only in its authentication cookie, whose lifetime is no longer than PingFederate's. The person then signs in again through PingFederate.
+1. A sign-in lasts 8 hours from sign-in, with no sliding extension, and never longer than PingFederate's sign-in (P-02). It ends sooner when the person uses Sign out (FR-084), or when their account is disabled or their membership removed, which the API refuses within 5 minutes. The person then signs in again through PingFederate.
 2. An unattended screen is locked by \<Organisation\>'s managed devices and the servers after the inactivity period in P-03 (\<Access Control Management\>, section 3.15).
-3. A change to a person's AD groups takes effect at their next sign-in.
+3. A change to a person's AD groups or account takes effect within 5 minutes, because the API reads them on every request and holds each answer for at most 5 minutes; an open page re-checks the person every 5 minutes (NFR-102).
 4. Access is ended outside \<System Name\>: \<Organisation\> disables the AD account or the group's owner removes the membership, and \<Organisation\> ends the person's PingFederate sign-in. This is the first step when a password or second factor may be compromised, when someone leaves, and when a role is removed (PRO-IA-3).
 5. Each sign-in is tied to the person PingFederate authenticated, and every audit record names them.
 
