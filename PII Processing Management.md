@@ -8,7 +8,7 @@ Section 3 is the design: the authority, purposes and lawful basis; every kind of
 
 UK law decides what is lawful. The CSS controls set out how it is shown. Where a value needs a legal decision, it is a placeholder for the legal adviser.
 
-Appendix A lists the related enhancements CSS does not select.
+
 
 ## 2 Related documents
 
@@ -177,19 +177,3 @@ Controls met here: SC-7(24).
 Controls met here: PT-1.
 
 \<Policy\> (PT) and \<Procedures\> (PT) meet PT-1. Who they are shared with is in \<Policy\>, section PT.6. Their ownership, approval, review and records follow the rules common to every policy in \<Policy\>, section 1.1.
-
-## Appendix A Privacy controls outside the privacy baseline
-
-CSS does not select these enhancements in its privacy baseline, so they are not assessed. Some of the design goes some way towards them, and Table 6 says where. The United States controls that the baseline does select are tailored out in section 3.2.
-
-**Table 6: Related enhancements not selected**
-
-| Control | What it adds | \<System Name\>'s position |
-| --- | --- | --- |
-| PT-2(1), PT-3(1), SI-18(2) Data Tagging; Data Tags | Tags on personal data that carry its permitted processing, purposes or quality | Not required. Done in part in design: items that hold special category data are marked as such (section 3.4) |
-| PT-2(2), PT-3(2), SI-18(1) Automation; Automation Support | Processing limits and quality checks enforced by automated means | Not required. Schema access limits who processes each schema's items |
-| PT-4(1), PT-4(2), PT-4(3) Tailored Consent; Just-in-time Consent; Revocation | Ways to give, refine and withdraw consent | Not required. Consent is not the lawful basis (section 3.2) |
-| PT-5(1) Just-in-time Notice | Notice given at the moment data is collected | Not required. Done in part in design: the short statement on \<System Name\>'s pages (section 3.5) |
-| SI-18(3) Collection | Personal data collected directly from the person where possible | Not required. The business teams that own each schema collect the data; \<System Name\> stores the items |
-| SI-18(5) Notice of Correction or Deletion | People to whom data was disclosed are told of a correction or deletion | Not required. Done in design: the legal adviser tells them, as UK GDPR Article 19 requires (section 3.6) |
-| SI-19(1) to SI-19(8) | Ways of de-identifying data | Not applicable. No dataset is de-identified (SI-19) |

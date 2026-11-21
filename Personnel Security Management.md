@@ -4,7 +4,7 @@
 
 This document sets out how \<System Name\> makes sure the people who use and run it are trustworthy, and stay so, to meet the 9 Personnel Security (PS) controls in the CSS Moderate baseline.
 
-Section 3 is the design: the principles, the risk designation of every role, the minimum screening, the access agreements, what happens when people join, move and leave, the time limits, external people, sanctions, the personnel security register, what \<Organisation\> provides, role duties in job descriptions, and the policy and procedures. Each subsection names the controls it helps to meet. Appendix A lists the PS controls CSS does not select at Moderate.
+Section 3 is the design: the principles, the risk designation of every role, the minimum screening, the access agreements, what happens when people join, move and leave, the time limits, external people, sanctions, the personnel security register, what \<Organisation\> provides, role duties in job descriptions, and the policy and procedures. Each subsection names the controls it helps to meet.
 
 Screening, HR and disciplinary processes belong to \<Organisation\>. \<System Name\> sets the minimum it requires of them, records only that each check was confirmed and when, and relies on \<Organisation\>'s evidence for the rest. How access is requested, granted and removed is in \<Access Control Management\>, and the duties of each role are in \<Roles and Responsibilities\>.
 
@@ -180,18 +180,3 @@ The security and privacy duties of every \<System Name\> role are stated in \<Ro
 Controls met here: PS-1.
 
 \<Policy\> (PS) and \<Procedures\> (PS) meet PS-1. Who they are shared with is in \<Policy\>, section PS.6. Their ownership, approval, review and records follow the rules common to every policy in \<Policy\>, section 1.1.
-
-## Appendix A PS controls outside the Moderate baseline
-
-CSS does not select these at Moderate, so they are not assessed. Some of the design goes further than the baseline, and Table 7 says where.
-
-**Table 7: PS controls not selected at Moderate**
-
-| Control | What it adds | \<System Name\>'s position |
-| --- | --- | --- |
-| PS-3(1), PS-3(2), PS-6(2) Classified Information; Formal Indoctrination; Classified Information Requiring Special Protection | Clearance, briefing and agreements for access to classified information | Not required. \<System Name\> holds no classified information |
-| PS-3(3) Information Requiring Special Protective Measures | Extra screening for access to information that needs special protection | Not required. Items that hold special category data are protected by limiting each schema to the people its Data Owner authorises, not by further screening |
-| PS-3(4) Citizenship Requirements | Citizenship checks for defined roles | Not required. The right to work check covers lawful employment in the United Kingdom |
-| PS-4(1), PS-6(3) Post-employment Requirements | People are told of, and bound by, duties that continue after they leave | Not required. Done in part: the exit interview covers continuing confidentiality duties. Whether \<Organisation\>'s confidentiality agreement continues after employment is asked with EV-PS-02 |
-| PS-4(2) Automated Actions | Automated notice of a leaver, and automated disabling of access | In the High baseline only. Done in design: disabling the Active Directory account ends access to \<System Name\> at once, and \<Organisation\>'s starters and leavers process prompts the group owners through ServiceNow |
-| PS-6(1) | Withdrawn by CSS: moved into PS-3 | Not applicable |

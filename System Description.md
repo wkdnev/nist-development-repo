@@ -404,7 +404,7 @@ Each statement below narrows what can go wrong. An application that needs one of
 | NFR-001 | Refuse anything not granted: every page and function states the access it needs, and one with none is refused | The applications apply a default rule that requires a signed-in person, and each page or function adds the role or schema it needs | \<Access Control Management\> |
 | NFR-002 | Check access on the server on every request, where the function runs. Nothing is decided in the browser | The access rule sits on the server-side page and on the API function. Pages are drawn on the server, so the browser receives only what was allowed | \<Access Control Management\> |
 | NFR-003 | Take roles and schema access only from Active Directory groups. The application holds no table of who may do what | The API reads the person's groups from Active Directory and compares them with the group names on role settings and schema definitions | \<Access Control Management\> |
-| NFR-004 | Keep each schema's items in its own database schema, so that one schema's items are never returned for another | The API picks the database schema from the checked schema definition, never from the request | \<Security Architecture\> |
+| NFR-004 | Keep each schema's items in its own database schema, so that one schema's items are never returned for another | The API picks the database schema from the checked schema definition, never from the request | Section 6 |
 | NFR-005 | Give each person, service and administrator the least access their work needs | Separate groups for each role, a separate service account for each application, and a database account limited to what the API needs | \<Access Control Management\> |
 | NFR-006 | Keep duties apart: nobody approves or reviews their own access; auditors and security officers hold no administration role; application, server and database administration are held by different people | Separate Active Directory groups with different owners, and role rules that give auditors and security officers no administration page | \<Access Control Management\> |
 | NFR-007 | Allow without sign-in only the redirect to PingFederate, the access-denied page, static files and the health check | A short fixed list of open pages and functions in each application. Everything else falls under the default rule | \<Access Control Management\> |
@@ -496,7 +496,7 @@ The application has no session management of its own: no idle lock, no idle time
 | NFR-049 | Run only code the application itself serves: a page policy with no inline scripts and no outside hosts, and headers that stop content-type guessing and limit referrer information | A content security policy header and related headers, added to every response by each application | \<System and Communications Protection Management\> |
 | NFR-050 | Serve every script and style from the application. No content delivery service | Browser libraries are packaged with the UI application | \<System and Communications Protection Management\> |
 | NFR-051 | Show users and callers a general error message, with the detail only in the logs | A common error handler returns a fixed message and logs the detail | \<System and Information Integrity Management\> |
-| NFR-052 | Fail secure: an error, a time-out or a missing dependency, including Active Directory, refuses access | Access checks are written so that any failure returns a refusal. If the groups cannot be read, the person gets no role and no schema | \<Security Architecture\> |
+| NFR-052 | Fail secure: an error, a time-out or a missing dependency, including Active Directory, refuses access | Access checks are written so that any failure returns a refusal. If the groups cannot be read, the person gets no role and no schema | Section 6 |
 | NFR-053 | Scan every upload, and run anti-malware with current definitions on both servers | The operating system's malware scanning interface for uploads, and real-time protection on each server | \<System and Information Integrity Management\> |
 | NFR-054 | Fix or mitigate a flaw within the times in P-11 | A person does this: the developers and administrators, tracked in the plan of action | \<Risk Assessment Management\> |
 | NFR-055 | Scan for vulnerabilities as P-30 sets | \<Organisation\>'s scanner for the servers, and a package and code scan for each release | \<Risk Assessment Management\> |
@@ -525,10 +525,10 @@ The application has no session management of its own: no idle lock, no idle time
 | No. | Requirement | How it is implemented | Held in |
 | --- | --- | --- | --- |
 | NFR-066 | Support the numbers in P-33 and the response times in P-34 | \[Sized when the profile is complete\] | \<Concept of Operations\> |
-| NFR-067 | Server sizes: processors, memory and storage | \[When the servers are built\] | \<Security Architecture\> |
+| NFR-067 | Server sizes: processors, memory and storage | \[When the servers are built\] | Section 6 |
 | NFR-068 | Enforce the upload limits in P-17 and P-18 | Limits checked by the API before a file is stored | \<System and Information Integrity Management\> |
-| NFR-069 | Run bulk uploads and exports in the background, so that other users are not held up | Jobs run on a queue in the API, apart from the request that started them | \<Security Architecture\> |
-| NFR-070 | Send results and large files a part at a time, so that the time taken does not grow with the size of an item or a schema | Paging is done in the database, and large files are sent in parts | \<Security Architecture\> |
+| NFR-069 | Run bulk uploads and exports in the background, so that other users are not held up | Jobs run on a queue in the API, apart from the request that started them | Section 6 |
+| NFR-070 | Send results and large files a part at a time, so that the time taken does not grow with the size of an item or a schema | Paging is done in the database, and large files are sent in parts | Section 6 |
 
 #### 5.2.10 Privacy
 
@@ -676,15 +676,15 @@ No other flow is allowed. The UI application and the Admin application have no c
 
 **Table 39: Trust zones**
 
-| Zone | What is in it | Trust |
-| --- | --- | --- |
-| Z1 Users | Users' managed devices on \<Organisation\>'s network | Not trusted by the application: every request is authenticated and authorised |
-| Z2 Administration route | \<Organisation\>'s managed route for administrators | Trusted for administration only |
-| Z3 Application | The application server | Trusted to enforce access |
-| Z4 Data | The database server | Most protected. Reached only from Z3 |
-| Z5 Provider services | \<Organisation\>'s directory, sign-on, monitoring, ServiceNow and starters and leavers services | Trusted by agreement and evidence |
+| Zone | What is in it | Trust | Entry into the zone |
+| --- | --- | --- | --- |
+| Z1 Users | Users' managed devices and \<Organisation\>'s corporate network | Not trusted by \<System Name\> | Not applicable |
+| Z2 Administration route | \<Organisation\>'s managed route for administrators | Trusted for administration only | Managed route and administrator sign-in |
+| Z3 Application | Application VM: UI application, Admin application and API | Trusted to enforce access | HTTPS on 443 from Z1 (F1); the Admin application only from Z2 (F2); server administration only from Z2 (F11) |
+| Z4 Data | Database VM: SQL Server and the \<System Name\> database | Most protected | Encrypted database connections from the API in Z3 only (F5); database administration only from Z2 (F11) |
+| Z5 Provider services | \<Organisation\>'s directory, sign-on, monitoring, ServiceNow and starters and leavers services | Trusted by agreement and evidence | From browsers to PingFederate (F6), outbound from Z3 (F7, F8, F10) or by people (F9), as in section 10 |
 
-The layers are the boundary, transport, identity, authorisation, data at rest, audit, the host, recovery and people. Each is described in section 7, the principles behind them are in section 8, and \<Security Architecture\> holds the architecture.
+The layers are the boundary, transport, identity, authorisation, data at rest, audit, the host, recovery and people. Each is described in section 7, with its main controls in section 6.8, and the principles behind them are in section 8.
 
 ### 6.7 Environments
 
@@ -695,6 +695,70 @@ The layers are the boundary, transport, identity, authorisation, data at rest, a
 | Production | The two servers at \<Organisation\> | Real data |
 | Test | A separate, throwaway copy of the whole system, built from a tagged release and removed after each test run. Configured as production is, including TLS | Invented data only. Real personal data is never used |
 | Development | Developers' computers | Invented data only |
+
+### 6.8 Security architecture
+
+This section is the security architecture that PL-8 calls for: the protection goals, the layers of defence, the engineering principles, the configuration on the servers, and the assumptions the design rests on. The boundary, flows and trust zones are in sections 6.1, 6.5 and 6.6, and the design principles in section 8. The privacy architecture is in \<Privacy Plan\>, section 8.
+
+**Table 40a: Protection goals**
+
+| Objective | Impact | What it means for \<System Name\> | Main protections |
+| --- | --- | --- | --- |
+| Confidentiality | Moderate | Items, including personal data, are seen only by members of the schema's read or edit group, and by administrators | Schema groups read from Active Directory, encrypted transport and storage, audit |
+| Integrity | Moderate | Items, their details and files, and the audit trail cannot be changed without trace | Edit rights by role, change control, hash-chained audit records |
+| Availability | Low (\<System Security Plan\>, section 3.3; P-01) | \<System Name\> can be restored after a failure within the times in \<Contingency Planning Management\> | Encrypted backups at the second site, rebuild procedure |
+
+**Table 40b: Layers of defence**
+
+| Layer | Protection | Main controls |
+| --- | --- | --- |
+| Boundary | \<Organisation\>'s firewalls allow only HTTPS into Z3, and the Admin application and server and database administration (F11) only from Z2 | SC-7, AC-17, MA-4 |
+| Transport | TLS on every flow, F1 to F8 and F10, as \<System Description\>, P-26, sets, under NCSC's profiles (\<System and Communications Protection Management\>, section 3.3); data protection key rings protected with DPAPI | SC-8, SC-13 |
+| Identity | Each person's own Active Directory account, signed in through PingFederate with multi-factor authentication; roles and schema access from AD groups, read by the API over LDAPS (F7) | IA-2, IA-5, AC-7 |
+| Authorisation | Roles and schema access checked on every page and API call | AC-3, AC-6 |
+| Sign-in lifetime and screen lock | No session management in \<System Name\>. The sign-in is held only in the authentication cookie, which lasts no longer than PingFederate's sign-in lifetime (\<System Description\>, P-02); an unattended screen is locked by the operating system on \<Organisation\>'s managed devices and the servers (\<System Description\>, P-03) | AC-11, AC-12, SC-23 |
+| Data at rest | Full-disk encryption on both VMs; no plain copies left by exports | SC-28, MP-4 |
+| Audit | Hash-chained audit records, reviewed and kept | AU-2, AU-6, AU-9 |
+| Host | CIS hardening, Microsoft Defender, patching | CM-6, SI-2, SI-3 |
+| Recovery | Encrypted backups and logs at the second site | CP-9, CP-10 |
+| People | Rules signed before access, training, screening | PL-4, AT-2, PS-3 |
+
+\<System Name\>'s security engineering principles are the NCSC secure design principles, and its privacy engineering principles are the CSS privacy engineering objectives (\<System and Services Acquisition Management\>; SA-8). Table 40c shows where the design meets each. Development, implementation and changes are checked against it (\<Procedures\>, PRO-SA-1).
+
+**Table 40c: Engineering principles**
+
+| Principle | Where \<System Name\>'s design meets it |
+| --- | --- |
+| NCSC 1: Establish the context | Boundary, data flows and trust zones (sections 6.1, 6.5 and 6.6); information types and impact in \<System Security Plan\>, section 3.3; risks in \<Risk List\> |
+| NCSC 2: Make compromise difficult | Deny by default and least privilege (section 8); schema access checked on every request; layered defences (Table 40b); trust zones with the Admin application only from Z2 |
+| NCSC 3: Make disruption difficult | Separate application and database VMs; recovery times in \<Contingency Planning Management\> |
+| NCSC 4: Make compromise detection easier | Hash-chained audit records, weekly review and alerts (\<Audit and Accountability Management\>), detection use cases U1 to U8 (\<System and Information Integrity Management\>, section 3.4); log forwarding to \<Organisation\> |
+| NCSC 5: Reduce the impact of compromise | Each schema's items in its own database schema; database reachable only from Z3; separate administration route; critical components in \<Risk Assessment Management\>, section 3.9 |
+| CSS privacy: Predictability | Purposes and processing rules in \<PII Processing Management\>; privacy notice through \<Organisation\> |
+| CSS privacy: Manageability | Requests, corrections and deletions through PRO-PT-1; retention schedule |
+| CSS privacy: Disassociability | Access limited by schema group; audit free text holds no extra personal data |
+
+**Table 40d: Configuration on the servers**
+
+| Item | Target |
+| --- | --- |
+| Host | Two Windows Server 2025 VMs |
+| Traffic | HTTPS and encrypted database connections |
+| Secrets | The token signing key and the audit chain key, in a key store outside source code, changed as \<System Description\>, P-10, sets. There is no database password: the API uses Windows authentication |
+| Database login | One least-privilege SQL Server login for the API's managed service account, by Windows authentication, used only by API |
+| Storage | Full-disk encryption on both VMs |
+| Malicious code | Microsoft Defender on both VMs, and each upload scanned through AMSI before it is stored (\<System and Information Integrity Management\>, section 3.2) |
+| Hardening | CIS Benchmarks for Windows Server 2025 and SQL Server 2022 |
+| Backups | Encrypted daily backups and transaction logs, kept at the second site |
+| Retention | Schedule in \<PII Processing Management\>, section 3.7, with periods set by the business owner, and disposal when they end |
+| Build and test | Built under \<Organisation\>'s corporate SDLC, with a build pipeline and release test gate |
+
+The design rests on these assumptions:
+
+1. \<Organisation\> provides and evidences the services in section 10. \<System Name\> relies on them but does not describe how they are built.
+2. The servers are built to this design, with the configuration in Table 40d, before production.
+3. Users work only on \<Organisation\>'s managed devices, over its network or managed route.
+4. The critical components and their failure effects are in \<Risk Assessment Management\>, section 3.9.
 
 ## 7 Design
 

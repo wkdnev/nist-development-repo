@@ -1072,7 +1072,7 @@ These procedures carry out \<Policy\> (PL). Steps marked **Manual** have no syst
 | PRO-PL-2 Sharing the plans | When a plan is approved or changed | System owner | Plan review record entry naming the recipients | PL-2b |
 | PRO-PL-3 Signing the rules | Before access, every 12 months, and after a material change | System owner, everyone | TPL-21; register of signatures in \<Planning Management\>, section 3.5 | PL-4b, PL-4d |
 | PRO-PL-4 Tailoring | When a control or part is proposed as not applicable | Proposer, system owner, authorising official | Entry in \<Tailoring Register\> and \<Decision Register\> | PL-11 |
-| PRO-PL-5 Reviewing the architecture | Every 12 months, and after a significant change | System owner | Change record and review record in \<Security Architecture\> | PL-8b, PL-8c |
+| PRO-PL-5 Reviewing the architecture | Every 12 months, and after a significant change | System owner | Change record and review record in \<System Description\>, section 6 | PL-8b, PL-8c |
 | PRO-PL-6 Protecting the plans | Always; checked at each review | System owner | Access list of the restricted SharePoint area | PL-2e |
 
 ### PL.2 Procedures
@@ -1105,7 +1105,7 @@ These procedures carry out \<Policy\> (PL). Steps marked **Manual** have no syst
 
 #### PRO-PL-5 Reviewing the architecture
 
-1. Every 12 months, and after a significant change, the system owner reviews \<Security Architecture\> against the running system. **Manual**
+1. Every 12 months, and after a significant change, the system owner reviews \<System Description\>, section 6, against the running system. **Manual**
 2. Changes are carried into the SSP, the privacy plan, the ConOps, the critical components list in \<Risk Assessment Management\>, section 3.9 and any procurement, and each is noted in the review record. **Manual**
 3. New open questions go to \<Decision Register\> or \<Plan of Action and Milestones\>, not into the architecture. **Manual**
 
@@ -1332,7 +1332,7 @@ These procedures carry out \<Policy\> (SA). Steps marked **Manual** have no syst
 #### PRO-SA-1 Developing a change
 
 1. Developers plan and design the change under \<Organisation\>'s corporate SDLC, against the CSS practices in \<System and Services Acquisition Management\>, section 3.2, and note its security and privacy effect on TPL-6. **Manual**
-2. The security officer checks significant designs against the principles in \<Security Architecture\>, section 6.5, and developers update the critical components in \<Risk Assessment Management\>, section 3.9, at each major change. **Manual**
+2. The security officer checks significant designs against the principles in \<System Description\>, section 6.8, and developers update the critical components in \<Risk Assessment Management\>, section 3.9, at each major change. **Manual**
 3. Another developer reviews and approves the change before it merges through the protected branch.
 4. The change follows \<Procedures\> (CM).
 
@@ -1418,7 +1418,7 @@ These procedures carry out \<Policy\> (SC). The values, cryptographic register a
 #### PRO-SC-4 Changing the boundary
 
 1. Anyone needing a new flow, port, external service or listening address raises a change on TPL-6, with its business need. **Manual**
-2. The system owner approves it, updates \<System Security Plan\>, section 3.7, \<Security Architecture\>, Table 2, and the allow-lists in \<System and Communications Protection Management\>, section 3.2, before the rule is made. **Manual**
+2. The system owner approves it, updates \<System Security Plan\>, section 3.7, \<System Description\>, section 6.5, and the allow-lists in \<System and Communications Protection Management\>, section 3.2, before the rule is made. **Manual**
 3. A temporary exception is recorded on TPL-17, with an end date, and removed when no longer needed. **Manual**
 4. The Windows server administrator applies the host firewall rule, and \<Organisation\> applies any network rule.
 

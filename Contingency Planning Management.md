@@ -4,7 +4,7 @@
 
 This document sets out how \<System Name\> is recovered after a failure, and the design that meets the 23 Contingency Planning (CP) controls and enhancements in the CSS Moderate baseline.
 
-Section 3 is the design, and is the contingency plan that CP-2 requires: the principles, scope and assumptions, the business impact analysis, the roles, the three phases of activation and notification, recovery and reconstitution, the backups, the second site and telecommunications, testing, training and exercises, what \<Organisation\> provides, keeping the plan current, coordination with related plans, and the policy and procedures. With appendix A, which holds the contacts, and appendix B, which lists the associated plans, it can be used on its own in an emergency. Each subsection names the controls it helps to meet. Appendix C lists the CP controls CSS does not select at Moderate.
+Section 3 is the design, and is the contingency plan that CP-2 requires: the principles, scope and assumptions, the business impact analysis, the roles, the three phases of activation and notification, recovery and reconstitution, the backups, the second site and telecommunications, testing, training and exercises, what \<Organisation\> provides, keeping the plan current, coordination with related plans, and the policy and procedures. With appendix A, which holds the contacts, and appendix B, which lists the associated plans, it can be used on its own in an emergency. Each subsection names the controls it helps to meet.
 
 ### 1.1 Distribution and protection
 
@@ -334,21 +334,3 @@ Controls met here: CP-1.
 | \<Security Operating Procedures\> Security Operating Procedures | System owner | The routine backup and check steps (C2, C6, C8, C18, C21) and planned shutdown |
 | TPL-9 and TPL-11 in \<Record Templates\> | System owner | Training records, test records and after-action reports |
 | \<System Security Plan\>, sections 3.4 and 4 | System owner | The inventory and diagrams of what is rebuilt |
-
-## Appendix C CP controls outside the Moderate baseline
-
-CSS does not select these at Moderate, so they are not assessed. Some of the design goes further than the baseline, and Table 11 says where.
-
-**Table 11: CP controls not selected at Moderate**
-
-| Control | What it adds | \<System Name\>'s position |
-| --- | --- | --- |
-| CP-2(2) Capacity Planning | Capacity planned for processing, telecommunications and support during a contingency | Not required. The second site is asked to run both servers at their normal size (EV-CP-01) |
-| CP-2(5) Continue Mission and Business Functions | Functions continue with little or no loss of continuity | Not required. Availability is rated Low, and 72 hours to recover is enough |
-| CP-3(1) Simulated Events | Training that simulates a real event | Not required. The tabletop exercise walks through a scenario |
-| CP-4(2) Alternate Processing Site | Testing the plan at the second site | Not required, and not planned. The first restore test is on the main servers |
-| CP-6(2) Recovery Time and Recovery Point Objectives | The storage site set up to meet the recovery objectives | Not required. Done in design: transaction log backups go to the second site between the daily backups |
-| CP-7(4) Preparation for Use | The second site kept ready to use | Not required. The servers are rebuilt there when needed |
-| CP-8(3), CP-8(4) Separation of Providers; Provider Contingency Plan | Alternate services from a separate provider, who has a contingency plan | Not required. \<Organisation\>'s plans are asked for with EV-CP-01 |
-| CP-9(2), CP-9(3), CP-9(5) Test Restoration Using Sampling; Separate Storage for Critical Information; Transfer to Alternate Storage Site | Further assurance for backups | Not required. Done in design: every restore test restores the whole database; one copy is offline or immutable; backups and transaction log backups go to the second site |
-| CP-10(4) Restore Within Time Period | Components restored from configuration-controlled images within a set time | Not required. Done in design: the servers are rebuilt from the baseline and the tagged release (\<Configuration Management\>, section 3.4) |

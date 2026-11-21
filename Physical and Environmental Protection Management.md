@@ -4,7 +4,7 @@
 
 This document sets out how the places where \<System Name\> runs and is used are designed to be protected, to meet the 18 Physical and Environmental Protection (PE) controls and enhancements in the CSS Moderate baseline.
 
-Section 3 is the design: the sites and contacts, who provides each control, how \<Organisation\>'s evidence is obtained and checked, the rules for offices and for working from home, physical incidents, the encryption that stands behind the physical controls, what \<Organisation\> is asked for, what \<System Name\> requires at each data centre, and the policy and procedures. Each subsection names the controls it helps to meet. Appendix A lists the PE controls CSS does not select at Moderate.
+Section 3 is the design: the sites and contacts, who provides each control, how \<Organisation\>'s evidence is obtained and checked, the rules for offices and for working from home, physical incidents, the encryption that stands behind the physical controls, what \<Organisation\> is asked for, what \<System Name\> requires at each data centre, and the policy and procedures. Each subsection names the controls it helps to meet.
 
 \<System Name\> has no premises of its own. It runs on two virtual servers in \<Organisation\>'s data centre, with backups and recovery at a second site, so 15 of the 18 controls are provided wholly by \<Organisation\>. \<System Name\>'s own part is small: how its users treat screens and printouts, how they work from home, how physical incidents are handled, and the encryption of the server disks.
 
@@ -185,28 +185,3 @@ Controls met here: PE-16.
 Controls met here: PE-1.
 
 \<Policy\> (PE) and \<Procedures\> (PE) meet PE-1. Who they are shared with is in \<Policy\>, section PE.6. Their ownership, approval, review and records follow the rules common to every policy in \<Policy\>, section 1.1.
-
-## Appendix A PE controls outside the Moderate baseline
-
-CSS does not select these in the Moderate security baseline, so they are not assessed in this family. One is in the CSS privacy baseline and applies because visitor records hold personal data: it is assessed with the PT family. All but that one would be \<Organisation\>'s to provide, and Table 5 says where its evidence may already show them.
-
-**Table 5: PE controls not selected at Moderate**
-
-| Control | What it adds | \<System Name\>'s position |
-| --- | --- | --- |
-| PE-2(1), PE-2(2), PE-2(3) Access by Position or Role; Two Forms of Identification; Restrict Unescorted Access | Tighter rules for who may enter | Not required. No \<System Name\> role enters a data centre |
-| PE-3(1) System Access | Entry to the room holding the system controlled separately from entry to the building | Not required. \<Organisation\>'s evidence may show it (A.7.1, A.7.2) |
-| PE-3(2), PE-3(3), PE-3(4), PE-3(5), PE-3(7), PE-3(8) Facility and Systems; Continuous Guards; Lockable Casings; Tamper Protection; Physical Barriers; Access Control Vestibules | Further physical barriers and checks | Not required. Done in part in design: the server disks are encrypted, so that reaching a host does not expose the items (section 3.8) |
-| PE-5(2) Link to Individual Identity | Output released only to the person who asked for it | Not required. Done in design: managed printers with secure release (section 3.5) |
-| PE-6(2), PE-6(3), PE-6(4) Automated Intrusion Recognition and Responses; Video Surveillance; Monitoring Physical Access to Systems | More monitoring, some of it automated | Not required. CCTV is already required under PE-6(1) |
-| PE-8(1) Automated Records Maintenance and Review | Visitor records kept and reviewed by automated means | Not required |
-| PE-8(3) Limit Personally Identifiable Information Elements | Visitor records hold only defined personal data | Privacy baseline, so it applies. The data allowed is the name, the organisation, and the date and time of the visit. Assessed with the PT family (EV-PT-02) |
-| PE-9(1), PE-9(2) Redundant Cabling; Automatic Voltage Controls | Spare power cabling and voltage control | Not required |
-| PE-11(1), PE-11(2) Alternate Power Supply | Long-term backup power that keeps the system running | Not required. Availability is rated Low, and an orderly shutdown is enough. \<Organisation\> is asked how long its backup power lasts (EV-PE-02) |
-| PE-12(1) Essential Mission and Business Functions | Emergency lighting for all areas that support essential functions | Not required |
-| PE-13(2), PE-13(4) Suppression Systems, Automatic Activation and Notification; Inspections | Fire suppression that works and notifies automatically, and fire inspections | Not required. \<Organisation\>'s evidence may show them (A.7.5) |
-| PE-14(1), PE-14(2) Automatic Controls; Monitoring with Alarms and Notifications | Environmental levels controlled automatically, with alarms | Not required. Done in part in design: the levels are monitored continuously |
-| PE-15(1) Automation Support | Water detected automatically, with an alert | Not required |
-| PE-18 Location of System Components | Components placed to limit damage from hazards and from unauthorised access | Not required. The second site is asked not to share the main site's hazards (\<Contingency Planning Management\>, section 3.9) |
-| PE-19, PE-19(1), PE-20, PE-21, PE-22, PE-23 Information Leakage; Asset Monitoring and Tracking; Electromagnetic Pulse Protection; Component Marking; Facility Location | Protection from emanations and pulses, tracking of assets, and the siting of the facility | Not required |
-| PE-3(6), PE-5(1), PE-5(3), PE-7, PE-8(2), PE-10(1), PE-13(3), PE-18(1) | Withdrawn by CSS | Not applicable |

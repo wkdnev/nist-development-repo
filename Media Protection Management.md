@@ -4,7 +4,7 @@
 
 This document sets out how \<System Name\>'s media are protected to meet the 7 Media Protection (MP) controls in the CSS Moderate baseline.
 
-Section 3 is the design: every place the information is held outside the running application, how each is marked, stored, moved and sanitised, the limits on portable storage, what \<Organisation\> provides, and the policy and procedures. Each subsection names the controls it helps to meet. Appendix A gives the MP controls CSS does not select at Moderate.
+Section 3 is the design: every place the information is held outside the running application, how each is marked, stored, moved and sanitised, the limits on portable storage, what \<Organisation\> provides, and the policy and procedures. Each subsection names the controls it helps to meet.
 
 ## 2 Related documents
 
@@ -137,22 +137,3 @@ Controls met here: MP-2, MP-4, MP-5, MP-6, MP-7.
 Controls met here: MP-1.
 
 \<Policy\> (MP) and \<Procedures\> (MP) meet MP-1. Who they are shared with is in \<Policy\>, section MP.6. Their ownership, approval, review and records follow the rules common to every policy in \<Policy\>, section 1.1.
-
-## Appendix A MP controls outside the Moderate baseline
-
-CSS does not select these at Moderate, so they are not assessed. Some of the design goes further than the baseline, and Table 6 says where.
-
-**Table 6: MP controls not selected at Moderate**
-
-| Control | What it adds | \<System Name\>'s position |
-| --- | --- | --- |
-| MP-4(2) Automated Restricted Access | Access to media storage areas restricted and logged by automated means | Not required. \<Organisation\> is asked how access to its data centres is controlled (\<Physical and Environmental Protection Management\>) |
-| MP-5(3) Custodians | A named custodian for media in transport | Not required. Done in part: the system owner approves each move, and an authorised courier carries it with tracking |
-| MP-6(1) Review, Approve, Track, Document, and Verify | Sanitising and disposal reviewed, approved, tracked, documented and verified | Not required. Done in part: each action is recorded on TPL-13 with its verification, and the system owner checks a sample of certificates every 12 months |
-| MP-6(2) Equipment Testing | Sanitising equipment and procedures tested on a schedule | Not required. \<Organisation\> is asked how each action is verified (EV-MP-02) |
-| MP-6(3) Nondestructive Techniques | Portable storage sanitised before it is first connected | Not required. Portable storage is blocked, and an exception uses only encrypted media issued by \<Organisation\> |
-| MP-6(7) Dual Authorization | Two people to authorise sanitising | Not required |
-| MP-6(8) Remote Purging or Wiping of Information | Devices purged or wiped from a distance | Not required. Done in part: \<Organisation\> can lock or wipe a lost managed device (\<Incident Response Management\>, section 3.9) |
-| MP-7(2) Prohibit Use of Sanitization-resistant Media | Media that cannot be sanitised are not used | Not required. Every kind of media in section 3.2 has a method in section 3.6 |
-| MP-8, MP-8(1) to MP-8(4) Media Downgrading | A process for lowering the classification of media | Not required. No media is downgraded: everything stays marked \<Classification\> until sanitised |
-| MP-2(1), MP-2(2), MP-4(1), MP-5(1), MP-5(2), MP-5(4), MP-6(4), MP-6(5), MP-6(6), MP-7(1) | Withdrawn by CSS | Not applicable |

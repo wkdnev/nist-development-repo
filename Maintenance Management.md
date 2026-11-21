@@ -172,26 +172,3 @@ Controls met here: MA-2, MA-3(3), MA-4, MA-6.
 Controls met here: MA-1.
 
 \<Policy\> (MA) and \<Procedures\> (MA) meet MA-1. Who they are shared with is in \<Policy\>, section MA.6. Their ownership, approval, review and records follow the rules common to every policy in \<Policy\>, section 1.1.
-
-## Appendix A MA controls outside the Moderate baseline
-
-CSS does not select these at Moderate, so they are not assessed. Some of the design goes further than the baseline, and Table 9 says where.
-
-**Table 9: MA controls not selected at Moderate**
-
-| Control | What it adds | \<System Name\>'s position |
-| --- | --- | --- |
-| MA-2(2) Automated Maintenance Activities | Maintenance scheduled, done and recorded by automated means | Not required. The maintenance record is a form |
-| MA-3(4), MA-3(5) Restricted Tool Use; Execution with Privilege | Tools limited to authorised people, and their privileged use monitored | Not required. Done in part: each tool in section 3.5 is tied to a role, and the diagnostics page is limited to administrators |
-| MA-3(6) Software Updates and Patches | Maintenance tools kept up to date | Not required. Done in part: the Windows and SQL Server tools are updated with the servers |
-| MA-4(1) Logging and Review | Remote maintenance sessions logged, and the logs reviewed | Not required. Done in design: section 3.4 says what each session logs, and the security officer reviews the logs weekly |
-| MA-4(3) Comparable Security and Sanitization | Remote maintenance done only from a system as secure as the one maintained | Not required. Administrators use \<Organisation\>'s managed devices and route (EV-MA-02) |
-| MA-4(4) Authentication and Separation of Maintenance Sessions | Maintenance sessions kept apart from other network sessions | Not required. Done in part: the servers are administered through a management interface on \<Organisation\>'s managed route |
-| MA-4(5) Approvals and Notifications | Each remote session approved by named people, who are told when it is planned | Not required. Done in design: the system owner approves remote work in the change record |
-| MA-4(6), MA-4(7) Cryptographic Protection; Disconnect Verification | Remote sessions encrypted, and their end verified | Not required. Done in part: the VPN and TLS protect the session. The end of a session is not verified separately |
-| MA-5(1) Individuals Without Appropriate Access | Rules for maintenance people who lack the access authorisations | Not required. Done in part: they are escorted and supervised, have a temporary account, and have no access to \<System Name\>'s data |
-| MA-5(2), MA-5(3), MA-5(4) Security Clearances; Citizenship; Foreign Nationals | Clearance and nationality rules for classified systems | Not required. \<System Name\> holds no classified information |
-| MA-5(5) Non-system Maintenance | Rules for people who maintain the building and its services near the system | Not required. \<Organisation\> controls its data centres (\<Physical and Environmental Protection Management\>) |
-| MA-6(1), MA-6(2), MA-6(3) Preventive Maintenance; Predictive Maintenance; Automated Support for Predictive Maintenance | Maintenance done before a failure, by schedule or by prediction | Not required. Done in design for preventive work: the schedule in \<Procedures\>, PRO-MA-6. Nothing is predictive |
-| MA-7 Field Maintenance | Limits on maintenance done away from a trusted facility | Not required. The servers stay at \<Organisation\>'s data centres |
-| MA-2(1), MA-4(2) | Withdrawn by CSS | Not applicable |

@@ -90,7 +90,7 @@ This section lists the known weaknesses in configuring and using privileged func
 
 | Reference | Use |
 | --- | --- |
-| \<System Security Plan\>, \<Security Architecture\> | The system, its flows and its design |
+| \<System Security Plan\>; \<System Description\>, section 6 | The system, its flows and its design |
 | \<Access Control Management\>, \<Audit and Accountability Management\>, \<Identification and Authentication Management\>, \<System and Communications Protection Management\>, \<Configuration Management\>, \<Media Protection Management\>, \<Contingency Planning Management\>, \<PII Processing Management\>, \<Risk Assessment Management\> | The values each setting takes |
 | \<Security Operating Procedures\> | The rules administrators sign, Part B |
 | \<Plan of Action and Milestones\> | The fixes this guide works around |

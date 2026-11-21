@@ -8,7 +8,7 @@ Section 3 is the design: who and what is identified, sign-in through PingFederat
 
 Every user signs in through \<Organisation\>'s PingFederate, with multi-factor authentication, by OpenID Connect. PingFederate's signed response names the person and carries no groups: \<System Name\>'s API reads the person's groups from Active Directory over LDAPS (flow F7). \<System Name\> holds no accounts or passwords of its own, and has no session management.
 
-Appendix A lists the IA controls CSS does not select at Moderate.
+
 
 ## 2 Related documents
 
@@ -212,20 +212,3 @@ Controls met here: IA-2, IA-2(1), IA-2(2), IA-2(8), IA-3, IA-4, IA-4(4), IA-5, I
 Controls met here: IA-1.
 
 \<Policy\> (IA) and \<Procedures\> (IA) meet IA-1. Who they are shared with is in \<Policy\>, section IA.6. Their ownership, approval, review and records follow the rules common to every policy in \<Policy\>, section 1.1.
-
-## Appendix A IA controls outside the Moderate baseline
-
-CSS does not select these at Moderate, so they are not assessed. Some bear on the design, and Table 8 says how.
-
-**Table 8: IA controls not selected at Moderate**
-
-| Control | What it adds | \<System Name\>'s position |
-| --- | --- | --- |
-| IA-2(5) Individual Authentication with Group Authentication | A person signs in as themselves before using a shared account | Not required. There are no shared accounts |
-| IA-2(6) Access to Accounts, Separate Device | The second factor is on a device separate from the one signing in | Not required. Set by \<Organisation\>'s PingFederate, and asked with EV-IA-04 |
-| IA-5(7) No Embedded Unencrypted Static Authenticators | No passwords or keys left in code, scripts or settings | Not required. Done in design: the token signing key and the audit chain key are held in the key store, outside the source repositories and settings files, and the API has no database password (section 3.5) |
-| IA-5(13) Expiration of Cached Authenticators | Cached sign-in details expire | Not required. \<System Name\> caches no authenticators: it holds the sign-in only in its authentication cookie, for no longer than PingFederate's sign-in lifetime (P-02) |
-| IA-9 Service Identification and Authentication | Services prove who they are to each other | In no baseline. Done in design: the UI application and the Admin application to the API with a signed token; the API to the database and to Active Directory with its managed service account; and the applications' check of PingFederate's signed response (section 3.2) |
-| IA-10 Adaptive Authentication | Extra checks when a sign-in looks unusual | In no baseline. A matter for \<Organisation\>'s PingFederate |
-| IA-12(4) In-person Validation and Verification | Identity evidence checked in person | Selected only at High. \<Organisation\>'s HR is asked how it checks (EV-IA-02) |
-| IA-13 Identity Providers and Authorization Servers | Controls on the service that vouches for users, and on checking its tokens | In no baseline. It bears directly on \<System Name\>, which relies on PingFederate. Section 3.3 sets what \<System Name\> checks in a sign-in response |

@@ -4,7 +4,7 @@
 
 This document sets out how \<System Name\> is designed and configured to meet the 16 Audit and Accountability (AU) controls and enhancements in the CSS Moderate baseline.
 
-Section 3 is the design: where audit records come from, which events are logged and why, what a record holds, how records are stored and protected, time, retention and capacity, review, analysis and reporting, failures and alerts, the application logs, what \<Organisation\> provides, and the policy and procedures. Each subsection names the controls it helps to meet. Appendix A gives the logging settings for the database server, and Appendix B shows the logging that other controls require and the AU controls CSS does not select at Moderate. The design follows the good practice in CSS.
+Section 3 is the design: where audit records come from, which events are logged and why, what a record holds, how records are stored and protected, time, retention and capacity, review, analysis and reporting, failures and alerts, the application logs, what \<Organisation\> provides, and the policy and procedures. Each subsection names the controls it helps to meet. The design follows the good practice in CSS.
 
 ## 2 Related documents
 
@@ -268,9 +268,7 @@ These are the settings for SQL Server 2022 on the database server, so that it lo
 
 Changing any of these is itself a change to logging: it is made through a recorded change (\<Configuration Management\>), and SQL Server Audit records the change.
 
-## Appendix B The rest of the CSS catalogue
-
-### B.1 Logging that other controls require
+## Appendix B Logging that other controls require
 
 The CSS guidance on AU-2 points out that other controls ask for particular events to be logged. Table 11 shows where each of those in the Moderate baseline is met.
 
@@ -286,22 +284,3 @@ The CSS guidance on AU-2 points out that other controls ask for particular event
 | PE-3 Physical Access Control | Entry to the rooms that hold the servers | \<Organisation\>'s physical access logs, inherited (\<Physical and Environmental Protection Management\>) |
 | SI-4 System Monitoring | Events that show an attack or misuse | The detection use cases U1 to U8 (\<System and Information Integrity Management\>, section 3.4) |
 | PM-21 Accounting of Disclosures | Disclosures of personal data | The export and download records of Table 2 |
-
-### B.2 AU controls outside the Moderate baseline
-
-CSS does not select these at Moderate, so they are not assessed. Some of the design goes further than the baseline, and Table 12 says where.
-
-**Table 12: AU controls not selected at Moderate**
-
-| Control | What it adds | \<System Name\>'s position |
-| --- | --- | --- |
-| AU-5(1) Storage Capacity Warning | A warning before audit storage fills | Not required. Done in design: a disk-space alert warns before storage fills (section 3.7) |
-| AU-5(2) Real-time Alerts | Alerts at once for defined failures | Not required. The design alerts within 1 hour |
-| AU-6(5), AU-6(6) Integrated Analysis; Correlation with Physical Monitoring | Joining audit review with scanning, performance and physical access data | Not required, and not done |
-| AU-8(1) Synchronisation with an Authoritative Time Source | Withdrawn in Revision 5; now SC-45(1) | Not required. Done anyway: both servers within 1 second of UTC (section 3.6) |
-| AU-9(2) Store on Separate Physical Systems | Audit records kept on a different system from the one audited | Not required. Done in part: the newest chain hash is copied daily to a separate store, and the archive is offline |
-| AU-9(3) Cryptographic Protection | Cryptography to protect the integrity of audit information | Not required. Done in design: the keyed chain hash (section 3.5) |
-| AU-10 Non-repudiation | Proof that a person carried out an action | Not required at Moderate. Records name the person PingFederate authenticated |
-| AU-12(1), AU-12(3) System-wide Audit Trail; Changes by Authorised Individuals | One time-ordered trail across components; changing what is logged at run time | Not required. The weekly comparison by time stands in for the first |
-| AU-13, AU-14, AU-16 Monitoring for Disclosure; Session Audit; Cross-organisational Logging | Further capabilities | In no baseline. Not done |
-| AU-3(3) Limit Personally Identifiable Information Elements | Only the personal data needed in records | In the privacy baseline. Assessed with the PT family; design in section 3.4 |

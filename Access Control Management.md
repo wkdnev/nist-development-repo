@@ -137,7 +137,7 @@ Table 4 shows each pair of duties that one person must not hold together, the ro
 
 Controls met here: AC-4, AC-6.
 
-Figure 2 shows \<System Name\>'s boundary and the routes into and inside it. It is the boundary figure of \<Security Architecture\>.
+Figure 2 shows \<System Name\>'s boundary and the routes into and inside it. It is the boundary figure of \<System Description\>.
 
 ![Figure 2: System boundary and access routes](figures/sd-figure-1.png)
 
@@ -252,7 +252,7 @@ Controls met here: AC-4.
 | F10 | Application server | \<Organisation\>'s PingFederate | HTTPS, TCP 443 | The UI app and the Admin app fetching PingFederate's OpenID Connect metadata and signing certificate, and completing each sign-in |
 | F11 | Server and database administrators' managed devices, over \<Organisation\>'s managed administration route, with multi-factor authentication | Both servers | Tool and protocol to be supplied by \<Organisation\> | Server and database administration, using named accounts |
 
-Everything else should be refused, in and out. \<System Name\> needs no route to the internet, as browsers load all code from \<System Name\> itself. The applications fetch PingFederate's OpenID Connect metadata and signing certificate, which checks its sign-in responses, from \<Organisation\>'s PingFederate (F10), and fetch nothing from an outside host. ServiceNow and the starters and leavers process (F9) have no connection to \<System Name\>. The flows are also listed in \<Security Architecture\>, Table 2.
+Everything else should be refused, in and out. \<System Name\> needs no route to the internet, as browsers load all code from \<System Name\> itself. The applications fetch PingFederate's OpenID Connect metadata and signing certificate, which checks its sign-in responses, from \<Organisation\>'s PingFederate (F10), and fetch nothing from an outside host. ServiceNow and the starters and leavers process (F9) have no connection to \<System Name\>.
 
 What \<System Name\> itself controls is limited to its own apps: the API listens only on the loopback address, each app accepts only HTTPS, and the API accepts requests only from the two apps' addresses.
 

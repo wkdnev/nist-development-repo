@@ -143,7 +143,7 @@ All users are staff or contractors of \<Organisation\>, so all are internal. \<S
 
 ### 3.7 Ports, protocols and services
 
-The design on the two VMs is below. Flow numbers are those in \<System Description\>, section 6.5, and \<Security Architecture\>, Table 2. ServiceNow and the starters and leavers process (F9) have no connection to \<System Name\>, so they have no port.
+The design on the two VMs is below. Flow numbers are those in \<System Description\>, section 6.5. ServiceNow and the starters and leavers process (F9) have no connection to \<System Name\>, so they have no port.
 
 **Table 7: Ports, protocols and services**
 
@@ -164,9 +164,9 @@ The design on the two VMs is below. Flow numbers are those in \<System Descripti
 
 ## 4 Security architecture
 
-Users reach UI application, and administrators reach Admin application, by browser. Users sign in through \<Organisation\>'s PingFederate, with multi-factor authentication. API reads their group membership from Active Directory over LDAPS (flow F7), and \<System Name\> holds no accounts or passwords of its own. Both apps call API (F3, F4), and only API connects to SQL Server on the database VM (F5), by Windows authentication with no database password; the two apps get their data through it. Access decisions are made by the access checks in the shared library, and each schema's items sit in their own database schema. \<Organisation\> provides the network, firewalls, remote access, user devices and VM hosting, all outside the boundary. The boundary diagram and data flows F1 to F11 are in [\<Security Architecture\>](Security%20Architecture.md).
+Users reach UI application, and administrators reach Admin application, by browser. Users sign in through \<Organisation\>'s PingFederate, with multi-factor authentication. API reads their group membership from Active Directory over LDAPS (flow F7), and \<System Name\> holds no accounts or passwords of its own. Both apps call API (F3, F4), and only API connects to SQL Server on the database VM (F5), by Windows authentication with no database password; the two apps get their data through it. Access decisions are made by the access checks in the shared library, and each schema's items sit in their own database schema. \<Organisation\> provides the network, firewalls, remote access, user devices and VM hosting, all outside the boundary. The boundary diagram and data flows F1 to F11 are in \<System Description\>, sections 6.1 and 6.5.
 
-The figures below show the target design on the two VMs, not the test environment. Where they show \<Organisation\>'s services, the evidence for them is requested in \<Evidence Requests\>. Flow numbers F1 to F11 are those in \<System Description\>, section 6.5, and \<Security Architecture\>, Table 2.
+The figures below show the target design on the two VMs, not the test environment. Where they show \<Organisation\>'s services, the evidence for them is requested in \<Evidence Requests\>. Flow numbers F1 to F11 are those in \<System Description\>, section 6.5.
 
 ### 4.1 High-level architecture
 
@@ -582,7 +582,7 @@ The assessment plan is in \<Control Assessment Record\> (PL), section PL.5, wher
 | PL-2 Security and Privacy Plans | Security plan, with a plan review record, and a register of plans in \<Planning Management\>, held in the restricted store; privacy plan \<Privacy Plan\> | System owner, authorising official | Organisational | \[Status\] | \[Decision\] |
 | PL-4 Rules of Behavior | \<Security Operating Procedures\>; signatures are recorded on TPL-21 and in the register | System owner, everyone | Organisational | \[Status\] | \[Decision\] |
 | PL-4(1) Social Media | Rules A43 and A44 in \<Security Operating Procedures\> | System owner | Organisational | \[Status\] | \[Decision\] |
-| PL-8 Architectures | \<Security Architecture\> \<ver\>, with its security approach; privacy architecture in \<Privacy Plan\>; reviewed yearly | System owner | Organisational | \[Status\] | \[Decision\] |
+| PL-8 Architectures | \<System Description\>, section 6.8,, with its security approach; privacy architecture in \<Privacy Plan\>; reviewed yearly | System owner | Organisational | \[Status\] | \[Decision\] |
 | PL-10 Baseline Selection | Moderate | Authorising official | Organisational | \[Status\] | \[Decision\] |
 | PL-11 Baseline Tailoring | \<Tailoring Register\> \<ver\>, with the PM inheritance table | System owner | Organisational | \[Status\] | \[Decision\] |
 
@@ -668,11 +668,11 @@ The assessment plan is in \<Control Assessment Record\> (SA), section SA.5, wher
 | SA-3 System Development Life Cycle | \<Organisation\>'s corporate SDLC, inherited, whose security practices meet CSS (\<System and Services Acquisition Management\>, section 3.2); roles named | \<Organisation\>, system owner, developers | Hybrid | \[Status\] | \[Decision\] |
 | SA-4 Acquisition Process | \<Organisation\>'s contract | System owner, \<Organisation\> | Inherited | \[Status\] | \[Decision\] |
 | SA-4(1) Functional Properties | Section 7 of this plan and each family's design document describe the controls' functional properties | Developers | Organisational | \[Status\] | \[Decision\] |
-| SA-4(2) Design Information | \<Security Architecture\> and sections 3 and 4 of this plan | Developers | Organisational | \[Status\] | \[Decision\] |
+| SA-4(2) Design Information | \<System Description\>, section 6, and sections 3 and 4 of this plan | Developers | Organisational | \[Status\] | \[Decision\] |
 | SA-4(9) Functions, Ports, Protocols | Section 3.7, Table 7, lists the functions, ports, protocols and services | Developers | Organisational | \[Status\] | \[Decision\] |
 | SA-4(10) Use of Approved PIV Products | US government identity cards are not used | None | Not applicable | \[Status\] | \[Decision\] |
 | SA-5 System Documentation | Administrator and user guides (\<Administrator Guide\> and \<User Guide\>, version \<ver\>) | Developers | System | \[Status\] | \[Decision\] |
-| SA-8 Engineering Principles | NCSC principles and privacy objectives mapped to the specification and design (\<Security Architecture\>, section 6.5) | Developers, security officer | Organisational | \[Status\] | \[Decision\] |
+| SA-8 Engineering Principles | NCSC principles and privacy objectives mapped to the specification and design (\<System Description\>, section 6.8) | Developers, security officer | Organisational | \[Status\] | \[Decision\] |
 | SA-9 External System Services | The source repositories, the checked package feed and \<Organisation\>'s services listed with their controls (\<System and Services Acquisition Management\>, section 3.7) | System owner, \<Organisation\> | Hybrid | \[Status\] | \[Decision\] |
 | SA-9(2) Functions, Ports, Protocols | \<Organisation\>'s list of functions, ports, protocols and services | \<Organisation\> | Inherited | \[Status\] | \[Decision\] |
 | SA-10 Developer Configuration Management | Code is in Git on private repositories, under \<System and Services Acquisition Management\> | Developers | Hybrid | \[Status\] | \[Decision\] |
@@ -787,7 +787,7 @@ The artifacts this plan relies on are below, in the order CSS lists them. All ar
 | Privacy plan | \<Privacy Plan\> |
 | Privacy impact assessment | \<Data Protection Impact Assessment\> |
 | Supply chain risk management plan | \<Supply Chain Risk Management\>, section 3 |
-| Architecture and data flows | \<Security Architecture\> |
+| Architecture and data flows | \<System Description\>, section 6 |
 | Concept of operations | \<Concept of Operations\> |
 | Administrator and user guides | \<Administrator Guide\> and \<User Guide\> |
 | Roles and responsibilities | \<Roles and Responsibilities\> |

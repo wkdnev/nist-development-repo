@@ -23,7 +23,6 @@ The set has 44 documents. \<Guide to the Document Set\> is the place to start. W
 | \<System Security Plan\> | Plans and descriptions | How \<System Name\> implements each of the 316 controls, with the system description, architecture figures, inheritance and responsibilities | Everyone, first |
 | \<Privacy Plan\> | Plans and descriptions | How personal data in \<System Name\> is governed: the privacy plan that PL-2 calls for | The legal adviser; an auditor |
 | \<System Description\> | Plans and descriptions | One description of the whole system for a person or an AI without the source code: its purpose, users, high-level requirements, architecture, technologies and design, its security family by family, and how an application departs from the reference design | Anyone who needs to understand the system; an auditor, early |
-| \<Security Architecture\> | Plans and descriptions | System boundary, components, data flows and what is inherited from \<Organisation\> | Developers, administrators, an auditor |
 | \<Concept of Operations\> | Plans and descriptions | Why \<System Name\> exists, who uses it, the business workflows it supports and its operational scenarios | The business owner; an auditor, early |
 | \<Roles and Responsibilities\> | Plans and descriptions | Who holds each role, so that other documents name roles and not people | Anyone asking who holds a role |
 | \<Configuration Management\> | Plans and descriptions | The configuration management design, and the plan CM-9 requires: the configuration items, the baseline, the components, the secure settings, change control, least functionality and the inventory | Whoever works in, or assesses, that family |
@@ -100,7 +99,7 @@ Table 2 gives, for each family, the chapter or section of every document that ho
 | Record | Where | What it shows |
 | --- | --- | --- |
 | Test evidence | \<evidence\> | The results of each test, with a note that explains them and a list of hashes that fixes their content |
-| Figures | With the documents | The architecture figures used in \<System Security Plan\> and \<Security Architecture\> |
+| Figures | With the documents | The architecture figures used in \<System Security Plan\> and \<System Description\> |
 | Change record | The private records repository described in section 4.1 | Every change to the documents and evidence, with its date |
 | Sign-off sheets | The restricted store (\<Decision Register\>, section 23) | Each approver's signature for the decisions recorded for them |
 

@@ -6,7 +6,7 @@ This document sets out how \<System Name\> is designed to assess risk and respon
 
 Section 3 is the design: the security categorisation, the risk assessment, the supply chain risk assessment, what is monitored for vulnerabilities, the vulnerability timetable, how findings are analysed, shared and reported, the risk response, the critical components, what \<Organisation\> provides, and the policy and procedures. Each subsection names the controls it helps to meet.
 
-Appendix A lists the related controls and enhancements CSS does not select at Moderate.
+
 
 ## 2 Related documents
 
@@ -203,24 +203,3 @@ Controls met here: RA-3, RA-3(1), RA-5, RA-5(11), RA-7, RA-9.
 Controls met here: RA-1.
 
 \<Policy\> (RA) and \<Procedures\> (RA) meet RA-1. Who they are shared with is in \<Policy\>, section RA.6. Their ownership, approval, review and records follow the rules common to every policy in \<Policy\>, section 1.1.
-
-## Appendix A Risk assessment controls outside the Moderate baseline
-
-CSS does not select these at Moderate, so they are not assessed. Some of the design goes some way towards them, and Table 8 says where. RA-4, RA-5(1), RA-5(7) and RA-5(9) are withdrawn: RA-5(1) is now part of RA-5f, and the others were moved into other controls.
-
-**Table 8: Related controls and enhancements not selected**
-
-| Control | What it adds | \<System Name\>'s position |
-| --- | --- | --- |
-| RA-2(1) Impact-level Prioritization | Ranks systems within one impact level | Not required. \<System Name\> is one system |
-| RA-3(2) Use of All-source Intelligence | Draws on all sources of threat intelligence | Not required. \<Organisation\>'s threat awareness programme (PM-16) and the advisory sources in \<System and Information Integrity Management\>, section 3.3, feed the risk assessment |
-| RA-3(3) Dynamic Threat Awareness | Assesses the current threat continuously | Not required. Done in part: CISA's exploited list and \<Organisation\>'s alerts are checked weekly (PRO-RA-4) |
-| RA-3(4) Predictive Cyber Analytics | Uses advanced analytics to predict threats | Not required |
-| RA-5(3) Breadth and Depth of Coverage | Defines how widely and deeply scans look | Not required. Done in part in design: section 3.5 says which components are checked, how and how often |
-| RA-5(4) Discoverable Information | Finds what an adversary could learn about the system, and acts on it | Not required: selected at High only. The penetration test before go-live looks for it |
-| RA-5(6) Automated Trend Analyses | Compares scan results over time automatically | Not required. Done in part by hand: the monthly monitoring analysis looks for a trend over three months (\<Assessment, Authorization, and Monitoring Management\>, section 3.8) |
-| RA-5(8) Review Historic Audit Logs | Checks the audit records for signs a newly found flaw was exploited before | Not required |
-| RA-5(10) Correlate Scanning Information | Combines scan results to find attacks that use several flaws | Not required |
-| RA-6 Technical Surveillance Countermeasures Survey | Surveys premises for eavesdropping devices | Not required. \<System Name\> has no premises of its own |
-| RA-8 Privacy Impact Assessments | Assesses the effect on people's privacy | In the CSS privacy baseline. Designed and assessed with the personal data controls in \<PII Processing Management\> |
-| RA-10 Threat Hunting | Searches actively for threats that have evaded other controls | Not required. Any threat hunting is \<Organisation\>'s security operations |

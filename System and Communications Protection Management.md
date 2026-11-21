@@ -10,7 +10,7 @@ Much of this family is \<Organisation\>'s network: firewalls, the VPN, the proxy
 
 ## 2 Related documents
 
-Who provides and is responsible for each control, and its status, are in \<System Security Plan\>, section 7.17 (Table 26). The tests, their results and the records an assessor will ask for are in \<Control Assessment Record\> (SC). Each control's risk is in \<Risk List\>, and what is still open is in \<Plan of Action and Milestones\>. The policy is in \<Policy\> (SC), and the steps people follow are in \<Procedures\> (SC). The flows themselves, F1 to F11, are in \<System Description\>, section 6.5, and \<System Security Plan\>, section 3.7, and the trust zones and layers of defence in \<Security Architecture\>.
+Who provides and is responsible for each control, and its status, are in \<System Security Plan\>, section 7.17 (Table 26). The tests, their results and the records an assessor will ask for are in \<Control Assessment Record\> (SC). Each control's risk is in \<Risk List\>, and what is still open is in \<Plan of Action and Milestones\>. The policy is in \<Policy\> (SC), and the steps people follow are in \<Procedures\> (SC). The flows themselves, F1 to F11, are in \<System Description\>, section 6.5, and \<System Security Plan\>, section 3.7, and the trust zones and layers of defence in \<System Description\>, section 6.
 
 ## 3 The design
 
@@ -33,7 +33,7 @@ These carry out the principles and rules of \<Policy\>, sections SC.3 and SC.4.
 
 Controls met here: SC-2, SC-7, SC-7(3), SC-7(4), SC-7(5), SC-7(7), SC-7(8), SC-15.
 
-\<System Name\> has no publicly accessible component and no connection of its own to an outside network. Users reach it from \<Organisation\>'s network, administrators over \<Organisation\>'s managed administration route, and everything outside is reached through \<Organisation\>'s managed interfaces and authenticated proxy (SC-7, SC-7(3), SC-7(8)), as \<Security Architecture\> sets out. Its only external connections are \<Organisation\>'s managed gateways, and all outbound traffic from the servers goes through the proxy or is blocked. \<System Name\> has no collaborative computing devices or applications, so SC-15 is tailored out (\<Tailoring Register\>, TR-SC-01). The flows, F1 to F11, are in \<System Description\>, section 6.5, \<System Security Plan\>, section 3.7, Table 7, and \<Security Architecture\>, Table 2.
+\<System Name\> has no publicly accessible component and no connection of its own to an outside network. Users reach it from \<Organisation\>'s network, administrators over \<Organisation\>'s managed administration route, and everything outside is reached through \<Organisation\>'s managed interfaces and authenticated proxy (SC-7, SC-7(3), SC-7(8)), as \<System Description\>, section 6, sets out. Its only external connections are \<Organisation\>'s managed gateways, and all outbound traffic from the servers goes through the proxy or is blocked. \<System Name\> has no collaborative computing devices or applications, so SC-15 is tailored out (\<Tailoring Register\>, TR-SC-01). The flows, F1 to F11, are in \<System Description\>, section 6.5, \<System Security Plan\>, section 3.7, Table 7.
 
 \<System Name\>'s own part is how each application listens and each server's host firewall:
 
@@ -189,22 +189,3 @@ Controls met here: SC-5, SC-7, SC-7(3), SC-7(4), SC-7(5), SC-7(7), SC-7(8), SC-1
 Controls met here: SC-1.
 
 \<Policy\> (SC) and \<Procedures\> (SC) meet SC-1. Who they are shared with is in \<Policy\>, section SC.6. Their ownership, approval, review and records follow the rules common to every policy in \<Policy\>, section 1.1.
-
-## Appendix A Communications protection controls outside the Moderate baseline
-
-CSS does not select these at Moderate, so they are not assessed. SC-15 is tailored out (TR-SC-01), and SC-7(24) is a privacy baseline control set out in \<PII Processing Management\>. Table 8 says where the design goes some way towards them.
-
-**Table 8: Related controls and enhancements not selected**
-
-| Control | What it adds | \<System Name\>'s position |
-| --- | --- | --- |
-| SC-7(10) Prevent Exfiltration | Stops data leaving by unauthorised routes | Not required. Done in part: outbound traffic only through \<Organisation\>'s proxy (section 3.2) |
-| SC-7(12) Host-based Protection | A firewall on each host | Not required. Done in design: each server's host firewall (section 3.2) |
-| SC-7(18) Fail Secure | The boundary fails closed | Not required. Done in design: deny by default |
-| SC-7(21) Isolation of System Components | Separates components by boundary | Not required. Done in design: separate application and database servers |
-| SC-8(2) Pre- and Post-transmission Handling | Protects information while it is prepared for or received from transmission | Not required |
-| SC-12(1) to SC-12(3) | Key availability and symmetric and asymmetric key production | Not required. Keys are recorded with their store and owner (section 3.4) |
-| SC-23(1), SC-23(3), SC-23(5) | Invalidate session identifiers at sign-out, unique identifiers, allowed certificate authorities | Not required. \<System Name\> has no session identifiers of its own. Done in design: only PingFederate's signed response is accepted, and the sign-in is held only in the protected authentication cookie, whose lifetime is no longer than PingFederate's (section 3.3) |
-| SC-28(2), SC-28(3) | Offline storage of information at rest; protected key storage | Not required. Done in part: encrypted backups with the key held apart (K10) |
-| SC-39(1), SC-39(2) | Hardware separation and separate execution threads | Not required |
-| SC-45 System Time Synchronization | Synchronises clocks with an authoritative source | Not selected at Moderate in the SC family. Done in design: \<Organisation\>'s time service (rule O1; \<Audit and Accountability Management\>) |

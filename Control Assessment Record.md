@@ -2851,7 +2851,7 @@ There is one finding for each CSS determination statement, including those about
 | Scope | The 7 PL entries in the CSS Moderate baseline, with 93 determination statements, covering every plan in the register in \<Planning Management\>, section 3.2 |
 | Procedures | CSS, using the CSS published statements and identifiers (catalog release 5.2.0); plan contents compared with CSS |
 | Dates | \[Dates of the assessment\] |
-| Examine | \<Policy\> (PL) and \<Procedures\> (PL), \<Planning Management\>, \<System Security Plan\>, \<Privacy Plan\>, \<Security Architecture\>, \<Concept of Operations\>, \<Security Operating Procedures\>, \<Tailoring Register\> and \<Risk Assessment Management\>. Depth: focused. Coverage: focused |
+| Examine | \<Policy\> (PL) and \<Procedures\> (PL), \<Planning Management\>, \<System Security Plan\>, \<Privacy Plan\>, \<System Description\>, section 6, \<Concept of Operations\>, \<Security Operating Procedures\>, \<Tailoring Register\> and \<Risk Assessment Management\>. Depth: focused. Coverage: focused |
 | Test | Test-PlanConsistency.ps1 on the document set (the PL evidence) |
 | Interview | The Head of Cyber, an administrator and a sample of users, on the rules they signed |
 | Previous results reused | \[Results reused from other chapters, if any\] |
@@ -3560,7 +3560,7 @@ There is one finding for each CSS determination statement, including those about
 | Scope | The 17 SA entries in the Moderate baseline, with 159 determination statements. SA-4(10) is covered by TR-SA-01 |
 | Procedures | CSS, using the CSS published statements and identifiers (catalog release 5.2.0); CSS for the development process |
 | Dates | \[Dates of the assessment\] |
-| Examine | \<Policy\> (SA), \<Procedures\> (SA) and \<System and Services Acquisition Management\>; \<Security Architecture\>; \<System Security Plan\>, sections 3, 4 and 7; \<Risk Assessment Management\>; \<Maintenance Management\>; \<Organisation\>'s corporate SDLC, which \<System Name\> is built under; the guides; the test evidence folders. Depth: focused. Coverage: focused |
+| Examine | \<Policy\> (SA), \<Procedures\> (SA) and \<System and Services Acquisition Management\>; \<System Description\>, section 6; \<System Security Plan\>, sections 3, 4 and 7; \<Risk Assessment Management\>; \<Maintenance Management\>; \<Organisation\>'s corporate SDLC, which \<System Name\> is built under; the guides; the test evidence folders. Depth: focused. Coverage: focused |
 | Test | Test-Development.ps1, read-only, against the repositories, the release history and the build files (the SA evidence) |
 | Interview | The developers, the system owner and \<Organisation\>'s contract owner |
 | Previous results reused | \[Results reused from other chapters, if any\] |
@@ -3753,7 +3753,7 @@ There is one finding for each CSS determination statement, including those about
 | Scope | The 25 SC entries in the Moderate baseline, with 107 determination statements. SC-15 is covered by TR-SC-01 |
 | Procedures | CSS, using the CSS published statements and identifiers (catalog release 5.2.0); NCSC's TLS guidance and CSS for the values |
 | Dates | \[Dates of the assessment\] |
-| Examine | \<Policy\> (SC), \<Procedures\> (SC) and \<System and Communications Protection Management\>; \<Security Architecture\>; \<System Security Plan\>, sections 3.7, 4 and 7; the start-up configuration, the security headers component, the sign-in configuration and the settings files at the release tag. Depth: focused. Coverage: focused |
+| Examine | \<Policy\> (SC), \<Procedures\> (SC) and \<System and Communications Protection Management\>; \<System Description\>, section 6; \<System Security Plan\>, sections 3.7, 4 and 7; the start-up configuration, the security headers component, the sign-in configuration and the settings files at the release tag. Depth: focused. Coverage: focused |
 | Test | Test-Protection.ps1, on a throwaway test stack built from the release (the SC evidence), and checks by hand |
 | Interview | The Windows server administrator, database administrator, developers and \<Organisation\>'s security contact |
 | Previous results reused | \[Results reused from other chapters, if any\] |

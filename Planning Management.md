@@ -4,7 +4,7 @@
 
 This document sets out how \<System Name\>'s plans are written, approved, shared, reviewed and protected, to meet the 7 Planning (PL) controls and enhancements in the CSS Moderate baseline.
 
-Section 3 is the design: the principles, the register of every plan in force, what the security plan and the privacy plan must hold and where each part is, how a plan is approved and kept current, the rules of behaviour and who has signed them, the architecture, the baseline and its tailoring, what \<Organisation\> provides, and the policy and procedures. Each subsection names the controls it helps to meet. The plans themselves are separate documents, listed in section 3.2. Appendix A lists the PL controls CSS does not select at Moderate.
+Section 3 is the design: the principles, the register of every plan in force, what the security plan and the privacy plan must hold and where each part is, how a plan is approved and kept current, the rules of behaviour and who has signed them, the architecture, the baseline and its tailoring, what \<Organisation\> provides, and the policy and procedures. Each subsection names the controls it helps to meet. The plans themselves are separate documents, listed in section 3.2.
 
 ## 2 Related documents
 
@@ -45,7 +45,7 @@ Every plan and planning record in force, with its owner, version, approver and n
 | Contingency plan | \<Contingency Planning Management\> | \<ver\> | System owner | System owner and authorising official | Every 12 months, and after a test or activation |
 | Incident response plan | \<Incident Response Management\> | \<ver\> | Security officer | Head of Cyber | Every 12 months, and after an incident or exercise |
 | Continuous monitoring strategy | \<Assessment, Authorization, and Monitoring Management\> | \<ver\> | System owner | System owner | Every 12 months |
-| Security architecture | \<Security Architecture\> | \<ver\> | System owner | System owner | Every 12 months, and after a significant change |
+| Security architecture | \<System Description\>, section 6 | \<ver\> | System owner | System owner | Every 12 months, and after a significant change |
 | Concept of operations | \<Concept of Operations\> | \<ver\> | System owner | System owner | Every 12 months |
 | Rules of behaviour | \<Security Operating Procedures\> | \<ver\> | System owner | System owner | Every 12 months, and after a material change |
 | Baseline and tailoring | CSS Moderate and privacy baselines; \<Tailoring Register\> | \<ver\> | System owner | System owner, accepted by the authorising official | Every 12 months, and when a condition changes |
@@ -64,8 +64,8 @@ PL-2 lists 15 things a security plan and a privacy plan must hold. The security 
 
 | Part | CSS requires | Security plan | Privacy plan |
 | --- | --- | --- | --- |
-| a.1 | Consistent with the enterprise architecture | \<System Security Plan\>, section 4; \<Security Architecture\>, sections 4 and 6.3 | \<Privacy Plan\>, section 8 |
-| a.2 | Defines the components of the system | \<System Security Plan\>, sections 3.1 and 3.4; \<Security Architecture\>, section 2 | \<Privacy Plan\>, section 2 |
+| a.1 | Consistent with the enterprise architecture | \<System Security Plan\>, section 4; \<System Description\>, sections 6.6 and 10 | \<Privacy Plan\>, section 8 |
+| a.2 | Defines the components of the system | \<System Security Plan\>, sections 3.1 and 3.4; \<System Description\>, section 6.1 | \<Privacy Plan\>, section 2 |
 | a.3 | Describes the operational context | \<System Security Plan\>, sections 1 and 2; \<Concept of Operations\> | \<Privacy Plan\>, section 2 |
 | a.4 | Names the people in each role | \<System Security Plan\>, section 6; \<Roles and Responsibilities\> | \<Privacy Plan\>, section 3 |
 | a.5 | Identifies the types of information | \<System Security Plan\>, section 3.3 | \<Privacy Plan\>, section 4 |
@@ -126,7 +126,7 @@ The register starts empty. First signatures are taken on the current version of 
 
 Controls met here: PL-8.
 
-The security architecture is \<Security Architecture\>. The protection goals, the design principles, the trust zones and the layers of defence are in \<Security Architecture\>, section 6. What is inherited from \<Organisation\>, and where the trust zones meet its network, is in \<Security Architecture\>, sections 4 and 6.3: this is how the architecture fits \<Organisation\>'s enterprise architecture. The assumptions about, and dependencies on, external systems and services are in \<Security Architecture\>, section 6.6. The privacy architecture is in \<Privacy Plan\>, section 8, which covers the same for the processing of personal data. The system owner reviews the architecture against the system itself every 12 months and after a significant change. Each change is carried into the security plan, the privacy plan, the concept of operations, the list of critical components (\<Risk Assessment Management\>, section 3.9), the procedures and any procurement, and each is noted in the review record (PRO-PL-5). New open questions go to \<Decision Register\> or \<Plan of Action and Milestones\>, and not into the architecture.
+The security architecture is \<System Description\>, section 6. The protection goals, the design principles, the trust zones and the layers of defence are in \<System Description\>, section 6.8. What is inherited from \<Organisation\>, and where the trust zones meet its network, is in \<System Description\>, sections 6.6 and 10: this is how the architecture fits \<Organisation\>'s enterprise architecture. The assumptions about, and dependencies on, external systems and services are in \<System Description\>, section 6.8. The privacy architecture is in \<Privacy Plan\>, section 8, which covers the same for the processing of personal data. The system owner reviews the architecture against the system itself every 12 months and after a significant change. Each change is carried into the security plan, the privacy plan, the concept of operations, the list of critical components (\<Risk Assessment Management\>, section 3.9), the procedures and any procurement, and each is noted in the review record (PRO-PL-5). New open questions go to \<Decision Register\> or \<Plan of Action and Milestones\>, and not into the architecture.
 
 ### 3.7 Baseline and tailoring
 
@@ -151,17 +151,3 @@ Controls met here: PL-2, PL-8.
 Controls met here: PL-1.
 
 \<Policy\> (PL) and \<Procedures\> (PL) meet PL-1. Who they are shared with is in \<Policy\>, section PL.6. Their ownership, approval, review and records follow the rules common to every policy in \<Policy\>, section 1.1.
-
-## Appendix A PL controls outside the Moderate baseline
-
-CSS does not select these in the Moderate security baseline, so they are not assessed in this family. One is in the CSS privacy baseline, and is assessed with the PT family. The design already does what two of the others ask, and Table 6 says where.
-
-**Table 6: PL controls not selected at Moderate**
-
-| Control | What it adds | \<System Name\>'s position |
-| --- | --- | --- |
-| PL-7 Concept of Operations | A concept of operations that says how the organisation means to operate the system, reviewed on a schedule | Not required. Done: \<Concept of Operations\> is in the register of plans, and is reviewed every 12 months |
-| PL-8(1) Defense in Depth | Controls placed in layers, so that one failure does not expose the system | Not required. Done in design: the layers of defence in \<Security Architecture\>, section 6.4 |
-| PL-8(2) Supplier Diversity | Controls in different layers obtained from different suppliers | Not required |
-| PL-9 Central Management | Defined controls and processes managed centrally | Privacy baseline, so it applies. The whole document set is managed as one, by one owner, with one consistency test. Assessed with the PT family |
-| PL-2(1), PL-2(2), PL-2(3), PL-3, PL-5, PL-6 | Withdrawn by CSS | Not applicable |

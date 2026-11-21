@@ -129,19 +129,3 @@ Controls met here: SR-2(1), SR-3, SR-5, SR-6, SR-8, SR-10, SR-11(1), SR-11(2), S
 Controls met here: SR-1.
 
 \<Policy\> (SR) and \<Procedures\> (SR) meet SR-1. Who they are shared with is in \<Policy\>, section SR.6. Their ownership, approval, review and records follow the rules common to every policy in \<Policy\>, section 1.1.
-
-## Appendix A Supply chain controls outside the Moderate baseline
-
-CSS does not select these at Moderate, so they are not assessed. Table 5 says where the design goes some way towards them.
-
-**Table 5: Related controls and enhancements not selected**
-
-| Control | What it adds | \<System Name\>'s position |
-| --- | --- | --- |
-| SR-3(1) to SR-3(3) | Diverse supply base; limiting harm; flowing controls down to sub-tier suppliers | Not required. Done in part: the risk tolerance limits harm (section 3.6) |
-| SR-4 Provenance | Records where each component came from and every change to it | Not required. Done in part in design: the in-house package feed's SHA-256 records and the bill of materials |
-| SR-5(1), SR-5(2) | Adequate supply; assessments before selection | Not required. Done in part: the PRO-SR-1 check before a component is used |
-| SR-6(1) Testing and Analysis | Tests what suppliers provide | Not required. Done in part: release inspection (section 3.8) |
-| SR-7 Supply Chain Operations Security | Hides supply chain information from adversaries | Not required. The plan and the register are restricted |
-| SR-9 Tamper Resistance and Detection | Resists and detects tampering | Not required: selected at High only. Done in part: SHA-256 checks of each release |
-| SR-10 enhancements, SR-11(3) | Further inspection; scanning for counterfeits | Not required |

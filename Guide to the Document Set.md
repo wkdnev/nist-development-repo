@@ -57,7 +57,7 @@ Around the chain sit the documents that describe the system as a whole, and thos
 | If you want to know | Read |
 | --- | --- |
 | What \<System Name\> is, as a whole, in one document | \<System Description\> |
-| What \<System Name\> is, where it runs and where its boundary lies | \<System Security Plan\>, sections 2 to 4; \<Security Architecture\> |
+| What \<System Name\> is, where it runs and where its boundary lies | \<System Security Plan\>, sections 2 to 4; \<System Description\>, section 6 |
 | Why it exists and how it is used | \<Concept of Operations\> |
 | Who holds each role | \<Roles and Responsibilities\> |
 | Whether it is ready to be authorised | \<Security Assessment Report\>, sections 2 and 8 |
@@ -82,7 +82,7 @@ An auditor does not need to read every document from end to end. This route take
 | Step | Read | Look for |
 | --- | --- | --- |
 | 1 Get your bearings | This guide; \<Documentation Map\>, section 2 | The four groups, and the design document for each family |
-| 2 Understand the system | \<System Description\>; then \<System Security Plan\>, sections 2 to 6; \<Concept of Operations\>; \<Security Architecture\> | The boundary, the categorisation, the components, the data flows, what is inherited from \<Organisation\>, and who is responsible |
+| 2 Understand the system | \<System Description\>; then \<System Security Plan\>, sections 2 to 6; \<Concept of Operations\>; \<System Description\>, section 6 | The boundary, the categorisation, the components, the data flows, what is inherited from \<Organisation\>, and who is responsible |
 | 3 See the overall result | \<Security Assessment Report\>; then \<System Security Plan\>, section 7 | How many controls and statements are satisfied, the top risks, the conditions before authorisation, and the line for each control |
 | 4 Take a family | Its design document; its chapter of \<Policy\> and of \<Procedures\>; its chapter of \<Control Assessment Record\> | The summary table of what is missing; then each control part by part; whether the rule, the design, the steps and the finding agree |
 | 5 Follow a gap | The entry in \<Risk List\>; the item in \<Plan of Action and Milestones\>; the decision in \<Decision Register\> | That the gap is rated, decided by the right person, planned with an owner and a date, and not described elsewhere as done |

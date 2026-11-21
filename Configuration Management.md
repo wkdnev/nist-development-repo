@@ -4,7 +4,7 @@
 
 This document sets out how \<System Name\>'s configuration is recorded, controlled and changed to meet the 24 Configuration Management (CM) controls and enhancements in the CSS Moderate baseline.
 
-Section 3 is the design: roles and processes, the configuration items, the baseline, the software components and licences, the secure settings, change control and the change control board, impact analysis, least functionality, who may change what, the inventory and where information is held, the library, what \<Organisation\> provides, approved software, devices for travel, and the policy, procedures and this plan. Each subsection names the controls it helps to meet. This document is also the Configuration Management Plan that CM-9 requires, and follows the outline in CSS, Appendix D. Appendix A sets out the development, test and production environments, and Appendix B lists the CM controls CSS does not select at Moderate.
+Section 3 is the design: roles and processes, the configuration items, the baseline, the software components and licences, the secure settings, change control and the change control board, impact analysis, least functionality, who may change what, the inventory and where information is held, the library, what \<Organisation\> provides, approved software, devices for travel, and the policy, procedures and this plan. Each subsection names the controls it helps to meet. This document is also the Configuration Management Plan that CM-9 requires, and follows the outline in CSS, Appendix D. Appendix A sets out the development, test and production environments.
 
 ## 2 Related documents
 
@@ -77,7 +77,7 @@ The baseline is what a release must contain so that it can be rebuilt exactly.
 | Software components | Section 3.5, at the versions in the lock files, with the software bill of materials |
 | Settings | Section 3.6; settings files at the release tag, with secrets held outside them |
 | Windows Server 2025 and SQL Server 2022 on the two servers | CIS Benchmarks with recorded exceptions, at their recorded update levels |
-| Network placement and connections | The two servers, their zones and the flows between them, as \<Security Architecture\> and \<Access Control Management\>, section 3.6.4, set out; the connections in \<Assessment, Authorization, and Monitoring Management\>, section 3.7 |
+| Network placement and connections | The two servers, their zones and the flows between them, as \<System Description\>, section 6, and \<Access Control Management\>, section 3.6.4, set out; the connections in \<Assessment, Authorization, and Monitoring Management\>, section 3.7 |
 
 Three means keep the baseline current, complete and accurate: signed release tags in the source repositories; lock files and the recorded checksum of each package; and the release record, which states the exact configuration. The build produces a software bill of materials at each release.
 
@@ -313,21 +313,3 @@ The CSS guidance on CM-9 asks the plan to say how the development, test and oper
 | Production | The application server and the database server at \<Organisation\> | Real data, once \<System Name\> is authorised | The named Windows server and database administrators only, installing an approved release |
 
 A release is tested in the test environment before it reaches production (section 3.7, step 4). CSS asks for a separate test environment only at High, as CM-4(1); \<System Name\> has one.
-
-## Appendix B CM controls outside the Moderate baseline
-
-CSS does not select these at Moderate, so they are not assessed. Some of the design goes further than the baseline, and Table 14 says where.
-
-**Table 14: CM controls not selected at Moderate**
-
-| Control | What it adds | \<System Name\>'s position |
-| --- | --- | --- |
-| CM-3(1) Automated Documentation, Notification, and Prohibition of Changes | A workflow that records each change, tells the approvers, and blocks a change until approved | Not required. Done in part by the ServiceNow workflow |
-| CM-3(6) Cryptography Management | Cryptographic mechanisms under configuration management | Not required. Keys and certificates are in the key register (\<System and Communications Protection Management\>, section 3.4), and a new key or certificate goes through change control |
-| CM-4(1) Separate Test Environments | Changes analysed in a separate test environment | Not required. Done: appendix A |
-| CM-5(1) Automated Access Enforcement and Audit Records | Automated enforcement of who may change the system, with audit records | Not required. Done in part: Windows and database permissions enforce it, and their logs record it |
-| CM-6(1), CM-6(2) Automated Management and Verification; Respond to Unauthorized Changes | Automated checking of settings, and a set response to an unauthorised change | Not required. Done in part in design: the monthly benchmark scan, and the drift procedure |
-| CM-7(4) Unauthorized Software, Deny-by-exception | A list of software that must not run | Not required. \<System Name\> uses the stricter alternative, CM-7(5), an approved list, though it is not enforced by the system |
-| CM-8(2), CM-8(4) Automated Maintenance; Accountability Information | An inventory kept by automated means, naming who is accountable for each component | Not required. Each entry names an owner. The bill of materials will keep the software list by automated means |
-| CM-13 Data Action Mapping | A map of what the system does with personal data | In no security baseline. The personal data inventory is in \<PII Processing Management\>, section 3.3 |
-| CM-14 Signed Components | Components installed only if signed with an approved certificate | In no baseline. Release tags are to be signed, and packages checked for their signature |

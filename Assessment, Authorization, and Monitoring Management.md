@@ -6,7 +6,7 @@ This document sets out how \<System Name\> is assessed, authorised to operate an
 
 Section 3 is the design: the cycle, assessment, the plan of action, authorisation, inherited controls, information exchanges and internal connections, continuous monitoring, significant change, what \<Organisation\> provides, and the policy and procedures. Each subsection names the controls it helps to meet.
 
-Appendix A lists the CA controls CSS does not select at Moderate.
+
 
 ## 2 Related documents
 
@@ -253,19 +253,3 @@ Controls met here: CA-3, CA-6.
 Controls met here: CA-1.
 
 \<Policy\> (CA) and \<Procedures\> (CA) meet CA-1. Who they are shared with is in \<Policy\>, section CA.6. Their ownership, approval, review and records follow the rules common to every policy in \<Policy\>, section 1.1.
-
-## Appendix A CA controls outside the Moderate baseline
-
-CSS does not select these at Moderate, so they are not assessed.
-
-**Table 10: CA controls not selected at Moderate**
-
-| Control | What it adds | \<System Name\>'s position |
-| --- | --- | --- |
-| CA-2(2) Specialized Assessments | In-depth monitoring, scanning and testing as part of assessment | Not required. Vulnerability scanning is done under RA-5 |
-| CA-2(3) Leveraging Results from External Organizations | Accepting another organisation's assessment | Not required. \<Organisation\>'s evidence is examined, not accepted unseen |
-| CA-3(6), CA-3(7) Transfer Authorizations; Transitive Information Exchanges | Checks on what the other system may do with the information | Not required, and not done |
-| CA-7(3) Trend Analyses | Using trends to adjust monitoring | Not required. Done in part: the monthly analysis looks across three months |
-| CA-7(5), CA-7(6) Consistency Analysis; Automation Support | Further assurance and automation of monitoring | Not required, and not done |
-| CA-8 Penetration Testing | Penetration testing of the system | Selected only at High, so not required. One is commissioned anyway, before go-live: by a tester independent of the build, on the servers, covering the two user-facing applications, the API and sign-in through PingFederate, with each finding rated in the Risk List. Tester: \[Name\] |
-| CA-9(1) Compliance Checks | Security checks on a component before it connects | Not required, and not done |
