@@ -7,7 +7,7 @@ This document holds the security and privacy procedures for \<System Name\>: 139
 - **Finding a procedure.** Section 2 lists every procedure. Each procedure is headed by its number, such as PRO-AC-3, which never changes.
 - **Reading a chapter.** Most chapters start with a table that summarises each procedure: what starts it, who acts, the time limit, the record and the controls it serves. The steps follow.
 - **Manual steps.** A step marked **Manual** is carried out and recorded by a person, without support from the system.
-- **Records.** Records use the forms in \<Record Templates\>, TPL-1 to TPL-24, or a ServiceNow record with the same fields.
+- **Records.** Records use the forms in \<Record Templates\>, TPL-1 to TPL-25, or a ServiceNow record with the same fields.
 - **Walk-through.** Each procedure is walked through once on form TPL-4 before go-live.
 - **Citing.** Cite a procedure by its number, as \<Procedures\>, PRO-AC-3. Cite a chapter as \<Procedures\> (AC), a section as \<Procedures\>, section AC.2, and a table as \<Procedures\>, Table AC-4.
 

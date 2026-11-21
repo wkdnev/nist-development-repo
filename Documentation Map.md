@@ -49,7 +49,7 @@ The set has 42 documents. \<Guide to the Document Set\> is the place to start. W
 | \<Policy\> | Rules and how they are carried out | The security and privacy policy: one chapter of rules for each of the 19 families | Everyone bound by the rules |
 | \<Procedures\> | Rules and how they are carried out | The procedures that carry out the policy: one chapter for each family, each step naming who acts and the record kept | Whoever carries out a duty |
 | \<Security Operating Procedures\> | Rules and how they are carried out | Rules of behaviour for everyone and for privileged users, and how security is operated day to day, with the record that proves each duty | Every user and administrator, who sign it |
-| \<Record Templates\> | Rules and how they are carried out | The forms that show controls operating, TPL-1 to TPL-24 | Whoever carries out a procedure |
+| \<Record Templates\> | Rules and how they are carried out | The forms that show controls operating, TPL-1 to TPL-25 | Whoever carries out a procedure |
 | \<Tailoring Register\> | Rules and how they are carried out | The case for each control treated as not applicable, and why Program Management is outside the baseline | An assessor |
 | \<Control Assessment Record\> | Assessment and authorisation | A template for the self-assessment: the 1,998 determination statements to assess, with space for the finding on each, one chapter for each family | An assessor |
 | \<Security Assessment Report\> | Assessment and authorisation | A template for the report to the authorising official: the results of all 19 families, the risk position and the conditions before authorisation, to be filled in from the assessment | The authorising official; an auditor, early |

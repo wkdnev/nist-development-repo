@@ -12,9 +12,9 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | --- | --- | --- |
 | TPL-1 Risk acceptance | Records a decision to accept a non-compliance | Any NC entry, in any family; PRO-AC-15, PRO-AC-17 |
 | TPL-2 Access request | Records a request, its approval by the line manager and its authorisation by the group's owner before access changes. The ServiceNow access approval workflow is where requests are made, and the closed ServiceNow request is this record and must hold these fields | AC-2c, AC-2e, AC-6(5); PRO-AC-1, PRO-AC-2, PRO-AC-5, PRO-AC-6; IA-4, CM-5, PS-3; PRO-PS-1 |
-| TPL-3 Access review | Records a periodic review of accounts or privileges | AC-2j, AC-6(7); PRO-AC-7, PRO-AC-8; CM-7(1), SC-7(4), CA-3, CA-9; PS-2, PS-6; PRO-PS-4 |
+| TPL-3 Access review | Records a periodic review of accounts or privileges, checked against the ServiceNow requests | AC-2j, AC-2(3), AC-6(7); PRO-AC-7, PRO-AC-8; CM-7(1), SC-7(4), CA-3, CA-9; PS-2, PS-6; PRO-PS-4 |
 | TPL-4 Procedure walk-through | Shows that a procedure was tried and works | Every policy control (XX-1); AC-2f; every procedure |
-| TPL-5 Approved access list | The approved baseline to compare the system against | AC-2d, AC-2i, AC-5, AC-6; CM-7(5), CM-8, CM-12 |
+| TPL-5 Approved access list | The approved baseline of software and components to compare the system against. Access is not listed here: the ServiceNow requests (TPL-2) are the approved record of access | CM-7(5), CM-8, CM-12 |
 | TPL-6 Change record | Records a change, its impact, testing and approval. Where the change is recorded in ServiceNow, the ServiceNow record is this record and must hold these fields | CM-3, CM-3(2), CM-4, CM-4(2), SI-2, IA-5, IA-5(1), IA-5(6); PRO-CM-1, PRO-IA-4, PRO-IA-5 |
 | TPL-7 Vulnerability and patch review | Records a scan or package check, what was found, and when it was fixed | SI-2, SI-2(2), SI-5, RA-5, RA-5(5); PRO-SI-1, PRO-SI-5, PRO-RA-3, PRO-RA-4, PRO-RA-5 |
 | TPL-8 Monitoring and integrity report | Records log reviews, integrity checks, configuration drift and the monthly measures | AU-6, SI-4, SI-7(1), CA-7; PRO-SI-3, PRO-SI-4, PRO-SI-6, PRO-CA-5 |
@@ -33,7 +33,7 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | TPL-21 Rules of behaviour acknowledgement | Records that a person has signed the rules of behaviour, which version and parts, and how. Kept while the person has access, and for 3 years after | AC-2; PL-4, PL-4(1), PS-6; PRO-PL-3 |
 | TPL-22 Data protection complaint | Records a complaint about how personal data is handled, its acknowledgement within 30 days, the investigation and the outcome. Kept for 3 years after it is closed | PT-2, PM-26; PRO-PT-2 |
 | TPL-23 Risk and supply chain review | Records a review of the risk list, the supply chain or the critical components: what was looked at, what changed, and who saw the result | RA-3, RA-3(1), RA-7, RA-9; PRO-RA-1, PRO-RA-2, PRO-RA-6 |
-| TPL-24 Approval sign-off record | Records that a named person made or confirms the decisions listed, so that an approval does not rest on someone else's report | AC-1; CA-6, PL-2, PM-10 and every policy control (xx-1); \<Decision Register\>, section 5 |
+| TPL-24 Approval sign-off record | Records that a named person made or confirms the decisions listed, so that an approval does not rest on someone else's report | AC-1; CA-6, PL-2, PM-10 and every policy control (xx-1); \<Decision Register\>, section 5 |\n| TPL-25 Sharing decision | Records a Data Owner's decision on sharing a schema's information outside the schema or outside \<Organisation\>: what, with whom, why, and the conditions | AC-21; PRO-AC-16 |
 
 ## 2 Templates
 
@@ -85,16 +85,16 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | --- | --- |
 | Record number |  |
 | Scope: privileged group memberships, or all other group memberships |  |
-| System or layer: application (Active Directory role and schema groups), Windows or SQL Server |  |
+| System or layer: application (Active Directory role and schema groups), Windows or SQL Server (every 6 months, P-52) |  |
 | Date of the group membership export from Active Directory, or the account export, and who produced it |  |
-| Compared with: the approved access list version |  |
+| Compared with: the ServiceNow requests that authorised each membership (TPL-2); for Windows and SQL Server, \<Roles and Responsibilities\> and the approved change records |  |
 | Accounts reviewed |  |
 | Accounts confirmed, changed and removed |  |
-| Members who have not signed in for 90 days, and removed (\<Procedures\>, PRO-AC-8) |  |
+| Members who have not signed in for 90 days, from the last sign-in report run by the security officer (FR-085), and removed (\<Procedures\>, PRO-AC-8) |  |\n| Any temporary, emergency, shared or privileged account found in a schema group (none expected: P-39, P-36, P-45) |  |
 | For a review of risk designations and access agreements (\<Procedures\>, PRO-PS-4): roles checked against \<Roles and Responsibilities\>, designations changed, and agreements reviewed |  |
 | Reviewer is not reviewing their own access (yes or no) |  |
 | Actions completed, by and date |  |
-| Signed off by the group's owner (the system owner for role groups, the Data Owner for a schema's groups), and date |  |
+| Signed off, and date: the Data Owner for a schema's groups; for the role groups, prepared by the system owner and checked and signed by the auditor; for Windows and SQL Server, the system owner and the security officer |  |\n| Head of Cyber's quarterly check of the system owner's own memberships and of the administrators' group, and date |  |
 
 **Table 5: TPL-3 Access review detail**
 
@@ -494,3 +494,23 @@ Completed for each approver, and filed by the system owner in the Restricted sto
 | Statement: "I made each decision listed above on the date recorded against it, or I confirm it now" |  |
 | Signed by the approver, and date; or the email or minute that confirms it |  |
 | Filed by the system owner: where, and date |  |
+
+### 2.25 TPL-25 Sharing decision
+
+Completed by the Data Owner before any of a schema's information is shared outside the schema or outside \<Organisation\> (\<Procedures\>, PRO-AC-16; \<System Description\>, P-49). Portable storage and external systems are not approved here: they need an exception on TPL-17.
+
+**Table 28: TPL-25 Sharing decision record**
+
+| Field | Entry |
+| --- | --- |
+| Record number |  |
+| Schema, and the items or information to be shared |  |
+| Requested by and date |  |
+| Recipient: person, team or organisation, and whether inside or outside \<Organisation\> |  |
+| Purpose and business need |  |
+| Classification and any personal data, and the lawful basis (checked with the legal adviser where personal data leaves \<Organisation\>) |  |
+| Recipient's access authorisations and restrictions checked against the information (AC-21a) |  |
+| Conditions: how it is sent, how long it may be kept, and onward sharing |  |
+| Decision: shared, shared with conditions, or refused, and why |  |
+| Decided by the schema's Data Owner (name), and date |  |
+| Export or transfer reference, and date sent |  |
