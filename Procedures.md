@@ -287,13 +287,13 @@ The API compares the group names on the schema definition with the person's Acti
 
 #### PRO-AC-8 Inactive accounts
 
-1. \<Organisation\> disables unused Active Directory accounts under its corporate standard (P-38).
+1. \<Organisation\> disables Active Directory accounts unused for 90 days within 1 working day (P-38).
 2. Each month, the security officer runs the last sign-in report in the Admin application (\<System Description\>, FR-085), lists the members of each \<System Name\> group who have not signed in for 90 days, and sends each owner their list. **Manual**
 3. The owner removes those members from the group, unless the person is on leave and still needs the access, and records the date on TPL-3. **Manual**
 
 #### PRO-AC-9 Locked account
 
-1. PingFederate and Active Directory lock an account after repeated failed sign-ins, and release it, under \<Organisation\>'s corporate standard (P-42). \<System Name\> has no lock of its own.
+1. PingFederate and Active Directory lock an account after repeated failed sign-ins, and release it, as P-42 sets: 10 failed attempts in 15 minutes lock the account for 15 minutes. \<System Name\> has no lock of its own.
 2. A user who is locked out asks \<Organisation\>'s IT service desk, which checks who they are. **Manual**
 
 #### PRO-AC-10 Forgotten password
@@ -314,7 +314,7 @@ The API compares the group names on the schema definition with the person's Acti
 
 #### PRO-AC-13 Changing the system use notice
 
-The legal adviser and the system owner approve the wording, and a change request updates the system use notice page of the UI application and the Admin application. The page is shown after the person signs in through PingFederate, and they must accept it before going further; the acceptance is written to the audit log.
+The legal adviser and the system owner approve the wording, and a change request updates the system use notice page of the UI application and the Admin application. The page is shown after the person signs in through PingFederate, and nothing else is served until they accept it; the acceptance is written to the audit log.
 
 #### PRO-AC-14 Policy and procedure review
 
@@ -1153,7 +1153,7 @@ These procedures carry out \<Policy\> (PS). Steps marked **Manual** rely on peop
 #### PRO-PS-2 Leavers
 
 1. \<Organisation\> disables the person's Active Directory account at once, which ends their access to \<System Name\>. The starters and leavers process tells the system owner and the owners of the person's groups, who remove the memberships within 5 working days (\<Procedures\>, PRO-AC-3).
-2. For a higher-risk leaver, a dismissal or suspected misuse, anyone who knows tells the system owner and \<Organisation\>'s service desk. Within 1 hour, the service desk disables the Active Directory account and ends the person's PingFederate sign-in, and the system owner confirms that both are done (\<Procedures\>, PRO-AC-4). **Manual**
+2. For a higher-risk leaver, a dismissal or suspected misuse, anyone who knows tells the system owner and \<Organisation\>'s service desk. Within 1 hour, the service desk disables the Active Directory account and ends the person's PingFederate sign-in, and the system owner confirms that both are done and that \<System Name\> refuses the person within 5 minutes (\<Procedures\>, PRO-AC-4). **Manual**
 3. Disabling the Active Directory account revokes the person's password and second factor. The system owner has any service secret the person knew changed (\<Procedures\>, PRO-IA-4). **Manual**
 4. \<Organisation\> holds the exit interview, including confidentiality duties, and recovers equipment. **Manual** (EV-PS-02)
 5. The system owner confirms that the items the person managed stay available, and completes TPL-14. **Manual**
