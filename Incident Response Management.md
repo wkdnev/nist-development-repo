@@ -6,13 +6,9 @@ This document sets out how \<System Name\> is designed to prepare for, find, han
 
 Section 3 is the design, and is the incident response plan that IR-8 requires: the scope, who does what, preparation, how incidents are found, how severe each is and how fast it must be contained, the steps every incident follows, personal data breaches, the playbooks, evidence, reportable incidents, measures and resources, sharing information, the register, what \<Organisation\> provides, how the plan is kept, and the policy and procedures. It can be used on its own during an incident. Each subsection names the controls it helps to meet. Appendix A holds the contacts, and Appendix B lists the IR controls CSS does not select at Moderate.
 
-Other documents hold the rest. Who provides and is responsible for each control, its status and its assessment result are in \<System Security Plan\>, section 7.8 (Table 17). The tests, their results and the records an assessor will ask for are in \<Control Assessment Record\> (IR). Each control's risk is in \<Risk List\>, and what is still open is in \<Plan of Action and Milestones\>. The policy is in \<Policy\> (IR), and the steps people follow are in \<Procedures\> (IR).
+## 2 Related documents
 
-Values that CSS asks the organisation to define are set at corporate level by \<Organisation\>. The settings in section 3, such as the severity targets, should match those corporate values. Where one does not, it is changed in this document.
-
-## 2 Summary
-
-The implementation status of each control, how it is met, who is responsible, its assessment result and the risk and plan entries for its gaps are recorded in \<System Security Plan\>, section 7.8 (Table 17).
+Who provides and is responsible for each control, and its status, are in \<System Security Plan\>, section 7.8 (Table 17). The tests, their results and the records an assessor will ask for are in \<Control Assessment Record\> (IR). Each control's risk is in \<Risk List\>, and what is still open is in \<Plan of Action and Milestones\>. The policy is in \<Policy\> (IR), and the steps people follow are in \<Procedures\> (IR).
 
 ## 3 The incident response plan
 
@@ -237,11 +233,7 @@ Controls met here: IR-8.
 
 Controls met here: IR-1.
 
-1. **Policy.** \<Policy\> (IR) is a system-level policy, shared with everyone who administers \<System Name\>. The legal adviser reviews it.
-2. **Procedures.** \<Procedures\> (IR) holds seven procedures, PRO-IR-1 to PRO-IR-7. They are shared with the same people.
-3. **Owner.** The system owner manages the policy and procedures.
-4. **Review.** The policy is reviewed every 12 months, and after a significant incident, audit finding or system change. The procedures are reviewed every 12 months, and after a change to the steps.
-5. **Records.** The documents are under version control.
+\<Policy\> (IR) and \<Procedures\> (IR) meet IR-1. Who they are shared with is in \<Policy\>, section IR.6. Their ownership, approval, review and records follow the rules common to every policy in \<Policy\>, section 1.1.
 
 ## Appendix A Contacts
 

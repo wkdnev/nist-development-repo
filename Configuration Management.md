@@ -6,13 +6,9 @@ This document sets out how \<System Name\>'s configuration is recorded, controll
 
 Section 3 is the design: roles and processes, the configuration items, the baseline, the software components and licences, the secure settings, change control and the change control board, impact analysis, least functionality, who may change what, the inventory and where information is held, the library, what \<Organisation\> provides, approved software, devices for travel, and the policy, procedures and this plan. Each subsection names the controls it helps to meet. This document is also the Configuration Management Plan that CM-9 requires, and follows the outline in CSS, Appendix D. Appendix A sets out the development, test and production environments, and Appendix B lists the CM controls CSS does not select at Moderate.
 
-Other documents hold the rest. Who provides and is responsible for each control, its status and its assessment result are in \<System Security Plan\>, section 7.5 (Table 14). The tests, their results and the records an assessor will ask for are in \<Control Assessment Record\> (CM). Each control's risk is in \<Risk List\>, and what is still open is in \<Plan of Action and Milestones\>. The policy is in \<Policy\> (CM), and the steps people follow are in \<Procedures\> (CM).
+## 2 Related documents
 
-Values that CSS asks the organisation to define are set at corporate level by \<Organisation\>. The settings in section 3 should match those corporate values. Where one does not, it is changed in this document.
-
-## 2 Summary
-
-The implementation status of each control, how it is met, who is responsible, its assessment result and the risk and plan entries for its gaps are recorded in \<System Security Plan\>, section 7.5 (Table 14).
+Who provides and is responsible for each control, and its status, are in \<System Security Plan\>, section 7.5 (Table 14). The tests, their results and the records an assessor will ask for are in \<Control Assessment Record\> (CM). Each control's risk is in \<Risk List\>, and what is still open is in \<Plan of Action and Milestones\>. The policy is in \<Policy\> (CM), and the steps people follow are in \<Procedures\> (CM).
 
 ## 3 The design
 
@@ -300,12 +296,9 @@ No \<System Name\> device is issued to anyone, for travel or otherwise. \<System
 
 Controls met here: CM-1, CM-9.
 
-1. **Policy.** \<Policy\> (CM) is a system-level policy. Its purpose and scope are in section CM.1, responsibilities in CM.5, and commitment, coordination and compliance in CM.6. It is shared with everyone who changes or administers \<System Name\>. The legal adviser reviews it.
-2. **Procedures.** \<Procedures\> (CM) holds nine procedures, PRO-CM-1 to PRO-CM-9, each naming who acts, how often and the record. They are shared with the same people.
-3. **Owner.** The system owner manages the policy and procedures.
-4. **Review.** The policy is reviewed every 12 months, and after a significant incident, audit finding or system change. The procedures are reviewed every 12 months, and after a change to the steps.
-5. **This plan.** This document is the configuration management plan. Roles and processes are in section 3.2, the configuration items in section 3.3, the route a change follows in section 3.7, and the environments in Appendix A. The system owner reviews and approves it. It is classified Restricted and held in the restricted document store.
-6. **Records.** The documents are under version control, and each review is recorded in the change record.
+\<Policy\> (CM) and \<Procedures\> (CM) meet CM-1. Who they are shared with is in \<Policy\>, section CM.6. Their ownership, approval, review and records follow the rules common to every policy in \<Policy\>, section 1.1.
+
+This document is the configuration management plan. Roles and processes are in section 3.2, the configuration items in section 3.3, the route a change follows in section 3.7, and the environments in Appendix A. The system owner reviews and approves it. It is classified Restricted and held in the restricted document store.
 
 ## Appendix A Environments
 

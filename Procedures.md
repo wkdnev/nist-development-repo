@@ -217,20 +217,20 @@ Table AC-4 summarises each procedure: what starts it, who acts, its time limit, 
 
 | Procedure | Starts when | Who acts | Time limit | Record | Controls |
 | --- | --- | --- | --- | --- | --- |
-| PRO-AC-1 Joiner | Access is requested | The person, line manager, the group's owner (P-AC-05), security officer | Training and signed SyOps before the person is added to a group | ServiceNow request, TPL-9, TPL-21 and the register of signatures | AC-2, PL-4, PS-6, AT-2 |
-| PRO-AC-2 Mover | A role changes | Line manager, the groups' owners | Notified within 1 working day (P-AC-06) | TPL-2, TPL-14 | AC-2, PS-5 |
-| PRO-AC-3 Leaver | The starters and leavers process prompts | \<Organisation\> disables the Active Directory account at once; the groups' owners | Within 5 working days (P-AC-06; \<System Description\>, P-06) | TPL-14 | AC-2, AC-2(3), PS-4 |
-| PRO-AC-4 Urgent disable | A concern is raised | Anyone, \<Organisation\>'s service desk, system owner | Within 1 hour (P-AC-13) | TPL-14, and TPL-10 if it is an incident | AC-2(13), IR-6 |
+| PRO-AC-1 Joiner | Access is requested | The person, line manager, the group's owner (P-37), security officer | Training and signed SyOps before the person is added to a group | ServiceNow request, TPL-9, TPL-21 and the register of signatures | AC-2, PL-4, PS-6, AT-2 |
+| PRO-AC-2 Mover | A role changes | Line manager, the groups' owners | Notified within 1 working day (P-06) | TPL-2, TPL-14 | AC-2, PS-5 |
+| PRO-AC-3 Leaver | The starters and leavers process prompts | \<Organisation\> disables the Active Directory account at once; the groups' owners | Within 5 working days (\<System Description\>, P-06) | TPL-14 | AC-2, AC-2(3), PS-4 |
+| PRO-AC-4 Urgent disable | A concern is raised | Anyone, \<Organisation\>'s service desk, system owner | Within 1 hour (P-41) | TPL-14, and TPL-10 if it is an incident | AC-2(13), IR-6 |
 | PRO-AC-5 Schema access | Access to a schema is requested | The person, line manager, Data Owner | Before access | TPL-2 | AC-3, AC-6 |
 | PRO-AC-6 Privileged access | A privileged role is requested | The person, line manager, system owner | Role modules M1 and M2 (\<Awareness and Training Management\>) passed and signed Part B before access | TPL-2, TPL-9 | AC-2, AC-6(5), AT-3 |
-| PRO-AC-7 Access review | The review falls due | The groups' owners, system owner, auditor | Every 3 months for privileged access, every 12 months for all other access (P-AC-07; \<System Description\>, P-04 and P-05) | TPL-3 | AC-2, AC-6(7) |
-| PRO-AC-8 Inactive accounts | Monthly | \<Organisation\>; auditor; the groups' owners | 90 days without signing in; \<Organisation\>'s corporate standard for the Active Directory account (P-AC-08) | TPL-3 | AC-2(3) |
-| PRO-AC-9 Locked account | A user asks | \<Organisation\>'s IT service desk | \<Organisation\>'s corporate standard (P-AC-14) | \<Organisation\>'s record | AC-7 |
+| PRO-AC-7 Access review | The review falls due | The groups' owners, system owner, auditor | Every 3 months for privileged access, every 12 months for all other access (\<System Description\>, P-04 and P-05) | TPL-3 | AC-2, AC-6(7) |
+| PRO-AC-8 Inactive accounts | Monthly | \<Organisation\>; auditor; the groups' owners | 90 days without signing in; \<Organisation\>'s corporate standard for the Active Directory account (P-38) | TPL-3 | AC-2(3) |
+| PRO-AC-9 Locked account | A user asks | \<Organisation\>'s IT service desk | \<Organisation\>'s corporate standard (P-42) | \<Organisation\>'s record | AC-7 |
 | PRO-AC-10 Forgotten password | A user asks | \<Organisation\>'s IT service desk | After its identity check | \<Organisation\>'s record | IA-5 |
 | PRO-AC-11 Ending access at once | A person's access must end at once | \<Organisation\>'s service desk; the groups' owners | At once | Note of the reason; TPL-10 if it is an incident | AC-12 |
 | PRO-AC-12 First administrator | \<System Name\> is first built | Windows server administrator, database administrator, system owner | At build | TPL-6 | AC-2, IA-5 |
 | PRO-AC-13 Use notice | The wording changes | System owner, legal adviser | Through an approved change | TPL-6 | AC-8 |
-| PRO-AC-14 Policy and procedure review | The review falls due, or an event | System owner | Every 12 months (P-AC-02, P-AC-03) | Change record; TPL-4 | AC-1 |
+| PRO-AC-14 Policy and procedure review | The review falls due, or an event | System owner | Every 12 months (\<Policy\>, section 1.1) | Change record; TPL-4 | AC-1 |
 | PRO-AC-15 Exception | A rule cannot be met | Requester, security officer, system owner or authorising official | End date no more than 12 months away | TPL-17; \<Risk List\> | AC-1, PL-4, CA-5 |
 | PRO-AC-16 Sharing and export | Information must leave a schema | Requester, Data Owner, an editor of the schema | Before anything is shared | TPL-2, as the sharing decision | AC-21, AC-20(2) |
 | PRO-AC-17 Non-compliance | A gap is found | System owner, authorising official | As set in \<Risk List\> | \<Risk List\>; TPL-1 for an acceptance | CA-5, RA-7 |
@@ -238,7 +238,7 @@ Table AC-4 summarises each procedure: what starts it, who acts, its time limit, 
 #### PRO-AC-1 New user (joiner)
 
 1. The person raises an access request in ServiceNow, naming the schemas and level needed, and the reason. **Manual**
-2. Their line manager approves or refuses it. The system owner then authorises or refuses the role, and the Data Owner each schema named (P-AC-05). Nobody decides their own request. The ServiceNow workflow keeps the record. **Manual**
+2. Their line manager approves or refuses it. The system owner then authorises or refuses the role, and the Data Owner each schema named (P-37). Nobody decides their own request. The ServiceNow workflow keeps the record. **Manual**
 3. Before the person is added to any group, they complete security and privacy awareness training, receive the \<System Name\> briefing from the system owner (\<Awareness and Training Management\>, section 3.3), and sign Part A of \<Security Operating Procedures\>, and Part B if the access is privileged. The security officer records the training on TPL-9, and the system owner records the signature on TPL-21 and in the register of signatures (\<Planning Management\>, section 3.5). No access is given until this is done.
 4. The owner who authorised the request adds the person to the approved AD groups, with \<Organisation\>'s AD tool. No \<System Name\> account is created: the person's Active Directory account is their account. **Manual**
 5. The person signs in through PingFederate, and \<System Name\>'s API reads their groups from Active Directory over LDAPS.
@@ -246,20 +246,20 @@ Table AC-4 summarises each procedure: what starts it, who acts, its time limit, 
 
 #### PRO-AC-2 Role change (mover)
 
-1. The line manager raises a change request in ServiceNow within the time in P-AC-06. **Manual**
-2. The approver in P-AC-05 approves the new access in the ServiceNow approval workflow.
+1. The line manager raises a change request in ServiceNow within the time in P-06. **Manual**
+2. The approver in P-37 approves the new access in the ServiceNow approval workflow.
 3. Each group's owner removes the old membership and adds any new one in Active Directory. The change takes effect when the person next signs in. If it must take effect at once, \<Organisation\>'s service desk ends the person's PingFederate sign-in, so that they must sign in again. **Manual**
 
 #### PRO-AC-3 Leaver
 
 1. \<Organisation\> disables the person's Active Directory account at once, which stops them signing in to \<System Name\>. The starters and leavers process prompts the owners of the groups the person belongs to. **Manual**
-2. Each owner removes the person from their AD group within the time in P-AC-06. **Manual**
+2. Each owner removes the person from their AD group within the time in P-06. **Manual**
 3. \<Organisation\>'s service desk ends any PingFederate sign-in the person still has, and the owner records the date in the ServiceNow request. \<System Name\> has no sessions of its own to end.
 
 #### PRO-AC-4 Urgent disable (high-risk individual)
 
 1. Whoever raises the concern tells the system owner and \<Organisation\>'s service desk.
-2. Within the time in P-AC-13, \<Organisation\>'s service desk disables the person's Active Directory account and ends their PingFederate sign-in. \<System Name\> has no sessions of its own to end. **Manual**
+2. Within the time in P-41, \<Organisation\>'s service desk disables the person's Active Directory account and ends their PingFederate sign-in. \<System Name\> has no sessions of its own to end. **Manual**
 3. The system owner confirms with the service desk that the account is disabled and the PingFederate sign-in has ended.
 4. The system owner records the reason and informs anyone who needs to know.
 
@@ -285,13 +285,13 @@ The API compares the group names on the schema definition with the person's Acti
 
 #### PRO-AC-8 Inactive accounts
 
-1. \<Organisation\> disables unused Active Directory accounts under its corporate standard (P-AC-08).
+1. \<Organisation\> disables unused Active Directory accounts under its corporate standard (P-38).
 2. Each month, the auditor lists, from the audit records of sign-ins, the members of each \<System Name\> group who have not signed in for 90 days, and sends each owner their list. **Manual**
 3. The owner removes those members from the group, unless the person is on leave and still needs the access, and records the date on TPL-3. **Manual**
 
 #### PRO-AC-9 Locked account
 
-1. PingFederate and Active Directory lock an account after repeated failed sign-ins, and release it, under \<Organisation\>'s corporate standard (P-AC-14). \<System Name\> has no lock of its own.
+1. PingFederate and Active Directory lock an account after repeated failed sign-ins, and release it, under \<Organisation\>'s corporate standard (P-42). \<System Name\> has no lock of its own.
 2. A user who is locked out asks \<Organisation\>'s IT service desk, which checks who they are. **Manual**
 
 #### PRO-AC-10 Forgotten password
@@ -315,7 +315,7 @@ The system owner approves the wording and a change request updates the system us
 
 #### PRO-AC-14 Policy and procedure review
 
-1. At the intervals in P-AC-02 and P-AC-03, the system owner reviews both documents.
+1. At the intervals in \<Policy\>, section 1.1, the system owner reviews both documents.
 2. They record the result in each document's change record and update \<Plan of Action and Milestones\>.
 
 #### PRO-AC-15 Exception management
@@ -1041,7 +1041,7 @@ These procedures carry out \<Policy\> (PE), rules R1 to R10. The values, inherit
 
 1. Users print items from \<System Name\> only on \<Organisation\>'s managed printers with secure release: \[managed printers\]. **Manual** (EV-PE-05)
 2. They release and collect printouts at once, and keep the classification marking that \<System Name\> prints on each page (\<Procedures\>, PRO-MP-1). **Manual**
-3. Users lock their screen when they leave it, place it so that others cannot read it, and keep their desk clear of printed documents. \<Organisation\>'s managed devices also lock the screen after the inactivity period in P-AC-15 (\<System Description\>, P-03). **Manual**
+3. Users lock their screen when they leave it, place it so that others cannot read it, and keep their desk clear of printed documents. \<Organisation\>'s managed devices also lock the screen after the inactivity period in \<System Description\>, P-03. **Manual**
 
 #### PRO-PE-4 Working from home
 

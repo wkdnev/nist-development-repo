@@ -19,7 +19,72 @@ These rules apply to every chapter. They are stated once here. A chapter repeats
 3. **Policy review:** every 12 months, and after a significant incident, audit finding or system change.
 4. **Procedures review:** every 12 months, and after a change to the steps.
 5. **Compliance and management commitment:** the system owner reviews compliance at each review and records the result.
-6. **Non-compliance:** a control counts as non-compliant until shown otherwise. Each non-compliance is recorded and rated in \<Risk List\>, and a named person decides its treatment: the system owner for Low risks, and the authorising official for Medium and High risks. A fix is made only through \<Plan of Action and Milestones\>. Section AC.7 sets out the approach in full.
+6. **Records:** the policy and procedures are under version control, and each review is recorded in the change record (\<Documentation Map\>, section 4.1).
+7. **Non-compliance:** a control counts as non-compliant until shown otherwise. Each non-compliance is recorded and rated in \<Risk List\>, and a named person decides its treatment: the system owner for Low risks, and the authorising official for Medium and High risks. A fix is made only through \<Plan of Action and Milestones\>. Section 1.2 sets out the approach in full.
+
+### 1.2 Non-compliance and risk acceptance
+
+The organisation takes a risk-based approach to these requirements. No system meets every control, and a non-compliance is acceptable when its risk is understood and has been accepted by the right person.
+
+1. Every non-compliance must be identified, documented and recorded in \<Risk List\>.
+2. Its risk must be rated by the method in \<Risk List\>, section 4.
+3. A named person must decide its treatment: accept, remediate, approve a value, obtain evidence or tailor the control. The system owner decides Low risks and the authorising official decides Medium and High risks.
+4. A risk that is too high to accept requires a remediation plan in \<Plan of Action and Milestones\>. A High risk may be accepted only for a limited period while that plan runs.
+5. A remediation is carried out through that plan and its milestones, and does not begin simply because a non-compliance was found.
+6. Every acceptance is recorded with the name, date, reason and review date, and is reviewed at the interval in \<Risk List\>. PRO-AC-17 sets out the steps.
+7. A vulnerability that cannot be fixed in time is recorded the same way, with its compensating measure.
+
+### 1.3 Terms and references
+
+Terms used in the policies are defined in \<System Description\>, section 12. Each chapter names the laws it must be consistent with in its governance requirements. The family's design document, \<Procedures\> and \<Security Operating Procedures\> carry it out. Table 1 lists the other standards and guidance the policies draw on.
+
+**Table 1: Standards and guidance**
+
+| Reference | Families | Use |
+| --- | --- | --- |
+| CSS, the NICE Framework | AT | Describing role training |
+| NCSC 10 Steps: engagement and training; NCSC phishing guidance | AT | Needs-led training and blame-free reporting |
+| ICO data protection audit framework: training and awareness | AT | Privacy training and evidence of understanding |
+| CSS, Guide to Computer Security Log Management | AU | Good practice for log management |
+| CSS, Risk Management Framework | CA | The assessment and authorisation process |
+| CSS, Information Security Continuous Monitoring | CA | The monitoring strategy |
+| CSS, Managing the Security of Information Exchanges | CA | Agreements for connections |
+| CSS, Security-Focused Configuration Management | CM | The plan structure, board charter and impact analysis |
+| CIS Benchmarks | CM | Secure settings for Windows Server and SQL Server |
+| Cyber Essentials | CM | \<Organisation\>'s scheme: secure configuration and updates |
+| Copyright, Designs and Patents Act 1988 | CM | Software licences |
+| CSS, Contingency Planning Guide for Federal Information Systems | CP | The plan structure and business impact analysis |
+| CSS, Guide to Test, Training, and Exercise Programs | CP | Testing, exercises and after-action reports |
+| CSS, Digital Identity Guidelines | IA | Choosing assurance levels |
+| CSS, Authentication and Authenticator Management | IA | Password, multi-factor and reauthentication rules |
+| NCSC password guidance | IA | The UK view on password rules |
+| ICO guide to personal data breaches | IR | Reporting to the ICO and telling the people affected |
+| NCSC incident management guidance | IR | Reporting and handling cyber incidents in the UK |
+| CSS and IEEE 2883-2022 | MA, MP | Sanitising equipment and media |
+| NCSC Secure System Administration | MA | Trusted devices, multi-factor sign-in and monitoring for administration |
+| NCSC Secure sanitisation of storage media | MP | UK guidance on sanitising and disposal |
+| DIN 66399 | MP | Shredding levels for paper |
+| ISO/IEC 27001:2022, Annex A.7; AICPA SOC 2, CC6.4 | PE | How \<Organisation\> evidences physical controls |
+| ASHRAE TC 9.9 thermal guidelines | PE | Data centre temperature and humidity |
+| NCSC home working guidance; NPSA physical security guidance | PE | UK guidance for home working and sites |
+| CSS, tasks S-2 and S-6 | PL | Tailoring and plan approval |
+| HMG Baseline Personnel Security Standard | PS | The four checks used as the minimum in R2 |
+| NPSA, Employment screening: a good practice guide; BS 7858:2019 | PS | What a fuller screening standard covers, for comparison with \<Organisation\>'s own |
+| ICO guidance: keeping employment records; data protection impact assessments | PT | How the law applies to staff records |
+| NCSC vulnerability management guidance | RA | Updating by default, responding to exploitation, and owning the risk of not updating |
+| CISA Known Exploited Vulnerabilities catalogue | RA | The list of exploited flaws |
+| NCSC secure design principles; CSS privacy engineering objectives | SA | The engineering principles |
+| OWASP ASVS 5.0 | SA | The verification depth for the web applications |
+| UK Software Security Code of Practice | SA, SR | Peer practice the policy aligns with |
+| NCSC, Using TLS to protect data | SC | The TLS profiles |
+| Microsoft, SQL Server 2022 documentation, encrypted connections and strict encryption | SC | Database TLS enforcement |
+| Microsoft, ASP.NET Core Data Protection key encryption at rest | SC | The key ring protection |
+| OWASP File Upload Cheat Sheet | SI | Upload checks |
+| NCSC Early Warning; CISA Known Exploited Vulnerabilities catalogue | SI | Advisory sources |
+| ICO, Employment practices and data protection: monitoring workers | SI | Monitoring people |
+| CSS, update 1 | SR | Supply chain risk management practice and the plan's content |
+| NCSC supply chain security principles | SR | Supplier reviews |
+| CISA minimum elements for a software bill of materials | SR | What the bill of materials holds |
 
 ## AC Access Control
 
@@ -92,57 +157,11 @@ The people holding each role are named in \<Roles and Responsibilities\>.
 
 The rules in section 1.1 apply to this policy. It adds these.
 
-1. **Ownership (P-AC-01):** the system owner manages this policy and the procedures.
-2. **Communication:** this policy and the procedures must be shared with everyone who uses or administers \<System Name\>, and whenever they change.
-3. **Policy review (P-AC-02):** every 12 months, and after a significant incident, audit finding or system change.
-4. **Procedures review (P-AC-03):** every 12 months, and after a change to the steps.
-5. **Compliance and management commitment:** the system owner reviews compliance at each review and records the result. Breaches may lead to loss of access and to disciplinary action. They may also be offences under the Computer Misuse Act 1990 or the Data Protection Act 2018, as \<Security Operating Procedures\>, rule A4, explains.
-6. **Coordination:** the system owner agrees with \<Organisation\>'s security contact how inherited controls, leavers and incidents are handled, and records it.
-7. **Laws and standards:** this policy must be consistent with applicable law, \<Organisation\>'s policies and CSS.
-8. **Exceptions:** an exception needs written approval from the system owner, a stated end date and an entry in \<Risk List\>. \<Access Control Management\> sets the rules, and PRO-AC-15 sets the steps.
-
-### AC.7 Non-compliance and risk acceptance
-
-The organisation takes a risk-based approach to these requirements. No system meets every control, and a non-compliance is acceptable when its risk is understood and has been accepted by the right person.
-
-1. Every non-compliance must be identified, documented and recorded in \<Risk List\>.
-2. Its risk must be rated by the method in \<Risk List\>, section 4.
-3. A named person must decide its treatment: accept, remediate, approve a value, obtain evidence or tailor the control. The system owner decides Low risks and the authorising official decides Medium and High risks.
-4. A risk that is too high to accept requires a remediation plan in \<Plan of Action and Milestones\>. A High risk may be accepted only for a limited period while that plan runs.
-5. A remediation is carried out through that plan and its milestones, and does not begin simply because a non-compliance was found.
-6. Every acceptance is recorded with the name, date, reason and review date, and is reviewed at the interval in \<Risk List\>. PRO-AC-17 sets out the steps.
-
-### AC.8 Definitions
-
-**Table AC-3: Definitions**
-
-| Term | Meaning |
-| --- | --- |
-| Access | The ability to use \<System Name\> or its information, including reading, editing, exporting and administering |
-| Account | A named Active Directory identity that a person or service uses to sign in to \<System Name\>, Windows or SQL Server. \<System Name\> holds no accounts of its own |
-| Approver | The people who must agree an access change before it is made: the person's line manager approves it in ServiceNow, and the group's owner authorises it, the system owner for a role group or the Data Owner for a schema group (P-AC-05) |
-| Data Owner | The person who owns a schema's data and its read and edit groups, and authorises who may read or edit it |
-| Exception | Written permission to depart from a requirement for a set period, recorded in \<Risk List\> |
-| Least privilege | Giving each person or process only the access its tasks need |
-| Privileged access | Access that can change accounts, settings, security functions, servers or the database, or read audit records |
-| Schema | A set of items in \<System Name\> with its own read group and edit group, kept apart from every other schema in its own database schema |
-| Separation of duties | Splitting duties so that no one person can misuse them together unnoticed |
-| Service account | An account used by a program rather than a person |
-
-### AC.9 References
-
-**Table AC-4: References**
-
-| Reference | Use |
-| --- | --- |
-| CSS, Access Control (AC) family | The controls this policy meets |
-| CSS, Moderate baseline | The controls selected |
-| \<Procedures\> (AC), Access Control Procedures | The steps people follow |
-| \<Access Control Management\>, Access Control Management | The approved settings and parameter values |
-| \<Security Operating Procedures\>, Security Operating Procedures | The rules every user signs |
-| \<Risk List\>, Risk List | Non-compliances, ratings and decisions |
-| \<Roles and Responsibilities\>, Roles and Responsibilities | The people holding each role |
-| UK GDPR, Data Protection Act 2018, Computer Misuse Act 1990 | The laws this policy must be consistent with |
+1. **Communication:** this policy and the procedures must be shared with everyone who uses or administers \<System Name\>, and whenever they change.
+2. **Compliance and management commitment:** the system owner reviews compliance at each review and records the result. Breaches may lead to loss of access and to disciplinary action. They may also be offences under the Computer Misuse Act 1990 or the Data Protection Act 2018, as \<Security Operating Procedures\>, rule A4, explains.
+3. **Coordination:** the system owner agrees with \<Organisation\>'s security contact how inherited controls, leavers and incidents are handled, and records it.
+4. **Laws and standards:** this policy must be consistent with applicable law, \<Organisation\>'s policies and CSS.
+5. **Exceptions:** an exception needs written approval from the system owner, a stated end date and an entry in \<Risk List\>. \<Access Control Management\> sets the rules, and PRO-AC-15 sets the steps.
 
 ## AT Awareness and Training
 
@@ -201,35 +220,6 @@ The rules in section 1.1 apply to this policy. It adds these.
 3. **Coordination:** the system owner agrees with \<Organisation\> how its course and its administrators' training are evidenced, and records it.
 4. **Laws and standards:** this policy must be consistent with applicable law, \<Organisation\>'s policies and CSS.
 
-### AT.7 Non-compliance and risk acceptance
-
-The rule on non-compliance in section 1.1 applies to this policy.
-
-### AT.8 Definitions
-
-**Table AT-2: Definitions**
-
-| Term | Meaning |
-| --- | --- |
-| Awareness | Messages and briefings that keep security in people's minds |
-| Role training | Training in the security duties a person performs in their \<System Name\> role |
-| Training matrix | The table of roles, modules, deadlines and frequencies in \<Awareness and Training Management\> |
-| Social engineering | Manipulating people into giving access or information, including by email, phone or in person |
-| Insider threat | Harm, deliberate or accidental, by someone with authorised access |
-
-### AT.9 References
-
-**Table AT-3: References**
-
-| Reference | Use |
-| --- | --- |
-| CSS, AT family | The controls this policy meets |
-| CSS | Running the learning programme |
-| CSS, the NICE Framework | Describing role training |
-| NCSC 10 Steps: engagement and training; NCSC phishing guidance | Needs-led training and blame-free reporting |
-| ICO data protection audit framework: training and awareness | Privacy training and evidence of understanding |
-| \<Awareness and Training Management\>, \<Procedures\> (AT), \<Security Operating Procedures\> and \<PII Processing Management\> | The curriculum, procedures, rules and privacy training |
-
 ## AU Audit and Accountability
 
 ### AU.1 Purpose and scope
@@ -285,42 +275,6 @@ The rules in section 1.1 apply to this policy. It adds these.
 2. **Coordination:** the system owner agrees with \<Organisation\>'s security contact how logs from inherited services are shared, and records it.
 3. **Laws and standards:** this policy must be consistent with applicable law, including UK GDPR and the Data Protection Act 2018 for personal data in records, the Computer Misuse Act 1990 for misuse of the system and the use of records as evidence, \<Organisation\>'s policies and CSS.
 
-### AU.7 Non-compliance and risk acceptance
-
-The rule on non-compliance in section 1.1 applies to this policy.
-
-### AU.8 Definitions
-
-**Table AU-2: Definitions**
-
-| Term | Meaning |
-| --- | --- |
-| Audit record | One entry that records an event: what happened, when, where, from where, the outcome and who was involved |
-| Audit log | The store of audit records, the table dbo.AuditLog in the \<System Name\> database |
-| Audit information | Audit records, any log that repeats them, and the tools and settings used to read or manage them |
-| Auditor | The person who reviews audit records and does not administer the system |
-| Chain hash | A value calculated from each record and the one before it, so that a change can be detected |
-| Event | An action or occurrence that \<Audit and Accountability Management\> says must be logged |
-| Logging failure | Any period in which agreed events are not recorded, for whatever reason |
-| Retention period | How long records are kept before they may be deleted |
-| Tampering | Any unauthorised change, deletion or addition of audit information |
-
-### AU.9 References
-
-**Table AU-3: References**
-
-| Reference | Use |
-| --- | --- |
-| CSS, Audit and Accountability (AU) family | The controls this policy meets |
-| CSS, Moderate baseline | The controls selected |
-| CSS, Guide to Computer Security Log Management | Good practice for log management |
-| \<Procedures\> (AU), Audit and Accountability Procedures | The steps people follow |
-| \<Audit and Accountability Management\>, Audit and Accountability Management | The approved settings, events and parameter values |
-| \<Security Operating Procedures\>, Security Operating Procedures, section 4.2 | The audit review steps and the list of unusual activity |
-| \<Risk List\>, Risk List | Non-compliances, ratings and decisions |
-| \<Policy\> (AC), Access Control Policy | The risk-based approach in \<Policy\>, section AC.7 |
-| UK GDPR, Data Protection Act 2018, Computer Misuse Act 1990 | The laws this policy must be consistent with |
-
 ## CA Assessment, Authorization, and Monitoring
 
 ### CA.1 Purpose and scope
@@ -373,38 +327,6 @@ The rules in section 1.1 apply to this policy. It adds these.
 1. **Communication:** this policy and the procedures must be shared with everyone who administers \<System Name\>, and whenever they change.
 2. **Coordination:** the system owner agrees with \<Organisation\>'s security contact how inherited controls are provided, and records it.
 3. **Laws and standards:** this policy must be consistent with applicable law, including UK GDPR and the Data Protection Act 2018, \<Organisation\>'s policies and CSS.
-
-### CA.7 Non-compliance and risk acceptance
-
-The rule on non-compliance in section 1.1 applies to this policy.
-
-### CA.8 Definitions
-
-**Table CA-2: Definitions**
-
-| Term | Meaning |
-| --- | --- |
-| Assessment | Testing and examining controls to decide whether they work as intended. Level 1 is the system owner's self-assessment; Level 2 is the independent assessment |
-| Authorisation | The authorising official's decision, recorded on TPL-18, that \<System Name\> may operate and that its remaining risk is accepted |
-| Authorisation package | What the authorising official receives before deciding, listed in \<Assessment, Authorization, and Monitoring Management\>, section 3.5 |
-| Continuous monitoring | Checking controls, risks and changes on a set schedule after authorisation, under the strategy in \<Assessment, Authorization, and Monitoring Management\>, section 3.8 |
-| Independent assessor | An assessor who has had no part in designing, building, running or administering \<System Name\>, and who confirms it on TPL-19 |
-| Inherited control | A control provided by \<Organisation\>, which \<System Name\> relies on but does not run |
-| Significant change | A change likely to alter \<System Name\>'s security or privacy risk, as listed in \<Assessment, Authorization, and Monitoring Management\>, section 3.9 |
-
-### CA.9 References
-
-**Table CA-3: References**
-
-| Reference | Use |
-| --- | --- |
-| CSS, CA family, and CSS Moderate baseline | The controls this policy meets |
-| CSS, Risk Management Framework | The assessment and authorisation process |
-| CSS, Information Security Continuous Monitoring | The monitoring strategy |
-| CSS, Managing the Security of Information Exchanges | Agreements for connections |
-| \<Procedures\> (CA), \<Assessment, Authorization, and Monitoring Management\> and \<Security Assessment Report\> | The procedures, settings and assessment report |
-| \<Risk List\> and \<Plan of Action and Milestones\> | Risks, decisions and remediation |
-| UK GDPR, Data Protection Act 2018 | The laws this policy must be consistent with |
 
 ## CM Configuration Management
 
@@ -462,38 +384,6 @@ The rules in section 1.1 apply to this policy. It adds these.
 1. **Communication:** this policy and the procedures must be shared with everyone who changes or administers \<System Name\>, and whenever they change.
 2. **Coordination:** the system owner agrees with \<Organisation\>'s security contact how changes on its services are coordinated, and records it.
 3. **Laws and standards:** this policy must be consistent with applicable law, including the Copyright, Designs and Patents Act 1988 for software licences, \<Organisation\>'s policies and CSS.
-
-### CM.7 Non-compliance and risk acceptance
-
-The rule on non-compliance in section 1.1 applies to this policy.
-
-### CM.8 Definitions
-
-**Table CM-2: Definitions**
-
-| Term | Meaning |
-| --- | --- |
-| Baseline | The approved, recorded configuration of a configuration item at a point in time, from which it can be rebuilt |
-| Configuration item | Anything placed under configuration control: code, packages, components, settings or documents |
-| Change control board | The group that approves changes: the system owner, security officer and Windows server administrator |
-| Component | A software package, runtime, operating system or database that \<System Name\> is built from or runs on |
-| Drift | Any difference between the running configuration and the baseline |
-| Security impact analysis | The check, before a change, of its effect on security and privacy controls |
-| Bill of materials | A machine-readable list of every component in a release |
-
-### CM.9 References
-
-**Table CM-3: References**
-
-| Reference | Use |
-| --- | --- |
-| CSS, CM family, and CSS Moderate baseline | The controls this policy meets |
-| CSS, Security-Focused Configuration Management | The plan structure, board charter and impact analysis |
-| CIS Benchmarks | Secure settings for Windows Server and SQL Server |
-| Cyber Essentials | \<Organisation\>'s scheme: secure configuration and updates |
-| \<Procedures\> (CM) and \<Configuration Management\> | The procedures and plan |
-| \<Assessment, Authorization, and Monitoring Management\>, section 3.9 | What counts as a significant change |
-| Copyright, Designs and Patents Act 1988 | Software licences |
 
 ## CP Contingency Planning
 
@@ -554,38 +444,6 @@ The rules in section 1.1 apply to this policy. It adds these.
 5. **Coordination:** the system owner agrees with \<Organisation\>'s security contact how the second site, network and telecommunications are provided, and records it.
 6. **Laws and standards:** this policy must be consistent with applicable law, including UK GDPR Article 32(1)(b) and (c), which require resilience and the ability to restore personal data in a timely manner, and the Data Protection Act 2018; \<Organisation\>'s policies; and CSS.
 
-### CP.7 Non-compliance and risk acceptance
-
-The rule on non-compliance in section 1.1 applies to this policy.
-
-### CP.8 Definitions
-
-**Table CP-2: Definitions**
-
-| Term | Meaning |
-| --- | --- |
-| Business impact analysis | The analysis of how an outage harms the organisation over time, which sets the recovery objectives |
-| Maximum tolerable downtime | The longest an outage can last before the harm is unacceptable |
-| Recovery time objective | The longest a function can take to come back, which must be within the maximum tolerable downtime |
-| Recovery point objective | The most recent point to which data must be recoverable, which sets how much data may be lost |
-| Reconstitution | Checking the recovered system's data, functions and controls, and returning it to normal use |
-| Second site | An \<Organisation\> site, apart from the main one, that holds backups and can run rebuilt VMs |
-| Immutable copy | A backup that cannot be changed or deleted for a set time, even by an administrator |
-| After-action report | The record of a test or activation: what happened, against the objectives, and what will change |
-
-### CP.9 References
-
-**Table CP-3: References**
-
-| Reference | Use |
-| --- | --- |
-| CSS, CP family, and CSS Moderate baseline | The controls this policy meets |
-| CSS, Contingency Planning Guide for Federal Information Systems | The plan structure and business impact analysis |
-| CSS, Guide to Test, Training, and Exercise Programs | Testing, exercises and after-action reports |
-| UK GDPR Article 32, and the Data Protection Act 2018 | Resilience and timely restoration of personal data |
-| \<Contingency Planning Management\> and \<Procedures\> (CP) | The plan and procedures |
-| \<Incident Response Management\> | The incident response plan this plan works with |
-
 ## IA Identification and Authentication
 
 ### IA.1 Purpose and scope
@@ -614,7 +472,7 @@ Every action in \<System Name\> must be traceable to one known person. Access de
 4. **R4 Password changes:** follow \<Organisation\>'s corporate standard. Anyone who thinks their password is known must change it through \<Organisation\>'s service desk and tell the security officer.
 5. **R5 Secrets:** the secrets, the token signing key and the audit chain key, must be held in a key store outside source code and settings files, changed as P-10 sets and when an administrator who could read them leaves, and never recorded in clear. Each application runs under its own group managed service account, whose password the operating system sets and changes. The API connects to SQL Server with Windows authentication, so no database password exists.
 6. **R6 Multi-factor:** every user must sign in with multi-factor authentication, which PingFederate provides.
-7. **R7 Signing in again:** when PingFederate's sign-in lifetime for \<System Name\> ends (P-02; \<Access Control Management\>, P-AC-10). \<System Name\> has no session management of its own: no idle timeout, idle lock or limit on sign-ins. The API reads a person's groups from Active Directory over LDAPS, so a change to their groups takes effect when they next sign in.
+7. **R7 Signing in again:** when PingFederate's sign-in lifetime for \<System Name\> ends (\<System Description\>, P-02). \<System Name\> has no session management of its own: no idle timeout, idle lock or limit on sign-ins. The API reads a person's groups from Active Directory over LDAPS, so a change to their groups takes effect when they next sign in.
 8. **R8 Assurance levels:** the identity and authenticator assurance levels in \<Identification and Authentication Management\>, section 3.4, must be met for each user group, and reviewed every 12 months.
 9. **R9 Authenticator inventory:** every authenticator must be listed in \<Identification and Authentication Management\>, section 3.5, with its owner, storage and change period, and reviewed every 12 months.
 10. **R10 Protection:** authenticators and tokens must travel only over encrypted connections, and \<System Name\> must accept only a sign-in response that PingFederate has signed. A user's access is ended by disabling their AD account or removing their group membership, and ending their PingFederate sign-in.
@@ -643,37 +501,6 @@ The rules in section 1.1 apply to this policy. It adds these.
 2. **Compliance and management commitment:** the system owner reviews compliance at each review and records the result. Breaches may lead to loss of access and disciplinary action.
 3. **Coordination:** the system owner agrees with \<Organisation\>'s security contact how identity proofing, device identification and sign-in through PingFederate are provided, and records it.
 4. **Laws and standards:** this policy must be consistent with applicable law, including UK GDPR Article 32, which requires appropriate security of personal data, and the Computer Misuse Act 1990; \<Organisation\>'s policies; and CSS.
-
-### IA.7 Non-compliance and risk acceptance
-
-The rule on non-compliance in section 1.1 applies to this policy.
-
-### IA.8 Definitions
-
-**Table IA-2: Definitions**
-
-| Term | Meaning |
-| --- | --- |
-| Identifier | The name that identifies one person or service. For a person it is their Active Directory account name |
-| Authenticator | Something used to prove an identity: a password, a second factor, a key or a secret |
-| Multi-factor sign-in | Signing in with two different kinds of authenticator, such as a password and an app or key |
-| Identity assurance level | How sure the organisation is that a person is who they claim, from identity proofing |
-| Authenticator assurance level | How sure the organisation is that the person signing in holds the account |
-| Replay resistance | Protection against reusing a captured sign-in or token |
-| Single sign-on | Signing in once, to \<Organisation\>'s PingFederate, which then vouches for the person to \<System Name\>. \<System Name\> never sees the password |
-
-### IA.9 References
-
-**Table IA-3: References**
-
-| Reference | Use |
-| --- | --- |
-| CSS, IA family, and CSS Moderate baseline | The controls this policy meets |
-| CSS, Digital Identity Guidelines | Choosing assurance levels |
-| CSS, Authentication and Authenticator Management | Password, multi-factor and reauthentication rules |
-| NCSC password guidance | The UK view on password rules |
-| UK GDPR Article 32, and the Computer Misuse Act 1990 | Security of personal data, and unauthorised access |
-| \<Identification and Authentication Management\> and \<Procedures\> (IA) | The settings and procedures |
 
 ## IR Incident Response
 
@@ -730,36 +557,6 @@ The rules in section 1.1 apply to this policy. It adds these.
 2. **Communication:** this policy and the procedures must be shared with everyone who administers \<System Name\>, and whenever they change.
 3. **Coordination:** the system owner agrees with \<Organisation\>'s security contact how incidents are shared, and records it.
 4. **Laws and standards:** this policy must be consistent with applicable law, including UK GDPR Articles 33 and 34, the Data Protection Act 2018 and the Computer Misuse Act 1990; \<Organisation\>'s policies; and CSS.
-
-### IR.7 Non-compliance and risk acceptance
-
-The rule on non-compliance in section 1.1 applies to this policy.
-
-### IR.8 Definitions
-
-**Table IR-2: Definitions**
-
-| Term | Meaning |
-| --- | --- |
-| Security incident | An event that harms, or may harm, the confidentiality, integrity or availability of \<System Name\> or its data, or breaks a security policy |
-| Personal data breach | A security incident leading to the accidental or unlawful loss, change, disclosure of, or access to personal data |
-| Severity | The level, from Low to Critical, that sets how fast an incident is handled and who is told |
-| Containment | Action that stops an incident spreading or causing more harm |
-| Evidence | Records and copies kept to show what happened, with a hash and a record of custody |
-| Playbook | Pre-agreed first actions for a common kind of incident |
-
-### IR.9 References
-
-**Table IR-3: References**
-
-| Reference | Use |
-| --- | --- |
-| CSS, IR family, and CSS Moderate baseline | The controls this policy meets |
-| CSS | Incident response as part of cyber risk management |
-| ICO guide to personal data breaches | Reporting to the ICO and telling the people affected |
-| NCSC incident management guidance | Reporting and handling cyber incidents in the UK |
-| UK GDPR Articles 33 and 34; Data Protection Act 2018; Computer Misuse Act 1990 | The legal duties |
-| \<Incident Response Management\> and \<Procedures\> (IR) | The plan and procedures |
 
 ## MA Maintenance
 
@@ -820,37 +617,6 @@ The rules in section 1.1 apply to this policy. It adds these.
 2. **Coordination:** the system owner agrees with \<Organisation\> how its maintenance, routes and support are carried out and evidenced, and records it.
 3. **Laws and standards:** this policy must be consistent with applicable law, including UK GDPR Article 32, and Article 28 where a supplier handles personal data during maintenance or support, and the Computer Misuse Act 1990; \<Organisation\>'s policies; and CSS.
 
-### MA.7 Non-compliance and risk acceptance
-
-The rule on non-compliance in section 1.1 applies to this policy.
-
-### MA.8 Definitions
-
-**Table MA-2: Definitions**
-
-| Term | Meaning |
-| --- | --- |
-| Maintenance | Preventive or corrective work on a \<System Name\> component, including repair and replacement |
-| Remote (nonlocal) maintenance | Maintenance done over a network rather than in person at the component |
-| Maintenance tool | Any program, device or function used to diagnose or maintain \<System Name\> |
-| Built-in maintenance function | The fixed diagnostics page in the Admin application, which reads no item content. \<System Name\> has no page that changes its data or set-up |
-| Escort | A person on the approved list who supervises someone who is not |
-| Change record | The approved record of a change or maintenance job, on TPL-6 or in a ServiceNow record that holds the same fields |
-| Security-critical component | A component that \<System Name\>'s security depends on, listed in \<Maintenance Management\> |
-
-### MA.9 References
-
-**Table MA-3: References**
-
-| Reference | Use |
-| --- | --- |
-| CSS, MA family, and CSS Moderate baseline | The controls this policy meets |
-| CSS | How the controls are assessed |
-| CSS and IEEE 2883-2022 | Sanitising equipment and media |
-| NCSC Secure System Administration | Trusted devices, multi-factor sign-in and monitoring for administration |
-| UK GDPR Articles 28 and 32; Computer Misuse Act 1990 | The legal duties |
-| \<Maintenance Management\>, \<Procedures\> (MA), \<Procedures\> (CM) and \<Security Operating Procedures\> | The settings, procedures, change control and rules people sign |
-
 ## MP Media Protection
 
 ### MP.1 Purpose and scope
@@ -907,37 +673,6 @@ The rules in section 1.1 apply to this policy. It adds these.
 2. **Coordination:** the system owner agrees with \<Organisation\> how it handles media and evidences that, and records it.
 3. **Laws and standards:** this policy must be consistent with applicable law, including UK GDPR Articles 5(1)(f) and 32 and the Data Protection Act 2018; \<Organisation\>'s policies; and CSS.
 
-### MP.7 Non-compliance and risk acceptance
-
-The rule on non-compliance in section 1.1 applies to this policy.
-
-### MP.8 Definitions
-
-**Table MP-2: Definitions**
-
-| Term | Meaning |
-| --- | --- |
-| Media | Anything that holds \<System Name\> information outside the running application: disks, volumes, files, devices, backups and paper |
-| Digital media | Media that need power to be read, including virtual disks, export files and managed devices |
-| Export copy | A copy of items made by \<System Name\>'s export or download functions |
-| Marking | The \<Classification\> label, with the item's own classification, on what \<System Name\> shows or produces |
-| Sanitising | Making information on media impossible to recover, by clearing, purging, cryptographic erase or destruction |
-| Cryptographic erase | Sanitising encrypted media by destroying the keys, so the data can no longer be decrypted |
-| Controlled area | A place where access is limited to authorised people: \<Organisation\>'s data centres and locked storage |
-
-### MP.9 References
-
-**Table MP-3: References**
-
-| Reference | Use |
-| --- | --- |
-| CSS, MP family, and CSS Moderate baseline | The controls this policy meets |
-| CSS and IEEE 2883-2022 | Sanitising media |
-| NCSC Secure sanitisation of storage media | UK guidance on sanitising and disposal |
-| DIN 66399 | Shredding levels for paper |
-| UK GDPR Articles 5(1)(f) and 32; Data Protection Act 2018 | The legal duties |
-| \<Media Protection Management\>, \<Procedures\> (MP) and \<Security Operating Procedures\> | The inventory and methods, the procedures, and the rules people sign |
-
 ## PE Physical and Environmental Protection
 
 ### PE.1 Purpose and scope
@@ -991,36 +726,6 @@ The rules in section 1.1 apply to this policy. It adds these.
 2. **Policy review:** every 12 months, and after a significant incident, audit finding or change of site.
 3. **Coordination:** the system owner agrees with \<Organisation\> how physical protection is evidenced at both sites, and records it.
 4. **Laws and standards:** this policy must be consistent with applicable law, including the Regulatory Reform (Fire Safety) Order 2005 and UK GDPR Article 32; \<Organisation\>'s policies; and CSS.
-
-### PE.7 Non-compliance and risk acceptance
-
-The rule on non-compliance in section 1.1 applies to this policy.
-
-### PE.8 Definitions
-
-**Table PE-2: Definitions**
-
-| Term | Meaning |
-| --- | --- |
-| Data centre | The \<Organisation\> facility that hosts \<System Name\>'s VMs |
-| Second site | The \<Organisation\> facility that holds backups and is used for recovery |
-| Inherited control | A control that \<Organisation\> provides and \<System Name\> relies on |
-| Inheritance matrix | The table in \<Physical and Environmental Protection Management\> showing who provides each PE control and what evidence closes it |
-| Secure release | Printing that holds a job until the user releases it at the printer |
-| Physical incident | Loss, theft, unauthorised entry, or a fire, flood or power event affecting \<System Name\> |
-
-### PE.9 References
-
-**Table PE-3: References**
-
-| Reference | Use |
-| --- | --- |
-| CSS, PE family, and CSS Moderate baseline | The controls this policy meets |
-| ISO/IEC 27001:2022, Annex A.7; AICPA SOC 2, CC6.4 | How \<Organisation\> evidences physical controls |
-| ASHRAE TC 9.9 thermal guidelines | Data centre temperature and humidity |
-| NCSC home working guidance; NPSA physical security guidance | UK guidance for home working and sites |
-| Regulatory Reform (Fire Safety) Order 2005; UK GDPR Article 32 | The legal duties |
-| \<Physical and Environmental Protection Management\>, \<Procedures\> (PE), \<Incident Response Management\> and \<Security Operating Procedures\> | The values and matrix, procedures, incident plan and the rules people sign |
 
 ## PL Planning
 
@@ -1076,35 +781,6 @@ The rules in section 1.1 apply to this policy. It adds these.
 3. **Coordination:** the system owner coordinates the plans with the Head of Cyber, administrators, the legal adviser and \<Organisation\>'s security contact.
 4. **Laws and standards:** this policy must be consistent with applicable law, including UK GDPR and the Data Protection Act 2018 for the privacy plan; \<Organisation\>'s policies; and CSS.
 
-### PL.7 Non-compliance and risk acceptance
-
-The rule on non-compliance in section 1.1 applies to this policy.
-
-### PL.8 Definitions
-
-**Table PL-2: Definitions**
-
-| Term | Meaning |
-| --- | --- |
-| System plans | The System Security Plan, privacy plan and supply chain risk management plan, as in CSS |
-| Plan review record | A record of each review of a plan: who, their role, the date, the outcome and actions |
-| Change record | A record of each change to a plan: version, date and what changed |
-| Rules of behaviour | \<Security Operating Procedures\>: Part A for everyone, and Part B for privileged users |
-| Material change | A change to the rules that adds or tightens a rule, changes a consequence, adds monitoring or adds a privileged duty |
-| Tailoring | Deciding, with a rationale, that a baseline control or part does not apply, or applies in a changed form |
-
-### PL.9 References
-
-**Table PL-3: References**
-
-| Reference | Use |
-| --- | --- |
-| CSS, PL family, and CSS Moderate and privacy baselines | The controls this policy meets |
-| CSS | What a system plan contains, its approval, review and change records |
-| CSS, tasks S-2 and S-6 | Tailoring and plan approval |
-| UK GDPR and the Data Protection Act 2018 | The legal basis for the privacy plan |
-| \<Planning Management\>, \<Procedures\> (PL), \<Security Operating Procedures\>, \<Security Architecture\> and \<Tailoring Register\> | The register and values, procedures, rules, architecture and tailoring |
-
 ## PS Personnel Security
 
 ### PS.1 Purpose and scope
@@ -1130,7 +806,7 @@ It applies to everyone who uses, administers or develops \<System Name\>, includ
 2. **R2 Screening before access:** nobody may be given access to \<System Name\> until \<Organisation\> has confirmed that they passed its pre-employment screening. That screening must cover at least identity, the right to work, employment history and a basic criminal record check.
 3. **R3 Rescreening:** screening must be confirmed again before someone moves into a higher risk role, and every 5 years for anyone in one.
 4. **R4 Screening data:** \<System Name\> must record only that screening was confirmed, by whom and when. Screening results and criminal record data stay with \<Organisation\> and must never be stored in \<System Name\> or its records.
-5. **R5 Leavers:** a leaver's Active Directory account is disabled by \<Organisation\> at once, which ends their \<System Name\> access, and their group memberships must be removed within 5 working days (P-06; \<Access Control Management\>, P-AC-06). Their credentials must be revoked, any secret they knew must be changed, and the items they managed must stay available.
+5. **R5 Leavers:** a leaver's Active Directory account is disabled by \<Organisation\> at once, which ends their \<System Name\> access, and their group memberships must be removed within 5 working days (\<System Description\>, P-06). Their credentials must be revoked, any secret they knew must be changed, and the items they managed must stay available.
 6. **R6 Higher-risk leavers:** access must be disabled within 1 hour of notice when the person holds a higher risk role, is dismissed, or is suspected of misuse.
 7. **R7 Movers:** a mover's access must be reviewed, and the system owner told, within 1 working day.
 8. **R8 Access agreements:** everyone must sign \<Organisation\>'s confidentiality agreement and \<Security Operating Procedures\> before access, and sign again every 12 months and after a material change to the rules.
@@ -1170,34 +846,6 @@ The rules in section 1.1 apply to this policy. It adds these.
 | Immigration, Asylum and Nationality Act 2006 | The employer's duty to check the right to work |
 | Equality Act 2010 | Screening and sanctions must not discriminate |
 | Employment Rights Act 1996, and the Acas Code of Practice on disciplinary and grievance procedures | How sanctions and dismissals are handled |
-
-### PS.7 Non-compliance and risk acceptance
-
-The rule on non-compliance in section 1.1 applies to this policy.
-
-### PS.8 Definitions
-
-**Table PS-3: Definitions**
-
-| Term | Meaning |
-| --- | --- |
-| Risk designation | How much harm the holder of a role could do, which sets the screening and attention the role receives |
-| Higher risk role | A role with privileged technical access, or one that can see or change security records |
-| Screening | The checks an employer makes on a person before and during employment |
-| Access agreement | A signed undertaking: \<Organisation\>'s confidentiality agreement and the acknowledgement in \<Security Operating Procedures\>, section 9 |
-| External person | Someone who works on \<System Name\>, or assesses it, but is not employed by \<Organisation\>, such as a contractor, a supplier's engineer or an independent assessor |
-| Leaver, mover | Someone who leaves \<Organisation\> or stops needing \<System Name\>; someone who changes role |
-
-### PS.9 References
-
-**Table PS-4: References**
-
-| Reference | Use |
-| --- | --- |
-| CSS, PS family | The controls this policy meets |
-| HMG Baseline Personnel Security Standard | The four checks used as the minimum in R2 |
-| NPSA, Employment screening: a good practice guide; BS 7858:2019 | What a fuller screening standard covers, for comparison with \<Organisation\>'s own |
-| \<Personnel Security Management\>, \<Procedures\> (PS), \<Roles and Responsibilities\>, \<Security Operating Procedures\> and \<Access Control Management\> | The designations and register, the procedures, the roles, the rules people sign and the account time limits |
 
 ## PT Personally Identifiable Information Processing and Transparency
 
@@ -1258,34 +906,6 @@ The rules in section 1.1 apply to this policy. It adds these.
 4. **Coordination:** the system owner works with the legal adviser, the data protection officer and \<Organisation\>, and records what is agreed.
 5. **Laws and standards:** this policy must be consistent with UK GDPR, the Data Protection Act 2018, the Data (Use and Access) Act 2025, \<Organisation\>'s policies and CSS.
 
-### PT.7 Non-compliance and risk acceptance
-
-The rule on non-compliance in section 1.1 applies to this policy.
-
-### PT.8 Definitions
-
-**Table PT-2: Definitions**
-
-| Term | Meaning |
-| --- | --- |
-| Personal data | Any information about an identified or identifiable living person |
-| Special category data | Data about health, ethnicity, religion, trade union membership, sex life, sexual orientation, genetics or biometrics (UK GDPR, Article 9) |
-| Appropriate policy document | The document the Data Protection Act 2018, Schedule 1, Part 4 requires when relying on certain Schedule 1 conditions |
-| Impact assessment | \<Data Protection Impact Assessment\>, the data protection impact assessment |
-| Record of processing | \<Organisation\>'s record of processing activities under UK GDPR, Article 30 |
-| Complaint | A complaint to the controller about how personal data is handled, under the Data (Use and Access) Act 2025 |
-
-### PT.9 References
-
-**Table PT-3: References**
-
-| Reference | Use |
-| --- | --- |
-| CSS, PT family and CSS privacy baseline | The controls this policy meets |
-| UK GDPR; Data Protection Act 2018; Data (Use and Access) Act 2025 | The law |
-| ICO guidance: keeping employment records; data protection impact assessments | How the law applies to staff records |
-| \<PII Processing Management\>, \<Data Protection Impact Assessment\>, \<Privacy Plan\>, \<Procedures\> (PT), \<Incident Response Management\> and \<Security Operating Procedures\> | The inventory, impact assessment, privacy plan, procedures, breach handling and the rules people sign |
-
 ## RA Risk Assessment
 
 ### RA.1 Purpose and scope
@@ -1315,7 +935,7 @@ It applies to the UI application, the Admin application, the API, the \<System N
 5. **R5 Supply chain:** supply chain risk from packages, browser libraries, suppliers and the servers must be reviewed every 12 months, and recorded on TPL-23.
 6. **R6 Scanning:** vulnerability scans must run as P-30 sets: servers monthly, with credentialed scans of both VMs, and packages and code at each release, with definitions updated before each scan. The packages, the browser libraries, \<System Name\>'s own applications, and both servers' operating system, SQL Server and other installed software must all be covered.
 7. **R7 Response times:** each vulnerability must be fixed or mitigated within the time in \<Risk Assessment Management\>, section 3.6, for its severity, counted from the fix's release, or from detection if that is later. Critical and High within 14 days, Medium within 30 days, Low within 90 days (P-11). Severity is the vendor's rating, or else the CVSS base score.
-8. **R8 Exploited flaws:** a flaw listed in CISA's Known Exploited Vulnerabilities catalogue, or confirmed by its vendor as exploited, must be fixed or mitigated within 3 days as an emergency change. A fix that cannot meet any time goes to a risk decision under section RA.7.
+8. **R8 Exploited flaws:** a flaw listed in CISA's Known Exploited Vulnerabilities catalogue, or confirmed by its vendor as exploited, must be fixed or mitigated within 3 days as an emergency change. A fix that cannot meet any time goes to a risk decision under section 1.2.
 9. **R9 Reports:** vulnerability reports must be received through \<Organisation\>'s security contact, which must be published with terms that authorise research in good faith, and flaws found in another party's component must be reported to its maintainer.
 10. **R10 Critical components:** critical components must be identified by the method in \<Risk Assessment Management\>, section 3.9, and reviewed at each major release and significant change.
 
@@ -1342,38 +962,6 @@ The rules in section 1.1 apply to this policy. It adds these.
 2. **Compliance and management commitment:** the system owner reviews compliance at each review, runs Test-Vulnerability.ps1, and records the result.
 3. **Coordination:** the system owner agrees with \<Organisation\>'s security contact how inherited protections and vulnerability reports are handled, and records it.
 4. **Laws and standards:** this policy must be consistent with applicable law, \<Organisation\>'s policies, the Cyber Essentials requirements \<Organisation\> holds, and CSS.
-
-### RA.7 Non-compliance and risk acceptance
-
-The rule on non-compliance in section 1.1 applies to this policy. A vulnerability that cannot be fixed in time is recorded the same way, with its compensating measure.
-
-### RA.8 Definitions
-
-**Table RA-2: Definitions**
-
-| Term | Meaning |
-| --- | --- |
-| Risk | The chance that a threat source exploits a weakness, combined with the harm that would cause (CSS) |
-| Vulnerability | A weakness in \<System Name\>, its components or its operation that a threat source could exploit |
-| Severity | The vendor's rating of a vulnerability or, without one, its CVSS base score: 9.0 or more Critical, 7.0 to 8.9 High, 4.0 to 6.9 Medium, below 4.0 Low |
-| Exploited flaw | A vulnerability in CISA's Known Exploited Vulnerabilities catalogue, or confirmed as exploited by its vendor or \<Organisation\> |
-| Critical component | A component whose failure or compromise would expose or lose the items, or defeat a security control |
-| Mitigate | Reduce a vulnerability's risk without the fix, for example by disabling the affected feature or blocking access to it |
-
-### RA.9 References
-
-**Table RA-3: References**
-
-| Reference | Use |
-| --- | --- |
-| CSS, RA family | The controls this policy meets |
-| CSS | The risk method |
-| CSS | Patch management as preventive maintenance |
-| CSS | Categorisation |
-| Cyber Essentials, Requirements for IT Infrastructure \<ver\> | The 14-day limit \<Organisation\> meets for high and critical updates |
-| NCSC vulnerability management guidance | Updating by default, responding to exploitation, and owning the risk of not updating |
-| CISA Known Exploited Vulnerabilities catalogue | The list of exploited flaws |
-| \<Risk List\>, \<Risk Assessment Management\>, \<Procedures\> (RA), \<Plan of Action and Milestones\> and \<Supply Chain Risk Management\> | The risks, values, procedures, plan of action and supply chain plan |
 
 ## SA System and Services Acquisition
 
@@ -1428,35 +1016,6 @@ The rules in section 1.1 apply to this policy. It adds these.
 3. **Coordination:** the system owner agrees contract terms with \<Organisation\>, and records them.
 4. **Laws and standards:** this policy must be consistent with applicable law, \<Organisation\>'s policies and CSS, and aligns with the UK Software Security Code of Practice.
 
-### SA.7 Non-compliance and risk acceptance
-
-The rule on non-compliance in section 1.1 applies to this policy.
-
-### SA.8 Definitions
-
-**Table SA-2: Definitions**
-
-| Term | Meaning |
-| --- | --- |
-| Corporate SDLC | \<Organisation\>'s software development life cycle, inherited by \<System Name\>, whose security practices meet CSS: preparing the organisation, protecting the software, producing well-secured software and responding to vulnerabilities |
-| Default branch | The branch in each repository that releases are built from |
-| Third-party component | Any package, library or script \<System Name\> uses but did not write |
-| External service | A service run by someone else that \<System Name\> depends on, such as hosting, source code hosting or a package source |
-| Security function | A part of \<System Name\> that enforces a control, such as sign-in, schema access or audit |
-
-### SA.9 References
-
-**Table SA-3: References**
-
-| Reference | Use |
-| --- | --- |
-| CSS, SA family | The controls this policy meets |
-| \<Organisation\>'s corporate SDLC, meeting CSS | The development framework |
-| NCSC secure design principles; CSS privacy engineering objectives | The engineering principles |
-| OWASP ASVS 5.0 | The verification depth for the web applications |
-| UK Software Security Code of Practice | Peer practice the policy aligns with |
-| \<System and Services Acquisition Management\>, \<Procedures\> (SA), \<Security Architecture\>, \<Administrator Guide\> and \<User Guide\> | The values, procedures, design and guides |
-
 ## SC System and Communications Protection
 
 ### SC.1 Purpose and scope
@@ -1481,7 +1040,7 @@ Information in \<System Name\> must be protected wherever it travels or rests. \
 1. **R1 Flows:** only the flows F1 to F11 in \<System Description\>, section 6.5, as set out in \<System Security Plan\>, section 3.7, Table 7, and \<Security Architecture\>, Table 2, are allowed. Traffic is denied by default at \<Organisation\>'s firewalls and at each VM's host firewall, using the allow-lists in \<System and Communications Protection Management\>, section 3.2.
 2. **R2 Listening addresses:** the UI application listens on TCP 443 only. The Admin application is reachable only over \<Organisation\>'s managed administration route. The API listens only on the application server's loopback address. SQL Server accepts connections on TCP 1433 only from the application server. Only the application server reaches PingFederate, on TCP 443 (F10). Server and database administration reaches both servers only from the administrators' managed devices over the managed administration route (F11).
 3. **R3 Transport:** every flow must use TLS under NCSC's profiles. TLS 1.3 is preferred, with hybrid post-quantum key exchange where the platform supports it. TLS 1.2 is allowed only with the GCM profiles. SSL, TLS 1.0 and 1.1, compression and TLS 1.3 early data (0-RTT) must be off.
-4. **R4 Web traffic and cookies:** the apps must serve HTTPS only and redirect HTTP, send HSTS with a maximum age of at least 1 year, and mark every cookie Secure, HttpOnly and SameSite. \<System Name\> has no session management of its own: the authentication cookie lasts no longer than PingFederate's sign-in lifetime (P-02; \<Access Control Management\>, P-AC-10).
+4. **R4 Web traffic and cookies:** the apps must serve HTTPS only and redirect HTTP, send HSTS with a maximum age of at least 1 year, and mark every cookie Secure, HttpOnly and SameSite. \<System Name\> has no session management of its own: the authentication cookie lasts no longer than PingFederate's sign-in lifetime (\<System Description\>, P-02).
 5. **R5 Database:** SQL Server 2022 must accept network connections only over TLS 1.2 or later with strict encryption. The API must connect with Windows authentication under its group managed service account, so no database password exists, and with full certificate and server name checking.
 6. **R6 Cryptography:** only the algorithms in the cryptographic register may be used: NCSC's TLS profiles, XTS-AES 256 for disk encryption, AES-256 for backups, SHA-256 for file and release checksums, and HMAC-SHA-256 with a random key of at least 256 bits for the tokens between the applications and for the audit chain. No MD5 or SHA-1 is used for protection, and no cryptography is written in-house. \<System Name\> holds no passwords. Validation of cryptographic modules to a United States standard is not required.
 7. **R7 Keys:** every key must be in the register, with an owner, a protected store and a cryptoperiod based on CSS, and be changed as P-10 sets. Keys must never be held in source code, settings files, tickets, chat or documents. Each key is changed at the end of its cryptoperiod, when someone who held it leaves, and at once if it may be compromised. The data protection key rings are protected with Windows DPAPI and backed up with the server.
@@ -1514,36 +1073,6 @@ The rules in section 1.1 apply to this policy. It adds these.
 2. **Compliance and management commitment:** the system owner reviews compliance at each review, runs Test-Protection.ps1 and checks the register, and records the result.
 3. **Coordination:** the system owner agrees with \<Organisation\>'s security contact how inherited protections are provided, and records it.
 4. **Laws and standards:** this policy must be consistent with applicable law, \<Organisation\>'s policies and CSS, and follows NCSC's guidance on TLS.
-
-### SC.7 Non-compliance and risk acceptance
-
-The rule on non-compliance in section 1.1 applies to this policy.
-
-### SC.8 Definitions
-
-**Table SC-2: Definitions**
-
-| Term | Meaning |
-| --- | --- |
-| Flow | A permitted connection between two parts of the system, or between \<System Name\> and something outside it |
-| Cryptoperiod | How long a key may be used before it must be changed |
-| Data protection key ring | The keys ASP.NET Core uses to protect each app's cookies and antiforgery tokens |
-| Mobile code | Code a page sends to run in the browser, such as JavaScript or WebAssembly |
-| Loopback address | An address only reachable from the same machine, such as 127.0.0.1 |
-| Trust anchor | A root certificate that the system trusts to issue other certificates |
-
-### SC.9 References
-
-**Table SC-3: References**
-
-| Reference | Use |
-| --- | --- |
-| CSS, SC family | The controls this policy meets |
-| NCSC, Using TLS to protect data | The TLS profiles |
-| CSS | Cryptoperiods and key management |
-| Microsoft, SQL Server 2022 documentation, encrypted connections and strict encryption | Database TLS enforcement |
-| Microsoft, ASP.NET Core Data Protection key encryption at rest | The key ring protection |
-| \<System and Communications Protection Management\>, \<Procedures\> (SC), \<Security Architecture\> and \<System Security Plan\>, section 3.7 | The values, procedures, design and flows |
 
 ## SI System and Information Integrity
 
@@ -1605,35 +1134,6 @@ The rules in section 1.1 apply to this policy. It adds these.
 3. **Coordination:** the system owner agrees with \<Organisation\>'s security contact how monitoring, logging and firmware updates are provided, and records it.
 4. **Laws and standards:** this policy must be consistent with applicable law, \<Organisation\>'s policies and CSS.
 
-### SI.7 Non-compliance and risk acceptance
-
-The rule on non-compliance in section 1.1 applies to this policy.
-
-### SI.8 Definitions
-
-**Table SI-2: Definitions**
-
-| Term | Meaning |
-| --- | --- |
-| Flaw | A weakness in software or firmware that could be exploited, including a known vulnerability in a package |
-| AMSI | The Windows Antimalware Scan Interface, through which an application asks the installed antivirus to scan data |
-| Detection use case | A defined event or pattern, its source, threshold and the response to it |
-| Integrity baseline | The recorded hashes of a known-good release, used to detect later change |
-| Advisory | A security alert, warning or directive from an outside source, or an internal note made from one |
-
-### SI.9 References
-
-**Table SI-3: References**
-
-| Reference | Use |
-| --- | --- |
-| CSS, SI family | The controls this policy meets |
-| CSS | Patch management |
-| OWASP File Upload Cheat Sheet | Upload checks |
-| NCSC Early Warning; CISA Known Exploited Vulnerabilities catalogue | Advisory sources |
-| ICO, Employment practices and data protection: monitoring workers | Monitoring people |
-| \<System and Information Integrity Management\>, \<Procedures\> (SI), \<Risk Assessment Management\>, \<PII Processing Management\> and \<Audit and Accountability Management\> | The values, procedures, timetable, retention schedule and audit settings |
-
 ## SR Supply Chain Risk Management
 
 ### SR.1 Purpose and scope
@@ -1691,32 +1191,3 @@ The rules in section 1.1 apply to this policy. It adds these.
 3. **Coordination:** the supply chain team coordinates with \<Organisation\>, and records what is agreed.
 4. **Laws and standards:** this policy must be consistent with applicable law, \<Organisation\>'s policies and CSS.
 
-### SR.7 Non-compliance and risk acceptance
-
-The rule on non-compliance in section 1.1 applies to this policy.
-
-### SR.8 Definitions
-
-**Table SR-2: Definitions**
-
-| Term | Meaning |
-| --- | --- |
-| Supplier | Anyone who provides a component or service \<System Name\> depends on, including open-source projects and package registries |
-| Critical component | A component whose failure or compromise would harm \<System Name\>'s confidentiality, integrity or availability (\<Risk Assessment Management\>, section 3.9) |
-| Offline feed | The in-house checked package feed, held offline, whose packages are recorded with SHA-256 values |
-| Lock file | A file that records the exact version and content hash of every package a .NET project restores |
-| Bill of materials | A list of every component in a release, with its version, supplier, hash and licence |
-| Counterfeit | A component that is not what it claims to be, including a look-alike package |
-
-### SR.9 References
-
-**Table SR-3: References**
-
-| Reference | Use |
-| --- | --- |
-| CSS, SR family | The controls this policy meets |
-| CSS, update 1 | Supply chain risk management practice and the plan's content |
-| UK Software Security Code of Practice | Third-party components and the build environment |
-| NCSC supply chain security principles | Supplier reviews |
-| CISA minimum elements for a software bill of materials | What the bill of materials holds |
-| \<Supply Chain Risk Management\>, \<Procedures\> (SR), \<Risk Assessment Management\>, \<System and Information Integrity Management\> and \<Procedures\> (MP) | The plan, procedures, critical components, integrity baseline and disposal |

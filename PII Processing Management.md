@@ -6,17 +6,13 @@ This document sets out how \<System Name\> is designed to process personal data 
 
 Section 3 is the design: the authority, purposes and lawful basis; every kind of personal data \<System Name\> holds; special category data; the privacy notice; people's rights; minimisation, quality, retention and disposal; the impact assessment; where the privacy controls held in other documents are designed; what \<Organisation\> provides; the processing rules and monitoring; and the policy and procedures. Each subsection names the controls it helps to meet.
 
-Other documents hold the rest. Who provides and is responsible for each control, its status and its assessment result are in \<System Security Plan\>, section 7.14 (Table 23). The tests, their results and the records an assessor will ask for are in \<Control Assessment Record\> (PT). Each control's risk is in \<Risk List\>, and what is still open is in \<Plan of Action and Milestones\>. The policy is in \<Policy\> (PT), and the steps people follow are in \<Procedures\> (PT). Two documents sit beside this one and are owned by the legal adviser: the privacy plan, \<Privacy Plan\>, which PL-2 calls for, and the data protection impact assessment, \<Data Protection Impact Assessment\>.
-
 UK law decides what is lawful. The CSS controls set out how it is shown. Where a value needs a legal decision, it is a placeholder for the legal adviser.
-
-Values that CSS asks the organisation to define are set at corporate level by \<Organisation\>. The settings in section 3 should match those corporate values. Where one does not, it is changed in this document.
 
 Appendix A lists the related enhancements CSS does not select.
 
-## 2 Summary
+## 2 Related documents
 
-The implementation status of each control, how it is met, who is responsible, its assessment result and the risk and plan entries for its gaps are recorded in \<System Security Plan\>, section 7.14 (Table 23).
+Who provides and is responsible for each control, and its status, are in \<System Security Plan\>, section 7.14 (Table 23). The tests, their results and the records an assessor will ask for are in \<Control Assessment Record\> (PT). Each control's risk is in \<Risk List\>, and what is still open is in \<Plan of Action and Milestones\>. The policy is in \<Policy\> (PT), and the steps people follow are in \<Procedures\> (PT). Two documents sit beside this one and are owned by the legal adviser: the privacy plan, \<Privacy Plan\>, which PL-2 calls for, and the data protection impact assessment, \<Data Protection Impact Assessment\>.
 
 ## 3 The design
 
@@ -180,11 +176,7 @@ Controls met here: SC-7(24).
 
 Controls met here: PT-1.
 
-1. **Policy.** \<Policy\> (PT) is a system-level policy, shared with everyone who administers \<System Name\>. The legal adviser reviews it.
-2. **Procedures.** \<Procedures\> (PT) holds six procedures, PRO-PT-1 to PRO-PT-6. They are shared with the same people.
-3. **Owner.** The system owner manages the policy and procedures.
-4. **Review.** The policy is reviewed every 12 months, and after a significant incident, audit finding, change in the law or system change. The procedures are reviewed every 12 months, and after a change to the steps.
-5. **Records.** The documents are under version control.
+\<Policy\> (PT) and \<Procedures\> (PT) meet PT-1. Who they are shared with is in \<Policy\>, section PT.6. Their ownership, approval, review and records follow the rules common to every policy in \<Policy\>, section 1.1.
 
 ## Appendix A Privacy controls outside the privacy baseline
 

@@ -22,7 +22,7 @@ Values in \[brackets\] are for the developers to fill.
 
 | Setting | Where | Required value | Source |
 | --- | --- | --- | --- |
-| Sign-in lifetime | Each application's authentication cookie settings | No longer than PingFederate's sign-in lifetime (P-AC-10; \<System Description\>, P-02). \<System Name\> has no session management: no page lock, idle sign-out or session limit of its own | \<Access Control Management\> |
+| Sign-in lifetime | Each application's authentication cookie settings | No longer than PingFederate's sign-in lifetime (\<System Description\>, P-02). \<System Name\> has no session management: no page lock, idle sign-out or session limit of its own | \<Access Control Management\> |
 | Sign-in | \<System Name\>'s PingFederate connection (its OpenID Connect client settings) | Password length, lockout and multi-factor authentication are set by \<Organisation\>, not in \<System Name\>. The signed response names the person and carries no groups. The UI and Admin applications reach PingFederate for its OpenID Connect metadata and signing certificate, and to complete each sign-in, over HTTPS on TCP 443 from the application server only (F10) | \<Policy\> (IA) |
 | Group lookup | API's directory settings | Active Directory read over LDAPS (F7, TCP 636), read-only, under the API's managed service account, with the directory's certificate checked | \<Identification and Authentication Management\> |
 | Database connection | API's connection settings | Microsoft SQL Server 2022 by Windows authentication, with no password; TLS with strict encryption on TCP 1433 (F5), from the application server only | \<Identification and Authentication Management\> |

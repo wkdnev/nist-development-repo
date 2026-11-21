@@ -127,7 +127,7 @@ This section states how \<System Name\> is protected, as CSS PL-8 requires. It d
 | Transport | TLS on every flow, F1 to F8 and F10, as \<System Description\>, P-26, sets, under NCSC's profiles (\<System and Communications Protection Management\>, section 3.3); data protection key rings protected with DPAPI | SC-8, SC-13 |
 | Identity | Each person's own Active Directory account, signed in through PingFederate with multi-factor authentication; roles and schema access from AD groups, read by the API over LDAPS (F7) | IA-2, IA-5, AC-7 |
 | Authorisation | Roles and schema access checked on every page and API call | AC-3, AC-6 |
-| Sign-in lifetime and screen lock | No session management in \<System Name\>. The sign-in is held only in the authentication cookie, which lasts no longer than PingFederate's sign-in lifetime (P-AC-10; \<System Description\>, P-02); an unattended screen is locked by the operating system on \<Organisation\>'s managed devices and the servers (P-AC-15; P-03) | AC-11, AC-12, SC-23 |
+| Sign-in lifetime and screen lock | No session management in \<System Name\>. The sign-in is held only in the authentication cookie, which lasts no longer than PingFederate's sign-in lifetime (\<System Description\>, P-02); an unattended screen is locked by the operating system on \<Organisation\>'s managed devices and the servers (\<System Description\>, P-03) | AC-11, AC-12, SC-23 |
 | Data at rest | Full-disk encryption on both VMs; no plain copies left by exports | SC-28, MP-4 |
 | Audit | Hash-chained audit records, reviewed and kept | AU-2, AU-6, AU-9 |
 | Host | CIS hardening, Microsoft Defender, patching | CM-6, SI-2, SI-3 |

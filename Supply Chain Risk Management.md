@@ -6,13 +6,9 @@ This document sets out how \<System Name\> manages the risk that it is harmed th
 
 Section 3 is the design, and is the supply chain risk management plan that SR-2 requires, on the headings of CSS: the principles, the system context, the team, the risks at each stage, the supplier register, the risk tolerance, how components come in, notices, inspection, authenticity and disposal, what \<Organisation\> provides, and the policy and procedures. Each subsection names the controls it helps to meet.
 
-Other documents hold the rest. Who provides and is responsible for each control, its status and its assessment result are in \<System Security Plan\>, section 7.19 (Table 28). The tests, their results and the records an assessor will ask for are in \<Control Assessment Record\> (SR). Each control's risk is in \<Risk List\>, and what is still open is in \<Plan of Action and Milestones\>. The policy is in \<Policy\> (SR), and the steps people follow are in \<Procedures\> (SR). The critical components are in \<Risk Assessment Management\>, section 3.9, the supply chain risk review in its section 3.4, the external services in \<System and Services Acquisition Management\>, section 3.7, and the integrity baseline in \<System and Information Integrity Management\>, section 3.5.
+## 2 Related documents
 
-Values that CSS asks the organisation to define are set at corporate level by \<Organisation\>. Any settings in section 3 should match those corporate values. Where one does not, it is changed in this document.
-
-## 2 Summary
-
-The implementation status of each control, how it is met, who is responsible, its assessment result and the risk and plan entries for its gaps are recorded in \<System Security Plan\>, section 7.19 (Table 28).
+Who provides and is responsible for each control, and its status, are in \<System Security Plan\>, section 7.19 (Table 28). The tests, their results and the records an assessor will ask for are in \<Control Assessment Record\> (SR). Each control's risk is in \<Risk List\>, and what is still open is in \<Plan of Action and Milestones\>. The policy is in \<Policy\> (SR), and the steps people follow are in \<Procedures\> (SR). The critical components are in \<Risk Assessment Management\>, section 3.9, the supply chain risk review in its section 3.4, the external services in \<System and Services Acquisition Management\>, section 3.7, and the integrity baseline in \<System and Information Integrity Management\>, section 3.5.
 
 ## 3 The supply chain risk management plan
 
@@ -132,11 +128,7 @@ Controls met here: SR-2(1), SR-3, SR-5, SR-6, SR-8, SR-10, SR-11(1), SR-11(2), S
 
 Controls met here: SR-1.
 
-1. **Policy.** \<Policy\> (SR) is a system-level policy, shared with developers and administrators. The legal adviser reviews it.
-2. **Procedures.** \<Procedures\> (SR) holds six procedures, PRO-SR-1 to PRO-SR-6. They are shared with the same people.
-3. **Owner.** The system owner manages the policy and procedures.
-4. **Review.** The policy is reviewed every 12 months, and after a significant incident, audit finding or system change. The procedures are reviewed every 12 months, and after a change to the steps.
-5. **Records.** The documents are under version control.
+\<Policy\> (SR) and \<Procedures\> (SR) meet SR-1. Who they are shared with is in \<Policy\>, section SR.6. Their ownership, approval, review and records follow the rules common to every policy in \<Policy\>, section 1.1.
 
 ## Appendix A Supply chain controls outside the Moderate baseline
 

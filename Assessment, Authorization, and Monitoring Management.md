@@ -6,15 +6,11 @@ This document sets out how \<System Name\> is assessed, authorised to operate an
 
 Section 3 is the design: the cycle, assessment, the plan of action, authorisation, inherited controls, information exchanges and internal connections, continuous monitoring, significant change, what \<Organisation\> provides, and the policy and procedures. Each subsection names the controls it helps to meet.
 
-Other documents hold the rest. Who provides and is responsible for each control, its status and its assessment result are in \<System Security Plan\>, section 7.4 (Table 13). The tests, their results and the records an assessor will ask for are in \<Control Assessment Record\> (CA). Each control's risk is in \<Risk List\>, and what is still open is in \<Plan of Action and Milestones\>. The policy is in \<Policy\> (CA), and the steps people follow are in \<Procedures\> (CA).
-
-Values that CSS asks the organisation to define are set at corporate level by \<Organisation\>. The settings in section 3 should match those corporate values. Where one does not, it is changed in this document.
-
 Appendix A lists the CA controls CSS does not select at Moderate.
 
-## 2 Summary
+## 2 Related documents
 
-The implementation status of each control, how it is met, who is responsible, its assessment result and the risk and plan entries for its gaps are recorded in \<System Security Plan\>, section 7.4 (Table 13).
+Who provides and is responsible for each control, and its status, are in \<System Security Plan\>, section 7.4 (Table 13). The tests, their results and the records an assessor will ask for are in \<Control Assessment Record\> (CA). Each control's risk is in \<Risk List\>, and what is still open is in \<Plan of Action and Milestones\>. The policy is in \<Policy\> (CA), and the steps people follow are in \<Procedures\> (CA).
 
 ## 3 The design
 
@@ -187,7 +183,7 @@ This strategy follows CSS. Monitoring starts at go-live.
 | Measure | Kind | Target | Threshold for action | Source | Frequency | Owner |
 | --- | --- | --- | --- | --- | --- | --- |
 | POA&M items past their date | Compliance | None | Any | \<Plan of Action and Milestones\> | Monthly | System owner |
-| Security updates applied within the limits in \<Security Operating Procedures\>, Table 4 | Effectiveness | All | Any late critical or high update | TPL-7 | Monthly | Windows server administrator |
+| Security updates applied within the limits in \<System Description\>, P-11 | Effectiveness | All | Any late critical or high update | TPL-7 | Monthly | Windows server administrator |
 | Failed sign-ins and lockouts | Effectiveness | Reviewed every week | More than 10 failures for one account in a day, or any for a disabled account | \<Organisation\>'s PingFederate record, and \<System Name\>'s audit log for refused sign-in responses; TPL-8 | Weekly | Auditor |
 | Weekly audit reviews completed | Compliance | All | Any missed week | TPL-8 | Monthly | Security officer |
 | Audit logging failures | Effectiveness | None | Any | PRO-AU-3; TPL-8 | Monthly | Windows server administrator |
@@ -256,11 +252,7 @@ Controls met here: CA-3, CA-6.
 
 Controls met here: CA-1.
 
-1. **Policy.** \<Policy\> (CA) is a system-level policy. Its purpose and scope are in section CA.1, responsibilities in CA.5, and commitment, coordination and compliance in CA.6. It is shared with everyone who administers \<System Name\>. The legal adviser reviews it.
-2. **Procedures.** \<Procedures\> (CA) holds seven procedures, PRO-CA-1 to PRO-CA-7, each naming who acts, how often and the record. They are shared with the same people.
-3. **Owner.** The system owner manages the policy and procedures.
-4. **Review.** The policy is reviewed every 12 months, and after a significant incident, audit finding or system change. The procedures are reviewed every 12 months, and after a change to the steps.
-5. **Records.** The documents are under version control, and each review is recorded in the change record. Each procedure is walked through, and the walk-through recorded on TPL-4.
+\<Policy\> (CA) and \<Procedures\> (CA) meet CA-1. Who they are shared with is in \<Policy\>, section CA.6. Their ownership, approval, review and records follow the rules common to every policy in \<Policy\>, section 1.1.
 
 ## Appendix A CA controls outside the Moderate baseline
 

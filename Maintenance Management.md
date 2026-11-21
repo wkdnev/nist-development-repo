@@ -6,13 +6,9 @@ This document sets out how \<System Name\> is designed to be maintained, to meet
 
 Section 3 is the design: the principles, who maintains what, how a job is controlled from approval to review, the routes for remote maintenance, the approved tools and people, what may leave and how, the components whose support matters, what \<Organisation\> provides, and the policy and procedures. Each subsection names the controls it helps to meet.
 
-Other documents hold the rest. Who provides and is responsible for each control, its status and its assessment result are in \<System Security Plan\>, section 7.9 (Table 18). The tests, their results and the records an assessor will ask for are in \<Control Assessment Record\> (MA). Each control's risk is in \<Risk List\>, and what is still open is in \<Plan of Action and Milestones\>. The policy is in \<Policy\> (MA), and the steps people follow are in \<Procedures\> (MA). Fixing flaws and releasing new versions follow their own designs, in \<System and Information Integrity Management\> and \<Configuration Management\>, and use the same change records.
+## 2 Related documents
 
-Values that CSS asks the organisation to define are set at corporate level by \<Organisation\>. Any settings in section 3 should match those corporate values. Where one does not, it is changed in this document.
-
-## 2 Summary
-
-The implementation status of each control, how it is met, who is responsible, its assessment result and the risk and plan entries for its gaps are recorded in \<System Security Plan\>, section 7.9 (Table 18).
+Who provides and is responsible for each control, and its status, are in \<System Security Plan\>, section 7.9 (Table 18). The tests, their results and the records an assessor will ask for are in \<Control Assessment Record\> (MA). Each control's risk is in \<Risk List\>, and what is still open is in \<Plan of Action and Milestones\>. The policy is in \<Policy\> (MA), and the steps people follow are in \<Procedures\> (MA). Fixing flaws and releasing new versions follow their own designs, in \<System and Information Integrity Management\> and \<Configuration Management\>, and use the same change records.
 
 ## 3 The design
 
@@ -175,11 +171,7 @@ Controls met here: MA-2, MA-3(3), MA-4, MA-6.
 
 Controls met here: MA-1.
 
-1. **Policy.** \<Policy\> (MA) is a system-level policy, shared with everyone who maintains \<System Name\>. The legal adviser reviews it.
-2. **Procedures.** \<Procedures\> (MA) holds seven procedures, PRO-MA-1 to PRO-MA-7. They are shared with the same people.
-3. **Owner.** The system owner manages the policy and procedures.
-4. **Review.** The policy is reviewed every 12 months, and after a significant incident, audit finding or system change. The procedures are reviewed every 12 months, and after a change to the steps.
-5. **Records.** The documents are under version control.
+\<Policy\> (MA) and \<Procedures\> (MA) meet MA-1. Who they are shared with is in \<Policy\>, section MA.6. Their ownership, approval, review and records follow the rules common to every policy in \<Policy\>, section 1.1.
 
 ## Appendix A MA controls outside the Moderate baseline
 

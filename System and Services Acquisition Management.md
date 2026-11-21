@@ -6,15 +6,11 @@ This document sets out how \<System Name\> is designed to be built and bought se
 
 Section 3 is the design: the development framework; the lifecycle, roles and resources; contracts and design information; documentation; engineering principles; external services; developer configuration management; the developer test plan; the process, standards and tools; criticality analysis; unsupported components; what \<Organisation\> and the providers supply; and the policy and procedures. Each subsection names the controls it helps to meet. Appendix A lists the related controls and enhancements CSS does not select at Moderate.
 
-Other documents hold the rest. Who provides and is responsible for each control, its status and its assessment result are in \<System Security Plan\>, section 7.16 (Table 25). The tests, their results and the records an assessor will ask for are in \<Control Assessment Record\> (SA). Each control's risk is in \<Risk List\>, and what is still open is in \<Plan of Action and Milestones\>. The policy is in \<Policy\> (SA), and the steps people follow are in \<Procedures\> (SA). Four records sit beside this one, each holding what CSS asks the system's own documents to hold: the engineering principles in \<Security Architecture\>, section 6.5; the functions, ports, protocols and services in \<System Security Plan\>, section 3.7; the critical components in \<Risk Assessment Management\>, section 3.9; and the component support dates in \<Maintenance Management\>, section 3.8.
-
 \<System Name\> is built in-house under \<Organisation\>'s corporate software development life cycle (SDLC), which is inherited from \<Organisation\> (\<System Description\>, section 7.12), so its developers carry most of these duties within it. What is bought is \<Organisation\>'s hosting and services, and the public package registry behind the in-house package feed.
 
-Values that CSS asks the organisation to define are set at corporate level by \<Organisation\>. The settings in section 3 should match those corporate values. Where one does not, it is changed in this document.
+## 2 Related documents
 
-## 2 Summary
-
-The implementation status of each control, how it is met, who is responsible, its assessment result and the risk and plan entries for its gaps are recorded in \<System Security Plan\>, section 7.16 (Table 25).
+Who provides and is responsible for each control, and its status, are in \<System Security Plan\>, section 7.16 (Table 25). The tests, their results and the records an assessor will ask for are in \<Control Assessment Record\> (SA). Each control's risk is in \<Risk List\>, and what is still open is in \<Plan of Action and Milestones\>. The policy is in \<Policy\> (SA), and the steps people follow are in \<Procedures\> (SA). Four records sit beside this one, each holding what CSS asks the system's own documents to hold: the engineering principles in \<Security Architecture\>, section 6.5; the functions, ports, protocols and services in \<System Security Plan\>, section 3.7; the critical components in \<Risk Assessment Management\>, section 3.9; and the component support dates in \<Maintenance Management\>, section 3.8.
 
 ## 3 The design
 
@@ -58,7 +54,7 @@ Controls met here: SA-3, SA-15.
 | PW.6 Secure build settings | Release builds |
 | PW.7 Review code | Second developer reviews each change, merged through a protected branch (PRO-SA-1) |
 | PW.8 Test executable code | Automated tests, a package scan and a code scan in the build pipeline, and fifteen test scripts (section 3.9) |
-| PW.9 Secure defaults | Deny by default; the authentication cookie lasts no longer than PingFederate's sign-in lifetime (P-AC-10; \<System Description\>, P-02) |
+| PW.9 Secure defaults | Deny by default; the authentication cookie lasts no longer than PingFederate's sign-in lifetime (\<System Description\>, P-02) |
 | RV.1 Identify vulnerabilities | Test-Vulnerability.ps1; CISA's exploited list weekly (SyOps C50) |
 | RV.2 Assess and fix vulnerabilities | Timetable in \<Risk Assessment Management\>, section 3.6 |
 | RV.3 Find root causes | Lessons in incident records (TPL-10) and risk reviews (TPL-23) |
@@ -261,11 +257,7 @@ Controls met here: SA-4, SA-9, SA-9(2), SA-10.
 
 Controls met here: SA-1.
 
-1. **Policy.** \<Policy\> (SA) is a system-level policy. It is shared with the developers and administrators. The legal adviser reviews it.
-2. **Procedures.** \<Procedures\> (SA) holds seven procedures, PRO-SA-1 to PRO-SA-7. They are shared with the same people.
-3. **Owner.** The system owner manages the policy and procedures.
-4. **Review.** The policy is reviewed every 12 months, and after a significant incident, audit finding or system change. The procedures are reviewed every 12 months, and after a change to the steps.
-5. **Records.** The documents are under version control.
+\<Policy\> (SA) and \<Procedures\> (SA) meet SA-1. Who they are shared with is in \<Policy\>, section SA.6. Their ownership, approval, review and records follow the rules common to every policy in \<Policy\>, section 1.1.
 
 ## Appendix A Acquisition controls outside the Moderate baseline
 

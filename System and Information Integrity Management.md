@@ -6,13 +6,9 @@ This document sets out how \<System Name\> is designed and configured to keep it
 
 Section 3 is the design: the upload checks and malware scanning; flaw remediation and advisories; monitoring and the detection use cases; the integrity baseline and checks; error handling and memory protection; retention; what \<Organisation\> provides; email and spam protection; and the policy and procedures. Each subsection names the controls it helps to meet. Appendix A lists the related controls and enhancements CSS does not select at Moderate.
 
-Other documents hold the rest. Who provides and is responsible for each control, its status and its assessment result are in \<System Security Plan\>, section 7.18 (Table 27). The tests, their results and the records an assessor will ask for are in \<Control Assessment Record\> (SI). Each control's risk is in \<Risk List\>, and what is still open is in \<Plan of Action and Milestones\>. The policy is in \<Policy\> (SI), and the steps people follow are in \<Procedures\> (SI). The vulnerability timetable is in \<Risk Assessment Management\>, section 3.6, the retention schedule in \<PII Processing Management\>, section 3.7, and the audit design in \<Audit and Accountability Management\>. The privacy controls SI-12(1) to SI-12(3), SI-18, SI-18(4) and SI-19 are set out in \<PII Processing Management\>.
+## 2 Related documents
 
-Values that CSS asks the organisation to define are set at corporate level by \<Organisation\>. The settings in section 3 should match those corporate values. Where one does not, it is changed in this document.
-
-## 2 Summary
-
-The implementation status of each control, how it is met, who is responsible, its assessment result and the risk and plan entries for its gaps are recorded in \<System Security Plan\>, section 7.18 (Table 27).
+Who provides and is responsible for each control, and its status, are in \<System Security Plan\>, section 7.18 (Table 27). The tests, their results and the records an assessor will ask for are in \<Control Assessment Record\> (SI). Each control's risk is in \<Risk List\>, and what is still open is in \<Plan of Action and Milestones\>. The policy is in \<Policy\> (SI), and the steps people follow are in \<Procedures\> (SI). The vulnerability timetable is in \<Risk Assessment Management\>, section 3.6, the retention schedule in \<PII Processing Management\>, section 3.7, and the audit design in \<Audit and Accountability Management\>. The privacy controls SI-12(1) to SI-12(3), SI-18, SI-18(4) and SI-19 are set out in \<PII Processing Management\>.
 
 ## 3 The design
 
@@ -153,11 +149,7 @@ Controls met here: SI-8, SI-8(2).
 
 Controls met here: SI-1.
 
-1. **Policy.** \<Policy\> (SI) is a system-level policy. It is shared with everyone who administers or develops \<System Name\>. The legal adviser reviews it.
-2. **Procedures.** \<Procedures\> (SI) holds eight procedures, PRO-SI-1 to PRO-SI-8. They are shared with the same people.
-3. **Owner.** The system owner manages the policy and procedures.
-4. **Review.** The policy is reviewed every 12 months, and after a significant incident, audit finding or system change. The procedures are reviewed every 12 months, and after a change to the steps.
-5. **Records.** The documents are under version control.
+\<Policy\> (SI) and \<Procedures\> (SI) meet SI-1. Who they are shared with is in \<Policy\>, section SI.6. Their ownership, approval, review and records follow the rules common to every policy in \<Policy\>, section 1.1.
 
 ## Appendix A Integrity controls outside the Moderate baseline
 

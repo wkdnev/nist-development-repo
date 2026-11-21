@@ -53,7 +53,7 @@ Questions are numbered INT-XX-nn, where XX is the family code, and each names th
 | INT-AC-03 | How do you decide who holds privileged roles? | AC-02e, AC-06(05) | Approved access list, TPL-2 records |
 | INT-AC-04 | How are duties separated, and where does staffing prevent it? | AC-05a, AC-05b | Roles document, risk acceptance |
 | INT-AC-05 | How do you decide whether a non-compliance is accepted or remediated? | All; PRO-AC-17 | Decision register, TPL-1 records |
-| INT-AC-06 | What is allowed on external systems and portable storage? | AC-20, AC-20(02) | P-AC-22, any approvals |
+| INT-AC-06 | What is allowed on external systems and portable storage? | AC-20, AC-20(02) | P-48, any approvals |
 
 ### 3.2 Administrators
 

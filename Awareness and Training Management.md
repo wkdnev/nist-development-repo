@@ -6,15 +6,11 @@ This document sets out \<System Name\>'s security and privacy awareness and trai
 
 Section 3 is the design: who needs what, the awareness briefing, the role curriculum, the training matrix and timetable, keeping content current, the training register, the measures, and the policy and procedures. It follows the CSS cycle: plan the programme, write the content, give the training, then measure and improve it (sections 3.7 and 3.9). Each subsection names the controls it helps to meet.
 
-Other documents hold the rest. Who provides and is responsible for each control, its status and its assessment result are in \<System Security Plan\>, section 7.2 (Table 11). The tests, their results and the records an assessor will ask for are in \<Control Assessment Record\> (AT). Each control's risk is in \<Risk List\>, and what is still open is in \<Plan of Action and Milestones\>. The policy is in \<Policy\> (AT), and the steps people follow are in \<Procedures\> (AT).
-
-Values that CSS asks the organisation to define are set at corporate level by \<Organisation\>. The settings in section 3 should match those corporate values. Where one does not, it is changed in this document.
-
 Training is carried out by people, not by the system, so nothing here is built into \<System Name\>.
 
-## 2 Summary
+## 2 Related documents
 
-The implementation status of each control, how it is met, who is responsible, its assessment result and the risk and plan entries for its gaps are recorded in \<System Security Plan\>, section 7.2 (Table 11).
+Who provides and is responsible for each control, and its status, are in \<System Security Plan\>, section 7.2 (Table 11). The tests, their results and the records an assessor will ask for are in \<Control Assessment Record\> (AT). Each control's risk is in \<Risk List\>, and what is still open is in \<Plan of Action and Milestones\>. The policy is in \<Policy\> (AT), and the steps people follow are in \<Procedures\> (AT).
 
 ## 3 The training programme
 
@@ -186,8 +182,5 @@ The security officer reports these monthly with the continuous monitoring measur
 
 Controls met here: AT-1.
 
-1. **Policy.** \<Policy\> (AT) is a system-level policy. It is shared with everyone who uses or administers \<System Name\>. The legal adviser reviews it.
-2. **Procedures.** \<Procedures\> (AT) holds five procedures, PRO-AT-1 to PRO-AT-5, each naming who acts and the record. They are shared with everyone who uses, administers or develops \<System Name\>.
-3. **Owner.** The system owner manages the policy and procedures.
-4. **Review.** The policy is reviewed every 12 months, and after a significant incident, audit finding or system change. The procedures are reviewed every 12 months, and after a change to the steps.
-5. **Records.** The documents are under version control, and each review is recorded in the change record.
+\<Policy\> (AT) and \<Procedures\> (AT) meet AT-1. Who they are shared with is in \<Policy\>, section AT.6. Their ownership, approval, review and records follow the rules common to every policy in \<Policy\>, section 1.1.
+

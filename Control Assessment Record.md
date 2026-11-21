@@ -2509,7 +2509,7 @@ This records the Level 1 self-assessment of the 18 PE entries in the CSS Moderat
 
 ### PE.2 How to read this record
 
-The methods are **Examine** (documents), **Interview** and a site inspection. Fifteen of the 18 controls are inherited from \<Organisation\>'s data centres, and the inheritance matrix in \<Physical and Environmental Protection Management\>, section 3.3, shows the evidence that closes each one (EV-PE-01 to EV-PE-05). Screen locking is tested under AC-11, and output marking under MP-3. An unattended screen is locked by \<Organisation\>'s managed devices and the servers (P-AC-15). An inherited statement stays O-E until \<Organisation\>'s evidence is received.
+The methods are **Examine** (documents), **Interview** and a site inspection. Fifteen of the 18 controls are inherited from \<Organisation\>'s data centres, and the inheritance matrix in \<Physical and Environmental Protection Management\>, section 3.3, shows the evidence that closes each one (EV-PE-01 to EV-PE-05). Screen locking is tested under AC-11, and output marking under MP-3. An unattended screen is locked by \<Organisation\>'s managed devices and the servers (P-03). An inherited statement stays O-E until \<Organisation\>'s evidence is received.
 
 ### PE.3 Executive summary
 

@@ -8,13 +8,9 @@ Section 3 is the design: the principles, the risk designation of every role, the
 
 Screening, HR and disciplinary processes belong to \<Organisation\>. \<System Name\> sets the minimum it requires of them, records only that each check was confirmed and when, and relies on \<Organisation\>'s evidence for the rest. How access is requested, granted and removed is in \<Access Control Management\>, and the duties of each role are in \<Roles and Responsibilities\>.
 
-Other documents hold the rest. Who provides and is responsible for each control, its status and its assessment result are in \<System Security Plan\>, section 7.13 (Table 22). The tests, their results and the records an assessor will ask for are in \<Control Assessment Record\> (PS). Each control's risk is in \<Risk List\>, and what is still open is in \<Plan of Action and Milestones\>. The policy is in \<Policy\> (PS), and the steps people follow are in \<Procedures\> (PS).
+## 2 Related documents
 
-Values that CSS asks the organisation to define are set at corporate level by \<Organisation\>. The values in section 3, such as the time limits, the rescreening interval and how long records are kept, should match those corporate values. Where one does not, it is changed in this document.
-
-## 2 Summary
-
-The implementation status of each control, how it is met, who is responsible, its assessment result and the risk and plan entries for its gaps are recorded in \<System Security Plan\>, section 7.13 (Table 22).
+Who provides and is responsible for each control, and its status, are in \<System Security Plan\>, section 7.13 (Table 22). The tests, their results and the records an assessor will ask for are in \<Control Assessment Record\> (PS). Each control's risk is in \<Risk List\>, and what is still open is in \<Plan of Action and Milestones\>. The policy is in \<Policy\> (PS), and the steps people follow are in \<Procedures\> (PS).
 
 ## 3 The design
 
@@ -109,7 +105,7 @@ Controls met here: PS-3, PS-4, PS-5, PS-6.
 | Joiner | The role's designation is looked up; \<Organisation\> confirms the screening; the person completes training and signs the agreements; the access request is authorised in ServiceNow, by the Data Owner for a schema's groups and by the system owner for a role group; only then do the group owners add them to the groups the role needs | System owner; \<Organisation\>; the Data Owner; the group owners | Before access | TPL-2; TPL-21; the register |
 | Mover | The line manager tells the system owner and the owners of the person's groups. Each owner confirms whether the person still needs the group, and removes or adds memberships. A higher risk role needs screening confirmed again first | Line manager; system owner; the group owners | 1 working day | TPL-14 |
 | Leaver | \<Organisation\> disables the Active Directory account at once, and ends the person's PingFederate sign-in, which ends access. Its starters and leavers process gives notice of the leaver to the group owners, through ServiceNow, and they remove the memberships. Any service secret the person knew is changed, and exported files and printouts are recovered or destroyed. Separately, anyone who has not signed in for 90 days is removed from \<System Name\>'s groups each month (\<Access Control Management\>, section 3.14) | \<Organisation\>; the group owners; system owner | At once, and memberships within 5 working days (\<System Description\>, P-06) | TPL-14 |
-| Higher-risk leaver, dismissal or suspected misuse | \<Organisation\>'s service desk disables the Active Directory account and ends the person's PingFederate sign-in, so \<System Name\> refuses the person at the next group lookup (P-AC-13) | \<Organisation\>'s service desk | 1 hour of notice | TPL-14; TPL-10 if it is an incident |
+| Higher-risk leaver, dismissal or suspected misuse | \<Organisation\>'s service desk disables the Active Directory account and ends the person's PingFederate sign-in, so \<System Name\> refuses the person at the next group lookup (P-41) | \<Organisation\>'s service desk | 1 hour of notice | TPL-14; TPL-10 if it is an incident |
 
 **Leavers.** Disabling the Active Directory account revokes the person's password and second factor. Any service secret the person knew is changed (\<Procedures\>, PRO-IA-4). \<Organisation\> holds an exit interview, which covers the person's continuing confidentiality duties and the return of equipment, and recovers their laptop, phone, pass and any other equipment. Exported files and printouts are recovered or destroyed (\<Security Operating Procedures\>, section 4.4). Items belong to schemas, not to people, so the items a leaver created stay with the schema and its members. The system owner confirms this on TPL-14.
 
@@ -183,11 +179,7 @@ The security and privacy duties of every \<System Name\> role are stated in \<Ro
 
 Controls met here: PS-1.
 
-1. **Policy.** \<Policy\> (PS) is a system-level policy. Its purpose and scope are in section PS.1, responsibilities in PS.5, and commitment, coordination and compliance in PS.6. It is shared with everyone who administers \<System Name\> and every line manager of a \<System Name\> user. The legal adviser reviews it.
-2. **Procedures.** \<Procedures\> (PS) holds seven procedures, PRO-PS-1 to PRO-PS-7. They are shared with the same people.
-3. **Owner.** The system owner manages the policy and procedures.
-4. **Review.** The policy is reviewed every 12 months, and after a significant incident, audit finding or system change. The procedures are reviewed every 12 months, and after a change to the steps.
-5. **Records.** The documents are under version control, and each review is recorded in the change record.
+\<Policy\> (PS) and \<Procedures\> (PS) meet PS-1. Who they are shared with is in \<Policy\>, section PS.6. Their ownership, approval, review and records follow the rules common to every policy in \<Policy\>, section 1.1.
 
 ## Appendix A PS controls outside the Moderate baseline
 
