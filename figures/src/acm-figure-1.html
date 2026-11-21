@@ -1,0 +1,46 @@
+<!doctype html><html><head><meta charset="utf-8"><style>body{margin:0;background:#fff;font-family:Segoe UI,Arial,sans-serif}</style></head><body>
+<svg xmlns="http://www.w3.org/2000/svg" width="1520" height="850" viewBox="0 0 1520 850" font-family="Segoe UI, Arial, sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0L10,5L0,10z" fill="#999"/></marker></defs>
+<rect width="1520" height="850" fill="#fff"/>
+<text x="48" y="55" font-size="30" font-weight="700" fill="#1a1a1a">Every request passes four checks, and anything not granted is refused</text>
+<text x="48" y="92" font-size="21" fill="#555">PingFederate and Active Directory are &lt;Organisation&gt;'s corporate systems (inherited).</text>
+
+<text x="48" y="152" font-size="24" font-weight="700" fill="#1a1a1a">Who the person is</text>
+<rect x="48" y="172" width="640" height="150" rx="12" fill="#fff" stroke="#999" stroke-width="2"/>
+<text x="76" y="218" font-size="25" font-weight="700" fill="#1a1a1a">1 Signed in</text>
+<text x="76" y="254" font-size="20" fill="#555">PingFederate authenticates the user with MFA.</text>
+<text x="76" y="284" font-size="20" fill="#555">The app's authentication cookie must be valid.</text>
+
+<rect x="832" y="172" width="640" height="150" rx="12" fill="#fff" stroke="#999" stroke-width="2"/>
+<text x="860" y="218" font-size="25" font-weight="700" fill="#1a1a1a">2 Active Directory groups</text>
+<text x="860" y="254" font-size="20" fill="#555">the API reads the user's groups from</text>
+<text x="860" y="284" font-size="20" fill="#555">Active Directory over LDAPS (F7)</text>
+<line x1="688" y1="247" x2="830" y2="247" stroke="#999" stroke-width="2.5" marker-end="url(#a)"/>
+
+<polyline points="1152,322 1152,362 368,362 368,428" fill="none" stroke="#999" stroke-width="2.5" marker-end="url(#a)"/>
+
+<text x="48" y="412" font-size="24" font-weight="700" fill="#1a1a1a">What they may do</text>
+<rect x="48" y="432" width="640" height="150" rx="12" fill="#fff" stroke="#999" stroke-width="2"/>
+<text x="76" y="478" font-size="25" font-weight="700" fill="#1a1a1a">3 Schema</text>
+<text x="76" y="514" font-size="20" fill="#555">read or edit, from the schema's groups,</text>
+<text x="76" y="544" font-size="20" fill="#555">which its Data Owner owns</text>
+
+<rect x="832" y="432" width="640" height="150" rx="12" fill="#fff" stroke="#999" stroke-width="2"/>
+<text x="860" y="478" font-size="25" font-weight="700" fill="#1a1a1a">4 Function</text>
+<text x="860" y="514" font-size="20" fill="#555">the role group needed for</text>
+<text x="860" y="544" font-size="20" fill="#555">the page or function</text>
+<line x1="688" y1="507" x2="830" y2="507" stroke="#999" stroke-width="2.5" marker-end="url(#a)"/>
+
+<line x1="368" y1="582" x2="368" y2="676" stroke="#999" stroke-width="2.5" stroke-dasharray="8 6" marker-end="url(#a)"/>
+<text x="384" y="636" font-size="19" fill="#555">any check fails</text>
+<line x1="1152" y1="582" x2="1152" y2="676" stroke="#999" stroke-width="2.5" marker-end="url(#a)"/>
+<text x="1168" y="636" font-size="19" fill="#555">all four pass</text>
+
+<rect x="48" y="680" width="640" height="130" rx="12" fill="#d9e1ec" stroke="#2f6fd6" stroke-width="3"/>
+<text x="76" y="730" font-size="25" font-weight="700" fill="#1a1a1a">Refused</text>
+<text x="76" y="766" font-size="20" fill="#555">deny by default: anything not granted is refused</text>
+
+<rect x="832" y="680" width="640" height="130" rx="12" fill="#fff" stroke="#2e9e44" stroke-width="3"/>
+<text x="860" y="730" font-size="25" font-weight="700" fill="#1a1a1a">Allowed</text>
+<text x="860" y="766" font-size="20" fill="#555">only if all four checks pass</text>
+</svg></body></html>

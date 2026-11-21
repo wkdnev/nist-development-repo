@@ -1,219 +1,127 @@
-# \<DocuView\> Concept of Operations
+# \<System Name\> Concept of Operations
 
-**\<ref\> | Version \<ver\> | Approved by the system owner**
+## 1 Purpose of this document
 
-**Contents**
+This document is used by every control family. It describes how \<System Name\> is intended to be used: why it exists, who uses it, the business processes it supports and how it works day to day. How it meets controls is in the SSP. The business details come from the business owner, and the users, information and functions follow \<System Description\>, sections 3.3 to 3.5.
 
-[1 Document control](#1-document-control)
+## 2 Mission and purpose
 
-[2 Purpose of this document](#2-purpose-of-this-document)
+\<System Name\> is an internal digital library. It gives \<Organisation\>'s staff and contractors one place to store, search and view digital items, such as scanned and electronic documents, with their catalogue details and files. Items are kept apart in schemas: each schema is its own database schema, with its own read group and edit group.
 
-[3 Mission and purpose](#3-mission-and-purpose)
+Teams need one controlled place to keep their items, so that the right people can find them quickly and others cannot see them. Keeping each schema's items apart lets one system serve several parts of the business.
 
-[4 User communities](#4-user-communities)
+The business owner is \[Name\] and the information owner is \[Name\] (\<System Description\>, section 3.2; \<Roles and Responsibilities\>). The business purpose and the processes it supports are in \<System Description\>, section 3.1. The benefits the business expects are: \[Benefits expected, from the business owner\].
 
-[5 Business workflows](#5-business-workflows)
+## 3 User communities
 
-[6 Operational scenarios](#6-operational-scenarios)
+\<System Name\> has no external or public users. Every role comes from an Active Directory group: the five role groups are owned by the system owner, and each schema's read group and edit group are owned by its Data Owner (\<System Description\>, section 3.3).
 
-[7 Operational concepts](#7-operational-concepts)
-
-[8 Open questions](#8-open-questions)
-
-| **SECTION 1** |
-| --- |
-
-## 1 Document control
-
-### 1.1 Document details
-
-**Table 1: Document details**
-
-| Item | Detail |
-| --- | --- |
-| Reference | \<ref\> |
-| Title | \<DocuView\> Concept of Operations |
-| Version | \<ver\> |
-| Status | Approved by the system owner |
-| Date | 5 November 2026 |
-| Owner | System owner |
-| Applies to | All control families |
-| Classification | Restricted |
-| Next review | 12 months after approval, and after a significant change |
-| Format | \<Documentation Map\>, section 5 |
-
-### 1.2 Approval
-
-**Table 2: Approval**
-
-| Role | Name | Decision | Date |
-| --- | --- | --- | --- |
-| System owner | Neil Ramsbottom | Approved | 7 November 2026 |
-| Business owner | Tony Tilley | Approved | 7 November 2026 |
-
-### 1.3 Change history
-
-**Table 3: Change history**
-
-| Version | Date | Change |
-| --- | --- | --- |
-| \<ver\> | 18 November 2026 | Whole-set review: who starts a new person, where \<DocuView\> runs and the database-down mode follow sign-in through AD FS and the Windows services (D-AC-23, D-PL-10) |
-| \<ver\> | 18 November 2026 | Whole-set review: the joiner and leaver workflows follow sign-in through AD FS and access by Active Directory groups (D-AC-23) |
-| \<ver\> | 18 November 2026 | References to the communications protection design point to \<System and Communications Protection Management\>, where it is now held (D-SC-09). References to the integrity design point to \<System and Information Integrity Management\>, where it is now held (D-SI-10) |
-| \<ver\> | 18 November 2026 | References to the acquisition design point to \<System and Services Acquisition Management\>, where it is now held (D-SA-19) |
-| \<ver\> | 18 November 2026 | References to the risk assessment design point to \<Risk Assessment Management\>, where it is now held (D-RA-11) |
-| \<ver\> | 17 November 2026 | References to the personnel security design point to \<Personnel Security Management\>, where it is now held (D-PS-10) |
-| \<ver\> | 17 November 2026 | References to the physical and environmental protection design point to \<Physical and Environmental Protection Management\>, where it is now held (D-PE-11) |
-| \<ver\> | 17 November 2026 | References to the media protection design point to \<Media Protection Management\>, where it is now held (D-MP-09) |
-| \<ver\> | 17 November 2026 | References to the maintenance design point to \<Maintenance Management\>, where it is now held (D-MA-09) |
-| \<ver\> | 16 November 2026 | The modes of operation follow sign-in through AD FS: a row for AD FS being down (D-AC-23) |
-| \<ver\> | 12 November 2026 | References to the assessment, authorisation and monitoring design point to \<Assessment, Authorization, and Monitoring Management\>, where it is now held (D-CA-11) |
-| \<ver\> | 12 November 2026 | References to the training design point to \<Awareness and Training Management\>, where it is now held (D-AT-09) |
-| \<ver\> | 12 November 2026 | Sign-in follows D-AC-23: single sign-on through AD FS |
-| \<ver\> | 12 November 2026 | Version numbers are shown as a placeholder, as the system owner asked (D-GEN-28). No other change |
-| \<ver\> | 12 November 2026 | The document number is replaced by a placeholder on the line under the title and in the details table, as the system owner asked (D-GEN-27). No other change |
-| \<ver\> | 12 November 2026 | The name of the system is shown as a placeholder, as the system owner asked (D-GEN-26). No other change |
-| \<ver\> | 12 November 2026 | The access request steps follow D-AC-22 |
-| \<ver\> | 12 November 2026 | References to documents that no longer exist now name where their content is, as the system owner asked. No other change |
-| \<ver\> | 12 November 2026 | Section 7.4 is cut to a brief table that points to where each value is held, in place of repeating the values (D-GEN-25). No value is changed. The earlier rows of the change history are folded into one row, as the system owner decided (D-GEN-25). No other change |
-| \<ver\> | 12 November 2026 | References to the register, the policy and the assessment record follow their new section and table numbers (D-GEN-24) |
-| \<ver\> | 12 November 2026 | Documents are cited by name in angle brackets, in place of their numbers, as the system owner asked (D-GEN-23). No other change |
-| \<ver\> | 12 November 2026 | Whole-set review (WS-F15): the business owner is named, and the business facts still needed are shown as placeholders for the business owner; section 7.4 is one numbered list; the 1-hour limit for a higher-risk leaver is stated (D-PS-07). The combined documents are cited by their new numbers. The document standard is cited as \<Documentation Map\>, section 5. The contents list is rebuilt so that its links work in Markdown |
-| \<ver\> | 12 November 2026 | AT pack review (D-AT-06): the training item names the \<DocuView\> briefing, the role modules and \<Control Implementation Register\> (AT). Approved by the system owner |
-| \<ver\> to \<ver\> | 5 to 12 November 2026 | The earlier versions. Their history is kept in the change record (\<Documentation Map\>, section 5.1) |
-
-| **SECTION 2** |
-| --- |
-
-## 2 Purpose of this document
-
-This document is used by every control family. It describes how \<DocuView\> is intended to be used: why it exists, who uses it, the business processes it supports and how it works day to day. How it meets controls is in the SSP. The business details are proposals until the business owner confirms them.
-
-| **SECTION 3** |
-| --- |
-
-## 3 Mission and purpose
-
-\<DocuView\> gives authorised people one place to find and read scanned and electronic documents, such as PDFs and TIFFs. Each project's documents are kept separate from the others.
-
-Teams need one controlled place to keep scanned and electronic documents, so that the right people can find them quickly and others cannot see them. Keeping each project's documents separate lets one system serve several parts of the business.
-
-The business and information owner is Tony Tilley (\<Roles and Responsibilities\>). The benefits the business expects are still to be stated: \[Benefits expected, from the business owner\].
-
-| **SECTION 4** |
-| --- |
-
-## 4 User communities
-
-**Table 4: User communities**
+**Table 1: User communities**
 
 | Community | What they do | Where |
 | --- | --- | --- |
-| Document readers | Search and read documents in their projects, and report bad files | DV\_Web |
-| Project editors | Readers' work, plus upload, bulk upload, bulk export and manage project documents | DV\_Web |
-| Administrators | Manage system settings | Admin portal |
-| Global administrators | Manage projects, the AD groups each project uses, and sessions, in every project | Admin portal and DV\_Web |
-| Auditors | Read audit logs | Admin portal |
-| Security officers | Monitor security information | Admin portal |
+| Readers | Search and read items in their schemas, view and download files, and report a fault in an item | UI application |
+| Editors | A reader's work, and create, upload, bulk upload, manage and bulk export the schema's items. Edit includes read | UI application |
+| Administrators | Manage schemas, which groups open each schema, and system settings; correct, replace and delete items. Can reach every schema. There is one Administrator role and no separate global administrator | Admin application and UI application |
+| Auditors | Read, search and export the audit log, and review it weekly (\<System Description\>, P-08). Hold no administration role | Admin application |
+| Security officers | Read security information, review alerts and the central logs, and lead incident response. Do not read the audit log. Hold no administration role | Admin application |
+| Business owners | Approve the disposal of items due under the retention schedule (\<System Description\>, FR-074) | Admin application |
+| Legal adviser's delegates | Search every schema for one person's items to answer a request under data protection law (\<System Description\>, FR-073). Hold no other role, and are named by the legal adviser | Admin application |
+| Data Owners | Own a schema's data and its two groups, and authorise who may read or edit it | ServiceNow and the directory |
+| Server and database administrators | Run the servers and the database. Need no application role | The servers, only over \<Organisation\>'s managed administration route, with multi-factor authentication and named accounts (flow F11) |
+| Developers | Build and fix the applications. Hold no administrator access on the servers | Development environment |
 
-| **SECTION 5** |
-| --- |
+## 4 Business workflows
 
-## 5 Business workflows
+An item normally moves through four stages: it is added to a schema, found and read, corrected if something is wrong, and exported if it is needed elsewhere, until it is disposed of under the retention schedule. The business processes \<System Name\> will support are: \[Business processes, from the business owner\]. The functions particular to \<System Name\>, AF-001 onwards, are in \<System Description\>, section 3.5. Test and development use invented schemas and items only.
 
-A document normally moves through four stages: it is added to a project, found and read, corrected if something is wrong, and exported if it is needed elsewhere. The business processes \<DocuView\> will support are still to be confirmed: \[Business processes, from the business owner\]. The sample data uses invoices, correspondence and HR projects.
-
-**Table 5: Business workflows**
+**Table 2: Business workflows**
 
 | Activity | Who | What happens |
 | --- | --- | --- |
-| Find and read a document | Reader | Chooses a project, searches by title, author, number or date, and opens the document on screen |
-| Add documents | Editor | Uploads files one at a time or in bulk, with details such as title and author |
-| Report a bad file | Reader, editor | Flags a corrupt or wrong document so it can be corrected |
-| Export a project's documents | Editor | Downloads a set of documents for approved use elsewhere |
-| Start a new person | The person, their line manager, the group's owner | The person requests access, their line manager approves it and the owner authorises it, then the owner adds the person to the project's or role's Active Directory group. \<DocuView\> creates no account (D-AC-23) |
-| Remove a leaver | ABC Technologies, the group owners | ABC Technologies disables the person's Active Directory account at once, which ends their access, and the group owners remove their group memberships within 5 working days |
-| Check activity | Auditor | Reviews who did what |
+| Find and read an item | Reader | Chooses one of their schemas, searches it, sorts and pages the results, opens the item and views its file in the browser, or downloads the original |
+| Add items | Editor | Creates an item or uploads a file with its details, or bulk uploads a batch with a list of details. Each file is checked and scanned for malicious code before it is stored |
+| Report a fault | Reader, editor | A reader reports a faulty item or file. An editor moves the report through its states and records the corrective action |
+| Correct, replace or delete an item | Editor, administrator | An editor or administrator corrects an item's details. An administrator replaces a stored file or deletes an item. Each change is audited |
+| Export a schema's items | Editor | Chooses items by filters and runs an export in the background, then downloads it. Taking exported items outside \<Organisation\>'s systems needs the Data Owner's decision |
+| Manage schemas | Administrator | Creates, changes, deactivates and deletes schemas, and names each schema's read group and edit group |
+| Start a new person | The person, their line manager, the group's owner | The person requests access in ServiceNow, their line manager approves it, and the group's owner authorises it: the Data Owner for a schema, the system owner for a role. The owner then adds the person to the Active Directory group. \<System Name\> creates no account |
+| Remove a leaver | \<Organisation\>, the group owners | \<Organisation\> disables the person's Active Directory account at once, which ends their access, and the group owners remove their group memberships within 5 working days (\<System Description\>, P-06) |
+| Check activity | Auditor, security officer | The auditor reads and searches the audit log, reviews it weekly (\<System Description\>, P-08), compares it with the server, database, PingFederate and Active Directory records, records the review, and reports anything suspicious to the security officer. The security officer reviews alerts and the central logs |
+| Answer a request about personal data | Legal adviser and their delegate | The delegate finds every item about the person across all schemas, and the legal adviser answers within the time in P-22 |
+| Dispose of items | Business owner | Items due under the retention schedule are listed, and deleted once approved. The disposal is recorded |
 
-| **SECTION 6** |
-| --- |
+## 5 Operational scenarios
 
-## 6 Operational scenarios
-
-**Table 6: Operational scenarios**
+**Table 3: Operational scenarios**
 
 | Scenario | Situation | What happens |
 | --- | --- | --- |
-| Answering a query | A reader needs a past document | They sign in, choose their project, search and read it on screen |
-| Adding a batch | An editor has a set of newly scanned documents | They bulk upload them to the project with their details, and readers can then find them |
-| A poor scan | A reader finds a page is unreadable | They report a bad file, and an editor corrects it and updates the report |
-| A request for documents | Someone needs a project's documents elsewhere | The project access approver decides, and an editor exports them as a download |
-| Wrong project | A user opens a project they are not approved for | \<DocuView\> refuses, and they request access, which their line manager approves and the project's owner authorises |
-| Forgotten password or lockout | A user cannot sign in | ABC Technologies' IT service desk resets the Active Directory password or releases the lock, after checking who they are |
-| Leaving a desk | A user walks away while signed in | The screen locks after 25 minutes idle, and the session ends after 30 |
-| A new starter or a leaver | Staff change | Access is requested and approved for a starter, and removed for a leaver |
+| Answering a query | A reader needs a past item | They sign in, choose their schema, search and read it on screen |
+| Adding a batch | An editor has a set of newly scanned items | They bulk upload them to the schema with their details, and readers can then find them |
+| A poor scan | A reader finds a page is unreadable | They report a fault, and an editor or administrator corrects it and updates the report |
+| A request for items | Someone needs a schema's items elsewhere | The schema's Data Owner decides, and an editor exports them as a download |
+| Wrong schema | A user tries to open a schema they may not read | \<System Name\> shows the access-denied page, and they request access in ServiceNow, which their line manager approves and the schema's Data Owner authorises |
+| Forgotten password or lockout | A user cannot sign in | \<Organisation\>'s IT service desk resets the Active Directory password or releases the lock, after checking who they are |
+| Leaving a desk | A user walks away while signed in | The device's screen lock hides the screen after the inactivity time \<Organisation\> sets (\<System Description\>, P-03). The sign-in lasts no longer than PingFederate's sign-in lifetime (P-02) |
+| A new starter or a leaver | Staff change | Access is requested and authorised for a starter, and removed for a leaver |
 
-| **SECTION 7** |
-| --- |
+## 6 Operational concepts
 
-## 7 Operational concepts
+### 6.1 Where it runs
 
-### 7.1 Where it runs
+It runs on \<Organisation\>'s internal network, on two Windows Server 2025 virtual servers in \<Organisation\>'s data centre: an application server, which runs the UI application, the Admin application and the API, each as a Windows service under its own managed service account, and a database server, which runs Microsoft SQL Server 2022. It is not reachable from the internet. Testing uses a separate, throwaway copy of the whole system, built from a tagged release, and development uses developers' computers; both hold invented data only.
 
-It is not in production. It will run on the corporate network of ABC Technologies, on an application server VM and a separate database server VM, both Windows Server 2025, with each application running as a Windows service (D-PL-10). The current development stack runs in Docker on one PC with sample data.
+### 6.2 How access works day to day
 
-### 7.2 How access works day to day
+1. A person signs in through \<Organisation\>'s single sign-on, PingFederate, with multi-factor authentication against Active Directory. \<System Name\> holds no accounts and no passwords.
+2. PingFederate's signed response names the person and carries no groups. The API reads the person's group memberships directly from Active Directory over LDAPS, and gives the roles and schema access those groups allow.
+3. Their group memberships decide which schemas they see. Each schema names a read group and an edit group. Administrators can reach every schema.
+4. \<System Name\> has no session management of its own. The sign-in is held only in the application's authentication cookie and lasts no longer than PingFederate's sign-in lifetime (P-02). An unattended screen is locked by the operating system on \<Organisation\>'s managed devices (P-03).
 
-1. A person signs in through ABC Technologies' single sign-on, AD FS, with multi-factor authentication (D-AC-23). \<DocuView\> has no password of its own.
-2. \<DocuView\> takes their roles and project access from their Active Directory groups.
-3. Their group memberships decide which projects they see. Each project names a read group and an edit group.
-4. An idle session locks on screen at 25 minutes and ends at 30. Every session ends after 8 hours.
+### 6.3 Modes of operation
 
-### 7.3 Modes of operation
-
-**Table 7: Modes of operation**
+**Table 4: Modes of operation**
 
 | Mode | What happens |
 | --- | --- |
 | Normal | Everyone can work as usual |
-| AD FS down | Nobody can sign in, because ABC Technologies' AD FS authenticates every user. People already signed in carry on until their session ends |
-| API down | Nobody can work, because both apps reach the documents only through DV\_API |
-| Database down | Session checks fail, so users are signed out, and nobody can open a document |
-| Maintenance | Users cannot reach \<DocuView\>; there is no notice page explaining why. Users get 2 working days' notice of planned maintenance, and a maintenance page is recommended (REC-53) |
+| PingFederate down | Nobody can sign in, because \<Organisation\>'s PingFederate authenticates every user and there is no local sign-in. People already signed in carry on until their sign-in ends at PingFederate's sign-in lifetime |
+| Active Directory down | Nobody can sign in or be authorised. If the API cannot read a person's groups, it gives them no role and no schema, and refuses the request |
+| API down | Nobody can work, because both applications reach the items only through the API |
+| Database down | The API cannot read any data, so it refuses every request and nobody can open an item. People stay signed in |
+| Maintenance | Users cannot reach \<System Name\>. Planned maintenance falls in the windows in P-32, and users get 2 working days' notice |
 
-These modes come from reading the design. They have not been exercised.
+These modes come from reading the design.
 
-### 7.4 How it is kept secure in operation
+### 6.4 How it is kept secure in operation
 
-None of this has started, as \<DocuView\> is not live. Table 8 says in brief how each part of operation is kept secure. The time limits, frequencies and other values are held only in the document named, so that they cannot fall out of step.
+Table 5 says in brief how each part of operation is kept secure. The time limits, frequencies and other values are in the document named, so that the set does not repeat them.
 
-**Table 8: Keeping \<DocuView\> secure in operation**
+**Table 5: Keeping \<System Name\> secure in operation**
 
 | Activity | In brief | Held in |
 | --- | --- | --- |
 | Changes | Approved by the change control board, after a security impact analysis and a review by a second developer. The running system is checked against the approved baseline | \<Configuration Management\> |
-| Patches and vulnerabilities | The system is scanned regularly, and flaws are fixed within time limits set by their severity | \<Risk Assessment Management\>, section 4.6 |
-| Malicious code and monitoring | Microsoft Defender runs on both VMs and uploads are scanned. Audit records and logs are reviewed, and detection use cases alert the security officer | \<System and Information Integrity Management\>, section 4.4; \<Security Operating Procedures\>, section 5 |
-| Encryption | TLS on every flow, encrypted disks and backups, and a register of keys. Not yet built (PA-18, PA-52, PA-93) | \<System and Communications Protection Management\> |
+| Patches and vulnerabilities | The system is scanned regularly, and flaws are fixed within time limits set by their severity | \<Risk Assessment Management\>, section 3.6 |
+| Malicious code and monitoring | Microsoft Defender runs on both servers and uploads are scanned. Auditors review the audit log, the security officer reviews the central logs, and eight events alert the security officer | \<System and Information Integrity Management\>, section 3.4; \<Security Operating Procedures\>, section 4 |
+| Encryption | TLS on every flow, encrypted disks and backups, and a register of keys | \<System and Communications Protection Management\> |
 | Backups and recovery | Encrypted backups, tested restores, and recovery within the objectives the business has set | \<Contingency Planning Management\> |
 | Incidents and breaches | Reported to the security officer and handled by severity. The legal adviser decides whether to tell the ICO and the people affected | \<Incident Response Management\> |
-| Training | Security training and a \<DocuView\> briefing before access, repeated on a schedule, with role modules for those with special duties | \<Awareness and Training Management\> |
+| Training | Security training and a \<System Name\> briefing before access, repeated on a schedule, with role modules for those with special duties | \<Awareness and Training Management\> |
 | Maintenance | Approved first, done by known people with approved tools, checked afterwards and recorded | \<Maintenance Management\> |
-| Media and paper | Exports, downloads and printouts are limited, marked and removed. ABC Technologies looks after disks and backup media | \<Media Protection Management\>; \<Security Operating Procedures\>, Part A |
-| Buildings | ABC Technologies protects the data centre and the second site, and its evidence is checked | \<Physical and Environmental Protection Management\> |
-| People | Screened before access, bound by signed rules, and their access changed promptly when they move or leave | \<Personnel Security Management\>, section 4.6 |
-| Personal data | Used only for HR administration and managing project documents. Requests and complaints go to the legal adviser, and the impact assessment is completed before production | \<Privacy Plan\>; \<Data Protection Impact Assessment\> |
-| Building and buying | Changes follow the development lifecycle. Suppliers are approved, and packages are to arrive through the offline feed (PA-94) | \<System and Services Acquisition Management\>; \<Supply Chain Risk Management\> |
-| Risk and authorisation | The risk list and plan of action are kept current, and the authorising official is kept informed. Authorisation is decided from the authorisation package | \<Assessment, Authorization, and Monitoring Management\>, section 4.5; \<Security Assessment Report\> |
+| Media and paper | Exports, downloads and printouts are limited, marked and removed. \<Organisation\> looks after disks and backup media | \<Media Protection Management\>; \<Security Operating Procedures\>, Part A |
+| Buildings | \<Organisation\> protects the data centre and the second site, and its evidence is checked | \<Physical and Environmental Protection Management\> |
+| People | Screened before access, bound by signed rules, and their access changed promptly when they move or leave | \<Personnel Security Management\>, section 3.6 |
+| Personal data | Used only for the purposes set in the application profile and \<PII Processing Management\>. Requests and complaints go to the legal adviser, and the impact assessment is completed before real data is held | \<Privacy Plan\>; \<Data Protection Impact Assessment\> |
+| Building and buying | Changes follow \<Organisation\>'s corporate SDLC. Suppliers are approved, and packages arrive through the in-house checked package feed | \<System and Services Acquisition Management\>; \<Supply Chain Risk Management\> |
+| Risk and authorisation | The risk list and plan of action are kept current, and the authorising official is kept informed. Authorisation is decided from the authorisation package | \<Assessment, Authorization, and Monitoring Management\>, section 3.5; \<Security Assessment Report\> |
 
-\<DocuView\> is not authorised. No production documents are held until multi-factor authentication through AD FS is shown working (PA-95), or the acceptance of password-only sign-in ends on 6 May 2027.
+No real data is held until \<System Name\> is authorised.
 
-| **SECTION 8** |
-| --- |
+## 7 Open questions
 
-## 8 Open questions
-
-1. Which ABC Technologies staff will use \<DocuView\>, and from where? Still open: \[Teams and locations, from the business owner\].
-2. Answered: Tony Tilley, as project access approver, decides who may read each project.
-3. Which business processes will \<DocuView\> support, and what are the expected benefits? Still open: see sections 3 and 5.
-4. What hours must it be available, and how many users and documents are expected? Still open: \[Hours, and numbers of users and documents, from the business owner\].
+1. Which \<Organisation\> staff will use \<System Name\>, and from where? \[Teams and locations, from the business owner\].
+2. Who is the Data Owner of each schema? \[Name and role for each schema, from the business owner\].
+3. Which business processes will \<System Name\> support, and what are the expected benefits? See sections 2 and 4.
+4. What hours must it be available, and how many users, schemas and items are expected? \[Hours, and numbers of users, schemas and items, from the business owner (\<System Description\>, P-32 and P-33)\].

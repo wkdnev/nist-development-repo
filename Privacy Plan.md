@@ -1,150 +1,52 @@
-# \<DocuView\> Privacy Plan
+# \<System Name\> Privacy Plan
 
-**\<ref\> | Version \<ver\> | References updated; version \<ver\> legally reviewed; version \<ver\> approved by the legal adviser and authorising official**
+## 1 Purpose
 
-**Contents**
+This plan is the privacy counterpart to \<System Security Plan\>. It relies on that plan, and the documents it names, for the system's boundary, environment and architecture. The legal adviser completes its legal content.
 
-[1 Document control](#1-document-control)
+## 2 Context and boundary
 
-[2 Purpose](#2-purpose)
+The boundary, operational context and environment are as \<System Security Plan\> and \<Concept of Operations\> describe. \<Organisation\> operates in the UK, and is the controller for the personal data \<System Name\> holds. The laws in \<System Description\>, P-31 apply: UK GDPR, the Data Protection Act 2018, the Data (Use and Access) Act 2025 and the Computer Misuse Act 1990.
 
-[3 Context and boundary](#3-context-and-boundary)
+## 3 Roles
 
-[4 Roles](#4-roles)
-
-[5 Information and categorisation](#5-information-and-categorisation)
-
-[6 Threats and privacy risk](#6-threats-and-privacy-risk)
-
-[7 Requirements, baseline and controls](#7-requirements-baseline-and-controls)
-
-[8 Activities to coordinate](#8-activities-to-coordinate)
-
-[9 Architecture](#9-architecture)
-
-| **SECTION 1** |
-| --- |
-
-## 1 Document control
-
-### 1.1 Document details
-
-**Table 1: Document details**
-
-| Item | Detail |
-| --- | --- |
-| Reference | \<ref\> |
-| Title | \<DocuView\> Privacy Plan |
-| Version | \<ver\> |
-| Status | Version \<ver\> approved by the legal adviser and authorising official; version \<ver\> legally reviewed on 11 November 2026, as confirmed by the system owner; version \<ver\> makes factual updates only, with no change to any legal position. Later versions change references and numbering only, and the approvals of the earlier version stand (\<Documentation Map\>, section 5.5) |
-| Date | 11 November 2026 |
-| Owner | Legal adviser |
-| Applies to | Personal data in \<DocuView\> |
-| Classification | Restricted |
-| Next review | Every 12 months, and after a significant change in processing |
-| Format | \<Documentation Map\>, section 5 |
-
-### 1.2 Approval
-
-**Table 2: Approval**
-
-| Role | Name | Decision | Date |
-| --- | --- | --- | --- |
-| Legal adviser | Adrian Solicitor | Version \<ver\> approved; legal positions still to be confirmed. Version \<ver\> reviewed on 11 November 2026, as confirmed by the system owner | 7 November 2026 |
-| Authorising official | Bob Jones | Approved | 7 November 2026 |
-
-### 1.3 Change history
-
-**Table 3: Change history**
-
-| Version | Date | Change |
-| --- | --- | --- |
-| \<ver\> | 18 November 2026 | Citations of other documents brought up to their current versions |
-| \<ver\> | 18 November 2026 | Citations of other documents brought up to their current versions |
-| \<ver\> | 18 November 2026 | Citations of other documents brought up to their current versions |
-| \<ver\> | 18 November 2026 | The personal data inventory is cited in \<PII Processing Management\>, where it is now held (D-PT-22) |
-| \<ver\> | 18 November 2026 | Citations of other documents brought up to their current versions |
-| \<ver\> | 17 November 2026 | Citations of other documents brought up to their current versions |
-| \<ver\> | 17 November 2026 | Citations of other documents brought up to their current versions |
-| \<ver\> | 12 November 2026 | Version numbers are shown as a placeholder, as the system owner asked (D-GEN-28). No other change. Citations of other documents brought up to their current versions |
-| \<ver\> | 12 November 2026 | The document number is replaced by a placeholder on the line under the title and in the details table, as the system owner asked (D-GEN-27). No other change. Citations of other documents brought up to their current versions |
-| \<ver\> | 12 November 2026 | The name of the system is shown as a placeholder, as the system owner asked (D-GEN-26). No other change. Citations of other documents brought up to their current versions |
-| \<ver\> | 12 November 2026 | The earlier rows of the change history are folded into one row, as the system owner decided (D-GEN-25). No other change. A reference to the information types table of the security plan is corrected to Table 7 |
-| \<ver\> | 12 November 2026 | References to the register, the policy and the assessment record follow their new section and table numbers (D-GEN-24). Citations of other documents brought up to their current versions |
-| \<ver\> | 12 November 2026 | Documents are cited by name in angle brackets, in place of their numbers, as the system owner asked (D-GEN-23). No other change. Citations of other documents brought up to their current versions |
-| \<ver\> | 12 November 2026 | The combined documents are cited by their new numbers and chapters (D-GEN-21). The document standard is cited as \<Documentation Map\>, section 5. The contents list is rebuilt so that its links work in Markdown. Citations of other documents brought up to their current versions |
-| \<ver\> | 11 November 2026 | Factual update after the PT pack review (D-PT-17): the draft impact assessment \<Data Protection Impact Assessment\> and complaints named. No legal position changed, so the legal review of version \<ver\> still stands |
-| \<ver\> to \<ver\> | 6 to 11 November 2026 | The earlier versions. Their history is kept in the change record (\<Documentation Map\>, section 5.1) |
-
-| **SECTION 2** |
-| --- |
-
-## 2 Purpose
-
-This plan is the privacy counterpart to \<System Security Plan\>. It relies on that plan, and the documents it names, for the system's boundary, environment and architecture. Everything legal here is a proposal until Adrian Solicitor confirms it.
-
-| **SECTION 3** |
-| --- |
-
-## 3 Context and boundary
-
-The boundary, operational context and environment are as \<System Security Plan\> and \<Concept of Operations\> describe. ABC Technologies operates in the UK, and is the controller for its HR data. UK GDPR and the Data Protection Act 2018 apply.
-
-| **SECTION 4** |
-| --- |
-
-## 4 Roles
-
-**Table 4: Privacy roles**
+**Table 1: Privacy roles**
 
 | Role | Holder | Part |
 | --- | --- | --- |
-| Plan owner and privacy representative | Adrian Solicitor | Owns this plan, the impact assessment, individuals' requests and complaints, and reports to the ICO |
-| Data protection officer | \[Name, or the reason none is required\] | Leads ABC Technologies' privacy programme (PM-19; UK GDPR, Articles 37 to 39), advises on this plan and the impact assessment, and is the contact for individuals and the ICO. The legal adviser completes this row (D-PM-04) |
-| Risk decisions | Bob Jones | Decides on privacy risk |
-| Business and information owner | Tony Tilley | Decides what data projects hold, and how long for |
-| System owner | Neil Ramsbottom | Makes sure \<DocuView\> follows this plan |
-| Breach response | James Preston | Leads the response, following \<Incident Response Management\> |
+| Plan owner and privacy representative | \[Name\] | Owns this plan, the impact assessment, individuals' requests and complaints, and reports to the ICO |
+| Data protection officer | \[Name, or the reason none is required\] | Leads \<Organisation\>'s privacy programme (PM-19; UK GDPR, Articles 37 to 39), advises on this plan and the impact assessment, and is the contact for individuals and the ICO. The legal adviser completes this row |
+| Risk decisions | \[Name\] | Decides on privacy risk |
+| Business and information owner | \[Name\] | Decides what data schemas hold, and how long for, and approves the disposal of items due under the retention schedule in the Admin application (\<System Description\>, FR-074) |
+| Legal adviser's delegate | \[Name, named by the legal adviser\] | Searches every schema for one person's items to answer a request under data protection law (\<System Description\>, FR-073). Holds no other role |
+| Data Owners | \[Names, one for each schema\] | Authorise who may read or edit each schema, in ServiceNow, and keep its personal data accurate |
+| System owner | \[Name\] | Makes sure \<System Name\> follows this plan |
+| Breach response | \[Name\] | Leads the response, following \<Incident Response Management\> |
 
-| **SECTION 5** |
-| --- |
+## 4 Information and categorisation
 
-## 5 Information and categorisation
+The information types and impact levels are in \<System Security Plan\>, Table 4. The personal data is listed in \<PII Processing Management\>, section 3.3. Every application holds sign-in identities and audit records, and the profile adds its own information types (\<System Description\>, section 3.4). The reference categorisation is confidentiality Moderate, integrity Moderate and availability Low (P-01).
 
-The information types and impact levels are in \<System Security Plan\>, Table 7. The personal data is listed in \<PII Processing Management\>, section 4.3. HR documents are the main concern: confidentiality Moderate, integrity Moderate and availability Low.
+## 5 Threats and privacy risk
 
-| **SECTION 6** |
-| --- |
+The main threats to individuals are someone reading items holding personal data they should not, data kept too long, inaccurate data being relied on, and a breach not being spotted. The privacy risk assessment is \<Data Protection Impact Assessment\>, which the legal adviser completes. Privacy risks are recorded in \<Risk List\>.
 
-## 6 Threats and privacy risk
+## 6 Requirements, baseline and controls
 
-The main threats to individuals are someone reading HR documents they shouldn't, data kept too long, inaccurate data being relied on, and a breach not being spotted. The data protection impact assessment is drafted as \<Data Protection Impact Assessment\> \<ver\> for the legal adviser to complete (PA-72, D-PT-20), so this is not yet a privacy risk result. Risks and decisions are in \<Risk List\>, R-PT-01.
+The requirements are the data protection laws in \<System Description\>, P-31. The baseline is the CSS privacy baseline, as tailored by \<Tailoring Register\>. Of its 96 controls, 43 are within Moderate and assessed with their families, 6 PT controls and 16 others are assessed in \<Control Assessment Record\> (PT), 7 are tailored as US-only, and 24 are PM controls held at organisation level.
 
-| **SECTION 7** |
-| --- |
+## 7 Activities to coordinate
 
-## 7 Requirements, baseline and controls
-
-The requirements are UK GDPR and the Data Protection Act 2018. The baseline is NIST's privacy baseline, as tailored by \<Tailoring Register\>. Of its 96 controls, 43 are within Moderate and assessed with their families, 6 PT controls and 16 others are assessed in \<Control Assessment Record\> (PT), 7 are tailored as US-only, and 24 are PM controls held at organisation level.
-
-| **SECTION 8** |
-| --- |
-
-## 8 Activities to coordinate
-
-**Table 5: Privacy activities**
+**Table 2: Privacy activities**
 
 | Activity | Who | When |
 | --- | --- | --- |
 | Confirm the lawful basis | Legal adviser | Before production |
 | Complete the impact assessment | Legal adviser, system owner, business owner | Before production, and after significant change |
 | Set retention periods | Business owner | Before production |
-| Build retention and disposal | Developers | Before production, if the authorising official agrees (PA-70) |
-| Check the privacy notice names \<DocuView\> | System owner, ABC Technologies | Before production, then every 12 months |
+| Build retention and disposal | Developers | Before production |
+| Check the privacy notice names \<System Name\> | System owner, \<Organisation\> | Before production, then every 12 months |
 
-| **SECTION 9** |
-| --- |
+## 8 Architecture
 
-## 9 Architecture
-
-Privacy relies on the Security Architecture, \<Security Architecture\>. Personal data is in the database and audit records on the database VM. Project permissions limit who can read it. Encryption at rest is planned (PA-52). \<DocuView\> does not share data with other systems, apart from the planned Jira and Starters/Leavers connections, which carry names and account details only. The plan assumes ABC Technologies' notice and contracts cover employees' data.
+Privacy relies on the Security Architecture, \<Security Architecture\>. Personal data is in items and audit records in the Microsoft SQL Server database on the database server. Each schema's read and edit groups limit who can read it. Data at rest is encrypted. \<System Name\> receives a person's name from PingFederate at sign-in (flow F10) and reads their group memberships from Active Directory, and shares no data with any other system. ServiceNow and the starters and leavers process have no connection to it: people act on what they produce (flow F9). The plan assumes \<Organisation\>'s notice and contracts cover employees' data.

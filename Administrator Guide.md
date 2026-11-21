@@ -1,192 +1,92 @@
-# \<DocuView\> Administrator Security Guide
+# \<System Name\> Administrator Security Guide
 
-**\<ref\> | Version \<ver\> | Draft for the developers to confirm**
+## 1 Purpose and how to use this guide
 
-**Contents**
+This guide tells administrators how to install, configure and run \<System Name\> securely, how to use and maintain its security and privacy functions, and what to watch for in its privileged functions (SA-5a). It points to the document that holds each value rather than repeating it, so it stays correct when a value changes.
 
-[1 Document control](#1-document-control)
+Values in \[brackets\] are for the developers to fill.
 
-[2 Purpose and how to use this draft](#2-purpose-and-how-to-use-this-draft)
+## 2 Secure installation
 
-[3 Secure installation](#3-secure-installation)
+1. Build the two Windows Server 2025 VMs to \<Organisation\>'s hardened build and the baseline in \<Configuration Management\>; turn on full-disk encryption and Microsoft Defender before \<System Name\> is installed.
+2. Install the applications from a release tag only, and check the release checksums. Never install from a working branch. Install each application as a Windows service, under its own group managed service account.
+3. Put the token signing key and the audit chain key in the key store, never in a settings file or in Git. There is no database password: only the API connects to the database, by Windows authentication under its managed service account. Its SQL Server login is not a system administrator, has rights on \<System Name\>'s database only, and cannot change the database structure.
+4. Turn on TLS for every flow, F1 to F8 and F10 in \<System Description\>, section 6.5, including the database connection (F5) and the connection to PingFederate (F10), with strict encryption and the server's certificate and name checked in full.
+5. Publish the Admin application only on \<Organisation\>'s managed administration route (F2; route R3), never on every interface. Bind the API to the application server's loopback address only (F3, F4). Allow server and database administration only from the administrators' managed devices over the managed administration route, with multi-factor authentication and named accounts (F11).
+6. Set up backups, encrypted, with transaction log archiving, as in \<Contingency Planning Management\>.
+7. Run Test-AccessControl.ps1, Test-Identification.ps1 and Test-ConfigurationManagement.ps1 against the built VMs, and keep the results (\<System and Services Acquisition Management\>, section 3.9).
 
-[4 Secure configuration](#4-secure-configuration)
+## 3 Secure configuration
 
-[5 Secure operation](#5-secure-operation)
-
-[6 Security functions and how to maintain them](#6-security-functions-and-how-to-maintain-them)
-
-[7 Privacy functions](#7-privacy-functions)
-
-[8 Known problems with privileged functions](#8-known-problems-with-privileged-functions)
-
-[9 References](#9-references)
-
-| **SECTION 1** |
-| --- |
-
-## 1 Document control
-
-**Table 1: Document details**
-
-| Item | Detail |
-| --- | --- |
-| Reference | \<ref\> |
-| Title | \<DocuView\> Administrator Security Guide |
-| Version | \<ver\> |
-| Status | Draft prepared from the document set (D-SA-17); to be confirmed against the release by the developers before version \<ver\> (PA-69) |
-| Date | 11 November 2026 |
-| Owner | Developers, for the system owner |
-| Applies to | Global administrators, project administrators, audit administrators, the Windows server administrator and the database administrator |
-| Classification | Restricted |
-| Next review | At each release (\<Procedures\>, PRO-SA-4) |
-| Format | \<Documentation Map\>, section 5 |
-
-**Table 2: Approval**
-
-| Role | Name | Decision | Date |
-| --- | --- | --- | --- |
-| Prepared by | Claude, an AI assistant, for the system owner, Neil Ramsbottom | Draft \<ver\>, from the approved document set | 11 November 2026 |
-| Developers | \[Name\] | Pending: confirm each fact against the release |  |
-| System owner | Neil Ramsbottom | Drafts approved for confirmation (D-SA-18) | 11 November 2026 |
-
-**Table 3: Change history**
-
-| Version | Date | Change |
-| --- | --- | --- |
-| \<ver\> | 18 November 2026 | Whole-set review: the access review is of group memberships (D-AC-23). For the developers to confirm (PA-69) |
-| \<ver\> | 18 November 2026 | References to the communications protection design point to \<System and Communications Protection Management\>, where it is now held (D-SC-09) |
-| \<ver\> | 18 November 2026 | References to the acquisition design point to \<System and Services Acquisition Management\>, where it is now held (D-SA-19). Section 3: each application is installed as a Windows service (D-PL-10). Settings are named in plain words, not by their keys or file names. For the developers to confirm (PA-69) |
-| \<ver\> | 18 November 2026 | References to the risk assessment design point to \<Risk Assessment Management\>, where it is now held (D-RA-11) |
-| \<ver\> | 18 November 2026 | References to the personal data design point to \<PII Processing Management\>, where it is now held (D-PT-22) |
-| \<ver\> | 17 November 2026 | The export folder is checked each working day (D-MP-10), and the check is recorded on TPL-8, as the procedure says |
-| \<ver\> | 17 November 2026 | References to the media protection design point to \<Media Protection Management\>, where it is now held (D-MP-09) |
-| \<ver\> | 16 November 2026 | Installation step 3 follows the decision that only the API connects to the database (D-AC-18) |
-| \<ver\> | 15 November 2026 | References to the identification and authentication design point to \<Identification and Authentication Management\>, where it is now held (D-IA-11) |
-| \<ver\> | 12 November 2026 | No document sends the reader to the application's code: source file, class and setting names are replaced by what they stand for, stated in plain words. No value, finding or decision is changed |
-| \<ver\> | 12 November 2026 | References to the audit design point to \<Audit and Accountability Management\>, where it is now held (D-AU-10) |
-| \<ver\> | 12 November 2026 | Sign-in follows D-AC-23 |
-| \<ver\> | 12 November 2026 | Version numbers are shown as a placeholder, as the system owner asked (D-GEN-28). No other change |
-| \<ver\> | 12 November 2026 | The document number is replaced by a placeholder on the line under the title and in the details table, as the system owner asked (D-GEN-27). No other change |
-| \<ver\> | 12 November 2026 | The name of the system is shown as a placeholder, as the system owner asked (D-GEN-26). No other change |
-| \<ver\> | 12 November 2026 | References to the access control design point to \<Access Control Management\>, where it is now held |
-| \<ver\> | 12 November 2026 | References to the register, the policy and the assessment record follow their new section and table numbers (D-GEN-24) |
-| \<ver\> | 12 November 2026 | Documents are cited by name in angle brackets, in place of their numbers, as the system owner asked (D-GEN-23). No other change |
-| \<ver\> | 12 November 2026 | The combined documents are cited by their new numbers and chapters (D-GEN-21). The document standard is cited as \<Documentation Map\>, section 5 |
-| \<ver\> | 11 November 2026 | First draft for the SA pack review (D-SA-17) |
-
-| **SECTION 2** |
-| --- |
-
-## 2 Purpose and how to use this draft
-
-This guide tells administrators how to install, configure and run \<DocuView\> securely, how to use and maintain its security and privacy functions, and what to watch for in its privileged functions (SA-5a). It points to the approved document that holds each value rather than repeating it, so it stays correct when a value changes.
-
-It is a draft. Values in \[brackets\] are for the developers to fill or confirm. Until version \<ver\>, administrators follow the procedures named here.
-
-| **SECTION 3** |
-| --- |
-
-## 3 Secure installation
-
-1. Build the two Windows Server 2025 VMs to ABC Technologies' hardened build and the baseline in \<Configuration Management\>; turn on full-disk encryption and Microsoft Defender before \<DocuView\> is installed (PA-52, PA-58).
-2. Install the applications from a release tag only, and check the release checksums (PA-61). Never install from a working branch. Install each application as a Windows service, under its own service account (D-PL-10).
-3. Put the database connection string, the signing key and service secrets in the key store, never in a settings file or in Git (PA-19). Only DV\_API connects to the database, with one account that is not a superuser and cannot change the schema (D-AC-18, PA-10).
-4. Turn on TLS for every flow in \<System Security Plan\>, section 4.7, including the database connection (PA-18).
-5. Publish the admin portal only on ABC Technologies' managed administration route (route R3), never on every interface (PA-83).
-6. Set up backups, encrypted, with transaction log archiving, as in \<Contingency Planning Management\> (PA-64).
-7. Run Test-AccessControl.ps1, Test-Identification.ps1 and Test-ConfigurationManagement.ps1 against the built VMs, and keep the results (\<System and Services Acquisition Management\>, section 4.9).
-
-| **SECTION 4** |
-| --- |
-
-## 4 Secure configuration
-
-**Table 4: Security settings**
+**Table 1: Security settings**
 
 | Setting | Where | Required value | Source |
 | --- | --- | --- | --- |
-| Page lock and sign-out | Each application's security settings | Lock after 25 minutes; sign out after 30 | \<Access Control Management\> |
-| Sign-in | The trust in ABC Technologies' AD FS | Password length, lockout and multi-factor authentication are set by ABC Technologies, not in \<DocuView\> (D-AC-23) | \<Policy\> (IA) |
-| Allowed origins | DV\_API's allowed origins | Only DV\_Web and DV\_Admin\_UI host names | \<System and Communications Protection Management\> |
-| Token signing | DV\_API's token settings | Key from the key store, rotated as in \<System and Communications Protection Management\> | \<System and Communications Protection Management\> |
+| Sign-in lifetime | Each application's authentication cookie settings | No longer than PingFederate's sign-in lifetime (P-AC-10; \<System Description\>, P-02). \<System Name\> has no session management: no page lock, idle sign-out or session limit of its own | \<Access Control Management\> |
+| Sign-in | \<System Name\>'s PingFederate connection (its OpenID Connect client settings) | Password length, lockout and multi-factor authentication are set by \<Organisation\>, not in \<System Name\>. The signed response names the person and carries no groups. The UI and Admin applications reach PingFederate for its OpenID Connect metadata and signing certificate, and to complete each sign-in, over HTTPS on TCP 443 from the application server only (F10) | \<Policy\> (IA) |
+| Group lookup | API's directory settings | Active Directory read over LDAPS (F7, TCP 636), read-only, under the API's managed service account, with the directory's certificate checked | \<Identification and Authentication Management\> |
+| Database connection | API's connection settings | Microsoft SQL Server 2022 by Windows authentication, with no password; TLS with strict encryption on TCP 1433 (F5), from the application server only | \<Identification and Authentication Management\> |
+| Allowed origins | API's allowed origins | Only UI application and Admin application host names | \<System and Communications Protection Management\> |
+| Token signing | API's token settings | Key from the key store, rotated as in \<System and Communications Protection Management\> | \<System and Communications Protection Management\> |
 | Audit | Audit settings in each application | All events in \<Audit and Accountability Management\> on | \<Audit and Accountability Management\> |
-| Exports | Bulk export folder | Copies removed after download (PA-86) | \<Media Protection Management\> |
-| Browser libraries | Page templates | Served by \<DocuView\>, not a CDN (PA-34) | \<System and Communications Protection Management\> |
-| Logging | Each application's logging settings | No personal data or session IDs in the application log (PA-75) | \<Audit and Accountability Management\> |
+| Exports | Encrypted export working area | Copies deleted after download, and always within 24 hours (\<System Description\>, P-20) | \<Media Protection Management\> |
+| Browser libraries | Page templates | Packaged with and served by \<System Name\> itself. No content delivery service or other outside host | \<System and Communications Protection Management\> |
+| Logging | Each application's logging settings | No personal data or sign-in details in the application log | \<Audit and Accountability Management\> |
 
 Any change to these settings follows \<Procedures\> (CM), and is checked for drift monthly (SyOps C47).
 
-| **SECTION 5** |
-| --- |
+## 4 Secure operation
 
-## 5 Secure operation
-
-**Table 5: Routine duties**
+**Table 2: Routine duties**
 
 | Duty | How often | Procedure | Record |
 | --- | --- | --- | --- |
-| Grant, change and remove access | On request | \<Procedures\> (AC) | TPL-2, TPL-14 |
-| Review group memberships and privileges | Every 3 months | \<Procedures\> (AC) | TPL-3 |
-| Review audit records | Weekly | \<Procedures\> (AU) | TPL-8 |
-| Apply security updates | To the timetable in \<Risk Assessment Management\>, section 4.6 | \<Procedures\>, PRO-SI-1 | TPL-7 |
+| Name a schema's read and edit groups. Group members are changed only by the groups' owners, on requests authorised in ServiceNow | On request | \<Procedures\> (AC) | TPL-2, TPL-14 |
+| Review group memberships and privileges | Role groups every 3 months; schema groups every 12 months, by their Data Owners (\<System Description\>, P-04 and P-05) | \<Procedures\> (AC) | TPL-3 |
+| Give the auditors the server and database records they compare with the audit log. Auditors, not administrators, read and review the audit log | Weekly, for the auditors' review (\<System Description\>, P-08) | \<Procedures\> (AU) | TPL-8 |
+| Apply security updates | To the timetable in \<Risk Assessment Management\>, section 3.6 | \<Procedures\>, PRO-SI-1 | TPL-7 |
 | Check for exploited flaws | Weekly | \<Procedures\>, PRO-RA-4 | TPL-7 |
 | Test backups and restores | As in \<Contingency Planning Management\> | \<Procedures\> (CP) | TPL-11 |
 | Maintenance | As needed | \<Procedures\> (MA), through the managed route | TPL-12 |
-| Check the export folder | Each working day (SyOps C49) | \<Procedures\> (MP) | TPL-8 |
+| Check the export working area | Each working day (SyOps C49) | \<Procedures\> (MP) | TPL-8 |
 | Report an incident | At once | \<Incident Response Management\> | TPL-10 |
 
-| **SECTION 6** |
-| --- |
+## 5 Security functions and how to maintain them
 
-## 6 Security functions and how to maintain them
-
-**Table 6: Security functions**
+**Table 3: Security functions**
 
 | Function | What it does | How to maintain it | Tested by |
 | --- | --- | --- | --- |
-| Sign-in | Each person's Active Directory account, through AD FS with multi-factor authentication | Keep the trust in AD FS; never add a local account | Test-Identification.ps1 |
-| Project access | Checks the user's project role on every page and API call | Grant roles only through \<Procedures\> (AC); review every 3 months | Test-AccessControl.ps1 |
-| Global administrator | Full rights across \<DocuView\> | Keep holders to the named few; review every 3 months | Test-AccessControl.ps1 |
-| Session control | Page lock and sign-out | Keep the timeouts in Table 4 | Test-AccessControl.ps1 |
-| Audit | Hash-chained records of security events | Run the chain check; keep records as in \<Policy\> (AU) | Test-AuditAndAuth.ps1 |
-| Exports | Bulk and single exports of documents | Check the export folder each working day; remove copies | Test-MediaProtection.ps1 |
+| Sign-in | Each person's Active Directory account, through PingFederate with multi-factor authentication; the API reads their groups from Active Directory over LDAPS | Keep the PingFederate connection; never add a local account | Test-Identification.ps1 |
+| Schema access | Checks the person's schema read or edit group on every page and API call; a schema with no group is closed to all but administrators | Name each schema's groups only through \<Procedures\> (AC); groups' owners review members as P-04 and P-05 set | Test-AccessControl.ps1 |
+| Administrator | Manages schemas, their groups and settings, and can reach every schema. This is the one administration role: there is no separate global administrator | Keep the administrators' group to the named few; review every 3 months | Test-AccessControl.ps1 |
+| Other roles | Auditor, security officer, business owner and legal adviser's delegate, each given by its own role group (\<Code\>\_Auditors, \<Code\>\_Security, \<Code\>\_BusinessOwners, \<Code\>\_LegalSearch). The system owner owns all five role groups. None of these roles holds administration | Never give an administrator one of these roles; role groups are reviewed every 3 months | Test-AccessControl.ps1 |
+| Sign-in lifetime | Holds the sign-in only in the authentication cookie, for no longer than PingFederate's sign-in lifetime. \<System Name\> has no page lock or sign-out of its own | Keep the cookie lifetime in Table 1 | Test-AccessControl.ps1 |
+| Audit | Records of security events, written only by the API and chained by a keyed hash (HMAC-SHA-256) | Run the chain check; keep records as in \<Policy\> (AU) | Test-AuditAndAuth.ps1 |
+| Exports | Bulk exports of a schema's items, run as background jobs | Check the export working area each working day; remove copies | Test-MediaProtection.ps1 |
 | Backups | Copies for recovery | Keep encrypted; test restores | Test-BackupRestore.ps1 |
 
-| **SECTION 7** |
-| --- |
+## 6 Privacy functions
 
-## 7 Privacy functions
+1. **Requests from individuals:** the legal adviser's delegate, a member of \<Code\>\_LegalSearch named by the legal adviser, uses the search across all schemas (\<System Description\>, FR-073) to find every item about the person; administrators do not run this search. Record what was found and changed on TPL-15 (\<Procedures\>, PRO-PT-1).
+2. **Corrections and deletions:** record each one on TPL-15.
+3. **Special category data:** keep it only in schemas the business owner authorises (\<Policy\> (PT), R5).
+4. **Retention:** dispose of items at the end of the period in \<PII Processing Management\>, section 3.7, only once the business owner has approved their disposal in the Admin application (\<System Description\>, FR-074).
+5. **Test data:** never copy real personal data to the test environment (PRO-PT-6).
 
-1. **Requests from individuals:** search every project for the person's documents and record what was found and changed on TPL-15 (\<Procedures\>, PRO-PT-1). Until \<DocuView\> can search all projects in one step, search each in turn (PA-89).
-2. **Corrections and deletions:** record each one on TPL-15, as the admin portal doesn't audit them yet (PA-89).
-3. **HR projects:** keep special category documents only in projects the business owner authorises (\<Policy\> (PT), R5).
-4. **Retention:** dispose of documents at the end of the period in \<PII Processing Management\>, section 4.7, once retention is built (PA-70).
-5. **Test data:** never copy real personal data to a test stack (PRO-PT-6).
+## 7 Known problems with privileged functions
 
-| **SECTION 8** |
-| --- |
+This section lists the known weaknesses in configuring and using privileged functions that administrators must work around until they are fixed (SA-5a.03). Each is also tracked in \<Plan of Action and Milestones\>.
 
-## 8 Known problems with privileged functions
+**Table 4: Known problems**
 
-These are known weaknesses administrators must work around until they are fixed (SA-5a.03).
+| Function | Problem | What to do until fixed |
+| --- | --- | --- |
+| \[Function\] | \[Problem\] | \[What to do\] |
 
-**Table 7: Known problems**
+## 8 References
 
-| Function | Problem | What to do until fixed | Item |
-| --- | --- | --- | --- |
-| Diagnostic and maintenance pages in the admin portal (for example database update, fresh start, schema migration, legacy clean-up and audit test pages) | Some can change the database or write audit records, and some aren't audited | Don't use them in production without a change record; \[developers to list which pages are removed for production\] | PA-29, PA-31 |
-| Document delete in the admin portal | Deletes rows with no audit record; deleted pages stay until the database is vacuumed | Record each deletion on TPL-15 or TPL-6 | PA-89, PA-70 |
-| Global administrator role | One role holds every right | Use a separate everyday account; reviewed every 3 months | PA-14, PA-15 |
-| Admin portal network exposure | Listens on every interface in Docker | Reach it only through the managed route | PA-83 |
-| Application log | Repeats usernames, IP addresses and session IDs | Treat it as audit information; limit access | PA-75 |
-
-| **SECTION 9** |
-| --- |
-
-## 9 References
-
-**Table 8: References**
+**Table 5: References**
 
 | Reference | Use |
 | --- | --- |
