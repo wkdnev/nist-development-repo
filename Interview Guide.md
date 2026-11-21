@@ -4,7 +4,7 @@
 
 CSS uses three assessment methods: examine, test and interview. These questions cover the interview method. At Level 1 the system owner may answer them. At Level 2 the assessor asks them of the role holders named in \<Roles and Responsibilities\>. Ask each person how the control works in practice and to show a record. An answer alone is not evidence that a control operates.
 
-After each interview, record it in section 2 and update the matching statements in \<Control Assessment Record\>, section AC.5, or the equivalent for the family.
+After each interview, record it in section 2 and update the matching statements in \<Control Assessment Record\>, section AC.3, or the equivalent for the family.
 
 Questions are numbered INT-XX-nn, where XX is the family code, and each names the statements it supports. The people to interview come from the Interview objects in CSS.
 
@@ -24,13 +24,14 @@ Questions are numbered INT-XX-nn, where XX is the family code, and each names th
 | MP Media Protection | 12 |
 | PE Physical and Environmental Protection | 13 |
 | PL Planning | 14 |
-| PS Personnel Security | 15 |
-| PT Personally Identifiable Information | 16 |
-| RA Risk Assessment | 17 |
-| SA System and Services Acquisition | 18 |
-| SC System and Communications Protection | 19 |
-| SI System and Information Integrity | 20 |
-| SR Supply Chain Risk Management | 21 |
+| PM Program Management | 15 |
+| PS Personnel Security | 16 |
+| PT Personally Identifiable Information | 17 |
+| RA Risk Assessment | 18 |
+| SA System and Services Acquisition | 19 |
+| SC System and Communications Protection | 20 |
+| SI System and Information Integrity | 21 |
+| SR Supply Chain Risk Management | 22 |
 
 ## 2 Interview log
 
@@ -286,12 +287,21 @@ Questions are numbered INT-XX-nn, where XX is the family code, and each names th
 | INT-PL-03 | System owner | How do you decide whether a control can be tailored? | PL-11 | \<Tailoring Register\> |
 | INT-PL-04 | A sample of users and an administrator | Which version of the rules did you sign, and when? Can you name two rules that apply to you? Have you been asked to sign again after a change? | PL-4b, PL-4d, PL-4(1) | TPL-21 and the register of signatures in \<Planning Management\>, section 3.5 |
 | INT-PL-05 | Head of Cyber | Have you seen the System Security Plan, and do you concur with it? How are you told when it changes? | PL-02a.15, PL-02b | The plan's approval in \<Decision Register\> and the plan review record |
+
+## 15 Program Management (PM)
+
+PM is outside the baseline and is not assessed (\<Tailoring Register\>, TR-PM-01). These questions check that what \<System Name\> inherits from \<Organisation\>'s programme is in place.
+
+**Table 24: PM questions**
+
+| ID | For | Question | Statements | Ask to see |
+| --- | --- | --- | --- | --- |
 | INT-PM-01 | Head of Cyber | Where is \<Organisation\>'s security programme written down, what is its risk appetite, is \<System Name\> in the system inventory, and who is the data protection officer? Do \<System Name\>'s risk thresholds fit the appetite? | PM-1, PM-2, PM-5, PM-9, PM-19 (inherited; \<Program Management\>, section 3.3) | EV-PM-01, EV-PM-02, EV-PM-04 |
 | INT-PM-02 | Legal adviser | Is there a privacy programme plan, and who leads it? Where is \<System Name\>'s personal data in the record of processing? How do complaints and breaches reach the people who must be told? | PM-5(1), PM-18, PM-19, PM-26, PM-27 (inherited; \<Program Management\>, section 3.3) | EV-PM-02, EV-PM-04 |
 
-## 15 Personnel Security (PS)
+## 16 Personnel Security (PS)
 
-**Table 24: PS questions**
+**Table 25: PS questions**
 
 | ID | For | Question | Statements | Ask to see |
 | --- | --- | --- | --- | --- |
@@ -302,9 +312,9 @@ Questions are numbered INT-XX-nn, where XX is the family code, and each names th
 | INT-PS-05 | System owner | How do you check that external people meet their contract terms? | PS-07 | EV-PS-03 |
 | INT-PS-06 | A line manager | When one of your people changes role or leaves, whom do you tell, how, and how quickly? | PS-04, PS-05 | TPL-14 |
 
-## 16 Personally Identifiable Information (PT)
+## 17 Personally Identifiable Information (PT)
 
-**Table 25: PT questions**
+**Table 26: PT questions**
 
 | ID | For | Question | Statements | Ask to see |
 | --- | --- | --- | --- | --- |
@@ -317,9 +327,9 @@ Questions are numbered INT-XX-nn, where XX is the family code, and each names th
 | INT-PT-07 | Legal adviser's delegate who would handle a request | Show me how you would find every item about one person across all schemas, and how you would record a correction or deletion | AC-03(14), SI-18(04) | TPL-15; audit records |
 | INT-PT-08 | Data protection officer | What advice did you give on the impact assessment, and what changed as a result? | RA-08, PT-02 | The impact assessment |
 
-## 17 Risk Assessment (RA)
+## 18 Risk Assessment (RA)
 
-**Table 26: RA questions**
+**Table 27: RA questions**
 
 | ID | For | Question | Statements | Ask to see |
 | --- | --- | --- | --- | --- |
@@ -332,9 +342,9 @@ Questions are numbered INT-XX-nn, where XX is the family code, and each names th
 | INT-RA-07 | System owner | Show me the critical components and how they were chosen. What would make the list change? | RA-09 | \<Risk Assessment Management\>, section 3.9; TPL-23 |
 | INT-RA-08 | Authorising official | How do you decide whether to accept a risk, and how do you know the decision fits \<Organisation\>'s risk appetite? | RA-07, RA-03b | \<Risk List\>, sections 3 and 4.2; \<Decision Register\> |
 
-## 18 System and Services Acquisition (SA)
+## 19 System and Services Acquisition (SA)
 
-**Table 27: SA questions**
+**Table 28: SA questions**
 
 | ID | For | Question | Statements | Ask to see |
 | --- | --- | --- | --- | --- |
@@ -347,9 +357,9 @@ Questions are numbered INT-XX-nn, where XX is the family code, and each names th
 | INT-SA-07 | \<Organisation\>'s contract owner | Show me the security and privacy terms in the agreement for \<System Name\>'s hosting and services, and how \<Organisation\> shows it keeps to them | SA-04, SA-09 | The agreement; service level reports |
 | INT-SA-08 | Security officer | Which designs have you checked against the engineering principles, and what changed as a result? | SA-03d, SA-08 | TPL-6 records of design checks |
 
-## 19 System and Communications Protection (SC)
+## 20 System and Communications Protection (SC)
 
-**Table 28: SC questions**
+**Table 29: SC questions**
 
 | ID | For | Question | Statements | Ask to see |
 | --- | --- | --- | --- | --- |
@@ -362,9 +372,9 @@ Questions are numbered INT-XX-nn, where XX is the family code, and each names th
 | INT-SC-07 | Windows server administrator | Show me where each key in the register is kept, when it was last changed, and how the data protection key rings are protected | SC-12, SC-13 | \<System and Communications Protection Management\>, section 3.4, and the TPL-6 records of key changes |
 | INT-SC-08 | Windows server administrator | Show me each server's host firewall rules, and how they match the allow-lists | SC-07, SC-07(05) | The host firewall rules; \<System and Communications Protection Management\>, section 3.2 |
 
-## 20 System and Information Integrity (SI)
+## 21 System and Information Integrity (SI)
 
-**Table 29: SI questions**
+**Table 30: SI questions**
 
 | ID | For | Question | Statements | Ask to see |
 | --- | --- | --- | --- | --- |
@@ -377,9 +387,9 @@ Questions are numbered INT-XX-nn, where XX is the family code, and each names th
 | INT-SI-07 | Security officer | Show me the integrity baseline for the running release. How would you know a release package, a stored file or an audit record had been changed? | SI-07a, SI-07(01), SI-07(07) | \<System and Information Integrity Management\>, section 3.5; the integrity baseline; a TPL-8 integrity check |
 | INT-SI-08 | Developers | Upload the EICAR test file and show me what happens, and where it is recorded | SI-03 | The refused upload; the audit record; the alert |
 
-## 21 Supply Chain Risk Management (SR)
+## 22 Supply Chain Risk Management (SR)
 
-**Table 30: SR questions**
+**Table 31: SR questions**
 
 | ID | For | Question | Statements | Ask to see |
 | --- | --- | --- | --- | --- |

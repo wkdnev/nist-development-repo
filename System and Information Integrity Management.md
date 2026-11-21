@@ -58,7 +58,7 @@ Flaws come from the package check, the advisories in Table 2, scans and tests. E
 | --- | --- | --- |
 | NCSC alerts and advisories | UK threats and vulnerabilities | As published |
 | NCSC Early Warning | Incidents, abuse and vulnerable services on \<System Name\>'s addresses | As raised |
-| CISA Known Exploited Vulnerabilities | Flaws being exploited | Weekly (SyOps C50) |
+| CISA Known Exploited Vulnerabilities | Flaws being exploited | Weekly (\\<Security Operating Procedures\\>, C50) |
 | Microsoft Security Response Center | Windows Server, SQL Server, .NET and ASP.NET Core | Monthly and out of band |
 | GitHub advisories and dependency alerts | NuGet packages | As raised |
 | Vendors of the other components | Browser libraries and any other component on the approved list | As published |

@@ -284,7 +284,7 @@ This section gives a brief overview of every control in the 19 families, one lin
 
 ### 7.1 Access Control (AC)
 
-The assessment plan is in \<Control Assessment Record\> (AC), section AC.6, where the results are recorded. Implementation detail is in \<Policy\> (AC), \<Procedures\> (AC) and \<Access Control Management\>.
+The assessment plan is in \<Control Assessment Record\> (AC), section AC.4, where the results are recorded. Implementation detail is in \<Policy\> (AC), \<Procedures\> (AC) and \<Access Control Management\>.
 
 **Table 10: AC controls**
 
@@ -303,7 +303,7 @@ The assessment plan is in \<Control Assessment Record\> (AC), section AC.6, wher
 | AC-5 Separation of Duties | Separate Administrator, Auditor, Security officer, Business owner and Legal adviser's delegate roles, each in its own group; the system owner or the Data Owner authorises each request, so nobody approves their own access | System owner | Hybrid | \[Status\] | \[Decision\] |
 | AC-6 Least Privilege | Access through groups and roles | Developers, database administrator | Hybrid | \[Status\] | \[Decision\] |
 | AC-6(1) Authorize Access to Security Functions | Security functions need the Administrator or Security officer role | Developers | System | \[Status\] | \[Decision\] |
-| AC-6(2) Non-privileged Access for Nonsecurity Functions | SyOps requires a separate everyday account | System owner | Organisational | \[Status\] | \[Decision\] |
+| AC-6(2) Non-privileged Access for Nonsecurity Functions | The rules in \<Security Operating Procedures\> require a separate everyday account | System owner | Organisational | \[Status\] | \[Decision\] |
 | AC-6(5) Privileged Accounts | The Administrator role is membership of the administrators' group (\<Code\>\_Admins), given only to named accounts | System owner, database administrator | Hybrid | \[Status\] | \[Decision\] |
 | AC-6(7) Review of User Privileges | Periodic review of privileges, by procedure | System owner, auditor | Organisational | \[Status\] | \[Decision\] |
 | AC-6(9) Log Use of Privileged Functions | Privileged actions are audited | Developers | System | \[Status\] | \[Decision\] |
@@ -332,14 +332,14 @@ The assessment plan is in \<Control Assessment Record\> (AC), section AC.6, wher
 
 ### 7.2 Awareness and Training (AT)
 
-The assessment plan is in \<Control Assessment Record\> (AT), section AT.5, where the results are recorded. Implementation detail is in \<Policy\> (AT), \<Procedures\> (AT) and \<Awareness and Training Management\>, which holds the \<System Name\> briefing, the role curriculum, the training matrix for AT, IR-2, CP-3, AT-3(5) and PL-4, the training register and the parameter values.
+The assessment plan is in \<Control Assessment Record\> (AT), section AT.4, where the results are recorded. Implementation detail is in \<Policy\> (AT), \<Procedures\> (AT) and \<Awareness and Training Management\>, which holds the \<System Name\> briefing, the role curriculum, the training matrix for AT, IR-2, CP-3, AT-3(5) and PL-4, the training register and the parameter values.
 
 **Table 11: AT controls**
 
 | Control | How it is implemented | Who | Type | Status | Gap entry |
 | --- | --- | --- | --- | --- | --- |
 | AT-1 Policy and Procedures | Policy and procedures in \<Policy\> (AT) and \<Procedures\> (AT); the design is in \<Awareness and Training Management\> | System owner, Head of Cyber | Organisational | \[Status\] | \[Decision\] |
-| AT-2 Literacy Training | \<Organisation\>'s course, plus the \<System Name\> briefing (\<Awareness and Training Management\>, section 3.3) given with the SyOps signature | \<Organisation\>, system owner | Hybrid | \[Status\] | \[Decision\] |
+| AT-2 Literacy Training | \<Organisation\>'s course, plus the \<System Name\> briefing (\<Awareness and Training Management\>, section 3.3) given when \<Security Operating Procedures\> is signed | \<Organisation\>, system owner | Hybrid | \[Status\] | \[Decision\] |
 | AT-2(2) Insider Threat | Briefing part B4, and \<Organisation\>'s course | \<Organisation\>, system owner | Hybrid | \[Status\] | \[Decision\] |
 | AT-2(3) Social Engineering | Briefing part B3, and \<Organisation\>'s course; no punitive phishing simulations | \<Organisation\>, system owner | Hybrid | \[Status\] | \[Decision\] |
 | AT-3 Role-based Training | Role curriculum M1 to M9 and the training matrix (\<Awareness and Training Management\>, sections 3.4 and 3.5) | Security officer, Head of Cyber | Organisational | \[Status\] | \[Decision\] |
@@ -347,7 +347,7 @@ The assessment plan is in \<Control Assessment Record\> (AT), section AT.5, wher
 
 ### 7.3 Audit and Accountability (AU)
 
-The assessment plan is in \<Control Assessment Record\> (AU), section AU.5, where the results are recorded. Implementation detail is in \<Policy\> (AU), \<Procedures\> (AU) and \<Audit and Accountability Management\>.
+The assessment plan is in \<Control Assessment Record\> (AU), section AU.4, where the results are recorded. Implementation detail is in \<Policy\> (AU), \<Procedures\> (AU) and \<Audit and Accountability Management\>.
 
 **Table 12: AU controls**
 
@@ -359,7 +359,7 @@ The assessment plan is in \<Control Assessment Record\> (AU), section AU.5, wher
 | AU-3(1) Additional Audit Information | Records show the browser, the user ID, the schema and the item | Developers | System | \[Status\] | \[Decision\] |
 | AU-4 Audit Log Storage Capacity | Records are held in the database, with storage sized for the retention period | Database administrator | Hybrid | \[Status\] | \[Decision\] |
 | AU-5 Response to Logging Failures | Response to a logging failure as set out in \<Audit and Accountability Management\> | Windows server administrator, security officer | Hybrid | \[Status\] | \[Decision\] |
-| AU-6 Review, Analysis and Reporting | Weekly review of the audit log by the auditor (\<System Description\>, P-08), defined in PRO-AU-1 and the SyOps; the security officer reviews alerts and the central logs, not the audit log | Auditor, security officer | Organisational | \[Status\] | \[Decision\] |
+| AU-6 Review, Analysis and Reporting | Weekly review of the audit log by the auditor (\<System Description\>, P-08), defined in PRO-AU-1 and \<Security Operating Procedures\>; the security officer reviews alerts and the central logs, not the audit log | Auditor, security officer | Organisational | \[Status\] | \[Decision\] |
 | AU-6(1) Automated Process Integration | Integration with \<Organisation\>'s central monitoring | Auditor, \<Organisation\> | Hybrid | \[Status\] | \[Decision\] |
 | AU-6(3) Correlate Repositories | The application records are correlated with Windows and \<Organisation\>'s records | Auditor, \<Organisation\> | Hybrid | \[Status\] | \[Decision\] |
 | AU-7 Reduction and Report Generation | The audit page filters and summarises without changing records | Developers | System | \[Status\] | \[Decision\] |
@@ -372,7 +372,7 @@ The assessment plan is in \<Control Assessment Record\> (AU), section AU.5, wher
 
 ### 7.4 Assessment, Authorization, and Monitoring (CA)
 
-The assessment plan is in \<Control Assessment Record\> (CA), section CA.5, where the results are recorded. Implementation detail is in \<Policy\> (CA), \<Procedures\> (CA) and \<Assessment, Authorization, and Monitoring Management\>.
+The assessment plan is in \<Control Assessment Record\> (CA), section CA.4, where the results are recorded. Implementation detail is in \<Policy\> (CA), \<Procedures\> (CA) and \<Assessment, Authorization, and Monitoring Management\>.
 
 **Table 13: CA controls**
 
@@ -391,7 +391,7 @@ The assessment plan is in \<Control Assessment Record\> (CA), section CA.5, wher
 
 ### 7.5 Configuration Management (CM)
 
-The assessment plan is in \<Control Assessment Record\> (CM), section CM.5, where the results are recorded. Implementation detail is in \<Policy\> (CM), \<Procedures\> (CM) and \<Configuration Management\>.
+The assessment plan is in \<Control Assessment Record\> (CM), section CM.4, where the results are recorded. Implementation detail is in \<Policy\> (CM), \<Procedures\> (CM) and \<Configuration Management\>.
 
 **Table 14: CM controls**
 
@@ -424,7 +424,7 @@ The assessment plan is in \<Control Assessment Record\> (CM), section CM.5, wher
 
 ### 7.6 Contingency Planning (CP)
 
-The assessment plan is in \<Control Assessment Record\> (CP), section CP.5, where the results are recorded. Implementation detail is in \<Policy\> (CP), \<Procedures\> (CP) and \<Contingency Planning Management\>.
+The assessment plan is in \<Control Assessment Record\> (CP), section CP.4, where the results are recorded. Implementation detail is in \<Policy\> (CP), \<Procedures\> (CP) and \<Contingency Planning Management\>.
 
 **Table 15: CP controls**
 
@@ -456,7 +456,7 @@ The assessment plan is in \<Control Assessment Record\> (CP), section CP.5, wher
 
 ### 7.7 Identification and Authentication (IA)
 
-The assessment plan is in \<Control Assessment Record\> (IA), section IA.5, where the results are recorded. Implementation detail is in \<Policy\> (IA), \<Procedures\> (IA) and \<Identification and Authentication Management\>.
+The assessment plan is in \<Control Assessment Record\> (IA), section IA.4, where the results are recorded. Implementation detail is in \<Policy\> (IA), \<Procedures\> (IA) and \<Identification and Authentication Management\>.
 
 **Table 16: IA controls**
 
@@ -489,7 +489,7 @@ The assessment plan is in \<Control Assessment Record\> (IA), section IA.5, wher
 
 ### 7.8 Incident Response (IR)
 
-The assessment plan is in \<Control Assessment Record\> (IR), section IR.5, where the results are recorded. Implementation detail is in \<Policy\> (IR), \<Procedures\> (IR) and \<Incident Response Management\>.
+The assessment plan is in \<Control Assessment Record\> (IR), section IR.4, where the results are recorded. Implementation detail is in \<Policy\> (IR), \<Procedures\> (IR) and \<Incident Response Management\>.
 
 **Table 17: IR controls**
 
@@ -511,7 +511,7 @@ The assessment plan is in \<Control Assessment Record\> (IR), section IR.5, wher
 
 ### 7.9 Maintenance (MA)
 
-The assessment plan is in \<Control Assessment Record\> (MA), section MA.5, where the results are recorded. Implementation detail is in \<Policy\> (MA), \<Procedures\> (MA) and \<Maintenance Management\>.
+The assessment plan is in \<Control Assessment Record\> (MA), section MA.4, where the results are recorded. Implementation detail is in \<Policy\> (MA), \<Procedures\> (MA) and \<Maintenance Management\>.
 
 **Table 18: MA controls**
 
@@ -529,7 +529,7 @@ The assessment plan is in \<Control Assessment Record\> (MA), section MA.5, wher
 
 ### 7.10 Media Protection (MP)
 
-The assessment plan is in \<Control Assessment Record\> (MP), section MP.5, where the results are recorded. Implementation detail is in \<Policy\> (MP), \<Procedures\> (MP) and \<Media Protection Management\>.
+The assessment plan is in \<Control Assessment Record\> (MP), section MP.4, where the results are recorded. Implementation detail is in \<Policy\> (MP), \<Procedures\> (MP) and \<Media Protection Management\>.
 
 **Table 19: MP controls**
 
@@ -545,7 +545,7 @@ The assessment plan is in \<Control Assessment Record\> (MP), section MP.5, wher
 
 ### 7.11 Physical and Environmental Protection (PE)
 
-The assessment plan is in \<Control Assessment Record\> (PE), section PE.5, where the results are recorded. Implementation detail is in \<Policy\> (PE), \<Procedures\> (PE) and \<Physical and Environmental Protection Management\>, whose section 3.3 the inheritance matrix, which maps each inherited control to the \<Organisation\> evidence that closes it.
+The assessment plan is in \<Control Assessment Record\> (PE), section PE.4, where the results are recorded. Implementation detail is in \<Policy\> (PE), \<Procedures\> (PE) and \<Physical and Environmental Protection Management\>, whose section 3.3 the inheritance matrix, which maps each inherited control to the \<Organisation\> evidence that closes it.
 
 **Table 20: PE controls**
 
@@ -572,7 +572,7 @@ The assessment plan is in \<Control Assessment Record\> (PE), section PE.5, wher
 
 ### 7.12 Planning (PL)
 
-The assessment plan is in \<Control Assessment Record\> (PL), section PL.5, where the results are recorded. Implementation detail is in \<Policy\> (PL), \<Procedures\> (PL) and \<Planning Management\>, whose section 3.2 the register of plans and section 3.5 the register of signed rules.
+The assessment plan is in \<Control Assessment Record\> (PL), section PL.4, where the results are recorded. Implementation detail is in \<Policy\> (PL), \<Procedures\> (PL) and \<Planning Management\>, whose section 3.2 the register of plans and section 3.5 the register of signed rules.
 
 **Table 21: PL controls**
 
@@ -588,7 +588,7 @@ The assessment plan is in \<Control Assessment Record\> (PL), section PL.5, wher
 
 ### 7.13 Personnel Security (PS)
 
-The assessment plan is in \<Control Assessment Record\> (PS), section PS.5, where the results are recorded. Implementation detail is in \<Policy\> (PS), \<Procedures\> (PS) and \<Personnel Security Management\>, whose section 3.2 the risk designation of every role, section 3.3 the screening standard, section 3.6 the time limits and section 3.9 the personnel security register.
+The assessment plan is in \<Control Assessment Record\> (PS), section PS.4, where the results are recorded. Implementation detail is in \<Policy\> (PS), \<Procedures\> (PS) and \<Personnel Security Management\>, whose section 3.2 the risk designation of every role, section 3.3 the screening standard, section 3.6 the time limits and section 3.9 the personnel security register.
 
 **Table 22: PS controls**
 
@@ -606,7 +606,7 @@ The assessment plan is in \<Control Assessment Record\> (PS), section PS.5, wher
 
 ### 7.14 Personally Identifiable Information Processing and Transparency (PT)
 
-The assessment plan is in \<Control Assessment Record\> (PT), section PT.5, where the results are recorded. Implementation detail is in \<Policy\> (PT), \<Procedures\> (PT) and \<PII Processing Management\>, whose section 3.3 the personal data inventory and section 3.7 the retention schedule. The impact assessment is \<Data Protection Impact Assessment\>.
+The assessment plan is in \<Control Assessment Record\> (PT), section PT.4, where the results are recorded. Implementation detail is in \<Policy\> (PT), \<Procedures\> (PT) and \<PII Processing Management\>, whose section 3.3 the personal data inventory and section 3.7 the retention schedule. The impact assessment is \<Data Protection Impact Assessment\>.
 
 **Table 23: PT controls**
 
@@ -638,7 +638,7 @@ The assessment plan is in \<Control Assessment Record\> (PT), section PT.5, wher
 
 ### 7.15 Risk Assessment (RA)
 
-The assessment plan is in \<Control Assessment Record\> (RA), section RA.5, where the results are recorded. Implementation detail is in \<Policy\> (RA), \<Procedures\> (RA) and \<Risk Assessment Management\>, whose section 3.6 the vulnerability timetable.
+The assessment plan is in \<Control Assessment Record\> (RA), section RA.4, where the results are recorded. Implementation detail is in \<Policy\> (RA), \<Procedures\> (RA) and \<Risk Assessment Management\>, whose section 3.6 the vulnerability timetable.
 
 **Table 24: RA controls**
 
@@ -657,7 +657,7 @@ The assessment plan is in \<Control Assessment Record\> (RA), section RA.5, wher
 
 ### 7.16 System and Services Acquisition (SA)
 
-The assessment plan is in \<Control Assessment Record\> (SA), section SA.5, where the results are recorded. Implementation detail is in \<Policy\> (SA), \<Procedures\> (SA) and \<System and Services Acquisition Management\>, whose section 3.2 maps the development process to the CSS.
+The assessment plan is in \<Control Assessment Record\> (SA), section SA.4, where the results are recorded. Implementation detail is in \<Policy\> (SA), \<Procedures\> (SA) and \<System and Services Acquisition Management\>, whose section 3.2 maps the development process to the CSS.
 
 **Table 25: SA controls**
 
@@ -683,7 +683,7 @@ The assessment plan is in \<Control Assessment Record\> (SA), section SA.5, wher
 
 ### 7.17 System and Communications Protection (SC)
 
-The assessment plan is in \<Control Assessment Record\> (SC), section SC.5, where the results are recorded. Implementation detail is in \<Policy\> (SC), \<Procedures\> (SC) and \<System and Communications Protection Management\>, whose section 3.4 the cryptographic and key register, section 3.3 the TLS profile and section 3.2 the host firewall allow-lists.
+The assessment plan is in \<Control Assessment Record\> (SC), section SC.4, where the results are recorded. Implementation detail is in \<Policy\> (SC), \<Procedures\> (SC) and \<System and Communications Protection Management\>, whose section 3.4 the cryptographic and key register, section 3.3 the TLS profile and section 3.2 the host firewall allow-lists.
 
 **Table 26: SC controls**
 
@@ -717,7 +717,7 @@ The assessment plan is in \<Control Assessment Record\> (SC), section SC.5, wher
 
 ### 7.18 System and Information Integrity (SI)
 
-The assessment plan is in \<Control Assessment Record\> (SI), section SI.5, where the results are recorded. Implementation detail is in \<Policy\> (SI), \<Procedures\> (SI) and \<System and Information Integrity Management\>, whose section 3.2 the upload checks, section 3.4 the detection use cases and section 3.5 the integrity baseline. Flaws follow the one timetable in \<Risk Assessment Management\>, section 3.6.
+The assessment plan is in \<Control Assessment Record\> (SI), section SI.4, where the results are recorded. Implementation detail is in \<Policy\> (SI), \<Procedures\> (SI) and \<System and Information Integrity Management\>, whose section 3.2 the upload checks, section 3.4 the detection use cases and section 3.5 the integrity baseline. Flaws follow the one timetable in \<Risk Assessment Management\>, section 3.6.
 
 **Table 27: SI controls**
 
@@ -744,7 +744,7 @@ The assessment plan is in \<Control Assessment Record\> (SI), section SI.5, wher
 
 ### 7.19 Supply Chain Risk Management (SR)
 
-The assessment plan is in \<Control Assessment Record\> (SR), section SR.5, where the results are recorded. Implementation detail is in \<Policy\> (SR), \<Procedures\> (SR) and \<Supply Chain Risk Management\>, whose section 3.5 the supplier register and section 3.7 how components come in.
+The assessment plan is in \<Control Assessment Record\> (SR), section SR.4, where the results are recorded. Implementation detail is in \<Policy\> (SR), \<Procedures\> (SR) and \<Supply Chain Risk Management\>, whose section 3.5 the supplier register and section 3.7 how components come in.
 
 **Table 28: SR controls**
 

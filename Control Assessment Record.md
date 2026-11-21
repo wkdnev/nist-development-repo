@@ -25,7 +25,7 @@ Findings follow CSS. Each determination statement gets one of these.
 | O-G | Other than satisfied: a gap in the system |
 | O-E | Other than satisfied: evidence from the VMs or \<Organisation\> is not available |
 
-The AC chapter also uses the result scale in its Table AC-1 for the grouped objectives in section AC.4.
+A finding does not by itself require a fix: each non-compliance is rated and decided in \<Risk List\>, and only those to be remediated go to \<Plan of Action and Milestones\>. An interview answer changes a finding only when the records it describes are seen. A statement found not applicable is counted in its chapter's statements but not as satisfied, and rests on the tailoring decision in \<Tailoring Register\>, which the independent assessor may test.
 
 ### 1.2 What is the same in every assessment plan
 
@@ -41,32 +41,49 @@ Each chapter ends with its assessment plan. These parts are the same for every f
 | Level 2 team and schedule | \[Name\]'s team: \[members, dates and the depth and coverage to be agreed with the independent assessor\] |
 | Approval | The authorising official approves each plan before the assessment starts. Approved by: \[Name\] |
 
+### 1.3 Policy and procedures statements in every family
+
+Every family's first control, XX-1, has the same 25 CSS determination statements, and they are judged on the same evidence: the family's chapter of \<Policy\> and \<Procedures\>, the rules common to every policy in \<Policy\>, section 1.1, and the change record. They are recorded here once, with a column for each family, so that each of the 475 statements still has its own finding. XX stands for the family code, so the first row is AC-01\_ODP\[01\] in the AC column. Record the basis once; where a family's basis differs, say so in the Basis column with its code.
+
+**Table 3: Finding for each XX-1 statement, by family**
+
+| Statement | Determination, condensed | AC | AT | AU | CA | CM | CP | IA | IR | MA | MP | PE | PL | PS | PT | RA | SA | SC | SI | SR | Basis |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| XX-01\_ODP\[01\] | Who receives the policy is defined | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[Basis\] |
+| XX-01\_ODP\[02\] | Who receives the procedures is defined | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[Basis\] |
+| XX-01\_ODP\[03\] | Policy level is selected | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[Basis\] |
+| XX-01\_ODP\[04\] | Managing official is defined | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[Basis\] |
+| XX-01\_ODP\[05\] | Policy review frequency is defined | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[Basis\] |
+| XX-01\_ODP\[06\] | Policy review events are defined | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[Basis\] |
+| XX-01\_ODP\[07\] | Procedures review frequency is defined | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[Basis\] |
+| XX-01\_ODP\[08\] | Procedures review events are defined | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[Basis\] |
+| XX-01a.\[01\] | Policy is developed and documented | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[Basis\] |
+| XX-01a.\[02\] | Policy is disseminated | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[Basis\] |
+| XX-01a.\[03\] | Procedures are developed and documented | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[Basis\] |
+| XX-01a.\[04\] | Procedures are disseminated | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[Basis\] |
+| XX-01a.01(a)\[01\] | Policy addresses purpose | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[Basis\] |
+| XX-01a.01(a)\[02\] | Policy addresses scope | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[Basis\] |
+| XX-01a.01(a)\[03\] | Policy addresses roles | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[Basis\] |
+| XX-01a.01(a)\[04\] | Policy addresses responsibilities | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[Basis\] |
+| XX-01a.01(a)\[05\] | Policy addresses management commitment | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[Basis\] |
+| XX-01a.01(a)\[06\] | Policy addresses coordination | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[Basis\] |
+| XX-01a.01(a)\[07\] | Policy addresses compliance | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[Basis\] |
+| XX-01a.01(b) | Policy is consistent with laws and standards | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[Basis\] |
+| XX-01b. | Official is designated | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[Basis\] |
+| XX-01c.01\[01\] | Policy is reviewed at the set frequency | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[Basis\] |
+| XX-01c.01\[02\] | Policy is reviewed after set events | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[Basis\] |
+| XX-01c.02\[01\] | Procedures are reviewed at the set frequency | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[Basis\] |
+| XX-01c.02\[02\] | Procedures are reviewed after set events | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[ \] | \[Basis\] |
+
 ## AC Access Control
 
 ### AC.1 Purpose
 
-This records the initial self-assessment of \<System Name\> against each Moderate baseline AC control and enhancement. Section AC.3 is the executive summary, section AC.4 records the grouped objectives for each control, section AC.5 holds the finding for each CSS statement, and section AC.6 is the assessment plan.
+This records the initial self-assessment of \<System Name\> against each Moderate baseline AC control and enhancement. Section AC.2 is the executive summary, section AC.3 holds the finding for each CSS statement, and section AC.4 is the assessment plan.
 
-### AC.2 How to read this record
+### AC.2 Executive summary
 
-This is the Level 1 self-assessment, and it makes no fixes. An independent team led by \[Name\] will use it for the Level 2 assessment. A finding does not by itself require a fix: each non-compliance is rated and decided in \<Risk List\>, and only those to be remediated go to \<Plan of Action and Milestones\>.
-
-Each entry follows the CSS approach: the objectives come from CSS, and each gets one of these results.
-
-**Table AC-1: Result scale**
-
-| Result | Meaning |
-| --- | --- |
-| Satisfied | The evidence shows the objective is met |
-| Other than satisfied | The evidence shows a gap, or an approval is outstanding |
-| Other than satisfied (E) | CSS has no separate result for missing evidence. This marks objectives where the VMs or \<Organisation\>'s evidence are not available |
-| Not applicable | The objective does not apply, with a reason and any condition recorded in \<Tailoring Register\>. This is the organisation's tailoring decision, not a result under CSS, and the independent assessor may test it |
-
-The three methods are **Examine** (documents, code and configuration), **Test** (running the mechanism) and **Interview** (asking the people responsible). The interview questions are INT-AC-01 to 38 in \<Interview Guide\>, section 3. An answer changes a finding only when the records it describes are seen.
-
-### AC.3 Executive summary
-
-**Table AC-2: Results by control**
+**Table AC-1: Results by control**
 
 | Result | Count | Controls |
 | --- | --- | --- |
@@ -75,7 +92,7 @@ The three methods are **Examine** (documents, code and configuration), **Test** 
 | Other than satisfied, with at least one system gap | \[n\] | \[Controls\] |
 | Other than satisfied, needing only a decision, approval or evidence | \[n\] | \[Controls\] |
 
-**Table AC-2a: Result for each control**
+**Table AC-2: Result for each control**
 
 | Control | Result | Statements satisfied | Summary |
 | --- | --- | --- | --- |
@@ -123,655 +140,16 @@ Of the CSS \[n\] statements, \[n\] are satisfied, \[n\] are not applicable, \[n\
 
 \[Summary of the main gaps and what remains\]
 
-### AC.4 Control results
+### AC.3 Findings by determination statement
 
-Controls appear in the order of assessment set in section AC.6. For each control, record the result, the objectives and what was examined, tested and interviewed. Section AC.5 holds the finding for each statement and takes precedence.
-
-Find a control: AC-1 | AC-2 | AC-2(1) | AC-2(2) | AC-2(3) | AC-2(4) | AC-2(5) | AC-2(13) | AC-3 | AC-4 | AC-5 | AC-6 | AC-6(1) | AC-6(2) | AC-6(5) | AC-6(7) | AC-6(9) | AC-6(10) | AC-7 | AC-8 | AC-11 | AC-11(1) | AC-12 | AC-14 | AC-17 | AC-17(1) | AC-17(2) | AC-17(3) | AC-17(4) | AC-18 | AC-18(1) | AC-18(3) | AC-19 | AC-19(5) | AC-20 | AC-20(1) | AC-20(2) | AC-21 | AC-22
-
-#### AC.4.1 AC-3 Access Enforcement
-
-**Result:** \[Result\]. \[Summary of the result\]
-
-**What it requires:** the system must enforce approved authorisations for logical access to information and system resources, in line with access control policies.
-
-**Table AC-3: AC-3 objectives**
-
-| Objective | Result | Basis |
-| --- | --- | --- |
-| AC-03: approved authorisations for logical access are enforced in line with policy | \[Result\] | \[Basis\] |
-
-**Table AC-4: AC-3 findings**
-
-| Part of the stack | Finding | Evidence |
-| --- | --- | --- |
-| \[Part of the stack\] | \[Finding\] | \[Evidence\] |
-
-**Examined:** \[Documents, code and configuration examined\]. **Tested:** \[Tests run\]. **Interviewed:** \[People interviewed\]. **Not covered:** \[Anything not covered\].
-
-#### AC.4.2 AC-14 Permitted Actions Without Identification or Authentication
-
-**Result:** \[Result\]. \[Summary of the result\]
-
-**What it requires:** the organisation must decide which user actions are allowed without signing in, consistent with its mission, and record them with a rationale in the security plan. It does not require that there be none.
-
-**Table AC-5: AC-14 objectives**
-
-| Objective | Result | Basis |
-| --- | --- | --- |
-| AC-14\_ODP: the permitted actions are defined | \[Result\] | \[Basis\] |
-| AC-14a: actions are identified, consistent with mission and business functions | \[Result\] | \[Basis\] |
-| AC-14b\[01\]: actions are documented in the security plan | \[Result\] | \[Basis\] |
-| AC-14b\[02\]: a rationale is given in the security plan | \[Result\] | \[Basis\] |
-
-##### AC.4.2.1 What works without signing in
-
-Request every route without parameters in each application, every API address and the static files without signing in, and record each action that works.
-
-**Table AC-6: Actions that work without signing in**
-
-| Action | Where | Result | Proposed rationale | Assessment |
-| --- | --- | --- | --- | --- |
-| \[Action\] | \[Where\] | \[Result\] | \[Proposed rationale\] | \[Assessment\] |
-
-**Examined:** \[Documents, code and configuration examined\]. **Tested:** \[Tests run\]. **Interviewed:** \[People interviewed\]. **Not covered:** \[Anything not covered\].
-
-#### AC.4.3 AC-6(10) Prohibit Non-privileged Users from Executing Privileged Functions
-
-**Result:** \[Result\]. \[Summary of the result\]
-
-**What it requires:** the system must stop users without the right authorisation from running privileged functions. The CSS examples include changing or bypassing security controls, creating accounts and managing keys. Hiding a button is not enough, so the refusal has to happen where the function runs.
-
-**Table AC-7: AC-6(10) objective**
-
-| Objective | Result | Basis |
-| --- | --- | --- |
-| AC-06(10): non-privileged users are prevented from executing privileged functions | \[Result\] | \[Basis\] |
-
-**Table AC-8: AC-6(10) findings**
-
-| Part of the stack | Finding | Evidence |
-| --- | --- | --- |
-| \[Part of the stack\] | \[Finding\] | \[Evidence\] |
-
-**Examined:** \[Documents, code and configuration examined\]. **Tested:** \[Tests run\]. **Interviewed:** \[People interviewed\]. **Not covered:** \[Anything not covered\].
-
-#### AC.4.4 AC-6(1) Authorize Access to Security Functions
-
-**Result:** \[Result\]. \[Summary of the result\]
-
-**What it requires:** the organisation must name who may use its security functions, in hardware, software and firmware, and who may see security-relevant information, then authorise only them. The CSS examples include creating accounts, setting permissions and audit settings, firewall rules, security service settings, key management information and access control lists.
-
-**Table AC-9: AC-6(1) objectives**
-
-| Objective | Result | Basis |
-| --- | --- | --- |
-| AC-06(01)\_ODP\[01\]: individuals and roles are defined | \[Result\] | \[Basis\] |
-| AC-06(01)(a)\[01\]: access to security functions in hardware is authorised | \[Result\] | \[Basis\] |
-| AC-06(01)(a)\[02\]: access to security functions in software is authorised | \[Result\] | \[Basis\] |
-| AC-06(01)(a)\[03\]: access to security functions in firmware is authorised | \[Result\] | \[Basis\] |
-| AC-06(01)(b): access to security-relevant information is authorised | \[Result\] | \[Basis\] |
-
-**Table AC-10: AC-6(1) findings**
-
-| Part of the stack | Finding | Evidence |
-| --- | --- | --- |
-| \[Part of the stack\] | \[Finding\] | \[Evidence\] |
-
-**Examined:** \[Documents, code and configuration examined\]. **Tested:** \[Tests run\]. **Interviewed:** \[People interviewed\]. **Not covered:** \[Anything not covered\].
-
-#### AC.4.5 AC-6 Least Privilege
-
-**Result:** \[Result\]. \[Summary of the result\]
-
-**What it requires:** users, and processes acting for them, must have only the access they need for their assigned tasks.
-
-**Table AC-11: AC-6 objective**
-
-| Objective | Result | Basis |
-| --- | --- | --- |
-| AC-06: least privilege is employed for users and processes | \[Result\] | \[Basis\] |
-
-**Table AC-12: AC-6 findings**
-
-| Part of the stack | Finding | Evidence |
-| --- | --- | --- |
-| \[Part of the stack\] | \[Finding\] | \[Evidence\] |
-
-**Examined:** \[Documents, code and configuration examined\]. **Tested:** \[Tests run\]. **Interviewed:** \[People interviewed\]. **Not covered:** \[Anything not covered\].
-
-#### AC.4.6 AC-6(5) Privileged Accounts
-
-**Result:** \[Result\]. \[Summary of the result\]
-
-**What it requires:** privileged accounts must be restricted to defined people or roles.
-
-**Table AC-13: AC-6(5) objective**
-
-| Objective | Result | Basis |
-| --- | --- | --- |
-| AC-06(05): privileged accounts are restricted to defined personnel or roles | \[Result\] | \[Basis\] |
-
-**Table AC-14: AC-6(5) findings**
-
-| Part of the stack | Finding | Evidence |
-| --- | --- | --- |
-| \[Part of the stack\] | \[Finding\] | \[Evidence\] |
-
-**Examined:** \[Documents, code and configuration examined\]. **Tested:** \[Tests run\]. **Interviewed:** \[People interviewed\]. **Not covered:** \[Anything not covered\].
-
-#### AC.4.7 AC-5 Separation of Duties
-
-**Result:** \[Result\]. \[Summary of the result\]
-
-**What it requires:** the organisation must identify and document the duties that need separating, and define access to support that.
-
-**Table AC-15: AC-5 objectives**
-
-| Objective | Result | Basis |
-| --- | --- | --- |
-| AC-05a: duties of individuals are identified and documented | \[Result\] | \[Basis\] |
-| AC-05b: access authorisations to support separation of duties are defined | \[Result\] | \[Basis\] |
-
-**Table AC-16: AC-5 findings**
-
-| Part of the stack | Finding | Evidence |
-| --- | --- | --- |
-| \[Part of the stack\] | \[Finding\] | \[Evidence\] |
-
-**Examined:** \[Documents, code and configuration examined\]. **Tested:** \[Tests run\]. **Interviewed:** \[People interviewed\]. **Not covered:** \[Anything not covered\].
-
-#### AC.4.8 AC-6(2) Non-privileged Access for Nonsecurity Functions
-
-**Result:** \[Result\]. \[Summary of the result\]
-
-**What it requires:** people with access to security functions must use a non-privileged account or role for other work.
-
-**Table AC-17: AC-6(2) objective**
-
-| Objective | Result | Basis |
-| --- | --- | --- |
-| AC-06(02): users with access to security functions use non-privileged accounts for other work | \[Result\] | \[Basis\] |
-
-**Table AC-18: AC-6(2) findings**
-
-| Part of the stack | Finding | Evidence |
-| --- | --- | --- |
-| \[Part of the stack\] | \[Finding\] | \[Evidence\] |
-
-**Examined:** \[Documents, code and configuration examined\]. **Tested:** \[Tests run\]. **Interviewed:** \[People interviewed\]. **Not covered:** \[Anything not covered\].
-
-#### AC.4.9 AC-6(9) Log Use of Privileged Functions
-
-**Result:** \[Result\]. \[Summary of the result\]
-
-**What it requires:** running a privileged function must be logged.
-
-**Table AC-19: AC-6(9) objective**
-
-| Objective | Result | Basis |
-| --- | --- | --- |
-| AC-06(09): the execution of privileged functions is logged | \[Result\] | \[Basis\] |
-
-**Table AC-20: AC-6(9) findings**
-
-| Function | Finding | Evidence |
-| --- | --- | --- |
-| \[Function\] | \[Finding\] | \[Evidence\] |
-
-**Examined:** \[Documents, code and configuration examined\]. **Tested:** \[Tests run\]. **Interviewed:** \[People interviewed\]. **Not covered:** \[Anything not covered\].
-
-#### AC.4.10 AC-2 Account Management
-
-**Result:** \[Result\]. \[Summary of the result\]
-
-**What it requires:** a managed account lifecycle: defined account types, named account managers, approval, monitoring, timely notification when people leave or move, and periodic review.
-
-**Table AC-21: AC-2 objectives**
-
-| Objective | Result | Basis |
-| --- | --- | --- |
-| AC-02a\[01\], a\[02\]: allowed and prohibited account types are defined | \[Result\] | \[Basis\] |
-| AC-02b: account managers are assigned | \[Result\] | \[Basis\] |
-| AC-02c: prerequisites for group and role membership are required | \[Result\] | \[Basis\] |
-| AC-02d.01, d.02, d.03\[01\]: authorised users, membership and privileges are specified | \[Result\] | \[Basis\] |
-| AC-02d.03\[02\]: other account attributes are specified | \[Result\] | \[Basis\] |
-| AC-02e: approval is required to create accounts | \[Result\] | \[Basis\] |
-| AC-02f\[01\] to f\[05\]: accounts are created, enabled, modified, disabled and removed under procedure | \[Result\] | \[Basis\] |
-| AC-02g: account use is monitored | \[Result\] | \[Basis\] |
-| AC-02h.01 to h.03: account managers are told when accounts or need change | \[Result\] | \[Basis\] |
-| AC-02i.01 to i.03: access is based on valid authorisation and intended use | \[Result\] | \[Basis\] |
-| AC-02j: accounts are reviewed | \[Result\] | \[Basis\] |
-| AC-02k\[01\], k\[02\]: authenticators change when someone leaves a shared account | \[Result\] | \[Basis\] |
-| AC-02l\[01\], l\[02\]: account management aligns with leaver and transfer processes | \[Result\] | \[Basis\] |
-
-**Examined:** \[Documents, code and configuration examined\]. **Tested:** \[Tests run\]. **Interviewed:** \[People interviewed\]. **Not covered:** \[Anything not covered\].
-
-#### AC.4.11 AC-2(1) Automated System Account Management
-
-**Result:** \[Result\]. \[Summary of the result\]
-
-**Table AC-22: AC-2(1) objective**
-
-| Objective | Result | Basis |
-| --- | --- | --- |
-| AC-02(01): account management is supported by defined automated mechanisms | \[Result\] | \[Basis\] |
-
-**Table AC-23: AC-2(1) findings**
-
-| Mechanism | Finding | Evidence |
-| --- | --- | --- |
-| \[Mechanism\] | \[Finding\] | \[Evidence\] |
-
-**Examined:** \[Documents, code and configuration examined\]. **Tested:** \[Tests run\]. **Interviewed:** \[People interviewed\]. **Not covered:** \[Anything not covered\].
-
-#### AC.4.12 AC-2(3) Disable Accounts
-
-**Result:** \[Result\]. \[Summary of the result\]
-
-**Table AC-24: AC-2(3) objectives**
-
-| Objective | Result | Basis |
-| --- | --- | --- |
-| AC-02(03)(a): disabled when expired | \[Result\] | \[Basis\] |
-| AC-02(03)(b): disabled when no longer associated with a person | \[Result\] | \[Basis\] |
-| AC-02(03)(c): disabled when in violation of policy | \[Result\] | \[Basis\] |
-| AC-02(03)(d): disabled after inactivity | \[Result\] | \[Basis\] |
-
-**Examined:** \[Documents, code and configuration examined\]. **Tested:** \[Tests run\]. **Interviewed:** \[People interviewed\]. **Not covered:** \[Anything not covered\].
-
-#### AC.4.13 AC-2(2) Automated Temporary and Emergency Account Management
-
-**Result:** \[Result\]. \[Summary of the result\]
-
-**Table AC-25: AC-2(2) objective**
-
-| Objective | Result | Basis |
-| --- | --- | --- |
-| AC-02(02): temporary and emergency accounts are automatically removed or disabled after a set time | \[Result\] | \[Basis\] |
-
-**Examined:** \[Documents, code and configuration examined\]. **Tested:** \[Tests run\]. **Interviewed:** \[People interviewed\]. **Not covered:** \[Anything not covered\].
-
-#### AC.4.14 AC-2(13) Disable Accounts for High-risk Individuals
-
-**Result:** \[Result\]. \[Summary of the result\]
-
-**Table AC-26: AC-2(13) objective**
-
-| Objective | Result | Basis |
-| --- | --- | --- |
-| AC-02(13): accounts are disabled within a set time of discovering a significant risk | \[Result\] | \[Basis\] |
-
-**Examined:** \[Documents, code and configuration examined\]. **Tested:** \[Tests run\]. **Interviewed:** \[People interviewed\]. **Not covered:** \[Anything not covered\].
-
-#### AC.4.15 AC-2(4) Automated Audit Actions
-
-**Result:** \[Result\]. \[Summary of the result\]
-
-**Table AC-27: AC-2(4) objectives**
-
-| Objective | Result | Basis |
-| --- | --- | --- |
-| AC-02(04)\[01\]: creation is audited | \[Result\] | \[Basis\] |
-| AC-02(04)\[02\]: modification is audited | \[Result\] | \[Basis\] |
-| AC-02(04)\[03\]: enabling is audited | \[Result\] | \[Basis\] |
-| AC-02(04)\[04\]: disabling is audited | \[Result\] | \[Basis\] |
-| AC-02(04)\[05\]: removal is audited | \[Result\] | \[Basis\] |
-
-**Examined:** \[Documents, code and configuration examined\]. **Tested:** \[Tests run\]. **Interviewed:** \[People interviewed\]. **Not covered:** \[Anything not covered\].
-
-#### AC.4.16 AC-6(7) Review of User Privileges
-
-**Result:** \[Result\]. \[Summary of the result\]
-
-**Table AC-28: AC-6(7) objectives**
-
-| Objective | Result | Basis |
-| --- | --- | --- |
-| AC-06(07)(a): privileges are reviewed at a set frequency | \[Result\] | \[Basis\] |
-| AC-06(07)(b): privileges are reassigned or removed when needed | \[Result\] | \[Basis\] |
-
-**Examined:** \[Documents, code and configuration examined\]. **Tested:** \[Tests run\]. **Interviewed:** \[People interviewed\]. **Not covered:** \[Anything not covered\].
-
-#### AC.4.17 AC-7 Unsuccessful Logon Attempts
-
-**Result:** \[Result\]. \[Summary of the result\]
-
-**Table AC-29: AC-7 objectives**
-
-| Objective | Result | Basis |
-| --- | --- | --- |
-| AC-07a: a limit of consecutive invalid attempts is enforced | \[Result\] | \[Basis\] |
-| AC-07b: the account is automatically locked when exceeded | \[Result\] | \[Basis\] |
-| Windows logons on both servers, and SQL Server logins | \[Result\] | \[Basis\] |
-
-**Examined:** \[Documents, code and configuration examined\]. **Tested:** \[Tests run\]. **Interviewed:** \[People interviewed\]. **Not covered:** \[Anything not covered\].
-
-#### AC.4.18 AC-8 System Use Notification
-
-**Result:** \[Result\]. \[Summary of the result\]
-
-**Table AC-30: AC-8 objectives**
-
-| Objective | Result | Basis |
-| --- | --- | --- |
-| AC-08a.01 to a.04: the notice states the required conditions | \[Result\] | \[Basis\] |
-| AC-08b: the notice stays until acknowledged | \[Result\] | \[Basis\] |
-| AC-08c.01 to c.03: conditions for publicly accessible systems | \[Result\] | \[Basis\] |
-| Windows logon banner on the VMs | \[Result\] | \[Basis\] |
-
-AC-08a.01 is written for U.S. Government systems. Record how it applies to \<Organisation\> alongside the wording of the notice.
-
-**Examined:** \[Documents, code and configuration examined\]. **Tested:** \[Tests run\]. **Interviewed:** \[People interviewed\]. **Not covered:** \[Anything not covered\].
-
-#### AC.4.19 AC-2(5) Inactivity Logout
-
-**Result:** \[Result\]. \[Summary of the result\]
-
-**Table AC-31: AC-2(5) objective**
-
-| Objective | Result | Basis |
-| --- | --- | --- |
-| AC-02(05): users are required to log out at the set time | \[Result\] | \[Basis\] |
-| Windows server and SQL Server administration sign-ins | \[Result\] | \[Basis\] |
-
-**Examined:** \[Documents, code and configuration examined\]. **Tested:** \[Tests run\]. **Interviewed:** \[People interviewed\]. **Not covered:** \[Anything not covered\].
-
-#### AC.4.20 AC-12 Session Termination
-
-**Result:** \[Result\]. \[Summary of the result\]
-
-**Table AC-32: AC-12 objective**
-
-| Objective | Result | Basis |
-| --- | --- | --- |
-| AC-12: a session is automatically ended under set conditions | \[Result\] | \[Basis\] |
-| Windows server and SQL Server administration sign-ins, and PingFederate's sign-in lifetime (P-02) | \[Result\] | \[Basis\] |
-
-**Examined:** \[Documents, code and configuration examined\]. **Tested:** \[Tests run\]. **Interviewed:** \[People interviewed\]. **Not covered:** \[Anything not covered\].
-
-#### AC.4.21 AC-11 Device Lock
-
-**Result:** \[Result\]. \[Summary of the result\]
-
-**Table AC-33: AC-11 objectives**
-
-| Objective | Result | Basis |
-| --- | --- | --- |
-| AC-11a: further access is prevented by a lock | \[Result\] | \[Basis\] |
-| AC-11b: the lock stays until the user signs in again | \[Result\] | \[Basis\] |
-| Workstation and server locks | \[Result\] | \[Basis\] |
-
-**Examined:** \[Documents, code and configuration examined\]. **Tested:** \[Tests run\]. **Interviewed:** \[People interviewed\]. **Not covered:** \[Anything not covered\].
-
-#### AC.4.22 AC-11(1) Pattern-hiding Displays
-
-**Result:** \[Result\]. \[Summary of the result\]
-
-**Table AC-34: AC-11(1) objective**
-
-| Objective | Result | Basis |
-| --- | --- | --- |
-| AC-11(01): the lock conceals what was on screen | \[Result\] | \[Basis\] |
-
-**Examined:** \[Documents, code and configuration examined\]. **Tested:** \[Tests run\]. **Interviewed:** \[People interviewed\]. **Not covered:** \[Anything not covered\].
-
-#### AC.4.23 AC-4 Information Flow Enforcement
-
-**Result:** \[Result\]. \[Summary of the result\]
-
-**Table AC-35: AC-4 objective**
-
-| Objective | Result | Basis |
-| --- | --- | --- |
-| AC-04: approved authorisations control information flow within the system and to connected systems | \[Result\] | \[Basis\] |
-
-**Table AC-36: AC-4 findings**
-
-| Flow | Finding | Evidence |
-| --- | --- | --- |
-| \[Flow\] | \[Finding\] | \[Evidence\] |
-
-**Examined:** \[Documents, code and configuration examined\]. **Tested:** \[Tests run\]. **Interviewed:** \[People interviewed\]. **Not covered:** \[Anything not covered\].
-
-#### AC.4.24 AC-17 Remote Access
-
-**Result:** \[Result\]. \[Summary of the result\]
-
-**Table AC-37: AC-17 objectives**
-
-| Objective | Result | Basis |
-| --- | --- | --- |
-| AC-17a\[01\] to a\[03\]: restrictions, requirements and guidance are documented | \[Result\] | \[Basis\] |
-| AC-17b: remote access is authorised before connecting | \[Result\] | \[Basis\] |
-
-**Examined:** \[Documents, code and configuration examined\]. **Tested:** \[Tests run\]. **Interviewed:** \[People interviewed\]. **Not covered:** \[Anything not covered\].
-
-#### AC.4.25 AC-17(1) Monitoring and Control
-
-**Result:** \[Result\]. \[Summary of the result\]
-
-**Table AC-38: AC-17(1) objectives**
-
-| Objective | Result | Basis |
-| --- | --- | --- |
-| AC-17(01)\[01\], \[02\]: remote access is monitored and controlled automatically | \[Result\] | \[Basis\] |
-
-**Examined:** \[Documents, code and configuration examined\]. **Tested:** \[Tests run\]. **Interviewed:** \[People interviewed\]. **Not covered:** \[Anything not covered\].
-
-#### AC.4.26 AC-17(2) Protection of Confidentiality and Integrity Using Encryption
-
-**Result:** \[Result\]. \[Summary of the result\]
-
-**Table AC-39: AC-17(2) objective**
-
-| Objective | Result | Basis |
-| --- | --- | --- |
-| AC-17(02): encryption protects remote access sessions | \[Result\] | \[Basis\] |
-
-**Examined:** \[Documents, code and configuration examined\]. **Tested:** \[Tests run\]. **Interviewed:** \[People interviewed\]. **Not covered:** \[Anything not covered\].
-
-#### AC.4.27 AC-17(3) Managed Access Control Points
-
-**Result:** \[Result\]. \[Summary of the result\]
-
-**Table AC-40: AC-17(3) objective**
-
-| Objective | Result | Basis |
-| --- | --- | --- |
-| AC-17(03): remote access goes through managed access points | \[Result\] | \[Basis\] |
-
-**Examined:** \[Documents, code and configuration examined\]. **Tested:** \[Tests run\]. **Interviewed:** \[People interviewed\]. **Not covered:** \[Anything not covered\].
-
-#### AC.4.28 AC-17(4) Privileged Commands and Access
-
-**Result:** \[Result\]. \[Summary of the result\]
-
-**Table AC-41: AC-17(4) objectives**
-
-| Objective | Result | Basis |
-| --- | --- | --- |
-| AC-17(04)(a)\[01\], \[02\]: remote privileged access leaves assessable evidence | \[Result\] | \[Basis\] |
-| AC-17(04)(a)\[03\], \[04\]: it is allowed only for defined needs | \[Result\] | \[Basis\] |
-| AC-17(04)(b): the rationale is in the security plan | \[Result\] | \[Basis\] |
-
-**Examined:** \[Documents, code and configuration examined\]. **Tested:** \[Tests run\]. **Interviewed:** \[People interviewed\]. **Not covered:** \[Anything not covered\].
-
-#### AC.4.29 AC-18 Wireless Access
-
-**Result:** \[Result\]. \[Summary of the result\]
-
-**Table AC-42: AC-18 objectives**
-
-| Objective | Result | Basis |
-| --- | --- | --- |
-| AC-18a\[01\] to a\[03\], b: wireless requirements, guidance and authorisation | \[Result\] | \[Basis\] |
-
-**Examined:** \[Documents, code and configuration examined\]. **Tested:** \[Tests run\]. **Interviewed:** \[People interviewed\]. **Not covered:** \[Anything not covered\].
-
-#### AC.4.30 AC-18(1) Authentication and Encryption
-
-**Result:** \[Result\]. \[Summary of the result\]
-
-**Table AC-43: AC-18(1) objectives**
-
-| Objective | Result | Basis |
-| --- | --- | --- |
-| AC-18(01)\[01\], \[02\]: wireless access is authenticated and encrypted | \[Result\] | \[Basis\] |
-
-**Examined:** \[Documents, code and configuration examined\]. **Tested:** \[Tests run\]. **Interviewed:** \[People interviewed\]. **Not covered:** \[Anything not covered\].
-
-#### AC.4.31 AC-18(3) Disable Wireless Networking
-
-**Result:** \[Result\]. \[Summary of the result\]
-
-**Table AC-44: AC-18(3) objective**
-
-| Objective | Result | Basis |
-| --- | --- | --- |
-| AC-18(03): unused wireless is disabled before deployment | \[Result\] | \[Basis\] |
-
-**Examined:** \[Documents, code and configuration examined\]. **Tested:** \[Tests run\]. **Interviewed:** \[People interviewed\]. **Not covered:** \[Anything not covered\].
-
-#### AC.4.32 AC-19 Access Control for Mobile Devices
-
-**Result:** \[Result\]. \[Summary of the result\]
-
-**Table AC-45: AC-19 objectives**
-
-| Objective | Result | Basis |
-| --- | --- | --- |
-| AC-19a\[01\] to a\[03\], b: mobile device requirements and authorisation | \[Result\] | \[Basis\] |
-
-**Examined:** \[Documents, code and configuration examined\]. **Tested:** \[Tests run\]. **Interviewed:** \[People interviewed\]. **Not covered:** \[Anything not covered\].
-
-#### AC.4.33 AC-19(5) Full Device or Container-based Encryption
-
-**Result:** \[Result\]. \[Summary of the result\]
-
-**Table AC-46: AC-19(5) objective**
-
-| Objective | Result | Basis |
-| --- | --- | --- |
-| AC-19(05): mobile devices use full device or container encryption | \[Result\] | \[Basis\] |
-
-**Examined:** \[Documents, code and configuration examined\]. **Tested:** \[Tests run\]. **Interviewed:** \[People interviewed\]. **Not covered:** \[Anything not covered\].
-
-#### AC.4.34 AC-20 Use of External Systems
-
-**Result:** \[Result\]. \[Summary of the result\]
-
-**Table AC-47: AC-20 objectives**
-
-| Objective | Result | Basis |
-| --- | --- | --- |
-| AC-20a.01, a.02: external access and processing follow agreed terms | \[Result\] | \[Basis\] |
-| AC-20b: prohibited external system types are prohibited | \[Result\] | \[Basis\] |
-
-**Examined:** \[Documents, code and configuration examined\]. **Tested:** \[Tests run\]. **Interviewed:** \[People interviewed\]. **Not covered:** \[Anything not covered\].
-
-#### AC.4.35 AC-20(1) Limits on Authorized Use
-
-**Result:** \[Result\]. \[Summary of the result\]
-
-**Table AC-48: AC-20(1) objectives**
-
-| Objective | Result | Basis |
-| --- | --- | --- |
-| AC-20(01)(a), (b): external use needs verified controls and a retained agreement | \[Result\] | \[Basis\] |
-
-**Examined:** \[Documents, code and configuration examined\]. **Tested:** \[Tests run\]. **Interviewed:** \[People interviewed\]. **Not covered:** \[Anything not covered\].
-
-#### AC.4.36 AC-20(2) Portable Storage Devices
-
-**Result:** \[Result\]. \[Summary of the result\]
-
-**Table AC-49: AC-20(2) objective**
-
-| Objective | Result | Basis |
-| --- | --- | --- |
-| AC-20(02): portable storage is restricted on external systems | \[Result\] | \[Basis\] |
-
-**Examined:** \[Documents, code and configuration examined\]. **Tested:** \[Tests run\]. **Interviewed:** \[People interviewed\]. **Not covered:** \[Anything not covered\].
-
-#### AC.4.37 AC-21 Information Sharing
-
-**Result:** \[Result\]. \[Summary of the result\]
-
-**Table AC-50: AC-21 objectives**
-
-| Objective | Result | Basis |
-| --- | --- | --- |
-| AC-21a: users can decide whether a sharing partner's access matches restrictions | \[Result\] | \[Basis\] |
-| AC-21b: mechanisms assist sharing decisions | \[Result\] | \[Basis\] |
-
-**Examined:** \[Documents, code and configuration examined\]. **Tested:** \[Tests run\]. **Interviewed:** \[People interviewed\]. **Not covered:** \[Anything not covered\].
-
-#### AC.4.38 AC-22 Publicly Accessible Content
-
-**Result:** \[Result\]. \[Summary of the result\]
-
-**Table AC-51: AC-22 objectives**
-
-| Objective | Result | Basis |
-| --- | --- | --- |
-| AC-22a to d: public content is authorised, reviewed and corrected | \[Result\] | \[Basis\] |
-
-**Examined:** \[Documents, code and configuration examined\]. **Tested:** \[Tests run\]. **Interviewed:** \[People interviewed\]. **Not covered:** \[Anything not covered\].
-
-#### AC.4.39 AC-1 Policy and Procedures
-
-**Result:** \[Result\]. \[Summary of the result\]
-
-**Table AC-52: AC-1 objectives**
-
-| Objective | Result | Basis |
-| --- | --- | --- |
-| AC-01a\[01\], a\[03\]: policy and procedures are developed and documented | \[Result\] | \[Basis\] |
-| AC-01a\[02\], a\[04\]: they are shared with defined people | \[Result\] | \[Basis\] |
-| AC-01a.01(a)\[01\] to \[05\], \[07\]: the policy addresses purpose, scope, roles, responsibilities, commitment and compliance | \[Result\] | \[Basis\] |
-| AC-01a.01(a)\[06\]: the policy addresses coordination between organisations | \[Result\] | \[Basis\] |
-| AC-01a.01(b): the policy is consistent with laws, standards and guidance | \[Result\] | \[Basis\] |
-| AC-01b: an official manages policy and procedures | \[Result\] | \[Basis\] |
-| AC-01c.01, c.02: both are reviewed at set times and after set events | \[Result\] | \[Basis\] |
-
-**Examined:** \[Documents, code and configuration examined\]. **Tested:** \[Tests run\]. **Interviewed:** \[People interviewed\]. **Not covered:** \[Anything not covered\].
-
-### AC.5 Findings by determination statement
-
-This section records one finding for each CSS determination statement, including those about organisation-defined parameters, in control order. It takes precedence over the grouped objectives in section AC.4. Statement wording is condensed, and the identifiers are CSS's.
+This section records one finding for each CSS determination statement, including those about organisation-defined parameters, in control order. Statement wording is condensed, and the identifiers are CSS's. The AC-1 statements are recorded with every family's in section 1.3.
 
 Findings: **S** satisfied. **O-D** other than satisfied, because a decision or approval is outstanding. **O-G** other than satisfied, because of a gap in the system. **O-E** other than satisfied, because evidence from the VMs or \<Organisation\> is not available. **N/S** the parameter applies only if selected, and is not selected. **N/A** not applicable, as set out in \<Tailoring Register\>.
 
-**Table AC-53: Finding for each determination statement**
+**Table AC-3: Finding for each determination statement**
 
 | Statement | Determination, condensed | Finding | Basis |
 | --- | --- | --- | --- |
-| AC-01\_ODP\[01\] | Who receives the policy is defined | \[Finding\] | \[Basis\] |
-| AC-01\_ODP\[02\] | Who receives the procedures is defined | \[Finding\] | \[Basis\] |
-| AC-01\_ODP\[03\] | Policy level is selected | \[Finding\] | \[Basis\] |
-| AC-01\_ODP\[04\] | Managing official is defined | \[Finding\] | \[Basis\] |
-| AC-01\_ODP\[05\] | Policy review frequency is defined | \[Finding\] | \[Basis\] |
-| AC-01\_ODP\[06\] | Policy review events are defined | \[Finding\] | \[Basis\] |
-| AC-01\_ODP\[07\] | Procedures review frequency is defined | \[Finding\] | \[Basis\] |
-| AC-01\_ODP\[08\] | Procedures review events are defined | \[Finding\] | \[Basis\] |
-| AC-01a.\[01\] | Policy is developed and documented | \[Finding\] | \[Basis\] |
-| AC-01a.\[02\] | Policy is disseminated | \[Finding\] | \[Basis\] |
-| AC-01a.\[03\] | Procedures are developed and documented | \[Finding\] | \[Basis\] |
-| AC-01a.\[04\] | Procedures are disseminated | \[Finding\] | \[Basis\] |
-| AC-01a.01(a)\[01\] | Policy addresses purpose | \[Finding\] | \[Basis\] |
-| AC-01a.01(a)\[02\] | Policy addresses scope | \[Finding\] | \[Basis\] |
-| AC-01a.01(a)\[03\] | Policy addresses roles | \[Finding\] | \[Basis\] |
-| AC-01a.01(a)\[04\] | Policy addresses responsibilities | \[Finding\] | \[Basis\] |
-| AC-01a.01(a)\[05\] | Policy addresses management commitment | \[Finding\] | \[Basis\] |
-| AC-01a.01(a)\[06\] | Policy addresses coordination | \[Finding\] | \[Basis\] |
-| AC-01a.01(a)\[07\] | Policy addresses compliance | \[Finding\] | \[Basis\] |
-| AC-01a.01(b) | Policy is consistent with laws and standards | \[Finding\] | \[Basis\] |
-| AC-01b. | Official is designated | \[Finding\] | \[Basis\] |
-| AC-01c.01\[01\] | Policy is reviewed at the set frequency | \[Finding\] | \[Basis\] |
-| AC-01c.01\[02\] | Policy is reviewed after set events | \[Finding\] | \[Basis\] |
-| AC-01c.02\[01\] | Procedures are reviewed at the set frequency | \[Finding\] | \[Basis\] |
-| AC-01c.02\[02\] | Procedures are reviewed after set events | \[Finding\] | \[Basis\] |
 | AC-02\_ODP\[01\] | Membership prerequisites are defined | \[Finding\] | \[Basis\] |
 | AC-02\_ODP\[02\] | Account attributes are defined | \[Finding\] | \[Basis\] |
 | AC-02\_ODP\[03\] | Account approvers are defined | \[Finding\] | \[Basis\] |
@@ -937,11 +315,11 @@ Findings: **S** satisfied. **O-D** other than satisfied, because a decision or a
 | AC-22d.\[01\] | Content is reviewed periodically | \[Finding\] | \[Basis\] |
 | AC-22d.\[02\] | Non-public information is removed | \[Finding\] | \[Basis\] |
 
-### AC.6 Assessment plan
+### AC.4 Assessment plan
 
 This records how the assessment is planned and carried out, following CSS. It covers the Level 1 self-assessment and what remains for an independent one.
 
-**Table AC-54: Assessment plan**
+**Table AC-4: Assessment plan**
 
 | Item | Detail |
 | --- | --- |
@@ -960,7 +338,7 @@ This records how the assessment is planned and carried out, following CSS. It co
 | Approval | The authorising official approves this plan. Approved by: \[Name\] |
 | Evidence retained | \<Access Control Management\>, section A.9, and the AC evidence, with its manifest |
 
-For the Level 2 assessment, the assessor should repeat the tests on the VMs, hold the interviews, examine \<Organisation\>'s evidence and re-determine every statement in section AC.5.
+For the Level 2 assessment, the assessor should repeat the tests on the VMs, hold the interviews, examine \<Organisation\>'s evidence and re-determine every statement in section AC.3.
 
 ## AT Awareness and Training
 
@@ -968,11 +346,7 @@ For the Level 2 assessment, the assessor should repeat the tests on the VMs, hol
 
 This records the Level 1 self-assessment of the 6 AT entries in the CSS Moderate baseline, using catalog release 5.2.0. AT-3(5) is a privacy baseline control, assessed with the PT family (\<Control Assessment Record\> (PT)). An independent team led by \[Name\] will use it for the Level 2 assessment. It makes no fixes.
 
-### AT.2 How to read this record
-
-The method is **Examine** (documents) and **Interview**. This family has no code to test. Test-PlanConsistency.ps1 checks that every security role has its training defined (the PL evidence).
-
-### AT.3 Executive summary
+### AT.2 Executive summary
 
 **Table AT-1: Results by control**
 
@@ -998,39 +372,14 @@ Of the CSS \[n\] statements, \[n\] are satisfied, \[n\] are not applicable, \[n\
 
 \[Summary of the main gaps and what remains\]
 
-### AT.4 Findings by determination statement
+### AT.3 Findings by determination statement
 
-There is one finding for each CSS determination statement, including those about organisation-defined parameters. Statement wording is condensed, and the identifiers are CSS's. The finding codes are in section 1.1.
+There is one finding for each CSS determination statement, including those about organisation-defined parameters. Statement wording is condensed, and the identifiers are CSS's. The finding codes are in section 1.1. The AT-1 statements are recorded with every family's in section 1.3.
 
 **Table AT-3: Finding for each determination statement**
 
 | Statement | Determination, condensed | Finding | Basis |
 | --- | --- | --- | --- |
-| AT-01\_ODP\[01\] | Who receives the policy is defined | \[Finding\] | \[Basis\] |
-| AT-01\_ODP\[02\] | Who receives the procedures is defined | \[Finding\] | \[Basis\] |
-| AT-01\_ODP\[03\] | Policy level is selected | \[Finding\] | \[Basis\] |
-| AT-01\_ODP\[04\] | Managing official is defined | \[Finding\] | \[Basis\] |
-| AT-01\_ODP\[05\] | Policy review frequency is defined | \[Finding\] | \[Basis\] |
-| AT-01\_ODP\[06\] | Policy review events are defined | \[Finding\] | \[Basis\] |
-| AT-01\_ODP\[07\] | Procedures review frequency is defined | \[Finding\] | \[Basis\] |
-| AT-01\_ODP\[08\] | Procedures review events are defined | \[Finding\] | \[Basis\] |
-| AT-01a.\[01\] | Policy is developed and documented | \[Finding\] | \[Basis\] |
-| AT-01a.\[02\] | Policy is disseminated | \[Finding\] | \[Basis\] |
-| AT-01a.\[03\] | Procedures are developed and documented | \[Finding\] | \[Basis\] |
-| AT-01a.\[04\] | Procedures are disseminated | \[Finding\] | \[Basis\] |
-| AT-01a.01(a)\[01\] | Policy addresses purpose | \[Finding\] | \[Basis\] |
-| AT-01a.01(a)\[02\] | Policy addresses scope | \[Finding\] | \[Basis\] |
-| AT-01a.01(a)\[03\] | Policy addresses roles | \[Finding\] | \[Basis\] |
-| AT-01a.01(a)\[04\] | Policy addresses responsibilities | \[Finding\] | \[Basis\] |
-| AT-01a.01(a)\[05\] | Policy addresses management commitment | \[Finding\] | \[Basis\] |
-| AT-01a.01(a)\[06\] | Policy addresses coordination | \[Finding\] | \[Basis\] |
-| AT-01a.01(a)\[07\] | Policy addresses compliance | \[Finding\] | \[Basis\] |
-| AT-01a.01(b) | Policy is consistent with laws and standards | \[Finding\] | \[Basis\] |
-| AT-01b. | Official is designated | \[Finding\] | \[Basis\] |
-| AT-01c.01\[01\] | Policy is reviewed at the set frequency | \[Finding\] | \[Basis\] |
-| AT-01c.01\[02\] | Policy is reviewed after set events | \[Finding\] | \[Basis\] |
-| AT-01c.02\[01\] | Procedures are reviewed at the set frequency | \[Finding\] | \[Basis\] |
-| AT-01c.02\[02\] | Procedures are reviewed after set events | \[Finding\] | \[Basis\] |
 | AT-02\_ODP\[01\] | Security training frequency is defined | \[Finding\] | \[Basis\] |
 | AT-02\_ODP\[02\] | Privacy training frequency is defined | \[Finding\] | \[Basis\] |
 | AT-02\_ODP\[03\] | Security training events are defined | \[Finding\] | \[Basis\] |
@@ -1073,7 +422,7 @@ There is one finding for each CSS determination statement, including those about
 | AT-04a.\[02\] | Privacy training is documented and monitored | \[Finding\] | \[Basis\] |
 | AT-04b. | Records are kept | \[Finding\] | \[Basis\] |
 
-### AT.5 Assessment plan
+### AT.4 Assessment plan
 
 **Table AT-4: Assessment plan**
 
@@ -1089,13 +438,14 @@ There is one finding for each CSS determination statement, including those about
 | Order of assessment | A, the programme (AT-1, \<Awareness and Training Management\>, section 3.2); B, awareness (AT-2, AT-2(2), AT-2(3)); C, role training (AT-3); D, records (AT-4) |
 | Needed from providers | EV-AT-01 in \<Evidence Requests\> |
 | Evidence retained | TPL-9 and TPL-21 records; the training register in \<Awareness and Training Management\>, section 3.8; the monthly measures on TPL-8; the PL evidence |
+| Notes | This family has no code to test. Test-PlanConsistency.ps1 checks that every security role has its training defined (the PL evidence). |
 
 For the Level 2 assessment, the assessor should:
 
 - sample TPL-9 records against the register and the accounts that hold privileged roles;
 - sit in on the briefing or a module, and review the end-of-module checks;
 - examine EV-AT-01;
-- hold the interviews, and re-determine every statement in section AT.4.
+- hold the interviews, and re-determine every statement in section AT.3.
 
 ## AU Audit and Accountability
 
@@ -1103,11 +453,7 @@ For the Level 2 assessment, the assessor should:
 
 This records the Level 1 self-assessment of the 16 AU entries in the CSS Moderate baseline, using catalog release 5.2.0. An independent team led by \[Name\] will use it for the Level 2 assessment. It makes no fixes. Each non-compliance is rated and decided in \<Risk List\>, and only those to be remediated go to \<Plan of Action and Milestones\>.
 
-### AU.2 How to read this record
-
-The methods are **Examine** (code and configuration), **Test** (Test-AuditAndAuth.ps1, and read-only database checks) and **Interview**. The interview questions are INT-AU-01 to 06 in \<Interview Guide\>. An answer changes a finding only when the records it describes are seen.
-
-### AU.3 Executive summary
+### AU.2 Executive summary
 
 **Table AU-1: Results by control**
 
@@ -1143,39 +489,14 @@ Of the CSS \[n\] statements, \[n\] are satisfied, \[n\] are not applicable, \[n\
 
 \[Summary of the main gaps and what remains\]
 
-### AU.4 Findings by determination statement
+### AU.3 Findings by determination statement
 
-There is one finding for each CSS determination statement, including those about organisation-defined parameters. Statement wording is condensed, and the identifiers are CSS's. The finding codes are in section 1.1.
+There is one finding for each CSS determination statement, including those about organisation-defined parameters. Statement wording is condensed, and the identifiers are CSS's. The finding codes are in section 1.1. The AU-1 statements are recorded with every family's in section 1.3.
 
 **Table AU-3: Finding for each determination statement**
 
 | Statement | Determination, condensed | Finding | Basis |
 | --- | --- | --- | --- |
-| AU-01\_ODP\[01\] | Who receives the policy is defined | \[Finding\] | \[Basis\] |
-| AU-01\_ODP\[02\] | Who receives the procedures is defined | \[Finding\] | \[Basis\] |
-| AU-01\_ODP\[03\] | Policy level is selected | \[Finding\] | \[Basis\] |
-| AU-01\_ODP\[04\] | Managing official is defined | \[Finding\] | \[Basis\] |
-| AU-01\_ODP\[05\] | Policy review frequency is defined | \[Finding\] | \[Basis\] |
-| AU-01\_ODP\[06\] | Policy review events are defined | \[Finding\] | \[Basis\] |
-| AU-01\_ODP\[07\] | Procedures review frequency is defined | \[Finding\] | \[Basis\] |
-| AU-01\_ODP\[08\] | Procedures review events are defined | \[Finding\] | \[Basis\] |
-| AU-01a.\[01\] | Policy is developed and documented | \[Finding\] | \[Basis\] |
-| AU-01a.\[02\] | Policy is disseminated | \[Finding\] | \[Basis\] |
-| AU-01a.\[03\] | Procedures are developed and documented | \[Finding\] | \[Basis\] |
-| AU-01a.\[04\] | Procedures are disseminated | \[Finding\] | \[Basis\] |
-| AU-01a.01(a)\[01\] | Policy addresses purpose | \[Finding\] | \[Basis\] |
-| AU-01a.01(a)\[02\] | Policy addresses scope | \[Finding\] | \[Basis\] |
-| AU-01a.01(a)\[03\] | Policy addresses roles | \[Finding\] | \[Basis\] |
-| AU-01a.01(a)\[04\] | Policy addresses responsibilities | \[Finding\] | \[Basis\] |
-| AU-01a.01(a)\[05\] | Policy addresses management commitment | \[Finding\] | \[Basis\] |
-| AU-01a.01(a)\[06\] | Policy addresses coordination | \[Finding\] | \[Basis\] |
-| AU-01a.01(a)\[07\] | Policy addresses compliance | \[Finding\] | \[Basis\] |
-| AU-01a.01(b) | Policy is consistent with laws and standards | \[Finding\] | \[Basis\] |
-| AU-01b. | Official is designated | \[Finding\] | \[Basis\] |
-| AU-01c.01\[01\] | Policy is reviewed at the set frequency | \[Finding\] | \[Basis\] |
-| AU-01c.01\[02\] | Policy is reviewed after set events | \[Finding\] | \[Basis\] |
-| AU-01c.02\[01\] | Procedures are reviewed at the set frequency | \[Finding\] | \[Basis\] |
-| AU-01c.02\[02\] | Procedures are reviewed after set events | \[Finding\] | \[Basis\] |
 | AU-02\_ODP\[01\] | Event types the system can log are defined | \[Finding\] | \[Basis\] |
 | AU-02\_ODP\[02\] | Event types to log are defined | \[Finding\] | \[Basis\] |
 | AU-02\_ODP\[03\] | How often they are logged is defined | \[Finding\] | \[Basis\] |
@@ -1233,7 +554,7 @@ There is one finding for each CSS determination statement, including those about
 | AU-12b. | They can select events | \[Finding\] | \[Basis\] |
 | AU-12c. | Records for the selected events are generated | \[Finding\] | \[Basis\] |
 
-### AU.5 Assessment plan
+### AU.4 Assessment plan
 
 **Table AU-4: Assessment plan**
 
@@ -1253,7 +574,7 @@ There is one finding for each CSS determination statement, including those about
 | Needed from \<Organisation\> | EV-AU-01 to EV-AU-05 in \<Evidence Requests\>: central monitoring, the time source, storage and backup, the Windows audit policy, and PingFederate and Active Directory audit records |
 | Evidence retained | The AU and IA evidence, with its manifest; \<Audit and Accountability Management\>, section 3 |
 
-The independent assessor's team, schedule, and depth and coverage are added once agreed. For the Level 2 assessment, the assessor should repeat the tests on the VMs, hold the interviews, examine \<Organisation\>'s evidence and re-determine every statement in section AU.4.
+The independent assessor's team, schedule, and depth and coverage are added once agreed. For the Level 2 assessment, the assessor should repeat the tests on the VMs, hold the interviews, examine \<Organisation\>'s evidence and re-determine every statement in section AU.3.
 
 ## CA Assessment, Authorization, and Monitoring
 
@@ -1261,11 +582,7 @@ The independent assessor's team, schedule, and depth and coverage are added once
 
 This records the Level 1 self-assessment of the 10 CA entries in the CSS Moderate baseline, using catalog release 5.2.0. An independent team led by \[Name\] will use it for the Level 2 assessment. It makes no fixes.
 
-### CA.2 How to read this record
-
-The methods are **Examine** (the assessment, plan and risk documents) and **Interview**. This family assesses the assessment process itself, so a self-assessment has clear limits here.
-
-### CA.3 Executive summary
+### CA.2 Executive summary
 
 **Table CA-1: Results by control**
 
@@ -1295,39 +612,14 @@ Of the CSS \[n\] statements, \[n\] are satisfied, \[n\] are not applicable, \[n\
 
 \[Summary of the main gaps and what remains\]
 
-### CA.4 Findings by determination statement
+### CA.3 Findings by determination statement
 
-There is one finding for each CSS determination statement, including those about organisation-defined parameters. Statement wording is condensed, and the identifiers are CSS's. The finding codes are in section 1.1.
+There is one finding for each CSS determination statement, including those about organisation-defined parameters. Statement wording is condensed, and the identifiers are CSS's. The finding codes are in section 1.1. The CA-1 statements are recorded with every family's in section 1.3.
 
 **Table CA-3: Finding for each determination statement**
 
 | Statement | Determination, condensed | Finding | Basis |
 | --- | --- | --- | --- |
-| CA-01\_ODP\[01\] | Who receives the policy is defined | \[Finding\] | \[Basis\] |
-| CA-01\_ODP\[02\] | Who receives the procedures is defined | \[Finding\] | \[Basis\] |
-| CA-01\_ODP\[03\] | Policy level is selected | \[Finding\] | \[Basis\] |
-| CA-01\_ODP\[04\] | Managing official is defined | \[Finding\] | \[Basis\] |
-| CA-01\_ODP\[05\] | Policy review frequency is defined | \[Finding\] | \[Basis\] |
-| CA-01\_ODP\[06\] | Policy review events are defined | \[Finding\] | \[Basis\] |
-| CA-01\_ODP\[07\] | Procedures review frequency is defined | \[Finding\] | \[Basis\] |
-| CA-01\_ODP\[08\] | Procedures review events are defined | \[Finding\] | \[Basis\] |
-| CA-01a.\[01\] | Policy is developed and documented | \[Finding\] | \[Basis\] |
-| CA-01a.\[02\] | Policy is disseminated | \[Finding\] | \[Basis\] |
-| CA-01a.\[03\] | Procedures are developed and documented | \[Finding\] | \[Basis\] |
-| CA-01a.\[04\] | Procedures are disseminated | \[Finding\] | \[Basis\] |
-| CA-01a.01(a)\[01\] | Policy addresses purpose | \[Finding\] | \[Basis\] |
-| CA-01a.01(a)\[02\] | Policy addresses scope | \[Finding\] | \[Basis\] |
-| CA-01a.01(a)\[03\] | Policy addresses roles | \[Finding\] | \[Basis\] |
-| CA-01a.01(a)\[04\] | Policy addresses responsibilities | \[Finding\] | \[Basis\] |
-| CA-01a.01(a)\[05\] | Policy addresses management commitment | \[Finding\] | \[Basis\] |
-| CA-01a.01(a)\[06\] | Policy addresses coordination | \[Finding\] | \[Basis\] |
-| CA-01a.01(a)\[07\] | Policy addresses compliance | \[Finding\] | \[Basis\] |
-| CA-01a.01(b) | Policy is consistent with laws and standards | \[Finding\] | \[Basis\] |
-| CA-01b. | Official is designated | \[Finding\] | \[Basis\] |
-| CA-01c.01\[01\] | Policy is reviewed at the set frequency | \[Finding\] | \[Basis\] |
-| CA-01c.01\[02\] | Policy is reviewed after set events | \[Finding\] | \[Basis\] |
-| CA-01c.02\[01\] | Procedures are reviewed at the set frequency | \[Finding\] | \[Basis\] |
-| CA-01c.02\[02\] | Procedures are reviewed after set events | \[Finding\] | \[Basis\] |
 | CA-02\_ODP\[01\] | Assessment frequency is defined | \[Finding\] | \[Basis\] |
 | CA-02\_ODP\[02\] | Who receives results is defined | \[Finding\] | \[Basis\] |
 | CA-02a. | An assessor is selected | \[Finding\] | \[Basis\] |
@@ -1397,7 +689,7 @@ There is one finding for each CSS determination statement, including those about
 | CA-09c. | Connections are ended when set | \[Finding\] | \[Basis\] |
 | CA-09d. | Continued need is reviewed | \[Finding\] | \[Basis\] |
 
-### CA.5 Assessment plan
+### CA.4 Assessment plan
 
 **Table CA-4: Assessment plan**
 
@@ -1415,8 +707,9 @@ There is one finding for each CSS determination statement, including those about
 | Order of assessment | A, plan and assessment (CA-2, CA-2(1)); B, remediation (CA-5); C, authorisation and inherited controls (CA-6); D, connections (CA-3, CA-9); E, monitoring (CA-7, CA-7(1), CA-7(4)); F, policy (CA-1). Assessment comes first because every other CA result depends on it |
 | Needed from \<Organisation\> | EV-CA-01 in \<Evidence Requests\>, for the inherited controls in \<Assessment, Authorization, and Monitoring Management\>, section 3.6; and the agreements in \<Assessment, Authorization, and Monitoring Management\>, section 3.7 |
 | Evidence retained | The documents above, at the versions in their change records |
+| Notes | This family assesses the assessment process itself, so a self-assessment has clear limits here. |
 
-The independent assessor's team, schedule, and depth and coverage are added once agreed. For the Level 2 assessment, the assessor should confirm their independence, examine the monitoring reports, hold the interviews and re-determine every statement in section CA.4.
+The independent assessor's team, schedule, and depth and coverage are added once agreed. For the Level 2 assessment, the assessor should confirm their independence, examine the monitoring reports, hold the interviews and re-determine every statement in section CA.3.
 
 ## CM Configuration Management
 
@@ -1424,11 +717,7 @@ The independent assessor's team, schedule, and depth and coverage are added once
 
 This records the Level 1 self-assessment of the 24 CM entries in the CSS Moderate baseline, using catalog release 5.2.0. An independent team led by \[Name\] will use it for the Level 2 assessment. It makes no fixes.
 
-### CM.2 How to read this record
-
-The methods are **Examine** (code and configuration), **Test** (Test-ConfigurationManagement.ps1 and checks by hand, with a hash manifest of each run, in the SC and CM evidence) and **Interview**. The interview questions are in \<Interview Guide\>, Table 16. An answer changes a finding only when the records it describes are seen.
-
-### CM.3 Executive summary
+### CM.2 Executive summary
 
 **Table CM-1: Results by control**
 
@@ -1472,39 +761,14 @@ Of the CSS \[n\] statements, \[n\] are satisfied, \[n\] are not applicable, \[n\
 
 \[Summary of the main gaps and what remains\]
 
-### CM.4 Findings by determination statement
+### CM.3 Findings by determination statement
 
-There is one finding for each CSS determination statement, including those about organisation-defined parameters. Statement wording is condensed, and the identifiers are CSS's. The finding codes are in section 1.1.
+There is one finding for each CSS determination statement, including those about organisation-defined parameters. Statement wording is condensed, and the identifiers are CSS's. The finding codes are in section 1.1. The CM-1 statements are recorded with every family's in section 1.3.
 
 **Table CM-3: Finding for each determination statement**
 
 | Statement | Determination, condensed | Finding | Basis |
 | --- | --- | --- | --- |
-| CM-01\_ODP\[01\] | Who receives the policy is defined | \[Finding\] | \[Basis\] |
-| CM-01\_ODP\[02\] | Who receives the procedures is defined | \[Finding\] | \[Basis\] |
-| CM-01\_ODP\[03\] | Policy level is selected | \[Finding\] | \[Basis\] |
-| CM-01\_ODP\[04\] | Managing official is defined | \[Finding\] | \[Basis\] |
-| CM-01\_ODP\[05\] | Policy review frequency is defined | \[Finding\] | \[Basis\] |
-| CM-01\_ODP\[06\] | Policy review events are defined | \[Finding\] | \[Basis\] |
-| CM-01\_ODP\[07\] | Procedures review frequency is defined | \[Finding\] | \[Basis\] |
-| CM-01\_ODP\[08\] | Procedures review events are defined | \[Finding\] | \[Basis\] |
-| CM-01a.\[01\] | Policy is developed and documented | \[Finding\] | \[Basis\] |
-| CM-01a.\[02\] | Policy is disseminated | \[Finding\] | \[Basis\] |
-| CM-01a.\[03\] | Procedures are developed and documented | \[Finding\] | \[Basis\] |
-| CM-01a.\[04\] | Procedures are disseminated | \[Finding\] | \[Basis\] |
-| CM-01a.01(a)\[01\] | Policy addresses purpose | \[Finding\] | \[Basis\] |
-| CM-01a.01(a)\[02\] | Policy addresses scope | \[Finding\] | \[Basis\] |
-| CM-01a.01(a)\[03\] | Policy addresses roles | \[Finding\] | \[Basis\] |
-| CM-01a.01(a)\[04\] | Policy addresses responsibilities | \[Finding\] | \[Basis\] |
-| CM-01a.01(a)\[05\] | Policy addresses management commitment | \[Finding\] | \[Basis\] |
-| CM-01a.01(a)\[06\] | Policy addresses coordination | \[Finding\] | \[Basis\] |
-| CM-01a.01(a)\[07\] | Policy addresses compliance | \[Finding\] | \[Basis\] |
-| CM-01a.01(b) | Policy is consistent with laws and standards | \[Finding\] | \[Basis\] |
-| CM-01b. | Official is designated | \[Finding\] | \[Basis\] |
-| CM-01c.01\[01\] | Policy is reviewed at the set frequency | \[Finding\] | \[Basis\] |
-| CM-01c.01\[02\] | Policy is reviewed after set events | \[Finding\] | \[Basis\] |
-| CM-01c.02\[01\] | Procedures are reviewed at the set frequency | \[Finding\] | \[Basis\] |
-| CM-01c.02\[02\] | Procedures are reviewed after set events | \[Finding\] | \[Basis\] |
 | CM-02\_ODP\[01\] | Review frequency is defined | \[Finding\] | \[Basis\] |
 | CM-02\_ODP\[02\] | Circumstances are defined | \[Finding\] | \[Basis\] |
 | CM-02a.\[01\] | A current baseline is documented | \[Finding\] | \[Basis\] |
@@ -1659,7 +923,7 @@ There is one finding for each CSS determination statement, including those about
 | CM-12(01)\_ODP\[02\] | Components are defined | \[Finding\] | \[Basis\] |
 | CM-12(01) | Automated tools identify the information | \[Finding\] | \[Basis\] |
 
-### CM.5 Assessment plan
+### CM.4 Assessment plan
 
 **Table CM-4: Assessment plan**
 
@@ -1671,14 +935,14 @@ There is one finding for each CSS determination statement, including those about
 | Site | \[Where the assessment is done, and on what build and data\] |
 | Examine | The build files, the .NET project files, settings files, the start-up configuration and the repositories at the release tag; \<Policy\> (CM), \<Procedures\> (CM) and \<Configuration Management\>. Depth: focused. Coverage: focused |
 | Test | Test-ConfigurationManagement.ps1, with the component inventory and a hash manifest, and checks by hand. Depth: focused. Coverage: focused, including the VMs, CIS settings and drift |
-| Interview | Developers, the Windows server and database administrators, and \<Organisation\>'s security contact |
+| Interview | Developers, the Windows server and database administrators, and \<Organisation\>'s security contact; questions in \<Interview Guide\>, Table 16 |
 | Previous results reused | \[Results reused from other chapters, if any\] |
 | Boundary | The code, components and settings of \<System Name\>, and the Windows Server 2025 and SQL Server 2022 configuration of both VMs. \<Organisation\>'s discovery tools and licences are inherited |
 | Order of assessment | A, baseline and inventory (CM-2, CM-8, CM-10); B, change control (CM-3, CM-4, CM-5); C, secure settings and least functionality (CM-6, CM-7 and enhancements, CM-11); D, the plan and information location (CM-9, CM-12); E, policy (CM-1). The baseline comes first because every other result is judged against it |
 | Needed from \<Organisation\> | EV-CM-01 to EV-CM-03 in \<Evidence Requests\>: physical change restrictions, discovery tools, and licences |
 | Evidence retained | The SC and CM evidence, with its manifest; \<Configuration Management\>, sections 3.4 to 3.6 |
 
-The independent assessor's team, schedule, and depth and coverage are added once agreed. For the Level 2 assessment, the assessor should repeat the checks on the VMs, hold the interviews, examine \<Organisation\>'s evidence and re-determine every statement in section CM.4.
+The independent assessor's team, schedule, and depth and coverage are added once agreed. For the Level 2 assessment, the assessor should repeat the checks on the VMs, hold the interviews, examine \<Organisation\>'s evidence and re-determine every statement in section CM.3.
 
 ## CP Contingency Planning
 
@@ -1686,11 +950,7 @@ The independent assessor's team, schedule, and depth and coverage are added once
 
 This records the Level 1 self-assessment of the 23 CP entries in the CSS Moderate baseline, using catalog release 5.2.0. An independent team led by \[Name\] will use it for the Level 2 assessment. It makes no fixes.
 
-### CP.2 How to read this record
-
-The methods are **Examine** (documents and configuration), **Test** (Test-BackupRestore.ps1, with a hash manifest of each run, in the CP evidence) and **Interview** (\<Interview Guide\>).
-
-### CP.3 Executive summary
+### CP.2 Executive summary
 
 **Table CP-1: Results by control**
 
@@ -1733,39 +993,14 @@ Of the CSS \[n\] statements, \[n\] are satisfied, \[n\] are not applicable, \[n\
 
 \[Summary of the main gaps and what remains\]
 
-### CP.4 Findings by determination statement
+### CP.3 Findings by determination statement
 
-There is one finding for each CSS determination statement, including those about organisation-defined parameters. Statement wording is condensed, and the identifiers are CSS's. The finding codes are in section 1.1.
+There is one finding for each CSS determination statement, including those about organisation-defined parameters. Statement wording is condensed, and the identifiers are CSS's. The finding codes are in section 1.1. The CP-1 statements are recorded with every family's in section 1.3.
 
 **Table CP-3: Finding for each determination statement**
 
 | Statement | Determination, condensed | Finding | Basis |
 | --- | --- | --- | --- |
-| CP-01\_ODP\[01\] | Who receives the policy is defined | \[Finding\] | \[Basis\] |
-| CP-01\_ODP\[02\] | Who receives the procedures is defined | \[Finding\] | \[Basis\] |
-| CP-01\_ODP\[03\] | Policy level is selected | \[Finding\] | \[Basis\] |
-| CP-01\_ODP\[04\] | Managing official is defined | \[Finding\] | \[Basis\] |
-| CP-01\_ODP\[05\] | Policy review frequency is defined | \[Finding\] | \[Basis\] |
-| CP-01\_ODP\[06\] | Policy review events are defined | \[Finding\] | \[Basis\] |
-| CP-01\_ODP\[07\] | Procedures review frequency is defined | \[Finding\] | \[Basis\] |
-| CP-01\_ODP\[08\] | Procedures review events are defined | \[Finding\] | \[Basis\] |
-| CP-01a.\[01\] | Policy is developed and documented | \[Finding\] | \[Basis\] |
-| CP-01a.\[02\] | Policy is disseminated | \[Finding\] | \[Basis\] |
-| CP-01a.\[03\] | Procedures are developed and documented | \[Finding\] | \[Basis\] |
-| CP-01a.\[04\] | Procedures are disseminated | \[Finding\] | \[Basis\] |
-| CP-01a.01(a)\[01\] | Policy addresses purpose | \[Finding\] | \[Basis\] |
-| CP-01a.01(a)\[02\] | Policy addresses scope | \[Finding\] | \[Basis\] |
-| CP-01a.01(a)\[03\] | Policy addresses roles | \[Finding\] | \[Basis\] |
-| CP-01a.01(a)\[04\] | Policy addresses responsibilities | \[Finding\] | \[Basis\] |
-| CP-01a.01(a)\[05\] | Policy addresses management commitment | \[Finding\] | \[Basis\] |
-| CP-01a.01(a)\[06\] | Policy addresses coordination | \[Finding\] | \[Basis\] |
-| CP-01a.01(a)\[07\] | Policy addresses compliance | \[Finding\] | \[Basis\] |
-| CP-01a.01(b) | Policy is consistent with laws and standards | \[Finding\] | \[Basis\] |
-| CP-01b. | Official is designated | \[Finding\] | \[Basis\] |
-| CP-01c.01\[01\] | Policy is reviewed at the set frequency | \[Finding\] | \[Basis\] |
-| CP-01c.01\[02\] | Policy is reviewed after set events | \[Finding\] | \[Basis\] |
-| CP-01c.02\[01\] | Procedures are reviewed at the set frequency | \[Finding\] | \[Basis\] |
-| CP-01c.02\[02\] | Procedures are reviewed after set events | \[Finding\] | \[Basis\] |
 | CP-02\_ODP\[01\] | Who reviews the plan is defined | \[Finding\] | \[Basis\] |
 | CP-02\_ODP\[02\] | Who approves the plan is defined | \[Finding\] | \[Basis\] |
 | CP-02\_ODP\[03\] | Personnel receiving copies are defined | \[Finding\] | \[Basis\] |
@@ -1866,7 +1101,7 @@ There is one finding for each CSS determination statement, including those about
 | CP-10\[02\] | Reconstitution is possible within the time | \[Finding\] | \[Basis\] |
 | CP-10(02) | Transaction recovery is in place | \[Finding\] | \[Basis\] |
 
-### CP.5 Assessment plan
+### CP.4 Assessment plan
 
 **Table CP-4: Assessment plan**
 
@@ -1885,7 +1120,7 @@ There is one finding for each CSS determination statement, including those about
 | Needed from \<Organisation\> | EV-CP-01 and EV-CP-02 in \<Evidence Requests\>: the second site, and telecommunications |
 | Evidence retained | The CP evidence, with its manifest; \<Contingency Planning Management\>, sections 3.3 and 3.8 |
 
-The independent assessor's team, schedule, and depth and coverage are added once agreed. For the Level 2 assessment, the assessor should repeat the restore test on the VMs with encrypted backups at the second site, observe a tabletop exercise, hold the interviews, examine \<Organisation\>'s evidence and re-determine every statement in section CP.4.
+The independent assessor's team, schedule, and depth and coverage are added once agreed. For the Level 2 assessment, the assessor should repeat the restore test on the VMs with encrypted backups at the second site, observe a tabletop exercise, hold the interviews, examine \<Organisation\>'s evidence and re-determine every statement in section CP.3.
 
 ## IA Identification and Authentication
 
@@ -1893,13 +1128,7 @@ The independent assessor's team, schedule, and depth and coverage are added once
 
 This records the Level 1 self-assessment of the 24 IA entries in the CSS Moderate baseline, using catalog release 5.2.0. An independent team led by \[Name\] will use it for the Level 2 assessment. It makes no fixes. Each non-compliance is rated and decided in \<Risk List\>, and only those to be remediated go to \<Plan of Action and Milestones\>.
 
-### IA.2 How to read this record
-
-**N/A** means not applicable, as set out in \<Tailoring Register\>. This is the organisation's tailoring decision, not a result under CSS, and the independent assessor may test it.
-
-The methods are **Examine** (code and configuration), **Test** (Test-AuditAndAuth.ps1 and Test-Identification.ps1, with a hash manifest of each run, in the AU and IA evidence) and **Interview**. The interview questions are INT-IA-01 to 07 in \<Interview Guide\>.
-
-### IA.3 Executive summary
+### IA.2 Executive summary
 
 **Table IA-1: Results by control**
 
@@ -1943,39 +1172,14 @@ Of the CSS \[n\] statements, \[n\] are satisfied, \[n\] are not applicable, \[n\
 
 \[Summary of the main gaps and what remains\]
 
-### IA.4 Findings by determination statement
+### IA.3 Findings by determination statement
 
-There is one finding for each CSS determination statement, including those about organisation-defined parameters. Statement wording is condensed, and the identifiers are CSS's. The finding codes are in section 1.1.
+There is one finding for each CSS determination statement, including those about organisation-defined parameters. Statement wording is condensed, and the identifiers are CSS's. The finding codes are in section 1.1. The IA-1 statements are recorded with every family's in section 1.3.
 
 **Table IA-3: Finding for each determination statement**
 
 | Statement | Determination, condensed | Finding | Basis |
 | --- | --- | --- | --- |
-| IA-01\_ODP\[01\] | Who receives the policy is defined | \[Finding\] | \[Basis\] |
-| IA-01\_ODP\[02\] | Who receives the procedures is defined | \[Finding\] | \[Basis\] |
-| IA-01\_ODP\[03\] | Policy level is selected | \[Finding\] | \[Basis\] |
-| IA-01\_ODP\[04\] | Managing official is defined | \[Finding\] | \[Basis\] |
-| IA-01\_ODP\[05\] | Policy review frequency is defined | \[Finding\] | \[Basis\] |
-| IA-01\_ODP\[06\] | Policy review events are defined | \[Finding\] | \[Basis\] |
-| IA-01\_ODP\[07\] | Procedures review frequency is defined | \[Finding\] | \[Basis\] |
-| IA-01\_ODP\[08\] | Procedures review events are defined | \[Finding\] | \[Basis\] |
-| IA-01a.\[01\] | Policy is developed and documented | \[Finding\] | \[Basis\] |
-| IA-01a.\[02\] | Policy is disseminated | \[Finding\] | \[Basis\] |
-| IA-01a.\[03\] | Procedures are developed and documented | \[Finding\] | \[Basis\] |
-| IA-01a.\[04\] | Procedures are disseminated | \[Finding\] | \[Basis\] |
-| IA-01a.01(a)\[01\] | Policy addresses purpose | \[Finding\] | \[Basis\] |
-| IA-01a.01(a)\[02\] | Policy addresses scope | \[Finding\] | \[Basis\] |
-| IA-01a.01(a)\[03\] | Policy addresses roles | \[Finding\] | \[Basis\] |
-| IA-01a.01(a)\[04\] | Policy addresses responsibilities | \[Finding\] | \[Basis\] |
-| IA-01a.01(a)\[05\] | Policy addresses management commitment | \[Finding\] | \[Basis\] |
-| IA-01a.01(a)\[06\] | Policy addresses coordination | \[Finding\] | \[Basis\] |
-| IA-01a.01(a)\[07\] | Policy addresses compliance | \[Finding\] | \[Basis\] |
-| IA-01a.01(b) | Policy is consistent with laws and standards | \[Finding\] | \[Basis\] |
-| IA-01b. | Official is designated | \[Finding\] | \[Basis\] |
-| IA-01c.01\[01\] | Policy is reviewed at the set frequency | \[Finding\] | \[Basis\] |
-| IA-01c.01\[02\] | Policy is reviewed after set events | \[Finding\] | \[Basis\] |
-| IA-01c.02\[01\] | Procedures are reviewed at the set frequency | \[Finding\] | \[Basis\] |
-| IA-01c.02\[02\] | Procedures are reviewed after set events | \[Finding\] | \[Basis\] |
 | IA-02\[01\] | Users are uniquely identified and authenticated | \[Finding\] | \[Basis\] |
 | IA-02\[02\] | Identity is tied to processes acting for users | \[Finding\] | \[Basis\] |
 | IA-02(01) | MFA for privileged accounts | \[Finding\] | \[Basis\] |
@@ -2044,7 +1248,7 @@ There is one finding for each CSS determination statement, including those about
 | IA-12(05)\_ODP | Confirmation method is selected | \[Finding\] | \[Basis\] |
 | IA-12(05) | Address is confirmed by that method | \[Finding\] | \[Basis\] |
 
-### IA.5 Assessment plan
+### IA.4 Assessment plan
 
 **Table IA-4: Assessment plan**
 
@@ -2056,14 +1260,14 @@ There is one finding for each CSS determination statement, including those about
 | Site | \[Where the assessment is done, and on what build and data\] |
 | Examine | The sign-in configuration of each application and of PingFederate, the check of PingFederate's signed response, the API's group lookup in Active Directory over LDAPS, the group managed service accounts, the Windows authentication of the API to SQL Server, the settings files and the database, which holds no accounts or passwords, at the release tag; \<Policy\> (IA), \<Procedures\> (IA) and \<Identification and Authentication Management\>. Depth: focused. Coverage: focused |
 | Test | Test-AuditAndAuth.ps1 and Test-Identification.ps1, each run with a hash manifest. Depth: focused. Coverage: focused, including Windows logon, device identification and cryptographic modules |
-| Interview | Administrators, developers, the Windows server administrator, \<Organisation\>'s security contact, IT service desk and HR, and a sample of users |
+| Interview | Administrators, developers, the Windows server administrator, \<Organisation\>'s security contact, IT service desk and HR, and a sample of users; questions INT-IA-01 to 07 in \<Interview Guide\> |
 | Previous results reused | \[Results reused from other chapters, if any\] |
 | Boundary | \<System Name\>'s acceptance of PingFederate's signed response, its group lookup in Active Directory, its service accounts and the secrets in its key store. \<Organisation\>'s identity proofing, PingFederate, Active Directory and device identification are inherited |
 | Order of assessment | A, authenticators (IA-5 and enhancements, IA-6, IA-7); B, sign-in and multi-factor (IA-2 and enhancements, IA-11); C, identifiers (IA-4); D, inherited proofing and devices (IA-3, IA-12); E, policy (IA-1). Authenticators come first because sign-in depends on them |
 | Needed from \<Organisation\> | EV-IA-01 to EV-IA-05 in \<Evidence Requests\>: device identification, identity proofing, cryptographic modules, sign-in through PingFederate, and the group lookup in Active Directory over LDAPS |
 | Evidence retained | The AU and IA evidence, with its manifest; \<Identification and Authentication Management\>, sections 3.4 to 3.6 |
 
-The independent assessor's team, schedule, and depth and coverage are added once agreed. For the Level 2 assessment, the assessor should repeat the checks on the VMs, test multi-factor sign-in, hold the interviews, examine \<Organisation\>'s evidence and re-determine every statement in section IA.4.
+The independent assessor's team, schedule, and depth and coverage are added once agreed. For the Level 2 assessment, the assessor should repeat the checks on the VMs, test multi-factor sign-in, hold the interviews, examine \<Organisation\>'s evidence and re-determine every statement in section IA.3.
 
 ## IR Incident Response
 
@@ -2071,11 +1275,7 @@ The independent assessor's team, schedule, and depth and coverage are added once
 
 This records the Level 1 self-assessment of the 13 IR entries in the CSS Moderate baseline, using catalog release 5.2.0. An independent team led by \[Name\] will use it for the Level 2 assessment. It makes no fixes.
 
-### IR.2 How to read this record
-
-The methods are **Examine** (documents and code), **Test** (the containment and evidence drill by Test-IncidentReadiness.ps1, with a hash manifest of each run, in the IR evidence) and **Interview**. The interview questions are INT-IR-01 to 04 in \<Interview Guide\>.
-
-### IR.3 Executive summary
+### IR.2 Executive summary
 
 **Table IR-1: Results by control**
 
@@ -2108,39 +1308,14 @@ Of the CSS \[n\] statements, \[n\] are satisfied, \[n\] are not applicable, \[n\
 
 \[Summary of the main gaps and what remains\]
 
-### IR.4 Findings by determination statement
+### IR.3 Findings by determination statement
 
-There is one finding for each CSS determination statement, including those about organisation-defined parameters. Statement wording is condensed, and the identifiers are CSS's. The finding codes are in section 1.1.
+There is one finding for each CSS determination statement, including those about organisation-defined parameters. Statement wording is condensed, and the identifiers are CSS's. The finding codes are in section 1.1. The IR-1 statements are recorded with every family's in section 1.3.
 
 **Table IR-3: Finding for each determination statement**
 
 | Statement | Determination, condensed | Finding | Basis |
 | --- | --- | --- | --- |
-| IR-01\_ODP\[01\] | Who receives the policy is defined | \[Finding\] | \[Basis\] |
-| IR-01\_ODP\[02\] | Who receives the procedures is defined | \[Finding\] | \[Basis\] |
-| IR-01\_ODP\[03\] | Policy level is selected | \[Finding\] | \[Basis\] |
-| IR-01\_ODP\[04\] | Managing official is defined | \[Finding\] | \[Basis\] |
-| IR-01\_ODP\[05\] | Policy review frequency is defined | \[Finding\] | \[Basis\] |
-| IR-01\_ODP\[06\] | Policy review events are defined | \[Finding\] | \[Basis\] |
-| IR-01\_ODP\[07\] | Procedures review frequency is defined | \[Finding\] | \[Basis\] |
-| IR-01\_ODP\[08\] | Procedures review events are defined | \[Finding\] | \[Basis\] |
-| IR-01a.\[01\] | Policy is developed and documented | \[Finding\] | \[Basis\] |
-| IR-01a.\[02\] | Policy is disseminated | \[Finding\] | \[Basis\] |
-| IR-01a.\[03\] | Procedures are developed and documented | \[Finding\] | \[Basis\] |
-| IR-01a.\[04\] | Procedures are disseminated | \[Finding\] | \[Basis\] |
-| IR-01a.01(a)\[01\] | Policy addresses purpose | \[Finding\] | \[Basis\] |
-| IR-01a.01(a)\[02\] | Policy addresses scope | \[Finding\] | \[Basis\] |
-| IR-01a.01(a)\[03\] | Policy addresses roles | \[Finding\] | \[Basis\] |
-| IR-01a.01(a)\[04\] | Policy addresses responsibilities | \[Finding\] | \[Basis\] |
-| IR-01a.01(a)\[05\] | Policy addresses management commitment | \[Finding\] | \[Basis\] |
-| IR-01a.01(a)\[06\] | Policy addresses coordination | \[Finding\] | \[Basis\] |
-| IR-01a.01(a)\[07\] | Policy addresses compliance | \[Finding\] | \[Basis\] |
-| IR-01a.01(b) | Policy is consistent with laws and standards | \[Finding\] | \[Basis\] |
-| IR-01b. | Official is designated | \[Finding\] | \[Basis\] |
-| IR-01c.01\[01\] | Policy is reviewed at the set frequency | \[Finding\] | \[Basis\] |
-| IR-01c.01\[02\] | Policy is reviewed after set events | \[Finding\] | \[Basis\] |
-| IR-01c.02\[01\] | Procedures are reviewed at the set frequency | \[Finding\] | \[Basis\] |
-| IR-01c.02\[02\] | Procedures are reviewed after set events | \[Finding\] | \[Basis\] |
 | IR-02\_ODP\[01\] | Time to train is defined | \[Finding\] | \[Basis\] |
 | IR-02\_ODP\[02\] | Training frequency is defined | \[Finding\] | \[Basis\] |
 | IR-02\_ODP\[03\] | Content review frequency is defined | \[Finding\] | \[Basis\] |
@@ -2207,7 +1382,7 @@ There is one finding for each CSS determination statement, including those about
 | IR-08e.\[01\] | The plan is protected from disclosure | \[Finding\] | \[Basis\] |
 | IR-08e.\[02\] | The plan is protected from change | \[Finding\] | \[Basis\] |
 
-### IR.5 Assessment plan
+### IR.4 Assessment plan
 
 **Table IR-4: Assessment plan**
 
@@ -2217,16 +1392,16 @@ There is one finding for each CSS determination statement, including those about
 | Procedures | CSS, using the CSS published statements and identifiers (catalog release 5.2.0), with CSS as the reference for the plan |
 | Dates | \[Dates of the assessment\] |
 | Site | \[Where the assessment is done, and on what build and data\] |
-| Examine | \<Policy\> (IR), \<Procedures\> (IR) and \<Incident Response Management\>; TPL-10 and TPL-11; SyOps section 4.9; the audit code. Depth: focused. Coverage: focused |
+| Examine | \<Policy\> (IR), \<Procedures\> (IR) and \<Incident Response Management\>; TPL-10 and TPL-11; \<Security Operating Procedures\>, section 4.9; the audit code. Depth: focused. Coverage: focused |
 | Test | Test-IncidentReadiness.ps1, with the evidence export and a hash manifest, and a tabletop exercise. Depth: focused. Coverage: focused |
-| Interview | The security officer, legal adviser and \<Organisation\>'s security contact |
+| Interview | The security officer, legal adviser and \<Organisation\>'s security contact; questions INT-IR-01 to 04 in \<Interview Guide\> |
 | Previous results reused | \[Results reused from other chapters, if any\] |
 | Boundary | \<System Name\>'s incident handling, records and evidence. \<Organisation\>'s monitoring, incident process and forensic help are inherited |
 | Order of assessment | A, the plan and its approval (IR-8); B, handling and records (IR-4, IR-4(1), IR-5); C, reporting (IR-6 and enhancements); D, training and testing (IR-2, IR-3, IR-3(2)); E, assistance (IR-7, IR-7(1)); F, policy (IR-1). The plan comes first because every other result is judged against it |
 | Needed from \<Organisation\> | EV-IR-01 in \<Evidence Requests\>: its incident process and contact route |
 | Evidence retained | The IR evidence, with its manifest; \<Incident Response Management\>, sections 3.9, 3.10 and 3.14 |
 
-The independent assessor's team, schedule, and depth and coverage are added once agreed. For the Level 2 assessment, the assessor should observe a tabletop exercise, repeat the drill on the VMs, examine the incident register and TPL-10 records, hold the interviews, examine \<Organisation\>'s evidence and re-determine every statement in section IR.4.
+The independent assessor's team, schedule, and depth and coverage are added once agreed. For the Level 2 assessment, the assessor should observe a tabletop exercise, repeat the drill on the VMs, examine the incident register and TPL-10 records, hold the interviews, examine \<Organisation\>'s evidence and re-determine every statement in section IR.3.
 
 ## MA Maintenance
 
@@ -2234,11 +1409,7 @@ The independent assessor's team, schedule, and depth and coverage are added once
 
 This records the Level 1 self-assessment of the 9 MA entries in the CSS Moderate baseline, using catalog release 5.2.0. An independent team led by \[Name\] will use it for the Level 2 assessment. It makes no fixes.
 
-### MA.2 How to read this record
-
-The methods are **Examine** (documents and code), **Test** (Test-Maintenance.ps1, with a hash manifest of each run, in the MA evidence) and **Interview**. The interview questions are INT-MA-01 to 07 in \<Interview Guide\>. Maintenance records on the VMs and \<Organisation\>'s maintenance, routes and support are examined as well as the tests.
-
-### MA.3 Executive summary
+### MA.2 Executive summary
 
 **Table MA-1: Results by control**
 
@@ -2267,39 +1438,14 @@ Of the CSS \[n\] statements, \[n\] are satisfied, \[n\] are not applicable, \[n\
 
 \[Summary of the main gaps and what remains\]
 
-### MA.4 Findings by determination statement
+### MA.3 Findings by determination statement
 
-There is one finding for each CSS determination statement, including those about organisation-defined parameters. Statement wording is condensed, and the identifiers are CSS's. The finding codes are in section 1.1.
+There is one finding for each CSS determination statement, including those about organisation-defined parameters. Statement wording is condensed, and the identifiers are CSS's. The finding codes are in section 1.1. The MA-1 statements are recorded with every family's in section 1.3.
 
 **Table MA-3: Finding for each determination statement**
 
 | Statement | Determination, condensed | Finding | Basis |
 | --- | --- | --- | --- |
-| MA-01\_ODP\[01\] | Who receives the policy is defined | \[Finding\] | \[Basis\] |
-| MA-01\_ODP\[02\] | Who receives the procedures is defined | \[Finding\] | \[Basis\] |
-| MA-01\_ODP\[03\] | Policy level is selected | \[Finding\] | \[Basis\] |
-| MA-01\_ODP\[04\] | Managing official is defined | \[Finding\] | \[Basis\] |
-| MA-01\_ODP\[05\] | Policy review frequency is defined | \[Finding\] | \[Basis\] |
-| MA-01\_ODP\[06\] | Policy review events are defined | \[Finding\] | \[Basis\] |
-| MA-01\_ODP\[07\] | Procedures review frequency is defined | \[Finding\] | \[Basis\] |
-| MA-01\_ODP\[08\] | Procedures review events are defined | \[Finding\] | \[Basis\] |
-| MA-01a.\[01\] | Policy is developed and documented | \[Finding\] | \[Basis\] |
-| MA-01a.\[02\] | Policy is disseminated | \[Finding\] | \[Basis\] |
-| MA-01a.\[03\] | Procedures are developed and documented | \[Finding\] | \[Basis\] |
-| MA-01a.\[04\] | Procedures are disseminated | \[Finding\] | \[Basis\] |
-| MA-01a.01(a)\[01\] | Policy addresses purpose | \[Finding\] | \[Basis\] |
-| MA-01a.01(a)\[02\] | Policy addresses scope | \[Finding\] | \[Basis\] |
-| MA-01a.01(a)\[03\] | Policy addresses roles | \[Finding\] | \[Basis\] |
-| MA-01a.01(a)\[04\] | Policy addresses responsibilities | \[Finding\] | \[Basis\] |
-| MA-01a.01(a)\[05\] | Policy addresses management commitment | \[Finding\] | \[Basis\] |
-| MA-01a.01(a)\[06\] | Policy addresses coordination | \[Finding\] | \[Basis\] |
-| MA-01a.01(a)\[07\] | Policy addresses compliance | \[Finding\] | \[Basis\] |
-| MA-01a.01(b) | Policy is consistent with laws and standards | \[Finding\] | \[Basis\] |
-| MA-01b. | Official is designated | \[Finding\] | \[Basis\] |
-| MA-01c.01\[01\] | Policy is reviewed at the set frequency | \[Finding\] | \[Basis\] |
-| MA-01c.01\[02\] | Policy is reviewed after set events | \[Finding\] | \[Basis\] |
-| MA-01c.02\[01\] | Procedures are reviewed at the set frequency | \[Finding\] | \[Basis\] |
-| MA-01c.02\[02\] | Procedures are reviewed after set events | \[Finding\] | \[Basis\] |
 | MA-02\_ODP\[01\] | Who approves removal is defined | \[Finding\] | \[Basis\] |
 | MA-02\_ODP\[02\] | Information to remove is defined | \[Finding\] | \[Basis\] |
 | MA-02\_ODP\[03\] | Information in records is defined | \[Finding\] | \[Basis\] |
@@ -2340,7 +1486,7 @@ There is one finding for each CSS determination statement, including those about
 | MA-06\_ODP\[02\] | Time is defined | \[Finding\] | \[Basis\] |
 | MA-06 | Support and parts arrive within the time | \[Finding\] | \[Basis\] |
 
-### MA.5 Assessment plan
+### MA.4 Assessment plan
 
 **Table MA-4: Assessment plan**
 
@@ -2350,16 +1496,17 @@ There is one finding for each CSS determination statement, including those about
 | Procedures | CSS, using the CSS published statements and identifiers (catalog release 5.2.0) |
 | Dates | \[Dates of the assessment\] |
 | Site | \[Where the assessment is done, and on what build and data\] |
-| Examine | \<Policy\> (MA), \<Procedures\> (MA) and \<Maintenance Management\>; TPL-12; SyOps sections 4.6 and 4.7; the diagnostics page in the Admin application and the build files. Depth: focused. Coverage: focused |
+| Examine | \<Policy\> (MA), \<Procedures\> (MA) and \<Maintenance Management\>; TPL-12; \<Security Operating Procedures\>, sections 4.6 and 4.7; the diagnostics page in the Admin application and the build files. Depth: focused. Coverage: focused |
 | Test | Test-Maintenance.ps1, with a hash manifest. Depth: focused. Coverage: focused |
-| Interview | The Windows server administrator, database administrator, an administrator, the security officer, the system owner and \<Organisation\>'s IT service desk |
+| Interview | The Windows server administrator, database administrator, an administrator, the security officer, the system owner and \<Organisation\>'s IT service desk; questions INT-MA-01 to 07 in \<Interview Guide\> |
 | Previous results reused | \[Results reused from other chapters, if any\] |
 | Boundary | Maintenance of the VMs, database and applications, and the diagnostics in \<System Name\>'s Admin application. Hardware and hypervisor maintenance, the managed route and support are inherited from \<Organisation\> |
 | Order of assessment | A, tools and built-in functions (MA-3 and enhancements); B, remote routes (MA-4); C, controlled maintenance and records (MA-2); D, people (MA-5); E, timely maintenance (MA-6); F, policy (MA-1) |
 | Needed from \<Organisation\> | EV-MA-01 and EV-MA-02 in \<Evidence Requests\>: its maintenance process, sanitising, service agreement, and the managed route's settings and logs |
 | Evidence retained | The MA evidence, with its manifest; \<Maintenance Management\>, sections 3.4 to 3.8 |
+| Notes | Maintenance records on the VMs and \<Organisation\>'s maintenance, routes and support are examined as well as the tests. |
 
-For the Level 2 assessment, the assessor should repeat the tests on the VMs, examine TPL-12 records and change records for real maintenance, observe a remote session over the managed route, hold the interviews, examine \<Organisation\>'s evidence and re-determine every statement in section MA.4.
+For the Level 2 assessment, the assessor should repeat the tests on the VMs, examine TPL-12 records and change records for real maintenance, observe a remote session over the managed route, hold the interviews, examine \<Organisation\>'s evidence and re-determine every statement in section MA.3.
 
 ## MP Media Protection
 
@@ -2367,13 +1514,7 @@ For the Level 2 assessment, the assessor should repeat the tests on the VMs, exa
 
 This records the Level 1 self-assessment of the 7 MP entries in the CSS Moderate baseline, using catalog release 5.2.0. An independent team led by \[Name\] will use it for the Level 2 assessment. It makes no fixes.
 
-### MP.2 How to read this record
-
-A Not applicable statement is counted in the chapter's 71 statements but not as satisfied.
-
-The methods are **Examine** (documents and code), **Test** (Test-MediaProtection.ps1, with a hash manifest of each run, in the MP evidence) and **Interview**. The interview questions are INT-MP-01 to 05 in \<Interview Guide\>. The tests show how \<System Name\>'s exports, marking and storage behave; how \<Organisation\> stores, moves or sanitises disks and backup media, and blocks USB storage, is shown by its evidence.
-
-### MP.3 Executive summary
+### MP.2 Executive summary
 
 **Table MP-1: Results by control**
 
@@ -2400,39 +1541,14 @@ Of the CSS \[n\] statements, \[n\] are satisfied, \[n\] are not applicable, \[n\
 
 \[Summary of the main gaps and what remains\]
 
-### MP.4 Findings by determination statement
+### MP.3 Findings by determination statement
 
-There is one finding for each CSS determination statement, including those about organisation-defined parameters. Statement wording is condensed, and the identifiers are CSS's. The finding codes are in section 1.1.
+There is one finding for each CSS determination statement, including those about organisation-defined parameters. Statement wording is condensed, and the identifiers are CSS's. The finding codes are in section 1.1. The MP-1 statements are recorded with every family's in section 1.3.
 
 **Table MP-3: Finding for each determination statement**
 
 | Statement | Determination, condensed | Finding | Basis |
 | --- | --- | --- | --- |
-| MP-01\_ODP\[01\] | Who receives the policy is defined | \[Finding\] | \[Basis\] |
-| MP-01\_ODP\[02\] | Who receives the procedures is defined | \[Finding\] | \[Basis\] |
-| MP-01\_ODP\[03\] | Policy level is selected | \[Finding\] | \[Basis\] |
-| MP-01\_ODP\[04\] | Managing official is defined | \[Finding\] | \[Basis\] |
-| MP-01\_ODP\[05\] | Policy review frequency is defined | \[Finding\] | \[Basis\] |
-| MP-01\_ODP\[06\] | Policy review events are defined | \[Finding\] | \[Basis\] |
-| MP-01\_ODP\[07\] | Procedures review frequency is defined | \[Finding\] | \[Basis\] |
-| MP-01\_ODP\[08\] | Procedures review events are defined | \[Finding\] | \[Basis\] |
-| MP-01a.\[01\] | Policy is developed and documented | \[Finding\] | \[Basis\] |
-| MP-01a.\[02\] | Policy is disseminated | \[Finding\] | \[Basis\] |
-| MP-01a.\[03\] | Procedures are developed and documented | \[Finding\] | \[Basis\] |
-| MP-01a.\[04\] | Procedures are disseminated | \[Finding\] | \[Basis\] |
-| MP-01a.01(a)\[01\] | Policy addresses purpose | \[Finding\] | \[Basis\] |
-| MP-01a.01(a)\[02\] | Policy addresses scope | \[Finding\] | \[Basis\] |
-| MP-01a.01(a)\[03\] | Policy addresses roles | \[Finding\] | \[Basis\] |
-| MP-01a.01(a)\[04\] | Policy addresses responsibilities | \[Finding\] | \[Basis\] |
-| MP-01a.01(a)\[05\] | Policy addresses management commitment | \[Finding\] | \[Basis\] |
-| MP-01a.01(a)\[06\] | Policy addresses coordination | \[Finding\] | \[Basis\] |
-| MP-01a.01(a)\[07\] | Policy addresses compliance | \[Finding\] | \[Basis\] |
-| MP-01a.01(b) | Policy is consistent with laws and standards | \[Finding\] | \[Basis\] |
-| MP-01b. | Official is designated | \[Finding\] | \[Basis\] |
-| MP-01c.01\[01\] | Policy is reviewed at the set frequency | \[Finding\] | \[Basis\] |
-| MP-01c.01\[02\] | Policy is reviewed after set events | \[Finding\] | \[Basis\] |
-| MP-01c.02\[01\] | Procedures are reviewed at the set frequency | \[Finding\] | \[Basis\] |
-| MP-01c.02\[02\] | Procedures are reviewed after set events | \[Finding\] | \[Basis\] |
 | MP-02\_ODP\[01\] | Digital media are defined | \[Finding\] | \[Basis\] |
 | MP-02\_ODP\[02\] | Who may access them is defined | \[Finding\] | \[Basis\] |
 | MP-02\_ODP\[03\] | Non-digital media are defined | \[Finding\] | \[Basis\] |
@@ -2480,7 +1596,7 @@ There is one finding for each CSS determination statement, including those about
 | MP-07a. | Use of the media is restricted | \[Finding\] | \[Basis\] |
 | MP-07b. | Portable devices with no owner are prohibited | \[Finding\] | \[Basis\] |
 
-### MP.5 Assessment plan
+### MP.4 Assessment plan
 
 **Table MP-4: Assessment plan**
 
@@ -2490,16 +1606,17 @@ There is one finding for each CSS determination statement, including those about
 | Procedures | CSS, using the CSS published statements and identifiers (catalog release 5.2.0), with CSS as the reference for sanitising |
 | Dates | \[Dates of the assessment\] |
 | Site | \[Where the assessment is done, and on what build and data\] |
-| Examine | \<Policy\> (MP), \<Procedures\> (MP) and \<Media Protection Management\>; TPL-13; SyOps A28, A30 to A35 and section 4.8; the export code, the encrypted export working area and the UI application pages. Depth: focused. Coverage: focused |
+| Examine | \<Policy\> (MP), \<Procedures\> (MP) and \<Media Protection Management\>; TPL-13; \<Security Operating Procedures\>, A28, A30 to A35 and section 4.8; the export code, the encrypted export working area and the UI application pages. Depth: focused. Coverage: focused |
 | Test | Test-MediaProtection.ps1, with a hash manifest. Depth: focused. Coverage: focused |
-| Interview | The database administrator, the Windows server administrator, the system owner, a sample of users and \<Organisation\>'s IT service desk |
+| Interview | The database administrator, the Windows server administrator, the system owner, a sample of users and \<Organisation\>'s IT service desk; questions INT-MP-01 to 05 in \<Interview Guide\> |
 | Previous results reused | \[Results reused from other chapters, if any\] |
 | Boundary | \<System Name\>'s exports, marking, users' copies and printouts. Storage, transport and sanitising of physical disks and backup media, and device control, are inherited from \<Organisation\> |
 | Order of assessment | A, the media inventory (MP-2, MP-4); B, export copies (MP-4, MP-6); C, marking (MP-3); D, sanitising (MP-6); E, transport (MP-5); F, portable storage (MP-7); G, policy (MP-1). The inventory comes first because every other result depends on it |
 | Needed from \<Organisation\> | EV-MP-01 to EV-MP-03 in \<Evidence Requests\>: media handling, sanitising certificates and device control |
 | Evidence retained | The MP evidence, with its manifest; \<Media Protection Management\>, sections 3.2 to 3.6 |
+| Notes | The tests show how \<System Name\>'s exports, marking and storage behave; how \<Organisation\> stores, moves or sanitises disks and backup media, and blocks USB storage, is shown by its evidence. |
 
-For the Level 2 assessment, the assessor should repeat the tests on the VMs, examine the encrypted export working area and a sample of users' devices, examine TPL-13 records and \<Organisation\>'s certificates, test USB blocking, hold the interviews and re-determine every statement in section MP.4.
+For the Level 2 assessment, the assessor should repeat the tests on the VMs, examine the encrypted export working area and a sample of users' devices, examine TPL-13 records and \<Organisation\>'s certificates, test USB blocking, hold the interviews and re-determine every statement in section MP.3.
 
 ## PE Physical and Environmental Protection
 
@@ -2507,11 +1624,7 @@ For the Level 2 assessment, the assessor should repeat the tests on the VMs, exa
 
 This records the Level 1 self-assessment of the 18 PE entries in the CSS Moderate baseline, using catalog release 5.2.0. An independent team led by \[Name\] will use it for the Level 2 assessment. It makes no fixes.
 
-### PE.2 How to read this record
-
-The methods are **Examine** (documents), **Interview** and a site inspection. Fifteen of the 18 controls are inherited from \<Organisation\>'s data centres, and the inheritance matrix in \<Physical and Environmental Protection Management\>, section 3.3, shows the evidence that closes each one (EV-PE-01 to EV-PE-05). Screen locking is tested under AC-11, and output marking under MP-3. An unattended screen is locked by \<Organisation\>'s managed devices and the servers (P-03). An inherited statement stays O-E until \<Organisation\>'s evidence is received.
-
-### PE.3 Executive summary
+### PE.2 Executive summary
 
 **Table PE-1: Results by control**
 
@@ -2549,39 +1662,14 @@ Of the CSS \[n\] statements, \[n\] are satisfied, \[n\] are not applicable, \[n\
 
 \[Summary of the main gaps and what remains\]
 
-### PE.4 Findings by determination statement
+### PE.3 Findings by determination statement
 
-There is one finding for each CSS determination statement, including those about organisation-defined parameters. Statement wording is condensed, and the identifiers are CSS's. The finding codes are in section 1.1. Every inherited statement applies to the data centre and the second site alike.
+There is one finding for each CSS determination statement, including those about organisation-defined parameters. Statement wording is condensed, and the identifiers are CSS's. The finding codes are in section 1.1. Every inherited statement applies to the data centre and the second site alike. The PE-1 statements are recorded with every family's in section 1.3.
 
 **Table PE-3: Finding for each determination statement**
 
 | Statement | Determination, condensed | Finding | Basis |
 | --- | --- | --- | --- |
-| PE-01\_ODP\[01\] | Who receives the policy is defined | \[Finding\] | \[Basis\] |
-| PE-01\_ODP\[02\] | Who receives the procedures is defined | \[Finding\] | \[Basis\] |
-| PE-01\_ODP\[03\] | Policy level is selected | \[Finding\] | \[Basis\] |
-| PE-01\_ODP\[04\] | Managing official is defined | \[Finding\] | \[Basis\] |
-| PE-01\_ODP\[05\] | Policy review frequency is defined | \[Finding\] | \[Basis\] |
-| PE-01\_ODP\[06\] | Policy review events are defined | \[Finding\] | \[Basis\] |
-| PE-01\_ODP\[07\] | Procedures review frequency is defined | \[Finding\] | \[Basis\] |
-| PE-01\_ODP\[08\] | Procedures review events are defined | \[Finding\] | \[Basis\] |
-| PE-01a.\[01\] | Policy is developed and documented | \[Finding\] | \[Basis\] |
-| PE-01a.\[02\] | Policy is disseminated | \[Finding\] | \[Basis\] |
-| PE-01a.\[03\] | Procedures are developed and documented | \[Finding\] | \[Basis\] |
-| PE-01a.\[04\] | Procedures are disseminated | \[Finding\] | \[Basis\] |
-| PE-01a.01(a)\[01\] | Policy addresses purpose | \[Finding\] | \[Basis\] |
-| PE-01a.01(a)\[02\] | Policy addresses scope | \[Finding\] | \[Basis\] |
-| PE-01a.01(a)\[03\] | Policy addresses roles | \[Finding\] | \[Basis\] |
-| PE-01a.01(a)\[04\] | Policy addresses responsibilities | \[Finding\] | \[Basis\] |
-| PE-01a.01(a)\[05\] | Policy addresses management commitment | \[Finding\] | \[Basis\] |
-| PE-01a.01(a)\[06\] | Policy addresses coordination | \[Finding\] | \[Basis\] |
-| PE-01a.01(a)\[07\] | Policy addresses compliance | \[Finding\] | \[Basis\] |
-| PE-01a.01(b) | Policy is consistent with laws and standards | \[Finding\] | \[Basis\] |
-| PE-01b. | Official is designated | \[Finding\] | \[Basis\] |
-| PE-01c.01\[01\] | Policy is reviewed at the set frequency | \[Finding\] | \[Basis\] |
-| PE-01c.01\[02\] | Policy is reviewed after set events | \[Finding\] | \[Basis\] |
-| PE-01c.02\[01\] | Procedures are reviewed at the set frequency | \[Finding\] | \[Basis\] |
-| PE-01c.02\[02\] | Procedures are reviewed after set events | \[Finding\] | \[Basis\] |
 | PE-02\_ODP | Review frequency is defined | \[Finding\] | \[Basis\] |
 | PE-02a.\[01\] | An access list is developed | \[Finding\] | \[Basis\] |
 | PE-02a.\[02\] | The list is approved | \[Finding\] | \[Basis\] |
@@ -2679,7 +1767,7 @@ There is one finding for each CSS determination statement, including those about
 | PE-17c. | Their effectiveness is assessed | \[Finding\] | \[Basis\] |
 | PE-17d. | People can reach security staff | \[Finding\] | \[Basis\] |
 
-### PE.5 Assessment plan
+### PE.4 Assessment plan
 
 **Table PE-4: Assessment plan**
 
@@ -2689,7 +1777,7 @@ There is one finding for each CSS determination statement, including those about
 | Procedures | CSS, using the CSS published statements and identifiers (catalog release 5.2.0) |
 | Dates | \[Dates of the assessment\] |
 | Site | The data centre and second site named in \<Physical and Environmental Protection Management\>, section 3.2 |
-| Examine | \<Policy\> (PE), \<Procedures\> (PE) and \<Physical and Environmental Protection Management\>, with the inheritance matrix; SyOps A33, A36 to A38; \<Incident Response Management\>, section 3.9. Depth: focused. Coverage: focused |
+| Examine | \<Policy\> (PE), \<Procedures\> (PE) and \<Physical and Environmental Protection Management\>, with the inheritance matrix; \<Security Operating Procedures\>, A33, A36 to A38; \<Incident Response Management\>, section 3.9. Depth: focused. Coverage: focused |
 | Test | None for PE. Screen locking is tested under AC-11, and output marking under MP-3 |
 | Interview | The security officer, a sample of home workers and \<Organisation\>'s facilities contact |
 | Site inspection | Once at Level 2, using TPL-20, by the independent assessor or \<Organisation\>'s auditor (PRO-PE-5) |
@@ -2698,8 +1786,9 @@ There is one finding for each CSS determination statement, including those about
 | Order of assessment | A, inherited evidence against the matrix (PE-2 to PE-16); B, the site inspection; C, output devices (PE-5); D, home working (PE-17); E, policy (PE-1). The inherited evidence comes first because it closes most statements |
 | Needed from \<Organisation\> | EV-PE-01 to EV-PE-05 in \<Evidence Requests\>: first its ISO/IEC 27001 certificate and Statement of Applicability for Annex A.7, or a SOC 2 report, for both sites |
 | Evidence retained | \<Physical and Environmental Protection Management\>, sections 3.2 and 3.3; \<Evidence Requests\>; completed TPL-20 |
+| Notes | Fifteen of the 18 controls are inherited from \<Organisation\>'s data centres, and the inheritance matrix in \<Physical and Environmental Protection Management\>, section 3.3, shows the evidence that closes each one (EV-PE-01 to EV-PE-05). Screen locking is tested under AC-11, and output marking under MP-3. An unattended screen is locked by \<Organisation\>'s managed devices and the servers (P-03). An inherited statement stays O-E until \<Organisation\>'s evidence is received. |
 
-For the Level 2 assessment, the assessor should examine \<Organisation\>'s certificate, Statement of Applicability or SOC 2 report against the inheritance matrix, inspect the data centre with TPL-20, interview the security officer and a sample of home workers, and re-determine every statement in section PE.4.
+For the Level 2 assessment, the assessor should examine \<Organisation\>'s certificate, Statement of Applicability or SOC 2 report against the inheritance matrix, inspect the data centre with TPL-20, interview the security officer and a sample of home workers, and re-determine every statement in section PE.3.
 
 ## PL Planning
 
@@ -2707,13 +1796,7 @@ For the Level 2 assessment, the assessor should examine \<Organisation\>'s certi
 
 This records the Level 1 self-assessment of the 7 PL entries in the CSS Moderate baseline, using catalog release 5.2.0. An independent team led by \[Name\] will use it for the Level 2 assessment. It makes no fixes.
 
-### PL.2 How to read this record
-
-The methods are **Examine** (documents), **Test** and **Interview**. The test is Test-PlanConsistency.ps1, which reads the whole document set and checks that the plans agree with each other and with the assessments. It runs on the documents only. The results and their hashes are kept in the PL evidence.
-
-The plans are compared with CSS, which sets out what a system plan contains, and how its approval, reviews and changes are recorded.
-
-### PL.3 Executive summary
+### PL.2 Executive summary
 
 **Table PL-1: Results by control**
 
@@ -2740,39 +1823,14 @@ Of the CSS \[n\] statements, \[n\] are satisfied, \[n\] are not applicable, \[n\
 
 \[Summary of the main gaps and what remains\]
 
-### PL.4 Findings by determination statement
+### PL.3 Findings by determination statement
 
-There is one finding for each CSS determination statement, including those about organisation-defined parameters. Statement wording is condensed, and the identifiers are CSS's. The finding codes are in section 1.1.
+There is one finding for each CSS determination statement, including those about organisation-defined parameters. Statement wording is condensed, and the identifiers are CSS's. The finding codes are in section 1.1. The PL-1 statements are recorded with every family's in section 1.3.
 
 **Table PL-3: Finding for each determination statement**
 
 | Statement | Determination, condensed | Finding | Basis |
 | --- | --- | --- | --- |
-| PL-01\_ODP\[01\] | Who receives the policy is defined | \[Finding\] | \[Basis\] |
-| PL-01\_ODP\[02\] | Who receives the procedures is defined | \[Finding\] | \[Basis\] |
-| PL-01\_ODP\[03\] | Policy level is selected | \[Finding\] | \[Basis\] |
-| PL-01\_ODP\[04\] | Managing official is defined | \[Finding\] | \[Basis\] |
-| PL-01\_ODP\[05\] | Policy review frequency is defined | \[Finding\] | \[Basis\] |
-| PL-01\_ODP\[06\] | Policy review events are defined | \[Finding\] | \[Basis\] |
-| PL-01\_ODP\[07\] | Procedures review frequency is defined | \[Finding\] | \[Basis\] |
-| PL-01\_ODP\[08\] | Procedures review events are defined | \[Finding\] | \[Basis\] |
-| PL-01a.\[01\] | Policy is developed and documented | \[Finding\] | \[Basis\] |
-| PL-01a.\[02\] | Policy is disseminated | \[Finding\] | \[Basis\] |
-| PL-01a.\[03\] | Procedures are developed and documented | \[Finding\] | \[Basis\] |
-| PL-01a.\[04\] | Procedures are disseminated | \[Finding\] | \[Basis\] |
-| PL-01a.01(a)\[01\] | Policy addresses purpose | \[Finding\] | \[Basis\] |
-| PL-01a.01(a)\[02\] | Policy addresses scope | \[Finding\] | \[Basis\] |
-| PL-01a.01(a)\[03\] | Policy addresses roles | \[Finding\] | \[Basis\] |
-| PL-01a.01(a)\[04\] | Policy addresses responsibilities | \[Finding\] | \[Basis\] |
-| PL-01a.01(a)\[05\] | Policy addresses management commitment | \[Finding\] | \[Basis\] |
-| PL-01a.01(a)\[06\] | Policy addresses coordination | \[Finding\] | \[Basis\] |
-| PL-01a.01(a)\[07\] | Policy addresses compliance | \[Finding\] | \[Basis\] |
-| PL-01a.01(b) | Policy is consistent with laws and standards | \[Finding\] | \[Basis\] |
-| PL-01b. | Official is designated | \[Finding\] | \[Basis\] |
-| PL-01c.01\[01\] | Policy is reviewed at the set frequency | \[Finding\] | \[Basis\] |
-| PL-01c.01\[02\] | Policy is reviewed after set events | \[Finding\] | \[Basis\] |
-| PL-01c.02\[01\] | Procedures are reviewed at the set frequency | \[Finding\] | \[Basis\] |
-| PL-01c.02\[02\] | Procedures are reviewed after set events | \[Finding\] | \[Basis\] |
 | PL-02\_ODP\[01\] | Who planning is coordinated with is defined | \[Finding\] | \[Basis\] |
 | PL-02\_ODP\[02\] | Who receives copies is defined | \[Finding\] | \[Basis\] |
 | PL-02\_ODP\[03\] | Review frequency is defined | \[Finding\] | \[Basis\] |
@@ -2842,7 +1900,7 @@ There is one finding for each CSS determination statement, including those about
 | PL-10 | A baseline is selected | \[Finding\] | \[Basis\] |
 | PL-11 | The baseline is tailored | \[Finding\] | \[Basis\] |
 
-### PL.5 Assessment plan
+### PL.4 Assessment plan
 
 **Table PL-4: Assessment plan**
 
@@ -2859,8 +1917,9 @@ There is one finding for each CSS determination statement, including those about
 | Order of assessment | A, the register of plans and the SSP (PL-2); B, the rules and signatures (PL-4, PL-4(1)); C, the architecture (PL-8); D, the baseline and tailoring (PL-10, PL-11); E, policy (PL-1). The SSP comes first because every other family relies on it |
 | Needed from \<Organisation\> | EV-PL-01 in \<Evidence Requests\>: the enterprise architecture standards that \<System Name\> must fit, and the hypervisor |
 | Evidence retained | The PL evidence (results, README and MANIFEST); the plan review record in \<System Security Plan\>; signed TPL-21 forms and the register of signatures |
+| Notes | The test is Test-PlanConsistency.ps1, which reads the whole document set and checks that the plans agree with each other and with the assessments. It runs on the documents only. The plans are compared with CSS, which sets out what a system plan contains, and how its approval, reviews and changes are recorded. |
 
-For the Level 2 assessment, the assessor should run Test-PlanConsistency.ps1 on the issued set, sample signed TPL-21 forms against the register and the access requests, check the restricted store's access list, interview the Head of Cyber and a sample of users, and re-determine every statement in section PL.4.
+For the Level 2 assessment, the assessor should run Test-PlanConsistency.ps1 on the issued set, sample signed TPL-21 forms against the register and the access requests, check the restricted store's access list, interview the Head of Cyber and a sample of users, and re-determine every statement in section PL.3.
 
 ## PS Personnel Security
 
@@ -2868,11 +1927,7 @@ For the Level 2 assessment, the assessor should run Test-PlanConsistency.ps1 on 
 
 This records the Level 1 self-assessment of the 9 PS entries in the CSS Moderate baseline, using catalog release 5.2.0. An independent team led by \[Name\] will use it for the Level 2 assessment. It makes no fixes.
 
-### PS.2 How to read this record
-
-The methods are **Examine** (documents) and **Interview**. This family has no code to test: the leaver and mover route depends on \<Organisation\>'s starters and leavers process, the Active Directory account and ServiceNow, and is assessed by following a leaver and a mover. The interview questions are INT-PS-01 to INT-PS-06 in \<Interview Guide\>. Test-PlanConsistency.ps1 checks that every role has a risk designation (the PL evidence).
-
-### PS.3 Executive summary
+### PS.2 Executive summary
 
 **Table PS-1: Results by control**
 
@@ -2901,39 +1956,14 @@ Of the CSS \[n\] statements, \[n\] are satisfied, \[n\] are not applicable, \[n\
 
 \[Summary of the main gaps and what remains\]
 
-### PS.4 Findings by determination statement
+### PS.3 Findings by determination statement
 
-There is one finding for each CSS determination statement, including those about organisation-defined parameters. Statement wording is condensed, and the identifiers are CSS's. The finding codes are in section 1.1.
+There is one finding for each CSS determination statement, including those about organisation-defined parameters. Statement wording is condensed, and the identifiers are CSS's. The finding codes are in section 1.1. The PS-1 statements are recorded with every family's in section 1.3.
 
 **Table PS-3: Finding for each determination statement**
 
 | Statement | Determination, condensed | Finding | Basis |
 | --- | --- | --- | --- |
-| PS-01\_ODP\[01\] | Who receives the policy is defined | \[Finding\] | \[Basis\] |
-| PS-01\_ODP\[02\] | Who receives the procedures is defined | \[Finding\] | \[Basis\] |
-| PS-01\_ODP\[03\] | Policy level is selected | \[Finding\] | \[Basis\] |
-| PS-01\_ODP\[04\] | Managing official is defined | \[Finding\] | \[Basis\] |
-| PS-01\_ODP\[05\] | Policy review frequency is defined | \[Finding\] | \[Basis\] |
-| PS-01\_ODP\[06\] | Policy review events are defined | \[Finding\] | \[Basis\] |
-| PS-01\_ODP\[07\] | Procedures review frequency is defined | \[Finding\] | \[Basis\] |
-| PS-01\_ODP\[08\] | Procedures review events are defined | \[Finding\] | \[Basis\] |
-| PS-01a.\[01\] | Policy is developed and documented | \[Finding\] | \[Basis\] |
-| PS-01a.\[02\] | Policy is disseminated | \[Finding\] | \[Basis\] |
-| PS-01a.\[03\] | Procedures are developed and documented | \[Finding\] | \[Basis\] |
-| PS-01a.\[04\] | Procedures are disseminated | \[Finding\] | \[Basis\] |
-| PS-01a.01(a)\[01\] | Policy addresses purpose | \[Finding\] | \[Basis\] |
-| PS-01a.01(a)\[02\] | Policy addresses scope | \[Finding\] | \[Basis\] |
-| PS-01a.01(a)\[03\] | Policy addresses roles | \[Finding\] | \[Basis\] |
-| PS-01a.01(a)\[04\] | Policy addresses responsibilities | \[Finding\] | \[Basis\] |
-| PS-01a.01(a)\[05\] | Policy addresses management commitment | \[Finding\] | \[Basis\] |
-| PS-01a.01(a)\[06\] | Policy addresses coordination | \[Finding\] | \[Basis\] |
-| PS-01a.01(a)\[07\] | Policy addresses compliance | \[Finding\] | \[Basis\] |
-| PS-01a.01(b) | Policy is consistent with laws and standards | \[Finding\] | \[Basis\] |
-| PS-01b. | Official is designated | \[Finding\] | \[Basis\] |
-| PS-01c.01\[01\] | Policy is reviewed at the set frequency | \[Finding\] | \[Basis\] |
-| PS-01c.01\[02\] | Policy is reviewed after set events | \[Finding\] | \[Basis\] |
-| PS-01c.02\[01\] | Procedures are reviewed at the set frequency | \[Finding\] | \[Basis\] |
-| PS-01c.02\[02\] | Procedures are reviewed after set events | \[Finding\] | \[Basis\] |
 | PS-02\_ODP | Review frequency is defined | \[Finding\] | \[Basis\] |
 | PS-02a. | Positions have a risk designation | \[Finding\] | \[Basis\] |
 | PS-02b. | Screening criteria are set | \[Finding\] | \[Basis\] |
@@ -2978,7 +2008,7 @@ There is one finding for each CSS determination statement, including those about
 | PS-09\[01\] | Job descriptions include security duties | \[Finding\] | \[Basis\] |
 | PS-09\[02\] | Job descriptions include privacy duties | \[Finding\] | \[Basis\] |
 
-### PS.5 Assessment plan
+### PS.4 Assessment plan
 
 **Table PS-4: Assessment plan**
 
@@ -2994,13 +2024,14 @@ There is one finding for each CSS determination statement, including those about
 | Order of assessment | A, designations (PS-2); B, screening (PS-3); C, agreements (PS-6); D, leavers and movers (PS-4, PS-5); E, external people (PS-7); F, sanctions and role descriptions (PS-8, PS-9); G, policy (PS-1) |
 | Needed from providers | EV-PS-01, EV-PS-02 and EV-PS-03 in \<Evidence Requests\> |
 | Evidence retained | TPL-2, TPL-14 and TPL-21 records; the personnel security register in \<Personnel Security Management\>, section 3.9; the PL evidence |
+| Notes | This family has no code to test: the leaver and mover route depends on \<Organisation\>'s starters and leavers process, the Active Directory account and ServiceNow, and is assessed by following a leaver and a mover. Test-PlanConsistency.ps1 checks that every role has a risk designation (the PL evidence). |
 
 For the Level 2 assessment, the assessor should:
 
 - sample people with access against the personnel security register, TPL-2 and the signed agreements;
 - follow one leaver and one mover from notice to TPL-14, and compare the times with the audit records;
 - examine EV-PS-01 to EV-PS-03;
-- hold the interviews, and re-determine every statement in section PS.4.
+- hold the interviews, and re-determine every statement in section PS.3.
 
 ## PT Personally Identifiable Information Processing and Transparency
 
@@ -3008,13 +2039,7 @@ For the Level 2 assessment, the assessor should:
 
 This records the Level 1 self-assessment of personal data handling in \<System Name\>, against CSS catalog release 5.2.0. It covers 6 PT controls and the 16 privacy baseline controls that are outside the Moderate baseline. An independent team led by \[Name\] will use it for the Level 2 assessment. It makes no fixes.
 
-### PT.2 How to read this record
-
-**N/A** means the statement does not apply.
-
-The methods are **Examine** (documents and code), **Test** and **Interview**. The test is Test-PersonalData.ps1, run on the release and a fresh throwaway stack. The results and their hashes are kept in the PT evidence. Legal positions come from \<Data Protection Impact Assessment\> and \<PII Processing Management\>, section 3.3, which the legal adviser completes.
-
-### PT.3 Executive summary
+### PT.2 Executive summary
 
 **Table PT-1: Results by control**
 
@@ -3056,39 +2081,14 @@ Of the CSS \[n\] statements, \[n\] are satisfied, \[n\] are not applicable, \[n\
 
 \[Summary of the main gaps and what remains\]
 
-### PT.4 Findings by determination statement
+### PT.3 Findings by determination statement
 
-There is one finding for each CSS determination statement, including those about organisation-defined parameters. Statement wording is condensed, and the identifiers are CSS's. The finding codes are in section 1.1.
+There is one finding for each CSS determination statement, including those about organisation-defined parameters. Statement wording is condensed, and the identifiers are CSS's. The finding codes are in section 1.1. The PT-1 statements are recorded with every family's in section 1.3.
 
 **Table PT-3: Finding for each determination statement**
 
 | Statement | Determination, condensed | Finding | Basis |
 | --- | --- | --- | --- |
-| PT-01\_ODP\[01\] | Who receives the policy is defined | \[Finding\] | \[Basis\] |
-| PT-01\_ODP\[02\] | Who receives the procedures is defined | \[Finding\] | \[Basis\] |
-| PT-01\_ODP\[03\] | Policy level is selected | \[Finding\] | \[Basis\] |
-| PT-01\_ODP\[04\] | Managing official is defined | \[Finding\] | \[Basis\] |
-| PT-01\_ODP\[05\] | Policy review frequency is defined | \[Finding\] | \[Basis\] |
-| PT-01\_ODP\[06\] | Policy review events are defined | \[Finding\] | \[Basis\] |
-| PT-01\_ODP\[07\] | Procedures review frequency is defined | \[Finding\] | \[Basis\] |
-| PT-01\_ODP\[08\] | Procedures review events are defined | \[Finding\] | \[Basis\] |
-| PT-01a.\[01\] | Policy is developed and documented | \[Finding\] | \[Basis\] |
-| PT-01a.\[02\] | Policy is disseminated | \[Finding\] | \[Basis\] |
-| PT-01a.\[03\] | Procedures are developed and documented | \[Finding\] | \[Basis\] |
-| PT-01a.\[04\] | Procedures are disseminated | \[Finding\] | \[Basis\] |
-| PT-01a.01(a)\[01\] | Policy addresses purpose | \[Finding\] | \[Basis\] |
-| PT-01a.01(a)\[02\] | Policy addresses scope | \[Finding\] | \[Basis\] |
-| PT-01a.01(a)\[03\] | Policy addresses roles | \[Finding\] | \[Basis\] |
-| PT-01a.01(a)\[04\] | Policy addresses responsibilities | \[Finding\] | \[Basis\] |
-| PT-01a.01(a)\[05\] | Policy addresses management commitment | \[Finding\] | \[Basis\] |
-| PT-01a.01(a)\[06\] | Policy addresses coordination | \[Finding\] | \[Basis\] |
-| PT-01a.01(a)\[07\] | Policy addresses compliance | \[Finding\] | \[Basis\] |
-| PT-01a.01(b) | Policy is consistent with laws and standards | \[Finding\] | \[Basis\] |
-| PT-01b. | Official is designated | \[Finding\] | \[Basis\] |
-| PT-01c.01\[01\] | Policy is reviewed at the set frequency | \[Finding\] | \[Basis\] |
-| PT-01c.01\[02\] | Policy is reviewed after set events | \[Finding\] | \[Basis\] |
-| PT-01c.02\[01\] | Procedures are reviewed at the set frequency | \[Finding\] | \[Basis\] |
-| PT-01c.02\[02\] | Procedures are reviewed after set events | \[Finding\] | \[Basis\] |
 | PT-02\_ODP\[01\] | Authority is defined | \[Finding\] | \[Basis\] |
 | PT-02\_ODP\[02\] | Permitted processing is defined | \[Finding\] | \[Basis\] |
 | PT-02\_ODP\[03\] | Restricted processing is defined | \[Finding\] | \[Basis\] |
@@ -3174,7 +2174,7 @@ There is one finding for each CSS determination statement, including those about
 | SI-19a. | Elements are removed from datasets | \[Finding\] | \[Basis\] |
 | SI-19b. | De-identification is evaluated | \[Finding\] | \[Basis\] |
 
-### PT.5 Assessment plan
+### PT.4 Assessment plan
 
 **Table PT-4: Assessment plan**
 
@@ -3184,7 +2184,7 @@ There is one finding for each CSS determination statement, including those about
 | Scope | 6 PT controls and 16 privacy baseline controls outside Moderate, with 109 determination statements, covering every kind of personal data in \<PII Processing Management\>, section 3.3 |
 | Procedures | CSS, using the CSS published statements and identifiers (catalog release 5.2.0); UK GDPR, the DPA 2018 and the Data (Use and Access) Act 2025 for what the organisation must comply with |
 | Dates | \[Dates of the assessment\] |
-| Examine | \<Policy\> (PT), \<Procedures\> (PT) and \<PII Processing Management\>, \<Data Protection Impact Assessment\>, \<Privacy Plan\>, \<Incident Response Management\>, section 3.8, SyOps A23 to A29; the audit record format, the item management functions, the correct and delete functions, and the search across schemas for one person's data (\<System Description\>, FR-073). Depth: focused. Coverage: focused |
+| Examine | \<Policy\> (PT), \<Procedures\> (PT) and \<PII Processing Management\>, \<Data Protection Impact Assessment\>, \<Privacy Plan\>, \<Incident Response Management\>, section 3.8, \<Security Operating Procedures\>, A23 to A29; the audit record format, the item management functions, the correct and delete functions, and the search across schemas for one person's data (\<System Description\>, FR-073). Depth: focused. Coverage: focused |
 | Test | Test-PersonalData.ps1, on a fresh throwaway stack (the PT evidence) |
 | Interview | The legal adviser, the business owner, the data protection officer, a Data Owner and the legal adviser's delegate who would handle a request |
 | Previous results reused | \[Results reused from other chapters, if any\] |
@@ -3192,8 +2192,9 @@ There is one finding for each CSS determination statement, including those about
 | Order of assessment | A, the impact assessment and lawful bases (RA-8, PT-2, PT-7); B, people's rights (AC-3(14), SI-18(4)); C, retention (SI-12(3)); D, transparency (PT-5); E, logs (AU-3(3)); F, policy (PT-1). The impact assessment comes first because most other findings depend on it |
 | Needed from \<Organisation\> | EV-PT-01, EV-PT-02, EV-PM-02 and EV-PM-04 in \<Evidence Requests\> |
 | Evidence retained | The PT evidence (results, README and MANIFEST); completed TPL-15 and TPL-22 records; \<Data Protection Impact Assessment\> |
+| Notes | The test is Test-PersonalData.ps1, run on the release and a fresh throwaway stack. Legal positions come from \<Data Protection Impact Assessment\> and \<PII Processing Management\>, section 3.3, which the legal adviser completes. |
 
-For the Level 2 assessment, the assessor should examine the completed impact assessment and the lawful bases, run Test-PersonalData.ps1 on the VMs, walk through a sample subject access request and complaint with the legal adviser, interview the business owner on retention, and re-determine every statement in section PT.4.
+For the Level 2 assessment, the assessor should examine the completed impact assessment and the lawful bases, run Test-PersonalData.ps1 on the VMs, walk through a sample subject access request and complaint with the legal adviser, interview the business owner on retention, and re-determine every statement in section PT.3.
 
 ## RA Risk Assessment
 
@@ -3201,11 +2202,7 @@ For the Level 2 assessment, the assessor should examine the completed impact ass
 
 This records the Level 1 self-assessment of the 10 RA entries in the CSS Moderate baseline, using catalog release 5.2.0. An independent team led by \[Name\] will use it for the Level 2 assessment. It makes no fixes.
 
-### RA.2 How to read this record
-
-The methods are **Examine** (the risk documents), **Test** and **Interview**. The test is Test-Vulnerability.ps1, run on the release and the two Windows Server 2025 VMs. It checks the release's packages, the software installed on the servers, and whether the risk list, decisions, acceptances, critical components and plan of action agree. The results and their hashes are kept in the RA evidence.
-
-### RA.3 Executive summary
+### RA.2 Executive summary
 
 **Table RA-1: Results by control**
 
@@ -3235,39 +2232,14 @@ Of the CSS \[n\] statements, \[n\] are satisfied, \[n\] are not applicable, \[n\
 
 \[Summary of the main gaps and what remains\]
 
-### RA.4 Findings by determination statement
+### RA.3 Findings by determination statement
 
-There is one finding for each CSS determination statement, including those about organisation-defined parameters. Statement wording is condensed, and the identifiers are CSS's. The finding codes are in section 1.1.
+There is one finding for each CSS determination statement, including those about organisation-defined parameters. Statement wording is condensed, and the identifiers are CSS's. The finding codes are in section 1.1. The RA-1 statements are recorded with every family's in section 1.3.
 
 **Table RA-3: Finding for each determination statement**
 
 | Statement | Determination, condensed | Finding | Basis |
 | --- | --- | --- | --- |
-| RA-01\_ODP\[01\] | Who receives the policy is defined | \[Finding\] | \[Basis\] |
-| RA-01\_ODP\[02\] | Who receives the procedures is defined | \[Finding\] | \[Basis\] |
-| RA-01\_ODP\[03\] | Policy level is selected | \[Finding\] | \[Basis\] |
-| RA-01\_ODP\[04\] | Managing official is defined | \[Finding\] | \[Basis\] |
-| RA-01\_ODP\[05\] | Policy review frequency is defined | \[Finding\] | \[Basis\] |
-| RA-01\_ODP\[06\] | Policy review events are defined | \[Finding\] | \[Basis\] |
-| RA-01\_ODP\[07\] | Procedures review frequency is defined | \[Finding\] | \[Basis\] |
-| RA-01\_ODP\[08\] | Procedures review events are defined | \[Finding\] | \[Basis\] |
-| RA-01a.\[01\] | Policy is developed and documented | \[Finding\] | \[Basis\] |
-| RA-01a.\[02\] | Policy is disseminated | \[Finding\] | \[Basis\] |
-| RA-01a.\[03\] | Procedures are developed and documented | \[Finding\] | \[Basis\] |
-| RA-01a.\[04\] | Procedures are disseminated | \[Finding\] | \[Basis\] |
-| RA-01a.01(a)\[01\] | Policy addresses purpose | \[Finding\] | \[Basis\] |
-| RA-01a.01(a)\[02\] | Policy addresses scope | \[Finding\] | \[Basis\] |
-| RA-01a.01(a)\[03\] | Policy addresses roles | \[Finding\] | \[Basis\] |
-| RA-01a.01(a)\[04\] | Policy addresses responsibilities | \[Finding\] | \[Basis\] |
-| RA-01a.01(a)\[05\] | Policy addresses management commitment | \[Finding\] | \[Basis\] |
-| RA-01a.01(a)\[06\] | Policy addresses coordination | \[Finding\] | \[Basis\] |
-| RA-01a.01(a)\[07\] | Policy addresses compliance | \[Finding\] | \[Basis\] |
-| RA-01a.01(b) | Policy is consistent with laws and standards | \[Finding\] | \[Basis\] |
-| RA-01b. | Official is designated | \[Finding\] | \[Basis\] |
-| RA-01c.01\[01\] | Policy is reviewed at the set frequency | \[Finding\] | \[Basis\] |
-| RA-01c.01\[02\] | Policy is reviewed after set events | \[Finding\] | \[Basis\] |
-| RA-01c.02\[01\] | Procedures are reviewed at the set frequency | \[Finding\] | \[Basis\] |
-| RA-01c.02\[02\] | Procedures are reviewed after set events | \[Finding\] | \[Basis\] |
 | RA-02a. | The system and its information are categorised | \[Finding\] | \[Basis\] |
 | RA-02b. | Results and rationale are documented | \[Finding\] | \[Basis\] |
 | RA-02c. | The authorising official approves the categorisation | \[Finding\] | \[Basis\] |
@@ -3317,7 +2289,7 @@ There is one finding for each CSS determination statement, including those about
 | RA-09\_ODP\[02\] | Decision points are defined | \[Finding\] | \[Basis\] |
 | RA-09 | Critical components are identified | \[Finding\] | \[Basis\] |
 
-### RA.5 Assessment plan
+### RA.4 Assessment plan
 
 **Table RA-4: Assessment plan**
 
@@ -3334,8 +2306,9 @@ There is one finding for each CSS determination statement, including those about
 | Order of assessment | A, vulnerabilities (RA-5, RA-5(2), RA-5(5)); B, risk method and register (RA-3, RA-7); C, supply chain and critical components (RA-3(1), RA-9); D, categorisation (RA-2); E, policy (RA-1) |
 | Needed from \<Organisation\> | EV-RA-01 and EV-PM-01 in \<Evidence Requests\> |
 | Evidence retained | The RA evidence (results, README and MANIFEST); completed TPL-7 and TPL-23 records |
+| Notes | The test is Test-Vulnerability.ps1, run on the release and the two Windows Server 2025 VMs. It checks the release's packages, the software installed on the servers, and whether the risk list, decisions, acceptances, critical components and plan of action agree. |
 
-For the Level 2 assessment, the assessor should run Test-Vulnerability.ps1 and a credentialed scan on the VMs, sample TPL-7 records against the timetable, interview the security officer on an exploited flaw, and re-determine every statement in section RA.4.
+For the Level 2 assessment, the assessor should run Test-Vulnerability.ps1 and a credentialed scan on the VMs, sample TPL-7 records against the timetable, interview the security officer on an exploited flaw, and re-determine every statement in section RA.3.
 
 ## SA System and Services Acquisition
 
@@ -3343,11 +2316,7 @@ For the Level 2 assessment, the assessor should run Test-Vulnerability.ps1 and a
 
 This records the Level 1 self-assessment of the 17 SA entries in the CSS Moderate baseline, using catalog release 5.2.0. SA-4(10) is covered by tailoring proposal TR-SA-01 in \<Tailoring Register\>. An independent team led by \[Name\] will use it for the Level 2 assessment. It makes no fixes.
 
-### SA.2 How to read this record
-
-The methods are **Examine** (documents, repositories and test evidence), **Test** and **Interview**. The test is Test-Development.ps1. It reads the repository settings through the source repository service (read-only), the Git history at the release tag, the build files and the component support dates. The results and their hashes are kept in the SA evidence.
-
-### SA.3 Executive summary
+### SA.2 Executive summary
 
 **Table SA-1: Results by control**
 
@@ -3383,39 +2352,14 @@ Of the CSS \[n\] statements, \[n\] are satisfied, \[n\] are not applicable, \[n\
 
 \[Summary of the main gaps and what remains\]
 
-### SA.4 Findings by determination statement
+### SA.3 Findings by determination statement
 
-There is one finding for each CSS determination statement, including those about organisation-defined parameters. Statement wording is condensed, and the identifiers are CSS's. The finding codes are in section 1.1.
+There is one finding for each CSS determination statement, including those about organisation-defined parameters. Statement wording is condensed, and the identifiers are CSS's. The finding codes are in section 1.1. The SA-1 statements are recorded with every family's in section 1.3.
 
 **Table SA-3: Finding for each determination statement**
 
 | Statement | Determination, condensed | Finding | Basis |
 | --- | --- | --- | --- |
-| SA-01\_ODP\[01\] | Who receives the policy is defined | \[Finding\] | \[Basis\] |
-| SA-01\_ODP\[02\] | Who receives the procedures is defined | \[Finding\] | \[Basis\] |
-| SA-01\_ODP\[03\] | Policy level is selected | \[Finding\] | \[Basis\] |
-| SA-01\_ODP\[04\] | Managing official is defined | \[Finding\] | \[Basis\] |
-| SA-01\_ODP\[05\] | Policy review frequency is defined | \[Finding\] | \[Basis\] |
-| SA-01\_ODP\[06\] | Policy review events are defined | \[Finding\] | \[Basis\] |
-| SA-01\_ODP\[07\] | Procedures review frequency is defined | \[Finding\] | \[Basis\] |
-| SA-01\_ODP\[08\] | Procedures review events are defined | \[Finding\] | \[Basis\] |
-| SA-01a.\[01\] | Policy is developed and documented | \[Finding\] | \[Basis\] |
-| SA-01a.\[02\] | Policy is disseminated | \[Finding\] | \[Basis\] |
-| SA-01a.\[03\] | Procedures are developed and documented | \[Finding\] | \[Basis\] |
-| SA-01a.\[04\] | Procedures are disseminated | \[Finding\] | \[Basis\] |
-| SA-01a.01(a)\[01\] | Policy addresses purpose | \[Finding\] | \[Basis\] |
-| SA-01a.01(a)\[02\] | Policy addresses scope | \[Finding\] | \[Basis\] |
-| SA-01a.01(a)\[03\] | Policy addresses roles | \[Finding\] | \[Basis\] |
-| SA-01a.01(a)\[04\] | Policy addresses responsibilities | \[Finding\] | \[Basis\] |
-| SA-01a.01(a)\[05\] | Policy addresses management commitment | \[Finding\] | \[Basis\] |
-| SA-01a.01(a)\[06\] | Policy addresses coordination | \[Finding\] | \[Basis\] |
-| SA-01a.01(a)\[07\] | Policy addresses compliance | \[Finding\] | \[Basis\] |
-| SA-01a.01(b) | Policy is consistent with laws and standards | \[Finding\] | \[Basis\] |
-| SA-01b. | Official is designated | \[Finding\] | \[Basis\] |
-| SA-01c.01\[01\] | Policy is reviewed at the set frequency | \[Finding\] | \[Basis\] |
-| SA-01c.01\[02\] | Policy is reviewed after set events | \[Finding\] | \[Basis\] |
-| SA-01c.02\[01\] | Procedures are reviewed at the set frequency | \[Finding\] | \[Basis\] |
-| SA-01c.02\[02\] | Procedures are reviewed after set events | \[Finding\] | \[Basis\] |
 | SA-02a.\[01\] | Security requirements are set in planning | \[Finding\] | \[Basis\] |
 | SA-02a.\[02\] | Privacy requirements are set in planning | \[Finding\] | \[Basis\] |
 | SA-02b.\[01\] | Resources are determined and documented | \[Finding\] | \[Basis\] |
@@ -3551,7 +2495,7 @@ There is one finding for each CSS determination statement, including those about
 | SA-22a. | Components are replaced when support ends | \[Finding\] | \[Basis\] |
 | SA-22b. | Options for other support are provided | \[Finding\] | \[Basis\] |
 
-### SA.5 Assessment plan
+### SA.4 Assessment plan
 
 **Table SA-4: Assessment plan**
 
@@ -3568,8 +2512,9 @@ There is one finding for each CSS determination statement, including those about
 | Order of assessment | A, change control (SA-10); B, developer testing (SA-11); C, process and tools (SA-3, SA-15); D, documentation (SA-5); E, external services and contracts (SA-4, SA-9); F, policy and resources (SA-1, SA-2) |
 | Needed from providers | EV-SA-01 to EV-SA-04 in \<Evidence Requests\> |
 | Evidence retained | The SA evidence (results, README and MANIFEST); the other evidence folders; completed TPL-6, TPL-16 and TPL-23 records |
+| Notes | The test is Test-Development.ps1. It reads the repository settings through the source repository service (read-only), the Git history at the release tag, the build files and the component support dates. |
 
-For the Level 2 assessment, the assessor should run Test-Development.ps1 again, sample merged changes for a recorded review, check the guides against the screens, and re-determine every statement in section SA.4.
+For the Level 2 assessment, the assessor should run Test-Development.ps1 again, sample merged changes for a recorded review, check the guides against the screens, and re-determine every statement in section SA.3.
 
 ## SC System and Communications Protection
 
@@ -3577,13 +2522,7 @@ For the Level 2 assessment, the assessor should run Test-Development.ps1 again, 
 
 This records the Level 1 self-assessment of the 25 SC entries in the CSS Moderate baseline, using catalog release 5.2.0. SC-15 is covered by tailoring proposal TR-SC-01 in \<Tailoring Register\>. An independent team led by \[Name\] will use it for the Level 2 assessment. It makes no fixes.
 
-### SC.2 How to read this record
-
-**N/A** means not applicable, as set out in \<Tailoring Register\>, which the independent assessor may test.
-
-The methods are **Examine** (code, settings and documents), **Test** and **Interview**. The test is Test-Protection.ps1, run against a throwaway test stack built from the release. It sends requests to the web addresses, runs read-only queries in the database, and reads the code and settings, printing counts and lengths only. The results and their hashes are kept in the SC evidence.
-
-### SC.3 Executive summary
+### SC.2 Executive summary
 
 **Table SC-1: Results by control**
 
@@ -3628,39 +2567,14 @@ Of the CSS \[n\] statements, \[n\] are satisfied, \[n\] are not applicable, \[n\
 
 \[Summary of the main gaps and what remains\]
 
-### SC.4 Findings by determination statement
+### SC.3 Findings by determination statement
 
-There is one finding for each CSS determination statement, including those about organisation-defined parameters. Statement wording is condensed, and the identifiers are CSS's. The finding codes are in section 1.1.
+There is one finding for each CSS determination statement, including those about organisation-defined parameters. Statement wording is condensed, and the identifiers are CSS's. The finding codes are in section 1.1. The SC-1 statements are recorded with every family's in section 1.3.
 
 **Table SC-3: Finding for each determination statement**
 
 | Statement | Determination, condensed | Finding | Basis |
 | --- | --- | --- | --- |
-| SC-01\_ODP\[01\] | Who receives the policy is defined | \[Finding\] | \[Basis\] |
-| SC-01\_ODP\[02\] | Who receives the procedures is defined | \[Finding\] | \[Basis\] |
-| SC-01\_ODP\[03\] | Policy level is selected | \[Finding\] | \[Basis\] |
-| SC-01\_ODP\[04\] | Managing official is defined | \[Finding\] | \[Basis\] |
-| SC-01\_ODP\[05\] | Policy review frequency is defined | \[Finding\] | \[Basis\] |
-| SC-01\_ODP\[06\] | Policy review events are defined | \[Finding\] | \[Basis\] |
-| SC-01\_ODP\[07\] | Procedures review frequency is defined | \[Finding\] | \[Basis\] |
-| SC-01\_ODP\[08\] | Procedures review events are defined | \[Finding\] | \[Basis\] |
-| SC-01a.\[01\] | Policy is developed and documented | \[Finding\] | \[Basis\] |
-| SC-01a.\[02\] | Policy is disseminated | \[Finding\] | \[Basis\] |
-| SC-01a.\[03\] | Procedures are developed and documented | \[Finding\] | \[Basis\] |
-| SC-01a.\[04\] | Procedures are disseminated | \[Finding\] | \[Basis\] |
-| SC-01a.01(a)\[01\] | Policy addresses purpose | \[Finding\] | \[Basis\] |
-| SC-01a.01(a)\[02\] | Policy addresses scope | \[Finding\] | \[Basis\] |
-| SC-01a.01(a)\[03\] | Policy addresses roles | \[Finding\] | \[Basis\] |
-| SC-01a.01(a)\[04\] | Policy addresses responsibilities | \[Finding\] | \[Basis\] |
-| SC-01a.01(a)\[05\] | Policy addresses management commitment | \[Finding\] | \[Basis\] |
-| SC-01a.01(a)\[06\] | Policy addresses coordination | \[Finding\] | \[Basis\] |
-| SC-01a.01(a)\[07\] | Policy addresses compliance | \[Finding\] | \[Basis\] |
-| SC-01a.01(b) | Policy is consistent with laws and standards | \[Finding\] | \[Basis\] |
-| SC-01b. | Official is designated | \[Finding\] | \[Basis\] |
-| SC-01c.01\[01\] | Policy is reviewed at the set frequency | \[Finding\] | \[Basis\] |
-| SC-01c.01\[02\] | Policy is reviewed after set events | \[Finding\] | \[Basis\] |
-| SC-01c.02\[01\] | Procedures are reviewed at the set frequency | \[Finding\] | \[Basis\] |
-| SC-01c.02\[02\] | Procedures are reviewed after set events | \[Finding\] | \[Basis\] |
 | SC-02 | User and management functions are separated | \[Finding\] | \[Basis\] |
 | SC-04\[01\] | Unauthorised transfer through shared resources is prevented | \[Finding\] | \[Basis\] |
 | SC-04\[02\] | Unintended transfer through shared resources is prevented | \[Finding\] | \[Basis\] |
@@ -3744,7 +2658,7 @@ There is one finding for each CSS determination statement, including those about
 | SC-28(01)\[02\] | Cryptography prevents modification | \[Finding\] | \[Basis\] |
 | SC-39 | Each process has its own execution domain | \[Finding\] | \[Basis\] |
 
-### SC.5 Assessment plan
+### SC.4 Assessment plan
 
 **Table SC-4: Assessment plan**
 
@@ -3761,8 +2675,9 @@ There is one finding for each CSS determination statement, including those about
 | Order of assessment | A, transport and the authenticity of connections (SC-8, SC-8(1), SC-23); B, keys and cryptography (SC-12, SC-13); C, page code (SC-18); D, boundary (SC-7 and enhancements); E, data at rest (SC-28); F, inherited services (SC-17, SC-20 to SC-22, SC-39); G, policy (SC-1) |
 | Needed from providers | EV-SC-01 to EV-SC-05 and EV-AC-03 in \<Evidence Requests\> |
 | Evidence retained | The SC evidence (results, README and MANIFEST); the SC and CM evidence; completed TPL-6, TPL-8, TPL-11 and TPL-23 records |
+| Notes | The test is Test-Protection.ps1, run against a throwaway test stack built from the release. It sends requests to the web addresses, runs read-only queries in the database, and reads the code and settings, printing counts and lengths only. |
 
-For the Level 2 assessment, the assessor should run Test-Protection.ps1 against the VMs, run an outside TLS scan of the web address, check the host firewall rules against \<System and Communications Protection Management\>, section 3.2, confirm BitLocker and the key ring protection, hold the interviews, and re-determine every statement in section SC.4.
+For the Level 2 assessment, the assessor should run Test-Protection.ps1 against the VMs, run an outside TLS scan of the web address, check the host firewall rules against \<System and Communications Protection Management\>, section 3.2, confirm BitLocker and the key ring protection, hold the interviews, and re-determine every statement in section SC.3.
 
 ## SI System and Information Integrity
 
@@ -3770,13 +2685,7 @@ For the Level 2 assessment, the assessor should run Test-Protection.ps1 against 
 
 This records the Level 1 self-assessment of the 18 SI entries in the CSS Moderate baseline, using catalog release 5.2.0. SI-8 and SI-8(2) are covered by tailoring proposal TR-SI-01 in \<Tailoring Register\>. An independent team led by \[Name\] will use it for the Level 2 assessment. It makes no fixes.
 
-### SI.2 How to read this record
-
-**N/A** means not applicable, as set out in \<Tailoring Register\>, which the independent assessor may test.
-
-The methods are **Examine** (code, settings and documents), **Test** and **Interview**. The test is Test-Integrity.ps1, run against a throwaway test stack built from the release. Upload checks use the API's check-only function for a batch, which stores nothing (\<System Description\>, FR-042). The results, the integrity baseline and their hashes are kept in the SI evidence. Package checks come from Test-Vulnerability.ps1 (the RA evidence).
-
-### SI.3 Executive summary
+### SI.2 Executive summary
 
 **Table SI-1: Results by control**
 
@@ -3814,39 +2723,14 @@ Of the CSS \[n\] statements, \[n\] are satisfied, \[n\] are not applicable, \[n\
 
 \[Summary of the main gaps and what remains\]
 
-### SI.4 Findings by determination statement
+### SI.3 Findings by determination statement
 
-There is one finding for each CSS determination statement, including those about organisation-defined parameters. Statement wording is condensed, and the identifiers are CSS's. The finding codes are in section 1.1.
+There is one finding for each CSS determination statement, including those about organisation-defined parameters. Statement wording is condensed, and the identifiers are CSS's. The finding codes are in section 1.1. The SI-1 statements are recorded with every family's in section 1.3.
 
 **Table SI-3: Finding for each determination statement**
 
 | Statement | Determination, condensed | Finding | Basis |
 | --- | --- | --- | --- |
-| SI-01\_ODP\[01\] | Who receives the policy is defined | \[Finding\] | \[Basis\] |
-| SI-01\_ODP\[02\] | Who receives the procedures is defined | \[Finding\] | \[Basis\] |
-| SI-01\_ODP\[03\] | Policy level is selected | \[Finding\] | \[Basis\] |
-| SI-01\_ODP\[04\] | Managing official is defined | \[Finding\] | \[Basis\] |
-| SI-01\_ODP\[05\] | Policy review frequency is defined | \[Finding\] | \[Basis\] |
-| SI-01\_ODP\[06\] | Policy review events are defined | \[Finding\] | \[Basis\] |
-| SI-01\_ODP\[07\] | Procedures review frequency is defined | \[Finding\] | \[Basis\] |
-| SI-01\_ODP\[08\] | Procedures review events are defined | \[Finding\] | \[Basis\] |
-| SI-01a.\[01\] | Policy is developed and documented | \[Finding\] | \[Basis\] |
-| SI-01a.\[02\] | Policy is disseminated | \[Finding\] | \[Basis\] |
-| SI-01a.\[03\] | Procedures are developed and documented | \[Finding\] | \[Basis\] |
-| SI-01a.\[04\] | Procedures are disseminated | \[Finding\] | \[Basis\] |
-| SI-01a.01(a)\[01\] | Policy addresses purpose | \[Finding\] | \[Basis\] |
-| SI-01a.01(a)\[02\] | Policy addresses scope | \[Finding\] | \[Basis\] |
-| SI-01a.01(a)\[03\] | Policy addresses roles | \[Finding\] | \[Basis\] |
-| SI-01a.01(a)\[04\] | Policy addresses responsibilities | \[Finding\] | \[Basis\] |
-| SI-01a.01(a)\[05\] | Policy addresses management commitment | \[Finding\] | \[Basis\] |
-| SI-01a.01(a)\[06\] | Policy addresses coordination | \[Finding\] | \[Basis\] |
-| SI-01a.01(a)\[07\] | Policy addresses compliance | \[Finding\] | \[Basis\] |
-| SI-01a.01(b) | Policy is consistent with laws and standards | \[Finding\] | \[Basis\] |
-| SI-01b. | Official is designated | \[Finding\] | \[Basis\] |
-| SI-01c.01\[01\] | Policy is reviewed at the set frequency | \[Finding\] | \[Basis\] |
-| SI-01c.01\[02\] | Policy is reviewed after set events | \[Finding\] | \[Basis\] |
-| SI-01c.02\[01\] | Procedures are reviewed at the set frequency | \[Finding\] | \[Basis\] |
-| SI-01c.02\[02\] | Procedures are reviewed after set events | \[Finding\] | \[Basis\] |
 | SI-02\_ODP | Time to install updates is defined | \[Finding\] | \[Basis\] |
 | SI-02a.\[01\] | Flaws are identified | \[Finding\] | \[Basis\] |
 | SI-02a.\[02\] | Flaws are reported | \[Finding\] | \[Basis\] |
@@ -3962,7 +2846,7 @@ There is one finding for each CSS determination statement, including those about
 | SI-16\_ODP | Memory controls are defined | \[Finding\] | \[Basis\] |
 | SI-16 | Controls protect memory | \[Finding\] | \[Basis\] |
 
-### SI.5 Assessment plan
+### SI.4 Assessment plan
 
 **Table SI-4: Assessment plan**
 
@@ -3979,8 +2863,9 @@ There is one finding for each CSS determination statement, including those about
 | Order of assessment | A, flaws (SI-2); B, malicious code and uploads (SI-3, SI-10); C, monitoring and alerts (SI-4); D, integrity (SI-7); E, errors (SI-11); F, advisories, retention and memory (SI-5, SI-12, SI-16); G, policy (SI-1) |
 | Needed from providers | EV-SI-01, EV-SI-02 and EV-SI-03 in \<Evidence Requests\> |
 | Evidence retained | The SI evidence (results, baseline, README and MANIFEST); the RA evidence; completed TPL-7, TPL-8 and TPL-10 records |
+| Notes | The test is Test-Integrity.ps1, run against a throwaway test stack built from the release. Upload checks use the API's check-only function for a batch, which stores nothing (\<System Description\>, FR-042). Package checks come from Test-Vulnerability.ps1 (the RA evidence). |
 
-For the Level 2 assessment, the assessor should run Test-Integrity.ps1 and Test-Vulnerability.ps1 against the VMs, upload the EICAR test file to check malware scanning, check Defender and the alert rules, compare release packages with the baseline, hold the interviews, and re-determine every statement in section SI.4.
+For the Level 2 assessment, the assessor should run Test-Integrity.ps1 and Test-Vulnerability.ps1 against the VMs, upload the EICAR test file to check malware scanning, check Defender and the alert rules, compare release packages with the baseline, hold the interviews, and re-determine every statement in section SI.3.
 
 ## SR Supply Chain Risk Management
 
@@ -3988,11 +2873,7 @@ For the Level 2 assessment, the assessor should run Test-Integrity.ps1 and Test-
 
 This records the Level 1 self-assessment of the 12 SR entries in the CSS Moderate baseline, using catalog release 5.2.0. An independent team led by \[Name\] will use it for the Level 2 assessment. It makes no fixes.
 
-### SR.2 How to read this record
-
-The methods are **Examine** (code, settings and documents), **Test** and **Interview**. The test is Test-SupplyChain.ps1, run on the release and the packages built from it, with no running system. The results and their hashes are kept in the SR evidence. \<Organisation\>'s supplier, hardware and disposal processes are shown by its evidence.
-
-### SR.3 Executive summary
+### SR.2 Executive summary
 
 **Table SR-1: Results by control**
 
@@ -4024,39 +2905,14 @@ Of the CSS \[n\] statements, \[n\] are satisfied, \[n\] are not applicable, \[n\
 
 \[Summary of the main gaps and what remains\]
 
-### SR.4 Findings by determination statement
+### SR.3 Findings by determination statement
 
-There is one finding for each CSS determination statement, including those about organisation-defined parameters. Statement wording is condensed, and the identifiers are CSS's. The finding codes are in section 1.1.
+There is one finding for each CSS determination statement, including those about organisation-defined parameters. Statement wording is condensed, and the identifiers are CSS's. The finding codes are in section 1.1. The SR-1 statements are recorded with every family's in section 1.3.
 
 **Table SR-3: Finding for each determination statement**
 
 | Statement | Determination, condensed | Finding | Basis |
 | --- | --- | --- | --- |
-| SR-01\_ODP\[01\] | Who receives the policy is defined | \[Finding\] | \[Basis\] |
-| SR-01\_ODP\[02\] | Who receives the procedures is defined | \[Finding\] | \[Basis\] |
-| SR-01\_ODP\[03\] | Policy level is selected | \[Finding\] | \[Basis\] |
-| SR-01\_ODP\[04\] | Managing official is defined | \[Finding\] | \[Basis\] |
-| SR-01\_ODP\[05\] | Policy review frequency is defined | \[Finding\] | \[Basis\] |
-| SR-01\_ODP\[06\] | Policy review events are defined | \[Finding\] | \[Basis\] |
-| SR-01\_ODP\[07\] | Procedures review frequency is defined | \[Finding\] | \[Basis\] |
-| SR-01\_ODP\[08\] | Procedures review events are defined | \[Finding\] | \[Basis\] |
-| SR-01a.\[01\] | Policy is developed and documented | \[Finding\] | \[Basis\] |
-| SR-01a.\[02\] | Policy is disseminated | \[Finding\] | \[Basis\] |
-| SR-01a.\[03\] | Procedures are developed and documented | \[Finding\] | \[Basis\] |
-| SR-01a.\[04\] | Procedures are disseminated | \[Finding\] | \[Basis\] |
-| SR-01a.01(a)\[01\] | Policy addresses purpose | \[Finding\] | \[Basis\] |
-| SR-01a.01(a)\[02\] | Policy addresses scope | \[Finding\] | \[Basis\] |
-| SR-01a.01(a)\[03\] | Policy addresses roles | \[Finding\] | \[Basis\] |
-| SR-01a.01(a)\[04\] | Policy addresses responsibilities | \[Finding\] | \[Basis\] |
-| SR-01a.01(a)\[05\] | Policy addresses management commitment | \[Finding\] | \[Basis\] |
-| SR-01a.01(a)\[06\] | Policy addresses coordination | \[Finding\] | \[Basis\] |
-| SR-01a.01(a)\[07\] | Policy addresses compliance | \[Finding\] | \[Basis\] |
-| SR-01a.01(b) | Policy is consistent with laws and standards | \[Finding\] | \[Basis\] |
-| SR-01b. | Official is designated | \[Finding\] | \[Basis\] |
-| SR-01c.01\[01\] | Policy is reviewed at the set frequency | \[Finding\] | \[Basis\] |
-| SR-01c.01\[02\] | Policy is reviewed after set events | \[Finding\] | \[Basis\] |
-| SR-01c.02\[01\] | Procedures are reviewed at the set frequency | \[Finding\] | \[Basis\] |
-| SR-01c.02\[02\] | Procedures are reviewed after set events | \[Finding\] | \[Basis\] |
 | SR-02\_ODP\[01\] | What the plan covers is defined | \[Finding\] | \[Basis\] |
 | SR-02\_ODP\[02\] | Review frequency is defined | \[Finding\] | \[Basis\] |
 | SR-02a.\[01\] | Plan is developed | \[Finding\] | \[Basis\] |
@@ -4114,7 +2970,7 @@ There is one finding for each CSS determination statement, including those about
 | SR-12\_ODP\[02\] | How is defined | \[Finding\] | \[Basis\] |
 | SR-12 | Components are disposed of that way | \[Finding\] | \[Basis\] |
 
-### SR.5 Assessment plan
+### SR.4 Assessment plan
 
 **Table SR-4: Assessment plan**
 
@@ -4131,5 +2987,6 @@ There is one finding for each CSS determination statement, including those about
 | Order of assessment | A, sources and acquisition (SR-3, SR-5); B, inspection (SR-10); C, suppliers and notices (SR-6, SR-8); D, authenticity (SR-11); E, plan and team (SR-2); F, disposal (SR-12); G, policy (SR-1) |
 | Needed from providers | EV-SR-01 and EV-SR-02 in \<Evidence Requests\> |
 | Evidence retained | The SR evidence (results, README and MANIFEST); the RA evidence; completed TPL-6, TPL-7, TPL-10 and TPL-16 records |
+| Notes | The test is Test-SupplyChain.ps1, run on the release and the packages built from it, with no running system. \<Organisation\>'s supplier, hardware and disposal processes are shown by its evidence. |
 
-For the Level 2 assessment, the assessor should run Test-SupplyChain.ps1 on the release to be deployed, check the bill of materials and release SHA-256 values, examine \<Organisation\>'s supplier, hardware and disposal evidence, hold the interviews, and re-determine every statement in section SR.4.
+For the Level 2 assessment, the assessor should run Test-SupplyChain.ps1 on the release to be deployed, check the bill of materials and release SHA-256 values, examine \<Organisation\>'s supplier, hardware and disposal evidence, hold the interviews, and re-determine every statement in section SR.3.

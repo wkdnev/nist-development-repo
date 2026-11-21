@@ -94,11 +94,11 @@ Each module ends with a short check of at least 10 questions, with a pass mark o
 
 Controls met here: AT-2, AT-3.
 
-Every role must complete awareness, the briefing and the SyOps signature before access. Role modules come before privileged access; M7 and M8 within 30 days of taking the role. All are repeated every 12 months.
+Every role must complete awareness, the briefing and signing \<Security Operating Procedures\> before access. Role modules come before privileged access; M7 and M8 within 30 days of taking the role. All are repeated every 12 months.
 
 **Table 4: Training matrix**
 
-| Role | Awareness and briefing | SyOps | Role modules | Within 30 days |
+| Role | Awareness and briefing | \<Security Operating Procedures\> | Role modules | Within 30 days |
 | --- | --- | --- | --- | --- |
 | All users | Yes | Part A | None | None |
 | System owner | Yes | Parts A and B | M2, M9 | M7, M8 |

@@ -118,7 +118,7 @@ The register starts empty. First signatures are taken on the current version of 
 
 **Table 4: Register of signatures**
 
-| TPL-21 record | Name | Role | Parts | SyOps version | Reason | Date signed | Next due |
+| TPL-21 record | Name | Role | Parts | Version signed | Reason | Date signed | Next due |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | \[TPL-21 reference\] | \[Name\] | \[Role\] | \[Part A, or Parts A and B\] | \[Version\] | \[First access, yearly or material change\] | \[Date\] | \[Date\] |
 

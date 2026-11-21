@@ -7,7 +7,7 @@ This guide tells you how to use \<System Name\>'s security and privacy features,
 ## 2 Signing in and your password
 
 1. Open \<System Name\> in your browser. You are sent to \<Organisation\>'s PingFederate sign-in page, where you sign in with your usual \<Organisation\> account and your second factor. \<System Name\> then reads your Active Directory groups, which decide your role and the schemas you may open.
-2. Read the system use notice and accept it before going further (SyOps A6).
+2. Read the system use notice and accept it before going further (\\<Security Operating Procedures\\>, A6).
 3. \<System Name\> holds no account or password of its own. Never type your \<Organisation\> password into a page you were not sent to by \<Organisation\>'s sign-in.
 4. Follow \<Organisation\>'s rules for your password. If you forget it, or your account locks, ask \<Organisation\>'s IT service desk.
 5. If you think anyone else knows your password, or you lose your second factor, tell the service desk and the security officer at once.
@@ -18,16 +18,16 @@ This guide tells you how to use \<System Name\>'s security and privacy features,
 
 | Feature | What happens | What to do |
 | --- | --- | --- |
-| Schema access | You see only the schemas your Active Directory groups allow. Any other request shows the access-denied page | If you see a schema or item you shouldn't, report it at once (SyOps A18) |
+| Schema access | You see only the schemas your Active Directory groups allow. Any other request shows the access-denied page | If you see a schema or item you shouldn't, report it at once (\\<Security Operating Procedures\\>, A18) |
 | Screen lock | \<System Name\> has no page lock of its own. Your \<Organisation\> device locks its screen after a set time without use | Lock your device whenever you leave it |
 | Sign-in | \<System Name\> has no session management of its own. Your sign-in lasts as long as \<Organisation\>'s PingFederate allows, and \<System Name\> does not sign you out itself | Save your work; close the browser when you finish |
-| Downloads and exports | Readers can download an item's file; editors can bulk export a schema's items. Only you can see, download or cancel your own export jobs | Keep exports on \<Organisation\>'s devices; delete them within 30 days (SyOps A28) |
-| Printing and marking | Items can be printed, and \<System Name\> marks what it shows, prints and exports with its classification | Use secure-release printers only; never print at home (SyOps A33, A38) |
-| Faults | You can report a faulty item or file | Use the fault report rather than working around the fault (SyOps A20) |
+| Downloads and exports | Readers can download an item's file; editors can bulk export a schema's items. Only you can see, download or cancel your own export jobs | Keep exports on \<Organisation\>'s devices; delete them within 30 days (\\<Security Operating Procedures\\>, A28) |
+| Printing and marking | Items can be printed, and \<System Name\> marks what it shows, prints and exports with its classification | Use secure-release printers only; never print at home (\\<Security Operating Procedures\\>, A33, A38) |
+| Faults | You can report a faulty item or file | Use the fault report rather than working around the fault (\\<Security Operating Procedures\\>, A20) |
 
 ## 4 Personal data
 
-1. Look at personal data only when your task needs it, and use it only for the purposes it is held for (SyOps A23).
+1. Look at personal data only when your task needs it, and use it only for the purposes it is held for (\\<Security Operating Procedures\\>, A23).
 2. Copy, export or print only the minimum (A24), and never share it with anyone who doesn't need it (A25).
 3. If personal data is wrong or in the wrong schema, tell the schema's Data Owner (A26).
 4. Pass any request from a person about their data, or any complaint about how it's handled, to the legal adviser the same working day (A27).

@@ -1,257 +1,44 @@
-# \<System Name\> Decision Register
-
 ## 1 Purpose
 
 This register records the approvals and decisions for the set. Each row states what needs deciding, the recommendation and who decides, with space for the decision, name and date. Nothing is decided until a named person completes a row. The recommendations are proposals.
 
-After a decision, the document it affects is updated to match: \<Access Control Management\> for values, \<Risk List\> for risk treatments and \<Tailoring Register\> for tailoring.
+After a decision, the document it affects is updated to match: \<System Description\>, section 4, and the family design document for values, \<Risk List\> for risk treatments and \<Tailoring Register\> for tailoring.
 
 A departure from the reference design (\<System Description\>, section 3.6) is decided by the system owner and recorded here as a D-GEN entry; a departure from a Secure by Design principle (\<System Description\>, section 8) is decided by the authorising official.
 
-Decisions are numbered D-XX-nn, parameter approvals D-XX-Pnn and non-compliance entries NC-XX-nn, where XX is the family code. Cross-family decisions use GEN as the code.
+Decisions are numbered D-XX-nn, parameter approvals D-XX-Pnn and non-compliance entries NC-XX-nn, where XX is the family code. Cross-family decisions use GEN as the code. Each table has one row for each entry, with a Family column, so that adding an entry never renumbers another.
 
-**Table 1: Family coverage**
+## 2 Decisions
 
-| Family | Section |
-| --- | --- |
-| AC Access Control | 3 |
-| AT Awareness and Training | 4 |
-| AU Audit and Accountability | 5 |
-| CA Assessment, Authorization and Monitoring | 6 |
-| CM Configuration Management | 7 |
-| CP Contingency Planning | 8 |
-| IA Identification and Authentication | 9 |
-| IR Incident Response | 10 |
-| MA Maintenance | 11 |
-| MP Media Protection | 12 |
-| PE Physical and Environmental Protection | 13 |
-| PL Planning | 14 |
-| PM Program Management | 15 |
-| PS Personnel Security | 16 |
-| PT Personally Identifiable Information | 17 |
-| RA Risk Assessment | 18 |
-| SA System and Services Acquisition | 19 |
-| SC System and Communications Protection | 20 |
-| SI System and Information Integrity | 21 |
-| SR Supply Chain Risk Management | 22 |
+Documents, policy decisions and cross-family decisions (GEN). The legal adviser confirms the legal positions in PT decisions.
 
-## 2 Cross-family decisions
+**Table 1: Decisions**
 
-**Table 2: Cross-family decisions**
-
-| ID | Decision needed | Recommendation | Who decides | Decision | Name | Date | Evidence |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| \[D-GEN-nn\] | \[Decision needed\] | \[Recommendation\] | \[Who decides\] | \[Decision\] | \[Name\] | \[Date\] | \[Sheet\] |
-
-## 3 Access Control (AC)
-
-### 3.1 Documents and policy decisions
-
-**Table 3: AC documents and policy decisions**
-
-| ID | Decision needed | Recommendation | Who decides | Decision | Name | Date | Evidence |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| \[D-AC-nn\] | \[Decision needed\] | \[Recommendation\] | \[Who decides\] | \[Decision\] | \[Name\] | \[Date\] | \[Sheet\] |
-
-### 3.2 Parameters
-
-The reference values are the parameters in \<System Description\>, section 4, and the settings in \<Access Control Management\>, which match \<Organisation\>'s corporate values. Each row records the approval of one control's parameters, with the main values proposed.
-
-**Table 4: AC parameter approvals**
-
-| ID | Control | Parameters | Main values | Who decides | Decision | Name | Date | Evidence |
+| ID | Family | Decision needed | Recommendation | Who decides | Decision | Name | Date | Evidence |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| \[D-AC-Pnn\] | \[Control\] | \[Number of parameters\] | \[Main values\] | \[Who decides\] | \[Decision\] | \[Name\] | \[Date\] | \[Sheet\] |
+| \[D-XX-nn\] | \[XX\] | \[Decision needed\] | \[Recommendation\] | \[Who decides\] | \[Decision\] | \[Name\] | \[Date\] | \[Sheet\] |
 
-### 3.3 Non-compliance treatments
+## 3 Parameter approvals
+
+The reference values are the parameters in \<System Description\>, section 4, which match \<Organisation\>'s corporate values. Each row records the approval of one control's parameters, with the main values proposed.
+
+**Table 2: Parameter approvals**
+
+| ID | Family | Control | Parameters | Main values | Who decides | Decision | Name | Date | Evidence |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| \[D-XX-Pnn\] | \[XX\] | \[Control\] | \[Number of parameters\] | \[Main values\] | \[Who decides\] | \[Decision\] | \[Name\] | \[Date\] | \[Sheet\] |
+
+## 4 Non-compliance treatment decisions
 
 The control, rating, reason and treatment of each entry are in \<Risk List\>, section 5. This table records who decided, when, and the sheet that proves it, with one row for each batch of decisions. The system owner decides Low risks and the authorising official decides Medium and High risks. A provisional rating is confirmed when the evidence is seen.
 
-**Table 5: AC non-compliance treatment decisions**
+**Table 3: Non-compliance treatment decisions**
 
-| Entries | Who decides | Decision | Name | Date | Evidence |
-| --- | --- | --- | --- | --- | --- |
-| \[NC-AC-nn\] | \[Who decides\] | \[Decision\] | \[Name\] | \[Date\] | \[Sheet\] |
+| Entries | Family | Who decides | Decision | Name | Date | Evidence |
+| --- | --- | --- | --- | --- | --- | --- |
+| \[NC-XX-nn\] | \[XX\] | \[Who decides\] | \[Decision\] | \[Name\] | \[Date\] | \[Sheet\] |
 
-## 4 Awareness and Training (AT)
-
-**Table 6: AT decisions**
-
-| ID | Decision needed | Recommendation | Who decides | Decision | Name | Date | Evidence |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| \[D-AT-nn\] | \[Decision needed\] | \[Recommendation\] | \[Who decides\] | \[Decision\] | \[Name\] | \[Date\] | \[Sheet\] |
-
-## 5 Audit and Accountability (AU)
-
-**Table 7: AU decisions**
-
-| ID | Decision needed | Recommendation | Who decides | Decision | Name | Date | Evidence |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| \[D-AU-nn\] | \[Decision needed\] | \[Recommendation\] | \[Who decides\] | \[Decision\] | \[Name\] | \[Date\] | \[Sheet\] |
-
-**Table 8: AU non-compliance treatment decisions**
-
-| Entries | Who decides | Decision | Name | Date | Evidence |
-| --- | --- | --- | --- | --- | --- |
-| \[NC-AU-nn\] | \[Who decides\] | \[Decision\] | \[Name\] | \[Date\] | \[Sheet\] |
-
-## 6 Assessment, Authorization and Monitoring (CA)
-
-**Table 9: CA decisions**
-
-| ID | Decision needed | Recommendation | Who decides | Decision | Name | Date | Evidence |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| \[D-CA-nn\] | \[Decision needed\] | \[Recommendation\] | \[Who decides\] | \[Decision\] | \[Name\] | \[Date\] | \[Sheet\] |
-
-## 7 Configuration Management (CM)
-
-**Table 10: CM decisions**
-
-| ID | Decision needed | Recommendation | Who decides | Decision | Name | Date | Evidence |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| \[D-CM-nn\] | \[Decision needed\] | \[Recommendation\] | \[Who decides\] | \[Decision\] | \[Name\] | \[Date\] | \[Sheet\] |
-
-**Table 11: CM non-compliance treatment decisions**
-
-| Entries | Who decides | Decision | Name | Date | Evidence |
-| --- | --- | --- | --- | --- | --- |
-| \[NC-CM-nn\] | \[Who decides\] | \[Decision\] | \[Name\] | \[Date\] | \[Sheet\] |
-
-## 8 Contingency Planning (CP)
-
-**Table 12: CP decisions**
-
-| ID | Decision needed | Recommendation | Who decides | Decision | Name | Date | Evidence |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| \[D-CP-nn\] | \[Decision needed\] | \[Recommendation\] | \[Who decides\] | \[Decision\] | \[Name\] | \[Date\] | \[Sheet\] |
-
-## 9 Identification and Authentication (IA)
-
-**Table 13: IA decisions**
-
-| ID | Decision needed | Recommendation | Who decides | Decision | Name | Date | Evidence |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| \[D-IA-nn\] | \[Decision needed\] | \[Recommendation\] | \[Who decides\] | \[Decision\] | \[Name\] | \[Date\] | \[Sheet\] |
-
-**Table 14: IA non-compliance treatment decisions**
-
-| Entries | Who decides | Decision | Name | Date | Evidence |
-| --- | --- | --- | --- | --- | --- |
-| \[NC-IA-nn\] | \[Who decides\] | \[Decision\] | \[Name\] | \[Date\] | \[Sheet\] |
-
-## 10 Incident Response (IR)
-
-**Table 15: IR decisions**
-
-| ID | Decision needed | Recommendation | Who decides | Decision | Name | Date | Evidence |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| \[D-IR-nn\] | \[Decision needed\] | \[Recommendation\] | \[Who decides\] | \[Decision\] | \[Name\] | \[Date\] | \[Sheet\] |
-
-## 11 Maintenance (MA)
-
-**Table 16: MA decisions**
-
-| ID | Decision needed | Recommendation | Who decides | Decision | Name | Date | Evidence |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| \[D-MA-nn\] | \[Decision needed\] | \[Recommendation\] | \[Who decides\] | \[Decision\] | \[Name\] | \[Date\] | \[Sheet\] |
-
-## 12 Media Protection (MP)
-
-**Table 17: MP decisions**
-
-| ID | Decision needed | Recommendation | Who decides | Decision | Name | Date | Evidence |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| \[D-MP-nn\] | \[Decision needed\] | \[Recommendation\] | \[Who decides\] | \[Decision\] | \[Name\] | \[Date\] | \[Sheet\] |
-
-## 13 Physical and Environmental Protection (PE)
-
-**Table 18: PE decisions**
-
-| ID | Decision needed | Recommendation | Who decides | Decision | Name | Date | Evidence |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| \[D-PE-nn\] | \[Decision needed\] | \[Recommendation\] | \[Who decides\] | \[Decision\] | \[Name\] | \[Date\] | \[Sheet\] |
-
-## 14 Planning (PL)
-
-**Table 19: PL decisions**
-
-| ID | Decision needed | Recommendation | Who decides | Decision | Name | Date | Evidence |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| \[D-PL-nn\] | \[Decision needed\] | \[Recommendation\] | \[Who decides\] | \[Decision\] | \[Name\] | \[Date\] | \[Sheet\] |
-
-## 15 Program Management (PM)
-
-**Table 20: PM decisions**
-
-| ID | Decision needed | Recommendation | Who decides | Decision | Name | Date | Evidence |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| \[D-PM-nn\] | \[Decision needed\] | \[Recommendation\] | \[Who decides\] | \[Decision\] | \[Name\] | \[Date\] | \[Sheet\] |
-
-## 16 Personnel Security (PS)
-
-**Table 21: PS decisions**
-
-| ID | Decision needed | Recommendation | Who decides | Decision | Name | Date | Evidence |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| \[D-PS-nn\] | \[Decision needed\] | \[Recommendation\] | \[Who decides\] | \[Decision\] | \[Name\] | \[Date\] | \[Sheet\] |
-
-## 17 Personally Identifiable Information (PT)
-
-The legal adviser confirms the legal positions in this section.
-
-**Table 22: PT decisions**
-
-| ID | Decision needed | Recommendation | Who decides | Decision | Name | Date | Evidence |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| \[D-PT-nn\] | \[Decision needed\] | \[Recommendation\] | \[Who decides\] | \[Decision\] | \[Name\] | \[Date\] | \[Sheet\] |
-
-## 18 Risk Assessment (RA)
-
-**Table 23: RA decisions**
-
-| ID | Decision needed | Recommendation | Who decides | Decision | Name | Date | Evidence |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| \[D-RA-nn\] | \[Decision needed\] | \[Recommendation\] | \[Who decides\] | \[Decision\] | \[Name\] | \[Date\] | \[Sheet\] |
-
-## 19 System and Services Acquisition (SA)
-
-**Table 24: SA decisions**
-
-| ID | Decision needed | Recommendation | Who decides | Decision | Name | Date | Evidence |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| \[D-SA-nn\] | \[Decision needed\] | \[Recommendation\] | \[Who decides\] | \[Decision\] | \[Name\] | \[Date\] | \[Sheet\] |
-
-## 20 System and Communications Protection (SC)
-
-**Table 25: SC decisions**
-
-| ID | Decision needed | Recommendation | Who decides | Decision | Name | Date | Evidence |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| \[D-SC-nn\] | \[Decision needed\] | \[Recommendation\] | \[Who decides\] | \[Decision\] | \[Name\] | \[Date\] | \[Sheet\] |
-
-**Table 26: SC non-compliance treatment decisions**
-
-| Entries | Who decides | Decision | Name | Date | Evidence |
-| --- | --- | --- | --- | --- | --- |
-| \[NC-SC-nn\] | \[Who decides\] | \[Decision\] | \[Name\] | \[Date\] | \[Sheet\] |
-
-## 21 System and Information Integrity (SI)
-
-**Table 27: SI decisions**
-
-| ID | Decision needed | Recommendation | Who decides | Decision | Name | Date | Evidence |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| \[D-SI-nn\] | \[Decision needed\] | \[Recommendation\] | \[Who decides\] | \[Decision\] | \[Name\] | \[Date\] | \[Sheet\] |
-
-## 22 Supply Chain Risk Management (SR)
-
-**Table 28: SR decisions**
-
-| ID | Decision needed | Recommendation | Who decides | Decision | Name | Date | Evidence |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| \[D-SR-nn\] | \[Decision needed\] | \[Recommendation\] | \[Who decides\] | \[Decision\] | \[Name\] | \[Date\] | \[Sheet\] |
-
-## 23 Proof of approval
+## 5 Proof of approval
 
 Every decision in this register names the person who made it. Where the system owner records another person's decision, that person signs for it on their own sheet.
 
@@ -259,7 +46,7 @@ The Evidence column of each table names the sign-off sheet that proves the decis
 
 Until a sheet is filed, the decisions it covers rest on the system owner's record alone. The system owner files each sheet in the Restricted store and enters its reference and date below. Nobody signs for anyone else.
 
-**Table 29: Sign-off sheets**
+**Table 4: Sign-off sheets**
 
 | Sheet | Approver | Role | Covers | Decisions | Filed |
 | --- | --- | --- | --- | --- | --- |

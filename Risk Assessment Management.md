@@ -125,7 +125,7 @@ This is the one timetable for vulnerabilities in \<System Name\>, its packages a
 | Medium | Vendor rating Medium or Moderate, or CVSS base 4.0 to 6.9 | 30 days |
 | Low | Vendor rating Low, or CVSS base below 4.0 | 90 days |
 
-The clock starts when the fix is released, or when \<System Name\>'s use of the flaw is detected if that is later. The vendor's rating comes first; the CVSS version is recorded on TPL-7. Mitigating means reducing the risk without the fix, for example by turning off the affected feature or blocking its route. A fix that cannot meet its time goes to a risk decision under \<Policy\>, section RA.7, with its compensating measure.
+The clock starts when the fix is released, or when \<System Name\>'s use of the flaw is detected if that is later. The vendor's rating comes first; the CVSS version is recorded on TPL-7. Mitigating means reducing the risk without the fix, for example by turning off the affected feature or blocking its route. A fix that cannot meet its time goes to a risk decision under \<Policy\>, section 1.2, with its compensating measure.
 
 ### 3.7 Analysing, sharing and reporting
 

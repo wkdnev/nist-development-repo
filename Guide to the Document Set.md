@@ -2,7 +2,7 @@
 
 ## 1 Purpose
 
-This guide is the place to start. It says what the \<System Name\> document set is, how its 44 documents relate to each other, and how to find a way through them. It is written for someone who has not seen the set before: an external auditor, the independent assessment team, a new role holder, or the authorising official.
+This guide is the place to start. It says what the \<System Name\> document set is, how its 42 documents relate to each other, and how to find a way through them. It is written for someone who has not seen the set before: an external auditor, the independent assessment team, a new role holder, or the authorising official.
 
 It holds no facts about the system of its own. It says which document in the set holds each kind of fact. The full index is \<Documentation Map\>, which also says where each fact about a control is held (its section 3) and sets the standard every document follows (its section 4).
 
@@ -20,15 +20,15 @@ The documents fall into four groups, and answer four questions in turn: what the
 
 | Group | Documents | The question it answers |
 | --- | --- | --- |
-| Plans and descriptions | 22 | What is \<System Name\>, and how is each family of controls designed? |
-| Rules and how they are carried out | 11 | What must be true, who does what, and what record proves it? |
+| Plans and descriptions | 26 | What is \<System Name\>, and how is each family of controls designed? |
+| Rules and how they are carried out | 5 | What must be true, who does what, and what record proves it? |
 | Assessment and authorisation | 7 | How well is each control met, what is the risk, and what is being done about it? |
 | Guides and index | 4 | Where is everything? |
 
 Four ideas explain how the set is built.
 
 1. **Point, don't repeat.** Within the set, a value, a design or a decision is written in one document, and the others point to it. If two documents seem to say the same thing, one of them is a summary and says so. Other sources, such as the development team's design documents, may also describe the system.
-2. **One design document for each family.** Each of the 20 control families has a document that sets out its design and takes every control part by part. Section 6 lists them.
+2. **One design document for each family.** Each of the 20 control families has a document that sets out its design and takes every control part by part. \<Documentation Map\>, Table 2, lists them.
 3. **One line for each control in the security plan.** \<System Security Plan\>, section 7, has a line for every one of the 316 controls: how it is met, who is responsible, its status and where its gap is registered. It is the quickest way in to any control.
 4. **Every gap is registered.** A control that is not fully met has an entry in \<Risk List\>, and a weakness that needs a fix has an item in \<Plan of Action and Milestones\>. Nothing is described as done that is not.
 

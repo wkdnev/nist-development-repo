@@ -33,7 +33,7 @@ Values in \[brackets\] are for the developers to fill.
 | Browser libraries | Page templates | Packaged with and served by \<System Name\> itself. No content delivery service or other outside host | \<System and Communications Protection Management\> |
 | Logging | Each application's logging settings | No personal data or sign-in details in the application log | \<Audit and Accountability Management\> |
 
-Any change to these settings follows \<Procedures\> (CM), and is checked for drift monthly (SyOps C47).
+Any change to these settings follows \<Procedures\> (CM), and is checked for drift monthly (\\<Security Operating Procedures\\>, C47).
 
 ## 4 Secure operation
 
@@ -48,7 +48,7 @@ Any change to these settings follows \<Procedures\> (CM), and is checked for dri
 | Check for exploited flaws | Weekly | \<Procedures\>, PRO-RA-4 | TPL-7 |
 | Test backups and restores | As in \<Contingency Planning Management\> | \<Procedures\> (CP) | TPL-11 |
 | Maintenance | As needed | \<Procedures\> (MA), through the managed route | TPL-12 |
-| Check the export working area | Each working day (SyOps C49) | \<Procedures\> (MP) | TPL-8 |
+| Check the export working area | Each working day (\\<Security Operating Procedures\\>, C49) | \<Procedures\> (MP) | TPL-8 |
 | Report an incident | At once | \<Incident Response Management\> | TPL-10 |
 
 ## 5 Security functions and how to maintain them

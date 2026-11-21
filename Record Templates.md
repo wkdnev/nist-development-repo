@@ -26,14 +26,14 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | TPL-14 Leaver or mover record | Records what happened to someone's access when they left or moved. Kept for 3 years | AC-2; PS-4, PS-5; PRO-PS-2, PRO-PS-3 |
 | TPL-15 Privacy request | Records a request from an individual about their data: to see, correct, delete, restrict, object or receive it in a portable form. Kept for 3 years after it is closed | AC-3(14); SI-18(4); PRO-PT-1 |
 | TPL-16 Supplier review | Records a yearly review of a supplier or external service | SA-9, SR-2, SR-6, SR-8; PRO-SA-3, PRO-SR-2 |
-| TPL-17 Exception request | Records a request to depart from a SyOps rule, the decision and its end date. The approved requests form the exception register | AC-20, AC-20(2); PRO-AC-15; PL-4, CM-2(7), MP-7, PE-17; \<Security Operating Procedures\>, section 5 |
+| TPL-17 Exception request | Records a request to depart from a rule in \<Security Operating Procedures\>, the decision and its end date. The approved requests form the exception register | AC-20, AC-20(2); PRO-AC-15; PL-4, CM-2(7), MP-7, PE-17; \<Security Operating Procedures\>, section 5 |
 | TPL-18 Authorisation decision | Records the authorising official's decision, its terms and conditions, the risks accepted and its end date | CA-6; PRO-CA-4, PRO-CA-7 |
 | TPL-19 Assessor independence statement | Records an assessor's confirmation that they had no part in building or running \<System Name\> | CA-2(1), CA-7(1); PRO-CA-1, PRO-CA-5 |
 | TPL-20 Site inspection checklist | Records a one-off inspection of a data centre's physical and environmental controls | PE-2 to PE-16; PRO-PE-5 |
 | TPL-21 Rules of behaviour acknowledgement | Records that a person has signed the rules of behaviour, which version and parts, and how. Kept while the person has access, and for 3 years after | AC-2; PL-4, PL-4(1), PS-6; PRO-PL-3 |
 | TPL-22 Data protection complaint | Records a complaint about how personal data is handled, its acknowledgement within 30 days, the investigation and the outcome. Kept for 3 years after it is closed | PT-2, PM-26; PRO-PT-2 |
 | TPL-23 Risk and supply chain review | Records a review of the risk list, the supply chain or the critical components: what was looked at, what changed, and who saw the result | RA-3, RA-3(1), RA-7, RA-9; PRO-RA-1, PRO-RA-2, PRO-RA-6 |
-| TPL-24 Approval sign-off record | Records that a named person made or confirms the decisions listed, so that an approval does not rest on someone else's report | AC-1; CA-6, PL-2, PM-10 and every policy control (xx-1); \<Decision Register\>, section 23 |
+| TPL-24 Approval sign-off record | Records that a named person made or confirms the decisions listed, so that an approval does not rest on someone else's report | AC-1; CA-6, PL-2, PM-10 and every policy control (xx-1); \<Decision Register\>, section 5 |
 
 ## 2 Templates
 
@@ -479,7 +479,7 @@ Completed by the system owner for each review of the risk list, the supply chain
 
 ### 2.24 TPL-24 Approval sign-off record
 
-Completed for each approver, and filed by the system owner in the Restricted store. The approver signs it, or replies to an email that lists the same decisions; the email is then attached. One sheet covers every decision the person has made up to its date (\<Decision Register\>, section 23). Nobody signs for anyone else.
+Completed for each approver, and filed by the system owner in the Restricted store. The approver signs it, or replies to an email that lists the same decisions; the email is then attached. One sheet covers every decision the person has made up to its date (\<Decision Register\>, section 5). Nobody signs for anyone else.
 
 **Table 27: TPL-24 Approval sign-off record**
 

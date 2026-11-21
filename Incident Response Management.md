@@ -83,7 +83,7 @@ Controls met here: IR-4.
 | Weekly audit log review (\<Procedures\> (AU); \<System Description\>, P-08) | Refused access, changes to schemas and their groups, large exports; failed sign-ins and lockouts from \<Organisation\>'s PingFederate and Active Directory records | The auditor, who reports anything suspicious to the security officer. The security officer does not read the audit log |
 | Alerts (\<System Description\>, P-27) | The eight alert events: repeated failed sign-ins; a break in the audit chain; malware detected; a person added to an administrator group; a bulk export above a set size; an administrator sign-in out of hours; an audit logging failure; and an unexpected change to the software | Security officer |
 | Microsoft Defender on both servers | Malicious code | Windows server administrator |
-| Backup and integrity checks (SyOps C8, C12) | Failed backups, changed stored files or release packages | Database and Windows server administrators |
+| Backup and integrity checks (\\<Security Operating Procedures\\>, C8, C12) | Failed backups, changed stored files or release packages | Database and Windows server administrators |
 | \<Organisation\>'s monitoring (EV-IR-01) | Network and directory events | \<Organisation\>'s security contact |
 | Supplier and NCSC advisories | Vulnerabilities in components \<System Name\> uses | Security officer |
 

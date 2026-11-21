@@ -12,7 +12,7 @@ This set covers the 19 control families of CSS that apply to \<System Name\>: Ac
 
 ## 2 The document set
 
-The set has 44 documents. \<Guide to the Document Set\> is the place to start. Within the set, each fact is written in one document and the others point to it. Every family has its design in a document of its own, in the same form: access control in \<Access Control Management\>, awareness and training in \<Awareness and Training Management\>, audit and accountability in \<Audit and Accountability Management\>, assessment, authorisation and monitoring in \<Assessment, Authorization, and Monitoring Management\>, configuration management in \<Configuration Management\>, contingency planning in \<Contingency Planning Management\>, identification and authentication in \<Identification and Authentication Management\>, incident response in \<Incident Response Management\>, maintenance in \<Maintenance Management\>, media protection in \<Media Protection Management\>, physical and environmental protection in \<Physical and Environmental Protection Management\>, planning in \<Planning Management\>, program management in \<Program Management\>, personnel security in \<Personnel Security Management\>, personal data in \<PII Processing Management\>, risk assessment in \<Risk Assessment Management\>, system and services acquisition in \<System and Services Acquisition Management\>, system and communications protection in \<System and Communications Protection Management\>, system and information integrity in \<System and Information Integrity Management\>, and supply chain risk management in \<Supply Chain Risk Management\>.
+The set has 42 documents. \<Guide to the Document Set\> is the place to start. Within the set, each fact is written in one document and the others point to it. Every family has its design in a document of its own, in the same form: access control in \<Access Control Management\>, awareness and training in \<Awareness and Training Management\>, audit and accountability in \<Audit and Accountability Management\>, assessment, authorisation and monitoring in \<Assessment, Authorization, and Monitoring Management\>, configuration management in \<Configuration Management\>, contingency planning in \<Contingency Planning Management\>, identification and authentication in \<Identification and Authentication Management\>, incident response in \<Incident Response Management\>, maintenance in \<Maintenance Management\>, media protection in \<Media Protection Management\>, physical and environmental protection in \<Physical and Environmental Protection Management\>, planning in \<Planning Management\>, program management in \<Program Management\>, personnel security in \<Personnel Security Management\>, personal data in \<PII Processing Management\>, risk assessment in \<Risk Assessment Management\>, system and services acquisition in \<System and Services Acquisition Management\>, system and communications protection in \<System and Communications Protection Management\>, system and information integrity in \<System and Information Integrity Management\>, and supply chain risk management in \<Supply Chain Risk Management\>.
 
 ### 2.1 The documents
 
@@ -69,28 +69,30 @@ Table 2 gives, for each family, the chapter or section of every document that ho
 
 **Table 2: Where each family is documented**
 
-| Family | Policy and procedures | Design | \<System Security Plan\> | Assessment | \<Risk List\> | \<Decision Register\> | \<Evidence Requests\> | \<Interview Guide\> | Test |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| AC Access Control | \<Policy\> (AC) and \<Procedures\> (AC) | \<Access Control Management\>, section 3 | Section 7.1 | \<Control Assessment Record\> (AC) | Section 5.1 | Section 3 | Section 3 | Section 3 | Test-AccessControl.ps1 |
-| AT Awareness and Training | \<Policy\> (AT) and \<Procedures\> (AT) | \<Awareness and Training Management\>, section 3 | Section 7.2 | \<Control Assessment Record\> (AT) | Section 5.2 | Section 4 | Section 4 | Section 4 | Test-PlanConsistency.ps1 |
-| AU Audit and Accountability | \<Policy\> (AU) and \<Procedures\> (AU) | \<Audit and Accountability Management\>, section 3 | Section 7.3 | \<Control Assessment Record\> (AU) | Section 5.3 | Section 5 | Section 5 | Section 5 | Test-AuditAndAuth.ps1 |
-| CA Assessment, Authorization, and Monitoring | \<Policy\> (CA) and \<Procedures\> (CA) | \<Assessment, Authorization, and Monitoring Management\>, section 3 | Section 7.4 | \<Control Assessment Record\> (CA) | Section 5.4 | Section 6 | Section 6 | Section 6 | Test-PlanConsistency.ps1 |
-| CM Configuration Management | \<Policy\> (CM) and \<Procedures\> (CM) | \<Configuration Management\>, section 3 | Section 7.5 | \<Control Assessment Record\> (CM) | Section 5.5 | Section 7 | Section 7 | Section 7 | Test-ConfigurationManagement.ps1 |
-| CP Contingency Planning | \<Policy\> (CP) and \<Procedures\> (CP) | \<Contingency Planning Management\>, section 3 | Section 7.6 | \<Control Assessment Record\> (CP) | Section 5.6 | Section 8 | Section 8 | Section 8 | Test-BackupRestore.ps1 |
-| IA Identification and Authentication | \<Policy\> (IA) and \<Procedures\> (IA) | \<Identification and Authentication Management\>, section 3 | Section 7.7 | \<Control Assessment Record\> (IA) | Section 5.7 | Section 9 | Section 9 | Section 9 | Test-AuditAndAuth.ps1 and Test-Identification.ps1 |
-| IR Incident Response | \<Policy\> (IR) and \<Procedures\> (IR) | \<Incident Response Management\>, section 3 | Section 7.8 | \<Control Assessment Record\> (IR) | Section 5.8 | Section 10 | Section 10 | Section 10 | Test-IncidentReadiness.ps1 |
-| MA Maintenance | \<Policy\> (MA) and \<Procedures\> (MA) | \<Maintenance Management\>, section 3 | Section 7.9 | \<Control Assessment Record\> (MA) | Section 5.9 | Section 11 | Section 11 | Section 11 | Test-Maintenance.ps1 |
-| MP Media Protection | \<Policy\> (MP) and \<Procedures\> (MP) | \<Media Protection Management\>, section 3 | Section 7.10 | \<Control Assessment Record\> (MP) | Section 5.10 | Section 12 | Section 12 | Section 12 | Test-MediaProtection.ps1 |
-| PE Physical and Environmental Protection | \<Policy\> (PE) and \<Procedures\> (PE) | \<Physical and Environmental Protection Management\>, section 3 | Section 7.11 | \<Control Assessment Record\> (PE) | Section 5.11 | Section 13 | Section 13 | Section 13 | None: provided by \<Organisation\> |
-| PL Planning | \<Policy\> (PL) and \<Procedures\> (PL) | \<Planning Management\>, section 3 | Section 7.12 | \<Control Assessment Record\> (PL) | Section 5.12 | Section 14 | Section 14 | Section 14 | Test-PlanConsistency.ps1 |
-| PM Program Management | None: inherited from \<Organisation\> | \<Program Management\>, section 3.3 | None: outside the baseline | Not assessed | None | Section 15 | Section 15 | INT-PM-01, in section 14 | None: outside the baseline |
-| PS Personnel Security | \<Policy\> (PS) and \<Procedures\> (PS) | \<Personnel Security Management\>, section 3 | Section 7.13 | \<Control Assessment Record\> (PS) | Section 5.13 | Section 16 | Section 16 | Section 15 | Test-PlanConsistency.ps1 |
-| PT Personally Identifiable Information Processing and Transparency | \<Policy\> (PT) and \<Procedures\> (PT) | \<PII Processing Management\>, section 3; \<Privacy Plan\>; \<Data Protection Impact Assessment\> | Section 7.14 | \<Control Assessment Record\> (PT) | Section 5.14 | Section 17 | Section 17 | Section 16 | Test-PersonalData.ps1 |
-| RA Risk Assessment | \<Policy\> (RA) and \<Procedures\> (RA) | \<Risk Assessment Management\>, section 3 | Section 7.15 | \<Control Assessment Record\> (RA) | Section 5.15 | Section 18 | Section 18 | Section 17 | Test-Vulnerability.ps1 |
-| SA System and Services Acquisition | \<Policy\> (SA) and \<Procedures\> (SA) | \<System and Services Acquisition Management\>, section 3 | Section 7.16 | \<Control Assessment Record\> (SA) | Section 5.16 | Section 19 | Section 19 | Section 18 | Test-Development.ps1 |
-| SC System and Communications Protection | \<Policy\> (SC) and \<Procedures\> (SC) | \<System and Communications Protection Management\>, section 3 | Section 7.17 | \<Control Assessment Record\> (SC) | Section 5.17 | Section 20 | Section 20 | Section 19 | Test-Protection.ps1 |
-| SI System and Information Integrity | \<Policy\> (SI) and \<Procedures\> (SI) | \<System and Information Integrity Management\>, section 3 | Section 7.18 | \<Control Assessment Record\> (SI) | Section 5.18 | Section 21 | Section 21 | Section 20 | Test-Integrity.ps1 and Test-Vulnerability.ps1 |
-| SR Supply Chain Risk Management | \<Policy\> (SR) and \<Procedures\> (SR) | \<Supply Chain Risk Management\>, section 3 | Section 7.19 | \<Control Assessment Record\> (SR) | Section 5.19 | Section 22 | Section 22 | Section 21 | Test-SupplyChain.ps1 |
+| Family | Policy and procedures | Design | \<System Security Plan\> | Assessment | \<Evidence Requests\> | \<Interview Guide\> | Test |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| AC Access Control | \<Policy\> (AC) and \<Procedures\> (AC) | \<Access Control Management\>, section 3 | Section 7.1 | \<Control Assessment Record\> (AC) | Section 3 | Section 3 | Test-AccessControl.ps1 |
+| AT Awareness and Training | \<Policy\> (AT) and \<Procedures\> (AT) | \<Awareness and Training Management\>, section 3 | Section 7.2 | \<Control Assessment Record\> (AT) | Section 4 | Section 4 | Test-PlanConsistency.ps1 |
+| AU Audit and Accountability | \<Policy\> (AU) and \<Procedures\> (AU) | \<Audit and Accountability Management\>, section 3 | Section 7.3 | \<Control Assessment Record\> (AU) | Section 5 | Section 5 | Test-AuditAndAuth.ps1 |
+| CA Assessment, Authorization, and Monitoring | \<Policy\> (CA) and \<Procedures\> (CA) | \<Assessment, Authorization, and Monitoring Management\>, section 3 | Section 7.4 | \<Control Assessment Record\> (CA) | Section 6 | Section 6 | Test-PlanConsistency.ps1 |
+| CM Configuration Management | \<Policy\> (CM) and \<Procedures\> (CM) | \<Configuration Management\>, section 3 | Section 7.5 | \<Control Assessment Record\> (CM) | Section 7 | Section 7 | Test-ConfigurationManagement.ps1 |
+| CP Contingency Planning | \<Policy\> (CP) and \<Procedures\> (CP) | \<Contingency Planning Management\>, section 3 | Section 7.6 | \<Control Assessment Record\> (CP) | Section 8 | Section 8 | Test-BackupRestore.ps1 |
+| IA Identification and Authentication | \<Policy\> (IA) and \<Procedures\> (IA) | \<Identification and Authentication Management\>, section 3 | Section 7.7 | \<Control Assessment Record\> (IA) | Section 9 | Section 9 | Test-AuditAndAuth.ps1 and Test-Identification.ps1 |
+| IR Incident Response | \<Policy\> (IR) and \<Procedures\> (IR) | \<Incident Response Management\>, section 3 | Section 7.8 | \<Control Assessment Record\> (IR) | Section 10 | Section 10 | Test-IncidentReadiness.ps1 |
+| MA Maintenance | \<Policy\> (MA) and \<Procedures\> (MA) | \<Maintenance Management\>, section 3 | Section 7.9 | \<Control Assessment Record\> (MA) | Section 11 | Section 11 | Test-Maintenance.ps1 |
+| MP Media Protection | \<Policy\> (MP) and \<Procedures\> (MP) | \<Media Protection Management\>, section 3 | Section 7.10 | \<Control Assessment Record\> (MP) | Section 12 | Section 12 | Test-MediaProtection.ps1 |
+| PE Physical and Environmental Protection | \<Policy\> (PE) and \<Procedures\> (PE) | \<Physical and Environmental Protection Management\>, section 3 | Section 7.11 | \<Control Assessment Record\> (PE) | Section 13 | Section 13 | None: provided by \<Organisation\> |
+| PL Planning | \<Policy\> (PL) and \<Procedures\> (PL) | \<Planning Management\>, section 3 | Section 7.12 | \<Control Assessment Record\> (PL) | Section 14 | Section 14 | Test-PlanConsistency.ps1 |
+| PM Program Management | None: inherited from \<Organisation\> | \<Program Management\>, section 3.3 | None: outside the baseline | Not assessed | Section 15 | Section 15 | None: outside the baseline |
+| PS Personnel Security | \<Policy\> (PS) and \<Procedures\> (PS) | \<Personnel Security Management\>, section 3 | Section 7.13 | \<Control Assessment Record\> (PS) | Section 16 | Section 16 | Test-PlanConsistency.ps1 |
+| PT Personally Identifiable Information Processing and Transparency | \<Policy\> (PT) and \<Procedures\> (PT) | \<PII Processing Management\>, section 3; \<Privacy Plan\>; \<Data Protection Impact Assessment\> | Section 7.14 | \<Control Assessment Record\> (PT) | Section 17 | Section 17 | Test-PersonalData.ps1 |
+| RA Risk Assessment | \<Policy\> (RA) and \<Procedures\> (RA) | \<Risk Assessment Management\>, section 3 | Section 7.15 | \<Control Assessment Record\> (RA) | Section 18 | Section 18 | Test-Vulnerability.ps1 |
+| SA System and Services Acquisition | \<Policy\> (SA) and \<Procedures\> (SA) | \<System and Services Acquisition Management\>, section 3 | Section 7.16 | \<Control Assessment Record\> (SA) | Section 19 | Section 19 | Test-Development.ps1 |
+| SC System and Communications Protection | \<Policy\> (SC) and \<Procedures\> (SC) | \<System and Communications Protection Management\>, section 3 | Section 7.17 | \<Control Assessment Record\> (SC) | Section 20 | Section 20 | Test-Protection.ps1 |
+| SI System and Information Integrity | \<Policy\> (SI) and \<Procedures\> (SI) | \<System and Information Integrity Management\>, section 3 | Section 7.18 | \<Control Assessment Record\> (SI) | Section 21 | Section 21 | Test-Integrity.ps1 and Test-Vulnerability.ps1 |
+| SR Supply Chain Risk Management | \<Policy\> (SR) and \<Procedures\> (SR) | \<Supply Chain Risk Management\>, section 3 | Section 7.19 | \<Control Assessment Record\> (SR) | Section 22 | Section 22 | Test-SupplyChain.ps1 |
+
+\<Risk List\>, \<Decision Register\> and \<Plan of Action and Milestones\> hold each family's entries as rows of one table, with a Family column and the family code in each identifier.
 
 ### 2.3 Records outside the documents
 
@@ -101,7 +103,7 @@ Table 2 gives, for each family, the chapter or section of every document that ho
 | Test evidence | \<evidence\> | The results of each test, with a note that explains them and a list of hashes that fixes their content |
 | Figures | With the documents | The architecture figures used in \<System Security Plan\> and \<System Description\> |
 | Change record | The private records repository described in section 4.1 | Every change to the documents and evidence, with its date |
-| Sign-off sheets | The restricted store (\<Decision Register\>, section 23) | Each approver's signature for the decisions recorded for them |
+| Sign-off sheets | The restricted store (\<Decision Register\>, section 5) | Each approver's signature for the decisions recorded for them |
 
 ## 3 Following a control
 
@@ -174,7 +176,7 @@ Each document is known by its title. In the text a document is cited by its titl
 6. Moving a document into a combined document changes no content.
 7. Records are not rewritten. Decided entries in \<Decision Register\> keep the names, section numbers and versions of their date.
 8. Where a live statement cites another document at a version, the citation is kept at the current version.
-9. Proof of each approval is the approver's signed sheet (\<Record Templates\>, TPL-24), listed in \<Decision Register\>, section 23.
+9. Proof of each approval is the approver's signed sheet (\<Record Templates\>, TPL-24), listed in \<Decision Register\>, section 5.
 ### 4.6 Order of families
 
 Wherever a document has a part for each family, the families are in CSS order: AC, AT, AU, CA, CM, CP, IA, IR, MA, MP, PE, PL, PM, PS, PT, RA, SA, SC, SI, SR. A new family takes its place in that order, and the sections and tables after it are renumbered, with every reference to them.
@@ -183,8 +185,8 @@ Wherever a document has a part for each family, the families are in CSS order: A
 
 \<Decision Register\>, \<Tailoring Register\>, \<Evidence Requests\>, \<Record Templates\> and \<Interview Guide\> are live documents, which grow as decisions are made and evidence arrives. Each live document follows these rules:
 
-1. It has one numbered section for each family, in CSS order, with cross-family content in its own section.
-2. It has a family coverage table showing the state of every family, and steps for adding a family.
+1. Where its entries for each family have content of their own, as in \<Evidence Requests\> and \<Interview Guide\>, it has one numbered section for each family, in CSS order, with cross-family content in its own section, and a family coverage table showing the state of every family.
+2. Where its entries are rows of the same kind, as in \<Decision Register\>, it holds one table for each kind of entry, with a Family column, in place of a section for each family.
 3. Its identifiers carry the family code, such as D-AU-nn, so that adding an entry never renumbers an existing one.
 4. Each addition increases the version number and is recorded in the change record.
 5. This map is updated at the same time.

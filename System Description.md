@@ -1163,7 +1163,7 @@ Table 48 defines the terms used across the set, including those in \<Policy\>. T
 | SDLC | Software development life cycle |
 | SHA | Secure Hash Algorithm |
 | SSP | System security plan |
-| SyOps | Security operating procedures, \<Security Operating Procedures\> |
+| \<Security Operating Procedures\> | Security operating procedures, \<Security Operating Procedures\> |
 | TCP, UDP | Transmission Control Protocol, User Datagram Protocol |
 | TLS | Transport Layer Security |
 | TPL | Record form in \<Record Templates\> |

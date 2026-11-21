@@ -217,7 +217,7 @@ Table AC-4 summarises each procedure: what starts it, who acts, its time limit, 
 
 | Procedure | Starts when | Who acts | Time limit | Record | Controls |
 | --- | --- | --- | --- | --- | --- |
-| PRO-AC-1 Joiner | Access is requested | The person, line manager, the group's owner (P-37), security officer | Training and signed SyOps before the person is added to a group | ServiceNow request, TPL-9, TPL-21 and the register of signatures | AC-2, PL-4, PS-6, AT-2 |
+| PRO-AC-1 Joiner | Access is requested | The person, line manager, the group's owner (P-37), security officer | Training and signed \<Security Operating Procedures\> before the person is added to a group | ServiceNow request, TPL-9, TPL-21 and the register of signatures | AC-2, PL-4, PS-6, AT-2 |
 | PRO-AC-2 Mover | A role changes | Line manager, the groups' owners | Notified within 1 working day (P-06) | TPL-2, TPL-14 | AC-2, PS-5 |
 | PRO-AC-3 Leaver | The starters and leavers process prompts | \<Organisation\> disables the Active Directory account at once; the groups' owners | Within 5 working days (\<System Description\>, P-06) | TPL-14 | AC-2, AC-2(3), PS-4 |
 | PRO-AC-4 Urgent disable | A concern is raised | Anyone, \<Organisation\>'s service desk, system owner | Within 1 hour (P-41) | TPL-14, and TPL-10 if it is an incident | AC-2(13), IR-6 |
@@ -645,7 +645,7 @@ These procedures carry out \<Policy\> (CP) and \<Contingency Planning Management
 5. The backup encryption key and the protected copy of the secrets are held apart from the backups, and only the system owner and administrators can reach them.
 6. A failed backup alerts the database administrator and the security officer, who fix it within 1 working day.
 7. The system owner copies changed documentation to the controlled library. **Manual**
-8. Each week the database administrator checks every backup job succeeded, and records it on TPL-8 (SyOps C8). **Manual**
+8. Each week the database administrator checks every backup job succeeded, and records it on TPL-8 (\\<Security Operating Procedures\\>, C8). **Manual**
 
 #### PRO-CP-2 Testing a restore
 
@@ -1094,7 +1094,7 @@ These procedures carry out \<Policy\> (PL). Steps marked **Manual** have no syst
 1. Before access, the system owner gives the person \<Security Operating Procedures\>: Part A for everyone, and Parts A and B for administrators. **Manual**
 2. The person signs the declaration that they have read and understood the rules and agree to follow them, on paper or electronically, and the system owner completes TPL-21. **Manual**
 3. The system owner adds the signature to the register in \<Planning Management\>, section 3.5. The access request (TPL-2) checks the register before access is given. **Manual**
-4. When SyOps changes, the system owner decides whether the change is material, as defined in \<Policy\> (PL), R7, and records the answer in the SyOps change record. If it is, everyone signs again within 30 days, or loses access. **Manual**
+4. When SyOps changes, the system owner decides whether the change is material, as defined in \<Policy\> (PL), R7, and records the answer in the change record of \<Security Operating Procedures\>. If it is, everyone signs again within 30 days, or loses access. **Manual**
 5. Every 12 months, everyone signs again. **Manual**
 
 #### PRO-PL-4 Tailoring
@@ -1241,7 +1241,7 @@ These procedures carry out \<Policy\> (PT). Steps marked **Manual** have no syst
 
 #### PRO-PT-6 Training and test data
 
-1. Everyone who handles items holding personal data, and all administrators, complete privacy training before access and every 12 months. The module covers the purposes, the rules in SyOps A23 to A29, recognising and reporting a breach within an hour, requests and complaints. It is recorded on TPL-9. **Manual**
+1. Everyone who handles items holding personal data, and all administrators, complete privacy training before access and every 12 months. The module covers the purposes, the rules in \<Security Operating Procedures\>, A23 to A29, recognising and reporting a breach within an hour, requests and complaints. It is recorded on TPL-9. **Manual**
 2. Developers use only invented data for testing, and trainers use only invented data for training. Real personal data is never used there. Test-PersonalData.ps1 checks this in each test environment. **Manual**
 
 ## RA Risk Assessment
@@ -1358,7 +1358,7 @@ These procedures carry out \<Policy\> (SA). Steps marked **Manual** have no syst
 
 #### PRO-SA-5 Unsupported components
 
-1. The monthly check (SyOps C11) compares each component in \<Maintenance Management\>, section 3.8, with its vendor's support dates, and checks that each package and browser library is still maintained, is not deprecated, and has no known flaw without a fix. **Manual**
+1. The monthly check (\\<Security Operating Procedures\\>, C11) compares each component in \<Maintenance Management\>, section 3.8, with its vendor's support dates, and checks that each package and browser library is still maintained, is not deprecated, and has no known flaw without a fix. **Manual**
 2. Developers plan a replacement at least 6 months before support ends. **Manual**
 3. Any exception goes to the authorising official, with the risk stated. **Manual**
 
@@ -1406,7 +1406,7 @@ These procedures carry out \<Policy\> (SC). The values, cryptographic register a
 #### PRO-SC-2 Managing certificates
 
 1. The Windows server administrator requests each certificate from \<Organisation\>'s certificate authority, using ECDSA P-256 or RSA 2048-bit with SHA-256, and records it in the register. **Manual**
-2. Renewal starts 30 days before expiry (SyOps C39), and the new certificate is installed through change control. **Manual**
+2. Renewal starts 30 days before expiry (\\<Security Operating Procedures\\>, C39), and the new certificate is installed through change control. **Manual**
 3. A certificate whose key may be compromised is revoked and replaced at once, and the event is handled as an incident. **Manual**
 
 #### PRO-SC-3 Changing keys
@@ -1495,7 +1495,7 @@ These procedures carry out \<Policy\> (SI). The values, detection use cases and 
 
 #### PRO-SI-5 Acting on advisories
 
-1. The security officer receives advisories from NCSC (including Early Warning), CISA, Microsoft for Windows Server, SQL Server and .NET, and the vendors of every other component, and checks CISA's Known Exploited Vulnerabilities catalogue weekly (SyOps C50). **Manual**
+1. The security officer receives advisories from NCSC (including Early Warning), CISA, Microsoft for Windows Server, SQL Server and .NET, and the vendors of every other component, and checks CISA's Known Exploited Vulnerabilities catalogue weekly (\\<Security Operating Procedures\\>, C50). **Manual**
 2. For each one that applies, they write an internal advisory note on TPL-7 and pass it to the administrators and developers. **Manual**
 3. The fix follows PRO-SI-1. **Manual**
 
