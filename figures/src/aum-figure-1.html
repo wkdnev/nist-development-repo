@@ -18,8 +18,8 @@
 <line x1="980" y1="239" x2="1050" y2="239" stroke="#999" stroke-width="2.5" marker-end="url(#a)"/>
 <rect x="48" y="328" width="420" height="134" rx="12" fill="#fff" stroke="#999" stroke-width="2"/>
 <text x="76" y="374" font-size="25" font-weight="700" fill="#1a1a1a">SQL Server</text>
-<text x="76" y="410" font-size="20" fill="#555">logins, permission and</text>
-<text x="76" y="440" font-size="20" fill="#555">database structure changes</text>
+<text x="76" y="410" font-size="20" fill="#555">logins, permissions, structure;</text>
+<text x="76" y="440" font-size="20" fill="#555">item reads by non-API logins</text>
 <rect x="560" y="328" width="420" height="134" rx="12" fill="#fff" stroke="#999" stroke-width="2"/>
 <text x="588" y="374" font-size="25" font-weight="700" fill="#1a1a1a">SQL Server Audit files</text>
 <text x="588" y="410" font-size="20" fill="#555">forwarded to central logging</text>
@@ -53,7 +53,10 @@
 <text x="1080" y="410" font-size="20" fill="#555">every week, compares these</text>
 <text x="1080" y="440" font-size="20" fill="#555">logs with the audit log by</text>
 <text x="1080" y="470" font-size="20" fill="#555">hand, lining them up by</text>
-<text x="1080" y="500" font-size="20" fill="#555">UTC time and username</text>
+<text x="1080" y="500" font-size="20" fill="#555">UTC time and username. They</text>
+<text x="1080" y="530" font-size="20" fill="#555">read the server logs in</text>
+<text x="1080" y="560" font-size="20" fill="#555">central logging, with no</text>
+<text x="1080" y="590" font-size="20" fill="#555">sign-in to the servers</text>
 <rect x="48" y="818" width="1424" height="80" rx="12" fill="#efeeeb" stroke="#999" stroke-width="2"/>
 <text x="76" y="866" font-size="20" fill="#555">All times are in UTC. Records are kept 12 months online, then 12 months in an offline archive. Nobody can change one.</text>
 </svg></body></html>
