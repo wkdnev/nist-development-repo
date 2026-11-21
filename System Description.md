@@ -54,8 +54,8 @@ It is a summary. The detail of each control family is held once, in the design d
 | Applications | Three: the UI application for readers and editors, a separate Admin application, and an API that is the only route to the data, with a shared library built into all three |
 | Database | Microsoft SQL Server 2022, holding every item, file, schema definition and audit record. Each schema is its own database schema |
 | Hosting | Two Windows Server 2025 virtual servers in \<Organisation\>'s data centre: an application server and a database server. Each application runs as a Windows service under its own managed service account |
-| Sign-in | \<Organisation\>'s PingFederate single sign-on service, with multi-factor authentication, against Active Directory. The application holds no accounts and no passwords, and has no session management of its own |
-| Authorisation | Active Directory groups, read directly from Active Directory by the API: five role groups, and a read group and an edit group for each schema |
+| Sign-in | \<Organisation\>'s PingFederate single sign-on service, with multi-factor authentication, against Active Directory. The application holds no accounts and no passwords. Its own sign-in session lasts at most 8 hours (P-02), and it has a Sign out |
+| Authorisation | Active Directory groups, read directly from Active Directory by the API on every request, with the answer held for at most 5 minutes: five role groups, and a read group and an edit group for each schema |
 | Information held | The information types in section 3.4, and in every case sign-in identities and audit records |
 | Security categorisation | Moderate: confidentiality Moderate, integrity Moderate, availability Low (CSS), unless the application profile sets otherwise (P-01) |
 | Control baseline | CSS Moderate baseline, with the CSS privacy baseline, as tailored in \<Tailoring Register\>. Program Management is inherited from \<Organisation\> |
@@ -94,7 +94,7 @@ Who holds each role, and how to reach them, is in \<Roles and Responsibilities\>
 | Business owner | The business need, the requirements that are theirs to set, and retention |
 | Security officer | Security monitoring, alerts and incident response |
 | Legal adviser or data protection officer | Lawful basis, the impact assessment, people's requests and breach reporting |
-| Data Owners | Authorising who may read or edit a schema, through the ServiceNow access approval workflow |
+| Data Owners | Authorising who may read or edit a schema, through the ServiceNow access approval workflow, and approving any change to which groups open it |
 
 ### 3.3 Who uses it
 
@@ -106,11 +106,11 @@ The reference system has the roles below. An application may rename a role, or l
 | --- | --- | --- | --- |
 | Reader | Searches and reads items in their schemas, and reports a fault | UI application | Member of the schema's read group |
 | Editor | A reader's work, and creates, uploads, manages and exports the schema's items | UI application | Member of the schema's edit group. Edit includes read |
-| Administrator | Manages schemas, which groups open each schema, and system settings. Can reach every schema | Admin application and UI application | Member of the administrators' group |
+| Administrator | Manages schemas, which groups open each schema, and system settings. Sees no item content: any item work is done as a reader or editor, through schema groups, on an everyday account | Admin application | Member of the administrators' group |
 | Auditor | Reads and searches the audit log, and reviews it as P-08 sets. Holds no administration role | Admin application | Member of the auditors' group |
-| Security officer | Reads security information, reviews alerts and the central logs, leads incident response. Does not read the audit log. Holds no administration role | Admin application | Member of the security group |
-| Business owner | Approves the disposal of items due under the retention schedule (FR-074) | Admin application | Member of the business owners' group |
-| Legal adviser's delegate | Searches every schema for one person's items to answer a request under data protection law (FR-073). Holds no other role | Admin application | Member of the legal search group, named by the legal adviser |
+| Security officer | Reads security information, reviews alerts and the central logs, leads incident response, and runs the monthly check of members who have not signed in (P-38) from the last sign-in report (FR-085). Does not read the audit log. Holds no administration role | Admin application | Member of the security group |
+| Business owner | Approves the disposal of items due under the retention schedule (FR-074) | UI application | Member of the business owners' group |
+| Legal adviser's delegate | Searches every schema for one person's items to answer a request under data protection law (FR-073). Holds no other role | UI application | Member of the legal search group, named by the legal adviser |
 | Data Owner | Owns a schema's data and its two groups. Authorises who may read or edit it, in ServiceNow | ServiceNow and the directory | Named in section 3.2 and \<Roles and Responsibilities\> |
 | Server and database administrators | Run the servers and the database. Need no application role | The servers, over \<Organisation\>'s managed administration route | Named accounts from \<Organisation\> |
 | Developers | Build and fix the applications. Hold no administrator access on the servers | Development environment | Named in \<Roles and Responsibilities\> |
@@ -163,8 +163,8 @@ These are the values the controls depend on. CSS calls many of them organisation
 | No. | Parameter | Reference value | Main controls | This application, and why |
 | --- | --- | --- | --- | --- |
 | P-01 | Security categorisation | Confidentiality Moderate, integrity Moderate, availability Low | RA-2 | \[\] |
-| P-02 | Sign-in lifetime | \[As set in PingFederate for the application\]. The application has no session controls or idle sign-out of its own, so this is the only limit on how long a sign-in lasts | AC-2(5), AC-12 | \[\] |
-| P-03 | Device screen lock after inactivity | \[As set on \<Organisation\>'s managed devices, for example 15 minutes\] | AC-11 | \[\] |
+| P-02 | Sign-in lifetime | 8 hours from sign-in, with no sliding extension, and never longer than PingFederate's sign-in. The application's authentication cookie is its session and ends at this limit; an open Blazor connection re-checks the person every 5 minutes and ends with it (section 7.3) | AC-12 | \[\] |
+| P-03 | Device screen lock after inactivity | 15 minutes, on users' managed devices and on both servers. To be confirmed against \<Organisation\>'s setting (EV-AC-07) | AC-11 | \[\] |
 | P-04 | Review of role group members | Every 3 months | AC-2, AC-6(7) | \[\] |
 | P-05 | Review of schema group members | Every 12 months | AC-2 | \[\] |
 | P-06 | Leavers and movers | Leaver: Active Directory account disabled at once; group memberships removed within 5 working days. Mover: group owners told within 1 working day | AC-2, PS-4 | \[\] |
@@ -188,7 +188,7 @@ These are the values the controls depend on. CSS calls many of them organisation
 | P-24 | Training | Before access, and every 12 months; role modules before privileged access | AT-2, AT-3 | \[\] |
 | P-25 | Authorisation | Before real data is held, and reviewed at least every 12 months | CA-6 | \[\] |
 | P-26 | Transport encryption | TLS 1.3 preferred; TLS 1.2 with AES-GCM allowed; HSTS for one year | SC-8, SC-13 | \[\] |
-| P-27 | Events that raise an alert | The eight in section 7.10 | SI-4 | \[\] |
+| P-27 | Events that raise an alert | The nine in section 7.10 | SI-4 | \[\] |
 | P-28 | Application security verification standard | OWASP ASVS 5.0, Level 2 | SA-11 | \[\] |
 | P-29 | Check of the running system against its baseline | Monthly, and at each release | CM-3, SI-7 | \[\] |
 | P-30 | Vulnerability scanning | Servers monthly; packages and code at each release | RA-5 | \[\] |
@@ -199,20 +199,24 @@ These are the values the controls depend on. CSS calls many of them organisation
 | P-35 | Accessibility standard and languages | \[From the business owner\]. Reference: WCAG 2.2 Level AA, English | PL-2 | \[\] |
 | P-36 | Account types allowed | As listed in \<Access Control Management\>, Table 1 | AC-2 | \[\] |
 | P-37 | Who decides access | The line manager approves in ServiceNow, then the group's owner authorises and adds the person to the AD group: the system owner for a role group, the Data Owner for a schema group | AC-2 | \[\] |
-| P-38 | Unused accounts | AD accounts disabled under \<Organisation\>'s corporate standard; each month, members who have not signed in for 90 days are removed from \<System Name\>'s groups | AC-2(3) | \[\] |
-| P-39 | Temporary and emergency accounts | Not allowed until the system can expire them | AC-2(2) | \[\] |
-| P-40 | Sign-ins at once | No limit in the application | AC-10 | \[\] |
-| P-41 | Disabling a high-risk individual | Within 1 hour of notice: AD account disabled and PingFederate sign-in ended | AC-2(13) | \[\] |
-| P-42 | Failed sign-ins | Counted and the account locked by PingFederate and Active Directory, under \<Organisation\>'s corporate standard. The application has no sign-in of its own to lock | AC-7 | \[\] |
+| P-38 | Unused accounts | AD accounts unused for 90 days are disabled by \<Organisation\> within 1 working day (to be confirmed, EV-AC-01). Each month, the security officer lists the members of \<System Name\>'s groups who have not signed in for 90 days, and the groups' owners remove them | AC-2(3) | \[\] |
+| P-39 | Temporary and emergency accounts | Not allowed | AC-2(2) | \[\] |
+| P-40 | Sign-ins at once | No limit in the application. AC-10 is beyond the Moderate baseline; this is recorded for information | AC-10 (beyond the baseline) | \[\] |
+| P-41 | Disabling a high-risk individual | Within 1 hour of notice: AD account disabled by \<Organisation\>. \<System Name\> then refuses the person within 5 minutes (section 7.2) | AC-2(13) | \[\] |
+| P-42 | Failed sign-ins | 10 failed attempts within 15 minutes lock the account for 15 minutes, after which it unlocks on its own; \<Organisation\>'s service desk may unlock it sooner after checking identity. Set in PingFederate and Active Directory, and to be confirmed against \<Organisation\>'s setting (EV-IA-04, EV-AC-05). The application has no sign-in of its own to lock | AC-7 | \[\] |
 | P-43 | System use notice wording | The wording in \<Access Control Management\>, section 3.16 | AC-8 | \[\] |
-| P-44 | Privileged functions and security-relevant information | Functions: managing schemas and the AD groups each uses; settings; diagnostics; audit log access; approving disposal; searching every schema for one person's items; database maintenance. Information: secrets and security settings, PingFederate's signing certificate, access groups and schema access rules, audit logs, firewall rules and certificates. All privileged functions are logged | AC-6(1), AC-6(9), AC-6(10) | \[\] |
+| P-44 | Privileged functions and security-relevant information | Functions: managing schemas and the AD groups each uses; approving a change to a schema's groups; settings; diagnostics; audit log access; the last sign-in report; approving disposal; searching every schema for one person's items; database maintenance. Information: secrets and security settings, the OpenID Connect client credential, PingFederate's signing certificate, access groups and schema access rules, audit logs, firewall rules and certificates. All privileged functions are logged | AC-6(1), AC-6(9), AC-6(10) | \[\] |
 | P-45 | Separate account for everyday work | Administrators use a separate non-privileged account for everyday item work | AC-6(2) | \[\] |
-| P-46 | Remote access route | \<Organisation\>'s remote access service, \[name to be supplied\] | AC-17 | \[\] |
-| P-47 | Wireless and mobile access | Follows \<Organisation\>'s policies, \[to be supplied\] | AC-18, AC-19 | \[\] |
-| P-48 | External systems and portable storage | Not allowed with the application's data without system owner approval | AC-20 | \[\] |
+| P-46 | Remote access route | \<Organisation\>'s VPN, from a managed device, with multi-factor authentication: \[name to be supplied, EV-AC-08\] | AC-17 | \[\] |
+| P-47 | Wireless and mobile access | Corporate wireless authenticates both user and device (802.1X) and is encrypted (WPA2 or WPA3 Enterprise). Managed laptops are the only mobile devices allowed, with full-device encryption; phones and tablets are not allowed. To be confirmed against \<Organisation\>'s settings (EV-AC-13, EV-AC-15) | AC-18, AC-18(1), AC-19, AC-19(5) | \[\] |
+| P-48 | External systems and portable storage | Not allowed without the system owner's written approval, recorded as an exception on TPL-17. Terms for an approved external system: a contract with confidentiality terms, encryption at rest, storage in the location in P-23, and deletion when the need ends. Personal devices, personal cloud storage and unmanaged systems are prohibited | AC-20, AC-20(2) | \[\] |
 | P-49 | Who decides on sharing outside a schema | The Data Owner | AC-21 | \[\] |
 | P-50 | Public content | None, unless the system owner approves | AC-22 | \[\] |
-| P-51 | Actions allowed without signing in | Being sent to PingFederate to sign in; the access-denied page; static files; the API health check. Nothing else | AC-14 | \[\] |
+| P-51 | Actions allowed without signing in | Being sent to PingFederate to sign in; the sign-in return address, where PingFederate returns the person; the signed-out return address; the access-denied page; static files; the API health check; and, on the loopback address only, the UI and Admin applications' token request to the API. Nothing else | AC-14 | \[\] |
+| P-52 | Review of server and database accounts | Every 6 months: the Windows administrator accounts on both servers, the SQL Server logins and their roles, and the three service accounts | AC-2, AC-6(7) | \[\] |
+| P-53 | When users must sign out | At the end of each working day, and whenever they leave their device for longer than a short break, using Sign out (FR-084) | AC-2(5) | \[\] |
+| P-54 | Privileged access over remote access | Allowed only for approved changes, maintenance and incident response; only through the VPN and then the managed administration route, with multi-factor authentication at both; logged by Windows, SQL Server and the application audit log, with the change or incident record giving the reason | AC-17(4) | \[\] |
+| P-55 | Account and access attributes | Account: the AD account name and ID, line manager, enabled state and expiry date. Access: the person's role groups and schema read or edit groups | AC-2 | \[\] |
 
 ## 5 Requirements
 
@@ -231,16 +235,17 @@ Each requirement is to be verified before the application is authorised. \<Secur
 | No. | Requirement | Who | How it is implemented |
 | --- | --- | --- | --- |
 | FR-001 | Sign in through \<Organisation\>'s PingFederate single sign-on service, with multi-factor authentication. The application shows no sign-in form of its own | Everyone | The application sends a person who is not signed in to PingFederate, which authenticates them against Active Directory, and accepts only PingFederate's signed response |
-| FR-002 | Find the person's Active Directory groups, and give the roles and schema access those groups allow | System | The API queries Active Directory directly over LDAPS, under its own service account, for the signed-in person's group memberships, and maps them to roles and schemas. Nothing is looked up in an application account table |
+| FR-002 | Find the person's Active Directory groups on every request, and give the roles and schema access those groups allow, refusing a disabled account | System | The API queries Active Directory directly over LDAPS, under its own service account, for the signed-in person's group memberships and whether their account is enabled, and maps them to roles and schemas. It holds each answer in memory for at most 5 minutes, so a removed group or a disabled account is refused within 5 minutes. Nothing is looked up in an application account table, and no group is stored in the authentication cookie |
 | FR-003 | Refuse a sign-in response that is not signed by PingFederate, not issued for this application or outside its validity, and record the refusal | System | The response's signature, audience and validity are checked against PingFederate's public certificate |
-| FR-004 | Show a system use notice at sign-in, which the person accepts before going further | Everyone | A notice page shown after sign-in, whose acceptance is written to the audit log |
+| FR-004 | Show a system use notice at sign-in, which the person accepts before going further | Everyone | A notice page shown after sign-in, whose acceptance is written to the audit log. No other page, menu or data is served until it is accepted |
 | FR-005 | Open a home page showing the schemas and functions the person's groups allow, and nothing else | Everyone | The home page asks the API for the schemas whose read or edit group is among the person's groups, and shows those |
 | FR-006 | Show only the menu items the person may use. The menu is a convenience: each function checks access itself | Everyone | The menu is drawn from the person's roles. Each page and each API function carries its own access rule as well |
 | FR-007 | Show an access-denied page when a request is refused, without saying what exists behind it | Everyone | A refused request is sent to one fixed page with one fixed message, and the refusal is audited |
 | FR-008 | Let nobody choose or change a role for themselves or for another person: roles come only from groups | System | Roles are set by the API from the person's Active Directory groups. No function changes a role |
 | FR-009 | Show an About page that describes the application and its version | Everyone | A fixed page in the UI application |
 | FR-010 | Link to the employee privacy notice, and say what the application records about its users | Everyone | A link and a short statement on the home page and the About page |
-| FR-011 | Hold no user accounts, passwords, password resets or session management | System | Accounts, passwords and lockout live in Active Directory and PingFederate. The database has no account or password table |
+| FR-011 | Hold no user accounts, passwords or password resets. The only session is the sign-in cookie in NFR-019 | System | Accounts, passwords and lockout live in Active Directory and PingFederate. The database has no account or password table |
+| FR-084 | Sign out | Everyone | A Sign out button in the UI application and the Admin application clears the authentication cookie, ends the Blazor connection, sends the person to PingFederate's sign-out so that the single sign-on ends too, and writes an audit record |
 
 #### 5.1.2 Schemas and search
 
@@ -293,9 +298,9 @@ Each requirement is to be verified before the application is authorised. \<Secur
 | FR-033 | Check on the server that a file's first bytes match its type, that its name holds no path, and that its size is within the limit for the person's role in P-17 | System | The API compares the file's leading bytes with the known signature of its type, strips any folder from the name, and compares its size with the limit |
 | FR-034 | Scan each upload for malicious code before it is stored; refuse, record and report a flagged file | System | The API passes the file to the server's anti-malware service before storing it, and stores it only if it is clean |
 | FR-035 | Give each item a status and a classification from fixed lists, and mark items that hold personal or special category data | Editor | Fields on the item, chosen from fixed lists |
-| FR-036 | Correct an item's details | Editor, administrator | The API updates the item after checking access, and writes an audit record holding the old and new values |
-| FR-037 | Replace a stored file | Administrator | The API stores the new file in place of the old one, keeps the checksum of both in the audit record, and audits the change |
-| FR-038 | Delete an item, after confirming | Administrator | The API removes the item and its files, and writes an audit record of what was deleted and by whom |
+| FR-036 | Correct an item's details | Editor | The API updates the item after checking access, and writes an audit record holding the old and new values |
+| FR-037 | Replace a stored file | Editor | The API stores the new file in place of the old one, keeps the checksum of both in the audit record, and audits the change |
+| FR-038 | Delete an item, after confirming | Editor | The API removes the item and its files, and writes an audit record of what was deleted and by whom |
 | FR-039 | Store each file with a SHA-256 checksum, so that a change can be detected | System | The API calculates the checksum when the file is stored and holds it on the item |
 | FR-040 | Record who created or uploaded each item, and when | System | The signed-in name and the time are written to the item by the API |
 
@@ -344,9 +349,9 @@ Each requirement is to be verified before the application is authorised. \<Secur
 | --- | --- | --- | --- |
 | FR-057 | Show a dashboard in the Admin application with only the functions the person's role allows | Administrator, auditor, security officer | Each tile on the dashboard is shown only for the role it needs, and each page behind it has its own access rule |
 | FR-058 | Create a schema with a code, a name and a description, as its own schema in the database | Administrator | The API adds the schema's definition and creates the database schema with its tables |
-| FR-059 | Name the Active Directory group that may read a schema and the group that may edit it | Administrator | Two fields on the schema definition. The API compares them with the person's Active Directory groups |
+| FR-059 | Name the Active Directory group that may read a schema and the group that may edit it | Administrator | Two fields on the schema definition. The API compares them with the person's Active Directory groups. A change to them needs a change record approved by the schema's Data Owner, is audited with that record's reference, and raises an alert to the security officer |
 | FR-060 | Change, deactivate, reactivate and delete schemas. A deactivated schema opens for nobody | Administrator | The API updates the schema definition and audits the change. Inactive schemas are left out of every list and refused on request |
-| FR-061 | Close a schema with no groups to everyone but administrators | System | The access check finds no group to match, so only the administrator rule lets a person in |
+| FR-061 | Close a schema with no groups to everyone | System | The access check finds no group to match, so nobody is let in. Administrators have no rule that opens item content |
 | FR-062 | Manage the system settings that are safe to change while running | Administrator | A fixed list of settings, each change audited. Security settings are changed only by a release |
 | FR-063 | Run fixed diagnostics that read no item content | Administrator | A page that runs fixed checks and shows the results. No diagnostic or test page is included in a release |
 | FR-064 | Change the database's structure only by a release under an approved change, never from a page | Database administrator | Structure changes are scripts in a release, applied by the database administrator |
@@ -365,6 +370,7 @@ Each requirement is to be verified before the application is authorised. \<Secur
 | FR-070 | Read, filter, search, sort and export the audit log | Auditor | The Admin application asks the API, which runs parameterised queries on the audit table. Only the auditor role may do this |
 | FR-071 | Record each reading and export of the audit log | System | The API writes an audit record when the audit log is read or exported |
 | FR-072 | Show the security officer a report of every page and function and the access it requires | Security officer | A page that lists each page and API function with the access rule it declares |
+| FR-085 | Show the security officer the date each member of \<System Name\>'s groups last signed in, for the monthly check in P-38 | Security officer | A fixed report page in the Admin application. The API reads only the username and date of the sign-in records, and shows nothing else from the audit log. Running the report is audited |
 
 #### 5.1.11 Privacy and the life of an item
 
@@ -372,9 +378,9 @@ Each requirement is to be verified before the application is authorised. \<Secur
 
 | No. | Requirement | Who | How it is implemented |
 | --- | --- | --- | --- |
-| FR-073 | Find every item about one person across all schemas, to answer a request under data protection law | Legal adviser's delegate | A search function limited to a named role, which queries every schema and is audited |
-| FR-074 | Keep each kind of item for the period in the retention schedule, then dispose of it and record the disposal | Business owner | A retention period on each schema or item type, and a scheduled task that lists items due and deletes them once approved |
-| FR-075 | Correct or erase a person's data on the legal adviser's instruction, and record it | Editor, administrator | The correct and delete functions, each audited |
+| FR-073 | Find every item about one person across all schemas, to answer a request under data protection law | Legal adviser's delegate | A search function in the UI application, limited to the legal search group, which queries every schema and is audited with the request's reference number, not the person's name |
+| FR-074 | Keep each kind of item for the period in the retention schedule, then dispose of it and record the disposal | Business owner | A retention period on each schema or item type, and a scheduled task that lists items due. The business owner approves them on a page in the UI application, and the task deletes them once approved. The approval and the disposal are audited |
+| FR-075 | Correct or erase a person's data on the legal adviser's instruction, and record it | Editor | The correct and delete functions, each audited |
 | FR-076 | Keep personal data out of the free text of audit records and out of the application logs | System | Audit free text is built from fixed wording and identifiers, and the application logs carry no usernames, addresses or cookie values |
 | FR-077 | Use only invented data in test and development. Real personal data is never used there | Developers | Test environments are built from a script that loads invented schemas and items |
 
@@ -407,9 +413,9 @@ Each statement below narrows what can go wrong. An application that needs one of
 | NFR-004 | Keep each schema's items in its own database schema, so that one schema's items are never returned for another | The API picks the database schema from the checked schema definition, never from the request | Section 6 |
 | NFR-005 | Give each person, service and administrator the least access their work needs | Separate groups for each role, a separate service account for each application, and a database account limited to what the API needs | \<Access Control Management\> |
 | NFR-006 | Keep duties apart: nobody approves or reviews their own access; auditors and security officers hold no administration role; application, server and database administration are held by different people | Separate Active Directory groups with different owners, and role rules that give auditors and security officers no administration page | \<Access Control Management\> |
-| NFR-007 | Allow without sign-in only the redirect to PingFederate, the access-denied page, static files and the health check | A short fixed list of open pages and functions in each application. Everything else falls under the default rule | \<Access Control Management\> |
+| NFR-007 | Allow without sign-in only the actions in P-51 | A short fixed list of open pages and functions in each application. Everything else falls under the default rule | \<Access Control Management\> |
 | NFR-008 | Review group members as P-04 and P-05 set | A person does this: each group's owner checks its members against a list and signs a form | \<Access Control Management\> |
-| NFR-009 | End a leaver's access as P-06 sets | \<Organisation\>'s leavers process disables the Active Directory account, so the next sign-in and group lookup fail | \<Access Control Management\> |
+| NFR-009 | End a leaver's access as P-06 sets | \<Organisation\>'s leavers process disables the Active Directory account. The next sign-in fails, and the API refuses the disabled account within 5 minutes even while a sign-in is open (FR-002) | \<Access Control Management\> |
 | NFR-010 | Require every user to sign the rules of behaviour before being added to a group | A person does this: the group's owner sees the signed form before adding the member | \<Planning Management\> |
 
 #### 5.2.2 Identification and authentication
@@ -429,14 +435,15 @@ Each statement below narrows what can go wrong. An application that needs one of
 
 #### 5.2.3 Sign-in lifetime and forms
 
-The application has no session management of its own: no idle lock, no idle timeout, no limit on sign-ins at once and no screen for ending sign-ins. Session lock and session termination (AC-11 and AC-12) are therefore provided outside the application, by PingFederate and by \<Organisation\>'s managed devices.
+The application's session is its authentication cookie. It lasts at most P-02 from sign-in, an open Blazor connection re-checks the person every 5 minutes, and the person can sign out (FR-084). The application has no idle lock, no idle timeout and no limit on sign-ins at once. Session lock (AC-11) is provided by \<Organisation\>'s managed devices; session termination (AC-12) by the application, within PingFederate's own sign-in lifetime.
 
 **Table 24: Non-functional requirements: sign-in lifetime and forms**
 
 | No. | Requirement | How it is implemented | Held in |
 | --- | --- | --- | --- |
-| NFR-019 | Keep the signed-in person's identity only in the standard authentication cookie, marked Secure, HttpOnly and SameSite, with a lifetime no longer than P-02 | ASP.NET Core cookie authentication, protected by the application's key ring | \<Access Control Management\> |
+| NFR-019 | Keep the signed-in person's identity only in the standard authentication cookie, marked Secure, HttpOnly and SameSite, with an absolute lifetime of P-02 from sign-in and no sliding extension. The cookie holds no groups | ASP.NET Core cookie authentication with an absolute expiry, protected by the application's key ring | \<Access Control Management\> |
 | NFR-020 | Rely on the device screen lock in P-03 to hide the application when a person leaves their device | \<Organisation\>'s device policy | \<Access Control Management\> |
+| NFR-102 | Re-check the person on an open Blazor connection every 5 minutes, and end the connection when the session has expired or the person is refused | A revalidating authentication state provider in the UI application and the Admin application, which asks the API to confirm the person on that interval | \<Access Control Management\> |
 | NFR-021 | Protect every form with an anti-forgery token | Built into the web framework: each form carries a token, checked on submission | \<System and Communications Protection Management\> |
 
 #### 5.2.4 Audit and accountability
@@ -480,7 +487,7 @@ The application has no session management of its own: no idle lock, no idle time
 | NFR-040 | Internal only: no route to the application from the internet, and none from it to the internet | No firewall rule or address translation exposes either server, and outbound traffic is blocked or sent through the proxy | \<System and Communications Protection Management\> |
 | NFR-041 | Allow only the flows in section 6.5, at \<Organisation\>'s firewalls and at each server's own firewall | Rules written by \<Organisation\> on its firewalls, and host firewall rules on each server | \<System and Communications Protection Management\> |
 | NFR-042 | Listen for users on TCP 443 only; the API on the application server's loopback address only; the database to the application server only | Set by the address and port each application is bound to, and by the database's list of permitted clients | \<System and Communications Protection Management\> |
-| NFR-043 | Reach the Admin application only over \<Organisation\>'s managed administration route, with multi-factor authentication | The Admin application is bound to the administration network, with a firewall rule to match | \<Maintenance Management\> |
+| NFR-043 | Reach the Admin application only over \<Organisation\>'s managed administration route, with multi-factor authentication. Only administrators, auditors and the security officer use it | The Admin application is bound to the administration network, with a firewall rule to match | \<Maintenance Management\> |
 | NFR-044 | Remote users only through \<Organisation\>'s VPN, from a managed device, with no split tunnelling | \<Organisation\>'s VPN and its device checks | \<Access Control Management\> |
 | NFR-045 | Keep the UI application, the Admin application, the API and the database apart, so that user functions are separate from management functions | Four separate programs on two servers | \<System and Communications Protection Management\> |
 | NFR-046 | Limit how fast any one client may send requests | A request limit for each client, built into each application and switched on in every environment | \<System and Communications Protection Management\> |
@@ -621,8 +628,8 @@ An application built on the reference system has no hardware of its own, no wire
 
 | Component | What it is | What it does | Runs on |
 | --- | --- | --- | --- |
-| UI application | A web application whose pages run on the server | Every function in section 5.1 used by readers and editors, and the functions in section 3.5 | Application server |
-| Admin application | A second web application of the same kind, separate from the UI application | Schemas and their groups, settings, the audit log for auditors, security information and the dashboard | Application server, reachable only over the administration route |
+| UI application | A web application whose pages run on the server | Every function in section 5.1 used by readers and editors, the business owner's disposal approval, the legal adviser's delegate's search, and the functions in section 3.5 | Application server |
+| Admin application | A second web application of the same kind, separate from the UI application | Schemas and their groups, settings, the audit log for auditors, security information and the last sign-in report for the security officer, and the dashboard. No item content | Application server, reachable only over the administration route, by administrators, auditors and the security officer |
 | API | A web service | The only route to the database: every read and write, the Active Directory group lookup, access decisions for the other two applications, background jobs, and writing the audit log | Application server, on its loopback address only |
 | Shared library | A library built into all three applications | The data model, the access checks and the audit record format, so that every application makes the same decision the same way | Built in |
 | Database | Microsoft SQL Server | Holds every item, file, schema definition and audit record, with each schema in its own database schema | Database server |
@@ -660,7 +667,7 @@ The reference stack is below. An application may replace any part of it with a s
 | Flow | From | To | Purpose | Reference design |
 | --- | --- | --- | --- | --- |
 | F1 | User's browser | UI application | User work | HTTPS, TCP 443 |
-| F2 | Administrator's browser | Admin application | Administration | HTTPS, only over \<Organisation\>'s managed administration route |
+| F2 | Browsers of administrators, auditors and the security officer | Admin application | Administration, audit and security information | HTTPS, only over \<Organisation\>'s managed administration route |
 | F3, F4 | UI application and Admin application | API | Every request for data and background work | HTTPS, on the application server's loopback address only |
 | F5 | API | Database | All data | SQL Server over TLS 1.2 or later with strict encryption, TCP 1433, from the application server only |
 | F6 | Browser | \<Organisation\>'s PingFederate | Sign-in with multi-factor authentication | HTTPS |
@@ -679,7 +686,7 @@ No other flow is allowed. The UI application and the Admin application have no c
 | Zone | What is in it | Trust | Entry into the zone |
 | --- | --- | --- | --- |
 | Z1 Users | Users' managed devices and \<Organisation\>'s corporate network | Not trusted by \<System Name\> | Not applicable |
-| Z2 Administration route | \<Organisation\>'s managed route for administrators | Trusted for administration only | Managed route and administrator sign-in |
+| Z2 Administration route | \<Organisation\>'s managed route for privileged users: administrators, auditors, the security officer, and server and database administrators | Trusted for privileged access only | Managed route and privileged sign-in, with multi-factor authentication; from outside the office, only through the VPN first (P-54) |
 | Z3 Application | Application VM: UI application, Admin application and API | Trusted to enforce access | HTTPS on 443 from Z1 (F1); the Admin application only from Z2 (F2); server administration only from Z2 (F11) |
 | Z4 Data | Database VM: SQL Server and the \<System Name\> database | Most protected | Encrypted database connections from the API in Z3 only (F5); database administration only from Z2 (F11) |
 | Z5 Provider services | \<Organisation\>'s directory, sign-on, monitoring, ServiceNow and starters and leavers services | Trusted by agreement and evidence | From browsers to PingFederate (F6), outbound from Z3 (F7, F8, F10) or by people (F9), as in section 10 |
@@ -704,7 +711,7 @@ This section is the security architecture that PL-8 calls for: the protection go
 
 | Objective | Impact | What it means for \<System Name\> | Main protections |
 | --- | --- | --- | --- |
-| Confidentiality | Moderate | Items, including personal data, are seen only by members of the schema's read or edit group, and by administrators | Schema groups read from Active Directory, encrypted transport and storage, audit |
+| Confidentiality | Moderate | Items, including personal data, are seen only by members of the schema's read or edit group, and by the business owner and the legal adviser's delegate for their own tasks | Schema groups read from Active Directory, encrypted transport and storage, audit |
 | Integrity | Moderate | Items, their details and files, and the audit trail cannot be changed without trace | Edit rights by role, change control, hash-chained audit records |
 | Availability | Low (\<System Security Plan\>, section 3.3; P-01) | \<System Name\> can be restored after a failure within the times in \<Contingency Planning Management\> | Encrypted backups at the second site, rebuild procedure |
 
@@ -716,7 +723,7 @@ This section is the security architecture that PL-8 calls for: the protection go
 | Transport | TLS on every flow, F1 to F8 and F10, as \<System Description\>, P-26, sets, under NCSC's profiles (\<System and Communications Protection Management\>, section 3.3); data protection key rings protected with DPAPI | SC-8, SC-13 |
 | Identity | Each person's own Active Directory account, signed in through PingFederate with multi-factor authentication; roles and schema access from AD groups, read by the API over LDAPS (F7) | IA-2, IA-5, AC-7 |
 | Authorisation | Roles and schema access checked on every page and API call | AC-3, AC-6 |
-| Sign-in lifetime and screen lock | No session management in \<System Name\>. The sign-in is held only in the authentication cookie, which lasts no longer than PingFederate's sign-in lifetime (\<System Description\>, P-02); an unattended screen is locked by the operating system on \<Organisation\>'s managed devices and the servers (\<System Description\>, P-03) | AC-11, AC-12, SC-23 |
+| Sign-in lifetime and screen lock | The sign-in is held only in the authentication cookie, which ends 8 hours after sign-in (P-02); an open Blazor connection re-checks the person every 5 minutes; Sign out ends both and the PingFederate sign-in; an unattended screen is locked by the operating system on \<Organisation\>'s managed devices and the servers (P-03) | AC-2(5), AC-11, AC-12, SC-23 |
 | Data at rest | Full-disk encryption on both VMs; no plain copies left by exports | SC-28, MP-4 |
 | Audit | Hash-chained audit records, reviewed and kept | AU-2, AU-6, AU-9 |
 | Host | CIS hardening, Microsoft Defender, patching | CM-6, SI-2, SI-3 |
@@ -768,28 +775,38 @@ The design rests on these assumptions:
 2. PingFederate checks their password and second factor against Active Directory. The application never sees either.
 3. PingFederate returns a signed OpenID Connect response that names the person. It carries no groups.
 4. The application checks the response: that PingFederate signed it, that it was issued for this application and that it is still valid.
-5. The API queries Active Directory directly, over LDAPS, for the person's group memberships, and gives the roles and schema access those groups allow. The sign-in is recorded.
+5. The API queries Active Directory directly, over LDAPS, for the person's group memberships and whether their account is enabled, and gives the roles and schema access those groups allow. The sign-in is recorded. From then on the API repeats the query for each request, holding the answer for at most 5 minutes (section 7.2).
 
-The application holds no accounts, no passwords and no password hashes. There is no local sign-in to fall back on, so nobody can sign in while PingFederate or Active Directory is down. Failed sign-ins and lockouts happen in PingFederate and Active Directory, under \<Organisation\>'s standard. A leaver's Active Directory account is disabled by \<Organisation\> at once, which ends their access. The target is federation assurance level 2 and authenticator assurance level 2 of CSS.
+The application holds no accounts, no passwords and no password hashes. There is no local sign-in to fall back on, so nobody can sign in while PingFederate or Active Directory is down. Failed sign-ins and lockouts happen in PingFederate and Active Directory, as P-42 sets. A leaver's Active Directory account is disabled by \<Organisation\> at once, and the API refuses it within 5 minutes, even while a sign-in is open. The target is federation assurance level 2 and authenticator assurance level 2 of CSS.
 
 ### 7.2 Authorisation
 
 Every request passes four checks, in order. Anything not granted is refused.
 
 1. The person signed in through PingFederate, and the request carries the application's valid authentication cookie.
-2. The person's Active Directory groups were read successfully.
+2. The person's Active Directory account is enabled and their groups were read successfully, within the last 5 minutes.
 3. The person's groups allow the schema, to read or to edit.
 4. The person's groups allow the page or function.
 
-A schema with no group is closed to everyone but administrators. Checks are made where the function runs, not only in the menu, and the database schema is taken from the checked schema definition, never from the request. Content is sent so that it is not kept in shared caches. The permissions of each role are in section 3.3 and \<Access Control Management\>.
+The API reads the person's groups and account state from Active Directory for each request, and holds each answer in memory for at most 5 minutes. Nothing about groups is stored in the cookie. So removing a person from a group, or disabling their account, takes effect within 5 minutes, without waiting for the sign-in to end. If Active Directory cannot be read, the request is refused (NFR-052).
 
-**Duties kept apart.** Nobody approves their own access: the Data Owner authorises each request in ServiceNow. Auditors and security officers hold no administration role. Application, server and database administration use separate accounts held by different people. Developers hold no administrator access on the servers.
+A schema with no group is closed to everyone. Administrators manage schemas but see no item content. Checks are made where the function runs, not only in the menu, and the database schema is taken from the checked schema definition, never from the request. Content is sent so that it is not kept in shared caches. The permissions of each role are in section 3.3 and \<Access Control Management\>.
 
-**Without signing in,** a person may only be sent to PingFederate, see the access-denied page, load static files, and check that the API is healthy. No diagnostic, cache or test function is reachable without sign-in, and none is included in a release.
+**Duties kept apart.** Nobody approves their own access: the group's owner authorises each request in ServiceNow, the Data Owner for a schema's groups and the system owner for a role group. A change to which groups open a schema needs that schema's Data Owner's approval. Auditors and security officers hold no administration role. Application, server and database administration use separate accounts held by different people. Developers hold no administrator access on the servers.
+
+**Without signing in,** a person may only do what P-51 lists: be sent to PingFederate and returned from it, see the signed-out and access-denied pages, load static files, and check that the API is healthy. The UI and Admin applications' token request to the API, on the loopback address only, is the one service action with no user. No diagnostic, cache or test function is reachable without sign-in, and none is included in a release.
 
 ### 7.3 Sign-in lifetime
 
-The application has no session management. Once signed in, the person's identity is held in the standard ASP.NET Core authentication cookie, marked Secure, HttpOnly and SameSite, whose lifetime follows PingFederate's (P-02). The application has no idle lock, no idle timeout, no limit on sign-ins at once, no sign-out of its own and no screen for ending sign-ins. Session lock (AC-11) is provided by the screen lock on \<Organisation\>'s managed devices (P-03), and session termination (AC-12) by the sign-in lifetime set in PingFederate. Both are recorded as provided by \<Organisation\> in \<Tailoring Register\>.
+The application's session is its authentication cookie. Once signed in, the person's identity, but not their groups, is held in the standard ASP.NET Core authentication cookie, marked Secure, HttpOnly and SameSite. The cookie has an absolute lifetime of P-02, 8 hours from sign-in, with no sliding extension, and the application never sets it longer than PingFederate's own sign-in lifetime. The UI is Blazor Server, so a page keeps a live connection open: the application re-checks the person on that connection every 5 minutes, and ends it when the cookie has expired or the API refuses the person (NFR-102).
+
+The session ends when:
+
+1. the cookie reaches P-02;
+2. the person uses Sign out (FR-084), which also ends their PingFederate sign-in; or
+3. the person is refused, because their account is disabled or their groups no longer allow them, within 5 minutes (section 7.2).
+
+Ending a person's PingFederate sign-in on its own does not end the application's cookie: the third condition is what ends access for a leaver or a high-risk individual. The application has no idle lock, no idle timeout and no limit on sign-ins at once. Session lock (AC-11) is provided by the screen lock on \<Organisation\>'s managed devices (P-03). Session termination (AC-12) is provided by the application, within PingFederate's lifetime, so it is recorded as shared (hybrid). Users must sign out as P-53 sets (AC-2(5)).
 
 ### 7.4 Data and storage
 
@@ -797,16 +814,16 @@ The application has no session management. Once signed in, the person's identity
 
 | Data | Held in | Protected by |
 | --- | --- | --- |
-| Schema definitions, and the read group and edit group of each | The database, in a common schema shared by all schemas | The API's service account; changed only by administrators |
+| Schema definitions, and the read group and edit group of each | The database, in a common schema shared by all schemas | The API's service account; changed only by administrators, and a change of groups only with the Data Owner's approval |
 | Items, their details and their files | The database, each schema in its own database schema | Schema access checks; disk encryption; a SHA-256 checksum for each file |
 | The audit log | The database | The API's service account may add records and nothing more; a keyed hash chains the records |
 | Export working copies | An encrypted working area on the application server, written by the API | Deleted as P-20 sets |
 | Each application's key ring | Its own folder on the application server | Readable only by that application's service account; encrypted by the operating system |
-| Each application's log | Log files on the application server, forwarded to central logging | Readable by the server administrators and the auditor; no personal data |
-| Secrets: the token signing key and the audit chain key | A key store outside the source code | Access limited to the service account that needs each; changed as P-10 sets. There is no database password: the API uses Windows authentication |
+| Each application's log | Log files on the application server, forwarded to central logging | Readable on the server by the server administrators only; the auditor reads them in central logging; no personal data beyond the username in a security event (section 7.6) |
+| Secrets: the token signing key, the audit chain key and the OpenID Connect client credential | A key store outside the source code | Access limited to the service account that needs each; changed as P-10 sets. There is no database password: the API uses Windows authentication |
 | Backups | \<Organisation\>'s backup store and second site | Encrypted, with the key held apart |
 
-The application holds no user accounts. The names and groups that arrive at sign-in are held only in the authentication cookie, in the audit records, and in items, such as who created or uploaded an item.
+The application holds no user accounts. The name that arrives at sign-in is held in the authentication cookie, in the audit records, and in items, such as who created or uploaded an item. Groups are never stored: the API holds them in memory for at most 5 minutes (section 7.2).
 
 ### 7.5 Files: upload, viewing and export
 
@@ -814,7 +831,7 @@ The application holds no user accounts. The names and groups that arrive at sign
 
 **Viewing.** A file is sent to the browser, or rendered on the server and sent as an image, only after the schema access check. The viewer is served by the application.
 
-**Export.** Only an editor of the schema, or an Administrator, may bulk export. A job can be seen, downloaded or cancelled only by the person who started it. Exports are delivered as downloads, marked with their classification, and every export is audited. Taking exported items outside \<Organisation\>'s systems needs the Data Owner's decision.
+**Export.** Only an editor of the schema may bulk export. A job can be seen, downloaded or cancelled only by the person who started it. Exports are delivered as downloads, marked with their classification, and every export is audited. Taking exported items outside \<Organisation\>'s systems needs the Data Owner's decision.
 
 ### 7.6 Audit
 
@@ -824,18 +841,21 @@ One application audit log, written only by the API. The other two applications s
 
 | Event type | Examples |
 | --- | --- |
-| Sign-in | Sign-in accepted; sign-in response refused; Active Directory lookup failed; system use notice accepted |
-| Schema and group administration | Schema created, changed or deactivated; a schema's groups changed |
+| Sign-in | Sign-in accepted; sign-in response refused; Active Directory lookup failed; account found disabled; system use notice accepted; sign-out |
+| Schema and group administration | Schema created, changed or deactivated; a schema's groups changed, with the reference of the Data Owner's approval |
 | Access decision | Access to a page, function or schema refused |
 | Item access and export | Viewed; downloaded; searched; exported |
 | Data change | Created; uploaded; corrected; replaced; deleted, with the old and new values |
-| Privileged function | Settings changed; diagnostics run |
+| Privileged function | Settings changed; diagnostics run; last sign-in report run |
+| Privacy and retention | Disposal approved; items disposed; search across every schema run, recorded with the request's reference number, not the person's name |
 | Configuration change | A security setting changed |
 | Audit | Audit log read or exported; chain check result |
 | System | Application started or stopped |
 | Logging failure | A record could not be written |
 
-Each record holds the event type and action, the time in UTC, the application that raised it, the IP address and browser, the result, the username and user ID, the schema and item, fixed-form free text, and a chain hash. It never holds a password, key, token or cookie. Records are read only by auditors, reviewed as P-08 sets, and kept as P-07 sets. Failed passwords, lockouts and group membership changes are recorded by PingFederate and Active Directory, not by the application. The operating system and the database keep their own logs.
+Each record holds the event type and action, the time in UTC, the application that raised it, the IP address and browser, the result, the username and user ID, the schema and item, fixed-form free text, and a chain hash. It never holds a password, key, token or cookie. Records are read only by auditors, reviewed as P-08 sets, and kept as P-07 sets. Failed passwords, lockouts and group membership changes are recorded by PingFederate and Active Directory, not by the application. The operating system and the database keep their own logs, and SQL Server Audit also records any read of the item tables by a login other than the API's, which the auditor reviews weekly.
+
+The audit log stays in the database and is read only by auditors. For the events that raise an alert (section 7.10), the API also writes a short security event to the application log: the event type, the time, the username, the schema and a count, with no item details. The application log is forwarded to central logging, so the alerts work without the security officer reading the audit log.
 
 ### 7.7 Cryptography and keys
 
@@ -846,6 +866,7 @@ Each record holds the event type and action, the time in UTC, the application th
 | Traffic | As P-26 sets, with certificates from \<Organisation\>'s certificate authority |
 | Database connection | TLS with strict encryption, with the server's certificate and name checked in full |
 | Tokens between the applications | HMAC-SHA-256 with a random key of at least 256 bits, held in a key store |
+| OpenID Connect client credential | The UI and Admin applications' credential with PingFederate, held in the key store and changed as P-10 sets |
 | Cookies and anti-forgery tokens | AES-256 with HMAC-SHA-256, from each application's key ring, changed every 90 days |
 | Disks | AES-256 full-disk encryption with the TPM |
 | Backups | AES-256, with the key held apart |
@@ -866,7 +887,7 @@ Pages may run only code the application itself serves. Each application sends a 
 
 ### 7.10 Monitoring, flaws and integrity
 
-Application, operating system and database logs are forwarded to \<Organisation\>'s central logging, and the security officer reviews them as P-08 sets. Eight events raise an alert: repeated failed sign-ins; a break in the audit chain; malware detected; a person added to an administrator group; a bulk export above a set size; an administrator sign-in out of hours; an audit logging failure; and an unexpected change to the software. Advisories come from NCSC, CISA and the vendors of every component, and CISA's list of known exploited vulnerabilities is checked weekly. Releases, stored files and audit records are checked against a recorded baseline at start-up, at each release and as P-29 sets.
+Application, operating system and database logs are forwarded to \<Organisation\>'s central logging, and the security officer reviews them as P-08 sets. Nine events raise an alert: repeated failed sign-ins; a break in the audit chain; malware detected; a person added to an administrator group; a bulk export above a set size; an administrator sign-in out of hours; an audit logging failure; an unexpected change to the software; and a change to which groups open a schema. The application's events among them reach central logging as the security events in section 7.6. Advisories come from NCSC, CISA and the vendors of every component, and CISA's list of known exploited vulnerabilities is checked weekly. Releases, stored files and audit records are checked against a recorded baseline at start-up, at each release and as P-29 sets.
 
 ### 7.11 Backup and recovery
 
@@ -915,7 +936,7 @@ Table 45 gives each CSS control family, the reference design in brief, and the d
 
 | Family | Reference design in brief | Full design |
 | --- | --- | --- |
-| AC Access Control | Deny by default. Roles and schema access come only from Active Directory groups. Each schema has a read group and an edit group. The application has no session controls: session lock and termination come from the managed device and PingFederate (P-02, P-03). Duties are kept apart by separate groups. A system use notice is shown at sign-in, and access is reviewed on a schedule | \<Access Control Management\> |
+| AC Access Control | Deny by default. Roles and schema access come only from Active Directory groups, read on every request and held for at most 5 minutes. Each schema has a read group and an edit group, and administrators see no item content. The sign-in session lasts at most 8 hours, re-checked every 5 minutes, with a Sign out; the screen lock comes from the managed device (P-02, P-03). Duties are kept apart by separate groups. A system use notice is shown at sign-in, and access is reviewed on a schedule | \<Access Control Management\> |
 | AT Awareness and Training | Nobody is added to a group until they have had \<Organisation\>'s awareness course and the application's briefing, and privileged roles complete role modules first. Repeated as P-24 sets | \<Awareness and Training Management\> |
 | AU Audit and Accountability | One application audit log, written only by the API, with who, what, when, where and the result. Records are chained by a keyed hash, read only by auditors, reviewed and kept as P-07 and P-08 set | \<Audit and Accountability Management\> |
 | CA Assessment, Authorization, and Monitoring | A self-assessment against every CSS determination statement, then an independent assessment; a plan of action; authorisation by a named official; continuous monitoring measures | \<Assessment, Authorization, and Monitoring Management\> |
@@ -933,7 +954,7 @@ Table 45 gives each CSS control family, the reference design in brief, and the d
 | RA Risk Assessment | Categorised from the profile. A threat model, a risk list on the CSS method, a vulnerability timetable (P-11), and a list of critical components | \<Risk Assessment Management\> |
 | SA System and Services Acquisition | Built in-house under the corporate SDLC, meeting CSS, with reviewed changes, a pipeline with automated tests and scans, verification to P-28, and external services reviewed yearly | \<System and Services Acquisition Management\> |
 | SC System and Communications Protection | Deny by default at the firewalls and on each server, TLS on every flow, a register of every key, a strict page policy, and encryption at rest | \<System and Communications Protection Management\> |
-| SI System and Information Integrity | Uploads are checked and scanned for malware, flaws are fixed to the timetable, logs are forwarded and eight events raise alerts, and releases are checked against a baseline | \<System and Information Integrity Management\> |
+| SI System and Information Integrity | Uploads are checked and scanned for malware, flaws are fixed to the timetable, logs are forwarded and nine events raise alerts, and releases are checked against a baseline | \<System and Information Integrity Management\> |
 | SR Supply Chain Risk Management | A supplier register with criticality, every package through one checked source with lock files and a bill of materials, and each release inspected against its record | \<Supply Chain Risk Management\> |
 
 ## 10 What \<Organisation\> provides
@@ -952,7 +973,7 @@ An application built on the reference system relies on \<Organisation\> for much
 | Data centre and second site | Physical access control, power, fire and environmental protection; a second site for backups |
 | Certificates, name resolution, time and proxy | A certificate authority, signed and validated name resolution, a time service and an authenticated proxy |
 | Central logging | Receiving the application's logs, and giving the auditor the PingFederate and Active Directory events |
-| ServiceNow | The access approval workflow, in which the Data Owner authorises each request and nobody approves their own; and prompt notice of leavers from the starters and leavers process |
+| ServiceNow | The access approval workflow, in which the group's owner authorises each request, the Data Owner for a schema's groups and the system owner for a role group, and nobody approves their own; and prompt notice of leavers from the starters and leavers process |
 | People | Pre-employment screening, the employee privacy notice, awareness training and the disciplinary process |
 | Media | Storing, transporting and sanitising disks and backup media |
 
@@ -966,9 +987,9 @@ These are questions an assessor is likely to ask, each with the reference answer
 | --- | --- | --- |
 | How do users authenticate? | Through \<Organisation\>'s sign-on service, with multi-factor authentication. The application holds no passwords | \<Identification and Authentication Management\> |
 | How is access to an item decided? | By membership of the schema's read or edit group in the directory, checked on every request | \<Access Control Management\> |
-| Who can see every item? | Administrators, by right of the role. Database administrators could by reaching the database, under an approved change only | \<Access Control Management\> |
-| How is a leaver's access removed? | As P-06 sets | \<Access Control Management\> |
-| What are the session limits? | The application has none of its own. The sign-in lasts as long as PingFederate allows (P-02), and the device screen lock hides it when idle (P-03) | \<Access Control Management\> |
+| Who can see every item? | Nobody, by right of a role. The legal adviser's delegate can search every schema for one person's items, and database administrators could read items by querying the database, only under an approved change or incident; SQL Server Audit records it and the auditor reviews it weekly | \<Access Control Management\> |
+| How is a leaver's access removed? | As P-06 sets. Once the AD account is disabled, the application refuses the person within 5 minutes, even mid-session | \<Access Control Management\> |
+| What are the session limits? | The sign-in session ends 8 hours after sign-in (P-02), on Sign out, or within 5 minutes of the person's access being removed; an open page re-checks every 5 minutes; and the device screen lock hides it when idle (P-03) | \<Access Control Management\> |
 | Is data encrypted in transit? | Yes, on every flow, as P-26 sets | \<System and Communications Protection Management\> |
 | Is data encrypted at rest? | Yes: full-disk encryption on both servers, encrypted backups and encrypted export working copies | \<System and Communications Protection Management\> |
 | Where are items stored? | In the database, each schema in its own database schema | Section 7.4 |
@@ -1130,7 +1151,7 @@ Table 48 defines the terms used across the set, including those in \<Policy\>. T
 
 | Acronym | Meaning |
 | --- | --- |
-| --- | --- |
+| AD | Active Directory, \<Organisation\>'s directory service |
 | AMSI | Antimalware Scan Interface, in Windows |
 | API | Application programming interface |
 | CE+ | Cyber Essentials Plus |
@@ -1147,7 +1168,6 @@ Table 48 defines the terms used across the set, including those in \<Policy\>. T
 | HTTP, HTTPS | Hypertext Transfer Protocol, and its secure form |
 | ICO | Information Commissioner's Office |
 | IP | Internet Protocol |
-| AD | Active Directory, \<Organisation\>'s directory service |
 | LDAPS | Lightweight Directory Access Protocol over TLS |
 | MFA | Multi-factor authentication |
 | NC | Non-compliance entry in \<Risk List\> |
@@ -1161,9 +1181,9 @@ Table 48 defines the terms used across the set, including those in \<Policy\>. T
 | RSA | Rivest-Shamir-Adleman, a public key algorithm |
 | SCRM | Supply chain risk management |
 | SDLC | Software development life cycle |
+| \<Security Operating Procedures\> | Security operating procedures, \<Security Operating Procedures\> |
 | SHA | Secure Hash Algorithm |
 | SSP | System security plan |
-| \<Security Operating Procedures\> | Security operating procedures, \<Security Operating Procedures\> |
 | TCP, UDP | Transmission Control Protocol, User Datagram Protocol |
 | TLS | Transport Layer Security |
 | TPL | Record form in \<Record Templates\> |
