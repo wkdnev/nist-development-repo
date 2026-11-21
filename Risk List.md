@@ -14,6 +14,7 @@ The register has one entry for each risk. Likelihood, impact and rating follow s
 
 | ID | Risk | Cause | Consequence | Likelihood | Impact | Rating | Treatment | Residual | Owner | POA&M | Status | Last reviewed |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| R-AC-01 | A database administrator reads item content directly in SQL Server, outside the application's access checks | Database administrators need high privileges on SQL Server for maintenance, and the item tables are not encrypted against them | Disclosure of items, including personal or special category data, without a record in the application audit log | Low | High | Medium | Reduce: direct queries only under an approved change or incident (B16); SQL Server Audit records every read of the item tables by a login other than the API's, forwarded to central logging and reviewed weekly by the auditor; named accounts over the administration route with multi-factor authentication; the 6-monthly review of SQL Server logins (P-52) | Medium, as the impact stays High | System owner | \[PA-nn\] | Open | \[Date\] |
 | \[R-XX-nn\] | \[Risk\] | \[Cause\] | \[Consequence\] | \[Likelihood\] | \[Impact\] | \[Rating\] | \[Treatment\] | \[Residual\] | \[Owner\] | \[PA-nn\] | \[Status\] | \[Date\] |
 
 ## 3 Risk acceptance
