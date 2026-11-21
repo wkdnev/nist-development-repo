@@ -174,7 +174,7 @@ These procedures define how access control activities are performed: the workflo
 | Joiner | Someone needs access | Request, approve, sign SyOPS, add to AD groups, first sign-in | PRO-AC-1 |
 | Mover | Someone's role changes | Notify, approve new access, change groups, sign in again | PRO-AC-2 |
 | Leaver | Someone leaves or no longer needs access | Notify, deactivate, record | PRO-AC-3 |
-| Urgent disable | A concern is raised about someone | Report, deactivate, end the PingFederate sign-in, record | PRO-AC-4 |
+| Urgent disable | A concern is raised about someone | Report, disable the account, confirm \<System Name\> refuses it, record | PRO-AC-4 |
 | Schema access | Someone needs a schema | Request, approve, change group | PRO-AC-5 |
 | Privileged access | Someone needs a privileged role | Request, approve, change role, record | PRO-AC-6 |
 | Exception | A rule cannot be met | Request, assess, approve, record, review, end | PRO-AC-15 |
@@ -187,11 +187,11 @@ These procedures define how access control activities are performed: the workflo
 
 | Request | Raised by | Approved by | Carried out by | Record kept in |
 | --- | --- | --- | --- | --- |
-| First access, or a role group change | The person; their line manager approves | System owner authorises | System owner, as owner of the role groups | ServiceNow request |
-| Schema read or edit access | The person; their line manager approves | Data Owner authorises | Data Owner, as owner of the schema's groups | ServiceNow request |
-| Administrator, auditor, security officer, business owner or legal adviser's delegate | The person; their line manager approves, and the legal adviser names the legal adviser's delegate | System owner authorises, and cannot authorise their own | System owner, as owner of the five role groups | ServiceNow request |
-| Sharing or export outside a schema | Requesting user | Data Owner | An editor of the schema | Sharing decision record |
-| External system or portable storage use | Requesting user | System owner | Requesting user | Exception record |
+| Schema read or edit access, including a new user's first access | The person; their line manager approves | Data Owner authorises | Data Owner, as owner of the schema's groups | ServiceNow request (TPL-2) |
+| Change to which groups open a schema | Administrator | The schema's Data Owner | Administrator, in the Admin application | Change record (TPL-6) |
+| Administrator, auditor, security officer, business owner or legal adviser's delegate | The person; their line manager approves, and the legal adviser names the legal adviser's delegate | System owner authorises, and cannot authorise their own | System owner, as owner of the five role groups | ServiceNow request (TPL-2) |
+| Sharing or export outside a schema | Requesting user | Data Owner | An editor of the schema | Sharing decision record (TPL-25) |
+| External system or portable storage use | Requesting user | System owner | Requesting user | Exception (TPL-17) |
 | Exception to a rule | Whoever needs it | System owner, or authorising official if above their authority | Role concerned | \<Risk List\> |
 | Urgent disable | Anyone | No prior approval needed; system owner told at once | \<Organisation\>'s service desk | Incident record |
 | Change to policy or procedures | Document owner | System owner | Document owner | Document change record |
@@ -202,9 +202,10 @@ These procedures define how access control activities are performed: the workflo
 
 | Activity | How often | By | Output | Steps |
 | --- | --- | --- | --- | --- |
-| Privileged access review | Every 3 months | System owner, auditor | Signed review | PRO-AC-7 |
-| All other access review | Every 12 months | Data Owners | Signed review | PRO-AC-7 |
-| Inactive members | Monthly | Auditor; the groups' owners | Members who have not signed in for 90 days removed from their groups, date recorded | PRO-AC-8 |
+| Privileged access review | Every 3 months (P-04) | System owner prepares; auditor checks and signs; Head of Cyber reviews the system owner's own memberships and checks the administrators | Signed review | PRO-AC-7 |
+| Server and database account review | Every 6 months (P-52) | System owner, security officer | Signed review | PRO-AC-7 |
+| All other access review | Every 12 months (P-05) | Data Owners | Signed review | PRO-AC-7 |
+| Inactive members | Monthly | Security officer; the groups' owners | Members who have not signed in for 90 days removed from their groups, date recorded | PRO-AC-8 |
 | Open exceptions | With each access review | System owner | Exceptions ended or renewed | PRO-AC-15 |
 | Policy and procedures | Every 12 months, and after a change | System owner | Updated change record | PRO-AC-14 |
 | Audit logs | Weekly | Auditor | Review record | \<Security Operating Procedures\> |
@@ -217,28 +218,28 @@ Table AC-4 summarises each procedure: what starts it, who acts, its time limit, 
 
 | Procedure | Starts when | Who acts | Time limit | Record | Controls |
 | --- | --- | --- | --- | --- | --- |
-| PRO-AC-1 Joiner | Access is requested | The person, line manager, the group's owner (P-37), security officer | Training and signed \<Security Operating Procedures\> before the person is added to a group | ServiceNow request, TPL-9, TPL-21 and the register of signatures | AC-2, PL-4, PS-6, AT-2 |
-| PRO-AC-2 Mover | A role changes | Line manager, the groups' owners | Notified within 1 working day (P-06) | TPL-2, TPL-14 | AC-2, PS-5 |
+| PRO-AC-1 Joiner | Access is requested | The person, line manager, the group's owner (P-37), security officer | Training and signed \<Security Operating Procedures\> before the person is added to a group | ServiceNow request (TPL-2), TPL-9, TPL-21 and the register of signatures | AC-2, PL-4, PS-6, AT-2 |
+| PRO-AC-2 Mover | A role changes | Line manager, the groups' owners | Notified within 1 working day (P-06) | ServiceNow request (TPL-2), TPL-14 | AC-2, PS-5 |
 | PRO-AC-3 Leaver | The starters and leavers process prompts | \<Organisation\> disables the Active Directory account at once; the groups' owners | Within 5 working days (\<System Description\>, P-06) | TPL-14 | AC-2, AC-2(3), PS-4 |
 | PRO-AC-4 Urgent disable | A concern is raised | Anyone, \<Organisation\>'s service desk, system owner | Within 1 hour (P-41) | TPL-14, and TPL-10 if it is an incident | AC-2(13), IR-6 |
-| PRO-AC-5 Schema access | Access to a schema is requested | The person, line manager, Data Owner | Before access | TPL-2 | AC-3, AC-6 |
-| PRO-AC-6 Privileged access | A privileged role is requested | The person, line manager, system owner | Role modules M1 and M2 (\<Awareness and Training Management\>) passed and signed Part B before access | TPL-2, TPL-9 | AC-2, AC-6(5), AT-3 |
-| PRO-AC-7 Access review | The review falls due | The groups' owners, system owner, auditor | Every 3 months for privileged access, every 12 months for all other access (\<System Description\>, P-04 and P-05) | TPL-3 | AC-2, AC-6(7) |
-| PRO-AC-8 Inactive accounts | Monthly | \<Organisation\>; auditor; the groups' owners | 90 days without signing in; \<Organisation\>'s corporate standard for the Active Directory account (P-38) | TPL-3 | AC-2(3) |
-| PRO-AC-9 Locked account | A user asks | \<Organisation\>'s IT service desk | \<Organisation\>'s corporate standard (P-42) | \<Organisation\>'s record | AC-7 |
+| PRO-AC-5 Schema access | Access to a schema is requested, or the groups that open a schema are to change | The person, line manager, Data Owner, administrator | Before access or before the change | ServiceNow request (TPL-2); change record (TPL-6) for a change of groups | AC-2, AC-3, AC-5, AC-6 |
+| PRO-AC-6 Privileged access | A privileged role is requested | The person, line manager, system owner | Role modules M1 and M2 (\<Awareness and Training Management\>) passed and signed Part B before access | ServiceNow request (TPL-2), TPL-9 | AC-2, AC-6(5), AT-3 |
+| PRO-AC-7 Access review | The review falls due | The groups' owners, system owner, auditor, security officer, Head of Cyber | Every 3 months for the role groups, every 6 months for server and database accounts, every 12 months for schema groups (\<System Description\>, P-04, P-52 and P-05) | TPL-3 | AC-2, AC-6(7) |
+| PRO-AC-8 Inactive accounts | Monthly | \<Organisation\>; security officer; the groups' owners | 90 days without signing in, for both the Active Directory account and \<System Name\>'s groups (P-38) | TPL-3 | AC-2(3) |
+| PRO-AC-9 Locked account | A user asks | \<Organisation\>'s IT service desk | As P-42 sets | \<Organisation\>'s record | AC-7 |
 | PRO-AC-10 Forgotten password | A user asks | \<Organisation\>'s IT service desk | After its identity check | \<Organisation\>'s record | IA-5 |
-| PRO-AC-11 Ending access at once | A person's access must end at once | \<Organisation\>'s service desk; the groups' owners | At once | Note of the reason; TPL-10 if it is an incident | AC-12 |
+| PRO-AC-11 Ending access at once | A person's access must end at once | \<Organisation\>'s service desk; the groups' owners | At once; \<System Name\> refuses the person within 5 minutes | Note of the reason; TPL-10 if it is an incident | AC-2, AC-2(13) |
 | PRO-AC-12 First administrator | \<System Name\> is first built | Windows server administrator, database administrator, system owner | At build | TPL-6 | AC-2, IA-5 |
-| PRO-AC-13 Use notice | The wording changes | System owner, legal adviser | Through an approved change | TPL-6 | AC-8 |
+| PRO-AC-13 Use notice | The wording changes | System owner, legal adviser, who approves the wording | Through an approved change | TPL-6 | AC-8 |
 | PRO-AC-14 Policy and procedure review | The review falls due, or an event | System owner | Every 12 months (\<Policy\>, section 1.1) | Change record; TPL-4 | AC-1 |
-| PRO-AC-15 Exception | A rule cannot be met | Requester, security officer, system owner or authorising official | End date no more than 12 months away | TPL-17; \<Risk List\> | AC-1, PL-4, CA-5 |
-| PRO-AC-16 Sharing and export | Information must leave a schema | Requester, Data Owner, an editor of the schema | Before anything is shared | TPL-2, as the sharing decision | AC-21, AC-20(2) |
+| PRO-AC-15 Exception | A rule cannot be met | Requester, security officer, system owner or authorising official | End date no more than 12 months away | TPL-17; \<Risk List\> | AC-1, AC-20, AC-20(2), PL-4, CA-5 |
+| PRO-AC-16 Sharing and export | Information must leave a schema | Requester, Data Owner, an editor of the schema | Before anything is shared | TPL-25, the sharing decision record | AC-21 |
 | PRO-AC-17 Non-compliance | A gap is found | System owner, authorising official | As set in \<Risk List\> | \<Risk List\>; TPL-1 for an acceptance | CA-5, RA-7 |
 
 #### PRO-AC-1 New user (joiner)
 
 1. The person raises an access request in ServiceNow, naming the schemas and level needed, and the reason. **Manual**
-2. Their line manager approves or refuses it. The system owner then authorises or refuses the role, and the Data Owner each schema named (P-37). Nobody decides their own request. The ServiceNow workflow keeps the record. **Manual**
+2. Their line manager approves or refuses it. The owner of each group asked for then authorises or refuses it (P-37): the Data Owner for a schema's read or edit group, and the system owner for a role group. Nobody decides their own request. The ServiceNow workflow keeps the record. **Manual**
 3. Before the person is added to any group, they complete security and privacy awareness training, receive the \<System Name\> briefing from the system owner (\<Awareness and Training Management\>, section 3.3), and sign Part A of \<Security Operating Procedures\>, and Part B if the access is privileged. The security officer records the training on TPL-9, and the system owner records the signature on TPL-21 and in the register of signatures (\<Planning Management\>, section 3.5). No access is given until this is done.
 4. The owner who authorised the request adds the person to the approved AD groups, with \<Organisation\>'s AD tool. No \<System Name\> account is created: the person's Active Directory account is their account. **Manual**
 5. The person signs in through PingFederate, and \<System Name\>'s API reads their groups from Active Directory over LDAPS.
@@ -248,28 +249,28 @@ Table AC-4 summarises each procedure: what starts it, who acts, its time limit, 
 
 1. The line manager raises a change request in ServiceNow within the time in P-06. **Manual**
 2. The approver in P-37 approves the new access in the ServiceNow approval workflow.
-3. Each group's owner removes the old membership and adds any new one in Active Directory. The change takes effect when the person next signs in. If it must take effect at once, \<Organisation\>'s service desk ends the person's PingFederate sign-in, so that they must sign in again. **Manual**
+3. Each group's owner removes the old membership and adds any new one in Active Directory. The change takes effect within 5 minutes, because \<System Name\>'s API reads the person's groups on every request (\<System Description\>, section 7.2). No sign-in needs to be ended. **Manual**
 
 #### PRO-AC-3 Leaver
 
-1. \<Organisation\> disables the person's Active Directory account at once, which stops them signing in to \<System Name\>. The starters and leavers process prompts the owners of the groups the person belongs to. **Manual**
+1. \<Organisation\> disables the person's Active Directory account at once, which stops them signing in, and \<System Name\>'s API refuses the disabled account within 5 minutes, even if a session is open. The starters and leavers process prompts the owners of the groups the person belongs to. **Manual**
 2. Each owner removes the person from their AD group within the time in P-06. **Manual**
-3. \<Organisation\>'s service desk ends any PingFederate sign-in the person still has, and the owner records the date in the ServiceNow request. \<System Name\> has no sessions of its own to end.
+3. The owner records the date in the ServiceNow request and on TPL-14. No session needs to be ended by hand: the API's refusal of the disabled account ends it.
 
 #### PRO-AC-4 Urgent disable (high-risk individual)
 
 1. Whoever raises the concern tells the system owner and \<Organisation\>'s service desk.
-2. Within the time in P-41, \<Organisation\>'s service desk disables the person's Active Directory account and ends their PingFederate sign-in. \<System Name\> has no sessions of its own to end. **Manual**
-3. The system owner confirms with the service desk that the account is disabled and the PingFederate sign-in has ended.
+2. Within the time in P-41, \<Organisation\>'s service desk disables the person's Active Directory account, and ends their PingFederate sign-in so that they cannot start a new one. **Manual**
+3. The system owner confirms with the service desk that the account is disabled, and, after 5 minutes, checks \<System Name\>'s audit log or asks the auditor to confirm that the person's requests are being refused.
 4. The system owner records the reason and informs anyone who needs to know.
 
 #### PRO-AC-5 Schema access
 
-1. Each schema names one read group and one edit group on its schema definition, which an Administrator sets in the Admin application.
+1. Each schema names one read group and one edit group on its schema definition, which an Administrator sets in the Admin application. A change to them needs a change record (TPL-6) approved by the schema's Data Owner. The administrator enters the record's reference with the change; the change is audited and raises an alert to the security officer (U9). **Manual**
 2. The person asks for the access in the ServiceNow workflow. Their line manager approves it, and the schema's Data Owner, as owner of the schema's data and its two groups, authorises it. **Manual**
 3. The Data Owner adds the person to the schema's read group or edit group in Active Directory, with \<Organisation\>'s AD tool. **Manual**
 
-The API compares the group names on the schema definition with the person's Active Directory groups, which it reads from Active Directory over LDAPS. A schema with no group is closed to everyone but Administrators.
+The API compares the group names on the schema definition with the person's Active Directory groups, which it reads from Active Directory over LDAPS on every request, holding each answer for at most 5 minutes. A schema with no group is closed to everyone, administrators included.
 
 #### PRO-AC-6 Privileged access
 
@@ -279,14 +280,15 @@ The API compares the group names on the schema definition with the person's Acti
 
 #### PRO-AC-7 Access review
 
-1. At the intervals in P-AC-07, each group's owner lists its members from Active Directory. **Manual**
-2. The owner checks each member against the ServiceNow requests, and removes anyone who no longer needs the access.
-3. The system owner signs the result and keeps it as evidence, on TPL-3.
+1. At the intervals in P-04, P-05 and P-52, each group's owner lists its members from Active Directory. For server and database accounts, the system owner obtains \<Organisation\>'s export of the Windows administrator groups on both servers (EV-AC-02) and the database administrator's list of SQL Server logins and their roles. **Manual**
+2. The owner checks each member against the ServiceNow requests, removes anyone who no longer needs the access, and checks that no privileged account is in a schema group (P-45). For server and database accounts, the system owner and the security officer check each against \<Roles and Responsibilities\> and the approved change records, and have anything not needed removed.
+3. The result is recorded on TPL-3. A Data Owner signs the review of their schema's groups. For the role groups, the system owner prepares the review and the auditor checks and signs it. The system owner and the security officer sign the server and database review.
+4. The Head of Cyber reviews any role-group membership the system owner holds, and checks the administrators' membership, each quarter, and signs TPL-3 for that part. Nobody signs off their own access.
 
 #### PRO-AC-8 Inactive accounts
 
 1. \<Organisation\> disables unused Active Directory accounts under its corporate standard (P-38).
-2. Each month, the auditor lists, from the audit records of sign-ins, the members of each \<System Name\> group who have not signed in for 90 days, and sends each owner their list. **Manual**
+2. Each month, the security officer runs the last sign-in report in the Admin application (\<System Description\>, FR-085), lists the members of each \<System Name\> group who have not signed in for 90 days, and sends each owner their list. **Manual**
 3. The owner removes those members from the group, unless the person is on leave and still needs the access, and records the date on TPL-3. **Manual**
 
 #### PRO-AC-9 Locked account
@@ -300,18 +302,19 @@ The API compares the group names on the schema definition with the person's Acti
 
 #### PRO-AC-11 Ending access at once
 
-1. \<Organisation\>'s service desk disables the person's Active Directory account, or the group's owner removes the membership, and the service desk ends the person's PingFederate sign-in. \<System Name\> has no sessions of its own to end. **Manual**
+1. \<Organisation\>'s service desk disables the person's Active Directory account, or the group's owner removes the membership. \<System Name\>'s API refuses the person within 5 minutes, which ends any open session. The service desk may also end the person's PingFederate sign-in, so that they cannot start a new one. **Manual**
 2. Whoever asked for it records why. **Manual**
 
 #### PRO-AC-12 First administrator on a new installation
 
 1. No first administrator account is created, because \<System Name\> holds no accounts and its database has no account or password table. The database administrator creates a SQL Server login for the API's group managed service account, using Windows authentication, so no database password is set.
 2. At build, the Windows server administrator configures \<System Name\>'s PingFederate connection, as an OpenID Connect client of \<Organisation\>'s PingFederate, allows the application server alone to reach PingFederate over HTTPS on TCP 443 for its metadata, its signing certificate and each sign-in (F10), and records it on TPL-6. **Manual**
-3. The system owner adds the first Administrator to the \<Code\>\_Admins group in Active Directory. There is one Administrator role and no separate global administrator. **Manual**
+3. The Windows server administrator places the OpenID Connect client credential in the key store, readable only by the UI and Admin applications' service accounts. **Manual**
+4. The system owner adds the first Administrator to the \<Code\>\_Admins group in Active Directory. There is one Administrator role and no separate global administrator, and it opens no item content. **Manual**
 
 #### PRO-AC-13 Changing the system use notice
 
-The system owner approves the wording and a change request updates the system use notice page of the UI application and the Admin application. The page is shown after the person signs in through PingFederate, and they must accept it before going further; the acceptance is written to the audit log.
+The legal adviser and the system owner approve the wording, and a change request updates the system use notice page of the UI application and the Admin application. The page is shown after the person signs in through PingFederate, and they must accept it before going further; the acceptance is written to the audit log.
 
 #### PRO-AC-14 Policy and procedure review
 
@@ -329,9 +332,11 @@ The system owner approves the wording and a change request updates the system us
 #### PRO-AC-16 Sharing and export requests
 
 1. The requester names the items, recipient and reason. **Manual**
-2. The schema's Data Owner checks that the recipient is authorised for that information, and approves or refuses. Keep the record. **Manual**
+2. The schema's Data Owner checks that the recipient is authorised for that information, and approves or refuses it on TPL-25. **Manual**
 3. If approved, an editor of the schema exports the items as a download and delivers them by an approved route.
-4. The editor records the date and what was sent. **Manual**
+4. The editor records the date and what was sent on the same TPL-25. **Manual**
+
+Copying \<System Name\> data to portable storage or an external system is not a sharing decision: it is an exception, approved by the system owner on TPL-17 (PRO-AC-15).
 
 #### PRO-AC-17 Non-compliance and risk decisions
 
