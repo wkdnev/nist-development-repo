@@ -169,7 +169,7 @@ Frequencies and time limits are those set in the family documents, and the value
 
 ## 3 Part B: rules for privileged users
 
-Part B applies, in addition to Part A, to administrators, auditors, the security officer, Windows server and database administrators, and developers with access to a live system. A privileged account can change or expose the whole system, so these rules are stricter. The rules are numbered B1 to B22.
+Part B applies, in addition to Part A, to administrators, auditors, the security officer, business owners, the legal adviser's delegate, Windows server and database administrators, and developers with access to a live system. A privileged account can change or expose the whole system, so these rules are stricter. The rules are numbered B1 to B22.
 
 ### 3.1 Before and while you hold privileged access
 
@@ -439,7 +439,7 @@ The phone number and email of each contact are in \<Roles and Responsibilities\>
 | Managed device | A computer that \<Organisation\> issues and controls, with disk encryption, screen lock and USB blocking |
 | Personal data | Information about a living person who can be identified, as defined in UK GDPR |
 | Personal data breach | A breach of security that leads to personal data being lost, destroyed, changed, disclosed or accessed without authority |
-| Privileged user | Anyone whose access lets them change schemas, groups, settings, security functions, servers or the database, or read audit records (Part B) |
+| Privileged user | Anyone whose access lets them change schemas, groups, settings, security functions, servers or the database, read audit records, approve disposals or search every schema (Part B) |
 | Removable media | USB drives, external disks, memory cards and similar storage |
 | \<Classification\> | The protective marking for \<System Name\> information and printouts, shown by \<System Name\> on what it displays, prints and exports |
 | Security incident | Anything that harms, or could harm, the confidentiality, integrity or availability of \<System Name\> or its information, or that breaks these rules |

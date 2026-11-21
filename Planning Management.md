@@ -103,7 +103,7 @@ Controls met here: PL-2.
 
 Controls met here: PL-4, PL-4(1).
 
-The Security Operating Procedures are the rules of behaviour. Part A applies to everyone, and Part B, the privileged rules, to administrators as well. The privacy rules are A23 to A29. The rules on social media, public websites and outside sites are these:
+The Security Operating Procedures are the rules of behaviour. Part A applies to everyone, and Part B, the privileged rules, to privileged users as well (\<Security Operating Procedures\>, section 3). The privacy rules are A23 to A29. The rules on social media, public websites and outside sites are these:
 
 - **A43:** \<System Name\> information, items and how the system works are not posted or discussed on social media, forums or any public website.
 - **A25:** \<Organisation\>'s information is not posted on public websites.

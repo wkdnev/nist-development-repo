@@ -88,7 +88,7 @@ Controls met here: PS-6.
 Two agreements are signed before access, and again every 12 months and after a material change. CSS places PS-6 in its privacy baseline as well as the Moderate baseline, so the agreements cover privacy too: the rules on personal data are A23 to A29.
 
 1. **\<Organisation\>'s confidentiality agreement,** signed on employment or engagement.
-2. **The rules of behaviour,** \<Security Operating Procedures\>: Part A for everyone, and Part B, the privileged rules, for administrators as well. Each person signs a declaration on TPL-21 that they have read and understood the rules and agree to follow them, and the signature is recorded in the register of signatures (\<Planning Management\>, section 3.5).
+2. **The rules of behaviour,** \<Security Operating Procedures\>: Part A for everyone, and Part B, the privileged rules, for privileged users as well. Each person signs a declaration on TPL-21 that they have read and understood the rules and agree to follow them, and the signature is recorded in the register of signatures (\<Planning Management\>, section 3.5).
 
 Each person signs both before being added to any \<System Name\> group. The ServiceNow access request checks the register of signatures, and is not approved without a signature in it. The system owner reviews and updates the agreements every 12 months.
 

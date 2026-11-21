@@ -113,7 +113,7 @@ Every role must complete awareness, the briefing and the SyOps signature before 
 | Developers | Yes | Parts A and B | M5, M3 | M7 |
 | Security officer | Yes | Parts A and B | M6, M9 | M7, M8 |
 | Auditor | Yes | Parts A and B | M6 | M7 |
-| Business owner | Yes | Part A | M9 | None |
+| Business owner | Yes | Parts A and B | M9 | None |
 | Legal adviser's delegate | Yes | Parts A and B | M9 | None |
 | Everyone who handles personal data in \<System Name\> | Yes | Part A | M9 | None |
 
