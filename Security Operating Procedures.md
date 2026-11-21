@@ -286,7 +286,7 @@ The detection use cases U1 to U8 in \<System and Information Integrity Managemen
 | C53 | Check BitLocker is on for both VMs and that a recovery key works; check backups are encrypted | Windows server administrator, database administrator | \<Procedures\>, PRO-SC-7 | TPL-11 | SC-28, SC-28(1) |
 | **When an event occurs** |  |  |  |  |  |
 | C36 | Grant, change or remove access | The groups' owners; \<Organisation\>'s service desk ends PingFederate sign-ins | Section 4.4 | TPL-2, TPL-14 | AC-2, PS-4, PS-5 |
-| C37 | Apply updates within the time limits in Table 4 | Windows server administrator, database administrator, developers | Section 4.3, through approved change | TPL-6, TPL-7 | SI-2, CM-3 |
+| C37 | Apply updates within the time limits in \<System Description\>, P-11 | Windows server administrator, database administrator, developers | Section 4.3, through approved change | TPL-6, TPL-7 | SI-2, CM-3 |
 | C38 | Make a change, including an emergency change | Change control element | Section 4.5 | TPL-6 | CM-3, CM-4, CM-5 |
 | C39 | Renew certificates before they expire | Windows server administrator | \<Procedures\>, PRO-SC-2 | TPL-6 | SC-8, SC-17 |
 | C40 | Repeat the security tests at each release and after a significant change | Developers | The developer test plan in \<System and Services Acquisition Management\>, section 3.9 (15 scripts, including Test-Protection.ps1 for \<Procedures\>, PRO-SC-1), in the test environment; \<Procedures\>, PRO-SA-2 | Results, with a manifest, in the evidence for each family | CA-2, CM-4(2), SA-11 |
@@ -307,28 +307,9 @@ The detection use cases U1 to U8 in \<System and Information Integrity Managemen
 
 ### 4.3 Vulnerability management (C10, C11, C37, C50)
 
-**Table 3: Components checked for vulnerabilities, summarised from \<Risk Assessment Management\>, section 3.5**
+What is checked for vulnerabilities, by whom and how often is in \<Risk Assessment Management\>, section 3.5. Each fix is made within the time for its severity in \<System Description\>, P-11: 3 days if exploited, as an emergency change; 14 days Critical or High; 30 days Medium; 90 days Low. The security officer checks CISA's Known Exploited Vulnerabilities catalogue and \<Organisation\>'s alerts weekly (C50).
 
-| Component | How it is checked | Who | How often |
-| --- | --- | --- | --- |
-| Windows Server 2025 | Vendor updates and a credentialed scan, \<Procedures\>, PRO-RA-3 | Windows server administrator | Monthly, and at each release |
-| Microsoft SQL Server 2022 | Vendor updates and security announcements | Database administrator | Monthly |
-| .NET and NuGet packages, through the in-house package feed | Package vulnerability report at each build | Developers | Each build, and monthly |
-| Browser libraries | Vendor security announcements | Developers | Monthly |
-| \<System Name\>'s own applications | Web application scan | Developers | Each release |
-| Server and database settings | Configuration scan against the baseline | Windows server administrator, database administrator | Monthly |
-| All components, for exploited flaws | CISA's Known Exploited Vulnerabilities catalogue and \<Organisation\>'s alerts, \<Procedures\>, PRO-RA-4 | Security officer | Weekly (C50) |
-
-**Table 4: Time limits for fixes, summarised from \<Risk Assessment Management\>, section 3.6**
-
-| Severity | Fix within |
-| --- | --- |
-| Critical or high | 14 days, matching Cyber Essentials Plus |
-| Medium | 30 days |
-| Low | 90 days |
-| Exploited (in CISA's catalogue, or confirmed by the vendor) | 3 days, as an emergency change |
-
-A fix that cannot be made in time goes through PRO-AC-15 and into \<Plan of Action and Milestones\>. Updates are tested first, as \<Procedures\>, PRO-SI-1 requires. These times are the timetable in \<Risk Assessment Management\>, section 3.6, counted from the fix's release, or from detection if later; severity is the vendor's rating, or else the CVSS base score.
+A fix that cannot be made in time goes through PRO-AC-15 and into \<Plan of Action and Milestones\>. Updates are tested first, as \<Procedures\>, PRO-SI-1 requires. The clock and the severity are as \<Risk Assessment Management\>, section 3.6, sets out.
 
 ### 4.4 Joiners, movers and leavers (C36)
 
@@ -362,22 +343,13 @@ The security officer analyses each change's impact against the criteria in \<Con
 
 ### 4.8 Media sanitisation and disposal (C42)
 
-1. Media are sanitised before reuse or disposal by the method for their type in \<Media Protection Management\>, section 3.6, following CSS and IEEE 2883-2022: cryptographic erase for encrypted virtual disks and backups, and purge or destruction with a certificate for \<Organisation\>'s physical disks.
-2. Paper is cross-cut shredded to DIN 66399 level P-4 or better. Exported files are deleted securely from wherever they were saved.
-3. Transport, sanitising and any exception are recorded on TPL-13.
+Media and paper are sanitised, shredded and recorded as \<Procedures\>, PRO-MP-1 and PRO-MP-3, set out, by the method for each type in \<Media Protection Management\>, section 3.6. Exported files are deleted securely from wherever they were saved.
 
 ### 4.9 Security incidents and personal data breaches (C43)
 
-**Table 5: Incident severity, summarised from \<Incident Response Management\>, section 3.6, which also sets the containment targets and playbooks**
+Each incident is given a severity, from Low to Critical, which sets how fast the security officer starts work and who is told (\<Incident Response Management\>, section 3.6).
 
-| Severity | Examples | Security officer starts work within | Who is told |
-| --- | --- | --- | --- |
-| Critical | Personal data breach likely to harm people; ransomware; compromise of a privileged account | 1 hour | System owner, authorising official, legal adviser, \<Organisation\>'s security contact |
-| High | Compromised user account; exposed secret; access to items someone should not see | 4 hours | System owner, \<Organisation\>'s security contact; legal adviser if personal data is involved |
-| Medium | Malware stopped by Defender; repeated failed sign-ins; a supplier advisory affecting \<System Name\> | 1 working day | System owner |
-| Low | A single policy breach with no data exposed | 5 working days | Recorded only |
-
-**Table 6: First actions**
+**Table 3: First actions**
 
 | Event | First action | Who |
 | --- | --- | --- |
@@ -411,23 +383,23 @@ Some rules allow an exception, such as access from abroad (A41), removable media
 
 ## 6 Contacts
 
-The phone number and email of each contact are in \<Roles and Responsibilities\>, section 6.
+Who holds each role, and their phone number and email, are in \<Roles and Responsibilities\>, section 6.
 
-**Table 7: Contacts**
+**Table 4: Contacts**
 
 | For | Who |
 | --- | --- |
-| Reporting incidents, and questions on these rules | \[Name\], security officer |
-| When the security officer is away | \[Name\], system owner, as deputy (\<Roles and Responsibilities\>, Table 4) |
-| Exceptions, and decisions on access | \[Name\], system owner |
-| Personal data, breaches and requests from individuals | \[Name\], legal adviser |
-| Access to a schema, or to a role in \<System Name\> | The schema's Data Owner; \[Name\], system owner, for a role |
+| Reporting incidents, and questions on these rules | The security officer |
+| When the security officer is away | The system owner, as deputy (\<Roles and Responsibilities\>, Table 4) |
+| Exceptions, and decisions on access | The system owner |
+| Personal data, breaches and requests from individuals | The legal adviser |
+| Access to a schema, or to a role in \<System Name\> | The schema's Data Owner; the system owner, for a role |
 | Devices, VPN, lost devices and passwords for the network | \<Organisation\>'s IT service desk |
-| \<Organisation\>'s security team | \[Name\]; deputy \[Name\] |
+| \<Organisation\>'s security team | \<Organisation\>'s security contact and their deputy |
 
 ## 7 Definitions
 
-**Table 8: Definitions**
+**Table 5: Definitions**
 
 | Term | Meaning |
 | --- | --- |
@@ -447,9 +419,9 @@ The phone number and email of each contact are in \<Roles and Responsibilities\>
 
 ## 8 Traceability to CSS
 
-Table 9 shows where each control that these SyOps serve is met. It lets an auditor test from the control to the rule or duty, or the other way.
+Table 6 shows where each control that these SyOps serve is met. It lets an auditor test from the control to the rule or duty, or the other way.
 
-**Table 9: Controls and where they are met**
+**Table 6: Controls and where they are met**
 
 | Control | Rules and duties |
 | --- | --- |
@@ -494,7 +466,7 @@ Everyone signs Part A, and privileged users also sign Part B, before getting acc
 
 **Part B.** I have read and understood Part B of \<Security Operating Procedures\>, version \<ver\>, and I agree to follow it as well as Part A.
 
-**Table 10: Acknowledgement register**
+**Table 7: Acknowledgement register**
 
 | Name | Account | Part A or B | Version | Signature | Date |
 | --- | --- | --- | --- | --- | --- |

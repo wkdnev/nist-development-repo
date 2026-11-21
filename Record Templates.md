@@ -8,32 +8,32 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 
 **Table 1: Templates and where they are used**
 
-| Template | Purpose | AC controls and procedures | Other families |
-| --- | --- | --- | --- |
-| TPL-1 Risk acceptance | Records a decision to accept a non-compliance | Any NC entry; PRO-AC-15, PRO-AC-17 | Any NC entry in AU, IA, SC, CM, SI, RA, CA, IR, CP, AT, MA, MP, PE, PL, PS, PT, SA or SR |
-| TPL-2 Access request | Records a request, its approval by the line manager and its authorisation by the group's owner before access changes. The ServiceNow access approval workflow is where requests are made, and the closed ServiceNow request is this record and must hold these fields | AC-2c, AC-2e, AC-6(5); PRO-AC-1, PRO-AC-2, PRO-AC-5, PRO-AC-6 | IA-4, CM-5, PS-3; PRO-PS-1 |
-| TPL-3 Access review | Records a periodic review of accounts or privileges | AC-2j, AC-6(7); PRO-AC-7, PRO-AC-8 | CM-7(1), SC-7(4), CA-3, CA-9; PS-2, PS-6; PRO-PS-4 |
-| TPL-4 Procedure walk-through | Shows that a procedure was tried and works | AC-1, AC-2f; all PRO procedures | AU-1, IA-1, SC-1, CM-1, SI-1, RA-1, CA-1, IR-1, CP-1, AT-1, MA-1, MP-1, PE-1, PL-1, PS-1, PT-1, SA-1, SR-1; all their procedures |
-| TPL-5 Approved access list | The approved baseline to compare the system against | AC-2d, AC-2i, AC-5, AC-6 | CM-7(5), CM-8, CM-12 |
-| TPL-6 Change record | Records a change, its impact, testing and approval. Where the change is recorded in ServiceNow, the ServiceNow record is this record and must hold these fields | None | CM-3, CM-3(2), CM-4, CM-4(2), SI-2, IA-5, IA-5(1), IA-5(6); PRO-CM-1, PRO-IA-4, PRO-IA-5 |
-| TPL-7 Vulnerability and patch review | Records a scan or package check, what was found, and when it was fixed | None | SI-2, SI-2(2), SI-5, RA-5, RA-5(5); PRO-SI-1, PRO-SI-5, PRO-RA-3, PRO-RA-4, PRO-RA-5 |
-| TPL-8 Monitoring and integrity report | Records log reviews, integrity checks, configuration drift and the monthly measures | None | AU-6, SI-4, SI-7(1), CA-7; PRO-SI-3, PRO-SI-4, PRO-SI-6, PRO-CA-5 |
-| TPL-9 Training record | Records who was trained, on what and when. Kept for 3 years | None | AT-2, AT-3, AT-3(5), AT-4, IR-2, CP-3, PL-4; PRO-AT-1, PRO-AT-2 and PRO-AT-4 |
-| TPL-10 Incident record | Records an incident from report to lessons. Where the incident is recorded in ServiceNow, the ServiceNow record is this record and must hold these fields | None | IR-4, IR-5, IR-6; PRO-IR-1, PRO-IR-2 |
-| TPL-11 Exercise and restore test | Records a tabletop exercise, restore test or activation as an after-action report, the result and the actions | None | IR-3, IR-3(2), CP-4, CP-4(1), CP-9(1); PRO-IR-3, PRO-CP-2, PRO-CP-4 |
-| TPL-12 Maintenance record | Records maintenance, who did it and the check afterwards. Kept for 3 years | None | MA-2, MA-3, MA-3(3), MA-4, MA-5; PRO-MA-1 to PRO-MA-7 |
-| TPL-13 Media record | Records media transport, sanitising and exceptions. Kept for 3 years | None | MP-5, MP-6, MP-7; PRO-MP-1 to PRO-MP-4 |
-| TPL-14 Leaver or mover record | Records what happened to someone's access when they left or moved. Kept for 3 years | AC-2 | PS-4, PS-5; PRO-PS-2, PRO-PS-3 |
-| TPL-15 Privacy request | Records a request from an individual about their data: to see, correct, delete, restrict, object or receive it in a portable form. Kept for 3 years after it is closed | AC-3(14) | SI-18(4); PRO-PT-1 |
-| TPL-16 Supplier review | Records a yearly review of a supplier or external service | None | SA-9, SR-2, SR-6, SR-8; PRO-SA-3, PRO-SR-2 |
-| TPL-17 Exception request | Records a request to depart from a SyOps rule, the decision and its end date. The approved requests form the exception register | AC-20, AC-20(2); PRO-AC-15 | PL-4, CM-2(7), MP-7, PE-17; \<Security Operating Procedures\>, section 5 |
-| TPL-18 Authorisation decision | Records the authorising official's decision, its terms and conditions, the risks accepted and its end date | None | CA-6; PRO-CA-4, PRO-CA-7 |
-| TPL-19 Assessor independence statement | Records an assessor's confirmation that they had no part in building or running \<System Name\> | None | CA-2(1), CA-7(1); PRO-CA-1, PRO-CA-5 |
-| TPL-20 Site inspection checklist | Records a one-off inspection of a data centre's physical and environmental controls | None | PE-2 to PE-16; PRO-PE-5 |
-| TPL-21 Rules of behaviour acknowledgement | Records that a person has signed the rules of behaviour, which version and parts, and how. Kept while the person has access, and for 3 years after | AC-2 | PL-4, PL-4(1), PS-6; PRO-PL-3 |
-| TPL-22 Data protection complaint | Records a complaint about how personal data is handled, its acknowledgement within 30 days, the investigation and the outcome. Kept for 3 years after it is closed | None | PT-2, PM-26; PRO-PT-2 |
-| TPL-23 Risk and supply chain review | Records a review of the risk list, the supply chain or the critical components: what was looked at, what changed, and who saw the result | None | RA-3, RA-3(1), RA-7, RA-9; PRO-RA-1, PRO-RA-2, PRO-RA-6 |
-| TPL-24 Approval sign-off record | Records that a named person made or confirms the decisions listed, so that an approval does not rest on someone else's report | AC-1 | CA-6, PL-2, PM-10 and every policy control (xx-1); \<Decision Register\>, section 23 |
+| Template | Purpose | Controls and procedures |
+| --- | --- | --- |
+| TPL-1 Risk acceptance | Records a decision to accept a non-compliance | Any NC entry, in any family; PRO-AC-15, PRO-AC-17 |
+| TPL-2 Access request | Records a request, its approval by the line manager and its authorisation by the group's owner before access changes. The ServiceNow access approval workflow is where requests are made, and the closed ServiceNow request is this record and must hold these fields | AC-2c, AC-2e, AC-6(5); PRO-AC-1, PRO-AC-2, PRO-AC-5, PRO-AC-6; IA-4, CM-5, PS-3; PRO-PS-1 |
+| TPL-3 Access review | Records a periodic review of accounts or privileges | AC-2j, AC-6(7); PRO-AC-7, PRO-AC-8; CM-7(1), SC-7(4), CA-3, CA-9; PS-2, PS-6; PRO-PS-4 |
+| TPL-4 Procedure walk-through | Shows that a procedure was tried and works | Every policy control (XX-1); AC-2f; every procedure |
+| TPL-5 Approved access list | The approved baseline to compare the system against | AC-2d, AC-2i, AC-5, AC-6; CM-7(5), CM-8, CM-12 |
+| TPL-6 Change record | Records a change, its impact, testing and approval. Where the change is recorded in ServiceNow, the ServiceNow record is this record and must hold these fields | CM-3, CM-3(2), CM-4, CM-4(2), SI-2, IA-5, IA-5(1), IA-5(6); PRO-CM-1, PRO-IA-4, PRO-IA-5 |
+| TPL-7 Vulnerability and patch review | Records a scan or package check, what was found, and when it was fixed | SI-2, SI-2(2), SI-5, RA-5, RA-5(5); PRO-SI-1, PRO-SI-5, PRO-RA-3, PRO-RA-4, PRO-RA-5 |
+| TPL-8 Monitoring and integrity report | Records log reviews, integrity checks, configuration drift and the monthly measures | AU-6, SI-4, SI-7(1), CA-7; PRO-SI-3, PRO-SI-4, PRO-SI-6, PRO-CA-5 |
+| TPL-9 Training record | Records who was trained, on what and when. Kept for 3 years | AT-2, AT-3, AT-3(5), AT-4, IR-2, CP-3, PL-4; PRO-AT-1, PRO-AT-2 and PRO-AT-4 |
+| TPL-10 Incident record | Records an incident from report to lessons. Where the incident is recorded in ServiceNow, the ServiceNow record is this record and must hold these fields | IR-4, IR-5, IR-6; PRO-IR-1, PRO-IR-2 |
+| TPL-11 Exercise and restore test | Records a tabletop exercise, restore test or activation as an after-action report, the result and the actions | IR-3, IR-3(2), CP-4, CP-4(1), CP-9(1); PRO-IR-3, PRO-CP-2, PRO-CP-4 |
+| TPL-12 Maintenance record | Records maintenance, who did it and the check afterwards. Kept for 3 years | MA-2, MA-3, MA-3(3), MA-4, MA-5; PRO-MA-1 to PRO-MA-7 |
+| TPL-13 Media record | Records media transport, sanitising and exceptions. Kept for 3 years | MP-5, MP-6, MP-7; PRO-MP-1 to PRO-MP-4 |
+| TPL-14 Leaver or mover record | Records what happened to someone's access when they left or moved. Kept for 3 years | AC-2; PS-4, PS-5; PRO-PS-2, PRO-PS-3 |
+| TPL-15 Privacy request | Records a request from an individual about their data: to see, correct, delete, restrict, object or receive it in a portable form. Kept for 3 years after it is closed | AC-3(14); SI-18(4); PRO-PT-1 |
+| TPL-16 Supplier review | Records a yearly review of a supplier or external service | SA-9, SR-2, SR-6, SR-8; PRO-SA-3, PRO-SR-2 |
+| TPL-17 Exception request | Records a request to depart from a rule in \<Security Operating Procedures\>, the decision and its end date. The approved requests form the exception register | AC-20, AC-20(2); PRO-AC-15; PL-4, CM-2(7), MP-7, PE-17; \<Security Operating Procedures\>, section 5 |
+| TPL-18 Authorisation decision | Records the authorising official's decision, its terms and conditions, the risks accepted and its end date | CA-6; PRO-CA-4, PRO-CA-7 |
+| TPL-19 Assessor independence statement | Records an assessor's confirmation that they had no part in building or running \<System Name\> | CA-2(1), CA-7(1); PRO-CA-1, PRO-CA-5 |
+| TPL-20 Site inspection checklist | Records a one-off inspection of a data centre's physical and environmental controls | PE-2 to PE-16; PRO-PE-5 |
+| TPL-21 Rules of behaviour acknowledgement | Records that a person has signed the rules of behaviour, which version and parts, and how. Kept while the person has access, and for 3 years after | AC-2; PL-4, PL-4(1), PS-6; PRO-PL-3 |
+| TPL-22 Data protection complaint | Records a complaint about how personal data is handled, its acknowledgement within 30 days, the investigation and the outcome. Kept for 3 years after it is closed | PT-2, PM-26; PRO-PT-2 |
+| TPL-23 Risk and supply chain review | Records a review of the risk list, the supply chain or the critical components: what was looked at, what changed, and who saw the result | RA-3, RA-3(1), RA-7, RA-9; PRO-RA-1, PRO-RA-2, PRO-RA-6 |
+| TPL-24 Approval sign-off record | Records that a named person made or confirms the decisions listed, so that an approval does not rest on someone else's report | AC-1; CA-6, PL-2, PM-10 and every policy control (xx-1); \<Decision Register\>, section 5 |
 
 ## 2 Templates
 
@@ -479,7 +479,7 @@ Completed by the system owner for each review of the risk list, the supply chain
 
 ### 2.24 TPL-24 Approval sign-off record
 
-Completed for each approver, and filed by the system owner in the Restricted store. The approver signs it, or replies to an email that lists the same decisions; the email is then attached. One sheet covers every decision the person has made up to its date (\<Decision Register\>, section 23). Nobody signs for anyone else.
+Completed for each approver, and filed by the system owner in the Restricted store. The approver signs it, or replies to an email that lists the same decisions; the email is then attached. One sheet covers every decision the person has made up to its date (\<Decision Register\>, section 5). Nobody signs for anyone else.
 
 **Table 27: TPL-24 Approval sign-off record**
 

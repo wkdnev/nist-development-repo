@@ -6,17 +6,13 @@ This document sets out how \<System Name\> is designed to process personal data 
 
 Section 3 is the design: the authority, purposes and lawful basis; every kind of personal data \<System Name\> holds; special category data; the privacy notice; people's rights; minimisation, quality, retention and disposal; the impact assessment; where the privacy controls held in other documents are designed; what \<Organisation\> provides; the processing rules and monitoring; and the policy and procedures. Each subsection names the controls it helps to meet.
 
-Other documents hold the rest. Who provides and is responsible for each control, its status and its assessment result are in \<System Security Plan\>, section 7.14 (Table 23). The tests, their results and the records an assessor will ask for are in \<Control Assessment Record\> (PT). Each control's risk is in \<Risk List\>, and what is still open is in \<Plan of Action and Milestones\>. The policy is in \<Policy\> (PT), and the steps people follow are in \<Procedures\> (PT). Two documents sit beside this one and are owned by the legal adviser: the privacy plan, \<Privacy Plan\>, which PL-2 calls for, and the data protection impact assessment, \<Data Protection Impact Assessment\>.
-
 UK law decides what is lawful. The CSS controls set out how it is shown. Where a value needs a legal decision, it is a placeholder for the legal adviser.
 
-Values that CSS asks the organisation to define are set at corporate level by \<Organisation\>. The settings in section 3 should match those corporate values. Where one does not, it is changed in this document.
 
-Appendix A lists the related enhancements CSS does not select.
 
-## 2 Summary
+## 2 Related documents
 
-The implementation status of each control, how it is met, who is responsible, its assessment result and the risk and plan entries for its gaps are recorded in \<System Security Plan\>, section 7.14 (Table 23).
+Who provides and is responsible for each control, and its status, are in \<System Security Plan\>, section 7.14 (Table 23). The tests, their results and the records an assessor will ask for are in \<Control Assessment Record\> (PT). Each control's risk is in \<Risk List\>, and what is still open is in \<Plan of Action and Milestones\>. The policy is in \<Policy\> (PT), and the steps people follow are in \<Procedures\> (PT). Two documents sit beside this one and are owned by the legal adviser: the privacy plan, \<Privacy Plan\>, which PL-2 calls for, and the data protection impact assessment, \<Data Protection Impact Assessment\>.
 
 ## 3 The design
 
@@ -65,7 +61,7 @@ One row for each kind of personal data. The first rows come from the information
 | People who sign in: name and Active Directory account name, and the groups the API reads from Active Directory over LDAPS | Each sign-in, held in the authentication cookie; the audit records; items, such as who created or uploaded an item | PingFederate's signed response (the name) and Active Directory (the groups), at each sign-in | Signing in and accountability | \[Legal adviser\] | Not applicable | Administrators, auditors | Section 3.7, A1 |
 | Audit records: username, user ID, IP address and browser | The audit log in the \<System Name\> database (\<Audit and Accountability Management\>, section 3.5) | \<System Name\> | Accountability and security | \[Legal adviser\] | Not applicable | Auditors | Section 3.7, A2 |
 | Application log: designed to hold no personal data (no usernames, addresses or cookie values), listed so that any slip is caught | Each application's log on the application server, forwarded to central logging (\<Audit and Accountability Management\>, section 3.10) | \<System Name\> | Troubleshooting | \[Legal adviser\] | Not applicable | Server administrators, auditors | Section 3.7, A3 |
-| Export copies | Users' managed devices; the encrypted working area on the application server | Bulk export | Sharing items for work | As the source item | As the source item | The exporting user | 30 days at most on devices (SyOps A28); working copies deleted once downloaded, and always within 24 hours (\<System Description\>, P-20) |
+| Export copies | Users' managed devices; the encrypted working area on the application server | Bulk export | Sharing items for work | As the source item | As the source item | The exporting user | 30 days at most on devices (\\<Security Operating Procedures\\>, A28); working copies deleted once downloaded, and always within 24 hours (\<System Description\>, P-20) |
 
 ### 3.4 Special category data
 
@@ -180,24 +176,4 @@ Controls met here: SC-7(24).
 
 Controls met here: PT-1.
 
-1. **Policy.** \<Policy\> (PT) is a system-level policy, shared with everyone who administers \<System Name\>. The legal adviser reviews it.
-2. **Procedures.** \<Procedures\> (PT) holds six procedures, PRO-PT-1 to PRO-PT-6. They are shared with the same people.
-3. **Owner.** The system owner manages the policy and procedures.
-4. **Review.** The policy is reviewed every 12 months, and after a significant incident, audit finding, change in the law or system change. The procedures are reviewed every 12 months, and after a change to the steps.
-5. **Records.** The documents are under version control.
-
-## Appendix A Privacy controls outside the privacy baseline
-
-CSS does not select these enhancements in its privacy baseline, so they are not assessed. Some of the design goes some way towards them, and Table 6 says where. The United States controls that the baseline does select are tailored out in section 3.2.
-
-**Table 6: Related enhancements not selected**
-
-| Control | What it adds | \<System Name\>'s position |
-| --- | --- | --- |
-| PT-2(1), PT-3(1), SI-18(2) Data Tagging; Data Tags | Tags on personal data that carry its permitted processing, purposes or quality | Not required. Done in part in design: items that hold special category data are marked as such (section 3.4) |
-| PT-2(2), PT-3(2), SI-18(1) Automation; Automation Support | Processing limits and quality checks enforced by automated means | Not required. Schema access limits who processes each schema's items |
-| PT-4(1), PT-4(2), PT-4(3) Tailored Consent; Just-in-time Consent; Revocation | Ways to give, refine and withdraw consent | Not required. Consent is not the lawful basis (section 3.2) |
-| PT-5(1) Just-in-time Notice | Notice given at the moment data is collected | Not required. Done in part in design: the short statement on \<System Name\>'s pages (section 3.5) |
-| SI-18(3) Collection | Personal data collected directly from the person where possible | Not required. The business teams that own each schema collect the data; \<System Name\> stores the items |
-| SI-18(5) Notice of Correction or Deletion | People to whom data was disclosed are told of a correction or deletion | Not required. Done in design: the legal adviser tells them, as UK GDPR Article 19 requires (section 3.6) |
-| SI-19(1) to SI-19(8) | Ways of de-identifying data | Not applicable. No dataset is de-identified (SI-19) |
+\<Policy\> (PT) and \<Procedures\> (PT) meet PT-1. Who they are shared with is in \<Policy\>, section PT.6. Their ownership, approval, review and records follow the rules common to every policy in \<Policy\>, section 1.1.

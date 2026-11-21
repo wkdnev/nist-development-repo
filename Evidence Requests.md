@@ -99,7 +99,7 @@ This matrix is proposed to \<Organisation\>.
 | AC-2(2) | None | Prohibition and periodic check | None | None |
 | AC-2(3) | None: a disabled AD account fails the next sign-in and group lookup | PRO-AC-3, PRO-AC-4 and PRO-AC-8 | Disabling the AD account; leaver notice | EV-AC-01 |
 | AC-2(4) | Audit records | Reviewing them | None | None |
-| AC-2(5) | None: no session management of its own | Setting the value | Windows server sign-ins; PingFederate sign-in lifetime (P-AC-10, \<System Description\> P-02) | EV-AC-05, EV-IA-04 |
+| AC-2(5) | None: no session management of its own | Setting the value | Windows server sign-ins; PingFederate sign-in lifetime (\<System Description\>, P-02) | EV-AC-05, EV-IA-04 |
 | AC-2(13) | None: a disabled AD account fails the next sign-in and group lookup | PRO-AC-4 | Reporting a significant risk; disabling the AD account | EV-AC-01 |
 | AC-3 | Access enforcement by role and schema on every request | Data Owners authorise access in ServiceNow | Windows and network permissions | EV-AC-02, EV-AC-03 |
 | AC-4 | Limits on its own connections | Approving the flows | Firewalls and network | EV-AC-03 |
@@ -115,7 +115,7 @@ This matrix is proposed to \<Organisation\>.
 | AC-8 | Sign-in notice | Wording | Windows logon banner | EV-AC-06 |
 | AC-11 | None: no page lock of its own | Setting the value (P-03) | Device and server lock | EV-AC-07 |
 | AC-11(1) | None | None | Device lock screen | EV-AC-07 |
-| AC-12 | None: no session management of its own | Approving the values | Windows server sign-ins; PingFederate sign-in lifetime (P-AC-10, \<System Description\> P-02) | EV-AC-05, EV-IA-04 |
+| AC-12 | None: no session management of its own | Approving the values | Windows server sign-ins; PingFederate sign-in lifetime (\<System Description\>, P-02) | EV-AC-05, EV-IA-04 |
 | AC-14 | Limits actions without sign-in | Approving the list | Anonymous access on the VMs | EV-AC-03 |
 | AC-17 | None | Who may work remotely | Remote access service | EV-AC-08 |
 | AC-17(1) | None | None | Monitoring and control | EV-AC-09 |
@@ -190,7 +190,7 @@ This matrix is proposed to \<Organisation\>.
 | EV-IA-01 | IA-3, IA-5h | How devices are identified on \<Organisation\>'s network, and how they protect credentials | Network access control description and build standard |
 | EV-IA-02 | IA-12, IA-12(2), IA-12(3), IA-12(5) | What identity evidence HR collects and checks in pre-employment checks, for staff and contractors, and how people are told | HR process and a blank record |
 | EV-IA-03 | IA-7 | Whether the VMs use validated cryptographic modules | Build standard and settings |
-| EV-IA-04 | IA-2(1), IA-2(2), IA-2(8) | How PingFederate signs users in to \<System Name\>: the multi-factor methods it requires, its lockout and password standard, and how its OpenID Connect response is signed. Also the settings of \<System Name\>'s PingFederate connection: the OpenID Connect client settings, the sign-in lifetime (P-AC-10, \<System Description\> P-02), how the application server alone reaches PingFederate to fetch its OpenID Connect metadata and signing certificate and to complete each sign-in (flow F10, HTTPS, TCP 443), what the response carries (it names the person and carries no groups), how the signing certificate is renewed, and whether the settings meet federation assurance level 2 of CSS | Service description; the OpenID Connect client settings for \<System Name\>; the password and lockout policy |
+| EV-IA-04 | IA-2(1), IA-2(2), IA-2(8) | How PingFederate signs users in to \<System Name\>: the multi-factor methods it requires, its lockout and password standard, and how its OpenID Connect response is signed. Also the settings of \<System Name\>'s PingFederate connection: the OpenID Connect client settings, the sign-in lifetime (\<System Description\>, P-02), how the application server alone reaches PingFederate to fetch its OpenID Connect metadata and signing certificate and to complete each sign-in (flow F10, HTTPS, TCP 443), what the response carries (it names the person and carries no groups), how the signing certificate is renewed, and whether the settings meet federation assurance level 2 of CSS | Service description; the OpenID Connect client settings for \<System Name\>; the password and lockout policy |
 | EV-IA-05 | IA-2, IA-9, AC-3, SC-8 | How \<System Name\>'s API reads group membership from Active Directory over LDAPS (flow F7, TCP 636): the domain controllers it may query, their certificates and the chain that validates them, and the read-only rights of the API's group managed service account | Directory connection settings, the certificate chain, and the service account's rights |
 
 ## 10 Incident Response (IR)

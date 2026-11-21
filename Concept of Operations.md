@@ -96,28 +96,7 @@ These modes come from reading the design.
 
 ### 6.4 How it is kept secure in operation
 
-Table 5 says in brief how each part of operation is kept secure. The time limits, frequencies and other values are in the document named, so that the set does not repeat them.
-
-**Table 5: Keeping \<System Name\> secure in operation**
-
-| Activity | In brief | Held in |
-| --- | --- | --- |
-| Changes | Approved by the change control board, after a security impact analysis and a review by a second developer. The running system is checked against the approved baseline | \<Configuration Management\> |
-| Patches and vulnerabilities | The system is scanned regularly, and flaws are fixed within time limits set by their severity | \<Risk Assessment Management\>, section 3.6 |
-| Malicious code and monitoring | Microsoft Defender runs on both servers and uploads are scanned. Auditors review the audit log, the security officer reviews the central logs, and eight events alert the security officer | \<System and Information Integrity Management\>, section 3.4; \<Security Operating Procedures\>, section 4 |
-| Encryption | TLS on every flow, encrypted disks and backups, and a register of keys | \<System and Communications Protection Management\> |
-| Backups and recovery | Encrypted backups, tested restores, and recovery within the objectives the business has set | \<Contingency Planning Management\> |
-| Incidents and breaches | Reported to the security officer and handled by severity. The legal adviser decides whether to tell the ICO and the people affected | \<Incident Response Management\> |
-| Training | Security training and a \<System Name\> briefing before access, repeated on a schedule, with role modules for those with special duties | \<Awareness and Training Management\> |
-| Maintenance | Approved first, done by known people with approved tools, checked afterwards and recorded | \<Maintenance Management\> |
-| Media and paper | Exports, downloads and printouts are limited, marked and removed. \<Organisation\> looks after disks and backup media | \<Media Protection Management\>; \<Security Operating Procedures\>, Part A |
-| Buildings | \<Organisation\> protects the data centre and the second site, and its evidence is checked | \<Physical and Environmental Protection Management\> |
-| People | Screened before access, bound by signed rules, and their access changed promptly when they move or leave | \<Personnel Security Management\>, section 3.6 |
-| Personal data | Used only for the purposes set in the application profile and \<PII Processing Management\>. Requests and complaints go to the legal adviser, and the impact assessment is completed before real data is held | \<Privacy Plan\>; \<Data Protection Impact Assessment\> |
-| Building and buying | Changes follow \<Organisation\>'s corporate SDLC. Suppliers are approved, and packages arrive through the in-house checked package feed | \<System and Services Acquisition Management\>; \<Supply Chain Risk Management\> |
-| Risk and authorisation | The risk list and plan of action are kept current, and the authorising official is kept informed. Authorisation is decided from the authorisation package | \<Assessment, Authorization, and Monitoring Management\>, section 3.5; \<Security Assessment Report\> |
-
-No real data is held until \<System Name\> is authorised.
+Each part of operation, from changes, patching and monitoring to backups, incidents, training, maintenance, media, buildings, people, personal data, suppliers and authorisation, is designed in its family's design document, listed in \<Documentation Map\>, Table 2. The day-to-day duties and the rules everyone signs are in \<Security Operating Procedures\>. No real data is held until \<System Name\> is authorised.
 
 ## 7 Open questions
 

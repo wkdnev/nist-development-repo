@@ -12,58 +12,56 @@ This set covers the 19 control families of CSS that apply to \<System Name\>: Ac
 
 ## 2 The document set
 
-The set has 44 documents. \<Guide to the Document Set\> is the place to start. Within the set, each fact is written in one document and the others point to it. Every family has its design in a document of its own, in the same form: access control in \<Access Control Management\>, awareness and training in \<Awareness and Training Management\>, audit and accountability in \<Audit and Accountability Management\>, assessment, authorisation and monitoring in \<Assessment, Authorization, and Monitoring Management\>, configuration management in \<Configuration Management\>, contingency planning in \<Contingency Planning Management\>, identification and authentication in \<Identification and Authentication Management\>, incident response in \<Incident Response Management\>, maintenance in \<Maintenance Management\>, media protection in \<Media Protection Management\>, physical and environmental protection in \<Physical and Environmental Protection Management\>, planning in \<Planning Management\>, program management in \<Program Management\>, personnel security in \<Personnel Security Management\>, personal data in \<PII Processing Management\>, risk assessment in \<Risk Assessment Management\>, system and services acquisition in \<System and Services Acquisition Management\>, system and communications protection in \<System and Communications Protection Management\>, system and information integrity in \<System and Information Integrity Management\>, and supply chain risk management in \<Supply Chain Risk Management\>.
+The set has 42 documents. \<Guide to the Document Set\> is the place to start. Within the set, each fact is written in one document and the others point to it. Every family has its design in a document of its own, in the same form: access control in \<Access Control Management\>, awareness and training in \<Awareness and Training Management\>, audit and accountability in \<Audit and Accountability Management\>, assessment, authorisation and monitoring in \<Assessment, Authorization, and Monitoring Management\>, configuration management in \<Configuration Management\>, contingency planning in \<Contingency Planning Management\>, identification and authentication in \<Identification and Authentication Management\>, incident response in \<Incident Response Management\>, maintenance in \<Maintenance Management\>, media protection in \<Media Protection Management\>, physical and environmental protection in \<Physical and Environmental Protection Management\>, planning in \<Planning Management\>, program management in \<Program Management\>, personnel security in \<Personnel Security Management\>, personal data in \<PII Processing Management\>, risk assessment in \<Risk Assessment Management\>, system and services acquisition in \<System and Services Acquisition Management\>, system and communications protection in \<System and Communications Protection Management\>, system and information integrity in \<System and Information Integrity Management\>, and supply chain risk management in \<Supply Chain Risk Management\>.
 
 ### 2.1 The documents
 
 **Table 1: The documents**
 
-| Document | Group | Purpose |
-| --- | --- | --- |
-| \<System Security Plan\> | Plans and descriptions | How \<System Name\> implements each of the 316 controls, with the system description, architecture figures, inheritance and responsibilities |
-| \<Privacy Plan\> | Plans and descriptions | How personal data in \<System Name\> is governed: the privacy plan that PL-2 calls for |
-| \<System Description\> | Plans and descriptions | One description of the whole system for a person or an AI without the source code: its purpose, users, high-level requirements, architecture, technologies and design, its security family by family, and how an application departs from the reference design |
-| \<Security Architecture\> | Plans and descriptions | System boundary, components, data flows and what is inherited from \<Organisation\> |
-| \<Concept of Operations\> | Plans and descriptions | Why \<System Name\> exists, who uses it, the business workflows it supports and its operational scenarios |
-| \<Roles and Responsibilities\> | Plans and descriptions | Who holds each role, so that other documents name roles and not people |
-| \<Configuration Management\> | Plans and descriptions | The configuration management design, and the plan CM-9 requires: the configuration items, the baseline, the components, the secure settings, change control, least functionality and the inventory |
-| \<Contingency Planning Management\> | Plans and descriptions | The contingency design, and the contingency plan CP-2 requires: the business impact analysis, the roles, activation, recovery and reconstitution, backups, the second site, and testing and training |
-| \<System and Communications Protection Management\> | Plans and descriptions | The communications protection design: the boundary and allowed flows with the host firewall allow-lists, the TLS profile and sign-in, the cryptographic and key register and certificates, the page policy, information at rest, denial of service and name resolution |
-| \<System and Information Integrity Management\> | Plans and descriptions | The integrity design: the upload checks and malware scanning, flaw remediation and advisories, monitoring and the detection use cases, the integrity baseline, error handling, retention |
-| \<System and Services Acquisition Management\> | Plans and descriptions | The acquisition design: the development framework, the lifecycle and resources, contracts and design information, documentation, engineering principles, external services, developer configuration management, the developer test plan, the tools |
-| \<Risk Assessment Management\> | Plans and descriptions | The risk assessment design: the security categorisation, the risk assessment and its method, the supply chain review, what is monitored for vulnerabilities, the vulnerability timetable, how findings are analysed, shared and answered, the critical components |
-| \<PII Processing Management\> | Plans and descriptions | The personal data design: the authority, purposes and lawful basis, the personal data inventory, special category data, the privacy notice, people's rights, minimisation and the retention schedule |
-| \<Personnel Security Management\> | Plans and descriptions | The personnel security design: the risk designation of every role, the screening standard, the access agreements, joiners, movers and leavers, the time limits, the personnel security register |
-| \<Program Management\> | Plans and descriptions | How \<System Name\> relies on \<Organisation\>'s security and privacy programme: who provides each of the 36 Program Management controls, what \<System Name\> adds, and the evidence asked for |
-| \<Planning Management\> | Plans and descriptions | The planning design: the register of plans in force, what the plans hold, how they are approved, shared, reviewed and protected, the rules of behaviour and the register of signatures |
-| \<Physical and Environmental Protection Management\> | Plans and descriptions | The physical and environmental protection design: the sites, the inheritance matrix, how \<Organisation\>'s evidence is checked, the rules for offices and home working |
-| \<Media Protection Management\> | Plans and descriptions | The media protection design: the media inventory, the marking scheme, storage and export copies, transport, the sanitising methods and portable storage |
-| \<Maintenance Management\> | Plans and descriptions | The maintenance design: who maintains what, how a job is controlled, the remote maintenance routes, the approved tools and people, what may leave, the security-critical components |
-| \<Incident Response Management\> | Plans and descriptions | The incident response design, and the plan IR-8 requires: roles, detection, severity and targets, the steps of handling, personal data breaches, playbooks, evidence and the register |
-| \<Supply Chain Risk Management\> | Plans and descriptions | The supply chain risk management plan that SR-2 requires: the system context, the team, the risks at each stage, the supplier register, the risk tolerance and how components come in |
-| \<Data Protection Impact Assessment\> | Plans and descriptions | The data protection impact assessment, for the legal adviser to complete |
-| \<Policy\> | Rules and how they are carried out | The security and privacy policy: one chapter of rules for each of the 19 families |
-| \<Procedures\> | Rules and how they are carried out | The procedures that carry out the policy: one chapter for each family, each step naming who acts and the record kept |
-| \<Control Implementation Register\> | Rules and how they are carried out | An index of the family design documents. Each family has its design in a document of its own, and each chapter points to it: \<Access Control Management\>, \<Awareness and Training Management\>, \<Audit and Accountability Management\>, \<Assessment, Authorization, and Monitoring Management\>, \<Identification and Authentication Management\>, \<Maintenance Management\>, \<Media Protection Management\>, \<Physical and Environmental Protection Management\>, \<Planning Management\>, \<Personnel Security Management\>, \<PII Processing Management\>, \<Risk Assessment Management\>, \<System and Services Acquisition Management\>, \<System and Communications Protection Management\> and \<System and Information Integrity Management\> |
-| \<Assessment, Authorization, and Monitoring Management\> | Rules and how they are carried out | The assessment, authorisation and monitoring design: assessment, the plan of action, authorisation, the inherited controls, the interface record, the monitoring strategy and significant change |
-| \<Identification and Authentication Management\> | Rules and how they are carried out | The identification and authentication design: who is identified and how, sign-in through PingFederate, the assurance levels, the authenticator inventory and the settings against CSS |
-| \<Audit and Accountability Management\> | Rules and how they are carried out | The audit design: the sources of audit records, the events logged, what a record holds, storage and protection, time, retention, review and alerts |
-| \<Awareness and Training Management\> | Rules and how they are carried out | The training design: who needs what, the briefing, the role curriculum, the training matrix and register |
-| \<Access Control Management\> | Rules and how they are carried out | The access control design: how \<System Name\> is designed and configured to meet the 39 Access Control controls and enhancements |
-| \<Security Operating Procedures\> | Rules and how they are carried out | Rules of behaviour for everyone and for privileged users, and how security is operated day to day, with the record that proves each duty |
-| \<Record Templates\> | Rules and how they are carried out | The forms that show controls operating, TPL-1 to TPL-24 |
-| \<Tailoring Register\> | Rules and how they are carried out | The case for each control treated as not applicable, and why Program Management is outside the baseline |
-| \<Control Assessment Record\> | Assessment and authorisation | A template for the self-assessment: the 1,998 determination statements to assess, with space for the finding on each, one chapter for each family |
-| \<Security Assessment Report\> | Assessment and authorisation | A template for the report to the authorising official: the results of all 19 families, the risk position and the conditions before authorisation, to be filled in from the assessment |
-| \<Risk List\> | Assessment and authorisation | A template for the risk register: the rating method, and space for each risk with its rating, treatment and acceptance, and for a non-compliance entry for each control that is not satisfied |
-| \<Plan of Action and Milestones\> | Assessment and authorisation | A template for each weakness with its fix, owner, milestone and latest completion, and for the road to authorisation |
-| \<Decision Register\> | Assessment and authorisation | A template for recording each approval and decision, who made it, when, and the evidence of it |
-| \<Evidence Requests\> | Assessment and authorisation | The evidence to ask of \<Organisation\>, and who does what for each control |
-| \<Interview Guide\> | Assessment and authorisation | The interview questions by role and the statements each supports, with space for the answers |
-| \<Guide to the Document Set\> | Guides and index | The place to start: how the documents relate, a route through them for an auditor, one control followed from end to end, and where each family is documented |
-| \<Administrator Guide\> | Guides and index | How administrators set up and run \<System Name\> securely, for the developers to confirm against \<System Name\> |
-| \<User Guide\> | Guides and index | How users work securely in \<System Name\>, for the developers to confirm against \<System Name\> |
-| \<Documentation Map\> | Guides and index | This map: every document, where each family is documented, where each fact about a control is held, and the document standard |
+| Document | Group | Purpose | Who reads it |
+| --- | --- | --- | --- |
+| \<System Security Plan\> | Plans and descriptions | How \<System Name\> implements each of the 316 controls, with the system description, architecture figures, inheritance and responsibilities | Everyone, first |
+| \<Privacy Plan\> | Plans and descriptions | How personal data in \<System Name\> is governed: the privacy plan that PL-2 calls for | The legal adviser; an auditor |
+| \<System Description\> | Plans and descriptions | One description of the whole system for a person or an AI without the source code: its purpose, users, high-level requirements, architecture, technologies and design, its security family by family, and how an application departs from the reference design | Anyone who needs to understand the system; an auditor, early |
+| \<Concept of Operations\> | Plans and descriptions | Why \<System Name\> exists, who uses it, the business workflows it supports and its operational scenarios | The business owner; an auditor, early |
+| \<Roles and Responsibilities\> | Plans and descriptions | Who holds each role, so that other documents name roles and not people | Anyone asking who holds a role |
+| \<Configuration Management\> | Plans and descriptions | The configuration management design, and the plan CM-9 requires: the configuration items, the baseline, the components, the secure settings, change control, least functionality and the inventory | Whoever works in, or assesses, that family |
+| \<Contingency Planning Management\> | Plans and descriptions | The contingency design, and the contingency plan CP-2 requires: the business impact analysis, the roles, activation, recovery and reconstitution, backups, the second site, and testing and training | Whoever works in, or assesses, that family |
+| \<System and Communications Protection Management\> | Plans and descriptions | The communications protection design: the boundary and allowed flows with the host firewall allow-lists, the TLS profile and sign-in, the cryptographic and key register and certificates, the page policy, information at rest, denial of service and name resolution | Whoever works in, or assesses, that family |
+| \<System and Information Integrity Management\> | Plans and descriptions | The integrity design: the upload checks and malware scanning, flaw remediation and advisories, monitoring and the detection use cases, the integrity baseline, error handling, retention | Whoever works in, or assesses, that family |
+| \<System and Services Acquisition Management\> | Plans and descriptions | The acquisition design: the development framework, the lifecycle and resources, contracts and design information, documentation, engineering principles, external services, developer configuration management, the developer test plan, the tools | Whoever works in, or assesses, that family |
+| \<Risk Assessment Management\> | Plans and descriptions | The risk assessment design: the security categorisation, the risk assessment and its method, the supply chain review, what is monitored for vulnerabilities, the vulnerability timetable, how findings are analysed, shared and answered, the critical components | Whoever works in, or assesses, that family |
+| \<PII Processing Management\> | Plans and descriptions | The personal data design: the authority, purposes and lawful basis, the personal data inventory, special category data, the privacy notice, people's rights, minimisation and the retention schedule | Whoever works in, or assesses, that family |
+| \<Personnel Security Management\> | Plans and descriptions | The personnel security design: the risk designation of every role, the screening standard, the access agreements, joiners, movers and leavers, the time limits, the personnel security register | Whoever works in, or assesses, that family |
+| \<Program Management\> | Plans and descriptions | How \<System Name\> relies on \<Organisation\>'s security and privacy programme: who provides each of the 36 Program Management controls, what \<System Name\> adds, and the evidence asked for | Whoever works in, or assesses, that family |
+| \<Planning Management\> | Plans and descriptions | The planning design: the register of plans in force, what the plans hold, how they are approved, shared, reviewed and protected, the rules of behaviour and the register of signatures | Whoever works in, or assesses, that family |
+| \<Physical and Environmental Protection Management\> | Plans and descriptions | The physical and environmental protection design: the sites, the inheritance matrix, how \<Organisation\>'s evidence is checked, the rules for offices and home working | Whoever works in, or assesses, that family |
+| \<Media Protection Management\> | Plans and descriptions | The media protection design: the media inventory, the marking scheme, storage and export copies, transport, the sanitising methods and portable storage | Whoever works in, or assesses, that family |
+| \<Maintenance Management\> | Plans and descriptions | The maintenance design: who maintains what, how a job is controlled, the remote maintenance routes, the approved tools and people, what may leave, the security-critical components | Whoever works in, or assesses, that family |
+| \<Incident Response Management\> | Plans and descriptions | The incident response design, and the plan IR-8 requires: roles, detection, severity and targets, the steps of handling, personal data breaches, playbooks, evidence and the register | Whoever works in, or assesses, that family |
+| \<Supply Chain Risk Management\> | Plans and descriptions | The supply chain risk management plan that SR-2 requires: the system context, the team, the risks at each stage, the supplier register, the risk tolerance and how components come in | Whoever works in, or assesses, that family |
+| \<Data Protection Impact Assessment\> | Plans and descriptions | The data protection impact assessment, for the legal adviser to complete | The legal adviser |
+| \<Assessment, Authorization, and Monitoring Management\> | Plans and descriptions | The assessment, authorisation and monitoring design: assessment, the plan of action, authorisation, the inherited controls, the interface record, the monitoring strategy and significant change | Whoever works in, or assesses, that family |
+| \<Identification and Authentication Management\> | Plans and descriptions | The identification and authentication design: who is identified and how, sign-in through PingFederate, the assurance levels, the authenticator inventory and the settings against CSS | Whoever works in, or assesses, that family |
+| \<Audit and Accountability Management\> | Plans and descriptions | The audit design: the sources of audit records, the events logged, what a record holds, storage and protection, time, retention, review and alerts | Whoever works in, or assesses, that family |
+| \<Awareness and Training Management\> | Plans and descriptions | The training design: who needs what, the briefing, the role curriculum, the training matrix and register | Whoever works in, or assesses, that family |
+| \<Access Control Management\> | Plans and descriptions | The access control design: how \<System Name\> is designed and configured to meet the 39 Access Control controls and enhancements | Whoever works in, or assesses, that family |
+| \<Policy\> | Rules and how they are carried out | The security and privacy policy: one chapter of rules for each of the 19 families | Everyone bound by the rules |
+| \<Procedures\> | Rules and how they are carried out | The procedures that carry out the policy: one chapter for each family, each step naming who acts and the record kept | Whoever carries out a duty |
+| \<Security Operating Procedures\> | Rules and how they are carried out | Rules of behaviour for everyone and for privileged users, and how security is operated day to day, with the record that proves each duty | Every user and administrator, who sign it |
+| \<Record Templates\> | Rules and how they are carried out | The forms that show controls operating, TPL-1 to TPL-24 | Whoever carries out a procedure |
+| \<Tailoring Register\> | Rules and how they are carried out | The case for each control treated as not applicable, and why Program Management is outside the baseline | An assessor |
+| \<Control Assessment Record\> | Assessment and authorisation | A template for the self-assessment: the 1,998 determination statements to assess, with space for the finding on each, one chapter for each family | An assessor |
+| \<Security Assessment Report\> | Assessment and authorisation | A template for the report to the authorising official: the results of all 19 families, the risk position and the conditions before authorisation, to be filled in from the assessment | The authorising official; an auditor, early |
+| \<Risk List\> | Assessment and authorisation | A template for the risk register: the rating method, and space for each risk with its rating, treatment and acceptance, and for a non-compliance entry for each control that is not satisfied | The authorising official and system owner |
+| \<Plan of Action and Milestones\> | Assessment and authorisation | A template for each weakness with its fix, owner, milestone and latest completion, and for the road to authorisation | The system owner, monthly; an auditor |
+| \<Decision Register\> | Assessment and authorisation | A template for recording each approval and decision, who made it, when, and the evidence of it | Anyone checking who approved what |
+| \<Evidence Requests\> | Assessment and authorisation | The evidence to ask of \<Organisation\>, and who does what for each control | The system owner and \<Organisation\> |
+| \<Interview Guide\> | Assessment and authorisation | The interview questions by role and the statements each supports, with space for the answers | An assessor, and the people interviewed |
+| \<Guide to the Document Set\> | Guides and index | The place to start: how the documents relate, a route through them for an auditor, one control followed from end to end, and where each family is documented | Anyone new to the set |
+| \<Administrator Guide\> | Guides and index | How administrators set up and run \<System Name\> securely, for the developers to confirm against \<System Name\> | Administrators |
+| \<User Guide\> | Guides and index | How users work securely in \<System Name\>, for the developers to confirm against \<System Name\> | Users |
+| \<Documentation Map\> | Guides and index | This map: every document, where each family is documented, where each fact about a control is held, and the document standard | Anyone looking for a document or a fact |
 
 ### 2.2 Where each family is documented
 
@@ -71,28 +69,30 @@ Table 2 gives, for each family, the chapter or section of every document that ho
 
 **Table 2: Where each family is documented**
 
-| Family | Policy and procedures | Register or plan | Design | \<System Security Plan\> | Assessment | \<Risk List\> | \<Decision Register\> | \<Evidence Requests\> | \<Interview Guide\> | Evidence |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| AC Access Control | \<Policy\> (AC) and \<Procedures\> (AC) | \<Access Control Management\> | \<Access Control Management\>, section 3 | Section 7.1 | \<Control Assessment Record\> (AC) | Section 5.1 | Section 3 | Section 3 | Section 3 | \<evidence\> |
-| AT Awareness and Training | \<Policy\> (AT) and \<Procedures\> (AT) | \<Awareness and Training Management\> | \<Awareness and Training Management\>, section 3 | Section 7.2 | \<Control Assessment Record\> (AT) | Section 5.2 | Section 4 | Section 4 | Section 4 | \<evidence\> |
-| AU Audit and Accountability | \<Policy\> (AU) and \<Procedures\> (AU) | \<Audit and Accountability Management\> | \<Audit and Accountability Management\>, section 3 | Section 7.3 | \<Control Assessment Record\> (AU) | Section 5.3 | Section 5 | Section 5 | Section 5 | \<evidence\> |
-| CA Assessment, Authorization, and Monitoring | \<Policy\> (CA) and \<Procedures\> (CA) | \<Assessment, Authorization, and Monitoring Management\> | \<Assessment, Authorization, and Monitoring Management\>, section 3 | Section 7.4 | \<Control Assessment Record\> (CA) | Section 5.4 | Section 6 | Section 6 | Section 6 | \<evidence\> |
-| CM Configuration Management | \<Policy\> (CM) and \<Procedures\> (CM) | \<Configuration Management\> | \<Configuration Management\>, section 3 | Section 7.5 | \<Control Assessment Record\> (CM) | Section 5.5 | Section 7 | Section 7 | Section 7 | \<evidence\> |
-| CP Contingency Planning | \<Policy\> (CP) and \<Procedures\> (CP) | \<Contingency Planning Management\> | \<Contingency Planning Management\>, section 3 | Section 7.6 | \<Control Assessment Record\> (CP) | Section 5.6 | Section 8 | Section 8 | Section 8 | \<evidence\> |
-| IA Identification and Authentication | \<Policy\> (IA) and \<Procedures\> (IA) | \<Identification and Authentication Management\> | \<Identification and Authentication Management\>, section 3 | Section 7.7 | \<Control Assessment Record\> (IA) | Section 5.7 | Section 9 | Section 9 | Section 9 | \<evidence\> |
-| IR Incident Response | \<Policy\> (IR) and \<Procedures\> (IR) | \<Incident Response Management\> | \<Incident Response Management\>, section 3 | Section 7.8 | \<Control Assessment Record\> (IR) | Section 5.8 | Section 10 | Section 10 | Section 10 | \<evidence\> |
-| MA Maintenance | \<Policy\> (MA) and \<Procedures\> (MA) | \<Maintenance Management\> | \<Maintenance Management\>, section 3 | Section 7.9 | \<Control Assessment Record\> (MA) | Section 5.9 | Section 11 | Section 11 | Section 11 | \<evidence\> |
-| MP Media Protection | \<Policy\> (MP) and \<Procedures\> (MP) | \<Media Protection Management\> | \<Media Protection Management\>, section 3 | Section 7.10 | \<Control Assessment Record\> (MP) | Section 5.10 | Section 12 | Section 12 | Section 12 | \<evidence\> |
-| PE Physical and Environmental Protection | \<Policy\> (PE) and \<Procedures\> (PE) | \<Physical and Environmental Protection Management\> | \<Physical and Environmental Protection Management\>, section 3 | Section 7.11 | \<Control Assessment Record\> (PE) | Section 5.11 | Section 13 | Section 13 | Section 13 | \<evidence\> |
-| PL Planning | \<Policy\> (PL) and \<Procedures\> (PL) | \<Planning Management\> | \<Planning Management\>, section 3 | Section 7.12 | \<Control Assessment Record\> (PL) | Section 5.12 | Section 14 | Section 14 | Section 14 | \<evidence\> |
-| PM Program Management | None: inherited from \<Organisation\> | \<Program Management\> | \<Program Management\>, section 3.3 | None: outside the baseline | Not assessed | None | Section 15 | Section 15 | INT-PM-01, in section 14 | \<evidence\> |
-| PS Personnel Security | \<Policy\> (PS) and \<Procedures\> (PS) | \<Personnel Security Management\> | \<Personnel Security Management\>, section 3 | Section 7.13 | \<Control Assessment Record\> (PS) | Section 5.13 | Section 16 | Section 16 | Section 15 | \<evidence\> |
-| PT Personally Identifiable Information Processing and Transparency | \<Policy\> (PT) and \<Procedures\> (PT) | \<PII Processing Management\>, \<Privacy Plan\> and \<Data Protection Impact Assessment\> | \<PII Processing Management\>, section 3 | Section 7.14 | \<Control Assessment Record\> (PT) | Section 5.14 | Section 17 | Section 17 | Section 16 | \<evidence\> |
-| RA Risk Assessment | \<Policy\> (RA) and \<Procedures\> (RA) | \<Risk Assessment Management\> | \<Risk Assessment Management\>, section 3 | Section 7.15 | \<Control Assessment Record\> (RA) | Section 5.15 | Section 18 | Section 18 | Section 17 | \<evidence\> |
-| SA System and Services Acquisition | \<Policy\> (SA) and \<Procedures\> (SA) | \<System and Services Acquisition Management\> | \<System and Services Acquisition Management\>, section 3 | Section 7.16 | \<Control Assessment Record\> (SA) | Section 5.16 | Section 19 | Section 19 | Section 18 | \<evidence\> |
-| SC System and Communications Protection | \<Policy\> (SC) and \<Procedures\> (SC) | \<System and Communications Protection Management\> | \<System and Communications Protection Management\>, section 3 | Section 7.17 | \<Control Assessment Record\> (SC) | Section 5.17 | Section 20 | Section 20 | Section 19 | \<evidence\> |
-| SI System and Information Integrity | \<Policy\> (SI) and \<Procedures\> (SI) | \<System and Information Integrity Management\> | \<System and Information Integrity Management\>, section 3 | Section 7.18 | \<Control Assessment Record\> (SI) | Section 5.18 | Section 21 | Section 21 | Section 20 | \<evidence\> |
-| SR Supply Chain Risk Management | \<Policy\> (SR) and \<Procedures\> (SR) | \<Supply Chain Risk Management\> | \<Supply Chain Risk Management\>, section 3 | Section 7.19 | \<Control Assessment Record\> (SR) | Section 5.19 | Section 22 | Section 22 | Section 21 | \<evidence\> |
+| Family | Policy and procedures | Design | \<System Security Plan\> | Assessment | \<Evidence Requests\> | \<Interview Guide\> | Test |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| AC Access Control | \<Policy\> (AC) and \<Procedures\> (AC) | \<Access Control Management\>, section 3 | Section 7.1 | \<Control Assessment Record\> (AC) | Section 3 | Section 3 | Test-AccessControl.ps1 |
+| AT Awareness and Training | \<Policy\> (AT) and \<Procedures\> (AT) | \<Awareness and Training Management\>, section 3 | Section 7.2 | \<Control Assessment Record\> (AT) | Section 4 | Section 4 | Test-PlanConsistency.ps1 |
+| AU Audit and Accountability | \<Policy\> (AU) and \<Procedures\> (AU) | \<Audit and Accountability Management\>, section 3 | Section 7.3 | \<Control Assessment Record\> (AU) | Section 5 | Section 5 | Test-AuditAndAuth.ps1 |
+| CA Assessment, Authorization, and Monitoring | \<Policy\> (CA) and \<Procedures\> (CA) | \<Assessment, Authorization, and Monitoring Management\>, section 3 | Section 7.4 | \<Control Assessment Record\> (CA) | Section 6 | Section 6 | Test-PlanConsistency.ps1 |
+| CM Configuration Management | \<Policy\> (CM) and \<Procedures\> (CM) | \<Configuration Management\>, section 3 | Section 7.5 | \<Control Assessment Record\> (CM) | Section 7 | Section 7 | Test-ConfigurationManagement.ps1 |
+| CP Contingency Planning | \<Policy\> (CP) and \<Procedures\> (CP) | \<Contingency Planning Management\>, section 3 | Section 7.6 | \<Control Assessment Record\> (CP) | Section 8 | Section 8 | Test-BackupRestore.ps1 |
+| IA Identification and Authentication | \<Policy\> (IA) and \<Procedures\> (IA) | \<Identification and Authentication Management\>, section 3 | Section 7.7 | \<Control Assessment Record\> (IA) | Section 9 | Section 9 | Test-AuditAndAuth.ps1 and Test-Identification.ps1 |
+| IR Incident Response | \<Policy\> (IR) and \<Procedures\> (IR) | \<Incident Response Management\>, section 3 | Section 7.8 | \<Control Assessment Record\> (IR) | Section 10 | Section 10 | Test-IncidentReadiness.ps1 |
+| MA Maintenance | \<Policy\> (MA) and \<Procedures\> (MA) | \<Maintenance Management\>, section 3 | Section 7.9 | \<Control Assessment Record\> (MA) | Section 11 | Section 11 | Test-Maintenance.ps1 |
+| MP Media Protection | \<Policy\> (MP) and \<Procedures\> (MP) | \<Media Protection Management\>, section 3 | Section 7.10 | \<Control Assessment Record\> (MP) | Section 12 | Section 12 | Test-MediaProtection.ps1 |
+| PE Physical and Environmental Protection | \<Policy\> (PE) and \<Procedures\> (PE) | \<Physical and Environmental Protection Management\>, section 3 | Section 7.11 | \<Control Assessment Record\> (PE) | Section 13 | Section 13 | None: provided by \<Organisation\> |
+| PL Planning | \<Policy\> (PL) and \<Procedures\> (PL) | \<Planning Management\>, section 3 | Section 7.12 | \<Control Assessment Record\> (PL) | Section 14 | Section 14 | Test-PlanConsistency.ps1 |
+| PM Program Management | None: inherited from \<Organisation\> | \<Program Management\>, section 3.3 | None: outside the baseline | Not assessed | Section 15 | Section 15 | None: outside the baseline |
+| PS Personnel Security | \<Policy\> (PS) and \<Procedures\> (PS) | \<Personnel Security Management\>, section 3 | Section 7.13 | \<Control Assessment Record\> (PS) | Section 16 | Section 16 | Test-PlanConsistency.ps1 |
+| PT Personally Identifiable Information Processing and Transparency | \<Policy\> (PT) and \<Procedures\> (PT) | \<PII Processing Management\>, section 3; \<Privacy Plan\>; \<Data Protection Impact Assessment\> | Section 7.14 | \<Control Assessment Record\> (PT) | Section 17 | Section 17 | Test-PersonalData.ps1 |
+| RA Risk Assessment | \<Policy\> (RA) and \<Procedures\> (RA) | \<Risk Assessment Management\>, section 3 | Section 7.15 | \<Control Assessment Record\> (RA) | Section 18 | Section 18 | Test-Vulnerability.ps1 |
+| SA System and Services Acquisition | \<Policy\> (SA) and \<Procedures\> (SA) | \<System and Services Acquisition Management\>, section 3 | Section 7.16 | \<Control Assessment Record\> (SA) | Section 19 | Section 19 | Test-Development.ps1 |
+| SC System and Communications Protection | \<Policy\> (SC) and \<Procedures\> (SC) | \<System and Communications Protection Management\>, section 3 | Section 7.17 | \<Control Assessment Record\> (SC) | Section 20 | Section 20 | Test-Protection.ps1 |
+| SI System and Information Integrity | \<Policy\> (SI) and \<Procedures\> (SI) | \<System and Information Integrity Management\>, section 3 | Section 7.18 | \<Control Assessment Record\> (SI) | Section 21 | Section 21 | Test-Integrity.ps1 and Test-Vulnerability.ps1 |
+| SR Supply Chain Risk Management | \<Policy\> (SR) and \<Procedures\> (SR) | \<Supply Chain Risk Management\>, section 3 | Section 7.19 | \<Control Assessment Record\> (SR) | Section 22 | Section 22 | Test-SupplyChain.ps1 |
+
+\<Risk List\>, \<Decision Register\> and \<Plan of Action and Milestones\> hold each family's entries as rows of one table, with a Family column and the family code in each identifier.
 
 ### 2.3 Records outside the documents
 
@@ -101,9 +101,9 @@ Table 2 gives, for each family, the chapter or section of every document that ho
 | Record | Where | What it shows |
 | --- | --- | --- |
 | Test evidence | \<evidence\> | The results of each test, with a note that explains them and a list of hashes that fixes their content |
-| Figures | With the documents | The architecture figures used in \<System Security Plan\> and \<Security Architecture\> |
+| Figures | With the documents | The architecture figures used in \<System Security Plan\> and \<System Description\> |
 | Change record | The private records repository described in section 4.1 | Every change to the documents and evidence, with its date |
-| Sign-off sheets | The restricted store (\<Decision Register\>, section 23) | Each approver's signature for the decisions recorded for them |
+| Sign-off sheets | The restricted store (\<Decision Register\>, section 5) | Each approver's signature for the decisions recorded for them |
 
 ## 3 Following a control
 
@@ -113,9 +113,10 @@ Each fact about a control is held in one document, and the others point to it. T
 
 | Fact | Held in |
 | --- | --- |
-| What the control is, its type, how far it is implemented, and its result | \<System Security Plan\>, section 7 |
-| The rule, the procedure and the setting | The family's chapter of \<Policy\>, \<Procedures\> and \<Control Implementation Register\>, or its plan (Table 2) |
-| The finding for each determination statement | The family's chapter of \<Control Assessment Record\> |
+| What the control is, its type, how far it is implemented, and where its gap is registered | \<System Security Plan\>, section 7 |
+| The rule and the procedure | The family's chapter of \<Policy\> and \<Procedures\> |
+| The design and the setting | The family's design document (Table 2), and the parameters in \<System Description\>, section 4 |
+| Each control's result, and the finding for each determination statement | The family's chapter of \<Control Assessment Record\>, counted up in \<Security Assessment Report\> |
 | What is not met, its cause, risk, rating and treatment | \<Risk List\>, section 5 |
 | The fix, its owner and its timing | \<Plan of Action and Milestones\>, section 3 |
 | Evidence asked of \<Organisation\> | \<Evidence Requests\> |
@@ -152,7 +153,7 @@ Each document is known by its title. In the text a document is cited by its titl
 
 ### 4.4 Combined documents and chapters
 
-\<Policy\>, \<Procedures\>, \<Control Implementation Register\> and \<Control Assessment Record\> each hold one chapter for each control family, in CSS order. A chapter is named by its family code. Its sections carry the code, as in PS.3, and its tables are numbered Table PS-1, Table PS-2 and so on. Each of these documents has one version for the whole document. In \<Procedures\> each procedure is headed by its own number, such as PRO-PS-2.
+\<Policy\>, \<Procedures\> and \<Control Assessment Record\> each hold one chapter for each control family, in CSS order. A chapter is named by its family code. Its sections carry the code, as in PS.3, and its tables are numbered Table PS-1, Table PS-2 and so on. Each of these documents has one version for the whole document. In \<Procedures\> each procedure is headed by its own number, such as PRO-PS-2.
 
 **Table 6: How to cite a combined document**
 
@@ -175,7 +176,7 @@ Each document is known by its title. In the text a document is cited by its titl
 6. Moving a document into a combined document changes no content.
 7. Records are not rewritten. Decided entries in \<Decision Register\> keep the names, section numbers and versions of their date.
 8. Where a live statement cites another document at a version, the citation is kept at the current version.
-9. Proof of each approval is the approver's signed sheet (\<Record Templates\>, TPL-24), listed in \<Decision Register\>, section 23.
+9. Proof of each approval is the approver's signed sheet (\<Record Templates\>, TPL-24), listed in \<Decision Register\>, section 5.
 ### 4.6 Order of families
 
 Wherever a document has a part for each family, the families are in CSS order: AC, AT, AU, CA, CM, CP, IA, IR, MA, MP, PE, PL, PM, PS, PT, RA, SA, SC, SI, SR. A new family takes its place in that order, and the sections and tables after it are renumbered, with every reference to them.
@@ -184,8 +185,8 @@ Wherever a document has a part for each family, the families are in CSS order: A
 
 \<Decision Register\>, \<Tailoring Register\>, \<Evidence Requests\>, \<Record Templates\> and \<Interview Guide\> are live documents, which grow as decisions are made and evidence arrives. Each live document follows these rules:
 
-1. It has one numbered section for each family, in CSS order, with cross-family content in its own section.
-2. It has a family coverage table showing the state of every family, and steps for adding a family.
+1. Where its entries for each family have content of their own, as in \<Evidence Requests\> and \<Interview Guide\>, it has one numbered section for each family, in CSS order, with cross-family content in its own section, and a family coverage table showing the state of every family.
+2. Where its entries are rows of the same kind, as in \<Decision Register\>, it holds one table for each kind of entry, with a Family column, in place of a section for each family.
 3. Its identifiers carry the family code, such as D-AU-nn, so that adding an entry never renumbers an existing one.
 4. Each addition increases the version number and is recorded in the change record.
 5. This map is updated at the same time.
@@ -229,8 +230,8 @@ These identifiers do not change when a document is renumbered or moved, so citat
 | --- | --- | --- |
 | R1 | A policy rule, numbered in each chapter | \<Policy\> |
 | PRO-AC-1 | A procedure | \<Procedures\> |
-| P-AC-01 | An access control setting | \<Control Implementation Register\> (AC) |
-| AC-02\_ODP\[01\], AC-02a. | The CSS own identifier for a parameter or a determination statement | \<Control Implementation Register\>, \<Control Assessment Record\> |
+| P-01 | A parameter: a value the controls depend on | \<System Description\>, section 4 |
+| AC-02\_ODP\[01\], AC-02a. | The CSS own identifier for a parameter or a determination statement | \<Control Assessment Record\> |
 | D-AC-nn | A decision. D-AC-Pnn is the approval of parameter values | \<Decision Register\> |
 | NC-AU-nn | A non-compliance entry | \<Risk List\>, section 5 |
 | R-AC-nn | A risk | \<Risk List\>, section 2 |

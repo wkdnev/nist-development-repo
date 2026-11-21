@@ -31,7 +31,7 @@ It is a summary. The detail of each control family is held once, in the design d
 3. **Check the family settings against the corporate values.** Each setting in the family design documents should match \<Organisation\>'s corporate value. Where one does not, change it in the family document.
 4. **Record each departure** from the reference design in section 3.6, with the risk it brings and the control that answers it. A departure is decided by the system owner and recorded in \<Decision Register\>.
 5. **Categorise the application** from its information types, under CSS. If it comes out above Moderate in any objective, the Moderate baseline in this set is not enough and the system owner must decide how to proceed before going further.
-6. **Carry the profile into the set.** Replace the placeholders throughout, fill in the square brackets, and confirm each control in \<Control Implementation Register\>.
+6. **Carry the profile into the set.** Replace the placeholders throughout, fill in the square brackets, and confirm each control in the family design documents.
 7. **Build to the design, then assess.** The application is tested against the requirements in section 5, and any shortfall becomes an item in \<Plan of Action and Milestones\>.
 
 ### 1.3 Rules for anyone answering questions from this document, human or AI
@@ -82,17 +82,19 @@ This section is completed for each application built on the reference system. Un
 
 ### 3.2 Owners and named roles
 
+Who holds each role, and how to reach them, is in \<Roles and Responsibilities\>, so that names are filled in once.
+
 **Table 4: Owners and named roles**
 
-| Role | Name | Responsible for |
-| --- | --- | --- |
-| System owner | \[Name\] | The application, its design and this document set |
-| Authorising official | \[Name\] | Accepting the risk of operating the application |
-| Information owner | \[Name\] | The information held, its categorisation and who may see it |
-| Business owner | \[Name\] | The business need, the requirements that are theirs to set, and retention |
-| Security officer | \[Name\] | Security monitoring, alerts and incident response |
-| Legal adviser or data protection officer | \[Name\] | Lawful basis, the impact assessment, people's requests and breach reporting |
-| Data Owners | \[Names, one for each schema\] | Authorising who may read or edit a schema, through the ServiceNow access approval workflow |
+| Role | Responsible for |
+| --- | --- |
+| System owner | The application, its design and this document set |
+| Authorising official | Accepting the risk of operating the application |
+| Information owner | The information held, its categorisation and who may see it |
+| Business owner | The business need, the requirements that are theirs to set, and retention |
+| Security officer | Security monitoring, alerts and incident response |
+| Legal adviser or data protection officer | Lawful basis, the impact assessment, people's requests and breach reporting |
+| Data Owners | Authorising who may read or edit a schema, through the ServiceNow access approval workflow |
 
 ### 3.3 Who uses it
 
@@ -161,11 +163,11 @@ These are the values the controls depend on. CSS calls many of them organisation
 | No. | Parameter | Reference value | Main controls | This application, and why |
 | --- | --- | --- | --- | --- |
 | P-01 | Security categorisation | Confidentiality Moderate, integrity Moderate, availability Low | RA-2 | \[\] |
-| P-02 | Sign-in lifetime | \[As set in PingFederate for the application\]. The application has no session controls of its own, so this is the only limit on how long a sign-in lasts | AC-12 | \[\] |
+| P-02 | Sign-in lifetime | \[As set in PingFederate for the application\]. The application has no session controls or idle sign-out of its own, so this is the only limit on how long a sign-in lasts | AC-2(5), AC-12 | \[\] |
 | P-03 | Device screen lock after inactivity | \[As set on \<Organisation\>'s managed devices, for example 15 minutes\] | AC-11 | \[\] |
 | P-04 | Review of role group members | Every 3 months | AC-2, AC-6(7) | \[\] |
 | P-05 | Review of schema group members | Every 12 months | AC-2 | \[\] |
-| P-06 | Leaver | Active Directory account disabled at once; group memberships removed within 5 working days | AC-2, PS-4 | \[\] |
+| P-06 | Leavers and movers | Leaver: Active Directory account disabled at once; group memberships removed within 5 working days. Mover: group owners told within 1 working day | AC-2, PS-4 | \[\] |
 | P-07 | Audit record retention | 12 months online, then 12 months in an offline archive | AU-11 | \[\] |
 | P-08 | Audit log review | Weekly | AU-6 | \[\] |
 | P-09 | Clock accuracy | Within 1 second of UTC | AU-8 | \[\] |
@@ -195,6 +197,22 @@ These are the values the controls depend on. CSS calls many of them organisation
 | P-33 | Numbers of users, schemas and items, and their growth | \[From the business owner\] | AU-4, CP-2 | \[\] |
 | P-34 | Response times for the main functions | \[From the business owner\] | SC-5 | \[\] |
 | P-35 | Accessibility standard and languages | \[From the business owner\]. Reference: WCAG 2.2 Level AA, English | PL-2 | \[\] |
+| P-36 | Account types allowed | As listed in \<Access Control Management\>, Table 1 | AC-2 | \[\] |
+| P-37 | Who decides access | The line manager approves in ServiceNow, then the group's owner authorises and adds the person to the AD group: the system owner for a role group, the Data Owner for a schema group | AC-2 | \[\] |
+| P-38 | Unused accounts | AD accounts disabled under \<Organisation\>'s corporate standard; each month, members who have not signed in for 90 days are removed from \<System Name\>'s groups | AC-2(3) | \[\] |
+| P-39 | Temporary and emergency accounts | Not allowed until the system can expire them | AC-2(2) | \[\] |
+| P-40 | Sign-ins at once | No limit in the application | AC-10 | \[\] |
+| P-41 | Disabling a high-risk individual | Within 1 hour of notice: AD account disabled and PingFederate sign-in ended | AC-2(13) | \[\] |
+| P-42 | Failed sign-ins | Counted and the account locked by PingFederate and Active Directory, under \<Organisation\>'s corporate standard. The application has no sign-in of its own to lock | AC-7 | \[\] |
+| P-43 | System use notice wording | The wording in \<Access Control Management\>, section 3.16 | AC-8 | \[\] |
+| P-44 | Privileged functions and security-relevant information | Functions: managing schemas and the AD groups each uses; settings; diagnostics; audit log access; approving disposal; searching every schema for one person's items; database maintenance. Information: secrets and security settings, PingFederate's signing certificate, access groups and schema access rules, audit logs, firewall rules and certificates. All privileged functions are logged | AC-6(1), AC-6(9), AC-6(10) | \[\] |
+| P-45 | Separate account for everyday work | Administrators use a separate non-privileged account for everyday item work | AC-6(2) | \[\] |
+| P-46 | Remote access route | \<Organisation\>'s remote access service, \[name to be supplied\] | AC-17 | \[\] |
+| P-47 | Wireless and mobile access | Follows \<Organisation\>'s policies, \[to be supplied\] | AC-18, AC-19 | \[\] |
+| P-48 | External systems and portable storage | Not allowed with the application's data without system owner approval | AC-20 | \[\] |
+| P-49 | Who decides on sharing outside a schema | The Data Owner | AC-21 | \[\] |
+| P-50 | Public content | None, unless the system owner approves | AC-22 | \[\] |
+| P-51 | Actions allowed without signing in | Being sent to PingFederate to sign in; the access-denied page; static files; the API health check. Nothing else | AC-14 | \[\] |
 
 ## 5 Requirements
 
@@ -386,7 +404,7 @@ Each statement below narrows what can go wrong. An application that needs one of
 | NFR-001 | Refuse anything not granted: every page and function states the access it needs, and one with none is refused | The applications apply a default rule that requires a signed-in person, and each page or function adds the role or schema it needs | \<Access Control Management\> |
 | NFR-002 | Check access on the server on every request, where the function runs. Nothing is decided in the browser | The access rule sits on the server-side page and on the API function. Pages are drawn on the server, so the browser receives only what was allowed | \<Access Control Management\> |
 | NFR-003 | Take roles and schema access only from Active Directory groups. The application holds no table of who may do what | The API reads the person's groups from Active Directory and compares them with the group names on role settings and schema definitions | \<Access Control Management\> |
-| NFR-004 | Keep each schema's items in its own database schema, so that one schema's items are never returned for another | The API picks the database schema from the checked schema definition, never from the request | \<Security Architecture\> |
+| NFR-004 | Keep each schema's items in its own database schema, so that one schema's items are never returned for another | The API picks the database schema from the checked schema definition, never from the request | Section 6 |
 | NFR-005 | Give each person, service and administrator the least access their work needs | Separate groups for each role, a separate service account for each application, and a database account limited to what the API needs | \<Access Control Management\> |
 | NFR-006 | Keep duties apart: nobody approves or reviews their own access; auditors and security officers hold no administration role; application, server and database administration are held by different people | Separate Active Directory groups with different owners, and role rules that give auditors and security officers no administration page | \<Access Control Management\> |
 | NFR-007 | Allow without sign-in only the redirect to PingFederate, the access-denied page, static files and the health check | A short fixed list of open pages and functions in each application. Everything else falls under the default rule | \<Access Control Management\> |
@@ -478,7 +496,7 @@ The application has no session management of its own: no idle lock, no idle time
 | NFR-049 | Run only code the application itself serves: a page policy with no inline scripts and no outside hosts, and headers that stop content-type guessing and limit referrer information | A content security policy header and related headers, added to every response by each application | \<System and Communications Protection Management\> |
 | NFR-050 | Serve every script and style from the application. No content delivery service | Browser libraries are packaged with the UI application | \<System and Communications Protection Management\> |
 | NFR-051 | Show users and callers a general error message, with the detail only in the logs | A common error handler returns a fixed message and logs the detail | \<System and Information Integrity Management\> |
-| NFR-052 | Fail secure: an error, a time-out or a missing dependency, including Active Directory, refuses access | Access checks are written so that any failure returns a refusal. If the groups cannot be read, the person gets no role and no schema | \<Security Architecture\> |
+| NFR-052 | Fail secure: an error, a time-out or a missing dependency, including Active Directory, refuses access | Access checks are written so that any failure returns a refusal. If the groups cannot be read, the person gets no role and no schema | Section 6 |
 | NFR-053 | Scan every upload, and run anti-malware with current definitions on both servers | The operating system's malware scanning interface for uploads, and real-time protection on each server | \<System and Information Integrity Management\> |
 | NFR-054 | Fix or mitigate a flaw within the times in P-11 | A person does this: the developers and administrators, tracked in the plan of action | \<Risk Assessment Management\> |
 | NFR-055 | Scan for vulnerabilities as P-30 sets | \<Organisation\>'s scanner for the servers, and a package and code scan for each release | \<Risk Assessment Management\> |
@@ -507,10 +525,10 @@ The application has no session management of its own: no idle lock, no idle time
 | No. | Requirement | How it is implemented | Held in |
 | --- | --- | --- | --- |
 | NFR-066 | Support the numbers in P-33 and the response times in P-34 | \[Sized when the profile is complete\] | \<Concept of Operations\> |
-| NFR-067 | Server sizes: processors, memory and storage | \[When the servers are built\] | \<Security Architecture\> |
+| NFR-067 | Server sizes: processors, memory and storage | \[When the servers are built\] | Section 6 |
 | NFR-068 | Enforce the upload limits in P-17 and P-18 | Limits checked by the API before a file is stored | \<System and Information Integrity Management\> |
-| NFR-069 | Run bulk uploads and exports in the background, so that other users are not held up | Jobs run on a queue in the API, apart from the request that started them | \<Security Architecture\> |
-| NFR-070 | Send results and large files a part at a time, so that the time taken does not grow with the size of an item or a schema | Paging is done in the database, and large files are sent in parts | \<Security Architecture\> |
+| NFR-069 | Run bulk uploads and exports in the background, so that other users are not held up | Jobs run on a queue in the API, apart from the request that started them | Section 6 |
+| NFR-070 | Send results and large files a part at a time, so that the time taken does not grow with the size of an item or a schema | Paging is done in the database, and large files are sent in parts | Section 6 |
 
 #### 5.2.10 Privacy
 
@@ -658,15 +676,15 @@ No other flow is allowed. The UI application and the Admin application have no c
 
 **Table 39: Trust zones**
 
-| Zone | What is in it | Trust |
-| --- | --- | --- |
-| Z1 Users | Users' managed devices on \<Organisation\>'s network | Not trusted by the application: every request is authenticated and authorised |
-| Z2 Administration route | \<Organisation\>'s managed route for administrators | Trusted for administration only |
-| Z3 Application | The application server | Trusted to enforce access |
-| Z4 Data | The database server | Most protected. Reached only from Z3 |
-| Z5 Provider services | \<Organisation\>'s directory, sign-on, monitoring, ServiceNow and starters and leavers services | Trusted by agreement and evidence |
+| Zone | What is in it | Trust | Entry into the zone |
+| --- | --- | --- | --- |
+| Z1 Users | Users' managed devices and \<Organisation\>'s corporate network | Not trusted by \<System Name\> | Not applicable |
+| Z2 Administration route | \<Organisation\>'s managed route for administrators | Trusted for administration only | Managed route and administrator sign-in |
+| Z3 Application | Application VM: UI application, Admin application and API | Trusted to enforce access | HTTPS on 443 from Z1 (F1); the Admin application only from Z2 (F2); server administration only from Z2 (F11) |
+| Z4 Data | Database VM: SQL Server and the \<System Name\> database | Most protected | Encrypted database connections from the API in Z3 only (F5); database administration only from Z2 (F11) |
+| Z5 Provider services | \<Organisation\>'s directory, sign-on, monitoring, ServiceNow and starters and leavers services | Trusted by agreement and evidence | From browsers to PingFederate (F6), outbound from Z3 (F7, F8, F10) or by people (F9), as in section 10 |
 
-The layers are the boundary, transport, identity, authorisation, data at rest, audit, the host, recovery and people. Each is described in section 7, the principles behind them are in section 8, and \<Security Architecture\> holds the architecture.
+The layers are the boundary, transport, identity, authorisation, data at rest, audit, the host, recovery and people. Each is described in section 7, with its main controls in section 6.8, and the principles behind them are in section 8.
 
 ### 6.7 Environments
 
@@ -677,6 +695,70 @@ The layers are the boundary, transport, identity, authorisation, data at rest, a
 | Production | The two servers at \<Organisation\> | Real data |
 | Test | A separate, throwaway copy of the whole system, built from a tagged release and removed after each test run. Configured as production is, including TLS | Invented data only. Real personal data is never used |
 | Development | Developers' computers | Invented data only |
+
+### 6.8 Security architecture
+
+This section is the security architecture that PL-8 calls for: the protection goals, the layers of defence, the engineering principles, the configuration on the servers, and the assumptions the design rests on. The boundary, flows and trust zones are in sections 6.1, 6.5 and 6.6, and the design principles in section 8. The privacy architecture is in \<Privacy Plan\>, section 8.
+
+**Table 40a: Protection goals**
+
+| Objective | Impact | What it means for \<System Name\> | Main protections |
+| --- | --- | --- | --- |
+| Confidentiality | Moderate | Items, including personal data, are seen only by members of the schema's read or edit group, and by administrators | Schema groups read from Active Directory, encrypted transport and storage, audit |
+| Integrity | Moderate | Items, their details and files, and the audit trail cannot be changed without trace | Edit rights by role, change control, hash-chained audit records |
+| Availability | Low (\<System Security Plan\>, section 3.3; P-01) | \<System Name\> can be restored after a failure within the times in \<Contingency Planning Management\> | Encrypted backups at the second site, rebuild procedure |
+
+**Table 40b: Layers of defence**
+
+| Layer | Protection | Main controls |
+| --- | --- | --- |
+| Boundary | \<Organisation\>'s firewalls allow only HTTPS into Z3, and the Admin application and server and database administration (F11) only from Z2 | SC-7, AC-17, MA-4 |
+| Transport | TLS on every flow, F1 to F8 and F10, as \<System Description\>, P-26, sets, under NCSC's profiles (\<System and Communications Protection Management\>, section 3.3); data protection key rings protected with DPAPI | SC-8, SC-13 |
+| Identity | Each person's own Active Directory account, signed in through PingFederate with multi-factor authentication; roles and schema access from AD groups, read by the API over LDAPS (F7) | IA-2, IA-5, AC-7 |
+| Authorisation | Roles and schema access checked on every page and API call | AC-3, AC-6 |
+| Sign-in lifetime and screen lock | No session management in \<System Name\>. The sign-in is held only in the authentication cookie, which lasts no longer than PingFederate's sign-in lifetime (\<System Description\>, P-02); an unattended screen is locked by the operating system on \<Organisation\>'s managed devices and the servers (\<System Description\>, P-03) | AC-11, AC-12, SC-23 |
+| Data at rest | Full-disk encryption on both VMs; no plain copies left by exports | SC-28, MP-4 |
+| Audit | Hash-chained audit records, reviewed and kept | AU-2, AU-6, AU-9 |
+| Host | CIS hardening, Microsoft Defender, patching | CM-6, SI-2, SI-3 |
+| Recovery | Encrypted backups and logs at the second site | CP-9, CP-10 |
+| People | Rules signed before access, training, screening | PL-4, AT-2, PS-3 |
+
+\<System Name\>'s security engineering principles are the NCSC secure design principles, and its privacy engineering principles are the CSS privacy engineering objectives (\<System and Services Acquisition Management\>; SA-8). Table 40c shows where the design meets each. Development, implementation and changes are checked against it (\<Procedures\>, PRO-SA-1).
+
+**Table 40c: Engineering principles**
+
+| Principle | Where \<System Name\>'s design meets it |
+| --- | --- |
+| NCSC 1: Establish the context | Boundary, data flows and trust zones (sections 6.1, 6.5 and 6.6); information types and impact in \<System Security Plan\>, section 3.3; risks in \<Risk List\> |
+| NCSC 2: Make compromise difficult | Deny by default and least privilege (section 8); schema access checked on every request; layered defences (Table 40b); trust zones with the Admin application only from Z2 |
+| NCSC 3: Make disruption difficult | Separate application and database VMs; recovery times in \<Contingency Planning Management\> |
+| NCSC 4: Make compromise detection easier | Hash-chained audit records, weekly review and alerts (\<Audit and Accountability Management\>), detection use cases U1 to U8 (\<System and Information Integrity Management\>, section 3.4); log forwarding to \<Organisation\> |
+| NCSC 5: Reduce the impact of compromise | Each schema's items in its own database schema; database reachable only from Z3; separate administration route; critical components in \<Risk Assessment Management\>, section 3.9 |
+| CSS privacy: Predictability | Purposes and processing rules in \<PII Processing Management\>; privacy notice through \<Organisation\> |
+| CSS privacy: Manageability | Requests, corrections and deletions through PRO-PT-1; retention schedule |
+| CSS privacy: Disassociability | Access limited by schema group; audit free text holds no extra personal data |
+
+**Table 40d: Configuration on the servers**
+
+| Item | Target |
+| --- | --- |
+| Host | Two Windows Server 2025 VMs |
+| Traffic | HTTPS and encrypted database connections |
+| Secrets | The token signing key and the audit chain key, in a key store outside source code, changed as \<System Description\>, P-10, sets. There is no database password: the API uses Windows authentication |
+| Database login | One least-privilege SQL Server login for the API's managed service account, by Windows authentication, used only by API |
+| Storage | Full-disk encryption on both VMs |
+| Malicious code | Microsoft Defender on both VMs, and each upload scanned through AMSI before it is stored (\<System and Information Integrity Management\>, section 3.2) |
+| Hardening | CIS Benchmarks for Windows Server 2025 and SQL Server 2022 |
+| Backups | Encrypted daily backups and transaction logs, kept at the second site |
+| Retention | Schedule in \<PII Processing Management\>, section 3.7, with periods set by the business owner, and disposal when they end |
+| Build and test | Built under \<Organisation\>'s corporate SDLC, with a build pipeline and release test gate |
+
+The design rests on these assumptions:
+
+1. \<Organisation\> provides and evidences the services in section 10. \<System Name\> relies on them but does not describe how they are built.
+2. The servers are built to this design, with the configuration in Table 40d, before production.
+3. Users work only on \<Organisation\>'s managed devices, over its network or managed route.
+4. The critical components and their failure effects are in \<Risk Assessment Management\>, section 3.9.
 
 ## 7 Design
 
@@ -905,23 +987,190 @@ These are questions an assessor is likely to ask, each with the reference answer
 | What happens if PingFederate or Active Directory is down? | Nobody can sign in. If Active Directory cannot be read, requests are refused | \<Concept of Operations\> |
 | Is multi-factor authentication used for administrators? | Yes, for every user, through the sign-on service; and again on the VPN and the administration route | \<Identification and Authentication Management\> |
 
-## 12 Terms
+## 12 Terms and acronyms
+
+Table 48 defines the terms used across the set, including those in \<Policy\>. Table 49 spells out the acronyms. Control family codes, such as AC and SR, are spelled out in \<System Security Plan\>, Table 8, and the rules and duties A, B and C in \<Security Operating Procedures\>.
 
 **Table 48: Terms**
 
 | Term | Meaning |
 | --- | --- |
-| CSS | Cyber Security Standards: the control catalogue, baselines, assessment procedures and supporting standards the set is built on |
-| Reference system | The design in this document, which every application in the series is built to |
-| Application profile | Section 3: the facts and choices particular to one application |
-| Parameter | A value the controls depend on, numbered P-nn in section 4, with a reference value an application keeps or changes |
-| Departure | A part of an application that differs from the reference design, recorded in section 3.6 |
-| Schema | A set of items with its own read group and edit group, kept apart from every other schema |
-| Item | A digital object the library holds in a schema, such as a scanned or electronic document, with its catalogue details and files |
-| Sign-on service | \<Organisation\>'s PingFederate single sign-on service, which authenticates users against Active Directory with multi-factor authentication |
-| Directory | \<Organisation\>'s Active Directory, which holds accounts and groups and which the API reads for group membership |
+| Access | The ability to use \<System Name\> or its information, including reading, editing, exporting and administering |
+| Access agreement | A signed undertaking: \<Organisation\>'s confidentiality agreement and the acknowledgement in \<Security Operating Procedures\>, section 9 |
+| Account | A named Active Directory identity that a person or service uses to sign in to \<System Name\>, Windows or SQL Server. \<System Name\> holds no accounts of its own |
+| Advisory | A security alert, warning or directive from an outside source, or an internal note made from one |
+| After-action report | The record of a test or activation: what happened, against the objectives, and what will change |
+| AMSI | The Windows Antimalware Scan Interface, through which an application asks the installed antivirus to scan data |
 | API | The service the other two applications call, and the only route to the database |
-| Loopback address | An address that can be reached only from the same server |
-| Key ring | The keys an application uses to protect its authentication cookie and anti-forgery tokens |
+| Application profile | Section 3: the facts and choices particular to one application |
+| Appropriate policy document | The document the Data Protection Act 2018, Schedule 1, Part 4 requires when relying on certain Schedule 1 conditions |
+| Approver | The people who must agree an access change before it is made: the person's line manager approves it in ServiceNow, and the group's owner authorises it, the system owner for a role group or the Data Owner for a schema group (P-37) |
+| Assessment | Testing and examining controls to decide whether they work as intended. Level 1 is the system owner's self-assessment; Level 2 is the independent assessment |
+| Audit information | Audit records, any log that repeats them, and the tools and settings used to read or manage them |
+| Audit log | The store of audit records, the table dbo.AuditLog in the \<System Name\> database |
+| Audit record | One entry that records an event: what happened, when, where, from where, the outcome and who was involved |
+| Auditor | The person who reviews audit records and does not administer the system |
+| Authenticator | Something used to prove an identity: a password, a second factor, a key or a secret |
+| Authenticator assurance level | How sure the organisation is that the person signing in holds the account |
+| Authorisation | The authorising official's decision, recorded on TPL-18, that \<System Name\> may operate and that its remaining risk is accepted |
+| Authorisation package | What the authorising official receives before deciding, listed in \<Assessment, Authorization, and Monitoring Management\>, section 3.5 |
+| Awareness | Messages and briefings that keep security in people's minds |
+| Baseline | The approved, recorded configuration of a configuration item at a point in time, from which it can be rebuilt |
+| Bill of materials | A list of every component in a release, with its version, supplier, hash and licence, in a machine-readable form |
+| Built-in maintenance function | The fixed diagnostics page in the Admin application, which reads no item content. \<System Name\> has no page that changes its data or set-up |
+| Business impact analysis | The analysis of how an outage harms the organisation over time, which sets the recovery objectives |
+| Chain hash | A value calculated from each record and the one before it, so that a change can be detected |
+| Change control board | The group that approves changes: the system owner, security officer and Windows server administrator |
+| Change record | A record of a change. For a system change or maintenance job, TPL-6 or a ServiceNow record with the same fields; for a document, the change record described in \<Documentation Map\>, section 4.1 |
+| Complaint | A complaint to the controller about how personal data is handled, under the Data (Use and Access) Act 2025 |
+| Component | A software package, runtime, operating system or database that \<System Name\> is built from or runs on |
+| Configuration item | Anything placed under configuration control: code, packages, components, settings or documents |
+| Containment | Action that stops an incident spreading or causing more harm |
+| Continuous monitoring | Checking controls, risks and changes on a set schedule after authorisation, under the strategy in \<Assessment, Authorization, and Monitoring Management\>, section 3.8 |
+| Controlled area | A place where access is limited to authorised people: \<Organisation\>'s data centres and locked storage |
+| Corporate SDLC | \<Organisation\>'s software development life cycle, inherited by \<System Name\>, whose security practices meet CSS: preparing the organisation, protecting the software, producing well-secured software and responding to vulnerabilities |
+| Counterfeit | A component that is not what it claims to be, including a look-alike package |
+| Critical component | A component whose failure or compromise would expose or lose the items, or defeat a security control (\<Risk Assessment Management\>, section 3.9) |
+| Cryptographic erase | Sanitising encrypted media by destroying the keys, so the data can no longer be decrypted |
+| Cryptoperiod | How long a key may be used before it must be changed |
+| CSS | Cyber Security Standards: the control catalogue, baselines, assessment procedures and supporting standards the set is built on |
+| Data centre | The \<Organisation\> facility that hosts \<System Name\>'s VMs |
+| Data Owner | The person who owns a schema's data and its read and edit groups, and authorises who may read or edit it |
+| Data protection key ring | The keys ASP.NET Core uses to protect each app's cookies and antiforgery tokens |
+| Default branch | The branch in each repository that releases are built from |
+| Departure | A part of an application that differs from the reference design, recorded in section 3.6 |
+| Detection use case | A defined event or pattern, its source, threshold and the response to it |
+| Digital media | Media that need power to be read, including virtual disks, export files and managed devices |
+| Directory | \<Organisation\>'s Active Directory, which holds accounts and groups and which the API reads for group membership |
+| Drift | Any difference between the running configuration and the baseline |
+| Escort | A person on the approved list who supervises someone who is not |
+| Event | An action or occurrence that \<Audit and Accountability Management\> says must be logged |
+| Evidence | Records and copies kept to show what happened, with a hash and a record of custody |
+| Exception | Written permission to depart from a requirement for a set period, recorded in \<Risk List\> |
+| Exploited flaw | A vulnerability in CISA's Known Exploited Vulnerabilities catalogue, or confirmed as exploited by its vendor or \<Organisation\> |
+| Export copy | A copy of items made by \<System Name\>'s export or download functions |
+| External person | Someone who works on \<System Name\>, or assesses it, but is not employed by \<Organisation\>, such as a contractor, a supplier's engineer or an independent assessor |
+| External service | A service run by someone else that \<System Name\> depends on, such as hosting, source code hosting or a package source |
+| Flaw | A weakness in software or firmware that could be exploited, including a known vulnerability in a package |
+| Flow | A permitted connection between two parts of the system, or between \<System Name\> and something outside it |
+| Higher risk role | A role with privileged technical access, or one that can see or change security records |
+| Identifier | The name that identifies one person or service. For a person it is their Active Directory account name |
+| Identity assurance level | How sure the organisation is that a person is who they claim, from identity proofing |
+| Immutable copy | A backup that cannot be changed or deleted for a set time, even by an administrator |
+| Impact assessment | \<Data Protection Impact Assessment\>, the data protection impact assessment |
+| Independent assessor | An assessor who has had no part in designing, building, running or administering \<System Name\>, and who confirms it on TPL-19 |
+| Inheritance matrix | The table in \<Physical and Environmental Protection Management\> showing who provides each PE control and what evidence closes it |
 | Inherited control | A control provided by \<Organisation\>, which supplies the evidence |
+| Insider threat | Harm, deliberate or accidental, by someone with authorised access |
+| Integrity baseline | The recorded hashes of a known-good release, used to detect later change |
+| Item | A digital object the library holds in a schema, such as a scanned or electronic document, with its catalogue details and files |
+| Key ring | The keys an application uses to protect its authentication cookie and anti-forgery tokens |
+| Least privilege | Giving each person or process only the access its tasks need |
+| Leaver, mover | Someone who leaves \<Organisation\> or stops needing \<System Name\>; someone who changes role |
+| Lock file | A file that records the exact version and content hash of every package a .NET project restores |
+| Logging failure | Any period in which agreed events are not recorded, for whatever reason |
+| Loopback address | An address that can be reached only from the same server |
+| Maintenance | Preventive or corrective work on a \<System Name\> component, including repair and replacement |
+| Maintenance tool | Any program, device or function used to diagnose or maintain \<System Name\> |
+| Marking | The \<Classification\> label, with the item's own classification, on what \<System Name\> shows or produces |
+| Material change | A change to the rules that adds or tightens a rule, changes a consequence, adds monitoring or adds a privileged duty |
+| Maximum tolerable downtime | The longest an outage can last before the harm is unacceptable |
+| Media | Anything that holds \<System Name\> information outside the running application: disks, volumes, files, devices, backups and paper |
+| Mitigate | Reduce a vulnerability's risk without the fix, for example by disabling the affected feature or blocking access to it |
+| Mobile code | Code a page sends to run in the browser, such as JavaScript or WebAssembly |
+| Multi-factor sign-in | Signing in with two different kinds of authenticator, such as a password and an app or key |
+| Offline feed | The in-house checked package feed, held offline, whose packages are recorded with SHA-256 values |
+| Parameter | A value the controls depend on, numbered P-nn in section 4, with a reference value an application keeps or changes |
+| Personal data | Any information about an identified or identifiable living person |
+| Personal data breach | A security incident leading to the accidental or unlawful loss, change, disclosure of, or access to personal data |
+| Physical incident | Loss, theft, unauthorised entry, or a fire, flood or power event affecting \<System Name\> |
+| Plan review record | A record of each review of a plan: who, their role, the date, the outcome and actions |
+| Playbook | Pre-agreed first actions for a common kind of incident |
+| Privileged access | Access that can change accounts, settings, security functions, servers or the database, or read audit records |
+| Reconstitution | Checking the recovered system's data, functions and controls, and returning it to normal use |
+| Record of processing | \<Organisation\>'s record of processing activities under UK GDPR, Article 30 |
+| Recovery point objective | The most recent point to which data must be recoverable, which sets how much data may be lost |
+| Recovery time objective | The longest a function can take to come back, which must be within the maximum tolerable downtime |
+| Reference system | The design in this document, which every application in the series is built to |
+| Remote (nonlocal) maintenance | Maintenance done over a network rather than in person at the component |
+| Replay resistance | Protection against reusing a captured sign-in or token |
+| Retention period | How long records are kept before they may be deleted |
+| Risk | The chance that a threat source exploits a weakness, combined with the harm that would cause (CSS) |
+| Risk designation | How much harm the holder of a role could do, which sets the screening and attention the role receives |
+| Role training | Training in the security duties a person performs in their \<System Name\> role |
+| Rules of behaviour | \<Security Operating Procedures\>: Part A for everyone, and Part B for privileged users |
+| Sanitising | Making information on media impossible to recover, by clearing, purging, cryptographic erase or destruction |
+| Schema | A set of items with its own read group and edit group, kept apart from every other schema |
+| Screening | The checks an employer makes on a person before and during employment |
+| Second site | An \<Organisation\> site, apart from the main one, that holds backups and can run rebuilt VMs |
 | Secure by Design | Designing security and privacy into the system before it is built, so that it is secure by default, rather than adding controls afterwards |
+| Secure release | Printing that holds a job until the user releases it at the printer |
+| Security function | A part of \<System Name\> that enforces a control, such as sign-in, schema access or audit |
+| Security impact analysis | The check, before a change, of its effect on security and privacy controls |
+| Security incident | An event that harms, or may harm, the confidentiality, integrity or availability of \<System Name\> or its data, or breaks a security policy |
+| Security-critical component | A component that \<System Name\>'s security depends on, listed in \<Maintenance Management\> |
+| Separation of duties | Splitting duties so that no one person can misuse them together unnoticed |
+| Service account | An account used by a program rather than a person |
+| Severity | For an incident, the level from Low to Critical that sets how fast it is handled and who is told. For a vulnerability, the vendor's rating or, without one, its CVSS base score: 9.0 or more Critical, 7.0 to 8.9 High, 4.0 to 6.9 Medium, below 4.0 Low |
+| Sign-on service | \<Organisation\>'s PingFederate single sign-on service, which authenticates users against Active Directory with multi-factor authentication |
+| Significant change | A change likely to alter \<System Name\>'s security or privacy risk, as listed in \<Assessment, Authorization, and Monitoring Management\>, section 3.9 |
+| Single sign-on | Signing in once, to \<Organisation\>'s PingFederate, which then vouches for the person to \<System Name\>. \<System Name\> never sees the password |
+| Social engineering | Manipulating people into giving access or information, including by email, phone or in person |
+| Special category data | Data about health, ethnicity, religion, trade union membership, sex life, sexual orientation, genetics or biometrics (UK GDPR, Article 9) |
+| Supplier | Anyone who provides a component or service \<System Name\> depends on, including open-source projects and package registries |
+| System plans | The System Security Plan, privacy plan and supply chain risk management plan, as in CSS |
+| Tailoring | Deciding, with a rationale, that a baseline control or part does not apply, or applies in a changed form |
+| Tampering | Any unauthorised change, deletion or addition of audit information |
+| Third-party component | Any package, library or script \<System Name\> uses but did not write |
+| Training matrix | The table of roles, modules, deadlines and frequencies in \<Awareness and Training Management\> |
+| Trust anchor | A root certificate that the system trusts to issue other certificates |
+| Vulnerability | A weakness in \<System Name\>, its components or its operation that a threat source could exploit |
+
+**Table 49: Acronyms**
+
+| Acronym | Meaning |
+| --- | --- |
+| --- | --- |
+| AMSI | Antimalware Scan Interface, in Windows |
+| API | Application programming interface |
+| CE+ | Cyber Essentials Plus |
+| CIS | Center for Internet Security |
+| CISA | US Cybersecurity and Infrastructure Security Agency |
+| CSS | Cyber Security Standards |
+| DNS | Domain Name System |
+| DPA | Data Protection Act 2018 |
+| ECDSA | Elliptic Curve Digital Signature Algorithm |
+| EV | Evidence request in \<Evidence Requests\> |
+| HMAC | Hash-based message authentication code |
+| HR | Human resources |
+| HSTS | HTTP Strict Transport Security |
+| HTTP, HTTPS | Hypertext Transfer Protocol, and its secure form |
+| ICO | Information Commissioner's Office |
+| IP | Internet Protocol |
+| AD | Active Directory, \<Organisation\>'s directory service |
+| LDAPS | Lightweight Directory Access Protocol over TLS |
+| MFA | Multi-factor authentication |
+| NC | Non-compliance entry in \<Risk List\> |
+| NCSC | UK National Cyber Security Centre |
+| NTP | Network Time Protocol |
+| PII | Personally identifiable information |
+| PIV | Personal Identity Verification, a US government card |
+| PKI | Public key infrastructure |
+| POA&M | Plan of action and milestones |
+| PRO | Procedure in \<Procedures\> |
+| RSA | Rivest-Shamir-Adleman, a public key algorithm |
+| SCRM | Supply chain risk management |
+| SDLC | Software development life cycle |
+| SHA | Secure Hash Algorithm |
+| SSP | System security plan |
+| \<Security Operating Procedures\> | Security operating procedures, \<Security Operating Procedures\> |
+| TCP, UDP | Transmission Control Protocol, User Datagram Protocol |
+| TLS | Transport Layer Security |
+| TPL | Record form in \<Record Templates\> |
+| TPM | Trusted Platform Module |
+| TR | Tailoring entry in \<Tailoring Register\> |
+| UK GDPR | UK General Data Protection Regulation |
+| USB | Universal Serial Bus |
+| UTC | Coordinated Universal Time |
+| VM | Virtual machine |
+| VPN | Virtual private network |

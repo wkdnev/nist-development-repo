@@ -4,15 +4,11 @@
 
 This document sets out how \<System Name\> is designed and configured to keep its software and information sound, to meet the 18 System and Information Integrity (SI) controls and enhancements in the CSS Moderate baseline.
 
-Section 3 is the design: the upload checks and malware scanning; flaw remediation and advisories; monitoring and the detection use cases; the integrity baseline and checks; error handling and memory protection; retention; what \<Organisation\> provides; email and spam protection; and the policy and procedures. Each subsection names the controls it helps to meet. Appendix A lists the related controls and enhancements CSS does not select at Moderate.
+Section 3 is the design: the upload checks and malware scanning; flaw remediation and advisories; monitoring and the detection use cases; the integrity baseline and checks; error handling and memory protection; retention; what \<Organisation\> provides; email and spam protection; and the policy and procedures. Each subsection names the controls it helps to meet.
 
-Other documents hold the rest. Who provides and is responsible for each control, its status and its assessment result are in \<System Security Plan\>, section 7.18 (Table 27). The tests, their results and the records an assessor will ask for are in \<Control Assessment Record\> (SI). Each control's risk is in \<Risk List\>, and what is still open is in \<Plan of Action and Milestones\>. The policy is in \<Policy\> (SI), and the steps people follow are in \<Procedures\> (SI). The vulnerability timetable is in \<Risk Assessment Management\>, section 3.6, the retention schedule in \<PII Processing Management\>, section 3.7, and the audit design in \<Audit and Accountability Management\>. The privacy controls SI-12(1) to SI-12(3), SI-18, SI-18(4) and SI-19 are set out in \<PII Processing Management\>.
+## 2 Related documents
 
-Values that CSS asks the organisation to define are set at corporate level by \<Organisation\>. The settings in section 3 should match those corporate values. Where one does not, it is changed in this document.
-
-## 2 Summary
-
-The implementation status of each control, how it is met, who is responsible, its assessment result and the risk and plan entries for its gaps are recorded in \<System Security Plan\>, section 7.18 (Table 27).
+Who provides and is responsible for each control, and its status, are in \<System Security Plan\>, section 7.18 (Table 27). The tests, their results and the records an assessor will ask for are in \<Control Assessment Record\> (SI). Each control's risk is in \<Risk List\>, and what is still open is in \<Plan of Action and Milestones\>. The policy is in \<Policy\> (SI), and the steps people follow are in \<Procedures\> (SI). The vulnerability timetable is in \<Risk Assessment Management\>, section 3.6, the retention schedule in \<PII Processing Management\>, section 3.7, and the audit design in \<Audit and Accountability Management\>. The privacy controls SI-12(1) to SI-12(3), SI-18, SI-18(4) and SI-19 are set out in \<PII Processing Management\>.
 
 ## 3 The design
 
@@ -62,7 +58,7 @@ Flaws come from the package check, the advisories in Table 2, scans and tests. E
 | --- | --- | --- |
 | NCSC alerts and advisories | UK threats and vulnerabilities | As published |
 | NCSC Early Warning | Incidents, abuse and vulnerable services on \<System Name\>'s addresses | As raised |
-| CISA Known Exploited Vulnerabilities | Flaws being exploited | Weekly (SyOps C50) |
+| CISA Known Exploited Vulnerabilities | Flaws being exploited | Weekly (\\<Security Operating Procedures\\>, C50) |
 | Microsoft Security Response Center | Windows Server, SQL Server, .NET and ASP.NET Core | Monthly and out of band |
 | GitHub advisories and dependency alerts | NuGet packages | As raised |
 | Vendors of the other components | Browser libraries and any other component on the approved list | As published |
@@ -153,26 +149,4 @@ Controls met here: SI-8, SI-8(2).
 
 Controls met here: SI-1.
 
-1. **Policy.** \<Policy\> (SI) is a system-level policy. It is shared with everyone who administers or develops \<System Name\>. The legal adviser reviews it.
-2. **Procedures.** \<Procedures\> (SI) holds eight procedures, PRO-SI-1 to PRO-SI-8. They are shared with the same people.
-3. **Owner.** The system owner manages the policy and procedures.
-4. **Review.** The policy is reviewed every 12 months, and after a significant incident, audit finding or system change. The procedures are reviewed every 12 months, and after a change to the steps.
-5. **Records.** The documents are under version control.
-
-## Appendix A Integrity controls outside the Moderate baseline
-
-CSS does not select these at Moderate, so they are not assessed. SI-8 and SI-8(2) are tailored out (TR-SI-01), and SI-12(1) to SI-12(3), SI-18, SI-18(4) and SI-19 are privacy baseline controls set out in \<PII Processing Management\>. Table 7 says where the design goes some way towards them.
-
-**Table 7: Related controls and enhancements not selected**
-
-| Control | What it adds | \<System Name\>'s position |
-| --- | --- | --- |
-| SI-2(5), SI-2(6) | Automatic updates; removing previous versions after an update | Not required. Done in part: updates go through change control (section 3.3) |
-| SI-3(8), SI-3(10) | Detecting unauthorised commands; analysing malicious code | Not required |
-| SI-4(1), SI-4(10), SI-4(11) | System-wide intrusion detection; visibility of encrypted traffic; analysis of outbound traffic | Not required. Done in part: \<Organisation\>'s network monitoring (section 3.4) |
-| SI-4(12), SI-4(14), SI-4(20) | Automated organisation alerts; wireless intrusion detection; privileged user monitoring | Not required: selected at High only, or not applicable. Done in part: use cases U4 and U6 watch privileged changes and administrator sign-ins |
-| SI-4(22), SI-4(23) | Unauthorised network services; host-based monitoring | Not required. Done in part: Defender on both servers |
-| SI-6 Security and Privacy Function Verification | Checks that security functions work | Not required: selected at High only. Done in part: the test scripts (\<System and Services Acquisition Management\>, section 3.9) |
-| SI-7(2), SI-7(5), SI-7(15) | Automated notification and response to integrity failures; code authentication | Not required: selected at High only. Done in part: signed release tags |
-| SI-10(3) Predictable Behavior | Behaves predictably on invalid input | Not required. Done in design: invalid input is refused |
-| SI-13, SI-14, SI-17, SI-20 to SI-23 | Failure prediction, non-persistence, fail-safe procedures, tainting, refresh, information diversity and fragmentation | Not required |
+\<Policy\> (SI) and \<Procedures\> (SI) meet SI-1. Who they are shared with is in \<Policy\>, section SI.6. Their ownership, approval, review and records follow the rules common to every policy in \<Policy\>, section 1.1.

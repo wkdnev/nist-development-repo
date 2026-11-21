@@ -4,15 +4,11 @@
 
 This document sets out how \<System Name\> is designed to prepare for, find, handle and learn from security incidents, to meet the 13 Incident Response (IR) controls and enhancements in the CSS Moderate baseline.
 
-Section 3 is the design, and is the incident response plan that IR-8 requires: the scope, who does what, preparation, how incidents are found, how severe each is and how fast it must be contained, the steps every incident follows, personal data breaches, the playbooks, evidence, reportable incidents, measures and resources, sharing information, the register, what \<Organisation\> provides, how the plan is kept, and the policy and procedures. It can be used on its own during an incident. Each subsection names the controls it helps to meet. Appendix A holds the contacts, and Appendix B lists the IR controls CSS does not select at Moderate.
+Section 3 is the design, and is the incident response plan that IR-8 requires: the scope, who does what, preparation, how incidents are found, how severe each is and how fast it must be contained, the steps every incident follows, personal data breaches, the playbooks, evidence, reportable incidents, measures and resources, sharing information, the register, what \<Organisation\> provides, how the plan is kept, and the policy and procedures. It can be used on its own during an incident. Each subsection names the controls it helps to meet. Appendix A holds the contacts.
 
-Other documents hold the rest. Who provides and is responsible for each control, its status and its assessment result are in \<System Security Plan\>, section 7.8 (Table 17). The tests, their results and the records an assessor will ask for are in \<Control Assessment Record\> (IR). Each control's risk is in \<Risk List\>, and what is still open is in \<Plan of Action and Milestones\>. The policy is in \<Policy\> (IR), and the steps people follow are in \<Procedures\> (IR).
+## 2 Related documents
 
-Values that CSS asks the organisation to define are set at corporate level by \<Organisation\>. The settings in section 3, such as the severity targets, should match those corporate values. Where one does not, it is changed in this document.
-
-## 2 Summary
-
-The implementation status of each control, how it is met, who is responsible, its assessment result and the risk and plan entries for its gaps are recorded in \<System Security Plan\>, section 7.8 (Table 17).
+Who provides and is responsible for each control, and its status, are in \<System Security Plan\>, section 7.8 (Table 17). The tests, their results and the records an assessor will ask for are in \<Control Assessment Record\> (IR). Each control's risk is in \<Risk List\>, and what is still open is in \<Plan of Action and Milestones\>. The policy is in \<Policy\> (IR), and the steps people follow are in \<Procedures\> (IR).
 
 ## 3 The incident response plan
 
@@ -87,7 +83,7 @@ Controls met here: IR-4.
 | Weekly audit log review (\<Procedures\> (AU); \<System Description\>, P-08) | Refused access, changes to schemas and their groups, large exports; failed sign-ins and lockouts from \<Organisation\>'s PingFederate and Active Directory records | The auditor, who reports anything suspicious to the security officer. The security officer does not read the audit log |
 | Alerts (\<System Description\>, P-27) | The eight alert events: repeated failed sign-ins; a break in the audit chain; malware detected; a person added to an administrator group; a bulk export above a set size; an administrator sign-in out of hours; an audit logging failure; and an unexpected change to the software | Security officer |
 | Microsoft Defender on both servers | Malicious code | Windows server administrator |
-| Backup and integrity checks (SyOps C8, C12) | Failed backups, changed stored files or release packages | Database and Windows server administrators |
+| Backup and integrity checks (\\<Security Operating Procedures\\>, C8, C12) | Failed backups, changed stored files or release packages | Database and Windows server administrators |
 | \<Organisation\>'s monitoring (EV-IR-01) | Network and directory events | \<Organisation\>'s security contact |
 | Supplier and NCSC advisories | Vulnerabilities in components \<System Name\> uses | Security officer |
 
@@ -237,11 +233,7 @@ Controls met here: IR-8.
 
 Controls met here: IR-1.
 
-1. **Policy.** \<Policy\> (IR) is a system-level policy, shared with everyone who administers \<System Name\>. The legal adviser reviews it.
-2. **Procedures.** \<Procedures\> (IR) holds seven procedures, PRO-IR-1 to PRO-IR-7. They are shared with the same people.
-3. **Owner.** The system owner manages the policy and procedures.
-4. **Review.** The policy is reviewed every 12 months, and after a significant incident, audit finding or system change. The procedures are reviewed every 12 months, and after a change to the steps.
-5. **Records.** The documents are under version control.
+\<Policy\> (IR) and \<Procedures\> (IR) meet IR-1. Who they are shared with is in \<Policy\>, section IR.6. Their ownership, approval, review and records follow the rules common to every policy in \<Policy\>, section 1.1.
 
 ## Appendix A Contacts
 
@@ -262,29 +254,3 @@ Use the phone if ServiceNow or email may be compromised.
 | Information Commissioner's Office | Breach reporting | \[phone to add\] | ICO online breach report form |
 | National Cyber Security Centre | Incident reporting | \[phone to add\] | NCSC online incident report |
 | Report Fraud, which replaced Action Fraud | Cyber crime and fraud reporting | 0300 123 2040 | Report Fraud online report |
-
-## Appendix B IR controls outside the Moderate baseline
-
-CSS does not select these in the Moderate security baseline, so they are not assessed in this family. Two are in the CSS privacy baseline and apply because \<System Name\> holds personal data: they are assessed with the PT family. Some of the design goes further than the baseline, and Table 10 says where.
-
-**Table 10: IR controls not selected at Moderate**
-
-| Control | What it adds | \<System Name\>'s position |
-| --- | --- | --- |
-| IR-2(1), IR-2(2) Simulated Events; Automated Training Environments | Training that simulates an incident, in an automated environment | Not required. The tabletop exercise walks through a playbook |
-| IR-2(3) Breach | Training on finding, handling and reporting a personal data breach | Privacy baseline, so it applies. Covered by modules M7 and M9, and assessed with the PT family |
-| IR-3(1), IR-3(3) Automated Testing; Continuous Improvement | Automated tests of the capability, and measures used to improve it | Not required. Done in part: the measures in section 3.12 and each after-action report feed the plan |
-| IR-4(2), IR-4(3), IR-4(5), IR-4(9) Dynamic Reconfiguration; Continuity of Operations; Automatic Disabling of System; Dynamic Response Capability | The system changes itself, or is shut down, in response to an incident | Not required. Nothing is automatic: people decide, to the targets in section 3.6 |
-| IR-4(4) Information Correlation | Incident information correlated across the organisation | Not required. Done in part: the monthly review reads the incident records with the audit findings and the vulnerability results (\<Procedures\>, PRO-CA-5) |
-| IR-4(6), IR-4(7) Insider Threats | A capability for incidents caused by insiders, coordinated across the organisation | Not required. Done in part: the playbook for bulk export or download misuse, and \<Organisation\>'s disciplinary process |
-| IR-4(8), IR-4(10) Correlation with External Organizations; Supply Chain Coordination | Handling coordinated with outside bodies and suppliers | Not required. Reports to suppliers are covered by IR-6(3) |
-| IR-4(11) Integrated Incident Response Team | A team that can be sent out within a set time | Not required. The roles in section 3.3 are a small named team |
-| IR-4(12), IR-4(13) Malicious Code and Forensic Analysis; Behavior Analysis | Analysis of malicious code and of attackers' behaviour | Not required. Any such work would be done by \<Organisation\> or an outside firm (section 3.12) |
-| IR-4(14) Security Operations Center | A security operations centre | Not required. \<Organisation\> is asked what monitoring it provides (EV-IR-01) |
-| IR-4(15) Public Relations and Reputation Repair | Managing public relations after an incident | Not required. Section 3.13 says who may speak to the press and the public |
-| IR-5(1) Automated Tracking, Data Collection, and Analysis | Incidents tracked and analysed automatically | Not required. ServiceNow gives part of it |
-| IR-6(2) Vulnerabilities Related to Incidents | Weaknesses found through incidents are reported | Not required. Done in design: closing an incident updates the Risk List and the POA&M (PRO-IR-7) |
-| IR-7(2) Coordination with External Providers | A working relationship with outside providers of protection | Not required. \<Organisation\> is the only provider (section 3.15) |
-| IR-8(1) Breaches | The plan covers personal data breaches: whether to notify, the harm to people, and the law that applies | Privacy baseline, so it applies. Met by section 3.8, and assessed with the PT family |
-| IR-9, IR-9(2), IR-9(3), IR-9(4) Information Spillage Response | Handling information that reaches a system or person not cleared for it | Not required. Done in part: the playbook for an item in the wrong place (section 3.9) |
-| IR-9(1), IR-10 | Withdrawn by CSS | Not applicable |

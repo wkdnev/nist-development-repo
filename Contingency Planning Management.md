@@ -4,11 +4,7 @@
 
 This document sets out how \<System Name\> is recovered after a failure, and the design that meets the 23 Contingency Planning (CP) controls and enhancements in the CSS Moderate baseline.
 
-Section 3 is the design, and is the contingency plan that CP-2 requires: the principles, scope and assumptions, the business impact analysis, the roles, the three phases of activation and notification, recovery and reconstitution, the backups, the second site and telecommunications, testing, training and exercises, what \<Organisation\> provides, keeping the plan current, coordination with related plans, and the policy and procedures. With appendix A, which holds the contacts, and appendix B, which lists the associated plans, it can be used on its own in an emergency. Each subsection names the controls it helps to meet. Appendix C lists the CP controls CSS does not select at Moderate.
-
-Other documents hold the rest. Who provides and is responsible for each control, its status and its assessment result are in \<System Security Plan\>, section 7.6 (Table 15). The tests, their results and the records an assessor will ask for are in \<Control Assessment Record\> (CP). Each control's risk is in \<Risk List\>, and what is still open is in \<Plan of Action and Milestones\>. The policy is in \<Policy\> (CP), and the steps people follow are in \<Procedures\> (CP).
-
-Values that CSS asks the organisation to define are set at corporate level by \<Organisation\>. The values in section 3, such as the recovery objectives, the backup retention and the intervals for testing and training, should match those corporate values. Where one does not, it is changed in this document.
+Section 3 is the design, and is the contingency plan that CP-2 requires: the principles, scope and assumptions, the business impact analysis, the roles, the three phases of activation and notification, recovery and reconstitution, the backups, the second site and telecommunications, testing, training and exercises, what \<Organisation\> provides, keeping the plan current, coordination with related plans, and the policy and procedures. With appendix A, which holds the contacts, and appendix B, which lists the associated plans, it can be used on its own in an emergency. Each subsection names the controls it helps to meet.
 
 ### 1.1 Distribution and protection
 
@@ -16,9 +12,9 @@ Copies go to the people in section 3.4 and the authorising official. \<Organisat
 
 The document is marked \<Classification\>. It is kept in the restricted document store with the other records, where only the people above can read it and only the system owner can change it (CP-2h). The system owner and security officer each keep a current offline copy, so that the plan can be used when \<System Name\> and the document store are down. The offline copy is section 3 with appendices A and B, which together are the whole plan. There is no separate plan document.
 
-## 2 Summary
+## 2 Related documents
 
-The implementation status of each control, how it is met, who is responsible, its assessment result and the risk and plan entries for its gaps are recorded in \<System Security Plan\>, section 7.6 (Table 15).
+Who provides and is responsible for each control, and its status, are in \<System Security Plan\>, section 7.6 (Table 15). The tests, their results and the records an assessor will ask for are in \<Control Assessment Record\> (CP). Each control's risk is in \<Risk List\>, and what is still open is in \<Plan of Action and Milestones\>. The policy is in \<Policy\> (CP), and the steps people follow are in \<Procedures\> (CP).
 
 ## 3 The contingency plan
 
@@ -310,11 +306,7 @@ Appendix B lists the related plans. This plan and the incident response plan eac
 
 Controls met here: CP-1.
 
-1. **Policy.** \<Policy\> (CP) is a system-level policy. Its purpose and scope are in section CP.1, responsibilities in CP.5, and commitment, coordination and compliance in CP.6. It is shared with everyone who administers \<System Name\>. The legal adviser reviews it.
-2. **Procedures.** \<Procedures\> (CP) holds seven procedures, PRO-CP-1 to PRO-CP-7, each naming who acts, when and the record. They are shared with the same people.
-3. **Owner.** The system owner manages the policy and procedures.
-4. **Review.** The policy is reviewed every 12 months, and after a significant incident, audit finding or system change. The procedures are reviewed every 12 months, and after a change to the steps.
-5. **Records.** The documents are under version control, and each review is recorded in the change record. Each procedure is walked through with the people who carry it out, and the walk-through is recorded on TPL-4.
+\<Policy\> (CP) and \<Procedures\> (CP) meet CP-1. Who they are shared with is in \<Policy\>, section CP.6. Their ownership, approval, review and records follow the rules common to every policy in \<Policy\>, section 1.1.
 
 ## Appendix A Contacts
 
@@ -342,21 +334,3 @@ Controls met here: CP-1.
 | \<Security Operating Procedures\> Security Operating Procedures | System owner | The routine backup and check steps (C2, C6, C8, C18, C21) and planned shutdown |
 | TPL-9 and TPL-11 in \<Record Templates\> | System owner | Training records, test records and after-action reports |
 | \<System Security Plan\>, sections 3.4 and 4 | System owner | The inventory and diagrams of what is rebuilt |
-
-## Appendix C CP controls outside the Moderate baseline
-
-CSS does not select these at Moderate, so they are not assessed. Some of the design goes further than the baseline, and Table 11 says where.
-
-**Table 11: CP controls not selected at Moderate**
-
-| Control | What it adds | \<System Name\>'s position |
-| --- | --- | --- |
-| CP-2(2) Capacity Planning | Capacity planned for processing, telecommunications and support during a contingency | Not required. The second site is asked to run both servers at their normal size (EV-CP-01) |
-| CP-2(5) Continue Mission and Business Functions | Functions continue with little or no loss of continuity | Not required. Availability is rated Low, and 72 hours to recover is enough |
-| CP-3(1) Simulated Events | Training that simulates a real event | Not required. The tabletop exercise walks through a scenario |
-| CP-4(2) Alternate Processing Site | Testing the plan at the second site | Not required, and not planned. The first restore test is on the main servers |
-| CP-6(2) Recovery Time and Recovery Point Objectives | The storage site set up to meet the recovery objectives | Not required. Done in design: transaction log backups go to the second site between the daily backups |
-| CP-7(4) Preparation for Use | The second site kept ready to use | Not required. The servers are rebuilt there when needed |
-| CP-8(3), CP-8(4) Separation of Providers; Provider Contingency Plan | Alternate services from a separate provider, who has a contingency plan | Not required. \<Organisation\>'s plans are asked for with EV-CP-01 |
-| CP-9(2), CP-9(3), CP-9(5) Test Restoration Using Sampling; Separate Storage for Critical Information; Transfer to Alternate Storage Site | Further assurance for backups | Not required. Done in design: every restore test restores the whole database; one copy is offline or immutable; backups and transaction log backups go to the second site |
-| CP-10(4) Restore Within Time Period | Components restored from configuration-controlled images within a set time | Not required. Done in design: the servers are rebuilt from the baseline and the tagged release (\<Configuration Management\>, section 3.4) |
