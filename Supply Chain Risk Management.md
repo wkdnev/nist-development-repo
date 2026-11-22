@@ -91,7 +91,7 @@ No critical component may be used without a known source and a SHA-256 record. A
 
 Controls met here: SR-3, SR-5, SR-10, SR-11.
 
-Three processes find and address weaknesses in the supply chain: component checks before use (PRO-SR-1), supplier reviews (PRO-SR-2) and release inspection (PRO-SR-3). They are coordinated with \<Organisation\>'s IT service desk and the suppliers in section 3.5. They sit within \<Organisation\>'s corporate SDLC, which provides the one checked package feed, lock files and a software bill of materials for each release (\<System Description\>, section 7.12). The processes and controls are documented in this plan and in \<System Security Plan\>.
+Three processes find and address weaknesses in the supply chain: component checks before use (PRO-SR-1), supplier reviews (PRO-SR-2) and release inspection (PRO-SR-3). They are coordinated with \<Organisation\>'s IT service desk and the suppliers in section 3.5. They carry out \<Organisation\>'s organisation-wide supply chain risk management strategy, and the supplier register uses its list of critical suppliers (PM-30, PM-30(1), inherited: \<Program Management\>; EV-PM-03). Where the two differ, \<Organisation\>'s strategy wins and this plan is changed to match. They sit within \<Organisation\>'s corporate SDLC, which provides the one checked package feed, lock files and a software bill of materials for each release (\<System Description\>, section 7.12). The processes and controls are documented in this plan and in \<System Security Plan\>.
 
 **Table 3: How each component comes in**
 
@@ -123,6 +123,7 @@ Controls met here: SR-2(1), SR-3, SR-5, SR-6, SR-8, SR-10, SR-11(1), SR-11(2), S
 | --- | --- | --- | --- |
 | Approved suppliers, a seat on the supply chain team, and notice of a compromise within 24 hours | SR-2(1), SR-3, SR-5, SR-6, SR-8 | Its suppliers are approved, the IT service desk joins the team, and a compromise reaches the security officer within 24 hours | EV-SR-01 |
 | Hardware inspection, buyers' training, control of equipment under repair, and disposal | SR-10, SR-11(1), SR-11(2), SR-12 | Each is done, with records | EV-SR-02 |
+| Its supply chain risk management strategy, and its list of critical suppliers | PM-30, PM-30(1), inherited (\<Program Management\>) | This plan follows the strategy, and the criticality in the supplier register matches \<Organisation\>'s list | EV-PM-03 |
 
 ### 3.10 Policy and procedures
 
