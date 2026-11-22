@@ -539,7 +539,7 @@ These procedures carry out \<Policy\> (CA). Steps marked **Manual** have no syst
 
 1. Each month the security officer collects the measures in \<Assessment, Authorization, and Monitoring Management\>, section 3.8, reads them together with the audit review findings, the vulnerability results and the incident records, and looks for a trend across three months. They report on TPL-8 to the system owner, send the privacy measures to the legal adviser, act on any measure past its threshold, and record the action. A measure not put right in the month becomes an item in \<Plan of Action and Milestones\>. **Manual**
 2. Each quarter the system owner reports the same measures, and any change in risk, to the authorising official. **Manual**
-3. Each year an independent assessor, who has completed TPL-19, checks a sample of the monitoring. **Manual**
+3. Each year, alongside the Level 2 assessment, an independent assessor whose TPL-19 the authorising official has accepted checks a sample of the monitoring reports: that the measures were collected, are accurate, and were acted on. The result goes with the Level 2 report. **Manual**
 
 #### PRO-CA-6 Deciding whether a change is significant
 

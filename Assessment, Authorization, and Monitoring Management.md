@@ -224,7 +224,7 @@ This is \<System Name\>'s system-level strategy. It carries out \<Organisation\>
 
 **Reporting.** The security officer reports the measures monthly to the system owner on TPL-8, and sends the privacy measures and any personal data incident to the legal adviser in the same month: that is the privacy status. Each quarter the system owner reports them to the authorising official, with overdue POA&M items, changes in risk, significant changes and incidents.
 
-**Independent check.** Each year an independent assessor, who has completed TPL-19, checks a sample of the monitoring: that the measures were collected, are accurate, and were acted on (PRO-CA-5, step 3).
+**Independent check.** Each year, alongside the Level 2 assessment, an independent assessor whose TPL-19 the authorising official has accepted checks a sample of the monitoring: that the measures were collected, are accurate, and were acted on (PRO-CA-5, step 3). Together with the yearly Level 2 assessment of every control, this yearly check is the ongoing basis on which independent assessors monitor the controls (CA-7(1); decision D-CA-03).
 
 **What forces a re-assessment.** A significant change (section 3.9), a measure past its threshold for three months running, a serious incident, or a new High risk. The authorising official then decides whether \<System Name\> must be re-authorised.
 
