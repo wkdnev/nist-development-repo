@@ -4,15 +4,11 @@
 
 This document sets out how \<System Name\>'s configuration is recorded, controlled and changed to meet the 24 Configuration Management (CM) controls and enhancements in the CSS Moderate baseline.
 
-Section 3 is the design: roles and processes, the configuration items, the baseline, the software components and licences, the secure settings, change control and the change control board, impact analysis, least functionality, who may change what, the inventory and where information is held, the library, what \<Organisation\> provides, approved software, devices for travel, and the policy, procedures and this plan. Each subsection names the controls it helps to meet. This document is also the Configuration Management Plan that CM-9 requires, and follows the outline in CSS, Appendix D. Appendix A sets out the development, test and production environments, and Appendix B lists the CM controls CSS does not select at Moderate.
+Section 3 is the design: roles and processes, the configuration items, the baseline, the software components and licences, the secure settings, change control and the change control board, impact analysis, least functionality, who may change what, the inventory and where information is held, the library, what \<Organisation\> provides, approved software, devices for travel, and the policy, procedures and this plan. Each subsection names the controls it helps to meet. This document is also the Configuration Management Plan that CM-9 requires, and follows the outline in CSS, Appendix D. Appendix A sets out the development, test and production environments.
 
-Other documents hold the rest. Who provides and is responsible for each control, its status and its assessment result are in \<System Security Plan\>, section 7.5 (Table 14). The tests, their results and the records an assessor will ask for are in \<Control Assessment Record\> (CM). Each control's risk is in \<Risk List\>, and what is still open is in \<Plan of Action and Milestones\>. The policy is in \<Policy\> (CM), and the steps people follow are in \<Procedures\> (CM).
+## 2 Related documents
 
-Values that CSS asks the organisation to define are set at corporate level by \<Organisation\>. The settings in section 3 should match those corporate values. Where one does not, it is changed in this document.
-
-## 2 Summary
-
-The implementation status of each control, how it is met, who is responsible, its assessment result and the risk and plan entries for its gaps are recorded in \<System Security Plan\>, section 7.5 (Table 14).
+Who provides and is responsible for each control, and its status, are in \<System Security Plan\>, section 7.5 (Table 14). The tests, their results and the records an assessor will ask for are in \<Control Assessment Record\> (CM). Each control's risk is in \<Risk List\>, and what is still open is in \<Plan of Action and Milestones\>. The policy is in \<Policy\> (CM), and the steps people follow are in \<Procedures\> (CM).
 
 ## 3 The design
 
@@ -81,7 +77,7 @@ The baseline is what a release must contain so that it can be rebuilt exactly.
 | Software components | Section 3.5, at the versions in the lock files, with the software bill of materials |
 | Settings | Section 3.6; settings files at the release tag, with secrets held outside them |
 | Windows Server 2025 and SQL Server 2022 on the two servers | CIS Benchmarks with recorded exceptions, at their recorded update levels |
-| Network placement and connections | The two servers, their zones and the flows between them, as \<Security Architecture\> and \<Access Control Management\>, section 3.6.4, set out; the connections in \<Assessment, Authorization, and Monitoring Management\>, section 3.7 |
+| Network placement and connections | The two servers, their zones and the flows between them, as \<System Description\>, section 6, and \<Access Control Management\>, section 3.6.4, set out; the connections in \<Assessment, Authorization, and Monitoring Management\>, section 3.7 |
 
 Three means keep the baseline current, complete and accurate: signed release tags in the source repositories; lock files and the recorded checksum of each package; and the release record, which states the exact configuration. The build produces a software bill of materials at each release.
 
@@ -300,12 +296,9 @@ No \<System Name\> device is issued to anyone, for travel or otherwise. \<System
 
 Controls met here: CM-1, CM-9.
 
-1. **Policy.** \<Policy\> (CM) is a system-level policy. Its purpose and scope are in section CM.1, responsibilities in CM.5, and commitment, coordination and compliance in CM.6. It is shared with everyone who changes or administers \<System Name\>. The legal adviser reviews it.
-2. **Procedures.** \<Procedures\> (CM) holds nine procedures, PRO-CM-1 to PRO-CM-9, each naming who acts, how often and the record. They are shared with the same people.
-3. **Owner.** The system owner manages the policy and procedures.
-4. **Review.** The policy is reviewed every 12 months, and after a significant incident, audit finding or system change. The procedures are reviewed every 12 months, and after a change to the steps.
-5. **This plan.** This document is the configuration management plan. Roles and processes are in section 3.2, the configuration items in section 3.3, the route a change follows in section 3.7, and the environments in Appendix A. The system owner reviews and approves it. It is classified Restricted and held in the restricted document store.
-6. **Records.** The documents are under version control, and each review is recorded in the change record.
+\<Policy\> (CM) and \<Procedures\> (CM) meet CM-1. Who they are shared with is in \<Policy\>, section CM.6. Their ownership, approval, review and records follow the rules common to every policy in \<Policy\>, section 1.1.
+
+This document is the configuration management plan. Roles and processes are in section 3.2, the configuration items in section 3.3, the route a change follows in section 3.7, and the environments in Appendix A. The system owner reviews and approves it. It is classified Restricted and held in the restricted document store.
 
 ## Appendix A Environments
 
@@ -320,21 +313,3 @@ The CSS guidance on CM-9 asks the plan to say how the development, test and oper
 | Production | The application server and the database server at \<Organisation\> | Real data, once \<System Name\> is authorised | The named Windows server and database administrators only, installing an approved release |
 
 A release is tested in the test environment before it reaches production (section 3.7, step 4). CSS asks for a separate test environment only at High, as CM-4(1); \<System Name\> has one.
-
-## Appendix B CM controls outside the Moderate baseline
-
-CSS does not select these at Moderate, so they are not assessed. Some of the design goes further than the baseline, and Table 14 says where.
-
-**Table 14: CM controls not selected at Moderate**
-
-| Control | What it adds | \<System Name\>'s position |
-| --- | --- | --- |
-| CM-3(1) Automated Documentation, Notification, and Prohibition of Changes | A workflow that records each change, tells the approvers, and blocks a change until approved | Not required. Done in part by the ServiceNow workflow |
-| CM-3(6) Cryptography Management | Cryptographic mechanisms under configuration management | Not required. Keys and certificates are in the key register (\<System and Communications Protection Management\>, section 3.4), and a new key or certificate goes through change control |
-| CM-4(1) Separate Test Environments | Changes analysed in a separate test environment | Not required. Done: appendix A |
-| CM-5(1) Automated Access Enforcement and Audit Records | Automated enforcement of who may change the system, with audit records | Not required. Done in part: Windows and database permissions enforce it, and their logs record it |
-| CM-6(1), CM-6(2) Automated Management and Verification; Respond to Unauthorized Changes | Automated checking of settings, and a set response to an unauthorised change | Not required. Done in part in design: the monthly benchmark scan, and the drift procedure |
-| CM-7(4) Unauthorized Software, Deny-by-exception | A list of software that must not run | Not required. \<System Name\> uses the stricter alternative, CM-7(5), an approved list, though it is not enforced by the system |
-| CM-8(2), CM-8(4) Automated Maintenance; Accountability Information | An inventory kept by automated means, naming who is accountable for each component | Not required. Each entry names an owner. The bill of materials will keep the software list by automated means |
-| CM-13 Data Action Mapping | A map of what the system does with personal data | In no security baseline. The personal data inventory is in \<PII Processing Management\>, section 3.3 |
-| CM-14 Signed Components | Components installed only if signed with an approved certificate | In no baseline. Release tags are to be signed, and packages checked for their signature |

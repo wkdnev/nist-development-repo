@@ -6,15 +6,11 @@ This document sets out \<System Name\>'s security and privacy awareness and trai
 
 Section 3 is the design: who needs what, the awareness briefing, the role curriculum, the training matrix and timetable, keeping content current, the training register, the measures, and the policy and procedures. It follows the CSS cycle: plan the programme, write the content, give the training, then measure and improve it (sections 3.7 and 3.9). Each subsection names the controls it helps to meet.
 
-Other documents hold the rest. Who provides and is responsible for each control, its status and its assessment result are in \<System Security Plan\>, section 7.2 (Table 11). The tests, their results and the records an assessor will ask for are in \<Control Assessment Record\> (AT). Each control's risk is in \<Risk List\>, and what is still open is in \<Plan of Action and Milestones\>. The policy is in \<Policy\> (AT), and the steps people follow are in \<Procedures\> (AT).
-
-Values that CSS asks the organisation to define are set at corporate level by \<Organisation\>. The settings in section 3 should match those corporate values. Where one does not, it is changed in this document.
-
 Training is carried out by people, not by the system, so nothing here is built into \<System Name\>.
 
-## 2 Summary
+## 2 Related documents
 
-The implementation status of each control, how it is met, who is responsible, its assessment result and the risk and plan entries for its gaps are recorded in \<System Security Plan\>, section 7.2 (Table 11).
+Who provides and is responsible for each control, and its status, are in \<System Security Plan\>, section 7.2 (Table 11). The tests, their results and the records an assessor will ask for are in \<Control Assessment Record\> (AT). Each control's risk is in \<Risk List\>, and what is still open is in \<Plan of Action and Milestones\>. The policy is in \<Policy\> (AT), and the steps people follow are in \<Procedures\> (AT).
 
 ## 3 The training programme
 
@@ -46,7 +42,7 @@ Controls met here: AT-2, AT-3.
 | All users | Disclosing an item to the wrong person; falling for a request that looks genuine | Check who is asking; export only when needed; report anything odd at once | \<Organisation\>'s course; the \<System Name\> briefing |
 | Data Owners and the system owner | Granting access no one needs | Authorise least access in ServiceNow; add and remove group members correctly; review access when due | Modules M2, M9, M7; M8 for the system owner |
 | Line managers | Approving a request the person does not need; missing the signs of an insider threat in their team | Confirm the need before approving; report movers and leavers at once; raise a concern early | The \<System Name\> briefing, part B7 |
-| Administrators | Misusing a role that reaches every schema; careless changes to schemas, their groups or settings | Use the administrator role only for administration; open a schema only to the groups its Data Owner has authorised; follow the joiner, mover and leaver steps | Modules M1, M3, M9, M7, M8 |
+| Administrators | Misusing the power to change which groups open a schema; careless changes to schemas, their groups or settings | Use the administrator role only for administration; change a schema's groups only with its Data Owner's approval in a change record; follow the joiner, mover and leaver steps | Modules M1, M3, M9, M7, M8 |
 | Windows server and database administrators | Unpatched or misconfigured servers; lost backups or keys | Follow the patch timetable, hardening and backup steps; protect keys | Modules M4, M3, M9, M7, M8 |
 | Developers | Vulnerable code or components; secrets in code | Secure coding; checked components; changes reviewed | Modules M5, M3, M7 |
 | Security officer and auditor | Missing an attack or a misuse | The auditor reviews the audit log weekly and reports anything suspicious to the security officer; the security officer reviews alerts and the central logs, does not read the audit log, and leads incident response | Modules M6, M7; M8 and M9 for the security officer |
@@ -98,11 +94,11 @@ Each module ends with a short check of at least 10 questions, with a pass mark o
 
 Controls met here: AT-2, AT-3.
 
-Every role must complete awareness, the briefing and the SyOps signature before access. Role modules come before privileged access; M7 and M8 within 30 days of taking the role. All are repeated every 12 months.
+Every role must complete awareness, the briefing and signing \<Security Operating Procedures\> before access. Role modules come before privileged access; M7 and M8 within 30 days of taking the role. All are repeated every 12 months.
 
 **Table 4: Training matrix**
 
-| Role | Awareness and briefing | SyOps | Role modules | Within 30 days |
+| Role | Awareness and briefing | \<Security Operating Procedures\> | Role modules | Within 30 days |
 | --- | --- | --- | --- | --- |
 | All users | Yes | Part A | None | None |
 | System owner | Yes | Parts A and B | M2, M9 | M7, M8 |
@@ -186,8 +182,5 @@ The security officer reports these monthly with the continuous monitoring measur
 
 Controls met here: AT-1.
 
-1. **Policy.** \<Policy\> (AT) is a system-level policy. It is shared with everyone who uses or administers \<System Name\>. The legal adviser reviews it.
-2. **Procedures.** \<Procedures\> (AT) holds five procedures, PRO-AT-1 to PRO-AT-5, each naming who acts and the record. They are shared with everyone who uses, administers or develops \<System Name\>.
-3. **Owner.** The system owner manages the policy and procedures.
-4. **Review.** The policy is reviewed every 12 months, and after a significant incident, audit finding or system change. The procedures are reviewed every 12 months, and after a change to the steps.
-5. **Records.** The documents are under version control, and each review is recorded in the change record.
+\<Policy\> (AT) and \<Procedures\> (AT) meet AT-1. Who they are shared with is in \<Policy\>, section AT.6. Their ownership, approval, review and records follow the rules common to every policy in \<Policy\>, section 1.1.
+

@@ -4,17 +4,13 @@
 
 This document sets out how \<System Name\> makes sure the people who use and run it are trustworthy, and stay so, to meet the 9 Personnel Security (PS) controls in the CSS Moderate baseline.
 
-Section 3 is the design: the principles, the risk designation of every role, the minimum screening, the access agreements, what happens when people join, move and leave, the time limits, external people, sanctions, the personnel security register, what \<Organisation\> provides, role duties in job descriptions, and the policy and procedures. Each subsection names the controls it helps to meet. Appendix A lists the PS controls CSS does not select at Moderate.
+Section 3 is the design: the principles, the risk designation of every role, the minimum screening, the access agreements, what happens when people join, move and leave, the time limits, external people, sanctions, the personnel security register, what \<Organisation\> provides, role duties in job descriptions, and the policy and procedures. Each subsection names the controls it helps to meet.
 
 Screening, HR and disciplinary processes belong to \<Organisation\>. \<System Name\> sets the minimum it requires of them, records only that each check was confirmed and when, and relies on \<Organisation\>'s evidence for the rest. How access is requested, granted and removed is in \<Access Control Management\>, and the duties of each role are in \<Roles and Responsibilities\>.
 
-Other documents hold the rest. Who provides and is responsible for each control, its status and its assessment result are in \<System Security Plan\>, section 7.13 (Table 22). The tests, their results and the records an assessor will ask for are in \<Control Assessment Record\> (PS). Each control's risk is in \<Risk List\>, and what is still open is in \<Plan of Action and Milestones\>. The policy is in \<Policy\> (PS), and the steps people follow are in \<Procedures\> (PS).
+## 2 Related documents
 
-Values that CSS asks the organisation to define are set at corporate level by \<Organisation\>. The values in section 3, such as the time limits, the rescreening interval and how long records are kept, should match those corporate values. Where one does not, it is changed in this document.
-
-## 2 Summary
-
-The implementation status of each control, how it is met, who is responsible, its assessment result and the risk and plan entries for its gaps are recorded in \<System Security Plan\>, section 7.13 (Table 22).
+Who provides and is responsible for each control, and its status, are in \<System Security Plan\>, section 7.13 (Table 22). The tests, their results and the records an assessor will ask for are in \<Control Assessment Record\> (PS). Each control's risk is in \<Risk List\>, and what is still open is in \<Plan of Action and Milestones\>. The policy is in \<Policy\> (PS), and the steps people follow are in \<Procedures\> (PS).
 
 ## 3 The design
 
@@ -47,11 +43,11 @@ Every role in \<Roles and Responsibilities\> has a designation. A role is higher
 | Authorising official | Standard | Decides risk; no \<System Name\> account is needed |
 | Security assessor | Higher risk | Sees the whole document set and its evidence, which describe every weakness |
 | \<Organisation\> security contact | Standard | Provides evidence; no \<System Name\> account is needed |
-| Administrator | Higher risk | Manages schemas, which Active Directory groups open each schema, and system settings, and can reach every schema. This is the one administrator role |
+| Administrator | Higher risk | Manages schemas, which Active Directory groups open each schema, and system settings, and opens no item content. This is the one administrator role |
 | Auditor | Higher risk | Reads every audit record |
 | Security officer | Higher risk | Sees logs, alerts and incident records |
 | Data Owner | Standard | Owns a schema's data and its read and edit groups, and authorises who may read or edit it in ServiceNow; nobody approves their own access |
-| Business owner, in the application | Standard | Approves, in the Admin application, the disposal of items due under the retention schedule (\<System Description\>, FR-074); a member of \<Code\>\_BusinessOwners; no privileged technical access |
+| Business owner, in the application | Standard | Approves, in the UI application, the disposal of items due under the retention schedule (\<System Description\>, FR-074); a member of \<Code\>\_BusinessOwners; no privileged technical access |
 | Legal adviser's delegate | Higher risk | Searches every schema for one person's items to answer a request under data protection law (\<System Description\>, FR-073), so can see items in every schema; a member of \<Code\>\_LegalSearch, named by the legal adviser; holds no other role |
 | Windows server administrator | Higher risk | Full control of both servers |
 | Database administrator | Higher risk | Full control of the database that holds every item |
@@ -109,11 +105,11 @@ Controls met here: PS-3, PS-4, PS-5, PS-6.
 | Joiner | The role's designation is looked up; \<Organisation\> confirms the screening; the person completes training and signs the agreements; the access request is authorised in ServiceNow, by the Data Owner for a schema's groups and by the system owner for a role group; only then do the group owners add them to the groups the role needs | System owner; \<Organisation\>; the Data Owner; the group owners | Before access | TPL-2; TPL-21; the register |
 | Mover | The line manager tells the system owner and the owners of the person's groups. Each owner confirms whether the person still needs the group, and removes or adds memberships. A higher risk role needs screening confirmed again first | Line manager; system owner; the group owners | 1 working day | TPL-14 |
 | Leaver | \<Organisation\> disables the Active Directory account at once, and ends the person's PingFederate sign-in, which ends access. Its starters and leavers process gives notice of the leaver to the group owners, through ServiceNow, and they remove the memberships. Any service secret the person knew is changed, and exported files and printouts are recovered or destroyed. Separately, anyone who has not signed in for 90 days is removed from \<System Name\>'s groups each month (\<Access Control Management\>, section 3.14) | \<Organisation\>; the group owners; system owner | At once, and memberships within 5 working days (\<System Description\>, P-06) | TPL-14 |
-| Higher-risk leaver, dismissal or suspected misuse | \<Organisation\>'s service desk disables the Active Directory account and ends the person's PingFederate sign-in, so \<System Name\> refuses the person at the next group lookup (P-AC-13) | \<Organisation\>'s service desk | 1 hour of notice | TPL-14; TPL-10 if it is an incident |
+| Higher-risk leaver, dismissal or suspected misuse | \<Organisation\>'s service desk disables the Active Directory account and ends the person's PingFederate sign-in, and \<System Name\> refuses the person within 5 minutes, even while a sign-in is open (P-41) | \<Organisation\>'s service desk | 1 hour of notice | TPL-14; TPL-10 if it is an incident |
 
 **Leavers.** Disabling the Active Directory account revokes the person's password and second factor. Any service secret the person knew is changed (\<Procedures\>, PRO-IA-4). \<Organisation\> holds an exit interview, which covers the person's continuing confidentiality duties and the return of equipment, and recovers their laptop, phone, pass and any other equipment. Exported files and printouts are recovered or destroyed (\<Security Operating Procedures\>, section 4.4). Items belong to schemas, not to people, so the items a leaver created stay with the schema and its members. The system owner confirms this on TPL-14.
 
-**Movers.** Each group owner removes the memberships the person no longer needs, and adds any the new role needs through an access request. A change to a person's groups takes effect at their next sign-in, and a removed membership is refused at the next group lookup (\<Access Control Management\>, sections 3.14 and 3.15). No \<System Name\> role gives physical access to the servers (\<Physical and Environmental Protection Management\>, section 3.2), so a move changes logical access only.
+**Movers.** Each group owner removes the memberships the person no longer needs, and adds any the new role needs through an access request. A change to a person's groups takes effect within 5 minutes, because the API reads them from Active Directory on every request (\<Access Control Management\>, sections 3.14 and 3.15). No \<System Name\> role gives physical access to the servers (\<Physical and Environmental Protection Management\>, section 3.2), so a move changes logical access only.
 
 ### 3.6 Time limits
 
@@ -183,23 +179,4 @@ The security and privacy duties of every \<System Name\> role are stated in \<Ro
 
 Controls met here: PS-1.
 
-1. **Policy.** \<Policy\> (PS) is a system-level policy. Its purpose and scope are in section PS.1, responsibilities in PS.5, and commitment, coordination and compliance in PS.6. It is shared with everyone who administers \<System Name\> and every line manager of a \<System Name\> user. The legal adviser reviews it.
-2. **Procedures.** \<Procedures\> (PS) holds seven procedures, PRO-PS-1 to PRO-PS-7. They are shared with the same people.
-3. **Owner.** The system owner manages the policy and procedures.
-4. **Review.** The policy is reviewed every 12 months, and after a significant incident, audit finding or system change. The procedures are reviewed every 12 months, and after a change to the steps.
-5. **Records.** The documents are under version control, and each review is recorded in the change record.
-
-## Appendix A PS controls outside the Moderate baseline
-
-CSS does not select these at Moderate, so they are not assessed. Some of the design goes further than the baseline, and Table 7 says where.
-
-**Table 7: PS controls not selected at Moderate**
-
-| Control | What it adds | \<System Name\>'s position |
-| --- | --- | --- |
-| PS-3(1), PS-3(2), PS-6(2) Classified Information; Formal Indoctrination; Classified Information Requiring Special Protection | Clearance, briefing and agreements for access to classified information | Not required. \<System Name\> holds no classified information |
-| PS-3(3) Information Requiring Special Protective Measures | Extra screening for access to information that needs special protection | Not required. Items that hold special category data are protected by limiting each schema to the people its Data Owner authorises, not by further screening |
-| PS-3(4) Citizenship Requirements | Citizenship checks for defined roles | Not required. The right to work check covers lawful employment in the United Kingdom |
-| PS-4(1), PS-6(3) Post-employment Requirements | People are told of, and bound by, duties that continue after they leave | Not required. Done in part: the exit interview covers continuing confidentiality duties. Whether \<Organisation\>'s confidentiality agreement continues after employment is asked with EV-PS-02 |
-| PS-4(2) Automated Actions | Automated notice of a leaver, and automated disabling of access | In the High baseline only. Done in design: disabling the Active Directory account ends access to \<System Name\> at once, and \<Organisation\>'s starters and leavers process prompts the group owners through ServiceNow |
-| PS-6(1) | Withdrawn by CSS: moved into PS-3 | Not applicable |
+\<Policy\> (PS) and \<Procedures\> (PS) meet PS-1. Who they are shared with is in \<Policy\>, section PS.6. Their ownership, approval, review and records follow the rules common to every policy in \<Policy\>, section 1.1.

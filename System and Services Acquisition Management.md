@@ -4,17 +4,13 @@
 
 This document sets out how \<System Name\> is designed to be built and bought securely, to meet the 17 System and Services Acquisition (SA) controls and enhancements in the CSS Moderate baseline.
 
-Section 3 is the design: the development framework; the lifecycle, roles and resources; contracts and design information; documentation; engineering principles; external services; developer configuration management; the developer test plan; the process, standards and tools; criticality analysis; unsupported components; what \<Organisation\> and the providers supply; and the policy and procedures. Each subsection names the controls it helps to meet. Appendix A lists the related controls and enhancements CSS does not select at Moderate.
-
-Other documents hold the rest. Who provides and is responsible for each control, its status and its assessment result are in \<System Security Plan\>, section 7.16 (Table 25). The tests, their results and the records an assessor will ask for are in \<Control Assessment Record\> (SA). Each control's risk is in \<Risk List\>, and what is still open is in \<Plan of Action and Milestones\>. The policy is in \<Policy\> (SA), and the steps people follow are in \<Procedures\> (SA). Four records sit beside this one, each holding what CSS asks the system's own documents to hold: the engineering principles in \<Security Architecture\>, section 6.5; the functions, ports, protocols and services in \<System Security Plan\>, section 3.7; the critical components in \<Risk Assessment Management\>, section 3.9; and the component support dates in \<Maintenance Management\>, section 3.8.
+Section 3 is the design: the development framework; the lifecycle, roles and resources; contracts and design information; documentation; engineering principles; external services; developer configuration management; the developer test plan; the process, standards and tools; criticality analysis; unsupported components; what \<Organisation\> and the providers supply; and the policy and procedures. Each subsection names the controls it helps to meet.
 
 \<System Name\> is built in-house under \<Organisation\>'s corporate software development life cycle (SDLC), which is inherited from \<Organisation\> (\<System Description\>, section 7.12), so its developers carry most of these duties within it. What is bought is \<Organisation\>'s hosting and services, and the public package registry behind the in-house package feed.
 
-Values that CSS asks the organisation to define are set at corporate level by \<Organisation\>. The settings in section 3 should match those corporate values. Where one does not, it is changed in this document.
+## 2 Related documents
 
-## 2 Summary
-
-The implementation status of each control, how it is met, who is responsible, its assessment result and the risk and plan entries for its gaps are recorded in \<System Security Plan\>, section 7.16 (Table 25).
+Who provides and is responsible for each control, and its status, are in \<System Security Plan\>, section 7.16 (Table 25). The tests, their results and the records an assessor will ask for are in \<Control Assessment Record\> (SA). Each control's risk is in \<Risk List\>, and what is still open is in \<Plan of Action and Milestones\>. The policy is in \<Policy\> (SA), and the steps people follow are in \<Procedures\> (SA). Four records sit beside this one, each holding what CSS asks the system's own documents to hold: the engineering principles in \<System Description\>, section 6.8; the functions, ports, protocols and services in \<System Security Plan\>, section 3.7; the critical components in \<Risk Assessment Management\>, section 3.9; and the component support dates in \<Maintenance Management\>, section 3.8.
 
 ## 3 The design
 
@@ -51,15 +47,15 @@ Controls met here: SA-3, SA-15.
 | PS.1 Protect all code | Git, in private repositories with protected branches, under the corporate SDLC |
 | PS.2 Verify release integrity | Signed tags and SHA-256 checksums at each release |
 | PS.3 Archive each release | Git tags for each release |
-| PW.1 Design to meet requirements | Security approach and principles in \<Security Architecture\>, section 6 |
+| PW.1 Design to meet requirements | Security approach and principles in \<System Description\>, section 6.8 |
 | PW.2 Review the design | Security officer checks significant designs (PRO-SA-1) |
 | PW.4 Reuse well-secured software | Sign-in through \<Organisation\>'s PingFederate; ASP.NET Core data protection; the shared library, which holds the access checks used by all three applications |
 | PW.5 Secure coding practices | .NET defaults; parameterised queries |
 | PW.6 Secure build settings | Release builds |
 | PW.7 Review code | Second developer reviews each change, merged through a protected branch (PRO-SA-1) |
 | PW.8 Test executable code | Automated tests, a package scan and a code scan in the build pipeline, and fifteen test scripts (section 3.9) |
-| PW.9 Secure defaults | Deny by default; the authentication cookie lasts no longer than PingFederate's sign-in lifetime (P-AC-10; \<System Description\>, P-02) |
-| RV.1 Identify vulnerabilities | Test-Vulnerability.ps1; CISA's exploited list weekly (SyOps C50) |
+| PW.9 Secure defaults | Deny by default; the authentication cookie lasts no longer than PingFederate's sign-in lifetime (\<System Description\>, P-02) |
+| RV.1 Identify vulnerabilities | Test-Vulnerability.ps1; CISA's exploited list weekly (\\<Security Operating Procedures\\>, C50) |
 | RV.2 Assess and fix vulnerabilities | Timetable in \<Risk Assessment Management\>, section 3.6 |
 | RV.3 Find root causes | Lessons in incident records (TPL-10) and risk reviews (TPL-23) |
 
@@ -107,7 +103,7 @@ The contract also states how and when the supplier gives notice of support, main
 As the developer, \<System Name\>'s team provides the design information CSS asks for:
 
 1. **What each control does** (SA-4(1)): each family's design document, and the security plan, section 7.
-2. **How the controls are designed** (SA-4(2)): the security-relevant external interfaces and the high-level design in \<Security Architecture\> and the security plan, sections 3 and 4, and how each security function is built, in the family design documents: enough for an assessor to judge each control.
+2. **How the controls are designed** (SA-4(2)): the security-relevant external interfaces and the high-level design in \<System Description\>, section 6, and the security plan, sections 3 and 4, and how each security function is built, in the family design documents: enough for an assessor to judge each control.
 3. **The functions, ports, protocols and services in use** (SA-4(9)): the security plan, section 3.7, the allowed flows F1 to F11 in \<System Description\>, section 6.5, and \<Access Control Management\>, section 3.6.
 
 PIV products (SA-4(10)) are not applicable, as \<System Name\> does not use United States government identity cards (TR-SA-01).
@@ -135,7 +131,7 @@ The system owner records each supplier document that is missing, and chases the 
 
 Controls met here: SA-8.
 
-The NCSC secure design principles and the CSS privacy engineering objectives are mapped to \<System Name\>'s specification and design in \<Security Architecture\>, section 6.5, which holds them. They are applied in the specification, design, development, implementation and modification of \<System Name\>. The security officer checks each significant design against them (PRO-SA-1).
+The NCSC secure design principles and the CSS privacy engineering objectives are mapped to \<System Name\>'s specification and design in \<System Description\>, section 6.8, which holds them. They are applied in the specification, design, development, implementation and modification of \<System Name\>. The security officer checks each significant design against them (PRO-SA-1).
 
 ### 3.7 External services
 
@@ -150,7 +146,7 @@ These are the services in SA-09(02)\_ODP. Each provider must meet \<System Name\
 | Service | Provider | What it holds or does for \<System Name\> | Basis of trust | Evidence |
 | --- | --- | --- | --- | --- |
 | Hosting, network and hardware | \<Organisation\> | Runs the two Windows Server 2025 virtual servers and their network | \<Organisation\>'s service agreement, and its Cyber Essentials Plus certificate | EV-SA-02 |
-| ServiceNow | \<Organisation\> | The access approval workflow, in which the Data Owner authorises each request, and the change and incident workflows. It has no connection to \<System Name\> (flow F9) | \<Organisation\>'s service agreement | EV-SA-02 |
+| ServiceNow | \<Organisation\> | The access approval workflow, in which the line manager approves each request and the group's owner authorises it, and the change and incident workflows. It has no connection to \<System Name\> (flow F9) | \<Organisation\>'s service agreement | EV-SA-02 |
 | PingFederate and Active Directory | \<Organisation\> | PingFederate authenticates every user with multi-factor authentication (flow F6), and the UI application and the Admin application fetch its OpenID Connect metadata and signing certificate, and complete each sign-in, over HTTPS from the application server (flow F10); Active Directory holds the groups, read by the API over LDAPS (flow F7), that decide each role and each schema's access | \<Organisation\>'s agreement covering PingFederate (EV-CA-02) | EV-CA-02, EV-SA-02 |
 | Starters and leavers process | \<Organisation\> | Gives prompt notice of each leaver, through ServiceNow | \<Organisation\>'s service agreement | EV-SA-02 |
 | Source repositories, build pipeline and in-house package feed | \<Organisation\>, under the corporate SDLC | Hold all source code, history and release tags; build and test each release; supply every package | \<Organisation\>'s corporate SDLC, which is inherited (EV-SA-03) | EV-SA-03 |
@@ -261,38 +257,4 @@ Controls met here: SA-4, SA-9, SA-9(2), SA-10.
 
 Controls met here: SA-1.
 
-1. **Policy.** \<Policy\> (SA) is a system-level policy. It is shared with the developers and administrators. The legal adviser reviews it.
-2. **Procedures.** \<Procedures\> (SA) holds seven procedures, PRO-SA-1 to PRO-SA-7. They are shared with the same people.
-3. **Owner.** The system owner manages the policy and procedures.
-4. **Review.** The policy is reviewed every 12 months, and after a significant incident, audit finding or system change. The procedures are reviewed every 12 months, and after a change to the steps.
-5. **Records.** The documents are under version control.
-
-## Appendix A Acquisition controls outside the Moderate baseline
-
-CSS does not select these at Moderate, so they are not assessed. Some of the design goes some way towards them, and Table 9 says where. SA-6, SA-7, SA-12, SA-13, SA-14, SA-18 and SA-19 are withdrawn, and so are the enhancements of SA-5. SA-22(1) is now part of SA-22.
-
-**Table 9: Related controls and enhancements not selected**
-
-| Control | What it adds | \<System Name\>'s position |
-| --- | --- | --- |
-| SA-3(1) Manage Preproduction Environment | Protects the development and test environments | Not required. Done in part: the test environment is a separate throwaway copy of the system |
-| SA-3(2) Use of Live or Operational Data | Limits the use of real data in development and testing | Not required. Done in design: the test and development environments hold invented data only (\<PII Processing Management\>) |
-| SA-3(3) Technology Refresh | Plans the replacement of technology | Not required. Done in part: replacements are planned 6 months before support ends (section 3.12) |
-| SA-4(3) Development Methods, Techniques, and Practices | Requires a stated development method | Not required. Done in design: CSS \<ver\> (section 3.2) |
-| SA-4(5) System, Component, and Service Configurations | Delivers products with secure settings in place | Not required: selected at High only |
-| SA-4(6), SA-4(7) Use of Information Assurance Products; NIAP-approved Protection Profiles | Uses United States government evaluated products | Not applicable |
-| SA-4(8) Continuous Monitoring Plan for Controls | Requires the developer to plan monitoring of the controls | Not required. The monitoring plan is in \<Assessment, Authorization, and Monitoring Management\>, section 3.8 |
-| SA-4(11) System of Records | Privacy Act terms for a United States system of records | Not applicable |
-| SA-4(12) Data Ownership | States that the organisation owns its data | Not required. \<Organisation\> owns the data \<System Name\> holds |
-| SA-8(1) to SA-8(32) | Individual security engineering principles | Not required. The NCSC secure design principles cover the same ground (section 3.6) |
-| SA-8(33) Minimization | The privacy principle of minimisation | In the CSS privacy baseline. Designed and assessed in \<PII Processing Management\> |
-| SA-9(1) Risk Assessments and Organizational Approvals | Assesses risk and approves before an external service is used | Not required. Done in part: a new supplier or component is reviewed before use (PRO-RA-2, PRO-SA-7) |
-| SA-9(3) to SA-9(8) | Trust relationships, consistent interests, location, the organisation's own keys and integrity checks, and United States jurisdiction | Not required. Done in part: each external service's basis of trust is recorded (section 3.7) |
-| SA-10(1) to SA-10(7) | Integrity checks, trusted generation and distribution, and other forms of developer configuration management | Not required. Done in part in design: signed tags and release checksums |
-| SA-11(1) to SA-11(9) | Static and dynamic analysis, threat modelling, code review, penetration testing and other developer tests | Not required. Done in part in design: the kinds of analysis in section 3.9 |
-| SA-15 enhancements other than SA-15(3) | Quality metrics, tracking tools, attack surface reduction, continuous improvement, automated analysis and others | Not required. Done in part: the yearly process review (PRO-SA-6) |
-| SA-16 Developer-provided Training | Training from the developer on the controls | Not required: selected at High only. Administrators' training is in \<Awareness and Training Management\> |
-| SA-17 Developer Security and Privacy Architecture and Design | A formal security architecture from the developer | Not required: selected at High only. Done in part: \<Security Architecture\> |
-| SA-20 Customized Development of Critical Components | Builds critical components in-house | Not required. \<System Name\>'s own applications are written in-house |
-| SA-21 Developer Screening | Screens the developers | Not required: selected at High only. Developers are screened as their risk designation requires (\<Personnel Security Management\>) |
-| SA-23 Specialization; SA-24 Design for Cyber Resiliency | Specialised components; designing to withstand and recover from attack | Not required |
+\<Policy\> (SA) and \<Procedures\> (SA) meet SA-1. Who they are shared with is in \<Policy\>, section SA.6. Their ownership, approval, review and records follow the rules common to every policy in \<Policy\>, section 1.1.

@@ -22,11 +22,11 @@ The business owner is \[Name\] and the information owner is \[Name\] (\<System D
 | --- | --- | --- |
 | Readers | Search and read items in their schemas, view and download files, and report a fault in an item | UI application |
 | Editors | A reader's work, and create, upload, bulk upload, manage and bulk export the schema's items. Edit includes read | UI application |
-| Administrators | Manage schemas, which groups open each schema, and system settings; correct, replace and delete items. Can reach every schema. There is one Administrator role and no separate global administrator | Admin application and UI application |
+| Administrators | Manage schemas, which groups open each schema (a change only with the Data Owner's approval), and system settings. Open no item content. There is one Administrator role and no separate global administrator | Admin application |
 | Auditors | Read, search and export the audit log, and review it weekly (\<System Description\>, P-08). Hold no administration role | Admin application |
 | Security officers | Read security information, review alerts and the central logs, and lead incident response. Do not read the audit log. Hold no administration role | Admin application |
-| Business owners | Approve the disposal of items due under the retention schedule (\<System Description\>, FR-074) | Admin application |
-| Legal adviser's delegates | Search every schema for one person's items to answer a request under data protection law (\<System Description\>, FR-073). Hold no other role, and are named by the legal adviser | Admin application |
+| Business owners | Approve the disposal of items due under the retention schedule (\<System Description\>, FR-074) | UI application |
+| Legal adviser's delegates | Search every schema for one person's items to answer a request under data protection law (\<System Description\>, FR-073). Hold no other role, and are named by the legal adviser | UI application |
 | Data Owners | Own a schema's data and its two groups, and authorise who may read or edit it | ServiceNow and the directory |
 | Server and database administrators | Run the servers and the database. Need no application role | The servers, only over \<Organisation\>'s managed administration route, with multi-factor authentication and named accounts (flow F11) |
 | Developers | Build and fix the applications. Hold no administrator access on the servers | Development environment |
@@ -76,8 +76,8 @@ It runs on \<Organisation\>'s internal network, on two Windows Server 2025 virtu
 
 1. A person signs in through \<Organisation\>'s single sign-on, PingFederate, with multi-factor authentication against Active Directory. \<System Name\> holds no accounts and no passwords.
 2. PingFederate's signed response names the person and carries no groups. The API reads the person's group memberships directly from Active Directory over LDAPS, and gives the roles and schema access those groups allow.
-3. Their group memberships decide which schemas they see. Each schema names a read group and an edit group. Administrators can reach every schema.
-4. \<System Name\> has no session management of its own. The sign-in is held only in the application's authentication cookie and lasts no longer than PingFederate's sign-in lifetime (P-02). An unattended screen is locked by the operating system on \<Organisation\>'s managed devices (P-03).
+3. Their group memberships decide which schemas they see. Each schema names a read group and an edit group. A schema with no group is closed to everyone, and administrators open no item content.
+4. The application's session is its authentication cookie. It ends 8 hours after sign-in at most, never later than PingFederate's sign-in (P-02), and when the person uses Sign out; an open page re-checks the person every 5 minutes, and the API refuses a disabled account or removed membership within 5 minutes. An unattended screen is locked by the operating system on \<Organisation\>'s managed devices (P-03).
 
 ### 6.3 Modes of operation
 
@@ -96,28 +96,7 @@ These modes come from reading the design.
 
 ### 6.4 How it is kept secure in operation
 
-Table 5 says in brief how each part of operation is kept secure. The time limits, frequencies and other values are in the document named, so that the set does not repeat them.
-
-**Table 5: Keeping \<System Name\> secure in operation**
-
-| Activity | In brief | Held in |
-| --- | --- | --- |
-| Changes | Approved by the change control board, after a security impact analysis and a review by a second developer. The running system is checked against the approved baseline | \<Configuration Management\> |
-| Patches and vulnerabilities | The system is scanned regularly, and flaws are fixed within time limits set by their severity | \<Risk Assessment Management\>, section 3.6 |
-| Malicious code and monitoring | Microsoft Defender runs on both servers and uploads are scanned. Auditors review the audit log, the security officer reviews the central logs, and eight events alert the security officer | \<System and Information Integrity Management\>, section 3.4; \<Security Operating Procedures\>, section 4 |
-| Encryption | TLS on every flow, encrypted disks and backups, and a register of keys | \<System and Communications Protection Management\> |
-| Backups and recovery | Encrypted backups, tested restores, and recovery within the objectives the business has set | \<Contingency Planning Management\> |
-| Incidents and breaches | Reported to the security officer and handled by severity. The legal adviser decides whether to tell the ICO and the people affected | \<Incident Response Management\> |
-| Training | Security training and a \<System Name\> briefing before access, repeated on a schedule, with role modules for those with special duties | \<Awareness and Training Management\> |
-| Maintenance | Approved first, done by known people with approved tools, checked afterwards and recorded | \<Maintenance Management\> |
-| Media and paper | Exports, downloads and printouts are limited, marked and removed. \<Organisation\> looks after disks and backup media | \<Media Protection Management\>; \<Security Operating Procedures\>, Part A |
-| Buildings | \<Organisation\> protects the data centre and the second site, and its evidence is checked | \<Physical and Environmental Protection Management\> |
-| People | Screened before access, bound by signed rules, and their access changed promptly when they move or leave | \<Personnel Security Management\>, section 3.6 |
-| Personal data | Used only for the purposes set in the application profile and \<PII Processing Management\>. Requests and complaints go to the legal adviser, and the impact assessment is completed before real data is held | \<Privacy Plan\>; \<Data Protection Impact Assessment\> |
-| Building and buying | Changes follow \<Organisation\>'s corporate SDLC. Suppliers are approved, and packages arrive through the in-house checked package feed | \<System and Services Acquisition Management\>; \<Supply Chain Risk Management\> |
-| Risk and authorisation | The risk list and plan of action are kept current, and the authorising official is kept informed. Authorisation is decided from the authorisation package | \<Assessment, Authorization, and Monitoring Management\>, section 3.5; \<Security Assessment Report\> |
-
-No real data is held until \<System Name\> is authorised.
+Each part of operation, from changes, patching and monitoring to backups, incidents, training, maintenance, media, buildings, people, personal data, suppliers and authorisation, is designed in its family's design document, listed in \<Documentation Map\>, Table 2. The day-to-day duties and the rules everyone signs are in \<Security Operating Procedures\>. No real data is held until \<System Name\> is authorised.
 
 ## 7 Open questions
 
