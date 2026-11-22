@@ -261,7 +261,7 @@ Table AC-4 summarises each procedure: what starts it, who acts, its time limit, 
 
 1. Whoever raises the concern tells the system owner and \<Organisation\>'s service desk.
 2. Within the time in P-41, \<Organisation\>'s service desk disables the person's Active Directory account, and ends their PingFederate sign-in so that they cannot start a new one. **Manual**
-3. The account stays disabled for at least 8 hours (\<System Description\>, P-02), unless the Windows server administrator has changed the UI and Admin applications' key rings, so that a cookie issued before it was disabled cannot be used again if it is re-enabled (\<Identification and Authentication Management\>, section 3.7). **Manual**
+3. The account stays disabled for at least 8 hours (\<System Description\>, P-02), unless the Windows server administrator has revoked every key in the UI and Admin applications' key rings, so that a cookie issued before it was disabled cannot be used again if it is re-enabled (\<Identification and Authentication Management\>, section 3.7). **Manual**
 4. The system owner confirms with the service desk that the account is disabled, and, after 5 minutes, checks \<System Name\>'s audit log or asks the auditor to confirm that the person's requests are being refused.
 5. The system owner records the reason and informs anyone who needs to know.
 
@@ -765,7 +765,7 @@ These procedures define how identifiers and authenticators are issued, changed a
 1. The person, or whoever notices, tells \<Organisation\>'s IT service desk and the security officer straight away. This includes a password written down or seen, and a lost phone or key used as a second factor. **Manual**
 2. If the password or second factor may be known to someone else, the service desk first disables the person's Active Directory account, as in PRO-AC-4. \<System Name\>'s API then refuses the person within 5 minutes, ending any open session. Ending the PingFederate sign-in alone is not enough, because it does not end \<System Name\>'s authentication cookie. **Manual**
 3. The service desk resets the password or the second factor, after checking who the person is, and ends the person's PingFederate sign-in. **Manual**
-4. The account is re-enabled no sooner than 8 hours (\<System Description\>, P-02) after it was disabled, so that no cookie issued before then still works. If the person needs access sooner, the Windows server administrator first changes the UI and Admin applications' key rings, which signs every user out, and records it on TPL-6. **Manual**
+4. The account is re-enabled no sooner than 8 hours (\<System Description\>, P-02) after it was disabled, so that no cookie issued before then still works. If the person needs access sooner, the Windows server administrator first revokes every key in the UI and Admin applications' key rings, which signs every user out, and records it on TPL-6. **Manual**
 5. For a role change, the group's owner removes the memberships the person no longer needs (PRO-AC-2), and the API refuses them within 5 minutes. **Manual**
 6. The security officer decides whether this is a security incident, and if so raises it under \<Procedures\> (IR). **Manual**
 
