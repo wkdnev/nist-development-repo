@@ -230,6 +230,7 @@ These are the values the controls depend on. CSS calls many of them organisation
 | P-66 | Unauthorised components | Both servers checked monthly by \<Organisation\>'s discovery tools for unauthorised hardware, software and firmware. On detection, the Windows server administrator removes the component or disables its network access, and tells the security officer | CM-8(3) | \[\] |
 | P-67 | Maintenance lists, notice and records | The approved maintenance tools and people reviewed every 12 months, and when someone leaves; users given 2 working days' notice of planned maintenance that affects them; maintenance records kept 3 years | MA-2, MA-3, MA-5 | \[\] |
 | P-68 | Timely maintenance | Support and parts for the hardware and hypervisor within 24 hours of a failure; Microsoft software supported through \<Organisation\>'s support agreement; a replacement planned at least 6 months before a component's support ends | MA-6, SA-22 | \[\] |
+| P-69 | Media handling | Users' exports and downloads, and printouts, deleted or shredded once no longer needed, and within 30 days at most if they hold personal data; the media inventory reviewed, and a sample of sanitising certificates checked, every 12 months; media records kept 3 years | MP-2, MP-4, MP-6 | \[\] |
 
 ## 5 Requirements
 
@@ -281,12 +282,12 @@ Each requirement is to be verified before the application is authorised. \<Secur
 | --- | --- | --- | --- |
 | FR-018 | View an item and its details | Reader | The API returns the item after the schema access check |
 | FR-019 | View a stored file in the browser, without installing anything | Reader | The API sends the file, or an image of it rendered on the server, to a viewer served by the application |
-| FR-020 | Download the original file | Reader | The API sends the stored file as a download, after the same access check as viewing. The download is audited |
+| FR-020 | Download the original file | Reader | The API sends the stored file as a download, after the same access check as viewing, as a marked copy: the API checks the stored file's checksum, then stamps a banner with \<Classification\> and the item's classification on each page or image of the copy it sends, and puts the marking in the file name. The stored file is never changed (D-MP-02). The download is audited, with the stored file's checksum |
 | FR-021 | Copy a link to an item. A link opens only for a person who may read the schema | Reader | The link holds the schema and a random token for the item, not its number. Opening it runs the normal sign-in and access checks |
 | FR-022 | Check the person's access to the schema on every request for an item, file, page, preview or download | System | Every API function that returns content takes the schema, confirms it against the person's groups, and only then reads from that schema's area |
 | FR-023 | Name the schema in every item address | System | The address of each item and file carries the schema. No address works without it |
 | FR-024 | Send content so that it is not kept in shared caches or in the browser after use | System | The API sets response headers that forbid shared caching and storing |
-| FR-025 | Mark what the application shows, prints and exports with its classification | System | A banner and watermark on the viewer, on printed pages and in export files |
+| FR-025 | Mark what the application shows, prints, exports and downloads with its classification | System | A banner and watermark on the viewer, on printed pages and in export files; a banner stamped on each page or image of a downloaded file; the marking in the name of each export and downloaded file |
 
 #### 5.1.4 Reporting a fault in an item
 
@@ -845,6 +846,8 @@ The application holds no user accounts. The name that arrives at sign-in is held
 
 **Viewing.** A file is sent to the browser, or rendered on the server and sent as an image, only after the schema access check. The viewer is served by the application.
 
+**Download.** A downloaded file is a marked copy: after the schema access check, the API checks the stored file's checksum, stamps the classification banner on each page or image of the copy, and puts the marking in its name. The stored file is never changed (D-MP-02).
+
 **Export.** Only an editor of the schema may bulk export. A job can be seen, downloaded or cancelled only by the person who started it. Exports are delivered as downloads, marked with their classification, and every export is audited. Taking exported items outside \<Organisation\>'s systems needs the Data Owner's decision.
 
 ### 7.6 Audit
@@ -884,7 +887,7 @@ The audit log stays in the database and is read only by auditors. The one except
 | OpenID Connect client credential | The UI and Admin applications' credential with PingFederate, held in the key store and changed as P-10 sets |
 | Cookies and anti-forgery tokens | AES-256 with HMAC-SHA-256, from each application's key ring, changed every 90 days |
 | Disks | AES-256 full-disk encryption with the TPM |
-| Backups | AES-256, by SQL Server's backup encryption, under a backup encryption certificate held apart from the backups; retired certificates kept until the backups they encrypted are removed |
+| Backups | AES-256, by SQL Server's backup encryption, under a backup encryption certificate held apart from the backups; retired certificates kept until the backups they encrypted are removed, then destroyed |
 | File checksums | SHA-256 |
 | Audit chain | HMAC-SHA-256 with a key held outside the database |
 | Database connection account | Windows authentication (Kerberos) with the API's managed service account. No password is held |

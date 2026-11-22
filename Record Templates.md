@@ -22,7 +22,7 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | TPL-10 Incident record | Records an incident from report to lessons. Where the incident is recorded in ServiceNow, the ServiceNow record is this record and must hold these fields | IR-4, IR-5, IR-6; PRO-IR-1, PRO-IR-2 |
 | TPL-11 Exercise and restore test | Records a tabletop exercise, restore test or activation as an after-action report, the result and the actions | IR-3, IR-3(2), CP-4, CP-4(1), CP-9(1); PRO-IR-3, PRO-CP-2, PRO-CP-4 |
 | TPL-12 Maintenance record | Records maintenance, who did it and the check afterwards. Kept for 3 years | MA-2, MA-3, MA-3(3), MA-4, MA-5; PRO-MA-1 to PRO-MA-7 |
-| TPL-13 Media record | Records media transport, sanitising and exceptions. Kept for 3 years | MP-5, MP-6, MP-7; PRO-MP-1 to PRO-MP-4 |
+| TPL-13 Media record | Records media transport, sanitising, ownerless devices and the yearly certificate check. Kept for 3 years (P-69) | MP-5, MP-6, MP-7; PRO-MP-1 to PRO-MP-4 |
 | TPL-14 Leaver or mover record | Records what happened to someone's access when they left or moved. Kept for 3 years | AC-2; PS-4, PS-5; PRO-PS-2, PRO-PS-3 |
 | TPL-15 Privacy request | Records a request from an individual about their data: to see, correct, delete, restrict, object or receive it in a portable form. Kept for 3 years after it is closed | AC-3(14); SI-18(4); PRO-PT-1 |
 | TPL-16 Supplier review | Records a yearly review of a supplier or external service | SA-9, SR-2, SR-6, SR-8; PRO-SA-3, PRO-SR-2 |
@@ -300,11 +300,10 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | --- | --- |
 | Record number |  |
 | Media type and identifier |  |
-| Action: transport, sanitising or portable storage exception |  |
+| Action: transport, sanitising, ownerless device, or the yearly certificate check. A portable storage exception is recorded on TPL-17, and only the return and sanitising of its media here |  |
 | Date, and who did it |  |
-| For transport: from, to, protection and courier |  |
+| For transport: approved by, from and to, sender and receiver, protection, courier and tracking reference, and the receiver's confirmation of arrival |  |
 | For sanitising: serial, method (\<Media Protection Management\>, section 3.6, M1 to M6), tool used, each copy of the key destroyed for a cryptographic erase, how and by whom it was verified, and certificate |  |
-| For an exception: purpose, period and approved by |  |
 | For an ownerless device: where found, by whom, and handed to |  |
 | For the yearly certificate check: sample checked, by, date and result |  |
 

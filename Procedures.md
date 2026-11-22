@@ -665,7 +665,7 @@ These procedures carry out \<Policy\> (CP) and \<Contingency Planning Management
 2. SQL Server's transaction log is backed up between full backups, encrypted, and copied to the second site the same way. The database stays in the full recovery model.
 3. Weekly, and after each change to them, the database administrator backs up SQL Server's system databases (master and msdb), and the Windows server administrator each VM's Windows configuration and list of installed software, encrypted.
 4. Copies are kept as \<Contingency Planning Management\>, section 3.8: 14 daily, 8 weekly and 12 monthly, and one copy is offline or immutable.
-5. When the backup encryption certificate is made, and each time it is renewed every 12 months, the database administrator exports it with its private key, protected by a strong password, to the key store and its protected copy at the second site, apart from the backups. Retired certificates are kept until the last backup they encrypted is removed. Only the system owner and administrators can reach the certificate and the protected copy of the secrets. **Manual**
+5. When the backup encryption certificate is made, and each time it is renewed every 12 months, the database administrator exports it with its private key, protected by a strong password, to the key store and its protected copy at the second site, apart from the backups. Retired certificates are kept until the last backup they encrypted is removed, and then every copy is destroyed (PRO-MP-3). Only the system owner and administrators can reach the certificate and the protected copy of the secrets. **Manual**
 6. A failed backup alerts the database administrator and the security officer. The database administrator fixes it within 1 working day.
 7. The system owner copies changed documentation to the controlled library. **Manual**
 8. Each week the database administrator checks every backup job succeeded and that each backup reached the second site, and records it on TPL-8 (\<Security Operating Procedures\>, C8). **Manual**
@@ -988,9 +988,9 @@ These procedures carry out \<Policy\> (MP), rules R1 to R12. The media inventory
 | --- | --- | --- | --- | --- | --- |
 | PRO-MP-1 | Marks and protects printouts | Everyone | Each printout | None; shredding on TPL-13 if bulk | MP-2, MP-3, MP-4 |
 | PRO-MP-2 | Protects disks, volumes and backups, and moves them only by exception | \<Organisation\>, administrators | Always; transport when approved | TPL-13 | MP-2, MP-4, MP-5 |
-| PRO-MP-3 | Sanitises media by the method for its type, and checks certificates | \<Organisation\>, administrators, system owner | Before reuse, release or disposal; check every 12 months | TPL-13 | MP-6 |
-| PRO-MP-4 | Controls portable storage and ownerless devices | \<Organisation\>, system owner, security officer | Always; exceptions when asked | TPL-17, TPL-13 | MP-7 |
-| PRO-MP-5 | Controls export copies on the server and users' copies | Windows server administrator, everyone | Each working day (C49); each export | TPL-8 | MP-2, MP-4, MP-6 |
+| PRO-MP-3 | Sanitises media by the method for its type, destroys retired backup encryption certificates, and checks certificates | \<Organisation\>, Windows server and database administrators, system owner | Before reuse, release or disposal; check every 12 months | TPL-13 | MP-6 |
+| PRO-MP-4 | Controls portable storage and ownerless devices | \<Organisation\>, system owner, security officer | Always; exceptions when asked | TPL-17, TPL-13 | MP-5, MP-7 |
+| PRO-MP-5 | Controls export copies on the server and users' copies | Windows server administrator, auditor, everyone | Each working day (C49); each export | TPL-8 | MP-2, MP-4, MP-6 |
 | PRO-MP-6 | Keeps the media inventory up to date | System owner | Every 12 months, and after a change | \<Media Protection Management\> change record | MP-2, MP-4 |
 
 ### MP.3 Procedures
@@ -1000,38 +1000,40 @@ These procedures carry out \<Policy\> (MP), rules R1 to R12. The media inventory
 1. Anyone who prints an item from \<System Name\> uses only an \<Organisation\> managed printer with secure release, and keeps the classification marking that \<System Name\> puts on each printed page. **Manual**
 2. They collect it at once, keep it locked away when not in use, and share it only with people authorised to read that schema. **Manual**
 3. It does not leave the site without the system owner's approval (PRO-MP-2). **Manual**
-4. They cross-cut shred it to DIN 66399 level P-4 or better when it is no longer needed, and within 30 days if it holds personal data. **Manual**
+4. They cross-cut shred it to DIN 66399 level P-4 or better when it is no longer needed, and within 30 days if it holds personal data (P-69). **Manual**
 
 #### PRO-MP-2 Disks, volumes and backups
 
-1. VM disks and database and key volumes stay in \<Organisation\>'s data centres, encrypted with BitLocker, reachable only by the roles in \<Media Protection Management\>. **Manual** (EV-MP-01)
-2. Backups are encrypted before they leave the database VM, and copied to the second site over an encrypted connection (SC-8, CP-6).
-3. Physical media are moved only by exception, with the system owner's approval, encrypted or sealed, by an authorised courier with tracking, and recorded on TPL-13. **Manual** (EV-MP-01)
+1. VM disks and database volumes stay in \<Organisation\>'s data centres, encrypted with BitLocker, reachable only by the roles in \<Media Protection Management\>. **Manual** (EV-MP-01)
+2. Backups are encrypted before they leave the database VM and written to \<Organisation\>'s backup service, which copies them to the second site over an encrypted connection and keeps one copy offline or immutable (SC-8, CP-6; \<Contingency Planning Management\>, section 3.8). (EV-CP-01)
+3. Physical media are moved only by exception, with the system owner's approval, encrypted or sealed, by \<Organisation\>'s hosting staff or its authorised courier with tracking, and recorded on TPL-13. The receiver confirms arrival on the same record. **Manual** (EV-MP-01)
+4. The holder of an approved portable storage exception carries only that media, encrypted, to and from the external system named on TPL-17 (PRO-MP-4). **Manual**
 
 #### PRO-MP-3 Sanitising media
 
 1. Before any media is reused, released or disposed of, the person responsible sanitises it by the method set for its type in \<Media Protection Management\>, section 3.6, following CSS and IEEE 2883-2022. **Manual** (EV-MP-02)
-2. For encrypted virtual disks and backups, every copy of the keys is destroyed, including recovery keys and the copy at the second site (cryptographic erase), and \<Organisation\> deletes the volumes. Each copy of the key is listed on TPL-13. **Manual**
-3. \<Organisation\> purges or destroys physical disks and gives a certificate. **Manual** (EV-MP-02)
-4. Each action is recorded on TPL-13 with the item, serial, method, tool, verification and certificate. **Manual**
-5. Every 12 months, the system owner checks a sample of \<Organisation\>'s certificates against TPL-13. **Manual**
+2. For encrypted virtual disks, the Windows server administrator destroys every copy of the BitLocker keys, including the recovery keys in \<Organisation\>'s protected store (cryptographic erase), and \<Organisation\> deletes the volumes. Each copy of the key is listed on TPL-13. **Manual**
+3. Backups are not erased one at a time: \<Organisation\>'s backup service deletes each expired copy at both sites, including the offline or immutable copy (EV-CP-01). Once the last backup a retired backup encryption certificate encrypted is removed, the database administrator destroys every copy of that certificate, in SQL Server, the key store and its protected copy at the second site, and lists each on TPL-13. **Manual**
+4. \<Organisation\> purges or destroys physical disks and gives a certificate. **Manual** (EV-MP-02)
+5. Each action is recorded on TPL-13 with the item, serial, method, tool, verification and certificate. **Manual**
+6. Every 12 months, the system owner checks a sample of \<Organisation\>'s certificates against TPL-13 (P-69). **Manual**
 
 #### PRO-MP-4 Portable storage and ownerless devices
 
-1. USB and other portable storage are blocked on users' devices, and no USB device is passed through to the VMs. **Manual** (EV-AC-17, EV-MP-03)
-2. The system owner approves any exception on TPL-17, for a stated purpose and time, using only encrypted media issued by \<Organisation\>. **Manual**
+1. USB and other portable storage are blocked on users' devices, and no USB device or other removable media is passed through to, or mounted on, the VMs. **Manual** (EV-AC-17, EV-MP-03)
+2. The system owner approves any exception on TPL-17, for a stated purpose and time, using only encrypted media issued by \<Organisation\>, on the terms in \<System Description\>, P-48. When the exception ends, the holder returns the media, and it is sanitised and recorded on TPL-13 before reuse. **Manual**
 3. Anyone who finds portable storage with no identifiable owner does not use it, and hands it to the security officer, who records it on TPL-13. **Manual**
 
 #### PRO-MP-5 Export copies and users' copies
 
-1. Only an editor of a schema, or an Administrator, can export its items.
+1. Only an editor of a schema can bulk export its items, and only an auditor can export the audit log. An auditor keeps an audit log export only on their managed device or in an approved location, and deletes it once the report or investigation no longer needs it.
 2. \<System Name\> deletes each export copy after the download, and a background task removes any left past 24 hours. Each working day, the Windows server administrator checks the encrypted export working area on the application VM, deletes anything older than 24 hours, and records it on TPL-8 (C49). **Manual**
-3. Users save exports and downloads only in approved \<Organisation\> locations: \[approved locations\], on a managed device, and delete them within 30 days once no longer needed (\<Security Operating Procedures\>, A28 and A30 to A35). **Manual**
-4. Export files carry the classification marking that \<System Name\> applies, and the user who keeps them does not remove it. **Manual**
+3. Users save exports and downloads only in approved \<Organisation\> locations: \[approved locations\], on a managed device, and delete them once no longer needed, and within 30 days at most if they hold personal data (P-69; \<Security Operating Procedures\>, A28 and A30 to A35). **Manual**
+4. Export files and downloaded files carry the classification marking that \<System Name\> stamps in the file and puts in its name, and the user who keeps them does not remove it or rename the file without it. **Manual**
 
 #### PRO-MP-6 Media inventory
 
-1. The system owner reviews the media inventory in \<Media Protection Management\>, section 3.2, every 12 months and after a change that creates a new copy of \<System Name\> information. **Manual**
+1. The system owner reviews the media inventory in \<Media Protection Management\>, section 3.2, every 12 months (P-69) and after a change that creates a new copy of \<System Name\> information. **Manual**
 2. Any new place is added, with its protection, access and sanitising method, before it is used. **Manual**
 
 ## PE Physical and Environmental Protection
@@ -1079,7 +1081,7 @@ These procedures carry out \<Policy\> (PE), rules R1 to R10. The values, inherit
 #### PRO-PE-4 Working from home
 
 1. People work remotely only from home, unless the system owner has approved another place in writing, on \<Organisation\>'s managed devices and route. **Manual** (EV-PE-05)
-2. They do not print items from \<System Name\> at home unless the system owner has approved it, and they work where others in the home cannot see the screen. **Manual**
+2. They never print items from \<System Name\> at home (D-MP-01), and they work where others in the home cannot see the screen. **Manual**
 3. Anyone working from home reports any concern or incident to the security officer at once, using the contacts in \<Security Operating Procedures\>, section 6. **Manual**
 4. Every 12 months, the security officer puts a short checklist to every person who works from home (managed device, VPN, screen privacy, no printing, reporting) and records the answers on TPL-4 (C30). **Manual**
 
@@ -1469,7 +1471,7 @@ These procedures carry out \<Policy\> (SC). The values, cryptographic register a
 #### PRO-SC-7 Testing encryption at rest
 
 1. The Windows server administrator turns on BitLocker with XTS-AES 256 and the TPM on both VMs, and stores the recovery keys in \<Organisation\>'s protected store.
-2. The database administrator encrypts backups and confirms that export copies are deleted.
+2. The database administrator encrypts backups, and the Windows server administrator confirms that export copies are deleted (C49).
 3. Every 12 months, the administrators check that BitLocker is on and that a recovery key opens a test volume, and record it on TPL-11. **Manual**
 
 #### PRO-SC-8 Reviewing the register and boundary
@@ -1542,7 +1544,7 @@ These procedures carry out \<Policy\> (SI). The values, detection use cases and 
 
 1. The system owner applies \<System Name\>'s retention schedule (\<PII Processing Management\>, section 3.7) to items and outputs.
 2. The database administrator keeps audit records for 12 months online and 12 months archived, and the security officer archives the SQL Server, Windows and security-event records from central logging after 12 months, so they too are kept 24 months (P-07; PRO-AU-4). Application logs stay on the servers for 30 days.
-3. Disposal is recorded on TPL-13 and in the audit trail. **Manual**
+3. Disposal of items is recorded in the audit trail (FR-074). Sanitising of media is recorded on TPL-13 (PRO-MP-3). **Manual**
 
 #### PRO-SI-8 Testing integrity controls
 

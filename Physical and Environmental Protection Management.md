@@ -100,7 +100,7 @@ Controls met here: PE-17.
 
 1. People work remotely only from home, unless the system owner has approved another place in writing (\<Security Operating Procedures\>, rule A38).
 2. They use only \<Organisation\>'s managed device, and connect to its VPN before opening \<System Name\>. They never use a public or shared computer, and use public Wi-Fi only with the VPN connected first.
-3. They work where others in the home cannot see the screen, and do not print \<System Name\> items at home unless the system owner has approved it.
+3. They work where others in the home cannot see the screen, and never print \<System Name\> items at home (D-MP-01).
 4. They do not use \<System Name\> from outside the UK, or take a device that can reach it abroad, without written approval from the system owner and the security officer.
 5. They report any concern or incident to the security officer at once, and a lost or stolen device within 1 hour. The security and privacy contacts are in \<Security Operating Procedures\>, section 6.
 6. Every 12 months the security officer puts a short checklist to every person who works from home: the managed device, the VPN, screen privacy, no printing, and reporting. The answers are recorded on TPL-4. Every person completes it, not a sample.

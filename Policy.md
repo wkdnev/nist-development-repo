@@ -418,7 +418,7 @@ It applies to the UI application, the Admin application, the API, the \<System N
 7. **R7 Training:** people with a contingency role must be trained within 30 days of taking it and every 12 months.
 8. **R8 The plan:** the plan must be approved by the system owner and authorising official, reviewed every 12 months and after a test or activation, shared with the people it names, and protected from disclosure and change.
 9. **R9 Retention:** at least 14 daily, 8 weekly and 12 monthly backups must be kept, and one copy must be offline or immutable (P-15).
-10. **R10 Keys and secrets:** the backup encryption certificate, with its private key, and the protected copy of the secrets must be held apart from the backups, and only the system owner and the Windows server and database administrators may reach them. A retired backup encryption certificate must be kept until the last backup it encrypted is removed.
+10. **R10 Keys and secrets:** the backup encryption certificate, with its private key, and the protected copy of the secrets must be held apart from the backups, and only the system owner and the Windows server and database administrators may reach them. A retired backup encryption certificate must be kept until the last backup it encrypted is removed, and then every copy destroyed (\<Procedures\>, PRO-MP-3).
 11. **R11 Return and learning:** users return after a recovery only when the data, functions and controls have been checked, and any item deleted since the backup restored has been deleted again. Each test or activation must end with an after-action report within 10 working days.
 
 ### CP.5 Responsibilities
@@ -626,7 +626,7 @@ The rules in section 1.1 apply to this policy. It adds these.
 
 This policy sets the organisation's rules for protecting media that hold \<System Name\>'s information, in line with the CSS MP family (MP-1). It stands alone, as each family has its own policy. The media inventory, values and methods that carry it out are in \<Media Protection Management\>, and the steps people follow are in \<Procedures\> (MP).
 
-It applies to every place \<System Name\> information is held outside the running application: the VMs' disks, database and key volumes, export files, application logs, backups, the audit archive, the secret store, support copies, incident evidence, the document set, users' managed devices and approved locations, managed printers, test PCs and paper. It applies to everyone who uses, administers or maintains \<System Name\>, and to \<Organisation\> for the media it handles.
+It applies to every place \<System Name\> information is held outside the running application: the VMs' disks and database volumes, including the key rings on the application server, export files, audit log exports, application logs and central logging, backups, the audit archive, the secret store, support copies, incident evidence, the document set and offline copies of the contingency plan, users' managed devices and approved locations, managed printers, test environments, the restore test server and paper. It applies to everyone who uses, administers or maintains \<System Name\>, and to \<Organisation\> for the media it handles.
 
 ### MP.2 The organisation's position
 
@@ -641,16 +641,16 @@ It applies to every place \<System Name\> information is held outside the runnin
 
 ### MP.4 Mandatory requirements
 
-1. **R1 Media inventory:** every place \<System Name\> information is held must be listed in \<Media Protection Management\>, with its protection and sanitising method, and the list reviewed every 12 months.
-2. **R2 Access:** digital media may be reached only by the roles named in \<Media Protection Management\>. Only editors of a schema, and administrators, may create exports of it.
-3. **R3 Marking:** all \<System Name\> information is marked \<Classification\>, with the item's own classification alongside. \<System Name\> marks printed pages and export files with their classification. No media is exempt.
-4. **R4 Storage:** digital media must be stored encrypted in controlled areas: \<Organisation\>'s data centres, or a managed device. Printouts are locked away when not in use.
+1. **R1 Media inventory:** every place \<System Name\> information is held must be listed in \<Media Protection Management\>, with its protection and sanitising method, before it is used, and the list reviewed every 12 months (P-69).
+2. **R2 Access:** digital media may be reached only by the roles named in \<Media Protection Management\>. Only editors of a schema may bulk export its items, and only auditors may export the audit log.
+3. **R3 Marking:** all \<System Name\> information is marked \<Classification\>, with the item's own classification alongside. \<System Name\> marks printed pages, export files and downloaded files with their classification. No media is exempt.
+4. **R4 Storage:** digital media must be stored encrypted in controlled areas: \<Organisation\>'s data centres at the main and second sites, the storage locations \<Organisation\> approves, or a managed device. Printouts are locked away when not in use.
 5. **R5 Export copies:** an export copy on the server must be held in the encrypted working area, and removed once downloaded, and within 24 hours at most (P-20). \<System Name\> deletes it after the download, and a background task removes any left past the limit.
-6. **R6 Users' copies:** exports and downloads may be saved only in approved \<Organisation\> locations on a managed device, kept to the minimum, and deleted within 30 days once no longer needed (\<Security Operating Procedures\>, A28 and A30 to A35).
-7. **R7 Transport:** media are physically transported only by exception, approved by the system owner, encrypted or sealed, tracked and recorded on TPL-13. Network copies, such as backups to the second site, are protected under SC-8 and CP-6 and must be encrypted first. Printouts do not leave the site without approval.
-8. **R8 Sanitising:** media must be sanitised before reuse, release or disposal following CSS and IEEE 2883-2022, using the method set for each media type in \<Media Protection Management\>. Cryptographic erase is used for encrypted virtual disks and backups. Paper is cross-cut shredded to DIN 66399 level P-4 or better.
-9. **R9 Records:** each sanitising action is recorded on TPL-13 with the item, method, verification and certificate. The system owner checks a sample of \<Organisation\>'s certificates every 12 months.
-10. **R10 Portable storage:** USB and other portable storage are blocked on users' devices unless an exception is approved. No USB device is passed through to the VMs.
+6. **R6 Users' copies:** exports and downloads may be saved only in approved \<Organisation\> locations on a managed device, kept to the minimum, and deleted once no longer needed, and within 30 days at most if they hold personal data (P-69; \<Security Operating Procedures\>, A28 and A30 to A35).
+7. **R7 Transport:** media are physically transported only by exception, approved by the system owner, encrypted or sealed, carried by \<Organisation\>'s hosting staff or its authorised courier, tracked, and recorded on TPL-13 from release to receipt. The holder of an approved portable storage exception carries only that media, encrypted, as TPL-17 records. Network copies, such as backups to the second site, are protected under SC-8 and CP-6 and must be encrypted first. Printouts do not leave the site without approval.
+8. **R8 Sanitising:** media must be sanitised before reuse, release or disposal following CSS and IEEE 2883-2022, using the method set for each media type in \<Media Protection Management\>. Cryptographic erase is used for encrypted virtual disks. Expired backups are deleted at both sites by \<Organisation\>'s backup service, and a retired backup encryption certificate is destroyed once the last backup it encrypted is removed. Paper is cross-cut shredded to DIN 66399 level P-4 or better.
+9. **R9 Records:** each sanitising action is recorded on TPL-13 with the item, method, verification and certificate, and media records are kept for 3 years. The system owner checks a sample of \<Organisation\>'s certificates every 12 months (P-69).
+10. **R10 Portable storage:** USB and other portable storage are blocked on users' devices unless an exception is approved. No USB device or other removable media is passed through to, or mounted on, the VMs.
 11. **R11 Ownerless devices:** portable storage with no identifiable owner must not be used, and must be handed to the security officer.
 12. **R12 Support copies:** data sent for maintenance or support follows \<Procedures\>, PRO-MA-7.
 
@@ -662,11 +662,11 @@ It applies to every place \<System Name\> information is held outside the runnin
 | --- | --- |
 | Head of Cyber | Approves this policy, as all policies |
 | System owner | Owns this policy and the media inventory; approves portable storage exceptions and physical transport; checks sanitising certificates |
-| Windows server administrator | Protects the VM disks and the export working area, and checks the export working area each working day |
-| Database administrator | Protects the database volumes and backups |
-| Security officer | Receives ownerless devices and reports media incidents |
+| Windows server administrator | Protects the VM disks and the export working area, checks the export working area each working day, and erases VM disks by destroying their keys |
+| Database administrator | Protects the database volumes, writes the encrypted backups, and destroys each retired backup encryption certificate once its backups are removed |
+| Security officer | Receives ownerless devices and records them on TPL-13, and reports media incidents |
 | Everyone | Follows the rules for exports, downloads and printouts, and marks and shreds printouts |
-| \<Organisation\> | Stores, moves and sanitises physical disks and backup media, manages users' devices and blocks USB |
+| \<Organisation\> | Stores, moves and sanitises physical disks and backup media, deletes expired backups at both sites, manages users' devices and blocks USB |
 
 ### MP.6 Governance requirements
 
@@ -704,7 +704,7 @@ It applies to the data centre that hosts the two VMs, the second site that holds
 5. **R5 Site inspection:** each data centre, the main site and the second site, is inspected once, at Level 2, by the independent assessor or \<Organisation\>'s auditor using TPL-20, and again after a change of site.
 6. **R6 Printing:** \<System Name\> items may be printed only on \<Organisation\>'s managed printers with secure release, and collected at once.
 7. **R7 Screens:** screens must be locked when left and placed so that others cannot read them.
-8. **R8 Home working:** remote working is allowed only from home, unless the system owner approves another place, on \<Organisation\>'s managed devices and route. \<System Name\> items must not be printed at home unless approved, and must be worked on where others in the home cannot see them.
+8. **R8 Home working:** remote working is allowed only from home, unless the system owner approves another place, on \<Organisation\>'s managed devices and route. \<System Name\> items must never be printed at home (D-MP-01), and must be worked on where others in the home cannot see them.
 9. **R9 Physical incidents:** the loss or theft of a device or printout, unauthorised entry to a data centre, and fire, flood or power loss affecting \<System Name\> must be reported to the security officer at once and handled under \<Incident Response Management\>.
 10. **R10 Physical access compensation:** VM disks must be encrypted, so that physical access to the hosts does not expose \<System Name\> information.
 
@@ -715,7 +715,7 @@ It applies to the data centre that hosts the two VMs, the second site that holds
 | Role | Responsibility |
 | --- | --- |
 | Head of Cyber | Approves this policy, as all policies |
-| System owner | Owns this policy and the inheritance matrix; reviews \<Organisation\>'s evidence; approves remote work away from home and printing at home |
+| System owner | Owns this policy and the inheritance matrix; reviews \<Organisation\>'s evidence; approves remote work away from home |
 | Security officer | Assesses home working controls every 12 months; receives physical incident reports |
 | Independent assessor | Completes the site inspection at Level 2 |
 | Everyone | Protects screens and printouts, and reports physical incidents |

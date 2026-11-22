@@ -285,8 +285,8 @@ Questions are numbered INT-XX-nn, where XX is the family code, and each names th
 
 | ID | For | Question | Statements | Ask to see |
 | --- | --- | --- | --- | --- |
-| INT-MP-01 | A sample of users | What do you do with a printed page from an item marked Restricted? | MP-02, MP-03, MP-04, MP-06 | Locked storage and shredder |
-| INT-MP-02 | Database administrator | Where do backup media go, and who can reach them? | MP-02, MP-04, MP-05 | EV-MP-01 |
+| INT-MP-01 | A sample of users | What do you do with a printed page from an item marked \<Classification\>? | MP-02, MP-03, MP-04, MP-06 | Locked storage and shredder |
+| INT-MP-02 | Database administrator | Where do backups go, and who can reach them? How are expired backups removed at both sites, and when do you destroy a retired backup encryption certificate? | MP-02, MP-04, MP-05, MP-06 | EV-MP-01, EV-CP-01; TPL-13 |
 | INT-MP-03 | \<Organisation\>'s IT service desk | How are disks and backup media sanitised, and how is USB blocked? | MP-06, MP-07 | EV-MP-02, EV-MP-03 |
 | INT-MP-04 | Windows server administrator | Show me the encrypted export working area on the application server and your last check. What do you do with a copy older than 24 hours? | MP-04, MP-06 | TPL-8 |
 | INT-MP-05 | System owner | When did you last review the media inventory, and check a sample of sanitising certificates against the media records? | MP-02, MP-06 | Inventory review; TPL-13 |
