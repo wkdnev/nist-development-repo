@@ -77,7 +77,7 @@ Between courses, awareness is kept up by the system use notice shown at sign-in,
 
 Controls met here: AT-3.
 
-Each module ends with a short check of at least 10 questions, with a pass mark of 80%. Anyone below it repeats the module. The security officer writes the content, and the Head of Cyber delivers the modules for the security officer and auditor.
+Each module ends with a short check of at least 10 questions, with a pass mark of 80%. Anyone below it repeats the module. The security officer writes the content, and Table 3 names who delivers each module. Nobody delivers training to themselves: the Head of Cyber delivers M7 to the security officer, and the security officer gives the system owner the briefing and M8.
 
 **Table 3: Role modules**
 
@@ -98,7 +98,7 @@ Each module ends with a short check of at least 10 questions, with a pass mark o
 
 Controls met here: AT-2, AT-3.
 
-Every role with access must complete awareness, the briefing and signing \<Security Operating Procedures\> before access; roles without access take what their row sets. Role modules come before privileged access, or for developers before they first work on the code; M7 and M8 within 30 days of taking the role. All are repeated every 12 months.
+Every role with access must complete awareness, the briefing and signing \<Security Operating Procedures\> before access; roles without access take what their row sets. Role modules come before privileged access, or for developers before they first work on the code. M7, M8 and M10 are the incident response and contingency training of IR-2 and CP-3, and are taken within 30 days of taking the role, as those controls allow. The security officer, the system owner and their deputies take M7 and M8 before taking the role, because they lead the response and the recovery from the first day. All are repeated every 12 months.
 
 **Table 4: Training matrix**
 
@@ -152,7 +152,7 @@ Controls met here: AT-2, AT-3.
 1. Every 12 months, the security officer reviews the briefing and each module against the curriculum and changes, and reads the incident records and exercise reports of the year, inside and outside \<Organisation\>, adding each lesson to the briefing or module it concerns.
 2. After a significant incident, exercise or change, the lesson is added within 30 days.
 3. The legal adviser reviews the privacy content.
-4. Each change is recorded, and the content version goes up. Each training record names the version given.
+4. Each change is recorded on TPL-6, citing the incident record or exercise report (TPL-11) the lesson came from, and the content version goes up. Each training record names the version given.
 
 The steps are in \<Procedures\>, PRO-AT-3.
 
@@ -174,6 +174,8 @@ The security officer keeps this register from the TPL-9 records. The system owne
 | \[Name\] | Auditor | \[date\] | \[dates\] | \[dates\] | \[date\] |
 | \[Name\] | System owner | \[date\] | \[dates\] | \[dates\] | \[date\] |
 | \[Name\] | Data Owner | \[date\] | \[dates\] | \[dates\] | \[date\] |
+| \[Name\] | Business owner | \[date\] | \[dates\] | None | \[date\] |
+| \[Name\] | Legal adviser's delegate | \[date\] | \[dates\] | None | \[date\] |
 | \[Name\] | Information owner | \[date\] | \[dates\] | None | \[date\] |
 | \[Name\] | Legal adviser | \[date\] | None | \[dates\] | \[date\] |
 | \[Name\] | Authorising official | \[date\] | None | \[dates\] | \[date\] |

@@ -168,6 +168,8 @@ Questions are numbered INT-XX-nn, where XX is the family code, and each names th
 | INT-AT-02 | Security officer | What role training has been given, and how is its content kept up to date? | AT-03, AT-04 | \<Awareness and Training Management\> (role curriculum and training matrix), module content and TPL-9 records |
 | INT-AT-03 | A sample of users | How would you recognise and report social engineering or an insider threat? | AT-02(02), AT-02(03) | The \<System Name\> briefing scenarios (\<Awareness and Training Management\>, section 3.3) |
 | INT-AT-04 | Security officer | How do you know the training works, and what changed after the last incident or review? | AT-01, AT-02, AT-03 | Training measures on TPL-8 (\<Awareness and Training Management\>, section 3.9) |
+| INT-AT-05 | One holder of each role in the training matrix | Which modules did you take before you were given your role, and what did they teach you to do differently? | AT-03, AT-03(05) | The person's TPL-9 records and the register |
+| INT-AT-06 | A line manager | What do you check before you approve an access request, and what would make you raise a concern about someone in your team? | AT-02, AT-02(02) | Briefing part B7 and the manager's TPL-9 record |
 
 ## 5 Audit and Accountability (AU)
 

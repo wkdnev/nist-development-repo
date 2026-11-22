@@ -202,10 +202,10 @@ It applies to everyone who uses, administers or develops \<System Name\>, includ
 
 | Role | Responsibility |
 | --- | --- |
-| Head of Cyber | Approves this policy, as all policies; trains the security officer and auditor |
+| Head of Cyber | Approves this policy, as all policies; delivers module M6 to the security officer and auditor, and M7 to the security officer |
 | Authorising official | Decides Medium and High risks; completes module M10 |
 | System owner | Owns this policy, the curriculum and the matrix; gives the \<System Name\> briefing; checks the register before granting a role |
-| Security officer | Writes and updates role training content, keeps the register and reports the measures |
+| Security officer | Writes and updates role training content, delivers the modules \<Awareness and Training Management\>, Table 3 gives them, keeps the register and reports the measures |
 | Legal adviser | Reviews privacy training content and agrees any phishing simulation; completes module M7 |
 | Line managers | Complete briefing part B7 before their first approval of an access request, and make sure their staff complete training on time |
 | Everyone | Completes training, and reports anything suspicious |

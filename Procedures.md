@@ -381,8 +381,8 @@ These procedures carry out \<Policy\> (AT). Steps marked **Manual** rely on peop
 #### PRO-AT-2 Role training
 
 1. When a role is requested, the system owner looks up its modules in the training matrix (\<Awareness and Training Management\>, section 3.5). **Manual**
-2. The person completes the role modules before privileged access is granted, and the incident response and contingency modules within 30 days of taking the role. **Manual**
-3. The security officer delivers the modules, and the Head of Cyber delivers them to the security officer and auditor. Each ends with a check, with a pass mark of 80%; anyone below it repeats the module. **Manual**
+2. The person completes the role modules before privileged access is granted, and the incident response and contingency modules within 30 days of taking the role. The security officer, the system owner and their deputies complete M7 and M8 before taking the role. **Manual**
+3. Each module is delivered by the person \<Awareness and Training Management\>, Table 3 names; nobody delivers training to themselves (section 3.4 of that document). Each ends with a check, with a pass mark of 80%; anyone below it repeats the module. **Manual**
 4. \<Organisation\>'s Windows server and database administrators complete the \<System Name\> modules for their role, and sign Part B, before they are given administrator access to the servers or SQL Server. Those accounts are \<Organisation\>'s, not role group memberships, so the system owner confirms the training and signature in the registers before asking \<Organisation\> to grant the access, and records it in the request. \<Organisation\> evidences any general administrator training. **Manual** (EV-AT-01)
 5. Developers complete their modules before they first work on \<System Name\> code. The system owner confirms it in the register before the developer is given access to the code. **Manual**
 6. Roles without access are trained for the duties they hold, as the matrix sets: the legal adviser takes M7 and the authorising official M10 within 30 days of taking the role, and the information owner takes the briefing and M9 before their first categorisation decision. A deputy takes the modules of the role they cover. **Manual**
@@ -391,9 +391,9 @@ These procedures carry out \<Policy\> (AT). Steps marked **Manual** rely on peop
 
 #### PRO-AT-3 Keeping content current
 
-1. Every 12 months, the security officer reviews the briefing and each module against the curriculum, recent incidents, exercise reports (TPL-11) and changes. **Manual**
+1. Every 12 months, the security officer reviews the briefing and each module against the curriculum, the year's incidents inside and outside \<Organisation\>, exercise reports (TPL-11) and changes. **Manual**
 2. After a significant incident, exercise or change, the lesson is added within 30 days. **Manual**
-3. The legal adviser reviews the privacy content. Each change is recorded on TPL-6, and the content version goes up. **Manual**
+3. The legal adviser reviews the privacy content. Each change is recorded on TPL-6, citing the incident record or TPL-11 report the lesson came from, and the content version goes up. **Manual**
 
 #### PRO-AT-4 Records and the register
 
