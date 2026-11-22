@@ -30,6 +30,8 @@ Documents, policy decisions and cross-family decisions (GEN). The legal adviser 
 | D-CA-02 | CA | Approve the interface record: the internal connections and the external exchanges in \<Assessment, Authorization, and Monitoring Management\>, Table 6 | Approve: each is needed, encrypted and recorded with its security and privacy needs; a new or changed external exchange later is a significant change for the authorising official | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | D-CA-03 | CA | Decide how often independent assessors check the monitoring (CA-7(1)) | Yearly, alongside the Level 2 assessment: a sample of the monthly monitoring reports, with the Level 2 assessment of every control as the ongoing basis | Authorising official | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | D-CA-04 | CA | Decide how exchanges with \<Organisation\>'s own services are agreed (CA-3) | The interface record in \<Assessment, Authorization, and Monitoring Management\>, Table 6, is the agreement, signed by the system owner and each service's owner; any hosting and services agreement is support only | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
+| D-CM-01 | CM | Decide how CM-7(2) and CM-7(5) are met: whether only approved software can run on the two VMs | Enforce Windows App Control for Business on both VMs, with a signed policy allowing only the approved software list and \<System Name\>'s release files; audit mode at the build, enforced before go-live, updated through change control (\<Configuration Management\>, section 3.15) | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
+| D-CM-02 | CM | Decide how CM-2(7) is met for devices taken to high-risk locations | Inherit it from \<Organisation\>'s travel device policy for its managed laptops, the only devices that can reach \<System Name\>, with its evidence in EV-CM-05; keep the approval to take a device abroad (\<Security Operating Procedures\>, A41) | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | \[D-XX-nn\] | \[XX\] | \[Decision needed\] | \[Recommendation\] | \[Who decides\] | \[Decision\] | \[Name\] | \[Date\] | \[Sheet\] |
 
 ## 3 Parameter approvals
@@ -77,6 +79,11 @@ The reference values are the parameters in \<System Description\>, section 4, wh
 | D-AU-P61 | AU | AU-5 | 1: P-61 Response to an audit logging failure | Alert the security officer and Windows server administrator within 1 hour; refuse every action that cannot be recorded | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | D-AU-P62 | AU | AU-2 | 1: P-62 Review of the logged events | Every 12 months, and on any significant change | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | D-CA-P25 | CA | CA-6 | 1: P-25 Authorisation | Before real data is held; reviewed and renewed at least every 12 months, with an end date on TPL-18 | Authorising official | \[Decision\] | \[Name\] | \[Date\] | None yet |
+| D-CM-P29 | CM | CM-2, CM-3, CM-6 | 1: P-29 Check of the running system against its baseline | Monthly, and at each release | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
+| D-CM-P63 | CM | CM-2, CM-2(3), CM-8 | 1: P-63 Baseline and inventory | Reviewed every 12 months and at each release, updated at each change; 3 previous configurations kept | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
+| D-CM-P64 | CM | CM-3 | 1: P-64 Change control | Board meets monthly, and sooner for an urgent or security change; records kept 3 years; emergency change recorded within 1 working day | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
+| D-CM-P65 | CM | CM-7(1), CM-7(5), CM-11 | 1: P-65 Least functionality and software | Functions, ports, protocols, software and services, the approved software list, and installed software against it, each every 12 months | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
+| D-CM-P66 | CM | CM-8(3) | 1: P-66 Unauthorised components | Checked monthly by \<Organisation\>'s discovery tools; component removed or its network access disabled, and the security officer told | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | \[D-XX-Pnn\] | \[XX\] | \[Control\] | \[Number of parameters\] | \[Main values\] | \[Who decides\] | \[Decision\] | \[Name\] | \[Date\] | \[Sheet\] |
 
 ## 4 Non-compliance treatment decisions
@@ -91,6 +98,7 @@ The control, rating, reason and treatment of each entry are in \<Risk List\>, se
 | NC-AT-01 to NC-AT-06 | AT | System owner, as every AT entry is rated Low | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | NC-AU-01 to NC-AU-13 | AU | System owner, as every AU entry is rated Low | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | NC-CA-01 to NC-CA-09 | CA | System owner, as every CA entry is rated Low | \[Decision\] | \[Name\] | \[Date\] | None yet |
+| NC-CM-01 to NC-CM-18 | CM | System owner, as every CM entry is rated Low | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | \[NC-XX-nn\] | \[XX\] | \[Who decides\] | \[Decision\] | \[Name\] | \[Date\] | \[Sheet\] |
 
 ## 5 Proof of approval

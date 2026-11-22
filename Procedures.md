@@ -54,10 +54,10 @@ This document holds the security and privacy procedures for \<System Name\>: 139
 | PRO-CA-6 | Deciding whether a change is significant | CA Assessment, Authorization, and Monitoring |
 | PRO-CA-7 | Inherited controls | CA Assessment, Authorization, and Monitoring |
 | PRO-CM-1 | Making a change | CM Configuration Management |
-| PRO-CM-2 | Reviewing the baseline | CM Configuration Management |
+| PRO-CM-2 | Reviewing the baseline, inventory and access list | CM Configuration Management |
 | PRO-CM-3 | Secure settings | CM Configuration Management |
 | PRO-CM-4 | Software | CM Configuration Management |
-| PRO-CM-5 | Reviewing functions and ports | CM Configuration Management |
+| PRO-CM-5 | Reviewing functions, ports and installed software | CM Configuration Management |
 | PRO-CM-6 | Unauthorised components | CM Configuration Management |
 | PRO-CM-7 | Monitoring for drift | CM Configuration Management |
 | PRO-CM-8 | Emergency change | CM Configuration Management |
@@ -565,13 +565,13 @@ These procedures define how \<System Name\>'s configuration is changed and recor
 
 | Procedure | Activity | How often | Who | Record | Controls |
 | --- | --- | --- | --- | --- | --- |
-| PRO-CM-1 | Make a change | Each change | Requester, security officer, change control board, developers or administrators | TPL-6, or the ServiceNow change | CM-3, CM-3(2), CM-3(4), CM-4, CM-4(2), CM-5 |
-| PRO-CM-2 | Review the baseline and keep previous versions | Every 12 months and each release | System owner, Windows server administrator | TPL-6; the configuration library | CM-2, CM-2(2), CM-2(3) |
+| PRO-CM-1 | Make a change | Each change | Requester, security officer, change control board, developers or administrators | TPL-6, or the ServiceNow change | CM-3, CM-3(2), CM-3(4), CM-4, CM-4(2), CM-5, CM-8(1) |
+| PRO-CM-2 | Review the baseline, inventory and access list, and keep previous versions | Every 12 months and each release | System owner, Windows server administrator | The release record and the configuration library; TPL-5 | CM-2, CM-2(2), CM-2(3), CM-8, CM-12 |
 | PRO-CM-3 | Apply secure settings | When built, and each change | Windows server, database administrators, developers | TPL-6 for each exception | CM-6 |
 | PRO-CM-4 | Approve software and components | On request, and every 12 months | System owner, Windows server administrator, developers | TPL-7; \<Configuration Management\>, section 3.5 | CM-7(2), CM-7(5), CM-8, CM-11 |
-| PRO-CM-5 | Review functions, ports and services | Every 12 months | Windows server administrator, developers | TPL-3 | CM-7, CM-7(1) |
+| PRO-CM-5 | Review functions, ports and services, and installed software | Every 12 months | Windows server administrator, developers | TPL-3 | CM-7, CM-7(1), CM-11 |
 | PRO-CM-6 | Deal with unauthorised components | On any alert | Windows server administrator, security officer | TPL-8 | CM-8(3) |
-| PRO-CM-7 | Monitor for drift | Monthly | Windows server and database administrators | TPL-8 | CM-2, CM-6, CA-7 |
+| PRO-CM-7 | Monitor for drift | Monthly, and at each release | Windows server and database administrators | TPL-8 | CM-2, CM-6, CA-7 |
 | PRO-CM-8 | Make an emergency change | When needed | System owner or deputy, change control board | TPL-6 within 1 working day | CM-3 |
 | PRO-CM-9 | Review licences | Each release, and every 12 months | Developers, system owner | \<Configuration Management\>, section 3.5; \<Decision Register\> | CM-10 |
 
@@ -580,16 +580,18 @@ These procedures define how \<System Name\>'s configuration is changed and recor
 #### PRO-CM-1 Making a change
 
 1. Whoever needs the change raises a ServiceNow change request, or TPL-6, stating the reason.
-2. The security officer assesses the security and privacy impact against the criteria in \<Configuration Management\>, section 3.9, including the significant change test in \<Assessment, Authorization, and Monitoring Management\>, section 3.9, and records it on the change. A significant change goes to the authorising official before it is made. **Manual**
-3. The system owner, security officer and Windows server administrator approve or refuse it in ServiceNow, as the change control board under its charter in \<Configuration Management\>, section 3.8.
-4. Developers or administrators make the change, and test it before release, using the test scripts where they apply. **Manual**
+2. The security officer assesses the security impact against the criteria in \<Configuration Management\>, section 3.9, including the significant change test in \<Assessment, Authorization, and Monitoring Management\>, section 3.9, rates it Low, Medium or High, and records it on the change. If the change touches personal data, the legal adviser assesses its privacy impact (PRO-PT-3). A significant or High impact change goes to the authorising official before it is made. **Manual**
+3. The change control board approves, refuses or defers it under its charter in \<Configuration Management\>, section 3.8, and records the decision, the date and the members present on the change. The quorum is the system owner, or their deputy, and the security officer, with the legal adviser for a change that touches personal data. Nobody approves a change they requested or made.
+4. Developers or administrators make the change, and test it in the test environment before release, using the test scripts where they apply. **Manual**
 5. They check that the affected controls still work, and record the result. **Manual**
 6. They update the baseline and component inventory in \<Configuration Management\>, sections 3.4 and 3.5, tag the release, record the checksum of each package and produce the bill of materials. They update \<System Security Plan\>, section 3.4, if a server changed. **Manual**
 
-#### PRO-CM-2 Reviewing the baseline
+#### PRO-CM-2 Reviewing the baseline, inventory and access list
 
-1. Every 12 months and at each release, the system owner and Windows server administrator review the baseline. **Manual**
+1. Every 12 months and at each release, the system owner and Windows server administrator review the baseline (\<System Description\>, P-63). **Manual**
 2. They keep the 3 previous configurations, each as its tagged code, package checksums, settings and bill of materials, in the configuration library (\<Configuration Management\>, section 3.13). **Manual**
+3. At the same review, they check the inventory in \<System Security Plan\>, section 3.4, and \<Configuration Management\>, section 3.5, against the servers and the bill of materials, and correct any difference through PRO-CM-1. **Manual**
+4. At the yearly review, the system owner approves a new approved access list on TPL-5: the members of \<System Name\>'s AD groups with their approvals, the Windows server and database administrators, and \<Organisation\>'s staff with access to the hosts and backups (\<Configuration Management\>, section 3.12). The first list is approved before any real data is held. **Manual**
 
 #### PRO-CM-3 Secure settings
 
@@ -599,12 +601,14 @@ These procedures define how \<System Name\>'s configuration is changed and recor
 #### PRO-CM-4 Software
 
 1. The Windows server administrator keeps the approved software list and reviews it every 12 months. **Manual**
-2. A user who needs software on a VM raises a ServiceNow request, and the system owner approves or refuses it. **Manual**
-3. Before a new package, browser library or runtime enters the baseline, the developer records its supplier, version, licence and purpose in \<Configuration Management\>, section 3.5, and checks it on TPL-7 for known vulnerabilities. A licence that is not a standard open source licence goes to the system owner for a decision on \<Decision Register\>. **Manual**
+2. A person who needs software on a VM raises a ServiceNow request, and the system owner approves or refuses it. Only a named Windows server administrator installs it, as a change under PRO-CM-1, adds it to the approved software list and updates the App Control policy to allow it. **Manual**
+3. When the VMs are built, the Windows server administrator deploys the signed App Control for Business policy in audit mode, reviews what it would block for at least one release cycle in the test environment, approves or removes each item, and switches it to enforced before go-live. **Manual**
+4. Before a new package, browser library or runtime enters the baseline, the developer records its supplier, version, licence and purpose in \<Configuration Management\>, section 3.5, and checks it on TPL-7 for known vulnerabilities. A licence that is not a standard open source licence goes to the system owner for a decision on \<Decision Register\>. **Manual**
 
-#### PRO-CM-5 Reviewing functions and ports
+#### PRO-CM-5 Reviewing functions, ports and installed software
 
 1. Every 12 months the Windows server administrator and developers review functions, ports, protocols, software and services, and remove what is not needed, including packages the code does not use. The result is recorded on TPL-3. **Manual**
+2. At the same review, the Windows server administrator compares the software installed on both servers with the approved software list, and removes, or raises a request for, anything not on it. **Manual**
 
 #### PRO-CM-6 Unauthorised components
 
@@ -613,10 +617,11 @@ These procedures define how \<System Name\>'s configuration is changed and recor
 
 #### PRO-CM-7 Monitoring for drift
 
-1. Each month the Windows server administrator scans both VMs against the CIS Benchmarks with CIS-CAT or an equivalent tool, and runs Test-ConfigurationManagement.ps1.
-2. The database administrator compares the SQL Server settings with the baseline. **Manual**
-3. Any difference from \<Configuration Management\>, sections 3.4 to 3.6, is reported to the security officer on TPL-8. **Manual**
-4. The difference is put back, or raised as a change under PRO-CM-1 if it should stay. **Manual**
+1. Each month and at each release (\<System Description\>, P-29), the Windows server administrator scans both VMs against the CIS Benchmarks with CIS-CAT or an equivalent tool, and runs Test-ConfigurationManagement.ps1.
+2. The Windows server administrator confirms that the App Control policy on both VMs is enforced and matches the policy in the release record, and reviews what it blocked. **Manual**
+3. The database administrator compares the SQL Server settings with the baseline. **Manual**
+4. Any difference from \<Configuration Management\>, sections 3.4 to 3.6 and 3.15, is reported to the security officer on TPL-8. **Manual**
+5. The difference is put back, or raised as a change under PRO-CM-1 if it should stay. **Manual**
 
 #### PRO-CM-8 Emergency change
 

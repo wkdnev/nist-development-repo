@@ -227,7 +227,7 @@ Part B applies, in addition to Part A, to the system owner, administrators, audi
 
 ## 4 Part C: operating procedures
 
-Part C sets out how \<System Name\>'s security is run. Each duty has a reference, C1 to C57, so that it can be traced to its CSS control in section 8. Each names the record that proves it was done. Records use the forms in \<Record Templates\>. A ServiceNow record holding the same fields may replace a form. Records are kept for 3 years in \[the restricted records location\], unless a longer period applies. Audit records stay in \<System Name\> for 12 months and then in an offline archive for 12 more; application logs are kept for 30 days (\<Audit and Accountability Management\>).
+Part C sets out how \<System Name\>'s security is run. Each duty has a reference, C1 to C60, so that it can be traced to its CSS control in section 8. Each names the record that proves it was done. Records use the forms in \<Record Templates\>. A ServiceNow record holding the same fields may replace a form. Records are kept for 3 years in \[the restricted records location\], unless a longer period applies. Audit records stay in \<System Name\> for 12 months and then in an offline archive for 12 more; application logs are kept for 30 days (\<Audit and Accountability Management\>).
 
 The detection use cases U1 to U9 in \<System and Information Integrity Management\>, section 3.4, say what raises an alert, including repeated failed sign-ins, a break in the audit chain and a Defender detection, and \<Procedures\>, PRO-SI-4, says how to respond.
 
@@ -256,9 +256,10 @@ The detection use cases U1 to U9 in \<System and Information Integrity Managemen
 | C14 | Update the plan of action | System owner | \<Procedures\>, PRO-CA-3 | \<Plan of Action and Milestones\> change record | CA-5 |
 | C45 | Check audit storage, archive records older than 12 months, including those held in central logging, and check both VMs are within 1 second of UTC | Database administrator, security officer, Windows server administrator | \<Procedures\>, PRO-AU-4 | TPL-8 | AU-4, AU-8, AU-11 |
 | C46 | Check who can read the application logs, and delete those older than 30 days | Windows server administrator | \<Procedures\>, PRO-AU-7 | TPL-8 | AU-9, AU-11, PT-3 |
-| C47 | Check the running configuration against the baseline, and report any drift | Windows server and database administrators | \<Procedures\>, PRO-CM-7 | TPL-8 | CM-2, CM-6, CA-7 |
+| C47 | Check the running configuration against the baseline, including that App Control for Business is enforced, and report any drift; also at each release | Windows server and database administrators | \<Procedures\>, PRO-CM-7 | TPL-8 | CM-2, CM-6, CM-7(2), CA-7 |
 | C48 | Review every maintenance record against its change record; raise any maintenance without one as an incident | Security officer | \<Procedures\>, PRO-MA-1 | TPL-12 | MA-2, MA-4 |
 | C49 | Check the encrypted export working area on the application server, and delete any working copy older than 24 hours (each working day; \<System Description\>, P-20) | Windows server administrator | \<Procedures\>, PRO-MP-5 | TPL-8 | MP-4, MP-6 |
+| C58 | Hold the change control board: review the month's changes, emergency changes and drift reports | System owner (chair), security officer, Windows server administrator, legal adviser | \<Configuration Management\>, section 3.8 | Board minutes; TPL-6 | CM-3, CM-3(4) |
 | C50 | Each week, check CISA's Known Exploited Vulnerabilities catalogue and \<Organisation\>'s alerts against \<System Name\>'s components; fix or mitigate any match within 3 days | Security officer | \<Procedures\>, PRO-RA-4 | TPL-7 | RA-5, SI-2, SI-5 |
 | **Every 3 months** |  |  |  |  |  |
 | C15 | Review privileged access: the system owner prepares the role-group review and the auditor checks and signs it; the Head of Cyber reviews the system owner's own memberships and checks the administrators | System owner, auditor, Head of Cyber | \<Procedures\>, PRO-AC-7 | TPL-3 | AC-2, AC-6(7) |
@@ -272,7 +273,7 @@ The detection use cases U1 to U9 in \<System and Information Integrity Managemen
 | C21 | Exercise the incident response and contingency plans | Security officer, system owner | \<Procedures\>, PRO-IR-3; \<Procedures\>, PRO-CP-4 | TPL-11 | IR-3, CP-4 |
 | C22 | Complete awareness and role training | Everyone; the security officer keeps records | \<Procedures\>, PRO-AT-1 to PRO-AT-5 | TPL-9 | AT-2, AT-3, AT-4 |
 | C23 | Re-sign Parts A and B | Everyone; the system owner keeps the register of signatures | Section 9 | TPL-21; the register of signatures (\<Planning Management\>, section 3.5) | PL-4, PS-6 |
-| C24 | Review functions, ports, software and services | Windows server administrator, developers | \<Procedures\>, PRO-CM-5 | TPL-3 | CM-7(1) |
+| C24 | Review functions, ports, software and services, and compare installed software with the approved list | Windows server administrator, developers | \<Procedures\>, PRO-CM-5 | TPL-3 | CM-7(1), CM-11 |
 | C25 | Review the boundary and connections | System owner, \<Organisation\>'s security contact | \<Procedures\>, PRO-SC-8; \<Procedures\>, PRO-CA-2 | TPL-3 | SC-7, CA-3, CA-9 |
 | C26 | Review the supply chain, external services and suppliers | System owner, developers | \<Procedures\>, PRO-RA-2; \<Procedures\>, PRO-SA-3; \<Procedures\>, PRO-SR-2 | TPL-16 | RA-3(1), SA-9, SR-6 |
 | C27 | Review development tools and standards | Developers, security officer | \<Procedures\>, PRO-SA-6 | TPL-23 | SA-15 |
@@ -290,6 +291,8 @@ The detection use cases U1 to U9 in \<System and Information Integrity Managemen
 | C55 | Review the authorisation before its end date | System owner, authorising official | \<Procedures\>, PRO-CA-4 | TPL-18 | CA-6 |
 | C56 | Review the inherited controls with \<Organisation\>'s security contact | System owner | \<Procedures\>, PRO-CA-7 | \<Assessment, Authorization, and Monitoring Management\>, section 3.6; \<Evidence Requests\> | CA-6 |
 | C57 | Independent check of the monitoring | Security assessor | \<Procedures\>, PRO-CA-5, step 3 | The assessor's report; TPL-19 | CA-7(1) |
+| C59 | Review the baseline, the inventory and the approved access list, also at each release | System owner, Windows server administrator | \<Procedures\>, PRO-CM-2 | Release record; TPL-5 | CM-2, CM-8, CM-12 |
+| C60 | Review the approved software list and component licences | Windows server administrator, developers, system owner | \<Procedures\>, PRO-CM-4 and PRO-CM-9 | \<Configuration Management\>, section 3.5; \<Decision Register\> | CM-7(5), CM-10 |
 | **When an event occurs** |  |  |  |  |  |
 | C36 | Grant, change or remove access | The groups' owners; \<Organisation\>'s service desk disables accounts | Section 4.4 | TPL-2 (the ServiceNow request), TPL-14 | AC-2, PS-4, PS-5 |
 | C37 | Apply updates within the time limits in \<System Description\>, P-11 | Windows server administrator, database administrator, developers | Section 4.3, through approved change | TPL-6, TPL-7 | SI-2, CM-3 |
@@ -327,7 +330,7 @@ A fix that cannot be made in time goes through PRO-AC-15 and into \<Plan of Acti
 
 ### 4.5 Change control (C38)
 
-1. **Normal change.** It is raised on TPL-6, or in ServiceNow. The security officer assesses its security impact, and it is tested in the test environment. The change control board approves it: the system owner, the security officer and the Windows server administrator. After it is made, it is checked to confirm the security functions still work. The documents it affects are updated.
+1. **Normal change.** It is raised on TPL-6, or in ServiceNow. The security officer assesses its security impact, and the legal adviser its privacy impact if it touches personal data, and it is tested in the test environment. The change control board decides on it under its charter: the system owner or their deputy and the security officer must be present, with the legal adviser for a change touching personal data, and nobody approves a change they requested or made. After it is made, it is checked to confirm the security functions still work. The documents, the inventory and the App Control policy it affects are updated.
 2. **Emergency change.** This is allowed only to stop or limit an incident or an outage. The system owner, or their deputy, approves it by phone or in person before it is made. It is recorded on TPL-6 within 1 working day, and reviewed by the change control board at its next meeting (PRO-CM-8).
 3. **Prohibited.** There are no changes without a record, no changes by anyone outside the approved roles, and no changes that switch off auditing or security functions.
 
@@ -450,9 +453,10 @@ Table 6 shows where each control that these SyOps serve is met. It lets an audit
 | CA-5, CA-7 POA&M and Continuous Monitoring | C13, C14, C17 |
 | CA-6 Authorization | C55, C56 |
 | CA-7(1) Independent Assessment | C57 |
+| CM-2, CM-6, CM-8, CM-12 Baseline, Settings, Inventory and Information Location | C47, C59 |
 | CM-2(7) High-risk Travel | A41 |
-| CM-3, CM-4, CM-5 Change Control | B13, B14, B15; C37, C38; section 4.5 |
-| CM-7(1), CM-11 Least Functionality and User-installed Software | A47, A48, A49; B17; C24 |
+| CM-3, CM-4, CM-5 Change Control | B13, B14, B15; C37, C38, C58; section 4.5 |
+| CM-7(1), CM-7(5), CM-10, CM-11 Least Functionality, Authorised Software, Licences and User-installed Software | A47, A48, A49; B17; C24, C60 |
 | CP-4, CP-9, CP-10 Contingency | C2, C6, C8, C18, C21; section 4.6 |
 | IA-2, IA-5 Authentication | A9 to A15; B4, B9, B19; C20 |
 | IR-4, IR-5, IR-6 Incidents | A29, A42, A50 to A53; B22; C43; section 4.9 |

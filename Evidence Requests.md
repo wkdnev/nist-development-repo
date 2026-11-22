@@ -170,8 +170,10 @@ This matrix is proposed to \<Organisation\>.
 | ID | Control | What we need to know | Evidence to provide |
 | --- | --- | --- | --- |
 | EV-CM-01 | CM-5 | Physical and logical restrictions on changing the VMs and hosting | Access lists and change process |
-| EV-CM-02 | CM-8(3), CM-12(1) | Tools that detect unauthorised components, and any that locate information | Tool names, and a sample report |
+| EV-CM-02 | CM-8(3), CM-12(1) | The tools that check both VMs each month for unauthorised hardware, software and firmware, and alert \<System Name\>'s Windows server administrator; and any tool that finds copies of \<System Name\>'s items outside its database. If there is no such tool for locating information, say so | Tool names, scope, schedule, and a sample report |
 | EV-CM-03 | CM-10 | Licences for the software on the VMs and hosting, and peer-to-peer controls. \<System Name\>'s own components are recorded in \<Configuration Management\>, section 3.5 | Licence record and policy |
+| EV-CM-04 | CM-6 | The hardened Windows Server 2025 build and the Group Policy applied to the two VMs: which CIS Benchmark level and version they apply, and the settings they leave out | Build standard, the Group Policy report for the VMs, and a benchmark scan result |
+| EV-CM-05 | CM-2(7) | The travel device policy for managed laptops: which locations are treated as high-risk, the configuration of a laptop issued for travel there, and the checks made on it when the person returns | Policy, and a sample record of a return check |
 
 ## 8 Contingency Planning (CP)
 

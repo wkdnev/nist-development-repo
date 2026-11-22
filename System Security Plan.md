@@ -85,7 +85,7 @@ The information types below are taken from the application profile (\<System Des
 
 ### 3.4 Component inventory
 
-This is the intended inventory for the authorisation boundary. Host names, asset numbers and exact versions are to be added when the VMs are built.
+This is the intended inventory for the authorisation boundary. Host names, asset numbers and exact versions are to be added when the VMs are built. The software within each component, with its version, supplier and licence, is in \<Configuration Management\>, section 3.5; together they are the inventory CM-8 requires (\<Configuration Management\>, section 3.12). Rows whose location is "Outside the boundary" are \<Organisation\>'s services, listed for reference only: they belong to \<Organisation\>'s inventory, not this one.
 
 **Table 5: Component inventory**
 
@@ -103,6 +103,7 @@ This is the intended inventory for the authorisation boundary. Host names, asset
 | PingFederate and Active Directory | Sign every user in with multi-factor authentication, and hold the groups that decide roles and schema access. A critical component (\<Risk Assessment Management\>, section 3.9) | \<Organisation\>'s corporate services | Outside the boundary |
 | Starters and leavers process | Raises leaver requests, and prompts the owners of a leaver's groups | \<Organisation\>'s service | Outside the boundary |
 | Microsoft Defender | Malicious code protection | Windows Server 2025 | Both VMs |
+| Windows App Control for Business | Allows only approved software to run (\<Configuration Management\>, section 3.15) | Windows Server 2025, with a signed policy at each release | Both VMs |
 | BitLocker full-disk encryption (XTS-AES 256 with the TPM) | Protection at rest | Windows Server 2025 | Both VMs |
 | Key store | Holds the token signing key and the audit chain key outside source code. There is no database password | To be chosen | To be chosen |
 | Vulnerability scanner | Servers monthly; packages and code at each release (\<System Description\>, P-30) | To be chosen | To be chosen |
@@ -232,7 +233,7 @@ Each control is given one of four types. **System** controls are met by \<System
 | AT Awareness and Training | 6 | 0 | 4 | 2 | 0 | 0 |
 | AU Audit and Accountability | 16 | 4 | 10 | 2 | 0 | 0 |
 | CA Assessment, Authorization, and Monitoring | 10 | 0 | 2 | 8 | 0 | 0 |
-| CM Configuration Management | 24 | 0 | 13 | 9 | 2 | 0 |
+| CM Configuration Management | 24 | 0 | 15 | 8 | 1 | 0 |
 | CP Contingency Planning | 23 | 0 | 5 | 8 | 10 | 0 |
 | IA Identification and Authentication | 24 | 2 | 7 | 1 | 8 | 6 |
 | IR Incident Response | 13 | 0 | 4 | 9 | 0 | 0 |
@@ -247,7 +248,7 @@ Each control is given one of four types. **System** controls are met by \<System
 | SC System and Communications Protection | 25 | 3 | 10 | 1 | 10 | 1 |
 | SI System and Information Integrity | 18 | 3 | 9 | 3 | 1 | 2 |
 | SR Supply Chain Risk Management | 12 | 0 | 3 | 5 | 4 | 0 |
-| **Total** | **316** | **19** | **109** | **100** | **68** | **20** |
+| **Total** | **316** | **19** | **111** | **99** | **67** | **20** |
 
 Section 7 lists every control. A control counts as satisfied only when every one of its assessment statements is satisfied.
 
@@ -385,7 +386,7 @@ The assessment plan is in \<Control Assessment Record\> (CA), section CA.4, wher
 | CA-2(1) Independent Assessors | \[Name\]'s team, each member with no part in designing, building, running or administering \<System Name\> and no reporting line to it, on TPL-19 accepted by the authorising official | Security assessor, authorising official | Organisational | Implemented | NC-CA-03 |
 | CA-3 Information Exchange | The five external exchanges (PingFederate and Active Directory, central logging, time, backup site and proxy) are recorded with their interface, security and privacy needs, responsibilities and impact in \<Assessment, Authorization, and Monitoring Management\>, Table 6, which is the agreement, signed by the system owner and each service's owner and reviewed every 12 months (PRO-CA-2; D-CA-04) | System owner, \<Organisation\> | Hybrid | Implemented | NC-CA-04 |
 | CA-5 Plan of Action and Milestones | \<Plan of Action and Milestones\> holds each weakness to be fixed, updated monthly from assessments, monitoring and audits, with fix times by rating counted from go-live or the date raised (PRO-CA-3) | System owner | Organisational | Implemented | NC-CA-05 |
-| CA-6 Authorization | \[Name\] is the authorising official and \<Organisation\>'s official authorises the common controls; the package in \<Assessment, Authorization, and Monitoring Management\>, Table 4, and the TPL-18 decision, with the 68 inherited controls accepted, before real data is held, and renewed within 12 months (P-25) | Authorising official, system owner | Organisational | Implemented | NC-CA-06 |
+| CA-6 Authorization | \[Name\] is the authorising official and \<Organisation\>'s official authorises the common controls; the package in \<Assessment, Authorization, and Monitoring Management\>, Table 4, and the TPL-18 decision, with the 67 inherited controls accepted, before real data is held, and renewed within 12 months (P-25) | Authorising official, system owner | Organisational | Implemented | NC-CA-06 |
 | CA-7 Continuous Monitoring | System-level strategy carrying out \<Organisation\>'s strategy, with 15 measures, thresholds and re-assessment triggers; reported monthly to the system owner, privacy measures to the legal adviser, and quarterly to the authorising official, from go-live (\<Assessment, Authorization, and Monitoring Management\>, section 3.8; PRO-CA-5) | Security officer, system owner | Organisational | Implemented | NC-CA-07 |
 | CA-7(1) Independent Assessment | The independent assessor checks a sample of the monitoring each year, alongside the yearly Level 2 assessment of every control, which together are the ongoing basis (PRO-CA-5, step 3; D-CA-03) | Security assessor | Organisational | Implemented | NC-CA-08 |
 | CA-7(4) Risk Monitoring | The measures cover effectiveness, compliance and change, and the Risk List is reviewed monthly (\<Assessment, Authorization, and Monitoring Management\>, Table 7) | System owner, security officer | Organisational | Implemented | None |
@@ -399,30 +400,30 @@ The assessment plan is in \<Control Assessment Record\> (CM), section CM.4, wher
 
 | Control | How it is implemented | Who | Type | Status | Gap entry |
 | --- | --- | --- | --- | --- | --- |
-| CM-1 Policy and Procedures | Policy and procedures in \<Policy\> (CM) and \<Procedures\> (CM) | System owner, Head of Cyber | Organisational | \[Status\] | \[Decision\] |
-| CM-2 Baseline Configuration | Baseline documented in \<Configuration Management\>, section 3.4: tagged code, release checksums and a VM baseline | System owner, Windows server administrator | Hybrid | \[Status\] | \[Decision\] |
-| CM-2(2) Automation Support | Git tags, recorded release checksums and deployment files | Developers | Hybrid | \[Status\] | \[Decision\] |
-| CM-2(3) Previous Configurations | 3 previous configurations kept | Developers | Hybrid | \[Status\] | \[Decision\] |
-| CM-2(7) High-risk Travel | Kept in scope; no device is issued for travel | System owner | Organisational | \[Status\] | \[Decision\] |
-| CM-3 Change Control | Changes through the ServiceNow workflow, approved by the change control board after a security impact analysis, and Git commits | System owner, security officer, Windows server administrator | Hybrid | \[Status\] | \[Decision\] |
-| CM-3(2) Testing Changes | Changes tested with the test scripts before release | Developers | Hybrid | \[Status\] | \[Decision\] |
-| CM-3(4) Representatives | Security officer and legal adviser are the representatives | System owner | Organisational | \[Status\] | \[Decision\] |
-| CM-4 Impact Analyses | Set out in PRO-CM-1 | Security officer | Organisational | \[Status\] | \[Decision\] |
-| CM-4(2) Verification | Set out in PRO-CM-1 | Developers, security officer | Organisational | \[Status\] | \[Decision\] |
-| CM-5 Access Restrictions | Physical and logical restrictions on changing the VMs and hosting | Windows server administrator, \<Organisation\> | Hybrid | \[Status\] | \[Decision\] |
-| CM-6 Configuration Settings | CIS Benchmarks and settings for every layer set in \<Configuration Management\>, section 3.6; drift checks | Windows server and database administrators | Hybrid | \[Status\] | \[Decision\] |
-| CM-7 Least Functionality | API documentation left out of releases; API on loopback only; database reachable only from the application VM; each app a Windows service under its own low-privilege account | Developers, Windows server administrator | Hybrid | \[Status\] | \[Decision\] |
-| CM-7(1) Periodic Review | Set out in PRO-CM-5 | Windows server administrator, developers | Organisational | \[Status\] | \[Decision\] |
-| CM-7(2) Prevent Execution | Not technically enforced | Windows server administrator | Hybrid | \[Status\] | \[Decision\] |
-| CM-7(5) Authorised Software | Authorised software list; not technically enforced | Windows server administrator | Hybrid | \[Status\] | \[Decision\] |
-| CM-8 Inventory | Servers in section 3.4; software components in \<Configuration Management\>, section 3.5 | System owner | Hybrid | \[Status\] | \[Decision\] |
-| CM-8(1) Updates | Set out in PRO-CM-1 | Windows server administrator | Organisational | \[Status\] | \[Decision\] |
-| CM-8(3) Unauthorised Components | \<Organisation\>'s tools, monthly | \<Organisation\> | Inherited | \[Status\] | \[Decision\] |
-| CM-9 Configuration Management Plan | \<Configuration Management\> is the plan | System owner | Organisational | \[Status\] | \[Decision\] |
-| CM-10 Software Usage | \<System Name\>'s component licences listed, with ImageSharp under its community licence; \<Organisation\> holds the licences for its own software | System owner, \<Organisation\> | Hybrid | \[Status\] | \[Decision\] |
-| CM-11 User-installed Software | Allowed on the VMs with approval | System owner, Windows server administrator | Hybrid | \[Status\] | \[Decision\] |
-| CM-12 Information Location | Recorded in sections 3.4 and 4.4, with an approved access list | System owner | Organisational | \[Status\] | \[Decision\] |
-| CM-12(1) Automated Tools | \<Organisation\>'s tools | \<Organisation\> | Inherited | \[Status\] | \[Decision\] |
+| CM-1 Policy and Procedures | Policy and procedures in \<Policy\> (CM) and \<Procedures\> (CM); the design is in \<Configuration Management\> | System owner, Head of Cyber | Organisational | Implemented | NC-CM-01 |
+| CM-2 Baseline Configuration | Baseline in \<Configuration Management\>, section 3.4: the signed release tag, package checksums, components, settings, CIS Benchmark settings of both VMs and their network placement; reviewed every 12 months and at each release, and updated at each change (P-63; PRO-CM-2) | System owner, Windows server administrator | Hybrid | Implemented | NC-CM-02 |
+| CM-2(2) Automation Support | Signed release tags, lock files with recorded package checksums, the release record and a software bill of materials from each build | Developers | Hybrid | Implemented | None |
+| CM-2(3) Previous Configurations | The 3 previous configurations kept in the configuration library, each with tag, checksums, settings and bill of materials (P-63) | Developers, Windows server administrator | Hybrid | Implemented | NC-CM-03 |
+| CM-2(7) High-risk Travel | \<Organisation\>'s travel device policy for its managed laptops, the only devices that can reach \<System Name\>: the configuration issued for travel to a high-risk location, and the checks on return (D-CM-02; EV-CM-05). Taking a device abroad needs approval first (\<Security Operating Procedures\>, A41) | \<Organisation\>, system owner | Inherited | Implemented | NC-CM-04 |
+| CM-3 Change Control | Every change through one route: a ServiceNow change or TPL-6, the security officer's impact analysis, the change control board's decision under its charter, testing, verification and update; the board meets monthly and records are kept 3 years (P-64; PRO-CM-1, PRO-CM-8) | System owner, security officer, Windows server administrator | Hybrid | Implemented | NC-CM-05 |
+| CM-3(2) Testing Changes | Each change tested in the separate test environment with the test scripts that apply, before release; a failed test stops the release | Developers | Hybrid | Implemented | None |
+| CM-3(4) Representatives | The security officer, as security representative, and the legal adviser, as privacy representative, are members of the change control board | System owner | Organisational | Implemented | None |
+| CM-4 Impact Analyses | The security officer analyses and rates every change's security impact against \<Configuration Management\>, Table 8, and the legal adviser its privacy impact where it touches personal data (PRO-CM-1, PRO-PT-3) | Security officer, legal adviser | Organisational | Implemented | None |
+| CM-4(2) Verification | After each change, those who made it check that the controls named in the analysis still work, and record it (PRO-CM-1, step 5) | Developers, administrators, security officer | Organisational | Implemented | None |
+| CM-5 Access Restrictions | Who may change each item, and how it is enforced, in \<Configuration Management\>, Table 10: repository permissions, Windows and database permissions, named accounts over the administration route; \<Organisation\>'s restrictions on the hosts | Windows server administrator, \<Organisation\> | Hybrid | Implemented | NC-CM-06 |
+| CM-6 Configuration Settings | CIS Benchmarks for Windows Server 2025 and SQL Server 2022, and the hosting and application settings in \<Configuration Management\>, Table 5; departures on TPL-6 approved by the system owner; drift checked monthly and at each release (P-29) | Windows server and database administrators, developers | Hybrid | Implemented | NC-CM-07 |
+| CM-7 Least Functionality | Four essential capabilities only; prohibited functions, ports, protocols, software and services in \<Configuration Management\>, Table 9: API documentation left out of releases, API on loopback only, database reachable only from the application VM, each app a Windows service under its own low-privilege account | Developers, Windows server administrator | Hybrid | Implemented | NC-CM-08 |
+| CM-7(1) Periodic Review | Functions, ports, protocols, software and services reviewed every 12 months, and anything not needed removed (P-65; PRO-CM-5) | Windows server administrator, developers | Organisational | Implemented | NC-CM-09 |
+| CM-7(2) Prevent Execution | Windows App Control for Business, enforced on both VMs, runs only what the approved software list allows (D-CM-01) | Windows server administrator | Hybrid | Implemented | NC-CM-10 |
+| CM-7(5) Authorised Software | The approved software list and the component list, reviewed every 12 months (P-65); deny-all, permit-by-exception enforced by App Control for Business (D-CM-01) | Windows server administrator, developers | Hybrid | Implemented | NC-CM-11 |
+| CM-8 Inventory | Components in section 3.4 and their software in \<Configuration Management\>, section 3.5, with version, supplier, licence and location; reviewed every 12 months and at each release (P-63; PRO-CM-2) | Windows server administrator, developers | Hybrid | Implemented | NC-CM-12 |
+| CM-8(1) Updates | The inventory is updated as step 6 of every change, including installations, removals and updates, and the change is not closed until it is (PRO-CM-1) | Windows server administrator, developers | Organisational | Implemented | None |
+| CM-8(3) Unauthorised Components | \<Organisation\>'s discovery tools check both VMs monthly; the Windows server administrator removes the component or disables its network access, and tells the security officer (P-66; PRO-CM-6) | \<Organisation\>, Windows server administrator | Hybrid | Implemented | NC-CM-13 |
+| CM-9 Configuration Management Plan | \<Configuration Management\> is the plan, approved by the system owner and held Restricted | System owner | Organisational | Implemented | NC-CM-14 |
+| CM-10 Software Usage | Every component's licence recorded in \<Configuration Management\>, Table 4, before it enters the baseline, and checked at each release and every 12 months (PRO-CM-9); \<Organisation\> holds and tracks the licences for Windows Server, SQL Server and the hosting, and controls peer-to-peer software | System owner, developers, \<Organisation\> | Hybrid | Implemented | NC-CM-15 |
+| CM-11 User-installed Software | Only the named Windows server administrators can install software on the VMs, and only on an approved request; installed software compared with the approved list every 12 months (P-65; PRO-CM-4, PRO-CM-5) | System owner, Windows server administrator | Hybrid | Implemented | NC-CM-16 |
+| CM-12 Information Location | Information held in SQL Server on the database VM, by schema, with working files on the application VM and backups at the second site (sections 3.4 and 4.4); who has access in the approved access list on TPL-5; a change of location recorded as a change | System owner | Organisational | Implemented | NC-CM-17 |
+| CM-12(1) Automated Tools | The database lists every item by schema and information type; the export working area is checked each working day (C49); \<Organisation\>'s tools find stray copies on the VMs (EV-CM-02) | Windows server administrator, \<Organisation\> | Hybrid | Implemented | NC-CM-18 |
 
 ### 7.6 Contingency Planning (CP)
 
@@ -778,7 +779,7 @@ The artifacts this plan relies on are below, in the order CSS lists them. All ar
 | Policies and procedures | \<Policy\> and \<Procedures\>, with one chapter for each family |
 | Rules of behaviour | \<Security Operating Procedures\> |
 | Contingency plan, with test and training records | \<Contingency Planning Management\>, section 3; records on the forms in \<Record Templates\> |
-| Configuration management plan and change records | \<Configuration Management\>; changes in ServiceNow and the source repositories |
+| Configuration management plan and change records | \<Configuration Management\>; changes in ServiceNow, or on TPL-6 until it is set up, and the source repositories; the approved access list on TPL-5 |
 | Information exchange agreements | Planned exchanges are in section 3.2 and \<Assessment, Authorization, and Monitoring Management\>, section 3.7 |
 | Continuous monitoring strategy | \<Assessment, Authorization, and Monitoring Management\>, section 3.8 |
 | Incident response plan, with test and training records | Section 3 of \<Incident Response Management\>; records on the forms in \<Record Templates\> |
