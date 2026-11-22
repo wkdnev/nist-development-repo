@@ -324,10 +324,10 @@ A fix that cannot be made in time goes through PRO-AC-15 and into \<Plan of Acti
 
 ### 4.4 Joiners, movers and leavers (C36)
 
-1. **Joiner.** The person asks for access in ServiceNow. Their line manager approves it, and the group's owner authorises it: the system owner for a role, or the Data Owner for a schema. Before the person is added to a group, they complete training (A54), sign Part A, and Part B if privileged. The owner adds them to the fewest Active Directory groups the role needs. No \<System Name\> account is created.
-2. **Mover.** The person's manager tells the system owner and the owners of the person's groups within 1 working day of a role change. Access no longer needed is removed and recorded on TPL-14.
+1. **Joiner.** The person asks for access in ServiceNow. Their line manager approves it, and the group's owner authorises it: the system owner for a role, or the Data Owner for a schema. Before the person is added to a group, \<Organisation\> confirms their screening, and they sign \<Organisation\>'s confidentiality agreement, complete training (A54), and sign Part A, and Part B if privileged (\<Procedures\>, PRO-PS-1). The owner adds them to the fewest Active Directory groups the role needs. No \<System Name\> account is created.
+2. **Mover.** The person's manager tells the system owner and the owners of the person's groups within 1 working day of a role change. Access no longer needed is removed and recorded on TPL-14. Access for the new role is given only once its training is done, and, for a higher risk role, the screening repeated (\<Procedures\>, PRO-PS-3).
 3. **Leaver.** \<Organisation\> disables the person's Active Directory account at once, and \<System Name\> refuses them within 5 minutes, even while a sign-in is open. The owners of their groups remove the memberships within 5 working days. Any exported files or paper are recovered or destroyed, and recorded on TPL-14.
-4. **High-risk leaver or misuse.** \<Organisation\>'s service desk disables the Active Directory account within 1 hour of notice, which ends access to \<System Name\> within 5 minutes, and ends the person's PingFederate sign-in so that they cannot start a new one (\<Procedures\>, PRO-AC-4).
+4. **Higher-risk leaver, dismissal or misuse.** \<Organisation\>'s service desk disables the Active Directory account within 1 hour of notice, which ends access to \<System Name\> within 5 minutes, and ends the person's PingFederate sign-in so that they cannot start a new one. The account stays disabled for at least 8 hours, and the system owner confirms that \<System Name\> refuses the person (\<Procedures\>, PRO-AC-4, PRO-PS-2).
 5. **Inactive members.** Members of \<System Name\>'s groups who have not signed in for 90 days are removed from them each month (C9). \<Organisation\> disables Active Directory accounts unused for 90 days within 1 working day (P-38).
 
 ### 4.5 Change control (C38)
@@ -469,7 +469,9 @@ Table 6 shows where each control that these SyOps serve is met. It lets an audit
 | MP-2 to MP-7 Media | A28, A30 to A35; C42, C49; section 4.8 |
 | PE-5, PE-17 Output Devices and Alternate Work Site | A33, A35 to A42; C30 |
 | PE-6, PE-11 Physical incidents and loss of power | A42; sections 4.6 and 4.9 |
-| PS-6, PS-8 Access Agreements and Sanctions | A4; C23, C31; section 9 |
+| PS-2, PS-6 Risk Designations and Access Agreements | C23, C31; section 9 |
+| PS-4, PS-5 Leavers and Movers | B5; C36; section 4.4 |
+| PS-8 Personnel Sanctions | A4 |
 | PT-2, PT-3, SI-12, SI-18 Personal Data | A23 to A28; C32, C33, C44 |
 | RA-5, SI-2, SI-5 Vulnerabilities and Advisories | C7, C10, C11, C37, C50; section 4.3 |
 | SA-9, SR-6 External Services and Suppliers | C26 |
@@ -482,6 +484,6 @@ Table 6 shows where each control that these SyOps serve is met. It lets an audit
 
 Everyone signs Part A, and privileged users also sign Part B, before getting access, every 12 months and after a material change to these rules (A55). Electronic signature is accepted. Each signature is recorded on TPL-21, and the system owner keeps the register of signatures in \<Planning Management\>, section 3.5, for as long as the person has access and for 3 years after.
 
-**Part A.** I have read and understood Part A of \<Security Operating Procedures\>, version \<ver\>. I agree to follow it, and I consent to the monitoring described in rules A6 to A8.
+**Part A.** I have read and understood Part A of \<Security Operating Procedures\>, version \<ver\>. I agree to follow it, I consent to the monitoring described in rules A6 to A8, and I confirm that I remain bound by \<Organisation\>'s confidentiality agreement.
 
 **Part B.** I have read and understood Part B of \<Security Operating Procedures\>, version \<ver\>, and I agree to follow it as well as Part A.

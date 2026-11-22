@@ -112,7 +112,7 @@ The system owner reviews and updates the rules every 12 months (P-71), keeps the
 2. The signature is added to the register below. The access request in ServiceNow checks the register before access is given, and the group's owner adds nobody to a group without a signature in it.
 3. Everyone signs again every 12 months, and after a material change to the rules: a new or stricter rule, a changed consequence, new monitoring or a new privileged duty. The system owner decides whether a change is material, and records it in the change record of the rules. After a material change everyone signs within 30 days, or loses access.
 
-Signed forms and the register are kept for as long as the person has access, and for 3 years after it ends. The declaration each person signs is the one in \<Security Operating Procedures\>, section 9, which for Part A also records their consent to the monitoring in rules A6 to A8.
+Signed forms and the register are kept for as long as the person has access, and for 3 years after it ends. The declaration each person signs is the one in \<Security Operating Procedures\>, section 9, which for Part A also records their consent to the monitoring in rules A6 to A8 and confirms that they remain bound by \<Organisation\>'s confidentiality agreement (\<Personnel Security Management\>, section 3.4).
 
 The register starts empty. First signatures are taken on the current version of the rules, before access is given.
 

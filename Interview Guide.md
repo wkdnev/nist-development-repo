@@ -336,10 +336,12 @@ PM is inherited from \<Organisation\>'s programme and is not assessed for \<Syst
 | --- | --- | --- | --- | --- |
 | INT-PS-01 | \<Organisation\>'s HR | What screening is done before someone starts, and when is it repeated? | PS-02b, PS-03 | EV-PS-01 |
 | INT-PS-02 | Data Owner, with the system owner | Show me the last leaver and the last mover. When were you told, and when were the Active Directory account disabled, the group memberships changed and the PingFederate sign-in ended? | PS-04, PS-05 | TPL-14 and audit records |
-| INT-PS-03 | System owner | Show me the signed agreement for a sample of people | PS-06 | Signed agreements |
+| INT-PS-03 | System owner | Show me the signed agreements for a sample of people, and how you check them before access is given | PS-06 | TPL-21, the register of signatures and the personnel security register |
 | INT-PS-04 | \<Organisation\>'s HR | How are exit interviews and disciplinary action handled, and do job descriptions state security duties? | PS-04c, PS-08, PS-09 | EV-PS-02 |
 | INT-PS-05 | System owner | How do you check that external people meet their contract terms? | PS-07 | EV-PS-03 |
 | INT-PS-06 | A line manager | When one of your people changes role or leaves, whom do you tell, how, and how quickly? | PS-04, PS-05 | TPL-14 |
+| INT-PS-07 | System owner | How was each role's risk designation decided, when were they last reviewed, and how do you know when someone in a higher risk role is due to be rescreened? | PS-02, PS-03b | \<Personnel Security Management\>, Table 1; TPL-3; the personnel security register |
+| INT-PS-08 | System owner | When were you last told of a supplier's leaver or mover, or of a sanctions process, and what did you do? | PS-07d, PS-08b | TPL-16; TPL-14 |
 
 ## 17 Personally Identifiable Information (PT)
 

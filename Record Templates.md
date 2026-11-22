@@ -12,25 +12,25 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | --- | --- | --- |
 | TPL-1 Risk acceptance | Records a decision to accept a non-compliance | Any NC entry, in any family; PRO-AC-15, PRO-AC-17 |
 | TPL-2 Access request | Records a request, its approval by the line manager and its authorisation by the group's owner before access changes. The ServiceNow access approval workflow is where requests are made, and the closed ServiceNow request is this record and must hold these fields | AC-2c, AC-2e, AC-6(5); PRO-AC-1, PRO-AC-2, PRO-AC-5, PRO-AC-6; IA-4, CM-5, PS-3; PRO-PS-1 |
-| TPL-3 Access review | Records a periodic review of accounts or privileges, checked against the ServiceNow requests, and the yearly review of functions, ports and installed software | AC-2j, AC-2(3), AC-6(7); PRO-AC-7, PRO-AC-8; CM-7(1), CM-11, SC-7(4), CA-3, CA-9; PRO-CM-5; PS-2, PS-6; PRO-PS-4 |
+| TPL-3 Access review | Records a periodic review of accounts or privileges, checked against the ServiceNow requests, and the yearly review of functions, ports and installed software | AC-2j, AC-2(3), AC-6(7); PRO-AC-7, PRO-AC-8; CM-7(1), CM-11, SC-7(4), CA-3, CA-9; PRO-CM-5; PS-2, PS-3, PS-6; PRO-PS-4 |
 | TPL-4 Procedure walk-through | Shows that a procedure was tried and works | Every policy control (XX-1); AC-2f; every procedure |
 | TPL-5 Approved access list | Lists everyone with access to \<System Name\>'s information or the components that hold it, each with the approval behind it, as CM-12 requires: the members of its AD groups, with their ServiceNow requests (TPL-2), which stay the approved record of each grant; the Windows server and database administrators; and \<Organisation\>'s staff with access to the hosts and backups. Approved by the system owner before real data is held and at each yearly baseline review | CM-12; PRO-CM-2 |
 | TPL-6 Change record | Records a change, its impact, testing and approval. Where the change is recorded in ServiceNow, the ServiceNow record is this record and must hold these fields | CM-3, CM-3(2), CM-4, CM-4(2), CM-6, CM-8(1), SI-2, IA-5, IA-5(1), IA-5(6); PRO-CM-1, PRO-CM-3, PRO-CM-8, PRO-IA-4, PRO-IA-5 |
 | TPL-7 Vulnerability and patch review | Records a scan or package check, what was found, and when it was fixed | SI-2, SI-2(2), SI-5, RA-5, RA-5(5); PRO-SI-1, PRO-SI-5, PRO-RA-3, PRO-RA-4, PRO-RA-5, PRO-CM-4 |
 | TPL-8 Monitoring and integrity report | Records log reviews, integrity checks, audit storage, archive and time checks, configuration drift, unauthorised components, the monthly measures with threshold actions and trend, the privacy status to the legal adviser and the quarterly report to the authorising official | AU-4, AU-6, AU-8, AU-9, AU-11, SI-4, SI-7(1), CA-7, CM-6, CM-8(3); PRO-AU-1 to PRO-AU-4, PRO-AU-7, PRO-SI-3, PRO-SI-4, PRO-SI-6, PRO-CA-5, PRO-CM-6, PRO-CM-7 |
 | TPL-9 Training record | Records who was trained, on what and when. Kept for 3 years | AT-2, AT-3, AT-3(5), AT-4, IR-2, CP-3, PL-4; PRO-AT-1, PRO-AT-2 and PRO-AT-4 |
-| TPL-10 Incident record | Records an incident from report to lessons. Where the incident is recorded in ServiceNow, the ServiceNow record is this record and must hold these fields | IR-4, IR-5, IR-6; PRO-IR-1, PRO-IR-2 |
+| TPL-10 Incident record | Records an incident from report to lessons. Where the incident is recorded in ServiceNow, the ServiceNow record is this record and must hold these fields | IR-4, IR-5, IR-6; PRO-IR-1, PRO-IR-2; PS-8; PRO-PS-6 |
 | TPL-11 Exercise and restore test | Records a tabletop exercise, restore test or activation as an after-action report, the result and the actions | IR-3, IR-3(2), CP-4, CP-4(1), CP-9(1); PRO-IR-3, PRO-CP-2, PRO-CP-4 |
 | TPL-12 Maintenance record | Records maintenance, who did it and the check afterwards. Kept for 3 years | MA-2, MA-3, MA-3(3), MA-4, MA-5; PRO-MA-1 to PRO-MA-7 |
 | TPL-13 Media record | Records media transport, sanitising, ownerless devices and the yearly certificate check. Kept for 3 years (P-69) | MP-5, MP-6, MP-7; PRO-MP-1 to PRO-MP-4 |
 | TPL-14 Leaver or mover record | Records what happened to someone's access when they left or moved. Kept for 3 years | AC-2; PS-4, PS-5; PRO-PS-2, PRO-PS-3 |
 | TPL-15 Privacy request | Records a request from an individual about their data: to see, correct, delete, restrict, object or receive it in a portable form. Kept for 3 years after it is closed | AC-3(14); SI-18(4); PRO-PT-1 |
-| TPL-16 Supplier review | Records a yearly review of a supplier or external service | SA-9, SR-2, SR-6, SR-8; PRO-SA-3, PRO-SR-2 |
+| TPL-16 Supplier review | Records a yearly review of a supplier or external service | SA-9, SR-2, SR-6, SR-8; PRO-SA-3, PRO-SR-2; PS-7; PRO-PS-5 |
 | TPL-17 Exception request | Records a request to depart from a rule in \<Security Operating Procedures\>, the decision and its end date. The approved requests form the exception register | AC-20, AC-20(2); PRO-AC-15; PL-4, CM-2(7), MP-7, PE-17; \<Security Operating Procedures\>, section 5 |
 | TPL-18 Authorisation decision | Records the authorising official's decision, its terms and conditions, the package received, the risks and inherited controls accepted, reliance on \<Organisation\>'s programme for the PM controls, and its end date | CA-6; PRO-CA-4, PRO-CA-7 |
 | TPL-19 Assessor independence statement | Records an assessor's confirmation that they had no part in designing, building, running or administering \<System Name\>, no reporting line to it and any other interest, with the authorising official's acceptance | CA-2(1), CA-7(1); PRO-CA-1, PRO-CA-5 |
 | TPL-20 Site inspection checklist | Records a one-off inspection of a data centre's physical and environmental controls | PE-2 to PE-16; PRO-PE-5 |
-| TPL-21 Rules of behaviour acknowledgement | Records that a person has signed the rules of behaviour, which version and parts, and how. Kept while the person has access, and for 3 years after | AC-2; PL-4, PL-4(1), PS-6; PRO-PL-3 |
+| TPL-21 Rules of behaviour acknowledgement | Records that a person has signed the rules of behaviour, which version and parts, and how. Kept while the person has access, and for 3 years after | AC-2; PL-4, PL-4(1), PS-6; PRO-PL-3, PRO-PS-1, PRO-PS-4 |
 | TPL-22 Data protection complaint | Records a complaint about how personal data is handled, its acknowledgement within 30 days, the investigation and the outcome. Kept for 3 years after it is closed | PT-2, PM-26; PRO-PT-2 |
 | TPL-23 Risk and supply chain review | Records a review of the risk list, the supply chain or the critical components: what was looked at, what changed, and who saw the result | RA-3, RA-3(1), RA-7, RA-9; PRO-RA-1, PRO-RA-2, PRO-RA-6 |
 | TPL-24 Approval sign-off record | Records that a named person made or confirms the decisions listed, so that an approval does not rest on someone else's report | AC-1; CA-6, PL-2, PM-10 and every policy control (xx-1); \<Decision Register\>, section 5 |
@@ -70,8 +70,9 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | Type: new, change or removal |  |
 | Role or schema, and the AD group: a role group or the schema's read or edit group |  |
 | Reason and intended use |  |
-| Prerequisites met, such as the signed rules of behaviour (TPL-21, checked against the register of signatures in \<Planning Management\>, section 3.5) |  |
-| Screening confirmed by \<Organisation\>: by whom, and the date only (\<Procedures\>, PRO-PS-1) |  |
+| Prerequisites met, such as the signed rules of behaviour (TPL-21, checked against the register of signatures in \<Planning Management\>, section 3.5), the signed confidentiality agreement and the role's training |  |
+| The role's risk designation (\<Personnel Security Management\>, section 3.2) |  |
+| Screening confirmed by \<Organisation\>: by whom, and the date only; for a higher risk role, done or repeated within the last 5 years (\<Procedures\>, PRO-PS-1) |  |
 | Requested by and date |  |
 | Approved by the line manager (name), decision and date |  |
 | Authorised by the group's owner (name and role: the system owner for a role group, or the schema's Data Owner for a schema group), decision and date |  |
@@ -94,7 +95,7 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | Accounts confirmed, changed and removed |  |
 | Members who have not signed in for 90 days, from the last sign-in report run by the security officer (FR-085), and removed (\<Procedures\>, PRO-AC-8) |  |
 | Any temporary, emergency, shared or privileged account found in a schema group (none expected: P-39, P-36, P-45) |  |
-| For a review of risk designations and access agreements (\<Procedures\>, PRO-PS-4): roles checked against \<Roles and Responsibilities\>, designations changed, and agreements reviewed |  |
+| For a review of risk designations and access agreements (\<Procedures\>, PRO-PS-4): roles checked against \<Roles and Responsibilities\>, designations changed, agreements reviewed, and rescreening falling due within 12 months asked for |  |
 | Reviewer is not reviewing their own access (yes or no) |  |
 | Actions completed, by and date |  |
 | Signed off, and date: the Data Owner for a schema's groups; for the role groups, prepared by the system owner and checked and signed by the auditor; for Windows and SQL Server, the system owner and the security officer |  |
@@ -325,8 +326,9 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | Service secrets the person knew changed (\<Procedures\>, PRO-IA-4): by, and date |  |
 | Exported files and printouts recovered or destroyed: confirmed by |  |
 | Items the person managed still available in their schemas: confirmed by |  |
+| For a mover: the new role and its designation, the new role's training completed, and, for a higher risk role, rescreening confirmed before access, with dates |  |
 | Rescreening needed: yes or no |  |
-| Exit interview and equipment confirmed by \<Organisation\>: date |  |
+| Exit interview, covering continuing confidentiality duties and the return of equipment, and equipment recovered, confirmed by \<Organisation\>: date |  |
 
 ### 2.15 TPL-15 Privacy request
 
@@ -362,6 +364,7 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | Result, and risks raised in \<Risk List\> |  |
 | How it builds and protects what it supplies (NCSC supply chain principles; the Code of Practice self-assessment, if it offers one) |  |
 | How it reports a compromise or vulnerability, and whether its notices reached the security officer |  |
+| For a supplier whose people hold a \<System Name\> role (PS-7): their screening and signed agreements before access, and whether its notices of movers and leavers reached the system owner within 1 working day |  |
 | For an open-source supplier: published security policy, maintainer activity and advisory history |  |
 | Reviewed by, and date |  |
 
@@ -453,7 +456,7 @@ Completed for each person before access, every 12 months, and after a material c
 | Record number |  |
 | Name and role |  |
 | Parts signed: A only, or A and B (the privileged users in \<Security Operating Procedures\>, Table 1) |  |
-| Declaration signed: the wording for each part in \<Security Operating Procedures\>, section 9, including, for Part A, consent to the monitoring in rules A6 to A8 |  |
+| Declaration signed: the wording for each part in \<Security Operating Procedures\>, section 9, including, for Part A, consent to the monitoring in rules A6 to A8 and confirmation of the confidentiality agreement |  |
 | \<Security Operating Procedures\> version signed |  |
 | Reason: before access, yearly, or after a material change (which version) |  |
 | Method: signed on paper, or electronic signature (system and reference) |  |

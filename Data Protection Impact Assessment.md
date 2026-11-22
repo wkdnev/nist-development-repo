@@ -42,6 +42,7 @@ The facts about \<System Name\> are filled in from the design documents. Everyth
 | Names and contact details in items | \[For example, legitimate interests\] | Not applicable | Not applicable | No |
 | Names from sign-in through PingFederate, and groups read from Active Directory | \[For example, legitimate interests\] | Not applicable | Not applicable | No |
 | Audit records and logs | \[For example, legal obligation or legitimate interests\] | Not applicable | Not applicable | No |
+| Personnel security records of people with access: dates of screening confirmation and agreements, and leaver and mover records, with no screening result or criminal record data (\<Policy\> (PS), R4) | \[For example, legitimate interests or contract\] | Not applicable | Not applicable | No |
 
 Consent is not used, because employees cannot freely refuse their employer, as the ICO's employment records guidance advises.
 

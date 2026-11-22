@@ -2017,19 +2017,20 @@ There is one finding for each CSS determination statement, including those about
 | Scope | The 9 PS entries in the Moderate baseline, with 68 determination statements |
 | Procedures | CSS, using the CSS published statements and identifiers (catalog release 5.2.0) |
 | Dates | \[Dates of the assessment\] |
-| Examine | \<Policy\> (PS), \<Procedures\> (PS) and \<Personnel Security Management\>; \<Roles and Responsibilities\>; \<Security Operating Procedures\>, sections 4.4 and 9; \<Procedures\>, PRO-AC-3 and PRO-AC-4. Depth: focused. Coverage: focused |
+| Examine | \<Policy\> (PS), \<Procedures\> (PS) and \<Personnel Security Management\>; \<System Description\>, P-06, P-41, P-71 and P-72; \<Decision Register\>, D-PS-01, D-PS-02 and D-PS-P72; \<Roles and Responsibilities\>; \<Security Operating Procedures\>, sections 4.4 and 9; \<Procedures\>, PRO-AC-3 and PRO-AC-4; \<Record Templates\>, TPL-2, TPL-3, TPL-14, TPL-16 and TPL-21. Depth: focused. Coverage: focused |
 | Test | Not applicable to this family. Test-PlanConsistency.ps1 checks that every role has a risk designation (the PL evidence) |
-| Interview | The system owner, an administrator, a Data Owner, a line manager and \<Organisation\>'s HR (INT-PS-01 to INT-PS-06) |
+| Interview | The system owner, a Data Owner, a line manager and \<Organisation\>'s HR (INT-PS-01 to INT-PS-08) |
 | Boundary | \<System Name\>'s own designations, agreements, time limits and register. \<Organisation\>'s screening, HR and disciplinary processes are provider evidence (EV-PS-01 to EV-PS-03) |
 | Order of assessment | A, designations (PS-2); B, screening (PS-3); C, agreements (PS-6); D, leavers and movers (PS-4, PS-5); E, external people (PS-7); F, sanctions and role descriptions (PS-8, PS-9); G, policy (PS-1) |
 | Needed from providers | EV-PS-01, EV-PS-02 and EV-PS-03 in \<Evidence Requests\> |
-| Evidence retained | TPL-2, TPL-14 and TPL-21 records; the personnel security register in \<Personnel Security Management\>, section 3.9; the PL evidence |
+| Evidence retained | TPL-2, TPL-3, TPL-14, TPL-16 and TPL-21 records; the personnel security register in \<Personnel Security Management\>, section 3.9; the PL evidence |
 | Notes | This family has no code to test: the leaver and mover route depends on \<Organisation\>'s starters and leavers process, the Active Directory account and ServiceNow, and is assessed by following a leaver and a mover. Test-PlanConsistency.ps1 checks that every role has a risk designation (the PL evidence). |
 
 For the Level 2 assessment, the assessor should:
 
 - sample people with access against the personnel security register, TPL-2 and the signed agreements;
-- follow one leaver and one mover from notice to TPL-14, and compare the times with the audit records;
+- follow one leaver, one higher-risk leaver or urgent disable, and one mover from notice to TPL-14, and compare the times with the audit records and P-06, P-41 and P-72;
+- check that everyone in a higher risk role was screened or rescreened within the last 5 years;
 - examine EV-PS-01 to EV-PS-03;
 - hold the interviews, and re-determine every statement in section PS.3.
 
