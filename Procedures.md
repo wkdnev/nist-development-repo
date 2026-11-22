@@ -681,7 +681,7 @@ These procedures carry out \<Policy\> (CP) and \<Contingency Planning Management
 
 #### PRO-CP-3 Recovering
 
-1. The Windows server administrator confirms with \<Organisation\> that the site, network and services are available, at the second site if the main one is lost, including PingFederate and the firewall rules for flows F1 to F11. **Manual**
+1. The Windows server administrator confirms with \<Organisation\> that the site, network and services are available, at the second site if the main one is lost, including PingFederate, the firewall rules for flows F1 to F11, and DNS, the domain controllers and the certificate authority (\<System and Communications Protection Management\>, section 3.2, rules O8 to O10). **Manual**
 2. They rebuild the database VM to the baseline in \<Configuration Management\>, sections 3.4 and 3.6, and the database administrator restores its server-level settings, checked against the latest system-level backup: the API's login, SQL Server Audit and the backup jobs. **Manual**
 3. The administrators restore the secrets from their protected copy. The database administrator first restores the backup encryption certificate and its private key into SQL Server, with any retired certificate the chosen backup needs. **Manual**
 4. The database administrator restores the latest good backup and applies the archived transaction logs to the last consistent point. If a backup fails the checks in PRO-CP-2, they use the one before it.
@@ -1423,8 +1423,8 @@ These procedures carry out \<Policy\> (SC). The values, cryptographic register a
 
 | Procedure | When | Who | Record |
 | --- | --- | --- | --- |
-| PRO-SC-1 Setting up and checking TLS | When a VM is built, at each release, and every 12 months | Windows server administrator, database administrator, developers | TPL-6, TPL-8 |
-| PRO-SC-2 Managing certificates | At issue, 30 days before expiry, and on compromise | Windows server administrator | TPL-6 |
+| PRO-SC-1 Setting up and checking TLS | When a VM is built, at each release on the test system, and every 12 months | Windows server administrator, database administrator, developers | TPL-6, TPL-8 |
+| PRO-SC-2 Managing certificates | At issue, 30 days before expiry, on compromise, and when a VM is built for its trust stores | Windows server administrator | TPL-6 |
 | PRO-SC-3 Changing keys | At each key's cryptoperiod, when a holder leaves, and on suspected compromise | Windows server administrator, developers | TPL-6 |
 | PRO-SC-4 Changing the boundary | Before a new flow, port, service or listening address | System owner, Windows server administrator | TPL-6, TPL-17 |
 | PRO-SC-5 Checking page code | At each release | Developers | TPL-8 |
@@ -1439,24 +1439,25 @@ These procedures carry out \<Policy\> (SC). The values, cryptographic register a
 1. The Windows server administrator installs the certificates (PRO-SC-2) and configures the apps to serve HTTPS only, with TLS 1.3 preferred, TLS 1.2 limited to NCSC's GCM profiles, and SSL, TLS 1.0, TLS 1.1, compression and 0-RTT off (\<System and Communications Protection Management\>, section 3.3).
 2. Developers make sure each app redirects HTTP, sends HSTS for at least 1 year, marks every cookie Secure, and calls API on the loopback address over HTTPS.
 3. The database administrator sets SQL Server to strict encryption, with TLS 1.2 or later on TCP 1433, and to accept connections only from the application server. The API connects with Windows authentication, with full certificate and server name checking.
-4. Developers run Test-Protection.ps1 against the VMs, and an outside TLS check against the web address, and file the results on TPL-8. **Manual**
+4. At each release, developers run Test-Protection.ps1 on the throwaway test system built from the release. When a VM is built and every 12 months, the Windows server administrator runs it against the VMs, with an outside TLS check against the web address. Each files the results on TPL-8. **Manual**
 
 #### PRO-SC-2 Managing certificates
 
 1. The Windows server administrator requests each certificate from \<Organisation\>'s certificate authority, using ECDSA P-256 or RSA 2048-bit with SHA-256, and records it in the register. **Manual**
 2. Renewal starts 30 days before expiry (\<Security Operating Procedures\>, C39), and the new certificate is installed through change control. **Manual**
-3. A certificate whose key may be compromised is revoked and replaced at once, and the event is handled as an incident. **Manual**
+3. A certificate whose key may be compromised is revoked and replaced at once, and the event is handled as an incident. A replaced certificate's private key is deleted from the server. **Manual**
+4. When a VM is built, the Windows server administrator sets its trusted root and intermediate stores to \<Organisation\>'s approved trust anchors (EV-SC-04), turning off Windows' automatic root update unless that list includes Microsoft's root programme, and records the list on TPL-6. The stores are checked against the list at each yearly review (PRO-SC-8). **Manual**
 
 #### PRO-SC-3 Changing keys
 
-1. The register lists each key's cryptoperiod. When one is due, when a holder leaves, or when compromise is suspected, the owner changes the key and records the date, never the value, on TPL-6. **Manual**
+1. The register lists each key's cryptoperiod. When one is due, when a holder leaves, or when compromise is suspected, the owner changes the key and records the date, never the value, on TPL-6. The old key is deleted from its store once nothing needs it, except where the register keeps it (retired audit chain keys, and backup encryption certificates until their last backup is gone). **Manual**
 2. The token signing key, the audit chain key and the OpenID Connect client credential are held only in the key store, never in source code or settings files.
 3. Each app keeps its data protection key ring in its own folder, readable only by its service account and protected with Windows DPAPI at machine level. The folder is not backed up, as the key ring cannot be read on a rebuilt server: if it is lost, users simply sign in again (\<Contingency Planning Management\>, section 3.3.4). Old keys are kept until every cookie they protected has expired, except when a key ring may be exposed or every sign-in must end at once: then the Windows server administrator revokes every key in the ring, not only adds a new one, as old keys still read existing cookies, and records it on TPL-6. **Manual**
 
 #### PRO-SC-4 Changing the boundary
 
 1. Anyone needing a new flow, port, external service or listening address raises a change on TPL-6, with its business need. **Manual**
-2. The system owner approves it, updates \<System Security Plan\>, section 3.7, \<System Description\>, section 6.5, and the allow-lists in \<System and Communications Protection Management\>, section 3.2, before the rule is made. **Manual**
+2. The system owner approves it, updates \<System Security Plan\>, section 3.7, \<System Description\>, section 6.5, and the allow-lists in \<System and Communications Protection Management\>, section 3.2, and, for an external exchange, the interface record in \<Assessment, Authorization, and Monitoring Management\>, Table 6 (PRO-CA-2), before the rule is made. **Manual**
 3. A temporary exception is recorded on TPL-17, with an end date, and removed when no longer needed. **Manual**
 4. The Windows server administrator applies the host firewall rule, and \<Organisation\> applies any network rule.
 
@@ -1464,7 +1465,7 @@ These procedures carry out \<Policy\> (SC). The values, cryptographic register a
 
 1. Developers serve every script and style from \<System Name\> itself.
 2. Each app sends its security headers, with the page policy in \<System and Communications Protection Management\>, section 3.5.
-3. At each release, developers run Test-Protection.ps1 (N04, N05, N10) and file the result on TPL-8. Any new mobile code needs the system owner's approval first. **Manual**
+3. At each release, developers run Test-Protection.ps1 (N04, N05, N10) on the throwaway test system and file the result on TPL-8. Any new mobile code, including any that needs WebAssembly, needs the system owner's approval and a change to the page policy first. **Manual**
 
 #### PRO-SC-6 Responding to denial of service
 
@@ -1479,7 +1480,7 @@ These procedures carry out \<Policy\> (SC). The values, cryptographic register a
 
 #### PRO-SC-8 Reviewing the register and boundary
 
-1. Every 12 months the system owner, the security officer and \<Organisation\>'s security contact review the cryptographic register, the allow-lists, the external services and any exceptions, and record the result on TPL-23. **Manual**
+1. Every 12 months the system owner, the security officer and \<Organisation\>'s security contact review the cryptographic register, the allow-lists, the external services, each VM's trust stores against \<Organisation\>'s approved trust anchors, and any exceptions, removing those no longer needed, and record the result on TPL-23. **Manual**
 2. Keys or certificates near the end of their cryptoperiod, and algorithms that NCSC no longer recommends, are scheduled for change. **Manual**
 
 ## SI System and Information Integrity

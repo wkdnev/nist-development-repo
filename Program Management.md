@@ -36,7 +36,7 @@ CSS places 24 of the PM controls in its privacy baseline, which \<System Name\> 
 | Not applicable: rests on United States law | PM-17, PM-24 | 2 | TR-PM-01 |
 | System, hybrid or organisational | None | 0 | None |
 
-**How PM is counted.** The 316 controls in \<System Security Plan\>, section 5, are the 287 of the Moderate baseline and the 29 of the privacy baseline outside it and outside PM. The 24 PM controls of the privacy baseline, and the 13 other PM controls, are not among the 316, and none is among the 66 inherited controls listed in \<Assessment, Authorization, and Monitoring Management\>, section 3.6. Those 66 are system controls that \<Organisation\> provides for \<System Name\>; the PM controls are \<Organisation\>'s programme, which every system relies on.
+**How PM is counted.** The 316 controls in \<System Security Plan\>, section 5, are the 287 of the Moderate baseline and the 29 of the privacy baseline outside it and outside PM. The 24 PM controls of the privacy baseline, and the 13 other PM controls, are not among the 316, and none is among the 62 inherited controls listed in \<Assessment, Authorization, and Monitoring Management\>, section 3.6. Those 62 are system controls that \<Organisation\> provides for \<System Name\>; the PM controls are \<Organisation\>'s programme, which every system relies on.
 
 Two roles rest with other people. The Head of Cyber is the senior information security officer, and confirms that \<System Name\>'s risk thresholds fit \<Organisation\>'s risk appetite. The legal adviser names the data protection officer, or records why none is required. The authorising official approves the treatment in Table 2 (TR-PM-01; \<Decision Register\>, D-PM-01).
 
@@ -92,7 +92,7 @@ Each PM control is listed with who provides it, which \<System Name\> controls r
 | PM-7(1) Offloading | \<Organisation\> | PL-8, SA-8 | None | EV-PL-01 | No |
 | PM-8 Critical Infrastructure Plan | \<Organisation\> | CP-2 | None; \<System Name\> is not critical infrastructure | EV-PM-01 | Yes |
 | PM-9 Risk Management Strategy | \<Organisation\>, Head of Cyber | RA-3, CA-5, CA-6 | Decision rules in \<Risk List\>, section 4.2, set to fit the risk appetite | EV-PM-01 | Yes |
-| PM-10 Authorization Process | \<Organisation\> | CA-6 | TPL-18, on which the authorising official accepts the 66 inherited controls and, as one line, reliance on this programme for the 35 inherited PM controls (\<Assessment, Authorization, and Monitoring Management\>, section 3.5; PRO-CA-7) | EV-PM-03 | Yes |
+| PM-10 Authorization Process | \<Organisation\> | CA-6 | TPL-18, on which the authorising official accepts the 62 inherited controls and, as one line, reliance on this programme for the 35 inherited PM controls (\<Assessment, Authorization, and Monitoring Management\>, section 3.5; PRO-CA-7) | EV-PM-03 | Yes |
 | PM-11 Mission and Business Process Definition | \<Organisation\> | CP-2, RA-2 | \<Concept of Operations\>; business impact in \<Contingency Planning Management\> | EV-PM-01 | Yes |
 | PM-12 Insider Threat Program | \<Organisation\> | AU-6, PS-3 | Audit records and reviews; the playbook for bulk export misuse (\<Incident Response Management\>, section 3.9) | EV-PM-01 | No |
 | PM-13 Security and Privacy Workforce | \<Organisation\> | AT-2, AT-3 | The role curriculum in \<Awareness and Training Management\>, and TPL-9 training records | EV-PM-01 | Yes |

@@ -103,7 +103,7 @@ The scanner must:
 1. scan both servers with an account approved for scanning, so that the scan sees what an administrator sees (RA-5(5));
 2. update its definitions before each scan (RA-5(2));
 3. name each platform and flaw by a standard identifier, CPE and CVE, and rate each flaw by CVSS, so that its results and the package check's can be compared and measured the same way (RA-5b.1 and b.3);
-4. find ports, protocols and services that should not be reachable, against the allowed flows F1 to F11 in \<System Description\>, section 6.5, and \<Access Control Management\>, section 3.6;
+4. find ports, protocols and services that should not be reachable, against the allowed flows F1 to F11 in \<System Description\>, section 6.5, \<Access Control Management\>, section 3.6, and the host firewall rules in \<System and Communications Protection Management\>, section 3.2;
 5. scan \<System Name\>'s three applications at each release, as this section sets out.
 
 Items 4 and 5 come from the CSS guidance on RA-5.

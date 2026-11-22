@@ -2666,13 +2666,13 @@ There is one finding for each CSS determination statement, including those about
 | Test | Test-Protection.ps1, on a throwaway test stack built from the release (the SC evidence), and checks by hand |
 | Interview | The Windows server administrator, database administrator, developers and \<Organisation\>'s security contact |
 | Previous results reused | \[Results reused from other chapters, if any\] |
-| Boundary | \<System Name\>'s UI application, Admin application, API, SQL Server database, keys and the two VMs, and flows F1 to F8, F10 and F11 in \<System Description\>, section 6.5. \<Organisation\>'s network, VPN, proxy, DNS and certificate authority are provider evidence (EV-SC-01 to EV-SC-05) |
-| Order of assessment | A, transport and the authenticity of connections (SC-8, SC-8(1), SC-23); B, keys and cryptography (SC-12, SC-13); C, page code (SC-18); D, boundary (SC-7 and enhancements); E, data at rest (SC-28); F, inherited services (SC-17, SC-20 to SC-22, SC-39); G, policy (SC-1) |
-| Needed from providers | EV-SC-01 to EV-SC-05 and EV-AC-03 in \<Evidence Requests\> |
+| Boundary | \<System Name\>'s UI application, Admin application, API, SQL Server database, keys and the two VMs, and flows F1 to F8, F10 and F11 in \<System Description\>, section 6.5, with the infrastructure and scanning rules on the VMs. \<Organisation\>'s network, VPN, proxy, DNS, certificate authority and hypervisor are provider evidence (EV-SC-01 to EV-SC-05, EV-GEN-03) |
+| Order of assessment | A, transport, network disconnect and the authenticity of connections (SC-8, SC-8(1), SC-10, SC-23); B, keys, cryptography and certificates (SC-12, SC-13, SC-17); C, page code (SC-18); D, boundary and separation (SC-2, SC-7 and its enhancements); E, data at rest (SC-28, SC-28(1)); F, the servers' own protections (SC-4, SC-5, SC-39); G, \<Organisation\>'s name resolution (SC-20 to SC-22); H, policy (SC-1); SC-15 by its tailoring (TR-SC-01) |
+| Needed from providers | EV-SC-01 to EV-SC-05, EV-AC-03, EV-GEN-03 and EV-IA-04 in \<Evidence Requests\> |
 | Evidence retained | The SC evidence (results, README and MANIFEST); the SC and CM evidence; completed TPL-6, TPL-8, TPL-11 and TPL-23 records |
 | Notes | The test is Test-Protection.ps1, run against a throwaway test stack built from the release. It sends requests to the web addresses, runs read-only queries in the database, and reads the code and settings, printing counts and lengths only. |
 
-For the Level 2 assessment, the assessor should run Test-Protection.ps1 against the VMs, run an outside TLS scan of the web address, check the host firewall rules against \<System and Communications Protection Management\>, section 3.2, confirm BitLocker and the key ring protection, hold the interviews, and re-determine every statement in section SC.3.
+For the Level 2 assessment, the assessor should run Test-Protection.ps1 against the VMs, run an outside TLS scan of the web address, check the host firewall rules against \<System and Communications Protection Management\>, section 3.2, check each VM's trust stores against \<Organisation\>'s approved trust anchors, confirm BitLocker and the key ring protection, hold the interviews, and re-determine every statement in section SC.3.
 
 ## SI System and Information Integrity
 

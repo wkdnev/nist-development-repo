@@ -55,7 +55,7 @@ The requests go to \<Organisation\> as one pack, with this covering note.
 | --- | --- | --- |
 | EV-GEN-01 | \[Name\] is the security contact; \[Name\] is the deputy | Name, role and contact details |
 | EV-GEN-02 | Cyber Essentials Plus status and scope | Current certificate, with a statement of whether the scope includes the two VMs and their hosting |
-| EV-GEN-03 | The VM hosting service | Service description, who administers the hypervisor and physical hosts, and where they are |
+| EV-GEN-03 | The VM hosting service | Service description, who administers the hypervisor and physical hosts, and where they are; how the hypervisor keeps each VM's memory and disks apart from other VMs and clears them before reuse (SC-4) |
 | EV-GEN-04 | The \<Organisation\> policies that apply to \<System Name\> | A list with owners and versions, and copies of the relevant sections |
 | EV-GEN-05 | Any CSS-based control statements \<Organisation\> already holds | Existing common control or responsibility documents, or confirmation that none exists |
 
@@ -302,9 +302,9 @@ PM is not among \<System Name\>'s 316 controls (TR-PM-01), but \<System Name\> i
 | ID | Control | What we need to know | Evidence to provide |
 | --- | --- | --- | --- |
 | EV-SC-01 | SC-5, SC-10 | Denial-of-service protection, and network session disconnect | Service description and settings |
-| EV-SC-02 | SC-7, SC-7(3), SC-7(4) | Managed interfaces, external connections, flow policy and exceptions | Network diagram, rule set and exception list; the address ranges and ports needed to complete the host firewall allow-lists in \<System and Communications Protection Management\>, section 3.2 |
-| EV-SC-03 | SC-7(7), SC-7(8) | Split tunnelling, and the authenticated proxy for the VMs | VPN and proxy configuration |
-| EV-SC-04 | SC-17 | The certificate policy and trust anchors | Certificate policy and trust store list; the certificate authority's chain, the key types and lifetimes it issues (ECDSA P-256 or RSA 2048 with SHA-256 needed), and how to request and revoke a certificate |
+| EV-SC-02 | SC-7, SC-7(3), SC-7(4) | Managed interfaces, external connections, flow policy and exceptions | Network diagram, rule set and exception list; the address ranges and ports needed to complete the host firewall allow-lists in \<System and Communications Protection Management\>, section 3.2, including the DNS resolvers and the domain controllers' ports (rules O8 and O9); how control plane traffic is prevented, filtered and published |
+| EV-SC-03 | SC-7(7), SC-7(8) | Split tunnelling, and the authenticated proxy for the VMs: how the VMs authenticate to it, and that it passes only their updates to outside networks | VPN and proxy configuration; the proxy's rules for the two VMs |
+| EV-SC-04 | SC-17 | The certificate policy and trust anchors | Certificate policy and trust store list; the certificate authority's chain, the key types and lifetimes it issues (ECDSA P-256 or RSA 2048 with SHA-256 needed), and how to request and revoke a certificate; the addresses and ports of its revocation lists (rule O10) |
 | EV-SC-05 | SC-20, SC-21, SC-22 | DNS authentication, integrity, fault tolerance and role separation | DNS service description and settings |
 
 ## 21 System and Information Integrity (SI)

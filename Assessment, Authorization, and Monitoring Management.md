@@ -128,7 +128,7 @@ Controls met here: CA-6.
 
 Controls met here: CA-6.
 
-These 66 entries are provided wholly by \<Organisation\>, and the system owner relies on them (\<System Security Plan\>, section 7). The authorising official accepts them on TPL-18 before \<System Name\> operates, once \<Organisation\>'s evidence has been received (\<Evidence Requests\>). The system owner reviews the list every 12 months with \<Organisation\>'s security contact (PRO-CA-7). \<Organisation\>'s authorising official for its common controls authorises them for use, and \<System Name\> holds the record of that authorisation.
+These 62 entries are provided wholly by \<Organisation\>, and the system owner relies on them (\<System Security Plan\>, section 7). The authorising official accepts them on TPL-18 before \<System Name\> operates, once \<Organisation\>'s evidence has been received (\<Evidence Requests\>). The system owner reviews the list every 12 months with \<Organisation\>'s security contact (PRO-CA-7). \<Organisation\>'s authorising official for its common controls authorises them for use, and \<System Name\> holds the record of that authorisation.
 
 **Table 5: Inherited controls**
 
@@ -136,7 +136,7 @@ These 66 entries are provided wholly by \<Organisation\>, and the system owner r
 | --- | --- | --- |
 | AC | 9 | AC-7, AC-11, AC-11(1), AC-17(3), AC-18, AC-18(1), AC-18(3), AC-19, AC-19(5) |
 | IA | 8 | IA-3, IA-5(1), IA-6, IA-7, IA-12, IA-12(2), IA-12(3), IA-12(5) |
-| SC | 10 | SC-4, SC-7(3), SC-7(4), SC-7(7), SC-7(8), SC-17, SC-20, SC-21, SC-22, SC-39 |
+| SC | 6 | SC-7(3), SC-7(4), SC-7(7), SC-20, SC-21, SC-22 |
 | CM | 1 | CM-2(7) |
 | SI | 1 | SI-4(4) |
 | CP | 9 | CP-6, CP-6(1), CP-6(3), CP-7(1), CP-7(2), CP-7(3), CP-8, CP-8(1), CP-8(2) |
@@ -147,7 +147,7 @@ These 66 entries are provided wholly by \<Organisation\>, and the system owner r
 | PT | 2 | PT-5, PE-8(3) |
 | SA | 2 | SA-4, SA-9(2) |
 | SR | 4 | SR-8, SR-11(1), SR-11(2), SR-12 |
-| **Total** | **66** |  |
+| **Total** | **62** |  |
 
 The list matches the Inherited entries in \<System Security Plan\>, section 7. CP-7 is not on it: \<Organisation\> provides the second site, but \<System Name\>'s administrators rebuild the servers there, so it is shared (\<Contingency Planning Management\>, section 3.9). PE-8(3) is listed under PT, as in \<System Security Plan\>, Tables 8 and 23, because it is in the privacy baseline and assessed with PT.
 
@@ -258,7 +258,7 @@ Controls met here: CA-3, CA-6.
 
 | Provided | Controls | What \<System Name\> relies on | Evidence asked |
 | --- | --- | --- | --- |
-| An authorising official for its common controls, and their authorisation | CA-6 | The 66 inherited controls are authorised and working | EV-CA-01 |
+| An authorising official for its common controls, and their authorisation | CA-6 | The 62 inherited controls are authorised and working | EV-CA-01 |
 | The agreements for the exchanges | CA-3 | The owner of each service signs its row in Table 6: PingFederate and Active Directory, central logging, the time service, the backup site and the authenticated proxy, with the hosting and services agreement, if any, as support. ServiceNow and the starters and leavers process are \<Organisation\>'s services used by people, with no connection to \<System Name\> | EV-CA-02 |
 | Evidence for each inherited control | CA-6, and each control's own family | Each control's evidence request in \<Evidence Requests\> | By family |
 

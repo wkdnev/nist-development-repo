@@ -210,8 +210,8 @@ Controls met here: CM-7, CM-7(1).
 | Kind | Prohibited or restricted |
 | --- | --- |
 | Functions | Test pages, and any diagnostic not on the fixed list, in production; the interactive API documentation outside development; email or other outbound messages; any interface for other systems |
-| Ports | Everything except the flows in \<System Description\>, section 6.5: HTTPS on TCP 443 to the UI application; the Admin application over the administration route; the API on the loopback address only; SQL Server on TCP 1433 from the application server only; LDAPS on TCP 636 to Active Directory; HTTPS on TCP 443 from the application server to \<Organisation\>'s PingFederate (F10); server and database administration only over \<Organisation\>'s managed administration route (F11); and \<Organisation\>'s time, logging, proxy and backup services. The flows \<System Name\> asks \<Organisation\> to allow are in \<Access Control Management\>, section 3.6.4 |
-| Protocols | Everything except TLS-protected ones on those routes |
+| Ports | Everything except the flows in \<System Description\>, section 6.5: HTTPS on TCP 443 to the UI application; the Admin application over the administration route; the API on the loopback address only; SQL Server on TCP 1433 from the application server only; LDAPS on TCP 636 to Active Directory; HTTPS on TCP 443 from the application server to \<Organisation\>'s PingFederate (F10); server and database administration only over \<Organisation\>'s managed administration route (F11); \<Organisation\>'s time, logging, proxy and backup services; and the infrastructure, scanning and discovery traffic in \<System and Communications Protection Management\>, section 3.2 (rules O8 to O10, A4 and D3). The flows \<System Name\> asks \<Organisation\> to allow are in \<Access Control Management\>, section 3.6.4 |
+| Protocols | Everything except TLS-protected ones on those routes, NTP for time, and the DNS, domain and revocation list protocols of rules O8 to O10 |
 | Software | Anything not on the approved software list, and any package the applications do not use |
 | Services | Any Windows service not needed for those four things |
 

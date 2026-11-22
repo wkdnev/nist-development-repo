@@ -179,7 +179,7 @@ Controls met here: CP-2, CP-7, CP-10, CP-10(2).
 
 Recovery follows PRO-CP-3 in the order of recovery in section 3.3.3, at the second site if the main one is lost:
 
-1. Confirm \<Organisation\>'s services and the site are available, including PingFederate, without which nobody can sign in, and that the firewall allows every flow F1 to F11 in \<System Description\>, section 6.5, including the application server's route to PingFederate (flow F10) and the administrators' managed administration route (flow F11).
+1. Confirm \<Organisation\>'s services and the site are available, including PingFederate, without which nobody can sign in, and that the firewall allows every flow F1 to F11 in \<System Description\>, section 6.5, including the application server's route to PingFederate (flow F10) and the administrators' managed administration route (flow F11), and the infrastructure rules for DNS, the domain controllers and the certificate authority (\<System and Communications Protection Management\>, section 3.2).
 2. Rebuild the database VM to the baseline in \<Configuration Management\>, sections 3.4 and 3.6, including its server-level settings: the API's login, SQL Server Audit and the backup jobs. Check them against the latest system-level backup (section 3.8).
 3. Restore the secrets from their protected copy. First restore the backup encryption certificate and its private key into SQL Server, with any retired certificate that the chosen backup needs: without it the backup cannot be read.
 4. Restore the latest good backup, then apply the archived transaction logs up to the last consistent point (CP-10(2)). If a backup fails its checks, use the one before it.

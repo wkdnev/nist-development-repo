@@ -407,7 +407,7 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | Decision: authorised to operate, or not authorised |  |
 | Terms and conditions, for example items to fix by a date or limits on use |  |
 | Risks accepted, by \<Risk List\> entry |  |
-| Inherited controls accepted: the 66 in \<Assessment, Authorization, and Monitoring Management\>, section 3.6, each accepted or not |  |
+| Inherited controls accepted: the 62 in \<Assessment, Authorization, and Monitoring Management\>, section 3.6, each accepted or not |  |
 | Reliance on \<Organisation\>'s security and privacy programme accepted: the 35 inherited PM controls in \<Program Management\>, section 3.3, as a group, with any not yet evidenced named (EV-PM-01 to EV-PM-04, EV-PL-01) |  |
 | End date, no more than 12 months away |  |
 | Authorising official's name, signature and date |  |
@@ -506,7 +506,7 @@ Completed by the system owner for each review of the risk list, the supply chain
 | Acceptances checked against their review dates |  |
 | Components or suppliers added or removed |  |
 | Yearly review only: security and privacy costs raised in budgeting, and the amounts (SA-2) |  |
-| Cryptographic register and boundary review only: keys and certificates due for change, algorithms NCSC no longer recommends, allow-list rules and exceptions kept or removed (SC-7(4), SC-12, SC-13) |  |
+| Cryptographic register and boundary review only: keys and certificates due for change, algorithms NCSC no longer recommends, allow-list rules and exceptions kept or removed, each VM's trust stores against the approved trust anchors (SC-7(4), SC-12, SC-13, SC-17) |  |
 | Yearly review only: process, standards, tools and their settings in \<System and Services Acquisition Management\>, sections 3.2 and 3.10, reviewed against the security and privacy requirements, and changes (SA-15) |  |
 | Decisions needed, and from whom (\<Decision Register\>) |  |
 | Shared with the authorising official and Head of Cyber, and date |  |
