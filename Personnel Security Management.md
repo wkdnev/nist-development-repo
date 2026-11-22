@@ -35,7 +35,7 @@ Every role in \<Roles and Responsibilities\> has a designation. A role is higher
 
 | Role | Designation | Why |
 | --- | --- | --- |
-| System owner | Higher risk | Owns the five role groups, \<Code\>\_Admins, \<Code\>\_Auditors, \<Code\>\_Security, \<Code\>\_BusinessOwners and \<Code\>\_LegalSearch, and adds their members, so can give anyone privileged access; the Head of Cyber checks their own memberships each quarter |
+| System owner | Standard | Holds no privileged technical access, but owns the five role groups, \<Code\>\_Admins, \<Code\>\_Auditors, \<Code\>\_Security, \<Code\>\_BusinessOwners and \<Code\>\_LegalSearch, and adds their members. The safeguards are that nobody authorises their own access, the auditor checks and signs each role-group review, and the Head of Cyber checks the system owner's own memberships and the administrators' group each quarter (TPL-3; D-PS-01) |
 | Head of Cyber | Standard | Approves policies; no \<System Name\> account is needed |
 | Legal adviser | Standard | Advises and reviews; no privileged access |
 | Data protection officer | Standard | Advises; no privileged access |
@@ -55,7 +55,7 @@ Every role in \<Roles and Responsibilities\> has a designation. A role is higher
 | Developers | Higher risk | Change the code that handles every item, including personal data; hold no administrator access on the servers |
 | Reader | Standard | Searches and reads items in their own schemas |
 | Editor | Standard | Creates, uploads, manages and exports items within their own schemas |
-| Line manager | Standard | Requests access for others; no access of their own is implied |
+| Line manager | Standard | Approves their people's access requests in ServiceNow and reports movers and leavers; no access of their own is implied |
 
 A higher risk role adds two things to what every role needs. Screening is repeated before the role is granted and every 5 years (P-72). And when the holder leaves, their access is ended by the urgent route, not left to \<Organisation\>'s starters and leavers process: the service desk disables the Active Directory account within 1 hour of notice, and the system owner confirms that \<System Name\> refuses the person (Table 3; \<Procedures\>, PRO-AC-4). Every role, standard or higher risk, completes the training its row in \<Awareness and Training Management\>, Table 4, sets before taking the role. A deputy holds the designation of the role they cover (\<Roles and Responsibilities\>, section 5).
 
