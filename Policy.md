@@ -567,7 +567,7 @@ The rules in section 1.1 apply to this policy. It adds these.
 
 This policy sets the organisation's rules for maintaining \<System Name\>, in line with the CSS MA family (MA-1). It stands alone, as each family has its own policy. The settings, lists and routes that carry it out are in \<Maintenance Management\>, and the steps people follow are in \<Procedures\> (MA).
 
-It applies to the hardware and hypervisor, the two Windows Server 2025 VMs, SQL Server, the UI application, the Admin application and the API, including the diagnostics built into the Admin application. It applies to everyone who maintains them: administrators, developers, \<Organisation\>'s engineers and any supplier.
+It applies to the two Windows Server 2025 VMs, SQL Server, the UI application, the Admin application and the API, including the diagnostics built into the Admin application, and to everyone who maintains them: administrators, developers and any supplier. The hardware and hypervisor beneath the VMs are maintained by \<Organisation\>'s engineers under \<Organisation\>'s own process, which \<System Name\> inherits; rules R8 and R10 and section MA.6 say what \<System Name\> relies on from it.
 
 Maintenance means preventive and corrective work, repair and replacement, done on site or remotely. Fixing flaws (SI-2) and releasing new versions (CM-3) follow their own policies, but use the same change records.
 
@@ -584,17 +584,17 @@ Maintenance gives people powerful access, often at short notice. \<System Name\>
 
 ### MA.4 Mandatory requirements
 
-1. **R1 Change record:** all maintenance must be scheduled and approved in a change record before work starts. Emergency maintenance follows the emergency change rule and is recorded within 1 working day.
+1. **R1 Change record:** all maintenance of \<System Name\>'s components must be scheduled and approved by the change control board in a change record before work starts. The preventive schedule is approved once as a standing change, and reviewed every 12 months and whenever it changes. Emergency maintenance follows the emergency change rule: the system owner or their deputy approves it first, and it is recorded within 1 working day.
 2. **R2 Records:** every maintenance job must be recorded on TPL-12, with the fields set in \<Maintenance Management\>. The security officer reviews the records every month against the change records.
-3. **R3 Check afterwards:** after every job, the administrator must run the checklist in \<Procedures\> (MA), and the security officer must review and sign the result.
-4. **R4 Approved tools:** only tools on the approved list in \<Maintenance Management\> may be used. The list is reviewed every 12 months. Tools are inspected before use, and media holding diagnostic or test programs are scanned for malicious code first.
-5. **R5 Built-in maintenance functions:** the only maintenance function built into \<System Name\> is the fixed diagnostics page in the Admin application, which reads no item content and is used only by administrators. No page changes the database's structure: structure changes are scripts in a release, applied by the database administrator under an approved change record. No diagnostic or test page is included in a release.
-6. **R6 Remote (nonlocal) maintenance:** remote maintenance must use only the routes in \<Maintenance Management\>, with multi-factor sign-in, be logged, and be ended as soon as the work is finished. The Admin application must be reachable only through \<Organisation\>'s managed administration route, and server and database administration only from the administrators' managed devices over that route, with multi-factor authentication, using named accounts (F11).
-7. **R7 Maintenance people:** only people on the approved list may maintain \<System Name\> without an escort. They must be screened, have signed Part B of \<Security Operating Procedures\> and use a named account. Supplier accounts are temporary, limited to the job and disabled afterwards. Anyone else must be escorted and supervised by someone on the list.
-8. **R8 Equipment removal:** the system owner must approve removing any equipment, and it must be sanitised first.
+3. **R3 Check afterwards:** after every job, the administrator and the security officer must run the checklist in \<Procedures\> (MA), each the checks it assigns to them, and the security officer must review and sign the result.
+4. **R4 Approved tools:** only tools on the approved list in \<Maintenance Management\> may be used. The list is part of the approved software list, a tool is added to the servers only through a change that also adds it to the App Control for Business policy, and the list is reviewed every 12 months (P-67). Tools from outside the baseline are inspected before use, and any file holding diagnostic or test programs is scanned for malicious code first.
+5. **R5 Built-in maintenance functions:** the only maintenance function built into \<System Name\> is the fixed diagnostics page in the Admin application, which reads no item content, is used only by administrators as part of an approved maintenance job or an incident, and is audited. No page changes the database's structure: structure changes are scripts in a release, applied by the database administrator under an approved change record. No other diagnostic page, and no test page, is included in a release.
+6. **R6 Remote (nonlocal) maintenance:** remote maintenance must use only the routes in \<Maintenance Management\>, with multi-factor sign-in, be logged, and be ended as soon as the work is finished. The Admin application must be reachable only through \<Organisation\>'s managed administration route, and server and database administration only from the administrators' managed devices over that route, with multi-factor authentication, using named accounts (F11). From outside the office, the VPN is used first, with multi-factor authentication at both (P-54). A session ends by signing out, not only by disconnecting.
+7. **R7 Maintenance people:** only people on the approved list may maintain \<System Name\> without supervision. They must be screened, have signed Part B of \<Security Operating Procedures\> and use a named account. Anyone else, including a supplier, holds no account (P-39) and takes part only by watching and guiding over a shared screen, while someone on the list drives the session and supervises them.
+8. **R8 Equipment removal:** host hardware beneath the VMs is removed only with the approval of \<Organisation\>'s own process, after \<Organisation\> sanitises it, and the system owner is told beforehand where possible and given the sanitising certificate (D-MA-03). Any other equipment holding \<System Name\> information needs the system owner's approval, and must be sanitised first.
 9. **R9 Data leaving for maintenance or support:** no copy of \<System Name\> data, database backup, log or screenshot may leave the servers for maintenance or support without the system owner's approval. It must be kept to the minimum, encrypted, recorded and deleted when no longer needed.
-10. **R10 Timely maintenance:** support and parts for the hardware and hypervisor must be available within 24 hours of a failure. Software must stay on supported versions, with a replacement planned at least 6 months before support ends.
-11. **R11 Schedule and notice:** preventive maintenance follows the schedule in \<Procedures\> (MA). Users are given 2 working days' notice of planned maintenance that affects them.
+10. **R10 Timely maintenance:** support and parts for the hardware and hypervisor must be available within 24 hours of a failure. Support for Microsoft software must be available through \<Organisation\>'s support agreement (P-68). Software must stay on supported versions, with a replacement planned at least 6 months before support ends.
+11. **R11 Schedule and notice:** preventive maintenance follows the schedule in \<Procedures\> (MA). Users are given 2 working days' notice of planned maintenance that affects them, and records are kept for 3 years (P-67).
 12. **R12 Remote maintenance records:** the events of each remote maintenance connection must be logged and reviewed weekly.
 
 ### MA.5 Responsibilities
@@ -604,13 +604,13 @@ Maintenance gives people powerful access, often at short notice. \<System Name\>
 | Role | Responsibility |
 | --- | --- |
 | Head of Cyber | Approves this policy, as all policies |
-| System owner | Owns this policy; approves the lists of people and tools, equipment removal and any data leaving for support |
-| Security officer | Reviews maintenance records monthly and remote maintenance logs weekly; reviews and signs the check after maintenance |
-| Windows server administrator | Maintains the VMs, keeps the tool list and runs the check after maintenance |
-| Database administrator | Maintains the database, applies structure changes from a release, and runs the check after database maintenance |
+| System owner | Owns this policy; chairs the change control board that approves maintenance, and approves emergency maintenance; approves the lists of people and tools, equipment removal and any data leaving for support |
+| Security officer | Reviews maintenance records monthly and remote maintenance logs weekly; runs the sign-in, audit chain and checksum checks after maintenance, and reviews and signs the check |
+| Windows server administrator | Maintains the VMs, keeps the tool list within the approved software list, runs the check after maintenance, and drives any session in which a supplier takes part |
+| Database administrator | Maintains the database, applies structure changes from a release, runs the check after database maintenance, and drives any database session in which a supplier takes part |
 | Developers | Maintain the applications through releases only |
 | Administrator | Runs the fixed diagnostics in the Admin application (R5) |
-| \<Organisation\> | Maintains the hardware and hypervisor, provides support and parts within 24 hours, provides the managed route, and sanitises equipment |
+| \<Organisation\> | Maintains the hardware and hypervisor under its own process, provides support and parts within 24 hours and the Microsoft support agreement, provides the managed route, and sanitises equipment |
 
 ### MA.6 Governance requirements
 

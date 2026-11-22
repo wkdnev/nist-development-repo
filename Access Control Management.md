@@ -58,6 +58,7 @@ Every person signs in with their Active Directory account, through PingFederate.
 | API service account | The API only | Yes, privileged | The API's group managed service account, which signs in to SQL Server with Windows authentication and reads group membership from Active Directory over LDAPS. Nobody signs in with it. Not a sysadmin, and cannot change the schema (section 3.6) |
 | Local \<System Name\> account | Nobody | No | \<System Name\> holds no accounts or passwords of its own. The first administrator is simply the first member of that AD group |
 | Temporary and emergency | Nobody | No | Prohibited (P-39) |
+| Supplier or \<Organisation\> engineer doing maintenance | Nobody | No | Holds no account on the servers or in \<System Name\>; watches and guides over the shared screen of an approved administrator, who drives the session (\<Maintenance Management\>, section 3.6; D-MA-01) |
 | Shared, guest, anonymous and demonstration | Nobody | No | Prohibited on the servers |
 
 Temporary and emergency accounts are prohibited (P-39), so there is nothing to remove or disable automatically. Each access review confirms that none exists (PRO-AC-7). If such accounts were ever needed, they would be Active Directory accounts with an end date, and the tailoring decision would be made again.

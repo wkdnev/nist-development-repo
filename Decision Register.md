@@ -42,6 +42,9 @@ Documents, policy decisions and cross-family decisions (GEN). The legal adviser 
 | D-IA-06 | IA | Approve TR-IA-05: IA-8(2) not applicable | Approve: no external authenticators are accepted | Authorising official | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | D-IA-07 | IA | Approve TR-IA-06: IA-8(4) not applicable | Approve: no external identity profiles are used | Authorising official | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | D-IR-01 | IR | Approve \<Incident Response Management\>, section 3 with appendix A, as the incident response plan (IR-8a.09) | Approve: it holds the roles, preparation, detection, severity and targets, the steps of handling, personal data breaches, twelve playbooks, evidence, reportable incidents, measures and resources, sharing, the register and how the plan is kept; it is reviewed every 12 months and after an incident | Head of Cyber (\<Policy\>, section IR.6) | \[Decision\] | \[Name\] | \[Date\] | None yet |
+| D-MA-01 | MA | Decide how a supplier, or \<Organisation\>'s engineer, takes part in maintenance on the servers (MA-4, MA-5) | No account of any kind: an approved Windows server or database administrator signs in and drives, and the supplier watches and guides over a shared screen without control; temporary and emergency accounts stay prohibited (P-39), so TR-AC-01 stands | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
+| D-MA-02 | MA | Decide whether database maintenance and the Admin application's diagnostics need a second person present (MA-2, MA-3) | No second person: both are done only under an approved change or incident, the diagnostics are recorded in the audit log and direct reads of the item tables by SQL Server Audit, and the auditor reviews them weekly (\<Risk List\>, R-AC-01) | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
+| D-MA-03 | MA | Decide who approves the removal of host hardware beneath the servers (MA-02\_ODP\[01\], MA-2c, MA-2d) | \<Organisation\>'s own process, as the hosts are shared and the servers' disks are encrypted with BitLocker; \<Organisation\> sanitises first, tells the system owner beforehand where it can and afterwards in every case, and gives the certificate (EV-MA-01). The system owner approves the removal of any other \<System Name\> equipment | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | \[D-XX-nn\] | \[XX\] | \[Decision needed\] | \[Recommendation\] | \[Who decides\] | \[Decision\] | \[Name\] | \[Date\] | \[Sheet\] |
 
 ## 3 Parameter approvals
@@ -100,6 +103,8 @@ The reference values are the parameters in \<System Description\>, section 4, wh
 | D-CP-P15 | CP | CP-6, CP-9 | 1: P-15 Backups kept | 14 daily, 8 weekly and 12 monthly; one copy at the second site and one offline or immutable | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | D-CP-P16 | CP | CP-4, CP-9(1) | 1: P-16 Contingency tests | A restore every 6 months, on the restore test server at the second site; a tabletop exercise every 12 months, with the incident response plan | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | D-IR-P21 | IR | IR-6 | 2: P-21 Incident reporting | A suspected incident reported to the security officer within 1 hour; every confirmed incident told to \<Organisation\>'s security contact; the ICO told within 72 hours of becoming aware of a reportable breach | System owner, with the legal adviser for the breach report | \[Decision\] | \[Name\] | \[Date\] | None yet |
+| D-MA-P67 | MA | MA-2, MA-3, MA-5 | 3: P-67 Maintenance lists, notice and records | Tools and people reviewed every 12 months and when someone leaves; 2 working days' notice of planned maintenance; records kept 3 years | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
+| D-MA-P68 | MA | MA-6 | 2: P-68 Timely maintenance | Support and parts for the hosts within 24 hours of a failure; Microsoft software supported through \<Organisation\>'s agreement; replacement planned 6 months before support ends | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | \[D-XX-Pnn\] | \[XX\] | \[Control\] | \[Number of parameters\] | \[Main values\] | \[Who decides\] | \[Decision\] | \[Name\] | \[Date\] | \[Sheet\] |
 
 ## 4 Non-compliance treatment decisions
@@ -118,6 +123,7 @@ The control, rating, reason and treatment of each entry are in \<Risk List\>, se
 | NC-CP-01 to NC-CP-20 | CP | System owner, as every CP entry is rated Low | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | NC-IA-01 to NC-IA-18 | IA | System owner, as every IA entry is rated Low | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | NC-IR-01 to NC-IR-13 | IR | System owner, as every IR entry is rated Low | \[Decision\] | \[Name\] | \[Date\] | None yet |
+| NC-MA-01 to NC-MA-08 | MA | System owner, as every MA entry is rated Low | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | \[NC-XX-nn\] | \[XX\] | \[Who decides\] | \[Decision\] | \[Name\] | \[Date\] | \[Sheet\] |
 
 ## 5 Proof of approval

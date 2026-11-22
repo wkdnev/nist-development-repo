@@ -280,16 +280,16 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | Date and time |  |
 | Component |  |
 | What was done |  |
-| Who did it, their organisation and contact, and any escort |  |
+| Who did it, their organisation and contact; for a supplier, the administrator who drove the shared session |  |
 | On site or remote; if remote, the route and when it ended |  |
-| Parts removed or replaced; removal approved by |  |
+| Parts removed or replaced; removal approved by (for host hardware, \<Organisation\>'s process, with the date the system owner was told) |  |
 | Equipment sanitised: by, and certificate |  |
-| Tools used, including the fixed diagnostics in the Admin application |  |
+| Tools used, including the fixed diagnostics in the Admin application; files and tools copied for the job, and when they were removed |  |
 | Tools inspected before use, and any media scanned: by, and result |  |
 | Case or return number for parts sent away |  |
 | Data, dumps, logs or screenshots taken away: approved by, how protected, and deletion confirmed |  |
 | Remote maintenance connection log reference |  |
-| Checklist after maintenance (\<Procedures\>, Table MA-2): run by, result, and signed by the security officer |  |
+| Checklist after maintenance (\<Procedures\>, Table MA-2): the administrator's checks, the security officer's checks, results, and signed by the security officer |  |
 | Monthly review against the change record: by, date and result |  |
 
 ### 2.13 TPL-13 Media record

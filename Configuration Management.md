@@ -155,6 +155,8 @@ Every change to a configuration item in section 3.3 follows one route, including
 
 **Emergency changes.** An emergency change is allowed only to stop or limit an incident or an outage. The system owner, or their deputy, approves it by phone or in person before it is made. It is recorded within 1 working day, with the impact analysis done afterwards, and the board confirms or reverses it at its next meeting (PRO-CM-8).
 
+**Standing change for routine maintenance.** The routine tasks in the preventive maintenance schedule (\<Procedures\>, PRO-MA-6), which change no configuration item, are approved by the board once as a standing change, reviewed every 12 months and whenever the schedule changes, and each run cites it on TPL-12 (\<Maintenance Management\>, section 3.3). Updates, releases and key changes in that schedule still follow this route.
+
 ### 3.8 Change control board charter
 
 Controls met here: CM-3, CM-3(4).

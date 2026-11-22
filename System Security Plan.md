@@ -237,7 +237,7 @@ Each control is given one of four types. **System** controls are met by \<System
 | CP Contingency Planning | 23 | 0 | 6 | 8 | 9 | 0 |
 | IA Identification and Authentication | 24 | 0 | 9 | 1 | 8 | 6 |
 | IR Incident Response | 13 | 0 | 4 | 9 | 0 | 0 |
-| MA Maintenance | 9 | 0 | 2 | 6 | 1 | 0 |
+| MA Maintenance | 9 | 0 | 5 | 3 | 1 | 0 |
 | MP Media Protection | 7 | 0 | 4 | 1 | 2 | 0 |
 | PE Physical and Environmental Protection | 18 | 0 | 2 | 1 | 15 | 0 |
 | PL Planning | 7 | 0 | 0 | 7 | 0 | 0 |
@@ -248,7 +248,7 @@ Each control is given one of four types. **System** controls are met by \<System
 | SC System and Communications Protection | 25 | 3 | 10 | 1 | 10 | 1 |
 | SI System and Information Integrity | 18 | 3 | 9 | 3 | 1 | 2 |
 | SR Supply Chain Risk Management | 12 | 0 | 3 | 5 | 4 | 0 |
-| **Total** | **316** | **17** | **114** | **99** | **66** | **20** |
+| **Total** | **316** | **17** | **117** | **96** | **66** | **20** |
 
 Section 7 lists every control. A control counts as satisfied only when every one of its assessment statements is satisfied.
 
@@ -264,14 +264,14 @@ Section 7 lists every control. A control counts as satisfied only when every one
 | Administrators | Managing schemas, the groups that open each schema, and system settings, in the Admin application |
 | Data Owners | Authorising who may read or edit their schema, in ServiceNow, and owning its read and edit groups |
 | Auditor | Reviewing the audit log weekly, comparing it with the server, database, PingFederate and Active Directory records, recording the review, and reporting anything suspicious to the security officer |
-| Security officer | Reviewing alerts, the central logs, advisories and scan results, leading incident response, and reporting monthly on security status. The security officer does not read the audit log |
-| Windows server and database administrators | Securing, patching and scanning the VMs and SQL Server, and running Defender and disk encryption |
+| Security officer | Reviewing alerts, the central logs, advisories and scan results, leading incident response, reviewing maintenance records and remote maintenance logs, running their checks after maintenance, and reporting monthly on security status. The security officer does not read the audit log |
+| Windows server and database administrators | Securing, patching and scanning the VMs and SQL Server, running Defender and disk encryption, and carrying out maintenance, in which a supplier only watches their shared screen |
 | Change control element | Approving changes: the system owner, security officer and Windows server administrator (\<Configuration Management\>) |
 | Security assessor | Leading the independent Level 2 assessment |
 | \<Organisation\> | Inherited services and their evidence |
 | Users | Following the SyOps |
 | Security officer, system owner, database and Windows server administrators | Incident response and training records (security officer); invoking recovery (system owner); backups and rebuilding (administrators). See \<Incident Response Management\>, \<Contingency Planning Management\> and \<Awareness and Training Management\> |
-| \<Organisation\> | Maintaining hardware, handling disks and backup media, and physical and environmental protection. See \<Maintenance Management\>, \<Media Protection Management\> and \<Physical and Environmental Protection Management\> |
+| \<Organisation\> | Maintaining hardware, approving and sanitising its removal under its own process, handling disks and backup media, and physical and environmental protection. See \<Maintenance Management\>, \<Media Protection Management\> and \<Physical and Environmental Protection Management\> |
 | Legal adviser | The privacy plan (\<Privacy Plan\>), the impact assessment, the lawful basis, requests and complaints from individuals, and reports to the ICO |
 | Business and information owner | The information types, and retention periods for each schema; the business owner approves the disposal of items due under the retention schedule (FR-074) |
 | Legal adviser's delegate | Searching every schema for one person's items to answer a request under data protection law (FR-073), named by the legal adviser |
@@ -520,15 +520,15 @@ The assessment plan is in \<Control Assessment Record\> (MA), section MA.4, wher
 
 | Control | How it is implemented | Who | Type | Status | Gap entry |
 | --- | --- | --- | --- | --- | --- |
-| MA-1 Policy and Procedures | Policy and procedures in \<Policy\> (MA) and \<Procedures\> (MA); the design is in \<Maintenance Management\> | System owner, Head of Cyber | Organisational | \[Status\] | \[Decision\] |
-| MA-2 Controlled Maintenance | Change records, TPL-12, a preventive schedule and a checklist after maintenance (PRO-MA-1, PRO-MA-6). \<Organisation\> maintains the hardware | Administrators, security officer, \<Organisation\> | Hybrid | \[Status\] | \[Decision\] |
-| MA-3 Maintenance Tools | Approved tool list (\<Maintenance Management\>, section 3.5) | Windows server administrator | Organisational | \[Status\] | \[Decision\] |
-| MA-3(1) Inspect Tools | Version, publisher and hash checked before use | Windows server administrator | Organisational | \[Status\] | \[Decision\] |
-| MA-3(2) Inspect Media | Defender scan | Windows server administrator | Organisational | \[Status\] | \[Decision\] |
-| MA-3(3) Prevent Unauthorized Removal | The system owner approves equipment or data leaving, including data sent for support (PRO-MA-7) | System owner | Organisational | \[Status\] | \[Decision\] |
-| MA-4 Nonlocal Maintenance | Routes R1 to R5 in \<Maintenance Management\>, section 3.4, with multi-factor sign-in and logging | Administrators, \<Organisation\> | Hybrid | \[Status\] | \[Decision\] |
-| MA-5 Maintenance Personnel | Approved list with screening, Part B and accounts (\<Maintenance Management\>, section 3.6); suppliers escorted, with temporary accounts | System owner | Organisational | \[Status\] | \[Decision\] |
-| MA-6 Timely Maintenance | Support and parts within 24 hours for hardware and the hypervisor; supported software versions | \<Organisation\> | Inherited | \[Status\] | \[Decision\] |
+| MA-1 Policy and Procedures | Policy and procedures in \<Policy\> (MA) and \<Procedures\> (MA); the design is in \<Maintenance Management\> | System owner, Head of Cyber | Organisational | Implemented | NC-MA-01 |
+| MA-2 Controlled Maintenance | Each job approved by the change control board in a change record (the preventive schedule as one standing change; an emergency by the system owner or deputy), recorded on TPL-12 and reviewed monthly, with the check after maintenance run by the administrator and the security officer (PRO-MA-1, PRO-MA-6). \<Organisation\> maintains, approves and sanitises the hosts under its own process (D-MA-03; EV-MA-01) | Administrators, security officer, change control board, \<Organisation\> | Hybrid | Implemented | NC-MA-02 |
+| MA-3 Maintenance Tools | Approved tool list, part of the approved software list and enforced on the servers by App Control for Business (D-CM-01), reviewed every 12 months (\<Maintenance Management\>, section 3.5; P-67) | Windows server administrator, system owner | Hybrid | Implemented | NC-MA-03 |
+| MA-3(1) Inspect Tools | App Control for Business refuses a tool on the servers whose publisher or hash does not match; any other tool's version, publisher and hash checked before use (PRO-MA-3) | Windows server administrator | Hybrid | Implemented | NC-MA-04 |
+| MA-3(2) Inspect Media | No removable media reach the servers; any file holding diagnostic or test programs is scanned by Microsoft Defender before use (PRO-MA-3) | Windows server administrator | Hybrid | Implemented | None |
+| MA-3(3) Prevent Unauthorized Removal | Suppliers see a shared screen and take no copy (D-MA-01); any data sent for support is approved by the system owner, minimised and encrypted (PRO-MA-7); \<Organisation\>'s engineers' equipment follows its own process (EV-MA-01) | System owner | Organisational | Implemented | NC-MA-05 |
+| MA-4 Nonlocal Maintenance | Routes R1 to R5 in \<Maintenance Management\>, section 3.4, approved in the change record, with multi-factor authentication on the managed administration route (and the VPN first from outside the office, P-54), logged, recorded on TPL-12, and ended by signing out | Administrators, \<Organisation\> | Hybrid | Implemented | NC-MA-06 |
+| MA-5 Maintenance Personnel | Approved list with screening, Part B and named accounts (\<Maintenance Management\>, section 3.6), reviewed every 12 months (P-67); a supplier holds no account and works only through the shared screen of an administrator on the list, who supervises (D-MA-01) | System owner, Windows server and database administrators | Organisational | Implemented | NC-MA-07 |
+| MA-6 Timely Maintenance | Support and parts within 24 hours for the hardware and hypervisor, and Microsoft software support through \<Organisation\>'s agreement (P-68; EV-MA-01) | \<Organisation\> | Inherited | Implemented | NC-MA-08 |
 
 ### 7.10 Media Protection (MP)
 
