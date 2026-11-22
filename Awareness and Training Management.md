@@ -45,10 +45,10 @@ Controls met here: AT-2, AT-3.
 | Administrators | Misusing the power to change which groups open a schema; careless changes to schemas, their groups or settings | Use the administrator role only for administration; change a schema's groups only with its Data Owner's approval in a change record; follow the joiner, mover and leaver steps | Modules M1, M3, M9, M7, M8 |
 | Windows server and database administrators | Unpatched or misconfigured servers; lost backups or keys | Follow the patch timetable, hardening and backup steps; protect keys | Modules M4, M3, M9, M7, M8 |
 | Developers | Vulnerable code or components; secrets in code | Secure coding; checked components; changes reviewed | Modules M5, M3, M7 |
-| Security officer and auditor | Missing an attack or a misuse | The auditor reviews the audit log weekly and reports anything suspicious to the security officer; the security officer reviews alerts and the central logs, does not read the audit log, and leads incident response | Modules M6, M7; M8 and M9 for the security officer |
+| Security officer and auditor | Missing an attack or a misuse | The auditor reviews the audit log weekly and reports anything suspicious to the security officer; the security officer reviews alerts and the central logs, does not read the audit log, and leads incident response | Modules M6, M7, M9; M8 for the security officer |
 | Business owners | Approving the disposal of items that should be kept, or keeping items too long | Approve disposal only of items due under the retention schedule (\<System Description\>, FR-074) | The \<System Name\> briefing; module M9 |
 | Legal adviser's delegate | Searching or disclosing more than a request needs | Search every schema only for the one person named in a request under data protection law (\<System Description\>, FR-073), and handle the results as the legal adviser directs | Module M9 |
-| Everyone who handles personal data in \<System Name\> | Using personal data unlawfully | Use it only for its purpose; handle requests and complaints properly | Module M9 |
+| Everyone who handles personal data in \<System Name\> | Using personal data unlawfully; missing or not reporting a breach | Use it only for its purpose; report a breach within 1 hour; pass requests about a person's data to the legal adviser | The \<System Name\> briefing, part B6 |
 | Legal adviser | Deciding late or wrongly whether to report a breach to the ICO and the people affected | Know their part in the incident playbooks and the breach steps, and the 72-hour limit | Module M7 |
 | Authorising official | Making a risk decision in an incident or recovery without knowing what it rests on | Know when they will be called, the decisions that are theirs, and the information each needs | Module M10 |
 | Information owner | Rating information too low, or letting personal data into a schema that should not hold it | Categorise information correctly; decide what personal data each schema holds | The \<System Name\> briefing; module M9 |
@@ -57,7 +57,7 @@ Controls met here: AT-2, AT-3.
 
 Controls met here: AT-2, AT-2(2), AT-2(3).
 
-Awareness has two parts: \<Organisation\>'s general security and privacy course, and the \<System Name\> briefing. \<Organisation\>'s course is expected to cover the general case, including insider threat and social engineering. The system owner gives this 20-minute briefing to every user, whatever their grade, including managers and contractors, before they are given access, together with the signature of \<Security Operating Procedures\>. It ends with a 5-question check, which the person must pass in full; a wrong answer is talked through and asked again.
+Awareness has two parts: \<Organisation\>'s general security and privacy course, and the \<System Name\> briefing. \<Organisation\>'s course is expected to cover the general case, including insider threat and social engineering. The system owner gives this 25-minute briefing to every user, whatever their grade, including managers and contractors, before they are given access, together with the signature of \<Security Operating Procedures\>. It ends with a 5-question check, which the person must pass in full; a wrong answer is talked through and asked again.
 
 **Table 2: Briefing outline**
 
@@ -68,7 +68,7 @@ Awareness has two parts: \<Organisation\>'s general security and privacy course,
 | B3 Social engineering and social mining | The forms an attempt takes: phishing and targeted phishing, a false story or false identity (pretexting and impersonation), a reply inside a genuine email thread, bait such as a free download or a found USB stick, an offer of help in return for access, a contact through social media, and following someone through a door. Scenario: an email or call asking for an item "for a tribunal" from someone you don't know. Scenario: an emailed sign-in link that looks like \<System Name\>. Social mining: people gather facts about \<Organisation\>, its staff and \<System Name\> from social media, job adverts, out-of-office replies and casual calls, to make a later request convincing. Do not say what \<System Name\> holds, who uses it or how it is reached. Check with the person through a known route, and report it |
 | B4 Insider threat | Scenario: a colleague exporting many files before leaving. Signs to notice, as CSS lists them: long-lasting and strong dissatisfaction with the job; trying to reach information the person does not need for their work; unexplained access to money; bullying or harassment of colleagues; violence at work; and other serious breaches of policy or rules. Seeing a sign is a reason to report through the route in B5, not to accuse. Access is recorded and monitored, as the SyOps explains |
 | B5 Reporting | How to report a suspicious message, a mistake or a lost device; reporting is thanked, never blamed |
-| B6 Privacy | Using personal data only for its purpose; where the privacy notice is |
+| B6 Privacy | The privacy training for every user (AT-3(5)), about 10 minutes. Which schemas hold personal data, and special category data; using it only for the purpose the schema states, and never exporting or copying it outside \<System Name\> without need; recognising a personal data breach, such as an item sent to the wrong person or a lost export, and reporting it to the security officer within 1 hour (\<System Description\>, P-21); passing any request from a person about their data to the legal adviser, without answering it yourself; and where the privacy notice is. The check includes a question on reporting a breach |
 | B7 For line managers | Every access request from your people is raised in ServiceNow. Support it only if the person needs it for their work; the schema's Data Owner authorises it. Tell the group's owner at once when someone moves or leaves. The insider threat signs in B4 show first to a manager: raise a concern early with the security officer or HR |
 
 Between courses, awareness is kept up by the system use notice shown at sign-in, \<Organisation\>'s security messages, and a \<System Name\> security note each quarter, written by the security officer from recent advisories and reports.
@@ -91,7 +91,7 @@ Each module ends with a short check of at least 10 questions, with a pass mark o
 | M6 Monitoring and audit review | Auditors: read and review the audit log weekly, compare it with the server, database, PingFederate and Active Directory records, record the review, and report anything suspicious to the security officer. Security officers: review the alerts and the central logs, and use the detection use cases; they do not read the audit log | \<Audit and Accountability Management\>; \<System and Information Integrity Management\>, section 3.4 | 60 minutes | Head of Cyber |
 | M7 Incident response (IR-2) | Recognise, report, contain and record an incident; know your part in the playbooks | \<Incident Response Management\>; \<Procedures\> (IR) | 60 minutes | Security officer |
 | M8 Contingency (CP-3) | Know your part in recovery; restore from backup | \<Contingency Planning Management\>; \<Procedures\> (CP) | 45 minutes | System owner |
-| M9 Personal data (AT-3(5)) | Lawful use of personal data; requests and complaints; breaches | \<PII Processing Management\>; \<Procedures\> (PT) | 45 minutes | Legal adviser |
+| M9 Personal data (AT-3(5)), for the roles in Table 4 | Lawful use of personal data; requests and complaints; breaches | \<PII Processing Management\>; \<Procedures\> (PT) | 45 minutes | Legal adviser |
 | M10 Risk decisions in incidents and recovery (IR-2, CP-3) | For the authorising official: when they are called in an incident or a recovery; the severity levels; the decisions that are theirs (running in a reduced state, going beyond the recovery time objective, the risk arising from an incident); and what each decision needs | \<Incident Response Management\>, sections 3.3 and 3.6; \<Contingency Planning Management\>, sections 3.4 and 3.5 | 20 minutes | Security officer |
 
 ### 3.5 Training matrix
@@ -112,16 +112,17 @@ Every role with access must complete awareness, the briefing and signing \<Secur
 | Database administrator | Yes | Parts A and B | M4, M3, M9 | M7, M8 |
 | Developers | Yes | Part A; Part B only if given access to a live system, which the design does not allow | M5, M3 | M7 |
 | Security officer | Yes | Parts A and B | M6, M9 | M7, M8 |
-| Auditor | Yes | Parts A and B | M6 | M7 |
+| Auditor | Yes | Parts A and B | M6, M9 | M7 |
 | Business owner | Yes | Parts A and B | M9 | None |
 | Legal adviser's delegate | Yes | Parts A and B | M9 | None |
-| Everyone who handles personal data in \<System Name\> | Yes | Part A | M9 | None |
 | Information owner | Yes | Part A, if they are a \<System Name\> user | M9 | None |
 | Legal adviser | \<Organisation\>'s course | None: no access | None (delivers M9) | M7 |
 | Authorising official | \<Organisation\>'s course | None: no access | None | M10 |
 | Line managers who are not \<System Name\> users | Briefing part B7 only, before their first approval | None: no access | None | None |
 
 The matrix carries out AT-2, AT-3, AT-3(5) (\<PII Processing Management\>), IR-2 (\<Procedures\>, PRO-IR-3), CP-3 (\<Procedures\>, PRO-CP-4) and PL-4 (\<Security Operating Procedures\>).
+
+**Privacy training.** Every user's privacy training is briefing part B6, given before access and every 12 months. Module M9 is for the roles that make decisions about personal data or can reach it across schemas or outside the application: the system owner, Data Owners, the information owner, administrators, Windows server and database administrators, the security officer, the auditor, the business owner and the legal adviser's delegate. Together they meet AT-3(5).
 
 **Deputies.** A deputy holds the same training as the role they cover (\<Roles and Responsibilities\>, section 5), follows that role's row, and is in the register under it.
 

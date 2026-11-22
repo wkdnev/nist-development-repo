@@ -220,7 +220,7 @@ These are the values the controls depend on. CSS calls many of them organisation
 | P-56 | Events that require training | A significant change, a significant incident, or an exercise whose report changes a role's steps. Those affected take the updated briefing or module within 30 days | AT-2, AT-3 | \[\] |
 | P-57 | Awareness techniques | The system use notice at sign-in; \<Organisation\>'s security messages; a quarterly \<System Name\> security note from the security officer | AT-2 | \[\] |
 | P-58 | Training content updates | Every 12 months, and within 30 days of a significant incident, exercise or significant change, adding the lessons from incidents inside and outside \<Organisation\> | AT-2, AT-3 | \[\] |
-| P-59 | Roles given role-based and privacy training | The roles in \<Awareness and Training Management\>, Table 4, with the modules each takes; privacy training is module M9 for the roles that Table 4 gives it | AT-3, AT-3(5) | \[\] |
+| P-59 | Roles given role-based and privacy training | The roles in \<Awareness and Training Management\>, Table 4, with the modules each takes; privacy training is briefing part B6 for every user and module M9 for the roles that Table 4 gives it | AT-3, AT-3(5) | \[\] |
 | P-60 | Training record retention | 3 years from the date of the training | AT-4 | \[\] |
 
 ## 5 Requirements

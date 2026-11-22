@@ -186,10 +186,10 @@ It applies to everyone who uses, administers or develops \<System Name\>, includ
 ### AT.4 Mandatory requirements
 
 1. **R1 Awareness:** all users must complete \<Organisation\>'s security and privacy awareness course and the \<System Name\> briefing before getting access, and every 12 months.
-2. **R2 Briefing content:** the \<System Name\> briefing must cover the classification of its items and the export rules, insider threat and social engineering scenarios specific to \<System Name\>, and how to report.
+2. **R2 Briefing content:** the \<System Name\> briefing must cover the classification of its items and the export rules, insider threat and social engineering scenarios specific to \<System Name\>, privacy and how to recognise and report a personal data breach, and how to report.
 3. **R3 Rules of behaviour:** all users must sign \<Security Operating Procedures\> Part A, and privileged users Part B, before access.
 4. **R4 Role training:** each role in the training matrix must complete its modules before privileged access, and every 12 months. Incident response and contingency training must be completed within 30 days of taking the role.
-5. **R5 Privacy training:** everyone who handles personal data in items, and all administrators, must complete privacy training before access and every 12 months.
+5. **R5 Privacy training:** all users must receive privacy training in the \<System Name\> briefing before access and every 12 months. The roles the training matrix names for it, including all administrators and the auditor, must also complete the privacy module (M9) before access and every 12 months.
 6. **R6 Updates:** content must be reviewed every 12 months, and after a significant incident, exercise or change, with the lessons added.
 7. **R7 Checks and measures:** each module must end with a check, with a pass mark of 80%. The measures in \<Awareness and Training Management\>, section 3.9, must be reported monthly by the security officer and reviewed by the system owner.
 8. **R8 Phishing simulations:** none may be run without the agreement of HR and the legal adviser. If run, no one is penalised for clicking, and the measure is reports, not clicks.
