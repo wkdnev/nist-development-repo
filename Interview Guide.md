@@ -297,11 +297,11 @@ Questions are numbered INT-XX-nn, where XX is the family code, and each names th
 
 | ID | For | Question | Statements | Ask to see |
 | --- | --- | --- | --- | --- |
-| INT-PE-01 | \<Organisation\>'s security contact | Who can enter the data centre and the second site, how are they monitored, are both covered by your ISO/IEC 27001 certificate (Annex A.7) or SOC 2 report, and how would \<System Name\>'s security officer hear about an incident? | PE-02, PE-03, PE-06, PE-08 | EV-PE-01 |
-| INT-PE-02 | \<Organisation\>'s security contact | What happens to the data centre in a power failure, fire or flood? | PE-09 to PE-15 | EV-PE-02, EV-PE-03 |
-| INT-PE-03 | Security officer | How are home working controls assessed each year with TPL-4, is anyone printing at home, and how do people raise concerns? | PE-17 | Assessment record |
+| INT-PE-01 | \<Organisation\>'s security contact | Who can enter the data centre and the second site, how are they monitored, are both covered by your ISO/IEC 27001 certificate (Annex A.7) or SOC 2 report, how are cabling, deliveries and removals controlled, and how would \<System Name\>'s security officer hear about an incident? | PE-02, PE-03, PE-04, PE-06, PE-08, PE-16 | EV-PE-01, EV-PE-04 |
+| INT-PE-02 | \<Organisation\>'s security contact | What happens at the data centre and the second site in a power failure, fire or flood, and who shuts the \<System Name\> servers down if power cannot be kept? | PE-09 to PE-15 | EV-PE-02, EV-PE-03 |
+| INT-PE-03 | Security officer | How are home working controls assessed each year with TPL-26, is anyone printing at home, and how do people raise concerns? | PE-17 | Assessment record |
 | INT-PE-04 | \<Organisation\>'s facilities contact | Which managed printers with secure release can \<System Name\> users print to, and where are they? | PE-05 | EV-PE-05 |
-| INT-PE-05 | A sample of people who work from home | Where do you work when at home? What would you do if you needed to print, or if your laptop was lost? | PE-05, PE-17 | Home working checklist (TPL-4) |
+| INT-PE-05 | A sample of people who work from home | Where do you work when at home? What would you do if you needed to print, or if your laptop was lost? | PE-05, PE-17 | Home working check (TPL-26) |
 
 ## 14 Planning (PL)
 

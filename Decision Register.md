@@ -48,6 +48,7 @@ Documents, policy decisions and cross-family decisions (GEN). The legal adviser 
 | D-MP-01 | MP | Decide whether \<System Name\> items may be printed at home with the system owner's approval (MP-4, PE-17) | No home printing: items are printed only on \<Organisation\>'s managed printers with secure release, and printouts stay on site. The exception route is removed from \<Security Operating Procedures\>, A38 | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | D-MP-02 | MP | Decide how a downloaded original file is marked (MP-3, FR-020) | Stamp a banner with \<Classification\> and the item's classification on each page or image of the copy sent, with the marking also in the file name; the stored file and its checksum are never changed, and the checksum is checked before the copy is made | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | D-MP-03 | MP | Decide whether MP-5 and MP-7 stay Inherited, although the system owner approves transport and portable storage exceptions and the security officer records ownerless devices | Keep both Inherited, so the inherited total stays 66: \<Organisation\> carries, blocks and sanitises the media, and the system owner's approvals and the TPL-13 and TPL-17 records are examined with \<Organisation\>'s evidence as the way \<System Name\> uses the inherited control | Authorising official | \[Decision\] | \[Name\] | \[Date\] | None yet |
+| D-PE-01 | PE | Decide who shuts the servers down when a data centre cannot keep power (PE-11) | \<Organisation\>'s hosting staff shut both servers down cleanly through the hypervisor, the application server first, before the uninterruptible supply runs out, and tell the Windows server administrator; the administrators run the start-up checks when power returns (\<Security Operating Procedures\>, section 4.6). PE-11 stays Inherited and the inherited total stays 66 | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | \[D-XX-nn\] | \[XX\] | \[Decision needed\] | \[Recommendation\] | \[Who decides\] | \[Decision\] | \[Name\] | \[Date\] | \[Sheet\] |
 
 ## 3 Parameter approvals
@@ -110,6 +111,7 @@ The reference values are the parameters in \<System Description\>, section 4, wh
 | D-MA-P68 | MA | MA-6 | 2: P-68 Timely maintenance | Support and parts for the hosts within 24 hours of a failure; Microsoft software supported through \<Organisation\>'s agreement; replacement planned 6 months before support ends | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | D-MP-P20 | MP | MP-4, MP-6 | 1: P-20 Export working copies | Deleted once downloaded, and always within 24 hours | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | D-MP-P69 | MP | MP-2, MP-4, MP-6 | 3: P-69 Media handling | Users' copies and printouts deleted or shredded once no longer needed, within 30 days at most if they hold personal data; inventory and a sample of sanitising certificates reviewed every 12 months; media records kept 3 years | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
+| D-PE-P70 | PE | PE-2, PE-3, PE-5, PE-6, PE-8, PE-14, PE-17 | 1: P-70 Physical and environmental protection | Managed printers with secure release and screens as output devices; home only, with a check of everyone every 12 months; evidence checked every 12 months and each site inspected once at Level 2; access lists reviewed every 12 months, entry logs monthly, visitor records kept 12 months and reviewed monthly, keys and combinations every 12 months; ASHRAE TC 9.9 recommended envelope; physical incidents told within 24 hours | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | \[D-XX-Pnn\] | \[XX\] | \[Control\] | \[Number of parameters\] | \[Main values\] | \[Who decides\] | \[Decision\] | \[Name\] | \[Date\] | \[Sheet\] |
 
 ## 4 Non-compliance treatment decisions
@@ -130,6 +132,7 @@ The control, rating, reason and treatment of each entry are in \<Risk List\>, se
 | NC-IR-01 to NC-IR-13 | IR | System owner, as every IR entry is rated Low | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | NC-MA-01 to NC-MA-08 | MA | System owner, as every MA entry is rated Low | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | NC-MP-01 to NC-MP-07 | MP | System owner, as every MP entry is rated Low | \[Decision\] | \[Name\] | \[Date\] | None yet |
+| NC-PE-01 to NC-PE-18 | PE | System owner, as every PE entry is rated Low | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | \[NC-XX-nn\] | \[XX\] | \[Who decides\] | \[Decision\] | \[Name\] | \[Date\] | \[Sheet\] |
 
 ## 5 Proof of approval
