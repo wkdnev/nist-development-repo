@@ -682,7 +682,7 @@ The rules in section 1.1 apply to this policy. It adds these.
 
 This policy sets the organisation's rules for the physical and environmental protection of \<System Name\>, in line with the CSS PE family (PE-1). It stands alone, as each family has its own policy. The values, inheritance matrix and site details that carry it out are in \<Physical and Environmental Protection Management\>, and the steps people follow are in \<Procedures\> (PE).
 
-It applies to the data centre that hosts the two VMs, the second site that holds backups and is used for recovery, the offices where \<System Name\> is used and printed, and the homes of people who work remotely.
+It applies to the data centre that hosts the two VMs, the second site that holds the backups and the protected copy of the secrets, runs the restore test and is used for recovery, the offices where \<System Name\> is used and printed, and the homes of people who work remotely.
 
 ### PE.2 The organisation's position
 
@@ -699,13 +699,13 @@ It applies to the data centre that hosts the two VMs, the second site that holds
 
 1. **R1 Inheritance matrix:** each PE control must be listed in \<Physical and Environmental Protection Management\> with \<Organisation\>'s part, \<System Name\>'s part and the evidence that closes it, and reviewed every 12 months.
 2. **R2 Evidence:** \<Organisation\> must evidence the data centres' physical and environmental protection, preferably by its ISO/IEC 27001 certificate, Statement of Applicability and audit findings for Annex A.7, or a SOC 2 report. The system owner reviews it every 12 months and after a change of site.
-3. **R3 Requirements:** the data centres must meet the values in \<Physical and Environmental Protection Management\>, including temperature and humidity within the ASHRAE TC 9.9 recommended envelope.
+3. **R3 Requirements:** the data centres must meet the values in \<Physical and Environmental Protection Management\> and \<System Description\>, P-70, including temperature and humidity within the ASHRAE TC 9.9 recommended envelope.
 4. **R4 Second site:** the second site must meet the same requirements as the main data centre.
 5. **R5 Site inspection:** each data centre, the main site and the second site, is inspected once, at Level 2, by the independent assessor or \<Organisation\>'s auditor using TPL-20, and again after a change of site.
 6. **R6 Printing:** \<System Name\> items may be printed only on \<Organisation\>'s managed printers with secure release, and collected at once.
 7. **R7 Screens:** screens must be locked when left and placed so that others cannot read them.
 8. **R8 Home working:** remote working is allowed only from home, unless the system owner approves another place, on \<Organisation\>'s managed devices and route. \<System Name\> items must never be printed at home (D-MP-01), and must be worked on where others in the home cannot see them.
-9. **R9 Physical incidents:** the loss or theft of a device or printout, unauthorised entry to a data centre, and fire, flood or power loss affecting \<System Name\> must be reported to the security officer at once and handled under \<Incident Response Management\>.
+9. **R9 Physical incidents:** the loss or theft of a device or printout, unauthorised entry to a data centre, and fire, flood or power loss affecting \<System Name\> must be reported to the security officer at once and handled under \<Incident Response Management\>. If a data centre cannot keep power, \<Organisation\> must shut the servers down cleanly before its backup power runs out (D-PE-01).
 10. **R10 Physical access compensation:** VM disks must be encrypted, so that physical access to the hosts does not expose \<System Name\> information.
 
 ### PE.5 Responsibilities
@@ -719,7 +719,7 @@ It applies to the data centre that hosts the two VMs, the second site that holds
 | Security officer | Assesses home working controls every 12 months; receives physical incident reports |
 | Independent assessor | Completes the site inspection at Level 2 |
 | Everyone | Protects screens and printouts, and reports physical incidents |
-| \<Organisation\> | Provides and evidences physical and environmental protection at both sites, the managed printers and the managed devices |
+| \<Organisation\> | Provides and evidences physical and environmental protection at both sites, including a clean shutdown of the servers if power cannot be kept, the managed printers and the managed devices |
 
 ### PE.6 Governance requirements
 

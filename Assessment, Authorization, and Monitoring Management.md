@@ -142,14 +142,14 @@ These 66 entries are provided wholly by \<Organisation\>, and the system owner r
 | CP | 9 | CP-6, CP-6(1), CP-6(3), CP-7(1), CP-7(2), CP-7(3), CP-8, CP-8(1), CP-8(2) |
 | MA | 1 | MA-6 |
 | MP | 2 | MP-5, MP-7 |
-| PE | 16 | PE-2, PE-3, PE-4, PE-6, PE-6(1), PE-8, PE-8(3), PE-9, PE-10, PE-11, PE-12, PE-13, PE-13(1), PE-14, PE-15, PE-16 |
+| PE | 15 | PE-2, PE-3, PE-4, PE-6, PE-6(1), PE-8, PE-9, PE-10, PE-11, PE-12, PE-13, PE-13(1), PE-14, PE-15, PE-16 |
 | PS | 2 | PS-3, PS-8 |
-| PT | 1 | PT-5 |
+| PT | 2 | PT-5, PE-8(3) |
 | SA | 2 | SA-4, SA-9(2) |
 | SR | 4 | SR-8, SR-11(1), SR-11(2), SR-12 |
 | **Total** | **66** |  |
 
-The list matches the Inherited entries in \<System Security Plan\>, section 7. CP-7 is not on it: \<Organisation\> provides the second site, but \<System Name\>'s administrators rebuild the servers there, so it is shared (\<Contingency Planning Management\>, section 3.9). PE-8(3) is listed under PE here; \<System Security Plan\>, Table 8, counts it with PT, because it is in the privacy baseline.
+The list matches the Inherited entries in \<System Security Plan\>, section 7. CP-7 is not on it: \<Organisation\> provides the second site, but \<System Name\>'s administrators rebuild the servers there, so it is shared (\<Contingency Planning Management\>, section 3.9). PE-8(3) is listed under PT, as in \<System Security Plan\>, Tables 8 and 23, because it is in the privacy baseline and assessed with PT.
 
 The system owner puts the list of 66 to the authorising official for acceptance as a list, with the other proposed ratings, and for acceptance for operation with the authorisation package, once \<Organisation\>'s evidence is in.
 

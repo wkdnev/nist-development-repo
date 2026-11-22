@@ -1776,19 +1776,19 @@ There is one finding for each CSS determination statement, including those about
 | Scope | The 18 PE entries in the CSS Moderate baseline, with 121 determination statements, at the data centre, the second site, the offices and homes |
 | Procedures | CSS, using the CSS published statements and identifiers (catalog release 5.2.0) |
 | Dates | \[Dates of the assessment\] |
-| Site | The data centre and second site named in \<Physical and Environmental Protection Management\>, section 3.2 |
-| Examine | \<Policy\> (PE), \<Procedures\> (PE) and \<Physical and Environmental Protection Management\>, with the inheritance matrix; \<Security Operating Procedures\>, A33, A36 to A38; \<Incident Response Management\>, section 3.9. Depth: focused. Coverage: focused |
+| Site | The main data centre and the second site named in \<Physical and Environmental Protection Management\>, section 3.2 |
+| Examine | \<Policy\> (PE), \<Procedures\> (PE) and \<Physical and Environmental Protection Management\>, with the inheritance matrix; \<Security Operating Procedures\>, A33, A35 to A42 and section 4.6; \<Incident Response Management\>, section 3.9; the TPL-26 home working checks and TPL-10 physical incident records; P-70 and D-PE-01. Depth: focused. Coverage: focused |
 | Test | None for PE. Screen locking is tested under AC-11, and output marking under MP-3 |
-| Interview | The security officer, a sample of home workers and \<Organisation\>'s facilities contact |
+| Interview | The security officer, a sample of home workers, \<Organisation\>'s security contact and its facilities contact (\<Interview Guide\>, INT-PE-01 to INT-PE-05) |
 | Site inspection | Once at Level 2, using TPL-20, by the independent assessor or \<Organisation\>'s auditor (PRO-PE-5) |
 | Previous results reused | \[Results reused from other chapters, if any\] |
 | Boundary | Physical and environmental protection of the data centre and second site is inherited from \<Organisation\>. \<System Name\> provides the policy, the printer and screen rules, home working rules, and incident handling |
 | Order of assessment | A, inherited evidence against the matrix (PE-2 to PE-16); B, the site inspection; C, output devices (PE-5); D, home working (PE-17); E, policy (PE-1). The inherited evidence comes first because it closes most statements |
 | Needed from \<Organisation\> | EV-PE-01 to EV-PE-05 in \<Evidence Requests\>: first its ISO/IEC 27001 certificate and Statement of Applicability for Annex A.7, or a SOC 2 report, for both sites |
 | Evidence retained | \<Physical and Environmental Protection Management\>, sections 3.2 and 3.3; \<Evidence Requests\>; completed TPL-20 |
-| Notes | Fifteen of the 18 controls are inherited from \<Organisation\>'s data centres, and the inheritance matrix in \<Physical and Environmental Protection Management\>, section 3.3, shows the evidence that closes each one (EV-PE-01 to EV-PE-05). Screen locking is tested under AC-11, and output marking under MP-3. An unattended screen is locked by \<Organisation\>'s managed devices and the servers (P-03). An inherited statement stays O-E until \<Organisation\>'s evidence is received. |
+| Notes | Fifteen of the 18 controls are inherited from \<Organisation\>'s data centres, and the inheritance matrix in \<Physical and Environmental Protection Management\>, section 3.3, shows the evidence that closes each one (EV-PE-01 to EV-PE-05). Screen locking is tested under AC-11, and output marking under MP-3. An unattended screen is locked by \<Organisation\>'s managed devices and the servers (P-03). \<System Name\>'s steps beside an inherited control (PE-6, PE-11, PE-16) are examined with \<Organisation\>'s evidence. PE-8(3) is assessed in the PT chapter. An inherited statement stays O-E until \<Organisation\>'s evidence is received. |
 
-For the Level 2 assessment, the assessor should examine \<Organisation\>'s certificate, Statement of Applicability or SOC 2 report against the inheritance matrix, inspect the data centre with TPL-20, interview the security officer and a sample of home workers, and re-determine every statement in section PE.3.
+For the Level 2 assessment, the assessor should examine \<Organisation\>'s certificate, Statement of Applicability or SOC 2 report against the inheritance matrix, inspect the main data centre and the second site with TPL-20, interview the security officer and a sample of home workers, and re-determine every statement in section PE.3.
 
 ## PL Planning
 

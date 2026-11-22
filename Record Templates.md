@@ -35,6 +35,7 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | TPL-23 Risk and supply chain review | Records a review of the risk list, the supply chain or the critical components: what was looked at, what changed, and who saw the result | RA-3, RA-3(1), RA-7, RA-9; PRO-RA-1, PRO-RA-2, PRO-RA-6 |
 | TPL-24 Approval sign-off record | Records that a named person made or confirms the decisions listed, so that an approval does not rest on someone else's report | AC-1; CA-6, PL-2, PM-10 and every policy control (xx-1); \<Decision Register\>, section 5 |
 | TPL-25 Sharing decision | Records a Data Owner's decision on sharing a schema's information outside the schema or outside \<Organisation\>: what, with whom, why, and the conditions | AC-21; PRO-AC-16 |
+| TPL-26 Home working check | Records each person's yearly answers to the home working checklist, and any follow-up | PE-17; PRO-PE-4; \<Security Operating Procedures\>, C30 |
 
 ## 2 Templates
 
@@ -432,7 +433,7 @@ For the Level 2 assessor or \<Organisation\>'s auditor, once per site (\<Procedu
 | PE-3: keys, cards and combinations inventoried and changed |  |
 | PE-4: cabling in locked rooms, cabinets or trays |  |
 | PE-6, PE-6(1): access monitored; alarms and CCTV working; logs reviewed |  |
-| PE-9, PE-10, PE-11, PE-12: power protected; emergency shutoff near exits and guarded; backup power, how long it lasts, and how the system's administrators are warned; emergency lighting on exits and routes |  |
+| PE-9, PE-10, PE-11, PE-12: power protected; emergency shutoff near exits and guarded; backup power, how long it lasts, whether a generator takes over, and how the hosting staff shut the system's servers down cleanly if power cannot be kept; emergency lighting on exits and routes |  |
 | PE-13, PE-13(1): fire detection and suppression working, maintained, with their own energy source, and notifying facilities staff and the fire and rescue service |  |
 | PE-14: temperature and humidity within the ASHRAE TC 9.9 envelope, and monitored |  |
 | PE-15: water shutoff valves accessible, working and known |  |
@@ -538,3 +539,22 @@ Completed by the Data Owner before any of a schema's information is shared outsi
 | Decision: shared, shared with conditions, or refused, and why |  |
 | Decided by the schema's Data Owner (name), and date |  |
 | Export or transfer reference, and date sent |  |
+
+### 2.26 TPL-26 Home working check
+
+Completed by the security officer every 12 months for every person who works from home, not a sample (\<Procedures\>, PRO-PE-4; \<Physical and Environmental Protection Management\>, section 3.6). One record may cover everyone, with one row of answers per person.
+
+**Table 29: TPL-26 Home working check**
+
+| Field | Entry |
+| --- | --- |
+| Record number; year covered; date sent |  |
+| Name and role of the person |  |
+| Works remotely only from home, or from another place the system owner approved in writing (TPL-17 reference) |  |
+| Uses only \<Organisation\>'s managed device, and connects to the VPN before opening \<System Name\> |  |
+| Works where others in the home cannot see the screen, and locks it when leaving |  |
+| Has not printed \<System Name\> items at home |  |
+| Knows how to report a concern, incident, or lost or stolen device, and to whom |  |
+| Answers received, and date |  |
+| Follow-up on any answer that falls short, and when it was closed |  |
+| Reviewed by the security officer, and date |  |

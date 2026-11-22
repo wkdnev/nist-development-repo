@@ -231,6 +231,7 @@ These are the values the controls depend on. CSS calls many of them organisation
 | P-67 | Maintenance lists, notice and records | The approved maintenance tools and people reviewed every 12 months, and when someone leaves; users given 2 working days' notice of planned maintenance that affects them; maintenance records kept 3 years | MA-2, MA-3, MA-5 | \[\] |
 | P-68 | Timely maintenance | Support and parts for the hardware and hypervisor within 24 hours of a failure; Microsoft software supported through \<Organisation\>'s support agreement; a replacement planned at least 6 months before a component's support ends | MA-6, SA-22 | \[\] |
 | P-69 | Media handling | Users' exports and downloads, and printouts, deleted or shredded once no longer needed, and within 30 days at most if they hold personal data; the media inventory reviewed, and a sample of sanitising certificates checked, every 12 months; media records kept 3 years | MP-2, MP-4, MP-6 | \[\] |
+| P-70 | Physical and environmental protection | Output devices: \<Organisation\>'s managed printers with secure release, and screens. Alternate work sites: home only, unless the system owner approves another place in writing; the home working checklist every 12 months for everyone who works from home. \<Organisation\>'s evidence checked every 12 months and after a change of site; each data centre inspected once at Level 2 and after a change of site. Required at both data centres: access list reviewed every 12 months; entry logs reviewed monthly and after an incident or alarm; visitor records kept 12 months and reviewed monthly; keys, cards and combinations inventoried and changed every 12 months; temperature and humidity within the ASHRAE TC 9.9 recommended envelope, monitored continuously; a physical incident affecting \<System Name\> told to the security officer within 24 hours | PE-2, PE-3, PE-5, PE-6, PE-8, PE-14, PE-17 | \[\] |
 
 ## 5 Requirements
 
@@ -629,7 +630,7 @@ The authorisation boundary is the whole stack on two servers: the application se
 | Application server | A virtual server hosted by \<Organisation\>. Runs the UI application, the Admin application and the API, each as a service under its own low-privilege service account |
 | Database server | A separate virtual server. Runs the database |
 | Virtual platform and hardware | \<Organisation\>'s hypervisor and physical hosts, in its data centre in the location in P-23 |
-| Second site | A separate \<Organisation\> site, for encrypted backups and for rebuilding the servers |
+| Second site | A separate \<Organisation\> site, for encrypted backups, the protected copy of the secrets, the 6-monthly restore test and rebuilding the servers |
 | Disks | Full-disk encryption with AES-256, keyed to the server's TPM |
 | Users' devices | Laptops and desktops managed by \<Organisation\>, with disk encryption, a screen lock and removable storage blocked unless approved |
 | Sizes, host names and addresses | \[For each application, when its servers are built\] |
@@ -964,7 +965,7 @@ Table 45 gives each CSS control family, the reference design in brief, and the d
 | IR Incident Response | Report within the time in P-21, four severities with targets, playbooks, evidence preserved before clean-up, and personal data breaches to the legal adviser | \<Incident Response Management\> |
 | MA Maintenance | Maintenance is approved first, done by known people with approved tools over \<Organisation\>'s managed route, checked afterwards and recorded. Suppliers hold no account and work only through an administrator's shared screen. \<Organisation\> maintains the hosts | \<Maintenance Management\> |
 | MP Media Protection | Items stay in the database. Exports are limited, encrypted, marked and removed; portable storage needs approval; media are sanitised to CSS | \<Media Protection Management\> |
-| PE Physical and Environmental Protection | Provided by \<Organisation\> at its data centre and second site. The system owner checks its evidence each year and sets rules for offices and home working | \<Physical and Environmental Protection Management\> |
+| PE Physical and Environmental Protection | Provided by \<Organisation\> at its data centre and second site, including a clean shutdown of the servers if power cannot be kept. The system owner checks its evidence each year and sets rules for offices and home working (P-70) | \<Physical and Environmental Protection Management\> |
 | PL Planning | A security plan, a privacy plan and rules of behaviour that every user signs, all checked for consistency before each issue | \<Planning Management\> |
 | PM Program Management | Outside the baseline. Inherited from \<Organisation\>'s security and privacy programme | \<Program Management\> |
 | PS Personnel Security | \<Organisation\> screens staff. Every role has a risk designation; access agreements are signed; a leaver's account is disabled at once | \<Personnel Security Management\> |
@@ -988,7 +989,7 @@ An application built on the reference system relies on \<Organisation\> for much
 | Remote access | One route in from outside: the VPN, from a managed device, with multi-factor authentication and no split tunnelling |
 | Users' devices | Managed builds, disk encryption, screen lock, and removable storage blocked unless approved |
 | Virtual platform and hardware | The servers, their hardware maintenance, firmware and physical security |
-| Data centre and second site | Physical access control, power, fire and environmental protection; a second site for backups and for rebuilding the servers; a backup service that copies the encrypted backups there and keeps one copy offline or immutable |
+| Data centre and second site | Physical access control, power, fire and environmental protection, and a clean shutdown of the servers through the hypervisor if power cannot be kept; a second site for backups and for rebuilding the servers; a backup service that copies the encrypted backups there and keeps one copy offline or immutable |
 | Certificates, name resolution, time and proxy | A certificate authority, signed and validated name resolution, a time service and an authenticated proxy |
 | Central logging | Receiving the application's logs, and giving the auditor the PingFederate and Active Directory events |
 | ServiceNow | The access approval workflow, in which the group's owner authorises each request, the Data Owner for a schema's groups and the system owner for a role group, and nobody approves their own; prompt notice of leavers from the starters and leavers process; and the incident records and requests for help, readable only by \<System Name\>'s incident roles (EV-IR-02) |
@@ -1143,7 +1144,7 @@ Table 48 defines the terms used across the set, including those in \<Policy\>. T
 | Sanitising | Making information on media impossible to recover, by clearing, purging, cryptographic erase or destruction |
 | Schema | A set of items with its own read group and edit group, kept apart from every other schema |
 | Screening | The checks an employer makes on a person before and during employment |
-| Second site | An \<Organisation\> site, apart from the main one, that holds backups and can run rebuilt VMs |
+| Second site | An \<Organisation\> site, apart from the main one, that holds the backups and the protected copy of the secrets, runs the restore test server, and can run rebuilt VMs |
 | Secure by Design | Designing security and privacy into the system before it is built, so that it is secure by default, rather than adding controls afterwards |
 | Secure release | Printing that holds a job until the user releases it at the printer |
 | Security function | A part of \<System Name\> that enforces a control, such as sign-in, schema access or audit |

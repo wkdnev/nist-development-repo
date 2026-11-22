@@ -7,7 +7,7 @@ This document holds the security and privacy procedures for \<System Name\>: 139
 - **Finding a procedure.** Section 2 lists every procedure. Each procedure is headed by its number, such as PRO-AC-3, which never changes.
 - **Reading a chapter.** Most chapters start with a table that summarises each procedure: what starts it, who acts, the time limit, the record and the controls it serves. The steps follow.
 - **Manual steps.** A step marked **Manual** is carried out and recorded by a person, without support from the system.
-- **Records.** Records use the forms in \<Record Templates\>, TPL-1 to TPL-25, or a ServiceNow record with the same fields.
+- **Records.** Records use the forms in \<Record Templates\>, TPL-1 to TPL-26, or a ServiceNow record with the same fields.
 - **Walk-through.** Each procedure is walked through once on form TPL-4 before go-live.
 - **Citing.** Cite a procedure by its number, as \<Procedures\>, PRO-AC-3. Cite a chapter as \<Procedures\> (AC), a section as \<Procedures\>, section AC.2, and a table as \<Procedures\>, Table AC-4.
 
@@ -1051,9 +1051,9 @@ These procedures carry out \<Policy\> (PE), rules R1 to R10. The values, inherit
 | Procedure | What it does | Who | When | Record | Controls |
 | --- | --- | --- | --- | --- | --- |
 | PRO-PE-1 | Obtains and reviews \<Organisation\>'s evidence for both sites | System owner | Every 12 months, and after a change of site | \<Evidence Requests\>; \<Physical and Environmental Protection Management\>, section 3.3 | PE-2 to PE-16 |
-| PRO-PE-2 | Handles physical incidents | Security officer, \<Organisation\> | When one occurs | TPL-10 | PE-6, IR-4 |
+| PRO-PE-2 | Handles physical incidents, including loss of power | Security officer, \<Organisation\>, Windows server and database administrators | When one occurs | TPL-10 | PE-6, PE-11, IR-4 |
 | PRO-PE-3 | Protects screens and printouts | Everyone | Always | None | PE-5 |
-| PRO-PE-4 | Controls home working | Everyone, security officer | Always; checked every 12 months (C30) | TPL-4 | PE-17 |
+| PRO-PE-4 | Controls home working | Everyone, security officer | Always; checked every 12 months (C30) | TPL-26 | PE-17 |
 | PRO-PE-5 | Inspects the site once | Independent assessor or \<Organisation\>'s auditor | At Level 2, and after a change of site | TPL-20 | PE-2 to PE-16 |
 
 ### PE.3 Procedures
@@ -1071,11 +1071,12 @@ These procedures carry out \<Policy\> (PE), rules R1 to R10. The values, inherit
 1. Anyone who loses a device or printout, or sees a physical security problem, reports it to the security officer at once. **Manual**
 2. \<Organisation\>'s security contact tells the security officer of any physical incident at a site that affects \<System Name\>, including fire, flood and power loss, within 24 hours. **Manual** (EV-PE-01)
 3. The security officer handles it with the physical incident playbook in \<Incident Response Management\>, section 3.9, and calls the contingency plan if a site is lost. **Manual**
+4. If a data centre cannot keep power, \<Organisation\>'s hosting staff shut both servers down cleanly through the hypervisor, the application server first, and tell the Windows server administrator. When power returns, the Windows server and database administrators start the servers and run the start-up checks (\<Security Operating Procedures\>, section 4.6). **Manual** (EV-PE-02)
 
 #### PRO-PE-3 Screens and printers
 
 1. Users print items from \<System Name\> only on \<Organisation\>'s managed printers with secure release: \[managed printers\]. **Manual** (EV-PE-05)
-2. They release and collect printouts at once, and keep the classification marking that \<System Name\> prints on each page (\<Procedures\>, PRO-MP-1). **Manual**
+2. They release and collect printouts at once, and keep the classification marking that \<System Name\> prints on each page (PRO-MP-1). **Manual**
 3. Users lock their screen when they leave it, place it so that others cannot read it, and keep their desk clear of printed documents. \<Organisation\>'s managed devices also lock the screen after the inactivity period in \<System Description\>, P-03. **Manual**
 
 #### PRO-PE-4 Working from home
@@ -1083,7 +1084,7 @@ These procedures carry out \<Policy\> (PE), rules R1 to R10. The values, inherit
 1. People work remotely only from home, unless the system owner has approved another place in writing, on \<Organisation\>'s managed devices and route. **Manual** (EV-PE-05)
 2. They never print items from \<System Name\> at home (D-MP-01), and they work where others in the home cannot see the screen. **Manual**
 3. Anyone working from home reports any concern or incident to the security officer at once, using the contacts in \<Security Operating Procedures\>, section 6. **Manual**
-4. Every 12 months, the security officer puts a short checklist to every person who works from home (managed device, VPN, screen privacy, no printing, reporting) and records the answers on TPL-4 (C30). **Manual**
+4. Every 12 months, the security officer puts a short checklist to every person who works from home (managed device, VPN, screen privacy, no printing, reporting) and records the answers on TPL-26 (C30). **Manual**
 
 #### PRO-PE-5 Site inspection
 

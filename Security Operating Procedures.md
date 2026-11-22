@@ -279,7 +279,7 @@ The detection use cases U1 to U9 in \<System and Information Integrity Managemen
 | C27 | Review development tools and standards | Developers, security officer | \<Procedures\>, PRO-SA-6 | TPL-23 | SA-15 |
 | C28 | Review maintenance tools and people | Windows server administrator, system owner | \<Procedures\>, PRO-MA-3 and PRO-MA-5 | TPL-12 | MA-3, MA-5 |
 | C29 | Check \<Organisation\>'s physical security evidence | System owner | \<Procedures\>, PRO-PE-1 | Response logged in \<Evidence Requests\> | PE-2 to PE-16 |
-| C30 | Assess home working controls | Security officer | \<Procedures\>, PRO-PE-4 | TPL-4 | PE-17 |
+| C30 | Assess home working controls | Security officer | \<Procedures\>, PRO-PE-4 | TPL-26 | PE-17 |
 | C31 | Review risk designations and access agreements | System owner | \<Procedures\>, PRO-PS-4 | TPL-3 | PS-2, PS-6 |
 | C32 | Check personal data is accurate, relevant and still needed, and approve the disposal of items due under the retention schedule (\<System Description\>, FR-074) | Data Owners; the business owner approves disposal | \<Procedures\>, PRO-PT-5 | TPL-3 | SI-18, PT-3 |
 | C33 | Check the privacy notice names \<System Name\> | System owner | \<Procedures\>, PRO-PT-3 | TPL-4 | PT-5 |
@@ -342,7 +342,7 @@ The security officer analyses each change's impact against the criteria in \<Con
 
 1. **Start-up.** Start the database VM first, then the application VM. Confirm the time is synchronised, run the start-up checks of release packages, file checksums and the audit chain (\<Procedures\>, PRO-SI-6), then confirm every service is healthy (C1).
 2. **Shut-down.** A planned shut-down is an approved change. Tell users at least 2 working days beforehand, confirm the latest backups succeeded, stop the UI application and the Admin application, then the API, then SQL Server, and record it.
-3. **Emergency shut-down.** If \<Organisation\> warns that the data centre is on backup power, the Windows server and database administrators shut down at once in the same order, without the notice, and before the backup power runs out. It is recorded on TPL-10 as a physical incident.
+3. **Loss of power.** If a data centre cannot keep power, \<Organisation\>'s hosting staff shut both servers down cleanly through the hypervisor, the application server first, before the backup power runs out, and tell the Windows server administrator (\<Physical and Environmental Protection Management\>, section 3.7). When power returns, the administrators start the servers as in step 1 and confirm that SQL Server recovered each database cleanly. The security officer records it on TPL-10 as a physical incident.
 4. **Recovery.** Follow \<Contingency Planning Management\>. Restore the backup encryption certificate, then the latest good backup, run the checks in PRO-CP-2 (row counts, file checksums and the audit chain) and \<Contingency Planning Management\>, section 3.7, delete again any item disposed of or deleted since the backup was taken, and change secrets if a compromise is suspected. Check the members of \<System Name\>'s groups against current staff, and confirm the security functions work, before users return, and record the recovery on TPL-11, or on TPL-10 if it followed an incident.
 
 ### 4.7 Remote maintenance (C41)
@@ -466,7 +466,8 @@ Table 6 shows where each control that these SyOps serve is met. It lets an audit
 | IR-4, IR-5, IR-6 Incidents | A29, A42, A50 to A53; B22; C43; section 4.9 |
 | MA-1 to MA-6 Maintenance | B15, B20, B21; C11, C28, C41, C48; sections 4.6 and 4.7 |
 | MP-2 to MP-7 Media | A28, A30 to A35; C42, C49; section 4.8 |
-| PE-5, PE-17 Output Devices and Alternate Work Site | A33, A36, A37, A38 to A42; C30 |
+| PE-5, PE-17 Output Devices and Alternate Work Site | A33, A35 to A42; C30 |
+| PE-6, PE-11 Physical incidents and loss of power | A42; sections 4.6 and 4.9 |
 | PS-6, PS-8 Access Agreements and Sanctions | A4; C23, C31; section 9 |
 | PT-2, PT-3, SI-12, SI-18 Personal Data | A23 to A28; C32, C33, C44 |
 | RA-5, SI-2, SI-5 Vulnerabilities and Advisories | C7, C10, C11, C37, C50; section 4.3 |

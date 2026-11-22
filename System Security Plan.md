@@ -271,7 +271,7 @@ Section 7 lists every control. A control counts as satisfied only when every one
 | \<Organisation\> | Inherited services and their evidence |
 | Users | Following the SyOps |
 | Security officer, system owner, database and Windows server administrators | Incident response and training records (security officer); invoking recovery (system owner); backups and rebuilding (administrators). See \<Incident Response Management\>, \<Contingency Planning Management\> and \<Awareness and Training Management\> |
-| \<Organisation\> | Maintaining hardware, approving and sanitising its removal under its own process, handling disks and backup media, and physical and environmental protection. See \<Maintenance Management\>, \<Media Protection Management\> and \<Physical and Environmental Protection Management\> |
+| \<Organisation\> | Maintaining hardware, approving and sanitising its removal under its own process, handling disks and backup media, and physical and environmental protection, including a clean shutdown of the servers if power cannot be kept (D-PE-01). See \<Maintenance Management\>, \<Media Protection Management\> and \<Physical and Environmental Protection Management\> |
 | Legal adviser | The privacy plan (\<Privacy Plan\>), the impact assessment, the lawful basis, requests and complaints from individuals, and reports to the ICO |
 | Business and information owner | The information types, and retention periods for each schema; the business owner approves the disposal of items due under the retention schedule (FR-074) |
 | Legal adviser's delegate | Searching every schema for one person's items to answer a request under data protection law (FR-073), named by the legal adviser |
@@ -548,30 +548,30 @@ The assessment plan is in \<Control Assessment Record\> (MP), section MP.4, wher
 
 ### 7.11 Physical and Environmental Protection (PE)
 
-The assessment plan is in \<Control Assessment Record\> (PE), section PE.4, where the results are recorded. Implementation detail is in \<Policy\> (PE), \<Procedures\> (PE) and \<Physical and Environmental Protection Management\>, whose section 3.3 the inheritance matrix, which maps each inherited control to the \<Organisation\> evidence that closes it.
+The assessment plan is in \<Control Assessment Record\> (PE), section PE.4, where the results are recorded. Implementation detail is in \<Policy\> (PE), \<Procedures\> (PE) and \<Physical and Environmental Protection Management\>, whose section 3.3 holds the inheritance matrix, which maps each inherited control to the \<Organisation\> evidence that closes it.
 
 **Table 20: PE controls**
 
 | Control | How it is implemented | Who | Type | Status | Gap entry |
 | --- | --- | --- | --- | --- | --- |
-| PE-1 Policy and Procedures | Policy and procedures in \<Policy\> (PE) and \<Procedures\> (PE) | System owner, Head of Cyber | Organisational | \[Status\] | \[Decision\] |
-| PE-2 Physical Access Authorizations | \<Organisation\>'s access list | \<Organisation\> | Inherited | \[Status\] | \[Decision\] |
-| PE-3 Physical Access Control | \<Organisation\>'s access control | \<Organisation\> | Inherited | \[Status\] | \[Decision\] |
-| PE-4 Access Control for Transmission | \<Organisation\>'s locked rooms and cabinets | \<Organisation\> | Inherited | \[Status\] | \[Decision\] |
-| PE-5 Access Control for Output Devices | Managed printers with secure release only, and screens locked by \<Organisation\>'s managed devices (P-03) | \<Organisation\>, everyone | Hybrid | \[Status\] | \[Decision\] |
-| PE-6 Monitoring Physical Access | \<Organisation\> reviews logs monthly | \<Organisation\> | Inherited | \[Status\] | \[Decision\] |
-| PE-6(1) Intrusion Alarms | Provided by \<Organisation\> | \<Organisation\> | Inherited | \[Status\] | \[Decision\] |
-| PE-8 Visitor Access Records | Kept for 12 months | \<Organisation\> | Inherited | \[Status\] | \[Decision\] |
-| PE-9 Power Equipment and Cabling | Provided by \<Organisation\> | \<Organisation\> | Inherited | \[Status\] | \[Decision\] |
-| PE-10 Emergency Shutoff | Provided by \<Organisation\> | \<Organisation\> | Inherited | \[Status\] | \[Decision\] |
-| PE-11 Emergency Power | Orderly shutdown on backup power | \<Organisation\> | Inherited | \[Status\] | \[Decision\] |
-| PE-12 Emergency Lighting | Provided by \<Organisation\> | \<Organisation\> | Inherited | \[Status\] | \[Decision\] |
-| PE-13 Fire Protection | Provided by \<Organisation\> | \<Organisation\> | Inherited | \[Status\] | \[Decision\] |
-| PE-13(1) Detection Systems | Provided by \<Organisation\> | \<Organisation\> | Inherited | \[Status\] | \[Decision\] |
-| PE-14 Environmental Controls | Kept within the ASHRAE recommended envelope and monitored continuously | \<Organisation\> | Inherited | \[Status\] | \[Decision\] |
-| PE-15 Water Damage Protection | Provided by \<Organisation\> | \<Organisation\> | Inherited | \[Status\] | \[Decision\] |
-| PE-16 Delivery and Removal | Provided by \<Organisation\> | \<Organisation\> | Inherited | \[Status\] | \[Decision\] |
-| PE-17 Alternate Work Site | Home only, on managed devices and route, with no home printing; yearly checklist | Security officer, \<Organisation\> | Hybrid | \[Status\] | \[Decision\] |
+| PE-1 Policy and Procedures | Policy and procedures in \<Policy\> (PE) and \<Procedures\> (PE); the design and inheritance matrix are in \<Physical and Environmental Protection Management\> | System owner, Head of Cyber | Organisational | Implemented | NC-PE-01 |
+| PE-2 Physical Access Authorizations | \<Organisation\>'s list of people authorised to enter each data centre, with individual credentials, reviewed every 12 months and leavers removed (P-70); no \<System Name\> role is on it | \<Organisation\> | Inherited | Implemented | NC-PE-02 |
+| PE-3 Physical Access Control | \<Organisation\>'s electronic entry control and logs at every entrance and exit of both sites; staffed reception; visitors signed in and escorted; keys, cards and combinations secured, inventoried and changed every 12 months (P-70) | \<Organisation\> | Inherited | Implemented | NC-PE-03 |
+| PE-4 Access Control for Transmission | Power and network cabling in \<Organisation\>'s locked rooms, cabinets and cable trays | \<Organisation\> | Inherited | Implemented | NC-PE-04 |
+| PE-5 Access Control for Output Devices | Printing only on \<Organisation\>'s managed printers with secure release, collected at once, never at home (D-MP-01); screens locked when left and placed out of view, and locked by \<Organisation\>'s managed devices after 15 minutes (P-03) | \<Organisation\>, everyone | Hybrid | Implemented | NC-PE-05 |
+| PE-6 Monitoring Physical Access | \<Organisation\> monitors both sites, reviews entry logs monthly and after an incident or alarm, and passes the results to incident response; the security officer handles what affects \<System Name\> | \<Organisation\> | Inherited | Implemented | NC-PE-06 |
+| PE-6(1) Intrusion Alarms | Intrusion alarms and CCTV at both sites, with \<Organisation\> responding to alarms | \<Organisation\> | Inherited | Implemented | NC-PE-07 |
+| PE-8 Visitor Access Records | Kept for 12 months and reviewed monthly; anomalies to \<Organisation\>'s security contact, who tells the security officer | \<Organisation\> | Inherited | Implemented | NC-PE-08 |
+| PE-9 Power Equipment and Cabling | Power equipment and cabling serving the hosts protected from damage | \<Organisation\> | Inherited | Implemented | NC-PE-09 |
+| PE-10 Emergency Shutoff | Switches near the exits of each data centre room, guarded against accidental and unauthorised use | \<Organisation\> | Inherited | Implemented | NC-PE-10 |
+| PE-11 Emergency Power | Uninterruptible power supply; if power cannot be kept, \<Organisation\>'s hosting staff shut both servers down cleanly through the hypervisor and tell the Windows server administrator (D-PE-01); start-up checks when power returns | \<Organisation\> | Inherited | Implemented | NC-PE-11 |
+| PE-12 Emergency Lighting | Automatic emergency lighting over exits and evacuation routes at both sites | \<Organisation\> | Inherited | Implemented | NC-PE-12 |
+| PE-13 Fire Protection | Fire detection and suppression with an independent energy source, at both sites | \<Organisation\> | Inherited | Implemented | NC-PE-13 |
+| PE-13(1) Detection Systems | Detection activates automatically and notifies \<Organisation\>'s facilities staff and the fire and rescue service | \<Organisation\> | Inherited | Implemented | NC-PE-14 |
+| PE-14 Environmental Controls | Temperature and humidity within the ASHRAE TC 9.9 recommended envelope, monitored continuously (P-70) | \<Organisation\> | Inherited | Implemented | NC-PE-15 |
+| PE-15 Water Damage Protection | Master shutoff or isolation valves, accessible, working and known to key people | \<Organisation\> | Inherited | Implemented | NC-PE-16 |
+| PE-16 Delivery and Removal | \<Organisation\> authorises and records hardware and media entering and leaving both sites; host hardware leaves sanitised, with notice to the system owner (D-MA-03) | \<Organisation\> | Inherited | Implemented | NC-PE-17 |
+| PE-17 Alternate Work Site | Home only, unless the system owner approves another place in writing, on managed devices and the VPN, with no home printing; a checklist every 12 months for everyone who works from home (TPL-26; P-70); incidents to the security officer | Security officer, \<Organisation\> | Hybrid | Implemented | NC-PE-18 |
 
 ### 7.12 Planning (PL)
 
