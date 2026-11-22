@@ -137,6 +137,8 @@ Controls met here: SA-8(33), SI-12(1), SI-12(2), SI-12(3), SI-18, SI-19.
 | A14 | Notifications | \[Period\] | Notification created | Only as long as the person needs it | Removed by the scheduled task (FR-055) |
 | A15 | Incident records (TPL-10) and the incident and breach register | \[Period, set by the legal adviser\] | Incident closed | Shows what happened and that every breach was recorded (UK GDPR, Article 33(5)) | Delete |
 | A16 | Other operating records that name people (TPL-3, TPL-17, TPL-24, TPL-25 and TPL-26) | \[Period, set by the system owner; 3 years proposed, to match the other records\] | Record completed or superseded | Evidence of the controls for the assessment cycle | Delete |
+| A17 | Export working copies on the application server | Until downloaded, and 24 hours at most | Export completed | MP-4, MP-6, as set in \<Media Protection Management\> and \<System Description\>, P-20 | Deleted by the API after the download, and by a background task past 24 hours (FR-050) |
+| A18 | Users' exports, downloads and printouts | Until no longer needed, and 30 days at most if they hold personal data | Export, download or print | MP-6, as set in \<Media Protection Management\> and \<System Description\>, P-69 | Deleted or shredded by the user (PRO-MP-5) |
 
 ### 3.8 Impact assessment and changes in processing
 

@@ -248,9 +248,9 @@ Each control is given one of four types. **System** controls are met by \<System
 | RA Risk Assessment | 10 | 0 | 4 | 6 | 0 | 0 |
 | SA System and Services Acquisition | 17 | 0 | 4 | 10 | 2 | 1 |
 | SC System and Communications Protection | 25 | 4 | 13 | 1 | 6 | 1 |
-| SI System and Information Integrity | 18 | 3 | 9 | 3 | 1 | 2 |
+| SI System and Information Integrity | 18 | 2 | 10 | 3 | 1 | 2 |
 | SR Supply Chain Risk Management | 12 | 0 | 3 | 5 | 4 | 0 |
-| **Total** | **316** | **17** | **120** | **95** | **62** | **22** |
+| **Total** | **316** | **16** | **121** | **95** | **62** | **22** |
 
 Section 7 lists every control. A control counts as satisfied only when every one of its assessment statements is satisfied.
 
@@ -266,8 +266,8 @@ Section 7 lists every control. A control counts as satisfied only when every one
 | Administrators | Managing schemas, the groups that open each schema, and system settings, in the Admin application |
 | Data Owners | Authorising who may read or edit their schema, in ServiceNow, and owning its read and edit groups |
 | Auditor | Reviewing the audit log weekly, comparing it with the server, database, PingFederate and Active Directory records, recording the review, and reporting anything suspicious to the security officer |
-| Security officer | Reviewing alerts, the central logs, advisories and scan results, leading incident response, reviewing maintenance records and remote maintenance logs, running their checks after maintenance, and reporting monthly on security status. The security officer does not read the audit log |
-| Windows server and database administrators | Securing, patching and scanning the VMs and SQL Server, running Defender and disk encryption, setting TLS, certificates, trust stores, host firewall rules and proxy settings, changing the keys in the register, and carrying out maintenance, in which a supplier only watches their shared screen |
+| Security officer | Reviewing alerts, the central logs, advisories, scan results and the integrity and checksum check results, leading incident response, reviewing maintenance records and remote maintenance logs, running their checks after maintenance, and reporting monthly on security status. The security officer does not read the audit log |
+| Windows server and database administrators | Securing, patching and scanning the VMs and SQL Server, running Defender, the integrity check of the release files and disk encryption, setting TLS, certificates, trust stores, host firewall rules and proxy settings, changing the keys in the register, and carrying out maintenance, in which a supplier only watches their shared screen |
 | Change control element | Approving changes: the system owner, security officer and Windows server administrator, with the legal adviser for a change that touches personal data (\<Configuration Management\>) |
 | Security assessor | Leading the independent Level 2 assessment |
 | \<Organisation\> | Inherited services and their evidence, and the security and privacy programme behind the PM controls (\<Program Management\>) |
@@ -722,30 +722,30 @@ The assessment plan is in \<Control Assessment Record\> (SC), section SC.4, wher
 
 ### 7.18 System and Information Integrity (SI)
 
-The assessment plan is in \<Control Assessment Record\> (SI), section SI.4, where the results are recorded. Implementation detail is in \<Policy\> (SI), \<Procedures\> (SI) and \<System and Information Integrity Management\>, whose section 3.2 the upload checks, section 3.4 the detection use cases and section 3.5 the integrity baseline. Flaws follow the one timetable in \<Risk Assessment Management\>, section 3.6.
+The assessment plan is in \<Control Assessment Record\> (SI), section SI.4, where the results are recorded. Implementation detail is in \<Policy\> (SI), \<Procedures\> (SI) and \<System and Information Integrity Management\>, whose section 3.2 the upload checks, section 3.4 the detection use cases, section 3.5 the integrity baseline and its checks, section 3.7 the retention summary and section 3.11 the values chosen for the controls. Flaws follow the one timetable in \<Risk Assessment Management\>, section 3.6.
 
 **Table 27: SI controls**
 
 | Control | How it is implemented | Who | Type | Status | Gap entry |
 | --- | --- | --- | --- | --- | --- |
-| SI-1 Policy and Procedures | Policy and procedures in \<Policy\> (SI) and \<Procedures\> (SI); the design is in \<System and Information Integrity Management\> | System owner, Head of Cyber | Organisational | \[Status\] | \[Decision\] |
-| SI-2 Flaw Remediation | Flaws fixed under \<Risk Assessment Management\>, section 3.6; packages checked by Test-Vulnerability.ps1 | Developers, Windows server administrator | Hybrid | \[Status\] | \[Decision\] |
-| SI-2(2) Automated Status | Test-Vulnerability.ps1 and dependency alerts | Developers | Hybrid | \[Status\] | \[Decision\] |
-| SI-3 Malicious Code Protection | Upload type and signature checks; uploads scanned through AMSI; Defender on both VMs | Windows server administrator, developers | Hybrid | \[Status\] | \[Decision\] |
-| SI-4 System Monitoring | Failed sign-ins are audited; detection use cases, reviews and log forwarding (\<System and Information Integrity Management\>, section 3.4) | Security officer, \<Organisation\> | Hybrid | \[Status\] | \[Decision\] |
-| SI-4(2) Real-time Analysis | Log forwarding and automated analysis | Security officer | Hybrid | \[Status\] | \[Decision\] |
-| SI-4(4) Traffic Monitoring | \<Organisation\> | \<Organisation\> | Inherited | \[Status\] | \[Decision\] |
-| SI-4(5) System Alerts | Use cases set for the nine events in \<System Description\>, P-27 (\<System and Information Integrity Management\>, section 3.4) | Developers, security officer | System | \[Status\] | \[Decision\] |
-| SI-5 Advisories | Sources include CISA's exploited list and NCSC Early Warning | Security officer | Organisational | \[Status\] | \[Decision\] |
-| SI-7 Integrity | Integrity baseline recorded; file checksums and the audit chain | Developers, security officer | Hybrid | \[Status\] | \[Decision\] |
-| SI-7(1) Integrity Checks | Scheduled integrity check | Security officer | Hybrid | \[Status\] | \[Decision\] |
-| SI-7(7) Detection and Response | Unexpected changes go to incident response (PRO-SI-6) | Security officer | Organisational | \[Status\] | \[Decision\] |
-| SI-8 Spam Protection | Not applicable; \<System Name\> sends no email | None | Not applicable | \[Status\] | \[Decision\] |
-| SI-8(2) Automatic Updates | Not applicable | None | Not applicable | \[Status\] | \[Decision\] |
-| SI-10 Input Validation | Injection-style input refused, and wrong signatures, disguised executables, unknown types and paths rejected | Developers | System | \[Status\] | \[Decision\] |
-| SI-11 Error Handling | API responses do not return exception messages | Developers | System | \[Status\] | \[Decision\] |
-| SI-12 Information Retention | \<System Name\>'s retention schedule (\<PII Processing Management\>, section 3.7) and audit retention | System owner | Hybrid | \[Status\] | \[Decision\] |
-| SI-16 Memory Protection | .NET managed memory, and Windows memory protection settings on the VMs | Windows server administrator | Hybrid | \[Status\] | \[Decision\] |
+| SI-1 Policy and Procedures | Policy and procedures in \<Policy\> (SI) and \<Procedures\> (SI); the design is in \<System and Information Integrity Management\> | System owner, Head of Cyber | Organisational | Implemented | NC-SI-01 |
+| SI-2 Flaw Remediation | Flaws found by the scans, package checks and advisories, recorded on TPL-7, tested in the test environment and fixed or mitigated within P-11 through change control, exploited flaws within 3 days as an emergency change (\<Risk Assessment Management\>, section 3.6); the hosts' firmware by \<Organisation\> (EV-SI-02) | Security officer, developers, Windows server and database administrators, \<Organisation\> | Hybrid | Implemented | NC-SI-02 |
+| SI-2(2) Automated Status | The credentialed scan, Test-Vulnerability.ps1 and the Windows Update reports monthly and at each release, and the dependency alerts at each build | Developers, Windows server administrator | Hybrid | Implemented | NC-SI-03 |
+| SI-3 Malicious Code Protection | Defender on both VMs, with real-time protection, daily definitions and a weekly scan; each upload passed to Defender through AMSI, and refused if flagged or not scanned; every stored file rescanned monthly and at each release (D-SI-02); detections alerted (U3) and false positives recorded on TPL-10 | Windows server administrator, developers | Hybrid | Implemented | NC-SI-04 |
+| SI-4 System Monitoring | Application, Windows and SQL Server logs and \<Organisation\>'s PingFederate and Active Directory events in central logging; detection use cases U1 to U9; the security officer's weekly review; \<Organisation\>'s network monitoring (\<System and Information Integrity Management\>, section 3.4) | Security officer, \<Organisation\> | Hybrid | Implemented | NC-SI-05 |
+| SI-4(2) Real-time Analysis | Alert rules in \<Organisation\>'s central logging analyse the forwarded events in near real time | Security officer, \<Organisation\> | Hybrid | Implemented | NC-SI-06 |
+| SI-4(4) Traffic Monitoring | \<Organisation\> monitors traffic continuously against the allowed flows | \<Organisation\> | Inherited | Implemented | NC-SI-07 |
+| SI-4(5) System Alerts | The nine events in \<System Description\>, P-27: the API's security events and Defender, App Control and integrity check results, with \<Organisation\>'s PingFederate and Active Directory events, raise alerts to the people named in \<System and Information Integrity Management\>, Table 3, through \<Organisation\>'s central logging | Developers, security officer, \<Organisation\> | Hybrid | Partially implemented | NC-SI-08 |
+| SI-5 Advisories | Sources in \<System and Information Integrity Management\>, Table 2, including CISA's exploited list each working day and NCSC Early Warning through \<Organisation\>; internal advisories on TPL-7, passed to the administrators and developers | Security officer | Organisational | Implemented | NC-SI-09 |
+| SI-7 Integrity | SHA-256 of each release package, installed file and release script in the release record, and of each stored file; the keyed audit chain; App Control for Business; the hosts' firmware checked by \<Organisation\> | Windows server administrator, developers, security officer, \<Organisation\> | Hybrid | Implemented | NC-SI-10 |
+| SI-7(1) Integrity Checks | Release files at start-up, at each release and monthly; stored files at each release and monthly; the audit chain daily and at each start-up (\<System and Information Integrity Management\>, Table 4a) | Windows server administrator, security officer, \<Organisation\> | Hybrid | Implemented | NC-SI-11 |
+| SI-7(7) Detection and Response | Unexpected changes raise U8 or U2 and go to incident response (PRO-SI-6) | Security officer | Organisational | Implemented | NC-SI-12 |
+| SI-8 Spam Protection | Not applicable; \<System Name\> sends and receives no email | None | Not applicable | Not applicable | TR-SI-01 |
+| SI-8(2) Automatic Updates | Not applicable | None | Not applicable | Not applicable | TR-SI-01 |
+| SI-10 Input Validation | Every API input checked for type, length and range; uploads checked for type, signature, size and name, and a batch's ZIP file unpacked within P-18; parameterised queries | Developers | System | Implemented | NC-SI-13 |
+| SI-11 Error Handling | A general error message with a reference; the detail only in the application logs, read by the Windows server administrators, the auditor and the security officer | Developers | System | Implemented | NC-SI-14 |
+| SI-12 Information Retention | \<System Name\>'s retention schedule (\<PII Processing Management\>, section 3.7), with disposal approved by the business owner (FR-074); audit, log, export and backup retention as P-07, P-15, P-20 and P-69 set | Business owner, system owner, database administrator | Hybrid | Partially implemented | NC-SI-15 |
+| SI-16 Memory Protection | .NET managed memory, and data execution prevention and address space layout randomisation on both VMs | Windows server administrator, developers | Hybrid | Implemented | NC-SI-16 |
 
 ### 7.19 Supply Chain Risk Management (SR)
 

@@ -1102,18 +1102,18 @@ It applies to the UI application, the Admin application, the API, the \<System N
 
 ### SI.4 Mandatory requirements
 
-1. **R1 Flaw remediation:** flaws must be fixed to the one timetable in \<Risk Assessment Management\>, section 3.6: 3 days for a flaw known to be exploited, 14 days for Critical and High, 30 days for Medium, and 90 days for Low (P-11), counted from the fix's release or its detection if later. Updates are tested first and installed through change control.
-2. **R2 Update status:** Test-Vulnerability.ps1 must run monthly and at each release, dependency alerts must be on for every repository, and Windows Update status must be reported from both VMs.
-3. **R3 Malicious code:** Microsoft Defender must run on both VMs, with real-time protection, daily updates and a weekly full scan. Every upload must be passed to Defender through the Windows Antimalware Scan Interface (AMSI) before it is stored. A flagged file is refused, recorded in the audit trail and reported to the security officer.
-4. **R4 Upload checks:** only the file types in P-19 may be uploaded. Each file's type and signature must match its extension, its size must be within the limit for the user's role (P-17), a batch must be within P-18, and its name must not contain a path.
-5. **R5 Monitoring:** application, Windows and SQL Server logs must be forwarded to \<Organisation\>'s central logging and reviewed weekly (P-08). The detection use cases in \<System and Information Integrity Management\>, section 3.4, which include the nine events in P-27, must raise alerts to the security officer.
+1. **R1 Flaw remediation:** flaws must be fixed or mitigated within the one timetable in \<Risk Assessment Management\>, section 3.6: 3 days for a flaw known to be exploited, as an emergency change, 14 days for Critical and High, 30 days for Medium, and 90 days for Low (P-11), counted from the fix's release or its detection if later. Updates are tested first for their effect and side effects and installed through change control. A fix that cannot meet its time goes to a risk decision under section 1.2.
+2. **R2 Update status:** the credentialed scan of both VMs and Test-Vulnerability.ps1 must run monthly and at each release, dependency alerts must be on for every repository, and Windows Update status must be reported from both VMs.
+3. **R3 Malicious code:** Microsoft Defender must run on both VMs, with real-time protection, daily updates and a weekly full scan. Every upload must be passed to Defender through the Windows Antimalware Scan Interface (AMSI) before it is stored, and every stored file must be rescanned monthly and at each release with current definitions (D-SI-02). A flagged file is refused, recorded in the audit trail and reported to the security officer. A file that cannot be scanned is refused.
+4. **R4 Upload checks:** only the file types in P-19 may be uploaded. Each file's type and signature must match its extension, its size must be within the limit for the user's role (P-17), a batch must be within P-18, counted after a ZIP file is unpacked, and its name must not contain a path. A ZIP file is accepted only as a batch's container, and never nested or encrypted.
+5. **R5 Monitoring:** application, Windows and SQL Server logs must be forwarded to \<Organisation\>'s central logging and reviewed weekly by the security officer (PRO-SI-3). The detection use cases in \<System and Information Integrity Management\>, section 3.4, which include the nine events in P-27, must raise alerts to the people they name, who acknowledge each within the time set there.
 6. **R6 Monitoring people:** users must be monitored only after the legal adviser's opinion, only as far as needed, and with staff told what is monitored and why.
-7. **R7 Advisories:** advisories must be received from NCSC (including Early Warning), CISA's Known Exploited Vulnerabilities catalogue (each working day, from an alert on new entries), and the vendors of every component, including Microsoft for Windows Server, .NET and SQL Server, and passed to the people who act on them.
-8. **R8 Integrity:** release packages and stored files must be protected with SHA-256 checksums, and audit records with the HMAC-SHA-256 chain, and checked against the recorded baseline at start-up, at each release and monthly (P-29). An unexpected change is handled as an incident.
+7. **R7 Advisories:** advisories must be received from NCSC (including Early Warning, through \<Organisation\>), CISA's Known Exploited Vulnerabilities catalogue (each working day, from an alert on new entries), and the vendors of every component, including Microsoft for Windows Server, .NET and SQL Server, and passed to the people who act on them.
+8. **R8 Integrity:** release packages, the files they install and the release scripts, and stored files, must be protected with SHA-256 checksums, and audit records with the HMAC-SHA-256 chain. The installed release files must be checked against the release record at start-up, at each release and monthly; stored files at each release and monthly (P-29); and the audit chain daily and at each start-up. An unexpected change is alerted and handled as an incident.
 9. **R9 Input validation:** all API inputs, uploads and search terms must be validated on the server, and database queries must use parameters.
-10. **R10 Errors:** users and API callers must receive general error messages. Exception detail goes only to the logs, for administrators and developers.
-11. **R11 Retention:** information must be kept and disposed of under \<System Name\>'s retention schedule (\<PII Processing Management\>, section 3.7): audit records for 12 months online and 12 archived (P-07), application logs for 30 days, and export copies deleted once downloaded (P-20).
-12. **R12 Checking:** Test-Integrity.ps1 must run at each release, after a significant change and at each review.
+10. **R10 Errors:** users and API callers must receive general error messages. Exception detail goes only to the application logs, which only the Windows server administrators read on the servers and the auditor and security officer read in central logging, and holds no secret or personal data beyond the username.
+11. **R11 Retention:** information and output must be kept and disposed of under \<System Name\>'s retention schedule (\<PII Processing Management\>, section 3.7): items for the period set for their type, disposed of once the business owner approves; audit records for 12 months online and 12 archived (P-07); application logs for 30 days on the servers; export working copies deleted once downloaded, and within 24 hours (P-20); users' exports and downloads within 30 days at most if they hold personal data (P-69); and backups as P-15 sets, so a deleted item stays in them for at most 12 months.
+12. **R12 Checking:** developers must run Test-Integrity.ps1 at each release, after a significant change and at each review.
 
 ### SI.5 Responsibilities
 
@@ -1124,19 +1124,21 @@ It applies to the UI application, the Admin application, the API, the \<System N
 | Head of Cyber | Approves this policy, as all policies |
 | Authorising official | Decides Medium and High risks |
 | System owner | Owns this policy and the detection use cases |
-| Security officer | Reviews the central logs and alerts, but not the audit log, runs the advisory process, and leads the response to detections |
-| Windows server administrator | Patches the VMs, runs Defender and forwards Windows logs |
+| Security officer | Reviews the central logs and alerts, but not the audit log, runs the advisory process, reviews the integrity and checksum check results, and leads the response to detections |
+| Auditor | Reviews the audit log weekly, runs the chain check at each review, and reports anything suspicious to the security officer |
+| Windows server administrator | Patches the VMs, runs Defender, forwards Windows logs, and runs the integrity check of the release files |
 | Database administrator | Patches SQL Server and forwards its logs |
+| Business owner | Approves the disposal of items due under the retention schedule |
 | Developers | Update packages, build upload scanning, validation and safe errors, and run Test-Integrity.ps1 |
 | Legal adviser | Advises on monitoring users and on retention periods |
-| \<Organisation\> | Monitors network traffic, provides central logging, and registers \<System Name\>'s addresses with NCSC Early Warning |
+| \<Organisation\> | Monitors network traffic, provides central logging and its alert rules, keeps the hosts' firmware updated and checked, and registers its internet-facing addresses with NCSC Early Warning |
 
 ### SI.6 Governance requirements
 
 The rules in section 1.1 apply to this policy. It adds these.
 
 1. **Communication:** this policy and the procedures must be shared with everyone who administers or develops \<System Name\>, and whenever they change.
-2. **Compliance and management commitment:** the system owner reviews compliance at each review, runs Test-Integrity.ps1, and records the result.
+2. **Compliance and management commitment:** the system owner reviews compliance at each review, with the latest Test-Integrity.ps1 result, and records it.
 3. **Coordination:** the system owner agrees with \<Organisation\>'s security contact how monitoring, logging and firmware updates are provided, and records it.
 4. **Laws and standards:** this policy must be consistent with applicable law, \<Organisation\>'s policies and CSS.
 

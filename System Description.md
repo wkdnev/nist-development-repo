@@ -179,8 +179,8 @@ These are the values the controls depend on. CSS calls many of them organisation
 | P-15 | Backups kept | 14 daily, 8 weekly and 12 monthly; one copy at a second site and one offline or immutable | CP-9, CP-6 | \[\] |
 | P-16 | Contingency tests | A restore every 6 months, on a throwaway server at the second site (D-CP-01); a tabletop exercise every 12 months | CP-4, CP-9(1) | \[\] |
 | P-17 | Largest single upload, by role | 25, 50, 75 or 100 MB | SI-10 | \[\] |
-| P-18 | Largest batch | 100 files and 500 MB | SI-10 | \[\] |
-| P-19 | File types accepted | \[The types the application needs, from a fixed list\]. Reference: PDF, TIFF, JPEG and PNG | SI-10, CM-7 | \[\] |
+| P-18 | Largest batch | 100 files and 500 MB, counted after a ZIP file is unpacked | SI-10 | \[\] |
+| P-19 | File types accepted | \[The types the application needs, from a fixed list\]. Reference: PDF, TIFF, JPEG and PNG. A ZIP file is accepted only as the container of a bulk upload, and is never stored | SI-10, CM-7 | \[\] |
 | P-20 | Export working copies | Deleted once downloaded, and always within 24 hours | MP-6 | \[\] |
 | P-21 | Incident reporting | A suspected incident reported to the security officer within 1 hour; every confirmed incident told to \<Organisation\>'s security contact; a personal data breach that must be reported is reported to the ICO within 72 hours of \<Organisation\> becoming aware of it | IR-6 | \[\] |
 | P-22 | Answer to a person's request about their data | Within one month of confirming the person's identity, extendable as UK GDPR allows, and paused while waiting for a clarification the request needs | AC-3(14), SI-18(4) | \[\] |
@@ -188,7 +188,7 @@ These are the values the controls depend on. CSS calls many of them organisation
 | P-24 | Training | Awareness and the briefing before access, and every 12 months. Role modules before privileged access (developers: before they first work on the code), and every 12 months. Incident response, contingency and risk decision modules (M7, M8, M10) within 30 days of taking the role | AT-2, AT-3, IR-2, CP-3 | \[\] |
 | P-25 | Authorisation | Before real data is held, and reviewed at least every 12 months | CA-6 | \[\] |
 | P-26 | Transport encryption | TLS 1.3 preferred; TLS 1.2 with AES-GCM allowed; HSTS for one year | SC-8, SC-13 | \[\] |
-| P-27 | Events that raise an alert | The nine in section 7.10 | SI-4 | \[\] |
+| P-27 | Events that raise an alert | The nine in section 7.10, with the thresholds, recipients and times to acknowledge in \<System and Information Integrity Management\>, Table 3. Bulk export: more than \[number\] items by one user in a day; administrator sign-in outside \[hours\] | SI-4, SI-4(5) | \[\] |
 | P-28 | Application security verification standard | OWASP ASVS 5.0, Level 2 | SA-11 | \[\] |
 | P-29 | Check of the running system against its baseline | Monthly, and at each release | CM-3, SI-7 | \[\] |
 | P-30 | Vulnerability scanning | Both servers monthly, with a credentialed scan and a configuration scan; packages at each build and monthly; browser libraries monthly; the three applications at each release, with a web application scan | RA-5, RA-5(5) | \[\] |
@@ -316,7 +316,7 @@ Each requirement is to be verified before the application is authorised. \<Secur
 | FR-031 | Create an item, or upload a file as a new item, with its details | Editor | The details and any file go to the API, which checks them, creates the item and stores the file |
 | FR-032 | Accept only the file types in P-19 | System | The extension and the declared type are checked against a fixed list on the server |
 | FR-033 | Check on the server that a file's first bytes match its type, that its name holds no path, and that its size is within the limit for the person's role in P-17 | System | The API compares the file's leading bytes with the known signature of its type, strips any folder from the name, and compares its size with the limit |
-| FR-034 | Scan each upload for malicious code before it is stored; refuse, record and report a flagged file | System | The API passes the file to the server's anti-malware service before storing it, and stores it only if it is clean |
+| FR-034 | Scan each upload for malicious code before it is stored, and every stored file again monthly; refuse, record and report a flagged file | System | The API passes the file to the server's anti-malware service before storing it, and stores it only if the scan ran and found it clean. The monthly file checksum check passes every stored file to the service again with current definitions, and blocks a flagged file from viewing, download and export (D-SI-02) |
 | FR-035 | Give each item a status and a classification from fixed lists, and mark items that hold personal or special category data | Editor | Fields on the item, chosen from fixed lists |
 | FR-036 | Correct an item's details | Editor | The API updates the item after checking access, and writes an audit record naming the item and the fields changed, but not their values |
 | FR-037 | Replace a stored file | Editor | The API stores the new file in place of the old one, keeps the checksum of both in the audit record, and audits the change |
@@ -330,7 +330,7 @@ Each requirement is to be verified before the application is authorised. \<Secur
 
 | No. | Requirement | Who | How it is implemented |
 | --- | --- | --- | --- |
-| FR-041 | Upload a batch within the limits in P-18, as separate files or a ZIP file, with the details of each in a list from a template the application provides | Editor | The API counts the files and their total size and refuses a batch over either limit. A ZIP file is unpacked and each entry treated as a separate file |
+| FR-041 | Upload a batch within the limits in P-18, as separate files or a ZIP file, with the details of each in a list from a template the application provides | Editor | The API counts the files and their total size and refuses a batch over either limit. A ZIP file is unpacked in memory, counting files and unpacked size as it goes, and refused once either passes P-18 or if it holds a nested archive, an encrypted entry or a path in an entry's name; each entry is then treated as a separate file. The ZIP file itself is never stored |
 | FR-042 | Check the batch and its list before anything is stored, and show what is wrong | Editor | A separate API function checks every file and row and returns the faults, storing nothing |
 | FR-043 | Apply every check of a single upload, including the malware scan, to every file in the batch | System | The same checking routine runs for each file. One failure does not stop the others |
 | FR-044 | Show the result for each file and for the batch, and notify the person when it ends | Editor | The API returns a result for each file, and creates a notification for the person |
@@ -348,7 +348,7 @@ Each requirement is to be verified before the application is authorised. \<Secur
 | FR-049 | Deliver exports only as downloads. There is no export to a folder or another system | System | The download is the only output |
 | FR-050 | Encrypt an export's working copies, and delete them as P-20 sets | System | The API writes working copies to an encrypted working area, deletes them after the download, and a background task removes any left past the limit |
 | FR-051 | Record every export in the audit log, with who, which schema and how many items | System | An audit record is written for each export |
-| FR-052 | Raise an alert on an export above a set size | System | A rule in central monitoring on the export audit records |
+| FR-052 | Raise an alert on an export above a set size | System | The API writes a security event for each export to the application log, and a rule in central monitoring alerts on it (U5) |
 
 #### 5.1.8 Notifications
 
@@ -496,7 +496,7 @@ The application's session is its authentication cookie. It lasts at most P-02 fr
 | NFR-036 | Hold every secret in a key store outside the source code and settings files, readable only by the account that needs it | Secrets are read at start-up from a store protected by the operating system for the service account | \<System and Communications Protection Management\> |
 | NFR-037 | Give every key an owner, a store and a life in the key register, and change keys and secrets as P-10 sets | The key register lists each key. Rotation is a duty in the operating calendar | \<System and Communications Protection Management\> |
 | NFR-038 | Use only the algorithms in the cryptographic register: NCSC's TLS profiles in transit (P-26); AES-256 at rest; SHA-256 and HMAC-SHA-256 for checksums, tokens and the audit chain. No MD5 or SHA-1 for protection. No cryptography written in-house | The algorithms built into Windows, .NET and SQL Server | \<System and Communications Protection Management\> |
-| NFR-039 | Hold a SHA-256 checksum for each stored file and each release, and check them as P-29 sets | Calculated by the API when a file is stored and by the build when a release is made, and compared by a scheduled check | \<System and Information Integrity Management\> |
+| NFR-039 | Hold a SHA-256 checksum for each stored file, and for each release package and each file it installs, and check them as P-29 sets | Calculated by the API when a file is stored and by the build when a release is made; stored files compared by a scheduled check in the API, and installed release files by the integrity check, which also runs at start-up | \<System and Information Integrity Management\> |
 
 #### 5.2.6 Network and boundary
 
@@ -522,12 +522,12 @@ The application's session is its authentication cookie. It lasts at most P-02 fr
 | NFR-048 | Use parameters in every database query | Queries are built with placeholders for values, and names of columns and schemas come only from fixed lists or checked schema definitions | \<System and Information Integrity Management\> |
 | NFR-049 | Run only code the application itself serves: a page policy with no inline scripts and no outside hosts, and headers that stop content-type guessing and limit referrer information | A content security policy header and related headers, added to every response by each application | \<System and Communications Protection Management\> |
 | NFR-050 | Serve every script and style from the application. No content delivery service | Browser libraries are packaged with the UI application | \<System and Communications Protection Management\> |
-| NFR-051 | Show users and callers a general error message, with the detail only in the logs | A common error handler returns a fixed message and logs the detail | \<System and Information Integrity Management\> |
+| NFR-051 | Show users and callers a general error message, with the detail only in the logs | A common error handler returns a fixed message with a reference, and logs the detail under that reference | \<System and Information Integrity Management\> |
 | NFR-052 | Fail secure: an error, a time-out or a missing dependency, including Active Directory, refuses access | Access checks are written so that any failure returns a refusal. If the groups cannot be read, the person gets no role and no schema | Section 6 |
-| NFR-053 | Scan every upload, and run anti-malware with current definitions on both servers | The operating system's malware scanning interface for uploads, and real-time protection on each server | \<System and Information Integrity Management\> |
+| NFR-053 | Scan every upload, rescan every stored file monthly, and run anti-malware with current definitions on both servers | The operating system's malware scanning interface for uploads, refusing a file it cannot scan, and for the monthly rescan with the file checksum check; real-time protection on each server | \<System and Information Integrity Management\> |
 | NFR-054 | Fix or mitigate a flaw within the times in P-11 | A person does this: the developers and administrators, tracked in the plan of action | \<Risk Assessment Management\> |
 | NFR-055 | Scan for vulnerabilities as P-30 sets | A credentialed scanner run by the Windows server administrator, or \<Organisation\>'s shared scanning service if it offers one (EV-RA-01); the package check at each build; and a web application scan at each release | \<Risk Assessment Management\> |
-| NFR-056 | Raise an alert on the events in P-27, to a named person, within the time set for its severity | Rules in central monitoring, each with a named recipient | \<System and Information Integrity Management\> |
+| NFR-056 | Raise an alert on the events in P-27, to a named person, who acknowledges it within the time set for it | Rules in central monitoring, each with a named recipient and a time to acknowledge (\<System and Information Integrity Management\>, Table 3) | \<System and Information Integrity Management\> |
 
 #### 5.2.8 Availability and recovery
 
@@ -851,7 +851,7 @@ The application holds no user accounts. The name that arrives at sign-in is held
 
 ### 7.5 Files: upload, viewing and export
 
-**Upload.** Every upload is checked on the server before it is stored: the type must be one of those in P-19; the file's first bytes must match its type; its size must be within the limit for the person's role; and its name must not contain a path. Each upload is then passed to the anti-malware service, and a flagged file is refused, audited and reported.
+**Upload.** Every upload is checked on the server before it is stored: the type must be one of those in P-19; the file's first bytes must match its type; its size must be within the limit for the person's role; and its name must not contain a path. A ZIP file of a batch is unpacked within P-18, and each entry checked as a file. Each upload is then passed to the anti-malware service, and a flagged file, or one the service cannot scan, is refused, audited and reported.
 
 **Viewing.** A file is sent to the browser, or rendered on the server and sent as an image, only after the schema access check. The viewer is served by the application.
 
@@ -910,11 +910,11 @@ Every key has an owner, a store and a cryptoperiod in the key register, in \<Sys
 
 ### 7.9 Pages and input
 
-Pages may run only code the application itself serves. Each application sends a page security policy that allows no inline scripts and no outside hosts, with headers that stop content-type guessing and limit referrer information. All input to the API, every upload and every search term is validated on the server, and database queries use parameters. Users and callers see a general error message; the detail goes only to the logs. Each application limits how fast requests may arrive.
+Pages may run only code the application itself serves. Each application sends a page security policy that allows no inline scripts and no outside hosts, with headers that stop content-type guessing and limit referrer information. All input to the API, every upload and every search term is validated on the server, and database queries use parameters. Users and callers see a general error message with a reference; the detail goes only to the logs. Each application limits how fast requests may arrive.
 
 ### 7.10 Monitoring, flaws and integrity
 
-Application, operating system and database logs are forwarded to \<Organisation\>'s central logging, and the security officer reviews them as P-08 sets. Nine events raise an alert: repeated failed sign-ins; a break in the audit chain; malware detected; a person added to an administrator group; a bulk export above a set size; an administrator sign-in out of hours; an audit logging failure; an unexpected change to the software; and a change to which groups open a schema. The application's events among them reach central logging as the security events in section 7.6. Advisories come from NCSC, CISA and the vendors of every component, and new entries in CISA's list of known exploited vulnerabilities raise an alert and are checked each working day. Releases, stored files and audit records are checked against a recorded baseline at start-up, at each release and as P-29 sets.
+Application, operating system and database logs are forwarded to \<Organisation\>'s central logging, and the security officer reviews them weekly. Nine events raise an alert: repeated failed sign-ins; a break in the audit chain; malware detected; a person added to one of the five role groups, or to a server's administrators; a bulk export above a set size; an administrator sign-in out of hours; an audit logging failure; an unexpected change to the software or a stored file; and a change to which groups open a schema. The application's events among them reach central logging as the security events in section 7.6. Advisories come from NCSC, CISA and the vendors of every component, and new entries in CISA's list of known exploited vulnerabilities raise an alert and are checked each working day. Flaws are fixed or mitigated within P-11. The installed release files are checked against the release record at start-up, at each release and monthly, stored files, with a malware rescan, at each release and monthly (P-29), and the audit chain daily and at each start-up.
 
 ### 7.11 Backup and recovery
 
@@ -981,7 +981,7 @@ Table 45 gives each CSS control family, the reference design in brief, and the d
 | RA Risk Assessment | Categorised from the profile and approved by the authorising official. A threat model and a risk list on the CSS method, reviewed as P-74 sets; scanning as P-30 sets and a vulnerability timetable (P-11); and a list of critical components | \<Risk Assessment Management\> |
 | SA System and Services Acquisition | Built in-house under the corporate SDLC, meeting CSS, with reviewed changes, a pipeline with automated tests and scans, a developer test plan at each release, verification to P-28, external services agreed through the interface record and reviewed yearly, and components replaced before their support ends (P-68, P-75) | \<System and Services Acquisition Management\> |
 | SC System and Communications Protection | Deny by default at the firewalls and on each server, TLS on every flow except time (NTP), only updates leaving \<Organisation\>'s network through its proxy, a register of every key, trust stores holding only approved anchors, a strict page policy, and encryption at rest | \<System and Communications Protection Management\> |
-| SI System and Information Integrity | Uploads are checked and scanned for malware, flaws are fixed to the timetable, logs are forwarded and nine events raise alerts, and releases are checked against a baseline | \<System and Information Integrity Management\> |
+| SI System and Information Integrity | Uploads are checked and scanned for malware, and stored files rescanned monthly; flaws are fixed to the timetable; logs are forwarded and nine events raise alerts; and the installed release files, stored files and audit records are checked against their recorded values | \<System and Information Integrity Management\> |
 | SR Supply Chain Risk Management | A supplier register with criticality, every package through one checked source with lock files and a bill of materials, and each release inspected against its record | \<Supply Chain Risk Management\> |
 
 ## 10 What \<Organisation\> provides
@@ -1026,7 +1026,7 @@ These are questions an assessor is likely to ask, each with the reference answer
 | What is logged, and for how long? | The events in section 7.6, kept as P-07 sets | \<Audit and Accountability Management\> |
 | Can an administrator change the audit log? | No. Only the API writes it, its database account can add and read records but not change or delete them, and the keyed chain, whose key no database administrator holds, shows any change | \<Audit and Accountability Management\> |
 | Is the system reachable from the internet? | No. It is internal only | Section 6.5 |
-| Are uploads scanned for malware? | Yes, each one, before it is stored | \<System and Information Integrity Management\> |
+| Are uploads scanned for malware? | Yes, each one, before it is stored, and every stored file again each month with current definitions | \<System and Information Integrity Management\> |
 | How quickly are vulnerabilities fixed? | As P-11 sets | \<Risk Assessment Management\> |
 | What are the recovery objectives? | As P-12 to P-14 set | \<Contingency Planning Management\> |
 | What third-party software is used? | The reference stack in section 6.4, or the stack in the application's profile | \<Configuration Management\> |

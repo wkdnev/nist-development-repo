@@ -2850,9 +2850,9 @@ There is one finding for each CSS determination statement, including those about
 | Scope | The 18 SI entries in the Moderate baseline, with 139 determination statements. SI-8 and SI-8(2) are covered by TR-SI-01 |
 | Procedures | CSS, using the CSS published statements and identifiers (catalog release 5.2.0) |
 | Dates | \[Dates of the assessment\] |
-| Examine | \<Policy\> (SI), \<Procedures\> (SI) and \<System and Information Integrity Management\>; \<Risk Assessment Management\>, section 3.6; \<PII Processing Management\>, section 3.7; the upload, validation, audit and error-handling code at the release tag. Depth: focused. Coverage: focused |
+| Examine | \<Policy\> (SI), \<Procedures\> (SI) and \<System and Information Integrity Management\>, with its values in section 3.11; \<Risk Assessment Management\>, section 3.6; \<PII Processing Management\>, section 3.7; \<Configuration Management\>, section 3.15; \<Audit and Accountability Management\>, sections 3.5 and 3.10; the release record; the alert rules in central logging; the upload, ZIP, validation, rescan, audit and error-handling code at the release tag. Depth: focused. Coverage: focused |
 | Test | Test-Integrity.ps1, on a throwaway test stack built from the release (the SI evidence); Test-Vulnerability.ps1 (the RA evidence) |
-| Interview | The security officer, Windows server administrator and \<Organisation\>'s security contact |
+| Interview | The security officer, Windows server administrator, developers and \<Organisation\>'s security contact (INT-SI-01 to INT-SI-09) |
 | Previous results reused | \[Results reused from other chapters, if any\] |
 | Boundary | \<System Name\>'s UI application, Admin application, API, SQL Server database and records. \<Organisation\>'s network monitoring, firmware and logging are provider evidence (EV-SI-01 to EV-SI-03) |
 | Order of assessment | A, flaws (SI-2); B, malicious code and uploads (SI-3, SI-10); C, monitoring and alerts (SI-4); D, integrity (SI-7); E, errors (SI-11); F, advisories, retention and memory (SI-5, SI-12, SI-16); G, policy (SI-1) |
@@ -2860,7 +2860,7 @@ There is one finding for each CSS determination statement, including those about
 | Evidence retained | The SI evidence (results, baseline, README and MANIFEST); the RA evidence; completed TPL-7, TPL-8 and TPL-10 records |
 | Notes | The test is Test-Integrity.ps1, run against a throwaway test stack built from the release. Upload checks use the API's check-only function for a batch, which stores nothing (\<System Description\>, FR-042). Package checks come from Test-Vulnerability.ps1 (the RA evidence). |
 
-For the Level 2 assessment, the assessor should run Test-Integrity.ps1 and Test-Vulnerability.ps1 against the VMs, upload the EICAR test file to check malware scanning, check Defender and the alert rules, compare release packages with the baseline, hold the interviews, and re-determine every statement in section SI.3.
+For the Level 2 assessment, the assessor should run Test-Integrity.ps1 and Test-Vulnerability.ps1 against the VMs, upload the EICAR test file, alone and in a ZIP file, to check malware scanning, check Defender, its exclusions and the alert rules, compare the installed release files with the release record, hold the interviews, and re-determine every statement in section SI.3.
 
 ## SR Supply Chain Risk Management
 
