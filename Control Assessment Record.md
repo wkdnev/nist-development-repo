@@ -1614,7 +1614,7 @@ There is one finding for each CSS determination statement, including those about
 | Order of assessment | A, the media inventory (MP-2, MP-4); B, export copies (MP-4, MP-6); C, marking (MP-3); D, sanitising (MP-6); E, transport (MP-5); F, portable storage (MP-7); G, policy (MP-1). The inventory comes first because every other result depends on it |
 | Needed from \<Organisation\> | EV-MP-01 to EV-MP-03 in \<Evidence Requests\>: media handling, sanitising certificates and device control |
 | Evidence retained | The MP evidence, with its manifest; \<Media Protection Management\>, sections 3.2 to 3.6 |
-| Notes | The tests show how \<System Name\>'s exports, marking and storage behave; how \<Organisation\> stores, moves or sanitises disks and backup media, and blocks USB storage, is shown by its evidence. |
+| Notes | The tests show how \<System Name\>'s exports, marking and storage behave; how \<Organisation\> stores, moves or sanitises disks and backup media, and blocks USB storage, is shown by its evidence. MP-5 and MP-7 stay Inherited (D-MP-03): the system owner's approvals on TPL-13 and TPL-17, and the security officer's record of ownerless devices, are examined with \<Organisation\>'s evidence. |
 
 For the Level 2 assessment, the assessor should repeat the tests on the VMs, examine the encrypted export working area and a sample of users' devices, examine TPL-13 records and \<Organisation\>'s certificates, test USB blocking, hold the interviews and re-determine every statement in section MP.3.
 
