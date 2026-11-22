@@ -275,13 +275,14 @@ The API compares the group names on the schema definition with the person's Acti
 #### PRO-AC-6 Privileged access
 
 1. The person asks for the role in the ServiceNow workflow. Their line manager approves it, and the system owner authorises any membership of the five role groups: \<Code\>\_Admins, \<Code\>\_Auditors, \<Code\>\_Security, \<Code\>\_BusinessOwners and \<Code\>\_LegalSearch. Only the person the legal adviser names is added to \<Code\>\_LegalSearch, and they hold no other role. The system owner cannot authorise their own. **Manual**
-2. The system owner adds the person to the AD group. **Manual**
-3. The system owner records the change in the ServiceNow request. **Manual**
+2. Before authorising, the system owner confirms in the training register (\<Awareness and Training Management\>, section 3.8) that the person has completed the role's modules in the training matrix, and in the register of signatures that they have signed Part B of \<Security Operating Procedures\> on TPL-21, and notes both record numbers in the ServiceNow request. No role is authorised until both are recorded (PRO-AT-4). **Manual**
+3. The system owner adds the person to the AD group. **Manual**
+4. The system owner records the change in the ServiceNow request. **Manual**
 
 #### PRO-AC-7 Access review
 
 1. At the intervals in P-04, P-05 and P-52, each group's owner lists its members from Active Directory. For server and database accounts, the system owner obtains \<Organisation\>'s export of the Windows administrator groups on both servers (EV-AC-02) and the database administrator's list of SQL Server logins and their roles. **Manual**
-2. The owner checks each member against the ServiceNow requests, removes anyone who no longer needs the access, and checks that no privileged account is in a schema group (P-45). For server and database accounts, the system owner and the security officer check each against \<Roles and Responsibilities\> and the approved change records, and have anything not needed removed.
+2. The owner checks each member against the ServiceNow requests, removes anyone who no longer needs the access, and checks that no privileged account is in a schema group (P-45). For server and database accounts, the system owner and the security officer check each against \<Roles and Responsibilities\> and the approved change records, confirm in the training register that each holder's modules are current, and have anything not needed removed.
 3. The result is recorded on TPL-3. A Data Owner signs the review of their schema's groups. For the role groups, the system owner prepares the review and the auditor checks and signs it. The system owner and the security officer sign the server and database review.
 4. The Head of Cyber reviews any role-group membership the system owner holds, and checks the administrators' membership, each quarter, and signs TPL-3 for that part. Nobody signs off their own access.
 
@@ -382,10 +383,11 @@ These procedures carry out \<Policy\> (AT). Steps marked **Manual** rely on peop
 1. When a role is requested, the system owner looks up its modules in the training matrix (\<Awareness and Training Management\>, section 3.5). **Manual**
 2. The person completes the role modules before privileged access is granted, and the incident response and contingency modules within 30 days of taking the role. **Manual**
 3. The security officer delivers the modules, and the Head of Cyber delivers them to the security officer and auditor. Each ends with a check, with a pass mark of 80%; anyone below it repeats the module. **Manual**
-4. \<Organisation\>'s administrators complete the \<System Name\> modules for their role. \<Organisation\> evidences any general administrator training. **Manual** (EV-AT-01)
-5. Roles without access are trained for the duties they hold, as the matrix sets: the legal adviser takes M7 and the authorising official M10 within 30 days of taking the role, and the information owner takes the briefing and M9 before their first categorisation decision. A deputy takes the modules of the role they cover. **Manual**
-6. Before a line manager first approves an access request, and if they are not already a \<System Name\> user, the security officer gives them briefing part B7 and records it on TPL-9. **Manual**
-7. \<Organisation\> evidences the training of the Head of Cyber and the data protection officer. **Manual** (EV-AT-02)
+4. \<Organisation\>'s Windows server and database administrators complete the \<System Name\> modules for their role, and sign Part B, before they are given administrator access to the servers or SQL Server. Those accounts are \<Organisation\>'s, not role group memberships, so the system owner confirms the training and signature in the registers before asking \<Organisation\> to grant the access, and records it in the request. \<Organisation\> evidences any general administrator training. **Manual** (EV-AT-01)
+5. Developers complete their modules before they first work on \<System Name\> code. The system owner confirms it in the register before the developer is given access to the code. **Manual**
+6. Roles without access are trained for the duties they hold, as the matrix sets: the legal adviser takes M7 and the authorising official M10 within 30 days of taking the role, and the information owner takes the briefing and M9 before their first categorisation decision. A deputy takes the modules of the role they cover. **Manual**
+7. Before a line manager first approves an access request, and if they are not already a \<System Name\> user, the security officer gives them briefing part B7 and records it on TPL-9. **Manual**
+8. \<Organisation\> evidences the training of the Head of Cyber and the data protection officer. **Manual** (EV-AT-02)
 
 #### PRO-AT-3 Keeping content current
 
@@ -397,7 +399,7 @@ These procedures carry out \<Policy\> (AT). Steps marked **Manual** rely on peop
 
 1. The security officer records each completion on TPL-9: the content version, the check result and the next due date. **Manual**
 2. The security officer adds it to the training register (\<Awareness and Training Management\>, section 3.8). **Manual**
-3. Before granting a role, the system owner confirms in the register that its required modules are complete (\<Procedures\>, PRO-AC-6). **Manual**
+3. Before granting a role, the system owner confirms in the register that its required modules are complete: in PRO-AC-6 step 2 for a role group, and in PRO-AT-2 steps 4 and 5 for server and database administrators and developers. **Manual**
 4. Records are kept for 3 years, as in \<System Name\>'s retention schedule (\<PII Processing Management\>, section 3.7). \<Organisation\> keeps its course records, and provides them on request. **Manual**
 
 #### PRO-AT-5 Measures and checking

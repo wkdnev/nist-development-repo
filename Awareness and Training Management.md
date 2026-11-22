@@ -98,7 +98,7 @@ Each module ends with a short check of at least 10 questions, with a pass mark o
 
 Controls met here: AT-2, AT-3.
 
-Every role with access must complete awareness, the briefing and signing \<Security Operating Procedures\> before access; roles without access take what their row sets. Role modules come before privileged access; M7 and M8 within 30 days of taking the role. All are repeated every 12 months.
+Every role with access must complete awareness, the briefing and signing \<Security Operating Procedures\> before access; roles without access take what their row sets. Role modules come before privileged access, or for developers before they first work on the code; M7 and M8 within 30 days of taking the role. All are repeated every 12 months.
 
 **Table 4: Training matrix**
 
@@ -136,7 +136,8 @@ Controls met here: AT-2, AT-3, AT-4.
 | When | What | Who checks |
 | --- | --- | --- |
 | Before any access | \<Organisation\>'s course, the \<System Name\> briefing and its check, and the signature of \<Security Operating Procedures\> | The security officer records it; the group's owner adds no one before it is recorded |
-| Before privileged access | The role modules in the matrix, each with its check | The system owner checks the training register before authorising the role |
+| Before privileged access | The role modules in the matrix, each with its check, and Part B signed | The system owner checks the training register and the register of signatures: before authorising a role group (PRO-AC-6), and before asking \<Organisation\> for a Windows server or database administrator's access (PRO-AT-2) |
+| Before a developer first works on \<System Name\> code | Modules M5 and M3 | The system owner, before the developer is given access to the code |
 | Before a line manager's first approval of an access request | Briefing part B7, if they are not already a \<System Name\> user | Security officer, from ServiceNow's list of approvers |
 | Within 30 days of taking a role | Incident response (M7), contingency (M8) and, for the authorising official, risk decisions (M10) | Security officer |
 | Every 12 months | All of the above, repeated | Security officer, who asks each person |
