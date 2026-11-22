@@ -24,7 +24,7 @@ Requests are numbered EV-XX-nn, where XX is the family code. A request in sectio
 | MP Media Protection | 12 |
 | PE Physical and Environmental Protection | 13 |
 | PL Planning | 14 |
-| PM Program Management (outside the baseline; inherited) | 15 |
+| PM Program Management (inherited; not among the 316 controls) | 15 |
 | PS Personnel Security | 16 |
 | PT Personally Identifiable Information | 17 |
 | RA Risk Assessment | 18 |
@@ -246,7 +246,7 @@ This matrix is proposed to \<Organisation\>.
 
 ## 15 Program Management (PM)
 
-PM is outside \<System Name\>'s baseline (TR-PM-01), but \<System Name\> inherits PM controls as common controls. These requests ask \<Organisation\> to show the programme exists. The full list of PM controls and what relies on each is in \<Program Management\>, section 3.3.
+PM is not among \<System Name\>'s 316 controls (TR-PM-01), but \<System Name\> inherits 35 of the 37 PM controls as common controls; PM-17 and PM-24 do not apply. These requests ask \<Organisation\> to show the programme exists. The full list of PM controls and what relies on each is in \<Program Management\>, section 3.3.
 
 **Table 16: PM evidence requests**
 
@@ -254,7 +254,7 @@ PM is outside \<System Name\>'s baseline (TR-PM-01), but \<System Name\> inherit
 | --- | --- | --- | --- |
 | EV-PM-01 | PM-1, PM-2, PM-3, PM-8, PM-9, PM-11, PM-12, PM-13, PM-15, PM-16, PM-16(1), PM-28, PM-29, PM-32 | Whether \<Organisation\> has an information security programme plan, a risk management strategy with a stated risk appetite, and named programme leaders. Who the senior accountable official for risk management is (PM-29). First choice of evidence: \<Organisation\>'s ISO/IEC 27001 certificate, with its scope statement and Statement of Applicability, showing that the services \<System Name\> uses are within scope | The programme plan, risk management strategy and risk appetite statement, and the roles that lead them |
 | EV-PM-02 | PM-5, PM-5(1) | Whether \<System Name\> is in \<Organisation\>'s system inventory, and its personal data in a personal data inventory or record of processing | The inventory entries for \<System Name\>, and the record of processing (UK GDPR, Article 30) |
-| EV-PM-03 | PM-6, PM-10, PM-14, PM-30, PM-31 | How \<Organisation\> authorises systems, tests and monitors them, measures performance, and manages supply chain risk | The authorisation process, continuous monitoring strategy, supply chain risk management strategy and performance measures |
+| EV-PM-03 | PM-6, PM-10, PM-14, PM-30, PM-30(1), PM-31 | How \<Organisation\> authorises systems, tests and monitors them, measures performance, and manages supply chain risk, including how it identifies, prioritises and assesses its suppliers of critical items | The authorisation process, continuous monitoring strategy, supply chain risk management strategy with its list of critical suppliers, and performance measures |
 | EV-PM-04 | PM-18 to PM-23, PM-20(1), PM-25 to PM-27 | Whether \<Organisation\> has a privacy programme, who leads it, and whether a data protection officer is appointed | The privacy programme plan, the data protection officer's name or the reason none is required, and the complaint and reporting processes |
 
 ## 16 Personnel Security (PS)

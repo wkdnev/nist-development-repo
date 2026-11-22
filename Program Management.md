@@ -2,37 +2,49 @@
 
 ## 1 Purpose
 
-This document sets out how \<System Name\> relies on \<Organisation\>'s security and privacy programme for the 36 Program Management (PM) controls and enhancements in CSS.
+This document sets out how \<System Name\> relies on \<Organisation\>'s security and privacy programme for the 37 Program Management (PM) controls and enhancements in CSS (catalog release 5.2.0).
 
-Section 3 is the design: who leads the programme, which control is provided by whom and what \<System Name\> adds, the PM controls CSS places in the privacy baseline, what is asked of \<Organisation\>, and how the design is kept current. Each subsection names the controls it helps to meet.
+Section 3 is the design: who leads the programme, which control is provided by whom and what \<System Name\> adds, the PM controls CSS places in the privacy baseline, what is asked of \<Organisation\>, and how the design is kept current. Each subsection names the PM controls it relies on; none is claimed as met by \<System Name\>.
 
-**PM is different from the other families.** Its controls describe an organisation's whole security and privacy programme, not one system. CSS does not place them in the Low, Moderate or High baselines, and expects them to be implemented once, for the organisation. \<System Name\> therefore has no PM policy or procedures of its own, and gives no PM control a status. It inherits the controls from \<Organisation\> as common controls (CSS, task P-5), and its own documents follow \<Organisation\>'s programme where that is known.
+**PM is different from the other families.** Its controls describe an organisation's whole security and privacy programme, not one system. CSS does not place them in the Low, Moderate or High baselines, and expects them to be implemented once, for the organisation. It does place 24 of them in the privacy baseline, which \<System Name\> applies, but still as controls the organisation's programme provides. \<System Name\> therefore has no PM policy or procedures of its own, and gives no PM control a status. The controls are designated as common controls provided by \<Organisation\> (CSS, task P-5; TR-PM-01), \<System Name\> inherits them, and its own documents follow \<Organisation\>'s programme where that is known.
 
-Other documents hold the rest. The decision that PM is outside \<System Name\>'s baseline is TR-PM-01 in \<Tailoring Register\>, so PM has no section in \<System Security Plan\> and no chapter in \<Control Assessment Record\>. The evidence asked of \<Organisation\> is in \<Evidence Requests\>.
+Other documents hold the rest. The decision that PM is inherited and not assessed for \<System Name\> is TR-PM-01 in \<Tailoring Register\>, approved by the authorising official in \<Decision Register\>, D-PM-01, so PM has no section in \<System Security Plan\> and no chapter in \<Control Assessment Record\>. The evidence asked of \<Organisation\> is in \<Evidence Requests\>.
 
 Values that CSS asks the organisation to define are set at corporate level by \<Organisation\>, and \<System Name\> sets no PM values of its own. Anything in section 3 that depends on such a value should match it, and is changed in this document where it does not.
 
 ## 2 Summary
 
-There are 36 PM controls and enhancements. Two do not apply in the United Kingdom. \<Organisation\> provides the other 34, in some cases with the Head of Cyber or the legal adviser.
+There are 37 PM controls and enhancements. Two do not apply in the United Kingdom. \<Organisation\> provides the other 35, in some cases with the Head of Cyber or the legal adviser.
 
 **Table 1: PM controls by group**
 
 | Group | Controls | In the privacy baseline | Evidence requests |
 | --- | --- | --- | --- |
 | Security programme | 19 | 10 | EV-PM-01, EV-PM-02, EV-PM-03, EV-PL-01 |
-| Risk management | 5 | 3 | EV-PM-01, EV-PM-03 |
+| Risk management | 6 | 3 | EV-PM-01, EV-PM-03 |
 | Privacy programme | 12 | 11 | EV-PM-04 |
 
 CSS places 24 of the PM controls in its privacy baseline, which \<System Name\> applies because it holds personal data. They are still the organisation's to provide, but they matter more to \<System Name\> than the rest: section 3.4 lists them.
 
-Two roles rest with other people. The Head of Cyber is the senior information security officer, and \<System Name\>'s risk thresholds are set to fit \<Organisation\>'s risk appetite. The legal adviser names the data protection officer, or records why none is required.
+**How PM is presented.** \<System Name\> claims no PM control as its own: none is met by the system, shared or met by \<System Name\>'s people. What \<System Name\> contributes to each is in section 3.3.
+
+**Table 2: How the PM controls are treated**
+
+| Treatment | Controls | Number | Where it is recorded |
+| --- | --- | --- | --- |
+| Inherited: an organisation-level common control, provided by \<Organisation\>'s programme and not assessed for \<System Name\> | Every PM control and enhancement except PM-17 and PM-24 | 35 | TR-PM-01; section 3.3 |
+| Not applicable: rests on United States law | PM-17, PM-24 | 2 | TR-PM-01 |
+| System, hybrid or organisational | None | 0 | None |
+
+**How PM is counted.** The 316 controls in \<System Security Plan\>, section 5, are the 287 of the Moderate baseline and the 29 of the privacy baseline outside it and outside PM. The 24 PM controls of the privacy baseline, and the 13 other PM controls, are not among the 316, and none is among the 66 inherited controls listed in \<Assessment, Authorization, and Monitoring Management\>, section 3.6. Those 66 are system controls that \<Organisation\> provides for \<System Name\>; the PM controls are \<Organisation\>'s programme, which every system relies on.
+
+Two roles rest with other people. The Head of Cyber is the senior information security officer, and confirms that \<System Name\>'s risk thresholds fit \<Organisation\>'s risk appetite. The legal adviser names the data protection officer, or records why none is required. The authorising official approves the treatment in Table 2 (TR-PM-01; \<Decision Register\>, D-PM-01).
 
 ## 3 The design
 
 ### 3.1 Principles
 
-Controls met here: PM-1, PM-4, PM-31.
+PM controls relied on here: PM-1, PM-4, PM-31.
 
 1. **One programme.** \<Organisation\> runs one security and privacy programme, and \<System Name\> is one system within it.
 2. **Inherit with evidence.** A common control counts for \<System Name\> only once \<Organisation\> has evidenced it.
@@ -45,9 +57,9 @@ Controls met here: PM-1, PM-4, PM-31.
 
 ### 3.2 Who leads the programme
 
-Controls met here: PM-2, PM-10, PM-18, PM-19, PM-29.
+PM controls relied on here: PM-2, PM-10, PM-19, PM-29.
 
-**Table 2: Programme roles**
+**Table 3: Programme roles**
 
 | Role | Holder | Controls | Notes |
 | --- | --- | --- | --- |
@@ -61,16 +73,16 @@ Controls met here: PM-2, PM-10, PM-18, PM-19, PM-29.
 
 ### 3.3 Which control is provided by whom
 
-Controls met here: PM-1, PM-2, PM-3, PM-4, PM-5, PM-5(1), PM-6, PM-7, PM-7(1), PM-8, PM-9, PM-10, PM-11, PM-12, PM-13, PM-14, PM-15, PM-16, PM-16(1), PM-17, PM-18, PM-19, PM-20, PM-20(1), PM-21, PM-22, PM-23, PM-24, PM-25, PM-26, PM-27, PM-28, PM-29, PM-30, PM-31, PM-32.
+PM controls relied on here: PM-1, PM-2, PM-3, PM-4, PM-5, PM-5(1), PM-6, PM-7, PM-7(1), PM-8, PM-9, PM-10, PM-11, PM-12, PM-13, PM-14, PM-15, PM-16, PM-16(1), PM-17, PM-18, PM-19, PM-20, PM-20(1), PM-21, PM-22, PM-23, PM-24, PM-25, PM-26, PM-27, PM-28, PM-29, PM-30, PM-30(1), PM-31, PM-32.
 
-Each PM control is listed with who provides it, which \<System Name\> controls rely on it, what \<System Name\> contributes, the evidence that would show it, and whether CSS places it in the privacy baseline. A consistency check confirms that every row names a provider and an evidence request that exists. The three enhancements, PM-7(1), PM-16(1) and PM-20(1), are included.
+Each PM control is listed with who provides it, which \<System Name\> controls rely on it, what \<System Name\> contributes, the evidence that would show it, and whether CSS places it in the privacy baseline. A consistency check confirms that every row names a provider and an evidence request that exists. All five enhancements, PM-5(1), PM-7(1), PM-16(1), PM-20(1) and PM-30(1), are included.
 
-**Table 3: PM inheritance**
+**Table 4: PM inheritance**
 
 | PM control | Provider | \<System Name\> controls that rely on it | \<System Name\>'s part | Evidence | In the privacy baseline |
 | --- | --- | --- | --- | --- | --- |
 | PM-1 Information Security Program Plan | \<Organisation\>, Head of Cyber | Every family's policy (xx-1) | The 19 family policies follow it | EV-PM-01 | No |
-| PM-2 Information Security Program Leadership Role | Head of Cyber | All | \[Name\] named as senior information security officer in \<System Security Plan\> | EV-PM-01 | No |
+| PM-2 Information Security Program Leadership Role | \<Organisation\>, which appoints the Head of Cyber | All | \[Name\] named as senior information security officer in \<System Security Plan\> | EV-PM-01 | No |
 | PM-3 Information Security and Privacy Resources | \<Organisation\> | CA-5, SA-2 | Fixes costed in \<Plan of Action and Milestones\>, and on TPL-23 | EV-PM-01 | Yes |
 | PM-4 Plan of Action and Milestones Process | \<Organisation\>, Head of Cyber | CA-5 | \<Plan of Action and Milestones\> feeds it | EV-PM-01 | Yes |
 | PM-5 System Inventory | \<Organisation\> | CM-8, PL-2 | A system identifier, shown as a placeholder in \<System Security Plan\>, section 2 | EV-PM-02 | No |
@@ -93,7 +105,7 @@ Each PM control is listed with who provides it, which \<System Name\> controls r
 | PM-19 Privacy Program Leadership Role | \<Organisation\> | PT family | Data protection officer placeholder in \<Roles and Responsibilities\> and \<Privacy Plan\> | EV-PM-04 | Yes |
 | PM-20 Dissemination of Privacy Program Information | \<Organisation\> | PT-5 | Employee privacy notice (EV-PT-01) | EV-PM-04 | Yes |
 | PM-20(1) Privacy Policies on Websites, Applications, and Digital Services | \<Organisation\> | PT-5 | A link to the employee privacy notice from \<System Name\>'s pages | EV-PM-04 | Yes |
-| PM-21 Accounting of Disclosures | \<Organisation\>, legal adviser | PT-2, AU-2 | Downloads and exports are audited | EV-PM-04 | Yes |
+| PM-21 Accounting of Disclosures | \<Organisation\>, legal adviser | PT-2, AU-2 | Downloads and exports are audited, which shows what personal data left \<System Name\>, when and by whom. They are not the accounting itself: the recipient, purpose and address of a disclosure outside \<Organisation\>, and keeping the accounting for 5 years or for as long as the data is held, are \<Organisation\>'s (\<Audit and Accountability Management\>, Appendix B) | EV-PM-04 | Yes |
 | PM-22 Personally Identifiable Information Quality Management | \<Organisation\> | SI-18 | The yearly check of accuracy (\<Procedures\>, PRO-PT-5) | EV-PM-04 | Yes |
 | PM-23 Data Governance Body | \<Organisation\> | PT-2 | None | EV-PM-04 | No |
 | PM-24 Data Integrity Board | Not applicable | None | United States only | None | Yes |
@@ -103,6 +115,7 @@ Each PM control is listed with who provides it, which \<System Name\> controls r
 | PM-28 Risk Framing | \<Organisation\>, Head of Cyber | RA-3, RA-7 | \<Risk List\> | EV-PM-01 | Yes |
 | PM-29 Risk Management Program Leadership Roles | \<Organisation\> | All | None | EV-PM-01 | No |
 | PM-30 Supply Chain Risk Management Strategy | \<Organisation\> | SR-2, SR-3 | \<Supply Chain Risk Management\> follows it | EV-PM-03 | No |
+| PM-30(1) Suppliers of Critical or Mission-essential Items | \<Organisation\> | RA-9, SR-3, SR-6 | The supplier register with criticality in \<Supply Chain Risk Management\>, section 3.5, and the critical components in \<Risk Assessment Management\>, section 3.9 | EV-PM-03 | No |
 | PM-31 Continuous Monitoring Strategy | \<Organisation\>, Head of Cyber | CA-7 | \<Assessment, Authorization, and Monitoring Management\> follows it | EV-PM-03 | Yes |
 | PM-32 Purposing | \<Organisation\> | SA-8 | \<Concept of Operations\> states \<System Name\>'s purpose | EV-PM-01 | No |
 
@@ -110,7 +123,7 @@ Where \<Organisation\>'s document is not yet seen, \<System Name\>'s own documen
 
 ### 3.4 PM controls in the privacy baseline
 
-Controls met here: PM-5(1), PM-18, PM-26, PM-27.
+PM controls relied on here: PM-5(1), PM-18, PM-26, PM-27.
 
 \<System Name\> applies the CSS privacy baseline, as it holds personal data. That baseline includes 24 PM controls: PM-3, PM-4, PM-5(1), PM-6 to PM-11, PM-13, PM-14, PM-17 to PM-22, PM-20(1), PM-24 to PM-28 and PM-31. CSS still expects them to be met once, by the organisation's programme, so they stay \<Organisation\>'s to provide. They stay inherited and are not assessed for \<System Name\>. Two of them, PM-17 and PM-24, rest on United States law and do not apply.
 
@@ -118,15 +131,15 @@ For the rest, \<System Name\>'s privacy controls depend on them directly: the pe
 
 ### 3.5 What is asked of \<Organisation\>
 
-Controls met here: PM-1, PM-2, PM-3, PM-5, PM-5(1), PM-6, PM-7, PM-7(1), PM-8, PM-9, PM-10, PM-11, PM-12, PM-13, PM-14, PM-15, PM-16, PM-16(1), PM-18, PM-19, PM-20, PM-20(1), PM-21, PM-22, PM-23, PM-25, PM-26, PM-27, PM-28, PM-29, PM-30, PM-31, PM-32.
+PM controls relied on here: PM-1, PM-2, PM-3, PM-5, PM-5(1), PM-6, PM-7, PM-7(1), PM-8, PM-9, PM-10, PM-11, PM-12, PM-13, PM-14, PM-15, PM-16, PM-16(1), PM-18, PM-19, PM-20, PM-20(1), PM-21, PM-22, PM-23, PM-25, PM-26, PM-27, PM-28, PM-29, PM-30, PM-30(1), PM-31, PM-32.
 
-**Table 4: Asked of \<Organisation\>**
+**Table 5: Asked of \<Organisation\>**
 
 | Request | Controls | What is asked |
 | --- | --- | --- |
 | EV-PM-01 | PM-1, PM-2, PM-3, PM-8, PM-9, PM-11, PM-12, PM-13, PM-15, PM-16, PM-16(1), PM-28, PM-29, PM-32 | The information security programme plan, the risk management strategy and risk appetite, and the roles that lead them |
 | EV-PM-02 | PM-5, PM-5(1) | \<System Name\>'s entry in the system inventory, and the personal data it holds in the record of processing |
-| EV-PM-03 | PM-6, PM-10, PM-14, PM-30, PM-31 | How systems are authorised, tested and monitored, how performance is measured, and how supply chain risk is managed |
+| EV-PM-03 | PM-6, PM-10, PM-14, PM-30, PM-30(1), PM-31 | How systems are authorised, tested and monitored, how performance is measured, and how supply chain risk is managed |
 | EV-PM-04 | PM-18 to PM-23, PM-20(1), PM-25 to PM-27 | The privacy programme plan, the data protection officer or the reason none is required, and the complaint and reporting processes |
 | EV-PL-01 | PM-7, PM-7(1) | The enterprise architecture standards that \<System Name\> must fit |
 
@@ -134,6 +147,6 @@ The first choice of evidence is \<Organisation\>'s ISO/IEC 27001 certificate, wi
 
 ### 3.6 Keeping this design current
 
-The system owner reviews this document every 12 months with the plans (\<Procedures\>, PRO-PL-1), and whenever \<Organisation\> answers an evidence request or changes its programme. What is received is recorded in \<Evidence Requests\>. If the evidence shows that a control \<System Name\> relies on is not in place, the shortfall is raised as a risk in \<Risk List\>, and the \<System Name\> controls that rely on it are looked at again.
+The system owner reviews this document every 12 months with the plans (\<Procedures\>, PRO-PL-1), and whenever \<Organisation\> answers an evidence request or changes its programme. What is received is recorded in \<Evidence Requests\>. Until the evidence is seen, the dependency is held in \<Risk List\> as R-PM-02. If the evidence shows that a control \<System Name\> relies on is not in place, the shortfall is raised as a risk in \<Risk List\>, and the \<System Name\> controls that rely on it are looked at again.
 
-PM stays outside \<System Name\>'s assessment for as long as the organisation's programme stays with \<Organisation\> and the Head of Cyber, and neither the system owner nor the authorising official asks for it to be assessed (TR-PM-01). If that changes, the PM controls are assessed.
+PM stays outside \<System Name\>'s assessment for as long as the organisation's programme stays with \<Organisation\> and the Head of Cyber, and neither the system owner nor the authorising official asks for it to be assessed (TR-PM-01, approved by the authorising official in D-PM-01). If that changes, the PM controls are assessed.

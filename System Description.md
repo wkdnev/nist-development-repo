@@ -58,7 +58,7 @@ It is a summary. The detail of each control family is held once, in the design d
 | Authorisation | Active Directory groups, read directly from Active Directory by the API on every request, with the answer held for at most 5 minutes: five role groups, and a read group and an edit group for each schema |
 | Information held | The information types in section 3.4, and in every case sign-in identities and audit records |
 | Security categorisation | Moderate: confidentiality Moderate, integrity Moderate, availability Low (CSS), unless the application profile sets otherwise (P-01) |
-| Control baseline | CSS Moderate baseline, with the CSS privacy baseline, as tailored in \<Tailoring Register\>. Program Management is inherited from \<Organisation\> |
+| Control baseline | CSS Moderate baseline, with the CSS privacy baseline, as tailored in \<Tailoring Register\>: 316 controls. Program Management, including the 24 PM controls in the privacy baseline, is inherited from \<Organisation\> and not counted among them |
 | Law | UK GDPR, the Data Protection Act 2018, the Data (Use and Access) Act 2025 and the Computer Misuse Act 1990 (P-31) |
 | Development | Built in-house under \<Organisation\>'s corporate software development life cycle (SDLC) |
 
@@ -953,7 +953,7 @@ The principles draw on CSS, NCSC's secure design principles and CISA's Secure by
 
 ## 9 Security, family by family
 
-Table 45 gives each CSS control family, the reference design in brief, and the document that holds the full design, where every control is set out part by part. The number of controls in each family, and which are met by the system, shared, met by people, inherited or not applicable, are in \<Tailoring Register\>.
+Table 45 gives each CSS control family, the reference design in brief, and the document that holds the full design, where every control is set out part by part. The number of controls in each family, and which are met by the system, shared, met by people, inherited or not applicable, are in \<System Security Plan\>, section 5. Tailoring is in \<Tailoring Register\>.
 
 **Table 45: The control families**
 
@@ -971,7 +971,7 @@ Table 45 gives each CSS control family, the reference design in brief, and the d
 | MP Media Protection | Items stay in the database. Exports are limited, encrypted, marked and removed; portable storage needs approval; media are sanitised to CSS | \<Media Protection Management\> |
 | PE Physical and Environmental Protection | Provided by \<Organisation\> at its data centre and second site, including a clean shutdown of the servers if power cannot be kept. The system owner checks its evidence each year and sets rules for offices and home working (P-70) | \<Physical and Environmental Protection Management\> |
 | PL Planning | A security plan, a privacy plan and rules of behaviour that every user signs, all checked for consistency before each issue | \<Planning Management\> |
-| PM Program Management | Outside the baseline. Inherited from \<Organisation\>'s security and privacy programme | \<Program Management\> |
+| PM Program Management | Not among the 316 controls. Inherited from \<Organisation\>'s security and privacy programme: 35 controls, with PM-17 and PM-24 not applicable. \<System Name\> claims none of them, and its plans, registers and monitoring feed the programme | \<Program Management\> |
 | PS Personnel Security | \<Organisation\> screens staff. Every role has a risk designation; access agreements are signed; a leaver's account is disabled at once | \<Personnel Security Management\> |
 | PT PII Processing and Transparency | Personal data is processed only for the purposes in the profile. An inventory, a retention schedule built into the system, a search across schemas for people's requests, and an impact assessment | \<PII Processing Management\> |
 | RA Risk Assessment | Categorised from the profile. A threat model, a risk list on the CSS method, a vulnerability timetable (P-11), and a list of critical components | \<Risk Assessment Management\> |

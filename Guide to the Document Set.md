@@ -113,7 +113,7 @@ RA-5, Vulnerability Monitoring and Scanning, shows the chain at work. Every link
 
 ## 6 Finding a family
 
-Each family has a policy chapter, a design document, a procedures chapter, a section of the security plan, an assessment chapter and a test. \<Documentation Map\>, Table 2, gives all of them for each family, and its Table 1 lists every document with who reads it. Program Management is outside the baseline and is inherited from \<Organisation\>, so it has a design document only.
+Each family has a policy chapter, a design document, a procedures chapter, a section of the security plan, an assessment chapter and a test. \<Documentation Map\>, Table 2, gives all of them for each family, and its Table 1 lists every document with who reads it. Program Management is \<Organisation\>'s programme, inherited and not among the 316 controls, so it has a design document only.
 
 Four design documents are also the plan that CSS requires for their family, in their section 3: configuration management, contingency planning, incident response and supply chain risk management.
 

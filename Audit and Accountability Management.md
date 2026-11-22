@@ -293,4 +293,4 @@ The CSS guidance on AU-2 points out that other controls ask for particular event
 | MA-4 Nonlocal Maintenance | Remote maintenance sessions | Windows sign-in events on the servers; \<Organisation\>'s record of the administration route |
 | PE-3 Physical Access Control | Entry to the rooms that hold the servers | \<Organisation\>'s physical access logs, inherited (\<Physical and Environmental Protection Management\>) |
 | SI-4 System Monitoring | Events that show an attack or misuse | The detection use cases U1 to U9 (\<System and Information Integrity Management\>, section 3.4) |
-| PM-21 Accounting of Disclosures | Disclosures of personal data | The export and download records of Table 2 |
+| PM-21 Accounting of Disclosures | Disclosures of personal data | In part. The export and download records of Table 2 show what personal data left \<System Name\>, when and by whom. The accounting itself, with the recipient and purpose of each disclosure outside \<Organisation\>, kept for 5 years or for as long as the data is held, is \<Organisation\>'s (PM-21 is inherited: \<Program Management\>) |

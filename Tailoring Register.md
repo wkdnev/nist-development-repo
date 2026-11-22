@@ -82,13 +82,13 @@ IA-5i is covered by TR-AC-02.
 
 ## 4 Program Management (PM)
 
-TR-PM-01 isn't tailoring in the strict sense, as PM has no controls in the Moderate baseline. It is recorded here so that all 20 families are accounted for. PT also has no controls in that baseline, and is assessed against the privacy baseline instead.
+PM has no controls in the Moderate baseline, but the privacy baseline, which \<System Name\> also applies (D-PL-03), holds 24 PM controls. TR-PM-01 designates every PM control as a common control provided by \<Organisation\>'s programme, which CSS counts as tailoring (identifying common controls), and records the two that do not apply. It covers all 37 PM controls and enhancements, so that all 20 families are accounted for, and the authorising official approves it in D-PM-01 like any other entry. PT also has no controls in the Moderate baseline, and is assessed against the privacy baseline instead.
 
 **Table 5: PM proposal**
 
 | ID | Control or part | Tailoring | Rationale | Condition that must hold | If the condition changes |
 | --- | --- | --- | --- | --- | --- |
-| TR-PM-01 | The whole PM family | Outside the baseline; not assessed for \<System Name\> | PM controls cover an organisation's whole security programme, not one system, and CSS does not allocate them to a baseline. \<System Name\> still inherits them as common controls (CSS, task P-5), as listed in \<Program Management\>, section 3.3 | The organisation's programme stays with \<Organisation\> and the Head of Cyber, and \<System Name\>'s owner or authorising official doesn't ask for it to be assessed | Assess the PM controls |
+| TR-PM-01 | The whole PM family: 37 controls and enhancements | Common controls provided by \<Organisation\>, inherited and not assessed for \<System Name\>, and not counted among its 316 controls. PM-17 and PM-24 not applicable | PM controls cover an organisation's whole security and privacy programme, not one system. CSS does not allocate them to the security baselines, and the 24 it places in the privacy baseline are still met once, by the organisation's programme. \<System Name\> inherits them as common controls (CSS, task P-5), as listed in \<Program Management\>, section 3.3. PM-17 and PM-24 rest on United States law | The organisation's programme stays with \<Organisation\> and the Head of Cyber, and \<System Name\>'s owner or authorising official doesn't ask for it to be assessed. \<System Name\> does not process United States controlled unclassified information or take part in a matching programme | Assess the PM controls; or, for PM-17 and PM-24, apply them |
 
 ### 4.1 PM controls \<System Name\> inherits
 

@@ -2,7 +2,7 @@
 
 ## 1 Purpose and summary
 
-This plan is used by every control family. It describes how \<System Name\> implements its security controls: how it meets each one or does not, at a high level, which are shared, and which do not apply. It covers all nineteen assessed families, listed in section 5, and section 7 gives a brief overview of every control in each of them. PM is outside the baseline (\<Tailoring Register\>, TR-PM-01). This plan does not claim compliance.
+This plan is used by every control family. It describes how \<System Name\> implements its security controls: how it meets each one or does not, at a high level, which are shared, and which do not apply. It covers all nineteen assessed families, listed in section 5, and section 7 gives a brief overview of every control in each of them. PM is \<Organisation\>'s programme, inherited and not assessed for \<System Name\> (\<Tailoring Register\>, TR-PM-01). This plan does not claim compliance.
 
 \<System Name\> is assessed against CSS only, using the CSS assessment procedures and the CSS baselines. Assessment results are recorded in each family's chapter of \<Control Assessment Record\>. The privacy plan is \<Privacy Plan\> and the supply chain risk management plan is \<Supply Chain Risk Management\>. This plan refers to them rather than repeating them. The organisation takes a risk-based approach, so each non-compliance is rated and decided in \<Risk List\>. This plan is a brief overview of each control. The assessment results behind it are in that record, and are not repeated here. In section 7, Status describes what is built, and Gap entry says where any gap is registered.
 
@@ -22,11 +22,11 @@ This plan is used by every control family. It describes how \<System Name\> impl
 | Exposure | Internal only. It is reached by browser from \<Organisation\>'s network and VPN, and is not public-facing |
 | Criticality | Business critical |
 | Ownership | Owned and operated by \<Organisation\>, with the system owner accountable for it |
-| Common control provider | \<Organisation\>'s IT services: sign-in through PingFederate, the Active Directory, ServiceNow, network, firewalls, VPN, managed devices, VM hosting, logging, time, proxy, physical security and backup site (section 5) |
+| Common control provider | \<Organisation\>'s IT services: sign-in through PingFederate, the Active Directory, ServiceNow, network, firewalls, VPN, managed devices, VM hosting, logging, time, proxy, physical security and backup site (section 5); and \<Organisation\>'s security and privacy programme, for the Program Management controls (\<Program Management\>) |
 | Operational status | \[Operational status\] |
 | Authorisation status | \[Authorisation status\] |
 | Security categorisation | Moderate (\<System Description\>, P-01) |
-| Control baseline | CSS Moderate; the AC, AT, AU, CA, CM, CP, IA, IR, MA, MP, PE, PL, PS, RA, SA, SC, SI and SR families in this version, with PT and 16 other controls from the CSS privacy baseline |
+| Control baseline | CSS Moderate; the AC, AT, AU, CA, CM, CP, IA, IR, MA, MP, PE, PL, PS, RA, SA, SC, SI and SR families in this version, with PT and 16 other controls from the CSS privacy baseline: 316 controls. Program Management is inherited from \<Organisation\> and not counted among them (TR-PM-01) |
 
 The key roles are below. Who holds each, and their business contact details, are in \<Roles and Responsibilities\>, sections 2, 3 and 6, so that names are filled in once.
 
@@ -221,7 +221,7 @@ The VPN's multi-factor authentication protects the network route. \<System Name\
 
 ## 5 Control applicability and inheritance
 
-The controls are those of CSS in the CSS Moderate baseline. PT and 16 related privacy controls come from the CSS privacy baseline, and PM is outside the baseline (TR-PM-01). \<System Name\> inherits PM controls from \<Organisation\>'s security and privacy programme as common controls; they are listed with their providers and evidence in \<Program Management\>, section 3.3. Twenty-four of them are in the privacy baseline; they stay inherited and are not assessed for \<System Name\>. \<Organisation\>'s programme plan is requested in EV-PM-01. Tailoring proposals are in \<Tailoring Register\>.
+The controls are those of CSS in the CSS Moderate baseline. PT and 16 related privacy controls come from the CSS privacy baseline. The 316 are the 287 controls of the Moderate baseline and the 29 of the privacy baseline outside it and outside PM. PM is not among them (TR-PM-01): its 37 controls describe \<Organisation\>'s whole security and privacy programme, and \<System Name\> inherits 35 of them as common controls, with PM-17 and PM-24 not applicable. Twenty-four PM controls are in the privacy baseline; they too are inherited and not assessed for \<System Name\>. No PM control is among the 66 Inherited entries in Table 8, which are system controls \<Organisation\> provides for \<System Name\>. The PM controls are listed with their providers, \<System Name\>'s part and the evidence in \<Program Management\>, section 3.3. \<Organisation\>'s programme plan is requested in EV-PM-01. Tailoring proposals are in \<Tailoring Register\>.
 
 Each control is given one of four types. **System** controls are met by \<System Name\>. **Hybrid** controls are met partly by \<System Name\> and partly by the organisation or \<Organisation\>. **Organisational** controls are met by policy, procedure and people. **Inherited** controls are provided by \<Organisation\>, which is expected to supply the evidence (\<Evidence Requests\>). As CSS allows, this plan names the provider of an inherited control but does not describe how that provider implements it.
 
