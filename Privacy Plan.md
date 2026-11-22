@@ -29,7 +29,7 @@ The information types and impact levels are in \<System Security Plan\>, Table 4
 
 ## 5 Threats and privacy risk
 
-The main threats to individuals are someone reading items holding personal data they should not, data kept too long, inaccurate data being relied on, and a breach not being spotted. The privacy risk assessment is \<Data Protection Impact Assessment\>, which the legal adviser completes. Privacy risks are recorded in \<Risk List\>.
+The main threats to individuals are someone reading items holding personal data they should not, data kept too long, inaccurate data being relied on, and a breach not being spotted. The privacy risk assessment is \<Data Protection Impact Assessment\>, which the legal adviser completes. Privacy risks are rated by the same method and recorded in \<Risk List\>, whose threat model carries the main one, misuse of access to a schema, as R-RA-04 (section 2.1).
 
 ## 6 Requirements, baseline and controls
 

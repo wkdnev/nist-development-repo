@@ -34,6 +34,7 @@ The organisation takes a risk-based approach to these requirements. No system me
 5. A remediation is carried out through that plan and its milestones, and does not begin simply because a non-compliance was found.
 6. Every acceptance is recorded with the name, date, reason and review date, and is reviewed at the interval in \<Risk List\>. PRO-AC-17 sets out the steps.
 7. A vulnerability that cannot be fixed in time is recorded the same way, with its compensating measure.
+8. A risk in the risk register, such as one from the threat model, may instead be reduced by the measures in its entry; its residual rating then sets who decides it, by the same rule.
 
 ### 1.3 Terms and references
 
