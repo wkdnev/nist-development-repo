@@ -1108,8 +1108,8 @@ These procedures carry out \<Policy\> (PL). Steps marked **Manual** have no syst
 | PRO-PL-2 Sharing the plans | When a plan is approved or changed | System owner | Plan review record entry naming the recipients | PL-2b |
 | PRO-PL-3 Signing the rules | Before access, every 12 months, and after a material change | System owner, everyone | TPL-21; register of signatures in \<Planning Management\>, section 3.5 | PL-4b, PL-4d |
 | PRO-PL-4 Tailoring | When a control or part is proposed as not applicable | Proposer, system owner, authorising official | Entry in \<Tailoring Register\> and \<Decision Register\> | PL-11 |
-| PRO-PL-5 Reviewing the architecture | Every 12 months, and after a significant change | System owner | Change record and review record in \<System Description\>, section 6 | PL-8b, PL-8c |
-| PRO-PL-6 Protecting the plans | Always; checked at each review | System owner | Access list of the restricted SharePoint area | PL-2e |
+| PRO-PL-5 Reviewing the architecture | Every 12 months, and after a significant change | System owner | The plan review record for \<System Description\>, section 6, kept in the change record (\<Documentation Map\>, section 4.1) | PL-8b, PL-8c |
+| PRO-PL-6 Protecting the plans | Always; checked at each review | System owner | Access list of the restricted SharePoint area, recorded in the plan review record | PL-2e |
 
 ### PL.2 Procedures
 
@@ -1118,7 +1118,7 @@ These procedures carry out \<Policy\> (PL). Steps marked **Manual** have no syst
 1. After each assessment, significant change or problem found in use, the system owner updates the affected plans and adds a line to each change record. **Manual**
 2. The system owner runs the plan consistency test on the document set and corrects every gap before issuing the plans.
 3. Every 12 months, the system owner reviews each plan in the register in \<Planning Management\>, section 3.2, and records the review in its plan review record: who, their role, the date, the outcome and actions. **Manual**
-4. The SSP goes to the Head of Cyber for concurrence and to the authorising official to accept as an accurate record. **Manual**
+4. The SSP goes to the Head of Cyber for concurrence and then to the authorising official, who reviews and approves it before it is put into effect; the privacy plan goes to the legal adviser and the authorising official. Each approval is recorded in \<Decision Register\> (D-PL-01, D-PL-02). **Manual**
 
 #### PRO-PL-2 Sharing the plans
 
@@ -1127,8 +1127,8 @@ These procedures carry out \<Policy\> (PL). Steps marked **Manual** have no syst
 
 #### PRO-PL-3 Signing the rules
 
-1. Before access, the system owner gives the person \<Security Operating Procedures\>: Part A for everyone, and Parts A and B for administrators. **Manual**
-2. The person signs the declaration that they have read and understood the rules and agree to follow them, on paper or electronically, and the system owner completes TPL-21. **Manual**
+1. Before access, the system owner gives the person \<Security Operating Procedures\>: Part A for everyone, and Parts A and B for the privileged users listed in its Table 1. **Manual**
+2. The person signs the declaration in \<Security Operating Procedures\>, section 9, on paper or electronically, and the system owner completes TPL-21. **Manual**
 3. The system owner adds the signature to the register in \<Planning Management\>, section 3.5. The access request (TPL-2) checks the register before access is given. **Manual**
 4. When SyOps changes, the system owner decides whether the change is material, as defined in \<Policy\> (PL), R7, and records the answer in the change record of \<Security Operating Procedures\>. If it is, everyone signs again within 30 days, or loses access. **Manual**
 5. Every 12 months, everyone signs again. **Manual**
@@ -1136,18 +1136,18 @@ These procedures carry out \<Policy\> (PL). Steps marked **Manual** have no syst
 #### PRO-PL-4 Tailoring
 
 1. Anyone proposing to tailor a control records the rationale, the condition that must hold and what happens if it changes, in \<Tailoring Register\>. **Manual**
-2. The system owner decides, records the decision in \<Decision Register\> and updates the SSP applicability table. The authorising official accepts the register as a record. **Manual**
+2. The system owner recommends, and the authorising official decides, in \<Decision Register\>. The system owner then updates the SSP applicability table and the entry in \<Tailoring Register\>. **Manual**
 3. Each condition is checked at the yearly review. **Manual**
 
 #### PRO-PL-5 Reviewing the architecture
 
 1. Every 12 months, and after a significant change, the system owner reviews \<System Description\>, section 6, against the running system. **Manual**
-2. Changes are carried into the SSP, the privacy plan, the ConOps, the critical components list in \<Risk Assessment Management\>, section 3.9 and any procurement, and each is noted in the review record. **Manual**
+2. Changes are carried into the SSP, the privacy plan, the ConOps, the critical components list in \<Risk Assessment Management\>, section 3.9, the procedures and any procurement, and each is noted in the review record. **Manual**
 3. New open questions go to \<Decision Register\> or \<Plan of Action and Milestones\>, not into the architecture. **Manual**
 
 #### PRO-PL-6 Protecting the plans
 
-1. Plans and assessment evidence are kept only in the restricted SharePoint area. Only named people have access. **Manual**
+1. Issued plans and assessment evidence are kept only in the restricted SharePoint area. Only named people have access. Until it is set up, the master copy stays in the private records repository on the system owner's computer, which has no remote copy (\<Documentation Map\>, section 4.1). **Manual**
 2. Working copies are never kept in a code repository or a folder that syncs to one. **Manual**
 3. At each review, the system owner checks the area's access list against \<Roles and Responsibilities\> and records the check in the plan review record. **Manual**
 

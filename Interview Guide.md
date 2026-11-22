@@ -309,11 +309,13 @@ Questions are numbered INT-XX-nn, where XX is the family code, and each names th
 
 | ID | For | Question | Statements | Ask to see |
 | --- | --- | --- | --- | --- |
-| INT-PL-01 | System owner | When was the plan last reviewed, and who received it? | PL-02b, PL-02c | Change record, and distribution record |
+| INT-PL-01 | System owner | When was the plan last reviewed, and who received it? | PL-02b, PL-02c | The plan review record, naming the recipients, in the change record |
 | INT-PL-02 | A sample of users | Which rules did you sign, and when? | PL-04 | Signed acknowledgement |
 | INT-PL-03 | System owner | How do you decide whether a control can be tailored? | PL-11 | \<Tailoring Register\> |
 | INT-PL-04 | A sample of users and an administrator | Which version of the rules did you sign, and when? Can you name two rules that apply to you? Have you been asked to sign again after a change? | PL-4b, PL-4d, PL-4(1) | TPL-21 and the register of signatures in \<Planning Management\>, section 3.5 |
 | INT-PL-05 | Head of Cyber | Have you seen the System Security Plan, and do you concur with it? How are you told when it changes? | PL-02a.15, PL-02b | The plan's approval in \<Decision Register\> and the plan review record |
+| INT-PL-06 | Authorising official | Did you review and approve the System Security Plan and the privacy plan before they were put into effect? Did you select the baseline and approve each tailoring entry? | PL-02a.15, PL-10, PL-11 | D-PL-01 to D-PL-03 and the tailoring decisions in \<Decision Register\>, with their sign-off sheets |
+| INT-PL-07 | Legal adviser | How is the privacy plan kept current, and how is its architecture checked when the system changes? | PL-02a.15, PL-02c, PL-08a.02, PL-08c | D-PL-02, and the plan review record |
 
 ## 15 Program Management (PM)
 

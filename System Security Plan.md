@@ -259,14 +259,14 @@ Section 7 lists every control. A control counts as satisfied only when every one
 | Responsible | For |
 | --- | --- |
 | System owner | This plan, approvals, exceptions, risk within their authority, and coordination with \<Organisation\> |
-| Authorising official | Accepting residual risk and authorising operation |
+| Authorising official | Reviewing and approving this plan before it is put into effect, and the privacy plan (D-PL-01, D-PL-02); selecting the baseline and approving each tailoring entry (D-PL-03; \<Tailoring Register\>); accepting residual risk and authorising operation on TPL-18 |
 | Developers | Security functions built into the application under \<Organisation\>'s corporate SDLC, and fixing POA&M items |
 | Administrators | Managing schemas, the groups that open each schema, and system settings, in the Admin application |
 | Data Owners | Authorising who may read or edit their schema, in ServiceNow, and owning its read and edit groups |
 | Auditor | Reviewing the audit log weekly, comparing it with the server, database, PingFederate and Active Directory records, recording the review, and reporting anything suspicious to the security officer |
 | Security officer | Reviewing alerts, the central logs, advisories and scan results, leading incident response, reviewing maintenance records and remote maintenance logs, running their checks after maintenance, and reporting monthly on security status. The security officer does not read the audit log |
 | Windows server and database administrators | Securing, patching and scanning the VMs and SQL Server, running Defender and disk encryption, and carrying out maintenance, in which a supplier only watches their shared screen |
-| Change control element | Approving changes: the system owner, security officer and Windows server administrator (\<Configuration Management\>) |
+| Change control element | Approving changes: the system owner, security officer and Windows server administrator, with the legal adviser for a change that touches personal data (\<Configuration Management\>) |
 | Security assessor | Leading the independent Level 2 assessment |
 | \<Organisation\> | Inherited services and their evidence |
 | Users | Following the SyOps |
@@ -575,19 +575,19 @@ The assessment plan is in \<Control Assessment Record\> (PE), section PE.4, wher
 
 ### 7.12 Planning (PL)
 
-The assessment plan is in \<Control Assessment Record\> (PL), section PL.4, where the results are recorded. Implementation detail is in \<Policy\> (PL), \<Procedures\> (PL) and \<Planning Management\>, whose section 3.2 the register of plans and section 3.5 the register of signed rules.
+The assessment plan is in \<Control Assessment Record\> (PL), section PL.4, where the results are recorded. Implementation detail is in \<Policy\> (PL), \<Procedures\> (PL) and \<Planning Management\>, whose section 3.2 holds the register of plans and section 3.5 the register of signatures. The values are in \<System Description\>, P-71. PL-9, from the privacy baseline, is in Table 23.
 
 **Table 21: PL controls**
 
 | Control | How it is implemented | Who | Type | Status | Gap entry |
 | --- | --- | --- | --- | --- | --- |
-| PL-1 Policy and Procedures | Policy and procedures in \<Policy\> (PL) and \<Procedures\> (PL) | System owner, Head of Cyber | Organisational | \[Status\] | \[Decision\] |
-| PL-2 Security and Privacy Plans | Security plan, with a plan review record, and a register of plans in \<Planning Management\>, held in the restricted store; privacy plan \<Privacy Plan\> | System owner, authorising official | Organisational | \[Status\] | \[Decision\] |
-| PL-4 Rules of Behavior | \<Security Operating Procedures\>; signatures are recorded on TPL-21 and in the register | System owner, everyone | Organisational | \[Status\] | \[Decision\] |
-| PL-4(1) Social Media | Rules A43 and A44 in \<Security Operating Procedures\> | System owner | Organisational | \[Status\] | \[Decision\] |
-| PL-8 Architectures | \<System Description\>, section 6.8,, with its security approach; privacy architecture in \<Privacy Plan\>; reviewed yearly | System owner | Organisational | \[Status\] | \[Decision\] |
-| PL-10 Baseline Selection | Moderate | Authorising official | Organisational | \[Status\] | \[Decision\] |
-| PL-11 Baseline Tailoring | \<Tailoring Register\> \<ver\>, with the PM inheritance table | System owner | Organisational | \[Status\] | \[Decision\] |
+| PL-1 Policy and Procedures | Policy and procedures in \<Policy\> (PL) and \<Procedures\> (PL); the design is in \<Planning Management\> | System owner, Head of Cyber | Organisational | Implemented | NC-PL-01 |
+| PL-2 Security and Privacy Plans | This plan and \<Privacy Plan\>, listed in the register of plans in \<Planning Management\>, section 3.2; approved by the authorising official before they are put into effect (D-PL-01, D-PL-02); reviewed every 12 months and after an assessment, a significant change or a problem in use, and shared as P-71 sets, with a plan review record; issued copies in the restricted store, and the master copy in the private records repository until then (\<Documentation Map\>, section 4.1) | System owner, authorising official | Organisational | Implemented | NC-PL-02 |
+| PL-4 Rules of Behavior | \<Security Operating Procedures\>: Part A for everyone and Part B for the privileged users in its Table 1, signed before access, every 12 months and after a material change (P-71); signatures recorded on TPL-21 and in the register of signatures, kept by the system owner | System owner, everyone | Organisational | Implemented | NC-PL-03 |
+| PL-4(1) Social Media | Rules A25, A43, A44 and A45 in \<Security Operating Procedures\> | System owner | Organisational | Implemented | NC-PL-04 |
+| PL-8 Architectures | Security architecture in \<System Description\>, section 6, with its approach, layers and assumptions in section 6.8; privacy architecture in \<Privacy Plan\>, section 8; reviewed every 12 months and after a significant change (P-71; PRO-PL-5) | System owner | Organisational | Implemented | NC-PL-05 |
+| PL-10 Baseline Selection | CSS Moderate, with the CSS privacy baseline, chosen from the categorisation in section 3.3 (D-PL-03) | Authorising official | Organisational | Implemented | NC-PL-06 |
+| PL-11 Baseline Tailoring | \<Tailoring Register\> \<ver\>, with the PM inheritance table; each entry approved by the authorising official on the system owner's recommendation (PRO-PL-4) | System owner, authorising official | Organisational | Implemented | NC-PL-07 |
 
 ### 7.13 Personnel Security (PS)
 
@@ -627,7 +627,7 @@ The assessment plan is in \<Control Assessment Record\> (PT), section PT.4, wher
 | IR-2(3) Breach | Breach training in briefing part B6 for every user, and modules M7 and M9 for the roles in the training matrix (\<Awareness and Training Management\>, section 3.5) | Security officer | Organisational | \[Status\] | \[Decision\] |
 | IR-8(1) Breaches | \<Incident Response Management\> \<ver\>, section 3.8: notification decision, harm to people, telling them, the 72-hour ICO report and the breach register | Security officer, legal adviser | Organisational | \[Status\] | \[Decision\] |
 | PE-8(3) Limit PII in Visitor Records | \<Organisation\>'s visitor records | \<Organisation\> | Inherited | \[Status\] | \[Decision\] |
-| PL-9 Central Management | One document set, held in the Restricted store | System owner | Organisational | \[Status\] | \[Decision\] |
+| PL-9 Central Management | One document set under one owner, checked by one consistency test; issued copies in the restricted store, and the master copy in the private records repository until then (\<Documentation Map\>, section 4.1) | System owner | Organisational | \[Status\] | \[Decision\] |
 | RA-8 Privacy Impact Assessments | \<Data Protection Impact Assessment\> \<ver\>, completed by the legal adviser | Legal adviser | Organisational | \[Status\] | \[Decision\] |
 | SA-8(33) Minimization | Minimisation rule, covered in the impact assessment | Developers, legal adviser | Organisational | \[Status\] | \[Decision\] |
 | SC-7(24) PII | As set out in \<PII Processing Management\> | Developers, security officer | System | \[Status\] | \[Decision\] |

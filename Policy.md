@@ -752,15 +752,15 @@ It applies to every system plan for \<System Name\>: the System Security Plan, t
 ### PL.4 Mandatory requirements
 
 1. **R1 Register of plans:** every plan in force must be listed in \<Planning Management\>, section 3.2, with its owner, version, approver and next review.
-2. **R2 Approval:** the System Security Plan must be approved by the system owner, with the Head of Cyber's concurrence, and accepted by the authorising official as an accurate record. The privacy plan must be approved by the legal adviser and the authorising official. The supply chain plan is approved by the system owner.
+2. **R2 Approval:** the System Security Plan must be approved by the system owner, with the Head of Cyber's concurrence, and then reviewed and approved by the authorising official before it is put into effect. The privacy plan must be approved by the legal adviser and the authorising official. The supply chain plan is approved by the system owner.
 3. **R3 Review and change records:** each system plan must keep a plan review record (who reviewed, their role, the date, the outcome and actions) separate from its change record. Plans are reviewed every 12 months and after an assessment, significant change or problem found in use.
 4. **R4 Sharing:** the SSP and its changes must be shared with the Head of Cyber, administrators and \<Organisation\>'s security contact, and each issue recorded in the plan review record.
-5. **R5 Protection:** plans and assessment evidence are marked \<Classification\>. They must be kept in the restricted SharePoint area, never in a code repository or a public location, and only people who need them may read or change them.
-6. **R6 Rules of behaviour:** the Security Operating Procedures are the rules of behaviour. Part A applies to everyone, and Part B, the privileged rules, to administrators, auditors, security officers, business owners, the legal adviser's delegate and the Windows server and database administrators as well. Everyone signs before access, and the signature is recorded on TPL-21 and in the register of signatures.
+5. **R5 Protection:** plans and assessment evidence are marked \<Classification\>. Issued copies must be kept in the restricted SharePoint area, never in a code repository or a public location, and only people who need them may read or change them. Until that area is set up, the master copy is kept in the private records repository described in \<Documentation Map\>, section 4.1.
+6. **R6 Rules of behaviour:** the Security Operating Procedures are the rules of behaviour. Part A applies to everyone, and Part B, the privileged rules, to the privileged users listed in \<Security Operating Procedures\>, Table 1: the system owner, administrators, auditors, the security officer, business owners, the legal adviser's delegate, the Windows server and database administrators, and any developer given access to a live system as well. Everyone signs before access, and the signature is recorded on TPL-21 and in the register of signatures.
 7. **R7 Signing again:** everyone signs again every 12 months, and after a material change to the rules: a new or stricter rule, a changed consequence, new monitoring or a new privileged duty. The system owner decides whether a change is material and records it in the change record of \<Security Operating Procedures\>.
 8. **R8 Social media:** \<System Name\> information must not be placed on social media or external sites, and work credentials must not be used on them.
-9. **R9 Architecture:** \<System Description\>, section 6, must state the security approach, trust zones, layers of defence, and assumptions and dependencies, and be reviewed every 12 months and after a significant change. Its changes must be reflected in the SSP, the privacy plan, the ConOps, the critical components list and procurement.
-10. **R10 Baseline and tailoring:** CSS Moderate, with the privacy baseline, is the baseline. It may be tailored only through \<Tailoring Register\>, with a rationale, a condition and a recorded decision.
+9. **R9 Architecture:** \<System Description\>, section 6, must state the security approach, trust zones, layers of defence, and assumptions and dependencies, and be reviewed every 12 months and after a significant change. Its changes must be reflected in the SSP, the privacy plan, the ConOps, the critical components list, the procedures and procurement.
+10. **R10 Baseline and tailoring:** CSS Moderate, with the privacy baseline, is the baseline. The authorising official selects it, and approves each tailoring entry, on the system owner's recommendation. It may be tailored only through \<Tailoring Register\>, with a rationale, a condition and a decision recorded in \<Decision Register\>.
 
 ### PL.5 Responsibilities
 
@@ -769,10 +769,10 @@ It applies to every system plan for \<System Name\>: the System Security Plan, t
 | Role | Responsibility |
 | --- | --- |
 | Head of Cyber | Approves this policy, as all policies, and concurs with the SSP |
-| Authorising official | Accepts the SSP as an accurate record, approves the privacy plan, accepts the tailoring register as a record, and makes the authorisation decision |
+| Authorising official | Reviews and approves the SSP before it is put into effect, approves the privacy plan, selects the baseline and approves each tailoring entry, and makes the authorisation decision |
 | System owner | Owns this policy, the plans and the register of plans; keeps the review records, the signed rules and the register of signatures; decides whether a change to the rules is material |
 | Legal adviser | Reviews this policy and approves the privacy plan |
-| Administrators, auditors, security officers, and Windows server and database administrators | Sign Parts A and B of the rules |
+| Privileged users, as listed in \<Security Operating Procedures\>, Table 1 | Sign Parts A and B of the rules |
 | Everyone | Signs Part A of the rules, and follows them |
 
 ### PL.6 Governance requirements
