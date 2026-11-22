@@ -118,11 +118,11 @@ Controls met here: CA-6.
 | Assessor independence | TPL-19, accepted by the authorising official |
 | Penetration test | The tester's report, before the first authorisation (section 3.3) |
 | Common controls | The record that \<Organisation\>'s authorising official has authorised the inherited controls (EV-CA-01), and \<Organisation\>'s evidence for them (\<Evidence Requests\>) |
-| Decision | TPL-18, with terms, conditions, accepted risks, inherited controls accepted and an end date no more than 12 months away |
+| Decision | TPL-18, with terms, conditions, accepted risks, inherited controls accepted, reliance on \<Organisation\>'s programme for the PM controls accepted, and an end date no more than 12 months away |
 
 **Privacy review.** \<System Name\> holds personal data, so before the decision the legal adviser reviews the privacy plan and the impact assessment, and their view goes to the authorising official with the package.
 
-**The decision.** The authorising official records the decision on TPL-18. It is one of three types: a first authorisation, a re-authorisation, or the withdrawal of an authorisation. The record gives the package received, with versions; the decision, to authorise or not; the terms and conditions, such as items to fix by a date or limits on use; each remaining risk accepted, by its Risk List entry; the inherited controls accepted; and an end date no more than 12 months away (PRO-CA-4). It is copied to the system owner and the Head of Cyber. \<System Name\> holds no real data until the authorising official has authorised it. The authorisation is reviewed every 12 months and after a significant change.
+**The decision.** The authorising official records the decision on TPL-18. It is one of three types: a first authorisation, a re-authorisation, or the withdrawal of an authorisation. The record gives the package received, with versions; the decision, to authorise or not; the terms and conditions, such as items to fix by a date or limits on use; each remaining risk accepted, by its Risk List entry; the inherited controls accepted; reliance on \<Organisation\>'s security and privacy programme for the 35 inherited PM controls, accepted as a group (\<Program Management\>, section 3.3); and an end date no more than 12 months away (PRO-CA-4). It is copied to the system owner and the Head of Cyber. \<System Name\> holds no real data until the authorising official has authorised it. The authorisation is reviewed every 12 months and after a significant change.
 
 ### 3.6 Inherited controls
 
@@ -151,7 +151,7 @@ These 66 entries are provided wholly by \<Organisation\>, and the system owner r
 
 The list matches the Inherited entries in \<System Security Plan\>, section 7. CP-7 is not on it: \<Organisation\> provides the second site, but \<System Name\>'s administrators rebuild the servers there, so it is shared (\<Contingency Planning Management\>, section 3.9). PE-8(3) is listed under PT, as in \<System Security Plan\>, Tables 8 and 23, because it is in the privacy baseline and assessed with PT.
 
-The system owner puts the list of 66 to the authorising official for acceptance as a list, with the other proposed ratings, and for acceptance for operation with the authorisation package, once \<Organisation\>'s evidence is in.
+The PM controls are not on this list: they are \<Organisation\>'s programme, not system controls, and the authorising official accepts reliance on them as one line on TPL-18, once \<Organisation\>'s evidence for them is in (EV-PM-01 to EV-PM-04, EV-PL-01). The system owner puts the list of 66 to the authorising official for acceptance as a list, with the other proposed ratings, and for acceptance for operation with the authorisation package, once \<Organisation\>'s evidence is in.
 
 ### 3.7 Information exchanges and internal connections
 
