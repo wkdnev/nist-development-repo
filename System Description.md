@@ -183,7 +183,7 @@ These are the values the controls depend on. CSS calls many of them organisation
 | P-19 | File types accepted | \[The types the application needs, from a fixed list\]. Reference: PDF, TIFF, JPEG and PNG | SI-10, CM-7 | \[\] |
 | P-20 | Export working copies | Deleted once downloaded, and always within 24 hours | MP-6 | \[\] |
 | P-21 | Incident reporting | A suspected incident reported to the security officer within 1 hour; every confirmed incident told to \<Organisation\>'s security contact; a personal data breach that must be reported is reported to the ICO within 72 hours of \<Organisation\> becoming aware of it | IR-6 | \[\] |
-| P-22 | Answer to a person's request about their data | Within one month | PT-2, PM-21 | \[\] |
+| P-22 | Answer to a person's request about their data | Within one month | PT-2, AC-3(14) | \[\] |
 | P-23 | Where data may be held | The United Kingdom only | SA-9(5) | \[\] |
 | P-24 | Training | Awareness and the briefing before access, and every 12 months. Role modules before privileged access (developers: before they first work on the code), and every 12 months. Incident response, contingency and risk decision modules (M7, M8, M10) within 30 days of taking the role | AT-2, AT-3, IR-2, CP-3 | \[\] |
 | P-25 | Authorisation | Before real data is held, and reviewed at least every 12 months | CA-6 | \[\] |

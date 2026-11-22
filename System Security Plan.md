@@ -259,7 +259,7 @@ Section 7 lists every control. A control counts as satisfied only when every one
 | Responsible | For |
 | --- | --- |
 | System owner | This plan, approvals, exceptions, risk within their authority, and coordination with \<Organisation\> |
-| Authorising official | Reviewing and approving this plan before it is put into effect, and the privacy plan (D-PL-01, D-PL-02); selecting the baseline and approving each tailoring entry (D-PL-03; \<Tailoring Register\>); accepting residual risk and authorising operation on TPL-18 |
+| Authorising official | Reviewing and approving this plan before it is put into effect, and the privacy plan (D-PL-01, D-PL-02); selecting the baseline and approving each tailoring entry (D-PL-03; \<Tailoring Register\>); accepting the inherited controls, reliance on \<Organisation\>'s programme for the PM controls, and residual risk, and authorising operation on TPL-18 |
 | Developers | Security functions built into the application under \<Organisation\>'s corporate SDLC, and fixing POA&M items |
 | Administrators | Managing schemas, the groups that open each schema, and system settings, in the Admin application |
 | Data Owners | Authorising who may read or edit their schema, in ServiceNow, and owning its read and edit groups |
@@ -268,7 +268,7 @@ Section 7 lists every control. A control counts as satisfied only when every one
 | Windows server and database administrators | Securing, patching and scanning the VMs and SQL Server, running Defender and disk encryption, and carrying out maintenance, in which a supplier only watches their shared screen |
 | Change control element | Approving changes: the system owner, security officer and Windows server administrator, with the legal adviser for a change that touches personal data (\<Configuration Management\>) |
 | Security assessor | Leading the independent Level 2 assessment |
-| \<Organisation\> | Inherited services and their evidence |
+| \<Organisation\> | Inherited services and their evidence, and the security and privacy programme behind the PM controls (\<Program Management\>) |
 | Users | Following the SyOps |
 | Security officer, system owner, database and Windows server administrators | Incident response and training records (security officer); invoking recovery (system owner); backups and rebuilding (administrators). See \<Incident Response Management\>, \<Contingency Planning Management\> and \<Awareness and Training Management\> |
 | \<Organisation\> | Maintaining hardware, approving and sanitising its removal under its own process, handling disks and backup media, and physical and environmental protection, including a clean shutdown of the servers if power cannot be kept (D-PE-01). See \<Maintenance Management\>, \<Media Protection Management\> and \<Physical and Environmental Protection Management\> |
@@ -587,7 +587,7 @@ The assessment plan is in \<Control Assessment Record\> (PL), section PL.4, wher
 | PL-4(1) Social Media | Rules A25, A43, A44 and A45 in \<Security Operating Procedures\> | System owner | Organisational | Implemented | NC-PL-04 |
 | PL-8 Architectures | Security architecture in \<System Description\>, section 6, with its approach, layers and assumptions in section 6.8; privacy architecture in \<Privacy Plan\>, section 8; reviewed every 12 months and after a significant change (P-71; PRO-PL-5) | System owner | Organisational | Implemented | NC-PL-05 |
 | PL-10 Baseline Selection | CSS Moderate, with the CSS privacy baseline, chosen from the categorisation in section 3.3 (D-PL-03) | Authorising official | Organisational | Implemented | NC-PL-06 |
-| PL-11 Baseline Tailoring | \<Tailoring Register\> \<ver\>, with the PM inheritance table; each entry approved by the authorising official on the system owner's recommendation (PRO-PL-4) | System owner, authorising official | Organisational | Implemented | NC-PL-07 |
+| PL-11 Baseline Tailoring | \<Tailoring Register\> \<ver\>, with TR-PM-01 for the PM controls, listed in \<Program Management\>; each entry approved by the authorising official on the system owner's recommendation (PRO-PL-4) | System owner, authorising official | Organisational | Implemented | NC-PL-07 |
 
 ### 7.13 Personnel Security (PS)
 
