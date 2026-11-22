@@ -240,6 +240,7 @@ The detection use cases U1 to U9 in \<System and Information Integrity Managemen
 | **Daily** |  |  |  |  |  |
 | C1 | Check all services are healthy | Administrator | The API health check and each application's start page | Health check log on TPL-8, one line a day | SI-4, CP-2 |
 | C2 | Back up the database, which holds every item and file | Database administrator | \<Procedures\>, PRO-CP-1 | Backup job log, checked at C8 | CP-9 |
+| C50 | Check the alert of new entries in CISA's Known Exploited Vulnerabilities catalogue, and \<Organisation\>'s alerts, against \<System Name\>'s components; fix or mitigate any match within 3 days | Security officer | \<Procedures\>, PRO-RA-4 | TPL-7 | RA-5, SI-2, SI-5 |
 | **Weekly** |  |  |  |  |  |
 | C3 | Review the audit log, including refused sign-ins and privileged actions, against the server and database records and the PingFederate and Active Directory records of failed sign-ins and lockouts | Auditor | Section 4.2 | TPL-8 | AC-2, AC-6(9), AC-7, AU-6 |
 | C4 | Review the central logs and any alerts, including the security events for each read or export of the audit log. The security officer does not read the audit log | Security officer | \<Procedures\>, PRO-SI-3 and PRO-SI-4 | TPL-8 | SI-4, AU-6 |
@@ -260,7 +261,6 @@ The detection use cases U1 to U9 in \<System and Information Integrity Managemen
 | C48 | Review every maintenance record against its change record; raise any maintenance without one as an incident | Security officer | \<Procedures\>, PRO-MA-1 | TPL-12 | MA-2, MA-4 |
 | C49 | Check the encrypted export working area on the application server, and delete any working copy older than 24 hours (each working day; \<System Description\>, P-20) | Windows server administrator | \<Procedures\>, PRO-MP-5 | TPL-8 | MP-4, MP-6 |
 | C58 | Hold the change control board: review the month's changes, emergency changes and drift reports | System owner (chair), security officer, Windows server administrator, legal adviser | \<Configuration Management\>, section 3.8 | Board minutes; TPL-6 | CM-3, CM-3(4) |
-| C50 | Each week, check CISA's Known Exploited Vulnerabilities catalogue and \<Organisation\>'s alerts against \<System Name\>'s components; fix or mitigate any match within 3 days | Security officer | \<Procedures\>, PRO-RA-4 | TPL-7 | RA-5, SI-2, SI-5 |
 | **Every 3 months** |  |  |  |  |  |
 | C15 | Review privileged access: the system owner prepares the role-group review and the auditor checks and signs it; the Head of Cyber reviews the system owner's own memberships and checks the administrators | System owner, auditor, Head of Cyber | \<Procedures\>, PRO-AC-7 | TPL-3 | AC-2, AC-6(7) |
 | C16 | Check the administrators' actions | Head of Cyber | The auditors' review records and their quarterly report on the administrators' actions (\<Procedures\>, PRO-AU-1, step 6) | TPL-8 | AC-6(9), AU-6 |
@@ -275,7 +275,7 @@ The detection use cases U1 to U9 in \<System and Information Integrity Managemen
 | C23 | Re-sign Parts A and B | Everyone; the system owner keeps the register of signatures | Section 9 | TPL-21; the register of signatures (\<Planning Management\>, section 3.5) | PL-4, PS-6 |
 | C24 | Review functions, ports, software and services, and compare installed software with the approved list | Windows server administrator, developers | \<Procedures\>, PRO-CM-5 | TPL-3 | CM-7(1), CM-11 |
 | C25 | Review the boundary and connections | System owner, \<Organisation\>'s security contact | \<Procedures\>, PRO-SC-8; \<Procedures\>, PRO-CA-2 | TPL-3 | SC-7, CA-3, CA-9 |
-| C26 | Review the supply chain, external services and suppliers | System owner, developers | \<Procedures\>, PRO-RA-2; \<Procedures\>, PRO-SA-3; \<Procedures\>, PRO-SR-2 | TPL-16 | RA-3(1), SA-9, SR-6 |
+| C26 | Review the supply chain, external services and suppliers | System owner, developers | \<Procedures\>, PRO-RA-2; \<Procedures\>, PRO-SA-3; \<Procedures\>, PRO-SR-2 | TPL-23 for the supply chain risk assessment; TPL-16 for each supplier | RA-3(1), SA-9, SR-6 |
 | C27 | Review development tools and standards | Developers, security officer | \<Procedures\>, PRO-SA-6 | TPL-23 | SA-15 |
 | C28 | Review maintenance tools and people | Windows server administrator, system owner | \<Procedures\>, PRO-MA-3 and PRO-MA-5 | TPL-12 | MA-3, MA-5 |
 | C29 | Check \<Organisation\>'s physical security evidence | System owner | \<Procedures\>, PRO-PE-1 | Response logged in \<Evidence Requests\> | PE-2 to PE-16 |
@@ -295,6 +295,7 @@ The detection use cases U1 to U9 in \<System and Information Integrity Managemen
 | C60 | Review the approved software list and component licences | Windows server administrator, developers, system owner | \<Procedures\>, PRO-CM-4 and PRO-CM-9 | \<Configuration Management\>, section 3.5; \<Decision Register\> | CM-7(5), CM-10 |
 | C61 | Review the contingency plan with the authorising official, check it against the incident response plan and \<Organisation\>'s plans, renew the backup encryption certificate when due, and refresh the offline copies of the plan | System owner, with the database administrator for the certificate | \<Procedures\>, PRO-CP-7 and PRO-CP-1 | Change record; distribution record | CP-2, CP-2(1), CP-9(8) |
 | C62 | Review the authenticator inventory, that each change period was met, and the assurance levels, and take any change to the authorising official | System owner, security officer | \<Procedures\>, PRO-IA-7 | \<Identification and Authentication Management\> change record | IA-5, IA-12 |
+| C63 | Review the risks, the threat model and the categorisation, check each acceptance against its review date, and share the result with the authorising official and the Head of Cyber | System owner | \<Procedures\>, PRO-RA-1 | TPL-23; \<Risk List\> | RA-2, RA-3, RA-7 |
 | **When an event occurs** |  |  |  |  |  |
 | C36 | Grant, change or remove access | The groups' owners; \<Organisation\>'s service desk disables accounts | Section 4.4 | TPL-2 (the ServiceNow request), TPL-14 | AC-2, PS-4, PS-5 |
 | C37 | Apply updates within the time limits in \<System Description\>, P-11 | Windows server administrator, database administrator, developers | Section 4.3, through approved change | TPL-6, TPL-7 | SI-2, CM-3 |
@@ -306,6 +307,7 @@ The detection use cases U1 to U9 in \<System and Information Integrity Managemen
 | C43 | Handle a security incident or personal data breach | Security officer | Section 4.9 | TPL-10 | IR-4, IR-5, IR-6 |
 | C44 | Handle a request or complaint from a person about their data. Only the legal adviser's delegate runs the search across all schemas (\<System Description\>, FR-073) | Legal adviser; legal adviser's delegate | \<Procedures\>, PRO-PT-1 and PRO-PT-2 | TPL-15, TPL-22 | AC-3(14), SI-18(4) |
 | C51 | Have every code change reviewed by another developer and merged through the protected default branch, and sign each release tag | Developers | \<Procedures\>, PRO-SA-1; Test-Development.ps1 at each release | Pull request or change record, TPL-6 | SA-10, CM-3 |
+| C64 | Review the risks they affect after a significant change, incident or new test result; review the critical components at each major release and significant change | System owner, developers | \<Procedures\>, PRO-RA-1 and PRO-RA-6 | TPL-23 | RA-3, RA-9 |
 
 ### 4.2 Audit review procedure (C3)
 
@@ -318,9 +320,9 @@ The detection use cases U1 to U9 in \<System and Information Integrity Managemen
 
 ### 4.3 Vulnerability management (C10, C11, C37, C50)
 
-What is checked for vulnerabilities, by whom and how often is in \<Risk Assessment Management\>, section 3.5. Each fix is made within the time for its severity in \<System Description\>, P-11: 3 days if exploited, as an emergency change; 14 days Critical or High; 30 days Medium; 90 days Low. The security officer checks CISA's Known Exploited Vulnerabilities catalogue and \<Organisation\>'s alerts weekly (C50).
+What is checked for vulnerabilities, by whom and how often is in \<Risk Assessment Management\>, section 3.5. Each fix is made within the time for its severity in \<System Description\>, P-11: 3 days if exploited, as an emergency change; 14 days Critical or High; 30 days Medium; 90 days Low. New entries in CISA's Known Exploited Vulnerabilities catalogue raise an alert, which the security officer checks with \<Organisation\>'s alerts each working day (C50).
 
-A fix that cannot be made in time goes through PRO-AC-15 and into \<Plan of Action and Milestones\>. Updates are tested first, as \<Procedures\>, PRO-SI-1 requires. The clock and the severity are as \<Risk Assessment Management\>, section 3.6, sets out.
+A fix that cannot be made in time is entered in \<Risk List\> as a non-compliance, with its compensating measure, and decided under \<Policy\>, section 1.2; a remediation then goes into \<Plan of Action and Milestones\> (\<Risk Assessment Management\>, sections 3.6 and 3.8). Updates are tested first, as \<Procedures\>, PRO-SI-1 requires. The clock and the severity are as \<Risk Assessment Management\>, section 3.6, sets out.
 
 ### 4.4 Joiners, movers and leavers (C36)
 
@@ -473,6 +475,7 @@ Table 6 shows where each control that these SyOps serve is met. It lets an audit
 | PS-4, PS-5 Leavers and Movers | B5; C36; section 4.4 |
 | PS-8 Personnel Sanctions | A4 |
 | PT-2, PT-3, SI-12, SI-18 Personal Data | A23 to A28; C32, C33, C44 |
+| RA-2, RA-3, RA-3(1), RA-7, RA-9 Risk, Supply Chain and Critical Components | C26, C63, C64 |
 | RA-5, SI-2, SI-5 Vulnerabilities and Advisories | C7, C10, C11, C37, C50; section 4.3 |
 | SA-9, SR-6 External Services and Suppliers | C26 |
 | SA-10, SA-11, SA-15 Developer Change Control, Testing and Tools | B19; C11, C27, C40, C51 |

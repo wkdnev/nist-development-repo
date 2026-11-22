@@ -239,7 +239,7 @@ CSS does not select the controls in Table 9 at Moderate, so they are not assesse
 | PT | SI-19(1) to SI-19(8) | Ways of de-identifying data | Not applicable. No dataset is de-identified (SI-19) |
 | RA | RA-2(1) Impact-level Prioritization | Ranks systems within one impact level | Not required. \<System Name\> is one system |
 | RA | RA-3(2) Use of All-source Intelligence | Draws on all sources of threat intelligence | Not required. \<Organisation\>'s threat awareness programme (PM-16) and the advisory sources in \<System and Information Integrity Management\>, section 3.3, feed the risk assessment |
-| RA | RA-3(3) Dynamic Threat Awareness | Assesses the current threat continuously | Not required. Done in part: CISA's exploited list and \<Organisation\>'s alerts are checked weekly (PRO-RA-4) |
+| RA | RA-3(3) Dynamic Threat Awareness | Assesses the current threat continuously | Not required. Done in part: new entries in CISA's exploited list raise an alert and are checked each working day, with \<Organisation\>'s alerts (PRO-RA-4) |
 | RA | RA-5(3) Breadth and Depth of Coverage | Defines how widely and deeply scans look | Not required. Done in part in design: \<Risk Assessment Management\>, section 3.5 says which components are checked, how and how often |
 | RA | RA-5(4) Discoverable Information | Finds what an adversary could learn about the system, and acts on it | Not required: selected at High only. The penetration test before go-live looks for it |
 | RA | RA-5(6) Automated Trend Analyses | Compares scan results over time automatically | Not required. Done in part by hand: the monthly monitoring analysis looks for a trend over three months (\<Assessment, Authorization, and Monitoring Management\>, section 3.8) |

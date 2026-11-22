@@ -53,7 +53,7 @@ The set has 42 documents. \<Guide to the Document Set\> is the place to start. W
 | \<Tailoring Register\> | Rules and how they are carried out | The case for each control treated as not applicable, and why Program Management is inherited from \<Organisation\> and not assessed | An assessor |
 | \<Control Assessment Record\> | Assessment and authorisation | A template for the Level 1 self-assessment, which the Level 2 team re-determines: the 1,998 determination statements to assess, with space for the finding on each, one chapter for each family | An assessor |
 | \<Security Assessment Report\> | Assessment and authorisation | A template for the Level 2 report to the authorising official, on which every authorisation rests: the results of all 19 families, the risk position and the conditions before authorisation, to be filled in from the assessment | The authorising official; an auditor, early |
-| \<Risk List\> | Assessment and authorisation | A template for the risk register: the rating method, and space for each risk with its rating, treatment and acceptance, and for a non-compliance entry for each control that is not satisfied | The authorising official and system owner |
+| \<Risk List\> | Assessment and authorisation | The risk register, with the threat model of the reference system and its risks, and the rating method, with space for each further risk with its rating, treatment and acceptance, and for a non-compliance entry for each control that is not satisfied | The authorising official and system owner |
 | \<Plan of Action and Milestones\> | Assessment and authorisation | A template for each weakness with its fix, owner, milestone and latest completion, and for the road to authorisation | The system owner, monthly; an auditor |
 | \<Decision Register\> | Assessment and authorisation | A template for recording each approval and decision, who made it, when, and the evidence of it | Anyone checking who approved what |
 | \<Evidence Requests\> | Assessment and authorisation | The evidence to ask of \<Organisation\>, and who does what for each control | The system owner and \<Organisation\> |
@@ -117,6 +117,7 @@ Each fact about a control is held in one document, and the others point to it. T
 | The rule and the procedure | The family's chapter of \<Policy\> and \<Procedures\> |
 | The design and the setting | The family's design document (Table 2), and the parameters in \<System Description\>, section 4 |
 | Each control's result, and the finding for each determination statement | The family's chapter of \<Control Assessment Record\>, counted up in \<Security Assessment Report\> |
+| The threats to the system and the risks they lead to | \<Risk List\>, section 2 |
 | What is not met, its cause, risk, rating and treatment | \<Risk List\>, section 5 |
 | The fix, its owner and its timing | \<Plan of Action and Milestones\>, section 3 |
 | Evidence asked of \<Organisation\> | \<Evidence Requests\> |

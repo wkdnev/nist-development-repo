@@ -45,7 +45,7 @@ Any change to these settings follows \<Procedures\> (CM), and is checked for dri
 | Review group memberships and privileges | Role groups every 3 months; schema groups every 12 months, by their Data Owners (\<System Description\>, P-04 and P-05) | \<Procedures\> (AC) | TPL-3 |
 | Give the auditors the server and database records they compare with the audit log. Auditors, not administrators, read and review the audit log | Weekly, for the auditors' review (\<System Description\>, P-08) | \<Procedures\> (AU) | TPL-8 |
 | Apply security updates | To the timetable in \<Risk Assessment Management\>, section 3.6 | \<Procedures\>, PRO-SI-1 | TPL-7 |
-| Check for exploited flaws | Weekly | \<Procedures\>, PRO-RA-4 | TPL-7 |
+| Check for exploited flaws | Each working day, from an alert on new entries in CISA's catalogue | \<Procedures\>, PRO-RA-4 | TPL-7 |
 | Test backups and restores | Backups checked weekly (C8); a restore every 6 months on the restore test server at the second site, which is erased afterwards (C18) | \<Procedures\>, PRO-CP-1 and PRO-CP-2 | TPL-8, TPL-11, TPL-13 |
 | Maintenance | As needed, under an approved change; routine work under the standing change for the preventive schedule | \<Procedures\> (MA), through the managed route, signing out at the end; a supplier only watches your shared screen | TPL-12 |
 | Check the export working area | Each working day (\<Security Operating Procedures\>, C49) | \<Procedures\> (MP) | TPL-8 |
