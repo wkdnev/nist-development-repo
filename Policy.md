@@ -21,6 +21,7 @@ These rules apply to every chapter. They are stated once here. A chapter repeats
 5. **Compliance and management commitment:** the system owner reviews compliance at each review and records the result.
 6. **Records:** the policy and procedures are under version control, and each review is recorded in the change record (\<Documentation Map\>, section 4.1).
 7. **Non-compliance:** a control counts as non-compliant until shown otherwise. Each non-compliance is recorded and rated in \<Risk List\>, and a named person decides its treatment: the system owner for Low risks, and the authorising official for Medium and High risks. A fix is made only through \<Plan of Action and Milestones\>. Section 1.2 sets out the approach in full.
+8. **The organisation's programme:** each policy follows \<Organisation\>'s information security programme plan, its privacy programme plan and its corporate policies (PM-1, PM-18, inherited: \<Program Management\>; EV-PM-01, EV-PM-04, EV-GEN-04). Where a chapter differs from them, theirs wins, and the chapter is changed to match at its next review.
 
 ### 1.2 Non-compliance and risk acceptance
 

@@ -551,7 +551,7 @@ These procedures carry out \<Policy\> (CA). Steps marked **Manual** have no syst
 #### PRO-CA-7 Inherited controls
 
 1. The system owner keeps the list of controls inherited from \<Organisation\> in \<Assessment, Authorization, and Monitoring Management\>, section 3.6, and requests \<Organisation\>'s evidence for them (\<Evidence Requests\>). **Manual**
-2. Before \<System Name\> operates, the authorising official accepts the inherited controls on TPL-18, or records which are not accepted. **Manual**
+2. Before \<System Name\> operates, the authorising official accepts the inherited controls on TPL-18, or records which are not accepted, and accepts reliance on \<Organisation\>'s programme for the PM controls in \<Program Management\>, section 3.3, as one line, naming any not yet evidenced. **Manual**
 3. Every 12 months the system owner reviews the list with \<Organisation\>'s security contact. **Manual**
 
 ## CM Configuration Management

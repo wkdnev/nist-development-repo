@@ -2,7 +2,7 @@
 
 ## 1 Purpose and summary
 
-This plan is used by every control family. It describes how \<System Name\> implements its security controls: how it meets each one or does not, at a high level, which are shared, and which do not apply. It covers all nineteen assessed families, listed in section 5, and section 7 gives a brief overview of every control in each of them. PM is outside the baseline (\<Tailoring Register\>, TR-PM-01). This plan does not claim compliance.
+This plan is used by every control family. It describes how \<System Name\> implements its security controls: how it meets each one or does not, at a high level, which are shared, and which do not apply. It covers all nineteen assessed families, listed in section 5, and section 7 gives a brief overview of every control in each of them. PM is \<Organisation\>'s programme, inherited and not assessed for \<System Name\> (\<Tailoring Register\>, TR-PM-01). This plan does not claim compliance.
 
 \<System Name\> is assessed against CSS only, using the CSS assessment procedures and the CSS baselines. Assessment results are recorded in each family's chapter of \<Control Assessment Record\>. The privacy plan is \<Privacy Plan\> and the supply chain risk management plan is \<Supply Chain Risk Management\>. This plan refers to them rather than repeating them. The organisation takes a risk-based approach, so each non-compliance is rated and decided in \<Risk List\>. This plan is a brief overview of each control. The assessment results behind it are in that record, and are not repeated here. In section 7, Status describes what is built, and Gap entry says where any gap is registered.
 
@@ -22,11 +22,11 @@ This plan is used by every control family. It describes how \<System Name\> impl
 | Exposure | Internal only. It is reached by browser from \<Organisation\>'s network and VPN, and is not public-facing |
 | Criticality | Business critical |
 | Ownership | Owned and operated by \<Organisation\>, with the system owner accountable for it |
-| Common control provider | \<Organisation\>'s IT services: sign-in through PingFederate, the Active Directory, ServiceNow, network, firewalls, VPN, managed devices, VM hosting, logging, time, proxy, physical security and backup site (section 5) |
+| Common control provider | \<Organisation\>'s IT services: sign-in through PingFederate, the Active Directory, ServiceNow, network, firewalls, VPN, managed devices, VM hosting, logging, time, proxy, physical security and backup site (section 5); and \<Organisation\>'s security and privacy programme, for the Program Management controls (\<Program Management\>) |
 | Operational status | \[Operational status\] |
 | Authorisation status | \[Authorisation status\] |
 | Security categorisation | Moderate (\<System Description\>, P-01) |
-| Control baseline | CSS Moderate; the AC, AT, AU, CA, CM, CP, IA, IR, MA, MP, PE, PL, PS, RA, SA, SC, SI and SR families in this version, with PT and 16 other controls from the CSS privacy baseline |
+| Control baseline | CSS Moderate; the AC, AT, AU, CA, CM, CP, IA, IR, MA, MP, PE, PL, PS, RA, SA, SC, SI and SR families in this version, with PT and 16 other controls from the CSS privacy baseline: 316 controls. Program Management is inherited from \<Organisation\> and not counted among them (TR-PM-01) |
 
 The key roles are below. Who holds each, and their business contact details, are in \<Roles and Responsibilities\>, sections 2, 3 and 6, so that names are filled in once.
 
@@ -221,7 +221,7 @@ The VPN's multi-factor authentication protects the network route. \<System Name\
 
 ## 5 Control applicability and inheritance
 
-The controls are those of CSS in the CSS Moderate baseline. PT and 16 related privacy controls come from the CSS privacy baseline, and PM is outside the baseline (TR-PM-01). \<System Name\> inherits PM controls from \<Organisation\>'s security and privacy programme as common controls; they are listed with their providers and evidence in \<Program Management\>, section 3.3. Twenty-four of them are in the privacy baseline; they stay inherited and are not assessed for \<System Name\>. \<Organisation\>'s programme plan is requested in EV-PM-01. Tailoring proposals are in \<Tailoring Register\>.
+The controls are those of CSS in the CSS Moderate baseline. PT and 16 related privacy controls come from the CSS privacy baseline. The 316 are the 287 controls of the Moderate baseline and the 29 of the privacy baseline outside it and outside PM. PM is not among them (TR-PM-01): its 37 controls describe \<Organisation\>'s whole security and privacy programme, and \<System Name\> inherits 35 of them as common controls, with PM-17 and PM-24 not applicable. Twenty-four PM controls are in the privacy baseline; they too are inherited and not assessed for \<System Name\>. No PM control is among the 66 Inherited entries in Table 8, which are system controls \<Organisation\> provides for \<System Name\>. The PM controls are listed with their providers, \<System Name\>'s part and the evidence in \<Program Management\>, section 3.3. \<Organisation\>'s programme plan is requested in EV-PM-01. Tailoring proposals are in \<Tailoring Register\>.
 
 Each control is given one of four types. **System** controls are met by \<System Name\>. **Hybrid** controls are met partly by \<System Name\> and partly by the organisation or \<Organisation\>. **Organisational** controls are met by policy, procedure and people. **Inherited** controls are provided by \<Organisation\>, which is expected to supply the evidence (\<Evidence Requests\>). As CSS allows, this plan names the provider of an inherited control but does not describe how that provider implements it.
 
@@ -259,7 +259,7 @@ Section 7 lists every control. A control counts as satisfied only when every one
 | Responsible | For |
 | --- | --- |
 | System owner | This plan, approvals, exceptions, risk within their authority, and coordination with \<Organisation\> |
-| Authorising official | Reviewing and approving this plan before it is put into effect, and the privacy plan (D-PL-01, D-PL-02); selecting the baseline and approving each tailoring entry (D-PL-03; \<Tailoring Register\>); accepting residual risk and authorising operation on TPL-18 |
+| Authorising official | Reviewing and approving this plan before it is put into effect, and the privacy plan (D-PL-01, D-PL-02); selecting the baseline and approving each tailoring entry (D-PL-03; \<Tailoring Register\>); accepting the inherited controls, reliance on \<Organisation\>'s programme for the PM controls, and residual risk, and authorising operation on TPL-18 |
 | Developers | Security functions built into the application under \<Organisation\>'s corporate SDLC, and fixing POA&M items |
 | Administrators | Managing schemas, the groups that open each schema, and system settings, in the Admin application |
 | Data Owners | Authorising who may read or edit their schema, in ServiceNow, and owning its read and edit groups |
@@ -268,7 +268,7 @@ Section 7 lists every control. A control counts as satisfied only when every one
 | Windows server and database administrators | Securing, patching and scanning the VMs and SQL Server, running Defender and disk encryption, and carrying out maintenance, in which a supplier only watches their shared screen |
 | Change control element | Approving changes: the system owner, security officer and Windows server administrator, with the legal adviser for a change that touches personal data (\<Configuration Management\>) |
 | Security assessor | Leading the independent Level 2 assessment |
-| \<Organisation\> | Inherited services and their evidence |
+| \<Organisation\> | Inherited services and their evidence, and the security and privacy programme behind the PM controls (\<Program Management\>) |
 | Users | Following the SyOps |
 | Security officer, system owner, database and Windows server administrators | Incident response and training records (security officer); invoking recovery (system owner); backups and rebuilding (administrators). See \<Incident Response Management\>, \<Contingency Planning Management\> and \<Awareness and Training Management\> |
 | \<Organisation\> | Maintaining hardware, approving and sanitising its removal under its own process, handling disks and backup media, and physical and environmental protection, including a clean shutdown of the servers if power cannot be kept (D-PE-01). See \<Maintenance Management\>, \<Media Protection Management\> and \<Physical and Environmental Protection Management\> |
@@ -386,7 +386,7 @@ The assessment plan is in \<Control Assessment Record\> (CA), section CA.4, wher
 | CA-2(1) Independent Assessors | \[Name\]'s team, each member with no part in designing, building, running or administering \<System Name\> and no reporting line to it, on TPL-19 accepted by the authorising official | Security assessor, authorising official | Organisational | Implemented | NC-CA-03 |
 | CA-3 Information Exchange | The five external exchanges (PingFederate and Active Directory, central logging, time, backup site and proxy) are recorded with their interface, security and privacy needs, responsibilities and impact in \<Assessment, Authorization, and Monitoring Management\>, Table 6, which is the agreement, signed by the system owner and each service's owner and reviewed every 12 months (PRO-CA-2; D-CA-04) | System owner, \<Organisation\> | Hybrid | Implemented | NC-CA-04 |
 | CA-5 Plan of Action and Milestones | \<Plan of Action and Milestones\> holds each weakness to be fixed, updated monthly from assessments, monitoring and audits, with fix times by rating counted from go-live or the date raised (PRO-CA-3) | System owner | Organisational | Implemented | NC-CA-05 |
-| CA-6 Authorization | \[Name\] is the authorising official and \<Organisation\>'s official authorises the common controls; the package in \<Assessment, Authorization, and Monitoring Management\>, Table 4, and the TPL-18 decision, with the 66 inherited controls accepted, before real data is held, and renewed within 12 months (P-25) | Authorising official, system owner | Organisational | Implemented | NC-CA-06 |
+| CA-6 Authorization | \[Name\] is the authorising official and \<Organisation\>'s official authorises the common controls; the package in \<Assessment, Authorization, and Monitoring Management\>, Table 4, and the TPL-18 decision, with the 66 inherited controls accepted and, as one line, reliance on \<Organisation\>'s programme for the PM controls (\<Program Management\>), before real data is held, and renewed within 12 months (P-25) | Authorising official, system owner | Organisational | Implemented | NC-CA-06 |
 | CA-7 Continuous Monitoring | System-level strategy carrying out \<Organisation\>'s strategy, with 15 measures, thresholds and re-assessment triggers; reported monthly to the system owner, privacy measures to the legal adviser, and quarterly to the authorising official, from go-live (\<Assessment, Authorization, and Monitoring Management\>, section 3.8; PRO-CA-5) | Security officer, system owner | Organisational | Implemented | NC-CA-07 |
 | CA-7(1) Independent Assessment | The independent assessor checks a sample of the monitoring each year, alongside the yearly Level 2 assessment of every control, which together are the ongoing basis (PRO-CA-5, step 3; D-CA-03) | Security assessor | Organisational | Implemented | NC-CA-08 |
 | CA-7(4) Risk Monitoring | The measures cover effectiveness, compliance and change, and the Risk List is reviewed monthly (\<Assessment, Authorization, and Monitoring Management\>, Table 7) | System owner, security officer | Organisational | Implemented | None |
@@ -587,7 +587,7 @@ The assessment plan is in \<Control Assessment Record\> (PL), section PL.4, wher
 | PL-4(1) Social Media | Rules A25, A43, A44 and A45 in \<Security Operating Procedures\> | System owner | Organisational | Implemented | NC-PL-04 |
 | PL-8 Architectures | Security architecture in \<System Description\>, section 6, with its approach, layers and assumptions in section 6.8; privacy architecture in \<Privacy Plan\>, section 8; reviewed every 12 months and after a significant change (P-71; PRO-PL-5) | System owner | Organisational | Implemented | NC-PL-05 |
 | PL-10 Baseline Selection | CSS Moderate, with the CSS privacy baseline, chosen from the categorisation in section 3.3 (D-PL-03) | Authorising official | Organisational | Implemented | NC-PL-06 |
-| PL-11 Baseline Tailoring | \<Tailoring Register\> \<ver\>, with the PM inheritance table; each entry approved by the authorising official on the system owner's recommendation (PRO-PL-4) | System owner, authorising official | Organisational | Implemented | NC-PL-07 |
+| PL-11 Baseline Tailoring | \<Tailoring Register\> \<ver\>, with TR-PM-01 for the PM controls, listed in \<Program Management\>; each entry approved by the authorising official on the system owner's recommendation (PRO-PL-4) | System owner, authorising official | Organisational | Implemented | NC-PL-07 |
 
 ### 7.13 Personnel Security (PS)
 

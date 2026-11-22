@@ -319,7 +319,7 @@ Questions are numbered INT-XX-nn, where XX is the family code, and each names th
 
 ## 15 Program Management (PM)
 
-PM is outside the baseline and is not assessed (\<Tailoring Register\>, TR-PM-01). These questions check that what \<System Name\> inherits from \<Organisation\>'s programme is in place.
+PM is inherited from \<Organisation\>'s programme and is not assessed for \<System Name\> (\<Tailoring Register\>, TR-PM-01). These questions check that what \<System Name\> inherits from \<Organisation\>'s programme is in place.
 
 **Table 24: PM questions**
 

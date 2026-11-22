@@ -27,7 +27,7 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | TPL-15 Privacy request | Records a request from an individual about their data: to see, correct, delete, restrict, object or receive it in a portable form. Kept for 3 years after it is closed | AC-3(14); SI-18(4); PRO-PT-1 |
 | TPL-16 Supplier review | Records a yearly review of a supplier or external service | SA-9, SR-2, SR-6, SR-8; PRO-SA-3, PRO-SR-2 |
 | TPL-17 Exception request | Records a request to depart from a rule in \<Security Operating Procedures\>, the decision and its end date. The approved requests form the exception register | AC-20, AC-20(2); PRO-AC-15; PL-4, CM-2(7), MP-7, PE-17; \<Security Operating Procedures\>, section 5 |
-| TPL-18 Authorisation decision | Records the authorising official's decision, its terms and conditions, the package received, the risks and inherited controls accepted, and its end date | CA-6; PRO-CA-4, PRO-CA-7 |
+| TPL-18 Authorisation decision | Records the authorising official's decision, its terms and conditions, the package received, the risks and inherited controls accepted, reliance on \<Organisation\>'s programme for the PM controls, and its end date | CA-6; PRO-CA-4, PRO-CA-7 |
 | TPL-19 Assessor independence statement | Records an assessor's confirmation that they had no part in designing, building, running or administering \<System Name\>, no reporting line to it and any other interest, with the authorising official's acceptance | CA-2(1), CA-7(1); PRO-CA-1, PRO-CA-5 |
 | TPL-20 Site inspection checklist | Records a one-off inspection of a data centre's physical and environmental controls | PE-2 to PE-16; PRO-PE-5 |
 | TPL-21 Rules of behaviour acknowledgement | Records that a person has signed the rules of behaviour, which version and parts, and how. Kept while the person has access, and for 3 years after | AC-2; PL-4, PL-4(1), PS-6; PRO-PL-3 |
@@ -399,7 +399,8 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | Decision: authorised to operate, or not authorised |  |
 | Terms and conditions, for example items to fix by a date or limits on use |  |
 | Risks accepted, by \<Risk List\> entry |  |
-| Inherited controls accepted |  |
+| Inherited controls accepted: the 66 in \<Assessment, Authorization, and Monitoring Management\>, section 3.6, each accepted or not |  |
+| Reliance on \<Organisation\>'s security and privacy programme accepted: the 35 inherited PM controls in \<Program Management\>, section 3.3, as a group, with any not yet evidenced named (EV-PM-01 to EV-PM-04, EV-PL-01) |  |
 | End date, no more than 12 months away |  |
 | Authorising official's name, signature and date |  |
 | Copied to the system owner and Head of Cyber, and date |  |
