@@ -168,7 +168,7 @@ These are the values the controls depend on. CSS calls many of them organisation
 | P-04 | Review of role group members | Every 3 months | AC-2, AC-6(7) | \[\] |
 | P-05 | Review of schema group members | Every 12 months | AC-2 | \[\] |
 | P-06 | Leavers and movers | Leaver: Active Directory account disabled at once; group memberships removed within 5 working days. Mover: group owners told within 1 working day | AC-2, PS-4 | \[\] |
-| P-07 | Audit record retention | 12 months online, then 12 months in an offline archive | AU-11 | \[\] |
+| P-07 | Audit record retention | 12 months online, then 12 months in an offline archive. This applies to every audit record of \<System Name\>: the application audit log, and the SQL Server Audit records, Windows logs and application security events, which are kept 12 months in \<Organisation\>'s central logging and then archived with the audit log | AU-11 | \[\] |
 | P-08 | Audit log review | Weekly | AU-6 | \[\] |
 | P-09 | Clock accuracy | Within 1 second of UTC | AU-8 | \[\] |
 | P-10 | Key and secret change | Application keys every 90 days; secrets every 12 months; at once if exposed | SC-12 | \[\] |
@@ -222,6 +222,8 @@ These are the values the controls depend on. CSS calls many of them organisation
 | P-58 | Training content updates | Every 12 months, and within 30 days of a significant incident, exercise or significant change, adding the lessons from incidents inside and outside \<Organisation\> | AT-2, AT-3 | \[\] |
 | P-59 | Roles given role-based and privacy training | The roles in \<Awareness and Training Management\>, Table 4, with the modules each takes; privacy training is briefing part B6 for every user and module M9 for the roles that Table 4 gives it | AT-3, AT-3(5) | \[\] |
 | P-60 | Training record retention | 3 years from the date of the training | AT-4 | \[\] |
+| P-61 | Response to an audit logging failure | Alert the security officer and the Windows server administrator within 1 hour. Refuse every action that cannot be recorded until logging is restored; SQL Server fails any operation it cannot record | AU-5 | \[\] |
+| P-62 | Review of the logged events | Every 12 months, and on any significant change, by the system owner | AU-2 | \[\] |
 
 ## 5 Requirements
 
@@ -303,9 +305,9 @@ Each requirement is to be verified before the application is authorised. \<Secur
 | FR-033 | Check on the server that a file's first bytes match its type, that its name holds no path, and that its size is within the limit for the person's role in P-17 | System | The API compares the file's leading bytes with the known signature of its type, strips any folder from the name, and compares its size with the limit |
 | FR-034 | Scan each upload for malicious code before it is stored; refuse, record and report a flagged file | System | The API passes the file to the server's anti-malware service before storing it, and stores it only if it is clean |
 | FR-035 | Give each item a status and a classification from fixed lists, and mark items that hold personal or special category data | Editor | Fields on the item, chosen from fixed lists |
-| FR-036 | Correct an item's details | Editor | The API updates the item after checking access, and writes an audit record holding the old and new values |
+| FR-036 | Correct an item's details | Editor | The API updates the item after checking access, and writes an audit record naming the item and the fields changed, but not their values |
 | FR-037 | Replace a stored file | Editor | The API stores the new file in place of the old one, keeps the checksum of both in the audit record, and audits the change |
-| FR-038 | Delete an item, after confirming | Editor | The API removes the item and its files, and writes an audit record of what was deleted and by whom |
+| FR-038 | Delete an item, after confirming | Editor | The API removes the item and its files, and writes an audit record of the item's reference and schema and who deleted it, holding none of its content |
 | FR-039 | Store each file with a SHA-256 checksum, so that a change can be detected | System | The API calculates the checksum when the file is stored and holds it on the item |
 | FR-040 | Record who created or uploaded each item, and when | System | The signed-in name and the time are written to the item by the API |
 
@@ -370,7 +372,7 @@ Each requirement is to be verified before the application is authorised. \<Secur
 | No. | Requirement | Who | How it is implemented |
 | --- | --- | --- | --- |
 | FR-067 | Record every event type in section 7.6 in one audit log, with who, what, when, where and the result | System | The function that carries out an action calls the audit service in the API, which adds one record |
-| FR-068 | Accept audit records only from the application's own components, and let no user write or change one | System | The API accepts audit events only on calls bearing the token of the UI application or Admin application, and its database account may only add rows |
+| FR-068 | Accept audit records only from the application's own components, and let no user write or change one | System | The API accepts audit events only on calls bearing the token of the UI application or Admin application, and its database account may add and read rows, but never change or delete them |
 | FR-069 | Chain the audit records with a keyed hash, and check the chain on a schedule and on request | System | Each audit record stores a keyed hash of its own content and the previous record's hash. A scheduled task recomputes the chain and reports a break |
 | FR-070 | Read, filter, search, sort and export the audit log | Auditor | The Admin application asks the API, which runs parameterised queries on the audit table. Only the auditor role may do this |
 | FR-071 | Record each reading and export of the audit log | System | The API writes an audit record when the audit log is read or exported |
@@ -386,7 +388,7 @@ Each requirement is to be verified before the application is authorised. \<Secur
 | FR-073 | Find every item about one person across all schemas, to answer a request under data protection law | Legal adviser's delegate | A search function in the UI application, limited to the legal search group, which queries every schema and is audited with the request's reference number, not the person's name |
 | FR-074 | Keep each kind of item for the period in the retention schedule, then dispose of it and record the disposal | Business owner | A retention period on each schema or item type, and a scheduled task that lists items due. The business owner approves them on a page in the UI application, which shows each item's schema, reference, title, type, date and retention period, but not its content or files; to look inside an item, the business owner asks that schema's Data Owner. The task deletes the items once approved. The approval and the disposal are audited |
 | FR-075 | Correct or erase a person's data on the legal adviser's instruction, and record it | Editor | The correct and delete functions, each audited |
-| FR-076 | Keep personal data out of the free text of audit records and out of the application logs | System | Audit free text is built from fixed wording and identifiers, and the application logs carry no usernames, addresses or cookie values |
+| FR-076 | Keep personal data out of the free text of audit records, and out of the application logs apart from the username in a security event | System | Audit free text is built from fixed wording and identifiers. The application logs carry no addresses or cookie values, and a username only in the security events in section 7.6 |
 | FR-077 | Use only invented data in test and development. Real personal data is never used there | Developers | Test environments are built from a script that loads invented schemas and items |
 
 #### 5.1.12 What the application does not do
@@ -459,11 +461,11 @@ The application's session is its authentication cookie. It lasts at most P-02 fr
 | --- | --- | --- | --- |
 | NFR-022 | Record in each audit record the event type and action, the time in UTC, the application, the address and browser, the result, the user, and the schema and item | One record layout, filled in by the audit service in the API from the request | \<Audit and Accountability Management\> |
 | NFR-023 | Never record a password, key, token or cookie | The audit service takes named fields only | \<Audit and Accountability Management\> |
-| NFR-024 | Let only the API write audit records, and let its database account add records and nothing more | Only the API has a route to the audit table, and its database role is granted insert and select on it and nothing more | \<Audit and Accountability Management\> |
-| NFR-025 | Chain audit records with HMAC-SHA-256 under a key held outside the database, so that a change or removal is detected | The hash covers the record's content and the previous hash, keyed with a secret from the key store | \<Audit and Accountability Management\> |
+| NFR-024 | Let only the API write audit records, and let its database account add and read records but never change or delete them | Only the API has a route to the audit table, and its database role is granted insert and select on it, with update and delete denied | \<Audit and Accountability Management\> |
+| NFR-025 | Chain audit records with HMAC-SHA-256 under a key held outside the database by someone with no rights in it, so that a change or removal is detected | The hash covers the record's content and the previous hash, keyed with a secret from the key store. Each record names the key version that hashed it, retired keys are kept for checking only, and the newest hash is copied daily to central logging | \<Audit and Accountability Management\> |
 | NFR-026 | Keep audit records as P-07 sets | A scheduled archive and deletion, with the archive kept offline | \<Audit and Accountability Management\> |
 | NFR-027 | Review the audit log as P-08 sets, and compare it with the server, database and PingFederate and Active Directory records | A person does this: an auditor, recording the review on a form, and reporting anything suspicious to the security officer | \<Audit and Accountability Management\> |
-| NFR-028 | Alert the security officer when an audit record cannot be written | The audit service reports a failed write to central monitoring, which alerts the security officer | \<Audit and Accountability Management\> |
+| NFR-028 | Refuse an action whose audit record cannot be written, and alert the security officer (P-61) | A change is written in the same transaction as its audit record, and a read writes its record before returning anything; a failed write refuses the action with the general error. The audit service reports the failure to central monitoring, which alerts the security officer | \<Audit and Accountability Management\> |
 | NFR-029 | Keep both servers within the clock accuracy in P-09, from \<Organisation\>'s time service | The operating system's time service on each server, pointed at \<Organisation\>'s source | \<Audit and Accountability Management\> |
 | NFR-030 | Plan storage for the full audit retention period, and warn before it fills | Sized when the servers are built, with a disk-space alert | \<Audit and Accountability Management\> |
 
@@ -821,7 +823,7 @@ Ending a person's PingFederate sign-in on its own does not end the application's
 | --- | --- | --- |
 | Schema definitions, and the read group and edit group of each | The database, in a common schema shared by all schemas | The API's service account; changed only by administrators, and a change of groups only with the Data Owner's approval |
 | Items, their details and their files | The database, each schema in its own database schema | Schema access checks; disk encryption; a SHA-256 checksum for each file |
-| The audit log | The database | The API's service account may add records and nothing more; a keyed hash chains the records |
+| The audit log | The database | The API's service account may add and read records, but not change or delete them; a keyed hash chains the records |
 | Export working copies | An encrypted working area on the application server, written by the API | Deleted as P-20 sets |
 | Each application's key ring | Its own folder on the application server | Readable only by that application's service account; encrypted by the operating system |
 | Each application's log | Log files on the application server, forwarded to central logging | Readable on the server by the server administrators only; the auditor reads them in central logging; no personal data beyond the username in a security event (section 7.6) |
@@ -846,21 +848,22 @@ One application audit log, written only by the API. The other two applications s
 
 | Event type | Examples |
 | --- | --- |
-| Sign-in | Sign-in accepted; sign-in response refused; Active Directory lookup failed; account found disabled; system use notice accepted; sign-out |
-| Schema and group administration | Schema created, changed or deactivated; a schema's groups changed, with the reference of the Data Owner's approval |
+| Sign-in | Sign-in accepted; sign-in response refused; Active Directory lookup failed; account found disabled; system use notice accepted; signed out |
+| Schema and group administration | Schema created, changed, deactivated, reactivated or deleted; a schema's groups changed; each with the reference of the Data Owner's approval |
 | Access decision | Access to a page, function or schema refused |
 | Item access and export | Viewed; downloaded; searched; exported |
-| Data change | Created; uploaded; corrected; replaced; deleted, with the old and new values |
+| Data change | Created; uploaded; upload refused, including for malware; corrected, naming the fields changed but not their values; replaced, with both checksums; deleted, with the item's reference but none of its content |
 | Privileged function | Settings changed; diagnostics run; last sign-in report run |
 | Privacy and retention | Disposal approved; items disposed; search across every schema run, recorded with the request's reference number, not the person's name |
 | Configuration change | A security setting changed |
 | Audit | Audit log read or exported; chain check result |
 | System | Application started or stopped |
-| Logging failure | A record could not be written |
+| Logging failure | A record could not be written and the action was refused, recorded in the application log at the time and in the audit log once logging is restored |
+| Fault report | A report of a faulty item created; a report's state changed |
 
 Each record holds the event type and action, the time in UTC, the application that raised it, the IP address and browser, the result, the username and user ID, the schema and item, fixed-form free text, and a chain hash. It never holds a password, key, token or cookie. Records are read only by auditors, apart from the usernames and dates in the last sign-in report (FR-085), reviewed as P-08 sets, and kept as P-07 sets. Failed passwords, lockouts and group membership changes are recorded by PingFederate and Active Directory, not by the application. The operating system and the database keep their own logs, and SQL Server Audit also records any read of the item tables by a login other than the API's, which the auditor reviews weekly.
 
-The audit log stays in the database and is read only by auditors. The one exception is the last sign-in report (FR-085), which shows the security officer each member's username and last sign-in date, and nothing else. For the events that raise an alert (section 7.10), the API also writes a short security event to the application log: the event type, the time, the username, the schema and a count, with no item details. The application log is forwarded to central logging, so the alerts work without the security officer reading the audit log.
+The audit log stays in the database and is read only by auditors. The one exception is the last sign-in report (FR-085), which shows the security officer each member's username and last sign-in date, and nothing else. For the events that raise an alert (section 7.10), for each read or export of the audit log, for a failed chain check, and once a day for the newest chain hash, the API also writes a short security event to the application log: the event type, the time, the username, the schema and a count, or the hash, with no item details. The application log is forwarded to central logging, so the alerts work without the security officer reading the audit log.
 
 ### 7.7 Cryptography and keys
 
@@ -1000,7 +1003,7 @@ These are questions an assessor is likely to ask, each with the reference answer
 | Where are items stored? | In the database, each schema in its own database schema | Section 7.4 |
 | Where are secrets kept? | In a key store, never in source code or settings files | \<System and Communications Protection Management\> |
 | What is logged, and for how long? | The events in section 7.6, kept as P-07 sets | \<Audit and Accountability Management\> |
-| Can an administrator change the audit log? | No. Only the API writes it, its database account can only add records, and the keyed chain shows any change | \<Audit and Accountability Management\> |
+| Can an administrator change the audit log? | No. Only the API writes it, its database account can add and read records but not change or delete them, and the keyed chain, whose key no database administrator holds, shows any change | \<Audit and Accountability Management\> |
 | Is the system reachable from the internet? | No. It is internal only | Section 6.5 |
 | Are uploads scanned for malware? | Yes, each one, before it is stored | \<System and Information Integrity Management\> |
 | How quickly are vulnerabilities fixed? | As P-11 sets | \<Risk Assessment Management\> |

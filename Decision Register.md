@@ -25,6 +25,7 @@ Documents, policy decisions and cross-family decisions (GEN). The legal adviser 
 | D-AC-09 | AC | Approve TR-AC-09: AC-07\_ODP\[05\], \[06\] not selected | Approve: the account lock in P-42 is the chosen action | Authorising official | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | D-AC-10 | AC | Approve TR-AC-10: AC-20\_ODP\[03\] not selected | Approve: the terms in P-48 are used, not asserted controls | Authorising official | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | D-AT-01 | AT | Accept R-AT-01: a standard user whose yearly training is overdue keeps access, with monthly reminders | Accept: the risk is Low, privileged users are still suspended after 30 days, and the overdue count is reported monthly | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
+| D-AU-01 | AU | Accept R-AU-03: every action that cannot be recorded is refused until logging is restored, so a logging fault stops the service | Accept: availability is rated Low, the failure is alerted within 1 hour, and no item is seen or changed without a record | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | \[D-XX-nn\] | \[XX\] | \[Decision needed\] | \[Recommendation\] | \[Who decides\] | \[Decision\] | \[Name\] | \[Date\] | \[Sheet\] |
 
 ## 3 Parameter approvals
@@ -66,6 +67,11 @@ The reference values are the parameters in \<System Description\>, section 4, wh
 | D-AT-P58 | AT | AT-2, AT-3 | 1: P-58 Training content updates | Every 12 months, and within 30 days of a significant incident, exercise or change | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | D-AT-P59 | AT | AT-3, AT-3(5) | 1: P-59 Roles given role-based and privacy training | The roles in \<Awareness and Training Management\>, Table 4 | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | D-AT-P60 | AT | AT-4 | 1: P-60 Training record retention | 3 years | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
+| D-AU-P07 | AU | AU-4, AU-11 | 1: P-07 Audit record retention | 12 months online, then 12 months in an offline archive, for the audit log and for the SQL Server, Windows and security-event records in central logging | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
+| D-AU-P08 | AU | AU-6 | 1: P-08 Audit log review | Weekly, by an auditor who holds no administration role | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
+| D-AU-P09 | AU | AU-8 | 1: P-09 Clock accuracy | Within 1 second of UTC; time stamps in UTC to the nearest second or finer | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
+| D-AU-P61 | AU | AU-5 | 1: P-61 Response to an audit logging failure | Alert the security officer and Windows server administrator within 1 hour; refuse every action that cannot be recorded | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
+| D-AU-P62 | AU | AU-2 | 1: P-62 Review of the logged events | Every 12 months, and on any significant change | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | \[D-XX-Pnn\] | \[XX\] | \[Control\] | \[Number of parameters\] | \[Main values\] | \[Who decides\] | \[Decision\] | \[Name\] | \[Date\] | \[Sheet\] |
 
 ## 4 Non-compliance treatment decisions
@@ -78,6 +84,7 @@ The control, rating, reason and treatment of each entry are in \<Risk List\>, se
 | --- | --- | --- | --- | --- | --- | --- |
 | NC-AC-01 to NC-AC-34 | AC | System owner, as every AC entry is rated Low | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | NC-AT-01 to NC-AT-06 | AT | System owner, as every AT entry is rated Low | \[Decision\] | \[Name\] | \[Date\] | None yet |
+| NC-AU-01 to NC-AU-13 | AU | System owner, as every AU entry is rated Low | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | \[NC-XX-nn\] | \[XX\] | \[Who decides\] | \[Decision\] | \[Name\] | \[Date\] | \[Sheet\] |
 
 ## 5 Proof of approval
