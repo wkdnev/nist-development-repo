@@ -349,18 +349,18 @@ It applies to the UI application, the Admin application, the API, the \<System N
 
 ### CM.4 Mandatory requirements
 
-1. **R1 Baselines:** baselines must be reviewed every 12 months and at each release, keeping the 3 previous configurations.
-2. **R2 Change control:** changes need a ServiceNow change request, approved by the system owner, security officer and Windows server administrator, and tested before release. Records are kept for 3 years.
+1. **R1 Baselines:** baselines must be reviewed every 12 months and at each release, keeping the 3 previous configurations (\<System Description\>, P-63).
+2. **R2 Change control:** every change needs a change request, in ServiceNow or on TPL-6, decided by the change control board under its charter in \<Configuration Management\>, section 3.8, and tested before release. Nobody approves a change they requested or made. The board meets monthly, and records are kept for 3 years (P-64). An emergency change is allowed only to stop or limit an incident or an outage, is approved first by the system owner or their deputy, and is confirmed or reversed by the board at its next meeting.
 3. **R3 Settings:** settings follow the CIS Benchmarks for Windows Server 2025 and SQL Server 2022, with exceptions recorded.
-4. **R4 Routes:** only the flows F1 to F11 in \<System Description\>, section 6.5, are open: HTTPS to the UI application on TCP 443; the Admin application only over \<Organisation\>'s managed administration route; server and database administration from the administrators' managed devices to both servers only over that route, with multi-factor authentication, using named accounts (F11); HTTPS on TCP 443 from the application server only to PingFederate, for its OpenID Connect metadata and signing certificate and to complete each sign-in (F10); the API on the application server's loopback address only; SQL Server on TCP 1433 from the application server only; and the routes from users' browsers to PingFederate, to Active Directory over LDAPS and to \<Organisation\>'s time, logging, proxy and backup services. Everything else is off, and this is reviewed every 12 months.
-5. **R5 Approved software:** an approved software list is kept and reviewed every 12 months.
-6. **R6 Installing software:** users may install software on the VMs only with approval.
-7. **R7 Inventory:** the server inventory in \<System Security Plan\> and the software component inventory in \<Configuration Management\> are updated at each change, with each component's version, supplier and licence. \<Organisation\>'s tools detect unauthorised components monthly and alert the Windows server administrator.
+4. **R4 Routes:** only the flows in \<System Description\>, section 6.5, are open: HTTPS to the UI application on TCP 443 (F1); the Admin application only over \<Organisation\>'s managed administration route (F2); the API on the application server's loopback address only (F3, F4); SQL Server on TCP 1433 from the application server only (F5); users' browsers to PingFederate (F6); LDAPS on TCP 636 from the application server to Active Directory (F7); both servers to \<Organisation\>'s time, logging, proxy and backup services (F8); HTTPS on TCP 443 from the application server only to PingFederate, for its OpenID Connect metadata and signing certificate and to complete each sign-in (F10); and server and database administration from the administrators' managed devices to both servers only over the administration route, with multi-factor authentication, using named accounts (F11). Everything else is off, and this is reviewed every 12 months (P-65).
+5. **R5 Approved software:** an approved software list is kept and reviewed every 12 months, and what is installed on the servers is compared with it every 12 months (P-65).
+6. **R6 Installing software:** only the named Windows server administrators may install software on the servers, and only with the system owner's approval of a request. Nobody else has the rights to install it. Software on users' devices is governed by \<Organisation\>'s policy.
+7. **R7 Inventory:** the server inventory in \<System Security Plan\> and the software component inventory in \<Configuration Management\> are updated at each change, with each component's version, supplier and licence, and reviewed every 12 months and at each release (P-63). \<Organisation\>'s tools detect unauthorised components monthly and alert the Windows server administrator, who removes the component or disables its network access and tells the security officer (P-66).
 8. **R8 Reproducible releases:** each release must be reproducible: code at a signed tag, and every package and component at a pinned version, with its checksum, recorded in the baseline.
 9. **R9 Licences:** every component's licence must be known and permit \<System Name\>'s use before it enters the baseline; the system owner records any licence decision in \<Decision Register\>.
 10. **R10 Every layer:** secure settings apply to every layer: Windows Server, SQL Server, the Windows services that host the applications and the applications themselves, as set in \<Configuration Management\>.
 11. **R11 Impact analysis:** every change has a recorded security and privacy impact analysis against the criteria in \<Configuration Management\>, including the significant change test in \<Assessment, Authorization, and Monitoring Management\>, section 3.9.
-12. **R12 Drift:** the running configuration is compared with the baseline every month, and any drift is reported to the security officer and corrected or approved through change control.
+12. **R12 Drift:** the running configuration is compared with the baseline every month and at each release (P-29), and any drift is reported to the security officer and corrected or approved through change control.
 
 ### CM.5 Responsibilities
 
@@ -369,10 +369,11 @@ It applies to the UI application, the Admin application, the API, the \<System N
 | Role | Responsibility |
 | --- | --- |
 | Head of Cyber | Approves this policy, as all policies |
-| System owner | Owns this policy and the plan, and approves changes |
-| Authorising official | Decides Medium and High risks |
-| Security officer | Approves changes, and represents security in change control |
-| Windows server administrator | Approves changes, and manages VM settings and software |
+| System owner | Owns this policy and the plan, chairs the change control board, and approves emergency changes |
+| Authorising official | Decides Medium and High risks, and significant and High impact changes |
+| Security officer | Analyses the impact of each change, and represents security on the change control board |
+| Legal adviser | Represents privacy on the change control board, and decides on each change that touches personal data |
+| Windows server administrator | Sits on the change control board, and manages VM settings and software |
 | Database administrator | Manages SQL Server settings |
 | Developers | Build, test and release changes |
 | \<Organisation\> | Provides detection tools and the ServiceNow service desk |
