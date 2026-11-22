@@ -1,0 +1,58 @@
+<!doctype html><html><head><meta charset="utf-8"><style>body{margin:0;background:#fff;font-family:Segoe UI,Arial,sans-serif}</style></head><body>
+<svg xmlns="http://www.w3.org/2000/svg" width="1520" height="990" viewBox="0 0 1520 990" font-family="Segoe UI, Arial, sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0L10,5L0,10z" fill="#999"/></marker></defs>
+<rect width="1520" height="990" fill="#fff"/>
+<text x="48" y="55" font-size="30" font-weight="700" fill="#1a1a1a">Items and audit records live in SQL Server; the application server holds working files</text>
+<text x="48" y="92" font-size="21" fill="#555">Only the API reaches the database. The application holds no user accounts or passwords. Dashed: inherited.</text>
+
+<rect x="48" y="130" width="880" height="636" rx="16" fill="#efeeeb" stroke="#999" stroke-width="2"/>
+<text x="80" y="172" font-size="24" font-weight="700" fill="#1a1a1a">Database server VM: Microsoft SQL Server 2022</text>
+<text x="80" y="203" font-size="19" fill="#555">Windows Server 2025, disk encrypted with BitLocker (AES-256, TPM)</text>
+
+<rect x="80" y="230" width="816" height="156" rx="12" fill="#fff" stroke="#999" stroke-width="2"/>
+<text x="112" y="276" font-size="25" font-weight="700" fill="#1a1a1a">Common schema</text>
+<text x="112" y="312" font-size="20" fill="#555">schema definitions, with each schema's read group and edit group</text>
+<text x="112" y="342" font-size="20" fill="#555">changed only by administrators</text>
+
+<rect x="80" y="410" width="816" height="156" rx="12" fill="#d9e1ec" stroke="#2f6fd6" stroke-width="3"/>
+<text x="112" y="456" font-size="25" font-weight="700" fill="#1a1a1a">One database schema per library schema</text>
+<text x="112" y="492" font-size="20" fill="#555">items, their details and their files, with a SHA-256 checksum for each file</text>
+<text x="112" y="522" font-size="20" fill="#555">reached only after the schema access check</text>
+
+<rect x="80" y="590" width="816" height="156" rx="12" fill="#fff" stroke="#999" stroke-width="2"/>
+<text x="112" y="636" font-size="25" font-weight="700" fill="#1a1a1a">Audit log</text>
+<text x="112" y="672" font-size="20" fill="#555">written only by the API, which may add records and nothing more</text>
+<text x="112" y="702" font-size="20" fill="#555">records chained by a keyed hash</text>
+
+<rect x="968" y="130" width="504" height="636" rx="16" fill="#efeeeb" stroke="#999" stroke-width="2"/>
+<text x="1000" y="172" font-size="24" font-weight="700" fill="#1a1a1a">Application server VM</text>
+<text x="1000" y="203" font-size="19" fill="#555">disk encrypted with BitLocker (AES-256, TPM)</text>
+
+<rect x="1000" y="230" width="440" height="156" rx="12" fill="#fff" stroke="#999" stroke-width="2"/>
+<text x="1032" y="276" font-size="25" font-weight="700" fill="#1a1a1a">Export working copies</text>
+<text x="1032" y="312" font-size="20" fill="#555">encrypted working area, written</text>
+<text x="1032" y="342" font-size="20" fill="#555">by the API; deleted as P-20 sets</text>
+
+<rect x="1000" y="410" width="440" height="156" rx="12" fill="#fff" stroke="#999" stroke-width="2"/>
+<text x="1032" y="456" font-size="25" font-weight="700" fill="#1a1a1a">Key rings</text>
+<text x="1032" y="492" font-size="20" fill="#555">one per application, readable only</text>
+<text x="1032" y="522" font-size="20" fill="#555">by that application's service account</text>
+
+<rect x="1000" y="590" width="440" height="156" rx="12" fill="#fff" stroke="#999" stroke-width="2"/>
+<text x="1032" y="636" font-size="25" font-weight="700" fill="#1a1a1a">Secrets in a key store</text>
+<text x="1032" y="672" font-size="20" fill="#555">token signing key, audit chain key;</text>
+<text x="1032" y="702" font-size="20" fill="#555">no database password is held</text>
+
+<line x1="968" y1="488" x2="930" y2="488" stroke="#999" stroke-width="2.5" marker-end="url(#a)"/>
+<text x="948" y="474" font-size="19" fill="#555" text-anchor="middle">F5</text>
+
+<line x1="488" y1="766" x2="488" y2="826" stroke="#999" stroke-width="2.5" stroke-dasharray="8 6" marker-end="url(#a)"/>
+<line x1="1220" y1="766" x2="1220" y2="826" stroke="#999" stroke-width="2.5" stroke-dasharray="8 6" marker-end="url(#a)"/>
+<text x="500" y="804" font-size="19" fill="#555">F8</text>
+<text x="1232" y="804" font-size="19" fill="#555">F8</text>
+
+<rect x="48" y="830" width="1424" height="128" rx="12" fill="#fff" stroke="#999" stroke-width="2" stroke-dasharray="8 6"/>
+<text x="80" y="874" font-size="25" font-weight="700" fill="#1a1a1a">Backups, inherited from &lt;Organisation&gt;</text>
+<text x="80" y="908" font-size="20" fill="#555">daily encrypted database backups, with transaction logs archived, kept as P-15 sets</text>
+<text x="80" y="936" font-size="20" fill="#555">in &lt;Organisation&gt;'s backup store and at its second site, with the backup key held apart</text>
+</svg></body></html>
