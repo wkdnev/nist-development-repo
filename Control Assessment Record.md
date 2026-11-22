@@ -1606,13 +1606,13 @@ There is one finding for each CSS determination statement, including those about
 | Procedures | CSS, using the CSS published statements and identifiers (catalog release 5.2.0), with CSS as the reference for sanitising |
 | Dates | \[Dates of the assessment\] |
 | Site | \[Where the assessment is done, and on what build and data\] |
-| Examine | \<Policy\> (MP), \<Procedures\> (MP) and \<Media Protection Management\>; TPL-13; \<Security Operating Procedures\>, A28, A30 to A35 and section 4.8; the export code, the encrypted export working area and the UI application pages. Depth: focused. Coverage: focused |
+| Examine | \<Policy\> (MP), \<Procedures\> (MP) and \<Media Protection Management\>; TPL-13; TPL-17; \<Security Operating Procedures\>, A28, A30 to A35 and section 4.8; the export and download code, including the stamping of downloaded files (D-MP-02), the encrypted export working area, the UI application pages and the audit log export; the record of retired backup encryption certificates destroyed. Depth: focused. Coverage: focused |
 | Test | Test-MediaProtection.ps1, with a hash manifest. Depth: focused. Coverage: focused |
 | Interview | The database administrator, the Windows server administrator, the system owner, a sample of users and \<Organisation\>'s IT service desk; questions INT-MP-01 to 05 in \<Interview Guide\> |
 | Previous results reused | \[Results reused from other chapters, if any\] |
 | Boundary | \<System Name\>'s exports, marking, users' copies and printouts. Storage, transport and sanitising of physical disks and backup media, and device control, are inherited from \<Organisation\> |
 | Order of assessment | A, the media inventory (MP-2, MP-4); B, export copies (MP-4, MP-6); C, marking (MP-3); D, sanitising (MP-6); E, transport (MP-5); F, portable storage (MP-7); G, policy (MP-1). The inventory comes first because every other result depends on it |
-| Needed from \<Organisation\> | EV-MP-01 to EV-MP-03 in \<Evidence Requests\>: media handling, sanitising certificates and device control |
+| Needed from \<Organisation\> | EV-MP-01 to EV-MP-03 in \<Evidence Requests\>: media handling, sanitising certificates and device control; EV-CP-01, the deletion of expired backups at both sites; EV-AU-03, the offline archive's storage |
 | Evidence retained | The MP evidence, with its manifest; \<Media Protection Management\>, sections 3.2 to 3.6 |
 | Notes | The tests show how \<System Name\>'s exports, marking and storage behave; how \<Organisation\> stores, moves or sanitises disks and backup media, and blocks USB storage, is shown by its evidence. MP-5 and MP-7 stay Inherited (D-MP-03): the system owner's approvals on TPL-13 and TPL-17, and the security officer's record of ownerless devices, are examined with \<Organisation\>'s evidence. |
 

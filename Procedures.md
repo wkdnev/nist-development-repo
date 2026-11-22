@@ -1471,7 +1471,7 @@ These procedures carry out \<Policy\> (SC). The values, cryptographic register a
 #### PRO-SC-7 Testing encryption at rest
 
 1. The Windows server administrator turns on BitLocker with XTS-AES 256 and the TPM on both VMs, and stores the recovery keys in \<Organisation\>'s protected store.
-2. The database administrator encrypts backups and confirms that export copies are deleted.
+2. The database administrator encrypts backups, and the Windows server administrator confirms that export copies are deleted (C49).
 3. Every 12 months, the administrators check that BitLocker is on and that a recovery key opens a test volume, and record it on TPL-11. **Manual**
 
 #### PRO-SC-8 Reviewing the register and boundary
@@ -1544,7 +1544,7 @@ These procedures carry out \<Policy\> (SI). The values, detection use cases and 
 
 1. The system owner applies \<System Name\>'s retention schedule (\<PII Processing Management\>, section 3.7) to items and outputs.
 2. The database administrator keeps audit records for 12 months online and 12 months archived, and the security officer archives the SQL Server, Windows and security-event records from central logging after 12 months, so they too are kept 24 months (P-07; PRO-AU-4). Application logs stay on the servers for 30 days.
-3. Disposal is recorded on TPL-13 and in the audit trail. **Manual**
+3. Disposal of items is recorded in the audit trail (FR-074). Sanitising of media is recorded on TPL-13 (PRO-MP-3). **Manual**
 
 #### PRO-SI-8 Testing integrity controls
 

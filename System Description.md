@@ -887,7 +887,7 @@ The audit log stays in the database and is read only by auditors. The one except
 | OpenID Connect client credential | The UI and Admin applications' credential with PingFederate, held in the key store and changed as P-10 sets |
 | Cookies and anti-forgery tokens | AES-256 with HMAC-SHA-256, from each application's key ring, changed every 90 days |
 | Disks | AES-256 full-disk encryption with the TPM |
-| Backups | AES-256, by SQL Server's backup encryption, under a backup encryption certificate held apart from the backups; retired certificates kept until the backups they encrypted are removed |
+| Backups | AES-256, by SQL Server's backup encryption, under a backup encryption certificate held apart from the backups; retired certificates kept until the backups they encrypted are removed, then destroyed |
 | File checksums | SHA-256 |
 | Audit chain | HMAC-SHA-256 with a key held outside the database |
 | Database connection account | Windows authentication (Kerberos) with the API's managed service account. No password is held |

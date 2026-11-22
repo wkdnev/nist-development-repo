@@ -418,7 +418,7 @@ It applies to the UI application, the Admin application, the API, the \<System N
 7. **R7 Training:** people with a contingency role must be trained within 30 days of taking it and every 12 months.
 8. **R8 The plan:** the plan must be approved by the system owner and authorising official, reviewed every 12 months and after a test or activation, shared with the people it names, and protected from disclosure and change.
 9. **R9 Retention:** at least 14 daily, 8 weekly and 12 monthly backups must be kept, and one copy must be offline or immutable (P-15).
-10. **R10 Keys and secrets:** the backup encryption certificate, with its private key, and the protected copy of the secrets must be held apart from the backups, and only the system owner and the Windows server and database administrators may reach them. A retired backup encryption certificate must be kept until the last backup it encrypted is removed.
+10. **R10 Keys and secrets:** the backup encryption certificate, with its private key, and the protected copy of the secrets must be held apart from the backups, and only the system owner and the Windows server and database administrators may reach them. A retired backup encryption certificate must be kept until the last backup it encrypted is removed, and then every copy destroyed (\<Procedures\>, PRO-MP-3).
 11. **R11 Return and learning:** users return after a recovery only when the data, functions and controls have been checked, and any item deleted since the backup restored has been deleted again. Each test or activation must end with an after-action report within 10 working days.
 
 ### CP.5 Responsibilities
