@@ -682,7 +682,7 @@ The rules in section 1.1 apply to this policy. It adds these.
 
 This policy sets the organisation's rules for the physical and environmental protection of \<System Name\>, in line with the CSS PE family (PE-1). It stands alone, as each family has its own policy. The values, inheritance matrix and site details that carry it out are in \<Physical and Environmental Protection Management\>, and the steps people follow are in \<Procedures\> (PE).
 
-It applies to the data centre that hosts the two VMs, the second site that holds backups and is used for recovery, the offices where \<System Name\> is used and printed, and the homes of people who work remotely.
+It applies to the data centre that hosts the two VMs, the second site that holds the backups and the protected copy of the secrets, runs the restore test and is used for recovery, the offices where \<System Name\> is used and printed, and the homes of people who work remotely.
 
 ### PE.2 The organisation's position
 
