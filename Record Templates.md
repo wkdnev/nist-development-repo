@@ -407,7 +407,7 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | Decision: authorised to operate, or not authorised |  |
 | Terms and conditions, for example items to fix by a date or limits on use |  |
 | Risks accepted, by \<Risk List\> entry |  |
-| Inherited controls accepted: the 66 in \<Assessment, Authorization, and Monitoring Management\>, section 3.6, each accepted or not |  |
+| Inherited controls accepted: the 62 in \<Assessment, Authorization, and Monitoring Management\>, section 3.6, each accepted or not |  |
 | Reliance on \<Organisation\>'s security and privacy programme accepted: the 35 inherited PM controls in \<Program Management\>, section 3.3, as a group, with any not yet evidenced named (EV-PM-01 to EV-PM-04, EV-PL-01) |  |
 | End date, no more than 12 months away |  |
 | Authorising official's name, signature and date |  |

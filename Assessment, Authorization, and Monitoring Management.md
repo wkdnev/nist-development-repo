@@ -147,7 +147,7 @@ These 62 entries are provided wholly by \<Organisation\>, and the system owner r
 | PT | 2 | PT-5, PE-8(3) |
 | SA | 2 | SA-4, SA-9(2) |
 | SR | 4 | SR-8, SR-11(1), SR-11(2), SR-12 |
-| **Total** | **66** |  |
+| **Total** | **62** |  |
 
 The list matches the Inherited entries in \<System Security Plan\>, section 7. CP-7 is not on it: \<Organisation\> provides the second site, but \<System Name\>'s administrators rebuild the servers there, so it is shared (\<Contingency Planning Management\>, section 3.9). PE-8(3) is listed under PT, as in \<System Security Plan\>, Tables 8 and 23, because it is in the privacy baseline and assessed with PT.
 

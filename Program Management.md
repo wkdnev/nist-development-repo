@@ -36,7 +36,7 @@ CSS places 24 of the PM controls in its privacy baseline, which \<System Name\> 
 | Not applicable: rests on United States law | PM-17, PM-24 | 2 | TR-PM-01 |
 | System, hybrid or organisational | None | 0 | None |
 
-**How PM is counted.** The 316 controls in \<System Security Plan\>, section 5, are the 287 of the Moderate baseline and the 29 of the privacy baseline outside it and outside PM. The 24 PM controls of the privacy baseline, and the 13 other PM controls, are not among the 316, and none is among the 62 inherited controls listed in \<Assessment, Authorization, and Monitoring Management\>, section 3.6. Those 66 are system controls that \<Organisation\> provides for \<System Name\>; the PM controls are \<Organisation\>'s programme, which every system relies on.
+**How PM is counted.** The 316 controls in \<System Security Plan\>, section 5, are the 287 of the Moderate baseline and the 29 of the privacy baseline outside it and outside PM. The 24 PM controls of the privacy baseline, and the 13 other PM controls, are not among the 316, and none is among the 62 inherited controls listed in \<Assessment, Authorization, and Monitoring Management\>, section 3.6. Those 62 are system controls that \<Organisation\> provides for \<System Name\>; the PM controls are \<Organisation\>'s programme, which every system relies on.
 
 Two roles rest with other people. The Head of Cyber is the senior information security officer, and confirms that \<System Name\>'s risk thresholds fit \<Organisation\>'s risk appetite. The legal adviser names the data protection officer, or records why none is required. The authorising official approves the treatment in Table 2 (TR-PM-01; \<Decision Register\>, D-PM-01).
 
