@@ -1157,7 +1157,7 @@ It applies to the software packages and browser libraries \<System Name\> is bui
 ### SR.3 Control principles
 
 1. **Know the supply chain:** every supplier is named, with its criticality.
-2. **One way in:** every package comes through one checked source.
+2. **One way in:** every package comes through one checked source, and every browser library through one checked, recorded route.
 3. **Fix and verify:** a release is built from exactly the components recorded for it, and can be shown to be so.
 4. **Hear about problems:** suppliers and advisories tell us when something goes wrong.
 5. **Nothing left behind:** \<System Name\> data is removed before anything leaves.
@@ -1167,14 +1167,14 @@ It applies to the software packages and browser libraries \<System Name\> is bui
 1. **R1 Plan and team:** a supply chain plan with a supplier register must be kept in \<Supply Chain Risk Management\> and reviewed every 12 months by the supply chain team: the system owner, the security officer, a developer and \<Organisation\>'s IT service desk.
 2. **R2 Tolerance:** no critical component may be used without a known source and a SHA-256 record.
 3. **R3 Approved suppliers:** hardware, hosting and services must come from suppliers \<Organisation\> has approved. A new critical supplier must be reviewed before use.
-4. **R4 One package source:** every software package, including those pulled in by others, must be restored only from the in-house checked package feed (the offline feed), after the PRO-SR-1 check. nuget.org may be used only as a source of vulnerability data.
+4. **R4 One package source:** every software package, including those pulled in by others, must be restored only from the in-house checked package feed (the offline feed), after the PRO-SR-1 check. Builds may read nuget.org directly only for vulnerability data; its packages reach \<System Name\> only as copies in the feed.
 5. **R5 Fixed and trusted restores:** every .NET project in the source code must use a lock file in locked mode, and restores must accept only packages signed by trusted signers.
-6. **R6 Browser libraries:** every script and style a page loads must be packaged with \<System Name\> and served by it. No page loads anything from another host or a content delivery service.
+6. **R6 Browser libraries:** every script and style a page loads must be taken from its publisher's release after the PRO-SR-1 check, held in the UI application's source repository with its SHA-256 in the browser library manifest, packaged with \<System Name\> and served by it. No page loads anything from another host or a content delivery service.
 7. **R7 Monitoring components:** packages and browser libraries must be checked for known flaws monthly and at each release, with NuGet's audit on in every build.
-8. **R8 Bill of materials:** each release must have a bill of materials that lists every component with its version, hash and licence.
+8. **R8 Bill of materials:** each release must have a bill of materials that lists every component, packages and browser libraries alike, with its version, hash and licence.
 9. **R9 Inspection:** each release must be inspected against its recorded SHA-256 values before installation, and when tampering is suspected. \<Organisation\> must inspect hardware.
-10. **R10 Supplier reviews and notices:** critical suppliers must be reviewed every 12 months on TPL-16. \<Organisation\> must report a compromise to the security officer within 24 hours, and open-source suppliers' advisories must be watched (\<System and Information Integrity Management\>, section 3.3).
-11. **R11 Authenticity:** a suspected counterfeit or look-alike component, hardware or software, must be refused and reported to the security officer, \<Organisation\> and, where it applies, the package registry and the NCSC.
+10. **R10 Supplier reviews and notices:** every supplier in the register must be reviewed every 12 months on TPL-16, and a new High supplier before it is used. \<Organisation\> must report a compromise to the security officer within 24 hours, and open-source suppliers' advisories must be watched (\<System and Information Integrity Management\>, section 3.3).
+11. **R11 Authenticity:** a suspected counterfeit or look-alike component, hardware or software, must be refused and reported to its source, the security officer, \<Organisation\> and, where it applies, the package registry and the NCSC.
 12. **R12 Disposal and checking:** components must be disposed of following \<Procedures\>, PRO-MP-3, and Test-SupplyChain.ps1 must run at each release, after a significant change and at each review.
 
 ### SR.5 Responsibilities
@@ -1187,7 +1187,7 @@ It applies to the software packages and browser libraries \<System Name\> is bui
 | Authorising official | Decides Medium and High risks |
 | System owner | Owns this policy, the plan and the supplier register, and leads supplier reviews |
 | Security officer | Receives notices of compromise and reports of counterfeits, and watches supplier advisories |
-| Developers | Check and mirror packages, keep lock files, produce the bill of materials, and run Test-SupplyChain.ps1 |
+| Developers | Check and mirror packages, keep lock files and the browser library manifest, check the bill of materials, and run Test-SupplyChain.ps1 |
 | \<Organisation\> | Approves suppliers, inspects hardware, trains its buyers, controls equipment under repair and disposes of equipment |
 
 ### SR.6 Governance requirements
@@ -1195,7 +1195,7 @@ It applies to the software packages and browser libraries \<System Name\> is bui
 The rules in section 1.1 apply to this policy. It adds these.
 
 1. **Communication:** this policy and the procedures must be shared with developers and administrators, and whenever they change.
-2. **Compliance and management commitment:** the system owner reviews compliance at each review, runs Test-SupplyChain.ps1, and records the result.
+2. **Compliance and management commitment:** the system owner reviews compliance at each review, with the latest Test-SupplyChain.ps1 result, and records the result.
 3. **Coordination:** the supply chain team coordinates with \<Organisation\>, and records what is agreed.
 4. **Laws and standards:** this policy must be consistent with applicable law, \<Organisation\>'s policies and CSS.
 

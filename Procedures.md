@@ -1408,7 +1408,7 @@ These procedures carry out \<Policy\> (SA). Steps marked **Manual** have no syst
 #### PRO-SA-7 Adding a third-party component
 
 1. Before adding a package, browser library or script, a developer checks its origin, licence, maintainer activity, support period and known vulnerabilities. **Manual**
-2. The developer records the check on TPL-6, brings the component in through the in-house package feed (PRO-SR-1), and pins the version in the lock file. **Manual**
+2. The developer records the check on TPL-6, and brings the component in by PRO-SR-1: a package through the in-house package feed, with its version pinned in the lock file; a browser library into the UI application's repository, with its SHA-256 in the browser library manifest. **Manual**
 3. The component is added to \<Configuration Management\>, Table 4, with its version, supplier and licence, and to the bill of materials. **Manual**
 
 ## SC System and Communications Protection
@@ -1571,49 +1571,49 @@ These procedures carry out \<Policy\> (SR). Steps marked **Manual** rely on peop
 | Procedure | When | Who | Record | Controls |
 | --- | --- | --- | --- | --- |
 | PRO-SR-1 Bringing in a component | Before a package or browser library is added or updated | Developers | TPL-6 change record | SR-3, SR-5, SR-11 |
-| PRO-SR-2 Reviewing suppliers and the plan | Every 12 months, and before a new critical supplier is used | System owner, supply chain team | TPL-16 supplier review | SR-2, SR-2(1), SR-6 |
+| PRO-SR-2 Reviewing suppliers and the plan | Every 12 months, before a new High supplier is used, and after a significant change, a supply chain compromise or a new threat | System owner, supply chain team | TPL-16 supplier review | SR-2, SR-2(1), SR-6 |
 | PRO-SR-3 Inspecting a release | At each release, and when tampering is suspected | Developers, security officer | Test-SupplyChain.ps1 results; TPL-6 | SR-10, SR-3 |
 | PRO-SR-4 Authenticity and counterfeits | When a component is suspected | Anyone; security officer | TPL-10 incident record | SR-11, SR-11(1), SR-11(2) |
 | PRO-SR-5 Notices and advisories | When a supplier reports a compromise or publishes an advisory | Security officer | TPL-7 vulnerability and patch review | SR-8 |
-| PRO-SR-6 Disposal | Before a component leaves \<System Name\>'s control | Windows server administrator; \<Organisation\> | PRO-MP-3 sanitisation record; \<Organisation\>'s disposal confirmation | SR-12 |
+| PRO-SR-6 Disposal | Before a component leaves \<System Name\>'s control | Windows server administrator, database administrator; \<Organisation\> | TPL-13 sanitisation record (PRO-MP-3); \<Organisation\>'s disposal confirmation | SR-12 |
 
 ### SR.2 Procedures
 
 #### PRO-SR-1 Bringing in a component
 
 1. A developer checks the component's origin, publisher, licence, maintainer activity, support period and known vulnerabilities, as \<Procedures\>, PRO-SA-7 requires, and checks the package ID against look-alikes. **Manual**
-2. The developer adds the package and everything it pulls in to the in-house checked package feed, which records its SHA-256 value, and restores only from the feed.
+2. For a package, the developer adds it and everything it pulls in to the in-house checked package feed, which records its SHA-256 value, and restores only from the feed.
 3. The developer updates the lock file, and confirms the restore passes the signed-package trust policy and NuGet's audit.
-4. A browser library is packaged with \<System Name\> and served by it, never from a content delivery service or other outside host.
-5. The developer records the change on TPL-6, and the system owner adds any new supplier to the register in \<Supply Chain Risk Management\>, section 3.5. **Manual**
+4. For a browser library, the developer takes the files from the publisher's release, checks them against the publisher's published hash or signature where it gives one, adds them to the UI application's source repository with each file's SHA-256 in the browser library manifest, and has a second developer review the change. The library is packaged with \<System Name\> and served by it, never from a content delivery service or other outside host. **Manual**
+5. The developer records the change on TPL-6, adds the component to \<Configuration Management\>, Table 4, and the system owner adds any new supplier to the register in \<Supply Chain Risk Management\>, section 3.5. **Manual**
 
 #### PRO-SR-2 Reviewing suppliers and the plan
 
-1. Every 12 months, and before a new critical supplier is used, the supply chain team reviews each critical supplier with TPL-16: the questions cover how it builds and protects what it supplies, how it reports problems, and its support period. **Manual**
+1. Every 12 months the supply chain team reviews each supplier in the register with TPL-16, and a new High supplier before it is used: the questions cover how it builds and protects what it supplies, how it reports problems and shares assessment results, and its support period. One TPL-16 for an \<Organisation\> service serves both this review and the external service review (PRO-SA-3). **Manual**
 2. For \<Organisation\>, the team uses the evidence in EV-SR-01 and EV-SR-02. For open-source suppliers, it uses their published security policy and advisory history. **Manual**
-3. The team updates the supplier register and the plan, and records any new risk in \<Risk List\>. **Manual**
+3. The team reviews the plan, also after a significant change, a supply chain compromise or a new threat to the supply chain, updates the supplier register and the plan, and records any new risk in \<Risk List\>. **Manual**
 4. The system owner approves the updated plan and keeps it in the restricted store (until the store is set up, the private records repository; \<Documentation Map\>, section 4.1). **Manual**
 
 #### PRO-SR-3 Inspecting a release
 
-1. A developer produces the release's bill of materials, with each component's version, supplier, hash and licence.
-2. A developer runs Test-SupplyChain.ps1, which checks the package sources, lock files, trust policy, feed index and bill of materials, confirms that no page loads a script or style from an outside host, and compares the release packages and assemblies with the recorded SHA-256 baseline (\<System and Information Integrity Management\>, section 3.5). **Manual**
-3. Before installation, the Windows server administrator checks the release's SHA-256 values against the release record.
+1. A developer checks the release's bill of materials, produced by the build pipeline, against the lock files and the browser library manifest: each component with its version, supplier, hash and licence.
+2. A developer runs Test-SupplyChain.ps1, which checks the package sources, lock files, trust policy, feed index, browser library manifest and bill of materials, confirms that no page loads a script or style from an outside host, and compares the release packages, every file the release installs and the release scripts with the SHA-256 values in the release record (\<System and Information Integrity Management\>, section 3.5). **Manual**
+3. Before installation, the Windows server administrator checks that the release tag's signature is valid and the release's SHA-256 values match the release record.
 4. The security officer reviews any mismatch as a suspected incident under \<Procedures\> (IR). **Manual**
 
 #### PRO-SR-4 Authenticity and counterfeits
 
 1. Anyone who suspects a counterfeit or look-alike component, hardware or software, stops using it and tells the security officer. **Manual**
 2. The security officer records it on TPL-10, tells \<Organisation\>, and for software reports it to the package's publisher or registry, such as NuGet, and, if serious, to the NCSC. **Manual**
-3. \<Organisation\> inspects hardware, trains its buyers yearly, and keeps control of equipment sent for repair. **Manual** (EV-SR-02)
+3. \<Organisation\> inspects hardware, trains its buyers yearly, and keeps configuration control of the host hardware while it awaits repair and until it returns to service. **Manual** (EV-SR-02)
 
 #### PRO-SR-5 Notices and advisories
 
-1. \<Organisation\> reports a compromise to the security officer within 24 hours. **Manual** (EV-SR-01)
+1. \<Organisation\> reports a compromise to the security officer within 24 hours, and shares the results of assessments or audits that affect \<System Name\>. **Manual** (EV-SR-01)
 2. For open-source suppliers, the security officer treats their published advisories as notice, through the sources in \<System and Information Integrity Management\>, section 3.3. **Manual**
 3. The security officer records each notice that applies on TPL-7, and follows \<Procedures\> (IR) for a compromise. **Manual**
 
 #### PRO-SR-6 Disposal
 
-1. \<System Name\> data is removed following \<Procedures\>, PRO-MP-3, before anything leaves. **Manual**
+1. \<System Name\> data is removed following \<Procedures\>, PRO-MP-3, before anything leaves: for the servers' virtual disks, the Windows server administrator destroys every copy of the BitLocker keys; for a retired backup encryption certificate, the database administrator destroys every copy; each is recorded on TPL-13. **Manual**
 2. \<Organisation\> disposes of the component, and confirms in writing. **Manual** (EV-SR-02)

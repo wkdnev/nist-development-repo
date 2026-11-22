@@ -2974,9 +2974,9 @@ There is one finding for each CSS determination statement, including those about
 | Scope | The 12 SR entries in the Moderate baseline, with 81 determination statements |
 | Procedures | CSS, using the CSS published statements and identifiers (catalog release 5.2.0) |
 | Dates | \[Dates of the assessment\] |
-| Examine | \<Policy\> (SR), \<Procedures\> (SR) and \<Supply Chain Risk Management\>; \<Risk Assessment Management\>, sections 3.9 and 3.4; the package source settings files, the build files, each application's restored package list and the in-house package feed's index at the release tag. Depth: focused. Coverage: focused |
+| Examine | \<Policy\> (SR), \<Procedures\> (SR) and \<Supply Chain Risk Management\>; \<Risk Assessment Management\>, sections 3.9 and 3.4; \<Configuration Management\>, Table 4; the package source settings files, the build files, each application's restored package list, the browser library manifest, the release record and the in-house package feed's index at the release tag; completed TPL-16 supplier reviews. Depth: focused. Coverage: focused |
 | Test | Test-SupplyChain.ps1, with no running system (the SR evidence); Test-Vulnerability.ps1 (the RA evidence) |
-| Interview | The developers, security officer and \<Organisation\>'s IT service desk |
+| Interview | The system owner, the developers, the security officer and \<Organisation\>'s IT service desk; questions INT-SR-01 to 07 in \<Interview Guide\> |
 | Previous results reused | \[Results reused from other chapters, if any\] |
 | Boundary | \<System Name\>'s code, build and release. \<Organisation\>'s suppliers, hardware, repair and disposal are provider evidence (EV-SR-01, EV-SR-02) |
 | Order of assessment | A, sources and acquisition (SR-3, SR-5); B, inspection (SR-10); C, suppliers and notices (SR-6, SR-8); D, authenticity (SR-11); E, plan and team (SR-2); F, disposal (SR-12); G, policy (SR-1) |

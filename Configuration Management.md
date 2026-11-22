@@ -103,10 +103,10 @@ Every package, browser library, runtime, operating system and database \<System 
 | Directory access library for LDAPS | \<ver\> | Microsoft | MIT | API | Group lookup in Active Directory |
 | API documentation package | \<ver\> | \[Supplier\] | \[Licence\] | API | Development only; not in release builds |
 | \[Server-side rendering library for the viewer\] | \<ver\> | \[Supplier\] | \[Licence\] | API | Renders a file as an image on the server, and stamps the classification banner on each page or image of a downloaded copy (FR-020, D-MP-02); a separate library is listed here if one is chosen for the stamping |
-| \[Browser libraries, such as a document viewer or an icon set\] | \<ver\> | \[Supplier\] | \[Licence\] | UI application | Packaged with the UI application and served by it. No content delivery service |
+| \[Browser libraries, such as a document viewer or an icon set\] | \<ver\> | \[Supplier\] | \[Licence\] | UI application | From the publisher's release, with its SHA-256 values in the browser library manifest; packaged with the UI application and served by it. No content delivery service |
 | \[Key store\] | \<ver\> | \[Supplier\] | \[Licence\] | All three applications | Holds the token signing key, the audit chain key, the OpenID Connect client credential and the exported backup encryption certificate. Still to be chosen (\<System Security Plan\>, section 3.4); listed here if it is software on the servers, or recorded as a service of \<Organisation\> if not |
 
-Every package comes through \<Organisation\>'s in-house checked package feed, at the version in the lock files.
+Every package comes through \<Organisation\>'s in-house checked package feed, at the version in the lock files. Every browser library is held in the UI application's source repository, at the version and SHA-256 values in the browser library manifest (\<Supply Chain Risk Management\>, section 3.7).
 
 ### 3.6 Secure settings for every layer
 

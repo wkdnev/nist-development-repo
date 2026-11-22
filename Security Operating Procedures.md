@@ -251,7 +251,7 @@ The detection use cases U1 to U9 in \<System and Information Integrity Managemen
 | **Monthly** |  |  |  |  |  |
 | C9 | Run the last sign-in report (FR-085), list the members of \<System Name\>'s groups who have not signed in for 90 days, and have the groups' owners remove them | Security officer; the groups' owners | \<Procedures\>, PRO-AC-8 | TPL-3 | AC-2(3) |
 | C10 | Scan for vulnerabilities and review patches | Windows server administrator, security officer | \<Procedures\>, PRO-RA-3 | TPL-7 | RA-5, SI-2 |
-| C11 | Check packages, lock files, the in-house package feed and support dates, and run Test-SupplyChain.ps1 at each release | Developers | \<Procedures\>, PRO-SR-1 and PRO-SR-3; \<Procedures\>, PRO-SA-5 | TPL-7 | SI-2, SA-22, SR-3 |
+| C11 | Check packages, lock files, the in-house package feed, the browser library manifest and support dates, and run Test-SupplyChain.ps1 at each release | Developers | \<Procedures\>, PRO-SR-1 and PRO-SR-3; \<Procedures\>, PRO-SA-5 | TPL-7 | SI-2, SA-22, SR-3 |
 | C12 | Check the installed release files against the release record, and review the monthly file checksum check and malware rescan, and the daily audit chain checks | Windows server administrator, security officer | \<Procedures\>, PRO-SI-6 | TPL-8 | SI-3, SI-7, SI-7(1), AU-9 |
 | C13 | Report security status to the system owner | Security officer | \<Procedures\>, PRO-CA-5 | TPL-8, monthly measures | CA-7 |
 | C14 | Update the plan of action | System owner | \<Procedures\>, PRO-CA-3 | \<Plan of Action and Milestones\> change record | CA-5 |

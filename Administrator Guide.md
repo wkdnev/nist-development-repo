@@ -30,7 +30,7 @@ Values in \[brackets\] are for the developers to fill.
 | Token signing | API's token settings | Key from the key store, rotated as in \<System and Communications Protection Management\>; tokens issued only to the UI and Admin applications' service accounts, short-lived, each naming the signed-in person, who is taken from the token alone | \<System and Communications Protection Management\> |
 | Audit | Audit settings in each application | All events in \<Audit and Accountability Management\> on | \<Audit and Accountability Management\> |
 | Exports | Encrypted export working area | Copies deleted after download, and always within 24 hours (\<System Description\>, P-20) | \<Media Protection Management\> |
-| Browser libraries | Page templates | Packaged with and served by \<System Name\> itself. No content delivery service or other outside host | \<System and Communications Protection Management\> |
+| Browser libraries | Page templates | Recorded with their SHA-256 values in the browser library manifest, and packaged with and served by \<System Name\> itself. No content delivery service or other outside host | \<System and Communications Protection Management\> |
 | Page policy | Each application's security headers | The page policy in \<System and Communications Protection Management\>, Table 6: only \<System Name\>'s own scripts, no inline scripts, no eval, no WebAssembly and no outside hosts | \<System and Communications Protection Management\> |
 | Logging | Each application's logging settings | No personal data or sign-in details in the application log | \<Audit and Accountability Management\> |
 

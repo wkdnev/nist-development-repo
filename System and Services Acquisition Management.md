@@ -156,7 +156,7 @@ Table 4 lists the external services \<System Name\> relies on. The \<Organisatio
 | ServiceNow | \<Organisation\> | The access approval workflow, in which the line manager approves each request and the group's owner authorises it, and the change and incident workflows. It has no connection to \<System Name\> (flow F9) | \<Organisation\>'s service, used by people only, and its service description | EV-SA-02, EV-IR-02 |
 | Starters and leavers process | \<Organisation\> | Gives prompt notice of each leaver, through ServiceNow. It has no connection to \<System Name\> (flow F9) | \<Organisation\>'s service, used by people only, and its service description | EV-SA-02, EV-AC-01 |
 | Source repositories, build pipeline and in-house package feed | \<Organisation\>, under the corporate SDLC | Hold all source code, history and release tags; build and test each release; supply every package | \<Organisation\>'s corporate SDLC, which is inherited, and the repository service's own controls | EV-SA-03, EV-SA-04 |
-| Package registry | nuget.org, reached only by the in-house package feed | Supplies the .NET packages and the browser libraries the pages need, which \<System Name\> serves itself | No agreement. It is a supplier of components, not a service \<System Name\> connects to, so SA-9(2) is not asked of it. Each package is trusted on its signature and the check made before it is used (PRO-SA-7, PRO-SR-1), and the registry is managed as a supplier (\<Supply Chain Risk Management\>, section 3.5) | Package checks |
+| Package registry | nuget.org, reached only by the in-house package feed | Supplies the .NET packages. Browser libraries come from their publishers' releases, not from it (\<Supply Chain Risk Management\>, section 3.7) | No agreement. It is a supplier of components, not a service \<System Name\> connects to, so SA-9(2) is not asked of it. Each package is trusted on its signature and the check made before it is used (PRO-SA-7, PRO-SR-1), and the registry is managed as a supplier (\<Supply Chain Risk Management\>, section 3.5) | Package checks |
 
 **Trust and service levels.** Each row says what \<System Name\>'s trust in the service rests on, as CSS asks (SA-9). For \<Organisation\>'s services, the service description should state the service levels, how they are measured, and the remedies when they are missed; these are asked for with EV-SA-02. The public package registry offers none, so \<System Name\> relies on its own checks of what it supplies; the risk of a harmful package reaching a release is R-RA-06. The authorising official keeps the risk of each external service.
 
@@ -218,8 +218,8 @@ The plan, its results and the evidence are protected as the document set is: res
 | Test-MediaProtection.ps1 | Exports and marking | The MP evidence |
 | Test-PersonalData.ps1 | How personal data is held, logged and kept | The PT evidence |
 | Test-Integrity.ps1 | Upload checks, error handling, checksums, the audit chain and alerts | The SI evidence |
-| Test-Vulnerability.ps1 | Packages, code and the risk records | The RA evidence |
-| Test-SupplyChain.ps1 | Package sources, lock files, signatures, the bill of materials and suppliers | The SR evidence |
+| Test-Vulnerability.ps1 | Packages, browser libraries, code and the risk records | The RA evidence |
+| Test-SupplyChain.ps1 | Package sources, lock files, signatures, the browser library manifest, the bill of materials, the release's SHA-256 values and suppliers | The SR evidence |
 | Test-Development.ps1 | Repositories, the build and component support | The SA evidence |
 | Test-PlanConsistency.ps1 | The consistency of the document set | The PL evidence |
 
