@@ -183,6 +183,7 @@ Questions are numbered INT-XX-nn, where XX is the family code, and each names th
 | INT-AU-04 | Windows server administrator | What happens when logging fails? Who is told, and how quickly? | AU-05 | An alert and its response |
 | INT-AU-05 | Database administrator | How long are records kept, and how is capacity checked? | AU-04, AU-11 | Capacity record, backup |
 | INT-AU-06 | \<Organisation\>'s security contact | Is there central monitoring, and which time source do the VMs use? | AU-06(01), AU-06(03), AU-08 | EV-AU-01, EV-AU-02 |
+| INT-AU-07 | Security officer | How do you know what the auditor read or exported, and who would see it if they misused the log? | AU-06a, AU-09(04) | Central logging view of the audit-read security events |
 
 ## 6 Assessment, Authorization and Monitoring (CA)
 

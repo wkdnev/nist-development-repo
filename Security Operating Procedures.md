@@ -241,8 +241,8 @@ The detection use cases U1 to U9 in \<System and Information Integrity Managemen
 | C1 | Check all services are healthy | Administrator | The API health check and each application's start page | Health check log on TPL-8, one line a day | SI-4, CP-2 |
 | C2 | Back up the database, which holds every item and file | Database administrator | \<Procedures\>, PRO-CP-1 | Backup job log, checked at C8 | CP-9 |
 | **Weekly** |  |  |  |  |  |
-| C3 | Review the audit log, including failed sign-ins, lockouts and privileged actions, against the server, database, PingFederate and Active Directory records | Auditor | Section 4.2 | TPL-8 | AC-2, AC-6(9), AC-7, AU-6 |
-| C4 | Review the central logs and any alerts. The security officer does not read the audit log | Security officer | \<Procedures\>, PRO-SI-3 and PRO-SI-4 | TPL-8 | SI-4, AU-6 |
+| C3 | Review the audit log, including refused sign-ins and privileged actions, against the server and database records and the PingFederate and Active Directory records of failed sign-ins and lockouts | Auditor | Section 4.2 | TPL-8 | AC-2, AC-6(9), AC-7, AU-6 |
+| C4 | Review the central logs and any alerts, including the security events for each read or export of the audit log. The security officer does not read the audit log | Security officer | \<Procedures\>, PRO-SI-3 and PRO-SI-4 | TPL-8 | SI-4, AU-6 |
 | C5 | Check Windows and SQL Server logs, or \<Organisation\>'s report on them | Windows server and database administrators | \[Method set with \<Organisation\>\] | TPL-8 | AU-6, AU-6(3), SI-4 |
 | C6 | Back up system configuration | Windows server administrator | \<Procedures\>, PRO-CP-1 | Backup job log, checked at C8 | CP-9 |
 | C7 | Act on security advisories as they arrive, and confirm none were missed | Security officer | \<Procedures\>, PRO-SI-5 | TPL-7 | SI-5 |
@@ -262,7 +262,7 @@ The detection use cases U1 to U9 in \<System and Information Integrity Managemen
 | C50 | Each week, check CISA's Known Exploited Vulnerabilities catalogue and \<Organisation\>'s alerts against \<System Name\>'s components; fix or mitigate any match within 3 days | Security officer | \<Procedures\>, PRO-RA-4 | TPL-7 | RA-5, SI-2, SI-5 |
 | **Every 3 months** |  |  |  |  |  |
 | C15 | Review privileged access: the system owner prepares the role-group review and the auditor checks and signs it; the Head of Cyber reviews the system owner's own memberships and checks the administrators | System owner, auditor, Head of Cyber | \<Procedures\>, PRO-AC-7 | TPL-3 | AC-2, AC-6(7) |
-| C16 | Check the administrators' actions | Head of Cyber | The auditors' review records and their report on the administrators' actions | TPL-8 | AC-6(9), AU-6 |
+| C16 | Check the administrators' actions | Head of Cyber | The auditors' review records and their quarterly report on the administrators' actions (\<Procedures\>, PRO-AU-1, step 6) | TPL-8 | AC-6(9), AU-6 |
 | C17 | Report security status to the authorising official | Security officer, system owner | \<Procedures\>, PRO-CA-5 | TPL-8 | CA-7 |
 | **Every 6 months** |  |  |  |  |  |
 | C18 | Test that backups can be restored | Database administrator | \<Procedures\>, PRO-CP-2 | TPL-11 | CP-9(1) |
@@ -301,10 +301,10 @@ The detection use cases U1 to U9 in \<System and Information Integrity Managemen
 ### 4.2 Audit review procedure (C3)
 
 1. The auditor opens the audit log page in the Admin application and filters to the period since the last review.
-2. They look for refused sign-in responses, failed Active Directory lookups, refused access, sign-ins at unusual times, schema and group administration, privileged functions, large exports, configuration changes, reading of the audit log, gaps in the records, and records under unknown names or "System".
+2. They look for refused sign-in responses, failed Active Directory lookups, disabled accounts, refused access, sign-ins at unusual times, schema and group administration without a Data Owner's approval reference, privileged functions, runs of the last sign-in report, large exports, deletions, disposals, searches across every schema, uploads refused for malware, configuration changes, reading of the audit log, failed chain checks, gaps in the records, including those shown by start-up, shut-down and logging failure records, and records under unknown names or "System".
 3. They compare changes to \<System Name\>'s Active Directory groups, from \<Organisation\>'s records, with the requests authorised in ServiceNow (TPL-2).
 4. They check the Windows and SQL Server logs, including SQL Server Audit's record of reads of the item tables by any login other than the API's, through \<Organisation\>'s central logging (they have no sign-in to the servers), and \<Organisation\>'s record of PingFederate sign-ins, failed sign-ins and lockouts, and of changes to \<System Name\>'s Active Directory groups, or get \<Organisation\>'s report on them.
-5. They run the audit chain check (\<Procedures\>, PRO-AU-2). If tampering is suspected, they preserve the evidence before anything is changed (PRO-AU-2, step 3), and raise it, and anything else unexplained, as a security incident (section 4.9).
+5. They run the audit chain check, and compare the daily copies of the newest hash in central logging with the audit log (\<Procedures\>, PRO-AU-2). If tampering is suspected, they preserve the evidence before anything is changed (PRO-AU-2, step 4), and raise it, and anything else unexplained, as a security incident (section 4.9).
 6. They record the date, the period covered, the reviewer and the result on TPL-8, and report anything suspicious to the security officer.
 
 ### 4.3 Vulnerability management (C10, C11, C37, C50)

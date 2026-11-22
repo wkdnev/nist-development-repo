@@ -17,7 +17,7 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | TPL-5 Approved access list | The approved baseline of software and components to compare the system against. Access is not listed here: the ServiceNow requests (TPL-2) are the approved record of access | CM-7(5), CM-8, CM-12 |
 | TPL-6 Change record | Records a change, its impact, testing and approval. Where the change is recorded in ServiceNow, the ServiceNow record is this record and must hold these fields | CM-3, CM-3(2), CM-4, CM-4(2), SI-2, IA-5, IA-5(1), IA-5(6); PRO-CM-1, PRO-IA-4, PRO-IA-5 |
 | TPL-7 Vulnerability and patch review | Records a scan or package check, what was found, and when it was fixed | SI-2, SI-2(2), SI-5, RA-5, RA-5(5); PRO-SI-1, PRO-SI-5, PRO-RA-3, PRO-RA-4, PRO-RA-5 |
-| TPL-8 Monitoring and integrity report | Records log reviews, integrity checks, configuration drift and the monthly measures | AU-6, SI-4, SI-7(1), CA-7; PRO-SI-3, PRO-SI-4, PRO-SI-6, PRO-CA-5 |
+| TPL-8 Monitoring and integrity report | Records log reviews, integrity checks, audit storage, archive and time checks, configuration drift and the monthly measures | AU-4, AU-6, AU-8, AU-9, AU-11, SI-4, SI-7(1), CA-7; PRO-AU-1 to PRO-AU-4, PRO-AU-7, PRO-SI-3, PRO-SI-4, PRO-SI-6, PRO-CA-5 |
 | TPL-9 Training record | Records who was trained, on what and when. Kept for 3 years | AT-2, AT-3, AT-3(5), AT-4, IR-2, CP-3, PL-4; PRO-AT-1, PRO-AT-2 and PRO-AT-4 |
 | TPL-10 Incident record | Records an incident from report to lessons. Where the incident is recorded in ServiceNow, the ServiceNow record is this record and must hold these fields | IR-4, IR-5, IR-6; PRO-IR-1, PRO-IR-2 |
 | TPL-11 Exercise and restore test | Records a tabletop exercise, restore test or activation as an after-action report, the result and the actions | IR-3, IR-3(2), CP-4, CP-4(1), CP-9(1); PRO-IR-3, PRO-CP-2, PRO-CP-4 |
@@ -188,7 +188,15 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | Central logs reviewed by the security officer, and anything unexplained |  |
 | Audit log review, by an auditor only (P-08, NFR-027): records compared with the server, database, PingFederate and Active Directory records, anything suspicious, and the date it was reported to the security officer |  |
 | Alerts raised, and what was done |  |
-| Integrity checks: release packages, file checksums and audit chain |  |
+| Integrity checks: release packages, file checksums and audit chain, and the auditor's comparison of the daily chain copies in central logging with the audit log (PRO-AU-2) |  |
+| Audit log reads and exports seen in central logging, and anything unexplained reported to the Head of Cyber (security officer) |  |
+| Quarterly report on the administrators' actions, for the Head of Cyber (PRO-AU-1, step 6) |  |
+| Audit storage: free space, size of the audit table, and any request for more (PRO-AU-4) |  |
+| Archive: period archived, the archive's SHA-256 hash, the hash of the last record archived, records removed from the database, and any archive deleted with the system owner's approval (PRO-AU-4) |  |
+| Legal holds and incident evidence held: reference, records held, date released (PRO-AU-4) |  |
+| Time: each VM's offset from UTC, and any drift over 5 seconds reported (PRO-AU-4) |  |
+| Logging failures: period without records, cause, and when logging was restored (PRO-AU-3) |  |
+| Application logs: who can read them, and the oldest log on each VM (PRO-AU-7) |  |
 | Configuration drift from \<Configuration Management\>, sections 3.4 to 3.6 (PRO-CM-7), and the change record raised for each |  |
 | Open plan items |  |
 | Oldest unpatched update, in days |  |

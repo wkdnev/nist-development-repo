@@ -245,8 +245,8 @@ Every security-relevant action in \<System Name\> must leave a reliable record t
 1. **R1 Events:** the events in \<Audit and Accountability Management\> must be logged by each component it names.
 2. **R2 Retention:** records must be kept for 12 months online and a further 12 months in an offline archive whose hash is recorded (P-07), with storage sized to match. After 24 months they may be deleted, only with the system owner's recorded approval.
 3. **R3 Time:** time stamps must be in UTC to the nearest second, from \<Organisation\>'s time source, and within 1 second of UTC (P-09).
-4. **R4 Protection:** auditors alone read audit records, and nobody may change or delete them, except as R2 allows.
-5. **R5 Review:** the auditor must review the audit log weekly (P-08, NFR-027), compare it with the server, database, PingFederate and Active Directory records, record the review, and report anything suspicious to the security officer. Nobody else reviews or reads the audit log.
+4. **R4 Protection:** auditors alone read audit records, except that the security officer's last sign-in report shows each member's username and last sign-in date and nothing else (FR-085), and the database administrator reaches them only to archive them. Nobody may change or delete them, except as R2 allows.
+5. **R5 Review:** the auditor must review the audit log weekly (P-08, NFR-027), compare it with the server, database, PingFederate and Active Directory records, record the review, and report anything suspicious to the security officer. Nobody else reviews the audit log. The auditor's own reads and exports are reviewed by the security officer, from central logging.
 6. **R6 Logging failure:** a logging failure must alert the Windows server administrator and security officer within 1 hour. The system keeps running while it is investigated and restored.
 7. **R7 Tampering:** suspected tampering must alert the security officer and auditor.
 8. **R8 Content of records:** records must not contain passwords, keys, tokens or cookie values, and must hold only the personal data an investigation needs.

@@ -424,10 +424,10 @@ These procedures define how audit records are reviewed, protected and retained. 
 | Procedure | Activity | How often | Who | Record | Controls |
 | --- | --- | --- | --- | --- | --- |
 | PRO-AU-1 | Review audit records | Weekly | Auditor | TPL-8 Monitoring and integrity report | AU-6, AU-6(1), AU-6(3), AU-7 |
-| PRO-AU-2 | Check the audit chain, and respond to suspected tampering | Weekly, and on any alert | Auditor, security officer | TPL-8; incident record | AU-9, AU-9(4) |
+| PRO-AU-2 | Check the audit chain, and respond to suspected tampering | Daily by the API, weekly by the auditor, and on any alert | Auditor, security officer, database administrator | TPL-8; incident record | AU-9, AU-9(4) |
 | PRO-AU-3 | Respond to a logging failure | On any alert | Windows server administrator, security officer | TPL-8; incident record | AU-5 |
 | PRO-AU-4 | Check capacity, retention, the archive and time synchronisation | Monthly | Database administrator, Windows server administrator | TPL-8 | AU-4, AU-8, AU-11 |
-| PRO-AU-5 | Review and change the logged events | Every 12 months, and on change | System owner | Updated \<Audit and Accountability Management\>; \<Decision Register\> | AU-2, AU-12 |
+| PRO-AU-5 | Review and change the logged events | Every 12 months (P-62), and on change | System owner, developers, database administrator | Updated \<Audit and Accountability Management\>; \<Decision Register\> | AU-2, AU-12 |
 | PRO-AU-6 | Give or remove auditor access | On request, and at each quarterly access review | System owner | ServiceNow request; access review record | AU-9(4), AC-2 |
 | PRO-AU-7 | Handle the application log | Monthly check | Windows server administrator | TPL-8 | AU-9, AU-11, PT-3 |
 
@@ -440,32 +440,36 @@ These procedures define how audit records are reviewed, protected and retained. 
 3. They compare changes to schemas and to the AD groups each uses, and \<Organisation\>'s record of changes to the members of \<System Name\>'s groups, with the approved ServiceNow requests, and compare the audit log with the server, database, PingFederate and Active Directory records. **Manual**
 4. They report anything suspicious to the security officer, and record the date, period, reviewer and result on TPL-8, Monitoring and integrity report, in \<Record Templates\>. **Manual**
 5. If risk rises, for example after an incident or new threat information, the system owner increases how often or how closely records are reviewed. **Manual**
+6. Each quarter the auditor reports the administrators' actions in the quarter to the Head of Cyber on TPL-8, for duty C16 in \<Security Operating Procedures\>. **Manual**
 
 #### PRO-AU-2 Audit chain check
 
-1. The auditor runs the audit chain check.
-2. If the chain is broken, or tampering is suspected for any other reason, they alert the security officer and raise a security incident.
-3. Before anything is restored or changed, the auditor preserves the evidence: a copy of the audit table and the hash of its newest record, kept where administrators cannot change it, with the copy's own SHA-256 hash recorded on TPL-8. **Manual**
-4. The security officer handles the incident under PRO-IR-2.
+1. The API checks the chain every day and at each start-up, starting from the hash recorded at the last archive (PRO-AU-4, step 3). The auditor also runs the check from the Admin application at each weekly review, and the security officer may run it at any time.
+2. At each weekly review the auditor compares the daily copies of the newest hash in central logging with the records of the same numbers in the audit log. **Manual**
+3. If the check fails, a copy does not match, or tampering is suspected for any other reason, the security officer and auditor are alerted (use case U2), and a security incident is raised.
+4. Before anything is restored or changed, the evidence is preserved: the auditor exports the audit records for the period through the audit page; the database administrator, watched by the security officer, copies the audit table to a store administrators cannot change; and the SHA-256 hash of each copy is recorded on TPL-8. **Manual**
+5. The security officer handles the incident under PRO-IR-2.
 
 #### PRO-AU-3 Logging failure
 
 1. The Windows server administrator and security officer are alerted within 1 hour.
 2. The system keeps running. The Windows server administrator and database administrator find the cause and restore logging.
 3. The security officer records the period without records and tells the system owner.
-4. If records may have been lost or changed, the evidence is preserved as in PRO-AU-2, step 3, and the incident is handled under PRO-IR-2.
+4. If records may have been lost or changed, the evidence is preserved as in PRO-AU-2, step 4, and the incident is handled under PRO-IR-2.
 
 #### PRO-AU-4 Capacity and retention
 
-1. Each month the database administrator checks the free space and the size of the audit table. **Manual**
+1. Each month the database administrator checks the free space and the size of the audit table. In the first month of use they also measure the records per day and the bytes per record, and confirm the storage size in \<Audit and Accountability Management\>, section 3.7. **Manual**
 2. They raise more storage before records are at risk.
-3. Records older than 12 months are moved to an offline archive, and the archive's SHA-256 hash is recorded on TPL-8. Archived records older than 24 months may be deleted only with the system owner's recorded approval. **Manual** Records under a legal hold notified by the legal adviser, or held as incident evidence, are not deleted until released.
+3. Each month the database administrator copies records older than 12 months to the offline archive, records on TPL-8 the archive's SHA-256 hash and the hash of the last record archived, and then removes those records from the database. The chain check starts from that hash. Archived records older than 24 months may be deleted only with the system owner's recorded approval. **Manual** Records under a legal hold notified by the legal adviser, or held as incident evidence, are listed on TPL-8 and not deleted until released.
 4. Each month the Windows server administrator checks that both VMs are within 1 second of UTC from \<Organisation\>'s time source, \[Organisation time source\], and reports any drift over 5 seconds to the security officer. The result is recorded on TPL-8. **Manual**
 
 #### PRO-AU-5 Changing the logged events
 
-1. The system owner decides on any change to the logged events, and reviews the list every 12 months. **Manual**
-2. Developers make the change through the normal release process, because the events are built into each release. The list of events is \<Audit and Accountability Management\>, Table 2, and it is changed there first.
+1. The system owner decides on any change to the logged events, both the application events and the SQL Server settings, reviews the list every 12 months (P-62), and records each decision in \<Decision Register\>. **Manual**
+2. The system owner agrees with \<Organisation\>'s security contact any change to the Windows, PingFederate and Active Directory events, and to what central monitoring needs from \<System Name\> (AU-2, part b). **Manual**
+3. Developers make a change to the application events through the normal release process, because the events are built into each release. The list of events is \<Audit and Accountability Management\>, Table 2, and it is changed there first.
+4. The database administrator applies a change to the SQL Server settings in \<Audit and Accountability Management\>, appendix A, through a recorded change (\<Configuration Management\>), and the appendix is changed first.
 
 #### PRO-AU-6 Auditor access
 
@@ -476,9 +480,9 @@ These procedures define how audit records are reviewed, protected and retained. 
 
 #### PRO-AU-7 Application log
 
-1. The application logs on the VMs hold no audit details, personal data or sign-in identifiers. On the VMs only the server administrators may read them. The security officer reviews them in central logging, and the auditor reads them there for the weekly comparison, without a sign-in to the servers. **Manual**
+1. The application logs on the VMs hold no audit details. The only personal data in them is the username in the short security events (\<Audit and Accountability Management\>, section 3.10). On the VMs only the server administrators may read them. The security officer reviews them in central logging, and the auditor reads them there for the weekly comparison, without a sign-in to the servers. **Manual**
 2. Application logs are kept for 30 days and then deleted. **Manual**
-3. They are forwarded to \<Organisation\>'s central logging, and are not otherwise copied off the VMs, except as incident evidence under PRO-AU-2, step 3.
+3. They are forwarded to \<Organisation\>'s central logging, and are not otherwise copied off the VMs, except as incident evidence under PRO-AU-2, step 4.
 4. Each month the Windows server administrator checks who can read the logs and how old they are, and records the result on TPL-8. **Manual**
 
 ## CA Assessment, Authorization, and Monitoring

@@ -567,7 +567,7 @@ There is one finding for each CSS determination statement, including those about
 | Site | \[Where the assessment is done, and on what build and data\] |
 | Examine | The audit service, the audit record format, the audit page, the database's grants and settings, and \<Policy\> (AU), \<Procedures\> (AU) and \<Audit and Accountability Management\>. Depth: focused. Coverage: focused, on the functions each control concerns |
 | Test | Test-AuditAndAuth.ps1, whose audit checks cover AU and whose sign-in checks cover IA, with a hash manifest of each run. Depth: focused. Coverage: focused, including Windows and SQL Server logging on the VMs |
-| Interview | The auditor, security officer, Windows server and database administrators and \<Organisation\>'s security contact, using INT-AU-01 to 06. The people are named in \<Roles and Responsibilities\> |
+| Interview | The auditor, security officer, Windows server and database administrators and \<Organisation\>'s security contact, using INT-AU-01 to 07. The people are named in \<Roles and Responsibilities\> |
 | Previous results reused | \[Results reused from other chapters, if any\] |
 | Boundary | The audit log in the SQL Server database, written only by the API, the application logs, and the SQL Server and Windows logs on both VMs. \<Organisation\>'s central monitoring and time service are inherited |
 | Order of assessment | A, record generation and content (AU-12, AU-2, AU-3, AU-3(1)); B, protection (AU-9, AU-9(4)); C, failure, capacity and retention (AU-5, AU-4, AU-11); D, review and reporting (AU-6, AU-6(1), AU-6(3), AU-7, AU-7(1)); E, time (AU-8); F, policy (AU-1). Generation comes first because every other result depends on records existing |

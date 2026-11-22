@@ -97,7 +97,7 @@ Controls met here: CP-2, CP-2(8).
 | --- | --- | --- | --- | --- |
 | 1 | \<Organisation\>'s network, PingFederate sign-in, directory, name resolution, time and certificates | Everything | \<Organisation\> | \<Organisation\>'s plans (appendix B) |
 | 2 | Database VM and SQL Server 2022 | Every function | 1 | \<Configuration Management\> baseline, then the latest good backup and transaction logs |
-| 3 | Secrets: the token signing key, the audit chain key and the OpenID Connect client credential. There is no database password: the API connects with Windows authentication | Starting the API | 1 | The protected copy at the second site (section 3.8) |
+| 3 | Secrets: the token signing key, the audit chain key, with its retired versions kept for checking, and the OpenID Connect client credential. There is no database password: the API connects with Windows authentication | Starting the API | 1 | The protected copy at the second site (section 3.8) |
 | 4 | Application VM: API | Every function | 2, 3 | The tagged release and \<Configuration Management\> |
 | 5 | UI application | Finding and reading items | 4 | The tagged release |
 | 6 | Admin application | Administration | 4 | The tagged release |

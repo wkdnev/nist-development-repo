@@ -189,7 +189,7 @@ These rules follow from it:
 
 1. **No passwords.** \<System Name\> stores no passwords or password hashes, because PingFederate authenticates every user.
 2. **Items and schemas.** The UI app asks the API for item data. The Admin app asks the API for schemas, the groups each uses, settings and audit records, and gets no item content.
-3. **Audit log.** The service account can only add records. Nothing can change or delete them. They are read only through the Admin application's audit pages, by the auditor role. The one exception is the last sign-in report (FR-085), which shows the security officer each member's username and last sign-in date, and nothing else.
+3. **Audit log.** The service account can add and read records, and cannot change or delete them. Nothing changes them, and the database administrator removes them only once archived. They are read only through the Admin application's audit pages, by the auditor role. The one exception is the last sign-in report (FR-085), which shows the security officer each member's username and last sign-in date, and nothing else.
 4. **Changes to the database structure.** Only the database administrator makes them, with the schema change account.
 5. **Connection.** The API connects only from the application server, over TLS with strict encryption, using Windows authentication under its managed service account. There is no database password to store.
 

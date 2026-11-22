@@ -148,7 +148,7 @@ This matrix is proposed to \<Organisation\>.
 
 | ID | Control | What we need to know | Evidence to provide |
 | --- | --- | --- | --- |
-| EV-AU-01 | AU-2, AU-6(1), AU-6(3) | Whether \<Organisation\> has central log monitoring, and what it needs from \<System Name\> and the VMs, including the short security events the API writes to its application log for the alert use cases U5, U6 and U9, and SQL Server Audit records of reads of the item tables by logins other than the API's; and how the auditor is given read access to the Windows and SQL Server logs there, without a sign-in to the servers | Service description and scope |
+| EV-AU-01 | AU-2, AU-6(1), AU-6(3) | Whether \<Organisation\> has central log monitoring, and what it needs from \<System Name\> and the VMs, including the short security events the API writes to its application log for the alert use cases U5, U6 and U9, and SQL Server Audit records of reads of the item tables by logins other than the API's; how long central logging keeps each of these, and that nobody in \<System Name\>'s team can change or delete them there; and how the auditor and security officer are given read access to the Windows, SQL Server and application logs there, without a sign-in to the servers | Service description and scope |
 | EV-AU-02 | AU-8 | The time source for the VMs, and evidence that they stay within 1 second of UTC | Time service configuration |
 | EV-AU-03 | AU-4, AU-11 | Storage and backup for the VMs, to hold 12 months of records online and 12 months in an offline archive | Service description and backup schedule |
 | EV-AU-04 | AU-12 | Which Windows Server events are logged and kept on the VMs | Audit policy and a sample log |
