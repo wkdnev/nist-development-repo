@@ -244,11 +244,11 @@ Each control is given one of four types. **System** controls are met by \<System
 | PS Personnel Security | 9 | 0 | 4 | 3 | 2 | 0 |
 | PT Personally Identifiable Information Processing and Transparency | 29 | 3 | 2 | 13 | 2 | 9 |
 | RA Risk Assessment | 10 | 0 | 4 | 6 | 0 | 0 |
-| SA System and Services Acquisition | 17 | 1 | 4 | 9 | 2 | 1 |
+| SA System and Services Acquisition | 17 | 0 | 4 | 10 | 2 | 1 |
 | SC System and Communications Protection | 25 | 3 | 10 | 1 | 10 | 1 |
 | SI System and Information Integrity | 18 | 3 | 9 | 3 | 1 | 2 |
 | SR Supply Chain Risk Management | 12 | 0 | 3 | 5 | 4 | 0 |
-| **Total** | **316** | **17** | **117** | **94** | **66** | **22** |
+| **Total** | **316** | **16** | **117** | **95** | **66** | **22** |
 
 Section 7 lists every control. A control counts as satisfied only when every one of its assessment statements is satisfied.
 
@@ -660,29 +660,29 @@ The assessment plan is in \<Control Assessment Record\> (RA), section RA.4, wher
 
 ### 7.16 System and Services Acquisition (SA)
 
-The assessment plan is in \<Control Assessment Record\> (SA), section SA.4, where the results are recorded. Implementation detail is in \<Policy\> (SA), \<Procedures\> (SA) and \<System and Services Acquisition Management\>, whose section 3.2 maps the development process to the CSS.
+The assessment plan is in \<Control Assessment Record\> (SA), section SA.4, where the results are recorded. Implementation detail is in \<Policy\> (SA), \<Procedures\> (SA) and \<System and Services Acquisition Management\>, whose section 3.2 maps the development process to the CSS. The values are in \<System Description\>, P-28, P-68, P-74 and P-75.
 
 **Table 25: SA controls**
 
 | Control | How it is implemented | Who | Type | Status | Gap entry |
 | --- | --- | --- | --- | --- | --- |
-| SA-1 Policy and Procedures | Policy and procedures in \<Policy\> (SA) and \<Procedures\> (SA) | System owner, Head of Cyber | Organisational | \[Status\] | \[Decision\] |
-| SA-2 Allocation of Resources | Security requirements set; costs recorded on TPL-23 and raised in budgeting | System owner | Organisational | \[Status\] | \[Decision\] |
-| SA-3 System Development Life Cycle | \<Organisation\>'s corporate SDLC, inherited, whose security practices meet CSS (\<System and Services Acquisition Management\>, section 3.2); roles named | \<Organisation\>, system owner, developers | Hybrid | \[Status\] | \[Decision\] |
-| SA-4 Acquisition Process | \<Organisation\>'s contract | System owner, \<Organisation\> | Inherited | \[Status\] | \[Decision\] |
-| SA-4(1) Functional Properties | Section 7 of this plan and each family's design document describe the controls' functional properties | Developers | Organisational | \[Status\] | \[Decision\] |
-| SA-4(2) Design Information | \<System Description\>, section 6, and sections 3 and 4 of this plan | Developers | Organisational | \[Status\] | \[Decision\] |
-| SA-4(9) Functions, Ports, Protocols | Section 3.7, Table 7, lists the functions, ports, protocols and services | Developers | Organisational | \[Status\] | \[Decision\] |
-| SA-4(10) Use of Approved PIV Products | US government identity cards are not used | None | Not applicable | \[Status\] | \[Decision\] |
-| SA-5 System Documentation | Administrator and user guides (\<Administrator Guide\> and \<User Guide\>, version \<ver\>) | Developers | System | \[Status\] | \[Decision\] |
-| SA-8 Engineering Principles | NCSC principles and privacy objectives mapped to the specification and design (\<System Description\>, section 6.8) | Developers, security officer | Organisational | \[Status\] | \[Decision\] |
-| SA-9 External System Services | The source repositories, the checked package feed and \<Organisation\>'s services listed with their controls (\<System and Services Acquisition Management\>, section 3.7) | System owner, \<Organisation\> | Hybrid | \[Status\] | \[Decision\] |
-| SA-9(2) Functions, Ports, Protocols | \<Organisation\>'s list of functions, ports, protocols and services | \<Organisation\> | Inherited | \[Status\] | \[Decision\] |
-| SA-10 Developer Configuration Management | Code is in Git on private repositories, under \<System and Services Acquisition Management\> | Developers | Hybrid | \[Status\] | \[Decision\] |
-| SA-11 Developer Testing | Developer test plan of 15 scripts (\<System and Services Acquisition Management\>, section 3.9), run with kept evidence; verification to the standard in \<System Description\>, P-28 | Developers | Hybrid | \[Status\] | \[Decision\] |
-| SA-15 Development Process | \<Organisation\>'s corporate SDLC and the tools documented (\<System and Services Acquisition Management\>, sections 3.2 and 3.10) | Developers | Organisational | \[Status\] | \[Decision\] |
-| SA-15(3) Criticality Analysis | In \<Risk Assessment Management\>, section 3.9 | Developers | Organisational | \[Status\] | \[Decision\] |
-| SA-22 Unsupported Components | No component within 6 months of the end of support (\<Maintenance Management\>, section 3.8) | Developers, authorising official | Organisational | \[Status\] | \[Decision\] |
+| SA-1 Policy and Procedures | Policy and procedures in \<Policy\> (SA) and \<Procedures\> (SA) | System owner, Head of Cyber | Organisational | Implemented | NC-SA-01 |
+| SA-2 Allocation of Resources | Security and privacy requirements set from the Moderate and privacy baselines; costs raised every 12 months as a separate line in \<System Name\>'s budget request and recorded on TPL-23 (PRO-SA-6) | System owner | Organisational | Partially implemented | NC-SA-02 |
+| SA-3 System Development Life Cycle | \<Organisation\>'s corporate SDLC, inherited, whose security practices meet CSS (\<System and Services Acquisition Management\>, section 3.2); six stages, each with its security and privacy check, the threat model and the risk review in each significant change; roles named | \<Organisation\>, system owner, developers | Hybrid | Implemented | NC-SA-03 |
+| SA-4 Acquisition Process | \<Organisation\>'s standard contract, with the nine kinds of term in \<System and Services Acquisition Management\>, section 3.4, added (PRO-SA-3). Nothing is yet bought under contract | System owner, \<Organisation\> | Inherited | Implemented | NC-SA-04 |
+| SA-4(1) Functional Properties | Section 7 of this plan and each family's design document describe the controls' functional properties | Developers | Organisational | Implemented | NC-SA-05 |
+| SA-4(2) Design Information | Security-relevant external interfaces and high-level design in \<System Description\>, section 6, and sections 3 and 4 of this plan; how each control is built in the family design documents | Developers | Organisational | Implemented | NC-SA-06 |
+| SA-4(9) Functions, Ports, Protocols | Section 3.7, Table 7, lists the functions, ports, protocols and services, with flows F1 to F11 in \<System Description\>, section 6.5 | Developers | Organisational | Implemented | NC-SA-07 |
+| SA-4(10) Use of Approved PIV Products | Not applicable: United States government identity cards are not used | None | Not applicable | Not applicable | TR-SA-01 |
+| SA-5 System Documentation | Administrator and user guides (\<Administrator Guide\> and \<User Guide\>, version \<ver\>), confirmed at each release and shared with administrators, the security officer and users; missing supplier documents recorded and chased on TPL-16 (PRO-SA-4) | Developers, system owner | Organisational | Implemented | NC-SA-08 |
+| SA-8 Engineering Principles | NCSC principles and privacy objectives mapped to the specification and design (\<System Description\>, section 6.8), and each significant design checked against them (PRO-SA-1) | Developers, security officer | Organisational | Implemented | NC-SA-09 |
+| SA-9 External System Services | \<Organisation\>'s services, the source repositories and the package feed, listed with the controls each must employ and its basis of trust, chiefly its signed interface record row (\<System and Services Acquisition Management\>, section 3.7; D-CA-04); reviewed every 12 months on TPL-16 (PRO-SA-3) | System owner, \<Organisation\> | Hybrid | Partially implemented | NC-SA-10 |
+| SA-9(2) Functions, Ports, Protocols | Each \<Organisation\> service in \<System and Services Acquisition Management\>, Table 4, states the functions, ports, protocols and services it needs, in its signed interface record row or service description | \<Organisation\> | Inherited | Implemented | NC-SA-11 |
+| SA-10 Developer Configuration Management | Code, release scripts, settings, lock files, test scripts and documents in Git on private repositories with a protected default branch, a second developer's review, scans and signed release tags; flaws tracked and reported to the system owner and security officer (\<System and Services Acquisition Management\>, section 3.8) | Developers | Hybrid | Partially implemented | NC-SA-12 |
+| SA-11 Developer Testing | Unit, integration, system and regression testing; developer test plan of 15 scripts at each release, to the depth and coverage in \<System and Services Acquisition Management\>, section 3.9, run with kept evidence; verification to the standard in \<System Description\>, P-28 | Developers | Hybrid | Partially implemented | NC-SA-13 |
+| SA-15 Development Process | \<Organisation\>'s corporate SDLC and the tools and their settings documented (\<System and Services Acquisition Management\>, sections 3.2 and 3.10), reviewed every 12 months (PRO-SA-6) | Developers, security officer | Organisational | Partially implemented | NC-SA-14 |
+| SA-15(3) Criticality Analysis | In \<Risk Assessment Management\>, section 3.9: at design, each major release and significant change, across every component and outside service (\<System and Services Acquisition Management\>, section 3.11) | Developers, system owner | Organisational | Implemented | NC-SA-15 |
+| SA-22 Unsupported Components | Each component replaced before its support ends, with the replacement planned at least 6 months before (P-68), checked monthly against the support dates (\<Maintenance Management\>, section 3.8); in-house or extended support only by exception approved by the authorising official | Developers, authorising official | Organisational | Partially implemented | NC-SA-16 |
 
 ### 7.17 System and Communications Protection (SC)
 

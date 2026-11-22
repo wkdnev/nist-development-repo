@@ -227,7 +227,7 @@ Part B applies, in addition to Part A, to the system owner, administrators, audi
 
 ## 4 Part C: operating procedures
 
-Part C sets out how \<System Name\>'s security is run. Each duty has a reference, C1 to C62, so that it can be traced to its CSS control in section 8. Each names the record that proves it was done. Records use the forms in \<Record Templates\>. A ServiceNow record holding the same fields may replace a form. Records are kept for 3 years in \[the restricted records location\], unless a longer period applies. Audit records stay in \<System Name\> for 12 months and then in an offline archive for 12 more; application logs are kept for 30 days (\<Audit and Accountability Management\>).
+Part C sets out how \<System Name\>'s security is run. Each duty has a reference, C1 to C65, so that it can be traced to its CSS control in section 8. Each names the record that proves it was done. Records use the forms in \<Record Templates\>. A ServiceNow record holding the same fields may replace a form. Records are kept for 3 years in \[the restricted records location\], unless a longer period applies. Audit records stay in \<System Name\> for 12 months and then in an offline archive for 12 more; application logs are kept for 30 days (\<Audit and Accountability Management\>).
 
 The detection use cases U1 to U9 in \<System and Information Integrity Management\>, section 3.4, say what raises an alert, including repeated failed sign-ins, a break in the audit chain and a Defender detection, and \<Procedures\>, PRO-SI-4, says how to respond.
 
@@ -276,7 +276,7 @@ The detection use cases U1 to U9 in \<System and Information Integrity Managemen
 | C24 | Review functions, ports, software and services, and compare installed software with the approved list | Windows server administrator, developers | \<Procedures\>, PRO-CM-5 | TPL-3 | CM-7(1), CM-11 |
 | C25 | Review the boundary and connections | System owner, \<Organisation\>'s security contact | \<Procedures\>, PRO-SC-8; \<Procedures\>, PRO-CA-2 | TPL-3 | SC-7, CA-3, CA-9 |
 | C26 | Review the supply chain, external services and suppliers | System owner, developers | \<Procedures\>, PRO-RA-2; \<Procedures\>, PRO-SA-3; \<Procedures\>, PRO-SR-2 | TPL-23 for the supply chain risk assessment; TPL-16 for each supplier | RA-3(1), SA-9, SR-6 |
-| C27 | Review development tools and standards | Developers, security officer | \<Procedures\>, PRO-SA-6 | TPL-23 | SA-15 |
+| C27 | Review the development process, standards and tools, and raise security and privacy costs as a separate line in yearly budgeting | System owner, developers, security officer | \<Procedures\>, PRO-SA-6 | TPL-23 | SA-2, SA-15 |
 | C28 | Review maintenance tools and people | Windows server administrator, system owner | \<Procedures\>, PRO-MA-3 and PRO-MA-5 | TPL-12 | MA-3, MA-5 |
 | C29 | Check \<Organisation\>'s physical security evidence | System owner | \<Procedures\>, PRO-PE-1 | Response logged in \<Evidence Requests\> | PE-2 to PE-16 |
 | C30 | Assess home working controls | Security officer | \<Procedures\>, PRO-PE-4 | TPL-26 | PE-17 |
@@ -308,6 +308,7 @@ The detection use cases U1 to U9 in \<System and Information Integrity Managemen
 | C44 | Handle a request or complaint from a person about their data. Only the legal adviser's delegate runs the search across all schemas (\<System Description\>, FR-073) | Legal adviser; legal adviser's delegate | \<Procedures\>, PRO-PT-1 and PRO-PT-2 | TPL-15, TPL-22 | AC-3(14), SI-18(4) |
 | C51 | Have every code change reviewed by another developer and merged through the protected default branch, and sign each release tag | Developers | \<Procedures\>, PRO-SA-1; Test-Development.ps1 at each release | Pull request or change record, TPL-6 | SA-10, CM-3 |
 | C64 | Review the risks they affect after a significant change, incident or new test result; review the critical components at each major release and significant change | System owner, developers | \<Procedures\>, PRO-RA-1 and PRO-RA-6 | TPL-23 | RA-3, RA-9 |
+| C65 | At each release, confirm \<Administrator Guide\> and \<User Guide\> still match \<System Name\>, update them, and share any change with administrators, the security officer and users | Developers | \<Procedures\>, PRO-SA-4 | The guides' change record | SA-5 |
 
 ### 4.2 Audit review procedure (C3)
 
@@ -478,6 +479,7 @@ Table 6 shows where each control that these SyOps serve is met. It lets an audit
 | RA-2, RA-3, RA-3(1), RA-7, RA-9 Risk, Supply Chain and Critical Components | C26, C63, C64 |
 | RA-5, SI-2, SI-5 Vulnerabilities and Advisories | C7, C10, C11, C37, C50; section 4.3 |
 | SA-9, SR-6 External Services and Suppliers | C26 |
+| SA-2, SA-5, SA-22 Resources, Guides and Unsupported Components | C11, C27, C65 |
 | SA-10, SA-11, SA-15 Developer Change Control, Testing and Tools | B19; C11, C27, C40, C51 |
 | SC-12 Key Management | B19; C20 |
 | SC-8, SC-13, SC-18, SC-28 Transport, Cryptography, Page Code and Data at Rest | B19; C39, C40, C52, C53 |

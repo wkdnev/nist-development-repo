@@ -67,6 +67,7 @@ Documents, policy decisions and cross-family decisions (GEN). The legal adviser 
 | D-RA-02 | RA | Accept the residual risk of R-RA-03 to R-RA-08, each Medium once its measures are in place (RA-3, RA-7) | Accept for the period of the authorisation, as each impact stays High while the measures in \<Risk List\>, Table 1, make each Low in likelihood; review every 6 months and after a significant change, incident or new test result | Authorising official, on the system owner's advice | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | D-RA-03 | RA | Accept the residual risk of R-RA-09, Low once its measures are in place (RA-3, RA-7) | Accept, reviewed every 12 months and after a significant change, incident or new test result | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | D-RA-04 | RA | Approve the critical components and functions and their method (RA-9) | Approve \<Risk Assessment Management\>, section 3.9: eleven components and five functions, reviewed at design, at each major release and after a significant change | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
+| D-SA-01 | SA | Approve TR-SA-01: SA-4(10) not applicable | Approve: the approved PIV products list is for United States government identity cards, and \<System Name\> neither uses nor buys any; it comes back if a purchase would include PIV products | Authorising official | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | \[D-XX-nn\] | \[XX\] | \[Decision needed\] | \[Recommendation\] | \[Who decides\] | \[Decision\] | \[Name\] | \[Date\] | \[Sheet\] |
 
 ## 3 Parameter approvals
@@ -138,6 +139,8 @@ The reference values are the parameters in \<System Description\>, section 4, wh
 | D-RA-P11 | RA | RA-5, SI-2 | 1: P-11 Flaw fixing | 3 days if exploited; 14 days Critical or High; 30 days Medium; 90 days Low; from the fix's release, or its detection if later | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | D-RA-P30 | RA | RA-5, RA-5(5) | 1: P-30 Vulnerability scanning | Both servers monthly with a credentialed scan and a configuration scan; packages at each build and monthly; browser libraries monthly; the three applications at each release | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | D-RA-P74 | RA | RA-3, RA-3(1), RA-5, RA-5(2), RA-5(11), RA-9 | 1: P-74 Risk assessment | Risks, threat model and categorisation reviewed every 12 months and after a significant change, incident or new test result, and shared with the authorising official and the Head of Cyber; supply chain reviewed every 12 months and before a new supplier or kind of component; critical components at design, each major release and significant change; CISA's exploited list checked each working day from an alert; scan results analysed within 5 working days and shared with the developers and the Windows server administrator; reporters asked to allow 90 days | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
+| D-SA-P28 | SA | SA-11 | 1: P-28 Application security verification standard | OWASP ASVS 5.0, Level 2, verified before go-live and at each major release | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
+| D-SA-P75 | SA | SA-5, SA-9, SA-10, SA-11, SA-15, SA-15(3), SA-22 | 1: P-75 Acquisition and development | Configuration management in development, implementation and operation, with flaws reported to the system owner and security officer; unit, integration, system and regression testing at each build and release, covering every security and privacy function; process and tools reviewed every 12 months; criticality analysis across every component and outside service; missing supplier documents recorded and chased, then raised as a risk; external services checked every 12 months; an unsupported package replaced within 6 months; in-house or extended support only by the authorising official's exception | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | \[D-XX-Pnn\] | \[XX\] | \[Control\] | \[Number of parameters\] | \[Main values\] | \[Who decides\] | \[Decision\] | \[Name\] | \[Date\] | \[Sheet\] |
 
 ## 4 Non-compliance treatment decisions
@@ -163,6 +166,7 @@ The control, rating, reason and treatment of each entry are in \<Risk List\>, se
 | NC-PS-01 to NC-PS-09 | PS | System owner, as every PS entry is rated Low | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | NC-PT-01 to NC-PT-20 | PT | System owner for the Low entries; authorising official for NC-PT-02, NC-PT-05 and NC-PT-13, rated Medium | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | NC-RA-01 to NC-RA-10 | RA | System owner, as every RA entry is rated Low | \[Decision\] | \[Name\] | \[Date\] | None yet |
+| NC-SA-01 to NC-SA-16 | SA | System owner, as every SA entry is rated Low | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | \[NC-XX-nn\] | \[XX\] | \[Who decides\] | \[Decision\] | \[Name\] | \[Date\] | \[Sheet\] |
 
 ## 5 Proof of approval

@@ -1360,23 +1360,23 @@ These procedures carry out \<Policy\> (SA). Steps marked **Manual** have no syst
 | PRO-SA-1 Developing a change | Every change | Developers, security officer | TPL-6 change record; the merge review | SA-3, SA-8, SA-10, SA-15 |
 | PRO-SA-2 Testing a release | Each release | Developers, security officer | Test results with a README and a manifest, in the evidence for each family | SA-11 |
 | PRO-SA-3 Buying a product or service | Each purchase; every 12 months for each external service | System owner | TPL-16 supplier review | SA-4, SA-9, SA-9(2) |
-| PRO-SA-4 Documentation | Each release | Developers, system owner | \<Administrator Guide\> and \<User Guide\> change record | SA-5 |
+| PRO-SA-4 Documentation | Each release; each supplier review | Developers, system owner | \<Administrator Guide\> and \<User Guide\> change record; TPL-16 for a missing supplier document | SA-5 |
 | PRO-SA-5 Unsupported components | Monthly, and 6 months before support ends | Developers, authorising official | TPL-7; \<Maintenance Management\>, section 3.8 | SA-22, MA-6 |
 | PRO-SA-6 Budgeting and reviews | Every 12 months | System owner, developers, security officer | TPL-23 | SA-2, SA-15 |
-| PRO-SA-7 Adding a third-party component | Before a new package, browser library or script is added | Developers | TPL-6 change record | SA-4, SR-3, RA-3(1) |
+| PRO-SA-7 Adding a third-party component | Before a new package, browser library or script is added | Developers | TPL-6 change record; \<Configuration Management\>, Table 4 | SA-4, SA-22, SR-3, RA-3(1) |
 
 ### SA.2 Procedures
 
 #### PRO-SA-1 Developing a change
 
 1. Developers plan and design the change under \<Organisation\>'s corporate SDLC, against the CSS practices in \<System and Services Acquisition Management\>, section 3.2, and note its security and privacy effect on TPL-6. **Manual**
-2. The security officer checks significant designs against the principles in \<System Description\>, section 6.8, and developers update the critical components in \<Risk Assessment Management\>, section 3.9, at each major change. **Manual**
+2. Before a significant change is built, the developers update the threat model (\<Risk List\>, section 2.1; PRO-RA-1). The security officer checks significant designs against the principles in \<System Description\>, section 6.8, and records the check on TPL-6. At design, at each major release and after a significant change, the developers and the system owner review the critical components in \<Risk Assessment Management\>, section 3.9 (PRO-RA-6). **Manual**
 3. Another developer reviews and approves the change before it merges through the protected branch.
-4. The change follows \<Procedures\> (CM).
+4. The change follows \<Procedures\> (CM), and a release is approved by the change control board (PRO-CM-1).
 
 #### PRO-SA-2 Testing a release
 
-1. A build pipeline runs unit, integration and security tests at each release, with the package vulnerability audit on.
+1. A build pipeline runs the unit and integration tests, the package scan, the code scan and the secret scan at each build, with the package vulnerability audit on.
 2. Developers also run the test scripts in the developer test plan (\<System and Services Acquisition Management\>, section 3.9) in the test environment, a throwaway copy of the whole system built from the tagged release with invented data. **Manual**
 3. Developers keep the results with a README and a manifest, in the evidence for the family, and raise each flaw in \<Risk List\> and \<Plan of Action and Milestones\>. **Manual**
 4. The security officer confirms that each fixed flaw passes when the test is run again. **Manual**
@@ -1385,20 +1385,20 @@ These procedures carry out \<Policy\> (SA). Steps marked **Manual** have no syst
 #### PRO-SA-3 Buying a product or service
 
 1. The system owner uses \<Organisation\>'s standard contract, adding security and privacy requirements, documentation, responsibilities and acceptance criteria. **Manual** (EV-SA-01)
-2. The contract or service terms state the controls, the provider's functions, ports, protocols and services, and the service levels with how they are measured and the remedies when they are missed. **Manual** (EV-SA-02, EV-SA-03)
-3. Every 12 months the system owner reviews each external service in \<System and Services Acquisition Management\>, section 3.7, including the source repositories and the package feed, and records the review on TPL-16. **Manual**
+2. For a bought product or service, the contract states the controls, the provider's functions, ports, protocols and services, and the service levels with how they are measured and the remedies when they are missed. For an \<Organisation\> service, its signed row of the interface record (\<Assessment, Authorization, and Monitoring Management\>, Table 6; D-CA-04) or its service description states them. **Manual** (EV-SA-01, EV-SA-02, EV-SA-03, EV-CA-02)
+3. Every 12 months the system owner reviews each external service in \<System and Services Acquisition Management\>, section 3.7, including the source repositories and the package feed, against its signed row or service description and the evidence, and records the review on TPL-16. **Manual**
 
 #### PRO-SA-4 Documentation
 
 1. At each release, developers confirm that \<Administrator Guide\> and \<User Guide\> still match \<System Name\>, and update them. **Manual**
 2. The guides are shared with administrators, the security officer and users. **Manual**
-3. The system owner records any missing supplier document, and chases it. **Manual**
+3. The system owner records any missing supplier document, and each attempt to get it, on that supplier's TPL-16, and chases it. If it is still missing at the next review, the system owner raises the gap in \<Risk List\>. **Manual**
 
 #### PRO-SA-5 Unsupported components
 
-1. The monthly check (\<Security Operating Procedures\>, C11) compares each component in \<Maintenance Management\>, section 3.8, with its vendor's support dates, and checks that each package and browser library is still maintained, is not deprecated, and has no known flaw without a fix. **Manual**
-2. Developers plan a replacement at least 6 months before support ends. **Manual**
-3. Any exception goes to the authorising official, with the risk stated. **Manual**
+1. The monthly check (\<Security Operating Procedures\>, C11) compares each component in \<Configuration Management\>, Table 4, and each outside service in \<System and Services Acquisition Management\>, section 3.7, with its supplier's support dates, using those held in \<Maintenance Management\>, section 3.8, for the security-critical components, and checks that each package and browser library is still maintained, is not deprecated, and has no known flaw without a fix. **Manual**
+2. Developers plan a replacement at least 6 months before support ends, and replace a package or browser library found unsupported within 6 months, or within the flaw timetable (P-11) if it has a known flaw. **Manual**
+3. Any exception, with in-house support or a supplier's extended support meanwhile, goes to the authorising official, with the risk entered in \<Risk List\>. **Manual**
 
 #### PRO-SA-6 Budgeting and reviews
 
@@ -1408,8 +1408,8 @@ These procedures carry out \<Policy\> (SA). Steps marked **Manual** have no syst
 #### PRO-SA-7 Adding a third-party component
 
 1. Before adding a package, browser library or script, a developer checks its origin, licence, maintainer activity, support period and known vulnerabilities. **Manual**
-2. The developer records the check on TPL-6, and pins the version in the lock file. **Manual**
-3. The component is added to \<System Security Plan\>, section 3.4, and to the bill of materials. **Manual**
+2. The developer records the check on TPL-6, brings the component in through the in-house package feed (PRO-SR-1), and pins the version in the lock file. **Manual**
+3. The component is added to \<Configuration Management\>, Table 4, with its version, supplier and licence, and to the bill of materials. **Manual**
 
 ## SC System and Communications Protection
 

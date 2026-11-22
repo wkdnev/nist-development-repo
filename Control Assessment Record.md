@@ -2307,7 +2307,7 @@ For the Level 2 assessment, the assessor should run Test-Vulnerability.ps1 and a
 
 ### SA.1 Purpose
 
-This records the Level 1 self-assessment of the 17 SA entries in the CSS Moderate baseline, using catalog release 5.2.0. SA-4(10) is covered by tailoring proposal TR-SA-01 in \<Tailoring Register\>. An independent team led by \[Name\] will use it for the Level 2 assessment. It makes no fixes.
+This records the Level 1 self-assessment of the 17 SA entries in the CSS Moderate baseline, using catalog release 5.2.0. SA-4(10) is proposed as not applicable in \<Tailoring Register\>, TR-SA-01, and is assessed against its condition. An independent team led by \[Name\] will use it for the Level 2 assessment. It makes no fixes.
 
 ### SA.2 Executive summary
 
@@ -2331,6 +2331,7 @@ This records the Level 1 self-assessment of the 17 SA entries in the CSS Moderat
 | SA-4(1) | \[Result\] | \[n\] of \[n\] | \[Main reason\] |
 | SA-4(2) | \[Result\] | \[n\] of \[n\] | \[Main reason\] |
 | SA-4(9) | \[Result\] | \[n\] of \[n\] | \[Main reason\] |
+| SA-4(10) | \[Result\] | \[n\] of \[n\] | \[Main reason\] |
 | SA-5 | \[Result\] | \[n\] of \[n\] | \[Main reason\] |
 | SA-8 | \[Result\] | \[n\] of \[n\] | \[Main reason\] |
 | SA-9 | \[Result\] | \[n\] of \[n\] | \[Main reason\] |
@@ -2395,6 +2396,7 @@ There is one finding for each CSS determination statement, including those about
 | SA-04(09)\[02\] | Developer identifies ports | \[Finding\] | \[Basis\] |
 | SA-04(09)\[03\] | Developer identifies protocols | \[Finding\] | \[Basis\] |
 | SA-04(09)\[04\] | Developer identifies services | \[Finding\] | \[Basis\] |
+| SA-04(10) | Only approved PIV products are used | \[Finding\] | \[Basis\] |
 | SA-05\_ODP\[01\] | Actions for missing documents are defined | \[Finding\] | \[Basis\] |
 | SA-05\_ODP\[02\] | Who receives documentation is defined | \[Finding\] | \[Basis\] |
 | SA-05a.01\[01\] | Administrator guide covers secure configuration | \[Finding\] | \[Basis\] |
@@ -2494,17 +2496,17 @@ There is one finding for each CSS determination statement, including those about
 
 | Item | Detail |
 | --- | --- |
-| Scope | The 17 SA entries in the Moderate baseline, with 159 determination statements. SA-4(10) is covered by TR-SA-01 |
+| Scope | The 17 SA entries in the Moderate baseline, with 160 determination statements. SA-4(10) is assessed against the condition in TR-SA-01 |
 | Procedures | CSS, using the CSS published statements and identifiers (catalog release 5.2.0); CSS for the development process |
 | Dates | \[Dates of the assessment\] |
-| Examine | \<Policy\> (SA), \<Procedures\> (SA) and \<System and Services Acquisition Management\>; \<System Description\>, section 6; \<System Security Plan\>, sections 3, 4 and 7; \<Risk Assessment Management\>; \<Maintenance Management\>; \<Organisation\>'s corporate SDLC, which \<System Name\> is built under; the guides; the test evidence folders. Depth: focused. Coverage: focused |
+| Examine | \<Policy\> (SA), \<Procedures\> (SA) and \<System and Services Acquisition Management\>; \<System Description\>, section 6 and P-28, P-68 and P-75; \<System Security Plan\>, sections 3, 4 and 7; \<Risk Assessment Management\>; \<Maintenance Management\>; \<Configuration Management\>, Table 4; the interface record in \<Assessment, Authorization, and Monitoring Management\>, Table 6; \<Risk List\>, section 2.1; \<Organisation\>'s corporate SDLC, which \<System Name\> is built under; the guides; the test evidence folders. Depth: focused. Coverage: focused |
 | Test | Test-Development.ps1, read-only, against the repositories, the release history and the build files (the SA evidence) |
-| Interview | The developers, the system owner and \<Organisation\>'s contract owner |
+| Interview | The developers, the system owner, the security officer and \<Organisation\>'s contract owner (\<Interview Guide\>, section 19) |
 | Previous results reused | \[Results reused from other chapters, if any\] |
 | Boundary | \<System Name\>'s development and acquisition. \<Organisation\>'s contracts, services and corporate SDLC, and the source repository service's own controls, are provider evidence (EV-SA-01 to EV-SA-04) |
 | Order of assessment | A, change control (SA-10); B, developer testing (SA-11); C, process and tools (SA-3, SA-15); D, documentation (SA-5); E, external services and contracts (SA-4, SA-9); F, policy and resources (SA-1, SA-2) |
-| Needed from providers | EV-SA-01 to EV-SA-04 in \<Evidence Requests\> |
-| Evidence retained | The SA evidence (results, README and MANIFEST); the other evidence folders; completed TPL-6, TPL-16 and TPL-23 records |
+| Needed from providers | EV-SA-01 to EV-SA-04 and EV-CA-02 in \<Evidence Requests\> |
+| Evidence retained | The SA evidence (results, README and MANIFEST); the other evidence folders; completed TPL-6, TPL-7, TPL-16 and TPL-23 records; the signed interface record rows |
 | Notes | The test is Test-Development.ps1. It reads the repository settings through the source repository service (read-only), the Git history at the release tag, the build files and the component support dates. |
 
 For the Level 2 assessment, the assessor should run Test-Development.ps1 again, sample merged changes for a recorded review, check the guides against the screens, and re-determine every statement in section SA.3.

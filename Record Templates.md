@@ -15,7 +15,7 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | TPL-3 Access review | Records a periodic review of accounts or privileges, checked against the ServiceNow requests, and the yearly review of functions, ports and installed software | AC-2j, AC-2(3), AC-6(7); PRO-AC-7, PRO-AC-8; CM-7(1), CM-11, SC-7(4), CA-3, CA-9; PRO-CM-5; PS-2, PS-3, PS-6; PRO-PS-4 |
 | TPL-4 Procedure walk-through | Shows that a procedure was tried and works | Every policy control (XX-1); AC-2f; every procedure |
 | TPL-5 Approved access list | Lists everyone with access to \<System Name\>'s information or the components that hold it, each with the approval behind it, as CM-12 requires: the members of its AD groups, with their ServiceNow requests (TPL-2), which stay the approved record of each grant; the Windows server and database administrators; and \<Organisation\>'s staff with access to the hosts and backups. Approved by the system owner before real data is held and at each yearly baseline review | CM-12; PRO-CM-2 |
-| TPL-6 Change record | Records a change, its impact, testing and approval. Where the change is recorded in ServiceNow, the ServiceNow record is this record and must hold these fields | CM-3, CM-3(2), CM-4, CM-4(2), CM-6, CM-8(1), SI-2, IA-5, IA-5(1), IA-5(6); PRO-CM-1, PRO-CM-3, PRO-CM-8, PRO-IA-4, PRO-IA-5 |
+| TPL-6 Change record | Records a change, its impact, testing and approval. Where the change is recorded in ServiceNow, the ServiceNow record is this record and must hold these fields | CM-3, CM-3(2), CM-4, CM-4(2), CM-6, CM-8(1), SI-2, IA-5, IA-5(1), IA-5(6), SA-3, SA-8, SA-10; PRO-CM-1, PRO-CM-3, PRO-CM-8, PRO-IA-4, PRO-IA-5, PRO-SA-1, PRO-SA-7 |
 | TPL-7 Vulnerability and patch review | Records a scan or package check, what was found, and when it was fixed | SI-2, SI-2(2), SI-5, RA-5, RA-5(5); PRO-SI-1, PRO-SI-5, PRO-RA-3, PRO-RA-4, PRO-RA-5, PRO-CM-4 |
 | TPL-8 Monitoring and integrity report | Records log reviews, integrity checks, audit storage, archive and time checks, configuration drift, unauthorised components, the monthly measures with threshold actions and trend, the privacy status to the legal adviser and the quarterly report to the authorising official | AU-4, AU-6, AU-8, AU-9, AU-11, SI-4, SI-7(1), CA-7, CM-6, CM-8(3); PRO-AU-1 to PRO-AU-4, PRO-AU-7, PRO-SI-3, PRO-SI-4, PRO-SI-6, PRO-CA-5, PRO-CM-6, PRO-CM-7 |
 | TPL-9 Training record | Records who was trained, on what and when. Kept for 3 years | AT-2, AT-3, AT-3(5), AT-4, IR-2, CP-3, PL-4; PRO-AT-1, PRO-AT-2 and PRO-AT-4 |
@@ -25,14 +25,14 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | TPL-13 Media record | Records media transport, sanitising, ownerless devices and the yearly certificate check. Kept for 3 years (P-69) | MP-5, MP-6, MP-7; PRO-MP-1 to PRO-MP-4 |
 | TPL-14 Leaver or mover record | Records what happened to someone's access when they left or moved. Kept for 3 years | AC-2; PS-4, PS-5; PRO-PS-2, PRO-PS-3 |
 | TPL-15 Privacy request | Records a request from an individual about their data: to see, correct, delete, restrict, object or receive it in a portable form. Kept for 3 years after it is closed | AC-3(14); SI-18(4); PRO-PT-1 |
-| TPL-16 Supplier review | Records a yearly review of a supplier or external service | SA-9, SR-2, SR-6, SR-8; PRO-SA-3, PRO-SR-2; PS-7; PRO-PS-5 |
+| TPL-16 Supplier review | Records a yearly review of a supplier or external service | SA-5, SA-9, SA-9(2), SR-2, SR-6, SR-8; PRO-SA-3, PRO-SA-4, PRO-SR-2; PS-7; PRO-PS-5 |
 | TPL-17 Exception request | Records a request to depart from a rule in \<Security Operating Procedures\>, the decision and its end date. The approved requests form the exception register | AC-20, AC-20(2); PRO-AC-15; PL-4, CM-2(7), MP-7, PE-17; \<Security Operating Procedures\>, section 5 |
 | TPL-18 Authorisation decision | Records the authorising official's decision, its terms and conditions, the package received, the risks and inherited controls accepted, reliance on \<Organisation\>'s programme for the PM controls, and its end date | CA-6; PRO-CA-4, PRO-CA-7 |
 | TPL-19 Assessor independence statement | Records an assessor's confirmation that they had no part in designing, building, running or administering \<System Name\>, no reporting line to it and any other interest, with the authorising official's acceptance | CA-2(1), CA-7(1); PRO-CA-1, PRO-CA-5 |
 | TPL-20 Site inspection checklist | Records a one-off inspection of a data centre's physical and environmental controls | PE-2 to PE-16; PRO-PE-5 |
 | TPL-21 Rules of behaviour acknowledgement | Records that a person has signed the rules of behaviour, which version and parts, and how. Kept while the person has access, and for 3 years after | AC-2; PL-4, PL-4(1), PS-6; PRO-PL-3, PRO-PS-1, PRO-PS-4 |
 | TPL-22 Data protection complaint | Records a complaint about how personal data is handled, its acknowledgement within 30 days, the investigation and the outcome. Kept for 3 years after it is closed | PT-2, PM-26; PRO-PT-2 |
-| TPL-23 Risk and supply chain review | Records a review of the risk list, the supply chain or the critical components: what was looked at, what changed, and who saw the result | RA-3, RA-3(1), RA-7, RA-9; PRO-RA-1, PRO-RA-2, PRO-RA-6 |
+| TPL-23 Risk and supply chain review | Records a review of the risk list, the supply chain or the critical components: what was looked at, what changed, and who saw the result | RA-3, RA-3(1), RA-7, RA-9, SA-2, SA-15, SA-15(3); PRO-RA-1, PRO-RA-2, PRO-RA-6, PRO-SA-6 |
 | TPL-24 Approval sign-off record | Records that a named person made or confirms the decisions listed, so that an approval does not rest on someone else's report | AC-1; CA-6, PL-2, PM-10 and every policy control (xx-1); \<Decision Register\>, section 5 |
 | TPL-25 Sharing decision | Records a Data Owner's decision on sharing a schema's information outside the schema or outside \<Organisation\>: what, with whom, why, and the conditions | AC-21; PRO-AC-16 |
 | TPL-26 Home working check | Records each person's yearly answers to the home working checklist, and any follow-up | PE-17; PRO-PE-4; \<Security Operating Procedures\>, C30 |
@@ -154,6 +154,8 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | Type of change |  |
 | Impact analysis (\<Configuration Management\>, section 3.9): items and components affected, controls affected, personal data, connections, and whether it is a significant change |  |
 | Impact rating: Low, Medium or High. The authorising official's agreement and date, if the impact is High or the change is significant |  |
+| Significant design only: threat model updated, and the security officer's check against the engineering principles (\<System Description\>, section 6.8), with the result (PRO-SA-1) |  |
+| New third-party component only: origin, publisher, licence, maintainer activity, support period and known vulnerabilities checked, and the version pinned (PRO-SA-7) |  |
 | Test plan and back-out plan |  |
 | Emergency change: yes or no (PRO-CM-8) |  |
 | Tested in the test environment: date and result |  |
@@ -358,7 +360,9 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | Supplier or service |  |
 | Criticality, from the supplier register (\<Supply Chain Risk Management\>, section 3.5) |  |
 | What it provides to \<System Name\> |  |
-| Controls the contract requires, and evidence seen |  |
+| Controls the contract, signed interface record row or service description requires, and evidence seen |  |
+| Functions, ports, protocols and services it needs, as it states them, and any change (SA-9(2)) |  |
+| Documents missing from it, and each attempt to get them (SA-5) |  |
 | Service levels: met or not, and any remedy used |  |
 | Compromises or problems since the last review |  |
 | Support ending within 12 months: yes or no |  |
@@ -486,14 +490,14 @@ Completed by the legal adviser for each complaint about how personal data in \<S
 
 ### 2.23 TPL-23 Risk and supply chain review
 
-Completed by the system owner for each review of the risk list, the supply chain, the critical components, or the cryptographic register and boundary (\<Procedures\>, PRO-RA-1, PRO-RA-2 and PRO-RA-6; \<Procedures\>, PRO-SC-8).
+Completed by the system owner for each review of the risk list, the supply chain, the critical components, the cryptographic register and boundary, or the yearly budget and development process (\<Procedures\>, PRO-RA-1, PRO-RA-2 and PRO-RA-6; \<Procedures\>, PRO-SC-8; \<Procedures\>, PRO-SA-6).
 
 **Table 26: TPL-23 Risk and supply chain review**
 
 | Field | Entry |
 | --- | --- |
 | Record number |  |
-| Kind of review: risk, supply chain or critical components |  |
+| Kind of review: risk, supply chain, critical components, cryptographic register and boundary, or budget and development process |  |
 | Reason: yearly, significant change, incident, new test result or release |  |
 | Date, and who took part |  |
 | What was looked at, with versions and evidence |  |
@@ -503,7 +507,7 @@ Completed by the system owner for each review of the risk list, the supply chain
 | Components or suppliers added or removed |  |
 | Yearly review only: security and privacy costs raised in budgeting, and the amounts (SA-2) |  |
 | Cryptographic register and boundary review only: keys and certificates due for change, algorithms NCSC no longer recommends, allow-list rules and exceptions kept or removed (SC-7(4), SC-12, SC-13) |  |
-| Yearly review only: tools, standards and the CSS table in \<System and Services Acquisition Management\>, section 3.2 reviewed, and changes (SA-15) |  |
+| Yearly review only: process, standards, tools and their settings in \<System and Services Acquisition Management\>, sections 3.2 and 3.10, reviewed against the security and privacy requirements, and changes (SA-15) |  |
 | Decisions needed, and from whom (\<Decision Register\>) |  |
 | Shared with the authorising official and Head of Cyber, and date |  |
 | Signed by the system owner, and date |  |
