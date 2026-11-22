@@ -405,7 +405,7 @@ These procedures carry out \<Policy\> (AT). Steps marked **Manual** rely on peop
 #### PRO-AT-5 Measures and checking
 
 1. Each month, the security officer reports the measures in \<Awareness and Training Management\>, section 3.9, with the CA-7 measures on TPL-8. **Manual**
-2. Anyone overdue is reminded. Anyone overdue by more than 30 days has privileged access suspended until complete. **Manual**
+2. Anyone overdue is reminded each month. Anyone overdue by more than 30 days has privileged access suspended until complete. A standard user keeps access, as accepted in \<Risk List\>, R-AT-01. **Manual**
 3. At each review, the system owner runs Test-PlanConsistency.ps1. Check L14 confirms that every security role has its training defined in the matrix. **Manual**
 4. No phishing simulation is run unless HR and the legal adviser have agreed it (\<Policy\> (AT), R8). **Manual**
 

@@ -24,6 +24,7 @@ Documents, policy decisions and cross-family decisions (GEN). The legal adviser 
 | D-AC-08 | AC | Approve TR-AC-08: AC-22 not applicable | Approve: \<System Name\> holds no public content (P-50) | Authorising official | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | D-AC-09 | AC | Approve TR-AC-09: AC-07\_ODP\[05\], \[06\] not selected | Approve: the account lock in P-42 is the chosen action | Authorising official | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | D-AC-10 | AC | Approve TR-AC-10: AC-20\_ODP\[03\] not selected | Approve: the terms in P-48 are used, not asserted controls | Authorising official | \[Decision\] | \[Name\] | \[Date\] | None yet |
+| D-AT-01 | AT | Accept R-AT-01: a standard user whose yearly training is overdue keeps access, with monthly reminders | Accept: the risk is Low, privileged users are still suspended after 30 days, and the overdue count is reported monthly | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | \[D-XX-nn\] | \[XX\] | \[Decision needed\] | \[Recommendation\] | \[Who decides\] | \[Decision\] | \[Name\] | \[Date\] | \[Sheet\] |
 
 ## 3 Parameter approvals

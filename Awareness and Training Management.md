@@ -143,7 +143,7 @@ Controls met here: AT-2, AT-3, AT-4.
 | Within 30 days of taking a role | Incident response (M7), contingency (M8) and, for the authorising official, risk decisions (M10) | Security officer |
 | Every 12 months | All of the above, repeated | Security officer, who asks each person |
 | After a significant incident, exercise or change | The updated briefing or module, for those it affects | Security officer |
-| More than 30 days overdue | Privileged access is suspended until the training is complete | System owner |
+| More than 30 days overdue | Privileged access is suspended until the training is complete. A standard user is reminded each month and keeps access; that risk is R-AT-01 in \<Risk List\>, accepted by the system owner (D-AT-01) | System owner |
 
 ### 3.7 Keeping content current
 
