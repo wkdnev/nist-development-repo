@@ -933,16 +933,16 @@ It applies to the UI application, the Admin application, the API, the \<System N
 
 ### RA.4 Mandatory requirements
 
-1. **R1 Risk record:** \<Risk List\> is the record of risk assessment. It must use the method in its section 4, which follows CSS, and give each risk a status and the date it was last reviewed.
-2. **R2 Risk review:** the risk assessment must be reviewed every 12 months, and after a significant change, incident or new test result, and shared with the system owner, the authorising official and the Head of Cyber.
+1. **R1 Risk record:** \<Risk List\> is the record of risk assessment. It must hold a threat model of \<System Name\>, rate each risk, including the risks to people's privacy, by the method in its section 4, which follows CSS, and give each risk a status and the date it was last reviewed.
+2. **R2 Risk review:** the risk assessment, with its threat model, must be reviewed every 12 months, and after a significant change, incident or new test result, and shared with the system owner, the authorising official and the Head of Cyber (P-74).
 3. **R3 Categorisation:** the system must keep a security categorisation under CSS, with its rationale, approved by the authorising official.
 4. **R4 Organisational risk:** system risk decisions must respect \<Organisation\>'s risk management strategy and risk appetite.
-5. **R5 Supply chain:** supply chain risk from packages, browser libraries, suppliers and the servers must be reviewed every 12 months, and recorded on TPL-23.
-6. **R6 Scanning:** vulnerability scans must run as P-30 sets: servers monthly, with credentialed scans of both VMs, and packages and code at each release, with definitions updated before each scan. The packages, the browser libraries, \<System Name\>'s own applications, and both servers' operating system, SQL Server and other installed software must all be covered.
+5. **R5 Supply chain:** supply chain risk from packages, browser libraries, suppliers and the servers must be reviewed every 12 months, and recorded on TPL-23 (P-74).
+6. **R6 Scanning:** vulnerability scans must run as P-30 sets: both VMs monthly, with a credentialed scan and a configuration scan; packages at each build and monthly; browser libraries monthly; and the three applications at each release, with definitions updated before each scan. The packages, the browser libraries, \<System Name\>'s own applications, and both servers' operating system, SQL Server and other installed software must all be covered.
 7. **R7 Response times:** each vulnerability must be fixed or mitigated within the time in \<Risk Assessment Management\>, section 3.6, for its severity, counted from the fix's release, or from detection if that is later. Critical and High within 14 days, Medium within 30 days, Low within 90 days (P-11). Severity is the vendor's rating, or else the CVSS base score.
-8. **R8 Exploited flaws:** a flaw listed in CISA's Known Exploited Vulnerabilities catalogue, or confirmed by its vendor as exploited, must be fixed or mitigated within 3 days as an emergency change. A fix that cannot meet any time goes to a risk decision under section 1.2.
+8. **R8 Exploited flaws:** a flaw listed in CISA's Known Exploited Vulnerabilities catalogue, or confirmed by its vendor as exploited, must be fixed or mitigated within 3 days as an emergency change. New entries in the catalogue must be checked each working day, from an alert. A fix that cannot meet any time goes to a risk decision under section 1.2.
 9. **R9 Reports:** vulnerability reports must be received through \<Organisation\>'s security contact, which must be published with terms that authorise research in good faith, and flaws found in another party's component must be reported to its maintainer.
-10. **R10 Critical components:** critical components must be identified by the method in \<Risk Assessment Management\>, section 3.9, and reviewed at each major release and significant change.
+10. **R10 Critical components:** critical components and functions must be identified by the method in \<Risk Assessment Management\>, section 3.9, at design, and reviewed at each major release and significant change.
 
 ### RA.5 Responsibilities
 
@@ -952,7 +952,7 @@ It applies to the UI application, the Admin application, the API, the \<System N
 | --- | --- |
 | Head of Cyber | Approves this policy, as all policies; confirms the risk thresholds against \<Organisation\>'s risk appetite |
 | System owner | Owns this policy and the risk list, decides Low risks, holds the risk and supply chain reviews, and approves critical components |
-| Authorising official | Approves the categorisation, and decides Medium and High risks |
+| Authorising official | Approves the categorisation, decides Medium and High risks, and decides every tailoring whatever its rating |
 | Information owner | Confirms the information types and their impact levels |
 | Security officer | Reviews scan results, tracks them to closure, and receives vulnerability reports |
 | Windows server administrator | Runs scans of the VMs |
@@ -964,7 +964,7 @@ It applies to the UI application, the Admin application, the API, the \<System N
 The rules in section 1.1 apply to this policy. It adds these.
 
 1. **Communication:** this policy and the procedures must be shared with everyone who administers \<System Name\>, and whenever they change.
-2. **Compliance and management commitment:** the system owner reviews compliance at each review, runs Test-Vulnerability.ps1, and records the result.
+2. **Compliance and management commitment:** the system owner reviews compliance at each review, using the latest results of Test-Vulnerability.ps1, and records the result.
 3. **Coordination:** the system owner agrees with \<Organisation\>'s security contact how inherited protections and vulnerability reports are handled, and records it.
 4. **Laws and standards:** this policy must be consistent with applicable law, \<Organisation\>'s policies, the Cyber Essentials requirements \<Organisation\> holds, and CSS.
 
@@ -1107,7 +1107,7 @@ It applies to the UI application, the Admin application, the API, the \<System N
 4. **R4 Upload checks:** only the file types in P-19 may be uploaded. Each file's type and signature must match its extension, its size must be within the limit for the user's role (P-17), a batch must be within P-18, and its name must not contain a path.
 5. **R5 Monitoring:** application, Windows and SQL Server logs must be forwarded to \<Organisation\>'s central logging and reviewed weekly (P-08). The detection use cases in \<System and Information Integrity Management\>, section 3.4, which include the nine events in P-27, must raise alerts to the security officer.
 6. **R6 Monitoring people:** users must be monitored only after the legal adviser's opinion, only as far as needed, and with staff told what is monitored and why.
-7. **R7 Advisories:** advisories must be received from NCSC (including Early Warning), CISA's Known Exploited Vulnerabilities catalogue (weekly), and the vendors of every component, including Microsoft for Windows Server, .NET and SQL Server, and passed to the people who act on them.
+7. **R7 Advisories:** advisories must be received from NCSC (including Early Warning), CISA's Known Exploited Vulnerabilities catalogue (each working day, from an alert on new entries), and the vendors of every component, including Microsoft for Windows Server, .NET and SQL Server, and passed to the people who act on them.
 8. **R8 Integrity:** release packages and stored files must be protected with SHA-256 checksums, and audit records with the HMAC-SHA-256 chain, and checked against the recorded baseline at start-up, at each release and monthly (P-29). An unexpected change is handled as an incident.
 9. **R9 Input validation:** all API inputs, uploads and search terms must be validated on the server, and database queries must use parameters.
 10. **R10 Errors:** users and API callers must receive general error messages. Exception detail goes only to the logs, for administrators and developers.

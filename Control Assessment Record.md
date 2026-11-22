@@ -2259,10 +2259,10 @@ There is one finding for each CSS determination statement, including those about
 | RA-05\_ODP\[04\] | Who receives results is defined | \[Finding\] | \[Basis\] |
 | RA-05a.\[01\] | Systems are monitored for vulnerabilities | \[Finding\] | \[Basis\] |
 | RA-05a.\[02\] | Systems are scanned for vulnerabilities | \[Finding\] | \[Basis\] |
-| RA-05b. | Tools are used that work with each other | \[Finding\] | \[Basis\] |
-| RA-05b.01 | Tools work together and automate parts of the process | \[Finding\] | \[Basis\] |
-| RA-05b.02 | Tools report flaws in a common format | \[Finding\] | \[Basis\] |
-| RA-05b.03 | Tools measure the effect of vulnerabilities | \[Finding\] | \[Basis\] |
+| RA-05b. | Tools work together and automate parts of the process | \[Finding\] | \[Basis\] |
+| RA-05b.01 | Platforms, flaws and improper configurations are named by standards | \[Finding\] | \[Basis\] |
+| RA-05b.02 | Checklists and test procedures use a standard format | \[Finding\] | \[Basis\] |
+| RA-05b.03 | Vulnerability impact is measured by a standard | \[Finding\] | \[Basis\] |
 | RA-05c. | Results are analysed | \[Finding\] | \[Basis\] |
 | RA-05d. | Real vulnerabilities are fixed in time | \[Finding\] | \[Basis\] |
 | RA-05e. | Information is shared to remove similar flaws | \[Finding\] | \[Basis\] |
@@ -2291,9 +2291,9 @@ There is one finding for each CSS determination statement, including those about
 | Scope | The 10 RA entries in the Moderate baseline, with 73 determination statements |
 | Procedures | CSS, using the CSS published statements and identifiers (catalog release 5.2.0); CSS for the risk method |
 | Dates | \[Dates of the assessment\] |
-| Examine | \<Policy\> (RA), \<Procedures\> (RA) and \<Risk Assessment Management\>; \<Risk List\>; \<System Security Plan\>, section 3; \<Supply Chain Risk Management\>; \<Decision Register\>; \<Plan of Action and Milestones\>. Depth: focused. Coverage: focused |
+| Examine | \<Policy\> (RA), \<Procedures\> (RA) and \<Risk Assessment Management\>; \<Risk List\>, with its threat model; \<System Security Plan\>, section 3; \<System Description\>, P-01, P-11, P-30 and P-74; \<Supply Chain Risk Management\>; \<Data Protection Impact Assessment\>, section 6; \<Decision Register\>, D-RA-01 to D-RA-04; \<Plan of Action and Milestones\>; TPL-7 and TPL-23 records. Depth: focused. Coverage: focused |
 | Test | Test-Vulnerability.ps1, on the release tag and the servers (the RA evidence) |
-| Interview | The system owner, the security officer, the Windows server administrator and \<Organisation\>'s security contact |
+| Interview | The system owner, the authorising official, the security officer, the Windows server administrator, the developers and \<Organisation\>'s security contact |
 | Previous results reused | \[Results reused from other chapters, if any\] |
 | Boundary | \<System Name\>'s risk assessment and vulnerability management. \<Organisation\>'s risk strategy, scanning services and virtual platform are inherited (EV-RA-01, EV-PM-01) |
 | Order of assessment | A, vulnerabilities (RA-5, RA-5(2), RA-5(5)); B, risk method and register (RA-3, RA-7); C, supply chain and critical components (RA-3(1), RA-9); D, categorisation (RA-2); E, policy (RA-1) |

@@ -1296,39 +1296,40 @@ These procedures carry out \<Policy\> (RA). Steps marked **Manual** have no syst
 | PRO-RA-1 Reviewing risk | Every 12 months; after a significant change, incident or new test result | System owner, authorising official | TPL-23; \<Risk List\> and \<Decision Register\> updated | RA-3, RA-7 |
 | PRO-RA-2 Reviewing the supply chain | Every 12 months; before adding a supplier or a new kind of component | System owner, developers | TPL-23 | RA-3(1), SR-6 |
 | PRO-RA-3 Scanning and analysing | Monthly and at each release | Windows server administrator, developers, security officer | TPL-7 | RA-5, RA-5(2), RA-5(5), SI-2 |
-| PRO-RA-4 Responding to an exploited flaw | When a flaw affecting \<System Name\> is listed in CISA's catalogue or confirmed exploited | Security officer, developers, system owner | TPL-7; TPL-6 emergency change | RA-5d, SI-2, CM-3 |
+| PRO-RA-4 Responding to an exploited flaw | Each working day, from an alert on new entries in CISA's catalogue; when a flaw affecting \<System Name\> is confirmed exploited | Security officer, developers, system owner | TPL-7; TPL-6 emergency change | RA-5d, SI-2, CM-3 |
 | PRO-RA-5 Sharing results and receiving reports | After each scan; on any report | Security officer | TPL-7 | RA-5e, RA-5(11) |
-| PRO-RA-6 Reviewing critical components | At each major release and significant change | System owner, developers | \<Risk Assessment Management\>, section 3.9; TPL-23 | RA-9 |
+| PRO-RA-6 Reviewing critical components | At design; at each major release and significant change | System owner, developers | \<Risk Assessment Management\>, section 3.9; TPL-23 | RA-9 |
 
 ### RA.2 Procedures
 
 #### PRO-RA-1 Reviewing risk
 
-1. Every 12 months, and after a significant change, incident or new test result, the system owner reviews each risk in \<Risk List\> against the method in its section 4, and updates its rating, status and last-reviewed date. **Manual**
+1. Every 12 months, and after a significant change, incident or new test result, the system owner reviews the threat model in \<Risk List\>, section 2.1, and each risk against the method in its section 4, adds any new threat or risk, and updates each rating, status and last-reviewed date. **Manual**
 2. They check that each acceptance in section 3 is within its review date, and that Medium and High risks have a decision. Test-Vulnerability.ps1, checks V05 to V07, does this mechanically. **Manual**
 3. They record the review on TPL-23 and share it with the authorising official and the Head of Cyber. **Manual**
-4. The system owner decides Low risks, and the authorising official decides Medium and High risks, recording them in \<Decision Register\>. **Manual**
+4. The system owner decides Low risks, and the authorising official decides Medium and High risks and any tailoring, whatever its rating (PRO-PL-4). A reduced risk is decided at its residual rating. Each decision is recorded in \<Decision Register\>. **Manual**
 5. At each review the system owner checks that the categorisation in \<System Security Plan\>, section 3.3, still fits the information \<System Name\> holds, and puts any change to the authorising official. **Manual**
 
 #### PRO-RA-2 Reviewing the supply chain
 
 1. Every 12 months, before adding a supplier or a new kind of component, and after a significant change to the system or where it runs, the system owner and developers review packages, browser libraries, suppliers and the VMs for origin, support, known problems and end of support. **Manual**
-2. They use \<Supply Chain Risk Management\>, section 3.4, the latest package check, and the CM bill of materials. **Manual**
+2. They use \<Supply Chain Risk Management\>, sections 3.4 and 3.5, the latest package check, and the CM bill of materials. **Manual**
 3. They record the result on TPL-23, and any new risk in \<Risk List\>. **Manual**
 
 #### PRO-RA-3 Scanning and analysing
 
-1. The administrator updates the scanner's definitions before each scan.
+1. The Windows server administrator updates the scanner's definitions before each scan, and records their date on TPL-7.
 2. Monthly and at each release, the Windows server administrator runs a credentialed scan of both VMs, using an account approved for that purpose.
-3. At each release, developers run Test-Vulnerability.ps1, which checks the packages and browser libraries. **Manual**
-4. At each release, developers run a web application scan of the UI application, the Admin application and the API.
-5. Within 5 working days, the security officer reviews the results on TPL-7. For each finding they record its severity under \<Risk Assessment Management\>, section 3.6, whether \<System Name\> uses the affected part, and the due date. **Manual**
-6. A finding that does not apply, such as a flaw in a feature \<System Name\> does not call, is marked as a false positive on TPL-7 with the reason, and checked again at the next scan. **Manual**
-7. The people responsible fix or mitigate each finding within its time. A fix that cannot meet its time goes to a risk decision, with its compensating measure. **Manual**
+3. The pipeline reports package vulnerabilities at each build. Monthly and at each release, developers run Test-Vulnerability.ps1, which checks the packages and browser libraries.
+4. At each release, developers run a web application scan of the UI application, the Admin application and the API, both signed in as a user and without signing in.
+5. Monthly, the configuration scan against the baseline (PRO-CM-7) finds improper configurations; its findings are recorded and handled as the steps below set.
+6. Within 5 working days, the security officer reviews the results on TPL-7. For each finding they record its severity under \<Risk Assessment Management\>, section 3.6, whether \<System Name\> uses the affected part, and the due date. **Manual**
+7. A finding that does not apply, such as a flaw in a feature \<System Name\> does not call, is marked as a false positive on TPL-7 with the reason, and checked again at the next scan. **Manual**
+8. The people responsible fix or mitigate each finding within its time. A fix that cannot meet its time is entered in \<Risk List\> as a non-compliance and goes to a risk decision, with its compensating measure. **Manual**
 
 #### PRO-RA-4 Responding to an exploited flaw
 
-1. The security officer checks CISA's Known Exploited Vulnerabilities catalogue and \<Organisation\>'s alerts at least weekly against the components in \<System Security Plan\>, section 3.4. **Manual**
+1. An alert from CISA's Known Exploited Vulnerabilities catalogue feed tells the security officer of each new entry. Each working day they check the new entries, and \<Organisation\>'s alerts, against the components in \<System Security Plan\>, section 3.4.
 2. A listed flaw in a \<System Name\> component is recorded on TPL-7 the same day, with a due date 3 days away. **Manual**
 3. Developers or the administrator apply the fix, or a mitigation such as disabling the feature or blocking its route, as an emergency change (\<Procedures\> (CM)). **Manual**
 4. The security officer confirms the fix or mitigation, and tells the system owner. If it cannot be done in 3 days, the authorising official decides at once. **Manual**
@@ -1341,8 +1342,8 @@ These procedures carry out \<Policy\> (RA). Steps marked **Manual** have no syst
 
 #### PRO-RA-6 Reviewing critical components
 
-1. At each major release and significant change, the system owner and developers review the critical components in \<Risk Assessment Management\>, section 3.9, using its method. **Manual**
-2. They update the list, check each component is in \<System Security Plan\> (Test-Vulnerability.ps1, V08), and record the review on TPL-23. **Manual**
+1. At design, and at each major release and significant change, the system owner and developers identify or review the critical components and functions in \<Risk Assessment Management\>, section 3.9, using its method. **Manual**
+2. They update the list, check each component is in \<System Security Plan\> (Test-Vulnerability.ps1, V08), and record the review on TPL-23. The system owner approves the list (D-RA-04). **Manual**
 
 ## SA System and Services Acquisition
 
@@ -1532,7 +1533,7 @@ These procedures carry out \<Policy\> (SI). The values, detection use cases and 
 
 #### PRO-SI-5 Acting on advisories
 
-1. The security officer receives advisories from NCSC (including Early Warning), CISA, Microsoft for Windows Server, SQL Server and .NET, and the vendors of every other component, and checks CISA's Known Exploited Vulnerabilities catalogue weekly (\<Security Operating Procedures\>, C50). **Manual**
+1. The security officer receives advisories from NCSC (including Early Warning), CISA, Microsoft for Windows Server, SQL Server and .NET, and the vendors of every other component, and checks the new entries in CISA's Known Exploited Vulnerabilities catalogue each working day, from an alert (\<Security Operating Procedures\>, C50). **Manual**
 2. For each one that applies, they write an internal advisory note on TPL-7 and pass it to the administrators and developers. **Manual**
 3. The fix follows PRO-SI-1. **Manual**
 

@@ -2,7 +2,7 @@
 
 ## 1 Purpose
 
-This document sets out how \<System Name\> is designed to assess risk and respond to it, to meet the 10 Risk Assessment (RA) controls in the CSS Moderate baseline.
+This document sets out how \<System Name\> is designed to assess risk and respond to it, to meet the 10 Risk Assessment (RA) controls in the CSS Moderate baseline. RA-8, the privacy impact assessment, is in the CSS privacy baseline and is met in \<PII Processing Management\> and \<Data Protection Impact Assessment\>.
 
 Section 3 is the design: the security categorisation, the risk assessment, the supply chain risk assessment, what is monitored for vulnerabilities, the vulnerability timetable, how findings are analysed, shared and reported, the risk response, the critical components, what \<Organisation\> provides, and the policy and procedures. Each subsection names the controls it helps to meet.
 
@@ -34,7 +34,7 @@ These carry out the principles and rules of \<Policy\>, sections RA.3 and RA.4.
 
 Controls met here: RA-2.
 
-\<System Name\> is categorised Moderate: confidentiality Moderate, integrity Moderate and availability Low (\<System Description\>, P-01), unless its application profile sets otherwise. Each of its information types (\<System Description\>, section 3.4, Table 6) is mapped to CSS and rated under CSS, and the system takes the highest level of each. An application rated High in any objective is outside the reference system. The record, with the rationale for each level, is in \<System Security Plan\>, section 3.3, as RA-2 requires. \[Name\] owns the information types, and the authorising official, \[Name\], approves the categorisation.
+\<System Name\> is categorised Moderate: confidentiality Moderate, integrity Moderate and availability Low (\<System Description\>, P-01), unless its application profile sets otherwise. Each of its information types (\<System Description\>, section 3.4, Table 6) is mapped to CSS and rated under CSS, and the system takes the highest level of each. An application rated High in any objective is outside the reference system. The record, with the rationale for each level, is in \<System Security Plan\>, section 3.3, as RA-2 requires. \[Name\] owns the information types and confirms their levels, and the authorising official, \[Name\], approves the categorisation (D-RA-01).
 
 Availability is Low because the 120-hour maximum tolerable downtime (\<System Description\>, P-14) means a loss of availability has a limited adverse effect; "business critical" means important to \<Organisation\>, not that \<System Name\> must always be available.
 
@@ -46,27 +46,28 @@ The categorisation is reviewed with the risk assessment, and whenever an informa
 
 Controls met here: RA-3, RA-7.
 
-\<System Name\>'s risk assessment is the Risk List, \<Risk List\>. It follows CSS: a threat source exploits a weakness, with a likelihood, to cause an impact. The method is set out in full in its section 4, beside the risks it rates, so that the Risk List can be read on its own. Table 1, below, summarises it. The threats to the application are modelled before it is built, from its profile and functions, and again at each significant change, and the threat model is kept with the Risk List (\<System Description\>, NFR-083).
+\<System Name\>'s risk assessment is the Risk List, \<Risk List\>. It follows CSS: a threat source exploits a weakness, with a likelihood, to cause an impact. The method is set out in full in its section 4, beside the risks it rates, so that the Risk List can be read on its own. Table 1, below, summarises it. The threats to the application are modelled before it is built, from its profile and functions, and again at each significant change, and the threat model is kept in the Risk List, section 2.1 (\<System Description\>, NFR-083). Each threat in it leads to a risk in the register.
 
 **Table 1: The risk method at a glance**
 
 | Element | Design | Where it is held |
 | --- | --- | --- |
 | Threat sources | Adversarial, accidental, structural and environmental, each with examples for \<System Name\> | \<Risk List\>, Table 3c |
+| Threat model | Each threat event, the critical components and functions it reaches (section 3.9), and the risk it leads to | \<Risk List\>, section 2.1, Table 1a |
 | Likelihood | Low, Medium or High, on a scale of how able and motivated the source is and what stands in its way | \<Risk List\>, Table 3a |
-| Impact | Low, Medium or High, on the CSS scale, for the items and for \<Organisation\> | \<Risk List\>, Table 3b |
+| Impact | Low, Medium or High, for the items, for the people they are about and for \<Organisation\>, on a scale set within \<System Name\>'s Moderate categorisation. A harm CSS would rate High goes to the authorising official with a review of the categorisation | \<Risk List\>, Table 3b |
 | Rating | A matrix that weights impact: a High impact never rates below Medium, and a Low impact never above Low, because \<System Name\>'s harm is driven by what it holds | \<Risk List\>, Table 3 |
 | Uncertainty | Where the evidence is a single test or a document review, the higher of the two plausible ratings is used. Ratings set before the evidence was seen are marked provisional | \<Risk List\>, section 4.1 and Table 3d |
 | Privacy risk | Rated by the same method. The data protection impact assessment adds the effects on individuals | \<Risk List\>; \<Data Protection Impact Assessment\> |
-| Who decides | Low: the system owner. Medium: the authorising official, on the system owner's advice. High: the authorising official, and only for a stated period while a fix runs | \<Risk List\>, section 4.2 |
+| Who decides | Low: the system owner. Medium: the authorising official, on the system owner's advice. High: the authorising official, and only for a stated period while a fix runs. A risk that is reduced is decided at its residual rating. Any tailoring: the authorising official, whatever the rating | \<Risk List\>, section 4.2 |
 | Tolerance | The thresholds are \<System Name\>'s own, and the Head of Cyber checks them against \<Organisation\>'s risk management strategy and risk appetite | EV-PM-01 |
 
 **Table 2: When the risk assessment is reviewed**
 
 | When | What is done | Who | Record |
 | --- | --- | --- | --- |
-| Every 12 months | Each risk is reviewed against the method, and its rating, status and last-reviewed date updated. Each acceptance is checked against its review date, and each Medium and High risk for a decision | System owner | TPL-23; \<Risk List\> |
-| After a significant change, an incident or a new test result | The same, for the risks it affects | System owner | TPL-23; \<Risk List\> |
+| Every 12 months (P-74) | The threat model and each risk are reviewed against the method, and each rating, status and last-reviewed date updated. Each acceptance is checked against its review date, and each Medium and High risk for a decision | System owner | TPL-23; \<Risk List\> |
+| After a significant change, an incident or a new test result | The same, for the threats and risks it affects | System owner | TPL-23; \<Risk List\> |
 | After each review | The results are shared | System owner, with the authorising official and the Head of Cyber | TPL-23 |
 | When a risk needs a decision | Decided by the person its rating calls for | System owner or authorising official | \<Decision Register\> |
 | At each review | The categorisation is checked against the information \<System Name\> holds, and any change goes to the authorising official (section 3.2) | System owner | TPL-23 |
@@ -77,7 +78,7 @@ After a significant change, such as a change to how users sign in or to where th
 
 Controls met here: RA-3(1).
 
-Every 12 months, before a new supplier or a new kind of component is added, and after a significant change to the system or where it runs, the system owner and the developers review each item in the supply chain for its origin, support, known problems and end of support (PRO-RA-2). They use the supplier register in \<Supply Chain Risk Management\>, the latest package check, and the bill of materials. Each review is recorded on TPL-23, and any new risk goes into the Risk List. The supply chain plan, \<Supply Chain Risk Management\>, holds the suppliers and how they are managed; this section holds the risk assessment.
+Every 12 months, before a new supplier or a new kind of component is added, and after a significant change to the system or where it runs, the system owner and the developers review each item in the supply chain for its origin, support, known problems and end of support (PRO-RA-2). They use the risks by stage and the supplier register in \<Supply Chain Risk Management\>, sections 3.4 and 3.5, the latest package check, and the bill of materials. Each review is recorded on TPL-23, and any new risk goes into the Risk List; the risk of a harmful package entering a release is R-RA-06. The intervals are P-74's. The supply chain plan, \<Supply Chain Risk Management\>, holds the suppliers and how they are managed; this section holds the risk assessment.
 
 ### 3.5 What is monitored for vulnerabilities
 
@@ -93,7 +94,7 @@ Controls met here: RA-5, RA-5(2), RA-5(5).
 | Browser libraries, served by \<System Name\> itself | Vendor security announcements, and the package scan at each release | Developers | Monthly, and at each release |
 | \<System Name\>'s own applications: UI application, Admin application and API | A web application scan, reaching them as a user and as an outsider would; the static analysis in the build; and an independent penetration test before go-live | Developers | Each release |
 | Server and database settings | The configuration scan against the baseline in \<Configuration Management\>, which finds the improper configurations RA-5 also asks about | Windows server administrator, database administrator | Monthly |
-| All components, for exploited flaws | CISA's Known Exploited Vulnerabilities catalogue and \<Organisation\>'s alerts (PRO-RA-4) | Security officer | Weekly (\<Security Operating Procedures\>, C50) |
+| All components, for exploited flaws | CISA's Known Exploited Vulnerabilities catalogue and \<Organisation\>'s alerts (PRO-RA-4) | Security officer | Each working day, from an alert on new entries (\<Security Operating Procedures\>, C50) |
 
 Monitoring also starts whenever a new vulnerability that may affect \<System Name\> is reported, through these sources or the reporting route in section 3.7.
 
@@ -101,13 +102,13 @@ The scanner must:
 
 1. scan both servers with an account approved for scanning, so that the scan sees what an administrator sees (RA-5(5));
 2. update its definitions before each scan (RA-5(2));
-3. name each flaw by its CVE identifier and rate it by CVSS, so that its results and the package check's can be compared and measured the same way (RA-5b);
+3. name each platform and flaw by a standard identifier, CPE and CVE, and rate each flaw by CVSS, so that its results and the package check's can be compared and measured the same way (RA-5b.1 and b.3);
 4. find ports, protocols and services that should not be reachable, against the allowed flows F1 to F11 in \<System Description\>, section 6.5, and \<Access Control Management\>, section 3.6;
 5. scan \<System Name\>'s three applications at each release, as this section sets out.
 
 Items 4 and 5 come from the CSS guidance on RA-5.
 
-Improper configurations are found by the configuration scan against the baseline, which uses a standard checklist format (\<Configuration Management\>).
+Improper configurations are found by the monthly configuration scan against the baseline, which uses a standard checklist format (\<Configuration Management\>; \<Procedures\>, PRO-CM-7; RA-5b.1 and b.2).
 
 ### 3.6 Vulnerability timetable
 
@@ -150,7 +151,7 @@ Findings come from four sources: security assessments, privacy assessments, moni
 | --- | --- | --- | --- |
 | 1 Record | Each finding that is not satisfied becomes an entry in the Risk List's non-compliance register, linked to the risk it adds to | System owner | \<Risk List\>, section 5 |
 | 2 Rate | The entry is rated by the method in section 3.3 | System owner | \<Risk List\> |
-| 3 Decide | The person the rating calls for decides: accept, remediate, approve, obtain evidence from \<Organisation\>, or tailor | System owner for Low; authorising official for Medium and High, and for any tailoring (PRO-PL-4) | \<Decision Register\>; acceptances in \<Risk List\>, section 3 |
+| 3 Decide | The person the rating calls for decides: accept, reduce, remediate, approve, obtain evidence from \<Organisation\>, or tailor | System owner for Low; authorising official for Medium and High, and for any tailoring (PRO-PL-4) | \<Decision Register\>; acceptances in \<Risk List\>, section 3 |
 | 4 Plan | A remediation goes into the Plan of Action and Milestones, with milestones and a due date. A vulnerability follows the timetable in section 3.6 | System owner | \<Plan of Action and Milestones\> |
 | 5 Review | Each acceptance is reviewed by its review date: Medium every 6 months and Low every 12 | System owner; authorising official | \<Risk List\>, section 3 |
 
@@ -182,7 +183,7 @@ PingFederate with Active Directory is critical because \<System Name\> holds no 
 
 **Critical functions.** CSS asks for critical functions as well as components. Five functions would expose or lose the items if they failed: signing in and deciding access (PingFederate with Active Directory, the API, the key store and the data protection key rings); storing and showing items (the database server, the application server, the API and the UI application); administering schemas and access (the Admin application); recording who did what (the audit records); and recovering items (the backup store).
 
-The list is reviewed at each major release and after a significant change (PRO-RA-6).
+The list is made at design, before the application is built, and reviewed at each major release and after a significant change (PRO-RA-6). The system owner approves it (D-RA-04).
 
 ### 3.10 What \<Organisation\> provides
 

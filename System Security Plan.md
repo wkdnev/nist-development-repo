@@ -106,7 +106,7 @@ This is the intended inventory for the authorisation boundary. Host names, asset
 | Windows App Control for Business | Allows only approved software to run (\<Configuration Management\>, section 3.15) | Windows Server 2025, with a signed policy at each release | Both VMs |
 | BitLocker full-disk encryption (XTS-AES 256 with the TPM) | Protection at rest | Windows Server 2025 | Both VMs |
 | Key store | Holds the token signing key, the audit chain key, the OpenID Connect client credential and the exported backup encryption certificate outside source code, with a protected copy at the second site. There is no database password | To be chosen | To be chosen |
-| Vulnerability scanner | Servers monthly; packages and code at each release (\<System Description\>, P-30) | To be chosen | To be chosen |
+| Vulnerability scanner | Both servers monthly, credentialed (\<System Description\>, P-30) | To be chosen | To be chosen |
 | Backup service | Receives the encrypted database and system-level backups, copies them to the second site and keeps one copy offline or immutable (\<Contingency Planning Management\>, section 3.8) | \<Organisation\>'s service (EV-CP-01) | Outside the boundary: \<Organisation\>'s data centre and second site |
 | Bulk export working area | Encrypted working copies for each export job, holding copies of items, deleted as \<System Description\>, P-20, sets and checked each working day (C49) | An encrypted working area written by API | Application server VM |
 | Data protection key rings | Keys protecting each app's authentication cookie and anti-forgery tokens | ASP.NET Core data protection, one per app | Application server VM |
@@ -641,22 +641,22 @@ The assessment plan is in \<Control Assessment Record\> (PT), section PT.4, wher
 
 ### 7.15 Risk Assessment (RA)
 
-The assessment plan is in \<Control Assessment Record\> (RA), section RA.4, where the results are recorded. Implementation detail is in \<Policy\> (RA), \<Procedures\> (RA) and \<Risk Assessment Management\>, whose section 3.6 the vulnerability timetable.
+The assessment plan is in \<Control Assessment Record\> (RA), section RA.4, where the results are recorded. Implementation detail is in \<Policy\> (RA), \<Procedures\> (RA) and \<Risk Assessment Management\>, whose section 3.6 holds the vulnerability timetable. The values are in \<System Description\>, P-01, P-11, P-30 and P-74, and the threat model and risks in \<Risk List\>, section 2.
 
 **Table 24: RA controls**
 
 | Control | How it is implemented | Who | Type | Status | Gap entry |
 | --- | --- | --- | --- | --- | --- |
-| RA-1 Policy and Procedures | Policy and procedures in \<Policy\> (RA) and \<Procedures\> (RA) | System owner, Head of Cyber | Organisational | \[Status\] | \[Decision\] |
-| RA-2 Security Categorization | Moderate; availability rationale in section 3.3 | System owner, authorising official | Organisational | \[Status\] | \[Decision\] |
-| RA-3 Risk Assessment | \<Risk List\>, on the CSS method in its section 4, covering PingFederate sign-in and VM hosting | System owner | Organisational | \[Status\] | \[Decision\] |
-| RA-3(1) Supply Chain | Supply chain risks in \<Risk Assessment Management\>, section 3.4 | System owner, developers | Organisational | \[Status\] | \[Decision\] |
-| RA-5 Vulnerability Monitoring | Packages checked by Test-Vulnerability.ps1; the VMs scanned monthly, and packages and code at each release (\<System Description\>, P-30); one timetable in \<Risk Assessment Management\>, section 3.6 | Security officer, Windows server administrator | Hybrid | \[Status\] | \[Decision\] |
-| RA-5(2) Update Vulnerabilities | Scanner kept up to date | Windows server administrator | Hybrid | \[Status\] | \[Decision\] |
-| RA-5(5) Privileged Access | Credentialed scans of the VMs | Windows server administrator | Hybrid | \[Status\] | \[Decision\] |
-| RA-5(11) Public Disclosure | \<Organisation\>'s security contact (PRO-RA-5), with published terms | Security officer, \<Organisation\> | Hybrid | \[Status\] | \[Decision\] |
-| RA-7 Risk Response | Assessment, privacy assessment, monitoring and audit findings are rated in \<Risk List\> and decided in \<Decision Register\> | System owner, authorising official | Organisational | \[Status\] | \[Decision\] |
-| RA-9 Criticality Analysis | Eleven components and five critical functions in \<Risk Assessment Management\>, section 3.9, with their method, including PingFederate with Active Directory, the application server VM and the bulk export working folder | System owner, developers | Organisational | \[Status\] | \[Decision\] |
+| RA-1 Policy and Procedures | Policy and procedures in \<Policy\> (RA) and \<Procedures\> (RA) | System owner, Head of Cyber | Organisational | Implemented | NC-RA-01 |
+| RA-2 Security Categorization | Moderate, with each information type and its rationale in section 3.3; approved by the authorising official (D-RA-01) | Information owner, system owner, authorising official | Organisational | Implemented | NC-RA-02 |
+| RA-3 Risk Assessment | \<Risk List\>: a threat model and its risks in section 2, rated on the CSS method in section 4, including the risks to people's privacy, with the impact assessment; reviewed and shared as P-74 sets (PRO-RA-1) | System owner | Organisational | Partially implemented | NC-RA-03 |
+| RA-3(1) Supply Chain | Supply chain risks reviewed as \<Risk Assessment Management\>, section 3.4, sets, against the supplier register in \<Supply Chain Risk Management\>; recorded on TPL-23 (PRO-RA-2) | System owner, developers | Organisational | Implemented | NC-RA-04 |
+| RA-5 Vulnerability Monitoring | Both VMs scanned monthly, credentialed and against the baseline; packages checked at each build and monthly by Test-Vulnerability.ps1; the three applications scanned at each release (P-30); CISA's exploited list checked each working day; one timetable in \<Risk Assessment Management\>, section 3.6 (P-11) | Security officer, Windows server administrator, developers | Hybrid | Partially implemented | NC-RA-05 |
+| RA-5(2) Update Vulnerabilities | Scanner definitions updated before each scan (PRO-RA-3) | Windows server administrator | Hybrid | Partially implemented | NC-RA-06 |
+| RA-5(5) Privileged Access | Credentialed scans of both VMs, with an account approved for scanning | Windows server administrator | Hybrid | Partially implemented | NC-RA-07 |
+| RA-5(11) Public Disclosure | \<Organisation\>'s security contact, published with terms that authorise research in good faith (PRO-RA-5; EV-RA-01) | Security officer, \<Organisation\> | Hybrid | Partially implemented | NC-RA-08 |
+| RA-7 Risk Response | Assessment, privacy assessment, monitoring and audit findings are rated in \<Risk List\> and decided in \<Decision Register\> by the person the rating calls for, within \<Organisation\>'s risk tolerance | System owner, authorising official | Organisational | Implemented | NC-RA-09 |
+| RA-9 Criticality Analysis | Eleven components and five critical functions in \<Risk Assessment Management\>, section 3.9, with their method, including PingFederate with Active Directory, the application server and the export working area; made at design and reviewed at each major release and significant change (PRO-RA-6) | System owner, developers | Organisational | Implemented | NC-RA-10 |
 
 ### 7.16 System and Services Acquisition (SA)
 

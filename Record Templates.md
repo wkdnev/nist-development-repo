@@ -497,6 +497,7 @@ Completed by the system owner for each review of the risk list, the supply chain
 | Reason: yearly, significant change, incident, new test result or release |  |
 | Date, and who took part |  |
 | What was looked at, with versions and evidence |  |
+| Threats added or changed in the threat model, and the categorisation checked |  |
 | Risks added, re-rated or closed, with their IDs |  |
 | Acceptances checked against their review dates |  |
 | Components or suppliers added or removed |  |

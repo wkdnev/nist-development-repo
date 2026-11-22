@@ -376,6 +376,7 @@ PM is inherited from \<Organisation\>'s programme and is not assessed for \<Syst
 | INT-RA-06 | Security officer | A flaw in a component \<System Name\> uses was added to CISA's exploited list today. Walk me through the next 3 days | RA-05d, SI-02 | A TPL-7 record and the emergency change |
 | INT-RA-07 | System owner | Show me the critical components and how they were chosen. What would make the list change? | RA-09 | \<Risk Assessment Management\>, section 3.9; TPL-23 |
 | INT-RA-08 | Authorising official | How do you decide whether to accept a risk, and how do you know the decision fits \<Organisation\>'s risk appetite? | RA-07, RA-03b | \<Risk List\>, sections 3 and 4.2; \<Decision Register\> |
+| INT-RA-09 | Developers | Show me the threat model. When was it last updated, and which risk did each threat lead to? | RA-03a.01, RA-03f | \<Risk List\>, section 2.1; TPL-23 |
 
 ## 19 System and Services Acquisition (SA)
 
