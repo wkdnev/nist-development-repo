@@ -387,11 +387,13 @@ PM is inherited from \<Organisation\>'s programme and is not assessed for \<Syst
 | INT-SA-01 | Developers | Walk me through a recent change, from plan to release, under \<Organisation\>'s corporate SDLC | SA-03, SA-10, SA-15 | The change record and pull request |
 | INT-SA-02 | Developers | What tests run at a release, and where are the results? | SA-11 | The latest results |
 | INT-SA-03 | System owner | How are security and privacy costs raised and funded? | SA-02 | The budget request |
-| INT-SA-04 | System owner | How do you check that providers keep to their contracts? | SA-04, SA-09 | The last review |
+| INT-SA-04 | System owner | How do you check that each external service keeps to the controls it must employ, and what do you do when a supplier's document is missing? | SA-05c, SA-09 | The last TPL-16 reviews |
 | INT-SA-05 | Developers | How do you know a component is nearing the end of its support? | SA-22 | The monthly check |
 | INT-SA-06 | Developers | Show me how the default branch is protected, and the review on the last change merged to it | SA-10, CM-3 | The repository's branch protection settings and the latest release check results |
-| INT-SA-07 | \<Organisation\>'s contract owner | Show me the security and privacy terms in the agreement for \<System Name\>'s hosting and services, and how \<Organisation\> shows it keeps to them | SA-04, SA-09 | The agreement; service level reports |
+| INT-SA-07 | \<Organisation\>'s contract owner | Show me the security and privacy terms in the standard contract, the signed interface record rows for \<System Name\>'s services, and how \<Organisation\> shows it keeps to them | SA-04, SA-09, SA-09(02) | The standard contract; the signed rows (EV-CA-02); service level reports |
 | INT-SA-08 | Security officer | Which designs have you checked against the engineering principles, and what changed as a result? | SA-03d, SA-08 | TPL-6 records of design checks |
+| INT-SA-09 | Developers | Which security functions did the last release's tests cover, how deep did they go, and how was each fixed flaw confirmed? | SA-11b, SA-11d, SA-11e | The test plan, the results with their manifest, and a repeat run |
+| INT-SA-10 | Developers | Show me a package or library that stopped being maintained. How did you find out, and what happened next? | SA-22a, SA-22b | The monthly check on TPL-7; the change or the authorising official's exception |
 
 ## 20 System and Communications Protection (SC)
 
