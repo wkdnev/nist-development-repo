@@ -305,9 +305,9 @@ Each requirement is to be verified before the application is authorised. \<Secur
 | FR-033 | Check on the server that a file's first bytes match its type, that its name holds no path, and that its size is within the limit for the person's role in P-17 | System | The API compares the file's leading bytes with the known signature of its type, strips any folder from the name, and compares its size with the limit |
 | FR-034 | Scan each upload for malicious code before it is stored; refuse, record and report a flagged file | System | The API passes the file to the server's anti-malware service before storing it, and stores it only if it is clean |
 | FR-035 | Give each item a status and a classification from fixed lists, and mark items that hold personal or special category data | Editor | Fields on the item, chosen from fixed lists |
-| FR-036 | Correct an item's details | Editor | The API updates the item after checking access, and writes an audit record holding the old and new values |
+| FR-036 | Correct an item's details | Editor | The API updates the item after checking access, and writes an audit record naming the item and the fields changed, but not their values |
 | FR-037 | Replace a stored file | Editor | The API stores the new file in place of the old one, keeps the checksum of both in the audit record, and audits the change |
-| FR-038 | Delete an item, after confirming | Editor | The API removes the item and its files, and writes an audit record of what was deleted and by whom |
+| FR-038 | Delete an item, after confirming | Editor | The API removes the item and its files, and writes an audit record of the item's reference and schema and who deleted it, holding none of its content |
 | FR-039 | Store each file with a SHA-256 checksum, so that a change can be detected | System | The API calculates the checksum when the file is stored and holds it on the item |
 | FR-040 | Record who created or uploaded each item, and when | System | The signed-in name and the time are written to the item by the API |
 
@@ -852,7 +852,7 @@ One application audit log, written only by the API. The other two applications s
 | Schema and group administration | Schema created, changed, deactivated, reactivated or deleted; a schema's groups changed; each with the reference of the Data Owner's approval |
 | Access decision | Access to a page, function or schema refused |
 | Item access and export | Viewed; downloaded; searched; exported |
-| Data change | Created; uploaded; upload refused, including for malware; corrected; replaced; deleted, with the old and new values |
+| Data change | Created; uploaded; upload refused, including for malware; corrected, naming the fields changed but not their values; replaced, with both checksums; deleted, with the item's reference but none of its content |
 | Privileged function | Settings changed; diagnostics run; last sign-in report run |
 | Privacy and retention | Disposal approved; items disposed; search across every schema run, recorded with the request's reference number, not the person's name |
 | Configuration change | A security setting changed |
