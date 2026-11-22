@@ -77,6 +77,7 @@ The control, rating, reason and treatment of each entry are in \<Risk List\>, se
 | Entries | Family | Who decides | Decision | Name | Date | Evidence |
 | --- | --- | --- | --- | --- | --- | --- |
 | \[NC-XX-nn\] | \[XX\] | \[Who decides\] | \[Decision\] | \[Name\] | \[Date\] | \[Sheet\] |
+| NC-AT-01 to NC-AT-06 | AT | System owner, as every AT entry is rated Low | \[Decision\] | \[Name\] | \[Date\] | None yet |
 
 ## 5 Proof of approval
 
