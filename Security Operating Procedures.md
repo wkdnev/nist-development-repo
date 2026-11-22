@@ -169,7 +169,7 @@ Frequencies and time limits are those set in the family documents, and the value
 
 ## 3 Part B: rules for privileged users
 
-Part B applies, in addition to Part A, to the system owner, administrators, auditors, the security officer, business owners, the legal adviser's delegate, Windows server and database administrators, and developers with access to a live system. A privileged account can change or expose the whole system, so these rules are stricter. The rules are numbered B1 to B23.
+Part B applies, in addition to Part A, to the system owner, administrators, auditors, the security officer, business owners, the legal adviser's delegate, Windows server and database administrators, and developers with access to a live system. A privileged account can change or expose the whole system, so these rules are stricter. The rules are numbered B1 to B23. Data Owners are not privileged users and sign Part A only: their approvals, and the changes they make to their own schema's group members, are covered by module M2 and \<Procedures\>, PRO-AC-5 and PRO-AC-7 (D-AC-12).
 
 ### 3.1 Before and while you hold privileged access
 
@@ -430,7 +430,7 @@ Who holds each role, and their phone number and email, are in \<Roles and Respon
 | Managed device | A computer that \<Organisation\> issues and controls, with disk encryption, screen lock and USB blocking |
 | Personal data | Information about a living person who can be identified, as defined in UK GDPR |
 | Personal data breach | A breach of security that leads to personal data being lost, destroyed, changed, disclosed or accessed without authority |
-| Privileged user | Anyone whose access lets them change schemas, groups, settings, security functions, servers or the database, read audit records, approve disposals or search every schema (Part B) |
+| Privileged user | Anyone whose access lets them change schemas, the role groups, settings, security functions, servers or the database, read audit records, approve disposals or search every schema (Part B). A Data Owner managing their own schema's groups is not a privileged user (D-AC-12) |
 | Removable media | USB drives, external disks, memory cards and similar storage |
 | \<Classification\> | The protective marking for \<System Name\> information and printouts, shown by \<System Name\> on what it displays, prints and exports |
 | Security incident | Anything that harms, or could harm, the confidentiality, integrity or availability of \<System Name\> or its information, or that breaks these rules |

@@ -323,11 +323,13 @@ The values the access controls depend on are parameters in \<System Description\
 
 Controls met here: AC-6, AC-6(1), AC-6(2), AC-6(9), AC-6(10).
 
-**Privileged functions:** managing schemas and the AD groups each uses, including deactivating and deleting empty schemas; approving a change to a schema's groups or its deactivation or deletion; changing settings; running diagnostics; reading audit logs; running the last sign-in report; approving the disposal of items due under the retention schedule; searching every schema for one person's items; and database maintenance. Managing the members of \<System Name\>'s AD groups is also privileged, and is done in Active Directory by each group's owner.
+**Privileged functions:** managing schemas and the AD groups each uses, including deactivating and deleting empty schemas; approving a change to a schema's groups or its deactivation or deletion; changing settings; running diagnostics; reading audit logs; running the last sign-in report; approving the disposal of items due under the retention schedule; searching every schema for one person's items; and database maintenance. Managing the members of the five role groups is also privileged, and is done in Active Directory by the system owner as their owner.
 
 **Security-relevant information:** secrets and security settings, the OpenID Connect client credential, PingFederate's signing certificate, access groups and schema access rules, audit logs, firewall rules and certificates.
 
-Only the privileged roles in Table 1 may use these: administrators, auditors, the security officer, the business owner, the legal adviser's delegate, the system owner as owner of the role groups, Data Owners for their approvals, and the Windows server and database administrators (P-44). Their use must be logged (section 3.18).
+Only the privileged roles in Table 1 may use these: administrators, auditors, the security officer, the business owner, the legal adviser's delegate, the system owner as owner of the role groups, and the Windows server and database administrators (P-44). Their use must be logged (section 3.18).
+
+**Data Owners are not privileged users.** A Data Owner approves a change to their own schema's groups, authorises access to them, and adds and removes their members. These are business decisions about their own schema, not privileged access: each is logged, approved in ServiceNow or a change record, and reviewed at the access review. Data Owners therefore sign Part A of \<Security Operating Procedures\> only, not Part B, and module M2 trains them for these duties (D-AC-12).
 
 Security functions in hardware and firmware, namely the physical hosts, the network equipment and the host firmware, are held by \<Organisation\>'s network and infrastructure teams, under \<Organisation\>'s own access lists.
 

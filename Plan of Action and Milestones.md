@@ -76,7 +76,7 @@ The decisions to be made before work starts, so that results can be approved and
 | REC-4 | Authorising official | Decide the tailoring: D-AC-01 to D-AC-04, D-AC-07 to D-AC-10, D-IA-02 to D-IA-07, D-PM-01, D-PT-01, D-PT-06, D-PT-07, D-SA-01, D-SC-01 and D-SI-01 | NC-PL-07, and the statements found not applicable |
 | REC-5 | Authorising official | Decide the plans and the control types: D-CA-01, D-CA-03, D-IA-01, D-MP-03, D-PL-01, D-PL-03, D-PS-02, D-PT-02, D-RA-01 and D-SR-01; and, with the system owner, the contingency plan (D-CP-02) | The O-D statements that rest on them |
 | REC-6 | Authorising official, on the system owner's advice | Decide the Medium risks: R-AC-01 (D-AC-11) and R-RA-03 to R-RA-08 (D-RA-02), each recommended for acceptance as its measures are already in the design; then NC-PT-02, NC-PT-05 and NC-PT-13 once REC-8 is done | The Medium entries in \<Risk List\> |
-| REC-7 | System owner | Make the system owner's decisions (D-AT-01, D-AU-01, D-CA-02, D-CA-04, D-CM-01, D-CM-02, D-CP-01, D-MA-01 to D-MA-03, D-MP-01, D-MP-02, D-PE-01, D-PL-04, D-PS-01, D-RA-03, D-RA-04, D-SC-02, D-SI-02 and D-SR-02, D-SR-03), approve the 68 parameter approvals in \<Decision Register\>, Table 2, with the legal adviser where its row says so, and decide the Low non-compliance batches in Table 3 | Most O-D statements |
+| REC-7 | System owner | Make the system owner's decisions (D-AC-12, D-AT-01, D-AU-01, D-CA-02, D-CA-04, D-CM-01, D-CM-02, D-CP-01, D-MA-01 to D-MA-03, D-MP-01, D-MP-02, D-PE-01, D-PL-04, D-PS-01, D-RA-03, D-RA-04, D-SC-02, D-SI-02 and D-SR-02, D-SR-03), approve the 68 parameter approvals in \<Decision Register\>, Table 2, with the legal adviser where its row says so, and decide the Low non-compliance batches in Table 3 | Most O-D statements |
 | REC-8 | Legal adviser | Set the lawful basis for each kind of personal data, the special category and criminal offence conditions and whether an appropriate policy document is needed (D-PT-03); confirm the laws that apply (D-PT-P31) and the notice wording (D-AC-03); complete \<Data Protection Impact Assessment\> with its scores and the data protection officer's advice, and sign it off (D-PT-04, then the authorising official for its residual risks); approve \<Privacy Plan\> with the authorising official (D-PL-02); and set the retention periods with the business owner (D-PT-05) | NC-PT-02, NC-PT-05, NC-PT-13 to NC-PT-16, NC-PT-18, R-PT-03 |
 | REC-9 | System owner, with the business owner | Set the two SI alert values (D-SI-P27): the bulk export threshold for U5, proposed at more than 200 items by one user in a day, and the out-of-hours window for administrator sign-ins (U6), proposed as outside 07:00 to 19:00 UK time, Monday to Friday except public holidays. Both are proposed reference values only. Supply the hours of service (P-32), the numbers of users, schemas and items (P-33), the information types, and the Data Owner of each schema | NC-SI-05 in part; \<System and Information Integrity Management\>, Table 3 |
 | REC-10 | Each person who decides | Sign a sign-off sheet (TPL-24) for the decisions made, and have the system owner file it (\<Decision Register\>, section 5) | The Evidence column of every decision |
@@ -171,7 +171,7 @@ Square brackets in the document set mark a fact that has not yet been supplied, 
 
 | Who | Facts | Placeholders |
 | --- | --- | --- |
-| Decision makers | The decision, name and date of each approval and decision, and the sign-off sheets | 474 |
+| Decision makers | The decision, name and date of each approval and decision, and the sign-off sheets | 477 |
 | Legal adviser | The lawful bases, special category and criminal offence conditions, retention periods with the business owner, and the impact assessment's scores, advice and sign-off | 112 |
 | Business owner | The information types and their ratings, hours of service, numbers of users and items, and each schema's Data Owner | 33 |
 | System owner | The people in each role, their deputies and contacts, the milestone dates, and the business values the system owner sets | 247 |
@@ -179,4 +179,4 @@ Square brackets in the document set mark a fact that has not yet been supplied, 
 | Developers and administrators at build | Names, versions, counts, hashes, suppliers and settings recorded when the VMs are built and the components chosen | 75 |
 | Assessors and the authorising official | The assessors' names, the assessment dates and sites, and the conditions of authorisation | 62 |
 | Registers, as events happen | The template rows of the registers and the review dates, completed when each event happens | 239 |
-| **Total** |  | **1,288** |
+| **Total** |  | **1,291** |
