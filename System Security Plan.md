@@ -688,7 +688,7 @@ The assessment plan is in \<Control Assessment Record\> (SA), section SA.4, wher
 
 ### 7.17 System and Communications Protection (SC)
 
-The assessment plan is in \<Control Assessment Record\> (SC), section SC.4, where the results are recorded. Implementation detail is in \<Policy\> (SC), \<Procedures\> (SC) and \<System and Communications Protection Management\>, whose section 3.4 the cryptographic and key register, section 3.3 the TLS profile and section 3.2 the host firewall allow-lists.
+The assessment plan is in \<Control Assessment Record\> (SC), section SC.4, where the results are recorded. Implementation detail is in \<Policy\> (SC), \<Procedures\> (SC) and \<System and Communications Protection Management\>, whose section 3.4 the cryptographic and key register, section 3.3 the TLS profile, section 3.2 the host firewall allow-lists and section 3.11 the values chosen for the controls.
 
 **Table 26: SC controls**
 

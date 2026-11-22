@@ -506,7 +506,7 @@ Completed by the system owner for each review of the risk list, the supply chain
 | Acceptances checked against their review dates |  |
 | Components or suppliers added or removed |  |
 | Yearly review only: security and privacy costs raised in budgeting, and the amounts (SA-2) |  |
-| Cryptographic register and boundary review only: keys and certificates due for change, algorithms NCSC no longer recommends, allow-list rules and exceptions kept or removed (SC-7(4), SC-12, SC-13) |  |
+| Cryptographic register and boundary review only: keys and certificates due for change, algorithms NCSC no longer recommends, allow-list rules and exceptions kept or removed, each VM's trust stores against the approved trust anchors (SC-7(4), SC-12, SC-13, SC-17) |  |
 | Yearly review only: process, standards, tools and their settings in \<System and Services Acquisition Management\>, sections 3.2 and 3.10, reviewed against the security and privacy requirements, and changes (SA-15) |  |
 | Decisions needed, and from whom (\<Decision Register\>) |  |
 | Shared with the authorising official and Head of Cyber, and date |  |

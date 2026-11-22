@@ -258,7 +258,7 @@ Controls met here: CA-3, CA-6.
 
 | Provided | Controls | What \<System Name\> relies on | Evidence asked |
 | --- | --- | --- | --- |
-| An authorising official for its common controls, and their authorisation | CA-6 | The 66 inherited controls are authorised and working | EV-CA-01 |
+| An authorising official for its common controls, and their authorisation | CA-6 | The 62 inherited controls are authorised and working | EV-CA-01 |
 | The agreements for the exchanges | CA-3 | The owner of each service signs its row in Table 6: PingFederate and Active Directory, central logging, the time service, the backup site and the authenticated proxy, with the hosting and services agreement, if any, as support. ServiceNow and the starters and leavers process are \<Organisation\>'s services used by people, with no connection to \<System Name\> | EV-CA-02 |
 | Evidence for each inherited control | CA-6, and each control's own family | Each control's evidence request in \<Evidence Requests\> | By family |
 
