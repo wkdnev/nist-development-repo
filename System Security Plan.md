@@ -621,7 +621,7 @@ The assessment plan is in \<Control Assessment Record\> (PT), section PT.4, wher
 | AC-3(14) Individual Access | Through a request to the legal adviser (PRO-PT-1), whose delegate searches every schema for the person's items (FR-073) | Legal adviser, legal adviser's delegate | Organisational | \[Status\] | \[Decision\] |
 | AT-3(5) Processing PII | Privacy training for every user in briefing part B6, and module M9 for the roles in the training matrix (\<Awareness and Training Management\>, sections 3.3 to 3.5) | Security officer | Organisational | \[Status\] | \[Decision\] |
 | AU-3(3) Limit PII in Audit | Named fields hold personal data; free text holds no extra personal data | Developers, auditor | System | \[Status\] | \[Decision\] |
-| IR-2(3) Breach | Breach training in incident response training | Security officer | Organisational | \[Status\] | \[Decision\] |
+| IR-2(3) Breach | Breach training in briefing part B6 for every user, and modules M7 and M9 for the roles in the training matrix (\<Awareness and Training Management\>, section 3.5) | Security officer | Organisational | \[Status\] | \[Decision\] |
 | IR-8(1) Breaches | \<Incident Response Management\> \<ver\>, section 3.8: notification decision, harm to people, telling them, the 72-hour ICO report and the breach register | Security officer, legal adviser | Organisational | \[Status\] | \[Decision\] |
 | PE-8(3) Limit PII in Visitor Records | \<Organisation\>'s visitor records | \<Organisation\> | Inherited | \[Status\] | \[Decision\] |
 | PL-9 Central Management | One document set, held in the Restricted store | System owner | Organisational | \[Status\] | \[Decision\] |

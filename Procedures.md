@@ -476,7 +476,7 @@ These procedures define how audit records are reviewed, protected and retained. 
 
 #### PRO-AU-7 Application log
 
-1. The application logs on the VMs hold no audit details, personal data or sign-in identifiers. On the VMs only the server administrators may read them. The security officer reviews them in central logging. **Manual**
+1. The application logs on the VMs hold no audit details, personal data or sign-in identifiers. On the VMs only the server administrators may read them. The security officer reviews them in central logging, and the auditor reads them there for the weekly comparison, without a sign-in to the servers. **Manual**
 2. Application logs are kept for 30 days and then deleted. **Manual**
 3. They are forwarded to \<Organisation\>'s central logging, and are not otherwise copied off the VMs, except as incident evidence under PRO-AU-2, step 3.
 4. Each month the Windows server administrator checks who can read the logs and how old they are, and records the result on TPL-8. **Manual**
