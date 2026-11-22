@@ -451,8 +451,8 @@ Completed for each person before access, every 12 months, and after a material c
 | --- | --- |
 | Record number |  |
 | Name and role |  |
-| Parts signed: A only, or A and B (administrators, auditors, security officers, and Windows server and database administrators) |  |
-| Declaration: I have read and understood these rules, and I agree to follow them |  |
+| Parts signed: A only, or A and B (the privileged users in \<Security Operating Procedures\>, Table 1) |  |
+| Declaration signed: the wording for each part in \<Security Operating Procedures\>, section 9, including, for Part A, consent to the monitoring in rules A6 to A8 |  |
 | \<Security Operating Procedures\> version signed |  |
 | Reason: before access, yearly, or after a material change (which version) |  |
 | Method: signed on paper, or electronic signature (system and reference) |  |
@@ -504,7 +504,7 @@ Completed by the system owner for each review of the risk list, the supply chain
 
 ### 2.24 TPL-24 Approval sign-off record
 
-Completed for each approver, and filed by the system owner in the Restricted store. The approver signs it, or replies to an email that lists the same decisions; the email is then attached. One sheet covers every decision the person has made up to its date (\<Decision Register\>, section 5). Nobody signs for anyone else.
+Completed for each approver, and filed by the system owner in the restricted store, or in the private records repository until the store is set up (\<Documentation Map\>, section 4.1). The approver signs it, or replies to an email that lists the same decisions; the email is then attached. One sheet covers every decision the person has made up to its date (\<Decision Register\>, section 5). Nobody signs for anyone else.
 
 **Table 27: TPL-24 Approval sign-off record**
 

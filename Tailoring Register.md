@@ -2,7 +2,7 @@
 
 ## 1 Purpose
 
-CSS (task S-2) allows a baseline to be tailored to the system, and expects each tailoring choice to have a rationale and an approval. This register holds the case for every control, part or parameter proposed as not applicable. Tailoring is not a way to avoid a control that is merely difficult. Every entry states the condition that makes it valid, and it ends if that condition stops being true. All entries are proposals.
+CSS (task S-2) allows a baseline to be tailored to the system, and expects each tailoring choice to have a rationale and an approval. The authorising official approves each entry on the system owner's recommendation, in \<Decision Register\> (\<Procedures\>, PRO-PL-4). This register holds the case for every control, part or parameter proposed as not applicable. Tailoring is not a way to avoid a control that is merely difficult. Every entry states the condition that makes it valid, and it ends if that condition stops being true. All entries are proposals.
 
 Entries are numbered TR-XX-nn, where XX is the family code. Section 8 lists the controls outside the baseline that the design already meets in part, for every family in one table.
 
@@ -222,7 +222,7 @@ CSS does not select the controls in Table 9 at Moderate, so they are not assesse
 | PE | PE-18 Location of System Components | Components placed to limit damage from hazards and from unauthorised access | Not required. The second site is asked not to share the main site's hazards (\<Contingency Planning Management\>, section 3.9) |
 | PL | PL-7 Concept of Operations | A concept of operations that says how the organisation means to operate the system, reviewed on a schedule | Not required. Done: \<Concept of Operations\> is in the register of plans, and is reviewed every 12 months |
 | PL | PL-8(1) Defense in Depth | Controls placed in layers, so that one failure does not expose the system | Not required. Done in design: the layers of defence in \<System Description\>, section 6.8 |
-| PL | PL-9 Central Management | Defined controls and processes managed centrally | Privacy baseline, so it applies. The whole document set is managed as one, by one owner, with one consistency test. Assessed with the PT family |
+| PL | PL-9 Central Management | Defined controls and processes managed centrally | Not in the Moderate baseline, but in the privacy baseline, so it applies and is assessed with the PT family (\<System Security Plan\>, Table 23). The whole document set is managed as one, by one owner, with one consistency test |
 | PS | PS-3(1), PS-3(2), PS-6(2) Classified Information; Formal Indoctrination; Classified Information Requiring Special Protection | Clearance, briefing and agreements for access to classified information | Not required. \<System Name\> holds no classified information |
 | PS | PS-3(3) Information Requiring Special Protective Measures | Extra screening for access to information that needs special protection | Not required. Items that hold special category data are protected by limiting each schema to the people its Data Owner authorises, not by further screening |
 | PS | PS-3(4) Citizenship Requirements | Citizenship checks for defined roles | Not required. The right to work check covers lawful employment in the United Kingdom |

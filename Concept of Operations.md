@@ -59,7 +59,7 @@ An item normally moves through four stages: it is added to a schema, found and r
 | --- | --- | --- |
 | Answering a query | A reader needs a past item | They sign in, choose their schema, search and read it on screen |
 | Adding a batch | An editor has a set of newly scanned items | They bulk upload them to the schema with their details, and readers can then find them |
-| A poor scan | A reader finds a page is unreadable | They report a fault, and an editor or administrator corrects it and updates the report |
+| A poor scan | A reader finds a page is unreadable | They report a fault, and an editor of the schema corrects it and updates the report. Administrators open no item content |
 | A request for items | Someone needs a schema's items elsewhere | The schema's Data Owner decides, and an editor exports them as a download |
 | Wrong schema | A user tries to open a schema they may not read | \<System Name\> shows the access-denied page, and they request access in ServiceNow, which their line manager approves and the schema's Data Owner authorises |
 | Forgotten password or lockout | A user cannot sign in | \<Organisation\>'s IT service desk resets the Active Directory password or releases the lock, after checking who they are |

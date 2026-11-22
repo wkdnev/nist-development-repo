@@ -108,8 +108,8 @@ Controls met here: CA-6.
 
 | Item | Document |
 | --- | --- |
-| System security plan | \<System Security Plan\> |
-| Privacy plan and impact assessment | \<Privacy Plan\> and \<Data Protection Impact Assessment\> |
+| System security plan | \<System Security Plan\>, approved by the authorising official before it is put into effect (D-PL-01) |
+| Privacy plan and impact assessment | \<Privacy Plan\>, approved by the legal adviser and the authorising official (D-PL-02), and \<Data Protection Impact Assessment\> |
 | Security assessment report | \<Security Assessment Report\> for the Level 2 assessment. Its section 2 is the executive summary. A Level 1 report is not enough |
 | Plan of action and milestones | \<Plan of Action and Milestones\> |
 | Risks and decisions | \<Risk List\> and \<Decision Register\> |

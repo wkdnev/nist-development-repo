@@ -59,7 +59,7 @@ Controls met here: CM-3, CM-9.
 | Release scripts: service installation and database structure scripts | Git repositories, tagged at each release | Developers, PRO-CM-1 |
 | Application settings, without secrets | Settings files at the release tag; secrets held in the key store, outside the baseline | Developers, Windows server administrator |
 | Windows Server 2025 and SQL Server 2022 settings | CIS Benchmarks and recorded exceptions; SQL Server's server-level settings (the API's login, SQL Server Audit and the backup jobs) as scripts in the release repositories, so that a rebuilt server matches, checked against the weekly system-level backup (\<Contingency Planning Management\>, section 3.6.1) | Windows server and database administrators |
-| Security documents | Restricted document store | System owner |
+| Security documents | Restricted document store; until it is set up, the private records repository (\<Documentation Map\>, section 4.1) | System owner |
 
 ### 3.4 Baseline
 
@@ -231,7 +231,7 @@ Controls met here: CM-5.
 | SQL Server settings and database structure | The named database administrators, the structure only through a release. The API's database account cannot create, alter or drop tables | Database permissions (\<Access Control Management\>, section 3.6) |
 | Application settings and secrets | The named Windows server administrators | Windows permissions on the settings files; secrets in the key store |
 | The hosts, network and firewall | \<Organisation\> | Its physical and logical controls, and its change process (EV-CM-01) |
-| This document set | The system owner | The restricted document store, under version control |
+| This document set | The system owner | The restricted document store, under version control; until it is set up, the private records repository (\<Documentation Map\>, section 4.1) |
 
 Nobody approves a change they requested or made. Every change by any of these people follows the route in section 3.7.
 

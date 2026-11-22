@@ -10,7 +10,7 @@ Section 3 is the design, and is the contingency plan that CP-2 requires: the pri
 
 Copies go to the people in section 3.4 and the authorising official. \<Organisation\>'s IT service desk receives sections 3.5, 3.6 and 3.9 and appendix A, which it needs to act (CP-02\_ODP\[04\]). The same people are told of every change, with a note of what changed (CP-2f).
 
-The document is marked \<Classification\>. It is kept in the restricted document store with the other records, where only the people above can read it and only the system owner can change it (CP-2h). The system owner and security officer each keep a current offline copy, so that the plan can be used when \<System Name\> and the document store are down. The offline copy is section 3 with appendices A and B, which together are the whole plan. There is no separate plan document. Each offline copy is held on an encrypted \<Organisation\> managed device, or printed, marked and kept in locked storage, and is replaced whenever the plan changes (PRO-CP-7). The superseded copy is destroyed as \<Media Protection Management\>, section 3.6, sets out.
+The document is marked \<Classification\>. It is kept in the restricted document store (until the store is set up, the private records repository; \<Documentation Map\>, section 4.1) with the other records, where only the people above can read it and only the system owner can change it (CP-2h). The system owner and security officer each keep a current offline copy, so that the plan can be used when \<System Name\> and the document store are down. The offline copy is section 3 with appendices A and B, which together are the whole plan. There is no separate plan document. Each offline copy is held on an encrypted \<Organisation\> managed device, or printed, marked and kept in locked storage, and is replaced whenever the plan changes (PRO-CP-7). The superseded copy is destroyed as \<Media Protection Management\>, section 3.6, sets out.
 
 ## 2 Related documents
 
@@ -246,7 +246,7 @@ SQL Server's transaction log backups are taken between the daily backups and cop
 
 **Deleted items in backups.** An item deleted from the database, at the end of its retention period or after a person's request, stays in the encrypted backups until they expire, at most 12 months for a monthly copy. It is beyond use there: the backups are encrypted, held apart and restored only for recovery or a restore test. A recovery re-applies the deletions before users return (section 3.7), and a restore test server is removed after the test. Expired backups are deleted at both sites by \<Organisation\>'s backup service, including the offline or immutable copy once its lock ends (\<Media Protection Management\>, section 3.6, method M2).
 
-The system documentation, including this plan and the other security and privacy documents, is under version control, and each change is kept in the restricted document store.
+The system documentation, including this plan and the other security and privacy documents, is under version control, and each change is kept in the restricted document store (until the store is set up, the private records repository; \<Documentation Map\>, section 4.1).
 
 ### 3.9 Second site and telecommunications
 

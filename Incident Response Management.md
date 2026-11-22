@@ -231,7 +231,7 @@ Controls met here: IR-8.
 1. **Review and approval.** The Head of Cyber reviews and approves the plan every 12 months and after an incident.
 2. **Copies.** Copies go to every role holder in section 3.3 and their deputies: the security officer, the system owner, the authorising official, the technical response team, the auditor and the legal adviser; and to the administrators, the Head of Cyber and \<Organisation\>'s security contact. Each keeps a copy that can be read when the document store is out of use (section 3.4).
 3. **Updates.** The security officer updates the plan after each incident and exercise (PRO-IR-7), and when a system or organisational change affects it. Changes are told to the same people, with the change record. Version control records every change.
-4. **Protection.** The plan is marked \<Classification\>, and kept in the restricted document store, where only the people in item 2 can read it and only the security officer can change it.
+4. **Protection.** The plan is marked \<Classification\>, and kept in the restricted document store (until the store is set up, the private records repository; \<Documentation Map\>, section 4.1), where only the people in item 2 can read it and only the security officer can change it.
 
 ### 3.17 Policy and procedures
 

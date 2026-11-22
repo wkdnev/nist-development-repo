@@ -1909,17 +1909,17 @@ There is one finding for each CSS determination statement, including those about
 | Scope | The 7 PL entries in the CSS Moderate baseline, with 93 determination statements, covering every plan in the register in \<Planning Management\>, section 3.2 |
 | Procedures | CSS, using the CSS published statements and identifiers (catalog release 5.2.0); plan contents compared with CSS |
 | Dates | \[Dates of the assessment\] |
-| Examine | \<Policy\> (PL) and \<Procedures\> (PL), \<Planning Management\>, \<System Security Plan\>, \<Privacy Plan\>, \<System Description\>, section 6, \<Concept of Operations\>, \<Security Operating Procedures\>, \<Tailoring Register\> and \<Risk Assessment Management\>. Depth: focused. Coverage: focused |
+| Examine | \<Policy\> (PL) and \<Procedures\> (PL), \<Planning Management\>, \<System Security Plan\>, \<Privacy Plan\>, \<System Description\>, section 6, \<Concept of Operations\>, \<Security Operating Procedures\>, \<Tailoring Register\>, \<Decision Register\>, \<Roles and Responsibilities\> and \<Risk Assessment Management\>. Depth: focused. Coverage: focused |
 | Test | Test-PlanConsistency.ps1 on the document set (the PL evidence) |
-| Interview | The Head of Cyber, an administrator and a sample of users, on the rules they signed |
+| Interview | The Head of Cyber and the authorising official, on the SSP's approval; the legal adviser, on the privacy plan; the system owner, on reviews, sharing and tailoring; an administrator and a sample of users, on the rules they signed |
 | Previous results reused | \[Results reused from other chapters, if any\] |
 | Boundary | Planning is organisational. The only technical element is where the plans are kept |
 | Order of assessment | A, the register of plans and the SSP (PL-2); B, the rules and signatures (PL-4, PL-4(1)); C, the architecture (PL-8); D, the baseline and tailoring (PL-10, PL-11); E, policy (PL-1). The SSP comes first because every other family relies on it |
 | Needed from \<Organisation\> | EV-PL-01 in \<Evidence Requests\>: the enterprise architecture standards that \<System Name\> must fit, and the hypervisor |
-| Evidence retained | The PL evidence (results, README and MANIFEST); the plan review record in \<System Security Plan\>; signed TPL-21 forms and the register of signatures |
+| Evidence retained | The PL evidence (results, README and MANIFEST); the plan review records, kept in the change record (\<Documentation Map\>, section 4.1); the PL decisions in \<Decision Register\> and their sign-off sheets (TPL-24); signed TPL-21 forms and the register of signatures |
 | Notes | The test is Test-PlanConsistency.ps1, which reads the whole document set and checks that the plans agree with each other and with the assessments. It runs on the documents only. The plans are compared with CSS, which sets out what a system plan contains, and how its approval, reviews and changes are recorded. |
 
-For the Level 2 assessment, the assessor should run Test-PlanConsistency.ps1 on the issued set, sample signed TPL-21 forms against the register and the access requests, check the restricted store's access list, interview the Head of Cyber and a sample of users, and re-determine every statement in section PL.3.
+For the Level 2 assessment, the assessor should run Test-PlanConsistency.ps1 on the issued set, sample signed TPL-21 forms against the register and the access requests, check the restricted store's access list, interview the Head of Cyber, the authorising official and a sample of users, and re-determine every statement in section PL.3.
 
 ## PS Personnel Security
 

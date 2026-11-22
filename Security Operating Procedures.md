@@ -16,8 +16,8 @@ Frequencies and time limits are those set in the family documents, and the value
 
 | Who | Reads and signs | When |
 | --- | --- | --- |
-| Everyone given access to \<System Name\> | Part A | Before access, every 12 months, and when the rules change |
-| The system owner, administrators, auditors, the security officer, business owners, the legal adviser's delegate, Windows server and database administrators, and developers with access to a live system | Parts A and B | Before privileged access, every 12 months, and when the rules change |
+| Everyone given access to \<System Name\> | Part A | Before access, every 12 months, and after a material change to the rules (A55) |
+| The system owner, administrators, auditors, the security officer, business owners, the legal adviser's delegate, Windows server and database administrators, and developers with access to a live system | Parts A and B | Before privileged access, every 12 months, and after a material change to the rules (A55) |
 | Holders of the roles in Part C | Their duties in Part C | Covered by role-based training (AT-3), with no separate signature |
 
 ## 2 Part A: rules for everyone
@@ -284,7 +284,7 @@ The detection use cases U1 to U9 in \<System and Information Integrity Managemen
 | C32 | Check personal data is accurate, relevant and still needed, and approve the disposal of items due under the retention schedule (\<System Description\>, FR-074) | Data Owners; the business owner approves disposal | \<Procedures\>, PRO-PT-5 | TPL-3 | SI-18, PT-3 |
 | C33 | Check the privacy notice names \<System Name\> | System owner | \<Procedures\>, PRO-PT-3 | TPL-4 | PT-5 |
 | C34 | Review exceptions | System owner | Section 5 | Exception register, TPL-17 | PL-4, CA-5 |
-| C35 | Review these SyOps and the other security documents | System owner | Each document's change record | Document change record | PL-4c, PL-2 |
+| C35 | Review these SyOps, the plans in the register and the architecture, and the other security documents | System owner | Each document's change record; \<Procedures\>, PRO-PL-1 and PRO-PL-5 | Document change record; plan review record | PL-4c, PL-2, PL-8 |
 | C52 | Review the cryptographic and key register, the host firewall allow-lists, external services and exceptions; schedule keys and certificates due for change | System owner, security officer, \<Organisation\> | \<Procedures\>, PRO-SC-8 | TPL-23 | SC-7(4), SC-12, SC-13 |
 | C53 | Check BitLocker is on for both VMs and that a recovery key works; check backups are encrypted | Windows server administrator, database administrator | \<Procedures\>, PRO-SC-7 | TPL-11 | SC-28, SC-28(1) |
 | C54 | Plan and carry out the yearly control assessment, and report it | System owner, security assessor; the authorising official approves the plan | \<Procedures\>, PRO-CA-1 | Approved plan; TPL-19; \<Control Assessment Record\>; \<Security Assessment Report\> | CA-2, CA-2(1) |
@@ -439,7 +439,8 @@ Table 6 shows where each control that these SyOps serve is met. It lets an audit
 | Control | Rules and duties |
 | --- | --- |
 | PL-4 Rules of Behavior | Sections 1, 2, 3 and 9; A55; C23, C35 |
-| PL-4(1) Social Media and External Site Use | A43, A44, A45 |
+| PL-4(1) Social Media and External Site Use | A25, A43, A44, A45 |
+| PL-2, PL-8 Plans and Architecture | C35 |
 | AC-2 Account Management | A9; B5, B7; C3, C9, C15, C19, C36; section 4.4 |
 | AC-5 Separation of Duties | B6, B8 |
 | AC-6 Least Privilege, with AC-6(2) and AC-6(9) | A17; B2, B3, B10; C3, C16 |
@@ -479,14 +480,8 @@ Table 6 shows where each control that these SyOps serve is met. It lets an audit
 
 ## 9 Acknowledgement
 
-Everyone signs Part A, and privileged users also sign Part B, before getting access, every 12 months and when these rules change. Electronic signature is accepted. The security officer keeps the register for 3 years.
+Everyone signs Part A, and privileged users also sign Part B, before getting access, every 12 months and after a material change to these rules (A55). Electronic signature is accepted. Each signature is recorded on TPL-21, and the system owner keeps the register of signatures in \<Planning Management\>, section 3.5, for as long as the person has access and for 3 years after.
 
 **Part A.** I have read and understood Part A of \<Security Operating Procedures\>, version \<ver\>. I agree to follow it, and I consent to the monitoring described in rules A6 to A8.
 
 **Part B.** I have read and understood Part B of \<Security Operating Procedures\>, version \<ver\>, and I agree to follow it as well as Part A.
-
-**Table 7: Acknowledgement register**
-
-| Name | Account | Part A or B | Version | Signature | Date |
-| --- | --- | --- | --- | --- | --- |
-|  |  |  |  |  |  |

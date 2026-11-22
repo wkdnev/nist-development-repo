@@ -232,6 +232,7 @@ These are the values the controls depend on. CSS calls many of them organisation
 | P-68 | Timely maintenance | Support and parts for the hardware and hypervisor within 24 hours of a failure; Microsoft software supported through \<Organisation\>'s support agreement; a replacement planned at least 6 months before a component's support ends | MA-6, SA-22 | \[\] |
 | P-69 | Media handling | Users' exports and downloads, and printouts, deleted or shredded once no longer needed, and within 30 days at most if they hold personal data; the media inventory reviewed, and a sample of sanitising certificates checked, every 12 months; media records kept 3 years | MP-2, MP-4, MP-6 | \[\] |
 | P-70 | Physical and environmental protection | Output devices: \<Organisation\>'s managed printers with secure release, and screens. Alternate work sites: home only, unless the system owner approves another place in writing; the home working checklist every 12 months for everyone who works from home. \<Organisation\>'s evidence checked every 12 months and after a change of site; each data centre inspected once at Level 2 and after a change of site. Required at both data centres: access list reviewed every 12 months; entry logs reviewed monthly and after an incident or alarm; visitor records kept 12 months and reviewed monthly; keys, cards and combinations inventoried and changed every 12 months; temperature and humidity within the ASHRAE TC 9.9 recommended envelope, monitored continuously; a physical incident affecting \<System Name\> told to the security officer within 24 hours | PE-2, PE-3, PE-5, PE-6, PE-8, PE-14, PE-17 | \[\] |
+| P-71 | Planning | Planning coordinated with the Head of Cyber, the administrators, the legal adviser and \<Organisation\>'s security contact. The plans and their changes shared with the Head of Cyber, the administrators and \<Organisation\>'s security contact. Plans in the register reviewed every 12 months, and after an assessment, a significant change or a problem found in use. Rules of behaviour reviewed every 12 months; everyone signs again every 12 months, and within 30 days of a material change. Architecture reviewed every 12 months, and after a significant change | PL-2, PL-4, PL-8 | \[\] |
 
 ## 5 Requirements
 
@@ -687,7 +688,7 @@ The reference stack is below. An application may replace any part of it with a s
 | F5 | API | Database | All data | SQL Server over TLS 1.2 or later with strict encryption, TCP 1433, from the application server only |
 | F6 | Browser | \<Organisation\>'s PingFederate | Sign-in with multi-factor authentication | HTTPS |
 | F7 | API | \<Organisation\>'s Active Directory | Reading the signed-in person's group memberships | LDAPS, TCP 636 |
-| F8 | Both servers | \<Organisation\>'s time service, central logging, proxy and backup site | Time, logs, updates and backups | As \<Organisation\> sets, encrypted |
+| F8 | Both servers | \<Organisation\>'s time service, central logging, proxy and backup site | Time, logs, updates and backups | As \<Organisation\> sets: logs, updates and backups encrypted; time by NTP on UDP 123, authenticated where \<Organisation\>'s service allows (\<Assessment, Authorization, and Monitoring Management\>, Table 6) |
 | F9 | ServiceNow and the starters and leavers process | People, not the application | Access approvals, leaver notices, and incident records and requests for help | By people, in \<Organisation\>'s services. ServiceNow has no connection to the application |
 | F10 | UI application and Admin application | \<Organisation\>'s PingFederate | Fetching PingFederate's OpenID Connect metadata and signing certificate, and completing each sign-in | HTTPS, TCP 443, from the application server only |
 | F11 | Server and database administrators' managed devices | Both servers | Server and database administration | Only over \<Organisation\>'s managed administration route, with multi-factor authentication, using named accounts |
@@ -735,11 +736,11 @@ This section is the security architecture that PL-8 calls for: the protection go
 | Layer | Protection | Main controls |
 | --- | --- | --- |
 | Boundary | \<Organisation\>'s firewalls allow only HTTPS into Z3, and the Admin application and server and database administration (F11) only from Z2 | SC-7, AC-17, MA-4 |
-| Transport | TLS on every flow, F1 to F8 and F10, as \<System Description\>, P-26, sets, under NCSC's profiles (\<System and Communications Protection Management\>, section 3.3); data protection key rings protected with DPAPI | SC-8, SC-13 |
+| Transport | TLS on every flow, F1 to F7 and F10, and on the logs, updates and backups in F8, as \<System Description\>, P-26, sets, under NCSC's profiles (\<System and Communications Protection Management\>, section 3.3); data protection key rings protected with DPAPI | SC-8, SC-13 |
 | Identity | Each person's own Active Directory account, signed in through PingFederate with multi-factor authentication; roles and schema access from AD groups, read by the API over LDAPS (F7) | IA-2, IA-5, AC-7 |
 | Authorisation | Roles and schema access checked on every page and API call | AC-3, AC-6 |
 | Sign-in lifetime and screen lock | The sign-in is held only in the authentication cookie, which ends 8 hours after sign-in (P-02); an open Blazor connection re-checks the person every 5 minutes; Sign out ends both and the PingFederate sign-in; an unattended screen is locked by the operating system on \<Organisation\>'s managed devices and the servers (P-03) | AC-2(5), AC-11, AC-12, SC-23 |
-| Data at rest | Full-disk encryption on both VMs; no plain copies left by exports | SC-28, MP-4 |
+| Data at rest | Full-disk encryption on both VMs; encrypted backups; export working copies encrypted and deleted as P-20 sets | SC-28, MP-4 |
 | Audit | Hash-chained audit records, reviewed and kept | AU-2, AU-6, AU-9 |
 | Host | CIS hardening, Microsoft Defender, patching | CM-6, SI-2, SI-3 |
 | Recovery | Encrypted backups and logs at the second site | CP-9, CP-10 |
@@ -782,6 +783,9 @@ The design rests on these assumptions:
 2. The servers are built to this design, with the configuration in Table 40d, before production.
 3. Users work only on \<Organisation\>'s managed devices, over its network or managed route.
 4. The critical components and their failure effects are in \<Risk Assessment Management\>, section 3.9.
+5. \<Organisation\> runs the hypervisor and physical hosts beneath the two VMs, inside its Cyber Essentials Plus scope, and \<System Name\>'s plans fit its enterprise architecture. Both are to be confirmed by EV-PL-01.
+
+The architecture is reviewed as P-71 sets (\<Procedures\>, PRO-PL-5), and each change is carried into the documents that PL-8 names.
 
 ## 7 Design
 
@@ -972,7 +976,7 @@ Table 45 gives each CSS control family, the reference design in brief, and the d
 | PT PII Processing and Transparency | Personal data is processed only for the purposes in the profile. An inventory, a retention schedule built into the system, a search across schemas for people's requests, and an impact assessment | \<PII Processing Management\> |
 | RA Risk Assessment | Categorised from the profile. A threat model, a risk list on the CSS method, a vulnerability timetable (P-11), and a list of critical components | \<Risk Assessment Management\> |
 | SA System and Services Acquisition | Built in-house under the corporate SDLC, meeting CSS, with reviewed changes, a pipeline with automated tests and scans, verification to P-28, and external services reviewed yearly | \<System and Services Acquisition Management\> |
-| SC System and Communications Protection | Deny by default at the firewalls and on each server, TLS on every flow, a register of every key, a strict page policy, and encryption at rest | \<System and Communications Protection Management\> |
+| SC System and Communications Protection | Deny by default at the firewalls and on each server, TLS on every flow except time (NTP), a register of every key, a strict page policy, and encryption at rest | \<System and Communications Protection Management\> |
 | SI System and Information Integrity | Uploads are checked and scanned for malware, flaws are fixed to the timetable, logs are forwarded and nine events raise alerts, and releases are checked against a baseline | \<System and Information Integrity Management\> |
 | SR Supply Chain Risk Management | A supplier register with criticality, every package through one checked source with lock files and a bill of materials, and each release inspected against its record | \<Supply Chain Risk Management\> |
 
@@ -1011,7 +1015,7 @@ These are questions an assessor is likely to ask, each with the reference answer
 | Who can see every item? | Nobody, by right of a role. The business owner sees only the details of items due for disposal, not their content. The legal adviser's delegate can search every schema for one person's items, and database administrators could read items by querying the database, only under an approved change or incident; SQL Server Audit records it and the auditor reviews it weekly | \<Access Control Management\> |
 | How is a leaver's access removed? | As P-06 sets. Once the AD account is disabled, the application refuses the person within 5 minutes, even mid-session | \<Access Control Management\> |
 | What are the session limits? | The sign-in session ends 8 hours after sign-in (P-02), on Sign out, or within 5 minutes of the person's access being removed; an open page re-checks every 5 minutes; and the device screen lock hides it when idle (P-03) | \<Access Control Management\> |
-| Is data encrypted in transit? | Yes, on every flow, as P-26 sets | \<System and Communications Protection Management\> |
+| Is data encrypted in transit? | Yes, on every flow that carries data, as P-26 sets. Time from \<Organisation\>'s time service uses NTP, authenticated where that service allows | \<System and Communications Protection Management\> |
 | Is data encrypted at rest? | Yes: full-disk encryption on both servers, encrypted backups and encrypted export working copies | \<System and Communications Protection Management\> |
 | Where are items stored? | In the database, each schema in its own database schema | Section 7.4 |
 | Where are secrets kept? | In a key store, never in source code or settings files | \<System and Communications Protection Management\> |

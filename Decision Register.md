@@ -49,6 +49,10 @@ Documents, policy decisions and cross-family decisions (GEN). The legal adviser 
 | D-MP-02 | MP | Decide how a downloaded original file is marked (MP-3, FR-020) | Stamp a banner with \<Classification\> and the item's classification on each page or image of the copy sent, with the marking also in the file name; the stored file and its checksum are never changed, and the checksum is checked before the copy is made | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | D-MP-03 | MP | Decide whether MP-5 and MP-7 stay Inherited, although the system owner approves transport and portable storage exceptions and the security officer records ownerless devices | Keep both Inherited, so the inherited total stays 66: \<Organisation\> carries, blocks and sanitises the media, and the system owner's approvals and the TPL-13 and TPL-17 records are examined with \<Organisation\>'s evidence as the way \<System Name\> uses the inherited control | Authorising official | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | D-PE-01 | PE | Decide who shuts the servers down when a data centre cannot keep power (PE-11) | \<Organisation\>'s hosting staff shut both servers down cleanly through the hypervisor, the application server first, before the uninterruptible supply runs out, and tell the Windows server administrator; the administrators run the start-up checks when power returns (\<Security Operating Procedures\>, section 4.6). PE-11 stays Inherited and the inherited total stays 66 | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
+| D-PL-01 | PL | Approve \<System Security Plan\> before it is put into effect (PL-2a.15) | Approve: it holds every part PL-2 requires (\<Planning Management\>, Table 2), the Head of Cyber has concurred, and it is reviewed every 12 months and after an assessment, a significant change or a problem found in use. Approving the plan does not authorise \<System Name\>: only TPL-18 does | Authorising official, after the system owner's approval and the Head of Cyber's concurrence | \[Decision\] | \[Name\] | \[Date\] | None yet |
+| D-PL-02 | PL | Approve \<Privacy Plan\> before it is put into effect (PL-2a.15) | Approve, once the legal adviser has completed its legal content and \<Data Protection Impact Assessment\> | Legal adviser and authorising official | \[Decision\] | \[Name\] | \[Date\] | None yet |
+| D-PL-03 | PL | Select the control baseline (PL-10) | CSS Moderate, with the CSS privacy baseline, from the categorisation in \<System Security Plan\>, section 3.3 (P-01); PM is inherited (TR-PM-01) | Authorising official | \[Decision\] | \[Name\] | \[Date\] | None yet |
+| D-PL-04 | PL | Approve \<Security Operating Procedures\> as the rules of behaviour (PL-4, PL-4(1)) | Approve: Part A for everyone and Part B for the privileged users in its Table 1, signed with the declaration in its section 9 | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | \[D-XX-nn\] | \[XX\] | \[Decision needed\] | \[Recommendation\] | \[Who decides\] | \[Decision\] | \[Name\] | \[Date\] | \[Sheet\] |
 
 ## 3 Parameter approvals
@@ -112,6 +116,7 @@ The reference values are the parameters in \<System Description\>, section 4, wh
 | D-MP-P20 | MP | MP-4, MP-6 | 1: P-20 Export working copies | Deleted once downloaded, and always within 24 hours | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | D-MP-P69 | MP | MP-2, MP-4, MP-6 | 3: P-69 Media handling | Users' copies and printouts deleted or shredded once no longer needed, within 30 days at most if they hold personal data; inventory and a sample of sanitising certificates reviewed every 12 months; media records kept 3 years | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | D-PE-P70 | PE | PE-2, PE-3, PE-5, PE-6, PE-8, PE-14, PE-17 | 1: P-70 Physical and environmental protection | Managed printers with secure release and screens as output devices; home only, with a check of everyone every 12 months; evidence checked every 12 months and each site inspected once at Level 2; access lists reviewed every 12 months, entry logs monthly, visitor records kept 12 months and reviewed monthly, keys and combinations every 12 months; ASHRAE TC 9.9 recommended envelope; physical incidents told within 24 hours | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
+| D-PL-P71 | PL | PL-2, PL-4, PL-8 | 1: P-71 Planning | Planning coordinated with the Head of Cyber, the administrators, the legal adviser and \<Organisation\>'s security contact; the plans and their changes shared with the Head of Cyber, the administrators and \<Organisation\>'s security contact; plans reviewed every 12 months and after an assessment, a significant change or a problem found in use; rules of behaviour reviewed every 12 months, and signed again every 12 months and within 30 days of a material change; architecture reviewed every 12 months and after a significant change | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | \[D-XX-Pnn\] | \[XX\] | \[Control\] | \[Number of parameters\] | \[Main values\] | \[Who decides\] | \[Decision\] | \[Name\] | \[Date\] | \[Sheet\] |
 
 ## 4 Non-compliance treatment decisions
@@ -133,6 +138,7 @@ The control, rating, reason and treatment of each entry are in \<Risk List\>, se
 | NC-MA-01 to NC-MA-08 | MA | System owner, as every MA entry is rated Low | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | NC-MP-01 to NC-MP-07 | MP | System owner, as every MP entry is rated Low | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | NC-PE-01 to NC-PE-18 | PE | System owner, as every PE entry is rated Low | \[Decision\] | \[Name\] | \[Date\] | None yet |
+| NC-PL-01 to NC-PL-07 | PL | System owner, as every PL entry is rated Low | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | \[NC-XX-nn\] | \[XX\] | \[Who decides\] | \[Decision\] | \[Name\] | \[Date\] | \[Sheet\] |
 
 ## 5 Proof of approval
@@ -141,7 +147,7 @@ Every decision in this register names the person who made it. Where the system o
 
 The Evidence column of each table names the sign-off sheet that proves the decision. A sheet is form TPL-24 in \<Record Templates\>. It lists the decisions by number, and the approver signs it, or confirms it by email or in a minuted meeting. One sheet covers every decision a person has made up to its date, and a new sheet is started for later decisions. "None yet" marks a decision that is still pending. A row that covers several entries counts once for each entry.
 
-Until a sheet is filed, the decisions it covers rest on the system owner's record alone. The system owner files each sheet in the Restricted store and enters its reference and date below. Nobody signs for anyone else.
+Until a sheet is filed, the decisions it covers rest on the system owner's record alone. The system owner files each sheet in the restricted store, or in the private records repository until the store is set up (\<Documentation Map\>, section 4.1), and enters its reference and date below. Nobody signs for anyone else.
 
 **Table 4: Sign-off sheets**
 

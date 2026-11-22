@@ -14,7 +14,7 @@ The boundary, operational context and environment are as \<System Security Plan\
 
 | Role | Holder | Part |
 | --- | --- | --- |
-| Plan owner and privacy representative | \[Name\] | Owns this plan, the impact assessment, individuals' requests and complaints, and reports to the ICO |
+| Plan owner and privacy representative: the legal adviser | \[Name\] | Owns this plan, the impact assessment, individuals' requests and complaints, and reports to the ICO |
 | Data protection officer | \[Name, or the reason none is required\] | Leads \<Organisation\>'s privacy programme (PM-19; UK GDPR, Articles 37 to 39), advises on this plan and the impact assessment, and is the contact for individuals and the ICO. The legal adviser completes this row |
 | Risk decisions | \[Name\] | Decides on privacy risk |
 | Business and information owner | \[Name\] | Decides what data schemas hold, and how long for, and approves the disposal of items due under the retention schedule in the UI application (\<System Description\>, FR-074) |
@@ -49,4 +49,11 @@ The requirements are the data protection laws in \<System Description\>, P-31. T
 
 ## 8 Architecture
 
-Privacy relies on the security architecture in \<System Description\>, section 6. Personal data is in items and audit records in the Microsoft SQL Server database on the database server. Each schema's read and edit groups limit who can read it. Data at rest is encrypted. \<System Name\> receives a person's name from PingFederate at sign-in (flow F10) and reads their group memberships from Active Directory, and shares no data with any other system. ServiceNow and the starters and leavers process have no connection to it: people act on what they produce (flow F9). The plan assumes \<Organisation\>'s notice and contracts cover employees' data.
+Privacy relies on the security architecture in \<System Description\>, section 6, and fits \<Organisation\>'s enterprise architecture in the same way (\<System Description\>, section 10; EV-PL-01).
+
+- **Where personal data is.** In items and audit records in the Microsoft SQL Server database on the database server, and in the encrypted export working copies until they are deleted (P-20). Each schema's read and edit groups limit who can read it. Data at rest is encrypted.
+- **Where it goes.** \<System Name\> receives a signed response naming the person from PingFederate at sign-in (flows F6 and F10), and reads their group memberships from Active Directory (F7). Sign-in identities and the applications' security events go to \<Organisation\>'s central logging, and encrypted backups of the database, which hold items and audit records, go to \<Organisation\>'s backup site and second site (F8). Users may download and export items to the approved locations in \<Security Operating Procedures\>, A31. \<System Name\> shares no data with any other system. ServiceNow and the starters and leavers process have no connection to it: people act on what they produce (flow F9).
+- **How privacy risk is kept low.** Only the personal data each purpose needs is held (\<PII Processing Management\>; SA-8(33), SI-12(1)); it is disposed of under the retention schedule (\<PII Processing Management\>, section 3.7); test and development use invented data only (SI-12(2)); and the audit log holds no extra personal data in free text (AU-3(3)).
+- **Assumptions.** \<Organisation\>'s privacy notice and contracts cover employees' data; its central logging and backup services keep the data in the location in P-23 and for no longer than \<System Name\>'s retention periods (EV-AU-01 to EV-AU-03, EV-CP-01).
+
+This architecture is reviewed with the security architecture (P-71; \<Procedures\>, PRO-PL-5).
