@@ -31,7 +31,7 @@ This guide tells you how to use \<System Name\>'s security and privacy features,
 2. Copy, export or print only the minimum (A24), and never share it with anyone who doesn't need it (A25).
 3. If personal data is wrong or in the wrong schema, tell the schema's Data Owner (A26).
 4. Pass any request from a person about their data, or any complaint about how it's handled, to the legal adviser the same working day (A27).
-5. \<Organisation\>'s employee privacy notice explains how your own data is used; \[link to the employee privacy notice\].
+5. \<Organisation\>'s privacy notice for employees, or the one for contractors and agency staff, explains how your own data is used, how to ask to see or correct it, and how to complain; \[links to the privacy notices\].
 
 ## 5 Your responsibilities
 

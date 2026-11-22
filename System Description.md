@@ -261,7 +261,7 @@ Each requirement is to be verified before the application is authorised. \<Secur
 | FR-007 | Show an access-denied page when a request is refused, without saying what exists behind it | Everyone | A refused request is sent to one fixed page with one fixed message, and the refusal is audited |
 | FR-008 | Let nobody choose or change a role for themselves or for another person: roles come only from groups | System | Roles are set by the API from the person's Active Directory groups. No function changes a role |
 | FR-009 | Show an About page that describes the application and its version | Everyone | A fixed page in the UI application |
-| FR-010 | Link to the employee privacy notice, and say what the application records about its users | Everyone | A link and a short statement on the home page and the About page |
+| FR-010 | Link to \<Organisation\>'s privacy notices for employees, contractors and agency staff, and say what the application records about its users | Everyone | A link and a short statement on the home page and the About page |
 | FR-011 | Hold no user accounts, passwords or password resets. The only session is the sign-in cookie in NFR-019 | System | Accounts, passwords and lockout live in Active Directory and PingFederate. The database has no account or password table |
 | FR-084 | Sign out | Everyone | A Sign out button in the UI application and the Admin application clears the authentication cookie, ends the Blazor connection, sends the person to PingFederate's sign-out so that the single sign-on ends too, and writes an audit record |
 

@@ -103,8 +103,8 @@ Each PM control is listed with who provides it, which \<System Name\> controls r
 | PM-17 Protecting Controlled Unclassified Information on External Systems | Not applicable | None | United States only | None | Yes |
 | PM-18 Privacy Program Plan | \<Organisation\>, legal adviser | PT family, PL-2 | \<Privacy Plan\> follows it | EV-PM-04 | Yes |
 | PM-19 Privacy Program Leadership Role | \<Organisation\> | PT family | Data protection officer placeholder in \<Roles and Responsibilities\> and \<Privacy Plan\> | EV-PM-04 | Yes |
-| PM-20 Dissemination of Privacy Program Information | \<Organisation\> | PT-5 | Employee privacy notice (EV-PT-01) | EV-PM-04 | Yes |
-| PM-20(1) Privacy Policies on Websites, Applications, and Digital Services | \<Organisation\> | PT-5 | A link to the employee privacy notice from \<System Name\>'s pages | EV-PM-04 | Yes |
+| PM-20 Dissemination of Privacy Program Information | \<Organisation\> | PT-5 | The privacy notices for employees, contractors and agency staff (EV-PT-01) | EV-PM-04 | Yes |
+| PM-20(1) Privacy Policies on Websites, Applications, and Digital Services | \<Organisation\> | PT-5 | A link to the privacy notices from \<System Name\>'s pages (FR-010) | EV-PM-04 | Yes |
 | PM-21 Accounting of Disclosures | \<Organisation\>, legal adviser | PT-2, AU-2 | Downloads and exports are audited, which shows what personal data left \<System Name\>, when and by whom. They are not the accounting itself: the recipient, purpose and address of a disclosure outside \<Organisation\>, and keeping the accounting for 5 years or for as long as the data is held, are \<Organisation\>'s (\<Audit and Accountability Management\>, Appendix B) | EV-PM-04 | Yes |
 | PM-22 Personally Identifiable Information Quality Management | \<Organisation\> | SI-18 | The yearly check of accuracy (\<Procedures\>, PRO-PT-5) | EV-PM-04 | Yes |
 | PM-23 Data Governance Body | \<Organisation\> | PT-2 | None | EV-PM-04 | No |
