@@ -149,7 +149,7 @@ Eight of the privacy baseline controls are assessed with this family, but part o
 | IR-2(3) Breach | \<Awareness and Training Management\>, briefing part B6 and modules M7 and M9; \<Incident Response Management\>, section 3.4 | Breach training: module M7 for incident roles, module M9 for the roles in the training matrix, and briefing part B6 for every user, on recognising a breach, reporting it within 1 hour (\<System Description\>, P-21), and the breach steps |
 | IR-8(1) Breaches | \<Incident Response Management\>, section 3.8 | The breach steps: the legal adviser and the security officer judge the harm and what would reduce it, and the legal adviser decides whether to tell the ICO and the people affected. UK GDPR Articles 33 and 34 apply: a report to the ICO within 72 hours of becoming aware, telling people when the risk to them is high, and recording every breach |
 | PE-8(3) Limit PII Elements | \<Physical and Environmental Protection Management\> | What visitor records may hold: name, organisation, and the date and time of the visit |
-| PL-9 Central Management | \<Planning Management\> | The one document set: policies, plans, registers and records under one owner, checked by one consistency test, and kept in the restricted store |
+| PL-9 Central Management | \<Planning Management\> | The one document set: policies, plans, registers and records under one owner, checked by one consistency test, and kept in the restricted store (until the store is set up, the private records repository; \<Documentation Map\>, section 4.1) |
 | SC-7(24) PII | This document, section 3.11 | Processing rules and monitoring |
 
 ### 3.10 What \<Organisation\> provides

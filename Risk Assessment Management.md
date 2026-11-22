@@ -150,7 +150,7 @@ Findings come from four sources: security assessments, privacy assessments, moni
 | --- | --- | --- | --- |
 | 1 Record | Each finding that is not satisfied becomes an entry in the Risk List's non-compliance register, linked to the risk it adds to | System owner | \<Risk List\>, section 5 |
 | 2 Rate | The entry is rated by the method in section 3.3 | System owner | \<Risk List\> |
-| 3 Decide | The person the rating calls for decides: accept, remediate, approve, obtain evidence from \<Organisation\>, or tailor | System owner for Low; authorising official for Medium and High | \<Decision Register\>; acceptances in \<Risk List\>, section 3 |
+| 3 Decide | The person the rating calls for decides: accept, remediate, approve, obtain evidence from \<Organisation\>, or tailor | System owner for Low; authorising official for Medium and High, and for any tailoring (PRO-PL-4) | \<Decision Register\>; acceptances in \<Risk List\>, section 3 |
 | 4 Plan | A remediation goes into the Plan of Action and Milestones, with milestones and a due date. A vulnerability follows the timetable in section 3.6 | System owner | \<Plan of Action and Milestones\> |
 | 5 Review | Each acceptance is reviewed by its review date: Medium every 6 months and Low every 12 | System owner; authorising official | \<Risk List\>, section 3 |
 

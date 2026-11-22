@@ -44,7 +44,7 @@ Controls met here: SR-2, SR-2(1), SR-6.
 
 The supply chain team is the system owner, the security officer, a developer and \<Organisation\>'s IT service desk. It keeps this plan current, reviews the critical suppliers every 12 months and before a new critical supplier is used, on TPL-16, and handles notices of compromise (PRO-SR-2, PRO-SR-5). The system owner leads it and approves the plan.
 
-The team reviews this plan every 12 months, and after a significant change (PRO-SR-2). The plan is restricted, under version control, and held in the restricted store. \<Organisation\>'s part is evidenced through EV-SR-01.
+The team reviews this plan every 12 months, and after a significant change (PRO-SR-2). The plan is restricted, under version control, and held in the restricted store (until the store is set up, the private records repository; \<Documentation Map\>, section 4.1). \<Organisation\>'s part is evidenced through EV-SR-01.
 
 ### 3.4 Risks across the lifecycle
 

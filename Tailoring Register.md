@@ -2,7 +2,7 @@
 
 ## 1 Purpose
 
-CSS (task S-2) allows a baseline to be tailored to the system, and expects each tailoring choice to have a rationale and an approval. This register holds the case for every control, part or parameter proposed as not applicable. Tailoring is not a way to avoid a control that is merely difficult. Every entry states the condition that makes it valid, and it ends if that condition stops being true. All entries are proposals.
+CSS (task S-2) allows a baseline to be tailored to the system, and expects each tailoring choice to have a rationale and an approval. The authorising official approves each entry on the system owner's recommendation, in \<Decision Register\> (\<Procedures\>, PRO-PL-4). This register holds the case for every control, part or parameter proposed as not applicable. Tailoring is not a way to avoid a control that is merely difficult. Every entry states the condition that makes it valid, and it ends if that condition stops being true. All entries are proposals.
 
 Entries are numbered TR-XX-nn, where XX is the family code. Section 8 lists the controls outside the baseline that the design already meets in part, for every family in one table.
 

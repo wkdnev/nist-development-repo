@@ -190,7 +190,7 @@ The scripts are one kind of analysis among several that the CSS guidance expects
 
 **Flaws.** Each flaw found goes to the Risk List and the POA&M, and is fixed in development. A fixed flaw is accepted only when its test passes on a repeat run (PRO-SA-2, step 4).
 
-The plan, its results and the evidence are protected as the document set is: restricted, and held in the restricted store.
+The plan, its results and the evidence are protected as the document set is: restricted, and held in the restricted store (until the store is set up, the private records repository; \<Documentation Map\>, section 4.1).
 
 **Table 6: Developer test plan**
 

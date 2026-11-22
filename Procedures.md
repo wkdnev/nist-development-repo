@@ -345,7 +345,7 @@ Copying \<System Name\> data to portable storage or an external system is not a 
 1. Whoever finds a non-compliance, whether through an assessment, a review, a test or an incident, reports it to the system owner.
 2. The system owner records it in \<Risk List\>, section 5, and rates the risk by the method in \<Risk List\>, section 4.
 3. The system owner proposes a treatment: accept, remediate, approve, evidence or tailor.
-4. The system owner decides Low risks. The authorising official decides Medium and High risks.
+4. The system owner decides Low risks. The authorising official decides Medium and High risks. A tailoring treatment is always decided by the authorising official, whatever the rating (PRO-PL-4).
 5. **If accepted:** the decision maker records the reason, any compensating measure, the name, the date and the review date in \<Risk List\>, section 3. The non-compliance remains in place.
 6. **If remediated:** the system owner adds an item to \<Plan of Action and Milestones\> with a milestone, a resource and a date. The fix follows that plan. It does not start until this decision is made, unless the authorising official directs urgent action.
 7. **If approved, evidenced or tailored:** the system owner records the value in \<Access Control Management\>, the evidence request in \<Evidence Requests\>, or the rationale in \<Tailoring Register\>.
@@ -1586,7 +1586,7 @@ These procedures carry out \<Policy\> (SR). Steps marked **Manual** rely on peop
 1. Every 12 months, and before a new critical supplier is used, the supply chain team reviews each critical supplier with TPL-16: the questions cover how it builds and protects what it supplies, how it reports problems, and its support period. **Manual**
 2. For \<Organisation\>, the team uses the evidence in EV-SR-01 and EV-SR-02. For open-source suppliers, it uses their published security policy and advisory history. **Manual**
 3. The team updates the supplier register and the plan, and records any new risk in \<Risk List\>. **Manual**
-4. The system owner approves the updated plan and keeps it in the restricted store. **Manual**
+4. The system owner approves the updated plan and keeps it in the restricted store (until the store is set up, the private records repository; \<Documentation Map\>, section 4.1). **Manual**
 
 #### PRO-SR-3 Inspecting a release
 

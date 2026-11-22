@@ -103,7 +103,7 @@ Table 2 gives, for each family, the chapter or section of every document that ho
 | Test evidence | \<evidence\> | The results of each test, with a note that explains them and a list of hashes that fixes their content |
 | Figures | With the documents | The architecture figures used in \<System Security Plan\> and \<System Description\> |
 | Change record | The private records repository described in section 4.1 | Every change to the documents and evidence, with its date |
-| Sign-off sheets | The restricted store (\<Decision Register\>, section 5) | Each approver's signature for the decisions recorded for them |
+| Sign-off sheets | The restricted store, or the private records repository until it is set up (\<Decision Register\>, section 5) | Each approver's signature for the decisions recorded for them |
 
 ## 3 Following a control
 
