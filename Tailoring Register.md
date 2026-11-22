@@ -103,6 +103,8 @@ The PT controls are in the CSS privacy baseline, not Moderate, and are assessed 
 | ID | Control or part | Tailoring | Rationale | Condition that must hold | If the condition changes |
 | --- | --- | --- | --- | --- | --- |
 | TR-PT-01 | PT-5(2), PT-6, PT-6(1), PT-6(2), PT-7(1), PT-7(2), PT-8 | Not applicable | These rest on US law and federal bodies: the Privacy Act, Federal Register notices, Social Security numbers, the First Amendment and computer matching. \<Organisation\> operates in the UK | \<System Name\> processes no data under those US laws. The legal adviser checks this | Assess those controls |
+| TR-PT-02 | PT-4 | Not applicable | PT-4 asks for a tool for people to consent before their data is collected. Consent is not the lawful basis for any kind of personal data \<System Name\> holds, because staff cannot freely refuse their employer (ICO employment guidance), and offering consent that would not be honoured would mislead people. Their say over their data comes through the notices (PT-5) and their rights (\<PII Processing Management\>, section 3.6) | The legal adviser records a basis other than consent for every row of \<PII Processing Management\>, Table 1 (D-PT-03) | Assess PT-4, and build the consent and withdrawal tool before the data that relies on consent is collected |
+| TR-PT-03 | SI-19 | Not applicable | SI-19 asks for identifiers to be removed from datasets and the de-identification evaluated. \<System Name\> de-identifies and releases no dataset, and uses invented data for testing, training and research (SI-12(2)), so there are no elements to remove and nothing to evaluate | No dataset is de-identified, anonymised or released from \<System Name\>, checked at each change that touches personal data (PRO-PT-3) | Assess SI-19, defining the elements removed and how often the de-identification is evaluated |
 | TR-SA-01 | SA-4(10) | Not applicable | It requires US government PIV identity products, which \<System Name\> doesn't use | \<System Name\> doesn't use PIV cards | Assess SA-4(10) |
 
 ## 6 System and Communications Protection (SC)
@@ -288,6 +290,6 @@ Notes by family:
 - **IR:** Two are in the CSS privacy baseline and apply because \<System Name\> holds personal data: they are assessed with the PT family.
 - **PE:** One is in the CSS privacy baseline and applies because visitor records hold personal data: it is assessed with the PT family.
 - **PL:** One is in the CSS privacy baseline, and is assessed with the PT family.
-- **PT:** The United States privacy controls that the baseline does select are tailored out in \<PII Processing Management\>, section 3.2.
+- **PT:** The United States privacy controls that the baseline does select are tailored out in TR-PT-01, PT-4 in TR-PT-02 and SI-19 in TR-PT-03.
 - **SC:** SC-15 is tailored out (TR-SC-01), and SC-7(24) is a privacy baseline control set out in \<PII Processing Management\>.
-- **SI:** SI-8 and SI-8(2) are tailored out (TR-SI-01), and SI-12(1) to SI-12(3), SI-18, SI-18(4) and SI-19 are privacy baseline controls set out in \<PII Processing Management\>.
+- **SI:** SI-8 and SI-8(2) are tailored out (TR-SI-01), and SI-12(1) to SI-12(3), SI-18 and SI-18(4) are privacy baseline controls set out in \<PII Processing Management\>; SI-19 is tailored out (TR-PT-03).

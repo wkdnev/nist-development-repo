@@ -242,13 +242,13 @@ Each control is given one of four types. **System** controls are met by \<System
 | PE Physical and Environmental Protection | 18 | 0 | 2 | 1 | 15 | 0 |
 | PL Planning | 7 | 0 | 0 | 7 | 0 | 0 |
 | PS Personnel Security | 9 | 0 | 4 | 3 | 2 | 0 |
-| PT Personally Identifiable Information Processing and Transparency | 29 | 3 | 2 | 15 | 2 | 7 |
+| PT Personally Identifiable Information Processing and Transparency | 29 | 3 | 2 | 13 | 2 | 9 |
 | RA Risk Assessment | 10 | 0 | 4 | 6 | 0 | 0 |
 | SA System and Services Acquisition | 17 | 1 | 4 | 9 | 2 | 1 |
 | SC System and Communications Protection | 25 | 3 | 10 | 1 | 10 | 1 |
 | SI System and Information Integrity | 18 | 3 | 9 | 3 | 1 | 2 |
 | SR Supply Chain Risk Management | 12 | 0 | 3 | 5 | 4 | 0 |
-| **Total** | **316** | **17** | **117** | **96** | **66** | **20** |
+| **Total** | **316** | **17** | **117** | **94** | **66** | **22** |
 
 Section 7 lists every control. A control counts as satisfied only when every one of its assessment statements is satisfied.
 
@@ -609,35 +609,35 @@ The assessment plan is in \<Control Assessment Record\> (PS), section PS.4, wher
 
 ### 7.14 Personally Identifiable Information Processing and Transparency (PT)
 
-The assessment plan is in \<Control Assessment Record\> (PT), section PT.4, where the results are recorded. Implementation detail is in \<Policy\> (PT), \<Procedures\> (PT) and \<PII Processing Management\>, whose section 3.3 the personal data inventory and section 3.7 the retention schedule. The impact assessment is \<Data Protection Impact Assessment\>.
+The assessment plan is in \<Control Assessment Record\> (PT), section PT.4, where the results are recorded. Implementation detail is in \<Policy\> (PT), \<Procedures\> (PT) and \<PII Processing Management\>, whose section 3.3 holds the personal data inventory and section 3.7 the retention schedule. The impact assessment is \<Data Protection Impact Assessment\>. The values are in \<System Description\>, P-22, P-31 and P-73.
 
 **Table 23: PT controls**
 
 | Control | How it is implemented | Who | Type | Status | Gap entry |
 | --- | --- | --- | --- | --- | --- |
-| PT-1 Policy and Procedures | Policy and procedures in \<Policy\> (PT) and \<Procedures\> (PT) | System owner, Head of Cyber | Organisational | \[Status\] | \[Decision\] |
-| PT-2 Authority to Process | UK GDPR, the DPA 2018 and the Data (Use and Access) Act 2025; lawful basis for each kind of data in \<PII Processing Management\>, section 3.3 | Legal adviser | Organisational | \[Status\] | \[Decision\] |
-| PT-3 Processing Purposes | The purposes in the application profile (\<System Description\>, section 3) and \<PII Processing Management\>; rule and change check (PRO-PT-3) | Legal adviser, system owner | Organisational | \[Status\] | \[Decision\] |
-| PT-4 Consent | Consent is not the lawful basis, so no tool | Legal adviser | Organisational | \[Status\] | \[Decision\] |
-| PT-5 Privacy Notice | \<Organisation\>'s employee privacy notice | \<Organisation\>, system owner | Inherited | \[Status\] | \[Decision\] |
-| PT-7 Specific Categories | Kept only in schemas the business owner authorises, where schema groups limit who sees it; conditions set by the legal adviser | Business owner, legal adviser | Hybrid | \[Status\] | \[Decision\] |
-| AC-3(14) Individual Access | Through a request to the legal adviser (PRO-PT-1), whose delegate searches every schema for the person's items (FR-073) | Legal adviser, legal adviser's delegate | Organisational | \[Status\] | \[Decision\] |
-| AT-3(5) Processing PII | Privacy training for every user in briefing part B6, and module M9 for the roles in the training matrix (\<Awareness and Training Management\>, sections 3.3 to 3.5) | Security officer | Organisational | \[Status\] | \[Decision\] |
-| AU-3(3) Limit PII in Audit | Named fields hold personal data; free text holds no extra personal data | Developers, auditor | System | \[Status\] | \[Decision\] |
-| IR-2(3) Breach | Breach training in briefing part B6 for every user, and modules M7 and M9 for the roles in the training matrix (\<Awareness and Training Management\>, section 3.5) | Security officer | Organisational | \[Status\] | \[Decision\] |
-| IR-8(1) Breaches | \<Incident Response Management\> \<ver\>, section 3.8: notification decision, harm to people, telling them, the 72-hour ICO report and the breach register | Security officer, legal adviser | Organisational | \[Status\] | \[Decision\] |
-| PE-8(3) Limit PII in Visitor Records | \<Organisation\>'s visitor records | \<Organisation\> | Inherited | \[Status\] | \[Decision\] |
-| PL-9 Central Management | One document set under one owner, checked by one consistency test; issued copies in the restricted store, and the master copy in the private records repository until then (\<Documentation Map\>, section 4.1) | System owner | Organisational | \[Status\] | \[Decision\] |
-| RA-8 Privacy Impact Assessments | \<Data Protection Impact Assessment\> \<ver\>, completed by the legal adviser | Legal adviser | Organisational | \[Status\] | \[Decision\] |
-| SA-8(33) Minimization | Minimisation rule, covered in the impact assessment | Developers, legal adviser | Organisational | \[Status\] | \[Decision\] |
-| SC-7(24) PII | As set out in \<PII Processing Management\> | Developers, security officer | System | \[Status\] | \[Decision\] |
-| SI-12(1) Limit PII Elements | Rule limiting personal data elements | Business owner | Organisational | \[Status\] | \[Decision\] |
-| SI-12(2) Minimize PII in Testing | Test and development use invented data only, loaded by script | Developers | Hybrid | \[Status\] | \[Decision\] |
-| SI-12(3) Information Disposal | Retention schedule in \<PII Processing Management\>, section 3.7, with disposal at the end of each period, approved by the business owner (FR-074) | Developers, business owner | System | \[Status\] | \[Decision\] |
-| SI-18 PII Quality Operations | Yearly check (PRO-PT-5) | Data Owners | Organisational | \[Status\] | \[Decision\] |
-| SI-18(4) Individual Requests | Through the legal adviser (PRO-PT-1) | Legal adviser | Organisational | \[Status\] | \[Decision\] |
-| SI-19 De-identification | No dataset is de-identified or released | None | Organisational | \[Status\] | \[Decision\] |
-| PT-5(2), PT-6, PT-6(1), PT-6(2), PT-7(1), PT-7(2), PT-8 | US-only requirements, which do not apply to \<Organisation\> in the UK | None | Not applicable | \[Status\] | \[Decision\] |
+| PT-1 Policy and Procedures | Policy and procedures in \<Policy\> (PT) and \<Procedures\> (PT) | System owner, Head of Cyber | Organisational | Implemented | NC-PT-01 |
+| PT-2 Authority to Process | UK GDPR, the DPA 2018 and the Data (Use and Access) Act 2025 (P-31); the lawful basis for each kind of data in \<PII Processing Management\>, section 3.3, set by the legal adviser; processing limited by schema access and rules A23 to A29 | Legal adviser | Organisational | Partially implemented | NC-PT-02 |
+| PT-3 Processing Purposes | The purposes in the application profile (\<System Description\>, section 3) and \<PII Processing Management\>; rule and change check (PRO-PT-3) | Legal adviser, system owner | Organisational | Implemented | NC-PT-03 |
+| PT-5 Privacy Notice | \<Organisation\>'s privacy notices for employees, contractors and agency staff, holding what P-73 sets; \<System Name\> links to them from every page (FR-010), and the system owner checks them every 12 months (PRO-PT-3; D-PT-02) | \<Organisation\>, system owner | Inherited | Implemented | NC-PT-04 |
+| PT-7 Specific Categories | Special category and criminal offence data kept only in schemas the business owner authorises, marked (FR-035), where schema groups limit who sees it; conditions set by the legal adviser | Business owner, legal adviser | Hybrid | Partially implemented | NC-PT-05 |
+| AC-3(14) Individual Access | Through a request to the legal adviser (PRO-PT-1), whose delegate searches every schema for the person's items (FR-073), answered as P-22 sets | Legal adviser, legal adviser's delegate | Organisational | Implemented | NC-PT-06 |
+| AT-3(5) Processing PII | Privacy training for every user in briefing part B6, and module M9 for the roles in the training matrix (\<Awareness and Training Management\>, sections 3.3 to 3.5) | Security officer | Organisational | Implemented | NC-PT-07 |
+| AU-3(3) Limit PII in Audit | Only the username, user ID, IP address and browser, as the impact assessment sets (P-73); free text, change and deletion records hold no further personal data | Developers, auditor | System | Implemented | NC-PT-08 |
+| IR-2(3) Breach | Breach training in briefing part B6 for every user, and modules M7 and M9 for the roles in the training matrix (\<Awareness and Training Management\>, section 3.5) | Security officer | Organisational | Implemented | NC-PT-09 |
+| IR-8(1) Breaches | \<Incident Response Management\> \<ver\>, section 3.8: notification decision, harm to people, telling them, the 72-hour ICO report and the breach register | Security officer, legal adviser | Organisational | Implemented | NC-PT-10 |
+| PE-8(3) Limit PII in Visitor Records | \<Organisation\>'s visitor records, holding only the name, organisation, and date and time of the visit (P-73; D-PT-02) | \<Organisation\> | Inherited | Implemented | NC-PT-11 |
+| PL-9 Central Management | One document set under one owner, checked by one consistency test; issued copies in the restricted store, and the master copy in the private records repository until then (\<Documentation Map\>, section 4.1) | System owner | Organisational | Implemented | NC-PT-12 |
+| RA-8 Privacy Impact Assessments | \<Data Protection Impact Assessment\> \<ver\>, completed by the legal adviser | Legal adviser | Organisational | Partially implemented | NC-PT-13 |
+| SA-8(33) Minimization | Minimisation rule, covered in the impact assessment | Developers, legal adviser | Organisational | Implemented | NC-PT-14 |
+| SC-7(24) PII | Schema access as the processing rules; monitoring at the browser, where views, downloads and exports are audited and large exports alerted, and at the API and the database; exceptions on TPL-17 (\<PII Processing Management\>, section 3.11) | Developers, security officer | System | Implemented | NC-PT-15 |
+| SI-12(1) Limit PII Elements | Rule limiting personal data elements | Business owner | Organisational | Implemented | NC-PT-16 |
+| SI-12(2) Minimize PII in Testing | Test and development use invented data only, loaded by script | Developers | Hybrid | Implemented | NC-PT-17 |
+| SI-12(3) Information Disposal | Retention schedule in \<PII Processing Management\>, section 3.7, with disposal at the end of each period, approved by the business owner (FR-074); backups expire, and media are sanitised (P-73) | Developers, business owner | System | Implemented | NC-PT-18 |
+| SI-18 PII Quality Operations | Yearly check by each Data Owner, with corrections by the schema's editors (PRO-PT-5; P-73) | Data Owners | Organisational | Implemented | NC-PT-19 |
+| SI-18(4) Individual Requests | Through the legal adviser, with the correction made by an editor of the schema (PRO-PT-1; FR-075) | Legal adviser | Organisational | Implemented | NC-PT-20 |
+| PT-5(2), PT-6, PT-6(1), PT-6(2), PT-7(1), PT-7(2), PT-8 | US-only requirements, which do not apply to \<Organisation\> in the UK | None | Not applicable | Not applicable | TR-PT-01 |
+| PT-4 Consent | Consent is not the lawful basis for any kind of data, so no consent tool is offered | Legal adviser | Not applicable | Not applicable | TR-PT-02 |
+| SI-19 De-identification | No dataset is de-identified or released | None | Not applicable | Not applicable | TR-PT-03 |
 
 ### 7.15 Risk Assessment (RA)
 
