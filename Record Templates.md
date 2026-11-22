@@ -241,12 +241,14 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | Personal data involved: yes or no. Legal adviser told: date and time |  |
 | ICO told: yes or no, date and time, and the reason if not |  |
 | People affected told: yes or no, date and how, and the reason if not. Breach register entry made (\<Incident Response Management\>, section 3.14) |  |
-| \<Organisation\>'s security contact and suppliers told: date and time |  |
+| \<Organisation\>'s security contact, the Data Owner of any schema concerned and suppliers told: date and time |  |
+| Crime or significant cyber attack reported by the system owner to the NCSC or Report Fraud: yes or no, date and reference |  |
+| Accounts disabled, and the earliest time each may be re-enabled or the key rings' keys revoked (TPL-14) |  |
 | Evidence preserved: each item, its SHA-256 hash, who holds it, where, and each hand-over |  |
 | Containment, eradication and recovery: what was done, by whom, and when |  |
 | Timeline in UTC: noticed, reported, contained and recovered, against the targets |  |
 | Root cause |  |
-| Lessons, and changes to plans, training, \<Risk List\> and \<Plan of Action and Milestones\> |  |
+| Lessons, and changes to the incident response plan, training, exercise scenarios, \<Risk List\> and \<Plan of Action and Milestones\> |  |
 | Closed by, and date |  |
 
 ### 2.11 TPL-11 Exercise and restore test
@@ -263,7 +265,7 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | Time to recover and data lost, against the objectives (P-12, 72 hours; P-13, 24 hours) |  |
 | Checks in PRO-CP-2 (row counts, file checksums, audit chain, and group members checked against current staff): result |  |
 | For a restore test: the restore test server used, that the backup encryption certificate was restored from its protected copy, and the TPL-13 record of the server's erasure. For an activation: the items deleted again since the backup (\<Contingency Planning Management\>, section 3.7) |  |
-| Changes made to \<Contingency Planning Management\> or the procedures (CP-2g) |  |
+| Changes made to \<Incident Response Management\>, \<Contingency Planning Management\> or the procedures (IR-4c, IR-8c, CP-2g) |  |
 | Result, and problems found |  |
 | Actions, owner and date |  |
 | Reviewed by, and date |  |

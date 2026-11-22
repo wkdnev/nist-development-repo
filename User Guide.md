@@ -37,7 +37,7 @@ This guide tells you how to use \<System Name\>'s security and privacy features,
 
 1. Read and sign the rules in \<Security Operating Procedures\>, Part A, before you get access, and again after any material change.
 2. Complete security and privacy training before access and every 12 months (A54).
-3. Report any loss, theft, misdirected message, unauthorised access or suspicious message about \<System Name\> to the security officer at once, and within 1 hour (A29).
+3. Report any loss, theft, misdirected message, unauthorised access or suspicious message about \<System Name\> to the security officer at once, and within 1 hour (A29, A50).
 
 ## 6 Getting help
 
@@ -47,7 +47,7 @@ This guide tells you how to use \<System Name\>'s security and privacy features,
 | --- | --- |
 | Locked account or forgotten password | \[\<Organisation\>'s service desk\] |
 | Access to a schema | Request it in ServiceNow; the schema's Data Owner authorises it |
-| Security incident | \[Name\], security officer |
+| Security incident | \[Name\], security officer, or the deputy, by phone or email, or through ServiceNow |
 | Personal data request or complaint | \[Name\], legal adviser |
 
 ## 7 References

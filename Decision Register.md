@@ -41,6 +41,7 @@ Documents, policy decisions and cross-family decisions (GEN). The legal adviser 
 | D-IA-05 | IA | Approve TR-IA-04: IA-8(1) not applicable | Approve, as TR-IA-01 and TR-IA-03 | Authorising official | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | D-IA-06 | IA | Approve TR-IA-05: IA-8(2) not applicable | Approve: no external authenticators are accepted | Authorising official | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | D-IA-07 | IA | Approve TR-IA-06: IA-8(4) not applicable | Approve: no external identity profiles are used | Authorising official | \[Decision\] | \[Name\] | \[Date\] | None yet |
+| D-IR-01 | IR | Approve \<Incident Response Management\>, section 3 with appendix A, as the incident response plan (IR-8a.09) | Approve: it holds the roles, preparation, detection, severity and targets, the steps of handling, personal data breaches, twelve playbooks, evidence, reportable incidents, measures and resources, sharing, the register and how the plan is kept; it is reviewed every 12 months and after an incident | Head of Cyber (\<Policy\>, section IR.6) | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | \[D-XX-nn\] | \[XX\] | \[Decision needed\] | \[Recommendation\] | \[Who decides\] | \[Decision\] | \[Name\] | \[Date\] | \[Sheet\] |
 
 ## 3 Parameter approvals
@@ -98,6 +99,7 @@ The reference values are the parameters in \<System Description\>, section 4, wh
 | D-CP-P14 | CP | CP-2, CP-2(3) | 1: P-14 Maximum tolerable downtime | 120 hours from the start of the outage | Authorising official, on the system owner's advice | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | D-CP-P15 | CP | CP-6, CP-9 | 1: P-15 Backups kept | 14 daily, 8 weekly and 12 monthly; one copy at the second site and one offline or immutable | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | D-CP-P16 | CP | CP-4, CP-9(1) | 1: P-16 Contingency tests | A restore every 6 months, on the restore test server at the second site; a tabletop exercise every 12 months, with the incident response plan | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
+| D-IR-P21 | IR | IR-6 | 2: P-21 Incident reporting | A suspected incident reported to the security officer within 1 hour; every confirmed incident told to \<Organisation\>'s security contact; the ICO told within 72 hours of becoming aware of a reportable breach | System owner, with the legal adviser for the breach report | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | \[D-XX-Pnn\] | \[XX\] | \[Control\] | \[Number of parameters\] | \[Main values\] | \[Who decides\] | \[Decision\] | \[Name\] | \[Date\] | \[Sheet\] |
 
 ## 4 Non-compliance treatment decisions
@@ -115,6 +117,7 @@ The control, rating, reason and treatment of each entry are in \<Risk List\>, se
 | NC-CM-01 to NC-CM-18 | CM | System owner, as every CM entry is rated Low | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | NC-CP-01 to NC-CP-20 | CP | System owner, as every CP entry is rated Low | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | NC-IA-01 to NC-IA-18 | IA | System owner, as every IA entry is rated Low | \[Decision\] | \[Name\] | \[Date\] | None yet |
+| NC-IR-01 to NC-IR-13 | IR | System owner, as every IR entry is rated Low | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | \[NC-XX-nn\] | \[XX\] | \[Who decides\] | \[Decision\] | \[Name\] | \[Date\] | \[Sheet\] |
 
 ## 5 Proof of approval

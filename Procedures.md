@@ -538,7 +538,7 @@ These procedures carry out \<Policy\> (CA). Steps marked **Manual** have no syst
 
 #### PRO-CA-5 Monitoring
 
-1. Each month the security officer collects the measures in \<Assessment, Authorization, and Monitoring Management\>, section 3.8, reads them together with the audit review findings, the vulnerability results and the incident records, and looks for a trend across three months. They report on TPL-8 to the system owner, send the privacy measures to the legal adviser, act on any measure past its threshold, and record the action. A measure not put right in the month becomes an item in \<Plan of Action and Milestones\>. **Manual**
+1. Each month the security officer collects the measures in \<Assessment, Authorization, and Monitoring Management\>, section 3.8, and the incident response measures in \<Incident Response Management\>, section 3.12, reads them together with the audit review findings, the vulnerability results and the incident records, and looks for a trend across three months. They report on TPL-8 to the system owner, send the privacy measures to the legal adviser, act on any measure past its threshold, and record the action. A measure not put right in the month becomes an item in \<Plan of Action and Milestones\>. **Manual**
 2. Each quarter the system owner reports the same measures, and any change in risk, to the authorising official. **Manual**
 3. Each year, alongside the Level 2 assessment, an independent assessor whose TPL-19 the authorising official has accepted checks a sample of the monitoring reports: that the measures were collected, are accurate, and were acted on. The result goes with the Level 2 report. **Manual**
 
@@ -810,11 +810,11 @@ These procedures carry out \<Policy\> (IR) and \<Incident Response Management\>.
 | --- | --- | --- | --- | --- | --- |
 | PRO-IR-1 | Reporting an incident | Within 1 hour of noticing | Anyone; security officer | TPL-10 | IR-6, IR-6(1), IR-6(3) |
 | PRO-IR-2 | Handling an incident | Each incident, to the targets in \<Incident Response Management\>, section 3.6 | Security officer; administrators | TPL-10 | IR-4, IR-4(1), IR-5 |
-| PRO-IR-3 | Training and testing | Within 30 days of a role, every 12 months; tabletop every 12 months | Security officer | TPL-9; TPL-11 | IR-2, IR-3, IR-3(2) |
+| PRO-IR-3 | Training and testing | Within 30 days of a role, every 12 months; tabletop every 12 months | Security officer | TPL-9; TPL-11 | IR-2, IR-2(3), IR-3, IR-3(2) |
 | PRO-IR-4 | Getting help | As needed | Users; security officer | ServiceNow request | IR-7, IR-7(1) |
-| PRO-IR-5 | Handling a personal data breach | When personal data may be involved | Security officer; legal adviser | TPL-10; \<Incident Response Management\>, section 3.14 | IR-6 |
+| PRO-IR-5 | Handling a personal data breach | When personal data may be involved | Security officer; legal adviser | TPL-10; \<Incident Response Management\>, section 3.14 | IR-6, IR-8(1) |
 | PRO-IR-6 | Preserving evidence | Before anything is changed | Administrators | TPL-10 | IR-4, AU-9 |
-| PRO-IR-7 | Closing an incident and learning | Within 10 working days of containment | Security officer; system owner | TPL-10 | IR-4, IR-8 |
+| PRO-IR-7 | Closing an incident and learning | Within 10 working days of containment | Security officer; system owner | TPL-10; TPL-6 | IR-4, IR-8 |
 
 ### IR.2 Procedures
 
@@ -822,7 +822,7 @@ These procedures carry out \<Policy\> (IR) and \<Incident Response Management\>.
 
 1. Anyone who suspects an incident tells the security officer within 1 hour, by phone if ServiceNow or email may be affected (\<Incident Response Management\>, appendix A). **Manual**
 2. The security officer opens a record on TPL-10, or a ServiceNow ticket, and sets the severity (\<Incident Response Management\>, section 3.6).
-3. The security officer tells the people in the severity table, \<Organisation\>'s security contact, and any affected supplier. **Manual**
+3. The security officer tells the people in the severity table, which always include \<Organisation\>'s security contact, and any supplier whose product or service is involved. **Manual**
 4. If personal data may be involved, the security officer starts PRO-IR-5 at once. **Manual**
 5. If a crime or a significant cyber attack is suspected, the system owner reports it to the NCSC or to Report Fraud, which replaced Action Fraud. **Manual**
 
@@ -830,19 +830,19 @@ These procedures carry out \<Policy\> (IR) and \<Incident Response Management\>.
 
 1. The security officer leads the steps in \<Incident Response Management\>, section 3.7, using the playbook in its section 3.9 that fits. **Manual**
 2. The administrators preserve evidence first, under PRO-IR-6. **Manual**
-3. They contain the incident to the target for its severity, for example by disabling an account or ending a person's PingFederate sign-in. **Manual**
+3. They contain the incident to the target for its severity, using the playbook, for example by having \<Organisation\>'s service desk disable an account, which \<System Name\> refuses within 5 minutes. Ending a person's PingFederate sign-in alone does not end \<System Name\>'s cookie, so the account is disabled first, and after a suspected compromise it stays disabled for 8 hours unless every key in the key rings is revoked (PRO-IA-3). **Manual**
 4. If recovery is needed, the system owner invokes \<Contingency Planning Management\>; the incident plan leads while the outage may be an incident. **Manual**
 5. The security officer records each action and time on TPL-10. **Manual**
 
 #### PRO-IR-3 Training and testing
 
-1. The security officer trains each person with an incident role within 30 days of taking it, every 12 months and after a plan change, and records it on TPL-9 and in the training register (\<Awareness and Training Management\>, section 3.8). This is module M7 in the training matrix (\<Awareness and Training Management\>, section 3.5), with its 80% check. The content is the plan, the severity levels, the playbooks, preserving evidence, the breach steps and the contacts. **Manual**
-2. The security officer reviews the content every 12 months, and after a plan change or an incident. **Manual**
-3. Every 12 months the security officer runs a tabletop exercise with the people named in \<Incident Response Management\> and \<Contingency Planning Management\>, rotating through the playbooks, and writes an after-action report on TPL-11. **Manual**
+1. The security officer trains each person with an incident role within 30 days of taking it, every 12 months and after a plan change or a system change that alters their part (\<System Description\>, P-56), and records it on TPL-9 and in the training register (\<Awareness and Training Management\>, section 3.8). This is module M7 in the training matrix (\<Awareness and Training Management\>, section 3.5), with its 80% check. The content is the plan, the severity levels, the playbooks, preserving evidence, the breach steps and the contacts. **Manual**
+2. The security officer reviews the content every 12 months, and after a plan change or a significant incident (\<System Description\>, P-58). **Manual**
+3. Every 12 months the security officer runs a tabletop exercise with the people named in \<Incident Response Management\> and \<Contingency Planning Management\>, and \<Organisation\>'s security contact and IT service desk, rotating through the playbooks, and writes an after-action report on TPL-11. **Manual**
 
 #### PRO-IR-4 Getting help
 
-1. Users get advice from the security officer, and through a ServiceNow request.
+1. Users get advice from the security officer, or the deputy when the security officer is away, and through a ServiceNow request.
 2. The security officer gets help from \<Organisation\>'s security contact. **Manual**
 
 #### PRO-IR-5 Handling a personal data breach
@@ -862,7 +862,7 @@ These procedures carry out \<Policy\> (IR) and \<Incident Response Management\>.
 #### PRO-IR-7 Closing an incident and learning
 
 1. Within 10 working days of containment, the security officer records the root cause, the time to report, contain and recover against the targets, and the lessons, on TPL-10. **Manual**
-2. The system owner updates \<Incident Response Management\>, \<Risk List\> and \<Plan of Action and Milestones\> with the changes, and the training content if needed. **Manual**
+2. The security officer updates \<Incident Response Management\>, the training content and the exercise scenarios with the lessons, on TPL-6, and tells the people in its section 3.16 of the change; the system owner updates \<Risk List\> and \<Plan of Action and Milestones\>. **Manual**
 3. The system owner closes the record and the register entry. **Manual**
 
 ## MA Maintenance
@@ -1444,7 +1444,7 @@ These procedures carry out \<Policy\> (SC). The values, cryptographic register a
 
 1. The register lists each key's cryptoperiod. When one is due, when a holder leaves, or when compromise is suspected, the owner changes the key and records the date, never the value, on TPL-6. **Manual**
 2. The token signing key, the audit chain key and the OpenID Connect client credential are held only in the key store, never in source code or settings files.
-3. Each app keeps its data protection key ring in its own folder, readable only by its service account and protected with Windows DPAPI at machine level. The folder is not backed up, as the key ring cannot be read on a rebuilt server: if it is lost, users simply sign in again (\<Contingency Planning Management\>, section 3.3.4). Old keys are kept until every cookie they protected has expired.
+3. Each app keeps its data protection key ring in its own folder, readable only by its service account and protected with Windows DPAPI at machine level. The folder is not backed up, as the key ring cannot be read on a rebuilt server: if it is lost, users simply sign in again (\<Contingency Planning Management\>, section 3.3.4). Old keys are kept until every cookie they protected has expired, except when a key ring may be exposed or every sign-in must end at once: then the Windows server administrator revokes every key in the ring, not only adds a new one, as old keys still read existing cookies, and records it on TPL-6. **Manual**
 
 #### PRO-SC-4 Changing the boundary
 

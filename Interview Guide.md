@@ -259,7 +259,10 @@ Questions are numbered INT-XX-nn, where XX is the family code, and each names th
 | INT-IR-01 | Security officer | Talk me through what happens when someone reports an incident | IR-04, IR-05, IR-08 | \<Incident Response Management\>, and an incident ticket |
 | INT-IR-02 | Security officer | When was the last exercise, and what changed as a result? | IR-03, IR-03(02), IR-04c | Exercise record |
 | INT-IR-03 | Legal adviser | How do you decide whether to tell the ICO, and how quickly can you? | IR-06 | Reporting record |
-| INT-IR-04 | \<Organisation\>'s security contact | How do reports reach you, and what help do you give? | IR-06, IR-07 | EV-IR-01 |
+| INT-IR-04 | \<Organisation\>'s security contact | How do reports reach you, out of hours too, and what help do you give? How does your severity scale compare with \<System Name\>'s? | IR-06, IR-07, IR-04d | EV-IR-01 |
+| INT-IR-05 | Windows server administrator | A user's account is compromised and \<Organisation\> cannot say whose. Show me how you would end every \<System Name\> sign-in at once, and why ending the PingFederate sign-ins is not enough | IR-04a.\[04\] | \<Incident Response Management\>, section 3.9; TPL-6 |
+| INT-IR-06 | Auditor | Show me how you would export the audit records as evidence for an incident, record the hash, and check them against the daily chain hash in central logging | IR-04a.\[03\], IR-05 | \<Procedures\>, PRO-AU-2 and PRO-IR-6; TPL-10 |
+| INT-IR-07 | Security officer | Who holds a copy of the plan, and who can read the incident records in ServiceNow? How were the last plan changes told to them? | IR-08b, IR-08d, IR-08e | \<Incident Response Management\>, section 3.16; EV-IR-02 |
 
 ## 11 Maintenance (MA)
 

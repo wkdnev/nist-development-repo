@@ -17,11 +17,11 @@ The boundary, operational context and environment are as \<System Security Plan\
 | Plan owner and privacy representative | \[Name\] | Owns this plan, the impact assessment, individuals' requests and complaints, and reports to the ICO |
 | Data protection officer | \[Name, or the reason none is required\] | Leads \<Organisation\>'s privacy programme (PM-19; UK GDPR, Articles 37 to 39), advises on this plan and the impact assessment, and is the contact for individuals and the ICO. The legal adviser completes this row |
 | Risk decisions | \[Name\] | Decides on privacy risk |
-| Business and information owner | \[Name\] | Decides what data schemas hold, and how long for, and approves the disposal of items due under the retention schedule in the Admin application (\<System Description\>, FR-074) |
+| Business and information owner | \[Name\] | Decides what data schemas hold, and how long for, and approves the disposal of items due under the retention schedule in the UI application (\<System Description\>, FR-074) |
 | Legal adviser's delegate | \[Name, named by the legal adviser\] | Searches every schema for one person's items to answer a request under data protection law (\<System Description\>, FR-073). Holds no other role |
 | Data Owners | \[Names, one for each schema\] | Authorise who may read or edit each schema, in ServiceNow, and keep its personal data accurate |
 | System owner | \[Name\] | Makes sure \<System Name\> follows this plan |
-| Breach response | \[Name\] | Leads the response, following \<Incident Response Management\> |
+| Breach response | \[Name\], security officer; \[Name\], legal adviser | The security officer leads the response and keeps the breach register; the legal adviser judges the harm and decides on telling the ICO within 72 hours and the people affected (\<Incident Response Management\>, sections 3.3 and 3.8) |
 
 ## 4 Information and categorisation
 
