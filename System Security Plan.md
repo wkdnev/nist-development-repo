@@ -242,13 +242,13 @@ Each control is given one of four types. **System** controls are met by \<System
 | PE Physical and Environmental Protection | 18 | 0 | 2 | 1 | 15 | 0 |
 | PL Planning | 7 | 0 | 0 | 7 | 0 | 0 |
 | PS Personnel Security | 9 | 0 | 4 | 3 | 2 | 0 |
-| PT Personally Identifiable Information Processing and Transparency | 29 | 3 | 2 | 15 | 2 | 7 |
+| PT Personally Identifiable Information Processing and Transparency | 29 | 3 | 2 | 13 | 2 | 9 |
 | RA Risk Assessment | 10 | 0 | 4 | 6 | 0 | 0 |
 | SA System and Services Acquisition | 17 | 1 | 4 | 9 | 2 | 1 |
 | SC System and Communications Protection | 25 | 3 | 10 | 1 | 10 | 1 |
 | SI System and Information Integrity | 18 | 3 | 9 | 3 | 1 | 2 |
 | SR Supply Chain Risk Management | 12 | 0 | 3 | 5 | 4 | 0 |
-| **Total** | **316** | **17** | **117** | **96** | **66** | **20** |
+| **Total** | **316** | **17** | **117** | **94** | **66** | **22** |
 
 Section 7 lists every control. A control counts as satisfied only when every one of its assessment statements is satisfied.
 
@@ -618,7 +618,6 @@ The assessment plan is in \<Control Assessment Record\> (PT), section PT.4, wher
 | PT-1 Policy and Procedures | Policy and procedures in \<Policy\> (PT) and \<Procedures\> (PT) | System owner, Head of Cyber | Organisational | Implemented | NC-PT-01 |
 | PT-2 Authority to Process | UK GDPR, the DPA 2018 and the Data (Use and Access) Act 2025 (P-31); the lawful basis for each kind of data in \<PII Processing Management\>, section 3.3, set by the legal adviser; processing limited by schema access and rules A23 to A29 | Legal adviser | Organisational | Partially implemented | NC-PT-02 |
 | PT-3 Processing Purposes | The purposes in the application profile (\<System Description\>, section 3) and \<PII Processing Management\>; rule and change check (PRO-PT-3) | Legal adviser, system owner | Organisational | Implemented | NC-PT-03 |
-| PT-4 Consent | Consent is not the lawful basis, so no tool | Legal adviser | Organisational | \[Status\] | \[Decision\] |
 | PT-5 Privacy Notice | \<Organisation\>'s privacy notices for employees, contractors and agency staff, holding what P-73 sets; \<System Name\> links to them from every page (FR-010), and the system owner checks them every 12 months (PRO-PT-3; D-PT-02) | \<Organisation\>, system owner | Inherited | Implemented | NC-PT-04 |
 | PT-7 Specific Categories | Special category and criminal offence data kept only in schemas the business owner authorises, marked (FR-035), where schema groups limit who sees it; conditions set by the legal adviser | Business owner, legal adviser | Hybrid | Partially implemented | NC-PT-05 |
 | AC-3(14) Individual Access | Through a request to the legal adviser (PRO-PT-1), whose delegate searches every schema for the person's items (FR-073), answered as P-22 sets | Legal adviser, legal adviser's delegate | Organisational | Implemented | NC-PT-06 |
@@ -636,8 +635,9 @@ The assessment plan is in \<Control Assessment Record\> (PT), section PT.4, wher
 | SI-12(3) Information Disposal | Retention schedule in \<PII Processing Management\>, section 3.7, with disposal at the end of each period, approved by the business owner (FR-074); backups expire, and media are sanitised (P-73) | Developers, business owner | System | Implemented | NC-PT-18 |
 | SI-18 PII Quality Operations | Yearly check by each Data Owner, with corrections by the schema's editors (PRO-PT-5; P-73) | Data Owners | Organisational | Implemented | NC-PT-19 |
 | SI-18(4) Individual Requests | Through the legal adviser, with the correction made by an editor of the schema (PRO-PT-1; FR-075) | Legal adviser | Organisational | Implemented | NC-PT-20 |
-| SI-19 De-identification | No dataset is de-identified or released | None | Organisational | \[Status\] | NC-PT-21 |
 | PT-5(2), PT-6, PT-6(1), PT-6(2), PT-7(1), PT-7(2), PT-8 | US-only requirements, which do not apply to \<Organisation\> in the UK | None | Not applicable | Not applicable | TR-PT-01 |
+| PT-4 Consent | Consent is not the lawful basis for any kind of data, so no consent tool is offered | Legal adviser | Not applicable | Not applicable | TR-PT-02 |
+| SI-19 De-identification | No dataset is de-identified or released | None | Not applicable | Not applicable | TR-PT-03 |
 
 ### 7.15 Risk Assessment (RA)
 

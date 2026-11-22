@@ -33,7 +33,7 @@ The main threats to individuals are someone reading items holding personal data 
 
 ## 6 Requirements, baseline and controls
 
-The requirements are the data protection laws in \<System Description\>, P-31. The baseline is the CSS privacy baseline, as tailored by \<Tailoring Register\>. Of its 96 controls, 43 are within Moderate and assessed with their families, 6 PT controls and 16 others are assessed in \<Control Assessment Record\> (PT), 7 are tailored as US-only, and 24 are PM controls held at organisation level: inherited from \<Organisation\>'s privacy programme and not assessed for \<System Name\>, with PM-17 and PM-24 of them not applicable (TR-PM-01; \<Program Management\>, section 3.4). This plan follows \<Organisation\>'s privacy programme plan (PM-18), requested in EV-PM-04, and is changed to match it where the two differ.
+The requirements are the data protection laws in \<System Description\>, P-31. The baseline is the CSS privacy baseline, as tailored by \<Tailoring Register\>. Of its 96 controls, 43 are within Moderate and assessed with their families, 5 PT controls and 15 others are assessed in \<Control Assessment Record\> (PT), 9 are tailored out (7 as US-only, PT-4 as consent is not used, and SI-19 as nothing is de-identified), and 24 are PM controls held at organisation level: inherited from \<Organisation\>'s privacy programme and not assessed for \<System Name\>, with PM-17 and PM-24 of them not applicable (TR-PM-01; \<Program Management\>, section 3.4). This plan follows \<Organisation\>'s privacy programme plan (PM-18), requested in EV-PM-04, and is changed to match it where the two differ.
 
 ## 7 Activities to coordinate
 

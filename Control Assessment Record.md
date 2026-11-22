@@ -2038,7 +2038,7 @@ For the Level 2 assessment, the assessor should:
 
 ### PT.1 Purpose
 
-This records the Level 1 self-assessment of personal data handling in \<System Name\>, against CSS catalog release 5.2.0. It covers 6 PT controls and the 16 privacy baseline controls that are outside the Moderate baseline. An independent team led by \[Name\] will use it for the Level 2 assessment. It makes no fixes.
+This records the Level 1 self-assessment of personal data handling in \<System Name\>, against CSS catalog release 5.2.0. It covers the 5 PT controls and the 15 privacy baseline controls outside the Moderate baseline that apply; PT-4, SI-19 and the seven United States PT controls are tailored out (\<Tailoring Register\>, TR-PT-01 to TR-PT-03). An independent team led by \[Name\] will use it for the Level 2 assessment. It makes no fixes.
 
 ### PT.2 Executive summary
 
@@ -2058,7 +2058,6 @@ This records the Level 1 self-assessment of personal data handling in \<System N
 | PT-1 | \[Result\] | \[n\] of \[n\] | \[Main reason\] |
 | PT-2 | \[Result\] | \[n\] of \[n\] | \[Main reason\] |
 | PT-3 | \[Result\] | \[n\] of \[n\] | \[Main reason\] |
-| PT-4 | \[Result\] | \[n\] of \[n\] | \[Main reason\] |
 | PT-5 | \[Result\] | \[n\] of \[n\] | \[Main reason\] |
 | PT-7 | \[Result\] | \[n\] of \[n\] | \[Main reason\] |
 | AC-3(14) | \[Result\] | \[n\] of \[n\] | \[Main reason\] |
@@ -2076,7 +2075,6 @@ This records the Level 1 self-assessment of personal data handling in \<System N
 | SI-12(3) | \[Result\] | \[n\] of \[n\] | \[Main reason\] |
 | SI-18 | \[Result\] | \[n\] of \[n\] | \[Main reason\] |
 | SI-18(4) | \[Result\] | \[n\] of \[n\] | \[Main reason\] |
-| SI-19 | \[Result\] | \[n\] of \[n\] | \[Main reason\] |
 
 Of the CSS \[n\] statements, \[n\] are satisfied, \[n\] are not applicable, \[n\] await a decision or approval, \[n\] show a gap in the system and \[n\] await evidence from the VMs or \<Organisation\>.
 
@@ -2105,8 +2103,6 @@ There is one finding for each CSS determination statement, including those about
 | PT-03c. | Processing is limited to what fits the purposes | \[Finding\] | \[Basis\] |
 | PT-03d.\[01\] | Changes in processing are monitored | \[Finding\] | \[Basis\] |
 | PT-03d.\[02\] | Changes follow the set requirements | \[Finding\] | \[Basis\] |
-| PT-04\_ODP | Consent tools are defined | \[Finding\] | \[Basis\] |
-| PT-04 | Consent tools are implemented | \[Finding\] | \[Basis\] |
 | PT-05\_ODP\[01\] | Notice review frequency is defined | \[Finding\] | \[Basis\] |
 | PT-05\_ODP\[02\] | Notice content is defined | \[Finding\] | \[Basis\] |
 | PT-05a.\[01\] | Notice is available on first contact | \[Finding\] | \[Basis\] |
@@ -2170,10 +2166,6 @@ There is one finding for each CSS determination statement, including those about
 | SI-18a.\[04\] | Completeness is checked | \[Finding\] | \[Basis\] |
 | SI-18b. | Inaccurate or outdated data is corrected or deleted | \[Finding\] | \[Basis\] |
 | SI-18(04) | Data is corrected or deleted on request | \[Finding\] | \[Basis\] |
-| SI-19\_ODP\[01\] | Elements removed are defined | \[Finding\] | \[Basis\] |
-| SI-19\_ODP\[02\] | Evaluation frequency is defined | \[Finding\] | \[Basis\] |
-| SI-19a. | Elements are removed from datasets | \[Finding\] | \[Basis\] |
-| SI-19b. | De-identification is evaluated | \[Finding\] | \[Basis\] |
 
 ### PT.4 Assessment plan
 
@@ -2182,10 +2174,10 @@ There is one finding for each CSS determination statement, including those about
 | Item | Detail |
 | --- | --- |
 | Security categorisation | Moderate, with the privacy baseline applied |
-| Scope | 6 PT controls and 16 privacy baseline controls outside Moderate, with 109 determination statements, covering every kind of personal data in \<PII Processing Management\>, section 3.3 |
+| Scope | 5 PT controls and 15 privacy baseline controls outside Moderate, with 103 determination statements, covering every kind of personal data in \<PII Processing Management\>, section 3.3 |
 | Procedures | CSS, using the CSS published statements and identifiers (catalog release 5.2.0); UK GDPR, the DPA 2018 and the Data (Use and Access) Act 2025 for what the organisation must comply with |
 | Dates | \[Dates of the assessment\] |
-| Examine | \<Policy\> (PT), \<Procedures\> (PT) and \<PII Processing Management\>, \<Data Protection Impact Assessment\>, \<Privacy Plan\>, \<Incident Response Management\>, section 3.8, \<Security Operating Procedures\>, A23 to A29 and C33; \<System Description\>, P-22, P-31 and P-73; \<Decision Register\>, D-PT-01 to D-PT-05 and D-PT-P22, D-PT-P31 and D-PT-P73; TPL-3, TPL-15, TPL-22 and TPL-25 records; the audit record format, the item management functions, the correct and delete functions, and the search across schemas for one person's data (\<System Description\>, FR-073). Depth: focused. Coverage: focused |
+| Examine | \<Policy\> (PT), \<Procedures\> (PT) and \<PII Processing Management\>, \<Data Protection Impact Assessment\>, \<Privacy Plan\>, \<Incident Response Management\>, section 3.8, \<Security Operating Procedures\>, A23 to A29 and C33; \<System Description\>, P-22, P-31 and P-73; \<Decision Register\>, D-PT-01 to D-PT-07 and D-PT-P22, D-PT-P31 and D-PT-P73; TPL-3, TPL-15, TPL-22 and TPL-25 records; the audit record format, the item management functions, the correct and delete functions, and the search across schemas for one person's data (\<System Description\>, FR-073). Depth: focused. Coverage: focused |
 | Test | Test-PersonalData.ps1, on a fresh throwaway stack (the PT evidence) |
 | Interview | The legal adviser, the business owner, the data protection officer, a Data Owner, an editor, the system owner, the security officer and the legal adviser's delegate who would handle a request (INT-PT-01 to INT-PT-12) |
 | Previous results reused | \[Results reused from other chapters, if any\] |

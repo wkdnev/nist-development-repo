@@ -61,6 +61,8 @@ Documents, policy decisions and cross-family decisions (GEN). The legal adviser 
 | D-PT-03 | PT | Set the lawful basis for each kind of personal data, the special category and criminal offence conditions, and whether an appropriate policy document is needed (PT-2, PT-7) | Complete \<PII Processing Management\>, Table 1, and \<Data Protection Impact Assessment\>, Table 2, before real data is held; consent is not used for staff data | Legal adviser | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | D-PT-04 | PT | Approve \<Data Protection Impact Assessment\> (RA-8), including the elements allowed in audit and visitor records (AU-3(3), PE-8(3)) | Approve once the legal adviser has completed it, with the data protection officer's advice, and before real data is held; its residual risks go to the authorising official, and the ICO is consulted first if a high risk remains | Legal adviser, then the authorising official for the residual risks | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | D-PT-05 | PT | Set the retention periods marked \[Period\] in \<PII Processing Management\>, Table 3 (SI-12(3)) | Set each period from the ICO's employment records guidance and the business need, with the legal adviser | Business owner, with the legal adviser | \[Decision\] | \[Name\] | \[Date\] | None yet |
+| D-PT-06 | PT | Approve TR-PT-02: PT-4 not applicable | Approve: consent is not the lawful basis for any kind of data, so a consent tool would mislead staff; recommended by Neil | Authorising official, with the legal adviser confirming no basis is consent | \[Decision\] | \[Name\] | \[Date\] | None yet |
+| D-PT-07 | PT | Approve TR-PT-03: SI-19 not applicable | Approve: no dataset is de-identified or released, and testing, training and research use invented data; recommended by Neil | Authorising official | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | \[D-XX-nn\] | \[XX\] | \[Decision needed\] | \[Recommendation\] | \[Who decides\] | \[Decision\] | \[Name\] | \[Date\] | \[Sheet\] |
 
 ## 3 Parameter approvals
@@ -152,7 +154,7 @@ The control, rating, reason and treatment of each entry are in \<Risk List\>, se
 | NC-PE-01 to NC-PE-18 | PE | System owner, as every PE entry is rated Low | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | NC-PL-01 to NC-PL-07 | PL | System owner, as every PL entry is rated Low | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | NC-PS-01 to NC-PS-09 | PS | System owner, as every PS entry is rated Low | \[Decision\] | \[Name\] | \[Date\] | None yet |
-| NC-PT-01 to NC-PT-21 | PT | System owner for the Low entries; authorising official for NC-PT-02, NC-PT-05 and NC-PT-13, rated Medium | \[Decision\] | \[Name\] | \[Date\] | None yet |
+| NC-PT-01 to NC-PT-20 | PT | System owner for the Low entries; authorising official for NC-PT-02, NC-PT-05 and NC-PT-13, rated Medium | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | \[NC-XX-nn\] | \[XX\] | \[Who decides\] | \[Decision\] | \[Name\] | \[Date\] | \[Sheet\] |
 
 ## 5 Proof of approval
