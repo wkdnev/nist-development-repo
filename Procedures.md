@@ -756,7 +756,7 @@ These procedures define how identifiers and authenticators are issued, changed a
 
 #### PRO-IA-4 Changing service secrets and the signing key
 
-1. Every 12 months, and when an administrator leaves, the Windows server administrator changes the secrets in \<Identification and Authentication Management\>, section 3.5: the token signing key and the audit chain key. Each application runs under a group managed service account, whose password Windows sets and changes, and the API connects to SQL Server with Windows authentication, so there is no service account password or database password to change.
+1. Every 12 months, and when an administrator leaves, the Windows server administrator changes the secrets in \<Identification and Authentication Management\>, section 3.5: the token signing key and the audit chain key. The retired version of the audit chain key stays in the key store for checking only, for the retention period in P-07, so older audit records can still be checked (\<Audit and Accountability Management\>, section 3.5). Each application runs under a group managed service account, whose password Windows sets and changes, and the API connects to SQL Server with Windows authentication, so there is no service account password or database password to change.
 2. They update the protected copy at the second site (\<Contingency Planning Management\>, section 3.8).
 3. They record the change on TPL-6: the date, who made it and which secret, never the value. Changing the token signing key does not end users' sign-ins, because their cookies are protected by each application's key ring. **Manual**
 
@@ -838,7 +838,7 @@ These procedures carry out \<Policy\> (IR) and \<Incident Response Management\>.
 
 #### PRO-IR-6 Preserving evidence
 
-1. Before anything is changed, the database administrator exports the audit records and records the SHA-256 hash. **Manual**
+1. Before anything is changed, the audit records are preserved as in PRO-AU-2, step 4: the auditor exports them through the audit page, and the database administrator, watched by the security officer, copies the audit table. The SHA-256 hash of each copy is recorded. **Manual**
 2. The Windows server administrator copies the application, Windows and SQL Server logs, and records their hashes. For ransomware, the VM is isolated through \<Organisation\> but not powered off. **Manual**
 3. They note each system's clock against a trusted time source. **Manual**
 4. Each item is listed on TPL-10 with who holds it, where, and each hand-over. **Manual**
@@ -1498,7 +1498,7 @@ These procedures carry out \<Policy\> (SI). The values, detection use cases and 
 
 #### PRO-SI-3 Reviewing monitoring
 
-1. Each week the security officer reviews the central logs, the forwarded application, Windows and SQL Server logs, and the alerts raised, but not the application audit log, which only auditors read (PRO-AU-1), apart from the last sign-in report (FR-085), against the detection use cases in \<System and Information Integrity Management\>, section 3.4.
+1. Each week the security officer reviews the central logs, the forwarded application, Windows and SQL Server logs, the alerts raised, and the security events for each read or export of the audit log, but not the application audit log, which only auditors read (PRO-AU-1), apart from the last sign-in report (FR-085), against the detection use cases in \<System and Information Integrity Management\>, section 3.4.
 2. They record what was reviewed and anything found on TPL-8. **Manual**
 3. The system owner raises monitoring when risk rises, and takes the legal adviser's opinion before monitoring users in a new way. **Manual**
 
@@ -1523,7 +1523,7 @@ These procedures carry out \<Policy\> (SI). The values, detection use cases and 
 #### PRO-SI-7 Managing information
 
 1. The system owner applies \<System Name\>'s retention schedule (\<PII Processing Management\>, section 3.7) to items and outputs.
-2. The database administrator keeps audit records for 12 months online and 12 months archived, and application logs for 30 days.
+2. The database administrator keeps audit records for 12 months online and 12 months archived, and the security officer archives the SQL Server, Windows and security-event records from central logging after 12 months, so they too are kept 24 months (P-07; PRO-AU-4). Application logs stay on the servers for 30 days.
 3. Disposal is recorded on TPL-13 and in the audit trail. **Manual**
 
 #### PRO-SI-8 Testing integrity controls
