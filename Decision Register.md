@@ -26,6 +26,7 @@ Documents, policy decisions and cross-family decisions (GEN). The legal adviser 
 | D-AC-10 | AC | Approve TR-AC-10: AC-20\_ODP\[03\] not selected | Approve: the terms in P-48 are used, not asserted controls | Authorising official | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | D-AT-01 | AT | Accept R-AT-01: a standard user whose yearly training is overdue keeps access, with monthly reminders | Accept: the risk is Low, privileged users are still suspended after 30 days, and the overdue count is reported monthly | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | D-AU-01 | AU | Accept R-AU-03: every action that cannot be recorded is refused until logging is restored, so a logging fault stops the service | Accept: availability is rated Low, the failure is alerted within 1 hour, and no item is seen or changed without a record | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
+| D-CA-02 | CA | Approve the interface record: the internal connections and the external exchanges in \<Assessment, Authorization, and Monitoring Management\>, Table 6 | Approve: each is needed, encrypted and recorded with its security and privacy needs; a new or changed external exchange later is a significant change for the authorising official | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | \[D-XX-nn\] | \[XX\] | \[Decision needed\] | \[Recommendation\] | \[Who decides\] | \[Decision\] | \[Name\] | \[Date\] | \[Sheet\] |
 
 ## 3 Parameter approvals
@@ -72,6 +73,7 @@ The reference values are the parameters in \<System Description\>, section 4, wh
 | D-AU-P09 | AU | AU-8 | 1: P-09 Clock accuracy | Within 1 second of UTC; time stamps in UTC to the nearest second or finer | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | D-AU-P61 | AU | AU-5 | 1: P-61 Response to an audit logging failure | Alert the security officer and Windows server administrator within 1 hour; refuse every action that cannot be recorded | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | D-AU-P62 | AU | AU-2 | 1: P-62 Review of the logged events | Every 12 months, and on any significant change | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
+| D-CA-P25 | CA | CA-6 | 1: P-25 Authorisation | Before real data is held; reviewed and renewed at least every 12 months, with an end date on TPL-18 | Authorising official | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | \[D-XX-Pnn\] | \[XX\] | \[Control\] | \[Number of parameters\] | \[Main values\] | \[Who decides\] | \[Decision\] | \[Name\] | \[Date\] | \[Sheet\] |
 
 ## 4 Non-compliance treatment decisions
@@ -85,6 +87,7 @@ The control, rating, reason and treatment of each entry are in \<Risk List\>, se
 | NC-AC-01 to NC-AC-34 | AC | System owner, as every AC entry is rated Low | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | NC-AT-01 to NC-AT-06 | AT | System owner, as every AT entry is rated Low | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | NC-AU-01 to NC-AU-13 | AU | System owner, as every AU entry is rated Low | \[Decision\] | \[Name\] | \[Date\] | None yet |
+| NC-CA-01 to NC-CA-09 | CA | System owner, as every CA entry is rated Low | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | \[NC-XX-nn\] | \[XX\] | \[Who decides\] | \[Decision\] | \[Name\] | \[Date\] | \[Sheet\] |
 
 ## 5 Proof of approval
