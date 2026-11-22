@@ -228,7 +228,7 @@ Each control is given one of four types. **System** controls are met by \<System
 | --- | --- | --- | --- | --- | --- | --- |
 | AC Access Control | 39 | 3 | 20 | 4 | 9 | 3 |
 | AT Awareness and Training | 6 | 0 | 4 | 2 | 0 | 0 |
-| AU Audit and Accountability | 16 | 7 | 7 | 2 | 0 | 0 |
+| AU Audit and Accountability | 16 | 4 | 10 | 2 | 0 | 0 |
 | CA Assessment, Authorization, and Monitoring | 10 | 0 | 2 | 8 | 0 | 0 |
 | CM Configuration Management | 24 | 0 | 13 | 9 | 2 | 0 |
 | CP Contingency Planning | 23 | 0 | 5 | 8 | 10 | 0 |
@@ -245,7 +245,7 @@ Each control is given one of four types. **System** controls are met by \<System
 | SC System and Communications Protection | 25 | 3 | 10 | 1 | 10 | 1 |
 | SI System and Information Integrity | 18 | 3 | 9 | 3 | 1 | 2 |
 | SR Supply Chain Risk Management | 12 | 0 | 3 | 5 | 4 | 0 |
-| **Total** | **316** | **22** | **106** | **100** | **68** | **20** |
+| **Total** | **316** | **19** | **109** | **100** | **68** | **20** |
 
 Section 7 lists every control. A control counts as satisfied only when every one of its assessment statements is satisfied.
 
@@ -353,22 +353,22 @@ The assessment plan is in \<Control Assessment Record\> (AU), section AU.4, wher
 
 | Control | How it is implemented | Who | Type | Status | Gap entry |
 | --- | --- | --- | --- | --- | --- |
-| AU-1 Policy and Procedures | Policy and procedures in \<Policy\> (AU) and \<Procedures\> (AU) | System owner, Head of Cyber | Organisational | \[Status\] | \[Decision\] |
-| AU-2 Event Logging | The events defined in \<Audit and Accountability Management\> are logged | System owner, developers | System | \[Status\] | \[Decision\] |
-| AU-3 Content of Audit Records | Records show the event type and action, the time in UTC, the application, the IP address, the result and the username | Developers | System | \[Status\] | \[Decision\] |
-| AU-3(1) Additional Audit Information | Records show the browser, the user ID, the schema and the item | Developers | System | \[Status\] | \[Decision\] |
-| AU-4 Audit Log Storage Capacity | Records are held in the database, with storage sized for the retention period | Database administrator | Hybrid | \[Status\] | \[Decision\] |
-| AU-5 Response to Logging Failures | Response to a logging failure as set out in \<Audit and Accountability Management\> | Windows server administrator, security officer | Hybrid | \[Status\] | \[Decision\] |
-| AU-6 Review, Analysis and Reporting | Weekly review of the audit log by the auditor (\<System Description\>, P-08), defined in PRO-AU-1 and \<Security Operating Procedures\>; the security officer reviews alerts and the central logs, not the audit log | Auditor, security officer | Organisational | \[Status\] | \[Decision\] |
-| AU-6(1) Automated Process Integration | Integration with \<Organisation\>'s central monitoring | Auditor, \<Organisation\> | Hybrid | \[Status\] | \[Decision\] |
-| AU-6(3) Correlate Repositories | The application records are correlated with Windows and \<Organisation\>'s records | Auditor, \<Organisation\> | Hybrid | \[Status\] | \[Decision\] |
-| AU-7 Reduction and Report Generation | The audit page filters and summarises without changing records | Developers | System | \[Status\] | \[Decision\] |
-| AU-7(1) Automatic Processing | Search by date, event type, result and username | Developers | System | \[Status\] | \[Decision\] |
-| AU-8 Time Stamps | Application records use UTC; the VMs take time from \<Organisation\>'s time service | Developers, \<Organisation\> | Hybrid | \[Status\] | \[Decision\] |
-| AU-9 Protection of Audit Information | Only auditors can read records, apart from the usernames and dates in the security officer's last sign-in report (FR-085); only the API writes them, and its database login may only add records; records are chained with HMAC-SHA-256 | Developers, database administrator | System | \[Status\] | \[Decision\] |
-| AU-9(4) Access by Subset of Privileged Users | Only auditors can read records; the security officer's last sign-in report (FR-085) shows usernames and last sign-in dates only | System owner, developers | System | \[Status\] | \[Decision\] |
-| AU-11 Audit Record Retention | Records are kept 12 months online and 12 months in an offline archive (P-07) | Database administrator | Hybrid | \[Status\] | \[Decision\] |
-| AU-12 Audit Record Generation | The API writes the application's records, including events the UI and Admin applications send it, alongside SQL Server and Windows logs | Developers, administrators | Hybrid | \[Status\] | \[Decision\] |
+| AU-1 Policy and Procedures | Policy and procedures in \<Policy\> (AU) and \<Procedures\> (AU); the design is in \<Audit and Accountability Management\> | System owner, Head of Cyber | Organisational | Implemented | NC-AU-01 |
+| AU-2 Event Logging | The application events in \<Audit and Accountability Management\>, Table 2, each with its reason, and the SQL Server settings in its appendix A, selected by the system owner and reviewed every 12 months (P-62); the Windows, PingFederate and Active Directory events agreed with \<Organisation\> | System owner, developers, database administrator, \<Organisation\> | Hybrid | Implemented | NC-AU-02 |
+| AU-3 Content of Audit Records | Records show the event type and action, the time in UTC, the application, the IP address, the result and the username; SQL Server Audit and Windows records hold the same kinds of content | Developers, database administrator | System | Implemented | NC-AU-03 |
+| AU-3(1) Additional Audit Information | Records show the browser, the user ID, the schema and the item | Developers | System | Implemented | None |
+| AU-4 Audit Log Storage Capacity | Storage sized for 24 months from the measured records per day and bytes per record, with a disk-space alert and a monthly check | Database administrator, \<Organisation\> | Hybrid | Implemented | NC-AU-04 |
+| AU-5 Response to Logging Failures | The security officer and Windows server administrator are alerted within 1 hour through central monitoring, and every action that cannot be recorded is refused until logging is restored (P-61); SQL Server fails any operation it cannot record | Windows server administrator, security officer, developers | Hybrid | Implemented | NC-AU-05, R-AU-03 |
+| AU-6 Review, Analysis and Reporting | Weekly review of the audit log by the auditor (\<System Description\>, P-08), defined in PRO-AU-1 and \<Security Operating Procedures\>, section 4.2, with findings to the security officer and system owner on TPL-8; the security officer reviews alerts, the central logs and the auditor's own reads and exports, not the audit log | Auditor, security officer | Organisational | Implemented | NC-AU-06 |
+| AU-6(1) Automated Process Integration | The audit page's filters and summary, and \<Organisation\>'s central logging, which raises the alerts U1 to U9 | Auditor, \<Organisation\> | Hybrid | Implemented | NC-AU-07 |
+| AU-6(3) Correlate Repositories | The auditor lines up the application records with the SQL Server, Windows, PingFederate and Active Directory records by UTC time and username | Auditor, \<Organisation\> | Hybrid | Implemented | NC-AU-08 |
+| AU-7 Reduction and Report Generation | The audit page filters, summarises and exports without changing records or their order | Developers | System | Implemented | None |
+| AU-7(1) Automatic Processing | Search and sort by date, event type, result, username, schema and item | Developers | System | Implemented | None |
+| AU-8 Time Stamps | Records use the writing server's clock, in UTC to the nearest second or finer; the VMs take time from \<Organisation\>'s time service and stay within 1 second (P-09) | Developers, Windows server administrator, \<Organisation\> | Hybrid | Implemented | NC-AU-09 |
+| AU-9 Protection of Audit Information | Only auditors can read records, apart from the usernames and dates in the security officer's last sign-in report (FR-085); only the API writes them, and its database login may add and read records but not change or delete them; records are chained with HMAC-SHA-256 under a key no database administrator holds, and the newest hash is copied daily to central logging; SQL Server and Windows logs are forwarded to central logging as written; a failed chain check alerts the security officer and auditor (U2) | Developers, Windows server and database administrators, \<Organisation\> | Hybrid | Implemented | NC-AU-10 |
+| AU-9(4) Access by Subset of Privileged Users | Only auditors read records; the system owner selects the events; the database administrator applies the SQL Server settings by recorded change; the Windows audit policy is \<Organisation\>'s; nobody can change a record | System owner, developers, database administrator, \<Organisation\> | Hybrid | Implemented | NC-AU-11 |
+| AU-11 Audit Record Retention | Records are kept 12 months online and 12 months in an offline archive (P-07), with legal holds and incident evidence kept until released | Database administrator, \<Organisation\> | Hybrid | Implemented | NC-AU-12 |
+| AU-12 Audit Record Generation | The API writes the application's records, including events the UI and Admin applications send it; SQL Server Audit and Windows write theirs, forwarded to central logging; the system owner selects the events | Developers, database administrator, \<Organisation\> | Hybrid | Implemented | NC-AU-13 |
 
 ### 7.4 Assessment, Authorization, and Monitoring (CA)
 
