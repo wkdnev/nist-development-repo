@@ -1164,11 +1164,11 @@ These procedures carry out \<Policy\> (PS). Steps marked **Manual** rely on peop
 | Procedure | When | Who | Time limit | Record | Controls |
 | --- | --- | --- | --- | --- | --- |
 | PRO-PS-1 Before access | Access or a role is requested | System owner, \<Organisation\> | Before access is given | TPL-2; TPL-21; personnel security register | PS-2, PS-3, PS-6 |
-| PRO-PS-2 Leavers | Someone leaves, or no longer needs \<System Name\> | \<Organisation\>, the groups' owners, system owner | 5 working days; 1 hour for a higher-risk leaver | TPL-14 | PS-4 |
+| PRO-PS-2 Leavers | Someone leaves, or no longer needs \<System Name\> | \<Organisation\>, the groups' owners, system owner | Account disabled at once, memberships removed within 5 working days; 1 hour of notice for a higher-risk leaver, a dismissal or suspected misuse | TPL-14 | PS-4 |
 | PRO-PS-3 Movers | Someone changes role | Line manager, system owner, the groups' owners | 1 working day | TPL-14 | PS-5 |
-| PRO-PS-4 Reviewing designations and agreements | Every 12 months, and when a role's access changes | System owner | Within the 12 months | TPL-3; TPL-21 | PS-2, PS-6 |
+| PRO-PS-4 Reviewing designations, agreements and rescreening | Every 12 months, and when a role's access changes | System owner | Within the 12 months | TPL-3; TPL-21; personnel security register | PS-2, PS-3, PS-6 |
 | PRO-PS-5 External people | A contract is let or renewed; then every 12 months | System owner | 1 working day for supplier notices | TPL-16 | PS-7 |
-| PRO-PS-6 Sanctions | A formal sanction involves \<System Name\> | \<Organisation\>, system owner | 1 working day to tell the system owner | TPL-10 if it is an incident | PS-8 |
+| PRO-PS-6 Sanctions | \<Organisation\> starts a formal sanctions process against someone with \<System Name\> access | \<Organisation\>, system owner | 1 working day to tell the system owner | TPL-10 if it is an incident | PS-8 |
 | PRO-PS-7 Checking | At each review | System owner | At each review | Test-PlanConsistency.ps1, check L17 | PS-1, PS-2 |
 
 ### PS.2 Procedures
@@ -1176,42 +1176,43 @@ These procedures carry out \<Policy\> (PS). Steps marked **Manual** rely on peop
 #### PRO-PS-1 Before access
 
 1. The system owner looks up the role's risk designation in \<Personnel Security Management\>, section 3.2. **Manual**
-2. The system owner asks \<Organisation\> to confirm that the person has passed its screening, and that it covers the minimum in \<Personnel Security Management\>, section 3.3. For a higher risk role, the confirmation must be less than 5 years old. **Manual** (EV-PS-01)
-3. The system owner records the confirmation on TPL-2 and in the personnel security register: who confirmed it and the date only. No screening result is recorded. **Manual**
-4. The person signs \<Organisation\>'s confidentiality agreement, and \<Security Operating Procedures\> Part A, and Part B if privileged, on TPL-21. **Manual**
+2. The system owner asks \<Organisation\> to confirm that the person has passed its screening, and that it covers the minimum in \<Personnel Security Management\>, section 3.3. For a higher risk role, the screening must have been done or repeated less than 5 years before. **Manual** (EV-PS-01)
+3. The system owner records the confirmation on TPL-2 and in the personnel security register: who confirmed it and the date only, and for a higher risk role the date rescreening falls due. No screening result is recorded. **Manual**
+4. The person signs \<Organisation\>'s confidentiality agreement, if not already signed, and \<Security Operating Procedures\> Part A, and Part B if privileged, on TPL-21, and completes the training for their role (\<Awareness and Training Management\>, section 3.5). The system owner records the date of the confidentiality agreement in the register. **Manual**
 5. Only then is the person added to the \<System Name\> groups for their role (\<Procedures\>, PRO-AC-1). **Manual**
 
 #### PRO-PS-2 Leavers
 
 1. \<Organisation\> disables the person's Active Directory account at once, which ends their access to \<System Name\>. The starters and leavers process tells the system owner and the owners of the person's groups, who remove the memberships within 5 working days (\<Procedures\>, PRO-AC-3).
-2. For a higher-risk leaver, a dismissal or suspected misuse, anyone who knows tells the system owner and \<Organisation\>'s service desk. Within 1 hour, the service desk disables the Active Directory account and ends the person's PingFederate sign-in, and the system owner confirms that both are done and that \<System Name\> refuses the person within 5 minutes (\<Procedures\>, PRO-AC-4). **Manual**
+2. For a higher-risk leaver, a dismissal or suspected misuse, anyone who knows tells the system owner and \<Organisation\>'s service desk, and the urgent route is followed (\<Procedures\>, PRO-AC-4). Within 1 hour of notice (P-41), the service desk disables the Active Directory account and ends the person's PingFederate sign-in. The account stays disabled for at least 8 hours, unless every key in the key rings is revoked first. The system owner confirms that both are done and that \<System Name\> refuses the person within 5 minutes. **Manual**
 3. Disabling the Active Directory account revokes the person's password and second factor. The system owner has any service secret the person knew changed (\<Procedures\>, PRO-IA-4). **Manual**
-4. \<Organisation\> holds the exit interview, including confidentiality duties, and recovers equipment. **Manual** (EV-PS-02)
+4. \<Organisation\> holds the exit interview, covering the person's continuing confidentiality duties and the return of equipment, and recovers their laptop, phone, pass and any other equipment. The person's exported files and printouts are recovered or destroyed. **Manual** (EV-PS-02)
 5. The system owner confirms that the items the person managed stay available, and completes TPL-14. **Manual**
 
 #### PRO-PS-3 Movers
 
 1. The person's line manager tells the system owner within 1 working day.
 2. The system owner reviews whether the current access is still needed, and asks the owners of the person's groups for any change, within 1 working day. **Manual**
-3. If the new role is higher risk, the system owner asks \<Organisation\> to confirm screening again before the role is granted. **Manual**
+3. Before any group for the new role is added, the person completes the new role's training, and, if the new role is higher risk, the system owner asks \<Organisation\> to repeat the screening. **Manual**
 4. The system owner records this on TPL-14 and updates the personnel security register. **Manual**
 
-#### PRO-PS-4 Reviewing designations and agreements
+#### PRO-PS-4 Reviewing designations, agreements and rescreening
 
 1. Every 12 months, and when a role's access changes, the system owner reviews the risk designations against \<Roles and Responsibilities\> and records the review on TPL-3. **Manual**
-2. The system owner reviews the access agreements at the same time. **Manual**
-3. Everyone signs their agreements again every 12 months, and after a material change to the rules, on TPL-21. **Manual**
+2. The system owner reviews the access agreements at the same time, and asks \<Organisation\> to update its confidentiality agreement where it no longer covers \<System Name\>. **Manual**
+3. Everyone signs \<Security Operating Procedures\> again every 12 months, and within 30 days of a material change to the rules, on TPL-21 (\<Procedures\>, PRO-PL-3), confirming in the declaration that they are still bound by the confidentiality agreement. Everyone signs the confidentiality agreement again when \<Organisation\> changes it. **Manual**
+4. At the same review, the system owner checks the personnel security register and asks \<Organisation\> to rescreen everyone in a higher risk role whose rescreening falls due within the next 12 months, and records the new date. **Manual** (EV-PS-01)
 
 #### PRO-PS-5 External people
 
 1. The system owner makes sure each contract states security duties, and that the supplier must report leavers and movers within 1 working day. **Manual** (EV-PS-03)
-2. External people, including any member of the independent assessment team who is not \<Organisation\>'s staff, are screened and sign the agreements as in PRO-PS-1 before any access, or before the evidence is shared with them. **Manual**
-3. The system owner checks each supplier's compliance every 12 months, and records it on TPL-16. **Manual**
+2. External people, including any member of the independent assessment team who is not \<Organisation\>'s staff, are screened and sign the agreements as in PRO-PS-1 before any access, or before the evidence is shared with them. A supplier's engineer who helps with maintenance is given no role or account, and only watches an administrator's shared screen (\<Procedures\> (MA); D-MA-01). **Manual**
+3. The system owner checks each supplier's compliance every 12 months, including that its people were screened and signed before access and that its notices of movers and leavers arrived in time, and records it on TPL-16. **Manual**
 
 #### PRO-PS-6 Sanctions
 
 1. \<Organisation\> follows its disciplinary process. **Manual** (EV-PS-02)
-2. \<Organisation\> tells the system owner within 1 working day when a formal sanction involves \<System Name\>. **Manual**
+2. When \<Organisation\> starts a formal sanctions process against someone with \<System Name\> access for breaching security or privacy rules, it tells the system owner within 1 working day, naming the person and the reason. The system owner keeps no record of the sanction itself. **Manual**
 3. If the breach is a security incident, the security officer records it on TPL-10 (\<Procedures\> (IR)). The system owner decides whether access must end at once under PRO-PS-2, step 2. **Manual**
 
 #### PRO-PS-7 Checking

@@ -808,14 +808,14 @@ It applies to everyone who uses, administers or develops \<System Name\>, includ
 
 1. **R1 Risk designations:** every role in \<Roles and Responsibilities\> must have a risk designation in \<Personnel Security Management\>, either higher risk or standard. The designations must be reviewed every 12 months, and when a role's access changes.
 2. **R2 Screening before access:** nobody may be given access to \<System Name\> until \<Organisation\> has confirmed that they passed its pre-employment screening. That screening must cover at least identity, the right to work, employment history and a basic criminal record check.
-3. **R3 Rescreening:** screening must be confirmed again before someone moves into a higher risk role, and every 5 years for anyone in one.
+3. **R3 Rescreening:** \<Organisation\> must repeat the screening before someone moves into a higher risk role, and every 5 years for anyone in one (\<System Description\>, P-72).
 4. **R4 Screening data:** \<System Name\> must record only that screening was confirmed, by whom and when. Screening results and criminal record data stay with \<Organisation\> and must never be stored in \<System Name\> or its records.
 5. **R5 Leavers:** a leaver's Active Directory account is disabled by \<Organisation\> at once, which ends their \<System Name\> access, and their group memberships must be removed within 5 working days (\<System Description\>, P-06). Their credentials must be revoked, any secret they knew must be changed, and the items they managed must stay available.
-6. **R6 Higher-risk leavers:** access must be disabled within 1 hour of notice when the person holds a higher risk role, is dismissed, or is suspected of misuse.
-7. **R7 Movers:** a mover's access must be reviewed, and the system owner told, within 1 working day.
-8. **R8 Access agreements:** everyone must sign \<Organisation\>'s confidentiality agreement and \<Security Operating Procedures\> before access, and sign again every 12 months and after a material change to the rules.
-9. **R9 External people:** contracts with external people must state their security duties. Suppliers must report leavers and movers within 1 working day, and their compliance must be checked every 12 months.
-10. **R10 Sanctions:** a breach of the rules is handled through \<Organisation\>'s disciplinary process. The system owner must be told within 1 working day of a formal sanction that involves \<System Name\>.
+6. **R6 Higher-risk leavers:** when the person holds a higher risk role, is dismissed, or is suspected of misuse, access must be disabled by the urgent route within 1 hour of notice, and stay disabled for at least 8 hours (\<System Description\>, P-41), and the system owner must confirm that \<System Name\> refuses the person.
+7. **R7 Movers:** a mover's access must be reviewed, and the system owner told, within 1 working day. A new role's training, and for a higher risk role its rescreening, must be complete before its access is given.
+8. **R8 Access agreements:** everyone must sign \<Organisation\>'s confidentiality agreement and \<Security Operating Procedures\> before access. \<Security Operating Procedures\> must be signed again every 12 months and within 30 days of a material change to the rules (P-71), each time confirming that the person is still bound by the confidentiality agreement, and the confidentiality agreement must be signed again when \<Organisation\> changes it.
+9. **R9 External people:** contracts with external people must state their personnel security requirements and security duties, and require them to follow this policy and \<Procedures\> (PS). Suppliers must report leavers and movers within 1 working day, and their compliance must be checked every 12 months. A supplier's engineer who helps with maintenance holds no role or account, and only watches an administrator's shared screen (D-MA-01).
+10. **R10 Sanctions:** a breach of the rules is handled through \<Organisation\>'s disciplinary process. When \<Organisation\> starts a formal sanctions process against someone with \<System Name\> access for breaching security or privacy rules, it must tell the system owner within 1 working day, naming the person and the reason.
 11. **R11 Role descriptions:** the security and privacy duties of every \<System Name\> role must be stated in \<Roles and Responsibilities\>, and \<Organisation\>'s job descriptions must refer to them.
 12. **R12 Records and checking:** each of these steps must be recorded on the forms named in \<Procedures\> (PS). Test-PlanConsistency.ps1 must show that every role has a designation, at each review.
 
@@ -829,9 +829,10 @@ It applies to everyone who uses, administers or develops \<System Name\>, includ
 | Authorising official | Decides Medium and High risks |
 | System owner | Owns this policy; keeps the designations, the personnel security register and the signed agreements; checks screening is confirmed before access; monitors external people |
 | Data Owners | Remove a leaver's or mover's memberships of their schema groups within the time limits; the system owner does the same for the role groups. A leaver's access ends within 5 minutes of \<Organisation\> disabling their AD account, because the API checks the account on every request |
+| Security officer | Records a breach of the rules that is a security incident on TPL-10 |
 | Line managers | Report movers and leavers within 1 working day |
 | Legal adviser | Reviews this policy and the laws it names |
-| \<Organisation\> | Screens people and holds the results; runs HR and disciplinary processes; holds exit interviews and recovers equipment; disables the network account of a leaver at once; provides job descriptions |
+| \<Organisation\> | Screens and rescreens people and holds the results; runs HR and disciplinary processes, and tells the system owner when a formal sanctions process starts; holds exit interviews and recovers equipment; disables the network account of a leaver at once, and within 1 hour of notice by the urgent route; provides job descriptions |
 
 ### PS.6 Governance requirements
 

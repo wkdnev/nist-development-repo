@@ -591,21 +591,21 @@ The assessment plan is in \<Control Assessment Record\> (PL), section PL.4, wher
 
 ### 7.13 Personnel Security (PS)
 
-The assessment plan is in \<Control Assessment Record\> (PS), section PS.4, where the results are recorded. Implementation detail is in \<Policy\> (PS), \<Procedures\> (PS) and \<Personnel Security Management\>, whose section 3.2 the risk designation of every role, section 3.3 the screening standard, section 3.6 the time limits and section 3.9 the personnel security register.
+The assessment plan is in \<Control Assessment Record\> (PS), section PS.4, where the results are recorded. Implementation detail is in \<Policy\> (PS), \<Procedures\> (PS) and \<Personnel Security Management\>, whose section 3.2 holds the risk designation of every role, section 3.3 the screening standard, section 3.6 the time limits and section 3.9 the personnel security register. The values are in \<System Description\>, P-06, P-41, P-71 and P-72.
 
 **Table 22: PS controls**
 
 | Control | How it is implemented | Who | Type | Status | Gap entry |
 | --- | --- | --- | --- | --- | --- |
-| PS-1 Policy and Procedures | Policy and procedures in \<Policy\> (PS) and \<Procedures\> (PS); the design is in \<Personnel Security Management\> | System owner, Head of Cyber | Organisational | \[Status\] | \[Decision\] |
-| PS-2 Position Risk Designation | Every role in \<Roles and Responsibilities\> is designated, with developers higher risk (\<Personnel Security Management\>, section 3.2) | System owner | Organisational | \[Status\] | \[Decision\] |
-| PS-3 Personnel Screening | \<Organisation\>'s screening; \<System Name\>'s minimum is identity, right to work, employment history and a basic criminal record check (\<Personnel Security Management\>, section 3.3) | \<Organisation\> | Inherited | \[Status\] | \[Decision\] |
-| PS-4 Personnel Termination | The Active Directory account is disabled at once, and group memberships are removed within 5 working days (\<System Description\>, P-06) | Group owners, \<Organisation\> | Hybrid | \[Status\] | \[Decision\] |
-| PS-5 Personnel Transfer | 1 working day | System owner, Data Owners | Organisational | \[Status\] | \[Decision\] |
-| PS-6 Access Agreements | Access agreement for each person | System owner, everyone | Hybrid | \[Status\] | \[Decision\] |
-| PS-7 External Personnel Security | Stated in contracts | System owner, \<Organisation\> | Hybrid | \[Status\] | \[Decision\] |
-| PS-8 Personnel Sanctions | \<Organisation\>'s process | \<Organisation\> | Inherited | \[Status\] | \[Decision\] |
-| PS-9 Position Descriptions | The duties of each \<System Name\> role are in \<Roles and Responsibilities\> and \<Organisation\>'s job descriptions | System owner, \<Organisation\> | Hybrid | \[Status\] | \[Decision\] |
+| PS-1 Policy and Procedures | Policy and procedures in \<Policy\> (PS) and \<Procedures\> (PS); the design is in \<Personnel Security Management\> | System owner, Head of Cyber | Organisational | Implemented | NC-PS-01 |
+| PS-2 Position Risk Designation | Every role in \<Roles and Responsibilities\> is designated higher risk or standard, with the screening each needs (\<Personnel Security Management\>, sections 3.2 and 3.3; D-PS-01); reviewed every 12 months and when a role's access changes (P-72; PRO-PS-4) | System owner | Organisational | Implemented | NC-PS-02 |
+| PS-3 Personnel Screening | \<Organisation\>'s screening, to at least identity, the right to work, employment history and a basic criminal record check, confirmed to the system owner before access; repeated before a higher risk role is granted and every 5 years (P-72; D-PS-02) | \<Organisation\> | Inherited | Implemented | NC-PS-03 |
+| PS-4 Personnel Termination | \<Organisation\> disables the Active Directory account at once, and \<System Name\> refuses it within 5 minutes; group memberships removed within 5 working days (P-06); for a higher risk role, a dismissal or suspected misuse, disabled within 1 hour of notice by the urgent route and kept disabled for at least 8 hours (P-41); service secrets changed, exit interview, equipment and exports recovered, items stay with their schemas (PRO-PS-2) | Group owners, \<Organisation\>, system owner | Hybrid | Implemented | NC-PS-04 |
+| PS-5 Personnel Transfer | Access reviewed, and the system owner and group owners told, within 1 working day; memberships changed; the new role's training, and for a higher risk role rescreening, before its access (P-06, P-72; PRO-PS-3) | Line manager, system owner, group owners | Organisational | Implemented | NC-PS-05 |
+| PS-6 Access Agreements | \<Organisation\>'s confidentiality agreement and \<Security Operating Procedures\>, signed before access; the rules signed again every 12 months and within 30 days of a material change, confirming the confidentiality agreement; agreements reviewed every 12 months (P-71, P-72) | System owner, everyone | Hybrid | Implemented | NC-PS-06 |
+| PS-7 External Personnel Security | Contracts require the same screening, agreements and duties, compliance with \<Policy\> (PS), and notice of movers and leavers within 1 working day; compliance checked every 12 months on TPL-16; suppliers' engineers hold no role (D-MA-01) | System owner, \<Organisation\> | Hybrid | Implemented | NC-PS-07 |
+| PS-8 Personnel Sanctions | \<Organisation\>'s disciplinary process; the system owner told within 1 working day when a formal sanctions process starts (P-72; D-PS-02) | \<Organisation\> | Inherited | Implemented | NC-PS-08 |
+| PS-9 Position Descriptions | The security and privacy duties of each \<System Name\> role are in \<Roles and Responsibilities\>, and \<Organisation\>'s job descriptions refer to them | System owner, \<Organisation\> | Hybrid | Implemented | NC-PS-09 |
 
 ### 7.14 Personally Identifiable Information Processing and Transparency (PT)
 
