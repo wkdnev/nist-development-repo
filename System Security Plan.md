@@ -61,7 +61,7 @@ The planned exchanges are below, and are also recorded in \<Assessment, Authoriz
 | Exchange | Direction and method | Information | Agreement |
 | --- | --- | --- | --- |
 | \<Organisation\>'s PingFederate and Active Directory | From PingFederate to \<System Name\>, through the user's browser, by OpenID Connect over HTTPS (flow F6); from the UI application and Admin application on the application VM to PingFederate, for its OpenID Connect metadata and signing certificate and to complete each sign-in, by HTTPS on TCP 443 (flow F10); and from Active Directory to API, by LDAPS (flow F7) | A signed OpenID Connect response that names each user, with no groups; each user's group membership, read by API from Active Directory | The interface record in \<Assessment, Authorization, and Monitoring Management\>, Table 6, signed by both owners |
-| ServiceNow, \<Organisation\>'s IT service desk | By people only (flow F9). ServiceNow has no connection to \<System Name\> | Access requests and the Data Owner's authorisations; change requests and approvals; names of requesters | None needed: no system connection (\<Assessment, Authorization, and Monitoring Management\>, section 3.7) |
+| ServiceNow, \<Organisation\>'s IT service desk | By people only (flow F9). ServiceNow has no connection to \<System Name\> | Access requests and the Data Owner's authorisations; change requests and approvals; names of requesters; incident records and requests for help, which may hold Restricted information and personal data and are readable only by the incident roles (EV-IR-02) | None needed: no system connection (\<Assessment, Authorization, and Monitoring Management\>, section 3.7) |
 | Starters and leavers process, \<Organisation\> | To the owners of a leaver's groups, by people only (flow F9). It has no connection to \<System Name\> | Prompts to add or remove access; staff names and leaving dates | None needed: no system connection (\<Assessment, Authorization, and Monitoring Management\>, section 3.7) |
 | \<Organisation\>'s central logging | Out from both VMs (flow F8), encrypted; protocol requested from \<Organisation\> | Windows security logs; SQL Server Audit records and error log; the applications' logs and security events, including the daily copy of the newest audit-chain hash | The interface record in \<Assessment, Authorization, and Monitoring Management\>, Table 6, signed by both owners |
 | \<Organisation\>'s time service | Into both VMs, by NTP (flow F8) | Time | As above |
@@ -99,7 +99,7 @@ This is the intended inventory for the authorisation boundary. Host names, asset
 | Shared library (\<Code\>\_Shared) | Internally developed library: the data model, the access checks and the audit record format | .NET 10, its own repository | Built into the applications |
 | Microsoft SQL Server, holding the \<System Name\> database | Database | SQL Server 2022 | Database server VM |
 | Browser libraries | Third-party scripts and styles the pages need, such as a document viewer and an icon set | Packaged with the UI application and served by \<System Name\> itself; no content delivery service | Application server VM |
-| ServiceNow | Access request and approval workflows, in which the line manager approves each request and the group's owner authorises it (the Data Owner for a schema's groups, the system owner for a role group), owned by \<Organisation\>'s IT service desk. No connection to \<System Name\> | \<Organisation\>'s service | Outside the boundary |
+| ServiceNow | Access request and approval workflows, in which the line manager approves each request and the group's owner authorises it (the Data Owner for a schema's groups, the system owner for a role group), and the incident records and requests for help (\<Incident Response Management\>, section 3.15), owned by \<Organisation\>'s IT service desk. No connection to \<System Name\> | \<Organisation\>'s service | Outside the boundary |
 | PingFederate and Active Directory | Sign every user in with multi-factor authentication, and hold the groups that decide roles and schema access. A critical component (\<Risk Assessment Management\>, section 3.9) | \<Organisation\>'s corporate services | Outside the boundary |
 | Starters and leavers process | Raises leaver requests, and prompts the owners of a leaver's groups | \<Organisation\>'s service | Outside the boundary |
 | Microsoft Defender | Malicious code protection | Windows Server 2025 | Both VMs |
@@ -498,19 +498,19 @@ The assessment plan is in \<Control Assessment Record\> (IR), section IR.4, wher
 
 | Control | How it is implemented | Who | Type | Status | Gap entry |
 | --- | --- | --- | --- | --- | --- |
-| IR-1 Policy and Procedures | Policy and procedures in \<Policy\> (IR) and \<Procedures\> (IR) | System owner, Head of Cyber | Organisational | \[Status\] | \[Decision\] |
-| IR-2 Training | Incident response training, as set out in \<Incident Response Management\> | Security officer | Organisational | \[Status\] | \[Decision\] |
-| IR-3 Testing | Yearly tabletop exercise | Security officer | Organisational | \[Status\] | \[Decision\] |
-| IR-3(2) Coordination | Coordinated with the owners of related plans | Security officer, system owner | Organisational | \[Status\] | \[Decision\] |
-| IR-4 Incident Handling | Set out in section 3 of \<Incident Response Management\>, with severity targets and nine playbooks, including physical incidents and a compromise at \<Organisation\> | Security officer | Organisational | \[Status\] | \[Decision\] |
-| IR-4(1) Automated Handling | ServiceNow | Security officer, \<Organisation\> | Hybrid | \[Status\] | \[Decision\] |
-| IR-5 Monitoring | Register in \<Incident Response Management\>, section 3.14, and ServiceNow | Security officer | Organisational | \[Status\] | \[Decision\] |
-| IR-6 Reporting | 1 hour to the security officer; ICO within 72 hours of awareness; people affected told when the risk is high; every breach recorded (\<Incident Response Management\>, section 3.8) | Everyone, security officer, legal adviser | Organisational | \[Status\] | \[Decision\] |
-| IR-6(1) Automated Reporting | ServiceNow | Security officer, \<Organisation\> | Hybrid | \[Status\] | \[Decision\] |
-| IR-6(3) Supply Chain | The security officer tells any affected supplier | Security officer | Organisational | \[Status\] | \[Decision\] |
-| IR-7 Assistance | The security officer and \<Organisation\>'s contact | Security officer, \<Organisation\> | Hybrid | \[Status\] | \[Decision\] |
-| IR-7(1) Automation Support | ServiceNow | \<Organisation\> | Hybrid | \[Status\] | \[Decision\] |
-| IR-8 Incident Response Plan | Section 3 of \<Incident Response Management\> is the plan | Security officer, Head of Cyber | Organisational | \[Status\] | \[Decision\] |
+| IR-1 Policy and Procedures | Policy and procedures in \<Policy\> (IR) and \<Procedures\> (IR); the plan in \<Incident Response Management\> | System owner, Head of Cyber | Organisational | Implemented | NC-IR-01 |
+| IR-2 Training | Every user: briefing parts B5 and B6 before access and every 12 months; incident roles: module M7 (M10 for the authorising official) within 30 days of the role, every 12 months and after a change that alters their part (\<Incident Response Management\>, section 3.4; P-24, P-56) | Security officer | Organisational | Implemented | NC-IR-02 |
+| IR-3 Testing | Yearly tabletop exercise walking through a playbook, the first within 30 days of the VMs being built, with an after-action report on TPL-11 | Security officer | Organisational | Implemented | NC-IR-03 |
+| IR-3(2) Coordination | Held with the contingency plan's exercise, with \<Organisation\>'s security contact and IT service desk taking part | Security officer, system owner | Organisational | Implemented | NC-IR-04 |
+| IR-4 Incident Handling | Set out in section 3 of \<Incident Response Management\>, with severity targets and twelve playbooks, including physical incidents and a compromise at \<Organisation\>; a suspected account compromise is contained by disabling the account, which \<System Name\> refuses within 5 minutes | Security officer | Organisational | Implemented | NC-IR-05 |
+| IR-4(1) Automated Handling | ServiceNow incident records, with notices and reminders (EV-IR-02) | Security officer, \<Organisation\> | Hybrid | Implemented | NC-IR-06 |
+| IR-5 Monitoring | Register in \<Incident Response Management\>, section 3.14, and ServiceNow | Security officer | Organisational | Implemented | NC-IR-07 |
+| IR-6 Reporting | 1 hour to the security officer; every confirmed incident to \<Organisation\>'s security contact; ICO within 72 hours of awareness; people affected told when the risk is high; every breach recorded (\<Incident Response Management\>, section 3.8); crime to the NCSC or Report Fraud | Everyone, security officer, legal adviser | Organisational | Implemented | NC-IR-08 |
+| IR-6(1) Automated Reporting | ServiceNow, where a report raises a ticket that notifies the security officer (EV-IR-02) | Security officer, \<Organisation\> | Hybrid | Implemented | NC-IR-09 |
+| IR-6(3) Supply Chain | The security officer tells any supplier whose product or service is involved, from the supplier register | Security officer | Organisational | Implemented | NC-IR-10 |
+| IR-7 Assistance | The security officer and deputy advise users; \<Organisation\>'s security contact gives monitoring, network and forensic help | Security officer, \<Organisation\> | Hybrid | Implemented | NC-IR-11 |
+| IR-7(1) Automation Support | ServiceNow requests for help, with their progress shown to the user (EV-IR-02) | \<Organisation\> | Hybrid | Implemented | NC-IR-12 |
+| IR-8 Incident Response Plan | Section 3 of \<Incident Response Management\> is the plan, approved by the Head of Cyber, reviewed every 12 months and after an incident, given to every role holder and kept Restricted | Security officer, Head of Cyber | Organisational | Implemented | NC-IR-13 |
 
 ### 7.9 Maintenance (MA)
 

@@ -182,7 +182,7 @@ These are the values the controls depend on. CSS calls many of them organisation
 | P-18 | Largest batch | 100 files and 500 MB | SI-10 | \[\] |
 | P-19 | File types accepted | \[The types the application needs, from a fixed list\]. Reference: PDF, TIFF, JPEG and PNG | SI-10, CM-7 | \[\] |
 | P-20 | Export working copies | Deleted once downloaded, and always within 24 hours | MP-6 | \[\] |
-| P-21 | Incident reporting | A suspected incident reported within 1 hour; a personal data breach assessed for the regulator within 72 hours | IR-6 | \[\] |
+| P-21 | Incident reporting | A suspected incident reported to the security officer within 1 hour; every confirmed incident told to \<Organisation\>'s security contact; a personal data breach that must be reported is reported to the ICO within 72 hours of \<Organisation\> becoming aware of it | IR-6 | \[\] |
 | P-22 | Answer to a person's request about their data | Within one month | PT-2, PM-21 | \[\] |
 | P-23 | Where data may be held | The United Kingdom only | SA-9(5) | \[\] |
 | P-24 | Training | Awareness and the briefing before access, and every 12 months. Role modules before privileged access (developers: before they first work on the code), and every 12 months. Incident response, contingency and risk decision modules (M7, M8, M10) within 30 days of taking the role | AT-2, AT-3, IR-2, CP-3 | \[\] |
@@ -684,7 +684,7 @@ The reference stack is below. An application may replace any part of it with a s
 | F6 | Browser | \<Organisation\>'s PingFederate | Sign-in with multi-factor authentication | HTTPS |
 | F7 | API | \<Organisation\>'s Active Directory | Reading the signed-in person's group memberships | LDAPS, TCP 636 |
 | F8 | Both servers | \<Organisation\>'s time service, central logging, proxy and backup site | Time, logs, updates and backups | As \<Organisation\> sets, encrypted |
-| F9 | ServiceNow and the starters and leavers process | People, not the application | Access approvals and leaver notices | By people, in \<Organisation\>'s services. ServiceNow has no connection to the application |
+| F9 | ServiceNow and the starters and leavers process | People, not the application | Access approvals, leaver notices, and incident records and requests for help | By people, in \<Organisation\>'s services. ServiceNow has no connection to the application |
 | F10 | UI application and Admin application | \<Organisation\>'s PingFederate | Fetching PingFederate's OpenID Connect metadata and signing certificate, and completing each sign-in | HTTPS, TCP 443, from the application server only |
 | F11 | Server and database administrators' managed devices | Both servers | Server and database administration | Only over \<Organisation\>'s managed administration route, with multi-factor authentication, using named accounts |
 
@@ -986,7 +986,8 @@ An application built on the reference system relies on \<Organisation\> for much
 | Data centre and second site | Physical access control, power, fire and environmental protection; a second site for backups and for rebuilding the servers; a backup service that copies the encrypted backups there and keeps one copy offline or immutable |
 | Certificates, name resolution, time and proxy | A certificate authority, signed and validated name resolution, a time service and an authenticated proxy |
 | Central logging | Receiving the application's logs, and giving the auditor the PingFederate and Active Directory events |
-| ServiceNow | The access approval workflow, in which the group's owner authorises each request, the Data Owner for a schema's groups and the system owner for a role group, and nobody approves their own; and prompt notice of leavers from the starters and leavers process |
+| ServiceNow | The access approval workflow, in which the group's owner authorises each request, the Data Owner for a schema's groups and the system owner for a role group, and nobody approves their own; prompt notice of leavers from the starters and leavers process; and the incident records and requests for help, readable only by \<System Name\>'s incident roles (EV-IR-02) |
+| Incident response | \<Organisation\>'s incident process and security contact: taking reports at any time, monitoring, forensic help, isolating a server, disabling an account, locking or wiping a device, and telling the security officer of a compromise on its side within 24 hours (EV-IR-01) |
 | People | Pre-employment screening, the employee privacy notice, awareness training and the disciplinary process |
 | Media | Storing, transporting and sanitising disks and backup media |
 

@@ -528,11 +528,11 @@ Incidents are reported at once, without blame. \<System Name\> holds Moderate-im
 
 1. **R1 Reporting:** everyone must report a suspected incident to the security officer within 1 hour (P-21).
 2. **R2 Severity and targets:** the security officer must set each incident's severity, and contain it within the target in \<Incident Response Management\>, section 3.6.
-3. **R3 Others told:** the security officer must tell \<Organisation\>'s security contact and any affected supplier.
+3. **R3 Others told:** the security officer must tell \<Organisation\>'s security contact of every confirmed incident, and any supplier whose product or service is involved.
 4. **R4 Personal data breaches:** the legal adviser must tell the ICO within 72 hours of the organisation becoming aware of a reportable breach, and tell the people affected without undue delay when the risk to them is high. Every breach must be recorded, with the reason if it is not reported.
 5. **R5 Records:** incidents are tracked and recorded on TPL-10, or in a ServiceNow record that holds the same fields.
 6. **R6 Evidence:** evidence must be preserved, hashed and its custody recorded before anything is changed.
-7. **R7 Training:** people with an incident role must be trained within 30 days of taking it, every 12 months and after a plan change.
+7. **R7 Training:** every user must be trained to recognise and report an incident and a personal data breach before access and every 12 months; people with an incident role must be trained within 30 days of taking it, every 12 months, and after a plan change or a system change that alters their part (P-24, P-56).
 8. **R8 Testing:** the plan must be tested by tabletop exercise every 12 months, coordinated with the contingency plan.
 9. **R9 The plan:** the plan must be approved by the Head of Cyber, reviewed every 12 months and after an incident, and protected from disclosure and change.
 10. **R10 Crime:** a suspected crime or significant cyber attack must be reported by the system owner to the NCSC or to Report Fraud, the national police reporting service that replaced Action Fraud.
@@ -546,7 +546,7 @@ Incidents are reported at once, without blame. \<System Name\> holds Moderate-im
 | Head of Cyber | Approves this policy, as all policies, and the plan |
 | System owner | Owns this policy, decides on recovery, and reports crime |
 | Authorising official | Decides on the risk arising from an incident |
-| Security officer | Owns the plan, leads incident handling, and keeps the register |
+| Security officer | Owns and updates the plan, leads incident handling, and keeps the register |
 | Legal adviser | Decides on and makes reports to the ICO and to the people affected |
 | Windows server and database administrators | Contain, recover and preserve evidence |
 | Everyone | Reports suspected incidents at once |

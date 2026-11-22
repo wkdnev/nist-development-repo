@@ -364,9 +364,9 @@ Each incident is given a severity, from Low to Critical, which sets how fast the
 
 | Event | First action | Who |
 | --- | --- | --- |
-| Suspected account misuse | Have the account disabled, which ends access within 5 minutes, and the person's PingFederate sign-in ended (\<Procedures\>, PRO-AC-4) | Security officer, through \<Organisation\>'s service desk |
+| Suspected account misuse | Have the account disabled, which ends access within 5 minutes, and the person's PingFederate sign-in ended; the account stays disabled for 8 hours unless every key in the key rings is revoked (\<Procedures\>, PRO-AC-4) | Security officer, through \<Organisation\>'s service desk |
 | Exposed password or second factor | Report it to \<Organisation\>'s service desk and the security officer at once. The account is disabled before the password or factor is reset, as a password change alone does not end a \<System Name\> sign-in, and stays disabled for 8 hours (\<Procedures\>, PRO-IA-3) | Whoever finds it; security officer, through \<Organisation\>'s service desk |
-| Exposed service secret | Report it to the security officer; the Windows server administrator changes it at once (\<Procedures\>, PRO-IA-4) | Whoever finds it; Windows server administrator |
+| Exposed service secret or key | Report it to the security officer; its owner changes it at once: the Windows server administrator for the key store's secrets and the key rings, revoking every key in an exposed key ring, and the database administrator for the backup encryption certificate (\<Procedures\>, PRO-IA-4 and PRO-SC-3; \<Incident Response Management\>, section 3.9) | Whoever finds it; Windows server administrator; database administrator |
 | Access to data someone should not see | Stop, and report to the security officer | Whoever finds it |
 | Personal data breach | Report to the security officer at once. The security officer tells the legal adviser, who decides on telling the ICO within 72 hours of becoming aware and the people affected, and records every breach (\<Incident Response Management\>, section 3.8) | Whoever finds it; security officer; legal adviser |
 | Lost or stolen device | Report to the service desk and security officer; \<Organisation\> locks or wipes it | Whoever loses it |
@@ -374,12 +374,12 @@ Each incident is given a severity, from Low to Critical, which sets how fast the
 | Audit or service failure | Report to the security officer | Administrator |
 | Suspected malware or attack | Report to the security officer, who tells \<Organisation\>'s security contact | Whoever finds it |
 
-1. **Report:** tell the security officer within 1 hour. The security officer tells \<Organisation\>'s security contact and any affected supplier. If personal data is involved, the security officer tells the legal adviser at once.
-2. **Contain:** limit the harm, for example by disabling accounts, which \<System Name\> refuses within 5 minutes.
+1. **Report:** tell the security officer within 1 hour. The security officer tells \<Organisation\>'s security contact of every confirmed incident, and any supplier whose product or service is involved. If personal data may be involved, the security officer tells the legal adviser at once.
+2. **Contain:** limit the harm, for example by disabling accounts, which \<System Name\> refuses within 5 minutes, preserving the evidence first (step 3; \<Procedures\>, PRO-IR-6).
 3. **Preserve:** keep logs and evidence, and do not clean up first.
 4. **Investigate:** establish what happened, when, and what data was involved.
 5. **Recover:** fix the cause and restore normal service (section 4.6).
-6. **Learn:** record the incident on TPL-10, update \<Risk List\> and \<Plan of Action and Milestones\>, and tell anyone who must be told.
+6. **Learn:** record the incident on TPL-10; the security officer updates the plan and training, and the system owner \<Risk List\> and \<Plan of Action and Milestones\> (\<Procedures\>, PRO-IR-7).
 
 The full plan is \<Incident Response Management\>, and the procedures are in \<Procedures\> (IR).
 
@@ -402,7 +402,7 @@ Who holds each role, and their phone number and email, are in \<Roles and Respon
 | For | Who |
 | --- | --- |
 | Reporting incidents, and questions on these rules | The security officer |
-| When the security officer is away | The system owner, as deputy (\<Roles and Responsibilities\>, Table 4) |
+| When the security officer is away | The security officer's deputy (\<Roles and Responsibilities\>, Table 4) |
 | Exceptions, and decisions on access | The system owner |
 | Personal data, breaches and requests from individuals | The legal adviser |
 | Access to a schema, or to a role in \<System Name\> | The schema's Data Owner; the system owner, for a role |

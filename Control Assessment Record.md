@@ -1394,11 +1394,11 @@ There is one finding for each CSS determination statement, including those about
 | Site | \[Where the assessment is done, and on what build and data\] |
 | Examine | \<Policy\> (IR), \<Procedures\> (IR) and \<Incident Response Management\>; TPL-10 and TPL-11; \<Security Operating Procedures\>, section 4.9; the audit code. Depth: focused. Coverage: focused |
 | Test | Test-IncidentReadiness.ps1, with the evidence export and a hash manifest, and a tabletop exercise. Depth: focused. Coverage: focused |
-| Interview | The security officer, legal adviser and \<Organisation\>'s security contact; questions INT-IR-01 to 04 in \<Interview Guide\> |
+| Interview | The security officer, legal adviser, auditor, Windows server administrator and \<Organisation\>'s security contact; questions INT-IR-01 to INT-IR-07 in \<Interview Guide\>, section 10 |
 | Previous results reused | \[Results reused from other chapters, if any\] |
 | Boundary | \<System Name\>'s incident handling, records and evidence. \<Organisation\>'s monitoring, incident process and forensic help are inherited |
 | Order of assessment | A, the plan and its approval (IR-8); B, handling and records (IR-4, IR-4(1), IR-5); C, reporting (IR-6 and enhancements); D, training and testing (IR-2, IR-3, IR-3(2)); E, assistance (IR-7, IR-7(1)); F, policy (IR-1). The plan comes first because every other result is judged against it |
-| Needed from \<Organisation\> | EV-IR-01 in \<Evidence Requests\>: its incident process and contact route |
+| Needed from \<Organisation\> | EV-IR-01 and EV-IR-02 in \<Evidence Requests\>: its incident process, contact route and severity scale, and the ServiceNow incident workflow and who can read it |
 | Evidence retained | The IR evidence, with its manifest; \<Incident Response Management\>, sections 3.9, 3.10 and 3.14 |
 
 The independent assessor's team, schedule, and depth and coverage are added once agreed. For the Level 2 assessment, the assessor should observe a tabletop exercise, repeat the drill on the VMs, examine the incident register and TPL-10 records, hold the interviews, examine \<Organisation\>'s evidence and re-determine every statement in section IR.3.
