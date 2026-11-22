@@ -169,11 +169,11 @@ Controls met here: IA-2(1), IA-2(2), IA-2(8), IA-5, IA-5(1), IA-6, IA-11.
 | Blocklist | Must be checked | \<Organisation\>'s corporate standard |
 | Storage | Salted, with a costly function | Active Directory. \<System Name\> stores no passwords |
 | Rate limiting | At most 100 failures | Lockout by PingFederate and Active Directory, as P-42 sets: 10 failed attempts in 15 minutes lock the account for 15 minutes |
-| Inactivity timeout | No more than 1 hour | None in \<System Name\>. PingFederate's sign-in lifetime (\<System Description\>, P-02) limits the sign-in, and the device screen lock hides an unattended screen (\<System Description\>, P-03) |
-| Overall sign-in limit | No more than 24 hours | PingFederate's sign-in lifetime (P-02). \<System Name\> has no limit of its own |
+| Inactivity timeout | No more than 1 hour | None in \<System Name\>. Users must sign out with Sign out (FR-084) when they leave their device for longer than a short break (\<System Description\>, P-53), and the device screen lock hides an unattended screen (\<System Description\>, P-03) |
+| Overall sign-in limit | No more than 24 hours | 8 hours from sign-in: the application's authentication cookie has a fixed lifetime with no sliding extension, never longer than PingFederate's sign-in (P-02) |
 | Second factor | Required | Provided by PingFederate |
 | Replay resistance | Required | Sign-in responses from PingFederate are signed, short-lived, issued for \<System Name\> only and used once, over TLS (section 3.3) |
-| Sign-in ends on password change | Expected | Not applicable: \<System Name\> holds no passwords and no sessions. \<Organisation\> ends the person's PingFederate sign-in on notice (PRO-IA-3) |
+| Sign-in ends on password change | Expected | \<System Name\> holds no passwords. Its session, the authentication cookie, is not ended by a password change on its own: \<Organisation\> ends the person's PingFederate sign-in on notice, and disables the account or removes the membership where the password may be compromised, which the API refuses within 5 minutes (PRO-IA-3) |
 | Feedback | No hint whether the user exists | Given by PingFederate, not \<System Name\> |
 
 ### 3.7 Sign-in lifetime and signing in again

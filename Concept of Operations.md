@@ -63,7 +63,7 @@ An item normally moves through four stages: it is added to a schema, found and r
 | A request for items | Someone needs a schema's items elsewhere | The schema's Data Owner decides, and an editor exports them as a download |
 | Wrong schema | A user tries to open a schema they may not read | \<System Name\> shows the access-denied page, and they request access in ServiceNow, which their line manager approves and the schema's Data Owner authorises |
 | Forgotten password or lockout | A user cannot sign in | \<Organisation\>'s IT service desk resets the Active Directory password or releases the lock, after checking who they are |
-| Leaving a desk | A user walks away while signed in | The device's screen lock hides the screen after the inactivity time \<Organisation\> sets (\<System Description\>, P-03). The sign-in lasts no longer than PingFederate's sign-in lifetime (P-02) |
+| Leaving a desk | A user walks away while signed in | They must use Sign out if they will be away for longer than a short break (\<System Description\>, P-53). The device's screen lock hides the screen after the inactivity time \<Organisation\> sets (P-03). The sign-in ends 8 hours after sign-in at most (P-02) |
 | A new starter or a leaver | Staff change | Access is requested and authorised for a starter, and removed for a leaver |
 
 ## 6 Operational concepts
