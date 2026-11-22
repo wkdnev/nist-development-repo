@@ -240,26 +240,26 @@ Table AC-4 summarises each procedure: what starts it, who acts, its time limit, 
 
 1. The person raises an access request in ServiceNow, naming the schemas and level needed, and the reason. **Manual**
 2. Their line manager approves or refuses it. The owner of each group asked for then authorises or refuses it (P-37): the Data Owner for a schema's read or edit group, and the system owner for a role group. Nobody decides their own request. The ServiceNow workflow keeps the record. **Manual**
-3. Before the person is added to any group, they complete security and privacy awareness training, receive the \<System Name\> briefing from the system owner (\<Awareness and Training Management\>, section 3.3), and sign Part A of \<Security Operating Procedures\>, and Part B if the access is privileged. The security officer records the training on TPL-9, and the system owner records the signature on TPL-21 and in the register of signatures (\<Planning Management\>, section 3.5). No access is given until this is done.
+3. Before the person is added to any group, they complete security and privacy awareness training, receive the \<System Name\> briefing from the system owner (\<Awareness and Training Management\>, section 3.3), complete any role training their role needs first (\<Awareness and Training Management\>, section 3.5), and sign Part A of \<Security Operating Procedures\>, and Part B if the access is privileged. \<Organisation\> must also have confirmed their screening, and they must have signed \<Organisation\>'s confidentiality agreement (\<Procedures\>, PRO-PS-1). The security officer records the training on TPL-9, and the system owner records the signature on TPL-21 and in the register of signatures (\<Planning Management\>, section 3.5). No access is given until this is done.
 4. The owner who authorised the request adds the person to the approved AD groups, with \<Organisation\>'s AD tool. No \<System Name\> account is created: the person's Active Directory account is their account. **Manual**
 5. The person signs in through PingFederate, and \<System Name\>'s API reads their groups from Active Directory over LDAPS.
 6. The owner records the groups granted and the date in the ServiceNow request. **Manual**
 
 #### PRO-AC-2 Role change (mover)
 
-1. The line manager raises a change request in ServiceNow within the time in P-06. **Manual**
-2. The approver in P-37 approves the new access in the ServiceNow approval workflow.
+1. The line manager raises a change request in ServiceNow within the time in P-06, and tells the system owner and the owners of the person's groups (\<Procedures\>, PRO-PS-3). **Manual**
+2. The approver in P-37 approves the new access in the ServiceNow approval workflow. Access for the new role is added only once its role training is done, and, for a higher risk role, the screening repeated.
 3. Each group's owner removes the old membership and adds any new one in Active Directory. The change takes effect within 5 minutes, because \<System Name\>'s API reads the person's groups on every request (\<System Description\>, section 7.2). No sign-in needs to be ended. **Manual**
 
 #### PRO-AC-3 Leaver
 
 1. \<Organisation\> disables the person's Active Directory account at once, which stops them signing in, and \<System Name\>'s API refuses the disabled account within 5 minutes, even if a session is open. The starters and leavers process prompts the owners of the groups the person belongs to. **Manual**
 2. Each owner removes the person from their AD group within the time in P-06. **Manual**
-3. The owner records the date in the ServiceNow request and on TPL-14. No session needs to be ended by hand: the API's refusal of the disabled account ends it.
+3. The owner records the date in the ServiceNow request and on TPL-14. No session needs to be ended by hand: the API's refusal of the disabled account ends it. Service secrets, the exit interview, equipment and exports follow \<Procedures\>, PRO-PS-2; a leaver from a higher risk role follows PRO-AC-4.
 
 #### PRO-AC-4 Urgent disable (high-risk individual)
 
-1. Whoever raises the concern tells the system owner and \<Organisation\>'s service desk.
+1. Whoever raises the concern, or learns that the holder of a higher risk role is leaving (\<Procedures\>, PRO-PS-2), tells the system owner and \<Organisation\>'s service desk.
 2. Within the time in P-41, \<Organisation\>'s service desk disables the person's Active Directory account, and ends their PingFederate sign-in so that they cannot start a new one. **Manual**
 3. The account stays disabled for at least 8 hours (\<System Description\>, P-02), unless the Windows server administrator has revoked every key in the UI and Admin applications' key rings, so that a cookie issued before it was disabled cannot be used again if it is re-enabled (\<Identification and Authentication Management\>, section 3.7). **Manual**
 4. The system owner confirms with the service desk that the account is disabled, and, after 5 minutes, checks \<System Name\>'s audit log or asks the auditor to confirm that the person's requests are being refused.
