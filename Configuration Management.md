@@ -102,7 +102,7 @@ Every package, browser library, runtime, operating system and database \<System 
 | Microsoft.Data.SqlClient | \<ver\> | Microsoft | MIT | API | TLS with strict encryption and Windows authentication |
 | Directory access library for LDAPS | \<ver\> | Microsoft | MIT | API | Group lookup in Active Directory |
 | API documentation package | \<ver\> | \[Supplier\] | \[Licence\] | API | Development only; not in release builds |
-| \[Server-side rendering library for the viewer\] | \<ver\> | \[Supplier\] | \[Licence\] | API | Renders a file as an image on the server |
+| \[Server-side rendering library for the viewer\] | \<ver\> | \[Supplier\] | \[Licence\] | API | Renders a file as an image on the server, and stamps the classification banner on each page or image of a downloaded copy (FR-020, D-MP-02); a separate library is listed here if one is chosen for the stamping |
 | \[Browser libraries, such as a document viewer or an icon set\] | \<ver\> | \[Supplier\] | \[Licence\] | UI application | Packaged with the UI application and served by it. No content delivery service |
 | \[Key store\] | \<ver\> | \[Supplier\] | \[Licence\] | All three applications | Holds the token signing key, the audit chain key, the OpenID Connect client credential and the exported backup encryption certificate. Still to be chosen (\<System Security Plan\>, section 3.4); listed here if it is software on the servers, or recorded as a service of \<Organisation\> if not |
 

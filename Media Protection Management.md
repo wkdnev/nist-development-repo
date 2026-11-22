@@ -71,6 +71,8 @@ All \<System Name\> information is marked \<Classification\>, \<Organisation\>'s
 | Viewer pages | A \<Classification\> banner and watermark, with the item's classification |
 | Printouts | The banner on every page, by a print style |
 | Export files | \<Classification\> in the file name, and a marking notice inside |
+| Downloaded files | A banner with \<Classification\> and the item's classification stamped on each page or image of the copy sent, and the marking in the file name. The stored file is never changed: its checksum is checked before the marked copy is made, and only the copy carries the stamp, so the copy's checksum differs from the stored one (FR-020; D-MP-02) |
+| Audit log exports | As export files |
 | Other digital media | A \<Classification\> label on the media or its record, through \<Organisation\> (EV-MP-01) |
 
 ### 3.4 Storage, export copies and users' copies

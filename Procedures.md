@@ -1029,7 +1029,7 @@ These procedures carry out \<Policy\> (MP), rules R1 to R12. The media inventory
 1. Only an editor of a schema can bulk export its items, and only an auditor can export the audit log. An auditor keeps an audit log export only on their managed device or in an approved location, and deletes it once the report or investigation no longer needs it.
 2. \<System Name\> deletes each export copy after the download, and a background task removes any left past 24 hours. Each working day, the Windows server administrator checks the encrypted export working area on the application VM, deletes anything older than 24 hours, and records it on TPL-8 (C49). **Manual**
 3. Users save exports and downloads only in approved \<Organisation\> locations: \[approved locations\], on a managed device, and delete them once no longer needed, and within 30 days at most if they hold personal data (P-69; \<Security Operating Procedures\>, A28 and A30 to A35). **Manual**
-4. Export files carry the classification marking that \<System Name\> applies, and the user who keeps them does not remove it. **Manual**
+4. Export files and downloaded files carry the classification marking that \<System Name\> stamps in the file and puts in its name, and the user who keeps them does not remove it or rename the file without it. **Manual**
 
 #### PRO-MP-6 Media inventory
 

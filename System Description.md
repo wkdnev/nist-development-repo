@@ -282,12 +282,12 @@ Each requirement is to be verified before the application is authorised. \<Secur
 | --- | --- | --- | --- |
 | FR-018 | View an item and its details | Reader | The API returns the item after the schema access check |
 | FR-019 | View a stored file in the browser, without installing anything | Reader | The API sends the file, or an image of it rendered on the server, to a viewer served by the application |
-| FR-020 | Download the original file | Reader | The API sends the stored file as a download, after the same access check as viewing. The download is audited |
+| FR-020 | Download the original file | Reader | The API sends the stored file as a download, after the same access check as viewing, as a marked copy: the API checks the stored file's checksum, then stamps a banner with \<Classification\> and the item's classification on each page or image of the copy it sends, and puts the marking in the file name. The stored file is never changed (D-MP-02). The download is audited, with the stored file's checksum |
 | FR-021 | Copy a link to an item. A link opens only for a person who may read the schema | Reader | The link holds the schema and a random token for the item, not its number. Opening it runs the normal sign-in and access checks |
 | FR-022 | Check the person's access to the schema on every request for an item, file, page, preview or download | System | Every API function that returns content takes the schema, confirms it against the person's groups, and only then reads from that schema's area |
 | FR-023 | Name the schema in every item address | System | The address of each item and file carries the schema. No address works without it |
 | FR-024 | Send content so that it is not kept in shared caches or in the browser after use | System | The API sets response headers that forbid shared caching and storing |
-| FR-025 | Mark what the application shows, prints and exports with its classification | System | A banner and watermark on the viewer, on printed pages and in export files |
+| FR-025 | Mark what the application shows, prints, exports and downloads with its classification | System | A banner and watermark on the viewer, on printed pages and in export files; a banner stamped on each page or image of a downloaded file; the marking in the name of each export and downloaded file |
 
 #### 5.1.4 Reporting a fault in an item
 
@@ -845,6 +845,8 @@ The application holds no user accounts. The name that arrives at sign-in is held
 **Upload.** Every upload is checked on the server before it is stored: the type must be one of those in P-19; the file's first bytes must match its type; its size must be within the limit for the person's role; and its name must not contain a path. Each upload is then passed to the anti-malware service, and a flagged file is refused, audited and reported.
 
 **Viewing.** A file is sent to the browser, or rendered on the server and sent as an image, only after the schema access check. The viewer is served by the application.
+
+**Download.** A downloaded file is a marked copy: after the schema access check, the API checks the stored file's checksum, stamps the classification banner on each page or image of the copy, and puts the marking in its name. The stored file is never changed (D-MP-02).
 
 **Export.** Only an editor of the schema may bulk export. A job can be seen, downloaded or cancelled only by the person who started it. Exports are delivered as downloads, marked with their classification, and every export is audited. Taking exported items outside \<Organisation\>'s systems needs the Data Owner's decision.
 
