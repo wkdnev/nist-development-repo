@@ -262,6 +262,7 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | Plans covered: \<Incident Response Management\>, \<Contingency Planning Management\> or both |  |
 | Time to recover and data lost, against the objectives (P-12, 72 hours; P-13, 24 hours) |  |
 | Checks in PRO-CP-2 (row counts, file checksums, audit chain, and group members checked against current staff): result |  |
+| For a restore test: the restore test server used, that the backup encryption certificate was restored from its protected copy, and the TPL-13 record of the server's erasure. For an activation: the items deleted again since the backup (\<Contingency Planning Management\>, section 3.7) |  |
 | Changes made to \<Contingency Planning Management\> or the procedures (CP-2g) |  |
 | Result, and problems found |  |
 | Actions, owner and date |  |

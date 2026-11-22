@@ -65,7 +65,7 @@ The planned exchanges are below, and are also recorded in \<Assessment, Authoriz
 | Starters and leavers process, \<Organisation\> | To the owners of a leaver's groups, by people only (flow F9). It has no connection to \<System Name\> | Prompts to add or remove access; staff names and leaving dates | None needed: no system connection (\<Assessment, Authorization, and Monitoring Management\>, section 3.7) |
 | \<Organisation\>'s central logging | Out from both VMs (flow F8), encrypted; protocol requested from \<Organisation\> | Windows security logs; SQL Server Audit records and error log; the applications' logs and security events, including the daily copy of the newest audit-chain hash | The interface record in \<Assessment, Authorization, and Monitoring Management\>, Table 6, signed by both owners |
 | \<Organisation\>'s time service | Into both VMs, by NTP (flow F8) | Time | As above |
-| \<Organisation\>'s backup site | Out from the database VM (flow F8), encrypted; method set by \<Organisation\> | Encrypted database backups | As above |
+| \<Organisation\>'s backup site | Out from the database VM (flow F8), encrypted; method set by \<Organisation\> | Encrypted database backups and system-level backups, encrypted by SQL Server before they leave the database VM | As above |
 | \<Organisation\>'s authenticated proxy | Out from both VMs (flow F8), for updates only | Updates for Windows Server, SQL Server and Defender; no \<System Name\> data | As above |
 | UI application and Admin application to API | Internal, on the application VM's loopback address only (flows F3, F4): HTTPS, with a signed, short-lived token for each application | Every request for items, files, schemas and audit events | Not needed: inside the boundary (CA-9) |
 | Application VM to database VM | Internal, from the API only (flow F5): SQL Server over TLS with strict encryption, TCP 1433, by Windows authentication | Items, their details and files, schema definitions and audit records | Not needed: inside the boundary (CA-9) |
@@ -105,9 +105,9 @@ This is the intended inventory for the authorisation boundary. Host names, asset
 | Microsoft Defender | Malicious code protection | Windows Server 2025 | Both VMs |
 | Windows App Control for Business | Allows only approved software to run (\<Configuration Management\>, section 3.15) | Windows Server 2025, with a signed policy at each release | Both VMs |
 | BitLocker full-disk encryption (XTS-AES 256 with the TPM) | Protection at rest | Windows Server 2025 | Both VMs |
-| Key store | Holds the token signing key and the audit chain key outside source code. There is no database password | To be chosen | To be chosen |
+| Key store | Holds the token signing key, the audit chain key, the OpenID Connect client credential and the exported backup encryption certificate outside source code, with a protected copy at the second site. There is no database password | To be chosen | To be chosen |
 | Vulnerability scanner | Servers monthly; packages and code at each release (\<System Description\>, P-30) | To be chosen | To be chosen |
-| Backup store | Encrypted backups | To be chosen | \<Organisation\>'s second site |
+| Backup service | Receives the encrypted database and system-level backups, copies them to the second site and keeps one copy offline or immutable (\<Contingency Planning Management\>, section 3.8) | \<Organisation\>'s service (EV-CP-01) | Outside the boundary: \<Organisation\>'s data centre and second site |
 | Bulk export working area | Encrypted working copies for each export job, holding copies of items, deleted as \<System Description\>, P-20, sets and checked each working day (C49) | An encrypted working area written by API | Application server VM |
 | Data protection key rings | Keys protecting each app's authentication cookie and anti-forgery tokens | ASP.NET Core data protection, one per app | Application server VM |
 
@@ -201,7 +201,7 @@ Both VMs sit inside \<Organisation\>'s network. Home users come in through the V
 
 **Figure 4: Storage**
 
-Items, their files and audit records are all held in SQL Server on the database VM, with each schema's definition and its read and edit groups. \<System Name\> holds no accounts: they are in \<Organisation\>'s Active Directory. Schema definitions sit in a common schema, and each schema has its own database schema, which holds its items, their details and their files. Only the API reaches the database (F5), by Windows authentication, so no database password is held. The application VM holds only working files: the encrypted export working copies, each app's key ring, and the secrets in the key store.
+Items, their files and audit records are all held in SQL Server on the database VM, with each schema's definition and its read and edit groups. \<System Name\> holds no accounts: they are in \<Organisation\>'s Active Directory. Schema definitions sit in a common schema, and each schema has its own database schema, which holds its items, their details and their files. Only the API reaches the database (F5), by Windows authentication, so no database password is held. The application VM holds only working files: the encrypted export working copies, each app's key ring, and the secrets in the key store. Encrypted backups of the database go to \<Organisation\>'s backup service and second site, with one copy offline or immutable (\<Contingency Planning Management\>, section 3.8).
 
 ### 4.5 End-points
 
@@ -234,7 +234,7 @@ Each control is given one of four types. **System** controls are met by \<System
 | AU Audit and Accountability | 16 | 4 | 10 | 2 | 0 | 0 |
 | CA Assessment, Authorization, and Monitoring | 10 | 0 | 2 | 8 | 0 | 0 |
 | CM Configuration Management | 24 | 0 | 15 | 8 | 1 | 0 |
-| CP Contingency Planning | 23 | 0 | 5 | 8 | 10 | 0 |
+| CP Contingency Planning | 23 | 0 | 6 | 8 | 9 | 0 |
 | IA Identification and Authentication | 24 | 2 | 7 | 1 | 8 | 6 |
 | IR Incident Response | 13 | 0 | 4 | 9 | 0 | 0 |
 | MA Maintenance | 9 | 0 | 2 | 6 | 1 | 0 |
@@ -248,7 +248,7 @@ Each control is given one of four types. **System** controls are met by \<System
 | SC System and Communications Protection | 25 | 3 | 10 | 1 | 10 | 1 |
 | SI System and Information Integrity | 18 | 3 | 9 | 3 | 1 | 2 |
 | SR Supply Chain Risk Management | 12 | 0 | 3 | 5 | 4 | 0 |
-| **Total** | **316** | **19** | **111** | **99** | **67** | **20** |
+| **Total** | **316** | **19** | **112** | **99** | **66** | **20** |
 
 Section 7 lists every control. A control counts as satisfied only when every one of its assessment statements is satisfied.
 
@@ -386,7 +386,7 @@ The assessment plan is in \<Control Assessment Record\> (CA), section CA.4, wher
 | CA-2(1) Independent Assessors | \[Name\]'s team, each member with no part in designing, building, running or administering \<System Name\> and no reporting line to it, on TPL-19 accepted by the authorising official | Security assessor, authorising official | Organisational | Implemented | NC-CA-03 |
 | CA-3 Information Exchange | The five external exchanges (PingFederate and Active Directory, central logging, time, backup site and proxy) are recorded with their interface, security and privacy needs, responsibilities and impact in \<Assessment, Authorization, and Monitoring Management\>, Table 6, which is the agreement, signed by the system owner and each service's owner and reviewed every 12 months (PRO-CA-2; D-CA-04) | System owner, \<Organisation\> | Hybrid | Implemented | NC-CA-04 |
 | CA-5 Plan of Action and Milestones | \<Plan of Action and Milestones\> holds each weakness to be fixed, updated monthly from assessments, monitoring and audits, with fix times by rating counted from go-live or the date raised (PRO-CA-3) | System owner | Organisational | Implemented | NC-CA-05 |
-| CA-6 Authorization | \[Name\] is the authorising official and \<Organisation\>'s official authorises the common controls; the package in \<Assessment, Authorization, and Monitoring Management\>, Table 4, and the TPL-18 decision, with the 67 inherited controls accepted, before real data is held, and renewed within 12 months (P-25) | Authorising official, system owner | Organisational | Implemented | NC-CA-06 |
+| CA-6 Authorization | \[Name\] is the authorising official and \<Organisation\>'s official authorises the common controls; the package in \<Assessment, Authorization, and Monitoring Management\>, Table 4, and the TPL-18 decision, with the 66 inherited controls accepted, before real data is held, and renewed within 12 months (P-25) | Authorising official, system owner | Organisational | Implemented | NC-CA-06 |
 | CA-7 Continuous Monitoring | System-level strategy carrying out \<Organisation\>'s strategy, with 15 measures, thresholds and re-assessment triggers; reported monthly to the system owner, privacy measures to the legal adviser, and quarterly to the authorising official, from go-live (\<Assessment, Authorization, and Monitoring Management\>, section 3.8; PRO-CA-5) | Security officer, system owner | Organisational | Implemented | NC-CA-07 |
 | CA-7(1) Independent Assessment | The independent assessor checks a sample of the monitoring each year, alongside the yearly Level 2 assessment of every control, which together are the ongoing basis (PRO-CA-5, step 3; D-CA-03) | Security assessor | Organisational | Implemented | NC-CA-08 |
 | CA-7(4) Risk Monitoring | The measures cover effectiveness, compliance and change, and the Risk List is reviewed monthly (\<Assessment, Authorization, and Monitoring Management\>, Table 7) | System owner, security officer | Organisational | Implemented | None |
@@ -433,29 +433,29 @@ The assessment plan is in \<Control Assessment Record\> (CP), section CP.4, wher
 
 | Control | How it is implemented | Who | Type | Status | Gap entry |
 | --- | --- | --- | --- | --- | --- |
-| CP-1 Policy and Procedures | Policy and procedures in \<Policy\> (CP) and \<Procedures\> (CP) | System owner, Head of Cyber | Organisational | \[Status\] | \[Decision\] |
-| CP-2 Contingency Plan | Section 3 of \<Contingency Planning Management\> is the plan, structured after CSS | System owner, authorising official | Organisational | \[Status\] | \[Decision\] |
-| CP-2(1) Related Plans | Related plans named in \<Contingency Planning Management\>, appendix B, and coordinated with their owners | System owner, security officer | Organisational | \[Status\] | \[Decision\] |
-| CP-2(3) Resume Functions | 72 hours for essential functions, within a maximum tolerable downtime of 120 hours, from the business impact analysis in \<Contingency Planning Management\>, section 3.3. Reaching it depends on backups | System owner | Organisational | \[Status\] | \[Decision\] |
-| CP-2(8) Critical Assets | Listed in \<Contingency Planning Management\>, section 3.3.4, including the secrets \<System Name\> needs | System owner | Organisational | \[Status\] | \[Decision\] |
-| CP-3 Training | Contingency training, as set out in \<Contingency Planning Management\> | System owner | Organisational | \[Status\] | \[Decision\] |
-| CP-4 Testing | Tabletop and restore test within 30 days of the VMs being built, then as \<System Description\>, P-16, sets | System owner, database administrator | Organisational | \[Status\] | \[Decision\] |
-| CP-4(1) Related Plans | Coordinated with the owners of related plans | System owner, security officer | Organisational | \[Status\] | \[Decision\] |
-| CP-6 Alternate Storage | \<Organisation\>'s second site | \<Organisation\> | Inherited | \[Status\] | \[Decision\] |
-| CP-6(1) Separation | \<Organisation\>'s second site, separate from the main one | \<Organisation\> | Inherited | \[Status\] | \[Decision\] |
-| CP-6(3) Accessibility | Provided by \<Organisation\> | \<Organisation\> | Inherited | \[Status\] | \[Decision\] |
-| CP-7 Alternate Processing | Rebuild at the second site | \<Organisation\>, Windows server administrator | Inherited | \[Status\] | \[Decision\] |
-| CP-7(1) Separation | Provided by \<Organisation\> | \<Organisation\> | Inherited | \[Status\] | \[Decision\] |
-| CP-7(2) Accessibility | Provided by \<Organisation\> | \<Organisation\> | Inherited | \[Status\] | \[Decision\] |
-| CP-7(3) Priority of Service | Provided by \<Organisation\> | \<Organisation\> | Inherited | \[Status\] | \[Decision\] |
-| CP-8 Telecommunications | \<Organisation\> | \<Organisation\> | Inherited | \[Status\] | \[Decision\] |
-| CP-8(1) Priority of Service | \<Organisation\> | \<Organisation\> | Inherited | \[Status\] | \[Decision\] |
-| CP-8(2) Single Points of Failure | \<Organisation\> | \<Organisation\> | Inherited | \[Status\] | \[Decision\] |
-| CP-9 System Backup | Encrypted daily, weekly and monthly backups, kept as \<System Description\>, P-15, sets (\<Contingency Planning Management\>, section 3.8) | Database and Windows server administrators | Hybrid | \[Status\] | \[Decision\] |
-| CP-9(1) Testing | Restore tests of the backups | Database administrator | Hybrid | \[Status\] | \[Decision\] |
-| CP-9(8) Cryptographic Protection | Backups are encrypted | Database administrator | Hybrid | \[Status\] | \[Decision\] |
-| CP-10 Recovery | Recovery and rebuild as set out in \<Contingency Planning Management\> | Administrators, system owner | Hybrid | \[Status\] | \[Decision\] |
-| CP-10(2) Transaction Recovery | SQL Server transaction log backups and recovery | Database administrator | Hybrid | \[Status\] | \[Decision\] |
+| CP-1 Policy and Procedures | Policy and procedures in \<Policy\> (CP) and \<Procedures\> (CP); the design is in \<Contingency Planning Management\> | System owner, Head of Cyber | Organisational | Implemented | NC-CP-01 |
+| CP-2 Contingency Plan | \<Contingency Planning Management\>, section 3 with appendices A and B, is the plan: impact analysis, objectives, roles and contacts, activation, recovery, reconstitution and coordination with incident response; approved by the system owner and authorising official (D-CP-02), reviewed every 12 months and after each test or activation, shared with the people in its section 1.1 and protected as \<Classification\> (PRO-CP-7; C61) | System owner, authorising official | Organisational | Implemented | NC-CP-02 |
+| CP-2(1) Related Plans | The incident response plan and \<Organisation\>'s disaster recovery and business continuity plans, in \<Contingency Planning Management\>, appendix B, with who declares a disaster and the recovery times agreed with \<Organisation\> (EV-CP-01) | System owner, security officer | Organisational | Implemented | NC-CP-03 |
+| CP-2(3) Resume Functions | Essential functions (sign in, find and read items) resume within 72 hours of the outage starting, and so within 72 hours of activation, inside a maximum tolerable downtime of 120 hours, from the impact analysis in \<Contingency Planning Management\>, section 3.3 (P-12, P-14) | System owner | Organisational | Implemented | NC-CP-04 |
+| CP-2(8) Critical Assets | Listed in \<Contingency Planning Management\>, section 3.3.4: the database, the application VM, the backups and the secrets, including the backup encryption certificate | System owner | Organisational | Implemented | None |
+| CP-3 Training | Module M8 within 30 days of taking a contingency role (before it for the system owner, security officer and their deputies) and every 12 months, M10 for the authorising official; content reviewed every 12 months and after a plan change, test or activation (P-24; PRO-CP-4) | System owner, security officer | Organisational | Implemented | NC-CP-05 |
+| CP-4 Testing | A restore test every 6 months on a throwaway server at the second site (D-CP-01), and a tabletop exercise every 12 months, the first of each within 30 days of the VMs being built; each with objectives and an after-action report on TPL-11, and actions to \<Plan of Action and Milestones\> (P-16; PRO-CP-2, PRO-CP-4) | System owner, security officer, database administrator | Organisational | Implemented | NC-CP-06 |
+| CP-4(1) Related Plans | The tabletop exercise is held with the incident response plan, with \<Organisation\>'s IT service desk and security contact taking part | System owner, security officer | Organisational | Implemented | NC-CP-07 |
+| CP-6 Alternate Storage | \<Organisation\>'s second site, reached through its backup service, holding the encrypted backups with one copy offline or immutable | \<Organisation\> | Inherited | Implemented | NC-CP-08 |
+| CP-6(1) Separation | \<Organisation\>'s second site, separate from the main one | \<Organisation\> | Inherited | Implemented | NC-CP-09 |
+| CP-6(3) Accessibility | Provided by \<Organisation\>'s plans for reaching the second site in a wide-area disruption | \<Organisation\> | Inherited | Implemented | NC-CP-10 |
+| CP-7 Alternate Processing | \<Organisation\> provides virtual servers at the second site under its agreement; \<System Name\>'s administrators rebuild both servers there to the baseline, and the security officer confirms equivalent controls before users return, within 72 hours (\<Contingency Planning Management\>, section 3.9) | \<Organisation\>, Windows server and database administrators, security officer | Hybrid | Implemented | NC-CP-11 |
+| CP-7(1) Separation | Provided by \<Organisation\> | \<Organisation\> | Inherited | Implemented | NC-CP-12 |
+| CP-7(2) Accessibility | Provided by \<Organisation\> | \<Organisation\> | Inherited | Implemented | NC-CP-13 |
+| CP-7(3) Priority of Service | Provided by \<Organisation\> | \<Organisation\> | Inherited | Implemented | NC-CP-14 |
+| CP-8 Telecommunications | \<Organisation\>'s alternate service, letting essential functions resume within 72 hours at either site | \<Organisation\> | Inherited | Implemented | NC-CP-15 |
+| CP-8(1) Priority of Service | \<Organisation\>'s main and alternate agreements. Telecommunications Service Priority is a United States scheme; \<Organisation\> is asked about any UK equivalent | \<Organisation\> | Inherited | Implemented | NC-CP-16 |
+| CP-8(2) Single Points of Failure | \<Organisation\> | \<Organisation\> | Inherited | Implemented | NC-CP-17 |
+| CP-9 System Backup | The database daily, with transaction log backups between; SQL Server's system databases and each VM's configuration weekly; secrets and documentation at each change; encrypted, written to \<Organisation\>'s backup service and kept as \<System Description\>, P-15, sets (\<Contingency Planning Management\>, section 3.8; PRO-CP-1) | Database and Windows server administrators, \<Organisation\> | Hybrid | Implemented | NC-CP-18 |
+| CP-9(1) Testing | Every 6 months, a backup is restored with its certificate on the restore test server at the second site, and checked for row counts, file checksums and the audit chain (PRO-CP-2; D-CP-01) | Database administrator | Hybrid | Implemented | NC-CP-19 |
+| CP-9(8) Cryptographic Protection | SQL Server backup encryption with AES-256 before the backup leaves the database server, under a certificate held apart from the backups (K10) | Database administrator | Hybrid | Implemented | None |
+| CP-10 Recovery | Rebuild, restore and reconstitution to a known state within 72 hours of the outage starting, with the data, functions and controls checked before users return (\<Contingency Planning Management\>, sections 3.6 and 3.7) | Administrators, security officer, system owner | Hybrid | Implemented | NC-CP-20 |
+| CP-10(2) Transaction Recovery | SQL Server's full recovery model, with transaction log backups applied to the last consistent point | Database administrator | Hybrid | Implemented | None |
 
 ### 7.7 Identification and Authentication (IA)
 

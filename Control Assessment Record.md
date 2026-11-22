@@ -1112,12 +1112,12 @@ There is one finding for each CSS determination statement, including those about
 | Dates | \[Dates of the assessment\] |
 | Site | \[Where the assessment is done, and on what build and data\] |
 | Examine | \<Policy\> (CP), \<Procedures\> (CP) and \<Contingency Planning Management\>; the backup support and storage configuration; where items, their files and audit records are stored. Depth: focused. Coverage: focused |
-| Test | Test-BackupRestore.ps1: backup, restore to a fresh server, and checks of row counts, file checksums and the audit chain. Depth: focused. Coverage: focused, including backups on the VMs, the second site and a tabletop exercise |
-| Interview | The database and Windows server administrators and \<Organisation\>'s IT service desk |
+| Test | Test-BackupRestore.ps1: backup, restore with its encryption certificate to the restore test server at the second site (D-CP-01), and checks of row counts, file checksums and the audit chain. Depth: focused. Coverage: focused, including backups on the VMs, the second site and a tabletop exercise |
+| Interview | The system owner, the security officer, the authorising official, the legal adviser, the database and Windows server administrators, and \<Organisation\>'s security contact; questions in \<Interview Guide\>, Table 17 |
 | Previous results reused | \[Results reused from other chapters, if any\] |
-| Boundary | \<System Name\>'s database, applications, secrets and the two VMs. \<Organisation\>'s second site, network and telecommunications are inherited |
+| Boundary | \<System Name\>'s database, applications, secrets and the two VMs. \<Organisation\>'s second site, backup service, network and telecommunications are inherited; CP-7 is shared, as \<System Name\>'s administrators rebuild the servers at the second site |
 | Order of assessment | A, recovery objectives and the plan (CP-2 and enhancements); B, backups and recovery (CP-9, CP-10 and enhancements); C, training and testing (CP-3, CP-4); D, inherited sites and telecommunications (CP-6 to CP-8); E, policy (CP-1). The objectives come first because every other result is judged against them |
-| Needed from \<Organisation\> | EV-CP-01 and EV-CP-02 in \<Evidence Requests\>: the second site, and telecommunications |
+| Needed from \<Organisation\> | EV-CP-01 and EV-CP-02 in \<Evidence Requests\>: the second site, the backup service, its plans and recovery times, and telecommunications |
 | Evidence retained | The CP evidence, with its manifest; \<Contingency Planning Management\>, sections 3.3 and 3.8 |
 
 The independent assessor's team, schedule, and depth and coverage are added once agreed. For the Level 2 assessment, the assessor should repeat the restore test on the VMs with encrypted backups at the second site, observe a tabletop exercise, hold the interviews, examine \<Organisation\>'s evidence and re-determine every statement in section CP.3.

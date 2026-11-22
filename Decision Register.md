@@ -32,6 +32,8 @@ Documents, policy decisions and cross-family decisions (GEN). The legal adviser 
 | D-CA-04 | CA | Decide how exchanges with \<Organisation\>'s own services are agreed (CA-3) | The interface record in \<Assessment, Authorization, and Monitoring Management\>, Table 6, is the agreement, signed by the system owner and each service's owner; any hosting and services agreement is support only | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | D-CM-01 | CM | Decide how CM-7(2) and CM-7(5) are met: whether only approved software can run on the two VMs | Enforce Windows App Control for Business on both VMs, with a signed policy allowing only the approved software list and \<System Name\>'s release files; audit mode at the build, enforced before go-live, updated through change control (\<Configuration Management\>, section 3.15) | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | D-CM-02 | CM | Decide how CM-2(7) is met for devices taken to high-risk locations | Inherit it from \<Organisation\>'s travel device policy for its managed laptops, the only devices that can reach \<System Name\>, with its evidence in EV-CM-05; keep the approval to take a device abroad (\<Security Operating Procedures\>, A41) | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
+| D-CP-01 | CP | Decide where the 6-monthly restore test runs, as it restores real data (CP-4, CP-9(1)) | On a throwaway virtual server at the second site, built to the database server's baseline, with no route to production, reached only by the database administrator and the security officer, and erased by method M1 once the test is recorded; the test fetches the backup and the backup encryption certificate from the second site, so it also proves both can be used there (\<Contingency Planning Management\>, section 3.8) | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
+| D-CP-02 | CP | Approve \<Contingency Planning Management\>, section 3 with appendices A and B, as the contingency plan (CP-2a.07) | Approve: it holds the impact analysis, objectives, roles, activation, recovery, reconstitution, backups, second site, testing and training, and is reviewed every 12 months and after each test or activation | System owner and authorising official | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | \[D-XX-nn\] | \[XX\] | \[Decision needed\] | \[Recommendation\] | \[Who decides\] | \[Decision\] | \[Name\] | \[Date\] | \[Sheet\] |
 
 ## 3 Parameter approvals
@@ -84,6 +86,11 @@ The reference values are the parameters in \<System Description\>, section 4, wh
 | D-CM-P64 | CM | CM-3 | 1: P-64 Change control | Board meets monthly, and sooner for an urgent or security change; records kept 3 years; emergency change recorded within 1 working day | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | D-CM-P65 | CM | CM-7(1), CM-7(5), CM-11 | 1: P-65 Least functionality and software | Functions, ports, protocols, software and services, the approved software list, and installed software against it, each every 12 months | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | D-CM-P66 | CM | CM-8(3) | 1: P-66 Unauthorised components | Checked monthly by \<Organisation\>'s discovery tools; component removed or its network access disabled, and the security officer told | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
+| D-CP-P12 | CP | CP-2, CP-2(3), CP-7, CP-8, CP-10 | 1: P-12 Recovery time objective | 72 hours from the start of the outage, for recovery and reconstitution together; so within 72 hours of the plan being invoked | Authorising official, on the system owner's advice, as a change to P-12 changes the contingency plan | \[Decision\] | \[Name\] | \[Date\] | None yet |
+| D-CP-P13 | CP | CP-9 | 1: P-13 Recovery point objective | 24 hours, from the daily backup, with transaction log backups between | Authorising official, on the system owner's advice | \[Decision\] | \[Name\] | \[Date\] | None yet |
+| D-CP-P14 | CP | CP-2, CP-2(3) | 1: P-14 Maximum tolerable downtime | 120 hours from the start of the outage | Authorising official, on the system owner's advice | \[Decision\] | \[Name\] | \[Date\] | None yet |
+| D-CP-P15 | CP | CP-6, CP-9 | 1: P-15 Backups kept | 14 daily, 8 weekly and 12 monthly; one copy at the second site and one offline or immutable | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
+| D-CP-P16 | CP | CP-4, CP-9(1) | 1: P-16 Contingency tests | A restore every 6 months, on the restore test server at the second site; a tabletop exercise every 12 months, with the incident response plan | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | \[D-XX-Pnn\] | \[XX\] | \[Control\] | \[Number of parameters\] | \[Main values\] | \[Who decides\] | \[Decision\] | \[Name\] | \[Date\] | \[Sheet\] |
 
 ## 4 Non-compliance treatment decisions
@@ -99,6 +106,7 @@ The control, rating, reason and treatment of each entry are in \<Risk List\>, se
 | NC-AU-01 to NC-AU-13 | AU | System owner, as every AU entry is rated Low | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | NC-CA-01 to NC-CA-09 | CA | System owner, as every CA entry is rated Low | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | NC-CM-01 to NC-CM-18 | CM | System owner, as every CM entry is rated Low | \[Decision\] | \[Name\] | \[Date\] | None yet |
+| NC-CP-01 to NC-CP-20 | CP | System owner, as every CP entry is rated Low | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | \[NC-XX-nn\] | \[XX\] | \[Who decides\] | \[Decision\] | \[Name\] | \[Date\] | \[Sheet\] |
 
 ## 5 Proof of approval

@@ -405,20 +405,21 @@ It applies to the UI application, the Admin application, the API, the \<System N
 3. **P3 Test recovery:** a backup counts only once it has been restored and checked.
 4. **P4 Plan ahead:** people know their part, and how to reach each other, before anything fails.
 5. **P5 Coordinate:** this plan works with the incident response plan and \<Organisation\>'s plans.
+6. **P6 Return only when safe:** users come back when the data, the functions and the controls have all been checked.
 
 ### CP.4 Mandatory requirements
 
-1. **R1 Recovery objectives:** recovery objectives must be set by a business impact analysis, reviewed every 12 months. Essential functions must be back within 72 hours (P-12), within a maximum tolerable downtime of 120 hours (P-14), losing no more than 24 hours of data (P-13).
-2. **R2 Backups:** the database, which holds the items, their files and the audit records, must be backed up daily with its transaction logs archived continuously; system configuration weekly; the secrets and documentation at each change.
+1. **R1 Recovery objectives:** recovery objectives must be set by a business impact analysis, reviewed every 12 months. Essential functions must be back within 72 hours of the outage starting (P-12), within a maximum tolerable downtime of 120 hours (P-14), losing no more than 24 hours of data (P-13).
+2. **R2 Backups:** the database, which holds the items, their files and the audit records, must be backed up daily with its transaction logs backed up between the daily backups; system-level information, including SQL Server's system databases and each VM's configuration, weekly and after each change to it; the secrets and documentation at each change.
 3. **R3 Where and how:** backups must be encrypted, and held at a second \<Organisation\> site that does not share the main site's hazards.
-4. **R4 Restore tests:** a restore must be tested every 6 months (P-16), and after a change to the database or backups, and checked against the data before the backup.
+4. **R4 Restore tests:** a restore must be tested every 6 months (P-16), and after a change to the database or backups, by restoring a backup and its encryption certificate from the second site onto a throwaway server there, and checking the restored data against counts and hashes taken when the backup was made. The test server must have no route to production and be erased afterwards.
 5. **R5 Second site:** the VMs must be able to be rebuilt at that second site if the main one is lost.
 6. **R6 Plan tests:** the plan must be tested every 12 months by tabletop exercise and restore test, coordinated with the incident response plan and \<Organisation\>'s plans.
 7. **R7 Training:** people with a contingency role must be trained within 30 days of taking it and every 12 months.
 8. **R8 The plan:** the plan must be approved by the system owner and authorising official, reviewed every 12 months and after a test or activation, shared with the people it names, and protected from disclosure and change.
 9. **R9 Retention:** at least 14 daily, 8 weekly and 12 monthly backups must be kept, and one copy must be offline or immutable (P-15).
-10. **R10 Keys and secrets:** the backup encryption key and the protected copy of the secrets must be held apart from the backups, and only the system owner and the Windows server and database administrators may reach them.
-11. **R11 Return and learning:** users return after a recovery only when the data, functions and controls have been checked. Each test or activation must end with an after-action report within 10 working days.
+10. **R10 Keys and secrets:** the backup encryption certificate, with its private key, and the protected copy of the secrets must be held apart from the backups, and only the system owner and the Windows server and database administrators may reach them. A retired backup encryption certificate must be kept until the last backup it encrypted is removed.
+11. **R11 Return and learning:** users return after a recovery only when the data, functions and controls have been checked, and any item deleted since the backup restored has been deleted again. Each test or activation must end with an after-action report within 10 working days.
 
 ### CP.5 Responsibilities
 
@@ -429,10 +430,11 @@ It applies to the UI application, the Admin application, the API, the \<System N
 | Head of Cyber | Approves this policy, as all policies |
 | System owner | Owns this policy and the plan, decides when to invoke it, declares recovery, and trains the role holders |
 | Authorising official | Approves the plan, and decides Medium and High risks, including running in a reduced state |
-| Security officer | Coordinates the plan with incident handling, keeps the activity log, confirms controls before users return, and writes after-action reports |
-| Database administrator | Runs backups, tests restores and restores the database |
-| Windows server administrator | Backs up system configuration, rebuilds the VMs and restores the secrets |
-| \<Organisation\> | Provides the second site, network services and telecommunications |
+| Security officer | Coordinates the plan with incident handling, keeps the activity log, confirms controls before users return, writes after-action reports, and keeps the contingency training content current |
+| Database administrator | Runs backups, holds the backup encryption certificate, tests restores and restores the database |
+| Windows server administrator | Backs up system configuration, rebuilds the VMs, builds and removes the restore test server, and restores the secrets |
+| Business owner and legal adviser | After a recovery from an older backup, list the items disposed of or deleted since, so that they are deleted again |
+| \<Organisation\> | Provides the second site, the backup service with its offline or immutable copy, network services and telecommunications |
 
 ### CP.6 Governance requirements
 

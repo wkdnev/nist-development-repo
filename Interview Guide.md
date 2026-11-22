@@ -225,10 +225,14 @@ Questions are numbered INT-XX-nn, where XX is the family code, and each names th
 
 | ID | For | Question | Statements | Ask to see |
 | --- | --- | --- | --- | --- |
-| INT-CP-01 | System owner | When would you invoke the plan, and who would you tell? | CP-02 | \<Contingency Planning Management\> |
-| INT-CP-02 | Database administrator | How are backups taken and protected, and when was the last restore test? | CP-09, CP-09(01), CP-09(08) | Backup log and restore record |
-| INT-CP-03 | Windows server administrator | How would you rebuild the VMs, and how long would it take? | CP-07, CP-10 | Test record |
-| INT-CP-04 | \<Organisation\>'s IT service desk | Where is the second site, and what connects it? | CP-06, CP-07, CP-08 | EV-CP-01, EV-CP-02 |
+| INT-CP-01 | System owner | When would you invoke the plan, who would you tell, and from when is the 72 hours counted? | CP-02, CP-02(03) | \<Contingency Planning Management\>, sections 3.3 and 3.5; the activity log of the last exercise |
+| INT-CP-02 | Database administrator | How are backups taken, encrypted and sent to the second site, where is the backup encryption certificate kept, and when was the last restore test? | CP-09, CP-09(01), CP-09(08), CP-10(02) | Backup log, the key register entry K10, the last TPL-11 |
+| INT-CP-03 | Windows server administrator | How would you rebuild the VMs at the second site, in what order, and how long would it take? | CP-07, CP-10 | \<Contingency Planning Management\>, Table 3; test record |
+| INT-CP-04 | \<Organisation\>'s security contact | Where is the second site, how do backups reach it, what keeps one copy offline or immutable, and what connects both sites? | CP-06, CP-06(01), CP-06(03), CP-07(01) to CP-07(03), CP-08 | EV-CP-01, EV-CP-02 |
+| INT-CP-05 | Security officer | How is recovery coordinated with incident response, how do you confirm the controls before users return, and what came out of the last exercise? | CP-02c, CP-04, CP-04(01), CP-10 | The last after-action report on TPL-11 |
+| INT-CP-06 | Authorising official | What decisions would you make in a recovery, and when were you last told the plan had changed? | CP-02a.07, CP-02f | Plan approval (D-CP-02); M10 on TPL-9 |
+| INT-CP-07 | Each contingency role holder | What is your part in recovery, and when were you last trained? | CP-03 | TPL-9; the training register |
+| INT-CP-08 | Legal adviser | If an older backup were restored, how would items deleted since be found and deleted again? | CP-02a.05, CP-10 | TPL-15; \<PII Processing Management\>, section 3.7 |
 
 ## 9 Identification and Authentication (IA)
 

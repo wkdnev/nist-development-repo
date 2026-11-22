@@ -159,7 +159,7 @@ CSS does not select the controls in Table 9 at Moderate, so they are not assesse
 | CP | CP-2(2) Capacity Planning | Capacity planned for processing, telecommunications and support during a contingency | Not required. The second site is asked to run both servers at their normal size (EV-CP-01) |
 | CP | CP-2(5) Continue Mission and Business Functions | Functions continue with little or no loss of continuity | Not required. Availability is rated Low, and 72 hours to recover is enough |
 | CP | CP-3(1) Simulated Events | Training that simulates a real event | Not required. The tabletop exercise walks through a scenario |
-| CP | CP-4(2) Alternate Processing Site | Testing the plan at the second site | Not required, and not planned. The first restore test is on the main servers |
+| CP | CP-4(2) Alternate Processing Site | Testing the plan at the second site | Not required. Met in part: each 6-monthly restore test fetches the backup and its certificate from the second site and restores them on a throwaway server there (D-CP-01); the application server is not rebuilt there in a test |
 | CP | CP-6(2) Recovery Time and Recovery Point Objectives | The storage site set up to meet the recovery objectives | Not required. Done in design: transaction log backups go to the second site between the daily backups |
 | CP | CP-7(4) Preparation for Use | The second site kept ready to use | Not required. The servers are rebuilt there when needed |
 | CP | CP-8(3), CP-8(4) Separation of Providers; Provider Contingency Plan | Alternate services from a separate provider, who has a contingency plan | Not required. \<Organisation\>'s plans are asked for with EV-CP-01 |

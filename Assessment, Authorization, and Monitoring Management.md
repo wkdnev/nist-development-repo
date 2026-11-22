@@ -128,7 +128,7 @@ Controls met here: CA-6.
 
 Controls met here: CA-6.
 
-These 67 entries are provided wholly by \<Organisation\>, and the system owner relies on them (\<System Security Plan\>, section 7). The authorising official accepts them on TPL-18 before \<System Name\> operates, once \<Organisation\>'s evidence has been received (\<Evidence Requests\>). The system owner reviews the list every 12 months with \<Organisation\>'s security contact (PRO-CA-7). \<Organisation\>'s authorising official for its common controls authorises them for use, and \<System Name\> holds the record of that authorisation.
+These 66 entries are provided wholly by \<Organisation\>, and the system owner relies on them (\<System Security Plan\>, section 7). The authorising official accepts them on TPL-18 before \<System Name\> operates, once \<Organisation\>'s evidence has been received (\<Evidence Requests\>). The system owner reviews the list every 12 months with \<Organisation\>'s security contact (PRO-CA-7). \<Organisation\>'s authorising official for its common controls authorises them for use, and \<System Name\> holds the record of that authorisation.
 
 **Table 5: Inherited controls**
 
@@ -139,7 +139,7 @@ These 67 entries are provided wholly by \<Organisation\>, and the system owner r
 | SC | 10 | SC-4, SC-7(3), SC-7(4), SC-7(7), SC-7(8), SC-17, SC-20, SC-21, SC-22, SC-39 |
 | CM | 1 | CM-2(7) |
 | SI | 1 | SI-4(4) |
-| CP | 10 | CP-6, CP-6(1), CP-6(3), CP-7, CP-7(1), CP-7(2), CP-7(3), CP-8, CP-8(1), CP-8(2) |
+| CP | 9 | CP-6, CP-6(1), CP-6(3), CP-7(1), CP-7(2), CP-7(3), CP-8, CP-8(1), CP-8(2) |
 | MA | 1 | MA-6 |
 | MP | 2 | MP-5, MP-7 |
 | PE | 16 | PE-2, PE-3, PE-4, PE-6, PE-6(1), PE-8, PE-8(3), PE-9, PE-10, PE-11, PE-12, PE-13, PE-13(1), PE-14, PE-15, PE-16 |
@@ -147,11 +147,11 @@ These 67 entries are provided wholly by \<Organisation\>, and the system owner r
 | PT | 1 | PT-5 |
 | SA | 2 | SA-4, SA-9(2) |
 | SR | 4 | SR-8, SR-11(1), SR-11(2), SR-12 |
-| **Total** | **67** |  |
+| **Total** | **66** |  |
 
-The list matches the Inherited entries in \<System Security Plan\>, section 7. PE-8(3) is listed under PE here; \<System Security Plan\>, Table 8, counts it with PT, because it is in the privacy baseline.
+The list matches the Inherited entries in \<System Security Plan\>, section 7. CP-7 is not on it: \<Organisation\> provides the second site, but \<System Name\>'s administrators rebuild the servers there, so it is shared (\<Contingency Planning Management\>, section 3.9). PE-8(3) is listed under PE here; \<System Security Plan\>, Table 8, counts it with PT, because it is in the privacy baseline.
 
-The system owner puts the list of 67 to the authorising official for acceptance as a list, with the other proposed ratings, and for acceptance for operation with the authorisation package, once \<Organisation\>'s evidence is in.
+The system owner puts the list of 66 to the authorising official for acceptance as a list, with the other proposed ratings, and for acceptance for operation with the authorisation package, once \<Organisation\>'s evidence is in.
 
 ### 3.7 Information exchanges and internal connections
 
@@ -170,7 +170,7 @@ This is the single record of \<System Name\>'s connections. Every external excha
 | F9: Starters and leavers process | Not a system connection: people only (F9) | Leaver notices to group owners; staff names. None of it passes to \<System Name\> | No connection to \<System Name\>. A leaver's Active Directory account is disabled as P-06 sets, which ends their access | Staff names and leaving dates stay in \<Organisation\>'s process | System owner; \<Organisation\> | Moderate | None needed: no system connection; the process is \<Organisation\>'s service | Reviewed every 12 months; ends if the process changes |
 | F8: \<Organisation\>'s central logging | External (CA-3) | From both VMs: the Windows security logs; the SQL Server Audit records and error log; the three applications' logs and security events, including each read or export of the audit log and the daily copy of the newest audit-chain hash (\<Audit and Accountability Management\>, section 3.5) | Encrypted in transit; forwarded as written; nobody in \<System Name\>'s team can change or delete the copies; read access only for the auditor, the security officer and \<Organisation\>'s security team (EV-AU-01) | The records hold usernames, IP addresses and item references, never item content or the values of item details; kept as P-07 sets, in the location in P-23 | \<Organisation\>; Windows server and database administrators | Moderate | This record, signed by the system owner and the service's owner (EV-CA-02) | Reviewed every 12 months; ends if logging moves to another service |
 | F8: \<Organisation\>'s time service | External (CA-3) | Time, into both VMs | Authenticated NTP where available; within 1 second of UTC (P-09) | None: no personal data passes | \<Organisation\>; Windows server administrator | Moderate, as audit time stamps depend on it | This record, signed by the system owner and the service's owner (EV-CA-02) | As above |
-| F8: \<Organisation\>'s backup site | External (CA-3) | Encrypted SQL Server backups, out from the database VM | Encrypted before leaving the database VM; one copy offline or immutable (P-15) | Backups hold every item, including personal data: kept only as P-15 sets, in the location in P-23, and restored only under the contingency plan | Database administrator; \<Organisation\> | Moderate | This record, signed by the system owner and the service's owner (EV-CA-02) | As above |
+| F8: \<Organisation\>'s backup site | External (CA-3) | Encrypted SQL Server backups, out from the database VM | Encrypted before leaving the database VM; one copy offline or immutable (P-15) | Backups hold every item, including personal data, and items since deleted: kept only as P-15 sets, in the location in P-23, and restored only under the contingency plan or for a restore test on the restore test server at the second site (D-CP-01) | Database administrator; \<Organisation\> | Moderate | This record, signed by the system owner and the service's owner (EV-CA-02) | As above |
 | F8: \<Organisation\>'s authenticated proxy | External (CA-3) | Updates for Windows Server, SQL Server and Defender, out from both VMs through the proxy; nothing else outbound | Outbound only, through the authenticated proxy, or blocked (SC-7(8)); updates are signed by the supplier | None: no \<System Name\> data passes | \<Organisation\>; Windows server administrator | Moderate | This record, signed by the system owner and the service's owner (EV-CA-02) | As above |
 
 Every system connection is encrypted. A connection ends when it is no longer needed, or when a component at either end is retired: the Windows server administrator removes it, and the system owner records the end date (PRO-CA-2, step 3). Rebuilding a VM re-creates its connections to the same settings under an approved change; anything different is a new connection. \<Organisation\>'s name resolution and certificate authority are infrastructure services that carry no \<System Name\> data; they are covered by \<System and Communications Protection Management\> and are not exchanges here. The API listens only on the loopback address and accepts only the two applications, and the database accepts only the application server (\<Access Control Management\>, section 3.6). A new or changed external exchange is a significant change (section 3.9), so the authorising official weighs its risk before it is built.
@@ -258,7 +258,7 @@ Controls met here: CA-3, CA-6.
 
 | Provided | Controls | What \<System Name\> relies on | Evidence asked |
 | --- | --- | --- | --- |
-| An authorising official for its common controls, and their authorisation | CA-6 | The 67 inherited controls are authorised and working | EV-CA-01 |
+| An authorising official for its common controls, and their authorisation | CA-6 | The 66 inherited controls are authorised and working | EV-CA-01 |
 | The agreements for the exchanges | CA-3 | The owner of each service signs its row in Table 6: PingFederate and Active Directory, central logging, the time service, the backup site and the authenticated proxy, with the hosting and services agreement, if any, as support. ServiceNow and the starters and leavers process are \<Organisation\>'s services used by people, with no connection to \<System Name\> | EV-CA-02 |
 | Evidence for each inherited control | CA-6, and each control's own family | Each control's evidence request in \<Evidence Requests\> | By family |
 

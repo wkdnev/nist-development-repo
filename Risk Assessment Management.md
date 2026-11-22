@@ -174,7 +174,7 @@ Controls met here: RA-9.
 | Audit records | Show who did what | Misuse cannot be traced or proved |
 | Backup store | Holds a full, encrypted copy of every item | Every item exposed from a stolen backup and its key, or lost |
 | Export working area | Holds encrypted working copies of items for each export job, deleted as \<System Description\>, P-20 sets | Items disclosed outside their schema's access |
-| Key store | Holds the token signing key and the audit chain key. There is no database password: the API uses Windows authentication | Calls between the applications can be forged, or the audit chain rewritten unnoticed |
+| Key store | Holds the token signing key, the audit chain key, the OpenID Connect client credential and the exported backup encryption certificate. There is no database password: the API uses Windows authentication | Calls between the applications can be forged, the audit chain rewritten unnoticed, or no backup can be restored |
 | Data protection key rings | Protect each application's authentication cookie and anti-forgery tokens | Sign-in cookies can be forged or read |
 | PingFederate, with Active Directory (\<Organisation\>) | PingFederate authenticates every user with multi-factor authentication; Active Directory holds the groups, read by the API over LDAPS, that decide each role and each schema's access | Anyone could sign in as another user, or be given any role or schema |
 

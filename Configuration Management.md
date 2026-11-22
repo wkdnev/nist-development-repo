@@ -58,7 +58,7 @@ Controls met here: CM-3, CM-9.
 | Software components: packages, browser libraries, runtime, operating system and database | Section 3.5 | Developers, PRO-CM-1 and PRO-CM-4 |
 | Release scripts: service installation and database structure scripts | Git repositories, tagged at each release | Developers, PRO-CM-1 |
 | Application settings, without secrets | Settings files at the release tag; secrets held in the key store, outside the baseline | Developers, Windows server administrator |
-| Windows Server 2025 and SQL Server 2022 settings | CIS Benchmarks and recorded exceptions | Windows server and database administrators |
+| Windows Server 2025 and SQL Server 2022 settings | CIS Benchmarks and recorded exceptions; SQL Server's server-level settings (the API's login, SQL Server Audit and the backup jobs) as scripts in the release repositories, so that a rebuilt server matches, checked against the weekly system-level backup (\<Contingency Planning Management\>, section 3.6.1) | Windows server and database administrators |
 | Security documents | Restricted document store | System owner |
 
 ### 3.4 Baseline
@@ -104,7 +104,7 @@ Every package, browser library, runtime, operating system and database \<System 
 | API documentation package | \<ver\> | \[Supplier\] | \[Licence\] | API | Development only; not in release builds |
 | \[Server-side rendering library for the viewer\] | \<ver\> | \[Supplier\] | \[Licence\] | API | Renders a file as an image on the server |
 | \[Browser libraries, such as a document viewer or an icon set\] | \<ver\> | \[Supplier\] | \[Licence\] | UI application | Packaged with the UI application and served by it. No content delivery service |
-| \[Key store\] | \<ver\> | \[Supplier\] | \[Licence\] | All three applications | Holds the token signing key, the audit chain key and the OpenID Connect client credential. Still to be chosen (\<System Security Plan\>, section 3.4); listed here if it is software on the servers, or recorded as a service of \<Organisation\> if not |
+| \[Key store\] | \<ver\> | \[Supplier\] | \[Licence\] | All three applications | Holds the token signing key, the audit chain key, the OpenID Connect client credential and the exported backup encryption certificate. Still to be chosen (\<System Security Plan\>, section 3.4); listed here if it is software on the servers, or recorded as a service of \<Organisation\> if not |
 
 Every package comes through \<Organisation\>'s in-house checked package feed, at the version in the lock files.
 

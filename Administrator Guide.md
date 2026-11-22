@@ -13,7 +13,7 @@ Values in \[brackets\] are for the developers to fill.
 3. Put the token signing key and the audit chain key in the key store, never in a settings file or in Git. There is no database password: only the API connects to the database, by Windows authentication under its managed service account. Its SQL Server login is not a system administrator, has rights on \<System Name\>'s database only, and cannot change the database structure.
 4. Turn on TLS for every flow, F1 to F8 and F10 in \<System Description\>, section 6.5, including the database connection (F5) and the connection to PingFederate (F10), with strict encryption and the server's certificate and name checked in full.
 5. Publish the Admin application only on \<Organisation\>'s managed administration route (F2; route R3), never on every interface. Bind the API to the application server's loopback address only (F3, F4). Allow server and database administration only from the administrators' managed devices over the managed administration route, with multi-factor authentication and named accounts (F11).
-6. Set up backups, encrypted, with transaction log archiving, as in \<Contingency Planning Management\>.
+6. Set up backups as in \<Contingency Planning Management\>, section 3.8: put the database in the full recovery model; create the backup encryption certificate and export it, with its private key, to the key store and its protected copy at the second site before the first backup; take daily encrypted backups with checksums, transaction log backups between them, and weekly backups of the system databases, all written to \<Organisation\>'s backup service.
 7. Run Test-AccessControl.ps1, Test-Identification.ps1 and Test-ConfigurationManagement.ps1 against the built VMs, and keep the results (\<System and Services Acquisition Management\>, section 3.9).
 
 ## 3 Secure configuration
@@ -46,7 +46,7 @@ Any change to these settings follows \<Procedures\> (CM), and is checked for dri
 | Give the auditors the server and database records they compare with the audit log. Auditors, not administrators, read and review the audit log | Weekly, for the auditors' review (\<System Description\>, P-08) | \<Procedures\> (AU) | TPL-8 |
 | Apply security updates | To the timetable in \<Risk Assessment Management\>, section 3.6 | \<Procedures\>, PRO-SI-1 | TPL-7 |
 | Check for exploited flaws | Weekly | \<Procedures\>, PRO-RA-4 | TPL-7 |
-| Test backups and restores | As in \<Contingency Planning Management\> | \<Procedures\> (CP) | TPL-11 |
+| Test backups and restores | Backups checked weekly (C8); a restore every 6 months on the restore test server at the second site, which is erased afterwards (C18) | \<Procedures\>, PRO-CP-1 and PRO-CP-2 | TPL-8, TPL-11, TPL-13 |
 | Maintenance | As needed | \<Procedures\> (MA), through the managed route | TPL-12 |
 | Check the export working area | Each working day (\\<Security Operating Procedures\\>, C49) | \<Procedures\> (MP) | TPL-8 |
 | Report an incident | At once | \<Incident Response Management\> | TPL-10 |
@@ -64,7 +64,7 @@ Any change to these settings follows \<Procedures\> (CM), and is checked for dri
 | Sign-in lifetime and sign-out | The authentication cookie is the session: 8 hours at most, re-checked every 5 minutes, ended by Sign out. No page lock | Keep the cookie settings in Table 1 | Test-AccessControl.ps1 |
 | Audit | Records of security events, written only by the API and chained by a keyed hash (HMAC-SHA-256) | Run the chain check; keep records as in \<Policy\> (AU) | Test-AuditAndAuth.ps1 |
 | Exports | Bulk exports of a schema's items, run as background jobs | Check the export working area each working day; remove copies | Test-MediaProtection.ps1 |
-| Backups | Copies for recovery | Keep encrypted; test restores | Test-BackupRestore.ps1 |
+| Backups | Copies for recovery, encrypted under the backup encryption certificate | Keep the certificate and its retired versions apart from the backups; test restores | Test-BackupRestore.ps1 |
 
 ## 6 Privacy functions
 
