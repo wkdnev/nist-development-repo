@@ -161,7 +161,7 @@ This matrix is proposed to \<Organisation\>.
 | ID | Control | What we need to know | Evidence to provide |
 | --- | --- | --- | --- |
 | EV-CA-01 | CA-6 | Who authorises the common controls \<System Name\> inherits | Name, and the authorisation record |
-| EV-CA-02 | CA-3, CA-6 | The agreements for the exchanges in \<Assessment, Authorization, and Monitoring Management\>, section 3.7: the hosting and services agreement covering PingFederate and Active Directory, central logging, the time service and the backup site, and agreements for ServiceNow and the starters and leavers process, which exchange information with people and have no connection to \<System Name\> (flow F9) | Each agreement, with its date and review date |
+| EV-CA-02 | CA-3 | The agreement for each exchange in \<Assessment, Authorization, and Monitoring Management\>, Table 6: the owner of PingFederate and Active Directory, central logging, the time service, the backup site and the authenticated proxy each confirms and signs that service's row. A hosting and services agreement, if one exists, is welcome as support. ServiceNow and the starters and leavers process have no connection to \<System Name\> (flow F9), so nothing is asked for them | Each agreement, with its date and review date |
 
 ## 7 Configuration Management (CM)
 

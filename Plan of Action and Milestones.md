@@ -4,7 +4,7 @@
 
 This plan is used by every control family. It holds every weakness that needs a fix, in one register (section 3), with closed items in section 4 and the road to authorisation in section 5. Items are numbered PA-nn.
 
-An item is worked on once its risk decision in \<Risk List\> is to remediate. An item whose risk has been accepted stays listed until the acceptance is reviewed.
+An item is worked on once its risk decision in \<Risk List\> is to remediate. The plan holds remediation only: evidence still to come is tracked in \<Evidence Requests\>, and an accepted risk in \<Risk List\>, section 3. If an item's risk is later accepted instead of fixed, the item moves to section 4 with the acceptance as the way it closed.
 
 In the Source column, a letter and number is a check in the evidence store. "Code review" means found by the assessor's review of the application and not tested. The finding is stated in full here, so no reader needs the code. "Assessment" and "Review" mean found while assessing or reviewing a family. Section 5 gives the recommended order of decisions and work, with the facts still to be supplied.
 
@@ -33,8 +33,8 @@ Each item also has a latest completion, after which it is overdue. Until the go-
 | Item | Latest completion | Decided by |
 | --- | --- | --- |
 | High items | \[Latest completion\] | Authorising official |
-| Medium items | Within 180 days of go-live | \<Policy\> (CA) |
-| Low items | Within 365 days of go-live | \<Policy\> (CA) |
+| Medium items | Within 180 days of go-live, or of the date the item is raised if later | \<Policy\> (CA) |
+| Low items | Within 365 days of go-live, or of the date the item is raised if later | \<Policy\> (CA) |
 | Known vulnerabilities | 3 days if exploited, 14 days for Critical and High, 30 days for Medium and 90 days for Low, from the fix's release or its detection if later (\<System Description\>, P-11) | \<Risk Assessment Management\>, section 3.6 |
 | Items the fix or the decision says must be done first | Before go-live | The item's own decision |
 

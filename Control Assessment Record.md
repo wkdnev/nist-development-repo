@@ -2,7 +2,7 @@
 
 ## 1 How to use this document
 
-This document is the record of the Level 1 self-assessment of \<System Name\> against CSS. It has one chapter for each of the 19 control families assessed, in CSS order, and each chapter gives a finding for every determination statement. The totals across all chapters are in \<Security Assessment Report\>, which is generated from this record.
+This document is the record of the Level 1 self-assessment of \<System Name\> against CSS. It has one chapter for each of the 19 control families assessed, in CSS order, and each chapter gives a finding for every determination statement. The Level 2 team re-determines every statement from this record, and \<Security Assessment Report\> brings the Level 2 results together. Every authorisation rests on the Level 2 results, not on this record alone (\<Assessment, Authorization, and Monitoring Management\>, section 3.3).
 
 Level 1 is a self-assessment and is not independent. Each chapter holds its own assessment plan, and the authorising official approves each plan before the assessment starts.
 
@@ -37,7 +37,7 @@ Each chapter ends with its assessment plan. These parts are the same for every f
 | --- | --- |
 | System | \<System Name\> \[version\], at the commits in \<System Security Plan\>, section 2 |
 | Security categorisation | Moderate |
-| Assessor | Level 1: \[Name\], working for the system owner. Level 2: an independent team led by \[Name\], which meets CA-2(1) at Moderate once TPL-19 is completed |
+| Assessor | Level 1: \[Name\], working for the system owner. Level 2: an independent team led by \[Name\], which meets CA-2(1) at Moderate once each member's TPL-19 is accepted by the authorising official |
 | Level 2 team and schedule | \[Name\]'s team: \[members, dates and the depth and coverage to be agreed with the independent assessor\] |
 | Approval | The authorising official approves each plan before the assessment starts. Approved by: \[Name\] |
 
@@ -325,7 +325,7 @@ This records how the assessment is planned and carried out, following CSS. It co
 | --- | --- |
 | Scope | The 39 AC entries in the CSS Moderate baseline, with 189 determination statements |
 | Procedures | CSS, using the CSS published statements and identifiers (catalog release 5.2.0) |
-| Assessor | Level 1: \[Name\], working for the system owner. Level 2: an independent team led by \[Name\], which meets CA-2(1) at Moderate once TPL-19 is completed |
+| Assessor | Level 1: \[Name\], working for the system owner. Level 2: an independent team led by \[Name\], which meets CA-2(1) at Moderate once each member's TPL-19 is accepted by the authorising official |
 | Dates | \[Dates of the assessment\] |
 | Site | \[Where the assessment is done, and on what build and data\] |
 | Examine | Policies, procedures, the SSP, \<System Description\>, the code of the UI application, Admin application, API and shared library, the access rule on each page and API function, the schema definitions and their read and edit groups, the role group settings, configuration and test results. Depth: focused. Coverage: focused, on the functions each control concerns |
@@ -562,7 +562,7 @@ There is one finding for each CSS determination statement, including those about
 | --- | --- |
 | Scope | The 16 AU entries in the CSS Moderate baseline, with 81 determination statements. AU-3(3), which limits personal data in records, is assessed with the PT family |
 | Procedures | CSS, using the CSS published statements and identifiers (catalog release 5.2.0) |
-| Assessor | Level 1: \[Name\], working for the system owner. Level 2: an independent team led by \[Name\], which meets CA-2(1) at Moderate once TPL-19 is completed |
+| Assessor | Level 1: \[Name\], working for the system owner. Level 2: an independent team led by \[Name\], which meets CA-2(1) at Moderate once each member's TPL-19 is accepted by the authorising official |
 | Dates | \[Dates of the assessment\] |
 | Site | \[Where the assessment is done, and on what build and data\] |
 | Examine | The audit service, the audit record format, the audit page, the database's grants and settings, and \<Policy\> (AU), \<Procedures\> (AU) and \<Audit and Accountability Management\>. Depth: focused. Coverage: focused, on the functions each control concerns |
@@ -701,11 +701,11 @@ There is one finding for each CSS determination statement, including those about
 | Site | Documents only: CA assesses the organisation's processes, not the running system |
 | Examine | \<Policy\> (CA), \<Procedures\> (CA), \<Assessment, Authorization, and Monitoring Management\>, \<Security Assessment Report\>, \<Plan of Action and Milestones\>, \<Risk List\>, \<Decision Register\> and the 19 family assessments. Depth: focused. Coverage: every CA statement |
 | Test | Not applicable to this family at Level 1 |
-| Interview | The system owner, authorising official, security officer and security assessor |
+| Interview | The system owner, authorising official, security officer, security assessor, legal adviser (privacy status) and \<Organisation\>'s common control official (INT-CA-01 to INT-CA-09 in \<Interview Guide\>) |
 | Previous results reused | \[Results reused from other chapters, if any\] |
 | Boundary | The assessment, authorisation and monitoring processes for \<System Name\>, and the connections in \<Assessment, Authorization, and Monitoring Management\>, section 3.7 |
 | Order of assessment | A, plan and assessment (CA-2, CA-2(1)); B, remediation (CA-5); C, authorisation and inherited controls (CA-6); D, connections (CA-3, CA-9); E, monitoring (CA-7, CA-7(1), CA-7(4)); F, policy (CA-1). Assessment comes first because every other CA result depends on it |
-| Needed from \<Organisation\> | EV-CA-01 in \<Evidence Requests\>, for the inherited controls in \<Assessment, Authorization, and Monitoring Management\>, section 3.6; and the agreements in \<Assessment, Authorization, and Monitoring Management\>, section 3.7 |
+| Needed from \<Organisation\> | In \<Evidence Requests\>: EV-CA-01, the authorisation of the inherited controls in \<Assessment, Authorization, and Monitoring Management\>, section 3.6; EV-CA-02, the agreements for the exchanges in its section 3.7; and EV-PM-03, the organisation-level continuous monitoring strategy that section 3.8 carries out |
 | Evidence retained | The documents above, at the versions in their change records |
 | Notes | This family assesses the assessment process itself, so a self-assessment has clear limits here. |
 

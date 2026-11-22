@@ -289,19 +289,19 @@ It applies to the UI application, the Admin application, the API, the \<System N
 
 ### CA.3 Control principles
 
-1. **Two levels:** the system owner self-assesses at Level 1, and an independent team assesses at Level 2.
+1. **Two levels:** the system owner self-assesses at Level 1, and an independent team assesses at Level 2 before each authorisation.
 2. **Authorise knowingly:** the authorising official accepts the remaining risk by name.
 3. **Track what is open:** weaknesses stay on the plan until fixed.
 4. **Know the connections:** each connection to another system is recorded and approved.
 
 ### CA.4 Mandatory requirements
 
-1. **R1 Assessment:** controls must be assessed every 12 months, with results given to the system owner, authorising official and Head of Cyber.
-2. **R2 Independence:** assessors must be independent, having had no part in building or running \<System Name\>.
-3. **R3 Connections:** each connection to another system, including PingFederate, Active Directory over LDAPS, \<Organisation\>'s time, logging, proxy and backup services, and the link between the two servers (flows F5 to F8 and F10 in \<System Description\>, section 6.5), must be recorded and approved, reviewed every 12 months, and encrypted. ServiceNow and the starters and leavers process have no connection to \<System Name\>: people carry their decisions across (F9).
-4. **R4 Plan of action:** \<Plan of Action and Milestones\> must be updated monthly. Each open item must be fixed within the time set for its rating, counted from go-live: High items within the time the authorising official sets, Medium within 180 days and Low within 365 days. Overdue items are reported to the authorising official each quarter.
+1. **R1 Assessment:** controls must be assessed every 12 months, with results given to the system owner, authorising official and Head of Cyber, and the privacy results to the legal adviser.
+2. **R2 Independence:** every authorisation must rest on an independent assessment, carried out every 12 months by assessors who have had no part in designing, building, running or administering \<System Name\> (Level 2). The system owner's self-assessment (Level 1) prepares for it and never replaces it.
+3. **R3 Connections:** each exchange with another system (PingFederate, Active Directory over LDAPS, and \<Organisation\>'s time, logging, proxy and backup services: flows F6 to F8 and F10 in \<System Description\>, section 6.5), and each internal connection between \<System Name\>'s own components (flows F3 to F5), must be recorded with its security and privacy needs, approved, reviewed every 12 months, and encrypted. ServiceNow and the starters and leavers process have no connection to \<System Name\>: people carry their decisions across (F9).
+4. **R4 Plan of action:** \<Plan of Action and Milestones\> must be updated monthly. Each open item must be fixed within the time set for its rating, counted from go-live or from the date the item is raised, whichever is later: High items within the time the authorising official sets, Medium within 180 days and Low within 365 days. Overdue items are reported to the authorising official each quarter.
 5. **R5 Authorisation:** the authorising official must authorise \<System Name\> before it holds real data, and review the authorisation every 12 months (P-25).
-6. **R6 Monitoring:** the security and privacy measures in \<Assessment, Authorization, and Monitoring Management\>, section 3.8, must be reported monthly to the system owner and quarterly to the authorising official.
+6. **R6 Monitoring:** the security and privacy measures in \<Assessment, Authorization, and Monitoring Management\>, section 3.8, must be reported monthly to the system owner, with the privacy measures also to the legal adviser, and quarterly to the authorising official.
 7. **R7 Significant change:** a significant change must be assessed before it is made, and the authorising official decides whether \<System Name\> must be re-assessed or re-authorised.
 8. **R8 Authorisation package:** the authorising official receives the authorisation package listed in \<Assessment, Authorization, and Monitoring Management\>, section 3.5, and records each decision on TPL-18, with its terms, conditions and end date.
 9. **R9 Inherited controls:** the controls inherited from \<Organisation\> must be listed, and accepted by the authorising official, before \<System Name\> operates.

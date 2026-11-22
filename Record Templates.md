@@ -17,7 +17,7 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | TPL-5 Approved access list | The approved baseline of software and components to compare the system against. Access is not listed here: the ServiceNow requests (TPL-2) are the approved record of access | CM-7(5), CM-8, CM-12 |
 | TPL-6 Change record | Records a change, its impact, testing and approval. Where the change is recorded in ServiceNow, the ServiceNow record is this record and must hold these fields | CM-3, CM-3(2), CM-4, CM-4(2), SI-2, IA-5, IA-5(1), IA-5(6); PRO-CM-1, PRO-IA-4, PRO-IA-5 |
 | TPL-7 Vulnerability and patch review | Records a scan or package check, what was found, and when it was fixed | SI-2, SI-2(2), SI-5, RA-5, RA-5(5); PRO-SI-1, PRO-SI-5, PRO-RA-3, PRO-RA-4, PRO-RA-5 |
-| TPL-8 Monitoring and integrity report | Records log reviews, integrity checks, audit storage, archive and time checks, configuration drift and the monthly measures | AU-4, AU-6, AU-8, AU-9, AU-11, SI-4, SI-7(1), CA-7; PRO-AU-1 to PRO-AU-4, PRO-AU-7, PRO-SI-3, PRO-SI-4, PRO-SI-6, PRO-CA-5 |
+| TPL-8 Monitoring and integrity report | Records log reviews, integrity checks, audit storage, archive and time checks, configuration drift the monthly measures with threshold actions and trend, the privacy status to the legal adviser and the quarterly report to the authorising official | AU-4, AU-6, AU-8, AU-9, AU-11, SI-4, SI-7(1), CA-7; PRO-AU-1 to PRO-AU-4, PRO-AU-7, PRO-SI-3, PRO-SI-4, PRO-SI-6, PRO-CA-5 |
 | TPL-9 Training record | Records who was trained, on what and when. Kept for 3 years | AT-2, AT-3, AT-3(5), AT-4, IR-2, CP-3, PL-4; PRO-AT-1, PRO-AT-2 and PRO-AT-4 |
 | TPL-10 Incident record | Records an incident from report to lessons. Where the incident is recorded in ServiceNow, the ServiceNow record is this record and must hold these fields | IR-4, IR-5, IR-6; PRO-IR-1, PRO-IR-2 |
 | TPL-11 Exercise and restore test | Records a tabletop exercise, restore test or activation as an after-action report, the result and the actions | IR-3, IR-3(2), CP-4, CP-4(1), CP-9(1); PRO-IR-3, PRO-CP-2, PRO-CP-4 |
@@ -27,8 +27,8 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | TPL-15 Privacy request | Records a request from an individual about their data: to see, correct, delete, restrict, object or receive it in a portable form. Kept for 3 years after it is closed | AC-3(14); SI-18(4); PRO-PT-1 |
 | TPL-16 Supplier review | Records a yearly review of a supplier or external service | SA-9, SR-2, SR-6, SR-8; PRO-SA-3, PRO-SR-2 |
 | TPL-17 Exception request | Records a request to depart from a rule in \<Security Operating Procedures\>, the decision and its end date. The approved requests form the exception register | AC-20, AC-20(2); PRO-AC-15; PL-4, CM-2(7), MP-7, PE-17; \<Security Operating Procedures\>, section 5 |
-| TPL-18 Authorisation decision | Records the authorising official's decision, its terms and conditions, the risks accepted and its end date | CA-6; PRO-CA-4, PRO-CA-7 |
-| TPL-19 Assessor independence statement | Records an assessor's confirmation that they had no part in building or running \<System Name\> | CA-2(1), CA-7(1); PRO-CA-1, PRO-CA-5 |
+| TPL-18 Authorisation decision | Records the authorising official's decision, its terms and conditions, the package received, the risks and inherited controls accepted, and its end date | CA-6; PRO-CA-4, PRO-CA-7 |
+| TPL-19 Assessor independence statement | Records an assessor's confirmation that they had no part in designing, building, running or administering \<System Name\>, no reporting line to it and any other interest, with the authorising official's acceptance | CA-2(1), CA-7(1); PRO-CA-1, PRO-CA-5 |
 | TPL-20 Site inspection checklist | Records a one-off inspection of a data centre's physical and environmental controls | PE-2 to PE-16; PRO-PE-5 |
 | TPL-21 Rules of behaviour acknowledgement | Records that a person has signed the rules of behaviour, which version and parts, and how. Kept while the person has access, and for 3 years after | AC-2; PL-4, PL-4(1), PS-6; PRO-PL-3 |
 | TPL-22 Data protection complaint | Records a complaint about how personal data is handled, its acknowledgement within 30 days, the investigation and the outcome. Kept for 3 years after it is closed | PT-2, PM-26; PRO-PT-2 |
@@ -203,7 +203,13 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | Failed sign-ins |  |
 | Incidents raised |  |
 | Training measures (\<Awareness and Training Management\>, Table 7): people trained before access; first-attempt pass rate; people overdue, and any privileged access suspended; suspicious messages reported; content reviewed on time |  |
+| Monitoring measures (\<Assessment, Authorization, and Monitoring Management\>, Table 7): the value of each of the measures this period, against its target and threshold |  |
+| Measures past their threshold: the action taken in the month, and the POA&M item raised for any not put right (PRO-CA-5) |  |
+| Trend across the last three months, and any measure past its threshold three months running, which is a re-assessment trigger |  |
+| Inherited controls: changes to \<Organisation\>'s services, and evidence in \<Evidence Requests\> past its review date |  |
 | Sent to the system owner: date |  |
+| Privacy measures sent to the legal adviser: date |  |
+| Quarter end only: report to the authorising official of the measures, overdue POA&M items and the reason for each, changes in risk, significant changes and incidents; date sent |  |
 
 ### 2.9 TPL-9 Training record
 
@@ -383,7 +389,7 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | Record number |  |
 | System and version, with the boundary in \<System Security Plan\> |  |
 | Type: initial authorisation, re-authorisation, or authorisation withdrawn |  |
-| Package received: SSP, privacy plan and impact assessment, \<Security Assessment Report\> or the Level 2 report, POA&M, risk list, with versions |  |
+| Package received: each item in \<Assessment, Authorization, and Monitoring Management\>, Table 4, with its version |  |
 | Privacy review: the legal adviser's view of the privacy plan and impact assessment, and date |  |
 | Decision: authorised to operate, or not authorised |  |
 | Terms and conditions, for example items to fix by a date or limits on use |  |

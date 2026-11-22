@@ -227,7 +227,7 @@ Part B applies, in addition to Part A, to the system owner, administrators, audi
 
 ## 4 Part C: operating procedures
 
-Part C sets out how \<System Name\>'s security is run. Each duty has a reference, C1 to C53, so that it can be traced to its CSS control in section 8. Each names the record that proves it was done. Records use the forms in \<Record Templates\>. A ServiceNow record holding the same fields may replace a form. Records are kept for 3 years in \[the restricted records location\], unless a longer period applies. Audit records stay in \<System Name\> for 12 months and then in an offline archive for 12 more; application logs are kept for 30 days (\<Audit and Accountability Management\>).
+Part C sets out how \<System Name\>'s security is run. Each duty has a reference, C1 to C57, so that it can be traced to its CSS control in section 8. Each names the record that proves it was done. Records use the forms in \<Record Templates\>. A ServiceNow record holding the same fields may replace a form. Records are kept for 3 years in \[the restricted records location\], unless a longer period applies. Audit records stay in \<System Name\> for 12 months and then in an offline archive for 12 more; application logs are kept for 30 days (\<Audit and Accountability Management\>).
 
 The detection use cases U1 to U9 in \<System and Information Integrity Management\>, section 3.4, say what raises an alert, including repeated failed sign-ins, a break in the audit chain and a Defender detection, and \<Procedures\>, PRO-SI-4, says how to respond.
 
@@ -286,6 +286,10 @@ The detection use cases U1 to U9 in \<System and Information Integrity Managemen
 | C35 | Review these SyOps and the other security documents | System owner | Each document's change record | Document change record | PL-4c, PL-2 |
 | C52 | Review the cryptographic and key register, the host firewall allow-lists, external services and exceptions; schedule keys and certificates due for change | System owner, security officer, \<Organisation\> | \<Procedures\>, PRO-SC-8 | TPL-23 | SC-7(4), SC-12, SC-13 |
 | C53 | Check BitLocker is on for both VMs and that a recovery key works; check backups are encrypted | Windows server administrator, database administrator | \<Procedures\>, PRO-SC-7 | TPL-11 | SC-28, SC-28(1) |
+| C54 | Plan and carry out the yearly control assessment, and report it | System owner, security assessor; the authorising official approves the plan | \<Procedures\>, PRO-CA-1 | Approved plan; TPL-19; \<Control Assessment Record\>; \<Security Assessment Report\> | CA-2, CA-2(1) |
+| C55 | Review the authorisation before its end date | System owner, authorising official | \<Procedures\>, PRO-CA-4 | TPL-18 | CA-6 |
+| C56 | Review the inherited controls with \<Organisation\>'s security contact | System owner | \<Procedures\>, PRO-CA-7 | \<Assessment, Authorization, and Monitoring Management\>, section 3.6; \<Evidence Requests\> | CA-6 |
+| C57 | Independent check of the monitoring | Security assessor | \<Procedures\>, PRO-CA-5, step 3 | The assessor's report; TPL-19 | CA-7(1) |
 | **When an event occurs** |  |  |  |  |  |
 | C36 | Grant, change or remove access | The groups' owners; \<Organisation\>'s service desk disables accounts | Section 4.4 | TPL-2 (the ServiceNow request), TPL-14 | AC-2, PS-4, PS-5 |
 | C37 | Apply updates within the time limits in \<System Description\>, P-11 | Windows server administrator, database administrator, developers | Section 4.3, through approved change | TPL-6, TPL-7 | SI-2, CM-3 |
@@ -441,7 +445,11 @@ Table 6 shows where each control that these SyOps serve is met. It lets an audit
 | AC-21 Information Sharing | A22, A25 |
 | AT-2, AT-3, AT-4 Training | A54; B1; C22 |
 | AU-6, AU-9 Audit Review and Protection | B12; C3, C4, C5, C12, C16, C46; section 4.2 |
+| CA-2, CA-2(1) Control Assessments and Independent Assessors | C54 |
+| CA-3, CA-9 Information Exchange and Internal Connections | C25 |
 | CA-5, CA-7 POA&M and Continuous Monitoring | C13, C14, C17 |
+| CA-6 Authorization | C55, C56 |
+| CA-7(1) Independent Assessment | C57 |
 | CM-2(7) High-risk Travel | A41 |
 | CM-3, CM-4, CM-5 Change Control | B13, B14, B15; C37, C38; section 4.5 |
 | CM-7(1), CM-11 Least Functionality and User-installed Software | A47, A48, A49; B17; C24 |
