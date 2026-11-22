@@ -196,6 +196,10 @@ Questions are numbered INT-XX-nn, where XX is the family code, and each names th
 | INT-CA-03 | System owner | How is the plan kept up to date, and when did it last change? | CA-05b | \<Plan of Action and Milestones\> history |
 | INT-CA-04 | Security officer | Show me the last monitoring report on TPL-8, and any measure past its threshold. Who received it? | CA-07 | Monitoring report |
 | INT-CA-05 | System owner | Which of \<Organisation\>'s services does \<System Name\> connect to, and how do you know no other system connects to it? | CA-03, CA-09 | Interface record; the flows in \<System Description\>, section 6.5 |
+| INT-CA-06 | Authorising official | Which assessment plan did you approve, and when, against the date the assessment started? Whose independence statements did you accept? | CA-02c, CA-02(01) | The approved plan in \<Control Assessment Record\>; TPL-19 with your acceptance |
+| INT-CA-07 | \<Organisation\>'s common control official | Have you authorised the controls \<System Name\> inherits, and how would you tell it if one changed? | CA-06b, CA-06d | EV-CA-01 authorisation record |
+| INT-CA-08 | System owner | Show me the last change you judged significant, and what the authorising official decided | CA-06e, CA-07 | TPL-6 with the significant change decision |
+| INT-CA-09 | Legal adviser | How do you learn the privacy status of \<System Name\>, and when did you last receive it? | CA-07g | TPL-8 privacy measures sent to you |
 
 ## 7 Configuration Management (CM)
 

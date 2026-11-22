@@ -203,7 +203,13 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | Failed sign-ins |  |
 | Incidents raised |  |
 | Training measures (\<Awareness and Training Management\>, Table 7): people trained before access; first-attempt pass rate; people overdue, and any privileged access suspended; suspicious messages reported; content reviewed on time |  |
+| Monitoring measures (\<Assessment, Authorization, and Monitoring Management\>, Table 7): the value of each of the measures this period, against its target and threshold |  |
+| Measures past their threshold: the action taken in the month, and the POA&M item raised for any not put right (PRO-CA-5) |  |
+| Trend across the last three months, and any measure past its threshold three months running, which is a re-assessment trigger |  |
+| Inherited controls: changes to \<Organisation\>'s services, and evidence in \<Evidence Requests\> past its review date |  |
 | Sent to the system owner: date |  |
+| Privacy measures sent to the legal adviser: date |  |
+| Quarter end only: report to the authorising official of the measures, overdue POA&M items and the reason for each, changes in risk, significant changes and incidents; date sent |  |
 
 ### 2.9 TPL-9 Training record
 
@@ -383,7 +389,7 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | Record number |  |
 | System and version, with the boundary in \<System Security Plan\> |  |
 | Type: initial authorisation, re-authorisation, or authorisation withdrawn |  |
-| Package received: SSP, privacy plan and impact assessment, \<Security Assessment Report\> or the Level 2 report, POA&M, risk list, with versions |  |
+| Package received: each item in \<Assessment, Authorization, and Monitoring Management\>, Table 4, with its version |  |
 | Privacy review: the legal adviser's view of the privacy plan and impact assessment, and date |  |
 | Decision: authorised to operate, or not authorised |  |
 | Terms and conditions, for example items to fix by a date or limits on use |  |

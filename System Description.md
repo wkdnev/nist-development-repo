@@ -1011,7 +1011,7 @@ These are questions an assessor is likely to ask, each with the reference answer
 | What third-party software is used? | The reference stack in section 6.4, or the stack in the application's profile | \<Configuration Management\> |
 | What external services does it depend on? | \<Organisation\>'s services in section 10; for building, the source repositories and the package feed | \<System and Services Acquisition Management\> |
 | Does it hold personal data? | Yes, at least the identities in its audit records, and whatever the profile's information types hold | \<PII Processing Management\> |
-| Which controls are inherited? | Those \<Organisation\> provides, listed in \<Tailoring Register\> | \<Assessment, Authorization, and Monitoring Management\> |
+| Which controls are inherited? | Those \<Organisation\> provides: the Inherited entries in \<System Security Plan\>, section 7, listed together in \<Assessment, Authorization, and Monitoring Management\>, section 3.6. The PM controls are listed in \<Program Management\> | \<Assessment, Authorization, and Monitoring Management\> |
 | Is the application authorised to operate? | Only once its authorising official signs the decision; see \<Security Assessment Report\> | \<Security Assessment Report\> |
 | What happens if PingFederate or Active Directory is down? | Nobody can sign in. If Active Directory cannot be read, requests are refused | \<Concept of Operations\> |
 | Is multi-factor authentication used for administrators? | Yes, for every user, through the sign-on service; and again on the VPN and the administration route | \<Identification and Authentication Management\> |

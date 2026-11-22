@@ -111,4 +111,4 @@ This section lists the conditions the assessor recommends are met before \<Syste
 
 ## 9 Authorisation package
 
-The authorising official receives: this report, whose section 2 is the executive summary; \<System Security Plan\>, the system security plan; \<Privacy Plan\>, the privacy plan; \<Control Assessment Record\>, the assessment record, with a chapter for each of the 19 families; \<Plan of Action and Milestones\>, the plan of action; \<Risk List\>, the risks; \<Decision Register\>, the decisions; and the evidence folders with their hash manifests. \<Assessment, Authorization, and Monitoring Management\>, section 3.5, lists the package and the authorising official records the decision on TPL-18.
+This report is one part of the authorisation package. The package is listed once, in \<Assessment, Authorization, and Monitoring Management\>, Table 4, and the authorising official records the decision on TPL-18.

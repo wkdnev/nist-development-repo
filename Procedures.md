@@ -503,22 +503,24 @@ These procedures carry out \<Policy\> (CA). Steps marked **Manual** have no syst
 | PRO-CA-3 | Keep the plan of action up to date | Monthly; overdue items quarterly | System owner | \<Plan of Action and Milestones\> change record | CA-5 |
 | PRO-CA-4 | Authorise and re-authorise | Before operation; every 12 months; after a significant change | System owner, authorising official | TPL-18 | CA-6 |
 | PRO-CA-5 | Monitor and report | Monthly to the system owner; quarterly to the authorising official; yearly independent check | Security officer, system owner, security assessor | TPL-8; TPL-19 | CA-7, CA-7(1), CA-7(4) |
-| PRO-CA-6 | Decide whether a change is significant | Each change | System owner, security officer, authorising official | TPL-6; TPL-18 | CA-6, CA-7 |
+| PRO-CA-6 | Decide whether a change is significant | Each change | System owner, security officer, authorising official | TPL-6; TPL-18 if re-authorised | CA-6, CA-7 |
 | PRO-CA-7 | List and accept inherited controls | Before operation; every 12 months | System owner, authorising official, \<Organisation\> | \<Assessment, Authorization, and Monitoring Management\>, section 3.6; TPL-18 | CA-6 |
 
 ### CA.2 Procedures
 
 #### PRO-CA-1 Assessing controls
 
-1. Every 12 months the system owner agrees the assessment plan with the assessor, and the authorising official approves it. **Manual**
-2. The assessor confirms on TPL-19 that they have had no part in building or running \<System Name\>. **Manual**
-3. The assessor assesses the controls, records the results in each family assessment and brings them together in the Security Assessment Report, \<Security Assessment Report\>, which goes to the system owner, authorising official and Head of Cyber. **Manual**
+1. Every 12 months, and after a significant change when the authorising official asks for it (PRO-CA-6), the system owner and the security assessor agree the plan in each family's chapter of \<Control Assessment Record\>: scope, procedures, environment, team, and roles and responsibilities. The authorising official approves it before the assessment starts. **Manual**
+2. Level 1: the system owner self-assesses every determination statement, the privacy controls included, and records each finding in \<Control Assessment Record\>. **Manual**
+3. Each member of the Level 2 team completes TPL-19, confirming no part in designing, building, running or administering \<System Name\>, no reporting line to anyone responsible for it, and any other interest. The authorising official accepts each statement before the assessment starts. **Manual**
+4. Level 2: the independent team re-determines every statement, using the Level 1 record, the developers' test results (\<Security Operating Procedures\>, duty C40) and, before the first authorisation, the penetration test report. **Manual**
+5. The assessor brings the results together in \<Security Assessment Report\>, saying which level it reports, and sends it to the system owner, the authorising official, the Head of Cyber and, for the privacy controls, the legal adviser. Each weakness goes to \<Risk List\> (PRO-CA-3). **Manual**
 
 #### PRO-CA-2 Managing connections
 
 1. Before any new connection, the system owner records it in \<Assessment, Authorization, and Monitoring Management\> with its interface, security needs, privacy needs, information, responsibilities, the agreement type under CSS and its review date, and approves it. **Manual**
 2. Every 12 months the system owner and the other system's owner review each connection, and end any no longer needed. **Manual**
-3. When a connection is no longer needed, or a VM is rebuilt, the Windows server administrator removes it, the system owner records the end date in \<Assessment, Authorization, and Monitoring Management\>, section 3.7, and the other system's owner is told. **Manual**
+3. When a connection is no longer needed, or a component at either end is retired, the Windows server administrator removes it, the system owner records the end date in \<Assessment, Authorization, and Monitoring Management\>, section 3.7, and the other system's owner is told. **Manual**
 
 #### PRO-CA-3 Keeping the plan up to date
 
@@ -535,7 +537,7 @@ These procedures carry out \<Policy\> (CA). Steps marked **Manual** have no syst
 
 #### PRO-CA-5 Monitoring
 
-1. Each month the security officer collects the measures in \<Assessment, Authorization, and Monitoring Management\>, section 3.8, reads them together with the audit review findings, the vulnerability results and the incident records, and looks for a trend across three months. They report on TPL-8 to the system owner, act on any measure past its threshold, and record the action. A measure not put right in the month becomes an item in \<Plan of Action and Milestones\>. **Manual**
+1. Each month the security officer collects the measures in \<Assessment, Authorization, and Monitoring Management\>, section 3.8, reads them together with the audit review findings, the vulnerability results and the incident records, and looks for a trend across three months. They report on TPL-8 to the system owner, send the privacy measures to the legal adviser, act on any measure past its threshold, and record the action. A measure not put right in the month becomes an item in \<Plan of Action and Milestones\>. **Manual**
 2. Each quarter the system owner reports the same measures, and any change in risk, to the authorising official. **Manual**
 3. Each year an independent assessor, who has completed TPL-19, checks a sample of the monitoring. **Manual**
 
@@ -543,7 +545,7 @@ These procedures carry out \<Policy\> (CA). Steps marked **Manual** have no syst
 
 1. Every change is recorded on TPL-6, and the system owner checks it against the list of significant changes in \<Assessment, Authorization, and Monitoring Management\>, section 3.9. **Manual**
 2. If it is significant, the security officer assesses its effect on security and privacy before it is made. **Manual**
-3. The authorising official decides whether \<System Name\> must be re-assessed or re-authorised, and records the decision on TPL-18. **Manual**
+3. The authorising official decides whether \<System Name\> must be re-assessed or re-authorised, and records the decision and date on the change's TPL-6. A re-authorisation is then recorded on TPL-18 (PRO-CA-4). **Manual**
 
 #### PRO-CA-7 Inherited controls
 

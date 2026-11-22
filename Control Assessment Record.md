@@ -701,11 +701,11 @@ There is one finding for each CSS determination statement, including those about
 | Site | Documents only: CA assesses the organisation's processes, not the running system |
 | Examine | \<Policy\> (CA), \<Procedures\> (CA), \<Assessment, Authorization, and Monitoring Management\>, \<Security Assessment Report\>, \<Plan of Action and Milestones\>, \<Risk List\>, \<Decision Register\> and the 19 family assessments. Depth: focused. Coverage: every CA statement |
 | Test | Not applicable to this family at Level 1 |
-| Interview | The system owner, authorising official, security officer and security assessor |
+| Interview | The system owner, authorising official, security officer, security assessor, legal adviser (privacy status) and \<Organisation\>'s common control official (INT-CA-01 to INT-CA-09 in \<Interview Guide\>) |
 | Previous results reused | \[Results reused from other chapters, if any\] |
 | Boundary | The assessment, authorisation and monitoring processes for \<System Name\>, and the connections in \<Assessment, Authorization, and Monitoring Management\>, section 3.7 |
 | Order of assessment | A, plan and assessment (CA-2, CA-2(1)); B, remediation (CA-5); C, authorisation and inherited controls (CA-6); D, connections (CA-3, CA-9); E, monitoring (CA-7, CA-7(1), CA-7(4)); F, policy (CA-1). Assessment comes first because every other CA result depends on it |
-| Needed from \<Organisation\> | EV-CA-01 in \<Evidence Requests\>, for the inherited controls in \<Assessment, Authorization, and Monitoring Management\>, section 3.6; and the agreements in \<Assessment, Authorization, and Monitoring Management\>, section 3.7 |
+| Needed from \<Organisation\> | In \<Evidence Requests\>: EV-CA-01, the authorisation of the inherited controls in \<Assessment, Authorization, and Monitoring Management\>, section 3.6; EV-CA-02, the agreements for the exchanges in its section 3.7; and EV-PM-03, the organisation-level continuous monitoring strategy that section 3.8 carries out |
 | Evidence retained | The documents above, at the versions in their change records |
 | Notes | This family assesses the assessment process itself, so a self-assessment has clear limits here. |
 
