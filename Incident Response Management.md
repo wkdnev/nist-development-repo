@@ -167,7 +167,7 @@ Controls met here: IR-4.
 1. **Before changing anything,** export the evidence and record its SHA-256 hash, and note it on TPL-10 with who took it and when.
 2. **Time:** all times are UTC. Check each system's clock against a trusted source before building a timeline; the servers take time from \<Organisation\>, within 1 second of UTC (EV-AU-02; \<System Description\>, P-09).
 3. **Custody:** each piece of evidence is listed on TPL-10 with who holds it, where, and each hand-over.
-4. **Personal data in evidence** is handled as Restricted and kept only as long as the incident needs.
+4. **Personal data in evidence** is handled as \<Classification\> and kept only as long as the incident needs.
 
 ### 3.11 Reportable incidents
 
@@ -197,7 +197,7 @@ The security officer reports these measures monthly on TPL-8, with the monitorin
 
 Controls met here: IR-6, IR-6(3), IR-8.
 
-Information is shared with \<Organisation\>'s security contact, any affected supplier, and the ICO and the people affected through the legal adviser. The security officer tells \<Organisation\>'s security contact of every confirmed incident, and any other supplier whose product or service is involved, using the supplier register (\<Supply Chain Risk Management\>, section 3.5). \<Organisation\> in turn reports a compromise on its side to the security officer within 24 hours. Crime or a significant cyber attack is reported by the system owner to the NCSC or to Report Fraud, the national police reporting service that replaced Action Fraud. Anything else goes through the system owner. Only \[\<Organisation\> communications contact\] speaks to the press or the public about an incident, with the system owner's agreement. If ServiceNow or email may be compromised, use the phone numbers in appendix A. This document is Restricted, and is kept in the restricted document store with the other records.
+Information is shared with \<Organisation\>'s security contact, any affected supplier, and the ICO and the people affected through the legal adviser. The security officer tells \<Organisation\>'s security contact of every confirmed incident, and any other supplier whose product or service is involved, using the supplier register (\<Supply Chain Risk Management\>, section 3.5). \<Organisation\> in turn reports a compromise on its side to the security officer within 24 hours. Crime or a significant cyber attack is reported by the system owner to the NCSC or to Report Fraud, the national police reporting service that replaced Action Fraud. Anything else goes through the system owner. Only \[\<Organisation\> communications contact\] speaks to the press or the public about an incident, with the system owner's agreement. If ServiceNow or email may be compromised, use the phone numbers in appendix A. This document is marked \<Classification\>, and is kept in the restricted document store with the other records.
 
 ### 3.14 Incident and breach register
 
@@ -231,7 +231,7 @@ Controls met here: IR-8.
 1. **Review and approval.** The Head of Cyber reviews and approves the plan every 12 months and after an incident.
 2. **Copies.** Copies go to every role holder in section 3.3 and their deputies: the security officer, the system owner, the authorising official, the technical response team, the auditor and the legal adviser; and to the administrators, the Head of Cyber and \<Organisation\>'s security contact. Each keeps a copy that can be read when the document store is out of use (section 3.4).
 3. **Updates.** The security officer updates the plan after each incident and exercise (PRO-IR-7), and when a system or organisational change affects it. Changes are told to the same people, with the change record. Version control records every change.
-4. **Protection.** The plan is Restricted, and kept in the restricted document store, where only the people in item 2 can read it and only the security officer can change it.
+4. **Protection.** The plan is marked \<Classification\>, and kept in the restricted document store, where only the people in item 2 can read it and only the security officer can change it.
 
 ### 3.17 Policy and procedures
 

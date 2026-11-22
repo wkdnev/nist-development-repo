@@ -100,7 +100,7 @@ Frequencies and time limits are those set in the family documents, and the value
 
 **A31.** Save exported files only in approved \<Organisation\> locations: \[approved locations\]. Never save them on personal devices, in personal cloud storage or in personal email.
 
-**A32.** Do not copy \<System Name\> information to USB drives or other removable media. USB storage is blocked on managed devices. Where there is a business need, ask for an exception (section 5), and use only encrypted media issued by \<Organisation\>. Use that media only on \<Organisation\>'s managed devices and the external system named in the approval, never connect it to a personal or other unmanaged device, and return it for sanitising when the exception ends (P-48).
+**A32.** Do not copy \<System Name\> information to USB drives or other removable media. USB storage is blocked on managed devices. Where there is a business need, ask for an exception (section 5), and use only encrypted media issued by \<Organisation\>. Use that media only on \<Organisation\>'s managed devices and the external system named in the approval, never connect it to a personal or other unmanaged device, and return it for sanitising when the exception ends (P-48). Never use a USB drive or other portable storage that has no known owner, such as one you find: hand it to the security officer.
 
 **A33.** Print \<System Name\> items only on \<Organisation\>'s managed printers with secure release, and make sure each page carries the \<Classification\> marking. Collect them from the printer straight away, lock them away when not in use, do not take them off site, and cross-cut shred them when finished, to DIN 66399 level P-4 or better.
 
@@ -114,7 +114,7 @@ Frequencies and time limits are those set in the family documents, and the value
 
 **A37.** Keep your desk clear of printed documents and notes, and place your screen so that others cannot read it.
 
-**A38.** Work remotely only from home, unless the system owner has approved another place in writing. Do not print \<System Name\> items at home, unless the system owner has approved it in writing.
+**A38.** Work remotely only from home, unless the system owner has approved another place in writing. Never print \<System Name\> items at home.
 
 **A39.** When remote, connect to \<Organisation\>'s VPN before opening \<System Name\>. Do not disable the VPN or send traffic around it.
 
@@ -302,7 +302,7 @@ The detection use cases U1 to U9 in \<System and Information Integrity Managemen
 | C39 | Renew certificates before they expire | Windows server administrator | \<Procedures\>, PRO-SC-2 | TPL-6 | SC-8, SC-17 |
 | C40 | Repeat the security tests at each release and after a significant change | Developers | The developer test plan in \<System and Services Acquisition Management\>, section 3.9 (15 scripts, including Test-Protection.ps1 for \<Procedures\>, PRO-SC-1), in the test environment; \<Procedures\>, PRO-SA-2 | Results, with a manifest, in the evidence for each family | CA-2, CM-4(2), SA-11 |
 | C41 | Carry out maintenance | Windows server and database administrators | Sections 4.6 and 4.7 | TPL-12 | MA-2, MA-3, MA-3(1), MA-3(2), MA-4, MA-5 |
-| C42 | Transport, sanitise or dispose of media | \<Organisation\>, Windows server administrator | Section 4.8 | TPL-13 | MP-5, MP-6 |
+| C42 | Transport, sanitise or dispose of media, and destroy a retired backup encryption certificate once its backups are removed | \<Organisation\>, Windows server administrator, database administrator | Section 4.8 | TPL-13 | MP-5, MP-6 |
 | C43 | Handle a security incident or personal data breach | Security officer | Section 4.9 | TPL-10 | IR-4, IR-5, IR-6 |
 | C44 | Handle a request or complaint from a person about their data. Only the legal adviser's delegate runs the search across all schemas (\<System Description\>, FR-073) | Legal adviser; legal adviser's delegate | \<Procedures\>, PRO-PT-1 and PRO-PT-2 | TPL-15, TPL-22 | AC-3(14), SI-18(4) |
 | C51 | Have every code change reviewed by another developer and merged through the protected default branch, and sign each release tag | Developers | \<Procedures\>, PRO-SA-1; Test-Development.ps1 at each release | Pull request or change record, TPL-6 | SA-10, CM-3 |

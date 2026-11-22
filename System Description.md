@@ -230,6 +230,7 @@ These are the values the controls depend on. CSS calls many of them organisation
 | P-66 | Unauthorised components | Both servers checked monthly by \<Organisation\>'s discovery tools for unauthorised hardware, software and firmware. On detection, the Windows server administrator removes the component or disables its network access, and tells the security officer | CM-8(3) | \[\] |
 | P-67 | Maintenance lists, notice and records | The approved maintenance tools and people reviewed every 12 months, and when someone leaves; users given 2 working days' notice of planned maintenance that affects them; maintenance records kept 3 years | MA-2, MA-3, MA-5 | \[\] |
 | P-68 | Timely maintenance | Support and parts for the hardware and hypervisor within 24 hours of a failure; Microsoft software supported through \<Organisation\>'s support agreement; a replacement planned at least 6 months before a component's support ends | MA-6, SA-22 | \[\] |
+| P-69 | Media handling | Users' exports and downloads, and printouts, deleted or shredded once no longer needed, and within 30 days at most if they hold personal data; the media inventory reviewed, and a sample of sanitising certificates checked, every 12 months; media records kept 3 years | MP-2, MP-4, MP-6 | \[\] |
 
 ## 5 Requirements
 

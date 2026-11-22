@@ -147,7 +147,7 @@ A breach of the rules is handled through \<Organisation\>'s disciplinary process
 
 Controls met here: PS-3, PS-6.
 
-The system owner keeps this register for everyone who has, or will have, access to \<System Name\> or its Restricted documents: the system owner, the operating roles in \<Roles and Responsibilities\> and the security assessor. Each user is added when their access is requested. It holds dates only. Entries are kept while the person has access, and for 3 years after it ends. Leaver and mover records on TPL-14 are kept for 3 years. Signatures of the rules of behaviour are recorded in the register of signatures (\<Planning Management\>, section 3.5).
+The system owner keeps this register for everyone who has, or will have, access to \<System Name\> or its \<Classification\> documents: the system owner, the operating roles in \<Roles and Responsibilities\> and the security assessor. Each user is added when their access is requested. It holds dates only. Entries are kept while the person has access, and for 3 years after it ends. Leaver and mover records on TPL-14 are kept for 3 years. Signatures of the rules of behaviour are recorded in the register of signatures (\<Planning Management\>, section 3.5).
 
 **Table 5: Personnel security register**
 

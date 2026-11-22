@@ -105,6 +105,8 @@ The reference values are the parameters in \<System Description\>, section 4, wh
 | D-IR-P21 | IR | IR-6 | 2: P-21 Incident reporting | A suspected incident reported to the security officer within 1 hour; every confirmed incident told to \<Organisation\>'s security contact; the ICO told within 72 hours of becoming aware of a reportable breach | System owner, with the legal adviser for the breach report | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | D-MA-P67 | MA | MA-2, MA-3, MA-5 | 3: P-67 Maintenance lists, notice and records | Tools and people reviewed every 12 months and when someone leaves; 2 working days' notice of planned maintenance; records kept 3 years | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | D-MA-P68 | MA | MA-6 | 2: P-68 Timely maintenance | Support and parts for the hosts within 24 hours of a failure; Microsoft software supported through \<Organisation\>'s agreement; replacement planned 6 months before support ends | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
+| D-MP-P20 | MP | MP-4, MP-6 | 1: P-20 Export working copies | Deleted once downloaded, and always within 24 hours | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
+| D-MP-P69 | MP | MP-2, MP-4, MP-6 | 3: P-69 Media handling | Users' copies and printouts deleted or shredded once no longer needed, within 30 days at most if they hold personal data; inventory and a sample of sanitising certificates reviewed every 12 months; media records kept 3 years | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | \[D-XX-Pnn\] | \[XX\] | \[Control\] | \[Number of parameters\] | \[Main values\] | \[Who decides\] | \[Decision\] | \[Name\] | \[Date\] | \[Sheet\] |
 
 ## 4 Non-compliance treatment decisions
@@ -124,6 +126,7 @@ The control, rating, reason and treatment of each entry are in \<Risk List\>, se
 | NC-IA-01 to NC-IA-18 | IA | System owner, as every IA entry is rated Low | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | NC-IR-01 to NC-IR-13 | IR | System owner, as every IR entry is rated Low | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | NC-MA-01 to NC-MA-08 | MA | System owner, as every MA entry is rated Low | \[Decision\] | \[Name\] | \[Date\] | None yet |
+| NC-MP-01 to NC-MP-07 | MP | System owner, as every MP entry is rated Low | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | \[NC-XX-nn\] | \[XX\] | \[Who decides\] | \[Decision\] | \[Name\] | \[Date\] | \[Sheet\] |
 
 ## 5 Proof of approval
