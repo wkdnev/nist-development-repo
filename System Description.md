@@ -1109,7 +1109,7 @@ Table 48 defines the terms used across the set, including those in \<Policy\>. T
 | Logging failure | Any period in which agreed events are not recorded, for whatever reason |
 | Loopback address | An address that can be reached only from the same server |
 | Maintenance | Preventive or corrective work on a \<System Name\> component, including repair and replacement |
-| Maintenance tool | Any program, device or function used to diagnose or maintain \<System Name\> |
+| Maintenance tool | A program or device used specifically to diagnose or repair \<System Name\>, such as one on an administrator's managed device or one copied onto a server for a job. The utilities that are part of Windows Server and SQL Server in the baseline are controlled as the baseline is (\<Maintenance Management\>, section 3.5) |
 | Marking | The \<Classification\> label, with the item's own classification, on what \<System Name\> shows or produces |
 | Material change | A change to the rules that adds or tightens a rule, changes a consequence, adds monitoring or adds a privileged duty |
 | Maximum tolerable downtime | The longest an outage can last before the harm is unacceptable, counted from the start of the outage |
