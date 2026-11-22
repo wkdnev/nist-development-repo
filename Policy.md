@@ -409,7 +409,7 @@ It applies to the UI application, the Admin application, the API, the \<System N
 
 ### CP.4 Mandatory requirements
 
-1. **R1 Recovery objectives:** recovery objectives must be set by a business impact analysis, reviewed every 12 months. Essential functions must be back within 72 hours (P-12), within a maximum tolerable downtime of 120 hours (P-14), losing no more than 24 hours of data (P-13).
+1. **R1 Recovery objectives:** recovery objectives must be set by a business impact analysis, reviewed every 12 months. Essential functions must be back within 72 hours of the outage starting (P-12), within a maximum tolerable downtime of 120 hours (P-14), losing no more than 24 hours of data (P-13).
 2. **R2 Backups:** the database, which holds the items, their files and the audit records, must be backed up daily with its transaction logs backed up between the daily backups; system-level information, including SQL Server's system databases and each VM's configuration, weekly and after each change to it; the secrets and documentation at each change.
 3. **R3 Where and how:** backups must be encrypted, and held at a second \<Organisation\> site that does not share the main site's hazards.
 4. **R4 Restore tests:** a restore must be tested every 6 months (P-16), and after a change to the database or backups, by restoring a backup and its encryption certificate from the second site onto a throwaway server there, and checking the restored data against counts and hashes taken when the backup was made. The test server must have no route to production and be erased afterwards.
