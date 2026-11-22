@@ -38,7 +38,7 @@ Frequencies and time limits are those set in the family documents, and the value
 
 ### 2.2 Monitoring and privacy
 
-**A6.** When you sign in, \<System Name\> shows this notice, which you must accept before going further: "This system is for authorised use only. Activity is monitored and recorded. Unauthorised use may lead to disciplinary or legal action. By continuing you accept these terms."
+**A6.** When you sign in, \<System Name\> shows this notice, which you must accept before anything else is shown: "This system is for authorised use only. Activity is monitored, recorded and audited. Unauthorised use may lead to disciplinary or legal action. By continuing you accept these terms."
 
 **A7.** Everything you do in \<System Name\> is recorded, including sign-ins, searches, items viewed and downloaded, changes and exports. Authorised auditors review these records every week and report anything suspicious to the security officer. The records may be used in investigations, and in disciplinary or legal proceedings.
 
@@ -100,7 +100,7 @@ Frequencies and time limits are those set in the family documents, and the value
 
 **A31.** Save exported files only in approved \<Organisation\> locations: \[approved locations\]. Never save them on personal devices, in personal cloud storage or in personal email.
 
-**A32.** Do not copy \<System Name\> information to USB drives or other removable media. USB storage is blocked on managed devices. Where there is a business need, ask for an exception (section 5), and use only encrypted media issued by \<Organisation\>.
+**A32.** Do not copy \<System Name\> information to USB drives or other removable media. USB storage is blocked on managed devices. Where there is a business need, ask for an exception (section 5), and use only encrypted media issued by \<Organisation\>. Use that media only on \<Organisation\>'s managed devices and the external system named in the approval, never connect it to a personal or other unmanaged device, and return it for sanitising when the exception ends (P-48).
 
 **A33.** Print \<System Name\> items only on \<Organisation\>'s managed printers with secure release, and make sure each page carries the \<Classification\> marking. Collect them from the printer straight away, lock them away when not in use, do not take them off site, and cross-cut shred them when finished, to DIN 66399 level P-4 or better.
 
@@ -110,7 +110,7 @@ Frequencies and time limits are those set in the family documents, and the value
 
 **A35.** Use \<System Name\> only on a device managed by \<Organisation\>. Do not use personal computers, phones or tablets. Phones and tablets cannot reach \<System Name\>.
 
-**A36.** Lock your screen whenever you leave your device, even briefly, and close the browser when you finish. \<System Name\> does not lock the page or sign you out itself: your device locks its screen after the inactivity period set by \<Organisation\>, and your sign-in lasts as long as PingFederate allows.
+**A36.** Lock your screen whenever you leave your device, even briefly. Use Sign out at the end of each working day, and whenever you leave your device for longer than a short break (P-53). \<System Name\> does not lock the page itself: your device locks its screen after 15 minutes without activity (P-03), and your sign-in ends 8 hours after you signed in (P-02).
 
 **A37.** Keep your desk clear of printed documents and notes, and place your screen so that others cannot read it.
 
@@ -169,7 +169,7 @@ Frequencies and time limits are those set in the family documents, and the value
 
 ## 3 Part B: rules for privileged users
 
-Part B applies, in addition to Part A, to administrators, auditors, the security officer, business owners, the legal adviser's delegate, Windows server and database administrators, and developers with access to a live system. A privileged account can change or expose the whole system, so these rules are stricter. The rules are numbered B1 to B22.
+Part B applies, in addition to Part A, to administrators, auditors, the security officer, business owners, the legal adviser's delegate, Windows server and database administrators, and developers with access to a live system. A privileged account can change or expose the whole system, so these rules are stricter. The rules are numbered B1 to B23.
 
 ### 3.1 Before and while you hold privileged access
 
@@ -193,7 +193,7 @@ Part B applies, in addition to Part A, to administrators, auditors, the security
 
 **B9.** Confirm a person's identity by a separate route before you restore any access. Password resets and unlocks are done by \<Organisation\>'s IT service desk, not in \<System Name\>.
 
-**B10.** Do not open items just because your role allows it. Open them only for a task that needs it, and note the reason when it is not obvious.
+**B10.** Do not open items just because your role allows it. Open them only for a task that needs it, and note the reason when it is not obvious. The Administrator role opens no item content: use your everyday account, with the schema access it has been given, for any item work.
 
 **B11.** Protect anything you see in the course of your duties, including other people's personal data, and use it for no other purpose.
 
@@ -223,11 +223,13 @@ Part B applies, in addition to Part A, to administrators, auditors, the security
 
 **B22.** Report any suspected security incident, including one you caused, to the security officer at once.
 
+**B23.** Use privileged access from outside the office only for an approved change, maintenance or an incident, and only through the VPN and then the managed administration route, signing in with multi-factor authentication at both (P-54). Record the change or incident reference, and disconnect as soon as the task is done.
+
 ## 4 Part C: operating procedures
 
 Part C sets out how \<System Name\>'s security is run. Each duty has a reference, C1 to C53, so that it can be traced to its CSS control in section 8. Each names the record that proves it was done. Records use the forms in \<Record Templates\>. A ServiceNow record holding the same fields may replace a form. Records are kept for 3 years in \[the restricted records location\], unless a longer period applies. Audit records stay in \<System Name\> for 12 months and then in an offline archive for 12 more; application logs are kept for 30 days (\<Audit and Accountability Management\>).
 
-The detection use cases U1 to U8 in \<System and Information Integrity Management\>, section 3.4, say what raises an alert, including repeated failed sign-ins, a break in the audit chain and a Defender detection, and \<Procedures\>, PRO-SI-4, says how to respond.
+The detection use cases U1 to U9 in \<System and Information Integrity Management\>, section 3.4, say what raises an alert, including repeated failed sign-ins, a break in the audit chain and a Defender detection, and \<Procedures\>, PRO-SI-4, says how to respond.
 
 ### 4.1 Operating calendar
 
@@ -246,7 +248,7 @@ The detection use cases U1 to U8 in \<System and Information Integrity Managemen
 | C7 | Act on security advisories as they arrive, and confirm none were missed | Security officer | \<Procedures\>, PRO-SI-5 | TPL-7 | SI-5 |
 | C8 | Check every backup job in the week succeeded | Database administrator | Backup job logs | TPL-8 | CP-9 |
 | **Monthly** |  |  |  |  |  |
-| C9 | List the members of \<System Name\>'s groups who have not signed in for 90 days, and have the groups' owners remove them | Administrator; the groups' owners | \<Procedures\>, PRO-AC-8 | TPL-3 | AC-2(3) |
+| C9 | Run the last sign-in report (FR-085), list the members of \<System Name\>'s groups who have not signed in for 90 days, and have the groups' owners remove them | Security officer; the groups' owners | \<Procedures\>, PRO-AC-8 | TPL-3 | AC-2(3) |
 | C10 | Scan for vulnerabilities and review patches | Windows server administrator, security officer | \<Procedures\>, PRO-RA-3 | TPL-7 | RA-5, SI-2 |
 | C11 | Check packages, lock files, the in-house package feed and support dates, and run Test-SupplyChain.ps1 at each release | Developers | \<Procedures\>, PRO-SR-1 and PRO-SR-3; \<Procedures\>, PRO-SA-5 | TPL-7 | SI-2, SA-22, SR-3 |
 | C12 | Check release packages, file checksums and the audit chain | Windows server administrator, security officer | \<Procedures\>, PRO-SI-6 | TPL-8 | SI-7, SI-7(1), AU-9 |
@@ -259,7 +261,7 @@ The detection use cases U1 to U8 in \<System and Information Integrity Managemen
 | C49 | Check the encrypted export working area on the application server, and delete any working copy older than 24 hours (each working day; \<System Description\>, P-20) | Windows server administrator | \<Procedures\>, PRO-MP-5 | TPL-8 | MP-4, MP-6 |
 | C50 | Each week, check CISA's Known Exploited Vulnerabilities catalogue and \<Organisation\>'s alerts against \<System Name\>'s components; fix or mitigate any match within 3 days | Security officer | \<Procedures\>, PRO-RA-4 | TPL-7 | RA-5, SI-2, SI-5 |
 | **Every 3 months** |  |  |  |  |  |
-| C15 | Review privileged access | System owner, auditor | \<Procedures\>, PRO-AC-7 | TPL-3 | AC-2, AC-6(7) |
+| C15 | Review privileged access: the system owner prepares the role-group review and the auditor checks and signs it; the Head of Cyber reviews the system owner's own memberships and checks the administrators | System owner, auditor, Head of Cyber | \<Procedures\>, PRO-AC-7 | TPL-3 | AC-2, AC-6(7) |
 | C16 | Check the administrators' actions | Head of Cyber | The auditors' review records and their report on the administrators' actions | TPL-8 | AC-6(9), AU-6 |
 | C17 | Report security status to the authorising official | Security officer, system owner | \<Procedures\>, PRO-CA-5 | TPL-8 | CA-7 |
 | **Every 6 months** |  |  |  |  |  |
@@ -285,7 +287,7 @@ The detection use cases U1 to U8 in \<System and Information Integrity Managemen
 | C52 | Review the cryptographic and key register, the host firewall allow-lists, external services and exceptions; schedule keys and certificates due for change | System owner, security officer, \<Organisation\> | \<Procedures\>, PRO-SC-8 | TPL-23 | SC-7(4), SC-12, SC-13 |
 | C53 | Check BitLocker is on for both VMs and that a recovery key works; check backups are encrypted | Windows server administrator, database administrator | \<Procedures\>, PRO-SC-7 | TPL-11 | SC-28, SC-28(1) |
 | **When an event occurs** |  |  |  |  |  |
-| C36 | Grant, change or remove access | The groups' owners; \<Organisation\>'s service desk ends PingFederate sign-ins | Section 4.4 | TPL-2, TPL-14 | AC-2, PS-4, PS-5 |
+| C36 | Grant, change or remove access | The groups' owners; \<Organisation\>'s service desk disables accounts | Section 4.4 | TPL-2 (the ServiceNow request), TPL-14 | AC-2, PS-4, PS-5 |
 | C37 | Apply updates within the time limits in \<System Description\>, P-11 | Windows server administrator, database administrator, developers | Section 4.3, through approved change | TPL-6, TPL-7 | SI-2, CM-3 |
 | C38 | Make a change, including an emergency change | Change control element | Section 4.5 | TPL-6 | CM-3, CM-4, CM-5 |
 | C39 | Renew certificates before they expire | Windows server administrator | \<Procedures\>, PRO-SC-2 | TPL-6 | SC-8, SC-17 |
@@ -301,7 +303,7 @@ The detection use cases U1 to U8 in \<System and Information Integrity Managemen
 1. The auditor opens the audit log page in the Admin application and filters to the period since the last review.
 2. They look for refused sign-in responses, failed Active Directory lookups, refused access, sign-ins at unusual times, schema and group administration, privileged functions, large exports, configuration changes, reading of the audit log, gaps in the records, and records under unknown names or "System".
 3. They compare changes to \<System Name\>'s Active Directory groups, from \<Organisation\>'s records, with the requests authorised in ServiceNow (TPL-2).
-4. They check the Windows and SQL Server logs, and \<Organisation\>'s record of PingFederate sign-ins, failed sign-ins and lockouts, and of changes to \<System Name\>'s Active Directory groups, or get \<Organisation\>'s report on them.
+4. They check the Windows and SQL Server logs, including SQL Server Audit's record of reads of the item tables by any login other than the API's, through \<Organisation\>'s central logging (they have no sign-in to the servers), and \<Organisation\>'s record of PingFederate sign-ins, failed sign-ins and lockouts, and of changes to \<System Name\>'s Active Directory groups, or get \<Organisation\>'s report on them.
 5. They run the audit chain check (\<Procedures\>, PRO-AU-2). If tampering is suspected, they preserve the evidence before anything is changed (PRO-AU-2, step 3), and raise it, and anything else unexplained, as a security incident (section 4.9).
 6. They record the date, the period covered, the reviewer and the result on TPL-8, and report anything suspicious to the security officer.
 
@@ -315,9 +317,9 @@ A fix that cannot be made in time goes through PRO-AC-15 and into \<Plan of Acti
 
 1. **Joiner.** The person asks for access in ServiceNow. Their line manager approves it, and the group's owner authorises it: the system owner for a role, or the Data Owner for a schema. Before the person is added to a group, they complete training (A54), sign Part A, and Part B if privileged. The owner adds them to the fewest Active Directory groups the role needs. No \<System Name\> account is created.
 2. **Mover.** The person's manager tells the system owner and the owners of the person's groups within 1 working day of a role change. Access no longer needed is removed and recorded on TPL-14.
-3. **Leaver.** \<Organisation\> disables the person's Active Directory account at once, which ends their access, and the owners of their groups remove the memberships within 5 working days. Any exported files or paper are recovered or destroyed, and recorded on TPL-14.
-4. **High-risk leaver or misuse.** \<Organisation\>'s service desk disables the Active Directory account and ends the person's PingFederate sign-in within 1 hour of notice (\<Procedures\>, PRO-AC-4).
-5. **Inactive members.** Members of \<System Name\>'s groups who have not signed in for 90 days are removed from them each month (C9). \<Organisation\> disables unused Active Directory accounts under its own standard.
+3. **Leaver.** \<Organisation\> disables the person's Active Directory account at once, and \<System Name\> refuses them within 5 minutes, even while a sign-in is open. The owners of their groups remove the memberships within 5 working days. Any exported files or paper are recovered or destroyed, and recorded on TPL-14.
+4. **High-risk leaver or misuse.** \<Organisation\>'s service desk disables the Active Directory account within 1 hour of notice, which ends access to \<System Name\> within 5 minutes, and ends the person's PingFederate sign-in so that they cannot start a new one (\<Procedures\>, PRO-AC-4).
+5. **Inactive members.** Members of \<System Name\>'s groups who have not signed in for 90 days are removed from them each month (C9). \<Organisation\> disables Active Directory accounts unused for 90 days within 1 working day (P-38).
 
 ### 4.5 Change control (C38)
 
@@ -336,7 +338,7 @@ The security officer analyses each change's impact against the criteria in \<Con
 
 ### 4.7 Remote maintenance (C41)
 
-1. Remote maintenance is done only over a route in \<Maintenance Management\>, section 3.4, from the administrators' managed devices through \<Organisation\>'s managed administration route (F11), with multi-factor authentication and a named account, for an approved change or an incident.
+1. Remote maintenance is done only over a route in \<Maintenance Management\>, section 3.4, from the administrators' managed devices through \<Organisation\>'s managed administration route (F11), with multi-factor authentication and a named account, for an approved change or an incident. From outside the office, connect to the VPN first (P-54, B23).
 2. The connection is logged, limited to the task, and ended as soon as it is finished.
 3. Afterwards the server or database administrator runs the checklist after maintenance (\<Procedures\>, Table MA-2) and records the work on TPL-12, with the connection log reference. The security officer reviews and signs the result within 1 working day.
 4. Outside maintenance staff work only under the supervision of a \<System Name\> administrator (B21).
@@ -353,7 +355,7 @@ Each incident is given a severity, from Low to Critical, which sets how fast the
 
 | Event | First action | Who |
 | --- | --- | --- |
-| Suspected account misuse | Have the account disabled and the person's PingFederate sign-in ended (\<Procedures\>, PRO-AC-4) | Security officer, through \<Organisation\>'s service desk |
+| Suspected account misuse | Have the account disabled, which ends access within 5 minutes, and the person's PingFederate sign-in ended (\<Procedures\>, PRO-AC-4) | Security officer, through \<Organisation\>'s service desk |
 | Exposed password or secret | Change it and report it to the security officer | Whoever finds it |
 | Access to data someone should not see | Stop, and report to the security officer | Whoever finds it |
 | Personal data breach | Report to the security officer at once. The security officer tells the legal adviser, who decides on telling the ICO within 72 hours of becoming aware and the people affected, and records every breach (\<Incident Response Management\>, section 3.8) | Whoever finds it; security officer; legal adviser |
@@ -363,7 +365,7 @@ Each incident is given a severity, from Low to Critical, which sets how fast the
 | Suspected malware or attack | Report to the security officer, who tells \<Organisation\>'s security contact | Whoever finds it |
 
 1. **Report:** tell the security officer within 1 hour. The security officer tells \<Organisation\>'s security contact and any affected supplier. If personal data is involved, the security officer tells the legal adviser at once.
-2. **Contain:** limit the harm, for example by disabling accounts or ending PingFederate sign-ins.
+2. **Contain:** limit the harm, for example by disabling accounts, which \<System Name\> refuses within 5 minutes.
 3. **Preserve:** keep logs and evidence, and do not clean up first.
 4. **Investigate:** establish what happened, when, and what data was involved.
 5. **Recover:** fix the cause and restore normal service (section 4.6).
@@ -432,8 +434,8 @@ Table 6 shows where each control that these SyOps serve is met. It lets an audit
 | AC-6 Least Privilege, with AC-6(2) and AC-6(9) | A17; B2, B3, B10; C3, C16 |
 | AC-7 Unsuccessful Logon Attempts | A14; C3 |
 | AC-8 System Use Notification | A6, A7, A8 |
-| AC-11 Device Lock | A36 |
-| AC-17 Remote Access | A15, A39, A40; B20; section 4.7 |
+| AC-2(5) Inactivity Logout, AC-11 Device Lock, AC-12 Session Termination | A36 |
+| AC-17 Remote Access | A15, A39, A40; B20, B23; section 4.7 |
 | AC-18, AC-19 Wireless Access and Mobile Devices | A35, A40 |
 | AC-20, AC-20(2) External Systems and Portable Storage | A31, A32, A35, A45 |
 | AC-21 Information Sharing | A22, A25 |

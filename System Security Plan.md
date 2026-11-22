@@ -97,7 +97,7 @@ This is the intended inventory for the authorisation boundary. Host names, asset
 | Shared library (\<Code\>\_Shared) | Internally developed library: the data model, the access checks and the audit record format | .NET 10, its own repository | Built into the applications |
 | Microsoft SQL Server, holding the \<System Name\> database | Database | SQL Server 2022 | Database server VM |
 | Browser libraries | Third-party scripts and styles the pages need, such as a document viewer and an icon set | Packaged with the UI application and served by \<System Name\> itself; no content delivery service | Application server VM |
-| ServiceNow | Access request and approval workflows, in which the Data Owner authorises each request, owned by \<Organisation\>'s IT service desk. No connection to \<System Name\> | \<Organisation\>'s service | Outside the boundary |
+| ServiceNow | Access request and approval workflows, in which the line manager approves each request and the group's owner authorises it (the Data Owner for a schema's groups, the system owner for a role group), owned by \<Organisation\>'s IT service desk. No connection to \<System Name\> | \<Organisation\>'s service | Outside the boundary |
 | PingFederate and Active Directory | Sign every user in with multi-factor authentication, and hold the groups that decide roles and schema access. A critical component (\<Risk Assessment Management\>, section 3.9) | \<Organisation\>'s corporate services | Outside the boundary |
 | Starters and leavers process | Raises leaver requests, and prompts the owners of a leaver's groups | \<Organisation\>'s service | Outside the boundary |
 | Microsoft Defender | Malicious code protection | Windows Server 2025 | Both VMs |
@@ -133,11 +133,11 @@ All users are staff or contractors of \<Organisation\>, so all are internal. \<S
 | --- | --- | --- | --- |
 | Reader | Internal | Searches and reads items in the schemas whose read group they belong to, and reports a fault | \[Number\] |
 | Editor | Internal | A reader's work, and creates, uploads, manages and exports the schema's items | \[Number\] |
-| Administrator | Internal | Manages schemas, which groups open each schema, and system settings, in the Admin application; can reach every schema. There is no separate global administrator. Group members are changed by each group's owner, in Active Directory | \[Number\] |
+| Administrator | Internal | Manages schemas, which groups open each schema (a change only with the Data Owner's approval), and system settings, in the Admin application; opens no item content. There is no separate global administrator. Group members are changed by each group's owner, in Active Directory | \[Number\] |
 | Auditor | Internal | Reads and searches the audit log, and reviews it weekly (P-08); holds no administration role | \[Number\] |
-| Security officer | Internal | Reads security information, reviews alerts, the central logs and scan results, and leads incident response; does not read the audit log; holds no administration role | \[Number\] |
-| Business owner | Internal | Approves the disposal of items due under the retention schedule, in the Admin application (FR-074) | \[Number\] |
-| Legal adviser's delegate | Internal | Searches every schema for one person's items to answer a request under data protection law, in the Admin application (FR-073); holds no other role | \[Number\] |
+| Security officer | Internal | Reads security information, reviews alerts, the central logs and scan results, runs the monthly last sign-in report (P-38), and leads incident response; does not read the audit log; holds no administration role | \[Number\] |
+| Business owner | Internal | Approves the disposal of items due under the retention schedule, in the UI application (FR-074) | \[Number\] |
+| Legal adviser's delegate | Internal | Searches every schema for one person's items to answer a request under data protection law, in the UI application (FR-073); holds no other role | \[Number\] |
 | Data Owner | Internal | Owns a schema's data and its read and edit groups, and authorises who may read or edit it, in ServiceNow | \[Number\] |
 | Windows server and database administrators | Internal | Administer the VMs and SQL Server; need no application role | \[Number\] |
 
@@ -214,7 +214,7 @@ Items, their files and audit records are all held in SQL Server on the database 
 
 **Figure 6: VPN and administrator access**
 
-The VPN's multi-factor authentication protects the network route. \<System Name\>'s own sign-in is through \<Organisation\>'s PingFederate, with multi-factor authentication. Server and database administrators reach the VMs only through \<Organisation\>'s managed administration route, with multi-factor authentication and named accounts (F11), whose details are requested in EV-MA-02.
+The VPN's multi-factor authentication protects the network route. \<System Name\>'s own sign-in is through \<Organisation\>'s PingFederate, with multi-factor authentication. Server and database administrators reach the VMs only through \<Organisation\>'s managed administration route, with multi-factor authentication and named accounts (F11), whose details are requested in EV-MA-02. Privileged access from outside the office is allowed only for approved changes, maintenance and incident response, through the VPN and then the administration route, with multi-factor authentication at both, and is logged (P-54; EV-AC-12).
 
 ## 5 Control applicability and inheritance
 
@@ -226,7 +226,7 @@ Each control is given one of four types. **System** controls are met by \<System
 
 | Family | Controls | System | Hybrid | Organisational | Inherited | Not applicable |
 | --- | --- | --- | --- | --- | --- | --- |
-| AC Access Control | 39 | 5 | 13 | 5 | 10 | 6 |
+| AC Access Control | 39 | 3 | 20 | 4 | 9 | 3 |
 | AT Awareness and Training | 6 | 0 | 3 | 3 | 0 | 0 |
 | AU Audit and Accountability | 16 | 7 | 7 | 2 | 0 | 0 |
 | CA Assessment, Authorization, and Monitoring | 10 | 0 | 2 | 8 | 0 | 0 |
@@ -245,7 +245,7 @@ Each control is given one of four types. **System** controls are met by \<System
 | SC System and Communications Protection | 25 | 3 | 10 | 1 | 10 | 1 |
 | SI System and Information Integrity | 18 | 3 | 9 | 3 | 1 | 2 |
 | SR Supply Chain Risk Management | 12 | 0 | 3 | 5 | 4 | 0 |
-| **Total** | **316** | **24** | **98** | **102** | **69** | **23** |
+| **Total** | **316** | **22** | **105** | **101** | **68** | **20** |
 
 Section 7 lists every control. A control counts as satisfied only when every one of its assessment statements is satisfied.
 
@@ -294,40 +294,40 @@ The assessment plan is in \<Control Assessment Record\> (AC), section AC.4, wher
 | AC-2 Account Management | Each person uses their own Active Directory account; access is membership of an AD group, which the group's owner gives once the request is authorised in ServiceNow: by the Data Owner for a schema's groups, and by the system owner for the role groups. Approval, notification and review are set out in \<Access Control Management\> | Data Owners, system owner | Hybrid | \[Status\] | \[Decision\] |
 | AC-2(1) Automated Account Management | Active Directory, PingFederate and the starters and leavers process manage accounts and sign-in; \<System Name\> applies the groups it reads from Active Directory | \<Organisation\>, developers | Hybrid | \[Status\] | \[Decision\] |
 | AC-2(2) Temporary and Emergency Accounts | Not used; forbidden by policy | None | Not applicable | \[Status\] | \[Decision\] |
-| AC-2(3) Disable Accounts | \<Organisation\> disables Active Directory accounts, which stops sign-in; unused accounts follow its corporate standard. In addition, members who have not signed in for 90 days are removed from \<System Name\>'s groups each month | \<Organisation\> | Inherited | \[Status\] | \[Decision\] |
+| AC-2(3) Disable Accounts | \<Organisation\> disables Active Directory accounts unused for 90 days within 1 working day (P-38), and the API refuses a disabled account within 5 minutes. Each month the security officer runs the last sign-in report (FR-085), and the groups' owners remove members who have not signed in for 90 days | \<Organisation\>, security officer, groups' owners | Hybrid | \[Status\] | \[Decision\] |
 | AC-2(4) Automated Audit Actions | Account and group changes are audited in Active Directory by \<Organisation\>; \<System Name\> audits sign-ins and its own schema and group settings | \<Organisation\>, developers | Hybrid | \[Status\] | \[Decision\] |
-| AC-2(5) Inactivity Logout | Provided by \<Organisation\>: \<System Name\> has no session management. A sign-in lasts no longer than PingFederate's sign-in lifetime (\<System Description\>, P-02), and \<Organisation\>'s managed devices lock an unattended screen (\<System Description\>, P-03) | \<Organisation\> | Inherited | \[Status\] | \[Decision\] |
-| AC-2(13) High-risk Individuals | \<Organisation\> disables the Active Directory account and ends the person's PingFederate sign-in, within 1 hour; \<System Name\> has no sessions of its own to end | Security officer, \<Organisation\> | Hybrid | \[Status\] | \[Decision\] |
+| AC-2(5) Inactivity Logout | Users must sign out at the end of each working day and when leaving their device for longer than a short break (P-53), with Sign out (FR-084), which clears the cookie and ends the PingFederate sign-in. \<Organisation\>'s managed devices lock an unattended screen (P-03) | Users, developers, \<Organisation\> | Hybrid | \[Status\] | \[Decision\] |
+| AC-2(13) High-risk Individuals | \<Organisation\>'s service desk disables the Active Directory account within 1 hour (P-41), and the API refuses it within 5 minutes, even while a sign-in is open; the system owner confirms the refusal (PRO-AC-4, PRO-AC-11) | System owner, \<Organisation\> | Hybrid | \[Status\] | \[Decision\] |
 | AC-3 Access Enforcement | Schema read and edit decisions are made by the shared library's access checks on every page and API function, from the groups the API reads from Active Directory, denying by default | Developers | System | \[Status\] | \[Decision\] |
 | AC-4 Information Flow Enforcement | Only flows F1 to F11 in \<System Description\>, section 6.5, exist; network enforcement is by \<Organisation\>'s firewalls and each VM's host firewall | Developers, \<Organisation\> | Hybrid | \[Status\] | \[Decision\] |
 | AC-5 Separation of Duties | Separate Administrator, Auditor, Security officer, Business owner and Legal adviser's delegate roles, each in its own group; the system owner or the Data Owner authorises each request, so nobody approves their own access | System owner | Hybrid | \[Status\] | \[Decision\] |
 | AC-6 Least Privilege | Access through groups and roles | Developers, database administrator | Hybrid | \[Status\] | \[Decision\] |
-| AC-6(1) Authorize Access to Security Functions | Security functions need the Administrator or Security officer role | Developers | System | \[Status\] | \[Decision\] |
+| AC-6(1) Authorize Access to Security Functions | Each privileged function and item of security-relevant information in P-44 needs its role: Administrator, Auditor, Security officer, Business owner or Legal adviser's delegate, or, on the servers, a named Windows or database administrator. Security functions in hardware and firmware are limited by \<Organisation\> (EV-AC-04) | Developers, Windows server and database administrators, \<Organisation\> | Hybrid | \[Status\] | \[Decision\] |
 | AC-6(2) Non-privileged Access for Nonsecurity Functions | The rules in \<Security Operating Procedures\> require a separate everyday account | System owner | Organisational | \[Status\] | \[Decision\] |
 | AC-6(5) Privileged Accounts | The Administrator role is membership of the administrators' group (\<Code\>\_Admins), given only to named accounts | System owner, database administrator | Hybrid | \[Status\] | \[Decision\] |
 | AC-6(7) Review of User Privileges | Periodic review of privileges, by procedure | System owner, auditor | Organisational | \[Status\] | \[Decision\] |
-| AC-6(9) Log Use of Privileged Functions | Privileged actions are audited | Developers | System | \[Status\] | \[Decision\] |
+| AC-6(9) Log Use of Privileged Functions | The application audits every function in P-44; Windows and SQL Server Audit log server and database administration, forwarded to \<Organisation\>'s central logging | Developers, Windows server and database administrators, \<Organisation\> | Hybrid | \[Status\] | \[Decision\] |
 | AC-6(10) Prohibit Non-privileged Users from Executing Privileged Functions | Ordinary users are refused admin functions | Developers | System | \[Status\] | \[Decision\] |
-| AC-7 Unsuccessful Logon Attempts | PingFederate and Active Directory count failed sign-ins and lock the account, under \<Organisation\>'s corporate standard | \<Organisation\> | Inherited | \[Status\] | \[Decision\] |
-| AC-8 System Use Notification | A notice is shown at sign-in, and a Windows logon banner on the VMs | Developers, Windows server administrator | Hybrid | \[Status\] | \[Decision\] |
+| AC-7 Unsuccessful Logon Attempts | PingFederate and Active Directory count failed sign-ins and lock the account as P-42 sets (10 in 15 minutes, locked for 15 minutes) | \<Organisation\> | Inherited | \[Status\] | \[Decision\] |
+| AC-8 System Use Notification | A notice, approved by the legal adviser, is shown after sign-in, and nothing else is served until it is accepted; a Windows logon banner on the VMs; whether PingFederate shows its own banner is asked in EV-IA-04 | Developers, Windows server administrator | Hybrid | \[Status\] | \[Decision\] |
 | AC-11 Device Lock | Provided by \<Organisation\>: its managed devices and the servers lock an unattended screen (\<System Description\>, P-03); \<System Name\> has no page lock of its own | \<Organisation\> | Inherited | \[Status\] | \[Decision\] |
 | AC-11(1) Pattern-hiding Displays | Provided by \<Organisation\>: its device lock screen hides the display (\<System Description\>, P-03); \<System Name\> has no page lock of its own | \<Organisation\> | Inherited | \[Status\] | \[Decision\] |
-| AC-12 Session Termination | Provided by \<Organisation\>: a sign-in ends when PingFederate's sign-in lifetime ends (\<System Description\>, P-02), or when \<Organisation\> ends the PingFederate sign-in or disables the account. \<System Name\> holds the sign-in only in its authentication cookie, no longer than that lifetime, and has no session management of its own | \<Organisation\> | Inherited | \[Status\] | \[Decision\] |
-| AC-14 Permitted Actions Without Identification | Only the redirect to PingFederate, the access-denied page, static files and the API health check work without signing in (P-51) | Developers | System | \[Status\] | \[Decision\] |
+| AC-12 Session Termination | The authentication cookie is the application's session: it ends 8 hours after sign-in with no sliding extension (P-02), within PingFederate's sign-in, which is set to at least 8 hours (EV-IA-04); an open Blazor connection re-checks the person every 5 minutes against Active Directory, skipping the cache (NFR-102); Sign out ends it (FR-084); and the API refuses a disabled account or removed membership within 5 minutes | Developers, \<Organisation\> | Hybrid | \[Status\] | \[Decision\] |
+| AC-14 Permitted Actions Without Identification | Only the redirect to PingFederate, the sign-in and signed-out return addresses, the access-denied page, static files, the API health check and, on the loopback address only, the applications' token request to the API work without signing in (P-51) | Developers | System | \[Status\] | \[Decision\] |
 | AC-17 Remote Access | \<Organisation\>'s VPN with MFA | \<Organisation\> | Hybrid | \[Status\] | \[Decision\] |
 | AC-17(1) Monitoring and Control | \<Organisation\> monitors VPN sessions | \<Organisation\> | Hybrid | \[Status\] | \[Decision\] |
 | AC-17(2) Encryption | VPN encrypted; \<System Name\> uses HTTPS | \<Organisation\>, Windows server administrator | Hybrid | \[Status\] | \[Decision\] |
 | AC-17(3) Managed Access Control Points | One managed gateway | \<Organisation\> | Inherited | \[Status\] | \[Decision\] |
-| AC-17(4) Privileged Commands and Access | No remote administration beyond the approved route | None | Not applicable | \[Status\] | \[Decision\] |
+| AC-17(4) Privileged Commands and Access | Allowed only for approved changes, maintenance and incident response, through the VPN and then the managed administration route, with multi-factor authentication at both, and logged with the change or incident reference (P-54; B23) | System owner, \<Organisation\> | Hybrid | \[Status\] | \[Decision\] |
 | AC-18 Wireless Access | \<Organisation\>'s wireless controls; \<System Name\> has no wireless part | \<Organisation\> | Inherited | \[Status\] | \[Decision\] |
 | AC-18(1) Authentication and Encryption | \<Organisation\>'s wireless controls | \<Organisation\> | Inherited | \[Status\] | \[Decision\] |
 | AC-18(3) Disable Wireless Networking | The VMs have no wireless adapter, checked when built | \<Organisation\> | Inherited | \[Status\] | \[Decision\] |
-| AC-19 Mobile Devices | Phones and tablets cannot reach \<System Name\> | None | Not applicable | \[Status\] | \[Decision\] |
-| AC-19(5) Device Encryption | As AC-19 | None | Not applicable | \[Status\] | \[Decision\] |
-| AC-20 External Systems | Policy forbids external systems without approval; unmanaged devices are blocked | System owner, \<Organisation\> | Organisational | \[Status\] | \[Decision\] |
+| AC-19 Mobile Devices | Managed laptops are the only mobile devices allowed; phones and tablets cannot reach \<System Name\> (P-47) | \<Organisation\> | Inherited | \[Status\] | \[Decision\] |
+| AC-19(5) Device Encryption | Managed laptops have BitLocker full-device encryption (P-47; EV-AC-15) | \<Organisation\> | Inherited | \[Status\] | \[Decision\] |
+| AC-20 External Systems | External systems only with the system owner's approval, as a TPL-17 exception, on the terms in P-48; unmanaged devices are blocked | System owner, \<Organisation\> | Organisational | \[Status\] | \[Decision\] |
 | AC-20(1) Limits on Authorized Use | External use is forbidden | None | Not applicable | \[Status\] | \[Decision\] |
-| AC-20(2) Portable Storage Devices | USB storage blocked unless approved | \<Organisation\>, users | Organisational | \[Status\] | \[Decision\] |
-| AC-21 Information Sharing | Schema groups control sharing inside \<System Name\>; the Data Owner decides on sharing outside a schema (P-49) | Data Owners | Organisational | \[Status\] | \[Decision\] |
+| AC-20(2) Portable Storage Devices | USB storage blocked; portable storage only as a TPL-17 exception, using encrypted media issued by \<Organisation\>, used only on managed devices and the external system named in the approval, never on a personal or unmanaged device, and returned for sanitising (P-48) | \<Organisation\>, users | Organisational | \[Status\] | \[Decision\] |
+| AC-21 Information Sharing | Schema groups control sharing inside \<System Name\>; the Data Owner decides on sharing outside a schema (P-49), recorded on TPL-25 | Developers, Data Owners | Hybrid | \[Status\] | \[Decision\] |
 | AC-22 Publicly Accessible Content | \<System Name\> has no public content | None | Not applicable | \[Status\] | \[Decision\] |
 
 ### 7.2 Awareness and Training (AT)
@@ -365,8 +365,8 @@ The assessment plan is in \<Control Assessment Record\> (AU), section AU.4, wher
 | AU-7 Reduction and Report Generation | The audit page filters and summarises without changing records | Developers | System | \[Status\] | \[Decision\] |
 | AU-7(1) Automatic Processing | Search by date, event type, result and username | Developers | System | \[Status\] | \[Decision\] |
 | AU-8 Time Stamps | Application records use UTC; the VMs take time from \<Organisation\>'s time service | Developers, \<Organisation\> | Hybrid | \[Status\] | \[Decision\] |
-| AU-9 Protection of Audit Information | Only auditors can read records; only the API writes them, and its database login may only add records; records are chained with HMAC-SHA-256 | Developers, database administrator | System | \[Status\] | \[Decision\] |
-| AU-9(4) Access by Subset of Privileged Users | Auditors can read records | System owner, developers | System | \[Status\] | \[Decision\] |
+| AU-9 Protection of Audit Information | Only auditors can read records, apart from the usernames and dates in the security officer's last sign-in report (FR-085); only the API writes them, and its database login may only add records; records are chained with HMAC-SHA-256 | Developers, database administrator | System | \[Status\] | \[Decision\] |
+| AU-9(4) Access by Subset of Privileged Users | Only auditors can read records; the security officer's last sign-in report (FR-085) shows usernames and last sign-in dates only | System owner, developers | System | \[Status\] | \[Decision\] |
 | AU-11 Audit Record Retention | Records are kept 12 months online and 12 months in an offline archive (P-07) | Database administrator | Hybrid | \[Status\] | \[Decision\] |
 | AU-12 Audit Record Generation | The API writes the application's records, including events the UI and Admin applications send it, alongside SQL Server and Windows logs | Developers, administrators | Hybrid | \[Status\] | \[Decision\] |
 
@@ -481,7 +481,7 @@ The assessment plan is in \<Control Assessment Record\> (IA), section IA.4, wher
 | IA-8(1) PIV from Other Agencies | Not applicable | None | Not applicable | \[Status\] | \[Decision\] |
 | IA-8(2) External Authenticators | Not applicable | None | Not applicable | \[Status\] | \[Decision\] |
 | IA-8(4) Defined Profiles | Not applicable | None | Not applicable | \[Status\] | \[Decision\] |
-| IA-11 Re-authentication | A sign-in lasts no longer than PingFederate's sign-in lifetime (\<System Description\>, P-02), after which the user signs in again; a change to a person's groups takes effect at their next sign-in | Developers | Hybrid | \[Status\] | \[Decision\] |
+| IA-11 Re-authentication | A sign-in lasts 8 hours at most and never longer than PingFederate's sign-in (\<System Description\>, P-02), after which the user signs in again; a change to a person's groups or account takes effect within 5 minutes | Developers | Hybrid | \[Status\] | \[Decision\] |
 | IA-12 Identity Proofing | Relies on \<Organisation\>'s pre-employment checks | \<Organisation\>, system owner | Inherited | \[Status\] | \[Decision\] |
 | IA-12(2) Identity Evidence | Relies on \<Organisation\>'s HR | \<Organisation\> | Inherited | \[Status\] | \[Decision\] |
 | IA-12(3) Validation and Verification | Relies on \<Organisation\>'s HR | \<Organisation\> | Inherited | \[Status\] | \[Decision\] |
@@ -701,7 +701,7 @@ The assessment plan is in \<Control Assessment Record\> (SC), section SC.4, wher
 | SC-7(8) Authenticated Proxy | Outbound through \<Organisation\>'s proxy, or blocked | \<Organisation\> | Inherited | \[Status\] | \[Decision\] |
 | SC-8 Transmission Protection | HTTPS on every app and the internal API calls, and SQL Server TLS with strict encryption, under NCSC's TLS profiles (\<System Description\>, P-26); client rules that require TLS; API on loopback over HTTPS | Windows server administrator, database administrator, developers | Hybrid | \[Status\] | \[Decision\] |
 | SC-8(1) Cryptographic Protection | As SC-8, under the TLS profile in \<System and Communications Protection Management\>, section 3.3 | Windows server administrator, database administrator | Hybrid | \[Status\] | \[Decision\] |
-| SC-10 Network Disconnect | Network disconnect by \<Organisation\>; \<System Name\> has no sessions of its own, and a sign-in lasts no longer than PingFederate's sign-in lifetime (P-02) | Developers, \<Organisation\> | Hybrid | \[Status\] | \[Decision\] |
+| SC-10 Network Disconnect | Network disconnect by \<Organisation\>; the application's session ends 8 hours after sign-in, never later than PingFederate's sign-in (P-02), or at Sign out | Developers, \<Organisation\> | Hybrid | \[Status\] | \[Decision\] |
 | SC-12 Key Management | Register of every key and cryptoperiod (\<System and Communications Protection Management\>, section 3.4); the token signing key and audit chain key held in the key store, with no database password, as the API uses Windows authentication; the key rings encrypted | Developers, administrators | Hybrid | \[Status\] | \[Decision\] |
 | SC-13 Cryptographic Protection | HMAC-SHA-256 token signing; user passwords are held by Active Directory, not \<System Name\>; TLS, disk and key ring encryption | Developers, administrators | Hybrid | \[Status\] | \[Decision\] |
 | SC-15 Collaborative Devices | Not applicable | None | Not applicable | \[Status\] | \[Decision\] |
@@ -730,7 +730,7 @@ The assessment plan is in \<Control Assessment Record\> (SI), section SI.4, wher
 | SI-4 System Monitoring | Failed sign-ins are audited; detection use cases, reviews and log forwarding (\<System and Information Integrity Management\>, section 3.4) | Security officer, \<Organisation\> | Hybrid | \[Status\] | \[Decision\] |
 | SI-4(2) Real-time Analysis | Log forwarding and automated analysis | Security officer | Hybrid | \[Status\] | \[Decision\] |
 | SI-4(4) Traffic Monitoring | \<Organisation\> | \<Organisation\> | Inherited | \[Status\] | \[Decision\] |
-| SI-4(5) System Alerts | Use cases set for the eight events in \<System Description\>, P-27 (\<System and Information Integrity Management\>, section 3.4) | Developers, security officer | System | \[Status\] | \[Decision\] |
+| SI-4(5) System Alerts | Use cases set for the nine events in \<System Description\>, P-27 (\<System and Information Integrity Management\>, section 3.4) | Developers, security officer | System | \[Status\] | \[Decision\] |
 | SI-5 Advisories | Sources include CISA's exploited list and NCSC Early Warning | Security officer | Organisational | \[Status\] | \[Decision\] |
 | SI-7 Integrity | Integrity baseline recorded; file checksums and the audit chain | Developers, security officer | Hybrid | \[Status\] | \[Decision\] |
 | SI-7(1) Integrity Checks | Scheduled integrity check | Security officer | Hybrid | \[Status\] | \[Decision\] |

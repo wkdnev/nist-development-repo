@@ -22,11 +22,11 @@ The business owner is \[Name\] and the information owner is \[Name\] (\<System D
 | --- | --- | --- |
 | Readers | Search and read items in their schemas, view and download files, and report a fault in an item | UI application |
 | Editors | A reader's work, and create, upload, bulk upload, manage and bulk export the schema's items. Edit includes read | UI application |
-| Administrators | Manage schemas, which groups open each schema, and system settings; correct, replace and delete items. Can reach every schema. There is one Administrator role and no separate global administrator | Admin application and UI application |
+| Administrators | Manage schemas, which groups open each schema (a change only with the Data Owner's approval), and system settings. Open no item content. There is one Administrator role and no separate global administrator | Admin application |
 | Auditors | Read, search and export the audit log, and review it weekly (\<System Description\>, P-08). Hold no administration role | Admin application |
 | Security officers | Read security information, review alerts and the central logs, and lead incident response. Do not read the audit log. Hold no administration role | Admin application |
-| Business owners | Approve the disposal of items due under the retention schedule (\<System Description\>, FR-074) | Admin application |
-| Legal adviser's delegates | Search every schema for one person's items to answer a request under data protection law (\<System Description\>, FR-073). Hold no other role, and are named by the legal adviser | Admin application |
+| Business owners | Approve the disposal of items due under the retention schedule (\<System Description\>, FR-074) | UI application |
+| Legal adviser's delegates | Search every schema for one person's items to answer a request under data protection law (\<System Description\>, FR-073). Hold no other role, and are named by the legal adviser | UI application |
 | Data Owners | Own a schema's data and its two groups, and authorise who may read or edit it | ServiceNow and the directory |
 | Server and database administrators | Run the servers and the database. Need no application role | The servers, only over \<Organisation\>'s managed administration route, with multi-factor authentication and named accounts (flow F11) |
 | Developers | Build and fix the applications. Hold no administrator access on the servers | Development environment |
@@ -76,8 +76,8 @@ It runs on \<Organisation\>'s internal network, on two Windows Server 2025 virtu
 
 1. A person signs in through \<Organisation\>'s single sign-on, PingFederate, with multi-factor authentication against Active Directory. \<System Name\> holds no accounts and no passwords.
 2. PingFederate's signed response names the person and carries no groups. The API reads the person's group memberships directly from Active Directory over LDAPS, and gives the roles and schema access those groups allow.
-3. Their group memberships decide which schemas they see. Each schema names a read group and an edit group. Administrators can reach every schema.
-4. \<System Name\> has no session management of its own. The sign-in is held only in the application's authentication cookie and lasts no longer than PingFederate's sign-in lifetime (P-02). An unattended screen is locked by the operating system on \<Organisation\>'s managed devices (P-03).
+3. Their group memberships decide which schemas they see. Each schema names a read group and an edit group. A schema with no group is closed to everyone, and administrators open no item content.
+4. The application's session is its authentication cookie. It ends 8 hours after sign-in at most, never later than PingFederate's sign-in (P-02), and when the person uses Sign out; an open page re-checks the person every 5 minutes, and the API refuses a disabled account or removed membership within 5 minutes. An unattended screen is locked by the operating system on \<Organisation\>'s managed devices (P-03).
 
 ### 6.3 Modes of operation
 

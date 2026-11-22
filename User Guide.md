@@ -19,8 +19,8 @@ This guide tells you how to use \<System Name\>'s security and privacy features,
 | Feature | What happens | What to do |
 | --- | --- | --- |
 | Schema access | You see only the schemas your Active Directory groups allow. Any other request shows the access-denied page | If you see a schema or item you shouldn't, report it at once (\\<Security Operating Procedures\\>, A18) |
-| Screen lock | \<System Name\> has no page lock of its own. Your \<Organisation\> device locks its screen after a set time without use | Lock your device whenever you leave it |
-| Sign-in | \<System Name\> has no session management of its own. Your sign-in lasts as long as \<Organisation\>'s PingFederate allows, and \<System Name\> does not sign you out itself | Save your work; close the browser when you finish |
+| Screen lock | \<System Name\> has no page lock of its own. Your \<Organisation\> device locks its screen after 15 minutes without use | Lock your device whenever you leave it |
+| Sign-in and Sign out | Your sign-in ends 8 hours after you signed in, and then you sign in again. Sign out ends it at once, in \<System Name\> and in \<Organisation\>'s single sign-on | Use Sign out at the end of each working day and whenever you leave your device for more than a short break (\\<Security Operating Procedures\\>, A36) |
 | Downloads and exports | Readers can download an item's file; editors can bulk export a schema's items. Only you can see, download or cancel your own export jobs | Keep exports on \<Organisation\>'s devices; delete them within 30 days (\\<Security Operating Procedures\\>, A28) |
 | Printing and marking | Items can be printed, and \<System Name\> marks what it shows, prints and exports with its classification | Use secure-release printers only; never print at home (\\<Security Operating Procedures\\>, A33, A38) |
 | Faults | You can report a faulty item or file | Use the fault report rather than working around the fault (\\<Security Operating Procedures\\>, A20) |

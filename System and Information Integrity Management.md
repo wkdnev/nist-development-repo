@@ -69,7 +69,7 @@ An internal advisory is a security officer's note on TPL-7, naming the flaw, the
 
 Controls met here: SI-4, SI-4(2), SI-4(4), SI-4(5).
 
-Application, Windows and SQL Server logs, and the audit trail events that use cases U5 and U6 need, are forwarded to \<Organisation\>'s central logging \[service\] (EV-SI-01). Alert rules in the central logging service analyse the events in near real time. The aim is to detect attacks, misuse and unauthorised local, network and remote connections. The security officer receives the alerts and reviews the central logs weekly (PRO-SI-3), but does not read the application audit log. Auditors read it and review it weekly (P-08), compare it with the server, database, PingFederate and Active Directory records, and report anything suspicious to the security officer (\<Audit and Accountability Management\>, section 3.8). These events must raise an alert to the security officer (SI-4, SI-4(2), SI-4(5)). The system owner raises the level of monitoring when risk rises (PRO-SI-3, step 3).
+Application, Windows and SQL Server logs are forwarded to \<Organisation\>'s central logging \[service\] (EV-SI-01). The audit log stays in the database for the auditors; for the events that use cases U5, U6 and U9 need, the API also writes a short security event to the application log (the event type, the time, the username, the schema and a count, with no item details), so the alerts work without the security officer reading the audit log (\<System Description\>, section 7.6). Alert rules in the central logging service analyse the events in near real time. The aim is to detect attacks, misuse and unauthorised local, network and remote connections. The security officer receives the alerts and reviews the central logs weekly (PRO-SI-3), but does not read the application audit log. Auditors read it and review it weekly (P-08), compare it with the server, database, PingFederate and Active Directory records, and report anything suspicious to the security officer (\<Audit and Accountability Management\>, section 3.8). These events must raise an alert to the security officer (SI-4, SI-4(2), SI-4(5)). The system owner raises the level of monitoring when risk rises (PRO-SI-3, step 3).
 
 As users sign in through PingFederate, failed sign-ins and changes to administrator groups happen in \<Organisation\>'s systems, not in \<System Name\>. Use cases U1 and U4 therefore need those events, including the PingFederate sign-in logs, from \<Organisation\> (EV-SI-01).
 
@@ -81,10 +81,11 @@ As users sign in through PingFederate, failed sign-ins and changes to administra
 | U2 | Audit chain break | Chain check | Any | Security officer, auditor | Incident (\<Incident Response Management\>) |
 | U3 | Malware detected | Defender, and the AMSI upload scan | Any | Security officer, Windows server administrator | Incident |
 | U4 | Privilege change | Changes to the membership of \<System Name\>'s Active Directory administrators' group, from \<Organisation\> | Any person added to an administrator group | Security officer | Check against the approved ServiceNow request |
-| U5 | Bulk export | Audit trail | More than \[number\] items by one user in a day | Security officer | PRO-SI-4 |
-| U6 | Administrator sign-in out of hours | Audit trail: a sign-in by a person in an administrator group | Outside \[hours\] | Security officer | PRO-SI-4 |
+| U5 | Bulk export | Application security event | More than \[number\] items by one user in a day | Security officer | PRO-SI-4 |
+| U6 | Administrator sign-in out of hours | Application security event: a sign-in by a person in an administrator group | Outside \[hours\] | Security officer | PRO-SI-4 |
 | U7 | Audit logging failure | Application log (AU-5) | Any | Security officer | PRO-SI-4 |
 | U8 | Unexpected software change | Integrity check (PRO-SI-6) | Any | Security officer | Incident |
+| U9 | Change to which groups open a schema | Application security event, from the Admin application | Any | Security officer | Check against the change record (TPL-6) approved by the schema's Data Owner; if there is none, incident |
 
 \<Organisation\> monitors traffic into and out of the network continuously, against the allowed flows (\<System and Communications Protection Management\>, section 3.2). Unusual or unauthorised traffic is traffic outside those flows, and, outbound, unusually large transfers (SI-4(4)). Users are monitored only after the legal adviser's opinion, only as far as needed, and with staff told what is monitored and why.
 

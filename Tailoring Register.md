@@ -39,16 +39,16 @@ Entries are numbered TR-XX-nn, where XX is the family code. Section 8 lists the 
 
 | ID | Control or part | Tailoring | Rationale | Condition that must hold | If the condition changes |
 | --- | --- | --- | --- | --- | --- |
-| TR-AC-01 | AC-2(2) | Not applicable | Temporary and emergency accounts are prohibited (P-39), and the system cannot expire accounts | Each access review confirms that no such account exists | The system must first be able to disable them automatically |
+| TR-AC-01 | AC-2(2) | Not applicable | Temporary and emergency accounts are prohibited (P-39), so there is nothing to remove or disable automatically | Each access review confirms that no such account exists | If such accounts are ever needed, they are Active Directory accounts with an end date, and AC-2(2) applies |
 | TR-AC-02 | AC-2k | Not applicable | Shared and group accounts are prohibited (P-36) | \<System Name\> holds no accounts of its own: every account is a person's own Active Directory account, and there is no built-in or default account | A process for changing shared authenticators is needed |
 | TR-AC-03 | AC-8a.01 | Replace the statement with one naming \<Organisation\> | \<System Name\> is not a U.S. Government system, so the statement would be untrue | The notice names \<Organisation\>, and a legal adviser agrees the wording | Applies again if \<System Name\> serves a U.S. Government customer |
 | TR-AC-04 | AC-8c | Not applicable | \<System Name\> is not publicly accessible | Items and functions need sign-in, except the list in P-51 | AC-8c applies in full |
-| TR-AC-05 | AC-17(4) | Not applicable | CSS defines remote access as access through external networks. Administration is to take place only from inside \<Organisation\>'s network | Administration uses only \<Organisation\>'s managed administration route, for the Admin application (F2) and for server and database administration (F11), and external routes to the VMs' administration ports are blocked (EV-AC-12) | AC-17(4) applies, with defined needs and logging |
-| TR-AC-06 | AC-19, AC-19(5) | Not applicable | Phones and tablets are not to be used with \<System Name\> in the first release | \<Organisation\>'s device controls prevent or govern this. \<System Name\> cannot identify a device, so a rule alone is weak evidence (EV-AC-15) | Both apply, with \<Organisation\>'s mobile controls as evidence |
 | TR-AC-07 | AC-20(1) | Not applicable | P-48 does not allow external systems to reach or hold \<System Name\> data without the system owner's approval, and none is proposed | No such approval is given | Verification of controls and retained agreements are needed for each approval |
 | TR-AC-08 | AC-22 | Not applicable | \<System Name\> holds no public content (P-50) | Items and functions need sign-in, except the list in P-51 | AC-22 applies in full |
 | TR-AC-09 | AC-07\_ODP\[05\], \[06\] | Not selected | The account lock is the chosen action, so no delay algorithm or other action is needed | The lock remains in place | Define the value that is then selected |
 | TR-AC-10 | AC-20\_ODP\[03\] | Not selected | Terms and conditions are used, not asserted controls | P-48 remains the rule | Define the asserted controls |
+
+TR-AC-05 (AC-17(4)) and TR-AC-06 (AC-19, AC-19(5)) were withdrawn: privileged remote access is allowed for the needs in P-54, and managed laptops are mobile devices, so those controls apply. The numbers are not reused.
 
 ### 2.2 Considered and not proposed
 
@@ -60,9 +60,10 @@ These controls may look unnecessary but are not proposed for tailoring, so that 
 | --- | --- |
 | AC-18, AC-18(1) | \<System Name\> provides no wireless access, but users may reach it over \<Organisation\>'s wireless network, so the control is inherited and needs evidence |
 | AC-18(3) | It needs confirming on the built VMs and workstation builds |
-| AC-17, AC-17(1) to (3) | Approved users may work remotely through \<Organisation\>'s service |
+| AC-17, AC-17(1) to (4) | Approved users may work remotely through \<Organisation\>'s service. Privileged access from outside the office is allowed for the defined needs in P-54, so AC-17(4) applies |
 | AC-20, AC-20(2) | Downloads can reach any device the user has, so the rule and its enforcement remain relevant |
-| AC-2(5), AC-11, AC-11(1), AC-12 | \<System Name\> has no session management of its own: no idle lock, idle timeout, session limit or sign-out. The controls are not tailored out but are provided by \<Organisation\> and inherited (\<System Description\>, section 7.3). AC-11 and AC-11(1) come from the screen lock on \<Organisation\>'s managed devices (\<System Description\>, P-03); AC-12 and AC-2(5) come from the sign-in lifetime set in PingFederate (P-02), which the application's authentication cookie never outlasts |
+| AC-19, AC-19(5) | Managed laptops are mobile devices, so the controls are inherited from \<Organisation\>'s device management and encryption (P-47; EV-AC-15) |
+| AC-2(5), AC-11, AC-11(1), AC-12 | \<System Name\> has no idle lock, idle timeout or session limit. AC-11 and AC-11(1) are inherited from the screen lock on \<Organisation\>'s managed devices (\<System Description\>, P-03). AC-12 is shared: the application's cookie ends 8 hours after sign-in, never later than PingFederate's sign-in (P-02), and is re-checked every 5 minutes. AC-2(5) is shared: users must sign out as P-53 sets, with Sign out (FR-084) (\<System Description\>, section 7.3) |
 
 ## 3 Identification and Authentication (IA)
 

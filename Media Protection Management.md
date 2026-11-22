@@ -115,7 +115,7 @@ Controls met here: MP-7.
 
 1. USB and other portable storage are blocked on users' devices by \<Organisation\>'s device control.
 2. No USB device is passed through to either server.
-3. The system owner may approve an exception on TPL-17, for a stated purpose and time, using only encrypted media issued by \<Organisation\>.
+3. The system owner may approve an exception on TPL-17, for a stated purpose and time, using only encrypted media issued by \<Organisation\>. That media is used only on \<Organisation\>'s managed devices and the external system named in the approval, is never connected to a personal or other unmanaged device, and is returned for sanitising when the exception ends (\<System Description\>, P-48; AC-20(2)).
 4. Portable storage with no identifiable owner must not be used. It is handed to the security officer, who records it on TPL-13.
 
 ### 3.8 What \<Organisation\> provides
