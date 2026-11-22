@@ -1032,7 +1032,7 @@ These are questions an assessor is likely to ask, each with the reference answer
 | How quickly are vulnerabilities fixed? | As P-11 sets | \<Risk Assessment Management\> |
 | What are the recovery objectives? | As P-12 to P-14 set | \<Contingency Planning Management\> |
 | What third-party software is used? | The reference stack in section 6.4, or the stack in the application's profile | \<Configuration Management\> |
-| What external services does it depend on? | \<Organisation\>'s services in section 10; for building, the source repositories and the package feed | \<System and Services Acquisition Management\> |
+| What external services does it depend on? | \<Organisation\>'s services in section 10; for building, the source repositories and the package feed. Its suppliers, including nuget.org and the publishers of its browser libraries, are in \<Supply Chain Risk Management\>, section 3.5 | \<System and Services Acquisition Management\> |
 | Does it hold personal data? | Yes, at least the identities in its audit records, and whatever the profile's information types hold | \<PII Processing Management\> |
 | Which controls are inherited? | Those \<Organisation\> provides: the Inherited entries in \<System Security Plan\>, section 7, listed together in \<Assessment, Authorization, and Monitoring Management\>, section 3.6. The PM controls are listed in \<Program Management\> | \<Assessment, Authorization, and Monitoring Management\> |
 | Is the application authorised to operate? | Only once its authorising official signs the decision; see \<Security Assessment Report\> | \<Security Assessment Report\> |

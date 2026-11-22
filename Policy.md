@@ -1166,7 +1166,7 @@ It applies to the software packages and browser libraries \<System Name\> is bui
 
 1. **R1 Plan and team:** a supply chain plan with a supplier register must be kept in \<Supply Chain Risk Management\> and reviewed every 12 months by the supply chain team: the system owner, the security officer, a developer and \<Organisation\>'s IT service desk.
 2. **R2 Tolerance:** no critical component may be used without a known source and a SHA-256 record.
-3. **R3 Approved suppliers:** hardware, hosting and services must come from suppliers \<Organisation\> has approved. A new critical supplier must be reviewed before use.
+3. **R3 Approved suppliers:** hardware, hosting and services must come from suppliers \<Organisation\> has approved. A new High supplier must be reviewed before use.
 4. **R4 One package source:** every software package, including those pulled in by others, must be restored only from the in-house checked package feed (the offline feed), after the PRO-SR-1 check. Builds may read nuget.org directly only for vulnerability data; its packages reach \<System Name\> only as copies in the feed.
 5. **R5 Fixed and trusted restores:** every .NET project in the source code must use a lock file in locked mode, and restores must accept only packages signed by trusted signers.
 6. **R6 Browser libraries:** every script and style a page loads must be taken from its publisher's release after the PRO-SR-1 check, held in the UI application's source repository with its SHA-256 in the browser library manifest, packaged with \<System Name\> and served by it. No page loads anything from another host or a content delivery service.

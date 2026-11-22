@@ -438,6 +438,6 @@ PM is inherited from \<Organisation\>'s programme and is not assessed for \<Syst
 | INT-SR-02 | Developers | Where does each package and browser library come from, and how do you know the restore got exactly what the lock file records, and the repository holds exactly what the browser library manifest records? | SR-03, SR-05 | A recent example |
 | INT-SR-03 | Security officer | What happens when a supplier reports a compromise? | SR-08 | EV-SR-01 |
 | INT-SR-04 | \<Organisation\>'s IT service desk | How is hardware inspected, repaired and disposed of? | SR-10, SR-11(02), SR-12 | EV-SR-02 |
-| INT-SR-05 | Developers | Show me the bill of materials for the release I am looking at, and how you checked that release against it before installation | SR-03b, SR-10 | The bill of materials; the release check results |
+| INT-SR-05 | Developers | Show me the bill of materials and the browser library manifest for the release I am looking at, and how you checked that release against them before installation | SR-03b, SR-10 | The bill of materials; the release check results |
 | INT-SR-06 | System owner | Show me the last review of \<Organisation\> as a supplier, and what changed as a result | SR-06, SR-02(01) | TPL-16 |
 | INT-SR-07 | Developers | How do you check that a new package is not a look-alike, and what would you do if you suspected one? | SR-11 | A TPL-6 component check |

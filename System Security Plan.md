@@ -277,7 +277,7 @@ Section 7 lists every control. A control counts as satisfied only when every one
 | Legal adviser | The privacy plan (\<Privacy Plan\>), the impact assessment, the lawful basis, requests and complaints from individuals, and reports to the ICO |
 | Business and information owner | The information types, and retention periods for each schema; the business owner approves the disposal of items due under the retention schedule (FR-074) |
 | Legal adviser's delegate | Searching every schema for one person's items to answer a request under data protection law (FR-073), named by the legal adviser |
-| Supply chain team: system owner, security officer, a developer and \<Organisation\>'s IT service desk | The supply chain plan (\<Supply Chain Risk Management\>), supplier reviews and notices of compromise |
+| Supply chain team: system owner, security officer, a developer and \<Organisation\>'s IT service desk | The supply chain plan (\<Supply Chain Risk Management\>), reviews of every supplier, notices of compromise and suspected counterfeits |
 
 People holding these roles are named in \<Roles and Responsibilities\>. How security is operated is in \<Security Operating Procedures\>.
 

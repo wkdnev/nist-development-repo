@@ -205,6 +205,7 @@ This is \<System Name\>'s system-level strategy. It carries out \<Organisation\>
 | Configuration drift from the baseline | Change | None unapproved | Any | PRO-CM-7; TPL-8 | Monthly | Windows server administrator |
 | Alerts acknowledged within their time, and their outcomes | Effectiveness | All | Any acknowledged late, or any not closed | \<System and Information Integrity Management\>, Table 3; TPL-8, TPL-10 | Monthly | Security officer |
 | Integrity, file checksum and malware rescan results | Effectiveness | No unexplained difference or detection | Any | PRO-SI-6; TPL-8 | Monthly | Security officer |
+| Supplier reviews on time, and each release passing Test-SupplyChain.ps1 and its check before installation | Compliance | All | Any review overdue, or any release installed with a failed check | TPL-16; PRO-SR-3 results | Quarterly | System owner |
 | Security incidents open past their time limit | Effectiveness | None | Any | TPL-10 | Monthly | Security officer |
 | Vulnerabilities past their fix time | Effectiveness | None | Any Critical or High past its time | TPL-7; the timetable in \<Risk Assessment Management\>, section 3.6 | Monthly | Windows server administrator, developers |
 | Changes to the inherited controls: a change to a service \<Organisation\> provides, or its evidence past its review date | Change | None unassessed | Any | \<Organisation\>'s notices; \<Evidence Requests\>; TPL-8 | Quarterly | System owner |

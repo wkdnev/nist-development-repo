@@ -279,7 +279,7 @@ CSS does not select the controls in Table 9 at Moderate, so they are not assesse
 | SI | SI-7(2), SI-7(5), SI-7(15) | Automated notification and response to integrity failures; code authentication | Not required: selected at High only. Done in part: signed release tags |
 | SI | SI-10(3) Predictable Behavior | Behaves predictably on invalid input | Not required. Done in design: invalid input is refused |
 | SR | SR-3(1) to SR-3(3) | Diverse supply base; limiting harm; flowing controls down to sub-tier suppliers | Not required. Done in part: the risk tolerance limits harm (\<Supply Chain Risk Management\>, section 3.6) |
-| SR | SR-4 Provenance | Records where each component came from and every change to it | Not required. Done in part in design: the in-house package feed's SHA-256 records and the bill of materials |
+| SR | SR-4 Provenance | Records where each component came from and every change to it | Not required. Done in part in design: the in-house package feed's SHA-256 records, the browser library manifest and the bill of materials |
 | SR | SR-5(1), SR-5(2) | Adequate supply; assessments before selection | Not required. Done in part: the PRO-SR-1 check before a component is used |
 | SR | SR-6(1) Testing and Analysis | Tests what suppliers provide | Not required. Done in part: release inspection (\<Supply Chain Risk Management\>, section 3.8) |
 | SR | SR-7 Supply Chain Operations Security | Hides supply chain information from adversaries | Not required. The plan and the register are restricted |
