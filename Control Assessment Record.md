@@ -2,7 +2,7 @@
 
 ## 1 How to use this document
 
-This document is the record of the Level 1 self-assessment of \<System Name\> against CSS. It has one chapter for each of the 19 control families assessed, in CSS order, and each chapter gives a finding for every determination statement. The totals across all chapters are in \<Security Assessment Report\>, which is generated from this record.
+This document is the record of the Level 1 self-assessment of \<System Name\> against CSS. It has one chapter for each of the 19 control families assessed, in CSS order, and each chapter gives a finding for every determination statement. The Level 2 team re-determines every statement from this record, and \<Security Assessment Report\> brings the Level 2 results together. Every authorisation rests on the Level 2 results, not on this record alone (\<Assessment, Authorization, and Monitoring Management\>, section 3.3).
 
 Level 1 is a self-assessment and is not independent. Each chapter holds its own assessment plan, and the authorising official approves each plan before the assessment starts.
 
@@ -37,7 +37,7 @@ Each chapter ends with its assessment plan. These parts are the same for every f
 | --- | --- |
 | System | \<System Name\> \[version\], at the commits in \<System Security Plan\>, section 2 |
 | Security categorisation | Moderate |
-| Assessor | Level 1: \[Name\], working for the system owner. Level 2: an independent team led by \[Name\], which meets CA-2(1) at Moderate once TPL-19 is completed |
+| Assessor | Level 1: \[Name\], working for the system owner. Level 2: an independent team led by \[Name\], which meets CA-2(1) at Moderate once each member's TPL-19 is accepted by the authorising official |
 | Level 2 team and schedule | \[Name\]'s team: \[members, dates and the depth and coverage to be agreed with the independent assessor\] |
 | Approval | The authorising official approves each plan before the assessment starts. Approved by: \[Name\] |
 
@@ -325,7 +325,7 @@ This records how the assessment is planned and carried out, following CSS. It co
 | --- | --- |
 | Scope | The 39 AC entries in the CSS Moderate baseline, with 189 determination statements |
 | Procedures | CSS, using the CSS published statements and identifiers (catalog release 5.2.0) |
-| Assessor | Level 1: \[Name\], working for the system owner. Level 2: an independent team led by \[Name\], which meets CA-2(1) at Moderate once TPL-19 is completed |
+| Assessor | Level 1: \[Name\], working for the system owner. Level 2: an independent team led by \[Name\], which meets CA-2(1) at Moderate once each member's TPL-19 is accepted by the authorising official |
 | Dates | \[Dates of the assessment\] |
 | Site | \[Where the assessment is done, and on what build and data\] |
 | Examine | Policies, procedures, the SSP, \<System Description\>, the code of the UI application, Admin application, API and shared library, the access rule on each page and API function, the schema definitions and their read and edit groups, the role group settings, configuration and test results. Depth: focused. Coverage: focused, on the functions each control concerns |
@@ -562,7 +562,7 @@ There is one finding for each CSS determination statement, including those about
 | --- | --- |
 | Scope | The 16 AU entries in the CSS Moderate baseline, with 81 determination statements. AU-3(3), which limits personal data in records, is assessed with the PT family |
 | Procedures | CSS, using the CSS published statements and identifiers (catalog release 5.2.0) |
-| Assessor | Level 1: \[Name\], working for the system owner. Level 2: an independent team led by \[Name\], which meets CA-2(1) at Moderate once TPL-19 is completed |
+| Assessor | Level 1: \[Name\], working for the system owner. Level 2: an independent team led by \[Name\], which meets CA-2(1) at Moderate once each member's TPL-19 is accepted by the authorising official |
 | Dates | \[Dates of the assessment\] |
 | Site | \[Where the assessment is done, and on what build and data\] |
 | Examine | The audit service, the audit record format, the audit page, the database's grants and settings, and \<Policy\> (AU), \<Procedures\> (AU) and \<Audit and Accountability Management\>. Depth: focused. Coverage: focused, on the functions each control concerns |

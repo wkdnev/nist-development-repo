@@ -191,7 +191,7 @@ Questions are numbered INT-XX-nn, where XX is the family code, and each names th
 
 | ID | For | Question | Statements | Ask to see |
 | --- | --- | --- | --- | --- |
-| INT-CA-01 | Security assessor | Have you had any part in building or running \<System Name\>? | CA-02(01), CA-07(01) | TPL-19 independence statement |
+| INT-CA-01 | Security assessor | Have you had any part in designing, building, running or administering \<System Name\>, or do you report to anyone responsible for it? | CA-02(01), CA-07(01) | TPL-19 independence statement |
 | INT-CA-02 | Authorising official | What did you rely on to authorise \<System Name\>, and which risks did you accept? | CA-06c | TPL-18 authorisation decision, and \<Security Assessment Report\> |
 | INT-CA-03 | System owner | How is the plan kept up to date, and when did it last change? | CA-05b | \<Plan of Action and Milestones\> history |
 | INT-CA-04 | Security officer | Show me the last monitoring report on TPL-8, and any measure past its threshold. Who received it? | CA-07 | Monitoring report |
