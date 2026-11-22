@@ -518,8 +518,8 @@ These procedures carry out \<Policy\> (CA). Steps marked **Manual** have no syst
 
 #### PRO-CA-2 Managing connections
 
-1. Before any new connection, the system owner records it in \<Assessment, Authorization, and Monitoring Management\> with its interface, security needs, privacy needs, information, responsibilities, the agreement type under CSS and its review date, and approves it. **Manual**
-2. Every 12 months the system owner and the other system's owner review each connection, and end any no longer needed. **Manual**
+1. Before any new connection, the system owner records it in \<Assessment, Authorization, and Monitoring Management\> with its interface, security needs, privacy needs, information, responsibilities, and its review date, and approves it. For an exchange with a service of \<Organisation\>, the service's owner signs the row as the agreement. **Manual**
+2. Every 12 months the system owner and the other system's owner review each connection, sign its row again, and end any no longer needed. **Manual**
 3. When a connection is no longer needed, or a component at either end is retired, the Windows server administrator removes it, the system owner records the end date in \<Assessment, Authorization, and Monitoring Management\>, section 3.7, and the other system's owner is told. **Manual**
 
 #### PRO-CA-3 Keeping the plan up to date
