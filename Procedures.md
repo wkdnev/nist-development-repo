@@ -681,7 +681,7 @@ These procedures carry out \<Policy\> (CP) and \<Contingency Planning Management
 
 #### PRO-CP-3 Recovering
 
-1. The Windows server administrator confirms with \<Organisation\> that the site, network and services are available, at the second site if the main one is lost, including PingFederate and the firewall rules for flows F1 to F11. **Manual**
+1. The Windows server administrator confirms with \<Organisation\> that the site, network and services are available, at the second site if the main one is lost, including PingFederate, the firewall rules for flows F1 to F11, and DNS, the domain controllers and the certificate authority (\<System and Communications Protection Management\>, section 3.2, rules O8 to O10). **Manual**
 2. They rebuild the database VM to the baseline in \<Configuration Management\>, sections 3.4 and 3.6, and the database administrator restores its server-level settings, checked against the latest system-level backup: the API's login, SQL Server Audit and the backup jobs. **Manual**
 3. The administrators restore the secrets from their protected copy. The database administrator first restores the backup encryption certificate and its private key into SQL Server, with any retired certificate the chosen backup needs. **Manual**
 4. The database administrator restores the latest good backup and applies the archived transaction logs to the last consistent point. If a backup fails the checks in PRO-CP-2, they use the one before it.
