@@ -61,7 +61,8 @@ These controls may look unnecessary but are not proposed for tailoring, so that 
 | AC-18, AC-18(1) | \<System Name\> provides no wireless access, but users may reach it over \<Organisation\>'s wireless network, so the control is inherited and needs evidence |
 | AC-18(3) | It needs confirming on the built VMs and workstation builds |
 | AC-17, AC-17(1) to (4) | Approved users may work remotely through \<Organisation\>'s service. Privileged access from outside the office is allowed for the defined needs in P-54, so AC-17(4) applies |
-| AC-20, AC-20(2) | Downloads can reach any device the user has, so the rule and its enforcement remain relevant |\n| AC-19, AC-19(5) | Managed laptops are mobile devices, so the controls are inherited from \<Organisation\>'s device management and encryption (P-47; EV-AC-15) |
+| AC-20, AC-20(2) | Downloads can reach any device the user has, so the rule and its enforcement remain relevant |
+| AC-19, AC-19(5) | Managed laptops are mobile devices, so the controls are inherited from \<Organisation\>'s device management and encryption (P-47; EV-AC-15) |
 | AC-2(5), AC-11, AC-11(1), AC-12 | \<System Name\> has no idle lock, idle timeout or session limit. AC-11 and AC-11(1) are inherited from the screen lock on \<Organisation\>'s managed devices (\<System Description\>, P-03). AC-12 is shared: the application's cookie ends 8 hours after sign-in, never later than PingFederate's sign-in (P-02), and is re-checked every 5 minutes. AC-2(5) is shared: users must sign out as P-53 sets, with Sign out (FR-084) (\<System Description\>, section 7.3) |
 
 ## 3 Identification and Authentication (IA)

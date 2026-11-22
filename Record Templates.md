@@ -33,7 +33,8 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | TPL-21 Rules of behaviour acknowledgement | Records that a person has signed the rules of behaviour, which version and parts, and how. Kept while the person has access, and for 3 years after | AC-2; PL-4, PL-4(1), PS-6; PRO-PL-3 |
 | TPL-22 Data protection complaint | Records a complaint about how personal data is handled, its acknowledgement within 30 days, the investigation and the outcome. Kept for 3 years after it is closed | PT-2, PM-26; PRO-PT-2 |
 | TPL-23 Risk and supply chain review | Records a review of the risk list, the supply chain or the critical components: what was looked at, what changed, and who saw the result | RA-3, RA-3(1), RA-7, RA-9; PRO-RA-1, PRO-RA-2, PRO-RA-6 |
-| TPL-24 Approval sign-off record | Records that a named person made or confirms the decisions listed, so that an approval does not rest on someone else's report | AC-1; CA-6, PL-2, PM-10 and every policy control (xx-1); \<Decision Register\>, section 5 |\n| TPL-25 Sharing decision | Records a Data Owner's decision on sharing a schema's information outside the schema or outside \<Organisation\>: what, with whom, why, and the conditions | AC-21; PRO-AC-16 |
+| TPL-24 Approval sign-off record | Records that a named person made or confirms the decisions listed, so that an approval does not rest on someone else's report | AC-1; CA-6, PL-2, PM-10 and every policy control (xx-1); \<Decision Register\>, section 5 |
+| TPL-25 Sharing decision | Records a Data Owner's decision on sharing a schema's information outside the schema or outside \<Organisation\>: what, with whom, why, and the conditions | AC-21; PRO-AC-16 |
 
 ## 2 Templates
 
@@ -90,11 +91,13 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | Compared with: the ServiceNow requests that authorised each membership (TPL-2); for Windows and SQL Server, \<Roles and Responsibilities\> and the approved change records |  |
 | Accounts reviewed |  |
 | Accounts confirmed, changed and removed |  |
-| Members who have not signed in for 90 days, from the last sign-in report run by the security officer (FR-085), and removed (\<Procedures\>, PRO-AC-8) |  |\n| Any temporary, emergency, shared or privileged account found in a schema group (none expected: P-39, P-36, P-45) |  |
+| Members who have not signed in for 90 days, from the last sign-in report run by the security officer (FR-085), and removed (\<Procedures\>, PRO-AC-8) |  |
+| Any temporary, emergency, shared or privileged account found in a schema group (none expected: P-39, P-36, P-45) |  |
 | For a review of risk designations and access agreements (\<Procedures\>, PRO-PS-4): roles checked against \<Roles and Responsibilities\>, designations changed, and agreements reviewed |  |
 | Reviewer is not reviewing their own access (yes or no) |  |
 | Actions completed, by and date |  |
-| Signed off, and date: the Data Owner for a schema's groups; for the role groups, prepared by the system owner and checked and signed by the auditor; for Windows and SQL Server, the system owner and the security officer |  |\n| Head of Cyber's quarterly check of the system owner's own memberships and of the administrators' group, and date |  |
+| Signed off, and date: the Data Owner for a schema's groups; for the role groups, prepared by the system owner and checked and signed by the auditor; for Windows and SQL Server, the system owner and the security officer |  |
+| Head of Cyber's quarterly check of the system owner's own memberships and of the administrators' group, and date |  |
 
 **Table 5: TPL-3 Access review detail**
 

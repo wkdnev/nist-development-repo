@@ -84,7 +84,8 @@ As users sign in through PingFederate, failed sign-ins and changes to administra
 | U5 | Bulk export | Application security event | More than \[number\] items by one user in a day | Security officer | PRO-SI-4 |
 | U6 | Administrator sign-in out of hours | Application security event: a sign-in by a person in an administrator group | Outside \[hours\] | Security officer | PRO-SI-4 |
 | U7 | Audit logging failure | Application log (AU-5) | Any | Security officer | PRO-SI-4 |
-| U8 | Unexpected software change | Integrity check (PRO-SI-6) | Any | Security officer | Incident |\n| U9 | Change to which groups open a schema | Application security event, from the Admin application | Any | Security officer | Check against the change record (TPL-6) approved by the schema's Data Owner; if there is none, incident |
+| U8 | Unexpected software change | Integrity check (PRO-SI-6) | Any | Security officer | Incident |
+| U9 | Change to which groups open a schema | Application security event, from the Admin application | Any | Security officer | Check against the change record (TPL-6) approved by the schema's Data Owner; if there is none, incident |
 
 \<Organisation\> monitors traffic into and out of the network continuously, against the allowed flows (\<System and Communications Protection Management\>, section 3.2). Unusual or unauthorised traffic is traffic outside those flows, and, outbound, unusually large transfers (SI-4(4)). Users are monitored only after the legal adviser's opinion, only as far as needed, and with staff told what is monitored and why.
 
