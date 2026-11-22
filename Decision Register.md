@@ -69,6 +69,7 @@ The control, rating, reason and treatment of each entry are in \<Risk List\>, se
 
 | Entries | Family | Who decides | Decision | Name | Date | Evidence |
 | --- | --- | --- | --- | --- | --- | --- |
+| NC-AC-01 to NC-AC-34 | AC | System owner, as every AC entry is rated Low | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | \[NC-XX-nn\] | \[XX\] | \[Who decides\] | \[Decision\] | \[Name\] | \[Date\] | \[Sheet\] |
 
 ## 5 Proof of approval
