@@ -227,7 +227,7 @@ Part B applies, in addition to Part A, to the system owner, administrators, audi
 
 ## 4 Part C: operating procedures
 
-Part C sets out how \<System Name\>'s security is run. Each duty has a reference, C1 to C61, so that it can be traced to its CSS control in section 8. Each names the record that proves it was done. Records use the forms in \<Record Templates\>. A ServiceNow record holding the same fields may replace a form. Records are kept for 3 years in \[the restricted records location\], unless a longer period applies. Audit records stay in \<System Name\> for 12 months and then in an offline archive for 12 more; application logs are kept for 30 days (\<Audit and Accountability Management\>).
+Part C sets out how \<System Name\>'s security is run. Each duty has a reference, C1 to C62, so that it can be traced to its CSS control in section 8. Each names the record that proves it was done. Records use the forms in \<Record Templates\>. A ServiceNow record holding the same fields may replace a form. Records are kept for 3 years in \[the restricted records location\], unless a longer period applies. Audit records stay in \<System Name\> for 12 months and then in an offline archive for 12 more; application logs are kept for 30 days (\<Audit and Accountability Management\>).
 
 The detection use cases U1 to U9 in \<System and Information Integrity Management\>, section 3.4, say what raises an alert, including repeated failed sign-ins, a break in the audit chain and a Defender detection, and \<Procedures\>, PRO-SI-4, says how to respond.
 
@@ -294,6 +294,7 @@ The detection use cases U1 to U9 in \<System and Information Integrity Managemen
 | C59 | Review the baseline, the inventory and the approved access list, also at each release | System owner, Windows server administrator | \<Procedures\>, PRO-CM-2 | Release record; TPL-5 | CM-2, CM-8, CM-12 |
 | C60 | Review the approved software list and component licences | Windows server administrator, developers, system owner | \<Procedures\>, PRO-CM-4 and PRO-CM-9 | \<Configuration Management\>, section 3.5; \<Decision Register\> | CM-7(5), CM-10 |
 | C61 | Review the contingency plan with the authorising official, check it against the incident response plan and \<Organisation\>'s plans, renew the backup encryption certificate when due, and refresh the offline copies of the plan | System owner, with the database administrator for the certificate | \<Procedures\>, PRO-CP-7 and PRO-CP-1 | Change record; distribution record | CP-2, CP-2(1), CP-9(8) |
+| C62 | Review the authenticator inventory, that each change period was met, and the assurance levels, and take any change to the authorising official | System owner, security officer | \<Procedures\>, PRO-IA-7 | \<Identification and Authentication Management\> change record | IA-5, IA-12 |
 | **When an event occurs** |  |  |  |  |  |
 | C36 | Grant, change or remove access | The groups' owners; \<Organisation\>'s service desk disables accounts | Section 4.4 | TPL-2 (the ServiceNow request), TPL-14 | AC-2, PS-4, PS-5 |
 | C37 | Apply updates within the time limits in \<System Description\>, P-11 | Windows server administrator, database administrator, developers | Section 4.3, through approved change | TPL-6, TPL-7 | SI-2, CM-3 |
@@ -460,7 +461,7 @@ Table 6 shows where each control that these SyOps serve is met. It lets an audit
 | CM-3, CM-4, CM-5 Change Control | B13, B14, B15; C37, C38, C58; section 4.5 |
 | CM-7(1), CM-7(5), CM-10, CM-11 Least Functionality, Authorised Software, Licences and User-installed Software | A47, A48, A49; B17; C24, C60 |
 | CP-2, CP-4, CP-9, CP-10 Contingency | C2, C6, C8, C18, C21, C61; section 4.6 |
-| IA-2, IA-5 Authentication | A9 to A15; B4, B9, B19; C20 |
+| IA-2, IA-5, IA-12 Authentication | A9 to A15; B4, B9, B19; C20, C62; section 4.9 |
 | IR-4, IR-5, IR-6 Incidents | A29, A42, A50 to A53; B22; C43; section 4.9 |
 | MA-2, MA-3, MA-4, MA-5 Maintenance | B15, B20, B21; C28, C41, C48; section 4.7 |
 | MP-2 to MP-7 Media | A28, A30 to A35; C42, C49; section 4.8 |

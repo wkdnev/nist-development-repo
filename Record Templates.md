@@ -319,6 +319,7 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | Active Directory account disabled by \<Organisation\>: date and time |  |
 | Group memberships removed or added: by each owner, and date |  |
 | PingFederate sign-in ended by \<Organisation\>, if needed: date and time |  |
+| For an urgent disable or a suspected compromise (\<Procedures\>, PRO-AC-4, PRO-IA-3): earliest time the account may be re-enabled, 8 hours after it was disabled, or the key ring keys revoked by, and when; and when it was re-enabled |  |
 | Service secrets the person knew changed (\<Procedures\>, PRO-IA-4): by, and date |  |
 | Exported files and printouts recovered or destroyed: confirmed by |  |
 | Items the person managed still available in their schemas: confirmed by |  |
