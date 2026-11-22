@@ -264,14 +264,14 @@ Section 7 lists every control. A control counts as satisfied only when every one
 | Administrators | Managing schemas, the groups that open each schema, and system settings, in the Admin application |
 | Data Owners | Authorising who may read or edit their schema, in ServiceNow, and owning its read and edit groups |
 | Auditor | Reviewing the audit log weekly, comparing it with the server, database, PingFederate and Active Directory records, recording the review, and reporting anything suspicious to the security officer |
-| Security officer | Reviewing alerts, the central logs, advisories and scan results, leading incident response, and reporting monthly on security status. The security officer does not read the audit log |
-| Windows server and database administrators | Securing, patching and scanning the VMs and SQL Server, and running Defender and disk encryption |
+| Security officer | Reviewing alerts, the central logs, advisories and scan results, leading incident response, reviewing maintenance records and remote maintenance logs, running their checks after maintenance, and reporting monthly on security status. The security officer does not read the audit log |
+| Windows server and database administrators | Securing, patching and scanning the VMs and SQL Server, running Defender and disk encryption, and carrying out maintenance, in which a supplier only watches their shared screen |
 | Change control element | Approving changes: the system owner, security officer and Windows server administrator (\<Configuration Management\>) |
 | Security assessor | Leading the independent Level 2 assessment |
 | \<Organisation\> | Inherited services and their evidence |
 | Users | Following the SyOps |
 | Security officer, system owner, database and Windows server administrators | Incident response and training records (security officer); invoking recovery (system owner); backups and rebuilding (administrators). See \<Incident Response Management\>, \<Contingency Planning Management\> and \<Awareness and Training Management\> |
-| \<Organisation\> | Maintaining hardware, handling disks and backup media, and physical and environmental protection. See \<Maintenance Management\>, \<Media Protection Management\> and \<Physical and Environmental Protection Management\> |
+| \<Organisation\> | Maintaining hardware, approving and sanitising its removal under its own process, handling disks and backup media, and physical and environmental protection. See \<Maintenance Management\>, \<Media Protection Management\> and \<Physical and Environmental Protection Management\> |
 | Legal adviser | The privacy plan (\<Privacy Plan\>), the impact assessment, the lawful basis, requests and complaints from individuals, and reports to the ICO |
 | Business and information owner | The information types, and retention periods for each schema; the business owner approves the disposal of items due under the retention schedule (FR-074) |
 | Legal adviser's delegate | Searching every schema for one person's items to answer a request under data protection law (FR-073), named by the legal adviser |

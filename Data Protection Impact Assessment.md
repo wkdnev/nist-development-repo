@@ -55,7 +55,7 @@ Consent is not used, because employees cannot freely refuse their employer, as t
 
 **Transparency:** \<Organisation\>'s employee privacy notice must name \<System Name\> (EV-PT-01). People sign in on \<Organisation\>'s PingFederate page.
 
-**Transfers and processors:** none outside \<Organisation\>, and no data is held outside the UK.
+**Transfers and processors:** none outside \<Organisation\> in normal operation, and no data is held outside the UK. A supplier who sees personal data on an administrator's shared screen, or receives a support copy that still holds it, does so only with the legal adviser's agreement and under a contract with UK GDPR Article 28 terms (\<Maintenance Management\>, sections 3.6 and 3.7; \<Procedures\>, PRO-MA-7).
 
 **Automated decisions:** \<System Name\> makes no decision about a person by automated means alone, and does no profiling (UK GDPR, Article 22).
 

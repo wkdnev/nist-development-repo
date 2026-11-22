@@ -885,7 +885,7 @@ These procedures carry out \<Policy\> (MA), rules R1 to R12. The lists, routes a
 | PRO-MA-4 | Runs remote maintenance over an approved route | Administrators, \<Organisation\> | Each remote job; logs weekly | TPL-12, session log | MA-4 |
 | PRO-MA-5 | Controls who may maintain \<System Name\> | System owner, Windows server administrator | Before access; list every 12 months (C28) | \<Maintenance Management\>, TPL-12 | MA-5 |
 | PRO-MA-6 | Runs preventive maintenance to a schedule | Administrators, developers, \<Organisation\> | As in Table MA-3 | TPL-12, TPL-8 | MA-2(a), MA-6 |
-| PRO-MA-7 | Controls the built-in diagnostics and data leaving for support | Administrator, system owner | Each use | Change record, TPL-12, TPL-13 | MA-2, MA-3, MA-3(3) |
+| PRO-MA-7 | Controls the built-in diagnostics and data leaving for support | Administrator, system owner; legal adviser where personal data remains | Each use | Change record, TPL-12, TPL-13 | MA-2, MA-3, MA-3(3) |
 
 ### MA.3 Procedures
 
@@ -969,7 +969,7 @@ Flaw fixes (SI-2), releases (CM-3) and key changes (SC-12) follow their own proc
 3. The database's structure is never changed from a page. Before a release changes it, which the database administrator applies under an approved change, a backup is taken and checked (\<Procedures\>, PRO-CP-1). **Manual**
 4. The diagnostics run, or the structure change, and the outcome are recorded on TPL-12 with the change or incident reference. **Manual**
 5. Before any data, dump, log or screenshot is sent for maintenance or support, the system owner approves it. **Manual**
-6. It is cut to the minimum, with personal data removed where possible, encrypted, and sent by an approved route. **Manual**
+6. It is cut to the minimum, with personal data removed where possible, encrypted, and sent by an approved route. If personal data cannot be removed, the legal adviser agrees first, and the receiver must hold it under a contract with UK GDPR Article 28 terms, in the UK (P-23). **Manual**
 7. It is recorded on TPL-12 or TPL-13, and the receiver confirms deletion when it is no longer needed. **Manual**
 
 ## MP Media Protection
