@@ -48,7 +48,7 @@ PM controls relied on here: PM-1, PM-4, PM-31.
 
 1. **One programme.** \<Organisation\> runs one security and privacy programme, and \<System Name\> is one system within it.
 2. **Inherit with evidence.** A common control counts for \<System Name\> only once \<Organisation\> has evidenced it. Before \<System Name\> operates, the authorising official accepts reliance on the programme for the 35 inherited PM controls as one line on TPL-18, naming any not yet evidenced.
-3. **Follow, and feed back.** \<System Name\>'s policies, plans and registers follow the programme, and its risks, weaknesses and monitoring results feed back into it.
+3. **Follow, and report to the authorising official.** \<System Name\>'s policies, plans and registers follow the programme. Its plan of action and monitoring results are reported each quarter to the authorising official only (\<Assessment, Authorization, and Monitoring Management\>, sections 3.4 and 3.8); the Head of Cyber receives the assessment report and the authorisation decision. Whether anything more must reach \<Organisation\>'s own processes is for \<Organisation\> to say (EV-PM-01, EV-PM-03).
 4. **Stand in, and say so.** Where \<Organisation\>'s document has not been seen, \<System Name\>'s own document stands in, and the dependency is checked when the evidence arrives.
 
 ![Figure 1: How \<System Name\> relies on the organisation's programme](figures/pmm-figure-1.png)
@@ -84,10 +84,10 @@ Each PM control is listed with who provides it, which \<System Name\> controls r
 | PM-1 Information Security Program Plan | \<Organisation\>, Head of Cyber | Every family's policy (xx-1) | The 19 family policies follow it | EV-PM-01 | No |
 | PM-2 Information Security Program Leadership Role | \<Organisation\>, which appoints the Head of Cyber | All | \[Name\] named as senior information security officer in \<System Security Plan\> | EV-PM-01 | No |
 | PM-3 Information Security and Privacy Resources | \<Organisation\> | CA-5, SA-2 | Fixes costed in \<Plan of Action and Milestones\>, and on TPL-23 | EV-PM-01 | Yes |
-| PM-4 Plan of Action and Milestones Process | \<Organisation\>, Head of Cyber | CA-5 | \<Plan of Action and Milestones\> feeds it | EV-PM-01 | Yes |
+| PM-4 Plan of Action and Milestones Process | \<Organisation\>, Head of Cyber | CA-5 | \<Plan of Action and Milestones\> is kept for \<System Name\>, and its overdue items are reported each quarter to the authorising official. It is not sent to \<Organisation\>'s own process, which has not been seen | EV-PM-01 | Yes |
 | PM-5 System Inventory | \<Organisation\> | CM-8, PL-2 | A system identifier, shown as a placeholder in \<System Security Plan\>, section 2 | EV-PM-02 | No |
 | PM-5(1) Inventory of Personally Identifiable Information | \<Organisation\>, legal adviser | PT-2, PT-3, CM-12 | Personal data inventory in \<PII Processing Management\>, section 3.3 | EV-PM-02 | Yes |
-| PM-6 Measures of Performance | Head of Cyber | CA-7 | Monitoring results in \<Assessment, Authorization, and Monitoring Management\> | EV-PM-03 | Yes |
+| PM-6 Measures of Performance | Head of Cyber | CA-7 | \<System Name\>'s own measures in \<Assessment, Authorization, and Monitoring Management\>, section 3.8, reported to the authorising official. They are not part of \<Organisation\>'s measures | EV-PM-03 | Yes |
 | PM-7 Enterprise Architecture | \<Organisation\> | PL-2, PL-8, SA-17 | \<System Description\>, section 6, fits it | EV-PL-01 | Yes |
 | PM-7(1) Offloading | \<Organisation\> | PL-8, SA-8 | None | EV-PL-01 | No |
 | PM-8 Critical Infrastructure Plan | \<Organisation\> | CP-2 | None; \<System Name\> is not critical infrastructure | EV-PM-01 | Yes |
@@ -116,7 +116,7 @@ Each PM control is listed with who provides it, which \<System Name\> controls r
 | PM-29 Risk Management Program Leadership Roles | \<Organisation\> | All | None | EV-PM-01 | No |
 | PM-30 Supply Chain Risk Management Strategy | \<Organisation\> | SR-2, SR-3 | \<Supply Chain Risk Management\> follows it | EV-PM-03 | No |
 | PM-30(1) Suppliers of Critical or Mission-essential Items | \<Organisation\> | RA-9, SR-3, SR-6 | The supplier register with criticality in \<Supply Chain Risk Management\>, section 3.5, and the critical components in \<Risk Assessment Management\>, section 3.9 | EV-PM-03 | No |
-| PM-31 Continuous Monitoring Strategy | \<Organisation\>, Head of Cyber | CA-7 | \<Assessment, Authorization, and Monitoring Management\> follows it | EV-PM-03 | Yes |
+| PM-31 Continuous Monitoring Strategy | \<Organisation\>, Head of Cyber | CA-7 | \<Assessment, Authorization, and Monitoring Management\>, section 3.8, follows it; \<System Name\>'s status is reported to the authorising official, not to \<Organisation\>'s programme | EV-PM-03 | Yes |
 | PM-32 Purposing | \<Organisation\> | SA-8 | \<Concept of Operations\> states \<System Name\>'s purpose | EV-PM-01 | No |
 
 Where \<Organisation\>'s document is not yet seen, \<System Name\>'s own document stands in, and the dependency is checked when the evidence arrives.
