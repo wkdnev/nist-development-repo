@@ -205,7 +205,7 @@ Part B applies, in addition to Part A, to the system owner, administrators, audi
 
 **B14.** Do not change security settings, firewall rules, certificates or keys without an approved change.
 
-**B15.** Do not carry out database maintenance on a live system without an approved change, and then only with a second person present (\<Procedures\>, PRO-MA-7). No debug or test page is included in a release: report any you find.
+**B15.** Do not carry out database maintenance, or run the diagnostics in the Admin application, without an approved change or incident (\<Procedures\>, PRO-MA-7). Both are recorded: SQL Server Audit records direct reads of the item tables, and the audit log records each diagnostics run, and the auditor reviews them weekly. No debug or test page is included in a release: report any you find.
 
 **B16.** Query or change data directly in the database only for an approved change or incident, and record what you did.
 
@@ -217,9 +217,9 @@ Part B applies, in addition to Part A, to the system owner, administrators, audi
 
 ### 3.4 Maintenance and incidents
 
-**B20.** Use only approved maintenance tools, and connect for remote maintenance only through \<Organisation\>'s approved route (section 4.7).
+**B20.** Use only approved maintenance tools, and connect for remote maintenance only through \<Organisation\>'s approved route (section 4.7). Sign out when you finish, rather than only disconnecting.
 
-**B21.** Escort and supervise anyone doing maintenance who does not hold \<System Name\> access.
+**B21.** Never give a supplier, or anyone else not on the list of maintenance people, an account or your credentials. They take part only by watching and guiding over your shared screen, while you drive and supervise the session.
 
 **B22.** Report any suspected security incident, including one you caused, to the security officer at once.
 
@@ -301,7 +301,7 @@ The detection use cases U1 to U9 in \<System and Information Integrity Managemen
 | C38 | Make a change, including an emergency change | Change control element | Section 4.5 | TPL-6 | CM-3, CM-4, CM-5 |
 | C39 | Renew certificates before they expire | Windows server administrator | \<Procedures\>, PRO-SC-2 | TPL-6 | SC-8, SC-17 |
 | C40 | Repeat the security tests at each release and after a significant change | Developers | The developer test plan in \<System and Services Acquisition Management\>, section 3.9 (15 scripts, including Test-Protection.ps1 for \<Procedures\>, PRO-SC-1), in the test environment; \<Procedures\>, PRO-SA-2 | Results, with a manifest, in the evidence for each family | CA-2, CM-4(2), SA-11 |
-| C41 | Carry out maintenance | Windows server and database administrators | Sections 4.6 and 4.7 | TPL-12 | MA-2, MA-4 |
+| C41 | Carry out maintenance | Windows server and database administrators | Sections 4.6 and 4.7 | TPL-12 | MA-2, MA-3, MA-3(1), MA-3(2), MA-4, MA-5 |
 | C42 | Transport, sanitise or dispose of media | \<Organisation\>, Windows server administrator | Section 4.8 | TPL-13 | MP-5, MP-6 |
 | C43 | Handle a security incident or personal data breach | Security officer | Section 4.9 | TPL-10 | IR-4, IR-5, IR-6 |
 | C44 | Handle a request or complaint from a person about their data. Only the legal adviser's delegate runs the search across all schemas (\<System Description\>, FR-073) | Legal adviser; legal adviser's delegate | \<Procedures\>, PRO-PT-1 and PRO-PT-2 | TPL-15, TPL-22 | AC-3(14), SI-18(4) |
@@ -349,8 +349,9 @@ The security officer analyses each change's impact against the criteria in \<Con
 
 1. Remote maintenance is done only over a route in \<Maintenance Management\>, section 3.4, from the administrators' managed devices through \<Organisation\>'s managed administration route (F11), with multi-factor authentication and a named account, for an approved change or an incident. From outside the office, connect to the VPN first (P-54, B23).
 2. The connection is logged, limited to the task, and ended as soon as it is finished.
-3. Afterwards the server or database administrator runs the checklist after maintenance (\<Procedures\>, Table MA-2) and records the work on TPL-12, with the connection log reference. The security officer reviews and signs the result within 1 working day.
-4. Outside maintenance staff work only under the supervision of a \<System Name\> administrator (B21).
+3. Afterwards the server or database administrator runs their checks in the checklist after maintenance (\<Procedures\>, Table MA-2) and records the work on TPL-12, with the connection log reference. Within 1 working day, the security officer runs the sign-in, audit chain and checksum checks, then reviews and signs the result.
+4. Outside maintenance staff hold no account: they watch and guide over the administrator's shared screen, and the administrator drives and supervises the session (B21).
+5. When the work is finished, the administrator signs out of Windows and SQL Server rather than only disconnecting, closes the route connection and ends any screen sharing.
 
 ### 4.8 Media sanitisation and disposal (C42)
 
@@ -463,7 +464,7 @@ Table 6 shows where each control that these SyOps serve is met. It lets an audit
 | CP-2, CP-4, CP-9, CP-10 Contingency | C2, C6, C8, C18, C21, C61; section 4.6 |
 | IA-2, IA-5, IA-12 Authentication | A9 to A15; B4, B9, B19; C20, C62; section 4.9 |
 | IR-4, IR-5, IR-6 Incidents | A29, A42, A50 to A53; B22; C43; section 4.9 |
-| MA-2, MA-3, MA-4, MA-5 Maintenance | B15, B20, B21; C28, C41, C48; section 4.7 |
+| MA-1 to MA-6 Maintenance | B15, B20, B21; C11, C28, C41, C48; sections 4.6 and 4.7 |
 | MP-2 to MP-7 Media | A28, A30 to A35; C42, C49; section 4.8 |
 | PE-5, PE-17 Output Devices and Alternate Work Site | A33, A36, A37, A38 to A42; C30 |
 | PS-6, PS-8 Access Agreements and Sanctions | A4; C23, C31; section 9 |

@@ -892,60 +892,61 @@ These procedures carry out \<Policy\> (MA), rules R1 to R12. The lists, routes a
 #### PRO-MA-1 Scheduling, approving, checking and recording maintenance
 
 1. The administrator raises a change record, following \<Procedures\> (CM). It names the component, the work, who will do it, the tools, the route and any downtime. **Manual**
-2. The change is approved before work starts. Emergency maintenance follows the emergency change rule in \<Security Operating Procedures\>, section 4.5, and is recorded within 1 working day. **Manual**
+2. The change control board approves the change before work starts. Routine work in Table MA-3 cites the standing change for the schedule, which the board approves and reviews every 12 months and whenever the schedule changes. Emergency maintenance follows the emergency change rule in \<Security Operating Procedures\>, section 4.5: the system owner or their deputy approves it first, and it is recorded within 1 working day. **Manual**
 3. If users are affected, the system owner tells them at least 2 working days before planned maintenance. **Manual**
-4. The administrator watches any work done by someone who is not on the list of maintenance people (PRO-MA-5). **Manual**
-5. When the work is finished, the administrator runs the checklist in Table MA-2 and records the result on TPL-12. In the test environment, the maintenance test script runs the first three checks. **Manual**
-6. The security officer reviews and signs the checklist result within 1 working day. **Manual**
+4. Anyone not on the list of maintenance people takes part only by watching the administrator's shared screen (PRO-MA-5). **Manual**
+5. When the work is finished, the administrator runs the checks in Table MA-2 assigned to them and records the result on TPL-12. **Manual**
+6. Within 1 working day, the security officer runs the checks assigned to them, then reviews and signs the whole result. **Manual**
 7. Each month, the security officer reviews every TPL-12 against its change record (C48). Maintenance with no change record is raised as a security incident. **Manual**
 
 **Table MA-2: Checklist after maintenance**
 
-| Check | How | Expected |
-| --- | --- | --- |
-| Services are healthy | The API health check and each application's start page (C1) | All answer |
-| Anonymous access is refused | An API call with no token, and an Admin application page | The call is refused, and the page sends the person to PingFederate to sign in |
-| Sign-in works and is audited | Sign in through PingFederate, then look at the audit log | A new sign-in record |
-| Audit records are intact | The audit chain check (\<Procedures\>, PRO-AU-2), and records without a hash | None broken; none without a hash |
-| Items are intact | File checksum check (\<Procedures\>, PRO-SI-6) | All match |
-| Defender is running | Defender status on both VMs | On, and up to date |
-| Backups still run | The last backup job (C8) | Succeeded |
-| Time is right | Both VMs against UTC (C45) | Within 1 second |
-| Settings are unchanged | Drift check (\<Procedures\>, PRO-CM-7) | No unapproved difference |
+| Check | Who | How | Expected |
+| --- | --- | --- | --- |
+| Services are healthy | Administrator | The API health check and each application's start page (C1) | All answer |
+| Anonymous access is refused | Administrator | An API call with no token, made on the application server, as the API listens only on its loopback address; and an Admin application page opened without signing in | The call is refused, and the page sends the person to PingFederate to sign in |
+| Sign-in works and is recorded | Security officer | Sign in to the Admin application through PingFederate, then open the last sign-in report (FR-085). Administrators hold no application role, and only the auditor reads the audit log | The security officer's own sign-in shows today's date |
+| Audit records are intact | Security officer | The audit chain check from the Admin application (\<Procedures\>, PRO-AU-2) | No break reported |
+| Items are intact | Security officer | File checksum check (\<Procedures\>, PRO-SI-6) | All match |
+| Defender is running | Administrator | Defender status on both VMs | On, and up to date |
+| Backups still run | Administrator | The last backup job (C8) | Succeeded |
+| Time is right | Administrator | Both VMs against UTC (C45) | Within 1 second |
+| Settings are unchanged | Administrator | Drift check (\<Procedures\>, PRO-CM-7) | No unapproved difference; App Control for Business enforced with the approved policy |
+| Nothing is left behind | Administrator | The Windows administrators group on both VMs and the SQL Server logins and roles, against the approved list; any file or tool copied for the job | Unchanged from the approved list; copied files removed |
 
 #### PRO-MA-2 Removing equipment
 
-1. The system owner approves the removal of any equipment in the change record. **Manual**
+1. Host hardware beneath the VMs is removed with the approval of \<Organisation\>'s own process, which tells the system owner beforehand where it can and afterwards in every case (D-MA-03; EV-MA-01). Any other equipment holding \<System Name\> information needs the system owner's approval in the change record. **Manual**
 2. \<Organisation\> sanitises it first by the method in \<Media Protection Management\>, section 3.6 (CSS and IEEE 2883-2022), following \<Procedures\>, PRO-MP-3, and confirms in writing with a certificate (EV-MA-01). **Manual**
-3. The administrator records the removal, the approval and the certificate on TPL-12, and any media on TPL-13. **Manual**
+3. The Windows server administrator records the notice, who approved the removal and the certificate on TPL-12, and any media on TPL-13. If no certificate arrives within 30 days, the system owner asks \<Organisation\> for it. **Manual**
 
 #### PRO-MA-3 Maintenance tools
 
-1. The Windows server administrator keeps the approved tool list in \<Maintenance Management\>, section 3.5, and reviews it with the system owner every 12 months (C28). A new tool needs the system owner's approval before first use. **Manual**
-2. Tools are inspected before use for changes that are not expected: the version, publisher and file hash are compared with the list, and the result is recorded on TPL-12. **Manual**
-3. Media holding diagnostic or test programs are scanned by Defender before use.
-4. No tool outside the approved tool list is installed or used on the servers. **Manual**
-5. Equipment that holds \<System Name\> data leaves only under PRO-MA-2, or PRO-MA-7 for data sent for support. **Manual**
+1. The Windows server administrator keeps the approved tool list in \<Maintenance Management\>, section 3.5, as part of the approved software list, and reviews it with the system owner every 12 months (P-67; C28). **Manual**
+2. A new tool for the servers needs the system owner's approval of the request (\<Procedures\>, PRO-CM-4), and is installed by a change that adds it to the App Control for Business policy (\<Procedures\>, PRO-CM-1). **Manual**
+3. On the servers, App Control for Business refuses any tool whose publisher or hash does not match its rule. A tool from outside the baseline, on an administrator's managed device or copied onto a server for a job, is inspected before use: its version, publisher and file hash are compared with the list, and the result is recorded on TPL-12. A tool found modified is reported as a security incident. **Manual**
+4. Any file or disk image holding diagnostic or test programs is scanned by Defender before use, and the scan recorded on TPL-12. No removable media are connected to the servers.
+5. No tool outside the approved tool list is installed or used on the servers; App Control for Business blocks it. A file copied for a job is removed when the job ends. **Manual**
+6. Equipment that holds \<System Name\> data leaves only under PRO-MA-2, or PRO-MA-7 for data sent for support. **Manual**
 
 #### PRO-MA-4 Remote maintenance
 
-1. The system owner approves remote work in the change record, naming the route from \<Maintenance Management\>, section 3.4. **Manual**
-2. The person connects only through that route, with multi-factor sign-in and a named account (EV-MA-02). Server and database administration reaches the two servers only from the administrators' managed devices over the managed administration route (F11), and the Admin application is reached only through that route.
-3. A supplier's session is watched by an administrator. Each session is logged as set in \<Maintenance Management\>, section 3.4. **Manual**
-4. When the work is finished, the session and network connection are ended, and any temporary account is disabled. **Manual**
+1. The change record names the route from \<Maintenance Management\>, section 3.4, and is approved under PRO-MA-1, step 2. **Manual**
+2. The administrator connects only through that route, with multi-factor sign-in and a named account (EV-MA-02). Server and database administration reaches the two servers only from the administrators' managed devices over the managed administration route (F11), and the Admin application is reached only through that route. From outside the office, the VPN is used first (P-54).
+3. A supplier holds no account: they watch and guide over the administrator's shared screen, without control, and the administrator drives. Each session is logged as set in \<Maintenance Management\>, section 3.4. **Manual**
+4. When the work is finished, the administrator signs out of Windows and SQL Server rather than only disconnecting, closes the route connection and ends any screen sharing. **Manual**
 5. The administrator records the job on TPL-12 with the session reference. The security officer reviews the session logs weekly (C4, C5). **Manual**
 
 #### PRO-MA-5 Maintenance people
 
 1. The system owner approves the list of maintenance organisations and people in \<Maintenance Management\>, section 3.6. **Manual**
 2. Before giving access, the administrator checks the person is on the list, is screened, has signed Part B of \<Security Operating Procedures\> and has a named account. **Manual**
-3. A supplier gets a temporary account limited to the job, disabled when the job ends. **Manual**
-4. Anyone not on the list is escorted and supervised by someone who is, and has no access to \<System Name\>'s data. **Manual**
-5. The Windows server administrator checks the list when someone leaves, and every 12 months (C28). **Manual**
+3. A supplier, or anyone else not on the list, gets no account (P-39). They take part only by watching and guiding over the shared screen of a Windows server or database administrator who is on the list and competent in the work, who drives and supervises the session and can end it at once. They receive no copy of \<System Name\>'s data except under PRO-MA-7. **Manual**
+4. The Windows server administrator checks the list when someone leaves, and every 12 months (P-67; C28). **Manual**
 
 #### PRO-MA-6 Preventive maintenance schedule
 
-Flaw fixes (SI-2) and releases (CM-3) follow their own procedures. They are listed here so that all routine work is in one place.
+Flaw fixes (SI-2), releases (CM-3) and key changes (SC-12) follow their own procedures. They are listed here so that the routine maintenance of each component is in one place. The change control board approves this schedule as a standing change (PRO-MA-1, step 2). Backups, restore tests and the other operating duties are in \<Security Operating Procedures\>, section 4.
 
 **Table MA-3: Preventive maintenance schedule**
 
@@ -955,6 +956,7 @@ Flaw fixes (SI-2) and releases (CM-3) follow their own procedures. They are list
 | Check disk space and growth | Both VMs and the database | Windows server and database administrators | Monthly | TPL-8 |
 | Apply updates (SI-2) | Windows, SQL Server, .NET | As \<Security Operating Procedures\>, section 4.3 | Monthly, and within the fix times | TPL-7 |
 | Renew certificates | Both VMs | Windows server administrator | 30 days before expiry (C39) | TPL-6 |
+| Change keys and secrets (SC-12) | Key store, and the backup encryption certificate | Windows server and database administrators | As \<System Description\>, P-10, sets (C20) | TPL-6 |
 | Clear old application logs | Application VM | Windows server administrator | Monthly (C46) | TPL-8 |
 | Build each release on the patched .NET runtime (CM-3) | Applications | Developers | Each release, checked monthly (C11) | TPL-6 |
 | Check support end dates | Components in \<Maintenance Management\>, section 3.8 | Developers, Windows server administrator | Monthly (C11) | TPL-7 |
@@ -962,10 +964,10 @@ Flaw fixes (SI-2) and releases (CM-3) follow their own procedures. They are list
 
 #### PRO-MA-7 Built-in diagnostics and data leaving for support
 
-1. The fixed diagnostics page in the Admin application (\<Maintenance Management\>, section 3.5), which reads no item content, is used only under an approved change record that names the reason. No other diagnostic or test page is included in a release. **Manual**
-2. An Administrator opens it with a second person present: the security officer or the system owner. **Manual**
+1. The fixed diagnostics page in the Admin application (\<Maintenance Management\>, section 3.5), which reads no item content, is used only by an administrator, as part of an approved maintenance job or an incident. No other diagnostic page, and no test page, is included in a release. **Manual**
+2. Each run is written to the audit log, which the auditor reviews weekly. No second person is needed (D-MA-02). **Manual**
 3. The database's structure is never changed from a page. Before a release changes it, which the database administrator applies under an approved change, a backup is taken and checked (\<Procedures\>, PRO-CP-1). **Manual**
-4. The diagnostics run, or the structure change, and the outcome are recorded on TPL-12. **Manual**
+4. The diagnostics run, or the structure change, and the outcome are recorded on TPL-12 with the change or incident reference. **Manual**
 5. Before any data, dump, log or screenshot is sent for maintenance or support, the system owner approves it. **Manual**
 6. It is cut to the minimum, with personal data removed where possible, encrypted, and sent by an approved route. **Manual**
 7. It is recorded on TPL-12 or TPL-13, and the receiver confirms deletion when it is no longer needed. **Manual**

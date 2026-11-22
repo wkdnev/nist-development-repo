@@ -228,6 +228,8 @@ These are the values the controls depend on. CSS calls many of them organisation
 | P-64 | Change control | The change control board meets monthly, and sooner when an urgent or security change needs a decision. Change records are kept for 3 years. An emergency change is recorded within 1 working day | CM-3 | \[\] |
 | P-65 | Least functionality and software | Functions, ports, protocols, software and services reviewed every 12 months; the approved software list reviewed every 12 months, and the software installed on the servers compared with it every 12 months | CM-7(1), CM-7(5), CM-11 | \[\] |
 | P-66 | Unauthorised components | Both servers checked monthly by \<Organisation\>'s discovery tools for unauthorised hardware, software and firmware. On detection, the Windows server administrator removes the component or disables its network access, and tells the security officer | CM-8(3) | \[\] |
+| P-67 | Maintenance lists, notice and records | The approved maintenance tools and people reviewed every 12 months, and when someone leaves; users given 2 working days' notice of planned maintenance that affects them; maintenance records kept 3 years | MA-2, MA-3, MA-5 | \[\] |
+| P-68 | Timely maintenance | Support and parts for the hardware and hypervisor within 24 hours of a failure; Microsoft software supported through \<Organisation\>'s support agreement; a replacement planned at least 6 months before a component's support ends | MA-6, SA-22 | \[\] |
 
 ## 5 Requirements
 
@@ -364,7 +366,7 @@ Each requirement is to be verified before the application is authorised. \<Secur
 | FR-060 | Change, deactivate, reactivate and delete schemas. A deactivated schema opens for nobody. Only an empty schema can be deleted: one that has never held items, or whose items have all been disposed of under FR-074 | Administrator | The API updates the schema definition and audits the change. Inactive schemas are left out of every list and refused on request. The API refuses to delete a schema that still holds items, so a schema in use is retired by deactivating it, and its items leave only by disposal (FR-074). Deactivating, reactivating or deleting a schema needs a change record approved by its Data Owner (TPL-6), whose reference is audited with the change |
 | FR-061 | Close a schema with no groups to everyone | System | The access check finds no group to match, so nobody is let in. Administrators have no rule that opens item content |
 | FR-062 | Manage the system settings that are safe to change while running | Administrator | A fixed list of settings, each change audited. Security settings are changed only by a release |
-| FR-063 | Run fixed diagnostics that read no item content | Administrator | A page that runs fixed checks and shows the results. No diagnostic or test page is included in a release |
+| FR-063 | Run fixed diagnostics that read no item content | Administrator | A page that runs fixed checks and shows the results, each run audited. No other diagnostic page, and no test page, is included in a release |
 | FR-064 | Change the database's structure only by a release under an approved change, never from a page | Database administrator | Structure changes are scripts in a release, applied by the database administrator |
 | FR-065 | Hold no pages for user accounts, passwords, roles or group membership: these are managed in Active Directory | System | No such page or table exists |
 | FR-066 | Answer a health check without sign-in, giving no detail | System | One API function that returns a fixed answer and reads no data |
@@ -912,7 +914,7 @@ Every application is built in-house under \<Organisation\>'s corporate software 
 
 ### 7.13 Operation and maintenance
 
-Day-to-day duties are in \<Security Operating Procedures\>, each with the record that proves it. Every user signs rules of behaviour before access. Maintenance is approved first as a change, and remote maintenance uses only \<Organisation\>'s managed route with multi-factor authentication. Changes are approved by a change control board of the system owner, the security officer, a server administrator and, for a change that touches personal data, the legal adviser.
+Day-to-day duties are in \<Security Operating Procedures\>, each with the record that proves it. Every user signs rules of behaviour before access. Maintenance is approved first as a change, and remote maintenance uses only \<Organisation\>'s managed route with multi-factor authentication, through the VPN first from outside the office (P-54). A supplier holds no account, and watches and guides over an administrator's shared screen (D-MA-01). Changes are approved by a change control board of the system owner, the security officer, a server administrator and, for a change that touches personal data, the legal adviser.
 
 ### 7.14 Privacy
 
@@ -931,7 +933,7 @@ These principles are fixed for every application built on the reference system. 
 | No trust from network position | Being on the internal network grants nothing; every request is authenticated and authorised | Section 6.6, zone Z1; section 7.2 |
 | Defence in depth | No single control stands alone: boundary, transport, identity, authorisation, data at rest, audit, host, recovery and people | Section 6.6 |
 | Fail secure | An error, a time-out or a missing dependency refuses access | NFR-052 |
-| Secure defaults | The application is secure as delivered: TLS on, rate limits on, no diagnostic pages, no default accounts | NFR-031, NFR-046, FR-063, FR-011 |
+| Secure defaults | The application is secure as delivered: TLS on, rate limits on, no diagnostic pages beyond the fixed checks, no default accounts | NFR-031, NFR-046, FR-063, FR-011 |
 | No local credentials | Identity is \<Organisation\>'s; the application holds no passwords, and its secrets are in a key store | NFR-013, NFR-036, NFR-092 |
 | Keep the attack surface small | Internal only, one route to the data, no outbound messages, no interface for other systems, only the components needed | Section 5.1.12; NFR-040, NFR-080 |
 | Separation | User functions apart from management functions; each schema's data apart; duties apart | NFR-004, NFR-006, NFR-045 |
@@ -957,7 +959,7 @@ Table 45 gives each CSS control family, the reference design in brief, and the d
 | CP Contingency Planning | Recover within P-12, losing at most P-13. Encrypted daily backups with transaction logs, a copy at a second site, and recovery tested as P-16 sets | \<Contingency Planning Management\> |
 | IA Identification and Authentication | Every user signs in through \<Organisation\>'s PingFederate with multi-factor authentication. The application holds no accounts or passwords. Services use their own accounts and secrets held in a key store | \<Identification and Authentication Management\> |
 | IR Incident Response | Report within the time in P-21, four severities with targets, playbooks, evidence preserved before clean-up, and personal data breaches to the legal adviser | \<Incident Response Management\> |
-| MA Maintenance | Maintenance is approved first, done by known people with approved tools over \<Organisation\>'s managed route, checked afterwards and recorded | \<Maintenance Management\> |
+| MA Maintenance | Maintenance is approved first, done by known people with approved tools over \<Organisation\>'s managed route, checked afterwards and recorded. Suppliers hold no account and work only through an administrator's shared screen. \<Organisation\> maintains the hosts | \<Maintenance Management\> |
 | MP Media Protection | Items stay in the database. Exports are limited, encrypted, marked and removed; portable storage needs approval; media are sanitised to CSS | \<Media Protection Management\> |
 | PE Physical and Environmental Protection | Provided by \<Organisation\> at its data centre and second site. The system owner checks its evidence each year and sets rules for offices and home working | \<Physical and Environmental Protection Management\> |
 | PL Planning | A security plan, a privacy plan and rules of behaviour that every user signs, all checked for consistency before each issue | \<Planning Management\> |
@@ -1053,7 +1055,7 @@ Table 48 defines the terms used across the set, including those in \<Policy\>. T
 | Awareness | Messages and briefings that keep security in people's minds |
 | Baseline | The approved, recorded configuration of a configuration item at a point in time, from which it can be rebuilt |
 | Bill of materials | A list of every component in a release, with its version, supplier, hash and licence, in a machine-readable form |
-| Built-in maintenance function | The fixed diagnostics page in the Admin application, which reads no item content. \<System Name\> has no page that changes its data or set-up |
+| Built-in maintenance function | The fixed diagnostics page in the Admin application, which reads no item content. \<System Name\> has no page that changes the database's structure or repairs data in bulk |
 | Business impact analysis | The analysis of how an outage harms the organisation over time, which sets the recovery objectives |
 | Chain hash | A value calculated from each record and the one before it, so that a change can be detected |
 | Change control board | The group that decides on changes: the system owner (chair), the security officer, the Windows server administrator and the legal adviser as privacy representative, under its charter in \<Configuration Management\>, section 3.8 |
@@ -1079,7 +1081,7 @@ Table 48 defines the terms used across the set, including those in \<Policy\>. T
 | Digital media | Media that need power to be read, including virtual disks, export files and managed devices |
 | Directory | \<Organisation\>'s Active Directory, which holds accounts and groups and which the API reads for group membership |
 | Drift | Any difference between the running configuration and the baseline |
-| Escort | A person on the approved list who supervises someone who is not |
+| Escort | A person on the approved list who supervises someone who is not. For maintenance on the servers, the escort signs in and drives the session, and the other person watches over a shared screen and holds no account (D-MA-01) |
 | Event | An action or occurrence that \<Audit and Accountability Management\> says must be logged |
 | Evidence | Records and copies kept to show what happened, with a hash and a record of custody |
 | Exception | Written permission to depart from a requirement for a set period, recorded in \<Risk List\> |

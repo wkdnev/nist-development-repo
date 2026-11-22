@@ -116,7 +116,7 @@ Controls met here: SA-8(33), SI-12(1), SI-12(2), SI-12(3), SI-18, SI-19.
 | A2 | Audit records | 24 months: 12 online and 12 in an offline archive | Record created | AU-11, as set in \<Audit and Accountability Management\> and \<System Description\>, P-07 | Archive, then delete |
 | A3 | Application log | 30 days | Log written | As set in \<Audit and Accountability Management\>, section 3.10 | Rotated and deleted |
 | A4 | Training records (TPL-9) and the training register | 3 years | Training completed | AT-4, as set in \<Awareness and Training Management\> (AT-04\_ODP) | Delete |
-| A5 | Maintenance records (TPL-12) | 3 years | Job completed | MA-2, as set in \<Maintenance Management\>, section 3.3 | Delete |
+| A5 | Maintenance records (TPL-12) | 3 years | Job completed | MA-2, as set in \<Maintenance Management\>, section 3.3 (P-67) | Delete |
 | A6 | Media records (TPL-13) | 3 years | Action completed | MP-6, as set in \<Media Protection Management\>, section 3.6 | Delete |
 | A7 | Signed rules of behaviour (TPL-21) and the register of signatures | While the person has access, and 3 years after | Access ended | PL-4, as set in \<Planning Management\>, section 3.5 | Delete |
 | A8 | Personnel security register entries | While the person has access, and 3 years after | Access ended | PS-3, as set in \<Personnel Security Management\>, section 3.9 | Delete |

@@ -92,7 +92,7 @@ It runs on \<Organisation\>'s internal network, on two Windows Server 2025 virtu
 | Active Directory down | Nobody can sign in or be authorised. If the API cannot read a person's groups, it gives them no role and no schema, and refuses the request |
 | API down | Nobody can work, because both applications reach the items only through the API |
 | Database down | The API cannot read any data, so it refuses every request and nobody can open an item. People stay signed in |
-| Maintenance | Users cannot reach \<System Name\>. Planned maintenance falls in the windows in P-32, and users get 2 working days' notice |
+| Maintenance | Only when a job needs downtime, users cannot reach \<System Name\>. Planned maintenance falls in the windows in P-32, and users get 2 working days' notice (P-67) |
 
 These modes come from reading the design.
 

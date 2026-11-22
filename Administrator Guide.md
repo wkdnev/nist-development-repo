@@ -47,7 +47,7 @@ Any change to these settings follows \<Procedures\> (CM), and is checked for dri
 | Apply security updates | To the timetable in \<Risk Assessment Management\>, section 3.6 | \<Procedures\>, PRO-SI-1 | TPL-7 |
 | Check for exploited flaws | Weekly | \<Procedures\>, PRO-RA-4 | TPL-7 |
 | Test backups and restores | Backups checked weekly (C8); a restore every 6 months on the restore test server at the second site, which is erased afterwards (C18) | \<Procedures\>, PRO-CP-1 and PRO-CP-2 | TPL-8, TPL-11, TPL-13 |
-| Maintenance | As needed | \<Procedures\> (MA), through the managed route | TPL-12 |
+| Maintenance | As needed, under an approved change; routine work under the standing change for the preventive schedule | \<Procedures\> (MA), through the managed route, signing out at the end; a supplier only watches your shared screen | TPL-12 |
 | Check the export working area | Each working day (\<Security Operating Procedures\>, C49) | \<Procedures\> (MP) | TPL-8 |
 | Report an incident to the security officer, and preserve evidence before changing anything | At once, and within 1 hour | \<Procedures\>, PRO-IR-1 and PRO-IR-6; \<Incident Response Management\> | TPL-10 |
 | End every \<System Name\> sign-in at once, when the security officer asks during an incident: revoke every key in the UI and Admin applications' key rings, not only add a new key | As asked | \<Procedures\>, PRO-SC-3 and PRO-IA-3 | TPL-6 |

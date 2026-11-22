@@ -1496,13 +1496,13 @@ There is one finding for each CSS determination statement, including those about
 | Procedures | CSS, using the CSS published statements and identifiers (catalog release 5.2.0) |
 | Dates | \[Dates of the assessment\] |
 | Site | \[Where the assessment is done, and on what build and data\] |
-| Examine | \<Policy\> (MA), \<Procedures\> (MA) and \<Maintenance Management\>; TPL-12; \<Security Operating Procedures\>, sections 4.6 and 4.7; the diagnostics page in the Admin application and the build files. Depth: focused. Coverage: focused |
+| Examine | \<Policy\> (MA), \<Procedures\> (MA) and \<Maintenance Management\>; TPL-12; \<Security Operating Procedures\>, sections 4.6 and 4.7; the diagnostics page in the Admin application and the build files; the App Control for Business policy against the tool list; the server accounts against the approved people list. Depth: focused. Coverage: focused |
 | Test | Test-Maintenance.ps1, with a hash manifest. Depth: focused. Coverage: focused |
-| Interview | The Windows server administrator, database administrator, an administrator, the security officer, the system owner and \<Organisation\>'s IT service desk; questions INT-MA-01 to 07 in \<Interview Guide\> |
+| Interview | The Windows server administrator, database administrator, an administrator, the security officer, the system owner and \<Organisation\>'s IT service desk; questions INT-MA-01 to INT-MA-08 in \<Interview Guide\>, section 11 |
 | Previous results reused | \[Results reused from other chapters, if any\] |
 | Boundary | Maintenance of the VMs, database and applications, and the diagnostics in \<System Name\>'s Admin application. Hardware and hypervisor maintenance, the managed route and support are inherited from \<Organisation\> |
 | Order of assessment | A, tools and built-in functions (MA-3 and enhancements); B, remote routes (MA-4); C, controlled maintenance and records (MA-2); D, people (MA-5); E, timely maintenance (MA-6); F, policy (MA-1) |
-| Needed from \<Organisation\> | EV-MA-01 and EV-MA-02 in \<Evidence Requests\>: its maintenance process, sanitising, service agreement, and the managed route's settings and logs |
+| Needed from \<Organisation\> | EV-MA-01 and EV-MA-02 in \<Evidence Requests\>: its maintenance and removal process, sanitising, service and Microsoft support agreements, and the managed route's settings, logs and screen-sharing tool |
 | Evidence retained | The MA evidence, with its manifest; \<Maintenance Management\>, sections 3.4 to 3.8 |
 | Notes | Maintenance records on the VMs and \<Organisation\>'s maintenance, routes and support are examined as well as the tests. |
 

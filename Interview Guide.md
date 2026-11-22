@@ -271,12 +271,13 @@ Questions are numbered INT-XX-nn, where XX is the family code, and each names th
 | ID | For | Question | Statements | Ask to see |
 | --- | --- | --- | --- | --- |
 | INT-MA-01 | Windows server administrator | Show me the record for the last maintenance. Who approved it, and who checked the controls afterwards? | MA-02 | Change record and TPL-12 |
-| INT-MA-02 | Windows server administrator | Which tools are approved, and how are they checked? | MA-03, MA-03(01), MA-03(02) | Tool list |
+| INT-MA-02 | Windows server administrator | Which tools are approved, how is a new one added to App Control for Business, and how is a tool from outside the baseline checked before use? | MA-03, MA-03(01), MA-03(02) | Tool list; App Control policy |
 | INT-MA-03 | System owner | How does remote maintenance get approved, watched and ended? | MA-04 | Change record and remote maintenance logs |
-| INT-MA-04 | System owner | Who may maintain \<System Name\>, and how is anyone else supervised? | MA-05 | Approved list |
-| INT-MA-05 | \<Organisation\>'s IT service desk | How quickly can support and parts arrive, and how is equipment sanitised before it leaves? | MA-02d, MA-06 | EV-MA-01 |
+| INT-MA-04 | System owner | Who may maintain \<System Name\>? When a supplier helps, how do they see the session without an account, and who drives it? | MA-05, MA-04c | Approved list; screen-sharing settings |
+| INT-MA-05 | \<Organisation\>'s IT service desk | How quickly can support and parts arrive? Who approves removing host hardware, how is it sanitised, and how is the system owner told? | MA-02c, MA-02d, MA-06 | EV-MA-01 |
 | INT-MA-06 | Security officer | How do you review the maintenance records and the remote maintenance logs, and what happens when a job has no change record? | MA-02a, MA-04a | TPL-12 reviews; remote maintenance logs |
-| INT-MA-07 | Administrator | When did you last run the diagnostics in the Admin application? Who approved it, who was present, and where is it recorded? | MA-03a | Change record and TPL-12 |
+| INT-MA-07 | Administrator | When did you last run the diagnostics in the Admin application? Which job or incident was it for, and where is it recorded? | MA-03a | Change or incident record, TPL-12 and the audit log |
+| INT-MA-08 | Security officer | After the last maintenance job, which checks did you run, and how did you confirm that sign-in still works without reading the audit log? | MA-02e | TPL-12; last sign-in report |
 
 ## 12 Media Protection (MP)
 

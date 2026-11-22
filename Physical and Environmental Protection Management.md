@@ -65,7 +65,7 @@ Who provides each PE control, and the evidence that closes it. The first choice 
 | PE-13, PE-13(1) | Fire detection and suppression, with automatic notification | Nothing | A.7.5; fire safety records (EV-PE-03) |
 | PE-14 | Temperature and humidity control and monitoring | Nothing | A.7.5, A.7.8; monitoring records (EV-PE-03) |
 | PE-15 | Water damage protection | Nothing | A.7.5 (EV-PE-03) |
-| PE-16 | Control of deliveries and removals | Approves removal of \<System Name\> equipment (\<Procedures\>, PRO-MA-2) | A.7.2, A.7.10; sample records (EV-PE-04) |
+| PE-16 | Control of deliveries and removals | Receives notice of host hardware removal and its sanitising certificate; approves removal of any other \<System Name\> equipment (\<Procedures\>, PRO-MA-2) | A.7.2, A.7.10; sample records (EV-PE-04) |
 | PE-17 | Managed devices and route | Home working rules and the yearly check | A.6.7, A.7.9; EV-PE-05; TPL-4 |
 | Compensating | Nothing | Server disk encryption, so physical access to hosts does not expose data | Encryption settings on the servers |
 
@@ -177,7 +177,7 @@ Controls met here: PE-13, PE-13(1), PE-14, PE-15.
 Controls met here: PE-16.
 
 1. **What is controlled.** Hardware and media that hold \<System Name\> information, entering and leaving each data centre.
-2. **Approval.** The system owner approves the removal of anything of \<System Name\>'s (\<Maintenance Management\>, section 3.7; PRO-MA-2).
+2. **Approval.** \<Organisation\>'s own process approves the removal of host hardware beneath the servers, after sanitising it, and tells the system owner beforehand where it can and afterwards with the certificate; the system owner approves the removal of anything else of \<System Name\>'s (\<Maintenance Management\>, section 3.7; PRO-MA-2; D-MA-03).
 3. **Records.** \<Organisation\> keeps its delivery and removal records. \<System Name\>'s own are on TPL-12 and TPL-13.
 
 ### 3.11 Policy and procedures
