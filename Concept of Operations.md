@@ -63,6 +63,7 @@ An item normally moves through four stages: it is added to a schema, found and r
 | A request for items | Someone needs a schema's items elsewhere | The schema's Data Owner decides, and an editor exports them as a download |
 | Wrong schema | A user tries to open a schema they may not read | \<System Name\> shows the access-denied page, and they request access in ServiceNow, which their line manager approves and the schema's Data Owner authorises |
 | Forgotten password or lockout | A user cannot sign in | \<Organisation\>'s IT service desk resets the Active Directory password or releases the lock, after checking who they are |
+| A stolen password | A user thinks someone knows their password or has their second factor | They tell the service desk and the security officer. The account is disabled first, which ends their \<System Name\> sign-in within 5 minutes, then the password or factor is reset; the account stays disabled for 8 hours unless every sign-in is ended (\<Procedures\>, PRO-IA-3) |
 | Leaving a desk | A user walks away while signed in | They must use Sign out if they will be away for longer than a short break (\<System Description\>, P-53). The device's screen lock hides the screen after the inactivity time \<Organisation\> sets (P-03). The sign-in ends 8 hours after sign-in at most (P-02) |
 | A new starter or a leaver | Staff change | Access is requested and authorised for a starter, and removed for a leaver |
 
@@ -86,7 +87,7 @@ It runs on \<Organisation\>'s internal network, on two Windows Server 2025 virtu
 | Mode | What happens |
 | --- | --- |
 | Normal | Everyone can work as usual |
-| PingFederate down | Nobody can sign in, because \<Organisation\>'s PingFederate authenticates every user and there is no local sign-in. People already signed in carry on until their sign-in ends at PingFederate's sign-in lifetime |
+| PingFederate down | Nobody can sign in, because \<Organisation\>'s PingFederate authenticates every user and there is no local sign-in. People already signed in carry on until their sign-in ends, 8 hours after it began (P-02) |
 | Active Directory down | Nobody can sign in or be authorised. If the API cannot read a person's groups, it gives them no role and no schema, and refuses the request |
 | API down | Nobody can work, because both applications reach the items only through the API |
 | Database down | The API cannot read any data, so it refuses every request and nobody can open an item. People stay signed in |

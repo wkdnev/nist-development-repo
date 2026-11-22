@@ -245,8 +245,10 @@ Questions are numbered INT-XX-nn, where XX is the family code, and each names th
 | INT-IA-03 | Sample user | What would you do if you thought your password was known? | IA-05f, IA-05h | None |
 | INT-IA-04 | Windows server administrator | How are the key that signs the tokens between the applications and the audit chain key changed, and when were they last changed? | IA-05f, IA-05(06) | Rotation record |
 | INT-IA-05 | \<Organisation\>'s security contact | How are devices identified on the network? | IA-03 | EV-IA-01 |
-| INT-IA-06 | \<Organisation\>'s HR | What identity evidence do you check, and how are people told? | IA-12, IA-12(02), IA-12(03), IA-12(05) | EV-IA-02 |
+| INT-IA-06 | \<Organisation\>'s HR | What identity evidence do you check, how do you validate and verify it, and how are people told at their address of record? | IA-12, IA-12(02), IA-12(03), IA-12(05) | EV-IA-02 |
 | INT-IA-07 | Developers, with \<Organisation\>'s security contact | Show me a sign-in through PingFederate from start to finish. What does \<System Name\> check in the OpenID Connect response, how does the API then read the person's groups from Active Directory over LDAPS, and what happens if I present the same response twice? | IA-02, IA-02(01), IA-02(08) | The trust settings (\<Identification and Authentication Management\>, section 3.3); a test record |
+| INT-IA-08 | Security officer, with \<Organisation\>'s IT service desk | Walk me through the last suspected password compromise. When was the account disabled, when were the password and second factor reset, and when was the account enabled again? Why is ending the PingFederate sign-in not enough? | IA-05d, IA-05f, IA-11 | PRO-IA-3 record; TPL-14 |
+| INT-IA-09 | Developers | When the UI or Admin application calls the API for a signed-in person, how does the API learn who that person is, and what stops one application, or anything else on the server, from naming another person? | IA-02\[02\] | \<Identification and Authentication Management\>, Table 1; a test record |
 
 ## 10 Incident Response (IR)
 

@@ -261,8 +261,9 @@ Table AC-4 summarises each procedure: what starts it, who acts, its time limit, 
 
 1. Whoever raises the concern tells the system owner and \<Organisation\>'s service desk.
 2. Within the time in P-41, \<Organisation\>'s service desk disables the person's Active Directory account, and ends their PingFederate sign-in so that they cannot start a new one. **Manual**
-3. The system owner confirms with the service desk that the account is disabled, and, after 5 minutes, checks \<System Name\>'s audit log or asks the auditor to confirm that the person's requests are being refused.
-4. The system owner records the reason and informs anyone who needs to know.
+3. The account stays disabled for at least 8 hours (\<System Description\>, P-02), unless the Windows server administrator has revoked every key in the UI and Admin applications' key rings, so that a cookie issued before it was disabled cannot be used again if it is re-enabled (\<Identification and Authentication Management\>, section 3.7). **Manual**
+4. The system owner confirms with the service desk that the account is disabled, and, after 5 minutes, checks \<System Name\>'s audit log or asks the auditor to confirm that the person's requests are being refused.
+5. The system owner records the reason and informs anyone who needs to know.
 
 #### PRO-AC-5 Schema access
 
@@ -667,7 +668,7 @@ These procedures carry out \<Policy\> (CP) and \<Contingency Planning Management
 5. When the backup encryption certificate is made, and each time it is renewed every 12 months, the database administrator exports it with its private key, protected by a strong password, to the key store and its protected copy at the second site, apart from the backups. Retired certificates are kept until the last backup they encrypted is removed. Only the system owner and administrators can reach the certificate and the protected copy of the secrets. **Manual**
 6. A failed backup alerts the database administrator and the security officer. The database administrator fixes it within 1 working day.
 7. The system owner copies changed documentation to the controlled library. **Manual**
-8. Each week the database administrator checks every backup job succeeded and that each backup reached the second site, and records it on TPL-8 (\\<Security Operating Procedures\\>, C8). **Manual**
+8. Each week the database administrator checks every backup job succeeded and that each backup reached the second site, and records it on TPL-8 (\<Security Operating Procedures\>, C8). **Manual**
 
 #### PRO-CP-2 Testing a restore
 
@@ -738,8 +739,8 @@ These procedures define how identifiers and authenticators are issued, changed a
 | --- | --- | --- | --- | --- | --- |
 | PRO-IA-1 | Identifiers | Each new person | \<Organisation\>; the group's owner | ServiceNow request | IA-2, IA-4, IA-4(4), IA-12 |
 | PRO-IA-2 | Passwords | Each new Active Directory account and reset | \<Organisation\>'s IT service desk | \<Organisation\>'s record | IA-5 |
-| PRO-IA-3 | Suspected compromise, role change, or a lost or stolen authenticator | When it happens | The person; \<Organisation\>'s service desk; security officer | ServiceNow request; incident record if needed | IA-5, IR-6 |
-| PRO-IA-4 | Changing service secrets and the signing key | Every 12 months, and when an administrator leaves | Windows server administrator | TPL-6 | IA-5, IA-5(6) |
+| PRO-IA-3 | Suspected compromise, role change, or a lost or stolen authenticator | When it happens | The person; \<Organisation\>'s service desk; the group's owner; security officer | ServiceNow request; TPL-14 if the account is disabled; incident record if needed | IA-5, IA-11, IR-6 |
+| PRO-IA-4 | Changing service secrets and the signing key | Every 12 months, at once if exposed, and when an administrator who could read them leaves | Windows server administrator, with \<Organisation\>'s PingFederate team for the client credential | TPL-6 | IA-5, IA-5(6) |
 | PRO-IA-5 | Password rules | Not done in \<System Name\> | \<Organisation\> | None | IA-5(1) |
 | PRO-IA-6 | Enrolling and resetting a second factor | When the person first uses PingFederate; on loss | The person; \<Organisation\>'s service desk | \<Organisation\>'s record | IA-2(1), IA-2(2) |
 | PRO-IA-7 | Reviewing authenticators and assurance levels | Every 12 months, and after a significant change | System owner, security officer | \<Identification and Authentication Management\> change record | IA-5, IA-12 |
@@ -751,7 +752,7 @@ These procedures define how identifiers and authenticators are issued, changed a
 
 1. A person's Active Directory account is their identifier. \<Organisation\> issues it after its pre-employment checks have proved who the person is. \<System Name\> issues no identifiers. **Manual**
 2. The ServiceNow approval in PRO-AC-1 authorises the person's membership of a \<System Name\> group: the system owner for privileged roles, and the Data Owner for schema access.
-3. Staff or contractor status is shown by \<Organisation\>'s directory.
+3. Staff or contractor status is shown by \<Organisation\>'s directory, and the group's owner checks it when authorising the request.
 4. An identifier is never reused. This is \<Organisation\>'s rule, and is to be evidenced. **Manual**
 
 #### PRO-IA-2 Passwords
@@ -762,12 +763,15 @@ These procedures define how identifiers and authenticators are issued, changed a
 #### PRO-IA-3 Suspected compromise, role change, or a lost or stolen authenticator
 
 1. The person, or whoever notices, tells \<Organisation\>'s IT service desk and the security officer straight away. This includes a password written down or seen, and a lost phone or key used as a second factor. **Manual**
-2. The service desk resets the password or the second factor, and ends the person's PingFederate sign-in. **Manual**
-3. The security officer decides whether this is a security incident, and if so raises it under \<Procedures\> (IR). **Manual**
+2. If the password or second factor may be known to someone else, the service desk first disables the person's Active Directory account, as in PRO-AC-4. \<System Name\>'s API then refuses the person within 5 minutes, ending any open session. Ending the PingFederate sign-in alone is not enough, because it does not end \<System Name\>'s authentication cookie. **Manual**
+3. The service desk resets the password or the second factor, after checking who the person is, and ends the person's PingFederate sign-in. **Manual**
+4. The account is re-enabled no sooner than 8 hours (\<System Description\>, P-02) after it was disabled, so that no cookie issued before then still works. If the person needs access sooner, the Windows server administrator first revokes every key in the UI and Admin applications' key rings, which signs every user out, and records it on TPL-6. **Manual**
+5. For a role change, the group's owner removes the memberships the person no longer needs (PRO-AC-2), and the API refuses them within 5 minutes. **Manual**
+6. The security officer decides whether this is a security incident, and if so raises it under \<Procedures\> (IR). **Manual**
 
 #### PRO-IA-4 Changing service secrets and the signing key
 
-1. Every 12 months, and when an administrator leaves, the Windows server administrator changes the secrets in \<Identification and Authentication Management\>, section 3.5: the token signing key and the audit chain key. The retired version of the audit chain key stays in the key store for checking only, for the retention period in P-07, so older audit records can still be checked (\<Audit and Accountability Management\>, section 3.5). Each application runs under a group managed service account, whose password Windows sets and changes, and the API connects to SQL Server with Windows authentication, so there is no service account password or database password to change.
+1. Every 12 months (\<System Description\>, P-10), at once if exposed, and when an administrator who could read them leaves, the Windows server administrator changes the secrets in \<Identification and Authentication Management\>, section 3.5: the token signing key, the audit chain key and the OpenID Connect client credential. The client credential is changed with \<Organisation\>'s PingFederate team, in PingFederate and the key store together, so that sign-in is not interrupted. The retired version of the audit chain key stays in the key store for checking only, for the retention period in P-07, so older audit records can still be checked (\<Audit and Accountability Management\>, section 3.5). Each application runs under a group managed service account, whose password Windows sets and changes, and the API connects to SQL Server with Windows authentication, so there is no service account password or database password to change.
 2. They update the protected copy at the second site (\<Contingency Planning Management\>, section 3.8).
 3. They record the change on TPL-6: the date, who made it and which secret, never the value. Changing the token signing key does not end users' sign-ins, because their cookies are protected by each application's key ring. **Manual**
 
@@ -779,6 +783,7 @@ These procedures define how identifiers and authenticators are issued, changed a
 
 1. Each person enrols their second factor with \<Organisation\>, for PingFederate, under its own procedure. **Manual**
 2. If a second factor is lost or replaced, the person tells \<Organisation\>'s IT service desk, which checks who they are and lets them enrol a new one, and ends the person's PingFederate sign-in. **Manual**
+3. If the lost factor may be in someone else's hands together with the password, PRO-IA-3 is followed, starting with disabling the account. **Manual**
 
 #### PRO-IA-7 Reviewing authenticators and assurance levels
 
@@ -1384,7 +1389,7 @@ These procedures carry out \<Policy\> (SA). Steps marked **Manual** have no syst
 
 #### PRO-SA-5 Unsupported components
 
-1. The monthly check (\\<Security Operating Procedures\\>, C11) compares each component in \<Maintenance Management\>, section 3.8, with its vendor's support dates, and checks that each package and browser library is still maintained, is not deprecated, and has no known flaw without a fix. **Manual**
+1. The monthly check (\<Security Operating Procedures\>, C11) compares each component in \<Maintenance Management\>, section 3.8, with its vendor's support dates, and checks that each package and browser library is still maintained, is not deprecated, and has no known flaw without a fix. **Manual**
 2. Developers plan a replacement at least 6 months before support ends. **Manual**
 3. Any exception goes to the authorising official, with the risk stated. **Manual**
 
@@ -1432,14 +1437,14 @@ These procedures carry out \<Policy\> (SC). The values, cryptographic register a
 #### PRO-SC-2 Managing certificates
 
 1. The Windows server administrator requests each certificate from \<Organisation\>'s certificate authority, using ECDSA P-256 or RSA 2048-bit with SHA-256, and records it in the register. **Manual**
-2. Renewal starts 30 days before expiry (\\<Security Operating Procedures\\>, C39), and the new certificate is installed through change control. **Manual**
+2. Renewal starts 30 days before expiry (\<Security Operating Procedures\>, C39), and the new certificate is installed through change control. **Manual**
 3. A certificate whose key may be compromised is revoked and replaced at once, and the event is handled as an incident. **Manual**
 
 #### PRO-SC-3 Changing keys
 
 1. The register lists each key's cryptoperiod. When one is due, when a holder leaves, or when compromise is suspected, the owner changes the key and records the date, never the value, on TPL-6. **Manual**
-2. The token signing key and the audit chain key are held only in the key store, never in source code or settings files.
-3. Each app keeps its data protection key ring in its own folder, readable only by its service account and protected with Windows DPAPI at machine level. The folder is included in the server backup. Old keys are kept until every cookie they protected has expired.
+2. The token signing key, the audit chain key and the OpenID Connect client credential are held only in the key store, never in source code or settings files.
+3. Each app keeps its data protection key ring in its own folder, readable only by its service account and protected with Windows DPAPI at machine level. The folder is not backed up, as the key ring cannot be read on a rebuilt server: if it is lost, users simply sign in again (\<Contingency Planning Management\>, section 3.3.4). Old keys are kept until every cookie they protected has expired.
 
 #### PRO-SC-4 Changing the boundary
 
@@ -1521,7 +1526,7 @@ These procedures carry out \<Policy\> (SI). The values, detection use cases and 
 
 #### PRO-SI-5 Acting on advisories
 
-1. The security officer receives advisories from NCSC (including Early Warning), CISA, Microsoft for Windows Server, SQL Server and .NET, and the vendors of every other component, and checks CISA's Known Exploited Vulnerabilities catalogue weekly (\\<Security Operating Procedures\\>, C50). **Manual**
+1. The security officer receives advisories from NCSC (including Early Warning), CISA, Microsoft for Windows Server, SQL Server and .NET, and the vendors of every other component, and checks CISA's Known Exploited Vulnerabilities catalogue weekly (\<Security Operating Procedures\>, C50). **Manual**
 2. For each one that applies, they write an internal advisory note on TPL-7 and pass it to the administrators and developers. **Manual**
 3. The fix follows PRO-SI-1. **Manual**
 

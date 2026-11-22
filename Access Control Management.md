@@ -430,7 +430,7 @@ Controls met here: AC-2, AC-2(3), AC-2(13).
 | The account has expired | AD accounts with an end date are disabled by Active Directory on that date | None |
 | The person leaves | \<Organisation\> disables the leaver's AD account at once, and \<System Name\> refuses it within 5 minutes. Each group's owner removes the membership within 5 working days | P-06 |
 | The account breaches policy | \<Organisation\> disables the AD account on notice, as for a high-risk individual (PRO-AC-4) | P-41 |
-| A high-risk individual | Within 1 hour of notice from management or \<Organisation\>'s security contact of misconduct, compromised credentials or a hostile departure, \<Organisation\> disables the AD account, so the person cannot sign in again, and \<System Name\>'s API refuses the disabled account within 5 minutes, ending any open session (PRO-AC-4, record TPL-14; TPL-10 if it is an incident) | P-41 |
+| A high-risk individual | Within 1 hour of notice from management or \<Organisation\>'s security contact of misconduct, compromised credentials or a hostile departure, \<Organisation\> disables the AD account, so the person cannot sign in again, and \<System Name\>'s API refuses the disabled account within 5 minutes, ending any open session. The account stays disabled for at least 8 hours (P-02), unless every key in the key rings is revoked first, so that a cookie issued before it was disabled cannot be used again (PRO-AC-4, record TPL-14; TPL-10 if it is an incident) | P-41 |
 | The account is unused | \<Organisation\> disables AD accounts unused for 90 days within 1 working day (P-38). In addition, each month, the security officer lists, from the last sign-in report (FR-085), every member who has not signed in to \<System Name\> for 90 days, and the owner of each group removes them, so that an unused membership ends even while the Active Directory account stays in use for other work (PRO-AC-8) | P-38 |
 
 ### 3.15 Sign-in session, sign-out, failed sign-ins and device lock
@@ -465,7 +465,7 @@ Only these actions are allowed without signing in (P-51):
 4. see the access-denied page;
 5. load static files, such as scripts, styles and images;
 6. check that the API is running, which returns one status word;
-7. on the application server's loopback address only, the UI and Admin applications' token request to the API, which involves no user. Each application authenticates it with Windows authentication under its own service account, and the API issues tokens only to those two accounts. Only the API's service account can read the token signing key, so no application can make its own token.
+7. on the application server's loopback address only, the UI and Admin applications' token request to the API, which carries no user's cookie: the application asks for a token naming a person it has already signed in. Each application authenticates it with Windows authentication under its own service account, and the API issues tokens only to those two accounts. Only the API's service account can read the token signing key, so no application can make its own token.
 
 Each is needed before a person can identify themselves, or involves no person, and none returns business data. The API health check supports monitoring. The list and the reasons are also stated in \<System Security Plan\>. The list is reviewed every 12 months and after a change (PRO-AC-14).
 
