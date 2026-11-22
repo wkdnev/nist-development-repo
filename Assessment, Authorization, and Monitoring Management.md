@@ -203,6 +203,8 @@ This is \<System Name\>'s system-level strategy. It carries out \<Organisation\>
 | Requests from individuals about their data answered within one month | Privacy | All | Any late | TPL-15 | Monthly | Legal adviser |
 | Personal data incidents | Privacy | None | Any | TPL-10 | Monthly | Security officer |
 | Configuration drift from the baseline | Change | None unapproved | Any | PRO-CM-7; TPL-8 | Monthly | Windows server administrator |
+| Alerts acknowledged within their time, and their outcomes | Effectiveness | All | Any acknowledged late, or any not closed | \<System and Information Integrity Management\>, Table 3; TPL-8, TPL-10 | Monthly | Security officer |
+| Integrity, file checksum and malware rescan results | Effectiveness | No unexplained difference or detection | Any | PRO-SI-6; TPL-8 | Monthly | Security officer |
 | Security incidents open past their time limit | Effectiveness | None | Any | TPL-10 | Monthly | Security officer |
 | Vulnerabilities past their fix time | Effectiveness | None | Any Critical or High past its time | TPL-7; the timetable in \<Risk Assessment Management\>, section 3.6 | Monthly | Windows server administrator, developers |
 | Changes to the inherited controls: a change to a service \<Organisation\> provides, or its evidence past its review date | Change | None unassessed | Any | \<Organisation\>'s notices; \<Evidence Requests\>; TPL-8 | Quarterly | System owner |

@@ -484,7 +484,7 @@ Table 6 shows where each control that these SyOps serve is met. It lets an audit
 | SC-12 Key Management | B19; C20 |
 | SC-7, SC-17 Boundary and Certificates | C25, C39, C52 |
 | SC-8, SC-13, SC-18, SC-28 Transport, Cryptography, Page Code and Data at Rest | B19; C39, C40, C52, C53 |
-| SI-4, SI-7 Monitoring and Integrity | C1, C4, C12 |
+| SI-3, SI-4, SI-7 Malicious Code, Monitoring and Integrity | C1, C4, C12; section 4.6 |
 
 ## 9 Acknowledgement
 

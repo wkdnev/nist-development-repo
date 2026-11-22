@@ -192,7 +192,7 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | Central logs reviewed by the security officer, and anything unexplained |  |
 | Audit log review, by an auditor only (P-08, NFR-027): records compared with the server, database, PingFederate and Active Directory records, anything suspicious, and the date it was reported to the security officer |  |
 | Alerts raised, and what was done |  |
-| Integrity checks: release packages, file checksums and audit chain, and the auditor's comparison of the daily chain copies in central logging with the audit log (PRO-AU-2) |  |
+| Integrity checks: the installed release files against the release record, the file checksum check and malware rescan of stored files, and the audit chain, and the auditor's comparison of the daily chain copies in central logging with the audit log (PRO-AU-2) |  |
 | Audit log reads and exports seen in central logging, and anything unexplained reported to the Head of Cyber (security officer) |  |
 | Quarterly report on the administrators' actions, for the Head of Cyber (PRO-AU-1, step 6) |  |
 | Audit storage: free space, size of the audit table, and any request for more (PRO-AU-4) |  |
