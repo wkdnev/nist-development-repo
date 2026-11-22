@@ -6,7 +6,7 @@ This guide is the place to start. It says what the \<System Name\> document set 
 
 It holds no facts about the system of its own. It says which document in the set holds each kind of fact. The full index is \<Documentation Map\>, which also says where each fact about a control is held (its section 3) and sets the standard every document follows (its section 4).
 
-The set shows how \<System Name\>, an internal digital library built on the reference system in \<System Description\>, is designed and run to the CSS Moderate baseline, with the CSS privacy baseline. It covers 20 control families and 316 controls. The plans, descriptions, rules and procedures state the design. The assessment and authorisation documents are templates, filled in as \<System Name\> is assessed, authorised and run.
+The set shows how \<System Name\>, an internal digital library built on the reference system in \<System Description\>, is designed and run to the CSS Moderate baseline, with the CSS privacy baseline. It covers 20 control families and 316 controls. The plans, descriptions, rules and procedures state the design. The assessment and authorisation documents are templates, filled in as \<System Name\> is assessed, authorised and run. \<Control Assessment Record\> and \<Security Assessment Report\> hold, for now, a desk self-assessment made from the documents alone, which prepares for the assessments and is replaced by their results.
 
 ## 2 The set at a glance
 

@@ -140,7 +140,7 @@ This matrix is proposed to \<Organisation\>.
 | ID | Control | What we need to know | Evidence to provide |
 | --- | --- | --- | --- |
 | EV-AT-01 | AT-2, AT-2(2), AT-2(3), AT-3, AT-4 | What \<Organisation\>'s security training covers, including privacy, insider threat and social engineering, how often it is taken, how it is updated, and who has completed it; and the role training \<Organisation\> gives its own administrators of the \<System Name\> servers, with its records | Training content showing the insider threat and social engineering parts, and sample completion records for users and administrators |
-| EV-AT-02 | AT-3 | The security and privacy training \<Organisation\> gives the Head of Cyber and the data protection officer for their roles, and how often | The course or programme each has completed, with dates |
+| EV-AT-02 | AT-3 | The security and privacy training \<Organisation\> gives the Head of Cyber, the data protection officer and its security contact for their roles, and how often | The course or programme each has completed, with dates |
 
 ## 5 Audit and Accountability (AU)
 

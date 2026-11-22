@@ -367,7 +367,7 @@ These procedures carry out \<Policy\> (AT). Steps marked **Manual** rely on peop
 | PRO-AT-2 Role training | Before privileged access, or within 30 days for incident, contingency and risk decision modules; before a line manager's first approval; then every 12 months | Security officer, Head of Cyber | TPL-9 | AT-3, AT-3(5), IR-2, CP-3 |
 | PRO-AT-3 Keeping content current | Every 12 months, and after a significant incident, exercise or change | Security officer, legal adviser | TPL-6 change record | AT-2c, AT-2d, AT-3b, AT-3c |
 | PRO-AT-4 Records and the register | At each completion, and before a role is granted | Security officer, system owner | TPL-9; training register | AT-4, AC-2 |
-| PRO-AT-5 Measures and checking | Monthly, and at each review | Security officer, system owner | TPL-8 monthly measures; Test-PlanConsistency.ps1 | AT-1, AT-2, AT-3, CA-7 |
+| PRO-AT-5 Measures and checking | Monthly, and at each review | Security officer, system owner | TPL-8 monthly measures; Test-PlanConsistency.py | AT-1, AT-2, AT-3, CA-7 |
 
 ### AT.2 Procedures
 
@@ -388,7 +388,7 @@ These procedures carry out \<Policy\> (AT). Steps marked **Manual** rely on peop
 5. Developers complete their modules before they first work on \<System Name\> code. The system owner confirms it in the register before the developer is given access to the code. **Manual**
 6. Roles without access are trained for the duties they hold, as the matrix sets: the legal adviser takes M7 and the authorising official M10 within 30 days of taking the role, and the information owner takes the briefing and M9 before their first categorisation decision. A deputy takes the modules of the role they cover. **Manual**
 7. Before a line manager first approves an access request, and if they are not already a \<System Name\> user, the security officer gives them briefing part B7 and records it on TPL-9. **Manual**
-8. \<Organisation\> evidences the training of the Head of Cyber and the data protection officer. **Manual** (EV-AT-02)
+8. \<Organisation\> evidences the training of the Head of Cyber, the data protection officer and its security contact. **Manual** (EV-AT-02)
 
 #### PRO-AT-3 Keeping content current
 
@@ -407,7 +407,7 @@ These procedures carry out \<Policy\> (AT). Steps marked **Manual** rely on peop
 
 1. Each month, the security officer reports the measures in \<Awareness and Training Management\>, section 3.9, with the CA-7 measures on TPL-8. **Manual**
 2. Anyone overdue is reminded each month. Anyone overdue by more than 30 days has privileged access suspended until complete. A standard user keeps access, as accepted in \<Risk List\>, R-AT-01. **Manual**
-3. At each review, the system owner runs Test-PlanConsistency.ps1. Check L14 confirms that every security role has its training defined in the matrix. **Manual**
+3. At each review, the system owner runs Test-PlanConsistency.py. Check L14 confirms that every security role has its training defined in the matrix. **Manual**
 4. No phishing simulation is run unless HR and the legal adviser have agreed it (\<Policy\> (AT), R8). **Manual**
 
 ## AU Audit and Accountability
@@ -1104,7 +1104,7 @@ These procedures carry out \<Policy\> (PL). Steps marked **Manual** have no syst
 
 | Procedure | When | Who | Record | Controls |
 | --- | --- | --- | --- | --- |
-| PRO-PL-1 Keeping the plans current | After an assessment, significant change or problem in use, and every 12 months | System owner | Plan review record and change record in each plan; Test-PlanConsistency.ps1 results | PL-2c, PL-2d |
+| PRO-PL-1 Keeping the plans current | After an assessment, significant change or problem in use, and every 12 months | System owner | Plan review record and change record in each plan; Test-PlanConsistency.py results | PL-2c, PL-2d |
 | PRO-PL-2 Sharing the plans | When a plan is approved or changed | System owner | Plan review record entry naming the recipients | PL-2b |
 | PRO-PL-3 Signing the rules | Before access, every 12 months, and after a material change | System owner, everyone | TPL-21; register of signatures in \<Planning Management\>, section 3.5 | PL-4b, PL-4d |
 | PRO-PL-4 Tailoring | When a control or part is proposed as not applicable | Proposer, system owner, authorising official | Entry in \<Tailoring Register\> and \<Decision Register\> | PL-11 |
@@ -1169,7 +1169,7 @@ These procedures carry out \<Policy\> (PS). Steps marked **Manual** rely on peop
 | PRO-PS-4 Reviewing designations, agreements and rescreening | Every 12 months, and when a role's access changes | System owner | Within the 12 months | TPL-3; TPL-21; personnel security register | PS-2, PS-3, PS-6 |
 | PRO-PS-5 External people | A contract is let or renewed; then every 12 months | System owner | 1 working day for supplier notices | TPL-16 | PS-7 |
 | PRO-PS-6 Sanctions | \<Organisation\> starts a formal sanctions process against someone with \<System Name\> access | \<Organisation\>, system owner | 1 working day to tell the system owner | TPL-10 if it is an incident | PS-8 |
-| PRO-PS-7 Checking | At each review | System owner | At each review | Test-PlanConsistency.ps1, check L17 | PS-1, PS-2 |
+| PRO-PS-7 Checking | At each review | System owner | At each review | Test-PlanConsistency.py, check L17 | PS-1, PS-2 |
 
 ### PS.2 Procedures
 
@@ -1217,7 +1217,7 @@ These procedures carry out \<Policy\> (PS). Steps marked **Manual** rely on peop
 
 #### PRO-PS-7 Checking
 
-1. At each review, the system owner runs Test-PlanConsistency.ps1 and confirms that check L17 passes: every role in \<Roles and Responsibilities\> has a risk designation. **Manual**
+1. At each review, the system owner runs Test-PlanConsistency.py and confirms that check L17 passes: every role in \<Roles and Responsibilities\> has a risk designation. **Manual**
 2. The system owner compares a sample of the members of \<System Name\>'s groups with the personnel security register, and records the result with the review. **Manual**
 
 ## PT Personally Identifiable Information Processing and Transparency

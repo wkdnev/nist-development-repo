@@ -196,7 +196,7 @@ It applies to everyone who uses, administers or develops \<System Name\>, includ
 7. **R7 Checks and measures:** each module must end with a check, with a pass mark of 80%. The measures in \<Awareness and Training Management\>, section 3.9, must be reported monthly by the security officer and reviewed by the system owner.
 8. **R8 Phishing simulations:** none may be run without the agreement of HR and the legal adviser. If run, no one is penalised for clicking, and the measure is reports, not clicks.
 9. **R9 Records:** every completion must be recorded on TPL-9 and in the training register, and kept for 3 years.
-10. **R10 Checking:** Test-PlanConsistency.ps1 must show that every security role has its training defined, at each review.
+10. **R10 Checking:** Test-PlanConsistency.py must show that every security role has its training defined, at each review.
 
 ### AT.5 Responsibilities
 
@@ -782,7 +782,7 @@ It applies to every system plan for \<System Name\>: the System Security Plan, t
 The rules in section 1.1 apply to this policy. It adds these.
 
 1. **Communication:** this policy and the procedures must be shared with everyone who administers \<System Name\>, and whenever they change.
-2. **Compliance and management commitment:** the system owner reviews compliance at each review, runs Test-PlanConsistency.ps1, and records the result in the plan review record.
+2. **Compliance and management commitment:** the system owner reviews compliance at each review, runs Test-PlanConsistency.py, and records the result in the plan review record.
 3. **Coordination:** the system owner coordinates the plans with the Head of Cyber, administrators, the legal adviser and \<Organisation\>'s security contact.
 4. **Laws and standards:** this policy must be consistent with applicable law, including UK GDPR and the Data Protection Act 2018 for the privacy plan; \<Organisation\>'s policies; and CSS.
 
@@ -818,7 +818,7 @@ It applies to everyone who uses, administers or develops \<System Name\>, includ
 9. **R9 External people:** contracts with external people must state their personnel security requirements and security duties, and require them to follow this policy and \<Procedures\> (PS). Suppliers must report leavers and movers within 1 working day, and their compliance must be checked every 12 months. A supplier's engineer who helps with maintenance holds no role or account, and only watches an administrator's shared screen (D-MA-01).
 10. **R10 Sanctions:** a breach of the rules is handled through \<Organisation\>'s disciplinary process. When \<Organisation\> starts a formal sanctions process against someone with \<System Name\> access for breaching security or privacy rules, it must tell the system owner within 1 working day, naming the person and the reason.
 11. **R11 Role descriptions:** the security and privacy duties of every \<System Name\> role must be stated in \<Roles and Responsibilities\>, and \<Organisation\>'s job descriptions must refer to them.
-12. **R12 Records and checking:** each of these steps must be recorded on the forms named in \<Procedures\> (PS). Test-PlanConsistency.ps1 must show that every role has a designation, at each review.
+12. **R12 Records and checking:** each of these steps must be recorded on the forms named in \<Procedures\> (PS). Test-PlanConsistency.py must show that every role has a designation, at each review.
 
 ### PS.5 Responsibilities
 
