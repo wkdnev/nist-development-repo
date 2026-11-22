@@ -192,7 +192,7 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | Audit log reads and exports seen in central logging, and anything unexplained reported to the Head of Cyber (security officer) |  |
 | Quarterly report on the administrators' actions, for the Head of Cyber (PRO-AU-1, step 6) |  |
 | Audit storage: free space, size of the audit table, and any request for more (PRO-AU-4) |  |
-| Archive: period archived, the archive's SHA-256 hash, the hash of the last record archived, records removed from the database, and any archive deleted with the system owner's approval (PRO-AU-4) |  |
+| Archive: period archived, the archive's SHA-256 hash, the hash of the last record archived, records removed from the database, the export from central logging and its SHA-256 hash, and any archive deleted with the system owner's approval (PRO-AU-4) |  |
 | Legal holds and incident evidence held: reference, records held, date released (PRO-AU-4) |  |
 | Time: each VM's offset from UTC, and any drift over 5 seconds reported (PRO-AU-4) |  |
 | Logging failures: period in which actions were refused, cause, and when logging was restored (PRO-AU-3) |  |

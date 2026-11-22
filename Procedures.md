@@ -426,7 +426,7 @@ These procedures define how audit records are reviewed, protected and retained. 
 | PRO-AU-1 | Review audit records | Weekly | Auditor | TPL-8 Monitoring and integrity report | AU-6, AU-6(1), AU-6(3), AU-7 |
 | PRO-AU-2 | Check the audit chain, and respond to suspected tampering | Daily by the API, weekly by the auditor, and on any alert | Auditor, security officer, database administrator | TPL-8; incident record | AU-9, AU-9(4) |
 | PRO-AU-3 | Respond to a logging failure | On any alert | Windows server administrator, security officer | TPL-8; incident record | AU-5 |
-| PRO-AU-4 | Check capacity, retention, the archive and time synchronisation | Monthly | Database administrator, Windows server administrator | TPL-8 | AU-4, AU-8, AU-11 |
+| PRO-AU-4 | Check capacity, retention, the archive and time synchronisation | Monthly | Database administrator, security officer, Windows server administrator | TPL-8 | AU-4, AU-8, AU-11 |
 | PRO-AU-5 | Review and change the logged events | Every 12 months (P-62), and on change | System owner, developers, database administrator | Updated \<Audit and Accountability Management\>; \<Decision Register\> | AU-2, AU-12 |
 | PRO-AU-6 | Give or remove auditor access | On request, and at each quarterly access review | System owner | ServiceNow request; access review record | AU-9(4), AC-2 |
 | PRO-AU-7 | Handle the application log | Monthly check | Windows server administrator | TPL-8 | AU-9, AU-11, PT-3 |
@@ -462,7 +462,8 @@ These procedures define how audit records are reviewed, protected and retained. 
 1. Each month the database administrator checks the free space and the size of the audit table. In the first month of use they also measure the records per day and the bytes per record, and confirm the storage size in \<Audit and Accountability Management\>, section 3.7. **Manual**
 2. They raise more storage before records are at risk.
 3. Each month the database administrator copies records older than 12 months to the offline archive, records on TPL-8 the archive's SHA-256 hash and the hash of the last record archived, and then removes those records from the database. The chain check starts from that hash. Archived records older than 24 months may be deleted only with the system owner's recorded approval. **Manual** Records under a legal hold notified by the legal adviser, or held as incident evidence, are listed on TPL-8 and not deleted until released.
-4. Each month the Windows server administrator checks that both VMs are within 1 second of UTC from \<Organisation\>'s time source, \[Organisation time source\], and reports any drift over 5 seconds to the security officer. The result is recorded on TPL-8. **Manual**
+4. Each month the security officer exports from central logging the SQL Server Audit records, Windows logs and application security events that are 12 months old, adds them to the offline archive, and records the export's SHA-256 hash on TPL-8 (P-07). **Manual**
+5. Each month the Windows server administrator checks that both VMs are within 1 second of UTC from \<Organisation\>'s time source, \[Organisation time source\], and reports any drift over 5 seconds to the security officer. The result is recorded on TPL-8. **Manual**
 
 #### PRO-AU-5 Changing the logged events
 

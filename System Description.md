@@ -168,7 +168,7 @@ These are the values the controls depend on. CSS calls many of them organisation
 | P-04 | Review of role group members | Every 3 months | AC-2, AC-6(7) | \[\] |
 | P-05 | Review of schema group members | Every 12 months | AC-2 | \[\] |
 | P-06 | Leavers and movers | Leaver: Active Directory account disabled at once; group memberships removed within 5 working days. Mover: group owners told within 1 working day | AC-2, PS-4 | \[\] |
-| P-07 | Audit record retention | 12 months online, then 12 months in an offline archive | AU-11 | \[\] |
+| P-07 | Audit record retention | 12 months online, then 12 months in an offline archive. This applies to every audit record of \<System Name\>: the application audit log, and the SQL Server Audit records, Windows logs and application security events, which are kept 12 months in \<Organisation\>'s central logging and then archived with the audit log | AU-11 | \[\] |
 | P-08 | Audit log review | Weekly | AU-6 | \[\] |
 | P-09 | Clock accuracy | Within 1 second of UTC | AU-8 | \[\] |
 | P-10 | Key and secret change | Application keys every 90 days; secrets every 12 months; at once if exposed | SC-12 | \[\] |

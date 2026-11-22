@@ -67,7 +67,7 @@ The reference values are the parameters in \<System Description\>, section 4, wh
 | D-AT-P58 | AT | AT-2, AT-3 | 1: P-58 Training content updates | Every 12 months, and within 30 days of a significant incident, exercise or change | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | D-AT-P59 | AT | AT-3, AT-3(5) | 1: P-59 Roles given role-based and privacy training | The roles in \<Awareness and Training Management\>, Table 4 | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | D-AT-P60 | AT | AT-4 | 1: P-60 Training record retention | 3 years | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
-| D-AU-P07 | AU | AU-4, AU-11 | 1: P-07 Audit record retention | 12 months online, then 12 months in an offline archive | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
+| D-AU-P07 | AU | AU-4, AU-11 | 1: P-07 Audit record retention | 12 months online, then 12 months in an offline archive, for the audit log and for the SQL Server, Windows and security-event records in central logging | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | D-AU-P08 | AU | AU-6 | 1: P-08 Audit log review | Weekly, by an auditor who holds no administration role | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | D-AU-P09 | AU | AU-8 | 1: P-09 Clock accuracy | Within 1 second of UTC; time stamps in UTC to the nearest second or finer | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | D-AU-P61 | AU | AU-5 | 1: P-61 Response to an audit logging failure | Alert the security officer and Windows server administrator within 1 hour; refuse every action that cannot be recorded | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
