@@ -34,6 +34,13 @@ Documents, policy decisions and cross-family decisions (GEN). The legal adviser 
 | D-CM-02 | CM | Decide how CM-2(7) is met for devices taken to high-risk locations | Inherit it from \<Organisation\>'s travel device policy for its managed laptops, the only devices that can reach \<System Name\>, with its evidence in EV-CM-05; keep the approval to take a device abroad (\<Security Operating Procedures\>, A41) | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | D-CP-01 | CP | Decide where the 6-monthly restore test runs, as it restores real data (CP-4, CP-9(1)) | On a throwaway virtual server at the second site, built to the database server's baseline, with no route to production, reached only by the database administrator and the security officer, and erased by method M1 once the test is recorded; the test fetches the backup and the backup encryption certificate from the second site, so it also proves both can be used there (\<Contingency Planning Management\>, section 3.8) | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | D-CP-02 | CP | Approve \<Contingency Planning Management\>, section 3 with appendices A and B, as the contingency plan (CP-2a.07) | Approve: it holds the impact analysis, objectives, roles, activation, recovery, reconstitution, backups, second site, testing and training, and is reviewed every 12 months and after each test or activation | System owner and authorising official | \[Decision\] | \[Name\] | \[Date\] | None yet |
+| D-IA-01 | IA | Accept the assurance levels for each user group in \<Identification and Authentication Management\>, section 3.4, and the departure from CSS's recommended inactivity timeout (IA-2, IA-11, IA-12) | Accept: identity assurance level 2 through \<Organisation\>'s HR checks (EV-IA-02), authenticator assurance level 2 and federation assurance level 2 through PingFederate (EV-IA-04); no inactivity timeout in \<System Name\>, as the device screen lock locks an unattended screen after 15 minutes (P-03) and users must sign out when they leave their device (P-53) | Authorising official | \[Decision\] | \[Name\] | \[Date\] | None yet |
+| D-IA-02 | IA | Approve TR-IA-01: IA-2(12) not applicable | Approve: PIV is a United States federal credential, and no \<System Name\> user holds one | Authorising official | \[Decision\] | \[Name\] | \[Date\] | None yet |
+| D-IA-03 | IA | Approve TR-IA-02: IA-5(2) not applicable | Approve: nobody signs in to \<System Name\> with a certificate; it comes back if PingFederate adopts a public key second factor | Authorising official | \[Decision\] | \[Name\] | \[Date\] | None yet |
+| D-IA-04 | IA | Approve TR-IA-03: IA-8 not applicable | Approve: only \<Organisation\>'s staff and contractors hold access, and each access review confirms no outside user does | Authorising official | \[Decision\] | \[Name\] | \[Date\] | None yet |
+| D-IA-05 | IA | Approve TR-IA-04: IA-8(1) not applicable | Approve, as TR-IA-01 and TR-IA-03 | Authorising official | \[Decision\] | \[Name\] | \[Date\] | None yet |
+| D-IA-06 | IA | Approve TR-IA-05: IA-8(2) not applicable | Approve: no external authenticators are accepted | Authorising official | \[Decision\] | \[Name\] | \[Date\] | None yet |
+| D-IA-07 | IA | Approve TR-IA-06: IA-8(4) not applicable | Approve: no external identity profiles are used | Authorising official | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | \[D-XX-nn\] | \[XX\] | \[Decision needed\] | \[Recommendation\] | \[Who decides\] | \[Decision\] | \[Name\] | \[Date\] | \[Sheet\] |
 
 ## 3 Parameter approvals
@@ -107,6 +114,7 @@ The control, rating, reason and treatment of each entry are in \<Risk List\>, se
 | NC-CA-01 to NC-CA-09 | CA | System owner, as every CA entry is rated Low | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | NC-CM-01 to NC-CM-18 | CM | System owner, as every CM entry is rated Low | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | NC-CP-01 to NC-CP-20 | CP | System owner, as every CP entry is rated Low | \[Decision\] | \[Name\] | \[Date\] | None yet |
+| NC-IA-01 to NC-IA-18 | IA | System owner, as every IA entry is rated Low | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | \[NC-XX-nn\] | \[XX\] | \[Who decides\] | \[Decision\] | \[Name\] | \[Date\] | \[Sheet\] |
 
 ## 5 Proof of approval

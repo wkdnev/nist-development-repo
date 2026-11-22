@@ -235,7 +235,7 @@ Each control is given one of four types. **System** controls are met by \<System
 | CA Assessment, Authorization, and Monitoring | 10 | 0 | 2 | 8 | 0 | 0 |
 | CM Configuration Management | 24 | 0 | 15 | 8 | 1 | 0 |
 | CP Contingency Planning | 23 | 0 | 6 | 8 | 9 | 0 |
-| IA Identification and Authentication | 24 | 2 | 7 | 1 | 8 | 6 |
+| IA Identification and Authentication | 24 | 0 | 9 | 1 | 8 | 6 |
 | IR Incident Response | 13 | 0 | 4 | 9 | 0 | 0 |
 | MA Maintenance | 9 | 0 | 2 | 6 | 1 | 0 |
 | MP Media Protection | 7 | 0 | 4 | 1 | 2 | 0 |
@@ -248,7 +248,7 @@ Each control is given one of four types. **System** controls are met by \<System
 | SC System and Communications Protection | 25 | 3 | 10 | 1 | 10 | 1 |
 | SI System and Information Integrity | 18 | 3 | 9 | 3 | 1 | 2 |
 | SR Supply Chain Risk Management | 12 | 0 | 3 | 5 | 4 | 0 |
-| **Total** | **316** | **19** | **112** | **99** | **66** | **20** |
+| **Total** | **316** | **17** | **114** | **99** | **66** | **20** |
 
 Section 7 lists every control. A control counts as satisfied only when every one of its assessment statements is satisfied.
 
@@ -465,30 +465,30 @@ The assessment plan is in \<Control Assessment Record\> (IA), section IA.4, wher
 
 | Control | How it is implemented | Who | Type | Status | Gap entry |
 | --- | --- | --- | --- | --- | --- |
-| IA-1 Policy and Procedures | Policy and procedures in \<Policy\> (IA) and \<Procedures\> (IA) | System owner, Head of Cyber | Organisational | \[Status\] | \[Decision\] |
-| IA-2 Organizational Users | Each person signs in through \<Organisation\>'s PingFederate, with multi-factor authentication, with their own Active Directory account; \<System Name\> holds the sign-in only in its authentication cookie | Developers | Hybrid | \[Status\] | \[Decision\] |
-| IA-2(1) MFA, Privileged | Provided by PingFederate for every user, including administrators | \<Organisation\>, developers | Hybrid | \[Status\] | \[Decision\] |
-| IA-2(2) MFA, Non-privileged | Provided by PingFederate for every user | \<Organisation\>, developers | Hybrid | \[Status\] | \[Decision\] |
-| IA-2(8) Replay Resistant | Replay-resistant sign-in through PingFederate, over HTTPS | Developers, Windows server administrator | Hybrid | \[Status\] | \[Decision\] |
-| IA-2(12) PIV Credentials | Not applicable | None | Not applicable | \[Status\] | \[Decision\] |
-| IA-3 Device Identification | \<Organisation\>'s network access control; \<System Name\> does not identify devices | \<Organisation\> | Inherited | \[Status\] | \[Decision\] |
-| IA-4 Identifier Management | Each person's identifier is their Active Directory account name, issued by \<Organisation\> and never reused. Membership of \<System Name\>'s groups is authorised through ServiceNow, by the Data Owner or the system owner | System owner, Data Owners | Hybrid | \[Status\] | \[Decision\] |
-| IA-4(4) User Status | Active Directory shows staff or contractor status | Developers, \<Organisation\> | System | \[Status\] | \[Decision\] |
-| IA-5 Authenticator Management | User passwords and second factors are managed by \<Organisation\> in Active Directory; \<System Name\> holds none. Service secrets are held in the key store | \<Organisation\>, developers | Hybrid | \[Status\] | \[Decision\] |
-| IA-5(1) Password-based | Password rules and storage are \<Organisation\>'s corporate standard for Active Directory | \<Organisation\> | Inherited | \[Status\] | \[Decision\] |
-| IA-5(2) Public Key | Not applicable | None | Not applicable | \[Status\] | \[Decision\] |
-| IA-5(6) Protection of Authenticators | User passwords are protected by Active Directory; the token signing key and audit chain key are held in the key store, not in source. The API reaches the database by Windows authentication, so no database password exists | Developers, administrators | System | \[Status\] | \[Decision\] |
-| IA-6 Authentication Feedback | Sign-in feedback is given by PingFederate, not \<System Name\> | \<Organisation\> | Inherited | \[Status\] | \[Decision\] |
-| IA-7 Cryptographic Module Authentication | Cryptographic modules on the VMs, provided by \<Organisation\>'s build | Windows server administrator, \<Organisation\> | Inherited | \[Status\] | \[Decision\] |
-| IA-8 Non-organizational Users | Only staff and contractors hold accounts | System owner | Not applicable | \[Status\] | \[Decision\] |
-| IA-8(1) PIV from Other Agencies | Not applicable | None | Not applicable | \[Status\] | \[Decision\] |
-| IA-8(2) External Authenticators | Not applicable | None | Not applicable | \[Status\] | \[Decision\] |
-| IA-8(4) Defined Profiles | Not applicable | None | Not applicable | \[Status\] | \[Decision\] |
-| IA-11 Re-authentication | A sign-in lasts 8 hours at most and never longer than PingFederate's sign-in (\<System Description\>, P-02), after which the user signs in again; a change to a person's groups or account takes effect within 5 minutes | Developers | Hybrid | \[Status\] | \[Decision\] |
-| IA-12 Identity Proofing | Relies on \<Organisation\>'s pre-employment checks | \<Organisation\>, system owner | Inherited | \[Status\] | \[Decision\] |
-| IA-12(2) Identity Evidence | Relies on \<Organisation\>'s HR | \<Organisation\> | Inherited | \[Status\] | \[Decision\] |
-| IA-12(3) Validation and Verification | Relies on \<Organisation\>'s HR | \<Organisation\> | Inherited | \[Status\] | \[Decision\] |
-| IA-12(5) Address Confirmation | Notice of proofing, through \<Organisation\>'s HR | \<Organisation\> | Inherited | \[Status\] | \[Decision\] |
+| IA-1 Policy and Procedures | Policy and procedures in \<Policy\> (IA) and \<Procedures\> (IA) | System owner, Head of Cyber | Organisational | Implemented | NC-IA-01 |
+| IA-2 Organizational Users | Each person signs in through \<Organisation\>'s PingFederate, with multi-factor authentication, with their own Active Directory account; \<System Name\> holds the sign-in only in its authentication cookie. On each call from the UI or Admin application, the API takes the person from its own signed token, which names them (\<Identification and Authentication Management\>, Table 1) | Developers | Hybrid | Implemented | NC-IA-02 |
+| IA-2(1) MFA, Privileged | Provided by PingFederate for every user, including administrators | \<Organisation\>, developers | Hybrid | Implemented | NC-IA-03 |
+| IA-2(2) MFA, Non-privileged | Provided by PingFederate for every user | \<Organisation\>, developers | Hybrid | Implemented | NC-IA-04 |
+| IA-2(8) Replay Resistant | Replay-resistant sign-in through PingFederate, over HTTPS: the authorisation code flow, with a one-time code redeemed from the application server and a nonce checked in each response | Developers, Windows server administrator | Hybrid | Implemented | NC-IA-05 |
+| IA-2(12) PIV Credentials | Not applicable | None | Not applicable | Not applicable | TR-IA-01 |
+| IA-3 Device Identification | Users' devices are identified by \<Organisation\>'s network access control before they join the network; \<System Name\> does not identify users' devices. It authenticates the servers it calls, the database server, Active Directory and PingFederate, by their certificates | \<Organisation\> | Inherited | Implemented | NC-IA-06 |
+| IA-4 Identifier Management | Each person's identifier is their Active Directory account name, issued by \<Organisation\> and never reused. Membership of \<System Name\>'s groups is authorised through ServiceNow, by the Data Owner or the system owner | System owner, Data Owners | Hybrid | Implemented | NC-IA-07 |
+| IA-4(4) User Status | Active Directory shows staff or contractor status, set by \<Organisation\>; the group's owner sees it when authorising a request (PRO-IA-1) | \<Organisation\>, groups' owners | Hybrid | Implemented | NC-IA-08 |
+| IA-5 Authenticator Management | User passwords and second factors are managed by \<Organisation\> in Active Directory; \<System Name\> holds none. A suspected compromise starts with disabling the account (PRO-IA-3). Service secrets are held in the key store and changed as P-10 sets (PRO-IA-4) | \<Organisation\>, developers | Hybrid | Implemented | NC-IA-09 |
+| IA-5(1) Password-based | Password rules and storage are \<Organisation\>'s corporate standard for Active Directory | \<Organisation\> | Inherited | Implemented | NC-IA-10 |
+| IA-5(2) Public Key | Not applicable | None | Not applicable | Not applicable | TR-IA-02 |
+| IA-5(6) Protection of Authenticators | User passwords are protected by \<Organisation\>'s Active Directory; the token signing key, the audit chain key and the OpenID Connect client credential are held in the key store, not in source. The API reaches the database by Windows authentication, so no database password exists | \<Organisation\>, developers, administrators | Hybrid | Implemented | NC-IA-11 |
+| IA-6 Authentication Feedback | Sign-in feedback is given by PingFederate, not \<System Name\> | \<Organisation\> | Inherited | Implemented | NC-IA-12 |
+| IA-7 Cryptographic Module Authentication | Cryptographic modules on the VMs, provided by \<Organisation\>'s build | Windows server administrator, \<Organisation\> | Inherited | Implemented | NC-IA-13 |
+| IA-8 Non-organizational Users | Only staff and contractors hold accounts | System owner | Not applicable | Not applicable | TR-IA-03 |
+| IA-8(1) PIV from Other Agencies | Not applicable | None | Not applicable | Not applicable | TR-IA-04 |
+| IA-8(2) External Authenticators | Not applicable | None | Not applicable | Not applicable | TR-IA-05 |
+| IA-8(4) Defined Profiles | Not applicable | None | Not applicable | Not applicable | TR-IA-06 |
+| IA-11 Re-authentication | A sign-in lasts 8 hours at most and never longer than PingFederate's sign-in (\<System Description\>, P-02), after which the user signs in again; a change to a person's groups or account takes effect within 5 minutes. There is no inactivity timeout: the device screen lock (P-03) and the sign-out rule (P-53) stand in for it (D-IA-01) | Developers | Hybrid | Implemented | NC-IA-14 |
+| IA-12 Identity Proofing | Relies on \<Organisation\>'s pre-employment checks, expected to meet identity assurance level 2 (D-IA-01; EV-IA-02) | \<Organisation\>, system owner | Inherited | Implemented | NC-IA-15 |
+| IA-12(2) Identity Evidence | Relies on \<Organisation\>'s HR | \<Organisation\> | Inherited | Implemented | NC-IA-16 |
+| IA-12(3) Validation and Verification | Relies on \<Organisation\>'s HR | \<Organisation\> | Inherited | Implemented | NC-IA-17 |
+| IA-12(5) Address Confirmation | A notice of proofing to the person's address of record, expected from \<Organisation\>'s HR (EV-IA-02) | \<Organisation\> | Inherited | Implemented | NC-IA-18 |
 
 ### 7.8 Incident Response (IR)
 

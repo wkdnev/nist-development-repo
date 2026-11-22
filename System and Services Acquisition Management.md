@@ -55,7 +55,7 @@ Controls met here: SA-3, SA-15.
 | PW.7 Review code | Second developer reviews each change, merged through a protected branch (PRO-SA-1) |
 | PW.8 Test executable code | Automated tests, a package scan and a code scan in the build pipeline, and fifteen test scripts (section 3.9) |
 | PW.9 Secure defaults | Deny by default; the authentication cookie lasts no longer than PingFederate's sign-in lifetime (\<System Description\>, P-02) |
-| RV.1 Identify vulnerabilities | Test-Vulnerability.ps1; CISA's exploited list weekly (\\<Security Operating Procedures\\>, C50) |
+| RV.1 Identify vulnerabilities | Test-Vulnerability.ps1; CISA's exploited list weekly (\<Security Operating Procedures\>, C50) |
 | RV.2 Assess and fix vulnerabilities | Timetable in \<Risk Assessment Management\>, section 3.6 |
 | RV.3 Find root causes | Lessons in incident records (TPL-10) and risk reviews (TPL-23) |
 

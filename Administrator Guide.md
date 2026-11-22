@@ -10,7 +10,7 @@ Values in \[brackets\] are for the developers to fill.
 
 1. Build the two Windows Server 2025 VMs to \<Organisation\>'s hardened build and the baseline in \<Configuration Management\>; turn on full-disk encryption and Microsoft Defender before \<System Name\> is installed, and deploy the App Control for Business policy in audit mode (\<Configuration Management\>, section 3.15).
 2. Install the applications from a release tag only, and check the release checksums. Never install from a working branch. Install each application as a Windows service, under its own group managed service account.
-3. Put the token signing key and the audit chain key in the key store, never in a settings file or in Git. There is no database password: only the API connects to the database, by Windows authentication under its managed service account. Its SQL Server login is not a system administrator, has rights on \<System Name\>'s database only, and cannot change the database structure.
+3. Put the token signing key, the audit chain key and the OpenID Connect client credential in the key store, never in a settings file or in Git. There is no database password: only the API connects to the database, by Windows authentication under its managed service account. Its SQL Server login is not a system administrator, has rights on \<System Name\>'s database only, and cannot change the database structure.
 4. Turn on TLS for every flow, F1 to F8 and F10 in \<System Description\>, section 6.5, including the database connection (F5) and the connection to PingFederate (F10), with strict encryption and the server's certificate and name checked in full.
 5. Publish the Admin application only on \<Organisation\>'s managed administration route (F2; route R3), never on every interface. Bind the API to the application server's loopback address only (F3, F4). Allow server and database administration only from the administrators' managed devices over the managed administration route, with multi-factor authentication and named accounts (F11).
 6. Set up backups as in \<Contingency Planning Management\>, section 3.8: put the database in the full recovery model; create the backup encryption certificate and export it, with its private key, to the key store and its protected copy at the second site before the first backup; take daily encrypted backups with checksums, transaction log backups between them, and weekly backups of the system databases, all written to \<Organisation\>'s backup service.
@@ -33,7 +33,7 @@ Values in \[brackets\] are for the developers to fill.
 | Browser libraries | Page templates | Packaged with and served by \<System Name\> itself. No content delivery service or other outside host | \<System and Communications Protection Management\> |
 | Logging | Each application's logging settings | No personal data or sign-in details in the application log | \<Audit and Accountability Management\> |
 
-Any change to these settings follows \<Procedures\> (CM), and is checked for drift monthly (\\<Security Operating Procedures\\>, C47).
+Any change to these settings follows \<Procedures\> (CM), and is checked for drift monthly (\<Security Operating Procedures\>, C47).
 
 ## 4 Secure operation
 
@@ -48,7 +48,7 @@ Any change to these settings follows \<Procedures\> (CM), and is checked for dri
 | Check for exploited flaws | Weekly | \<Procedures\>, PRO-RA-4 | TPL-7 |
 | Test backups and restores | Backups checked weekly (C8); a restore every 6 months on the restore test server at the second site, which is erased afterwards (C18) | \<Procedures\>, PRO-CP-1 and PRO-CP-2 | TPL-8, TPL-11, TPL-13 |
 | Maintenance | As needed | \<Procedures\> (MA), through the managed route | TPL-12 |
-| Check the export working area | Each working day (\\<Security Operating Procedures\\>, C49) | \<Procedures\> (MP) | TPL-8 |
+| Check the export working area | Each working day (\<Security Operating Procedures\>, C49) | \<Procedures\> (MP) | TPL-8 |
 | Report an incident | At once | \<Incident Response Management\> | TPL-10 |
 
 ## 5 Security functions and how to maintain them

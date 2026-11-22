@@ -364,7 +364,8 @@ Each incident is given a severity, from Low to Critical, which sets how fast the
 | Event | First action | Who |
 | --- | --- | --- |
 | Suspected account misuse | Have the account disabled, which ends access within 5 minutes, and the person's PingFederate sign-in ended (\<Procedures\>, PRO-AC-4) | Security officer, through \<Organisation\>'s service desk |
-| Exposed password or secret | Change it and report it to the security officer | Whoever finds it |
+| Exposed password or second factor | Report it to \<Organisation\>'s service desk and the security officer at once. The account is disabled before the password or factor is reset, as a password change alone does not end a \<System Name\> sign-in, and stays disabled for 8 hours (\<Procedures\>, PRO-IA-3) | Whoever finds it; security officer, through \<Organisation\>'s service desk |
+| Exposed service secret | Report it to the security officer; the Windows server administrator changes it at once (\<Procedures\>, PRO-IA-4) | Whoever finds it; Windows server administrator |
 | Access to data someone should not see | Stop, and report to the security officer | Whoever finds it |
 | Personal data breach | Report to the security officer at once. The security officer tells the legal adviser, who decides on telling the ICO within 72 hours of becoming aware and the people affected, and records every breach (\<Incident Response Management\>, section 3.8) | Whoever finds it; security officer; legal adviser |
 | Lost or stolen device | Report to the service desk and security officer; \<Organisation\> locks or wipes it | Whoever loses it |
