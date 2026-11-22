@@ -123,7 +123,7 @@ No RA or CA control is tailored.
 
 | ID | Control or part | Tailoring | Rationale | Condition that must hold | If the condition changes |
 | --- | --- | --- | --- | --- | --- |
-| TR-SI-01 | SI-8, SI-8(2) | Not applicable | \<System Name\> sends and receives no email, so it has no entry or exit point for spam | \<System Name\> does not add email | SI-8 and SI-8(2) apply |
+| TR-SI-01 | SI-8, SI-8(2) | Not applicable | \<System Name\> sends and receives no email or other message: it has no mail or messaging component and no outbound route for one (\<System Description\>, FR-056, FR-080), so it has no entry or exit point for spam. Users' email is \<Organisation\>'s, outside the boundary | No mail or messaging component or route is added, checked at each significant change and against the approved software list every 12 months (P-65) | SI-8 and SI-8(2) apply |
 
 ## 8 Controls outside the baseline
 

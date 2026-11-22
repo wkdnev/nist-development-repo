@@ -424,8 +424,9 @@ PM is inherited from \<Organisation\>'s programme and is not assessed for \<Syst
 | INT-SI-04 | Security officer | Which advisories do you receive, and what did you do about the last one? | SI-05 | Advisory record |
 | INT-SI-05 | Developers | How are inputs checked, and what does a user see when something fails? | SI-10, SI-11 | Test results |
 | INT-SI-06 | \<Organisation\>'s security contact | What monitors traffic, and how are firmware updates handled? | SI-04(04), SI-02c | EV-SI-01, EV-SI-02 |
-| INT-SI-07 | Security officer | Show me the integrity baseline for the running release. How would you know a release package, a stored file or an audit record had been changed? | SI-07a, SI-07(01), SI-07(07) | \<System and Information Integrity Management\>, section 3.5; the integrity baseline; a TPL-8 integrity check |
-| INT-SI-08 | Developers | Upload the EICAR test file and show me what happens, and where it is recorded | SI-03 | The refused upload; the audit record; the alert |
+| INT-SI-07 | Windows server administrator, security officer | Show me the release record for the running release. How would you know an installed file, a stored file or an audit record had been changed, and what happens next? | SI-07a, SI-07(01), SI-07(07) | \<System and Information Integrity Management\>, section 3.5; the release record; a TPL-8 integrity check |
+| INT-SI-08 | Developers | Upload the EICAR test file, alone and in a ZIP file, and show me what happens, and where it is recorded. How is a stored file rescanned with new definitions? | SI-03 | The refused upload; the audit record; the alert; the last monthly rescan |
+| INT-SI-09 | Security officer | Who is told when someone is added to one of the five role groups, or to a server's administrators, and what did you check for the last one? | SI-04(05) | The U4 alert and the ServiceNow request it was checked against |
 
 ## 22 Supply Chain Risk Management (SR)
 

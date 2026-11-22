@@ -1495,60 +1495,63 @@ These procedures carry out \<Policy\> (SI). The values, detection use cases and 
 
 | Procedure | When | Who | Record |
 | --- | --- | --- | --- |
-| PRO-SI-1 Fixing flaws | Monthly, at each release, and when an advisory applies | Developers, Windows server administrator, database administrator | TPL-7, TPL-6 |
-| PRO-SI-2 Handling malicious code | Continuously, and on each detection | Windows server administrator, developers | TPL-10 |
+| PRO-SI-1 Fixing flaws | Monthly, at each release, and when a scan, check or advisory finds a flaw | Security officer, developers, Windows server administrator, database administrator | TPL-7, TPL-6 |
+| PRO-SI-2 Handling malicious code | Continuously, and on each detection | Windows server administrator, developers, security officer | TPL-10 |
 | PRO-SI-3 Reviewing monitoring | Weekly | Security officer | TPL-8 |
 | PRO-SI-4 Responding to an alert | On each alert | Security officer | TPL-10 |
-| PRO-SI-5 Acting on advisories | Weekly, and as advisories arrive | Security officer | TPL-7 |
+| PRO-SI-5 Acting on advisories | Each working day for CISA's exploited list, and as other advisories arrive | Security officer | TPL-7 |
 | PRO-SI-6 Checking integrity | At start-up, at each release and monthly | Windows server administrator, security officer | TPL-8 |
-| PRO-SI-7 Managing information | As each retention period ends | System owner, database administrator | TPL-13 and the audit trail |
+| PRO-SI-7 Managing information | As each retention period ends, and monthly | Business owner, database administrator, security officer, Windows server administrator | The audit trail, TPL-8, and TPL-13 for media |
 | PRO-SI-8 Testing integrity controls | At each release, after a significant change and at each review | Developers | TPL-8 |
 
 ### SI.2 Procedures
 
 #### PRO-SI-1 Fixing flaws
 
-1. Each month and at each release, developers run Test-Vulnerability.ps1, and the Windows server administrator reviews the Windows Update report from both VMs. **Manual**
-2. The security officer records each flaw, its severity and its clock start on TPL-7. **Manual**
+1. Flaws are found by the scans and checks in PRO-RA-3 (the credentialed scan, Test-Vulnerability.ps1, the dependency alerts and the web application scan), by the Windows Update reports from both VMs, which the Windows server administrator reviews monthly and at each release, and by the advisories in PRO-SI-5.
+2. The security officer records each flaw, its severity, its clock start and its due date on TPL-7, under \<Risk Assessment Management\>, section 3.6. **Manual**
 3. The person responsible tests the update in the test environment for its effect and side effects. **Manual**
-4. They install it through the change process in \<Procedures\> (CM), within the timetable in \<Risk Assessment Management\>, section 3.6. **Manual**
+4. They install it through the change process (PRO-CM-1), within the timetable. A flaw in CISA's Known Exploited Vulnerabilities catalogue follows PRO-RA-4, as an emergency change (PRO-CM-8). A release that adds or changes one of \<System Name\>'s programs updates the App Control policy in the same change. **Manual**
+5. The security officer confirms the fix at the next scan or check, and closes the TPL-7 entry. A fix that cannot meet its time goes to a risk decision (PRO-RA-3, step 8). **Manual**
 
 #### PRO-SI-2 Handling malicious code
 
-1. Defender updates daily, scans weekly and scans in real time on both VMs.
-2. \<System Name\> passes each upload to Defender through AMSI before storing it, and refuses and audits anything flagged.
-3. Defender quarantines what it finds on disk and alerts the Windows server administrator and security officer, who follow PRO-SI-4.
-4. The Windows server administrator records false positives and how they were resolved on TPL-10. **Manual**
+1. Defender updates its definitions automatically at least daily, scans weekly and scans in real time on both VMs, with only the SQL Server exclusions recorded in the baseline.
+2. \<System Name\> passes each upload to Defender through AMSI before storing it, and refuses and audits anything flagged, or any file it could not scan. Monthly and at each release, the API's file checksum check passes every stored file to Defender again with current definitions; a flagged file is blocked from viewing, download and export and raises U3 (D-SI-02).
+3. Defender quarantines what it finds on disk, and the detection alerts the Windows server administrator and the security officer (U3), who follow PRO-SI-4.
+4. The Windows server administrator records false positives and how they were resolved on TPL-10. A file refused in error is reported to the developers, and Defender's exclusions are never widened to let it through. **Manual**
 
 #### PRO-SI-3 Reviewing monitoring
 
-1. Each week the security officer reviews the central logs, the forwarded application, Windows and SQL Server logs, the alerts raised, and the security events for each read or export of the audit log, but not the application audit log, which only auditors read (PRO-AU-1), apart from the last sign-in report (FR-085), against the detection use cases in \<System and Information Integrity Management\>, section 3.4.
-2. They record what was reviewed and anything found on TPL-8. **Manual**
+1. Each week the security officer reviews in central logging the forwarded application, Windows and SQL Server logs, the PingFederate and Active Directory events \<Organisation\> sends, the programs App Control for Business blocked, the alerts raised, and the security events for each read or export of the audit log, against the detection use cases in \<System and Information Integrity Management\>, section 3.4. They do not read the application audit log, which only auditors read (PRO-AU-1), apart from the last sign-in report (FR-085).
+2. They record what was reviewed and anything found on TPL-8, and report the alerts and their outcomes to the system owner in the monthly measures (PRO-CA-5). **Manual**
 3. The system owner raises monitoring when risk rises, and takes the legal adviser's opinion before monitoring users in a new way. **Manual**
 
 #### PRO-SI-4 Responding to an alert
 
-1. The security officer acknowledges the alert within one working day, and within one hour for a malware detection or an audit chain break. **Manual**
-2. They decide whether it is an incident. If so, they follow \<Incident Response Management\>; if not, they record why on TPL-10. **Manual**
+1. The person alerted acknowledges the alert within the time in \<System and Information Integrity Management\>, Table 3: within 1 hour for malware, an audit chain break, an audit logging failure or an unexpected software or file change, and within 1 working day for the others. **Manual**
+2. The security officer decides whether it is an incident. If so, they follow \<Incident Response Management\>; if not, they record why on TPL-10. **Manual**
 3. A false alarm that recurs leads to a change to the use case, through change control. **Manual**
 
 #### PRO-SI-5 Acting on advisories
 
-1. The security officer receives advisories from NCSC (including Early Warning), CISA, Microsoft for Windows Server, SQL Server and .NET, and the vendors of every other component, and checks the new entries in CISA's Known Exploited Vulnerabilities catalogue each working day, from an alert (\<Security Operating Procedures\>, C50). **Manual**
-2. For each one that applies, they write an internal advisory note on TPL-7 and pass it to the administrators and developers. **Manual**
-3. The fix follows PRO-SI-1. **Manual**
+1. The security officer receives advisories from NCSC (including Early Warning, through \<Organisation\>), CISA, Microsoft for Windows Server, SQL Server and .NET, and the vendors of every other component, and checks the new entries in CISA's Known Exploited Vulnerabilities catalogue each working day, from an alert (PRO-RA-4; \<Security Operating Procedures\>, C50). **Manual**
+2. For each one that applies, they write an internal advisory note on TPL-7 and pass it to the administrators and developers, and to \<Organisation\>'s security contact if it may affect \<Organisation\>'s other systems. **Manual**
+3. The fix follows PRO-SI-1, or PRO-RA-4 for an exploited flaw. A directive that cannot be carried out in time is reported to its issuer. **Manual**
 
 #### PRO-SI-6 Checking integrity
 
-1. At start-up, at each release and monthly, the Windows server administrator checks release packages against the baseline in \<System and Information Integrity Management\>, section 3.5.
-2. The security officer runs the audit chain check and the file checksum check at the same times.
-3. An unexpected change is handled as an incident, and the item is restored from a trusted copy. **Manual**
+1. At start-up of the application VM, at each release once it is installed, and monthly, the Windows server administrator runs the integrity check, which compares each installed release file and release script with its SHA-256 in the release record (\<System and Information Integrity Management\>, section 3.5), and confirms that App Control for Business is enforced (PRO-CM-7).
+2. The API checks the audit chain daily and at each start-up (PRO-AU-2), and every stored file against its checksum, rescanning it for malware, monthly and at each release. The security officer reviews both results each month, and may run either check from the Admin application at any time, as after maintenance.
+3. Each result is recorded on TPL-8. A difference raises U8, or U2 for the audit chain. **Manual**
+4. An unexpected change is handled as an incident (\<Incident Response Management\>), and the item is restored from the release record's package, a trusted copy or a backup taken before the change. **Manual**
 
 #### PRO-SI-7 Managing information
 
-1. The system owner applies \<System Name\>'s retention schedule (\<PII Processing Management\>, section 3.7) to items and outputs.
+1. The scheduled task lists the items past their retention period, the business owner approves their disposal, and the task deletes them; each disposal is recorded in the audit trail (FR-074; PRO-PT-5).
 2. The database administrator keeps audit records for 12 months online and 12 months archived, and the security officer archives the SQL Server, Windows and security-event records from central logging after 12 months, so they too are kept 24 months (P-07; PRO-AU-4). Application logs stay on the servers for 30 days.
-3. Disposal of items is recorded in the audit trail (FR-074). Sanitising of media is recorded on TPL-13 (PRO-MP-3). **Manual**
+3. Export working copies are deleted after download and within 24 hours, and users delete their copies within 30 days at most if they hold personal data (P-20, P-69; PRO-MP-5). Backups expire as P-15 sets, and a recovery deletes again any item disposed of since the backup (PRO-CP-6, step 2).
+4. Sanitising of media is recorded on TPL-13 (PRO-MP-3). **Manual**
 
 #### PRO-SI-8 Testing integrity controls
 

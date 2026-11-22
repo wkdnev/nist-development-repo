@@ -252,7 +252,7 @@ The detection use cases U1 to U9 in \<System and Information Integrity Managemen
 | C9 | Run the last sign-in report (FR-085), list the members of \<System Name\>'s groups who have not signed in for 90 days, and have the groups' owners remove them | Security officer; the groups' owners | \<Procedures\>, PRO-AC-8 | TPL-3 | AC-2(3) |
 | C10 | Scan for vulnerabilities and review patches | Windows server administrator, security officer | \<Procedures\>, PRO-RA-3 | TPL-7 | RA-5, SI-2 |
 | C11 | Check packages, lock files, the in-house package feed and support dates, and run Test-SupplyChain.ps1 at each release | Developers | \<Procedures\>, PRO-SR-1 and PRO-SR-3; \<Procedures\>, PRO-SA-5 | TPL-7 | SI-2, SA-22, SR-3 |
-| C12 | Check release packages, file checksums and the audit chain | Windows server administrator, security officer | \<Procedures\>, PRO-SI-6 | TPL-8 | SI-7, SI-7(1), AU-9 |
+| C12 | Check the installed release files against the release record, and review the monthly file checksum check and malware rescan, and the daily audit chain checks | Windows server administrator, security officer | \<Procedures\>, PRO-SI-6 | TPL-8 | SI-3, SI-7, SI-7(1), AU-9 |
 | C13 | Report security status to the system owner | Security officer | \<Procedures\>, PRO-CA-5 | TPL-8, monthly measures | CA-7 |
 | C14 | Update the plan of action | System owner | \<Procedures\>, PRO-CA-3 | \<Plan of Action and Milestones\> change record | CA-5 |
 | C45 | Check audit storage, archive records older than 12 months, including those held in central logging, and check both VMs are within 1 second of UTC | Database administrator, security officer, Windows server administrator | \<Procedures\>, PRO-AU-4 | TPL-8 | AU-4, AU-8, AU-11 |
@@ -343,7 +343,7 @@ The security officer analyses each change's impact against the criteria in \<Con
 
 ### 4.6 Secure start-up, shut-down and recovery (C41)
 
-1. **Start-up.** Start the database VM first, then the application VM. Confirm the time is synchronised, run the start-up checks of release packages, file checksums and the audit chain (\<Procedures\>, PRO-SI-6), then confirm every service is healthy (C1).
+1. **Start-up.** Start the database VM first, then the application VM. Confirm the time is synchronised, run the start-up integrity check of the installed release files, confirm the API's start-up audit chain check passed (\<Procedures\>, PRO-SI-6), then confirm every service is healthy (C1).
 2. **Shut-down.** A planned shut-down is an approved change. Tell users at least 2 working days beforehand, confirm the latest backups succeeded, stop the UI application and the Admin application, then the API, then SQL Server, and record it.
 3. **Loss of power.** If a data centre cannot keep power, \<Organisation\>'s hosting staff shut both servers down cleanly through the hypervisor, the application server first, before the backup power runs out, and tell the Windows server administrator (\<Physical and Environmental Protection Management\>, section 3.7). When power returns, the administrators start the servers as in step 1 and confirm that SQL Server recovered each database cleanly. The security officer records it on TPL-10 as a physical incident.
 4. **Recovery.** Follow \<Contingency Planning Management\>. Restore the backup encryption certificate, then the latest good backup, run the checks in PRO-CP-2 (row counts, file checksums and the audit chain) and \<Contingency Planning Management\>, section 3.7, delete again any item disposed of or deleted since the backup was taken, and change secrets if a compromise is suspected. Check the members of \<System Name\>'s groups against current staff, and confirm the security functions work, before users return, and record the recovery on TPL-11, or on TPL-10 if it followed an incident.
@@ -484,7 +484,7 @@ Table 6 shows where each control that these SyOps serve is met. It lets an audit
 | SC-12 Key Management | B19; C20 |
 | SC-7, SC-17 Boundary and Certificates | C25, C39, C52 |
 | SC-8, SC-13, SC-18, SC-28 Transport, Cryptography, Page Code and Data at Rest | B19; C39, C40, C52, C53 |
-| SI-4, SI-7 Monitoring and Integrity | C1, C4, C12 |
+| SI-3, SI-4, SI-7 Malicious Code, Monitoring and Integrity | C1, C4, C12; section 4.6 |
 
 ## 9 Acknowledgement
 
