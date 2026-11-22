@@ -436,7 +436,7 @@ There is one finding for each CSS determination statement, including those about
 | Interview | The system owner, the security officer, one person from each role in the matrix and a sample of users |
 | Boundary | \<System Name\>'s own briefing, role training and records. \<Organisation\>'s general course and its administrators' training are provider evidence (EV-AT-01) |
 | Order of assessment | A, the programme (AT-1, \<Awareness and Training Management\>, section 3.2); B, awareness (AT-2, AT-2(2), AT-2(3)); C, role training (AT-3); D, records (AT-4) |
-| Needed from providers | EV-AT-01 in \<Evidence Requests\> |
+| Needed from providers | EV-AT-01 and EV-AT-02 in \<Evidence Requests\> |
 | Evidence retained | TPL-9 and TPL-21 records; the training register in \<Awareness and Training Management\>, section 3.8; the monthly measures on TPL-8; the PL evidence |
 | Notes | This family has no code to test. Test-PlanConsistency.ps1 checks that every security role has its training defined (the PL evidence). |
 
@@ -444,7 +444,7 @@ For the Level 2 assessment, the assessor should:
 
 - sample TPL-9 records against the register and the accounts that hold privileged roles;
 - sit in on the briefing or a module, and review the end-of-module checks;
-- examine EV-AT-01;
+- examine EV-AT-01 and EV-AT-02;
 - hold the interviews, and re-determine every statement in section AT.3.
 
 ## AU Audit and Accountability

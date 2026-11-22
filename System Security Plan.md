@@ -227,7 +227,7 @@ Each control is given one of four types. **System** controls are met by \<System
 | Family | Controls | System | Hybrid | Organisational | Inherited | Not applicable |
 | --- | --- | --- | --- | --- | --- | --- |
 | AC Access Control | 39 | 3 | 20 | 4 | 9 | 3 |
-| AT Awareness and Training | 6 | 0 | 3 | 3 | 0 | 0 |
+| AT Awareness and Training | 6 | 0 | 4 | 2 | 0 | 0 |
 | AU Audit and Accountability | 16 | 7 | 7 | 2 | 0 | 0 |
 | CA Assessment, Authorization, and Monitoring | 10 | 0 | 2 | 8 | 0 | 0 |
 | CM Configuration Management | 24 | 0 | 13 | 9 | 2 | 0 |
@@ -245,7 +245,7 @@ Each control is given one of four types. **System** controls are met by \<System
 | SC System and Communications Protection | 25 | 3 | 10 | 1 | 10 | 1 |
 | SI System and Information Integrity | 18 | 3 | 9 | 3 | 1 | 2 |
 | SR Supply Chain Risk Management | 12 | 0 | 3 | 5 | 4 | 0 |
-| **Total** | **316** | **22** | **105** | **101** | **68** | **20** |
+| **Total** | **316** | **22** | **106** | **100** | **68** | **20** |
 
 Section 7 lists every control. A control counts as satisfied only when every one of its assessment statements is satisfied.
 
@@ -338,12 +338,12 @@ The assessment plan is in \<Control Assessment Record\> (AT), section AT.4, wher
 
 | Control | How it is implemented | Who | Type | Status | Gap entry |
 | --- | --- | --- | --- | --- | --- |
-| AT-1 Policy and Procedures | Policy and procedures in \<Policy\> (AT) and \<Procedures\> (AT); the design is in \<Awareness and Training Management\> | System owner, Head of Cyber | Organisational | \[Status\] | \[Decision\] |
-| AT-2 Literacy Training | \<Organisation\>'s course, plus the \<System Name\> briefing (\<Awareness and Training Management\>, section 3.3) given when \<Security Operating Procedures\> is signed | \<Organisation\>, system owner | Hybrid | \[Status\] | \[Decision\] |
-| AT-2(2) Insider Threat | Briefing part B4, and \<Organisation\>'s course | \<Organisation\>, system owner | Hybrid | \[Status\] | \[Decision\] |
-| AT-2(3) Social Engineering | Briefing part B3, and \<Organisation\>'s course; no punitive phishing simulations | \<Organisation\>, system owner | Hybrid | \[Status\] | \[Decision\] |
-| AT-3 Role-based Training | Role curriculum M1 to M9 and the training matrix (\<Awareness and Training Management\>, sections 3.4 and 3.5) | Security officer, Head of Cyber | Organisational | \[Status\] | \[Decision\] |
-| AT-4 Training Records | TPL-9 and the training register, kept 3 years | Security officer | Organisational | \[Status\] | \[Decision\] |
+| AT-1 Policy and Procedures | Policy and procedures in \<Policy\> (AT) and \<Procedures\> (AT); the design is in \<Awareness and Training Management\> | System owner, Head of Cyber | Organisational | Implemented | NC-AT-01 |
+| AT-2 Literacy Training and Awareness | \<Organisation\>'s course, plus the \<System Name\> briefing (\<Awareness and Training Management\>, section 3.3) given when \<Security Operating Procedures\> is signed | \<Organisation\>, system owner | Hybrid | Implemented | NC-AT-02, R-AT-01 |
+| AT-2(2) Insider Threat | Briefing part B4, and \<Organisation\>'s course | \<Organisation\>, system owner | Hybrid | Implemented | NC-AT-03 |
+| AT-2(3) Social Engineering and Mining | Briefing part B3, and \<Organisation\>'s course; no punitive phishing simulations | \<Organisation\>, system owner | Hybrid | Implemented | NC-AT-04 |
+| AT-3 Role-based Training | Role curriculum M1 to M10 and the training matrix (\<Awareness and Training Management\>, sections 3.4 and 3.5) | Security officer, Head of Cyber | Organisational | Implemented | NC-AT-05 |
+| AT-4 Training Records | TPL-9 and the training register, kept 3 years; \<Organisation\>'s records of its course (EV-AT-01) | Security officer, \<Organisation\> | Hybrid | Implemented | NC-AT-06 |
 
 ### 7.3 Audit and Accountability (AU)
 
@@ -619,7 +619,7 @@ The assessment plan is in \<Control Assessment Record\> (PT), section PT.4, wher
 | PT-5 Privacy Notice | \<Organisation\>'s employee privacy notice | \<Organisation\>, system owner | Inherited | \[Status\] | \[Decision\] |
 | PT-7 Specific Categories | Kept only in schemas the business owner authorises, where schema groups limit who sees it; conditions set by the legal adviser | Business owner, legal adviser | Hybrid | \[Status\] | \[Decision\] |
 | AC-3(14) Individual Access | Through a request to the legal adviser (PRO-PT-1), whose delegate searches every schema for the person's items (FR-073) | Legal adviser, legal adviser's delegate | Organisational | \[Status\] | \[Decision\] |
-| AT-3(5) Processing PII | Privacy training in the role curriculum | Security officer | Organisational | \[Status\] | \[Decision\] |
+| AT-3(5) Processing PII | Privacy training for every user in briefing part B6, and module M9 for the roles in the training matrix (\<Awareness and Training Management\>, sections 3.3 to 3.5) | Security officer | Organisational | \[Status\] | \[Decision\] |
 | AU-3(3) Limit PII in Audit | Named fields hold personal data; free text holds no extra personal data | Developers, auditor | System | \[Status\] | \[Decision\] |
 | IR-2(3) Breach | Breach training in incident response training | Security officer | Organisational | \[Status\] | \[Decision\] |
 | IR-8(1) Breaches | \<Incident Response Management\> \<ver\>, section 3.8: notification decision, harm to people, telling them, the 72-hour ICO report and the breach register | Security officer, legal adviser | Organisational | \[Status\] | \[Decision\] |

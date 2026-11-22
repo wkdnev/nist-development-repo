@@ -185,7 +185,7 @@ These are the values the controls depend on. CSS calls many of them organisation
 | P-21 | Incident reporting | A suspected incident reported within 1 hour; a personal data breach assessed for the regulator within 72 hours | IR-6 | \[\] |
 | P-22 | Answer to a person's request about their data | Within one month | PT-2, PM-21 | \[\] |
 | P-23 | Where data may be held | The United Kingdom only | SA-9(5) | \[\] |
-| P-24 | Training | Before access, and every 12 months; role modules before privileged access | AT-2, AT-3 | \[\] |
+| P-24 | Training | Awareness and the briefing before access, and every 12 months. Role modules before privileged access (developers: before they first work on the code), and every 12 months. Incident response, contingency and risk decision modules (M7, M8, M10) within 30 days of taking the role | AT-2, AT-3, IR-2, CP-3 | \[\] |
 | P-25 | Authorisation | Before real data is held, and reviewed at least every 12 months | CA-6 | \[\] |
 | P-26 | Transport encryption | TLS 1.3 preferred; TLS 1.2 with AES-GCM allowed; HSTS for one year | SC-8, SC-13 | \[\] |
 | P-27 | Events that raise an alert | The nine in section 7.10 | SI-4 | \[\] |
@@ -217,6 +217,11 @@ These are the values the controls depend on. CSS calls many of them organisation
 | P-53 | When users must sign out | At the end of each working day, and whenever they leave their device for longer than a short break, using Sign out (FR-084) | AC-2(5) | \[\] |
 | P-54 | Privileged access over remote access | Allowed only for approved changes, maintenance and incident response; only through the VPN and then the managed administration route, with multi-factor authentication at both; logged by Windows, SQL Server and the application audit log, with the change or incident record giving the reason | AC-17(4) | \[\] |
 | P-55 | Account and access attributes | Account: the AD account name and ID, line manager, enabled state and expiry date. Access: the person's role groups and schema read or edit groups | AC-2 | \[\] |
+| P-56 | Events that require training | A significant change, a significant incident, or an exercise whose report changes a role's steps. Those affected take the updated briefing or module within 30 days | AT-2, AT-3 | \[\] |
+| P-57 | Awareness techniques | The system use notice at sign-in; \<Organisation\>'s security messages; a quarterly \<System Name\> security note from the security officer | AT-2 | \[\] |
+| P-58 | Training content updates | Every 12 months, and within 30 days of a significant incident, exercise or significant change, adding the lessons from incidents inside and outside \<Organisation\> | AT-2, AT-3 | \[\] |
+| P-59 | Roles given role-based and privacy training | The roles in \<Awareness and Training Management\>, Table 4, with the modules each takes; privacy training is briefing part B6 for every user and module M9 for the roles that Table 4 gives it | AT-3, AT-3(5) | \[\] |
+| P-60 | Training record retention | 3 years from the date of the training | AT-4 | \[\] |
 
 ## 5 Requirements
 
@@ -1134,6 +1139,7 @@ Table 48 defines the terms used across the set, including those in \<Policy\>. T
 | Service account | An account used by a program rather than a person |
 | Severity | For an incident, the level from Low to Critical that sets how fast it is handled and who is told. For a vulnerability, the vendor's rating or, without one, its CVSS base score: 9.0 or more Critical, 7.0 to 8.9 High, 4.0 to 6.9 Medium, below 4.0 Low |
 | Sign-on service | \<Organisation\>'s PingFederate single sign-on service, which authenticates users against Active Directory with multi-factor authentication |
+| Significant incident | An incident rated Critical or High under \<Incident Response Management\>, section 3.6 |
 | Significant change | A change likely to alter \<System Name\>'s security or privacy risk, as listed in \<Assessment, Authorization, and Monitoring Management\>, section 3.9 |
 | Single sign-on | Signing in once, to \<Organisation\>'s PingFederate, which then vouches for the person to \<System Name\>. \<System Name\> never sees the password |
 | Social engineering | Manipulating people into giving access or information, including by email, phone or in person |

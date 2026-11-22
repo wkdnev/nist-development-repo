@@ -17,7 +17,7 @@ Frequencies and time limits are those set in the family documents, and the value
 | Who | Reads and signs | When |
 | --- | --- | --- |
 | Everyone given access to \<System Name\> | Part A | Before access, every 12 months, and when the rules change |
-| Administrators, auditors, the security officer, Windows server and database administrators, and developers with access to a live system | Parts A and B | Before privileged access, every 12 months, and when the rules change |
+| The system owner, administrators, auditors, the security officer, business owners, the legal adviser's delegate, Windows server and database administrators, and developers with access to a live system | Parts A and B | Before privileged access, every 12 months, and when the rules change |
 | Holders of the roles in Part C | Their duties in Part C | Covered by role-based training (AT-3), with no separate signature |
 
 ## 2 Part A: rules for everyone
@@ -169,7 +169,7 @@ Frequencies and time limits are those set in the family documents, and the value
 
 ## 3 Part B: rules for privileged users
 
-Part B applies, in addition to Part A, to administrators, auditors, the security officer, business owners, the legal adviser's delegate, Windows server and database administrators, and developers with access to a live system. A privileged account can change or expose the whole system, so these rules are stricter. The rules are numbered B1 to B23.
+Part B applies, in addition to Part A, to the system owner, administrators, auditors, the security officer, business owners, the legal adviser's delegate, Windows server and database administrators, and developers with access to a live system. A privileged account can change or expose the whole system, so these rules are stricter. The rules are numbered B1 to B23.
 
 ### 3.1 Before and while you hold privileged access
 

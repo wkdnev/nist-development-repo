@@ -24,6 +24,7 @@ Documents, policy decisions and cross-family decisions (GEN). The legal adviser 
 | D-AC-08 | AC | Approve TR-AC-08: AC-22 not applicable | Approve: \<System Name\> holds no public content (P-50) | Authorising official | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | D-AC-09 | AC | Approve TR-AC-09: AC-07\_ODP\[05\], \[06\] not selected | Approve: the account lock in P-42 is the chosen action | Authorising official | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | D-AC-10 | AC | Approve TR-AC-10: AC-20\_ODP\[03\] not selected | Approve: the terms in P-48 are used, not asserted controls | Authorising official | \[Decision\] | \[Name\] | \[Date\] | None yet |
+| D-AT-01 | AT | Accept R-AT-01: a standard user whose yearly training is overdue keeps access, with monthly reminders | Accept: the risk is Low, privileged users are still suspended after 30 days, and the overdue count is reported monthly | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | \[D-XX-nn\] | \[XX\] | \[Decision needed\] | \[Recommendation\] | \[Who decides\] | \[Decision\] | \[Name\] | \[Date\] | \[Sheet\] |
 
 ## 3 Parameter approvals
@@ -59,6 +60,12 @@ The reference values are the parameters in \<System Description\>, section 4, wh
 | D-AC-P53 | AC | AC-2(5) | 1: P-53 When users must sign out | End of each working day, and when leaving the device for longer than a short break | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | D-AC-P54 | AC | AC-17(4) | 1: P-54 Privileged access over remote access | Approved changes, maintenance and incident response only; VPN then the administration route, with multi-factor authentication at both; logged | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | D-AC-P55 | AC | AC-2 | 1: P-55 Account and access attributes | AD account name and ID, line manager, enabled state, expiry date; role groups and schema groups | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
+| D-AT-P24 | AT | AT-2, AT-3, AT-3(5) | 1: P-24 Training | Before access and every 12 months; role modules before privileged access; M7, M8 and M10 within 30 days | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
+| D-AT-P56 | AT | AT-2, AT-3 | 1: P-56 Events that require training | Significant change, significant incident (Critical or High), or an exercise that changes a role's steps | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
+| D-AT-P57 | AT | AT-2 | 1: P-57 Awareness techniques | System use notice; \<Organisation\>'s security messages; quarterly security note | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
+| D-AT-P58 | AT | AT-2, AT-3 | 1: P-58 Training content updates | Every 12 months, and within 30 days of a significant incident, exercise or change | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
+| D-AT-P59 | AT | AT-3, AT-3(5) | 1: P-59 Roles given role-based and privacy training | The roles in \<Awareness and Training Management\>, Table 4 | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
+| D-AT-P60 | AT | AT-4 | 1: P-60 Training record retention | 3 years | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | \[D-XX-Pnn\] | \[XX\] | \[Control\] | \[Number of parameters\] | \[Main values\] | \[Who decides\] | \[Decision\] | \[Name\] | \[Date\] | \[Sheet\] |
 
 ## 4 Non-compliance treatment decisions
@@ -71,6 +78,7 @@ The control, rating, reason and treatment of each entry are in \<Risk List\>, se
 | --- | --- | --- | --- | --- | --- | --- |
 | NC-AC-01 to NC-AC-34 | AC | System owner, as every AC entry is rated Low | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | \[NC-XX-nn\] | \[XX\] | \[Who decides\] | \[Decision\] | \[Name\] | \[Date\] | \[Sheet\] |
+| NC-AT-01 to NC-AT-06 | AT | System owner, as every AT entry is rated Low | \[Decision\] | \[Name\] | \[Date\] | None yet |
 
 ## 5 Proof of approval
 

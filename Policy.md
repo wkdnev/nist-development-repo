@@ -169,7 +169,7 @@ The rules in section 1.1 apply to this policy. It adds these.
 
 This policy sets the organisation's rules for security and privacy awareness and training for \<System Name\>, in line with the CSS AT family (AT-1). It stands alone, as each family has its own policy. The curriculum, briefing, training matrix, measures and register are in \<Awareness and Training Management\>, and the steps people follow are in \<Procedures\> (AT).
 
-It applies to everyone who uses, administers or develops \<System Name\>, including \<Organisation\>'s staff who hold a \<System Name\> role. It covers the training other families require: incident response (IR-2), contingency (CP-3), privacy (AT-3(5)) and the rules of behaviour (PL-4).
+It applies to everyone who uses, administers or develops \<System Name\>, including \<Organisation\>'s staff who hold a \<System Name\> role, and to the other roles named in the training matrix for the security or privacy duties they hold: the legal adviser, the authorising official, the information owner and line managers. It covers the training other families require: incident response (IR-2), contingency (CP-3), privacy (AT-3(5)) and the rules of behaviour (PL-4).
 
 ### AT.2 The organisation's position
 
@@ -186,12 +186,12 @@ It applies to everyone who uses, administers or develops \<System Name\>, includ
 ### AT.4 Mandatory requirements
 
 1. **R1 Awareness:** all users must complete \<Organisation\>'s security and privacy awareness course and the \<System Name\> briefing before getting access, and every 12 months.
-2. **R2 Briefing content:** the \<System Name\> briefing must cover the classification of its items and the export rules, insider threat and social engineering scenarios specific to \<System Name\>, and how to report.
+2. **R2 Briefing content:** the \<System Name\> briefing must cover the classification of its items and the export rules, insider threat and social engineering scenarios specific to \<System Name\>, privacy and how to recognise and report a personal data breach, and how to report.
 3. **R3 Rules of behaviour:** all users must sign \<Security Operating Procedures\> Part A, and privileged users Part B, before access.
 4. **R4 Role training:** each role in the training matrix must complete its modules before privileged access, and every 12 months. Incident response and contingency training must be completed within 30 days of taking the role.
-5. **R5 Privacy training:** everyone who handles personal data in items, and all administrators, must complete privacy training before access and every 12 months.
+5. **R5 Privacy training:** all users must receive privacy training in the \<System Name\> briefing before access and every 12 months. The roles the training matrix names for it, including all administrators and the auditor, must also complete the privacy module (M9) before access and every 12 months.
 6. **R6 Updates:** content must be reviewed every 12 months, and after a significant incident, exercise or change, with the lessons added.
-7. **R7 Checks and measures:** each module must end with a check, with a pass mark of 80%. Completion before access, the pass rate and the number of suspicious messages reported must be reported monthly.
+7. **R7 Checks and measures:** each module must end with a check, with a pass mark of 80%. The measures in \<Awareness and Training Management\>, section 3.9, must be reported monthly by the security officer and reviewed by the system owner.
 8. **R8 Phishing simulations:** none may be run without the agreement of HR and the legal adviser. If run, no one is penalised for clicking, and the measure is reports, not clicks.
 9. **R9 Records:** every completion must be recorded on TPL-9 and in the training register, and kept for 3 years.
 10. **R10 Checking:** Test-PlanConsistency.ps1 must show that every security role has its training defined, at each review.
@@ -202,12 +202,12 @@ It applies to everyone who uses, administers or develops \<System Name\>, includ
 
 | Role | Responsibility |
 | --- | --- |
-| Head of Cyber | Approves this policy, as all policies; trains the security officer and auditor |
-| Authorising official | Decides Medium and High risks |
+| Head of Cyber | Approves this policy, as all policies; delivers module M6 to the security officer and auditor, and M7 to the security officer |
+| Authorising official | Decides Medium and High risks; completes module M10 |
 | System owner | Owns this policy, the curriculum and the matrix; gives the \<System Name\> briefing; checks the register before granting a role |
-| Security officer | Writes and updates role training content, keeps the register and reports the measures |
-| Legal adviser | Reviews privacy training content and agrees any phishing simulation |
-| Line managers | Make sure their staff complete training on time |
+| Security officer | Writes and updates role training content, delivers the modules \<Awareness and Training Management\>, Table 3 gives them, keeps the register and reports the measures |
+| Legal adviser | Reviews privacy training content and agrees any phishing simulation; completes module M7 |
+| Line managers | Complete briefing part B7 before their first approval of an access request, and make sure their staff complete training on time |
 | Everyone | Completes training, and reports anything suspicious |
 | \<Organisation\> | Provides the general course and its records, and evidences its administrators' role training |
 
