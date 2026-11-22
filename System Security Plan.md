@@ -258,9 +258,9 @@ Section 7 lists every control. A control counts as satisfied only when every one
 
 | Responsible | For |
 | --- | --- |
-| System owner | This plan, approvals, exceptions, risk within their authority, and coordination with \<Organisation\> |
+| System owner | This plan, approvals, exceptions, risk within their authority, and coordination with \<Organisation\>, including the yearly review of each external service and the security and privacy line in budgeting |
 | Authorising official | Reviewing and approving this plan before it is put into effect, and the privacy plan (D-PL-01, D-PL-02); selecting the baseline and approving each tailoring entry (D-PL-03; \<Tailoring Register\>); accepting the inherited controls, reliance on \<Organisation\>'s programme for the PM controls, and residual risk, and authorising operation on TPL-18 |
-| Developers | Security functions built into the application under \<Organisation\>'s corporate SDLC, and fixing POA&M items |
+| Developers | Security functions built into the application under \<Organisation\>'s corporate SDLC; reviewing each other's changes, running the developer test plan at each release, keeping the guides current and replacing components before their support ends; and fixing POA&M items |
 | Administrators | Managing schemas, the groups that open each schema, and system settings, in the Admin application |
 | Data Owners | Authorising who may read or edit their schema, in ServiceNow, and owning its read and edit groups |
 | Auditor | Reviewing the audit log weekly, comparing it with the server, database, PingFederate and Active Directory records, recording the review, and reporting anything suspicious to the security officer |
