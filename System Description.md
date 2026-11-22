@@ -173,11 +173,11 @@ These are the values the controls depend on. CSS calls many of them organisation
 | P-09 | Clock accuracy | Within 1 second of UTC | AU-8 | \[\] |
 | P-10 | Key and secret change | Application keys every 90 days; secrets every 12 months; at once if exposed | SC-12 | \[\] |
 | P-11 | Flaw fixing | 3 days if exploited; 14 days Critical or High; 30 days Medium; 90 days Low | SI-2, RA-5 | \[\] |
-| P-12 | Recovery time objective | 72 hours | CP-2, CP-10 | \[\] |
+| P-12 | Recovery time objective | 72 hours from the start of the outage, for recovery and reconstitution together, so within 72 hours of the plan being invoked | CP-2, CP-2(3), CP-10 | \[\] |
 | P-13 | Recovery point objective | 24 hours | CP-9 | \[\] |
-| P-14 | Maximum tolerable downtime | 120 hours | CP-2 | \[\] |
+| P-14 | Maximum tolerable downtime | 120 hours from the start of the outage | CP-2 | \[\] |
 | P-15 | Backups kept | 14 daily, 8 weekly and 12 monthly; one copy at a second site and one offline or immutable | CP-9, CP-6 | \[\] |
-| P-16 | Contingency tests | A restore every 6 months; a tabletop exercise every 12 months | CP-4 | \[\] |
+| P-16 | Contingency tests | A restore every 6 months, on a throwaway server at the second site (D-CP-01); a tabletop exercise every 12 months | CP-4, CP-9(1) | \[\] |
 | P-17 | Largest single upload, by role | 25, 50, 75 or 100 MB | SI-10 | \[\] |
 | P-18 | Largest batch | 100 files and 500 MB | SI-10 | \[\] |
 | P-19 | File types accepted | \[The types the application needs, from a fixed list\]. Reference: PDF, TIFF, JPEG and PNG | SI-10, CM-7 | \[\] |
@@ -529,8 +529,8 @@ The application's session is its authentication cookie. It lasts at most P-02 fr
 | NFR-057 | Tolerate an outage up to the maximum tolerable downtime in P-14 | A business decision, recorded in the business impact analysis | \<Contingency Planning Management\> |
 | NFR-058 | Recover within the recovery time objective in P-12 | By rebuilding the servers and restoring the latest backup, in the order in section 7.11 | \<Contingency Planning Management\> |
 | NFR-059 | Lose no more data than the recovery point objective in P-13 | A daily backup, with the database's transaction log archived between backups | \<Contingency Planning Management\> |
-| NFR-060 | Back up the database daily, and keep copies as P-15 sets | A scheduled database backup, copied by \<Organisation\>'s backup service | \<Contingency Planning Management\> |
-| NFR-061 | Test recovery as P-16 sets | People do this, to a written plan, and record the result | \<Contingency Planning Management\> |
+| NFR-060 | Back up the database daily, and keep copies as P-15 sets | A scheduled database backup, encrypted under the backup encryption certificate, written to \<Organisation\>'s backup service, which copies it to the second site and keeps one copy offline or immutable | \<Contingency Planning Management\> |
+| NFR-061 | Test recovery as P-16 sets | People do this, to a written plan, on a throwaway server at the second site that is erased afterwards, and record the result | \<Contingency Planning Management\> |
 | NFR-062 | After a restore, check row counts, file checksums and the audit chain before users return | Scripts that compare counts and checksums and run the chain check | \<Contingency Planning Management\> |
 | NFR-063 | No high availability, clustering or second live site is required at availability Low | One application server and one database server | \<Contingency Planning Management\> |
 | NFR-064 | When PingFederate or Active Directory is down nobody can sign in or be authorised, and no local sign-in is provided | The applications redirect to PingFederate and read groups only from Active Directory | \<Concept of Operations\> |
@@ -762,7 +762,7 @@ This section is the security architecture that PL-8 calls for: the protection go
 | --- | --- |
 | Host | Two Windows Server 2025 VMs |
 | Traffic | HTTPS and encrypted database connections |
-| Secrets | The token signing key and the audit chain key, in a key store outside source code, changed as \<System Description\>, P-10, sets. There is no database password: the API uses Windows authentication |
+| Secrets | The token signing key and the audit chain key, in a key store outside source code, changed as \<System Description\>, P-10, sets, with a protected copy at the second site; the backup encryption certificate in SQL Server, with its exported copy held apart from the backups. There is no database password: the API uses Windows authentication |
 | Database login | One least-privilege SQL Server login for the API's managed service account, by Windows authentication, used only by API |
 | Storage | Full-disk encryption on both VMs |
 | Malicious code | Microsoft Defender on both VMs, and each upload scanned through AMSI before it is stored (\<System and Information Integrity Management\>, section 3.2) |
@@ -833,7 +833,7 @@ Ending a person's PingFederate sign-in on its own does not end the application's
 | Each application's key ring | Its own folder on the application server | Readable only by that application's service account; encrypted by the operating system |
 | Each application's log | Log files on the application server, forwarded to central logging | Readable on the server by the server administrators only; the auditor reads them in central logging; no personal data beyond the username in a security event (section 7.6) |
 | Secrets: the token signing key, the audit chain key and the OpenID Connect client credential | A key store outside the source code | Access limited to the service account that needs each: the token signing key and the audit chain key to the API's, and the OpenID Connect client credential to the UI and Admin applications'; changed as P-10 sets. There is no database password: the API uses Windows authentication |
-| Backups | \<Organisation\>'s backup store and second site | Encrypted, with the key held apart |
+| Backups | \<Organisation\>'s backup service and second site, with one copy offline or immutable | Encrypted, with the backup encryption certificate held apart |
 
 The application holds no user accounts. The name that arrives at sign-in is held in the authentication cookie, in the audit records, and in items, such as who created or uploaded an item. Groups are never stored: the API holds them in memory for at most 5 minutes (section 7.2).
 
@@ -882,7 +882,7 @@ The audit log stays in the database and is read only by auditors. The one except
 | OpenID Connect client credential | The UI and Admin applications' credential with PingFederate, held in the key store and changed as P-10 sets |
 | Cookies and anti-forgery tokens | AES-256 with HMAC-SHA-256, from each application's key ring, changed every 90 days |
 | Disks | AES-256 full-disk encryption with the TPM |
-| Backups | AES-256, with the key held apart |
+| Backups | AES-256, by SQL Server's backup encryption, under a backup encryption certificate held apart from the backups; retired certificates kept until the backups they encrypted are removed |
 | File checksums | SHA-256 |
 | Audit chain | HMAC-SHA-256 with a key held outside the database |
 | Database connection account | Windows authentication (Kerberos) with the API's managed service account. No password is held |
@@ -904,7 +904,7 @@ Application, operating system and database logs are forwarded to \<Organisation\
 
 ### 7.11 Backup and recovery
 
-The database is backed up daily, encrypted, with transaction logs archived, and copies are kept as P-15 sets. Recovery is in order: \<Organisation\>'s network, PingFederate and Active Directory; the database server and its backup; the secrets; the API; the UI application; the Admin application. After a restore, row counts, file checksums and the audit chain are checked, and the members of the application's groups are checked against current staff before users return. Recovery is tested as P-16 sets.
+The database is backed up daily, encrypted by SQL Server under a backup encryption certificate held apart from the backups, with transaction logs backed up between, and copies are kept as P-15 sets. SQL Server's system databases and each server's configuration are backed up weekly. Recovery is in order: \<Organisation\>'s network, PingFederate and Active Directory; the database server, rebuilt to its baseline; the secrets, starting with the backup encryption certificate, without which no backup can be restored; the database, from its backup and logs; the API; the UI application; the Admin application. After a restore, row counts, file checksums and the audit chain are checked, any item deleted since the backup was taken is deleted again, and the members of the application's groups are checked against current staff before users return. Recovery is tested as P-16 sets. Deleted items stay in the encrypted backups until those expire, at most 12 months, and are beyond use there.
 
 ### 7.12 Build, release and supply chain
 
@@ -983,7 +983,7 @@ An application built on the reference system relies on \<Organisation\> for much
 | Remote access | One route in from outside: the VPN, from a managed device, with multi-factor authentication and no split tunnelling |
 | Users' devices | Managed builds, disk encryption, screen lock, and removable storage blocked unless approved |
 | Virtual platform and hardware | The servers, their hardware maintenance, firmware and physical security |
-| Data centre and second site | Physical access control, power, fire and environmental protection; a second site for backups |
+| Data centre and second site | Physical access control, power, fire and environmental protection; a second site for backups and for rebuilding the servers; a backup service that copies the encrypted backups there and keeps one copy offline or immutable |
 | Certificates, name resolution, time and proxy | A certificate authority, signed and validated name resolution, a time service and an authenticated proxy |
 | Central logging | Receiving the application's logs, and giving the auditor the PingFederate and Active Directory events |
 | ServiceNow | The access approval workflow, in which the group's owner authorises each request, the Data Owner for a schema's groups and the system owner for a role group, and nobody approves their own; and prompt notice of leavers from the starters and leavers process |
@@ -1108,7 +1108,7 @@ Table 48 defines the terms used across the set, including those in \<Policy\>. T
 | Maintenance tool | Any program, device or function used to diagnose or maintain \<System Name\> |
 | Marking | The \<Classification\> label, with the item's own classification, on what \<System Name\> shows or produces |
 | Material change | A change to the rules that adds or tightens a rule, changes a consequence, adds monitoring or adds a privileged duty |
-| Maximum tolerable downtime | The longest an outage can last before the harm is unacceptable |
+| Maximum tolerable downtime | The longest an outage can last before the harm is unacceptable, counted from the start of the outage |
 | Media | Anything that holds \<System Name\> information outside the running application: disks, volumes, files, devices, backups and paper |
 | Mitigate | Reduce a vulnerability's risk without the fix, for example by disabling the affected feature or blocking access to it |
 | Mobile code | Code a page sends to run in the browser, such as JavaScript or WebAssembly |
@@ -1124,7 +1124,7 @@ Table 48 defines the terms used across the set, including those in \<Policy\>. T
 | Reconstitution | Checking the recovered system's data, functions and controls, and returning it to normal use |
 | Record of processing | \<Organisation\>'s record of processing activities under UK GDPR, Article 30 |
 | Recovery point objective | The most recent point to which data must be recoverable, which sets how much data may be lost |
-| Recovery time objective | The longest a function can take to come back, which must be within the maximum tolerable downtime |
+| Recovery time objective | The longest a function can take to come back, counted from the start of the outage and including reconstitution, which must be within the maximum tolerable downtime |
 | Reference system | The design in this document, which every application in the series is built to |
 | Remote (nonlocal) maintenance | Maintenance done over a network rather than in person at the component |
 | Replay resistance | Protection against reusing a captured sign-in or token |

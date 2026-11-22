@@ -649,47 +649,49 @@ These procedures carry out \<Policy\> (CP) and \<Contingency Planning Management
 | Procedure | What it does | When | Who | Record | Controls |
 | --- | --- | --- | --- | --- | --- |
 | PRO-CP-1 | Taking backups | Daily, weekly and at each change | Database and Windows server administrators | Backup job log; TPL-8 | CP-9, CP-9(8), CP-10(2) |
-| PRO-CP-2 | Testing a restore | Every 6 months, and after a change to the database or backups | Database administrator, observed by the security officer | TPL-11 | CP-9(1) |
+| PRO-CP-2 | Testing a restore | Every 6 months, and after a change to the database or backups | Database administrator, observed by the security officer; Windows server administrator for the test server | TPL-11; TPL-13 | CP-4, CP-9(1) |
 | PRO-CP-3 | Recovering | When the plan is invoked | Administrators, security officer | Activity log; TPL-11 | CP-7, CP-10, CP-10(2) |
 | PRO-CP-4 | Training and testing | Training within 30 days and yearly; tests as \<Contingency Planning Management\>, section 3.10 | System owner, security officer | TPL-9; TPL-11 after-action report | CP-3, CP-4, CP-4(1) |
 | PRO-CP-5 | Activation and notification | On a failure | Anyone; system owner decides | Activity log | CP-2 |
-| PRO-CP-6 | Reconstitution and deactivation | After recovery, before users return | Administrators, security officer, system owner | Activity log; TPL-11 | CP-10 |
+| PRO-CP-6 | Reconstitution and deactivation | After recovery, before users return | Administrators, security officer, system owner; business owner and legal adviser for deletions | Activity log; TPL-11 | CP-2, CP-10 |
 | PRO-CP-7 | Maintaining and sharing the plan | Every 12 months, and after a test, activation or change | System owner | Change record; distribution record | CP-2, CP-2(1) |
 
 ### CP.2 Procedures
 
 #### PRO-CP-1 Taking backups
 
-1. The database administrator takes a full, encrypted backup of the database every day, which includes every item, stored file and audit record, and sends it to the second site.
-2. SQL Server's transaction log is backed up between full backups, encrypted, and copied to the second site.
-3. The Windows server administrator backs up each VM's system configuration weekly, encrypted.
+1. The database administrator's job takes a full backup of the database every day, with checksums, encrypted with AES-256 under the backup encryption certificate (K10), which includes every item, stored file and audit record, and writes it to \<Organisation\>'s backup service, which copies it to the second site.
+2. SQL Server's transaction log is backed up between full backups, encrypted, and copied to the second site the same way. The database stays in the full recovery model.
+3. Weekly, and after each change to them, the database administrator backs up SQL Server's system databases (master and msdb), and the Windows server administrator each VM's Windows configuration and list of installed software, encrypted.
 4. Copies are kept as \<Contingency Planning Management\>, section 3.8: 14 daily, 8 weekly and 12 monthly, and one copy is offline or immutable.
-5. The backup encryption key and the protected copy of the secrets are held apart from the backups, and only the system owner and administrators can reach them.
-6. A failed backup alerts the database administrator and the security officer, who fix it within 1 working day.
+5. When the backup encryption certificate is made, and each time it is renewed every 12 months, the database administrator exports it with its private key, protected by a strong password, to the key store and its protected copy at the second site, apart from the backups. Retired certificates are kept until the last backup they encrypted is removed. Only the system owner and administrators can reach the certificate and the protected copy of the secrets. **Manual**
+6. A failed backup alerts the database administrator and the security officer. The database administrator fixes it within 1 working day.
 7. The system owner copies changed documentation to the controlled library. **Manual**
-8. Each week the database administrator checks every backup job succeeded, and records it on TPL-8 (\\<Security Operating Procedures\\>, C8). **Manual**
+8. Each week the database administrator checks every backup job succeeded and that each backup reached the second site, and records it on TPL-8 (\\<Security Operating Procedures\\>, C8). **Manual**
 
 #### PRO-CP-2 Testing a restore
 
 1. Before the backup to be tested is taken, the database administrator exports the row counts of every table and the audit records' identifiers and stored hashes. **Manual**
-2. They restore that backup, and its transaction logs, to a separate server with no network access to production.
-3. They check that every table has the same row count, every stored file matches its stored SHA-256 checksum, and the audit records and stored hashes match the export. Test-BackupRestore.ps1 makes these checks. **Manual**
-4. They record the time taken and the newest record restored, against the recovery time and point objectives, on TPL-11, then remove the test server. **Manual**
-5. They also run the audit chain check on the restored records. **Manual**
+2. The Windows server administrator builds the restore test server: a throwaway virtual server at the second site, built to the database server's baseline, with no network route to production, reached only over the administration route by the database administrator and the security officer (\<Contingency Planning Management\>, section 3.8; D-CP-01). **Manual**
+3. The database administrator fetches the backup, its transaction logs and the backup encryption certificate from the second site, checks the backup's SHA-256 value, restores the certificate into SQL Server, then restores the backup and applies the logs.
+4. They check that every table has the same row count, every stored file matches its stored SHA-256 checksum, and the audit records and stored hashes match the export, and run the audit chain check on the restored records. Test-BackupRestore.ps1 makes these checks, and the database administrator reviews its results.
+5. They record the time taken and the newest record restored, against the recovery time and point objectives, on TPL-11. **Manual**
+6. The Windows server administrator removes the restore test server and erases its virtual disk by method M1 (\<Media Protection Management\>, section 3.6), and records it on TPL-13. **Manual**
 
 #### PRO-CP-3 Recovering
 
-1. The Windows server administrator confirms with \<Organisation\> that the site, network and services are available, at the second site if the main one is lost. **Manual**
-2. They rebuild the database VM to the baseline in \<Configuration Management\>, sections 3.4 and 3.6. **Manual**
-3. The database administrator restores the latest good backup and applies the archived transaction logs to the last consistent point. If a backup fails the checks in PRO-CP-2, they use the one before it.
-4. The Windows server administrator restores the secrets from their protected copy, and changes them if a compromise is suspected. **Manual**
-5. They rebuild the application VM from the tagged release, and start API, then UI application, then Admin application. **Manual**
-6. If the database is not restored 48 hours after the plan was invoked, the system owner tells the authorising official. **Manual**
+1. The Windows server administrator confirms with \<Organisation\> that the site, network and services are available, at the second site if the main one is lost, including PingFederate and the firewall rules for flows F1 to F11. **Manual**
+2. They rebuild the database VM to the baseline in \<Configuration Management\>, sections 3.4 and 3.6, and the database administrator restores its server-level settings, checked against the latest system-level backup: the API's login, SQL Server Audit and the backup jobs. **Manual**
+3. The administrators restore the secrets from their protected copy. The database administrator first restores the backup encryption certificate and its private key into SQL Server, with any retired certificate the chosen backup needs. **Manual**
+4. The database administrator restores the latest good backup and applies the archived transaction logs to the last consistent point. If a backup fails the checks in PRO-CP-2, they use the one before it.
+5. The Windows server administrator rebuilds the application VM from the tagged release, and starts the API, then the UI application, then the Admin application. **Manual**
+6. If a compromise is suspected, the administrators change every secret, and the database administrator makes a new backup encryption certificate for the backups that follow. **Manual**
+7. As soon as it is clear that users will not be back within 72 hours of the outage starting, and in any case if the database is not restored 24 hours after the plan was invoked, the system owner tells the authorising official. **Manual**
 
 #### PRO-CP-4 Training and testing
 
-1. The system owner trains each person with a contingency role within 30 days of taking it and every 12 months, using the content in \<Contingency Planning Management\>, section 3.10, and records it on TPL-9 and in the training register (\<Awareness and Training Management\>, section 3.8). This is module M8 in the training matrix (\<Awareness and Training Management\>, section 3.5), with its 80% check. **Manual**
-2. The system owner reviews the training content every 12 months, and after a plan change, test or activation. **Manual**
+1. The system owner trains each person with a contingency role within 30 days of taking it and every 12 months, using the content in \<Contingency Planning Management\>, section 3.10, and records it on TPL-9 and in the training register (\<Awareness and Training Management\>, section 3.8). The security officer trains the system owner, and the system owner, the security officer and their deputies are trained before taking the role. This is module M8 in the training matrix (\<Awareness and Training Management\>, section 3.5), with its 80% check. **Manual**
+2. The security officer reviews the training content every 12 months, and after a plan change, test or activation, under PRO-AT-3. **Manual**
 3. The system owner and security officer run the restore test and tabletop exercise in \<Contingency Planning Management\>, section 3.10, with objectives and a scenario set beforehand. The tabletop is held with the incident response plan. **Manual**
 4. Within 10 working days of each test or activation, the security officer writes an after-action report on TPL-11: objectives, what happened, time and data lost against the objectives, problems, actions with owners and dates, and plan changes. **Manual**
 5. Actions that need a fix go to \<Plan of Action and Milestones\>. **Manual**
@@ -698,27 +700,29 @@ These procedures carry out \<Policy\> (CP) and \<Contingency Planning Management
 
 1. Whoever finds a failure tells \<Organisation\>'s IT service desk and the security officer. **Manual**
 2. Within 4 hours the database and Windows server administrators assess the outage: cause, damage, expected duration, possible data loss and whether it may be a security incident. If it may be, the security officer starts the incident response plan. **Manual**
-3. The system owner, or their deputy, invokes \<Contingency Planning Management\> if any criterion in its section 5.1 is met, and records the decision and time. **Manual**
+3. The system owner, or their deputy, invokes \<Contingency Planning Management\> if any criterion in its section 3.5.1 is met, and records the decision and time. **Manual**
 4. The system owner tells the people in \<Contingency Planning Management\>, section 3.4, and \<Organisation\>'s IT service desk, by phone and then in writing, using its contact list (appendix A). **Manual**
 5. The system owner tells users through \<Organisation\>'s usual staff channel, and updates them at least daily. **Manual**
 6. The security officer keeps an activity log of decisions and actions, with times, until deactivation. **Manual**
 
 #### PRO-CP-6 Reconstitution and deactivation
 
-1. The database administrator runs the checks in PRO-CP-2, step 3, on the recovered database, and records the newest record restored. **Manual**
-2. The administrators test the functions: sign in, find and read an item, upload and remove a test item in a test schema, and sign in to the Admin application, checking that each writes an audit record. **Manual**
-3. The security officer confirms that the controls match the main site, including encryption in transit, the members of \<System Name\>'s groups against current staff, and audit logging. **Manual**
-4. The system owner declares recovery, and tells users and the people in \<Contingency Planning Management\>, section 3.4. **Manual**
+1. The database administrator runs the checks in PRO-CP-2, step 4, on the recovered database, and records the newest record restored. **Manual**
+2. If the database could not be brought forward to the moment of the failure, the business owner and the legal adviser list the items disposed of, or deleted after a person's request, since the backup was taken (TPL-3, TPL-15), and an editor deletes them again, through the audited functions. **Manual**
+3. The administrators test the functions: sign in, find and read an item, upload and remove a test item in a test schema, and sign in to the Admin application, checking that each writes an audit record. **Manual**
+4. The security officer confirms that the controls match the main site, including encryption in transit, the members of \<System Name\>'s groups against current staff, and audit logging. **Manual**
 5. The database administrator takes a full backup at once, and confirms it reached the second site.
-6. Temporary access is removed. A return from the second site to the main site is made as a planned change under \<Configuration Management\>. **Manual**
-7. The system owner closes the activation, and the after-action report follows PRO-CP-4, step 4. **Manual**
+6. The system owner declares recovery, and tells users and the people in \<Contingency Planning Management\>, section 3.4. **Manual**
+7. Temporary access is removed. A return from the second site to the main site is made as a planned change under \<Configuration Management\>. **Manual**
+8. The security officer confirms that the monitoring duties have restarted, and the system owner asks the authorising official to decide whether a move to the second site, or any other significant change the recovery made, needs assessment or authorisation again (\<Assessment, Authorization, and Monitoring Management\>, section 3.9). **Manual**
+9. The system owner closes the activation, and the after-action report follows PRO-CP-4, step 4. **Manual**
 
 #### PRO-CP-7 Maintaining and sharing the plan
 
 1. The system owner reviews \<Contingency Planning Management\> every 12 months, and after a test, activation or significant change, with the authorising official. **Manual**
 2. They check it still agrees with the incident response plan and \<Organisation\>'s plans in its appendix B. **Manual**
 3. Once approved, they send the plan to the people in its section 1.1, tell them what changed, and record who received it. **Manual**
-4. They make sure the offline copies held by the system owner and security officer are current. **Manual**
+4. They make sure the offline copies held by the system owner and security officer are current, held on an encrypted managed device or in locked storage, and that superseded copies are destroyed (\<Security Operating Procedures\>, C61). **Manual**
 
 ## IA Identification and Authentication
 

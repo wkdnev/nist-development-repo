@@ -227,7 +227,7 @@ Part B applies, in addition to Part A, to the system owner, administrators, audi
 
 ## 4 Part C: operating procedures
 
-Part C sets out how \<System Name\>'s security is run. Each duty has a reference, C1 to C60, so that it can be traced to its CSS control in section 8. Each names the record that proves it was done. Records use the forms in \<Record Templates\>. A ServiceNow record holding the same fields may replace a form. Records are kept for 3 years in \[the restricted records location\], unless a longer period applies. Audit records stay in \<System Name\> for 12 months and then in an offline archive for 12 more; application logs are kept for 30 days (\<Audit and Accountability Management\>).
+Part C sets out how \<System Name\>'s security is run. Each duty has a reference, C1 to C61, so that it can be traced to its CSS control in section 8. Each names the record that proves it was done. Records use the forms in \<Record Templates\>. A ServiceNow record holding the same fields may replace a form. Records are kept for 3 years in \[the restricted records location\], unless a longer period applies. Audit records stay in \<System Name\> for 12 months and then in an offline archive for 12 more; application logs are kept for 30 days (\<Audit and Accountability Management\>).
 
 The detection use cases U1 to U9 in \<System and Information Integrity Management\>, section 3.4, say what raises an alert, including repeated failed sign-ins, a break in the audit chain and a Defender detection, and \<Procedures\>, PRO-SI-4, says how to respond.
 
@@ -244,9 +244,9 @@ The detection use cases U1 to U9 in \<System and Information Integrity Managemen
 | C3 | Review the audit log, including refused sign-ins and privileged actions, against the server and database records and the PingFederate and Active Directory records of failed sign-ins and lockouts | Auditor | Section 4.2 | TPL-8 | AC-2, AC-6(9), AC-7, AU-6 |
 | C4 | Review the central logs and any alerts, including the security events for each read or export of the audit log. The security officer does not read the audit log | Security officer | \<Procedures\>, PRO-SI-3 and PRO-SI-4 | TPL-8 | SI-4, AU-6 |
 | C5 | Check Windows and SQL Server logs, or \<Organisation\>'s report on them | Windows server and database administrators | \[Method set with \<Organisation\>\] | TPL-8 | AU-6, AU-6(3), SI-4 |
-| C6 | Back up system configuration | Windows server administrator | \<Procedures\>, PRO-CP-1 | Backup job log, checked at C8 | CP-9 |
+| C6 | Back up system-level information: SQL Server's system databases and each VM's configuration | Database administrator, Windows server administrator | \<Procedures\>, PRO-CP-1 | Backup job log, checked at C8 | CP-9 |
 | C7 | Act on security advisories as they arrive, and confirm none were missed | Security officer | \<Procedures\>, PRO-SI-5 | TPL-7 | SI-5 |
-| C8 | Check every backup job in the week succeeded | Database administrator | Backup job logs | TPL-8 | CP-9 |
+| C8 | Check every backup job in the week succeeded and reached the second site | Database administrator | Backup job logs; \<Procedures\>, PRO-CP-1 | TPL-8 | CP-9 |
 | **Monthly** |  |  |  |  |  |
 | C9 | Run the last sign-in report (FR-085), list the members of \<System Name\>'s groups who have not signed in for 90 days, and have the groups' owners remove them | Security officer; the groups' owners | \<Procedures\>, PRO-AC-8 | TPL-3 | AC-2(3) |
 | C10 | Scan for vulnerabilities and review patches | Windows server administrator, security officer | \<Procedures\>, PRO-RA-3 | TPL-7 | RA-5, SI-2 |
@@ -266,7 +266,7 @@ The detection use cases U1 to U9 in \<System and Information Integrity Managemen
 | C16 | Check the administrators' actions | Head of Cyber | The auditors' review records and their quarterly report on the administrators' actions (\<Procedures\>, PRO-AU-1, step 6) | TPL-8 | AC-6(9), AU-6 |
 | C17 | Report security status to the authorising official | Security officer, system owner | \<Procedures\>, PRO-CA-5 | TPL-8 | CA-7 |
 | **Every 6 months** |  |  |  |  |  |
-| C18 | Test that backups can be restored | Database administrator | \<Procedures\>, PRO-CP-2 | TPL-11 | CP-9(1) |
+| C18 | Test that backups can be restored, with the backup encryption certificate, on the restore test server at the second site, and erase that server afterwards | Database administrator; Windows server administrator for the test server | \<Procedures\>, PRO-CP-2 | TPL-11; TPL-13 | CP-4, CP-9(1) |
 | **Every 12 months** |  |  |  |  |  |
 | C19 | Review the members of each schema's groups, and the system owner the role groups at C15 | Data Owners | \<Procedures\>, PRO-AC-7 | TPL-3 | AC-2 |
 | C20 | Change keys and secrets as \<System Description\>, P-10 sets. The API has no database password | Database administrator, Windows server administrator | \<Procedures\>, PRO-IA-4 and PRO-SC-3 | TPL-6 | IA-5, SC-12 |
@@ -293,6 +293,7 @@ The detection use cases U1 to U9 in \<System and Information Integrity Managemen
 | C57 | Independent check of the monitoring | Security assessor | \<Procedures\>, PRO-CA-5, step 3 | The assessor's report; TPL-19 | CA-7(1) |
 | C59 | Review the baseline, the inventory and the approved access list, also at each release | System owner, Windows server administrator | \<Procedures\>, PRO-CM-2 | Release record; TPL-5 | CM-2, CM-8, CM-12 |
 | C60 | Review the approved software list and component licences | Windows server administrator, developers, system owner | \<Procedures\>, PRO-CM-4 and PRO-CM-9 | \<Configuration Management\>, section 3.5; \<Decision Register\> | CM-7(5), CM-10 |
+| C61 | Review the contingency plan with the authorising official, check it against the incident response plan and \<Organisation\>'s plans, renew the backup encryption certificate when due, and refresh the offline copies of the plan | System owner, with the database administrator for the certificate | \<Procedures\>, PRO-CP-7 and PRO-CP-1 | Change record; distribution record | CP-2, CP-2(1), CP-9(8) |
 | **When an event occurs** |  |  |  |  |  |
 | C36 | Grant, change or remove access | The groups' owners; \<Organisation\>'s service desk disables accounts | Section 4.4 | TPL-2 (the ServiceNow request), TPL-14 | AC-2, PS-4, PS-5 |
 | C37 | Apply updates within the time limits in \<System Description\>, P-11 | Windows server administrator, database administrator, developers | Section 4.3, through approved change | TPL-6, TPL-7 | SI-2, CM-3 |
@@ -341,7 +342,7 @@ The security officer analyses each change's impact against the criteria in \<Con
 1. **Start-up.** Start the database VM first, then the application VM. Confirm the time is synchronised, run the start-up checks of release packages, file checksums and the audit chain (\<Procedures\>, PRO-SI-6), then confirm every service is healthy (C1).
 2. **Shut-down.** A planned shut-down is an approved change. Tell users at least 2 working days beforehand, confirm the latest backups succeeded, stop the UI application and the Admin application, then the API, then SQL Server, and record it.
 3. **Emergency shut-down.** If \<Organisation\> warns that the data centre is on backup power, the Windows server and database administrators shut down at once in the same order, without the notice, and before the backup power runs out. It is recorded on TPL-10 as a physical incident.
-4. **Recovery.** Follow \<Contingency Planning Management\>. Restore from the latest good backup, run the checks in PRO-CP-2 (row counts, file checksums and the audit chain) and \<Contingency Planning Management\>, section 3.7, and change secrets if a compromise is suspected. Check the members of \<System Name\>'s groups against current staff, and confirm the security functions work, before users return, and record the recovery on TPL-11, or on TPL-10 if it followed an incident.
+4. **Recovery.** Follow \<Contingency Planning Management\>. Restore the backup encryption certificate, then the latest good backup, run the checks in PRO-CP-2 (row counts, file checksums and the audit chain) and \<Contingency Planning Management\>, section 3.7, delete again any item disposed of or deleted since the backup was taken, and change secrets if a compromise is suspected. Check the members of \<System Name\>'s groups against current staff, and confirm the security functions work, before users return, and record the recovery on TPL-11, or on TPL-10 if it followed an incident.
 
 ### 4.7 Remote maintenance (C41)
 
@@ -457,7 +458,7 @@ Table 6 shows where each control that these SyOps serve is met. It lets an audit
 | CM-2(7) High-risk Travel | A41 |
 | CM-3, CM-4, CM-5 Change Control | B13, B14, B15; C37, C38, C58; section 4.5 |
 | CM-7(1), CM-7(5), CM-10, CM-11 Least Functionality, Authorised Software, Licences and User-installed Software | A47, A48, A49; B17; C24, C60 |
-| CP-4, CP-9, CP-10 Contingency | C2, C6, C8, C18, C21; section 4.6 |
+| CP-2, CP-4, CP-9, CP-10 Contingency | C2, C6, C8, C18, C21, C61; section 4.6 |
 | IA-2, IA-5 Authentication | A9 to A15; B4, B9, B19; C20 |
 | IR-4, IR-5, IR-6 Incidents | A29, A42, A50 to A53; B22; C43; section 4.9 |
 | MA-2, MA-3, MA-4, MA-5 Maintenance | B15, B20, B21; C28, C41, C48; section 4.7 |
