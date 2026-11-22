@@ -1357,7 +1357,7 @@ These procedures carry out \<Policy\> (SA). Steps marked **Manual** have no syst
 
 | Procedure | When | Who | Record | Controls |
 | --- | --- | --- | --- | --- |
-| PRO-SA-1 Developing a change | Every change | Developers, security officer | TPL-6 change record; the merge review | SA-3, SA-8, SA-10, SA-15 |
+| PRO-SA-1 Developing a change | Every change | Developers, security officer | TPL-6 change record; the merge review; \<Risk List\>, section 2.1 | SA-3, SA-8, SA-10, SA-15, SA-15(3) |
 | PRO-SA-2 Testing a release | Each release | Developers, security officer | Test results with a README and a manifest, in the evidence for each family | SA-11 |
 | PRO-SA-3 Buying a product or service | Each purchase; every 12 months for each external service | System owner | TPL-16 supplier review | SA-4, SA-9, SA-9(2) |
 | PRO-SA-4 Documentation | Each release; each supplier review | Developers, system owner | \<Administrator Guide\> and \<User Guide\> change record; TPL-16 for a missing supplier document | SA-5 |
@@ -1403,7 +1403,7 @@ These procedures carry out \<Policy\> (SA). Steps marked **Manual** have no syst
 #### PRO-SA-6 Budgeting and reviews
 
 1. Every 12 months the system owner raises security and privacy costs in yearly budgeting, and records them on TPL-23. **Manual**
-2. Developers and the security officer review the tools, standards and CSS table, and record the result on TPL-23. **Manual**
+2. Developers and the security officer review the development process, the CSS table, the standards, and the tools with their options and settings (\<System and Services Acquisition Management\>, sections 3.2 and 3.10), against the security and privacy requirements, and record the result on TPL-23. A change to the process or a tool goes through change control. **Manual**
 
 #### PRO-SA-7 Adding a third-party component
 

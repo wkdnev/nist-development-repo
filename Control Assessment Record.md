@@ -2504,7 +2504,7 @@ There is one finding for each CSS determination statement, including those about
 | Interview | The developers, the system owner, the security officer and \<Organisation\>'s contract owner (\<Interview Guide\>, section 19) |
 | Previous results reused | \[Results reused from other chapters, if any\] |
 | Boundary | \<System Name\>'s development and acquisition. \<Organisation\>'s contracts, services and corporate SDLC, and the source repository service's own controls, are provider evidence (EV-SA-01 to EV-SA-04) |
-| Order of assessment | A, change control (SA-10); B, developer testing (SA-11); C, process and tools (SA-3, SA-15); D, documentation (SA-5); E, external services and contracts (SA-4, SA-9); F, policy and resources (SA-1, SA-2) |
+| Order of assessment | A, change control (SA-10); B, developer testing (SA-11); C, process, principles and tools (SA-3, SA-8, SA-15, SA-15(3), SA-22); D, documentation and design information (SA-4(1), SA-4(2), SA-4(9), SA-5); E, external services and contracts (SA-4, SA-4(10), SA-9, SA-9(2)); F, policy and resources (SA-1, SA-2) |
 | Needed from providers | EV-SA-01 to EV-SA-04 and EV-CA-02 in \<Evidence Requests\> |
 | Evidence retained | The SA evidence (results, README and MANIFEST); the other evidence folders; completed TPL-6, TPL-7, TPL-16 and TPL-23 records; the signed interface record rows |
 | Notes | The test is Test-Development.ps1. It reads the repository settings through the source repository service (read-only), the Git history at the release tag, the build files and the component support dates. |

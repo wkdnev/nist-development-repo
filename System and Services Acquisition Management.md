@@ -262,7 +262,7 @@ Each component is replaced before its vendor's support ends, with the replacemen
 
 ### 3.13 What \<Organisation\> and the providers supply
 
-Controls met here: SA-4, SA-9, SA-9(2), SA-10.
+Controls met here: SA-3, SA-4, SA-9, SA-9(2), SA-10, SA-15.
 
 **Table 8: Asked of \<Organisation\> and the providers**
 
