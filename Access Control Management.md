@@ -258,10 +258,11 @@ Controls met here: AC-4.
 | F8 | Both servers | \<Organisation\>'s time service, central logging, proxy and backup site | As \<Organisation\> sets: logs, updates and backups encrypted; time by NTP, authenticated where the service allows | Accurate audit times, log forwarding, updates and backups |
 | F10 | Application server | \<Organisation\>'s PingFederate | HTTPS, TCP 443 | The UI app and the Admin app fetching PingFederate's OpenID Connect metadata and signing certificate, and completing each sign-in |
 | F11 | Server and database administrators' managed devices, over \<Organisation\>'s managed administration route, with multi-factor authentication | Both servers | Tool and protocol to be supplied by \<Organisation\> | Server and database administration, using named accounts |
+| None: infrastructure | Both servers; the vulnerability scanner and \<Organisation\>'s discovery tools | \<Organisation\>'s DNS, domain controllers and certificate authority; both servers | DNS, domain and revocation list traffic, and scanning, as rules O8 to O10, A4 and D3 in \<System and Communications Protection Management\>, section 3.2, list them | Name resolution, domain membership and Kerberos, certificate revocation checks, and scans. These carry no \<System Name\> data |
 
 Everything else should be refused, in and out. \<System Name\> needs no route to the internet, as browsers load all code from \<System Name\> itself. The applications fetch PingFederate's OpenID Connect metadata and signing certificate, which checks its sign-in responses, from \<Organisation\>'s PingFederate (F10), and fetch nothing from an outside host. ServiceNow and the starters and leavers process (F9) have no connection to \<System Name\>.
 
-What \<System Name\> itself controls is limited to its own apps: the API listens only on the loopback address, each app accepts only HTTPS, and the API accepts requests only from the two apps' addresses.
+What \<System Name\> itself controls is limited to its own servers: the API listens only on the loopback address, each app accepts only HTTPS, the API accepts requests only from the two apps' addresses, and each server's host firewall allows only the rules in \<System and Communications Protection Management\>, section 3.2.
 
 #### 3.6.5 What \<Organisation\>'s corporate configuration provides
 

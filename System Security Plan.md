@@ -146,7 +146,7 @@ All users are staff or contractors of \<Organisation\>, so all are internal. \<S
 
 ### 3.7 Ports, protocols and services
 
-The design on the two VMs is below. Flow numbers are those in \<System Description\>, section 6.5. ServiceNow and the starters and leavers process (F9) have no connection to \<System Name\>, so they have no port.
+The design on the two VMs is below. Flow numbers are those in \<System Description\>, section 6.5. ServiceNow and the starters and leavers process (F9) have no connection to \<System Name\>, so they have no port. The last two rows are the infrastructure and scanning traffic every server on \<Organisation\>'s domain needs; they carry no \<System Name\> data, so they have no flow number.
 
 **Table 7: Ports, protocols and services**
 
@@ -164,6 +164,8 @@ The design on the two VMs is below. Flow numbers are those in \<System Descripti
 | Central logging | Set by \<Organisation\> (\<Evidence Requests\>) | Both VMs to \<Organisation\>'s logging | F8 |
 | Updates and backups | Through \<Organisation\>'s authenticated proxy, and to its backup site, encrypted, as \<Organisation\> sets | Both VMs to \<Organisation\>'s proxy and backup site | F8 |
 | Browser libraries | Served by \<System Name\> itself, over F1; no content delivery service and no outside host | None outside the system | F1 |
+| Infrastructure | DNS (TCP and UDP 53); Kerberos, LDAP, SMB, RPC and Kerberos password change to the domain controllers; the certificate authority's revocation lists \[ports, EV-SC-02, EV-SC-04\] | Both VMs to \<Organisation\>'s DNS, domain controllers and certificate authority. These carry no \<System Name\> data and are not exchanges (rules O8 to O10 in \<System and Communications Protection Management\>, section 3.2) | None |
+| Scanning and discovery | \[Ports, from the scanner when chosen and EV-CM-02\] | The vulnerability scanner and \<Organisation\>'s discovery tools to both VMs, from their own addresses only (rules A4 and D3) | None |
 
 ## 4 Security architecture
 
@@ -221,7 +223,7 @@ The VPN's multi-factor authentication protects the network route. \<System Name\
 
 ## 5 Control applicability and inheritance
 
-The controls are those of CSS in the CSS Moderate baseline. PT and 16 related privacy controls come from the CSS privacy baseline. The 316 are the 287 controls of the Moderate baseline and the 29 of the privacy baseline outside it and outside PM. PM is not among them (TR-PM-01): its 37 controls describe \<Organisation\>'s whole security and privacy programme, and \<System Name\> inherits 35 of them as common controls, with PM-17 and PM-24 not applicable. Twenty-four PM controls are in the privacy baseline; they too are inherited and not assessed for \<System Name\>. No PM control is among the 66 Inherited entries in Table 8, which are system controls \<Organisation\> provides for \<System Name\>. The PM controls are listed with their providers, \<System Name\>'s part and the evidence in \<Program Management\>, section 3.3. \<Organisation\>'s programme plan is requested in EV-PM-01. Tailoring proposals are in \<Tailoring Register\>.
+The controls are those of CSS in the CSS Moderate baseline. PT and 16 related privacy controls come from the CSS privacy baseline. The 316 are the 287 controls of the Moderate baseline and the 29 of the privacy baseline outside it and outside PM. PM is not among them (TR-PM-01): its 37 controls describe \<Organisation\>'s whole security and privacy programme, and \<System Name\> inherits 35 of them as common controls, with PM-17 and PM-24 not applicable. Twenty-four PM controls are in the privacy baseline; they too are inherited and not assessed for \<System Name\>. No PM control is among the 62 Inherited entries in Table 8, which are system controls \<Organisation\> provides for \<System Name\>. The PM controls are listed with their providers, \<System Name\>'s part and the evidence in \<Program Management\>, section 3.3. \<Organisation\>'s programme plan is requested in EV-PM-01. Tailoring proposals are in \<Tailoring Register\>.
 
 Each control is given one of four types. **System** controls are met by \<System Name\>. **Hybrid** controls are met partly by \<System Name\> and partly by the organisation or \<Organisation\>. **Organisational** controls are met by policy, procedure and people. **Inherited** controls are provided by \<Organisation\>, which is expected to supply the evidence (\<Evidence Requests\>). As CSS allows, this plan names the provider of an inherited control but does not describe how that provider implements it.
 
@@ -245,10 +247,10 @@ Each control is given one of four types. **System** controls are met by \<System
 | PT Personally Identifiable Information Processing and Transparency | 29 | 3 | 2 | 13 | 2 | 9 |
 | RA Risk Assessment | 10 | 0 | 4 | 6 | 0 | 0 |
 | SA System and Services Acquisition | 17 | 0 | 4 | 10 | 2 | 1 |
-| SC System and Communications Protection | 25 | 3 | 10 | 1 | 10 | 1 |
+| SC System and Communications Protection | 25 | 4 | 13 | 1 | 6 | 1 |
 | SI System and Information Integrity | 18 | 3 | 9 | 3 | 1 | 2 |
 | SR Supply Chain Risk Management | 12 | 0 | 3 | 5 | 4 | 0 |
-| **Total** | **316** | **16** | **117** | **95** | **66** | **22** |
+| **Total** | **316** | **17** | **120** | **95** | **62** | **22** |
 
 Section 7 lists every control. A control counts as satisfied only when every one of its assessment statements is satisfied.
 
@@ -386,7 +388,7 @@ The assessment plan is in \<Control Assessment Record\> (CA), section CA.4, wher
 | CA-2(1) Independent Assessors | \[Name\]'s team, each member with no part in designing, building, running or administering \<System Name\> and no reporting line to it, on TPL-19 accepted by the authorising official | Security assessor, authorising official | Organisational | Implemented | NC-CA-03 |
 | CA-3 Information Exchange | The five external exchanges (PingFederate and Active Directory, central logging, time, backup site and proxy) are recorded with their interface, security and privacy needs, responsibilities and impact in \<Assessment, Authorization, and Monitoring Management\>, Table 6, which is the agreement, signed by the system owner and each service's owner and reviewed every 12 months (PRO-CA-2; D-CA-04) | System owner, \<Organisation\> | Hybrid | Implemented | NC-CA-04 |
 | CA-5 Plan of Action and Milestones | \<Plan of Action and Milestones\> holds each weakness to be fixed, updated monthly from assessments, monitoring and audits, with fix times by rating counted from go-live or the date raised (PRO-CA-3) | System owner | Organisational | Implemented | NC-CA-05 |
-| CA-6 Authorization | \[Name\] is the authorising official and \<Organisation\>'s official authorises the common controls; the package in \<Assessment, Authorization, and Monitoring Management\>, Table 4, and the TPL-18 decision, with the 66 inherited controls accepted and, as one line, reliance on \<Organisation\>'s programme for the PM controls (\<Program Management\>), before real data is held, and renewed within 12 months (P-25) | Authorising official, system owner | Organisational | Implemented | NC-CA-06 |
+| CA-6 Authorization | \[Name\] is the authorising official and \<Organisation\>'s official authorises the common controls; the package in \<Assessment, Authorization, and Monitoring Management\>, Table 4, and the TPL-18 decision, with the 62 inherited controls accepted and, as one line, reliance on \<Organisation\>'s programme for the PM controls (\<Program Management\>), before real data is held, and renewed within 12 months (P-25) | Authorising official, system owner | Organisational | Implemented | NC-CA-06 |
 | CA-7 Continuous Monitoring | System-level strategy carrying out \<Organisation\>'s strategy, with 15 measures, thresholds and re-assessment triggers; reported monthly to the system owner, privacy measures to the legal adviser, and quarterly to the authorising official, from go-live (\<Assessment, Authorization, and Monitoring Management\>, section 3.8; PRO-CA-5) | Security officer, system owner | Organisational | Implemented | NC-CA-07 |
 | CA-7(1) Independent Assessment | The independent assessor checks a sample of the monitoring each year, alongside the yearly Level 2 assessment of every control, which together are the ongoing basis (PRO-CA-5, step 3; D-CA-03) | Security assessor | Organisational | Implemented | NC-CA-08 |
 | CA-7(4) Risk Monitoring | The measures cover effectiveness, compliance and change, and the Risk List is reviewed monthly (\<Assessment, Authorization, and Monitoring Management\>, Table 7) | System owner, security officer | Organisational | Implemented | None |
@@ -692,31 +694,31 @@ The assessment plan is in \<Control Assessment Record\> (SC), section SC.4, wher
 
 | Control | How it is implemented | Who | Type | Status | Gap entry |
 | --- | --- | --- | --- | --- | --- |
-| SC-1 Policy and Procedures | Policy and procedures in \<Policy\> (SC) and \<Procedures\> (SC); the design is in \<System and Communications Protection Management\> | System owner, Head of Cyber | Organisational | \[Status\] | \[Decision\] |
-| SC-2 Separation of Functionality | The Admin application is a separate application and process | Developers | System | \[Status\] | \[Decision\] |
-| SC-4 Shared Resources | Windows Server process and storage separation on the VMs | Windows server administrator, developers | Inherited | \[Status\] | \[Decision\] |
-| SC-5 Denial-of-service | Sign-in lockout by PingFederate; the apps' rate limiter; network protection from \<Organisation\> | Developers, \<Organisation\> | Hybrid | \[Status\] | \[Decision\] |
-| SC-7 Boundary Protection | \<Organisation\>'s firewalls and logical separation, plus each VM's host firewall and listening addresses (\<System and Communications Protection Management\>, section 3.2) | \<Organisation\>, Windows server administrator | Hybrid | \[Status\] | \[Decision\] |
-| SC-7(3) Access Points | \<Organisation\>'s managed gateway | \<Organisation\> | Inherited | \[Status\] | \[Decision\] |
-| SC-7(4) External Telecoms | \<Organisation\> | \<Organisation\> | Inherited | \[Status\] | \[Decision\] |
-| SC-7(5) Deny by Default | \<Organisation\>'s firewalls, and host firewall allow-lists on each VM (\<System and Communications Protection Management\>, section 3.2) | \<Organisation\>, Windows server administrator | Hybrid | \[Status\] | \[Decision\] |
-| SC-7(7) Split Tunnelling | Not allowed; \<Organisation\>'s VPN | \<Organisation\> | Inherited | \[Status\] | \[Decision\] |
-| SC-7(8) Authenticated Proxy | Outbound through \<Organisation\>'s proxy, or blocked | \<Organisation\> | Inherited | \[Status\] | \[Decision\] |
-| SC-8 Transmission Protection | HTTPS on every app and the internal API calls, and SQL Server TLS with strict encryption, under NCSC's TLS profiles (\<System Description\>, P-26); client rules that require TLS; API on loopback over HTTPS | Windows server administrator, database administrator, developers | Hybrid | \[Status\] | \[Decision\] |
-| SC-8(1) Cryptographic Protection | As SC-8, under the TLS profile in \<System and Communications Protection Management\>, section 3.3 | Windows server administrator, database administrator | Hybrid | \[Status\] | \[Decision\] |
-| SC-10 Network Disconnect | Network disconnect by \<Organisation\>; the application's session ends 8 hours after sign-in, never later than PingFederate's sign-in (P-02), or at Sign out | Developers, \<Organisation\> | Hybrid | \[Status\] | \[Decision\] |
-| SC-12 Key Management | Register of every key and cryptoperiod (\<System and Communications Protection Management\>, section 3.4); the token signing key, the audit chain key and the OpenID Connect client credential held in the key store, with no database password, as the API uses Windows authentication; the key rings encrypted | Developers, administrators | Hybrid | \[Status\] | \[Decision\] |
-| SC-13 Cryptographic Protection | HMAC-SHA-256 token signing; user passwords are held by Active Directory, not \<System Name\>; TLS, disk and key ring encryption | Developers, administrators | Hybrid | \[Status\] | \[Decision\] |
-| SC-15 Collaborative Devices | Not applicable | None | Not applicable | \[Status\] | \[Decision\] |
-| SC-17 PKI Certificates | \<Organisation\>'s certificate policy, with ECDSA P-256 or RSA 2048 and SHA-256 | \<Organisation\>, Windows server administrator | Inherited | \[Status\] | \[Decision\] |
-| SC-18 Mobile Code | Page policy sent by UI application and Admin application, allowing no inline scripts and no outside hosts; every script and style served by \<System Name\> itself, with no content delivery service (\<System and Communications Protection Management\>) | Developers | System | \[Status\] | \[Decision\] |
-| SC-20 Authoritative DNS | \<Organisation\> | \<Organisation\> | Inherited | \[Status\] | \[Decision\] |
-| SC-21 Recursive DNS | \<Organisation\> | \<Organisation\> | Inherited | \[Status\] | \[Decision\] |
-| SC-22 DNS Architecture | \<Organisation\> | \<Organisation\> | Inherited | \[Status\] | \[Decision\] |
-| SC-23 Session Authenticity | The authentication cookie is checked on the server; cookie and HSTS settings in \<System and Communications Protection Management\> | Developers | System | \[Status\] | \[Decision\] |
-| SC-28 Information at Rest | BitLocker on the VMs, and encrypted backups, export copies and key rings | Windows server administrator, database administrator | Hybrid | \[Status\] | \[Decision\] |
-| SC-28(1) Cryptographic Protection | As SC-28 | Windows server administrator | Hybrid | \[Status\] | \[Decision\] |
-| SC-39 Process Isolation | Windows Server | Windows server administrator | Inherited | \[Status\] | \[Decision\] |
+| SC-1 Policy and Procedures | Policy and procedures in \<Policy\> (SC) and \<Procedures\> (SC); the design is in \<System and Communications Protection Management\> | System owner, Head of Cyber | Organisational | Implemented | NC-SC-01 |
+| SC-2 Separation of Functionality | The Admin application is a separate application, process and service account from the UI application, reached only over the administration route; the API is a third, and the database is on its own server | Developers | System | Implemented | NC-SC-02 |
+| SC-4 Shared Resources | Windows Server on both VMs clears memory and storage between processes and users; each application under its own account; export copies readable only by the API and fetched only by the person who started the job; \<Organisation\>'s hypervisor keeps the VMs apart from other VMs (EV-GEN-03) | Windows server administrator, developers, \<Organisation\> | Hybrid | Implemented | NC-SC-03 |
+| SC-5 Denial-of-service | Limits network flooding, request flooding and resource exhaustion: \<Organisation\>'s network protection; each application's request limit for each client (NFR-046); the upload and batch limits (P-17, P-18) | Developers, \<Organisation\> | Hybrid | Implemented | NC-SC-04 |
+| SC-7 Boundary Protection | \<Organisation\>'s firewalls and logical separation, plus each VM's host firewall and listening addresses (\<System and Communications Protection Management\>, section 3.2); no publicly accessible component; external connections only to the \<Organisation\> services in \<Assessment, Authorization, and Monitoring Management\>, Table 6 | \<Organisation\>, Windows server administrator | Hybrid | Partially implemented | NC-SC-05 |
+| SC-7(3) Access Points | \<Organisation\>'s managed gateway | \<Organisation\> | Inherited | Implemented | NC-SC-06 |
+| SC-7(4) External Telecoms | \<Organisation\>'s managed interfaces, flow policy and exceptions, reviewed every 12 months | \<Organisation\> | Inherited | Implemented | NC-SC-07 |
+| SC-7(5) Deny by Default | \<Organisation\>'s firewalls, and host firewall allow-lists on each VM, including the infrastructure rules for DNS, the domain controllers and the certificate authority, and the scanner rules (\<System and Communications Protection Management\>, section 3.2) | \<Organisation\>, Windows server administrator | Hybrid | Partially implemented | NC-SC-08 |
+| SC-7(7) Split Tunnelling | Not allowed; \<Organisation\>'s VPN | \<Organisation\> | Inherited | Implemented | NC-SC-09 |
+| SC-7(8) Authenticated Proxy | \<Organisation\>'s authenticated proxy carries the VMs' updates, the only traffic allowed outside \<Organisation\>'s network; the host firewall rule O3 and the VMs' proxy settings send it there, and anything else outside is blocked | \<Organisation\>, Windows server administrator | Hybrid | Implemented | NC-SC-10 |
+| SC-8 Transmission Protection | Confidentiality and integrity: HTTPS on every app and the internal API calls, LDAPS to Active Directory, HTTPS to PingFederate, and SQL Server TLS with strict encryption, under NCSC's TLS profiles (\<System Description\>, P-26); time by NTP, and the infrastructure traffic protected as Windows and \<Organisation\> set it | Windows server administrator, database administrator, developers | Hybrid | Implemented | NC-SC-11 |
+| SC-8(1) Cryptographic Protection | As SC-8, under the TLS profile in \<System and Communications Protection Management\>, section 3.3, which both prevents disclosure and detects changes | Windows server administrator, database administrator | Hybrid | Implemented | NC-SC-12 |
+| SC-10 Network Disconnect | Ordinary connections closed at the server and database time-outs; the Blazor live connection closed when the session ends, at 8 hours (P-02), at Sign out or within 5 minutes of the person being refused; network and VPN sessions ended by \<Organisation\> after 30 minutes idle | Developers, \<Organisation\> | Hybrid | Implemented | NC-SC-13 |
+| SC-12 Key Management | Register of every key, with its generation, distribution, storage, access, cryptoperiod and destruction (\<System and Communications Protection Management\>, section 3.4; P-10); the token signing key, the audit chain key and the OpenID Connect client credential held in the key store, with no database password, as the API uses Windows authentication; the key rings encrypted with DPAPI and not backed up | Developers, administrators | Hybrid | Partially implemented | NC-SC-14 |
+| SC-13 Cryptographic Protection | Each use and its algorithm in the register: NCSC's TLS profiles, XTS-AES 256 disks, AES-256 backups, the key rings' AES-256 with HMAC-SHA-256, HMAC-SHA-256 tokens and audit chain, SHA-256 checksums; user passwords are held by Active Directory, not \<System Name\> | Developers, administrators | Hybrid | Implemented | NC-SC-15 |
+| SC-15 Collaborative Devices | Not applicable | None | Not applicable | Not applicable | TR-SC-01 |
+| SC-17 PKI Certificates | Certificates from \<Organisation\>'s certificate authority under its certificate policy, with ECDSA P-256 or RSA 2048 and SHA-256, requested and renewed by the Windows server administrator (PRO-SC-2); each VM's trust stores set to \<Organisation\>'s approved trust anchors and checked yearly | \<Organisation\>, Windows server administrator | Hybrid | Implemented | NC-SC-16 |
+| SC-18 Mobile Code | Only JavaScript served by \<System Name\> itself is acceptable; page policy sent by UI application and Admin application, allowing no inline scripts, no eval, no WebAssembly and no outside hosts; new mobile code approved by the system owner; monitored by the release check, the monthly library scan and the monthly checksum check (\<System and Communications Protection Management\>, section 3.5) | Developers, system owner | System | Implemented | NC-SC-17 |
+| SC-20 Authoritative DNS | \<Organisation\>'s DNS | \<Organisation\> | Inherited | Implemented | NC-SC-18 |
+| SC-21 Recursive DNS | \<Organisation\>'s validating resolvers, used by both VMs | \<Organisation\> | Inherited | Implemented | NC-SC-19 |
+| SC-22 DNS Architecture | \<Organisation\>'s DNS | \<Organisation\> | Inherited | Implemented | NC-SC-20 |
+| SC-23 Session Authenticity | Only PingFederate's signed response is accepted; the authentication cookie is protected by the key rings and checked on the server; the Blazor live connection opened only with a valid cookie and re-checked every 5 minutes; antiforgery tokens; cookie and HSTS settings in \<System and Communications Protection Management\>, section 3.3 | Developers | System | Implemented | NC-SC-21 |
+| SC-28 Information at Rest | Confidentiality and integrity: BitLocker on the VMs, encrypted backups, export copies and key rings; checksums and the keyed audit chain detect changes | Windows server administrator, database administrator | Hybrid | Implemented | NC-SC-22 |
+| SC-28(1) Cryptographic Protection | As SC-28, on both VMs' disks and the backups | Windows server administrator | Hybrid | Implemented | NC-SC-23 |
+| SC-39 Process Isolation | Windows Server on both VMs gives each process its own address space; each application and SQL Server runs as its own process and account | Windows server administrator | System | Implemented | NC-SC-24 |
 
 ### 7.18 System and Information Integrity (SI)
 

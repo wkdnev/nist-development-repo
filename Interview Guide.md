@@ -409,6 +409,8 @@ PM is inherited from \<Organisation\>'s programme and is not assessed for \<Syst
 | INT-SC-06 | \<Organisation\>'s security contact | What protects against denial of service, and how is DNS protected? | SC-05, SC-20, SC-21, SC-22 | EV-SC-01, EV-SC-05 |
 | INT-SC-07 | Windows server administrator | Show me where each key in the register is kept, when it was last changed, and how the data protection key rings are protected | SC-12, SC-13 | \<System and Communications Protection Management\>, section 3.4, and the TPL-6 records of key changes |
 | INT-SC-08 | Windows server administrator | Show me each server's host firewall rules, and how they match the allow-lists | SC-07, SC-07(05) | The host firewall rules; \<System and Communications Protection Management\>, section 3.2 |
+| INT-SC-09 | Windows server administrator | Show me each server's trusted root store and how it matches \<Organisation\>'s approved trust anchors, and how the servers reach the proxy and nothing else outside \<Organisation\>'s network | SC-17b., SC-07(08) | The trust store listing and its TPL-6 record; the proxy settings and rule O3; EV-SC-03, EV-SC-04 |
+| INT-SC-10 | Developers | What ends an open page's live connection, and what time-outs close the other connections? | SC-10, SC-23 | The sign-in and connection settings at the release tag; the Test-Protection.ps1 result |
 
 ## 21 System and Information Integrity (SI)
 

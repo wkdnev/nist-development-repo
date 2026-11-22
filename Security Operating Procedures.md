@@ -285,7 +285,7 @@ The detection use cases U1 to U9 in \<System and Information Integrity Managemen
 | C33 | Check, with the legal adviser, that the privacy notices cover every group of people in the inventory, name \<System Name\> and hold what P-73 sets, and that the link on \<System Name\>'s pages works | System owner | \<Procedures\>, PRO-PT-3 | TPL-4 | PT-5 |
 | C34 | Review exceptions | System owner | Section 5 | Exception register, TPL-17 | PL-4, CA-5 |
 | C35 | Review these SyOps, the plans in the register and the architecture, and the other security documents | System owner | Each document's change record; \<Procedures\>, PRO-PL-1 and PRO-PL-5 | Document change record; plan review record | PL-4c, PL-2, PL-8 |
-| C52 | Review the cryptographic and key register, the host firewall allow-lists, external services and exceptions; schedule keys and certificates due for change | System owner, security officer, \<Organisation\> | \<Procedures\>, PRO-SC-8 | TPL-23 | SC-7(4), SC-12, SC-13 |
+| C52 | Review the cryptographic and key register, the host firewall allow-lists, each VM's trust stores, external services and exceptions; schedule keys and certificates due for change | System owner, security officer, \<Organisation\> | \<Procedures\>, PRO-SC-8 | TPL-23 | SC-7(4), SC-12, SC-13, SC-17 |
 | C53 | Check BitLocker is on for both VMs and that a recovery key works; check backups are encrypted | Windows server administrator, database administrator | \<Procedures\>, PRO-SC-7 | TPL-11 | SC-28, SC-28(1) |
 | C54 | Plan and carry out the yearly control assessment, and report it | System owner, security assessor; the authorising official approves the plan | \<Procedures\>, PRO-CA-1 | Approved plan; TPL-19; \<Control Assessment Record\>; \<Security Assessment Report\> | CA-2, CA-2(1) |
 | C55 | Review the authorisation before its end date | System owner, authorising official | \<Procedures\>, PRO-CA-4 | TPL-18 | CA-6 |
@@ -482,6 +482,7 @@ Table 6 shows where each control that these SyOps serve is met. It lets an audit
 | SA-2, SA-5, SA-22 Resources, Guides and Unsupported Components | C11, C27, C65 |
 | SA-10, SA-11, SA-15 Developer Change Control, Testing and Tools | B19; C11, C27, C40, C51 |
 | SC-12 Key Management | B19; C20 |
+| SC-7, SC-17 Boundary and Certificates | C25, C39, C52 |
 | SC-8, SC-13, SC-18, SC-28 Transport, Cryptography, Page Code and Data at Rest | B19; C39, C40, C52, C53 |
 | SI-4, SI-7 Monitoring and Integrity | C1, C4, C12 |
 

@@ -113,7 +113,7 @@ The PT controls are in the CSS privacy baseline, not Moderate, and are assessed 
 
 | ID | Control or part | Tailoring | Rationale | Condition that must hold | If the condition changes |
 | --- | --- | --- | --- | --- | --- |
-| TR-SC-01 | SC-15 | Not applicable | \<System Name\> has no collaborative computing devices or applications | None is added to the system | SC-15 applies |
+| TR-SC-01 | SC-15 | Not applicable | \<System Name\> has no collaborative computing devices or applications: its two servers have no camera or microphone and run no conferencing software, and users' devices are outside the boundary | None is added to the system, checked at each significant change and against the approved software list every 12 months (P-65) | SC-15 applies |
 
 ## 7 System and Information Integrity (SI)
 
@@ -263,7 +263,7 @@ CSS does not select the controls in Table 9 at Moderate, so they are not assesse
 | SA | SA-17 Developer Security and Privacy Architecture and Design | A formal security architecture from the developer | Not required: selected at High only. Done in part: \<System Description\>, section 6 |
 | SA | SA-20 Customized Development of Critical Components | Builds critical components in-house | Not required. \<System Name\>'s own applications are written in-house |
 | SA | SA-21 Developer Screening | Screens the developers | Not required: selected at High only. Developers are screened as their risk designation requires (\<Personnel Security Management\>) |
-| SC | SC-7(10) Prevent Exfiltration | Stops data leaving by unauthorised routes | Not required. Done in part: outbound traffic only through \<Organisation\>'s proxy (\<System and Communications Protection Management\>, section 3.2) |
+| SC | SC-7(10) Prevent Exfiltration | Stops data leaving by unauthorised routes | Not required. Done in part: traffic outside \<Organisation\>'s network only through its proxy, for updates, and every other outbound route limited by the host firewalls (\<System and Communications Protection Management\>, section 3.2) |
 | SC | SC-7(12) Host-based Protection | A firewall on each host | Not required. Done in design: each server's host firewall (\<System and Communications Protection Management\>, section 3.2) |
 | SC | SC-7(18) Fail Secure | The boundary fails closed | Not required. Done in design: deny by default |
 | SC | SC-7(21) Isolation of System Components | Separates components by boundary | Not required. Done in design: separate application and database servers |

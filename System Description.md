@@ -171,7 +171,7 @@ These are the values the controls depend on. CSS calls many of them organisation
 | P-07 | Audit record retention | 12 months online, then 12 months in an offline archive. This applies to every audit record of \<System Name\>: the application audit log, and the SQL Server Audit records, Windows logs and application security events, which are kept 12 months in \<Organisation\>'s central logging and then archived with the audit log | AU-11 | \[\] |
 | P-08 | Audit log review | Weekly | AU-6 | \[\] |
 | P-09 | Clock accuracy | Within 1 second of UTC | AU-8 | \[\] |
-| P-10 | Key and secret change | Application keys every 90 days; secrets every 12 months; at once if exposed | SC-12 | \[\] |
+| P-10 | Key and secret change | The data protection key rings every 90 days; the keys and secrets in the key store (the token signing key, the audit chain key and the OpenID Connect client credential) and the backup encryption certificate every 12 months; certificates as issued, at most 1 year; any of them at once if exposed, and the key store's keys and secrets when a holder leaves | SC-12 | \[\] |
 | P-11 | Flaw fixing | 3 days if exploited; 14 days Critical or High; 30 days Medium; 90 days Low | SI-2, RA-5 | \[\] |
 | P-12 | Recovery time objective | 72 hours from the start of the outage, for recovery and reconstitution together, so within 72 hours of the plan being invoked | CP-2, CP-2(3), CP-10 | \[\] |
 | P-13 | Recovery point objective | 24 hours | CP-9 | \[\] |
@@ -495,7 +495,7 @@ The application's session is its authentication cookie. It lasts at most P-02 fr
 | NFR-035 | Encrypt backups with AES-256, with the key held apart from the backup | The backup tool encrypts each backup, and the key is kept in a different store | \<Contingency Planning Management\> |
 | NFR-036 | Hold every secret in a key store outside the source code and settings files, readable only by the account that needs it | Secrets are read at start-up from a store protected by the operating system for the service account | \<System and Communications Protection Management\> |
 | NFR-037 | Give every key an owner, a store and a life in the key register, and change keys and secrets as P-10 sets | The key register lists each key. Rotation is a duty in the operating calendar | \<System and Communications Protection Management\> |
-| NFR-038 | Use only approved algorithms: AES-256, SHA-256 and HMAC-SHA-256. No MD5 or SHA-1 for protection. No cryptography written in-house | The algorithms built into Windows, .NET and SQL Server | \<System and Communications Protection Management\> |
+| NFR-038 | Use only the algorithms in the cryptographic register: NCSC's TLS profiles in transit (P-26); AES-256 at rest; SHA-256 and HMAC-SHA-256 for checksums, tokens and the audit chain. No MD5 or SHA-1 for protection. No cryptography written in-house | The algorithms built into Windows, .NET and SQL Server | \<System and Communications Protection Management\> |
 | NFR-039 | Hold a SHA-256 checksum for each stored file and each release, and check them as P-29 sets | Calculated by the API when a file is stored and by the build when a release is made, and compared by a scheduled check | \<System and Information Integrity Management\> |
 
 #### 5.2.6 Network and boundary
@@ -504,7 +504,7 @@ The application's session is its authentication cookie. It lasts at most P-02 fr
 
 | No. | Requirement | How it is implemented | Held in |
 | --- | --- | --- | --- |
-| NFR-040 | Internal only: no route to the application from the internet, and none from it to the internet | No firewall rule or address translation exposes either server, and outbound traffic is blocked or sent through the proxy | \<System and Communications Protection Management\> |
+| NFR-040 | Internal only: no route to the application from the internet, and none from it to the internet | No firewall rule or address translation exposes either server; traffic to anything outside \<Organisation\>'s network is sent through the authenticated proxy, for updates only, or blocked | \<System and Communications Protection Management\> |
 | NFR-041 | Allow only the flows in section 6.5, at \<Organisation\>'s firewalls and at each server's own firewall | Rules written by \<Organisation\> on its firewalls, and host firewall rules on each server | \<System and Communications Protection Management\> |
 | NFR-042 | Listen for users on TCP 443 only; the API on the application server's loopback address only; the database to the application server only | Set by the address and port each application is bound to, and by the database's list of permitted clients | \<System and Communications Protection Management\> |
 | NFR-043 | Reach the Admin application only over \<Organisation\>'s managed administration route, with multi-factor authentication. Only administrators, auditors and the security officer use it | The Admin application is bound to the administration network, with a firewall rule to match | \<Maintenance Management\> |
@@ -697,7 +697,7 @@ The reference stack is below. An application may replace any part of it with a s
 | F10 | UI application and Admin application | \<Organisation\>'s PingFederate | Fetching PingFederate's OpenID Connect metadata and signing certificate, and completing each sign-in | HTTPS, TCP 443, from the application server only |
 | F11 | Server and database administrators' managed devices | Both servers | Server and database administration | Only over \<Organisation\>'s managed administration route, with multi-factor authentication, using named accounts |
 
-No other flow is allowed. The UI application and the Admin application have no connection to the database. The application needs no route to the internet, and loads nothing from an outside host.
+No other flow is allowed. Like every server on \<Organisation\>'s domain, both servers also use \<Organisation\>'s DNS, its domain controllers and its certificate authority's revocation lists, and are reached by the vulnerability scanner and \<Organisation\>'s discovery tools. That traffic carries no \<System Name\> data and is not a flow, but it too is allowed only as the host firewall rules in \<System and Communications Protection Management\>, section 3.2, list it. The UI application and the Admin application have no connection to the database. The application needs no route to the internet, and loads nothing from an outside host.
 
 ### 6.6 Trust zones and layers of defence
 
@@ -906,7 +906,7 @@ Every key has an owner, a store and a cryptoperiod in the key register, in \<Sys
 
 ### 7.8 Network and boundary
 
-\<Organisation\>'s firewalls and each server's own firewall deny everything but the flows in section 6.5. The UI application listens on TCP 443 only. The Admin application is reachable only over the administration route. The API listens only on the application server's loopback address, so nothing off the server can call it. The database accepts connections only from the application server. Outbound traffic goes through \<Organisation\>'s authenticated proxy, or is blocked. Remote users come in through \<Organisation\>'s VPN, which does not allow split tunnelling. \<Organisation\> writes and holds every firewall rule; the application states the flows it needs.
+\<Organisation\>'s firewalls and each server's own firewall deny everything but the flows in section 6.5. The UI application listens on TCP 443 only. The Admin application is reachable only over the administration route. The API listens only on the application server's loopback address, so nothing off the server can call it. The database accepts connections only from the application server. Traffic to \<Organisation\>'s own services goes directly to them, as the flows allow; traffic to anything outside \<Organisation\>'s network goes only through its authenticated proxy, for updates, or is blocked. Remote users come in through \<Organisation\>'s VPN, which does not allow split tunnelling. \<Organisation\> writes and holds every firewall rule; the application states the flows it needs.
 
 ### 7.9 Pages and input
 
