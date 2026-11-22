@@ -221,7 +221,7 @@ The plan, its results and the evidence are protected as the document set is: res
 | Test-Vulnerability.ps1 | Packages, browser libraries, code and the risk records | The RA evidence |
 | Test-SupplyChain.ps1 | Package sources, lock files, signatures, the browser library manifest, the bill of materials, the release's SHA-256 values and suppliers | The SR evidence |
 | Test-Development.ps1 | Repositories, the build and component support | The SA evidence |
-| Test-PlanConsistency.ps1 | The consistency of the document set | The PL evidence |
+| Test-PlanConsistency.py | The consistency of the document set | The PL evidence |
 
 ### 3.10 Development process, standards and tools
 

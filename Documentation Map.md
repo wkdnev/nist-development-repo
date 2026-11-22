@@ -7,7 +7,7 @@ This set covers the 19 control families of CSS that apply to \<System Name\>: Ac
 - **System:** \<System Name\>, an internal digital library built on the reference system in \<System Description\>: the UI application, the Admin application, the API and the shared library, with a Microsoft SQL Server 2022 database in which each schema is its own database schema.
 - **Design described:** \<System Name\> on two Windows Server 2025 VMs at \<Organisation\>, each application a Windows service under its own group managed service account. Development is on developers' computers and testing on a throwaway copy of the whole system built from a tagged release, both with invented data and apart from production.
 - **Baseline:** Moderate.
-- **Evidence basis:** the record documents are templates. The team that assesses \<System Name\> fills them in from its own tests, interviews and evidence. Nothing in the set is a claim of compliance.
+- **Evidence basis:** the record documents are templates, filled in by the team that assesses \<System Name\> from its own tests, interviews and evidence. \<Control Assessment Record\> and \<Security Assessment Report\> now hold a desk self-assessment made from the documents alone, which prepares for the assessments and is replaced by their results. Nothing in the set is a claim of compliance.
 - **Master copy:** the documents are kept as Markdown. Section 4.1 says how they are controlled.
 
 ## 2 The document set
@@ -51,10 +51,10 @@ The set has 42 documents. \<Guide to the Document Set\> is the place to start. W
 | \<Security Operating Procedures\> | Rules and how they are carried out | Rules of behaviour for everyone and for privileged users, and how security is operated day to day, with the record that proves each duty | Every user and administrator, who sign it |
 | \<Record Templates\> | Rules and how they are carried out | The forms that show controls operating, TPL-1 to TPL-26 | Whoever carries out a procedure |
 | \<Tailoring Register\> | Rules and how they are carried out | The case for each control treated as not applicable, and why Program Management is inherited from \<Organisation\> and not assessed | An assessor |
-| \<Control Assessment Record\> | Assessment and authorisation | A template for the Level 1 self-assessment, which the Level 2 team re-determines: the 1,998 determination statements to assess, with space for the finding on each, one chapter for each family | An assessor |
-| \<Security Assessment Report\> | Assessment and authorisation | A template for the Level 2 report to the authorising official, on which every authorisation rests: the results of all 19 families, the risk position and the conditions before authorisation, to be filled in from the assessment | The authorising official; an auditor, early |
+| \<Control Assessment Record\> | Assessment and authorisation | The Level 1 self-assessment, which the Level 2 team re-determines: a finding for each of the 1,993 determination statements, one chapter for each family. It now holds the desk self-assessment made from the documents (its section 1.4) | An assessor |
+| \<Security Assessment Report\> | Assessment and authorisation | The Level 2 report to the authorising official, on which every authorisation rests: the results of all 19 families, the risk position and the conditions before authorisation. It now gives the desk self-assessment's figures, which the Level 2 results replace | The authorising official; an auditor, early |
 | \<Risk List\> | Assessment and authorisation | The risk register, with the threat model of the reference system and its risks, and the rating method, with space for each further risk with its rating, treatment and acceptance, and for a non-compliance entry for each control that is not satisfied | The authorising official and system owner |
-| \<Plan of Action and Milestones\> | Assessment and authorisation | A template for each weakness with its fix, owner, milestone and latest completion, and for the road to authorisation | The system owner, monthly; an auditor |
+| \<Plan of Action and Milestones\> | Assessment and authorisation | A template for each weakness with its fix, owner, milestone and latest completion, with the road to authorisation (REC-1 to REC-28) and the facts still to be supplied | The system owner, monthly; an auditor |
 | \<Decision Register\> | Assessment and authorisation | A template for recording each approval and decision, who made it, when, and the evidence of it | Anyone checking who approved what |
 | \<Evidence Requests\> | Assessment and authorisation | The evidence to ask of \<Organisation\>, and who does what for each control | The system owner and \<Organisation\> |
 | \<Interview Guide\> | Assessment and authorisation | The interview questions by role and the statements each supports, with space for the answers | An assessor, and the people interviewed |
@@ -72,9 +72,9 @@ Table 2 gives, for each family, the chapter or section of every document that ho
 | Family | Policy and procedures | Design | \<System Security Plan\> | Assessment | \<Evidence Requests\> | \<Interview Guide\> | Test |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | AC Access Control | \<Policy\> (AC) and \<Procedures\> (AC) | \<Access Control Management\>, section 3 | Section 7.1 | \<Control Assessment Record\> (AC) | Section 3 | Section 3 | Test-AccessControl.ps1 |
-| AT Awareness and Training | \<Policy\> (AT) and \<Procedures\> (AT) | \<Awareness and Training Management\>, section 3 | Section 7.2 | \<Control Assessment Record\> (AT) | Section 4 | Section 4 | Test-PlanConsistency.ps1 |
+| AT Awareness and Training | \<Policy\> (AT) and \<Procedures\> (AT) | \<Awareness and Training Management\>, section 3 | Section 7.2 | \<Control Assessment Record\> (AT) | Section 4 | Section 4 | Test-PlanConsistency.py |
 | AU Audit and Accountability | \<Policy\> (AU) and \<Procedures\> (AU) | \<Audit and Accountability Management\>, section 3 | Section 7.3 | \<Control Assessment Record\> (AU) | Section 5 | Section 5 | Test-AuditAndAuth.ps1 |
-| CA Assessment, Authorization, and Monitoring | \<Policy\> (CA) and \<Procedures\> (CA) | \<Assessment, Authorization, and Monitoring Management\>, section 3 | Section 7.4 | \<Control Assessment Record\> (CA) | Section 6 | Section 6 | Test-PlanConsistency.ps1 |
+| CA Assessment, Authorization, and Monitoring | \<Policy\> (CA) and \<Procedures\> (CA) | \<Assessment, Authorization, and Monitoring Management\>, section 3 | Section 7.4 | \<Control Assessment Record\> (CA) | Section 6 | Section 6 | Test-PlanConsistency.py |
 | CM Configuration Management | \<Policy\> (CM) and \<Procedures\> (CM) | \<Configuration Management\>, section 3 | Section 7.5 | \<Control Assessment Record\> (CM) | Section 7 | Section 7 | Test-ConfigurationManagement.ps1 |
 | CP Contingency Planning | \<Policy\> (CP) and \<Procedures\> (CP) | \<Contingency Planning Management\>, section 3 | Section 7.6 | \<Control Assessment Record\> (CP) | Section 8 | Section 8 | Test-BackupRestore.ps1 |
 | IA Identification and Authentication | \<Policy\> (IA) and \<Procedures\> (IA) | \<Identification and Authentication Management\>, section 3 | Section 7.7 | \<Control Assessment Record\> (IA) | Section 9 | Section 9 | Test-AuditAndAuth.ps1 and Test-Identification.ps1 |
@@ -82,9 +82,9 @@ Table 2 gives, for each family, the chapter or section of every document that ho
 | MA Maintenance | \<Policy\> (MA) and \<Procedures\> (MA) | \<Maintenance Management\>, section 3 | Section 7.9 | \<Control Assessment Record\> (MA) | Section 11 | Section 11 | Test-Maintenance.ps1 |
 | MP Media Protection | \<Policy\> (MP) and \<Procedures\> (MP) | \<Media Protection Management\>, section 3 | Section 7.10 | \<Control Assessment Record\> (MP) | Section 12 | Section 12 | Test-MediaProtection.ps1 |
 | PE Physical and Environmental Protection | \<Policy\> (PE) and \<Procedures\> (PE) | \<Physical and Environmental Protection Management\>, section 3 | Section 7.11 | \<Control Assessment Record\> (PE) | Section 13 | Section 13 | None: provided by \<Organisation\> |
-| PL Planning | \<Policy\> (PL) and \<Procedures\> (PL) | \<Planning Management\>, section 3 | Section 7.12 | \<Control Assessment Record\> (PL) | Section 14 | Section 14 | Test-PlanConsistency.ps1 |
+| PL Planning | \<Policy\> (PL) and \<Procedures\> (PL) | \<Planning Management\>, section 3 | Section 7.12 | \<Control Assessment Record\> (PL) | Section 14 | Section 14 | Test-PlanConsistency.py |
 | PM Program Management | None: inherited from \<Organisation\> | \<Program Management\>, section 3.3 | None: section 5 says why PM is not among the 316 controls | Not assessed | Section 15 | Section 15 | None: not assessed |
-| PS Personnel Security | \<Policy\> (PS) and \<Procedures\> (PS) | \<Personnel Security Management\>, section 3 | Section 7.13 | \<Control Assessment Record\> (PS) | Section 16 | Section 16 | Test-PlanConsistency.ps1 |
+| PS Personnel Security | \<Policy\> (PS) and \<Procedures\> (PS) | \<Personnel Security Management\>, section 3 | Section 7.13 | \<Control Assessment Record\> (PS) | Section 16 | Section 16 | Test-PlanConsistency.py |
 | PT Personally Identifiable Information Processing and Transparency | \<Policy\> (PT) and \<Procedures\> (PT) | \<PII Processing Management\>, section 3; \<Privacy Plan\>; \<Data Protection Impact Assessment\> | Section 7.14 | \<Control Assessment Record\> (PT) | Section 17 | Section 17 | Test-PersonalData.ps1 |
 | RA Risk Assessment | \<Policy\> (RA) and \<Procedures\> (RA) | \<Risk Assessment Management\>, section 3 | Section 7.15 | \<Control Assessment Record\> (RA) | Section 18 | Section 18 | Test-Vulnerability.ps1 |
 | SA System and Services Acquisition | \<Policy\> (SA) and \<Procedures\> (SA) | \<System and Services Acquisition Management\>, section 3 | Section 7.16 | \<Control Assessment Record\> (SA) | Section 19 | Section 19 | Test-Development.ps1 |
@@ -247,7 +247,7 @@ These identifiers do not change when a document is renumbered or moved, so citat
 
 ### 4.11 Checks on the set
 
-An automatic check reads the whole set and confirms that the documents agree with each other, from the totals in the plan and the report to the links, the references between documents and the count of facts still to be supplied. Its results are kept as \<evidence\>. A gap it reports is a real inconsistency, which is corrected in the documents.
+An automatic check reads the whole set and confirms that the documents agree with each other, from the totals in the plan and the report to the links, the references between documents and the count of facts still to be supplied. It is Test-PlanConsistency.py, kept with the set in its tools folder, and it is run as `python tools/Test-PlanConsistency.py` from the folder that holds the documents. It makes 24 checks, L1 to L24, and changes nothing; `--census` prints the count of facts still to be supplied, by who supplies them. Its results are kept as \<evidence\>. A gap it reports is a real inconsistency, which is corrected in the documents.
 
 ### 4.12 Sources used
 
