@@ -368,7 +368,8 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | Support ending within 12 months: yes or no |  |
 | Result, and risks raised in \<Risk List\> |  |
 | How it builds and protects what it supplies (NCSC supply chain principles; the Code of Practice self-assessment, if it offers one) |  |
-| How it reports a compromise or vulnerability, and whether its notices reached the security officer |  |
+| How it reports a compromise or vulnerability, whether its notices reached the security officer, and any assessment or audit results it shared (SR-8) |  |
+| For a supplier whose engineers give support: no account held, shared screen only, and UK GDPR Article 28 terms in place if personal data may be seen (\<Maintenance Management\>, section 3.7) |  |
 | For a supplier whose people hold a \<System Name\> role (PS-7): their screening and signed agreements before access, and whether its notices of movers and leavers reached the system owner within 1 working day |  |
 | For an open-source supplier: published security policy, maintainer activity and advisory history |  |
 | Reviewed by, and date |  |

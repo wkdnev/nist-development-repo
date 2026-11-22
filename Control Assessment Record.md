@@ -2974,14 +2974,14 @@ There is one finding for each CSS determination statement, including those about
 | Scope | The 12 SR entries in the Moderate baseline, with 81 determination statements |
 | Procedures | CSS, using the CSS published statements and identifiers (catalog release 5.2.0) |
 | Dates | \[Dates of the assessment\] |
-| Examine | \<Policy\> (SR), \<Procedures\> (SR) and \<Supply Chain Risk Management\>; \<Risk Assessment Management\>, sections 3.9 and 3.4; the package source settings files, the build files, each application's restored package list and the in-house package feed's index at the release tag. Depth: focused. Coverage: focused |
+| Examine | \<Policy\> (SR), \<Procedures\> (SR) and \<Supply Chain Risk Management\>; \<Risk Assessment Management\>, sections 3.9 and 3.4; \<Configuration Management\>, Table 4; the package source settings files, the build files, each application's restored package list, the browser library manifest, the release record and the in-house package feed's index at the release tag; completed TPL-16 supplier reviews. Depth: focused. Coverage: focused |
 | Test | Test-SupplyChain.ps1, with no running system (the SR evidence); Test-Vulnerability.ps1 (the RA evidence) |
-| Interview | The developers, security officer and \<Organisation\>'s IT service desk |
+| Interview | The system owner, the developers, the security officer and \<Organisation\>'s IT service desk; questions INT-SR-01 to 07 in \<Interview Guide\> |
 | Previous results reused | \[Results reused from other chapters, if any\] |
 | Boundary | \<System Name\>'s code, build and release. \<Organisation\>'s suppliers, hardware, repair and disposal are provider evidence (EV-SR-01, EV-SR-02) |
 | Order of assessment | A, sources and acquisition (SR-3, SR-5); B, inspection (SR-10); C, suppliers and notices (SR-6, SR-8); D, authenticity (SR-11); E, plan and team (SR-2); F, disposal (SR-12); G, policy (SR-1) |
-| Needed from providers | EV-SR-01 and EV-SR-02 in \<Evidence Requests\> |
-| Evidence retained | The SR evidence (results, README and MANIFEST); the RA evidence; completed TPL-6, TPL-7, TPL-10 and TPL-16 records |
+| Needed from providers | EV-SR-01 and EV-SR-02 in \<Evidence Requests\>; EV-SA-01, the contract terms; EV-SA-04, the corporate SDLC's feed and pipeline; EV-MA-01, hardware sent for repair; EV-PM-03, \<Organisation\>'s strategy and critical suppliers |
+| Evidence retained | The SR evidence (results, README and MANIFEST); the RA evidence; the release record, bill of materials and browser library manifest of the release assessed; completed TPL-6, TPL-7, TPL-10, TPL-13 and TPL-16 records |
 | Notes | The test is Test-SupplyChain.ps1, run on the release and the packages built from it, with no running system. \<Organisation\>'s supplier, hardware and disposal processes are shown by its evidence. |
 
 For the Level 2 assessment, the assessor should run Test-SupplyChain.ps1 on the release to be deployed, check the bill of materials and release SHA-256 values, examine \<Organisation\>'s supplier, hardware and disposal evidence, hold the interviews, and re-determine every statement in section SR.3.

@@ -323,8 +323,8 @@ PM is not among \<System Name\>'s 316 controls (TR-PM-01), but \<System Name\> i
 
 | ID | Control | What we need to know | Evidence to provide |
 | --- | --- | --- | --- |
-| EV-SR-01 | SR-2(1), SR-3, SR-6, SR-8 | Who the approved suppliers are, and how they report a compromise; confirmation that the IT service desk sits on \<System Name\>'s supply chain team and will take part in the yearly supplier review (\<Supply Chain Risk Management\>, section 3.5); the contract term for reporting a compromise to the security officer within 24 hours | The approved supplier list, and notification terms |
-| EV-SR-02 | SR-10, SR-11(1), SR-11(2), SR-12 | How hardware is inspected, how buyers are trained, how equipment is controlled during repair, and how it is disposed of | Procedures, a training record and a sample disposal record |
+| EV-SR-01 | SR-2(1), SR-3, SR-5, SR-6, SR-8 | Who the approved suppliers are, and how they report a compromise; confirmation that the IT service desk sits on \<System Name\>'s supply chain team and will take part in the yearly supplier review (\<Supply Chain Risk Management\>, section 3.3); the term for telling the security officer of a supply chain compromise within 24 hours, and for sharing the results of assessments or audits that affect \<System Name\> | The approved supplier list, and notification terms |
+| EV-SR-02 | SR-10, SR-11(1), SR-11(2), SR-12 | How the host hardware is inspected on arrival and after repair, how buyers are trained to spot counterfeits and how often, how the hardware is kept under configuration control while it awaits repair and until it returns to service, and how it is disposed of and confirmed in writing | Procedures, a training record and a sample disposal record |
 
 ## 23 Expected answers
 

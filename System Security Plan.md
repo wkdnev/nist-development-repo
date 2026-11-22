@@ -98,7 +98,7 @@ This is the intended inventory for the authorisation boundary. Host names, asset
 | API (\<Code\>\_API) | Internally developed service, the only route to the database | .NET 10, its own repository | Application server VM |
 | Shared library (\<Code\>\_Shared) | Internally developed library: the data model, the access checks and the audit record format | .NET 10, its own repository | Built into the applications |
 | Microsoft SQL Server, holding the \<System Name\> database | Database | SQL Server 2022 | Database server VM |
-| Browser libraries | Third-party scripts and styles the pages need, such as a document viewer and an icon set | Packaged with the UI application and served by \<System Name\> itself; no content delivery service | Application server VM |
+| Browser libraries | Third-party scripts and styles the pages need, such as a document viewer and an icon set | From the publisher's release, with SHA-256 values in the browser library manifest; packaged with the UI application and served by \<System Name\> itself; no content delivery service | Application server VM |
 | ServiceNow | Access request and approval workflows, in which the line manager approves each request and the group's owner authorises it (the Data Owner for a schema's groups, the system owner for a role group), and the incident records and requests for help (\<Incident Response Management\>, section 3.15), owned by \<Organisation\>'s IT service desk. No connection to \<System Name\> | \<Organisation\>'s service | Outside the boundary |
 | PingFederate and Active Directory | Sign every user in with multi-factor authentication, and hold the groups that decide roles and schema access. A critical component (\<Risk Assessment Management\>, section 3.9) | \<Organisation\>'s corporate services | Outside the boundary |
 | Starters and leavers process | Raises leaver requests, and prompts the owners of a leaver's groups | \<Organisation\>'s service | Outside the boundary |
@@ -277,7 +277,7 @@ Section 7 lists every control. A control counts as satisfied only when every one
 | Legal adviser | The privacy plan (\<Privacy Plan\>), the impact assessment, the lawful basis, requests and complaints from individuals, and reports to the ICO |
 | Business and information owner | The information types, and retention periods for each schema; the business owner approves the disposal of items due under the retention schedule (FR-074) |
 | Legal adviser's delegate | Searching every schema for one person's items to answer a request under data protection law (FR-073), named by the legal adviser |
-| Supply chain team: system owner, security officer, a developer and \<Organisation\>'s IT service desk | The supply chain plan (\<Supply Chain Risk Management\>), supplier reviews and notices of compromise |
+| Supply chain team: system owner, security officer, a developer and \<Organisation\>'s IT service desk | The supply chain plan (\<Supply Chain Risk Management\>), reviews of every supplier, notices of compromise and suspected counterfeits |
 
 People holding these roles are named in \<Roles and Responsibilities\>. How security is operated is in \<Security Operating Procedures\>.
 
@@ -755,18 +755,18 @@ The assessment plan is in \<Control Assessment Record\> (SR), section SR.4, wher
 
 | Control | How it is implemented | Who | Type | Status | Gap entry |
 | --- | --- | --- | --- | --- | --- |
-| SR-1 Policy and Procedures | Policy and procedures in \<Policy\> (SR) and \<Procedures\> (SR); the plan is \<Supply Chain Risk Management\> | System owner, Head of Cyber | Organisational | \[Status\] | \[Decision\] |
-| SR-2 Supply Chain Risk Management Plan | \<Supply Chain Risk Management\> \<ver\>, with a supplier register and risk tolerance, held in the restricted store (until the store is set up, the private records repository; \<Documentation Map\>, section 4.1) | System owner | Organisational | \[Status\] | \[Decision\] |
-| SR-2(1) Establish SCRM Team | Team named, including \<Organisation\>'s IT service desk | System owner | Organisational | \[Status\] | \[Decision\] |
-| SR-3 Supply Chain Controls | Controls on how components come in (\<Supply Chain Risk Management\>, section 3.7) | System owner, developers | Hybrid | \[Status\] | \[Decision\] |
-| SR-5 Acquisition Strategies | Acquisition strategies in \<Supply Chain Risk Management\> | Developers, \<Organisation\> | Hybrid | \[Status\] | \[Decision\] |
-| SR-6 Supplier Assessments | Supplier register, with reviews on TPL-16 | System owner | Organisational | \[Status\] | \[Decision\] |
-| SR-8 Notification Agreements | \<Organisation\>'s notification terms; open-source advisories watched | \<Organisation\>, suppliers | Inherited | \[Status\] | \[Decision\] |
-| SR-10 Inspection of Systems | Releases checked against their recorded checksums and the integrity baseline; \<Organisation\> inspects hardware | Developers, \<Organisation\> | Hybrid | \[Status\] | \[Decision\] |
-| SR-11 Component Authenticity | Software and hardware steps written (PRO-SR-4) | Security officer | Organisational | \[Status\] | \[Decision\] |
-| SR-11(1) Anti-counterfeit Training | \<Organisation\> trains its buyers | \<Organisation\> | Inherited | \[Status\] | \[Decision\] |
-| SR-11(2) Service and Repair | \<Organisation\>'s process | \<Organisation\> | Inherited | \[Status\] | \[Decision\] |
-| SR-12 Component Disposal | \<Organisation\> disposes, after PRO-MP-3 | \<Organisation\> | Inherited | \[Status\] | \[Decision\] |
+| SR-1 Policy and Procedures | Policy and procedures in \<Policy\> (SR) and \<Procedures\> (SR); the plan is \<Supply Chain Risk Management\> | System owner, Head of Cyber | Organisational | Implemented | NC-SR-01 |
+| SR-2 Supply Chain Risk Management Plan | \<Supply Chain Risk Management\> \<ver\>, covering each stage from development to disposal, with a supplier register and risk tolerance; reviewed every 12 months and after a significant change, a compromise or a new threat (P-76); restricted, under version control, and held in the restricted store (until the store is set up, the private records repository; \<Documentation Map\>, section 4.1) | System owner | Organisational | Implemented | NC-SR-02 |
+| SR-2(1) Establish SCRM Team | The system owner, security officer, a developer and \<Organisation\>'s IT service desk, with the activities in \<Supply Chain Risk Management\>, section 3.3 | System owner | Organisational | Implemented | NC-SR-03 |
+| SR-3 Supply Chain Controls | Component checks, supplier reviews and release inspection, coordinated with \<Organisation\>'s IT service desk; the controls in \<Supply Chain Risk Management\>, Table 3: one package feed with lock files and signed-package trust, the browser library manifest, signed release tags with SHA-256 values and a bill of materials, App Control for Business, and the inventory | System owner, developers, \<Organisation\> | Hybrid | Implemented | NC-SR-04 |
+| SR-5 Acquisition Strategies | Approved suppliers under \<Organisation\>'s contract terms; each component checked before use (PRO-SA-7, PRO-SR-1); one checked route in for each kind of component, with versions fixed; a bill of materials for each release (\<Supply Chain Risk Management\>, section 3.7) | Developers, \<Organisation\> | Hybrid | Implemented | NC-SR-05 |
+| SR-6 Supplier Assessments | Every supplier in the register reviewed every 12 months on TPL-16, and a new High supplier before it is used (PRO-SR-2) | System owner, supply chain team | Organisational | Implemented | NC-SR-06 |
+| SR-8 Notification Agreements | \<Organisation\>'s agreements with its suppliers, and its notice to the security officer of a compromise within 24 hours, with assessment results that affect \<System Name\> (EV-SR-01). Open-source suppliers offer no agreement: their advisories are watched under SI-5 and recorded on TPL-7 (PRO-SR-5). Kept Inherited (D-SR-01) | \<Organisation\>, security officer | Inherited | Implemented | NC-SR-07 |
+| SR-10 Inspection of Systems | Release packages, installed files, release scripts and browser library files checked against their SHA-256 values and the signed tag before installation (PRO-SR-3), monthly once installed (P-29), and when tampering is suspected; \<Organisation\> inspects the host hardware | Developers, Windows server administrator, \<Organisation\> | Hybrid | Implemented | NC-SR-08 |
+| SR-11 Component Authenticity | Rule R11 and PRO-SR-4: look-alike check, one package feed with signed-package trust, browser libraries checked against their publishers' values; a suspected counterfeit refused and reported to its source, the security officer, \<Organisation\>, the registry and, if serious, the NCSC | Security officer, developers | Organisational | Implemented | NC-SR-09 |
+| SR-11(1) Anti-counterfeit Training | \<Organisation\> trains its buyers every 12 months (EV-SR-02); the developers learn to spot look-alike packages in module M5 under AT-3. Kept Inherited (D-SR-01) | \<Organisation\> | Inherited | Implemented | NC-SR-10 |
+| SR-11(2) Service and Repair | \<Organisation\> keeps configuration control of the host hardware while it awaits repair and until it returns to service (EV-SR-02, EV-MA-01) | \<Organisation\> | Inherited | Implemented | NC-SR-11 |
+| SR-12 Component Disposal | \<Organisation\> disposes of hardware and media and confirms in writing (EV-SR-02), after \<System Name\> data is removed by PRO-MP-3, which is assessed under MP-6. Kept Inherited (D-SR-01) | \<Organisation\> | Inherited | Implemented | NC-SR-12 |
 
 ## 8 Referenced artifacts
 
