@@ -97,7 +97,7 @@ Controls met here: CP-2, CP-2(8).
 | --- | --- | --- | --- | --- |
 | 1 | \<Organisation\>'s network, PingFederate sign-in, directory, name resolution, time and certificates | Everything | \<Organisation\> | \<Organisation\>'s plans (appendix B) |
 | 2 | Database VM and SQL Server 2022 | Every function | 1 | \<Configuration Management\> baseline, then the latest good backup and transaction logs |
-| 3 | Secrets: the token signing key and the audit chain key. There is no database password: the API connects with Windows authentication | Starting the API | 1 | The protected copy at the second site (section 3.8) |
+| 3 | Secrets: the token signing key, the audit chain key and the OpenID Connect client credential. There is no database password: the API connects with Windows authentication | Starting the API | 1 | The protected copy at the second site (section 3.8) |
 | 4 | Application VM: API | Every function | 2, 3 | The tagged release and \<Configuration Management\> |
 | 5 | UI application | Finding and reading items | 4 | The tagged release |
 | 6 | Admin application | Administration | 4 | The tagged release |
@@ -115,7 +115,7 @@ Controls met here: CP-2(8).
 | The database | Holds every item, file, schema definition, the read and edit group of each schema, and every audit record | Rebuild the VM, then restore the latest good backup and transaction logs |
 | The application VM | Runs the API, the UI application and the Admin application | Rebuild from the tagged release and \<Configuration Management\> |
 | Backups and transaction logs | The only way back after a loss | Held encrypted at the second site, with one offline or immutable copy |
-| Secrets | Without them the API cannot start, accept calls from the other two applications or chain audit records | A protected copy held apart from the backups |
+| Secrets | Without them the API cannot start, accept calls from the other two applications or chain audit records, and nobody can sign in | A protected copy held apart from the backups |
 
 The applications' key rings are not essential. They protect the authentication cookie and anti-forgery tokens only: if they are lost, users simply sign in again through PingFederate. They are not restored.
 

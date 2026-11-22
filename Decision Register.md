@@ -34,7 +34,7 @@ The reference values are the parameters in \<System Description\>, section 4, wh
 
 | ID | Family | Control | Parameters | Main values | Who decides | Decision | Name | Date | Evidence |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| D-AC-P02 | AC | AC-12 | 1: P-02 Sign-in lifetime | 8 hours from sign-in, no sliding extension, never longer than PingFederate's sign-in; open pages re-checked every 5 minutes | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
+| D-AC-P02 | AC | AC-12 | 1: P-02 Sign-in lifetime | 8 hours from sign-in, no sliding extension; PingFederate set to at least 8 hours (EV-IA-04); open pages re-checked every 5 minutes, skipping the cache | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | D-AC-P03 | AC | AC-11, AC-11(1) | 1: P-03 Device screen lock | 15 minutes, on managed devices and both servers. To be confirmed against \<Organisation\>'s evidence (EV-AC-07) | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | D-AC-P04 | AC | AC-2, AC-6(7) | 1: P-04 Review of role group members | Every 3 months | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |
 | D-AC-P05 | AC | AC-2 | 1: P-05 Review of schema group members | Every 12 months | System owner | \[Decision\] | \[Name\] | \[Date\] | None yet |

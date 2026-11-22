@@ -172,7 +172,7 @@ These procedures define how access control activities are performed: the workflo
 | Workflow | Starts when | Stages | Steps |
 | --- | --- | --- | --- |
 | Joiner | Someone needs access | Request, approve, sign SyOPS, add to AD groups, first sign-in | PRO-AC-1 |
-| Mover | Someone's role changes | Notify, approve new access, change groups, sign in again | PRO-AC-2 |
+| Mover | Someone's role changes | Notify, approve new access, change groups | PRO-AC-2 |
 | Leaver | Someone leaves or no longer needs access | Notify, deactivate, record | PRO-AC-3 |
 | Urgent disable | A concern is raised about someone | Report, disable the account, confirm \<System Name\> refuses it, record | PRO-AC-4 |
 | Schema access | Someone needs a schema | Request, approve, change group | PRO-AC-5 |
@@ -188,12 +188,12 @@ These procedures define how access control activities are performed: the workflo
 | Request | Raised by | Approved by | Carried out by | Record kept in |
 | --- | --- | --- | --- | --- |
 | Schema read or edit access, including a new user's first access | The person; their line manager approves | Data Owner authorises | Data Owner, as owner of the schema's groups | ServiceNow request (TPL-2) |
-| Change to which groups open a schema | Administrator | The schema's Data Owner | Administrator, in the Admin application | Change record (TPL-6) |
+| Change to which groups open a schema, or deactivating, reactivating or deleting a schema | Administrator | The schema's Data Owner | Administrator, in the Admin application | Change record (TPL-6) |
 | Administrator, auditor, security officer, business owner or legal adviser's delegate | The person; their line manager approves, and the legal adviser names the legal adviser's delegate | System owner authorises, and cannot authorise their own | System owner, as owner of the five role groups | ServiceNow request (TPL-2) |
 | Sharing or export outside a schema | Requesting user | Data Owner | An editor of the schema | Sharing decision record (TPL-25) |
 | External system or portable storage use | Requesting user | System owner | Requesting user | Exception (TPL-17) |
-| Exception to a rule | Whoever needs it | System owner, or authorising official if above their authority | Role concerned | \<Risk List\> |
-| Urgent disable | Anyone | No prior approval needed; system owner told at once | \<Organisation\>'s service desk | Incident record |
+| Exception to a rule | Whoever needs it | System owner, or authorising official if above their authority | Role concerned | TPL-17, and \<Risk List\> |
+| Urgent disable | Anyone | No prior approval needed; system owner told at once | \<Organisation\>'s service desk | TPL-14, and TPL-10 if it is an incident |
 | Change to policy or procedures | Document owner | System owner | Document owner | Document change record |
 
 ### AC.4 Review activities
@@ -266,7 +266,7 @@ Table AC-4 summarises each procedure: what starts it, who acts, its time limit, 
 
 #### PRO-AC-5 Schema access
 
-1. Each schema names one read group and one edit group on its schema definition, which an Administrator sets in the Admin application. A change to them needs a change record (TPL-6) approved by the schema's Data Owner. The administrator enters the record's reference with the change; the change is audited and raises an alert to the security officer (U9). **Manual**
+1. Each schema names one read group and one edit group on its schema definition, which an Administrator sets in the Admin application. A change to them needs a change record (TPL-6) approved by the schema's Data Owner. The administrator enters the record's reference with the change; the change is audited and raises an alert to the security officer (U9). Deactivating, reactivating or deleting a schema follows the same rule. Only an empty schema can be deleted; a schema that still holds items is deactivated, and its items leave only by disposal (\<System Description\>, FR-060, FR-074). **Manual**
 2. The person asks for the access in the ServiceNow workflow. Their line manager approves it, and the schema's Data Owner, as owner of the schema's data and its two groups, authorises it. **Manual**
 3. The Data Owner adds the person to the schema's read group or edit group in Active Directory, with \<Organisation\>'s AD tool. **Manual**
 
@@ -1488,7 +1488,7 @@ These procedures carry out \<Policy\> (SI). The values, detection use cases and 
 
 #### PRO-SI-3 Reviewing monitoring
 
-1. Each week the security officer reviews the central logs, the forwarded application, Windows and SQL Server logs, and the alerts raised, but not the application audit log, which only auditors read (PRO-AU-1), against the detection use cases in \<System and Information Integrity Management\>, section 3.4.
+1. Each week the security officer reviews the central logs, the forwarded application, Windows and SQL Server logs, and the alerts raised, but not the application audit log, which only auditors read (PRO-AU-1), apart from the last sign-in report (FR-085), against the detection use cases in \<System and Information Integrity Management\>, section 3.4.
 2. They record what was reviewed and anything found on TPL-8. **Manual**
 3. The system owner raises monitoring when risk rises, and takes the legal adviser's opinion before monitoring users in a new way. **Manual**
 

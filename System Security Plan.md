@@ -226,7 +226,7 @@ Each control is given one of four types. **System** controls are met by \<System
 
 | Family | Controls | System | Hybrid | Organisational | Inherited | Not applicable |
 | --- | --- | --- | --- | --- | --- | --- |
-| AC Access Control | 39 | 4 | 18 | 5 | 9 | 3 |
+| AC Access Control | 39 | 3 | 20 | 4 | 9 | 3 |
 | AT Awareness and Training | 6 | 0 | 3 | 3 | 0 | 0 |
 | AU Audit and Accountability | 16 | 7 | 7 | 2 | 0 | 0 |
 | CA Assessment, Authorization, and Monitoring | 10 | 0 | 2 | 8 | 0 | 0 |
@@ -245,7 +245,7 @@ Each control is given one of four types. **System** controls are met by \<System
 | SC System and Communications Protection | 25 | 3 | 10 | 1 | 10 | 1 |
 | SI System and Information Integrity | 18 | 3 | 9 | 3 | 1 | 2 |
 | SR Supply Chain Risk Management | 12 | 0 | 3 | 5 | 4 | 0 |
-| **Total** | **316** | **23** | **103** | **102** | **68** | **20** |
+| **Total** | **316** | **22** | **105** | **101** | **68** | **20** |
 
 Section 7 lists every control. A control counts as satisfied only when every one of its assessment statements is satisfied.
 
@@ -302,7 +302,7 @@ The assessment plan is in \<Control Assessment Record\> (AC), section AC.4, wher
 | AC-4 Information Flow Enforcement | Only flows F1 to F11 in \<System Description\>, section 6.5, exist; network enforcement is by \<Organisation\>'s firewalls and each VM's host firewall | Developers, \<Organisation\> | Hybrid | \[Status\] | \[Decision\] |
 | AC-5 Separation of Duties | Separate Administrator, Auditor, Security officer, Business owner and Legal adviser's delegate roles, each in its own group; the system owner or the Data Owner authorises each request, so nobody approves their own access | System owner | Hybrid | \[Status\] | \[Decision\] |
 | AC-6 Least Privilege | Access through groups and roles | Developers, database administrator | Hybrid | \[Status\] | \[Decision\] |
-| AC-6(1) Authorize Access to Security Functions | Each privileged function and item of security-relevant information in P-44 needs its role: Administrator, Auditor, Security officer, Business owner or Legal adviser's delegate, or, on the servers, a named Windows or database administrator | Developers | System | \[Status\] | \[Decision\] |
+| AC-6(1) Authorize Access to Security Functions | Each privileged function and item of security-relevant information in P-44 needs its role: Administrator, Auditor, Security officer, Business owner or Legal adviser's delegate, or, on the servers, a named Windows or database administrator. Security functions in hardware and firmware are limited by \<Organisation\> (EV-AC-04) | Developers, Windows server and database administrators, \<Organisation\> | Hybrid | \[Status\] | \[Decision\] |
 | AC-6(2) Non-privileged Access for Nonsecurity Functions | The rules in \<Security Operating Procedures\> require a separate everyday account | System owner | Organisational | \[Status\] | \[Decision\] |
 | AC-6(5) Privileged Accounts | The Administrator role is membership of the administrators' group (\<Code\>\_Admins), given only to named accounts | System owner, database administrator | Hybrid | \[Status\] | \[Decision\] |
 | AC-6(7) Review of User Privileges | Periodic review of privileges, by procedure | System owner, auditor | Organisational | \[Status\] | \[Decision\] |
@@ -312,7 +312,7 @@ The assessment plan is in \<Control Assessment Record\> (AC), section AC.4, wher
 | AC-8 System Use Notification | A notice, approved by the legal adviser, is shown after sign-in, and nothing else is served until it is accepted; a Windows logon banner on the VMs; whether PingFederate shows its own banner is asked in EV-IA-04 | Developers, Windows server administrator | Hybrid | \[Status\] | \[Decision\] |
 | AC-11 Device Lock | Provided by \<Organisation\>: its managed devices and the servers lock an unattended screen (\<System Description\>, P-03); \<System Name\> has no page lock of its own | \<Organisation\> | Inherited | \[Status\] | \[Decision\] |
 | AC-11(1) Pattern-hiding Displays | Provided by \<Organisation\>: its device lock screen hides the display (\<System Description\>, P-03); \<System Name\> has no page lock of its own | \<Organisation\> | Inherited | \[Status\] | \[Decision\] |
-| AC-12 Session Termination | The authentication cookie is the application's session: it ends 8 hours after sign-in with no sliding extension, never later than PingFederate's sign-in (P-02); an open Blazor connection re-checks the person every 5 minutes (NFR-102); Sign out ends it (FR-084); and the API refuses a disabled account or removed membership within 5 minutes | Developers, \<Organisation\> | Hybrid | \[Status\] | \[Decision\] |
+| AC-12 Session Termination | The authentication cookie is the application's session: it ends 8 hours after sign-in with no sliding extension (P-02), within PingFederate's sign-in, which is set to at least 8 hours (EV-IA-04); an open Blazor connection re-checks the person every 5 minutes against Active Directory, skipping the cache (NFR-102); Sign out ends it (FR-084); and the API refuses a disabled account or removed membership within 5 minutes | Developers, \<Organisation\> | Hybrid | \[Status\] | \[Decision\] |
 | AC-14 Permitted Actions Without Identification | Only the redirect to PingFederate, the sign-in and signed-out return addresses, the access-denied page, static files, the API health check and, on the loopback address only, the applications' token request to the API work without signing in (P-51) | Developers | System | \[Status\] | \[Decision\] |
 | AC-17 Remote Access | \<Organisation\>'s VPN with MFA | \<Organisation\> | Hybrid | \[Status\] | \[Decision\] |
 | AC-17(1) Monitoring and Control | \<Organisation\> monitors VPN sessions | \<Organisation\> | Hybrid | \[Status\] | \[Decision\] |
@@ -326,8 +326,8 @@ The assessment plan is in \<Control Assessment Record\> (AC), section AC.4, wher
 | AC-19(5) Device Encryption | Managed laptops have BitLocker full-device encryption (P-47; EV-AC-15) | \<Organisation\> | Inherited | \[Status\] | \[Decision\] |
 | AC-20 External Systems | External systems only with the system owner's approval, as a TPL-17 exception, on the terms in P-48; unmanaged devices are blocked | System owner, \<Organisation\> | Organisational | \[Status\] | \[Decision\] |
 | AC-20(1) Limits on Authorized Use | External use is forbidden | None | Not applicable | \[Status\] | \[Decision\] |
-| AC-20(2) Portable Storage Devices | USB storage blocked; portable storage only as a TPL-17 exception, using encrypted media issued by \<Organisation\> (P-48) | \<Organisation\>, users | Organisational | \[Status\] | \[Decision\] |
-| AC-21 Information Sharing | Schema groups control sharing inside \<System Name\>; the Data Owner decides on sharing outside a schema (P-49), recorded on TPL-25 | Data Owners | Organisational | \[Status\] | \[Decision\] |
+| AC-20(2) Portable Storage Devices | USB storage blocked; portable storage only as a TPL-17 exception, using encrypted media issued by \<Organisation\>, used only on managed devices and the external system named in the approval, never on a personal or unmanaged device, and returned for sanitising (P-48) | \<Organisation\>, users | Organisational | \[Status\] | \[Decision\] |
+| AC-21 Information Sharing | Schema groups control sharing inside \<System Name\>; the Data Owner decides on sharing outside a schema (P-49), recorded on TPL-25 | Developers, Data Owners | Hybrid | \[Status\] | \[Decision\] |
 | AC-22 Publicly Accessible Content | \<System Name\> has no public content | None | Not applicable | \[Status\] | \[Decision\] |
 
 ### 7.2 Awareness and Training (AT)
@@ -365,8 +365,8 @@ The assessment plan is in \<Control Assessment Record\> (AU), section AU.4, wher
 | AU-7 Reduction and Report Generation | The audit page filters and summarises without changing records | Developers | System | \[Status\] | \[Decision\] |
 | AU-7(1) Automatic Processing | Search by date, event type, result and username | Developers | System | \[Status\] | \[Decision\] |
 | AU-8 Time Stamps | Application records use UTC; the VMs take time from \<Organisation\>'s time service | Developers, \<Organisation\> | Hybrid | \[Status\] | \[Decision\] |
-| AU-9 Protection of Audit Information | Only auditors can read records; only the API writes them, and its database login may only add records; records are chained with HMAC-SHA-256 | Developers, database administrator | System | \[Status\] | \[Decision\] |
-| AU-9(4) Access by Subset of Privileged Users | Auditors can read records | System owner, developers | System | \[Status\] | \[Decision\] |
+| AU-9 Protection of Audit Information | Only auditors can read records, apart from the usernames and dates in the security officer's last sign-in report (FR-085); only the API writes them, and its database login may only add records; records are chained with HMAC-SHA-256 | Developers, database administrator | System | \[Status\] | \[Decision\] |
+| AU-9(4) Access by Subset of Privileged Users | Only auditors can read records; the security officer's last sign-in report (FR-085) shows usernames and last sign-in dates only | System owner, developers | System | \[Status\] | \[Decision\] |
 | AU-11 Audit Record Retention | Records are kept 12 months online and 12 months in an offline archive (P-07) | Database administrator | Hybrid | \[Status\] | \[Decision\] |
 | AU-12 Audit Record Generation | The API writes the application's records, including events the UI and Admin applications send it, alongside SQL Server and Windows logs | Developers, administrators | Hybrid | \[Status\] | \[Decision\] |
 

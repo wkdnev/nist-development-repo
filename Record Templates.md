@@ -357,6 +357,8 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | What is asked for, and why |  |
 | Period, with an end date no more than 12 months away |  |
 | Compensating measures |  |
+| For portable storage: the media issued (encrypted, by \<Organisation\>), the managed devices and the one external system it may be used on, confirmation that it will never be connected to a personal or other unmanaged device, and the date it was returned and sanitised (P-48) |  |
+| For an external system: the terms in P-48 confirmed (contract, encryption at rest, location, deletion) |  |
 | Security officer's risk assessment |  |
 | Decision: approved or refused, by whom, and date. The authorising official decides above the system owner's authority |  |
 | Risk entry in \<Risk List\>, if any |  |

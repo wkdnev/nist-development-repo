@@ -18,7 +18,7 @@ Controls met here: AU-2, AU-3, AU-6, AU-9, AU-11, AU-12.
 
 1. **Complete.** The agreed events are recorded every time they occur.
 2. **Attributable.** Each record shows what happened, when, where, from where, the outcome and who was involved. The person is the one PingFederate authenticated.
-3. **Protected.** Nobody can change or delete a record. Only auditors read them.
+3. **Protected.** Nobody can change or delete a record. Only auditors read them. The one exception is the last sign-in report (FR-085), which shows the security officer each member's username and last sign-in date, and nothing else.
 4. **Reviewed.** Records are examined every week (P-08) by someone who does not administer the system.
 5. **Retained.** Records are kept for 12 months online and 12 months in an offline archive (P-07): long enough to investigate an incident found late.
 6. **No secrets.** Records never hold a password, key, token or authentication cookie, and hold only the personal data an investigation needs.
@@ -107,7 +107,7 @@ Controls met here: AU-9, AU-9(4).
 
 | Store | Written by | Read by | Changed or deleted by |
 | --- | --- | --- | --- |
-| The audit log | API only, through its database service account, which can add records and nothing more. UI application and Admin application send their events to the API, which accepts them only from those two applications and never from a user's browser | The auditor group, through the Admin application's audit pages. The database administrator can reach the table to archive it, under rule B12 | Nobody |
+| The audit log | API only, through its database service account, which can add records and nothing more. UI application and Admin application send their events to the API, which accepts them only from those two applications and never from a user's browser | The auditor group, through the Admin application's audit pages. The security officer sees only each member's username and last sign-in date, through the last sign-in report (FR-085). The database administrator can reach the table to archive it, under rule B12 | Nobody |
 | The offline archive, held at \[archive location, to be agreed with \<Organisation\> with its storage (EV-AU-03)\], encrypted, and off the database server | The database administrator, each month, for records older than 12 months | The auditor, on request to the system owner | Nobody, until 24 months; then only with the system owner's recorded approval |
 | The newest chain hash, copied daily | A scheduled job | The auditor and security officer | Not by the applications or their accounts |
 | Application logs | Each application's Windows service account | The Windows server administrators and the auditor | Removed from the server after 30 days; the copy in central logging is kept as \<Organisation\> sets |
@@ -123,6 +123,7 @@ Controls met here: AU-9, AU-9(4).
 | Function | Who | How it is limited |
 | --- | --- | --- |
 | Read and search audit records | Auditors | AD group \<Code\>\_Auditors, the only group that opens the audit pages. It is owned by the system owner, who alone adds members. An auditor holds no administration role (PRO-AU-6) |
+| See each member's last sign-in date | Security officer | The last sign-in report (FR-085) in the Admin application, limited to the \<Code\>\_Security group. The API returns only the username and date, nothing else from the audit log, and audits each run |
 | Change or delete an audit record | Nobody | The database account cannot; rule B12 forbids it |
 | Select which application events are logged | System owner | Decided on the record; made by developers through a release (PRO-AU-5) |
 | Change SQL Server audit settings | Database administrator | A recorded change (\<Configuration Management\>) |

@@ -51,10 +51,12 @@ Questions are numbered INT-XX-nn, where XX is the family code, and each names th
 | --- | --- | --- | --- |
 | INT-AC-01 | Who approved the policy and procedures, and how were they shared? | AC-01a, AC-01b | Approval and distribution record |
 | INT-AC-02 | When were they last reviewed, and what would trigger another review? | AC-01c | Review record, change record |
-| INT-AC-03 | How do you decide who holds privileged roles? | AC-02e, AC-06(05) | Approved access list, TPL-2 records |
+| INT-AC-03 | How do you decide who holds privileged roles? | AC-02e, AC-06(05) | The ServiceNow requests (TPL-2) for the five role groups |
 | INT-AC-04 | How are duties separated, and where does staffing prevent it? | AC-05a, AC-05b | Roles document, risk acceptance |
 | INT-AC-05 | How do you decide whether a non-compliance is accepted or remediated? | All; PRO-AC-17 | Decision register, TPL-1 records |
 | INT-AC-06 | What is allowed on external systems and portable storage? | AC-20, AC-20(02) | P-48, any approvals |
+| INT-AC-43 | Ask the Head of Cyber: how do you review the role-group memberships the system owner holds, and check the administrators' group, each quarter? | AC-05b, AC-06(07) | TPL-3 with the Head of Cyber's sign-off |
+| INT-AC-45 | Show me the last 6-monthly review of the Windows administrator accounts, SQL Server logins and service accounts. What was removed? | AC-02j, AC-06(07) | TPL-3 signed by the system owner and security officer; the exports in EV-AC-02 |
 
 ### 3.2 Administrators
 
@@ -62,7 +64,7 @@ Questions are numbered INT-XX-nn, where XX is the family code, and each names th
 
 | ID | Question | Statements | Ask to see |
 | --- | --- | --- | --- |
-| INT-AC-07 | Take me through creating a schema in the Admin application and naming its Active Directory read and edit groups. What do you need before you start, and who owns the two groups? | AC-02c, AC-02e, AC-02f | A recent TPL-2 record and its audit entry |
+| INT-AC-07 | Take me through creating a schema in the Admin application and naming its Active Directory read and edit groups. What do you need before you start, and who owns the two groups? | AC-02c, AC-02e, AC-02f | A recent change record (TPL-6) approved by the Data Owner, and its audit entry |
 | INT-AC-08 | How do you learn that someone has left or moved, and how quickly are their Active Directory account and group memberships changed? | AC-02h, AC-02l, AC-02(03) | Recent notice and the change it caused |
 | INT-AC-09 | What would you do if told someone is a high risk, right now? | AC-02(13) | PRO-AC-4, last walk-through |
 | INT-AC-10 | How are inactive Active Directory accounts and unused group memberships found? | AC-02(03)(d) | PRO-AC-8 records |
@@ -77,7 +79,8 @@ Questions are numbered INT-XX-nn, where XX is the family code, and each names th
 | --- | --- | --- | --- |
 | INT-AC-13 | How do you decide who may read or edit your schema, and how do you authorise a request in ServiceNow? | AC-02i, AC-03 | TPL-2 records and ServiceNow approvals |
 | INT-AC-14 | When did you last review the members of your schema's read and edit groups, and what changed? | AC-02j, AC-06(07) | TPL-3 record |
-| INT-AC-15 | How do you decide whether an item can be shared with people outside the schema's groups? | AC-21a, AC-21b | PRO-AC-16 record |
+| INT-AC-15 | How do you decide whether an item can be shared with people outside the schema's groups? | AC-21a, AC-21b | TPL-25 sharing decision record |
+| INT-AC-40 | When were you last asked to approve a change to which groups open your schema, or to deactivate it? What did you check before approving? | AC-03, AC-05b | The change record (TPL-6), the audit entry carrying its reference, and the U9 alert it raised |
 
 ### 3.4 Auditors and security officers
 
@@ -88,6 +91,8 @@ Questions are numbered INT-XX-nn, where XX is the family code, and each names th
 | INT-AC-16 | How do you monitor account use, and how often? Auditors review the audit log weekly; security officers review alerts and the central logs, and do not read the audit log | AC-02g | The auditor's weekly review record; the security officer's TPL-8 review record |
 | INT-AC-17 | Which privileged actions do you look for, and what would you do on finding a problem? An auditor reports anything suspicious to the security officer | AC-06(09) | Review record, escalation |
 | INT-AC-18 | Are there actions you cannot see in the audit log or the central logs? | AC-02(04), AC-06(09) | Known gaps |
+| INT-AC-41 | Auditors: how do you check and sign the system owner's role-group review, and how do you review SQL Server Audit's record of item reads by logins other than the API's? | AC-06(07), AC-06(09) | Signed TPL-3; the weekly review record (TPL-8) covering SQL Server Audit in central logging |
+| INT-AC-42 | Security officers: show me the monthly last sign-in report. How did the groups' owners remove members who had not signed in for 90 days? | AC-02(03)(d) | The report (FR-085) and its audit entry; TPL-3 with the removals |
 
 ### 3.5 Windows server and database administrators
 
@@ -97,9 +102,10 @@ Questions are numbered INT-XX-nn, where XX is the family code, and each names th
 | --- | --- | --- | --- |
 | INT-AC-19 | Who has administrator rights on each VM and in the database? | AC-06(01), AC-06(05) | Group and role listings |
 | INT-AC-20 | What rights do the group managed service accounts of the three applications have, on the server, in SQL Server and in Active Directory? | AC-06 | Service account settings, SQL Server logins and database role grants |
-| INT-AC-21 | From where, and how, do you administer the VMs? | AC-17, AC-17(04) | Administration route (flow F11 in \<System Description\>, section 6.5); firewall rules |
+| INT-AC-21 | From where, and how, do you administer the VMs? When may you do it from outside the office (P-54)? | AC-17, AC-17(04) | Administration route (flow F11 in \<System Description\>, section 6.5); firewall rules |
 | INT-AC-22 | What are the logon lockout, banner and screen lock settings? | AC-07, AC-08, AC-11 | Policy export |
 | INT-AC-23 | How are your privileged actions logged? | AC-06(09) | Sample log |
+| INT-AC-44 | When did you last do privileged work from outside the office? Show me the reason and the record of the session | AC-17(04)(a), AC-17(04)(b) | The change or incident record; the VPN and administration route connection logs; the Windows, SQL Server or audit log entries |
 
 ### 3.6 Developers
 
@@ -108,7 +114,7 @@ Questions are numbered INT-XX-nn, where XX is the family code, and each names th
 | ID | Question | Statements | Ask to see |
 | --- | --- | --- | --- |
 | INT-AC-24 | How do you make sure a new page or API function needs the right access? | AC-03, AC-06(10) | Code review practice, test checks |
-| INT-AC-25 | Do you have any access to production? | AC-05a, AC-06 | Approved access list |
+| INT-AC-25 | Do you have any access to production? | AC-05a, AC-06 | The server and database account review (TPL-3, P-52) |
 | INT-AC-26 | How are diagnostic and test pages kept out of a release? | AC-06(10), AC-14 | Build settings |
 
 ### 3.7 \<Organisation\> security contact
@@ -132,6 +138,7 @@ Questions are numbered INT-XX-nn, where XX is the family code, and each names th
 | INT-AC-32 | Have you read the rules of behaviour, and did you sign them? | AC-01a, AC-02c | Signed acknowledgement |
 | INT-AC-33 | What do you do if you can see an item you should not? | AC-03 | None |
 | INT-AC-34 | Do you use \<System Name\> from a phone, or a personal device, or copy items to USB? | AC-19, AC-20 | None |
+| INT-AC-39 | When do you sign out of \<System Name\>, and what happens if you leave it open all day? | AC-02(05), AC-12 | Sign-out entries in the audit log; the cookie and re-check settings (P-02, NFR-102) |
 
 ### 3.9 Business owner
 

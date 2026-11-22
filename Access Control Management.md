@@ -96,11 +96,11 @@ Controls met here: AC-2, AC-3, AC-5, AC-6, AC-6(10).
 
 | Function | Reader | Editor | Administrator | Auditor | Security officer | Business owner | Legal adviser's delegate |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Search and read items | Own schemas | Own schemas | No | No | No | Items due for disposal | Search results for one person |
+| Search and read items | Own schemas | Own schemas | No | No | No | No: sees only the details of items due for disposal, not their content | Search results for one person |
 | Report a faulty item | Own schemas | Own schemas | No | No | No | No | No |
 | Upload, correct, replace, delete and export items | No | Own schemas | No | No | No | No | No |
 | Manage users, passwords and group membership | No | No | No: done in Active Directory, by each group's owner | No | No | No | No |
-| Manage schemas, and which AD groups open each | No | No | Yes; a change of groups only with the Data Owner's approval | No | No | No | No |
+| Manage schemas, and which AD groups open each | No | No | Yes; a change of groups, or deactivating, reactivating or deleting a schema, only with the Data Owner's approval. Only an empty schema can be deleted | No | No | No | No |
 | Grant administrator | No | No | No: the system owner adds the member to the AD group | No | No | No | No |
 | Use the administration dashboard and settings | No | No | Yes | No | No | No | No |
 | Read audit logs | No | No | No | Yes | No | No | No |
@@ -109,7 +109,7 @@ Controls met here: AC-2, AC-3, AC-5, AC-6, AC-6(10).
 | Approve the disposal of items due under the retention schedule (FR-074) | No | No | No | No | No | Yes | No |
 | Search every schema for one person's items, for a request under data protection law (FR-073) | No | No | No | No | No | No | Yes |
 
-Administrators see no item content. Any item work an administrator does is as a reader or editor, through a schema group given to their everyday account (P-45). The business owner approves disposals, and the legal adviser's delegate runs their search, in the UI application.
+Administrators see no item content. Any item work an administrator does is as a reader or editor, through a schema group given to their everyday account (P-45). The business owner approves disposals, and the legal adviser's delegate runs their search, in the UI application. The disposal page shows each item's schema, reference, title, type, date and retention period, but not its content or files; to look inside an item, the business owner asks that schema's Data Owner. An administrator cannot delete a schema that still holds items: a schema in use is retired by deactivating it, and its items leave only by disposal (FR-060, FR-074).
 
 ### 3.5 Separation of duties
 
@@ -129,7 +129,7 @@ Table 4 shows each pair of duties that one person must not hold together, the ro
 | Duty | Must be separate from | Roles | Kept apart by |
 | --- | --- | --- | --- |
 | Asking for access | Approving and granting it | The person asks; their line manager approves; the group's owner authorises, and adds them to the AD group | The ServiceNow workflow, in which nobody can decide their own request, and Active Directory, where only a group's owner can change its members (section 3.13) |
-| Changing which groups open a schema | Deciding who may see the schema's items | The administrator makes the change; the schema's Data Owner approves it | A change record approved by the Data Owner, an audit record with its reference, and an alert to the security officer (U9) |
+| Changing which groups open a schema, or deactivating or deleting it | Deciding who may see the schema's items, and when they are disposed of | The administrator makes the change; the schema's Data Owner approves it; only the business owner approves disposal of items | A change record approved by the Data Owner, an audit record with its reference, and an alert to the security officer (U9) |
 | Administering schemas and settings | Reviewing audit logs | Administrator administers; auditor reviews | Separate access groups: only the auditor group opens the audit log pages, and it opens no administration page |
 | Administering the system | Reading security information | Administrator administers; security officer reads | Separate access groups |
 | Searching every schema for one person's items | Any other role | Legal adviser's delegate | A separate access group, whose member the legal adviser names; the delegate holds no other role |
@@ -189,7 +189,7 @@ These rules follow from it:
 
 1. **No passwords.** \<System Name\> stores no passwords or password hashes, because PingFederate authenticates every user.
 2. **Items and schemas.** The UI app asks the API for item data. The Admin app asks the API for schemas, the groups each uses, settings and audit records, and gets no item content.
-3. **Audit log.** The service account can only add records. Nothing can change or delete them. They are read only through the Admin application's audit pages, by the auditor role. The security officer's last sign-in report shows only usernames and dates from the sign-in records.
+3. **Audit log.** The service account can only add records. Nothing can change or delete them. They are read only through the Admin application's audit pages, by the auditor role. The one exception is the last sign-in report (FR-085), which shows the security officer each member's username and last sign-in date, and nothing else.
 4. **Changes to the database structure.** Only the database administrator makes them, with the schema change account.
 5. **Connection.** The API connects only from the application server, over TLS with strict encryption, using Windows authentication under its managed service account. There is no database password to store.
 
@@ -231,7 +231,7 @@ Controls met here: AC-6, AC-6(1).
 | Files | Read | Write | Notes |
 | --- | --- | --- | --- |
 | Each app's program folder | That app's service account; Windows server administrators | Windows server administrators only, at a release | An app cannot change its own code |
-| Each app's settings and secrets | That app's service account; Windows server administrators | Windows server administrators only | Secrets are kept out of the code repositories. The other two apps cannot read them |
+| Each app's settings and secrets | That app's service account; Windows server administrators | Windows server administrators only | Secrets are kept out of the code repositories. The token signing key and the audit chain key are readable only by the API's account; the OpenID Connect client credential only by the UI and Admin applications' accounts |
 | Each app's key ring, which protects its authentication cookie | That app's service account | That app's service account | Protected with Windows DPAPI |
 | Each app's logs | Windows server administrators | That app's service account | Kept for 30 days, and forwarded to central logging, where the auditor reads them |
 | The export working folder | API's service account | API's service account | Holds an export only until it is downloaded |
@@ -276,7 +276,7 @@ These are set by \<Organisation\> as part of its corporate network, directory an
 
 | Provided | Controls | What \<System Name\> relies on | Evidence asked |
 | --- | --- | --- | --- |
-| Single sign-on: PingFederate | AC-7, AC-12 in part, and the IA controls | Every user is authenticated by PingFederate, with multi-factor authentication. Repeated failed sign-ins lock the account as P-42 sets. The OpenID Connect response \<System Name\> receives is signed. PingFederate's sign-in lifetime is the outer limit: \<System Name\>'s own session never outlasts it (AC-12). PingFederate ends its sign-in when the person uses Sign out | EV-IA-04 |
+| Single sign-on: PingFederate | AC-7, AC-12 in part, and the IA controls | Every user is authenticated by PingFederate, with multi-factor authentication. Repeated failed sign-ins lock the account as P-42 sets. The OpenID Connect response \<System Name\> receives is signed. PingFederate's sign-in lifetime for \<System Name\> is at least 8 hours, so \<System Name\>'s own 8-hour session always ends within it (AC-12). PingFederate ends its sign-in when the person uses Sign out | EV-IA-04 |
 | Accounts and groups: Active Directory | AC-2 and its enhancements, AC-6(5), AC-6(7) | Each person has one AD account, created, changed and disabled by \<Organisation\>'s starters and leavers process. A disabled account can no longer sign in, and \<System Name\>'s API refuses it within 5 minutes. Only a group's owner can change its members. The API reads group membership over LDAPS | EV-AC-01 |
 | Account lockout on the servers and on users' devices | AC-7 | Repeated failed Windows sign-ins lock the account | EV-AC-05 |
 | Logon banner on the servers | AC-8 | A system use notice before an administrator signs in to Windows | EV-AC-06 |
@@ -290,7 +290,7 @@ These are set by \<Organisation\> as part of its corporate network, directory an
 
 ### 3.7 Settings
 
-The values the access controls depend on are parameters in \<System Description\>, section 4, and are not repeated here. Table 13 lists them by control. Lockout and multi-factor authentication are PingFederate's and are not set in \<System Name\>. The session lifetime (P-02) is set in \<System Name\>, within PingFederate's own sign-in lifetime. The policy review and ownership values are in \<Policy\>, section 1.1.
+The values the access controls depend on are parameters in \<System Description\>, section 4, and are not repeated here. Table 13 lists them by control. Lockout and multi-factor authentication are PingFederate's and are not set in \<System Name\>. The session lifetime (P-02) is a fixed 8 hours set in \<System Name\>; PingFederate's own sign-in lifetime is set to at least that (EV-IA-04). The policy review and ownership values are in \<Policy\>, section 1.1.
 
 **Table 13: Access control parameters**
 
@@ -321,7 +321,7 @@ The values the access controls depend on are parameters in \<System Description\
 
 Controls met here: AC-6, AC-6(1), AC-6(2), AC-6(9), AC-6(10).
 
-**Privileged functions:** managing schemas and the AD groups each uses; approving a change to a schema's groups; changing settings; running diagnostics; reading audit logs; running the last sign-in report; approving the disposal of items due under the retention schedule; searching every schema for one person's items; and database maintenance. Managing the members of \<System Name\>'s AD groups is also privileged, and is done in Active Directory by each group's owner.
+**Privileged functions:** managing schemas and the AD groups each uses, including deactivating and deleting empty schemas; approving a change to a schema's groups or its deactivation or deletion; changing settings; running diagnostics; reading audit logs; running the last sign-in report; approving the disposal of items due under the retention schedule; searching every schema for one person's items; and database maintenance. Managing the members of \<System Name\>'s AD groups is also privileged, and is done in Active Directory by each group's owner.
 
 **Security-relevant information:** secrets and security settings, the OpenID Connect client credential, PingFederate's signing certificate, access groups and schema access rules, audit logs, firewall rules and certificates.
 
@@ -355,7 +355,7 @@ Controls met here: AC-20, AC-20(2), AC-21. AC-20(1) and AC-22 are not applicable
 3. Inside \<System Name\>, the schema groups control sharing. Sharing outside is a manual decision.
 4. External systems and portable storage may hold \<System Name\> data only with the system owner's written approval, recorded as an exception on TPL-17 (P-48, PRO-AC-15). None is approved, which is why AC-20(1) does not apply (TR-AC-07). An approved external system must meet the terms in P-48: a contract with confidentiality terms, encryption at rest, storage in the location in P-23, and deletion when the need ends. Terms and conditions are used, not asserted controls (TR-AC-10).
 5. Personal devices, personal cloud storage and any unmanaged system are prohibited (\<Security Operating Procedures\>, rules A31, A35 and A45). \<Organisation\>'s network access control keeps unmanaged devices off the network.
-6. USB and other portable storage may not hold \<System Name\> data without the system owner's approval, recorded as an exception on TPL-17 (P-48, PRO-AC-15; \<Security Operating Procedures\>, rule A32). \<Organisation\>'s device control on managed devices enforces this.
+6. USB and other portable storage may not hold \<System Name\> data without the system owner's approval, recorded as an exception on TPL-17 (P-48, PRO-AC-15; \<Security Operating Procedures\>, rule A32). \<Organisation\>'s device control on managed devices enforces this. Portable storage issued under an exception may be used only on \<Organisation\>'s managed devices and the external system named in the approval, must never be connected to a personal or other unmanaged device, and is returned for sanitising when the exception ends (AC-20(2)).
 7. \<System Name\> holds and serves no public content (P-50). Every item needs sign-in, and the sign-in requirement on every page that returns content enforces this.
 
 ### 3.11 Review schedules
@@ -421,7 +421,7 @@ These rules apply:
 
 Controls met here: AC-2, AC-2(3), AC-2(13).
 
-\<Organisation\> disables Active Directory accounts. A disabled account cannot sign in through PingFederate. Disabling an account does not remove its group memberships, so \<System Name\>'s API checks on every request that the account is enabled, as well as reading its groups, and holds each answer for at most 5 minutes. A person whose account is disabled, whose groups no longer allow them, or whose groups cannot be read is refused within 5 minutes, even while a session is open. Table 16 shows when access is ended.
+\<Organisation\> disables Active Directory accounts. A disabled account cannot sign in through PingFederate. Disabling an account does not remove its group memberships, so \<System Name\>'s API checks on every request that the account is enabled, as well as reading its groups, and holds each answer for at most 5 minutes. A person whose account is disabled, whose groups no longer allow them, or whose groups cannot be read is refused within 5 minutes, even while a session is open: by the next request, or by the 5-minute re-check of an open page, which skips the cache (NFR-102). Table 16 shows when access is ended.
 
 **Table 16: When access is ended**
 
@@ -439,7 +439,7 @@ Controls met here: AC-2(5), AC-7, AC-11, AC-11(1), AC-12.
 
 \<System Name\>'s session is its authentication cookie, which it sets and ends itself. Failed sign-ins and the screen lock are \<Organisation\>'s corporate configuration (section 3.6.5).
 
-1. **Session lifetime (AC-12).** The cookie has an absolute lifetime of 8 hours from sign-in (P-02), with no sliding extension, and is never set longer than PingFederate's own sign-in lifetime. The UI is Blazor Server, so an open page keeps a live connection: the application re-checks the person on it every 5 minutes and ends it when the cookie has expired or the person is refused (NFR-102). The session therefore ends at P-02, on Sign out, or within 5 minutes of the person's account being disabled or their groups no longer allowing them. Ending a person's PingFederate sign-in on its own does not end the cookie. This control is shared: the application ends its session, within PingFederate's lifetime.
+1. **Session lifetime (AC-12).** The cookie has a fixed absolute lifetime of 8 hours from sign-in (P-02), with no sliding extension. PingFederate's sign-in lifetime for \<System Name\> is set to at least 8 hours, which EV-IA-04 confirms, so the cookie always ends within PingFederate's sign-in; if PingFederate is ever set shorter, P-02 is lowered to match through a change. The UI is Blazor Server, so an open page keeps a live connection: the application re-checks the person on it every 5 minutes and ends it when the cookie has expired or the person is refused (NFR-102). That re-check makes the API read Active Directory afresh, skipping its 5-minute cache, so an open page is also ended within 5 minutes. The session therefore ends at P-02, on Sign out, or within 5 minutes of the person's account being disabled or their groups no longer allowing them. Ending a person's PingFederate sign-in on its own does not end the cookie. This control is shared: the application ends its session, within PingFederate's lifetime.
 2. **Sign-out (AC-2(5)).** Users must sign out as P-53 sets: at the end of each working day, and whenever they leave their device for longer than a short break. The Sign out button (FR-084) clears the cookie, ends the Blazor connection and ends the PingFederate sign-in. \<Security Operating Procedures\>, rule A36, tells users to use it.
 3. **Failed sign-ins (AC-7).** PingFederate and Active Directory count failed sign-ins and lock the account as P-42 sets: 10 failed attempts within 15 minutes lock it for 15 minutes. \<System Name\> has no sign-in of its own. The lock applies to every system the person uses, not only \<System Name\>. \<Organisation\>'s Group Policy locks sign-in to the servers. SQL Server accepts connections only from the application server.
 4. **Device lock (AC-11, AC-11(1)).** \<Organisation\>'s managed devices and the servers lock the screen after 15 minutes of inactivity (P-03), by Group Policy or device management. The lock screen hides the display, and the lock stays until the user unlocks the device with their own credentials.
@@ -465,7 +465,7 @@ Only these actions are allowed without signing in (P-51):
 4. see the access-denied page;
 5. load static files, such as scripts, styles and images;
 6. check that the API is running, which returns one status word;
-7. on the application server's loopback address only, the UI and Admin applications' token request to the API, which involves no user and is authenticated by the applications' own credential.
+7. on the application server's loopback address only, the UI and Admin applications' token request to the API, which involves no user. Each application authenticates it with Windows authentication under its own service account, and the API issues tokens only to those two accounts. Only the API's service account can read the token signing key, so no application can make its own token.
 
 Each is needed before a person can identify themselves, or involves no person, and none returns business data. The API health check supports monitoring. The list and the reasons are also stated in \<System Security Plan\>. The list is reviewed every 12 months and after a change (PRO-AC-14).
 
