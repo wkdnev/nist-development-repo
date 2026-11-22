@@ -343,8 +343,9 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | What they ask: see, correct, delete, restrict, object, or receive in a portable form |  |
 | Legal adviser's decision, and the time allowed |  |
 | Search across all schemas (FR-073): run by the legal adviser's delegate, and date |  |
-| What was done: by, and date |  |
-| People the data was disclosed to, told of a correction, deletion or restriction: date, or why not (UK GDPR, Article 19) |  |
+| What was found: the items, and the auditor's search of the audit records |  |
+| What was done: by whom (for a correction or deletion, an editor of the schema, FR-075), date, and the audit record |  |
+| People the data was disclosed to, found from the sharing decisions (TPL-25) and the export records, and told of a correction, deletion or restriction: date, or why not (UK GDPR, Article 19) |  |
 | Reply sent: date |  |
 
 ### 2.16 TPL-16 Supplier review

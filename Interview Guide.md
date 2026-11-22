@@ -349,7 +349,7 @@ PM is inherited from \<Organisation\>'s programme and is not assessed for \<Syst
 
 | ID | For | Question | Statements | Ask to see |
 | --- | --- | --- | --- | --- |
-| INT-PT-01 | Legal adviser | What is the lawful basis, and is consent ever relied on? | PT-02, PT-04 | The written position |
+| INT-PT-01 | Legal adviser | What is the lawful basis for each kind of data, and is consent ever relied on? | PT-02; the condition of TR-PT-02 | The written position; \<PII Processing Management\>, Table 1 |
 | INT-PT-02 | Legal adviser | Where is the impact assessment, and what does it say about special category data? | RA-08, PT-07 | The assessment |
 | INT-PT-03 | Legal adviser | Show me a request from an individual. How was it handled? | AC-03(14), SI-18(04) | A request record |
 | INT-PT-04 | Business owner | What personal data do schemas hold, for how long, and who checks it is correct? | PT-03, SI-12(01), SI-18 | Retention periods and the last check |
