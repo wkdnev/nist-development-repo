@@ -18,7 +18,7 @@ Who provides and is responsible for each control, and its status, are in \<Syste
 
 Controls met here: CA-2, CA-2(1), CA-3, CA-5, CA-6, CA-7, CA-9.
 
-1. **Two levels of assessment.** The system owner self-assesses at Level 1. An independent team assesses at Level 2.
+1. **Two levels of assessment.** The system owner self-assesses at Level 1. An independent team assesses at Level 2, and every authorisation rests on a Level 2 assessment.
 2. **Authorise knowingly.** The authorising official accepts the remaining risk by name, in writing, for no more than 12 months at a time.
 3. **Nothing in production before authorisation.** \<System Name\> holds no real data until it is authorised (P-25).
 4. **Track what is open.** Every weakness stays on the plan of action until its fix is tested.
@@ -40,7 +40,7 @@ Controls met here: CA-2, CA-5, CA-6, CA-7, CA-7(1).
 | Step | Who | Record | How often |
 | --- | --- | --- | --- |
 | Plan the assessment, and approve the plan | System owner and assessor; the authorising official approves | The plan in each chapter of \<Control Assessment Record\> | Every 12 months, and after a significant change |
-| Assess the controls | Level 1: the system owner. Level 2: the independent team | \<Control Assessment Record\> | The same |
+| Assess the controls | Level 1: the system owner. Level 2: the independent team, after Level 1 and before the authorisation it supports | \<Control Assessment Record\> | The same: both levels every 12 months |
 | Report | The assessor | \<Security Assessment Report\> | After each assessment |
 | Record and track each weakness | System owner | \<Risk List\> and \<Plan of Action and Milestones\> | Monthly |
 | Authorise | Authorising official | TPL-18 | Before operation; every 12 months; after a significant change |
@@ -51,7 +51,7 @@ Controls met here: CA-2, CA-5, CA-6, CA-7, CA-7(1).
 
 Controls met here: CA-2, CA-2(1), CA-7(1).
 
-**Levels.** Level 1 is the system owner's self-assessment. It is not independent. It shows the system owner where \<System Name\> stands, and prepares the ground for Level 2. Level 2 is the independent assessment by \[Name\]'s team, which also makes the yearly independent check of monitoring.
+**Levels.** Level 1 is the system owner's self-assessment. It is not independent. It shows the system owner where \<System Name\> stands, and prepares the ground for Level 2. Level 2 is the independent assessment by \[Name\]'s team, which also makes the yearly independent check of monitoring. Level 2 is carried out before the first authorisation and before each yearly re-authorisation, and the authorising official decides only on a Level 2 report. A Level 1 report alone never supports an authorisation (decision D-CA-01).
 
 **Independence.** A member of the team counts as independent once they have completed TPL-19, confirming that they have had no part in designing, building, running or administering \<System Name\>, that they report to no one responsible for it, and declaring any other interest. The authorising official accepts each statement before the assessment starts.
 
@@ -110,7 +110,7 @@ Controls met here: CA-6.
 | --- | --- |
 | System security plan | \<System Security Plan\> |
 | Privacy plan and impact assessment | \<Privacy Plan\> and \<Data Protection Impact Assessment\> |
-| Security assessment report | \<Security Assessment Report\> at Level 1, replaced by the Level 2 report. Its section 2 is the executive summary |
+| Security assessment report | \<Security Assessment Report\> for the Level 2 assessment. Its section 2 is the executive summary. A Level 1 report is not enough |
 | Plan of action and milestones | \<Plan of Action and Milestones\> |
 | Risks and decisions | \<Risk List\> and \<Decision Register\> |
 | Family assessments | \<Control Assessment Record\> (AC) to \<Control Assessment Record\> (SR) |

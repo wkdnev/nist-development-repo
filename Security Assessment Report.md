@@ -27,7 +27,7 @@ This section records who assessed \<System Name\>, how independent they are, whe
 
 | Item | Detail |
 | --- | --- |
-| Assessor | Level 1: \[Name\], working for the system owner. Level 2: an independent team led by \[Name\], which meets CA-2(1) once each member has completed TPL-19 |
+| Assessor | Level 2: an independent team led by \[Name\], which meets CA-2(1) once each member's TPL-19 is accepted by the authorising official. This report is for the Level 2 assessment; the Level 1 self-assessment by \[Name\], working for the system owner, is its starting point. An authorisation rests only on a Level 2 report |
 | Independence | \[How independent each level of assessment is\] |
 | Dates | \[When each family was assessed\] |
 | Procedures | \[CSS catalogue release; one finding for every determination statement\] |

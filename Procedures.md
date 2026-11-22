@@ -514,7 +514,7 @@ These procedures carry out \<Policy\> (CA). Steps marked **Manual** have no syst
 2. Level 1: the system owner self-assesses every determination statement, the privacy controls included, and records each finding in \<Control Assessment Record\>. **Manual**
 3. Each member of the Level 2 team completes TPL-19, confirming no part in designing, building, running or administering \<System Name\>, no reporting line to anyone responsible for it, and any other interest. The authorising official accepts each statement before the assessment starts. **Manual**
 4. Level 2: the independent team re-determines every statement, using the Level 1 record, the developers' test results (\<Security Operating Procedures\>, duty C40) and, before the first authorisation, the penetration test report. **Manual**
-5. The assessor brings the results together in \<Security Assessment Report\>, saying which level it reports, and sends it to the system owner, the authorising official, the Head of Cyber and, for the privacy controls, the legal adviser. Each weakness goes to \<Risk List\> (PRO-CA-3). **Manual**
+5. The assessor brings the Level 2 results together in \<Security Assessment Report\>, and sends it to the system owner, the authorising official, the Head of Cyber and, for the privacy controls, the legal adviser. Each weakness goes to \<Risk List\> (PRO-CA-3). **Manual**
 
 #### PRO-CA-2 Managing connections
 
@@ -531,7 +531,7 @@ These procedures carry out \<Policy\> (CA). Steps marked **Manual** have no syst
 
 #### PRO-CA-4 Authorising
 
-1. Before \<System Name\> holds real data, the system owner gives the authorising official the authorisation package listed in \<Assessment, Authorization, and Monitoring Management\>, section 3.5. **Manual**
+1. Before \<System Name\> holds real data, and before each yearly re-authorisation, once the Level 2 assessment is reported, the system owner gives the authorising official the authorisation package listed in \<Assessment, Authorization, and Monitoring Management\>, section 3.5. **Manual**
 2. The authorising official decides whether to authorise, accepts the remaining risk by name, and records the decision on TPL-18, with its terms, conditions and end date. **Manual**
 3. Every 12 months, and after a significant change, the authorising official reviews the authorisation. **Manual**
 
