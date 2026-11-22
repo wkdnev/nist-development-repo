@@ -342,7 +342,7 @@ The assessment plan is in \<Control Assessment Record\> (AT), section AT.4, wher
 | AT-2 Literacy Training | \<Organisation\>'s course, plus the \<System Name\> briefing (\<Awareness and Training Management\>, section 3.3) given when \<Security Operating Procedures\> is signed | \<Organisation\>, system owner | Hybrid | \[Status\] | \[Decision\] |
 | AT-2(2) Insider Threat | Briefing part B4, and \<Organisation\>'s course | \<Organisation\>, system owner | Hybrid | \[Status\] | \[Decision\] |
 | AT-2(3) Social Engineering | Briefing part B3, and \<Organisation\>'s course; no punitive phishing simulations | \<Organisation\>, system owner | Hybrid | \[Status\] | \[Decision\] |
-| AT-3 Role-based Training | Role curriculum M1 to M9 and the training matrix (\<Awareness and Training Management\>, sections 3.4 and 3.5) | Security officer, Head of Cyber | Organisational | \[Status\] | \[Decision\] |
+| AT-3 Role-based Training | Role curriculum M1 to M10 and the training matrix (\<Awareness and Training Management\>, sections 3.4 and 3.5) | Security officer, Head of Cyber | Organisational | \[Status\] | \[Decision\] |
 | AT-4 Training Records | TPL-9 and the training register, kept 3 years | Security officer | Organisational | \[Status\] | \[Decision\] |
 
 ### 7.3 Audit and Accountability (AU)

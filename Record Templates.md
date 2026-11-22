@@ -204,7 +204,7 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | --- | --- |
 | Record number |  |
 | Name and role |  |
-| Training: \<System Name\> briefing, awareness, role module (M1 to M9, \<Awareness and Training Management\>), incident or contingency |  |
+| Training: \<System Name\> briefing, awareness, role module (M1 to M10, \<Awareness and Training Management\>), incident or contingency |  |
 | Content and version |  |
 | Provided by |  |
 | Date completed, and next due |  |

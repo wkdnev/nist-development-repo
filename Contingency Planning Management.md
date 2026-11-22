@@ -266,7 +266,7 @@ This follows CSS. The first restore test and tabletop exercise take place within
 
 | Activity | When | Who | Objective | Record |
 | --- | --- | --- | --- | --- |
-| Role training | Within 30 days of taking a role, and every 12 months | Everyone in section 3.4 | Each person knows this plan, their steps in PRO-CP, the call tree and where the offline copy is | TPL-9 |
+| Role training | Within 30 days of taking a role, and every 12 months | Everyone in section 3.4: module M8, or M10 for the authorising official. \<Organisation\>'s IT service desk is trained by \<Organisation\> | Each person knows this plan, their steps in PRO-CP, the call tree and where the offline copy is | TPL-9 |
 | Restore test | First within 30 days of the VMs being built; then every 6 months (P-16) | Database administrator, observed by the security officer | Restore the latest backup to a separate server within the recovery time objective, and pass the checks in PRO-CP-2 | TPL-11 |
 | Tabletop exercise, with the incident response plan | First within 30 days of the VMs being built; then every 12 months (P-16) | Everyone in section 3.4, and \<Organisation\>'s IT service desk | Walk through one scenario from activation to deactivation | TPL-11 |
 | Plan review | Every 12 months, and after each test or activation | System owner and authorising official | Keep the plan current and build in what was learned | Change record |

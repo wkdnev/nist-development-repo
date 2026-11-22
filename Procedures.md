@@ -362,7 +362,7 @@ These procedures carry out \<Policy\> (AT). Steps marked **Manual** rely on peop
 | Procedure | When | Who | Record | Controls |
 | --- | --- | --- | --- | --- |
 | PRO-AT-1 Awareness and the \<System Name\> briefing | Before access, and every 12 months | System owner, everyone | TPL-9; TPL-21 | AT-2, AT-2(2), AT-2(3), PL-4 |
-| PRO-AT-2 Role training | Before privileged access, or within 30 days for incident and contingency modules; then every 12 months | Security officer, Head of Cyber | TPL-9 | AT-3, AT-3(5), IR-2, CP-3 |
+| PRO-AT-2 Role training | Before privileged access, or within 30 days for incident, contingency and risk decision modules; before a line manager's first approval; then every 12 months | Security officer, Head of Cyber | TPL-9 | AT-3, AT-3(5), IR-2, CP-3 |
 | PRO-AT-3 Keeping content current | Every 12 months, and after a significant incident, exercise or change | Security officer, legal adviser | TPL-6 change record | AT-2c, AT-2d, AT-3b, AT-3c |
 | PRO-AT-4 Records and the register | At each completion, and before a role is granted | Security officer, system owner | TPL-9; training register | AT-4, AC-2 |
 | PRO-AT-5 Measures and checking | Monthly, and at each review | Security officer, system owner | TPL-8 monthly measures; Test-PlanConsistency.ps1 | AT-1, AT-2, AT-3, CA-7 |
@@ -383,6 +383,9 @@ These procedures carry out \<Policy\> (AT). Steps marked **Manual** rely on peop
 2. The person completes the role modules before privileged access is granted, and the incident response and contingency modules within 30 days of taking the role. **Manual**
 3. The security officer delivers the modules, and the Head of Cyber delivers them to the security officer and auditor. Each ends with a check, with a pass mark of 80%; anyone below it repeats the module. **Manual**
 4. \<Organisation\>'s administrators complete the \<System Name\> modules for their role. \<Organisation\> evidences any general administrator training. **Manual** (EV-AT-01)
+5. Roles without access are trained for the duties they hold, as the matrix sets: the legal adviser takes M7 and the authorising official M10 within 30 days of taking the role, and the information owner takes the briefing and M9 before their first categorisation decision. A deputy takes the modules of the role they cover. **Manual**
+6. Before a line manager first approves an access request, and if they are not already a \<System Name\> user, the security officer gives them briefing part B7 and records it on TPL-9. **Manual**
+7. \<Organisation\> evidences the training of the Head of Cyber and the data protection officer. **Manual** (EV-AT-02)
 
 #### PRO-AT-3 Keeping content current
 

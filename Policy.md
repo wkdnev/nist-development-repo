@@ -169,7 +169,7 @@ The rules in section 1.1 apply to this policy. It adds these.
 
 This policy sets the organisation's rules for security and privacy awareness and training for \<System Name\>, in line with the CSS AT family (AT-1). It stands alone, as each family has its own policy. The curriculum, briefing, training matrix, measures and register are in \<Awareness and Training Management\>, and the steps people follow are in \<Procedures\> (AT).
 
-It applies to everyone who uses, administers or develops \<System Name\>, including \<Organisation\>'s staff who hold a \<System Name\> role. It covers the training other families require: incident response (IR-2), contingency (CP-3), privacy (AT-3(5)) and the rules of behaviour (PL-4).
+It applies to everyone who uses, administers or develops \<System Name\>, including \<Organisation\>'s staff who hold a \<System Name\> role, and to the other roles named in the training matrix for the security or privacy duties they hold: the legal adviser, the authorising official, the information owner and line managers. It covers the training other families require: incident response (IR-2), contingency (CP-3), privacy (AT-3(5)) and the rules of behaviour (PL-4).
 
 ### AT.2 The organisation's position
 
@@ -203,11 +203,11 @@ It applies to everyone who uses, administers or develops \<System Name\>, includ
 | Role | Responsibility |
 | --- | --- |
 | Head of Cyber | Approves this policy, as all policies; trains the security officer and auditor |
-| Authorising official | Decides Medium and High risks |
+| Authorising official | Decides Medium and High risks; completes module M10 |
 | System owner | Owns this policy, the curriculum and the matrix; gives the \<System Name\> briefing; checks the register before granting a role |
 | Security officer | Writes and updates role training content, keeps the register and reports the measures |
-| Legal adviser | Reviews privacy training content and agrees any phishing simulation |
-| Line managers | Make sure their staff complete training on time |
+| Legal adviser | Reviews privacy training content and agrees any phishing simulation; completes module M7 |
+| Line managers | Complete briefing part B7 before their first approval of an access request, and make sure their staff complete training on time |
 | Everyone | Completes training, and reports anything suspicious |
 | \<Organisation\> | Provides the general course and its records, and evidences its administrators' role training |
 

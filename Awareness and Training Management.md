@@ -41,7 +41,7 @@ Controls met here: AT-2, AT-3.
 | --- | --- | --- | --- |
 | All users | Disclosing an item to the wrong person; falling for a request that looks genuine | Check who is asking; export only when needed; report anything odd at once | \<Organisation\>'s course; the \<System Name\> briefing |
 | Data Owners and the system owner | Granting access no one needs | Authorise least access in ServiceNow; add and remove group members correctly; review access when due | Modules M2, M9, M7; M8 for the system owner |
-| Line managers | Approving a request the person does not need; missing the signs of an insider threat in their team | Confirm the need before approving; report movers and leavers at once; raise a concern early | The \<System Name\> briefing, part B7 |
+| Line managers | Approving a request the person does not need; missing the signs of an insider threat in their team | Confirm the need before approving; report movers and leavers at once; raise a concern early | The \<System Name\> briefing, part B7, given on its own before their first approval if they are not \<System Name\> users |
 | Administrators | Misusing the power to change which groups open a schema; careless changes to schemas, their groups or settings | Use the administrator role only for administration; change a schema's groups only with its Data Owner's approval in a change record; follow the joiner, mover and leaver steps | Modules M1, M3, M9, M7, M8 |
 | Windows server and database administrators | Unpatched or misconfigured servers; lost backups or keys | Follow the patch timetable, hardening and backup steps; protect keys | Modules M4, M3, M9, M7, M8 |
 | Developers | Vulnerable code or components; secrets in code | Secure coding; checked components; changes reviewed | Modules M5, M3, M7 |
@@ -49,6 +49,9 @@ Controls met here: AT-2, AT-3.
 | Business owners | Approving the disposal of items that should be kept, or keeping items too long | Approve disposal only of items due under the retention schedule (\<System Description\>, FR-074) | The \<System Name\> briefing; module M9 |
 | Legal adviser's delegate | Searching or disclosing more than a request needs | Search every schema only for the one person named in a request under data protection law (\<System Description\>, FR-073), and handle the results as the legal adviser directs | Module M9 |
 | Everyone who handles personal data in \<System Name\> | Using personal data unlawfully | Use it only for its purpose; handle requests and complaints properly | Module M9 |
+| Legal adviser | Deciding late or wrongly whether to report a breach to the ICO and the people affected | Know their part in the incident playbooks and the breach steps, and the 72-hour limit | Module M7 |
+| Authorising official | Making a risk decision in an incident or recovery without knowing what it rests on | Know when they will be called, the decisions that are theirs, and the information each needs | Module M10 |
+| Information owner | Rating information too low, or letting personal data into a schema that should not hold it | Categorise information correctly; decide what personal data each schema holds | The \<System Name\> briefing; module M9 |
 
 ### 3.3 Awareness and the \<System Name\> briefing
 
@@ -89,12 +92,13 @@ Each module ends with a short check of at least 10 questions, with a pass mark o
 | M7 Incident response (IR-2) | Recognise, report, contain and record an incident; know your part in the playbooks | \<Incident Response Management\>; \<Procedures\> (IR) | 60 minutes | Security officer |
 | M8 Contingency (CP-3) | Know your part in recovery; restore from backup | \<Contingency Planning Management\>; \<Procedures\> (CP) | 45 minutes | System owner |
 | M9 Personal data (AT-3(5)) | Lawful use of personal data; requests and complaints; breaches | \<PII Processing Management\>; \<Procedures\> (PT) | 45 minutes | Legal adviser |
+| M10 Risk decisions in incidents and recovery (IR-2, CP-3) | For the authorising official: when they are called in an incident or a recovery; the severity levels; the decisions that are theirs (running in a reduced state, going beyond the recovery time objective, the risk arising from an incident); and what each decision needs | \<Incident Response Management\>, sections 3.3 and 3.6; \<Contingency Planning Management\>, sections 3.4 and 3.5 | 20 minutes | Security officer |
 
 ### 3.5 Training matrix
 
 Controls met here: AT-2, AT-3.
 
-Every role must complete awareness, the briefing and signing \<Security Operating Procedures\> before access. Role modules come before privileged access; M7 and M8 within 30 days of taking the role. All are repeated every 12 months.
+Every role with access must complete awareness, the briefing and signing \<Security Operating Procedures\> before access; roles without access take what their row sets. Role modules come before privileged access; M7 and M8 within 30 days of taking the role. All are repeated every 12 months.
 
 **Table 4: Training matrix**
 
@@ -112,10 +116,16 @@ Every role must complete awareness, the briefing and signing \<Security Operatin
 | Business owner | Yes | Parts A and B | M9 | None |
 | Legal adviser's delegate | Yes | Parts A and B | M9 | None |
 | Everyone who handles personal data in \<System Name\> | Yes | Part A | M9 | None |
+| Information owner | Yes | Part A, if they are a \<System Name\> user | M9 | None |
+| Legal adviser | \<Organisation\>'s course | None: no access | None (delivers M9) | M7 |
+| Authorising official | \<Organisation\>'s course | None: no access | None | M10 |
+| Line managers who are not \<System Name\> users | Briefing part B7 only, before their first approval | None: no access | None | None |
 
 The matrix carries out AT-2, AT-3, AT-3(5) (\<PII Processing Management\>), IR-2 (\<Procedures\>, PRO-IR-3), CP-3 (\<Procedures\>, PRO-CP-4) and PL-4 (\<Security Operating Procedures\>).
 
-**Roles with no role modules.** Role training is for privileged users, meaning everyone who is not a standard user. The Head of Cyber, the legal adviser and the authorising official have no access to \<System Name\>, so they are not in the matrix, although each has a security or privacy duty: approving the policy, delivering modules M6 and M9, and deciding risk. The CSS guidance on AT-3 names senior security and privacy officers, authorising officials and system owners among those who may need role training. The system owner is in the matrix. For the other three, the design relies on \<Organisation\>'s own training and their professional standing.
+**Deputies.** A deputy holds the same training as the role they cover (\<Roles and Responsibilities\>, section 5), follows that role's row, and is in the register under it.
+
+**Roles without access.** Role training is for everyone with a security or privacy duty for \<System Name\>, not only those with access to it. The CSS guidance on AT-3 names senior security and privacy officers, authorising officials and system owners among those who may need it. So the legal adviser, the authorising official, the information owner and line managers are in the matrix for the duties they hold, though most have no access: the legal adviser's part in incident response, the authorising official's risk decisions in an incident or a recovery, the information owner's categorisation, and the line manager's approval of access requests. Two roles stay out of the matrix and rely on \<Organisation\>'s own training, evidenced through EV-AT-02: the Head of Cyber, who approves the policies, delivers module M6 and reviews the administrators' group, and the data protection officer, who leads \<Organisation\>'s privacy programme.
 
 ### 3.6 When training happens
 
@@ -127,7 +137,8 @@ Controls met here: AT-2, AT-3, AT-4.
 | --- | --- | --- |
 | Before any access | \<Organisation\>'s course, the \<System Name\> briefing and its check, and the signature of \<Security Operating Procedures\> | The security officer records it; the group's owner adds no one before it is recorded |
 | Before privileged access | The role modules in the matrix, each with its check | The system owner checks the training register before authorising the role |
-| Within 30 days of taking a role | Incident response (M7) and contingency (M8) | Security officer |
+| Before a line manager's first approval of an access request | Briefing part B7, if they are not already a \<System Name\> user | Security officer, from ServiceNow's list of approvers |
+| Within 30 days of taking a role | Incident response (M7), contingency (M8) and, for the authorising official, risk decisions (M10) | Security officer |
 | Every 12 months | All of the above, repeated | Security officer, who asks each person |
 | After a significant incident, exercise or change | The updated briefing or module, for those it affects | Security officer |
 | More than 30 days overdue | Privileged access is suspended until the training is complete | System owner |
@@ -161,6 +172,11 @@ The security officer keeps this register from the TPL-9 records. The system owne
 | \[Name\] | Auditor | \[date\] | \[dates\] | \[dates\] | \[date\] |
 | \[Name\] | System owner | \[date\] | \[dates\] | \[dates\] | \[date\] |
 | \[Name\] | Data Owner | \[date\] | \[dates\] | \[dates\] | \[date\] |
+| \[Name\] | Information owner | \[date\] | \[dates\] | None | \[date\] |
+| \[Name\] | Legal adviser | \[date\] | None | \[dates\] | \[date\] |
+| \[Name\] | Authorising official | \[date\] | None | \[dates\] | \[date\] |
+| \[Names\] | Line managers | \[dates\] | None | None | \[date\] |
+| \[Name\] | Deputies, each under the role they cover | \[date\] | \[dates\] | \[dates\] | \[date\] |
 
 ### 3.9 Measures
 
