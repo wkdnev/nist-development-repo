@@ -35,7 +35,7 @@ Every role in \<Roles and Responsibilities\> has a designation. A role is higher
 
 | Role | Designation | Why |
 | --- | --- | --- |
-| System owner | Standard | Approves and decides, but holds no privileged technical access |
+| System owner | Higher risk | Owns the five role groups, \<Code\>\_Admins, \<Code\>\_Auditors, \<Code\>\_Security, \<Code\>\_BusinessOwners and \<Code\>\_LegalSearch, and adds their members, so can give anyone privileged access; the Head of Cyber checks their own memberships each quarter |
 | Head of Cyber | Standard | Approves policies; no \<System Name\> account is needed |
 | Legal adviser | Standard | Advises and reviews; no privileged access |
 | Data protection officer | Standard | Advises; no privileged access |
