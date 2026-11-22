@@ -301,7 +301,7 @@ Controls met here: CM-1, CM-9.
 
 \<Policy\> (CM) and \<Procedures\> (CM) meet CM-1. Who they are shared with is in \<Policy\>, section CM.6. Their ownership, approval, review and records follow the rules common to every policy in \<Policy\>, section 1.1.
 
-This document is the configuration management plan. Roles and processes are in section 3.2, the configuration items in section 3.3, the route a change follows in section 3.7, and the environments in Appendix A. The system owner reviews and approves it. It is classified Restricted and held in the restricted document store.
+This document is the configuration management plan. Roles and processes are in section 3.2, the configuration items in section 3.3, the route a change follows in section 3.7, and the environments in Appendix A. The system owner reviews and approves it every 12 months and after a significant change (\<Planning Management\>, section 3.2). It is classified Restricted and held in the restricted document store.
 
 ## Appendix A Environments
 

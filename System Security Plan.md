@@ -779,7 +779,7 @@ The artifacts this plan relies on are below, in the order CSS lists them. All ar
 | Policies and procedures | \<Policy\> and \<Procedures\>, with one chapter for each family |
 | Rules of behaviour | \<Security Operating Procedures\> |
 | Contingency plan, with test and training records | \<Contingency Planning Management\>, section 3; records on the forms in \<Record Templates\> |
-| Configuration management plan and change records | \<Configuration Management\>; changes in ServiceNow and the source repositories |
+| Configuration management plan and change records | \<Configuration Management\>; changes in ServiceNow, or on TPL-6 until it is set up, and the source repositories; the approved access list on TPL-5 |
 | Information exchange agreements | Planned exchanges are in section 3.2 and \<Assessment, Authorization, and Monitoring Management\>, section 3.7 |
 | Continuous monitoring strategy | \<Assessment, Authorization, and Monitoring Management\>, section 3.8 |
 | Incident response plan, with test and training records | Section 3 of \<Incident Response Management\>; records on the forms in \<Record Templates\> |

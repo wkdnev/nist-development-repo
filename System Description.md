@@ -582,13 +582,13 @@ The application's session is its authentication cookie. It lasts at most P-02 fr
 | NFR-082 | Develop under \<Organisation\>'s corporate SDLC, whose security practices meet CSS | The corporate SDLC, inherited from \<Organisation\> | \<System and Services Acquisition Management\> |
 | NFR-083 | Model the threats to the application before it is built, and again at each significant change | A threat model of the profile and its functions, kept with the risk list | \<Risk Assessment Management\> |
 | NFR-084 | Have every change reviewed by a second developer and merged through a protected branch | Branch rules in the source repositories | \<System and Services Acquisition Management\> |
-| NFR-085 | Approve every change to production by the change control board, after a security impact analysis | A change record, with the board's decision, before any release | \<Configuration Management\> |
+| NFR-085 | Approve every change to production by the change control board, after a security and privacy impact analysis | A change record, with the board's decision, before any release | \<Configuration Management\> |
 | NFR-086 | Build and test every release in a pipeline, with automated tests, a package and code scan, and the verification standard in P-28 | The pipeline builds from the protected branch and runs the tests and scans before a release can be made | \<System and Services Acquisition Management\> |
 | NFR-087 | Release from a signed tag with recorded checksums, so that a release can be rebuilt exactly | The release procedure tags the source and records a checksum for each package | \<Configuration Management\> |
 | NFR-088 | Take every package through one checked source, with lock files and a software bill of materials for each release | An in-house package feed, with package sources mapped so that nothing else is used | \<Supply Chain Risk Management\> |
 | NFR-089 | Keep development, test and production apart, with no production data outside production | Separate environments, with invented data loaded by script | \<System and Services Acquisition Management\> |
 | NFR-090 | Compare the running system with its approved baseline as P-29 sets | A scheduled comparison of files and settings with the release record | \<Configuration Management\> |
-| NFR-091 | Configure both servers to the CIS Benchmark, with only the functions, ports and services the application needs | Policy applied by \<Organisation\>, checked with a benchmark tool | \<Configuration Management\> |
+| NFR-091 | Configure both servers to the CIS Benchmark, with only the functions, ports and services the application needs, and only approved software allowed to run | Policy applied by \<Organisation\>, checked with a benchmark tool; Windows App Control for Business enforcing the approved software list | \<Configuration Management\> |
 | NFR-092 | Keep secrets out of source code, and scan every change for them | A secret scan in the pipeline that blocks a merge | \<System and Services Acquisition Management\> |
 
 #### 5.2.13 Operation and assurance
@@ -1054,7 +1054,7 @@ Table 48 defines the terms used across the set, including those in \<Policy\>. T
 | Built-in maintenance function | The fixed diagnostics page in the Admin application, which reads no item content. \<System Name\> has no page that changes its data or set-up |
 | Business impact analysis | The analysis of how an outage harms the organisation over time, which sets the recovery objectives |
 | Chain hash | A value calculated from each record and the one before it, so that a change can be detected |
-| Change control board | The group that approves changes: the system owner, security officer and Windows server administrator |
+| Change control board | The group that decides on changes: the system owner (chair), the security officer, the Windows server administrator and the legal adviser as privacy representative, under its charter in \<Configuration Management\>, section 3.8 |
 | Change record | A record of a change. For a system change or maintenance job, TPL-6 or a ServiceNow record with the same fields; for a document, the change record described in \<Documentation Map\>, section 4.1 |
 | Complaint | A complaint to the controller about how personal data is handled, under the Data (Use and Access) Act 2025 |
 | Component | A software package, runtime, operating system or database that \<System Name\> is built from or runs on |

@@ -54,10 +54,10 @@ This document holds the security and privacy procedures for \<System Name\>: 139
 | PRO-CA-6 | Deciding whether a change is significant | CA Assessment, Authorization, and Monitoring |
 | PRO-CA-7 | Inherited controls | CA Assessment, Authorization, and Monitoring |
 | PRO-CM-1 | Making a change | CM Configuration Management |
-| PRO-CM-2 | Reviewing the baseline | CM Configuration Management |
+| PRO-CM-2 | Reviewing the baseline, inventory and access list | CM Configuration Management |
 | PRO-CM-3 | Secure settings | CM Configuration Management |
 | PRO-CM-4 | Software | CM Configuration Management |
-| PRO-CM-5 | Reviewing functions and ports | CM Configuration Management |
+| PRO-CM-5 | Reviewing functions, ports and installed software | CM Configuration Management |
 | PRO-CM-6 | Unauthorised components | CM Configuration Management |
 | PRO-CM-7 | Monitoring for drift | CM Configuration Management |
 | PRO-CM-8 | Emergency change | CM Configuration Management |
@@ -586,7 +586,7 @@ These procedures define how \<System Name\>'s configuration is changed and recor
 5. They check that the affected controls still work, and record the result. **Manual**
 6. They update the baseline and component inventory in \<Configuration Management\>, sections 3.4 and 3.5, tag the release, record the checksum of each package and produce the bill of materials. They update \<System Security Plan\>, section 3.4, if a server changed. **Manual**
 
-#### PRO-CM-2 Reviewing the baseline
+#### PRO-CM-2 Reviewing the baseline, inventory and access list
 
 1. Every 12 months and at each release, the system owner and Windows server administrator review the baseline (\<System Description\>, P-63). **Manual**
 2. They keep the 3 previous configurations, each as its tagged code, package checksums, settings and bill of materials, in the configuration library (\<Configuration Management\>, section 3.13). **Manual**
@@ -605,7 +605,7 @@ These procedures define how \<System Name\>'s configuration is changed and recor
 3. When the VMs are built, the Windows server administrator deploys the signed App Control for Business policy in audit mode, reviews what it would block for at least one release cycle in the test environment, approves or removes each item, and switches it to enforced before go-live. **Manual**
 4. Before a new package, browser library or runtime enters the baseline, the developer records its supplier, version, licence and purpose in \<Configuration Management\>, section 3.5, and checks it on TPL-7 for known vulnerabilities. A licence that is not a standard open source licence goes to the system owner for a decision on \<Decision Register\>. **Manual**
 
-#### PRO-CM-5 Reviewing functions and ports
+#### PRO-CM-5 Reviewing functions, ports and installed software
 
 1. Every 12 months the Windows server administrator and developers review functions, ports, protocols, software and services, and remove what is not needed, including packages the code does not use. The result is recorded on TPL-3. **Manual**
 2. At the same review, the Windows server administrator compares the software installed on both servers with the approved software list, and removes, or raises a request for, anything not on it. **Manual**
