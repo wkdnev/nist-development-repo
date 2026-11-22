@@ -1232,11 +1232,11 @@ These procedures carry out \<Policy\> (PT). Steps marked **Manual** have no syst
 
 | Procedure | When | Who | Record | Controls |
 | --- | --- | --- | --- | --- |
-| PRO-PT-1 Requests from individuals | A request about a person's data: to see, correct, delete, restrict, object or receive it in a portable form | Legal adviser and their delegate, auditor, editors, Administrators | TPL-15 | AC-3(14), SI-18(4), PT-2 |
+| PRO-PT-1 Requests from individuals | A request about a person's data: to see, correct, delete, restrict, object or receive it in a portable form | Legal adviser and their delegate, auditor, editors of the schema | TPL-15 | AC-3(14), SI-18(4), PT-2 |
 | PRO-PT-2 Complaints | A complaint about how data is handled | Legal adviser | TPL-22 | PT-2, PM-26 |
 | PRO-PT-3 Changes in processing | A change that affects personal data | System owner, legal adviser | TPL-6 change record | PT-3, SA-8(33) |
 | PRO-PT-4 Impact assessment | Before production; after a significant change; every 12 months | Legal adviser, system owner, business owner | \<Data Protection Impact Assessment\> | RA-8, PT-7 |
-| PRO-PT-5 Accuracy, retention and disposal | Every 12 months; at the end of each retention period | Business owner, Data Owners, Administrators | TPL-3 review; audit record of each disposal | SI-12, SI-12(1), SI-12(3), SI-18 |
+| PRO-PT-5 Accuracy, retention and disposal | Every 12 months; at the end of each retention period | Business owner, Data Owners, editors of the schema | TPL-3 review; audit record of each disposal | SI-12, SI-12(1), SI-12(3), SI-18 |
 | PRO-PT-6 Training and test data | Before access and every 12 months; every test or training session | System owner, developers, trainers | TPL-9 | AT-3(5), IR-2(3), SI-12(2) |
 
 ### PT.2 Procedures
@@ -1246,14 +1246,14 @@ These procedures carry out \<Policy\> (PT). Steps marked **Manual** have no syst
 1. Anyone who receives a request from a person about their data passes it to the legal adviser at once. **Manual**
 2. The legal adviser logs it on TPL-15, confirms the person's identity, and sets the deadline: one month from that confirmation, extendable as the law allows, and paused while waiting for any clarification needed. **Manual**
 3. The legal adviser's delegate makes a reasonable and proportionate search of every schema with the search across schemas (\<System Description\>, FR-073), and an auditor searches the audit records. What was found is listed on TPL-15. **Manual**
-4. Corrections and deletions are made by an editor of the schema or an Administrator, on the legal adviser's instruction, and confirmed in writing on TPL-15. **Manual**
+4. Corrections and deletions are made by an editor of the schema, with the correct and delete functions (\<System Description\>, FR-075), on the legal adviser's instruction, and confirmed in writing on TPL-15. Administrators see no item content, so do not do this. **Manual**
 5. For a request to restrict processing, to object, or to receive the data in a portable form, the legal adviser decides whether the right applies and how it is met. **Manual**
-6. When data is corrected, deleted or restricted, the legal adviser tells anyone it was disclosed to, unless that is impossible or would take disproportionate effort, and records it on TPL-15. **Manual**
+6. When data is corrected, deleted or restricted, the legal adviser tells anyone it was disclosed to, unless that is impossible or would take disproportionate effort, and records it on TPL-15. The recipients outside the schema are found from the Data Owners' sharing decisions (TPL-25), with the export audit records showing who took copies. **Manual**
 7. The legal adviser answers the person and closes TPL-15. **Manual**
 
 #### PRO-PT-2 Complaints
 
-1. Anyone who receives a complaint about how personal data in \<System Name\> is handled passes it to the legal adviser at once. **Manual**
+1. A person complains to the legal adviser by the route the privacy notice gives, which includes a way to complain electronically. Anyone else who receives a complaint about how personal data in \<System Name\> is handled passes it to the legal adviser at once. **Manual**
 2. The legal adviser acknowledges it within 30 days, and records it on TPL-22. **Manual**
 3. The legal adviser investigates without undue delay, keeps the person informed, and tells them the outcome. **Manual**
 4. Any weakness found is raised in \<Risk List\>. **Manual**
@@ -1262,7 +1262,7 @@ These procedures carry out \<Policy\> (PT). Steps marked **Manual** have no syst
 
 1. Each change record (TPL-6) says whether the change affects personal data. **Manual**
 2. If it does, the legal adviser reviews it and decides whether the inventory (\<PII Processing Management\>, section 3.3), the privacy notice or the impact assessment must change. **Manual**
-3. The system owner asks \<Organisation\> to keep the privacy notice current, and reviews it every 12 months (EV-PT-01). **Manual**
+3. The system owner asks \<Organisation\> to keep the privacy notices current, and every 12 months checks with the legal adviser that each group of people in the inventory is covered by a notice that names \<System Name\> and holds what P-73 sets, and that the link on \<System Name\>'s pages works (EV-PT-01; \<Security Operating Procedures\>, C33). **Manual**
 
 #### PRO-PT-4 Impact assessment
 
@@ -1273,12 +1273,12 @@ These procedures carry out \<Policy\> (PT). Steps marked **Manual** have no syst
 #### PRO-PT-5 Accuracy, retention and disposal
 
 1. The business owner sets each retention period in \<PII Processing Management\>, section 3.7. **Manual**
-2. Every 12 months each Data Owner checks that their schema's personal data is accurate, relevant, timely and complete, and records the check on TPL-3. **Manual**
+2. Every 12 months each Data Owner checks that their schema's personal data is accurate, relevant, timely and complete, and records the check on TPL-3. An editor of the schema corrects or deletes what the check finds, and each change is audited. **Manual**
 3. A scheduled task lists the items past their retention period, which are deleted once the business owner, a member of \<Code\>\_BusinessOwners, approves their disposal in the UI application (\<System Description\>, FR-074), and each deletion is audited.
 
 #### PRO-PT-6 Training and test data
 
-1. Everyone who handles items holding personal data, and all administrators, complete privacy training before access and every 12 months. The module covers the purposes, the rules in \<Security Operating Procedures\>, A23 to A29, recognising and reporting a breach within an hour, requests and complaints. It is recorded on TPL-9. **Manual**
+1. Every user completes briefing part B6, and the roles in \<Awareness and Training Management\>, Table 4, including all administrators, complete module M9, before access and every 12 months. The training covers the purposes, the rules in \<Security Operating Procedures\>, A23 to A29, recognising and reporting a breach within an hour, requests and complaints. It is recorded on TPL-9. **Manual**
 2. Developers use only invented data for testing, and trainers use only invented data for training. Real personal data is never used there. Test-PersonalData.ps1 checks this in each test environment. **Manual**
 
 ## RA Risk Assessment

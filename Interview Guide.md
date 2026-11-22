@@ -355,8 +355,12 @@ PM is inherited from \<Organisation\>'s programme and is not assessed for \<Syst
 | INT-PT-04 | Business owner | What personal data do schemas hold, for how long, and who checks it is correct? | PT-03, SI-12(01), SI-18 | Retention periods and the last check |
 | INT-PT-05 | Developers | What personal data is in audit records and test data? | AU-03(03), SI-12(02) | A sample of each |
 | INT-PT-06 | Legal adviser | Show me a data protection complaint. Was it acknowledged within 30 days, and how was it resolved? | PT-01, PM-26 | A complaint record (TPL-22) |
-| INT-PT-07 | Legal adviser's delegate who would handle a request | Show me how you would find every item about one person across all schemas, and how you would record a correction or deletion | AC-03(14), SI-18(04) | TPL-15; audit records |
+| INT-PT-07 | Legal adviser's delegate who would handle a request | Show me how you would find every item about one person across all schemas, and what you would list on the request record | AC-03(14) | TPL-15; audit records of the search |
 | INT-PT-08 | Data protection officer | What advice did you give on the impact assessment, and what changed as a result? | RA-08, PT-02 | The impact assessment |
+| INT-PT-09 | An editor of a schema | Show me how you would correct or delete a person's data on the legal adviser's instruction, and what the audit record shows | SI-18b., SI-18(04) | Audit records; TPL-15 |
+| INT-PT-10 | A Data Owner | When did you last check your schema's personal data? What did you find, and who put it right? Which of your items hold special category or criminal offence data, and how are they marked? | SI-18, PT-07, SI-12(01) | TPL-3; the marked items |
+| INT-PT-11 | System owner | Which privacy notices cover the people whose data \<System Name\> holds, and when did you last check them with the legal adviser? | PT-05, PT-03 | TPL-4 for C33; the notices (EV-PT-01) |
+| INT-PT-12 | Security officer | Where is personal data processing monitored, and what happens when the large export alert fires? | SC-07(24) | The alert rule; an alert and its handling |
 
 ## 18 Risk Assessment (RA)
 

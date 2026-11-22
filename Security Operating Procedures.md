@@ -282,7 +282,7 @@ The detection use cases U1 to U9 in \<System and Information Integrity Managemen
 | C30 | Assess home working controls | Security officer | \<Procedures\>, PRO-PE-4 | TPL-26 | PE-17 |
 | C31 | Review risk designations and access agreements | System owner | \<Procedures\>, PRO-PS-4 | TPL-3 | PS-2, PS-6 |
 | C32 | Check personal data is accurate, relevant and still needed, and approve the disposal of items due under the retention schedule (\<System Description\>, FR-074) | Data Owners; the business owner approves disposal | \<Procedures\>, PRO-PT-5 | TPL-3 | SI-18, PT-3 |
-| C33 | Check the privacy notice names \<System Name\> | System owner | \<Procedures\>, PRO-PT-3 | TPL-4 | PT-5 |
+| C33 | Check, with the legal adviser, that the privacy notices cover every group of people in the inventory, name \<System Name\> and hold what P-73 sets, and that the link on \<System Name\>'s pages works | System owner | \<Procedures\>, PRO-PT-3 | TPL-4 | PT-5 |
 | C34 | Review exceptions | System owner | Section 5 | Exception register, TPL-17 | PL-4, CA-5 |
 | C35 | Review these SyOps, the plans in the register and the architecture, and the other security documents | System owner | Each document's change record; \<Procedures\>, PRO-PL-1 and PRO-PL-5 | Document change record; plan review record | PL-4c, PL-2, PL-8 |
 | C52 | Review the cryptographic and key register, the host firewall allow-lists, external services and exceptions; schedule keys and certificates due for change | System owner, security officer, \<Organisation\> | \<Procedures\>, PRO-SC-8 | TPL-23 | SC-7(4), SC-12, SC-13 |

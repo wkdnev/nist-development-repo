@@ -273,7 +273,7 @@ PM is not among \<System Name\>'s 316 controls (TR-PM-01), but \<System Name\> i
 
 | ID | Control | What we need to know | Evidence to provide |
 | --- | --- | --- | --- |
-| EV-PT-01 | PT-3, PT-5 | Whether the employee privacy notice names \<System Name\> and its purposes, how people get it, and how often it is reviewed | The notice, and how it is given to employees |
+| EV-PT-01 | PT-3, PT-5 | Whether the privacy notices for employees, contractors and agency staff name \<System Name\> and its purposes, give the lawful basis and the other information in UK GDPR, Articles 13 and 14, including how to make a request or complaint and the right to complain to the ICO; how and when people get them; and how often they are reviewed (\<System Description\>, P-73) | Each notice, and how it is given on joining |
 | EV-PT-02 | PE-8(3) | What personal data visitor records hold | A blank visitor record |
 
 ## 18 Risk Assessment (RA)

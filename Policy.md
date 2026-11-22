@@ -874,15 +874,15 @@ It applies to all personal data in \<System Name\>: the items in every schema, t
 ### PT.4 Mandatory requirements
 
 1. **R1 Purposes:** personal data may be processed only for the purposes stated in the application profile (\<System Description\>, section 3) and \<PII Processing Management\>.
-2. **R2 Basis and conditions:** each kind of personal data must have an Article 6 lawful basis recorded in \<PII Processing Management\>, section 3.3, confirmed by the legal adviser. Special category data must also have an Article 9 condition and, where needed, a Schedule 1 condition. Where a Schedule 1, Part 1 condition is relied on, an appropriate policy document must be in place. Consent is not used for employee data.
+2. **R2 Basis and conditions:** each kind of personal data must have an Article 6 lawful basis recorded in \<PII Processing Management\>, section 3.3, confirmed by the legal adviser. Special category data must also have an Article 9 condition and, where needed, a Schedule 1 condition. Criminal offence data must have a Schedule 1 condition (Article 10). Where a Schedule 1 condition needs one, an appropriate policy document must be in place. Consent is not used for employee data.
 3. **R3 Inventory and record of processing:** \<PII Processing Management\>, section 3.3 must list every kind of personal data, and match \<Organisation\>'s record of processing (UK GDPR, Article 30; EV-PM-02).
 4. **R4 Impact assessment:** \<Data Protection Impact Assessment\> must be completed and approved by the legal adviser, with the data protection officer's advice, before production and after any significant change in processing.
-5. **R5 Special category data:** special category data may be held only in schemas the business owner authorises, and those items must be marked as such.
+5. **R5 Special category and criminal offence data:** special category and criminal offence data may be held only in schemas the business owner authorises for it, and those items must be marked as special category data.
 6. **R6 Retention:** personal data must be kept only for the period in \<PII Processing Management\>, section 3.7, then disposed of, with the disposal audited.
 7. **R7 Rights and complaints:** requests from individuals must go to the legal adviser and be met by a reasonable and proportionate search of every schema, using the search across schemas (FR-073), which only the legal adviser's delegate runs, within one month (P-22). Complaints about how data is handled must be acknowledged within 30 days, investigated, and answered with the outcome.
-8. **R8 Transparency:** \<Organisation\>'s employee privacy notice must name \<System Name\> and its purposes, be reviewed every 12 months, and be linked from \<System Name\>'s pages.
+8. **R8 Transparency:** every group of people whose data \<System Name\> holds must be covered by one of \<Organisation\>'s privacy notices, or a recorded reason why none is given. Each notice must name \<System Name\> and its purposes, give the lawful basis and the information in UK GDPR, Articles 13 and 14, be given on joining, be reviewed every 12 months, and be linked from \<System Name\>'s pages (P-73).
 9. **R9 Breaches:** personal data breaches must be handled under \<Incident Response Management\>, section 3.8, including the 72-hour report to the ICO, harm to the people affected and the breach register.
-10. **R10 Training and test data:** everyone who handles personal data in items and all administrators must complete privacy training before access and every 12 months. Real personal data must not be used for testing, training or research.
+10. **R10 Training and test data:** every user must complete the privacy part of the briefing (B6), and the roles in \<Awareness and Training Management\>, Table 4, including all administrators, the privacy module (M9), before access and every 12 months. Real personal data must not be used for testing, training or research.
 11. **R11 Accuracy:** personal data must be kept accurate and up to date. Each schema's personal data must be checked every 12 months, and anything inaccurate or out of date corrected or deleted.
 
 ### PT.5 Responsibilities
@@ -896,10 +896,10 @@ It applies to all personal data in \<System Name\>: the items in every schema, t
 | Data protection officer | Advises on the impact assessment and is the contact for individuals and the ICO, or the legal adviser records why none is required |
 | System owner | Owns this policy and the inventory, and makes sure \<System Name\> follows it |
 | Information owner | Decides what personal data each schema holds |
-| Business owner | Authorises the schemas that may hold special category data, sets retention periods, and approves the disposal of items due under the retention schedule (FR-074) |
+| Business owner | Authorises the schemas that may hold special category or criminal offence data, sets retention periods, and approves the disposal of items due under the retention schedule (FR-074) |
 | Legal adviser's delegate | Named by the legal adviser; searches every schema for one person's items to answer a request (FR-073), and holds no other role |
 | Data Owners | Make sure their schema holds only the personal data it needs |
-| \<Organisation\> | Provides the employee privacy notice and the record of processing |
+| \<Organisation\> | Provides the privacy notices and the record of processing |
 
 ### PT.6 Governance requirements
 
