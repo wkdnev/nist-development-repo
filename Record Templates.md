@@ -195,7 +195,7 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | Archive: period archived, the archive's SHA-256 hash, the hash of the last record archived, records removed from the database, and any archive deleted with the system owner's approval (PRO-AU-4) |  |
 | Legal holds and incident evidence held: reference, records held, date released (PRO-AU-4) |  |
 | Time: each VM's offset from UTC, and any drift over 5 seconds reported (PRO-AU-4) |  |
-| Logging failures: period without records, cause, and when logging was restored (PRO-AU-3) |  |
+| Logging failures: period in which actions were refused, cause, and when logging was restored (PRO-AU-3) |  |
 | Application logs: who can read them, and the oldest log on each VM (PRO-AU-7) |  |
 | Configuration drift from \<Configuration Management\>, sections 3.4 to 3.6 (PRO-CM-7), and the change record raised for each |  |
 | Open plan items |  |

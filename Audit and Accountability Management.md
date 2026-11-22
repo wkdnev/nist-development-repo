@@ -69,7 +69,7 @@ Table 2 lists every event type \<System Name\>'s applications log, the actions r
 | Configuration change | A security setting changed | Configuration changes | Shows changes to security settings |
 | Audit | Audit log read or exported; chain check passed; chain check failed | Reading or exporting the audit log, and audit chain check results. Each of these is also written as a security event (section 3.10) | Shows who looked at audit records, which AU-9 protects, and any attempt to hide a change |
 | System | Application started; application stopped | Start-up and shut-down of each application | Shows periods when nothing could be logged |
-| Logging failure | An audit record could not be written | Logging failures. Written to the application log at the time, since the audit log could not take it, and to the audit log once logging is restored, with the period it covers | Shows periods without records |
+| Logging failure | An audit record could not be written, and the action was refused | Logging failures. Written to the application log at the time, since the audit log could not take it, and to the audit log once logging is restored, with the period it covers | Shows periods when actions were refused, and confirms that no action went unrecorded |
 | Fault report | A report of a faulty item created; a report's state changed | Reports of faulty items, and their corrective action | Shows who reported what, as these reports name items |
 
 This table is the full list of event types and actions that \<System Name\>'s applications must be able to log (AU-2, part a). It is the design: a release may add to it only after the system owner has changed this table (PRO-AU-5). Application events are built into each release, so developers make any change to them through a release. A release is reviewed, tested and recorded, so nobody can switch an event off quietly.
@@ -208,14 +208,14 @@ Controls met here: AU-5, AU-6(1), AU-9.
 
 | Event | Alert to | Within | Then |
 | --- | --- | --- | --- |
-| A logging failure: an audit record cannot be written | Security officer, Windows server administrator, through central monitoring | 1 hour | \<System Name\> keeps running, so that a logging fault cannot stop the service. Logging is restored, and the period without records is recorded (PRO-AU-3) |
+| A logging failure: an audit record cannot be written | Security officer, Windows server administrator, through central monitoring | 1 hour (P-61) | Every action that cannot be recorded is refused until logging is restored. Logging is restored, and the period of refusals is recorded (PRO-AU-3) |
 | A break in the audit chain, or other sign of tampering | Security officer, auditor, through central monitoring (U2) | At once | Evidence is preserved, and an incident is raised (PRO-AU-2) |
 | A server clock more than 5 seconds from UTC | Security officer | At the monthly check | The Windows server administrator corrects it with \<Organisation\> |
 | Audit storage running low | Database administrator | When the disk-space alert fires, and at the monthly check | More storage is raised before records are at risk (PRO-AU-4) |
 
 The audit service reports a failed write to \<Organisation\>'s central monitoring, which raises the logging failure alert and does not depend on \<System Name\> itself being healthy.
 
-\<System Name\> keeps running when logging fails, because staff must still be able to reach their items, a stop would let a logging fault take the whole service down, and the failure is alerted within 1 hour and the gap recorded. The Windows server and database administrators find the cause and restore logging. The security officer records the period with no records and tells the system owner. If records may be lost or changed, the evidence is preserved first (PRO-AU-3).
+When an audit record cannot be written, the action it records is refused (P-61). A change is written in the same database transaction as its audit record, so neither is kept without the other. A view, download, search or export writes its record before any item, file or result is returned. The person sees the general error message. Only what is never audited still works: the health check, Sign out, the access-denied page and static files. So no item is seen or changed without a record, which fits the fail-secure principle (\<System Description\>, NFR-052) and the Low availability rating. The cost is that a logging fault stops the service until it is fixed, which is why the alert comes within 1 hour. The Windows server and database administrators find the cause and restore logging. The security officer records the period in which actions were refused, and tells the system owner. If records may be lost or changed, the evidence is preserved first (PRO-AU-3).
 
 A full disk is a logging failure like any other: if the audit log cannot be written because storage has run out, the first alert in Table 8 applies. The CSS separate warning before storage fills, AU-5(1), is not in the Moderate baseline; the disk-space alert in section 3.7 gives one anyway.
 
@@ -271,7 +271,7 @@ These are the settings for SQL Server 2022 on the database server, so that it lo
 | Server audit filter | Leaves out only the reads and writes of the API's managed service account on the item and schema tables, and its reads and inserts on the audit table. Everything else is kept | Every read of the item tables by a login other than the API's, which the auditor reviews weekly (R-AC-01), without the API's own work, which the audit log already records |
 | Record content | Event time, login name, database, client address, application name and result, which SQL Server Audit holds on every record | The content AU-3 requires |
 | Time | UTC, as SQL Server Audit records it | Times that line up with the audit log |
-| On audit failure | Continue, and report the failure to central monitoring | \<System Name\> keeps running, as section 3.9 sets out, and the failure is alerted |
+| On audit failure | Fail the operation (FAIL\_OPERATION), and report the failure to central monitoring | A database read or change that SQL Server cannot record is refused, as section 3.9 sets out for the application, and the failure is alerted |
 | Audit file permissions | Written by the SQL Server service account; readable by the database administrator; changed or deleted by nobody. The auditor reads the copies in central logging | Protection as audit information (AU-9) |
 | Audit file retention on the server | \[to be set at build\], then forwarded or archived | Kept as the Windows logs are |
 

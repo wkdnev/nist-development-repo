@@ -222,6 +222,8 @@ These are the values the controls depend on. CSS calls many of them organisation
 | P-58 | Training content updates | Every 12 months, and within 30 days of a significant incident, exercise or significant change, adding the lessons from incidents inside and outside \<Organisation\> | AT-2, AT-3 | \[\] |
 | P-59 | Roles given role-based and privacy training | The roles in \<Awareness and Training Management\>, Table 4, with the modules each takes; privacy training is briefing part B6 for every user and module M9 for the roles that Table 4 gives it | AT-3, AT-3(5) | \[\] |
 | P-60 | Training record retention | 3 years from the date of the training | AT-4 | \[\] |
+| P-61 | Response to an audit logging failure | Alert the security officer and the Windows server administrator within 1 hour. Refuse every action that cannot be recorded until logging is restored; SQL Server fails any operation it cannot record | AU-5 | \[\] |
+| P-62 | Review of the logged events | Every 12 months, and on any significant change, by the system owner | AU-2 | \[\] |
 
 ## 5 Requirements
 
@@ -463,7 +465,7 @@ The application's session is its authentication cookie. It lasts at most P-02 fr
 | NFR-025 | Chain audit records with HMAC-SHA-256 under a key held outside the database by someone with no rights in it, so that a change or removal is detected | The hash covers the record's content and the previous hash, keyed with a secret from the key store. Each record names the key version that hashed it, retired keys are kept for checking only, and the newest hash is copied daily to central logging | \<Audit and Accountability Management\> |
 | NFR-026 | Keep audit records as P-07 sets | A scheduled archive and deletion, with the archive kept offline | \<Audit and Accountability Management\> |
 | NFR-027 | Review the audit log as P-08 sets, and compare it with the server, database and PingFederate and Active Directory records | A person does this: an auditor, recording the review on a form, and reporting anything suspicious to the security officer | \<Audit and Accountability Management\> |
-| NFR-028 | Alert the security officer when an audit record cannot be written | The audit service reports a failed write to central monitoring, which alerts the security officer | \<Audit and Accountability Management\> |
+| NFR-028 | Refuse an action whose audit record cannot be written, and alert the security officer (P-61) | A change is written in the same transaction as its audit record, and a read writes its record before returning anything; a failed write refuses the action with the general error. The audit service reports the failure to central monitoring, which alerts the security officer | \<Audit and Accountability Management\> |
 | NFR-029 | Keep both servers within the clock accuracy in P-09, from \<Organisation\>'s time service | The operating system's time service on each server, pointed at \<Organisation\>'s source | \<Audit and Accountability Management\> |
 | NFR-030 | Plan storage for the full audit retention period, and warn before it fills | Sized when the servers are built, with a disk-space alert | \<Audit and Accountability Management\> |
 
@@ -856,7 +858,7 @@ One application audit log, written only by the API. The other two applications s
 | Configuration change | A security setting changed |
 | Audit | Audit log read or exported; chain check result |
 | System | Application started or stopped |
-| Logging failure | A record could not be written, recorded in the application log at the time and in the audit log once logging is restored |
+| Logging failure | A record could not be written and the action was refused, recorded in the application log at the time and in the audit log once logging is restored |
 | Fault report | A report of a faulty item created; a report's state changed |
 
 Each record holds the event type and action, the time in UTC, the application that raised it, the IP address and browser, the result, the username and user ID, the schema and item, fixed-form free text, and a chain hash. It never holds a password, key, token or cookie. Records are read only by auditors, apart from the usernames and dates in the last sign-in report (FR-085), reviewed as P-08 sets, and kept as P-07 sets. Failed passwords, lockouts and group membership changes are recorded by PingFederate and Active Directory, not by the application. The operating system and the database keep their own logs, and SQL Server Audit also records any read of the item tables by a login other than the API's, which the auditor reviews weekly.

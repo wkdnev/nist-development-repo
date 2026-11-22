@@ -453,8 +453,8 @@ These procedures define how audit records are reviewed, protected and retained. 
 #### PRO-AU-3 Logging failure
 
 1. The Windows server administrator and security officer are alerted within 1 hour.
-2. The system keeps running. The Windows server administrator and database administrator find the cause and restore logging.
-3. The security officer records the period without records and tells the system owner.
+2. While logging fails, \<System Name\> refuses every action it cannot record (P-61). The Windows server administrator and database administrator find the cause and restore logging.
+3. The security officer records the period in which actions were refused, and tells the system owner.
 4. If records may have been lost or changed, the evidence is preserved as in PRO-AU-2, step 4, and the incident is handled under PRO-IR-2.
 
 #### PRO-AU-4 Capacity and retention
