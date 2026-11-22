@@ -110,7 +110,7 @@ Every role with access must complete awareness, the briefing and signing \<Secur
 | Administrator | Yes | Parts A and B | M1, M3, M9 | M7, M8 |
 | Windows server administrator | Yes | Parts A and B | M4, M3, M9 | M7, M8 |
 | Database administrator | Yes | Parts A and B | M4, M3, M9 | M7, M8 |
-| Developers | Yes | Parts A and B | M5, M3 | M7 |
+| Developers | Yes | Part A; Part B only if given access to a live system, which the design does not allow | M5, M3 | M7 |
 | Security officer | Yes | Parts A and B | M6, M9 | M7, M8 |
 | Auditor | Yes | Parts A and B | M6 | M7 |
 | Business owner | Yes | Parts A and B | M9 | None |
@@ -183,7 +183,7 @@ The security officer keeps this register from the TPL-9 records. The system owne
 
 Controls met here: AT-4.
 
-The security officer reports these monthly with the continuous monitoring measures on TPL-8 (PRO-AT-5). Anyone overdue is reminded, and privileged access is suspended after 30 days overdue (Table 5).
+The security officer reports these monthly with the continuous monitoring measures on TPL-8 (PRO-AT-5), and the system owner reviews them (\<Policy\>, section AT.6). Anyone overdue is reminded, and privileged access is suspended after 30 days overdue (Table 5).
 
 **Table 7: Training measures**
 
@@ -195,7 +195,25 @@ The security officer reports these monthly with the continuous monitoring measur
 | Suspicious messages reported each month | Rising; reports, not clicks, are counted |
 | Content reviewed within 12 months and after each significant incident | 100% |
 
-### 3.10 Policy and procedures
+### 3.10 Parameters
+
+Controls met here: AT-2, AT-3, AT-4.
+
+The values CSS asks the organisation to define for AT are \<System Description\> parameters. This document is written to them, and \<Decision Register\> records their approval.
+
+**Table 8: AT parameters**
+
+| CSS parameter | Value | Parameter |
+| --- | --- | --- |
+| AT-02\_ODP\[01\], \[02\]: how often literacy training is given | Before access, then every 12 months | P-24 |
+| AT-02\_ODP\[03\], \[04\]: events that require literacy training | A significant change, a significant incident, or an exercise that changes a role's steps | P-56 |
+| AT-02\_ODP\[05\]: awareness techniques | The system use notice, \<Organisation\>'s security messages and the quarterly security note | P-57 |
+| AT-02\_ODP\[06\], \[07\]; AT-03\_ODP\[04\], \[05\]: when content is updated | Every 12 months, and within 30 days of a significant incident, exercise or significant change | P-58 |
+| AT-03\_ODP\[01\], \[02\]; AT-03(05)\_ODP\[01\]: who takes role-based and privacy training | The roles in Table 4 | P-59 |
+| AT-03\_ODP\[03\]; AT-03(05)\_ODP\[02\]: how often role training is repeated | Every 12 months | P-24 |
+| AT-04\_ODP: how long records are kept | 3 years | P-60 |
+
+### 3.11 Policy and procedures
 
 Controls met here: AT-1.
 

@@ -191,7 +191,7 @@ It applies to everyone who uses, administers or develops \<System Name\>, includ
 4. **R4 Role training:** each role in the training matrix must complete its modules before privileged access, and every 12 months. Incident response and contingency training must be completed within 30 days of taking the role.
 5. **R5 Privacy training:** everyone who handles personal data in items, and all administrators, must complete privacy training before access and every 12 months.
 6. **R6 Updates:** content must be reviewed every 12 months, and after a significant incident, exercise or change, with the lessons added.
-7. **R7 Checks and measures:** each module must end with a check, with a pass mark of 80%. Completion before access, the pass rate and the number of suspicious messages reported must be reported monthly.
+7. **R7 Checks and measures:** each module must end with a check, with a pass mark of 80%. The measures in \<Awareness and Training Management\>, section 3.9, must be reported monthly by the security officer and reviewed by the system owner.
 8. **R8 Phishing simulations:** none may be run without the agreement of HR and the legal adviser. If run, no one is penalised for clicking, and the measure is reports, not clicks.
 9. **R9 Records:** every completion must be recorded on TPL-9 and in the training register, and kept for 3 years.
 10. **R10 Checking:** Test-PlanConsistency.ps1 must show that every security role has its training defined, at each review.

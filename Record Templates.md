@@ -194,6 +194,7 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | Oldest unpatched update, in days |  |
 | Failed sign-ins |  |
 | Incidents raised |  |
+| Training measures (\<Awareness and Training Management\>, Table 7): people trained before access; first-attempt pass rate; people overdue, and any privileged access suspended; suspicious messages reported; content reviewed on time |  |
 | Sent to the system owner: date |  |
 
 ### 2.9 TPL-9 Training record
