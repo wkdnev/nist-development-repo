@@ -224,6 +224,10 @@ These are the values the controls depend on. CSS calls many of them organisation
 | P-60 | Training record retention | 3 years from the date of the training | AT-4 | \[\] |
 | P-61 | Response to an audit logging failure | Alert the security officer and the Windows server administrator within 1 hour. Refuse every action that cannot be recorded until logging is restored; SQL Server fails any operation it cannot record | AU-5 | \[\] |
 | P-62 | Review of the logged events | Every 12 months, and on any significant change, by the system owner | AU-2 | \[\] |
+| P-63 | Baseline and inventory | The baseline, and the inventory in \<System Security Plan\>, section 3.4, and \<Configuration Management\>, section 3.5, are reviewed every 12 months and at each release, and updated at each change. The 3 previous configurations are kept | CM-2, CM-2(3), CM-8 | \[\] |
+| P-64 | Change control | The change control board meets monthly, and sooner when an urgent or security change needs a decision. Change records are kept for 3 years. An emergency change is recorded within 1 working day | CM-3 | \[\] |
+| P-65 | Least functionality and software | Functions, ports, protocols, software and services reviewed every 12 months; the approved software list reviewed every 12 months, and the software installed on the servers compared with it every 12 months | CM-7(1), CM-7(5), CM-11 | \[\] |
+| P-66 | Unauthorised components | Both servers checked monthly by \<Organisation\>'s discovery tools for unauthorised hardware, software and firmware. On detection, the Windows server administrator removes the component or disables its network access, and tells the security officer | CM-8(3) | \[\] |
 
 ## 5 Requirements
 
@@ -763,6 +767,7 @@ This section is the security architecture that PL-8 calls for: the protection go
 | Storage | Full-disk encryption on both VMs |
 | Malicious code | Microsoft Defender on both VMs, and each upload scanned through AMSI before it is stored (\<System and Information Integrity Management\>, section 3.2) |
 | Hardening | CIS Benchmarks for Windows Server 2025 and SQL Server 2022 |
+| Software allowed to run | Windows App Control for Business, enforced on both VMs, allowing only the approved software list and \<System Name\>'s release files (\<Configuration Management\>, section 3.15) |
 | Backups | Encrypted daily backups and transaction logs, kept at the second site |
 | Retention | Schedule in \<PII Processing Management\>, section 3.7, with periods set by the business owner, and disposal when they end |
 | Build and test | Built under \<Organisation\>'s corporate SDLC, with a build pipeline and release test gate |
@@ -907,7 +912,7 @@ Every application is built in-house under \<Organisation\>'s corporate software 
 
 ### 7.13 Operation and maintenance
 
-Day-to-day duties are in \<Security Operating Procedures\>, each with the record that proves it. Every user signs rules of behaviour before access. Maintenance is approved first as a change, and remote maintenance uses only \<Organisation\>'s managed route with multi-factor authentication. Changes are approved by a change control board of the system owner, the security officer and a server administrator.
+Day-to-day duties are in \<Security Operating Procedures\>, each with the record that proves it. Every user signs rules of behaviour before access. Maintenance is approved first as a change, and remote maintenance uses only \<Organisation\>'s managed route with multi-factor authentication. Changes are approved by a change control board of the system owner, the security officer, a server administrator and, for a change that touches personal data, the legal adviser.
 
 ### 7.14 Privacy
 
@@ -948,7 +953,7 @@ Table 45 gives each CSS control family, the reference design in brief, and the d
 | AT Awareness and Training | Nobody is added to a group until they have had \<Organisation\>'s awareness course and the application's briefing, and privileged roles complete role modules first. Repeated as P-24 sets | \<Awareness and Training Management\> |
 | AU Audit and Accountability | One application audit log, written only by the API, with who, what, when, where and the result. Records are chained by a keyed hash, read only by auditors (apart from the last sign-in report, FR-085), reviewed and kept as P-07 and P-08 set | \<Audit and Accountability Management\> |
 | CA Assessment, Authorization, and Monitoring | A self-assessment against every CSS determination statement, then an independent assessment before each authorisation and every 12 months; a plan of action; authorisation by a named official; continuous monitoring measures | \<Assessment, Authorization, and Monitoring Management\> |
-| CM Configuration Management | A baseline for each release, changes approved by a change control board after a security impact analysis, CIS Benchmark settings, least functionality, and a check for drift | \<Configuration Management\> |
+| CM Configuration Management | A baseline for each release, changes approved by a change control board after a security and privacy impact analysis, CIS Benchmark settings, least functionality, only approved software allowed to run (App Control for Business), and a check for drift as P-29 sets | \<Configuration Management\> |
 | CP Contingency Planning | Recover within P-12, losing at most P-13. Encrypted daily backups with transaction logs, a copy at a second site, and recovery tested as P-16 sets | \<Contingency Planning Management\> |
 | IA Identification and Authentication | Every user signs in through \<Organisation\>'s PingFederate with multi-factor authentication. The application holds no accounts or passwords. Services use their own accounts and secrets held in a key store | \<Identification and Authentication Management\> |
 | IR Incident Response | Report within the time in P-21, four severities with targets, playbooks, evidence preserved before clean-up, and personal data breaches to the legal adviser | \<Incident Response Management\> |

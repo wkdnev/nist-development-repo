@@ -212,9 +212,12 @@ Questions are numbered INT-XX-nn, where XX is the family code, and each names th
 | INT-CM-03 | Windows server administrator | What is the baseline for each VM, and which secure settings are applied? | CM-02, CM-06 | Baseline, CIS Benchmark result |
 | INT-CM-04 | Windows server administrator | Who can make changes to the VMs, and how is that restricted? | CM-05 | Access list, EV-CM-01 |
 | INT-CM-05 | Developers | Which functions have been removed or turned off, and when was that last reviewed? | CM-07, CM-07(01) | Functions review record |
-| INT-CM-06 | Windows server administrator | How is software approved and installed, and how is the list kept up to date? | CM-07(02), CM-07(05), CM-11 | Approved software list, an approval |
-| INT-CM-07 | Windows server administrator | How is the inventory kept accurate? | CM-08, CM-08(01) | Inventory |
-| INT-CM-08 | \<Organisation\>'s security contact | How are unauthorised components found, and how are licences tracked? | CM-08(03), CM-10, CM-12(01) | EV-CM-02, EV-CM-03 |
+| INT-CM-06 | Windows server administrator | How is software approved and installed, how is the list kept up to date, and how does App Control stop anything else running? | CM-07(02), CM-07(05), CM-11 | Approved software list, an approval, the App Control policy and its blocked events |
+| INT-CM-07 | Windows server administrator | How is the inventory kept accurate, and when was it last reviewed? | CM-08, CM-08(01) | Inventory, the last baseline review |
+| INT-CM-08 | \<Organisation\>'s security contact | How are unauthorised components found, how are licences tracked, how are the VMs hardened, and what happens to a laptop taken to a high-risk location? | CM-02(07), CM-06, CM-08(03), CM-10, CM-12(01) | EV-CM-02 to EV-CM-05 |
+| INT-CM-09 | Security officer | How do you analyse a change's impact, and how do you hear about drift? | CM-04, CM-06d | A TPL-6 impact analysis, a TPL-8 drift report |
+| INT-CM-10 | Legal adviser | Which changes do you see as the board's privacy representative, and what did you decide on the last one? | CM-03(04), CM-04\[02\] | A TPL-6 for a change touching personal data |
+| INT-CM-11 | System owner | Where is \<System Name\>'s information held, who has access to it, and when did you last approve the configuration management plan? | CM-09, CM-12 | TPL-5, \<Configuration Management\> approval |
 
 ## 8 Contingency Planning (CP)
 

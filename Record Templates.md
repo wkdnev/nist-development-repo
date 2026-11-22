@@ -12,12 +12,12 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | --- | --- | --- |
 | TPL-1 Risk acceptance | Records a decision to accept a non-compliance | Any NC entry, in any family; PRO-AC-15, PRO-AC-17 |
 | TPL-2 Access request | Records a request, its approval by the line manager and its authorisation by the group's owner before access changes. The ServiceNow access approval workflow is where requests are made, and the closed ServiceNow request is this record and must hold these fields | AC-2c, AC-2e, AC-6(5); PRO-AC-1, PRO-AC-2, PRO-AC-5, PRO-AC-6; IA-4, CM-5, PS-3; PRO-PS-1 |
-| TPL-3 Access review | Records a periodic review of accounts or privileges, checked against the ServiceNow requests | AC-2j, AC-2(3), AC-6(7); PRO-AC-7, PRO-AC-8; CM-7(1), SC-7(4), CA-3, CA-9; PS-2, PS-6; PRO-PS-4 |
+| TPL-3 Access review | Records a periodic review of accounts or privileges, checked against the ServiceNow requests, and the yearly review of functions, ports and installed software | AC-2j, AC-2(3), AC-6(7); PRO-AC-7, PRO-AC-8; CM-7(1), CM-11, SC-7(4), CA-3, CA-9; PRO-CM-5; PS-2, PS-6; PRO-PS-4 |
 | TPL-4 Procedure walk-through | Shows that a procedure was tried and works | Every policy control (XX-1); AC-2f; every procedure |
-| TPL-5 Approved access list | The approved baseline of software and components to compare the system against. Access is not listed here: the ServiceNow requests (TPL-2) are the approved record of access | CM-7(5), CM-8, CM-12 |
-| TPL-6 Change record | Records a change, its impact, testing and approval. Where the change is recorded in ServiceNow, the ServiceNow record is this record and must hold these fields | CM-3, CM-3(2), CM-4, CM-4(2), SI-2, IA-5, IA-5(1), IA-5(6); PRO-CM-1, PRO-IA-4, PRO-IA-5 |
-| TPL-7 Vulnerability and patch review | Records a scan or package check, what was found, and when it was fixed | SI-2, SI-2(2), SI-5, RA-5, RA-5(5); PRO-SI-1, PRO-SI-5, PRO-RA-3, PRO-RA-4, PRO-RA-5 |
-| TPL-8 Monitoring and integrity report | Records log reviews, integrity checks, audit storage, archive and time checks, configuration drift the monthly measures with threshold actions and trend, the privacy status to the legal adviser and the quarterly report to the authorising official | AU-4, AU-6, AU-8, AU-9, AU-11, SI-4, SI-7(1), CA-7; PRO-AU-1 to PRO-AU-4, PRO-AU-7, PRO-SI-3, PRO-SI-4, PRO-SI-6, PRO-CA-5 |
+| TPL-5 Approved access list | Lists everyone with access to \<System Name\>'s information or the components that hold it, each with the approval behind it, as CM-12 requires: the members of its AD groups, with their ServiceNow requests (TPL-2), which stay the approved record of each grant; the Windows server and database administrators; and \<Organisation\>'s staff with access to the hosts and backups. Approved by the system owner before real data is held and at each yearly baseline review | CM-12; PRO-CM-2 |
+| TPL-6 Change record | Records a change, its impact, testing and approval. Where the change is recorded in ServiceNow, the ServiceNow record is this record and must hold these fields | CM-3, CM-3(2), CM-4, CM-4(2), CM-6, CM-8(1), SI-2, IA-5, IA-5(1), IA-5(6); PRO-CM-1, PRO-CM-3, PRO-CM-8, PRO-IA-4, PRO-IA-5 |
+| TPL-7 Vulnerability and patch review | Records a scan or package check, what was found, and when it was fixed | SI-2, SI-2(2), SI-5, RA-5, RA-5(5); PRO-SI-1, PRO-SI-5, PRO-RA-3, PRO-RA-4, PRO-RA-5, PRO-CM-4 |
+| TPL-8 Monitoring and integrity report | Records log reviews, integrity checks, audit storage, archive and time checks, configuration drift, unauthorised components, the monthly measures with threshold actions and trend, the privacy status to the legal adviser and the quarterly report to the authorising official | AU-4, AU-6, AU-8, AU-9, AU-11, SI-4, SI-7(1), CA-7, CM-6, CM-8(3); PRO-AU-1 to PRO-AU-4, PRO-AU-7, PRO-SI-3, PRO-SI-4, PRO-SI-6, PRO-CA-5, PRO-CM-6, PRO-CM-7 |
 | TPL-9 Training record | Records who was trained, on what and when. Kept for 3 years | AT-2, AT-3, AT-3(5), AT-4, IR-2, CP-3, PL-4; PRO-AT-1, PRO-AT-2 and PRO-AT-4 |
 | TPL-10 Incident record | Records an incident from report to lessons. Where the incident is recorded in ServiceNow, the ServiceNow record is this record and must hold these fields | IR-4, IR-5, IR-6; PRO-IR-1, PRO-IR-2 |
 | TPL-11 Exercise and restore test | Records a tabletop exercise, restore test or activation as an after-action report, the result and the actions | IR-3, IR-3(2), CP-4, CP-4(1), CP-9(1); PRO-IR-3, PRO-CP-2, PRO-CP-4 |
@@ -197,7 +197,8 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | Time: each VM's offset from UTC, and any drift over 5 seconds reported (PRO-AU-4) |  |
 | Logging failures: period in which actions were refused, cause, and when logging was restored (PRO-AU-3) |  |
 | Application logs: who can read them, and the oldest log on each VM (PRO-AU-7) |  |
-| Configuration drift from \<Configuration Management\>, sections 3.4 to 3.6 (PRO-CM-7), and the change record raised for each |  |
+| Configuration drift from \<Configuration Management\>, sections 3.4 to 3.6, and the App Control policy and what it blocked (PRO-CM-7), and the change record raised for each |  |
+| Unauthorised components found, and what was done (PRO-CM-6) |  |
 | Open plan items |  |
 | Oldest unpatched update, in days |  |
 | Failed sign-ins |  |

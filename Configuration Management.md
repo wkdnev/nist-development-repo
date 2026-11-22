@@ -93,7 +93,7 @@ Every package, browser library, runtime, operating system and database \<System 
 
 | Component | Version | Supplier | Licence | Used by | Note |
 | --- | --- | --- | --- | --- | --- |
-| Windows Server 2025 | \<ver\> | Microsoft | Commercial, licensed by \<Organisation\> | Both servers | Includes Microsoft Defender, BitLocker and managed service accounts |
+| Windows Server 2025 | \<ver\> | Microsoft | Commercial, licensed by \<Organisation\> | Both servers | Includes Microsoft Defender, BitLocker, App Control for Business and managed service accounts |
 | Microsoft SQL Server 2022 | \<ver\> | Microsoft | Commercial, licensed by \<Organisation\> | Database server | |
 | .NET 10 and ASP.NET Core 10 runtime, including Blazor Server | 10.0 | Microsoft | MIT | All three applications | Long-term support release |
 | .NET 10 SDK | \<ver\> | Microsoft | MIT | Build only | |
@@ -147,7 +147,7 @@ Every change to a configuration item in section 3.3 follows one route, including
 | 3 Decision | Change control board, with the legal adviser for a change that touches personal data | Approves, refuses, defers or asks for more. A significant or High impact change goes to the authorising official first | On the change, with the date and members present |
 | 4 Make and test | Developers or administrators | Make the change, and test it on a separate test environment before release | Test result on the change |
 | 5 Verify | Those who made it | Check that the controls named in the analysis still work | Result on the change |
-| 6 Update | Those who made it | Update the baseline, the component list and the inventory; sign the release tag; record each package's checksum; produce the software bill of materials | This document; the release record |
+| 6 Update | Those who made it | Update the baseline, the component list and the inventory; sign the release tag; record each package's checksum; produce the software bill of materials; update the App Control policy for any new or changed program (section 3.15) | This document; the release record |
 
 **Testing.** Each change is tested on the separate test environment before release, with the security tests that apply, and the result is recorded on the change (PRO-CM-1, step 4). A release that fails a test does not go out.
 
@@ -256,14 +256,14 @@ Controls met here: CM-2(3), CM-3, CM-6.
 | Item | Detail |
 | --- | --- |
 | Configuration library | Git repositories for code and release scripts; \<Organisation\>'s in-house package feed, holding each package at its recorded version; the restricted document store for documents; release records with their checksums and software bill of materials |
-| Tools | Git and its signed tags; the build pipeline; NuGet through the in-house package feed; ServiceNow for changes; CIS-CAT or an equivalent scanner; Test-ConfigurationManagement.ps1; \<Organisation\>'s discovery tools (EV-CM-02) |
+| Tools | Git and its signed tags; the build pipeline; NuGet through the in-house package feed; ServiceNow for changes; CIS-CAT or an equivalent scanner; Test-ConfigurationManagement.ps1; Windows App Control for Business and its policy; \<Organisation\>'s discovery tools (EV-CM-02) |
 | Monitoring | Drift check, monthly and at each release (P-29), under PRO-CM-7, reported on TPL-8 to the security officer, and included in the monthly measures in \<Assessment, Authorization, and Monitoring Management\>, section 3.8 |
 | Retention | Change records for 3 years (P-64); the 3 previous configurations, each with tag, package checksums, settings and software bill of materials (P-63); superseded documents for 3 years |
 | Disposal | Removed configurations are deleted from the library only after their retention period, with the system owner's approval |
 
 ### 3.14 What \<Organisation\> provides
 
-Controls met here: CM-3, CM-5, CM-6, CM-8(3), CM-10, CM-12(1).
+Controls met here: CM-2(7), CM-3, CM-5, CM-6, CM-8(3), CM-10, CM-12(1).
 
 **Table 12: Asked of \<Organisation\>**
 
@@ -271,6 +271,7 @@ Controls met here: CM-3, CM-5, CM-6, CM-8(3), CM-10, CM-12(1).
 | --- | --- | --- | --- |
 | Physical and logical limits on changing the hosts | CM-5 | Only authorised \<Organisation\> staff can change the hosts and hosting, through its change process | EV-CM-01 |
 | Tools that detect unauthorised components, and that locate information | CM-8(3), CM-12(1) | Both servers are checked every month for unauthorised hardware, software and firmware, and the Windows server administrator is alerted; stray copies of items outside the database are found | EV-CM-02 |
+| A travel device policy for its managed laptops: high-risk locations, the configuration issued for travel there, and the checks on return | CM-2(7) | Any laptop that can reach \<System Name\> and is taken to a high-risk location is configured for it, and checked on return before it reconnects | EV-CM-05 |
 | Licences for the software on the servers and hosting, and controls on peer-to-peer software | CM-10 | Windows Server and the hosting are licensed, and peer-to-peer software is blocked | EV-CM-03 |
 | Group Policy settings on the servers | CM-6 | The corporate standard for lockout, the logon banner and the screen lock | EV-AC-05 to EV-AC-07 |
 | The hardened server build, and the Group Policy that applies the CIS Benchmark | CM-6 | Both servers are built and kept to the CIS Benchmark, with any setting the build leaves out recorded as a departure | EV-CM-04 |
@@ -282,7 +283,7 @@ Controls met here: CM-7(2), CM-7(5), CM-10, CM-11.
 
 1. **Approved software list.** The Windows server administrator keeps the approved software list, which says what may run on the servers. For the applications themselves, the component list in section 3.5 is the list. Both are reviewed every 12 months (P-65).
 2. **Allow by exception, by procedure.** Nothing is installed on the servers without an approved request (PRO-CM-4). A person who needs software there raises a request in ServiceNow, and the system owner approves or refuses it. Only the named Windows server administrators have the Windows user rights to install software.
-3. **Not enforced by the system.** Windows application control is not used, so the list is not technically enforced on the servers.
+3. **Enforced by the system.** Windows App Control for Business runs on both servers with a policy that denies every program, script and driver except those the approved software list allows: Windows Server and its components, SQL Server, Microsoft Defender, the tools on the approved list, and \<System Name\>'s own release files, allowed by their signing certificate or by the hashes in the release record. The policy is signed, so that an administrator cannot weaken it without a change. It runs in audit mode when the servers are built, so that anything it would block is found and either approved or removed, and is enforced before go-live (D-CM-01). It is changed only through PRO-CM-1, as step 6 of the change that adds a program, and the monthly drift check confirms it is enforced and unchanged (PRO-CM-7). Anything it blocks is logged and forwarded to central logging.
 4. **Compliance check.** Every 12 months, with the functions review in section 3.10, what is installed on the servers is compared with the approved software list, and the result recorded on TPL-3 (P-65; PRO-CM-5).
 5. **Users' devices.** \<Organisation\>'s policy governs software on users' own devices.
 6. **Licences.** Every component's licence is recorded in section 3.5 before it enters the baseline, and must permit \<System Name\>'s use. A licence that is not a standard open source licence goes to the system owner for a recorded decision. \<System Name\>'s own components are not licensed by quantity. Windows Server and anything else licensed by quantity is \<Organisation\>'s, and is tracked in its licence record.
@@ -292,7 +293,7 @@ Controls met here: CM-7(2), CM-7(5), CM-10, CM-11.
 
 Controls met here: CM-2(7).
 
-No \<System Name\> device is issued to anyone, for travel or otherwise. \<System Name\> is reached only from \<Organisation\>'s managed devices, and phones and tablets cannot reach it (\<Access Control Management\>, section 3.6.5). If that changes, the system owner sets the configuration of the devices, and the checks made on them when the person returns, before the first device is issued.
+No \<System Name\> device is issued to anyone, for travel or otherwise. \<System Name\> is reached only from \<Organisation\>'s managed laptops, and phones and tablets cannot reach it (\<Access Control Management\>, section 3.6.5). Those laptops are \<Organisation\>'s, so CM-2(7) is inherited from \<Organisation\>'s travel device policy: which locations it treats as high-risk, the configuration of a laptop issued for travel there, and the checks made on it when the person returns (D-CM-02). Its evidence is requested in EV-CM-05. \<System Name\> adds one rule of its own: nobody uses \<System Name\> from outside the UK, or takes a device that can reach it abroad, without written approval from the system owner and the security officer first, recorded on TPL-17 (\<Security Operating Procedures\>, A41).
 
 ### 3.17 Policy, procedures and this plan
 

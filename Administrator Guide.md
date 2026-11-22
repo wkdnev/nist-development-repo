@@ -8,7 +8,7 @@ Values in \[brackets\] are for the developers to fill.
 
 ## 2 Secure installation
 
-1. Build the two Windows Server 2025 VMs to \<Organisation\>'s hardened build and the baseline in \<Configuration Management\>; turn on full-disk encryption and Microsoft Defender before \<System Name\> is installed.
+1. Build the two Windows Server 2025 VMs to \<Organisation\>'s hardened build and the baseline in \<Configuration Management\>; turn on full-disk encryption and Microsoft Defender before \<System Name\> is installed, and deploy the App Control for Business policy in audit mode (\<Configuration Management\>, section 3.15).
 2. Install the applications from a release tag only, and check the release checksums. Never install from a working branch. Install each application as a Windows service, under its own group managed service account.
 3. Put the token signing key and the audit chain key in the key store, never in a settings file or in Git. There is no database password: only the API connects to the database, by Windows authentication under its managed service account. Its SQL Server login is not a system administrator, has rights on \<System Name\>'s database only, and cannot change the database structure.
 4. Turn on TLS for every flow, F1 to F8 and F10 in \<System Description\>, section 6.5, including the database connection (F5) and the connection to PingFederate (F10), with strict encryption and the server's certificate and name checked in full.

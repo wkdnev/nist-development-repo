@@ -14,7 +14,7 @@ Entries are numbered TR-XX-nn, where XX is the family code. Section 8 lists the 
 | AT Awareness and Training | None |
 | AU Audit and Accountability | None |
 | CA Assessment, Authorization, and Monitoring | None |
-| CM Configuration Management | None |
+| CM Configuration Management | None. No CM control is tailored; CM-2(7) stays in scope and is inherited from \<Organisation\>'s travel device policy (D-CM-02) |
 | CP Contingency Planning | None |
 | IA Identification and Authentication | 3 |
 | IR Incident Response | None |
@@ -107,8 +107,6 @@ The PT controls are in the CSS privacy baseline, not Moderate, and are assessed 
 
 ## 6 System and Communications Protection (SC)
 
-No CM control is tailored, and CM-2(7) stays in scope.
-
 **Table 7: SC tailoring proposals**
 
 | ID | Control or part | Tailoring | Rationale | Condition that must hold | If the condition changes |
@@ -154,7 +152,7 @@ CSS does not select the controls in Table 9 at Moderate, so they are not assesse
 | CM | CM-4(1) Separate Test Environments | Changes analysed in a separate test environment | Not required. Done: \<Configuration Management\>, appendix A |
 | CM | CM-5(1) Automated Access Enforcement and Audit Records | Automated enforcement of who may change the system, with audit records | Not required. Done in part: Windows and database permissions enforce it, and their logs record it |
 | CM | CM-6(1), CM-6(2) Automated Management and Verification; Respond to Unauthorized Changes | Automated checking of settings, and a set response to an unauthorised change | Not required. Done in part in design: the monthly benchmark scan, and the drift procedure |
-| CM | CM-7(4) Unauthorized Software, Deny-by-exception | A list of software that must not run | Not required. \<System Name\> uses the stricter alternative, CM-7(5), an approved list, though it is not enforced by the system |
+| CM | CM-7(4) Unauthorized Software, Deny-by-exception | A list of software that must not run | Not required. \<System Name\> uses the stricter alternative, CM-7(5): an approved list, enforced by Windows App Control for Business (D-CM-01) |
 | CM | CM-8(2), CM-8(4) Automated Maintenance; Accountability Information | An inventory kept by automated means, naming who is accountable for each component | Not required. Each entry names an owner. The bill of materials will keep the software list by automated means |
 | CM | CM-13 Data Action Mapping | A map of what the system does with personal data | In no security baseline. The personal data inventory is in \<PII Processing Management\>, section 3.3 |
 | CM | CM-14 Signed Components | Components installed only if signed with an approved certificate | In no baseline. Release tags are to be signed, and packages checked for their signature |

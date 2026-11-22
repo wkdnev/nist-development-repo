@@ -601,8 +601,9 @@ These procedures define how \<System Name\>'s configuration is changed and recor
 #### PRO-CM-4 Software
 
 1. The Windows server administrator keeps the approved software list and reviews it every 12 months. **Manual**
-2. A person who needs software on a VM raises a ServiceNow request, and the system owner approves or refuses it. Only a named Windows server administrator installs it, as a change under PRO-CM-1, and adds it to the approved software list. **Manual**
-3. Before a new package, browser library or runtime enters the baseline, the developer records its supplier, version, licence and purpose in \<Configuration Management\>, section 3.5, and checks it on TPL-7 for known vulnerabilities. A licence that is not a standard open source licence goes to the system owner for a decision on \<Decision Register\>. **Manual**
+2. A person who needs software on a VM raises a ServiceNow request, and the system owner approves or refuses it. Only a named Windows server administrator installs it, as a change under PRO-CM-1, adds it to the approved software list and updates the App Control policy to allow it. **Manual**
+3. When the VMs are built, the Windows server administrator deploys the signed App Control for Business policy in audit mode, reviews what it would block for at least one release cycle in the test environment, approves or removes each item, and switches it to enforced before go-live. **Manual**
+4. Before a new package, browser library or runtime enters the baseline, the developer records its supplier, version, licence and purpose in \<Configuration Management\>, section 3.5, and checks it on TPL-7 for known vulnerabilities. A licence that is not a standard open source licence goes to the system owner for a decision on \<Decision Register\>. **Manual**
 
 #### PRO-CM-5 Reviewing functions and ports
 
@@ -617,9 +618,10 @@ These procedures define how \<System Name\>'s configuration is changed and recor
 #### PRO-CM-7 Monitoring for drift
 
 1. Each month and at each release (\<System Description\>, P-29), the Windows server administrator scans both VMs against the CIS Benchmarks with CIS-CAT or an equivalent tool, and runs Test-ConfigurationManagement.ps1.
-2. The database administrator compares the SQL Server settings with the baseline. **Manual**
-3. Any difference from \<Configuration Management\>, sections 3.4 to 3.6, is reported to the security officer on TPL-8. **Manual**
-4. The difference is put back, or raised as a change under PRO-CM-1 if it should stay. **Manual**
+2. The Windows server administrator confirms that the App Control policy on both VMs is enforced and matches the policy in the release record, and reviews what it blocked. **Manual**
+3. The database administrator compares the SQL Server settings with the baseline. **Manual**
+4. Any difference from \<Configuration Management\>, sections 3.4 to 3.6 and 3.15, is reported to the security officer on TPL-8. **Manual**
+5. The difference is put back, or raised as a change under PRO-CM-1 if it should stay. **Manual**
 
 #### PRO-CM-8 Emergency change
 

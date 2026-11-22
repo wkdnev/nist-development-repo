@@ -934,12 +934,12 @@ There is one finding for each CSS determination statement, including those about
 | Dates | \[Dates of the assessment\] |
 | Site | \[Where the assessment is done, and on what build and data\] |
 | Examine | The build files, the .NET project files, settings files, the start-up configuration and the repositories at the release tag; \<Policy\> (CM), \<Procedures\> (CM) and \<Configuration Management\>. Depth: focused. Coverage: focused |
-| Test | Test-ConfigurationManagement.ps1, with the component inventory and a hash manifest, and checks by hand. Depth: focused. Coverage: focused, including the VMs, CIS settings and drift |
-| Interview | Developers, the Windows server and database administrators, and \<Organisation\>'s security contact; questions in \<Interview Guide\>, Table 16 |
+| Test | Test-ConfigurationManagement.ps1, with the component inventory and a hash manifest, and checks by hand, including that App Control for Business is enforced and blocks an unlisted program. Depth: focused. Coverage: focused, including the VMs, CIS settings and drift |
+| Interview | The system owner, the security officer, the legal adviser, developers, the Windows server and database administrators, and \<Organisation\>'s security contact; questions in \<Interview Guide\>, Table 16 |
 | Previous results reused | \[Results reused from other chapters, if any\] |
-| Boundary | The code, components and settings of \<System Name\>, and the Windows Server 2025 and SQL Server 2022 configuration of both VMs. \<Organisation\>'s discovery tools and licences are inherited |
+| Boundary | The code, components and settings of \<System Name\>, and the Windows Server 2025 and SQL Server 2022 configuration of both VMs. CM-2(7) is inherited from \<Organisation\>'s travel device policy; its discovery tools, hardened build and licences are its part of shared controls |
 | Order of assessment | A, baseline and inventory (CM-2, CM-8, CM-10); B, change control (CM-3, CM-4, CM-5); C, secure settings and least functionality (CM-6, CM-7 and enhancements, CM-11); D, the plan and information location (CM-9, CM-12); E, policy (CM-1). The baseline comes first because every other result is judged against it |
-| Needed from \<Organisation\> | EV-CM-01 to EV-CM-03 in \<Evidence Requests\>: physical change restrictions, discovery tools, and licences |
+| Needed from \<Organisation\> | EV-CM-01 to EV-CM-05 in \<Evidence Requests\>: change restrictions on the hosts, discovery tools, licences, the hardened build and the travel device policy; and EV-AC-03 and EV-AC-05 to EV-AC-07 for the firewall rules and Group Policy settings |
 | Evidence retained | The SC and CM evidence, with its manifest; \<Configuration Management\>, sections 3.4 to 3.6 |
 
 The independent assessor's team, schedule, and depth and coverage are added once agreed. For the Level 2 assessment, the assessor should repeat the checks on the VMs, hold the interviews, examine \<Organisation\>'s evidence and re-determine every statement in section CM.3.
