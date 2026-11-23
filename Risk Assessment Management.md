@@ -28,7 +28,7 @@ These carry out the principles and rules of \<Policy\>, sections RA.3 and RA.4.
 
 ### 3.2 Security categorisation
 
-\<System Name\> is categorised Moderate: confidentiality Moderate, integrity Moderate and availability Low, unless its application profile sets otherwise. Each of its information types (\<System Description\>, section 3.4, Table 6) is mapped to CSS and rated under CSS, and the system takes the highest level of each. An application rated High in any objective is outside the reference system. The record, with the reason for each level, is in \<System Security Plan\>, section 3.3. \[Name\] owns the information types and confirms their levels, and the authorising official, \[Name\], approves the categorisation (D-RA-01).
+\<System Name\> is categorised Moderate: confidentiality Moderate, integrity Moderate and availability Low, unless its application profile sets otherwise. Each of its information types (\<System Description\>, section 3.4, Table 6) is mapped to CSS and rated under CSS, and the system takes the highest level of each. An application rated High in any objective is outside the reference system. The record, with the reason for each level, is in \<System Security Plan\>, section 3.3. \[Name\] owns the information types and confirms their levels, and the authorising official, \[Name\], approves the categorisation.
 
 Availability is Low because the 120-hour maximum tolerable downtime means a loss of availability has a limited adverse effect; "business critical" means important to \<Organisation\>, not that \<System Name\> must always be available.
 
@@ -38,7 +38,7 @@ The categorisation is reviewed with the risk assessment, and whenever an informa
 
 ### 3.3 Risk assessment
 
-\<System Name\>'s risk assessment is the Risk List, \<Risk List\>. A risk is a threat source exploiting a weakness, with a likelihood, to cause an impact. The method is set out in full in its section 4, and Table 1 summarises it. The threats to the application are modelled before it is built, from its profile and functions, and again at each significant change, and the threat model is kept in the Risk List, section 2.1 (\<System Description\>, NFR-083). Each threat in it leads to a risk in the register.
+\<System Name\>'s risk assessment is the Risk List, \<Risk List\>. A risk is a threat source exploiting a weakness, with a likelihood, to cause an impact. The method is set out in full in its section 4, and Table 1 summarises it. The threats to the application are modelled before it is built, from its profile and functions, and again at each significant change, and the threat model is kept in the Risk List, section 2.1. Each threat in it leads to a risk in the register.
 
 **Table 1: The risk method at a glance**
 
@@ -68,7 +68,7 @@ After a significant change, such as a change to how users sign in or to where th
 
 ### 3.4 Supply chain risk assessment
 
-Every 12 months, before a new supplier or a new kind of component is added, and after a significant change to the system or where it runs, the system owner and the developers review each item in the supply chain for its origin, support, known problems and end of support. They use the risks by stage and the supplier register in \<Supply Chain Risk Management\>, sections 3.4 and 3.5, the latest package check, and the bill of materials. Each review is recorded on the risk and supply chain review, and any new risk goes into the Risk List; the risk of a harmful package entering a release is R-RA-06. These intervals are the risk assessment values in \<System Description\>, section 4. The supply chain plan, \<Supply Chain Risk Management\>, holds the suppliers and how they are managed; this section holds the risk assessment.
+Every 12 months, before a new supplier or a new kind of component is added, and after a significant change to the system or where it runs, the system owner and the developers review each item in the supply chain for its origin, support, known problems and end of support. They use the risks by stage and the supplier register in \<Supply Chain Risk Management\>, sections 3.4 and 3.5, the latest package check, and the bill of materials. Each review is recorded on the risk and supply chain review, and any new risk goes into the Risk List; the risk of a harmful package entering a release is one of its risks. These intervals are the risk assessment values in \<System Description\>, section 4. The supply chain plan, \<Supply Chain Risk Management\>, holds the suppliers and how they are managed; this section holds the risk assessment.
 
 ### 3.5 What is monitored for vulnerabilities
 
@@ -161,7 +161,7 @@ PingFederate with Active Directory is critical because \<System Name\> holds no 
 
 **Critical functions.** Five functions would expose or lose the items if they failed: signing in and deciding access (PingFederate with Active Directory, the API, the key store and the data protection key rings); storing and showing items (the database server, the application server, the API and the UI application); administering schemas and access (the Admin application); recording who did what (the audit records); and recovering items (the backup store).
 
-The list is made at design, before the application is built, and reviewed at each major release and after a significant change. The system owner approves it (D-RA-04).
+The list is made at design, before the application is built, and reviewed at each major release and after a significant change. The system owner approves it.
 
 ### 3.10 What \<Organisation\> provides
 

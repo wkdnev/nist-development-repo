@@ -46,7 +46,7 @@ Every person signs in with their Active Directory account, through PingFederate.
 | Schema editor | Editors | Yes | Their own AD account; member of a schema's edit group |
 | Auditor | Auditors | Yes, privileged | Their own AD account; holds no administration role |
 | Security officer | Security officers | Yes, privileged | Their own AD account; holds no administration role |
-| Business owner | The business owner | Yes, privileged | Their own AD account; approves the disposal of items due under the retention schedule (FR-074) |
+| Business owner | The business owner | Yes, privileged | Their own AD account; approves the disposal of items due under the retention schedule |
 | Legal adviser's delegate | The person the legal adviser names | Yes, privileged | Their own AD account; holds no other role |
 | Administrator | Administrators | Yes, privileged | Their own AD account; the system owner authorises and adds them to the group; opens no item content; a separate everyday account for any item work |
 | Windows administrator | Windows server administrators | Yes, privileged | Named person, only over \<Organisation\>'s managed administration route, with multi-factor authentication (F11) |
@@ -54,12 +54,12 @@ Every person signs in with their Active Directory account, through PingFederate.
 | API service account | The API only | Yes, privileged | The API's group managed service account, which signs in to SQL Server with Windows authentication and reads group membership from Active Directory over LDAPS. Nobody signs in with it. Not a sysadmin, and cannot change the schema (section 3.6) |
 | Local \<System Name\> account | Nobody | No | \<System Name\> holds no accounts or passwords of its own. The first administrator is simply the first member of that AD group |
 | Temporary and emergency | Nobody | No | Prohibited |
-| Supplier or \<Organisation\> engineer doing maintenance | Nobody | No | Holds no account on the servers or in \<System Name\>; watches and guides over the shared screen of an approved administrator, who drives the session (\<Maintenance Management\>, section 3.6; D-MA-01) |
+| Supplier or \<Organisation\> engineer doing maintenance | Nobody | No | Holds no account on the servers or in \<System Name\>; watches and guides over the shared screen of an approved administrator, who drives the session (\<Maintenance Management\>, section 3.6) |
 | Shared, guest, anonymous and demonstration | Nobody | No | Prohibited on the servers |
 
 Temporary and emergency accounts are prohibited, so there is nothing to remove or disable automatically. Each access review confirms that none exists. If such accounts were ever needed, they would be Active Directory accounts with an end date, and the tailoring decision would be made again.
 
-Shared and group accounts are prohibited (TR-AC-02), and \<System Name\> holds no passwords, so there is no shared password to change when someone leaves a group.
+Shared and group accounts are prohibited, and \<System Name\> holds no passwords, so there is no shared password to change when someone leaves a group.
 
 ### 3.3 Roles
 
@@ -72,8 +72,8 @@ Shared and group accounts are prohibited (TR-AC-02), and \<System Name\> holds n
 | Administrator | Manage schemas, the AD groups each schema uses (a change of groups only with the Data Owner's approval), and settings; use the administration dashboard. No item content | AD group \<Code\>\_Admins | System owner |
 | Auditor | Read the audit log and review it weekly | AD group \<Code\>\_Auditors | System owner |
 | Security officer | Read security information; run the last sign-in report and the monthly check of members who have not signed in for 90 days. Does not read the audit log | AD group \<Code\>\_Security | System owner |
-| Business owner | Approve the disposal of items due under the retention schedule (FR-074) | AD group \<Code\>\_BusinessOwners | System owner |
-| Legal adviser's delegate | Search every schema for one person's items to answer a request under data protection law (FR-073). Holds no other role | AD group \<Code\>\_LegalSearch, whose member the legal adviser names | System owner |
+| Business owner | Approve the disposal of items due under the retention schedule | AD group \<Code\>\_BusinessOwners | System owner |
+| Legal adviser's delegate | Search every schema for one person's items to answer a request under data protection law. Holds no other role | AD group \<Code\>\_LegalSearch, whose member the legal adviser names | System owner |
 
 The people who hold each role are named in \<Roles and Responsibilities\>. The group names use the application's short code, and are confirmed when the groups are created in Active Directory.
 
@@ -98,11 +98,11 @@ The five role groups, for administrators, auditors, the security officer, the bu
 | Use the administration dashboard and settings | Administrators |
 | Read audit logs | Auditors |
 | Read security information | The security officer |
-| Run the last sign-in report (FR-085) | The security officer |
-| Approve the disposal of items due under the retention schedule (FR-074) | The business owner |
-| Search every schema for one person's items, for a request under data protection law (FR-073) | The legal adviser's delegate |
+| Run the last sign-in report | The security officer |
+| Approve the disposal of items due under the retention schedule | The business owner |
+| Search every schema for one person's items, for a request under data protection law | The legal adviser's delegate |
 
-Administrators see no item content. Any item work an administrator does is as a reader or editor, through a schema group given to their everyday account. The business owner approves disposals, and the legal adviser's delegate runs their search, in the UI application. The disposal page shows each item's schema, reference, title, type, date and retention period, but not its content or files; to look inside an item, the business owner asks that schema's Data Owner. An administrator cannot delete a schema that still holds items: a schema in use is retired by deactivating it, and its items leave only by disposal (FR-060, FR-074).
+Administrators see no item content. Any item work an administrator does is as a reader or editor, through a schema group given to their everyday account. The business owner approves disposals, and the legal adviser's delegate runs their search, in the UI application. The disposal page shows each item's schema, reference, title, type, date and retention period, but not its content or files; to look inside an item, the business owner asks that schema's Data Owner. An administrator cannot delete a schema that still holds items: a schema in use is retired by deactivating it, and its items leave only by disposal.
 
 ### 3.5 Separation of duties
 
@@ -178,7 +178,7 @@ These rules follow from it:
 
 1. **No passwords.** \<System Name\> stores no passwords or password hashes, because PingFederate authenticates every user.
 2. **Items and schemas.** The UI app asks the API for item data. The Admin app asks the API for schemas, the groups each uses, settings and audit records, and gets no item content.
-3. **Audit log.** The service account can add and read records, and cannot change or delete them. Nothing changes them, and the database administrator removes them only once archived. They are read only through the Admin application's audit pages, by the auditor role. The one exception is the last sign-in report (FR-085), which shows the security officer each member's username and last sign-in date, and nothing else.
+3. **Audit log.** The service account can add and read records, and cannot change or delete them. Nothing changes them, and the database administrator removes them only once archived. They are read only through the Admin application's audit pages, by the auditor role. The one exception is the last sign-in report, which shows the security officer each member's username and last sign-in date, and nothing else.
 4. **Changes to the database structure.** Only the database administrator makes them, with the schema change account.
 5. **Connection.** The API connects only from the application server, over TLS with strict encryption, using Windows authentication under its managed service account. There is no database password to store.
 
@@ -272,32 +272,32 @@ These are set by \<Organisation\> as part of its corporate network, directory an
 
 ### 3.7 Settings
 
-The values the access controls depend on are listed by control in Table 13. Lockout and multi-factor authentication are PingFederate's and are not set in \<System Name\>. The session lifetime is a fixed 8 hours set in \<System Name\>; PingFederate's own sign-in lifetime is set to at least that. The policy review and ownership values are in \<Policy\>, section 1.1.
+The values the access controls depend on are listed in Table 13. Lockout and multi-factor authentication are PingFederate's and are not set in \<System Name\>. The session lifetime is a fixed 8 hours set in \<System Name\>; PingFederate's own sign-in lifetime is set to at least that. The policy review and ownership values are in \<Policy\>, section 1.1.
 
 **Table 13: Access control values**
 
-| Control | Values |
+| Setting | Value |
 | --- | --- |
-| AC-2 | Account types: as listed in Table 1. Account attributes: the AD account name and ID, line manager, enabled state and expiry date; access attributes: the person's role groups and schema read or edit groups. Who decides access: the line manager approves in ServiceNow, then the group's owner (the system owner for a role group, the Data Owner for a schema group) authorises and adds the person. Leavers: AD account disabled at once and group memberships removed within 5 working days; movers: group owners told within 1 working day. Access reviews: role groups every 3 months, schema groups every 12 months, server and database accounts every 6 months |
-| AC-2(2) | Temporary and emergency accounts are not allowed |
-| AC-2(3) | AD accounts unused for 90 days are disabled within 1 working day; each month, members of \<System Name\>'s groups who have not signed in for 90 days are removed |
-| AC-2(5) | Users sign out at the end of each working day, and whenever they leave their device for longer than a short break |
-| AC-11 | Device screen lock after 15 minutes of inactivity, on users' managed devices and on both servers |
-| AC-12 | Sign-in lifetime of 8 hours from sign-in, with no sliding extension |
-| AC-2(13) | A high-risk individual's AD account is disabled within 1 hour of notice |
-| AC-6(1), AC-6(9), AC-6(10) | The privileged functions and security-relevant information in section 3.8; all privileged functions are logged |
-| AC-6(2) | Administrators use a separate non-privileged account for everyday item work |
-| AC-6(7) | Role group members reviewed every 3 months; server and database accounts every 6 months |
-| AC-7 | 10 failed sign-ins within 15 minutes lock the account for 15 minutes |
-| AC-8 | The system use notice wording in section 3.16 |
-| AC-10, beyond the baseline | No limit on sign-ins at once |
-| AC-14 | The actions in section 3.17, and nothing else, are allowed without signing in |
-| AC-17 | Remote access only through \<Organisation\>'s VPN, from a managed device, with multi-factor authentication |
-| AC-17(4) | Privileged access over remote access only for approved changes, maintenance and incident response, through the VPN and then the managed administration route, with multi-factor authentication at both |
-| AC-18, AC-19, AC-19(5) | Corporate wireless authenticates user and device (802.1X) and is encrypted (WPA2 or WPA3 Enterprise); managed laptops with full-device encryption are the only mobile devices allowed |
-| AC-20, AC-20(2) | External systems and portable storage not allowed without the system owner's written approval on the exception request; an approved external system needs a contract with confidentiality terms, encryption at rest, storage in the United Kingdom only, and deletion when the need ends |
-| AC-21 | The Data Owner decides on sharing outside a schema |
-| AC-22 | No public content, unless the system owner approves |
+| Accounts and their attributes | Account types: as listed in Table 1. Account attributes: the AD account name and ID, line manager, enabled state and expiry date; access attributes: the person's role groups and schema read or edit groups. Who decides access: the line manager approves in ServiceNow, then the group's owner (the system owner for a role group, the Data Owner for a schema group) authorises and adds the person. Leavers: AD account disabled at once and group memberships removed within 5 working days; movers: group owners told within 1 working day. Access reviews: role groups every 3 months, schema groups every 12 months, server and database accounts every 6 months |
+| Temporary and emergency accounts | Temporary and emergency accounts are not allowed |
+| Inactive accounts | AD accounts unused for 90 days are disabled within 1 working day; each month, members of \<System Name\>'s groups who have not signed in for 90 days are removed |
+| Signing out | Users sign out at the end of each working day, and whenever they leave their device for longer than a short break |
+| Screen lock | Device screen lock after 15 minutes of inactivity, on users' managed devices and on both servers |
+| Sign-in lifetime | Sign-in lifetime of 8 hours from sign-in, with no sliding extension |
+| High-risk individuals | A high-risk individual's AD account is disabled within 1 hour of notice |
+| Privileged functions and their logging | The privileged functions and security-relevant information in section 3.8; all privileged functions are logged |
+| Non-privileged accounts for everyday work | Administrators use a separate non-privileged account for everyday item work |
+| Review of privileges | Role group members reviewed every 3 months; server and database accounts every 6 months |
+| Failed sign-ins | 10 failed sign-ins within 15 minutes lock the account for 15 minutes |
+| System use notice | The system use notice wording in section 3.16 |
+| Sign-ins at once (beyond the baseline) | No limit on sign-ins at once |
+| Actions without signing in | The actions in section 3.17, and nothing else, are allowed without signing in |
+| Remote access | Remote access only through \<Organisation\>'s VPN, from a managed device, with multi-factor authentication |
+| Privileged remote access | Privileged access over remote access only for approved changes, maintenance and incident response, through the VPN and then the managed administration route, with multi-factor authentication at both |
+| Wireless and mobile devices | Corporate wireless authenticates user and device (802.1X) and is encrypted (WPA2 or WPA3 Enterprise); managed laptops with full-device encryption are the only mobile devices allowed |
+| External systems and portable storage | External systems and portable storage not allowed without the system owner's written approval on the exception request; an approved external system needs a contract with confidentiality terms, encryption at rest, storage in the United Kingdom only, and deletion when the need ends |
+| Sharing outside a schema | The Data Owner decides on sharing outside a schema |
+| Public content | No public content, unless the system owner approves |
 
 ### 3.8 Privileged functions and security information
 
@@ -307,7 +307,7 @@ The values the access controls depend on are listed by control in Table 13. Lock
 
 Only the privileged roles in Table 1 may use these: administrators, auditors, the security officer, the business owner, the legal adviser's delegate, the system owner as owner of the role groups, and the Windows server and database administrators. Their use must be logged (section 3.18).
 
-**Data Owners are not privileged users.** A Data Owner approves a change to their own schema's groups, authorises access to them, and adds and removes their members. These are business decisions about their own schema, not privileged access: each is logged, approved in ServiceNow or a change record, and reviewed at the access review. Data Owners therefore sign Part A of \<Security Operating Procedures\> only, not Part B, and module M2 trains them for these duties (D-AC-12).
+**Data Owners are not privileged users.** A Data Owner approves a change to their own schema's groups, authorises access to them, and adds and removes their members. These are business decisions about their own schema, not privileged access: each is logged, approved in ServiceNow or a change record, and reviewed at the access review. Data Owners therefore sign Part A of \<Security Operating Procedures\> only, not Part B, and module M2 trains them for these duties.
 
 Security functions in hardware and firmware, namely the physical hosts, the network equipment and the host firmware, are held by \<Organisation\>'s network and infrastructure teams, under \<Organisation\>'s own access lists.
 
@@ -345,7 +345,7 @@ These rules apply:
 | The five role groups | Every 3 months | The system owner prepares it and the auditor checks and signs it; the Head of Cyber reviews any membership the system owner holds and checks the administrators |
 | Server and database accounts: Windows administrators, SQL Server logins and their roles, and the service accounts | Every 6 months | System owner and security officer |
 | Schema groups | Every 12 months | Data Owners |
-| Members who have not signed in for 90 days | Monthly | The security officer lists them from the last sign-in report (FR-085); each group's owner removes them |
+| Members who have not signed in for 90 days | Monthly | The security officer lists them from the last sign-in report; each group's owner removes them |
 | Audit logs | Weekly | Auditor, for the application audit log; security officer, for the logs in central logging |
 | Actions allowed without signing in | Every 12 months, and after a change | System owner |
 | This document | Every 12 months, and after a significant change | System owner |
@@ -392,7 +392,7 @@ These rules apply:
 
 ### 3.14 Disabling accounts and ending access
 
-\<Organisation\> disables Active Directory accounts. A disabled account cannot sign in through PingFederate. Disabling an account does not remove its group memberships, so \<System Name\>'s API checks on every request that the account is enabled, as well as reading its groups, and holds each answer for at most 5 minutes. A person whose account is disabled, whose groups no longer allow them, or whose groups cannot be read is refused within 5 minutes, even while a session is open: by the next request, or by the 5-minute re-check of an open page, which skips the cache (NFR-102). Table 16 shows when access is ended.
+\<Organisation\> disables Active Directory accounts. A disabled account cannot sign in through PingFederate. Disabling an account does not remove its group memberships, so \<System Name\>'s API checks on every request that the account is enabled, as well as reading its groups, and holds each answer for at most 5 minutes. A person whose account is disabled, whose groups no longer allow them, or whose groups cannot be read is refused within 5 minutes, even while a session is open: by the next request, or by the 5-minute re-check of an open page, which skips the cache. Table 16 shows when access is ended.
 
 **Table 16: When access is ended**
 
@@ -402,21 +402,21 @@ These rules apply:
 | The person leaves | \<Organisation\> disables the leaver's AD account at once, and \<System Name\> refuses it within 5 minutes. Each group's owner removes the membership within 5 working days | Leavers and movers |
 | The account breaches policy | \<Organisation\> disables the AD account on notice, as for a high-risk individual | Disabling a high-risk individual |
 | A high-risk individual | Within 1 hour of notice from management or \<Organisation\>'s security contact of misconduct, compromised credentials, a hostile departure or the departure of the holder of a higher risk role (\<Personnel Security Management\>, section 3.2), \<Organisation\> disables the AD account, so the person cannot sign in again, and \<System Name\>'s API refuses the disabled account within 5 minutes, ending any open session. The account stays disabled for at least 8 hours, unless every key in the key rings is revoked first, so that a cookie issued before it was disabled cannot be used again | Disabling a high-risk individual |
-| The account is unused | \<Organisation\> disables AD accounts unused for 90 days within 1 working day. In addition, each month, the security officer lists, from the last sign-in report (FR-085), every member who has not signed in to \<System Name\> for 90 days, and the owner of each group removes them, so that an unused membership ends even while the Active Directory account stays in use for other work | Unused accounts |
+| The account is unused | \<Organisation\> disables AD accounts unused for 90 days within 1 working day. In addition, each month, the security officer lists, from the last sign-in report, every member who has not signed in to \<System Name\> for 90 days, and the owner of each group removes them, so that an unused membership ends even while the Active Directory account stays in use for other work | Unused accounts |
 
 ### 3.15 Sign-in session, sign-out, failed sign-ins and device lock
 
 \<System Name\>'s session is its authentication cookie, which it sets and ends itself. Failed sign-ins and the screen lock are \<Organisation\>'s corporate configuration (section 3.6.5).
 
-1. **Session lifetime.** The cookie has a fixed absolute lifetime of 8 hours from sign-in, with no sliding extension. PingFederate's sign-in lifetime for \<System Name\> is set to at least 8 hours, so the cookie always ends within PingFederate's sign-in; if PingFederate is ever set shorter, the 8 hours are lowered to match through a change. The UI is Blazor Server, so an open page keeps a live connection: the application re-checks the person on it every 5 minutes and ends it when the cookie has expired or the person is refused (NFR-102). That re-check makes the API read Active Directory afresh, skipping its 5-minute cache, so an open page is also ended within 5 minutes. The session therefore ends 8 hours after sign-in, on Sign out, or within 5 minutes of the person's account being disabled or their groups no longer allowing them. Ending a person's PingFederate sign-in on its own does not end the cookie.
-2. **Sign-out.** Users must sign out at the end of each working day, and whenever they leave their device for longer than a short break. The Sign out button (FR-084) clears the cookie, ends the Blazor connection and ends the PingFederate sign-in. \<Security Operating Procedures\> tells users to use it.
+1. **Session lifetime.** The cookie has a fixed absolute lifetime of 8 hours from sign-in, with no sliding extension. PingFederate's sign-in lifetime for \<System Name\> is set to at least 8 hours, so the cookie always ends within PingFederate's sign-in; if PingFederate is ever set shorter, the 8 hours are lowered to match through a change. The UI is Blazor Server, so an open page keeps a live connection: the application re-checks the person on it every 5 minutes and ends it when the cookie has expired or the person is refused. That re-check makes the API read Active Directory afresh, skipping its 5-minute cache, so an open page is also ended within 5 minutes. The session therefore ends 8 hours after sign-in, on Sign out, or within 5 minutes of the person's account being disabled or their groups no longer allowing them. Ending a person's PingFederate sign-in on its own does not end the cookie.
+2. **Sign-out.** Users must sign out at the end of each working day, and whenever they leave their device for longer than a short break. The Sign out button clears the cookie, ends the Blazor connection and ends the PingFederate sign-in. \<Security Operating Procedures\> tells users to use it.
 3. **Failed sign-ins.** PingFederate and Active Directory count failed sign-ins and lock the account: 10 failed attempts within 15 minutes lock it for 15 minutes. \<System Name\> has no sign-in of its own. The lock applies to every system the person uses, not only \<System Name\>. \<Organisation\>'s Group Policy locks sign-in to the servers. SQL Server accepts connections only from the application server.
 4. **Device lock.** \<Organisation\>'s managed devices and the servers lock the screen after 15 minutes of inactivity, by Group Policy or device management. The lock screen hides the display, and the lock stays until the user unlocks the device with their own credentials.
 5. **What users do.** \<Security Operating Procedures\> tells users to lock their screen whenever they leave their device, even briefly, and to sign out at the end of each working day and whenever they leave it for longer than a short break.
 
 ### 3.16 System use notice
 
-Each app shows the notice on a page straight after the user signs in through PingFederate, before they can go further. No other page, menu or data is served until the notice is accepted. The wording is: "This system is for authorised use only. Activity is monitored, recorded and audited. Unauthorised use may lead to disciplinary or legal action. By continuing you accept these terms.". The legal adviser approves the wording. The notice names \<Organisation\>, not the U.S. Government (TR-AC-03).
+Each app shows the notice on a page straight after the user signs in through PingFederate, before they can go further. No other page, menu or data is served until the notice is accepted. The wording is: "This system is for authorised use only. Activity is monitored, recorded and audited. Unauthorised use may lead to disciplinary or legal action. By continuing you accept these terms.". The legal adviser approves the wording. The notice names \<Organisation\>, not the U.S. Government.
 
 The notice stays until the user accepts it, and the acceptance is written to the audit log. It is text on a page of the UI app and of the Admin application, changed only through an approved change. On the servers, the Windows logon banner, which is \<Organisation\>'s corporate configuration, gives a system use notice before an administrator signs in (section 3.6.5).
 

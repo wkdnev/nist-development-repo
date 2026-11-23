@@ -6,7 +6,7 @@ This document is the design for how the places where \<System Name\> runs and is
 
 Section 3 is the design: the sites and contacts, who provides each part, how \<System Name\> relies on \<Organisation\>'s sites, the rules for offices and for working from home, physical incidents, the encryption that stands behind the physical controls, what \<Organisation\> provides, and what \<System Name\> requires at each data centre.
 
-\<System Name\> has no premises of its own. It runs on two virtual servers in \<Organisation\>'s data centre, with backups, the restore test and recovery at a second site, so most of its physical protection is \<Organisation\>'s. \<System Name\>'s own part is small: how its users treat screens and printouts, how they work from home, how physical incidents are handled, and the encryption of the server disks. The values it sets are given in full in this document, and approved in \<Decision Register\> (D-PE-P70).
+\<System Name\> has no premises of its own. It runs on two virtual servers in \<Organisation\>'s data centre, with backups, the restore test and recovery at a second site, so most of its physical protection is \<Organisation\>'s. \<System Name\>'s own part is small: how its users treat screens and printouts, how they work from home, how physical incidents are handled, and the encryption of the server disks. The values it sets are given in full in this document, and approved in \<Decision Register\>.
 
 ## 2 Related documents
 
@@ -46,25 +46,25 @@ Table 2 shows who provides each part of physical and environmental protection.
 
 **Table 2: Who provides each part**
 
-| Control | \<Organisation\> provides | \<System Name\> provides |
+| Part | \<Organisation\> provides | \<System Name\> provides |
 | --- | --- | --- |
-| PE-1 | Its own physical security policy | The policy, the procedures and this document |
-| PE-2 | Authorised access list for the data centres | Nothing |
-| PE-3 | Entry control, logs, visitors, keys and cards | Nothing |
-| PE-4 | Protected cabling | Nothing |
-| PE-5 | Managed printers with secure release; office security | Users' rules: print only on managed printers with secure release, lock the screen when away, and keep desks clear and screens out of view; the device screen lock is \<Organisation\>'s |
-| PE-6, PE-6(1) | Monitoring, alarms and CCTV; log review; results passed to incident response | Nothing. The security officer handles what \<Organisation\> reports (section 3.7) |
-| PE-8 | Visitor records and review; records hold only the name, organisation, and date and time of the visit | Nothing |
-| PE-9, PE-10, PE-12 | Power protection, emergency shutoff and emergency lighting | Nothing |
-| PE-11 | UPS; if power cannot be kept, a clean shutdown of both servers through the hypervisor (section 3.7; D-PE-01) | Nothing. The administrators run the start-up checks when power returns (\<Security Operating Procedures\>, section 4.6) |
-| PE-13, PE-13(1) | Fire detection and suppression, with automatic notification | Nothing |
-| PE-14 | Temperature and humidity control and monitoring | Nothing |
-| PE-15 | Water damage protection | Nothing |
-| PE-16 | Control of deliveries and removals | Receives notice of host hardware removal and its sanitising certificate; approves removal of any other \<System Name\> equipment |
-| PE-17 | Managed devices and route | Home working rules and the yearly check |
-| Compensating | Nothing | Server disk encryption, so physical access to hosts does not expose data |
+| Policy and procedures | Its own physical security policy | The policy, the procedures and this document |
+| Who may enter | Authorised access list for the data centres | Nothing |
+| Entry control | Entry control, logs, visitors, keys and cards | Nothing |
+| Cabling | Protected cabling | Nothing |
+| Output devices and office security | Managed printers with secure release; office security | Users' rules: print only on managed printers with secure release, lock the screen when away, and keep desks clear and screens out of view; the device screen lock is \<Organisation\>'s |
+| Monitoring physical access | Monitoring, alarms and CCTV; log review; results passed to incident response | Nothing. The security officer handles what \<Organisation\> reports (section 3.7) |
+| Visitor records | Visitor records and review; records hold only the name, organisation, and date and time of the visit | Nothing |
+| Power, emergency shutoff and emergency lighting | Power protection, emergency shutoff and emergency lighting | Nothing |
+| Emergency power | UPS; if power cannot be kept, a clean shutdown of both servers through the hypervisor (section 3.7) | Nothing. The administrators run the start-up checks when power returns (\<Security Operating Procedures\>, section 4.6) |
+| Fire protection | Fire detection and suppression, with automatic notification | Nothing |
+| Temperature and humidity | Temperature and humidity control and monitoring | Nothing |
+| Water damage | Water damage protection | Nothing |
+| Deliveries and removals | Control of deliveries and removals | Receives notice of host hardware removal and its sanitising certificate; approves removal of any other \<System Name\> equipment |
+| Alternate work sites | Managed devices and route | Home working rules and the yearly check |
+| Compensating measures | Nothing | Server disk encryption, so physical access to hosts does not expose data |
 
-Where \<System Name\> has a step beside a part \<Organisation\> provides, such as handling a reported incident, checking the servers after a power loss or receiving notice of a hardware removal, the step is \<System Name\>'s and the protection stays \<Organisation\>'s (D-MP-03).
+Where \<System Name\> has a step beside a part \<Organisation\> provides, such as handling a reported incident, checking the servers after a power loss or receiving notice of a hardware removal, the step is \<System Name\>'s and the protection stays \<Organisation\>'s.
 
 ### 3.4 How \<System Name\> relies on the sites
 
@@ -82,7 +82,7 @@ Where \<System Name\> has a step beside a part \<Organisation\> provides, such a
 
 1. People work remotely only from home, unless the system owner has approved another place in writing (\<Security Operating Procedures\>).
 2. They use only \<Organisation\>'s managed device, and connect to its VPN before opening \<System Name\>. They never use a public or shared computer, and use public Wi-Fi only with the VPN connected first.
-3. They work where others in the home cannot see the screen, and never print \<System Name\> items at home (D-MP-01).
+3. They work where others in the home cannot see the screen, and never print \<System Name\> items at home.
 4. They do not use \<System Name\> from outside the UK, or take a device that can reach it abroad, without written approval from the system owner and the security officer.
 5. They report any concern or incident to the security officer at once, and a lost or stolen device within 1 hour. The security and privacy contacts are in \<Security Operating Procedures\>, section 6.
 6. Every 12 months the security officer puts a short checklist to every person who works from home: the managed device, the VPN, screen privacy, no printing, and reporting. The answers are recorded on the home working check. Every person completes it, not a sample.
@@ -94,7 +94,7 @@ These are part of the rules of behaviour, which each person signs (\<Security Op
 
 The loss or theft of a device or printout, unauthorised entry to a data centre, and fire, flood or power loss affecting \<System Name\> are security incidents. Whoever sees one reports it to the security officer at once. \<Organisation\>'s security contact tells the security officer of any physical incident at a site that affects \<System Name\>, and of any anomaly in the visitor records, within 24 hours. The security officer handles it with the playbooks for a lost device or printout and for intrusion, fire, flood or power loss at a data centre (\<Incident Response Management\>, section 3.9), and the contingency plan is invoked if a site is lost (\<Contingency Planning Management\>).
 
-**Loss of power.** Each data centre's uninterruptible power supply carries the hosts until a generator takes over, or for long enough for an orderly shutdown. If power cannot be kept, \<Organisation\>'s hosting staff shut both servers down cleanly through the hypervisor, the application server first, before the backup power runs out, and tell the Windows server administrator (D-PE-01). A clean guest shutdown stops the applications and SQL Server in order, so no \<System Name\> administrator has to be reached in the minutes the supply lasts. When power returns, the administrators start the servers and run the start-up checks (\<Security Operating Procedures\>, section 4.6), and the security officer records it as a physical incident. This applies at the second site too whenever \<System Name\> runs there. How long the backup power lasts, whether there is a generator, and how the shutdown is done, are set by \<Organisation\>.
+**Loss of power.** Each data centre's uninterruptible power supply carries the hosts until a generator takes over, or for long enough for an orderly shutdown. If power cannot be kept, \<Organisation\>'s hosting staff shut both servers down cleanly through the hypervisor, the application server first, before the backup power runs out, and tell the Windows server administrator. A clean guest shutdown stops the applications and SQL Server in order, so no \<System Name\> administrator has to be reached in the minutes the supply lasts. When power returns, the administrators start the servers and run the start-up checks (\<Security Operating Procedures\>, section 4.6), and the security officer records it as a physical incident. This applies at the second site too whenever \<System Name\> runs there. How long the backup power lasts, whether there is a generator, and how the shutdown is done, are set by \<Organisation\>.
 
 ### 3.8 Encryption behind the physical controls
 
@@ -146,7 +146,7 @@ These are what \<System Name\> requires of \<Organisation\> at both the main dat
 #### 3.10.5 Deliveries and removals
 
 1. **What is controlled.** Hardware and media that hold \<System Name\> information, entering and leaving each data centre.
-2. **Approval.** \<Organisation\>'s own process approves the removal of host hardware beneath the servers, after sanitising it, and tells the system owner beforehand where it can and afterwards with the certificate; the system owner approves the removal of anything else of \<System Name\>'s (\<Maintenance Management\>, section 3.7; D-MA-03).
+2. **Approval.** \<Organisation\>'s own process approves the removal of host hardware beneath the servers, after sanitising it, and tells the system owner beforehand where it can and afterwards with the certificate; the system owner approves the removal of anything else of \<System Name\>'s (\<Maintenance Management\>, section 3.7).
 3. **Records.** \<Organisation\> keeps its delivery and removal records. \<System Name\>'s own are on the maintenance record and the media record.
 
 ### 3.11 Policy and procedures

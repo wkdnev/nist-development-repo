@@ -422,7 +422,7 @@ class Checker:
                     if e not in ev_defined:
                         p.append(f"{doc}: cites {e}, which is not in \\<Evidence Requests\\>")
 
-        @self.check("L13", "Every procedure, record template and interview question cited is defined, and the family management documents name records in words")
+        @self.check("L13", "Every procedure, record template and interview question cited is defined, and the family management documents cite no codes, naming records, decisions, risks and controls in words")
         def _(p):
             pro = set(re.findall(r"^\| (PRO-[A-Z]{2}-\d+)\b", ds.text("Procedures"), re.M)) | \
                 set(re.findall(r"^#{2,4} (PRO-[A-Z]{2}-\d+)\b", ds.text("Procedures"), re.M))
@@ -438,6 +438,15 @@ class Checker:
                 if doc.endswith("Management"):
                     for x in sorted(set(re.findall(r"\bTPL-\d+\b", text))):
                         p.append(f"{doc}: cites {x}; name the record in words instead")
+                    # The management documents are the design: they cite no register entry
+                    # (decision, tailoring, risk, non-compliance, evidence request, procedure,
+                    # interview question, recommendation or POA&M item), no requirement number
+                    # and no control identifier. Their own design labels (F1, K1, U1, M1 and the
+                    # like) are defined where they are used, and are allowed.
+                    codes = re.findall(r"\b(?:(?:D|TR|R|NC|EV|PRO|INT|REC|PA)-[A-Z]{2,4}-P?\d+|N?FR-\d+"
+                                       r"|(?:AC|AT|AU|CA|CM|CP|IA|IR|MA|MP|PE|PL|PM|PS|PT|RA|SA|SC|SI|SR)-\d+(?:\(\d+\))?)\b", text)
+                    for x in sorted(set(codes)):
+                        p.append(f"{doc}: cites {x}; write the decision or fact in words instead")
                 for x in set(re.findall(r"\bINT-[A-Z]{2,3}-\d+\b", text)):
                     if x not in intq:
                         p.append(f"{doc}: cites {x}, which is not in \\<Interview Guide\\>")

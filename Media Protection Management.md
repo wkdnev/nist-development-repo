@@ -65,7 +65,7 @@ All \<System Name\> information is marked \<Classification\>, \<Organisation\>'s
 | Viewer pages | A \<Classification\> banner and watermark, with the item's classification |
 | Printouts | The banner on every page, by a print style |
 | Export files | \<Classification\> in the file name, and a marking notice inside |
-| Downloaded files | A banner with \<Classification\> and the item's classification stamped on each page or image of the copy sent, and the marking in the file name. The stored file is never changed: its checksum is checked before the marked copy is made, and only the copy carries the stamp, so the copy's checksum differs from the stored one (FR-020; D-MP-02) |
+| Downloaded files | A banner with \<Classification\> and the item's classification stamped on each page or image of the copy sent, and the marking in the file name. The stored file is never changed: its checksum is checked before the marked copy is made, and only the copy carries the stamp, so the copy's checksum differs from the stored one |
 | Audit log exports | As export files |
 | Other digital media | A \<Classification\> label on the media or its record, through \<Organisation\> |
 
@@ -110,7 +110,7 @@ In short, physical disks are purged or destroyed, encrypted virtual disks are er
 \<System Name\> restricts portable storage rather than prohibiting it outright: it is blocked by default on users' devices and on both servers, and used only under an approved exception.
 
 1. USB and other portable storage are blocked on users' devices by \<Organisation\>'s device control.
-2. No USB device or other removable media is passed through to, or mounted on, either server (\<Maintenance Management\>, MA-3(2)).
+2. No USB device or other removable media is passed through to, or mounted on, either server (\<Maintenance Management\>, section 3.5).
 3. The system owner may approve an exception on the exception request, for a stated purpose and time, using only encrypted media issued by \<Organisation\>. That media is used only on \<Organisation\>'s managed devices and the external system named in the approval, is never connected to a personal or other unmanaged device, and is returned for sanitising when the exception ends.
 4. Portable storage with no identifiable owner must not be used. It is handed to the security officer, who records it on the media record.
 

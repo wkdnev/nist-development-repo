@@ -42,8 +42,8 @@ Figure 1 shows the path a person follows.
 | Windows server and database administrators | Unpatched or misconfigured servers; lost backups or keys | Follow the patch timetable, hardening and backup steps; protect keys | Modules M4, M3, M9, M7, M8 |
 | Developers | Vulnerable code or components; secrets in code | Secure coding; checked components; changes reviewed | Modules M5, M3, M7 |
 | Security officer and auditor | Missing an attack or a misuse | The auditor reviews the audit log weekly and reports anything suspicious to the security officer; the security officer reviews alerts and the central logs, does not read the audit log, and leads incident response | Modules M6, M7, M9; M8 for the security officer |
-| Business owners | Approving the disposal of items that should be kept, or keeping items too long | Approve disposal only of items due under the retention schedule (\<System Description\>, FR-074) | The \<System Name\> briefing; module M9 |
-| Legal adviser's delegate | Searching or disclosing more than a request needs | Search every schema only for the one person named in a request under data protection law (\<System Description\>, FR-073), and handle the results as the legal adviser directs | Module M9 |
+| Business owners | Approving the disposal of items that should be kept, or keeping items too long | Approve disposal only of items due under the retention schedule | The \<System Name\> briefing; module M9 |
+| Legal adviser's delegate | Searching or disclosing more than a request needs | Search every schema only for the one person named in a request under data protection law, and handle the results as the legal adviser directs | Module M9 |
 | Everyone who handles personal data in \<System Name\> | Using personal data unlawfully; missing or not reporting a breach | Use it only for its purpose; report a breach within 1 hour; pass requests about a person's data to the legal adviser | The \<System Name\> briefing, part B6 |
 | Legal adviser | Deciding late or wrongly whether to report a breach to the ICO and the people affected | Know their part in the incident playbooks and the breach steps, and the 72-hour limit | Module M7 |
 | Authorising official | Making a risk decision in an incident or recovery without knowing what it rests on | Know when they will be called, the decisions that are theirs, and the information each needs | Module M10 |
@@ -129,7 +129,7 @@ Every role with access must complete awareness, the briefing and signing \<Secur
 | Within 30 days of taking a role | Incident response (M7), contingency (M8) and, for the authorising official, risk decisions (M10) | Security officer |
 | Every 12 months | All of the above, repeated | Security officer, who asks each person |
 | After a significant incident, exercise or change | The updated briefing or module, for those it affects | Security officer |
-| More than 30 days overdue | Privileged access is suspended until the training is complete. A standard user is reminded each month and keeps access; that risk is R-AT-01 in \<Risk List\>, accepted by the system owner (D-AT-01) | System owner |
+| More than 30 days overdue | Privileged access is suspended until the training is complete. A standard user is reminded each month and keeps access; that risk is recorded in \<Risk List\> and accepted by the system owner | System owner |
 
 ### 3.7 Keeping content current
 
