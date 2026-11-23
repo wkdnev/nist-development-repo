@@ -71,7 +71,7 @@ There are no shared, guest, anonymous or local accounts, and nobody outside \<Or
 | 3 | PingFederate returns a signed OpenID Connect response that names the person. It carries no groups | PingFederate |
 | 4 | \<System Name\> completes the sign-in with PingFederate over HTTPS from the application server (flow F10), and checks the response: that PingFederate signed it, that it was issued for \<System Name\>, that it is within its short life, and that it has not been used before | \<System Name\> |
 | 5 | The API reads the person's groups from Active Directory over LDAPS (flow F7), which give their roles and schema access. \<System Name\> holds the sign-in only in its authentication cookie, and records the sign-in | \<System Name\> |
-| 6 | The application's sign-in lasts 8 hours at most, never longer than PingFederate's sign-in. It ends sooner at Sign out (FR-084), or within 5 minutes of the account being disabled or the membership removed. The person then signs in again | \<System Name\>, PingFederate and \<Organisation\> |
+| 6 | The application's sign-in lasts 8 hours at most, never longer than PingFederate's sign-in. It ends sooner at Sign out, or within 5 minutes of the account being disabled or the membership removed. The person then signs in again | \<System Name\>, PingFederate and \<Organisation\> |
 
 **Table 3: The trust between PingFederate and \<System Name\>**
 
@@ -105,13 +105,13 @@ Identity assurance is how sure we are that a person is who they claim. Authentic
 | Administrators | High: which groups open each schema, and every setting; no item content | IAL2: \<Organisation\>'s pre-employment checks, with the request authorised by the system owner | AAL2: multi-factor sign-in through PingFederate |
 | Editors | Moderate: one schema's items | IAL2, as above, with the request authorised by the schema's Data Owner | AAL2: multi-factor sign-in through PingFederate |
 | Readers, auditors and security officers | Moderate: reading one schema's items, the audit log or security information | IAL2, as above | AAL2: multi-factor sign-in through PingFederate |
-| Legal adviser's delegate | High: searching every schema for one person's items (\<System Description\>, FR-073) | IAL2: \<Organisation\>'s pre-employment checks, named by the legal adviser, with the request authorised by the system owner | AAL2: multi-factor sign-in through PingFederate |
-| Business owners | Moderate: approving the disposal of items due under the retention schedule (\<System Description\>, FR-074) | IAL2: \<Organisation\>'s pre-employment checks, with the request authorised by the system owner | AAL2: multi-factor sign-in through PingFederate |
+| Legal adviser's delegate | High: searching every schema for one person's items | IAL2: \<Organisation\>'s pre-employment checks, named by the legal adviser, with the request authorised by the system owner | AAL2: multi-factor sign-in through PingFederate |
+| Business owners | Moderate: approving the disposal of items due under the retention schedule | IAL2: \<Organisation\>'s pre-employment checks, with the request authorised by the system owner | AAL2: multi-factor sign-in through PingFederate |
 | Services (API to SQL Server) | High: the whole database | Not applicable | Windows authentication with the API's managed service account, whose password Windows sets and no person knows. No database password exists (section 3.5) |
 
 Every user group is federated through PingFederate, at federation assurance level 2, to be set with \<Organisation\>. The service account is not federated.
 
-Authenticator assurance level 2 means two factors and replay resistance. Identity assurance level 2 is \<Organisation\>'s HR checks: photo identification and a right-to-work check, seen and verified by HR, done once and not repeated by \<System Name\> (section 3.8). PingFederate proves who the person is and vouches for them to \<System Name\>. The authorising official accepts these levels (D-IA-01), and they are reviewed every 12 months.
+Authenticator assurance level 2 means two factors and replay resistance. Identity assurance level 2 is \<Organisation\>'s HR checks: photo identification and a right-to-work check, seen and verified by HR, done once and not repeated by \<System Name\> (section 3.8). PingFederate proves who the person is and vouches for them to \<System Name\>. The authorising official accepts these levels, and they are reviewed every 12 months.
 
 ### 3.5 Authenticators
 
@@ -160,7 +160,7 @@ Only the API connects to SQL Server, by Windows authentication with its managed 
 | Blocklist | Must be checked | \<Organisation\>'s corporate standard |
 | Storage | Salted, with a costly function | Active Directory. \<System Name\> stores no passwords |
 | Rate limiting | At most 100 failures | Lockout by PingFederate and Active Directory: 10 failed attempts in 15 minutes lock the account for 15 minutes |
-| Inactivity timeout | Should be no more than 1 hour | None in \<System Name\>, accepted by the authorising official with the assurance levels (D-IA-01). Users must sign out with Sign out (FR-084) when they leave their device for longer than a short break, and the device screen lock hides an unattended screen |
+| Inactivity timeout | Should be no more than 1 hour | None in \<System Name\>, accepted by the authorising official with the assurance levels. Users must sign out with Sign out when they leave their device for longer than a short break, and the device screen lock hides an unattended screen |
 | Overall sign-in limit | No more than 24 hours | 8 hours from sign-in: the application's authentication cookie has a fixed lifetime with no sliding extension, never longer than PingFederate's sign-in |
 | Second factor | Required | Provided by PingFederate |
 | Phishing-resistant option | At least one must be offered | Set by \<Organisation\>'s PingFederate |
@@ -172,9 +172,9 @@ Only the API connects to SQL Server, by Windows authentication with its managed 
 
 \<System Name\>'s session is its authentication cookie (\<Access Control Management\>, section 3.15). It has no idle timeout, session limit or page lock.
 
-1. A sign-in lasts 8 hours from sign-in, with no sliding extension, and never longer than PingFederate's sign-in. It ends sooner when the person uses Sign out (FR-084), or when their account is disabled or their membership removed, which the API refuses within 5 minutes. The person then signs in again through PingFederate.
+1. A sign-in lasts 8 hours from sign-in, with no sliding extension, and never longer than PingFederate's sign-in. It ends sooner when the person uses Sign out, or when their account is disabled or their membership removed, which the API refuses within 5 minutes. The person then signs in again through PingFederate.
 2. An unattended screen is locked by \<Organisation\>'s managed devices and the servers after 15 minutes of inactivity (\<Access Control Management\>, section 3.15).
-3. A change to a person's AD groups or account takes effect within 5 minutes, because the API reads them on every request and holds each answer for at most 5 minutes; an open page re-checks the person every 5 minutes (NFR-102).
+3. A change to a person's AD groups or account takes effect within 5 minutes, because the API reads them on every request and holds each answer for at most 5 minutes; an open page re-checks the person every 5 minutes.
 4. Access is ended outside \<System Name\>: \<Organisation\> disables the AD account or the group's owner removes the membership, and \<Organisation\> ends the person's PingFederate sign-in. This is the first step when a password or second factor may be compromised, when someone leaves, and when a role is removed. Ending the PingFederate sign-in alone does not end the cookie. A cookie issued before the account was disabled would work again if the account were re-enabled within its 8 hours, so after a suspected compromise the account stays disabled for 8 hours, or the Windows server administrator first revokes every key in the UI and Admin applications' key rings, which signs every user out, as changing to a new key alone leaves the old keys able to read existing cookies.
 5. Each sign-in is tied to the person PingFederate authenticated, and every audit record names them.
 

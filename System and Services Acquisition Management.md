@@ -43,7 +43,7 @@ These carry out the principles and rules of \<Policy\>, sections SA.3 and SA.4.
 | PS.1 Protect all code | Git, in private repositories with protected branches, under the corporate SDLC |
 | PS.2 Verify release integrity | Signed tags and SHA-256 checksums at each release |
 | PS.3 Archive each release | Git tags for each release |
-| PW.1 Design to meet requirements | Security approach and principles in \<System Description\>, section 6.8; the threat model, updated before a significant change is built (\<Risk List\>, section 2.1; NFR-083) |
+| PW.1 Design to meet requirements | Security approach and principles in \<System Description\>, section 6.8; the threat model, updated before a significant change is built (\<Risk List\>, section 2.1) |
 | PW.2 Review the design | Security officer checks significant designs |
 | PW.4 Reuse well-secured software | Sign-in through \<Organisation\>'s PingFederate; ASP.NET Core data protection; the shared library, which holds the access checks used by all three applications |
 | PW.5 Secure coding practices | .NET defaults; parameterised queries |
@@ -92,7 +92,7 @@ These carry out the principles and rules of \<Policy\>, sections SA.3 and SA.4.
 
 The contract also states how and when the supplier gives notice of support, maintenance and updates.
 
-Nothing is bought for \<System Name\> under contract today. \<Organisation\>'s services are agreed through the interface record (section 3.7; D-CA-04), its Microsoft licences are its own, and packages come from the public registry under no contract. The key store and the vulnerability scanner, still to be chosen (\<System Security Plan\>, section 3.4), are bought this way if they are bought, and so is anything a later change brings in.
+Nothing is bought for \<System Name\> under contract today. \<Organisation\>'s services are agreed through the interface record (section 3.7), its Microsoft licences are its own, and packages come from the public registry under no contract. The key store and the vulnerability scanner, still to be chosen (\<System Security Plan\>, section 3.4), are bought this way if they are bought, and so is anything a later change brings in.
 
 As the developer, \<System Name\>'s team provides this design information:
 
@@ -125,7 +125,7 @@ The NCSC secure design principles and the CSS privacy engineering objectives are
 
 ### 3.7 External services
 
-Table 4 lists the external services \<System Name\> relies on. Each provider must meet \<System Name\>'s security and privacy requirements, and must employ the controls \<System Name\> inherits or shares from it, as \<System Security Plan\>, section 7, and \<Assessment, Authorization, and Monitoring Management\>, section 3.6, list them. Each states those controls, and the functions, ports, protocols and other services it needs, in its signed row of the interface record (\<Assessment, Authorization, and Monitoring Management\>, Table 6), which is the agreement with each \<Organisation\> service (D-CA-04), or, for a service with no connection to \<System Name\>, in its service description. Any hosting and services agreement is support only. \<Organisation\>'s name resolution and certificate authority carry no \<System Name\> data, and are covered by \<System and Communications Protection Management\>.
+Table 4 lists the external services \<System Name\> relies on. Each provider must meet \<System Name\>'s security and privacy requirements, and must employ the controls \<System Name\> inherits or shares from it, as \<System Security Plan\>, section 7, and \<Assessment, Authorization, and Monitoring Management\>, section 3.6, list them. Each states those controls, and the functions, ports, protocols and other services it needs, in its signed row of the interface record (\<Assessment, Authorization, and Monitoring Management\>, Table 6), which is the agreement with each \<Organisation\> service, or, for a service with no connection to \<System Name\>, in its service description. Any hosting and services agreement is support only. \<Organisation\>'s name resolution and certificate authority carry no \<System Name\> data, and are covered by \<System and Communications Protection Management\>.
 
 **Oversight.** The system owner oversees each service, and reviews each provider's compliance every 12 months on the supplier review, against its signed row or service description, its service levels and any problem since the last review. Table 4 and \<Roles and Responsibilities\> say who uses each service.
 
@@ -144,7 +144,7 @@ Table 4 lists the external services \<System Name\> relies on. Each provider mus
 | Source repositories, build pipeline and in-house package feed | \<Organisation\>, under the corporate SDLC | Hold all source code, history and release tags; build and test each release; supply every package | \<Organisation\>'s corporate SDLC, which is inherited, and the repository service's own controls |
 | Package registry | nuget.org, whose packages reach \<System Name\> only through the in-house package feed; builds read only its vulnerability data directly | Supplies the .NET packages. Browser libraries come from their publishers' releases, not from it (\<Supply Chain Risk Management\>, section 3.7) | No agreement. It is a supplier of components, not a service \<System Name\> connects to. Each package is trusted on its signature and the check made before it is used, and the registry is managed as a supplier (\<Supply Chain Risk Management\>, section 3.5) |
 
-**Trust and service levels.** Each row says what \<System Name\>'s trust in the service rests on. For \<Organisation\>'s services, the service description should state the service levels, how they are measured, and the remedies when they are missed. The public package registry offers none, so \<System Name\> relies on its own checks of what it supplies; the risk of a harmful package reaching a release is R-RA-06. The authorising official keeps the risk of each external service.
+**Trust and service levels.** Each row says what \<System Name\>'s trust in the service rests on. For \<Organisation\>'s services, the service description should state the service levels, how they are measured, and the remedies when they are missed. The public package registry offers none, so \<System Name\> relies on its own checks of what it supplies; the risk of a harmful package reaching a release is held in \<Risk List\>. The authorising official keeps the risk of each external service.
 
 ### 3.8 Developer configuration management
 
@@ -156,7 +156,7 @@ Table 4 lists the external services \<System Name\> relies on. Each provider mus
 6. **Deployment.** Only a release approved by the change control board is deployed (\<Configuration Management\>).
 7. **Recording.** Each approved change records its security and privacy effect on the change record.
 8. **Flaws.** Each security flaw is tracked in the Risk List and the POA&M, and reported to the system owner and the security officer.
-9. **Environments.** Development, test and production are kept apart. Developers' computers and the throwaway test environment hold invented data only and have no route to production (\<System Description\>, section 6.7; NFR-089).
+9. **Environments.** Development, test and production are kept apart. Developers' computers and the throwaway test environment hold invented data only and have no route to production (\<System Description\>, section 6.7).
 
 ### 3.9 Developer test plan
 

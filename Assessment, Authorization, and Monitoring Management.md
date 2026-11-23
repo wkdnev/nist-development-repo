@@ -43,7 +43,7 @@ These carry out the principles and rules of \<Policy\>, sections CA.3 and CA.4.
 
 ### 3.3 Assessment
 
-**Levels.** Level 1 is the system owner's self-assessment. It is not independent. It shows the system owner where \<System Name\> stands, and prepares the ground for Level 2. Level 2 is the independent assessment by \[Name\]'s team, which also makes the yearly independent check of monitoring. Level 2 is carried out before the first authorisation and before each yearly re-authorisation, and the authorising official decides only on a Level 2 report. A Level 1 report alone never supports an authorisation (decision D-CA-01).
+**Levels.** Level 1 is the system owner's self-assessment. It is not independent. It shows the system owner where \<System Name\> stands, and prepares the ground for Level 2. Level 2 is the independent assessment by \[Name\]'s team, which also makes the yearly independent check of monitoring. Level 2 is carried out before the first authorisation and before each yearly re-authorisation, and the authorising official decides only on a Level 2 report. A Level 1 report alone never supports an authorisation.
 
 **Independence.** A member of the team counts as independent once they have completed the assessor independence statement, confirming that they have had no part in designing, building, running or administering \<System Name\>, that they report to no one responsible for it, and declaring any other interest. The authorising official accepts each statement before the assessment starts.
 
@@ -57,7 +57,7 @@ These carry out the principles and rules of \<Policy\>, sections CA.3 and CA.4.
 
 **Between assessments.** The developers repeat the security tests at each release and after a significant change, on a separate test environment (\<Security Operating Procedures\>). The results feed the next assessment and the plan of action.
 
-**Penetration test.** A penetration test is commissioned before go-live, by a tester independent of the build (\<Tailoring Register\>, CA-8). Its report goes into the first assessment and the authorisation package, and each finding is rated in \<Risk List\>.
+**Penetration test.** A penetration test is commissioned before go-live, by a tester independent of the build (\<Tailoring Register\>). Its report goes into the first assessment and the authorisation package, and each finding is rated in \<Risk List\>.
 
 ### 3.4 Plan of action and milestones
 
@@ -94,8 +94,8 @@ A consistency test checks that every item named in the Risk List exists in the p
 
 | Item | Document |
 | --- | --- |
-| System security plan | \<System Security Plan\>, approved by the authorising official before it is put into effect (D-PL-01) |
-| Privacy plan and impact assessment | \<Privacy Plan\>, approved by the legal adviser and the authorising official (D-PL-02), and \<Data Protection Impact Assessment\> |
+| System security plan | \<System Security Plan\>, approved by the authorising official before it is put into effect |
+| Privacy plan and impact assessment | \<Privacy Plan\>, approved by the legal adviser and the authorising official, and \<Data Protection Impact Assessment\> |
 | Security assessment report | \<Security Assessment Report\> for the Level 2 assessment. Its section 2 is the executive summary. A Level 1 report is not enough |
 | Plan of action and milestones | \<Plan of Action and Milestones\> |
 | Risks and decisions | \<Risk List\> and \<Decision Register\> |
@@ -116,30 +116,30 @@ These 62 entries are provided wholly by \<Organisation\>, and the system owner r
 
 **Table 5: Inherited controls**
 
-| Family | Entries | Controls |
+| Family | Entries | What \<Organisation\> provides |
 | --- | --- | --- |
-| AC | 9 | AC-7, AC-11, AC-11(1), AC-17(3), AC-18, AC-18(1), AC-18(3), AC-19, AC-19(5) |
-| IA | 8 | IA-3, IA-5(1), IA-6, IA-7, IA-12, IA-12(2), IA-12(3), IA-12(5) |
-| SC | 6 | SC-7(3), SC-7(4), SC-7(7), SC-20, SC-21, SC-22 |
-| CM | 1 | CM-2(7) |
-| SI | 1 | SI-4(4) |
-| CP | 9 | CP-6, CP-6(1), CP-6(3), CP-7(1), CP-7(2), CP-7(3), CP-8, CP-8(1), CP-8(2) |
-| MA | 1 | MA-6 |
-| MP | 2 | MP-5, MP-7 |
-| PE | 15 | PE-2, PE-3, PE-4, PE-6, PE-6(1), PE-8, PE-9, PE-10, PE-11, PE-12, PE-13, PE-13(1), PE-14, PE-15, PE-16 |
-| PS | 2 | PS-3, PS-8 |
-| PT | 2 | PT-5, PE-8(3) |
-| SA | 2 | SA-4, SA-9(2) |
-| SR | 4 | SR-8, SR-11(1), SR-11(2), SR-12 |
+| AC | 9 | Account lockout and screen lock on \<Organisation\>'s side, the managed remote access route, wireless access and mobile devices |
+| IA | 8 | Device authentication, password rules, authenticator feedback, cryptographic module authentication and identity proofing |
+| SC | 6 | The network boundary's access points, external telecommunications and split tunnelling, and secure name resolution |
+| CM | 1 | Devices issued for travel to high-risk areas |
+| SI | 1 | Monitoring of inbound and outbound network traffic |
+| CP | 9 | The alternate storage site, the alternate processing site's facilities, and telecommunications services |
+| MA | 1 | Timely support and parts for the hardware |
+| MP | 2 | Transport of media, and control of media use on managed devices |
+| PE | 15 | Physical and environmental protection of the data centres |
+| PS | 2 | Screening and personnel sanctions |
+| PT | 2 | Privacy notices, and limiting the personal data held in visitor records |
+| SA | 2 | Contract terms for what is bought, and each service's stated functions, ports and protocols |
+| SR | 4 | Notification agreements, anti-counterfeit training, control of equipment under repair, and disposal |
 | **Total** | **62** |  |
 
-The list matches the Inherited entries in \<System Security Plan\>, section 7. CP-7 is not on it: \<Organisation\> provides the second site, but \<System Name\>'s administrators rebuild the servers there, so it is shared (\<Contingency Planning Management\>, section 3.9). PE-8(3) is listed under PT, as in \<System Security Plan\>, Tables 8 and 23, because it is in the privacy baseline and assessed with PT.
+The list matches the Inherited entries in \<System Security Plan\>, section 7. The alternate processing site is not on it as a whole: \<Organisation\> provides the second site, but \<System Name\>'s administrators rebuild the servers there, so it is shared (\<Contingency Planning Management\>, section 3.9). Limiting the personal data in visitor records is listed under PT, as in \<System Security Plan\>, Tables 8 and 23, because it belongs to the privacy baseline.
 
 The PM controls are not on this list: they are \<Organisation\>'s programme, not system controls, and the authorising official accepts reliance on them as one line on the authorisation decision record, once \<Organisation\>'s evidence for them is in. The system owner puts the list of 66 to the authorising official for acceptance as a list, with the other proposed ratings, and for acceptance for operation with the authorisation package, once \<Organisation\>'s evidence is in.
 
 ### 3.7 Information exchanges and internal connections
 
-This is the single record of \<System Name\>'s connections. Every external exchange is with a service of \<Organisation\> itself, so this record is the agreement: its entry states the interface, the security and privacy needs, the controls, the responsibilities and the impact level, and the system owner and the owner of that service sign it (decision D-CA-04). Any hosting and services agreement \<Organisation\> holds supports it but is not relied on. An exchange with a system outside \<Organisation\> would need its own interconnection or information exchange agreement, and is a significant change (section 3.9). The system owner approves each connection before it is built, reviews each every 12 months with the owner of the other system, both signing again, and records the date a connection ends.
+This is the single record of \<System Name\>'s connections. Every external exchange is with a service of \<Organisation\> itself, so this record is the agreement: its entry states the interface, the security and privacy needs, the controls, the responsibilities and the impact level, and the system owner and the owner of that service sign it. Any hosting and services agreement \<Organisation\> holds supports it but is not relied on. An exchange with a system outside \<Organisation\> would need its own interconnection or information exchange agreement, and is a significant change (section 3.9). The system owner approves each connection before it is built, reviews each every 12 months with the owner of the other system, both signing again, and records the date a connection ends.
 
 **Table 6: Interface record**
 
@@ -217,7 +217,7 @@ Each connection in Table 6 is recorded in full below.
 
 - **Information:** Encrypted SQL Server backups, out from the database VM
 - **Security needs:** Encrypted before leaving the database VM; one copy offline or immutable
-- **Privacy needs:** Backups hold every item, including personal data, and items since deleted: kept only as the backup schedule sets (14 daily, 8 weekly and 12 monthly copies), in the United Kingdom only, and restored only under the contingency plan or for a restore test on the restore test server at the second site (D-CP-01)
+- **Privacy needs:** Backups hold every item, including personal data, and items since deleted: kept only as the backup schedule sets (14 daily, 8 weekly and 12 monthly copies), in the United Kingdom only, and restored only under the contingency plan or for a restore test on the restore test server at the second site
 - **Responsibilities:** Database administrator; \<Organisation\>
 - **Review and end:** As above
 
@@ -270,7 +270,7 @@ This is \<System Name\>'s system-level strategy. It carries out \<Organisation\>
 
 **Reporting.** The security officer reports the measures monthly to the system owner on the monitoring and integrity report, and sends the privacy measures and any personal data incident to the legal adviser in the same month: that is the privacy status. Each quarter the system owner reports them to the authorising official, with overdue POA&M items, changes in risk, significant changes and incidents.
 
-**Independent check.** Each year, alongside the Level 2 assessment, an independent assessor whose independence statement the authorising official has accepted checks a sample of the monitoring: that the measures were collected, are accurate, and were acted on. Together with the yearly Level 2 assessment of every control, this is the independent monitoring of the controls (decision D-CA-03).
+**Independent check.** Each year, alongside the Level 2 assessment, an independent assessor whose independence statement the authorising official has accepted checks a sample of the monitoring: that the measures were collected, are accurate, and were acted on. Together with the yearly Level 2 assessment of every control, this is the independent monitoring of the controls.
 
 **What forces a re-assessment.** A significant change (section 3.9), a measure past its threshold for three months running, a serious incident, or a new High risk. The authorising official then decides whether \<System Name\> must be re-authorised.
 

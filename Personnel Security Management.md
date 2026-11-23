@@ -31,12 +31,12 @@ Every role in \<Roles and Responsibilities\> has a designation. A role is higher
 
 | Role | Designation | Why |
 | --- | --- | --- |
-| System owner | Standard | Holds no privileged technical access, but owns the five role groups, \<Code\>\_Admins, \<Code\>\_Auditors, \<Code\>\_Security, \<Code\>\_BusinessOwners and \<Code\>\_LegalSearch, and adds their members. The safeguards are that nobody authorises their own access, the auditor checks and signs each role-group review, and the Head of Cyber checks the system owner's own memberships and the administrators' group each quarter (the access review record; D-PS-01) |
+| System owner | Standard | Holds no privileged technical access, but owns the five role groups, \<Code\>\_Admins, \<Code\>\_Auditors, \<Code\>\_Security, \<Code\>\_BusinessOwners and \<Code\>\_LegalSearch, and adds their members. The safeguards are that nobody authorises their own access, the auditor checks and signs each role-group review, and the Head of Cyber checks the system owner's own memberships and the administrators' group each quarter (the access review record) |
 | Head of Cyber | Standard | Approves policies; no \<System Name\> account is needed |
 | Legal adviser | Standard | Advises and reviews; no privileged access |
 | Data protection officer | Standard | Advises; no privileged access |
 | Information owner | Standard | Owns the information and its categorisation; a user in their own schemas, if any |
-| Business owner | Standard | Owns the business need and sets retention; approves, in the UI application, the disposal of items due under the retention schedule (\<System Description\>, FR-074) as a member of \<Code\>\_BusinessOwners; no privileged technical access |
+| Business owner | Standard | Owns the business need and sets retention; approves, in the UI application, the disposal of items due under the retention schedule as a member of \<Code\>\_BusinessOwners; no privileged technical access |
 | Authorising official | Standard | Decides risk; no \<System Name\> account is needed |
 | Authorising official for \<Organisation\>'s common controls | Standard | Authorises the inherited controls; no \<System Name\> account is needed |
 | Security assessor | Higher risk | Examines the evidence, including samples of audit records, configuration and test results, so can see security records; also sees every weakness before it is fixed |
@@ -45,7 +45,7 @@ Every role in \<Roles and Responsibilities\> has a designation. A role is higher
 | Auditor | Higher risk | Reads every audit record |
 | Security officer | Higher risk | Sees logs, alerts and incident records |
 | Data Owner | Standard | Owns a schema's data and its read and edit groups, and authorises who may read or edit it in ServiceNow; nobody approves their own access |
-| Legal adviser's delegate | Higher risk | Searches every schema for one person's items to answer a request under data protection law (\<System Description\>, FR-073), so can see items in every schema; a member of \<Code\>\_LegalSearch, named by the legal adviser; holds no other role |
+| Legal adviser's delegate | Higher risk | Searches every schema for one person's items to answer a request under data protection law, so can see items in every schema; a member of \<Code\>\_LegalSearch, named by the legal adviser; holds no other role |
 | Windows server administrator | Higher risk | Full control of both servers |
 | Database administrator | Higher risk | Full control of the database that holds every item |
 | Developers | Higher risk | Change the code that handles every item, including personal data; hold no administrator access on the servers |
@@ -68,7 +68,7 @@ A higher risk role adds two things to what every role needs. Screening is repeat
 | Employment history | Their recent employment is as stated | \[\<Organisation\>'s standard and evidence\] |
 | Basic criminal record check | Unspent convictions only | \[\<Organisation\>'s standard and evidence\] |
 
-\<System Name\> records only that \<Organisation\> confirmed the screening, and the date. It never holds a screening result or criminal record data (\<Policy\> (PS), R4). If \<Organisation\>'s standard is fuller, for example BS 7858:2019, that standard applies.
+\<System Name\> records only that \<Organisation\> confirmed the screening, and the date. It never holds a screening result or criminal record data (\<Policy\> (PS)). If \<Organisation\>'s standard is fuller, for example BS 7858:2019, that standard applies.
 
 In the United Kingdom a basic criminal record check is made through the Disclosure and Barring Service in England and Wales, Disclosure Scotland or AccessNI, and shows only unspent convictions. The Rehabilitation of Offenders Act 1974 limits what may be asked beyond that, which is why the minimum is a basic check.
 
@@ -104,7 +104,7 @@ Each person signs both before being added to any \<System Name\> group. The Serv
 
 ### 3.6 Time limits
 
-These values are approved in \<Decision Register\> (D-PS-P72).
+These values are approved in \<Decision Register\>.
 
 **Table 4: Personnel security time limits**
 
@@ -125,7 +125,7 @@ These values are approved in \<Decision Register\> (D-PS-P72).
 
 People who are not \<Organisation\>'s staff, such as contracted developers, may hold a \<System Name\> role only on the same terms as staff: screened to the minimum in section 3.3, signed up to the agreements in section 3.4, and designated by their role. Each contract states these requirements and their security duties, requires the supplier and its people to comply with \<Policy\> (PS) and \<Procedures\> (PS), and requires the supplier to tell the system owner within 1 working day when one of its people moves or leaves.
 
-A supplier's engineer, or \<Organisation\>'s engineer, who helps with maintenance holds no \<System Name\> role and no account. They watch and guide over the shared screen of an approved administrator, who drives the session, so they need no screening for \<System Name\> and are bound by their contract's confidentiality terms (\<Maintenance Management\>, section 3.6; D-MA-01).
+A supplier's engineer, or \<Organisation\>'s engineer, who helps with maintenance holds no \<System Name\> role and no account. They watch and guide over the shared screen of an approved administrator, who drives the session, so they need no screening for \<System Name\> and are bound by their contract's confidentiality terms (\<Maintenance Management\>, section 3.6).
 
 The same applies to the independent assessors who carry out the Level 2 assessment, as they see the whole document set and its evidence, which describe \<System Name\>'s weaknesses. Any member of the team who is not \<Organisation\>'s staff is screened, signs a confidentiality agreement and Part A of the rules of behaviour, and is entered in the register, before the evidence is shared: \[whether the assessment team are \<Organisation\>'s staff or external\]. The system owner checks each supplier's compliance every 12 months, and records it on the supplier review.
 
