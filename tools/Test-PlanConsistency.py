@@ -422,7 +422,7 @@ class Checker:
                     if e not in ev_defined:
                         p.append(f"{doc}: cites {e}, which is not in \\<Evidence Requests\\>")
 
-        @self.check("L13", "Every procedure, record template and interview question cited is defined")
+        @self.check("L13", "Every procedure, record template and interview question cited is defined, and the family management documents name records in words")
         def _(p):
             pro = set(re.findall(r"^\| (PRO-[A-Z]{2}-\d+)\b", ds.text("Procedures"), re.M)) | \
                 set(re.findall(r"^#{2,4} (PRO-[A-Z]{2}-\d+)\b", ds.text("Procedures"), re.M))
@@ -435,6 +435,9 @@ class Checker:
                 for x in set(re.findall(r"\bTPL-\d+\b", text)):
                     if x not in tpl:
                         p.append(f"{doc}: cites {x}, which is not in \\<Record Templates\\>")
+                if doc.endswith("Management"):
+                    for x in sorted(set(re.findall(r"\bTPL-\d+\b", text))):
+                        p.append(f"{doc}: cites {x}; name the record in words instead")
                 for x in set(re.findall(r"\bINT-[A-Z]{2,3}-\d+\b", text)):
                     if x not in intq:
                         p.append(f"{doc}: cites {x}, which is not in \\<Interview Guide\\>")

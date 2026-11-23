@@ -126,7 +126,7 @@ The matrix carries out AT-2, AT-3, AT-3(5) (\<PII Processing Management\>), IR-2
 
 **Deputies.** A deputy holds the same training as the role they cover (\<Roles and Responsibilities\>, section 5), follows that role's row, and is in the register under it.
 
-**Roles without access.** Role training is for everyone with a security or privacy duty for \<System Name\>, not only those with access to it. The CSS guidance on AT-3 names senior security and privacy officers, authorising officials and system owners among those who may need it. So the legal adviser, the authorising official, the information owner and line managers are in the matrix for the duties they hold, though most have no access: the legal adviser's part in incident response, the authorising official's risk decisions in an incident or a recovery, the information owner's categorisation, and the line manager's approval of access requests. Four roles stay out of the matrix. Three rely on \<Organisation\>'s own training, evidenced through EV-AT-02: the Head of Cyber, who approves the policies, delivers module M6 and reviews the administrators' group; the data protection officer, who leads \<Organisation\>'s privacy programme; and \<Organisation\>'s security contact, who works in its security team. The security assessor is independent of \<System Name\> and is not trained by it; their independence is confirmed on TPL-19.
+**Roles without access.** Role training is for everyone with a security or privacy duty for \<System Name\>, not only those with access to it. The CSS guidance on AT-3 names senior security and privacy officers, authorising officials and system owners among those who may need it. So the legal adviser, the authorising official, the information owner and line managers are in the matrix for the duties they hold, though most have no access: the legal adviser's part in incident response, the authorising official's risk decisions in an incident or a recovery, the information owner's categorisation, and the line manager's approval of access requests. Four roles stay out of the matrix. Three rely on \<Organisation\>'s own training, evidenced through EV-AT-02: the Head of Cyber, who approves the policies, delivers module M6 and reviews the administrators' group; the data protection officer, who leads \<Organisation\>'s privacy programme; and \<Organisation\>'s security contact, who works in its security team. The security assessor is independent of \<System Name\> and is not trained by it; their independence is confirmed on the assessor independence statement.
 
 ### 3.6 When training happens
 
@@ -152,7 +152,7 @@ Controls met here: AT-2, AT-3.
 1. Every 12 months, the security officer reviews the briefing and each module against the curriculum and changes, and reads the incident records and exercise reports of the year, inside and outside \<Organisation\>, adding each lesson to the briefing or module it concerns.
 2. After a significant incident, exercise or change, the lesson is added within 30 days.
 3. The legal adviser reviews the privacy content.
-4. Each change is recorded on TPL-6, citing the incident record or exercise report (TPL-11) the lesson came from, and the content version goes up. Each training record names the version given.
+4. Each change is recorded on the change record, citing the incident record or exercise report the lesson came from, and the content version goes up. Each training record names the version given.
 
 The steps are in \<Procedures\>, PRO-AT-3.
 
@@ -160,7 +160,7 @@ The steps are in \<Procedures\>, PRO-AT-3.
 
 Controls met here: AT-4.
 
-The security officer keeps this register from the TPL-9 records. The system owner checks it before authorising a role. Records are kept for 3 years. CSS leaves the period to the organisation, and 3 years lets an assessor see each person's last three yearly completions. Each record (TPL-9) names the person, the role, the training and its content version, the date, the result of the check, who gave it and the next due date. \<Organisation\> keeps its own course records and provides them on request. The layout stays here. Once the records store is set up, the live register, with its names and dates, is kept there.
+The security officer keeps this register from the training records. The system owner checks it before authorising a role. Records are kept for 3 years. CSS leaves the period to the organisation, and 3 years lets an assessor see each person's last three yearly completions. Each record names the person, the role, the training and its content version, the date, the result of the check, who gave it and the next due date. \<Organisation\> keeps its own course records and provides them on request. The layout stays here. Once the records store is set up, the live register, with its names and dates, is kept there.
 
 **Table 6: Training register**
 
@@ -186,7 +186,7 @@ The security officer keeps this register from the TPL-9 records. The system owne
 
 Controls met here: AT-4.
 
-The security officer reports these monthly with the continuous monitoring measures on TPL-8 (PRO-AT-5), and the system owner reviews them (\<Policy\>, section AT.6). Anyone overdue is reminded, and privileged access is suspended after 30 days overdue (Table 5).
+The security officer reports these monthly with the continuous monitoring measures on the monitoring and integrity report (PRO-AT-5), and the system owner reviews them (\<Policy\>, section AT.6). Anyone overdue is reminded, and privileged access is suspended after 30 days overdue (Table 5).
 
 **Table 7: Training measures**
 

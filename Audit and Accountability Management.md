@@ -108,7 +108,7 @@ Controls met here: AU-9, AU-9(4).
 
 | Store | Written by | Read by | Changed or deleted by |
 | --- | --- | --- | --- |
-| The audit log | API only, through its database service account, which may add and read records, with update and delete denied. UI application and Admin application send their events to the API, which accepts them only from those two applications and never from a user's browser | The auditor group, through the Admin application's audit pages. The security officer sees only each member's username and last sign-in date, through the last sign-in report (FR-085). The database administrator can reach the table to archive it, under rule B12 | Nobody changes a record. The database administrator removes records only once they are archived (PRO-AU-4); SQL Server Audit records each removal, and the auditor checks it against TPL-8 |
+| The audit log | API only, through its database service account, which may add and read records, with update and delete denied. UI application and Admin application send their events to the API, which accepts them only from those two applications and never from a user's browser | The auditor group, through the Admin application's audit pages. The security officer sees only each member's username and last sign-in date, through the last sign-in report (FR-085). The database administrator can reach the table to archive it, but may never alter, delete or disable audit records | Nobody changes a record. The database administrator removes records only once they are archived (PRO-AU-4); SQL Server Audit records each removal, and the auditor checks it against the monitoring and integrity report |
 | The offline archive, held at \[archive location, to be agreed with \<Organisation\> with its storage (EV-AU-03)\], encrypted, and off the database server | The database administrator, each month, for records older than 12 months | The auditor, on request to the system owner | Nobody, until 24 months; then only with the system owner's recorded approval |
 | The newest chain hash, copied daily | The API, as a security event in its application log, forwarded to central logging | The auditor and security officer, in central logging | Nobody in \<System Name\>'s team: the copy in central logging is held by \<Organisation\> |
 | Application logs | Each application's Windows service account | The Windows server administrators on the server; the auditor and the security officer in central logging | Removed from the server after 30 days; the copy in central logging is kept 12 months, then archived for 12 months |
@@ -129,7 +129,7 @@ Controls met here: AU-9, AU-9(4).
 | --- | --- | --- |
 | Read and search audit records | Auditors | AD group \<Code\>\_Auditors, the only group that opens the audit pages. It is owned by the system owner, who alone adds members. An auditor holds no administration role (PRO-AU-6) |
 | See each member's last sign-in date | Security officer | The last sign-in report (FR-085) in the Admin application, limited to the \<Code\>\_Security group. The API returns only the username and date, nothing else from the audit log, and audits each run |
-| Change or delete an audit record | Nobody | The database account cannot; rule B12 forbids it. The only removal is of archived records (PRO-AU-4) |
+| Change or delete an audit record | Nobody | The database account cannot, and \<Security Operating Procedures\> forbids every administrator to alter, delete or disable audit records. The only removal is of archived records (PRO-AU-4) |
 | Hold the audit chain key | Windows server administrator | Generates K11 and places it in the key store; holds no rights in SQL Server |
 | Select which application events and SQL Server settings are logged | System owner | Decided on the record; made by developers through a release, or applied by the database administrator through a recorded change (PRO-AU-5) |
 | Apply SQL Server audit settings | Database administrator | Only as the system owner decided, through a recorded change (\<Configuration Management\>); SQL Server Audit records the change |
@@ -137,7 +137,7 @@ Controls met here: AU-9, AU-9(4).
 | Archive records, and delete them after 24 months | Database administrator | Deletion only with the system owner's recorded approval (PRO-AU-4) |
 | Run the chain check and receive its alerts | Auditor and security officer | PRO-AU-2 |
 
-Administrators have none of these functions. They are the people whose actions the auditor reviews (\<Access Control Management\>, section 3.5). Rule B12 of \<Security Operating Procedures\> forbids anyone to alter, delete or disable audit records or logging.
+Administrators have none of these functions. They are the people whose actions the auditor reviews (\<Access Control Management\>, section 3.5). \<Security Operating Procedures\> forbids anyone to alter, delete or disable audit records or logging.
 
 ### 3.6 Time
 
@@ -145,7 +145,7 @@ Controls met here: AU-6(3), AU-8.
 
 1. Each record takes its time from the clock of the server that writes it. Every record's time is in UTC, to the nearest second or finer.
 2. Each server takes its time from \<Organisation\>'s time service, \[Organisation time source\], and stays within 1 second of UTC.
-3. Each month the Windows server administrator checks both servers, records the result on TPL-8, and reports any drift over 5 seconds to the security officer (PRO-AU-4).
+3. Each month the Windows server administrator checks both servers, records the result on the monitoring and integrity report, and reports any drift over 5 seconds to the security officer (PRO-AU-4).
 4. A change to a server's clock is itself a Windows event (4616).
 
 One time source across the applications, the servers, PingFederate and the network is what lets the auditor line records up from different stores (AU-6(3)).
@@ -160,13 +160,13 @@ Controls met here: AU-4, AU-11.
 
 | Information | Kept | Then |
 | --- | --- | --- |
-| Audit records | 12 months in the database | Copied to the offline archive, with the archive's SHA-256 hash and the hash of the last record archived recorded on TPL-8, then removed from the database. The chain check starts from that hash |
+| Audit records | 12 months in the database | Copied to the offline archive, with the archive's SHA-256 hash and the hash of the last record archived recorded on the monitoring and integrity report, then removed from the database. The chain check starts from that hash |
 | Archived audit records | A further 12 months, offline | May be deleted, only with the system owner's recorded approval |
 | Application logs | 30 days | Deleted |
 | Records held as incident evidence | Until the incident is closed | As the incident record says (\<Incident Response Management\>) |
-| Records under a legal hold: a claim, a tribunal, a regulator's enquiry or a person's request for their data | Until the legal adviser releases them | The legal adviser tells the system owner and the database administrator, who list the hold on TPL-8. Held records stay in the archive, even past 24 months, until the hold is released (PRO-AU-4) |
+| Records under a legal hold: a claim, a tribunal, a regulator's enquiry or a person's request for their data | Until the legal adviser releases them | The legal adviser tells the system owner and the database administrator, who list the hold on the monitoring and integrity report. Held records stay in the archive, even past 24 months, until the hold is released (PRO-AU-4) |
 | Backup copies of the database, which include the audit log | As the backup schedule: 14 daily, 8 weekly and 12 monthly copies | Encrypted, and protected as audit information (\<Contingency Planning Management\>) |
-| SQL Server Audit records, Windows logs and the application security events | 12 months in \<Organisation\>'s central logging (EV-AU-01) | Exported each month by the security officer to the offline archive, with the archive's SHA-256 hash recorded on TPL-8, and kept there a further 12 months, as the audit log is (PRO-AU-4) |
+| SQL Server Audit records, Windows logs and the application security events | 12 months in \<Organisation\>'s central logging (EV-AU-01) | Exported each month by the security officer to the offline archive, with the archive's SHA-256 hash recorded on the monitoring and integrity report, and kept there a further 12 months, as the audit log is (PRO-AU-4) |
 | PingFederate and Active Directory logs | As \<Organisation\> sets; at least 12 months is asked for | \<Organisation\>'s process (EV-AU-05) |
 
 Storage is sized for the full 24 months when the servers are built, from the expected numbers of users, schemas and items: 12 months in the database, and the same again for the archive. The size is the number of records each day, \[records per day, to be measured\], times the average size of a record, \[bytes per record, to be measured\], times 365 days, plus half as much again for growth. Both figures are measured in the test environment before the request goes to \<Organisation\>, and again in the first month of use. A disk-space alert on the database server warns the database administrator before storage fills. The database administrator also checks free space and the size of the audit table each month, and asks for more before records are at risk (PRO-AU-4). The audit log is backed up with the database (\<Contingency Planning Management\>).
@@ -177,12 +177,12 @@ The periods are those of \<System Name\>'s retention schedule (\<System and Info
 
 Controls met here: AU-6, AU-6(1), AU-6(3), AU-7, AU-7(1).
 
-1. **Weekly review.** Every week, the auditor, the only role that reads the application audit log, reviews the records since the last review, following \<Security Operating Procedures\>, section 4.2, which lists the unusual activity to look for (PRO-AU-1; duty C3). The auditor judges what each finding could lead to. The auditor holds no administration role, so nobody reviews their own actions.
+1. **Weekly review.** Every week, the auditor, the only role that reads the application audit log, reviews the records since the last review, following \<Security Operating Procedures\>, section 4.2, which lists the unusual activity to look for (PRO-AU-1). The auditor judges what each finding could lead to. The auditor holds no administration role, so nobody reviews their own actions.
 2. **Across stores.** The auditor compares the application records with the SQL Server and Windows logs and \<Organisation\>'s PingFederate and Active Directory records of sign-ins and group changes, lining them up by UTC time and username. This is done by hand, which is proportionate for one system.
 3. **Against requests.** Every change to access is checked against its approved ServiceNow request (\<Access Control Management\>, section 3.13).
-4. **Report.** Findings go to the security officer and system owner on TPL-8, with the date, the period covered, the reviewer and the result. Anything unexplained is raised as a security incident.
+4. **Report.** Findings go to the security officer and system owner on the monitoring and integrity report, with the date, the period covered, the reviewer and the result. Anything unexplained is raised as a security incident.
 5. **More review when risk rises.** After an incident or new threat information, the system owner sets a more frequent or closer review (PRO-AU-1, step 5).
-6. **A second look at the most powerful.** Each quarter the auditor reports the administrators' actions to the Head of Cyber, who checks them (PRO-AU-1, step 6; \<Security Operating Procedures\>, duty C16).
+6. **A second look at the most powerful.** Each quarter the auditor reports the administrators' actions to the Head of Cyber, who checks them (PRO-AU-1, step 6).
 7. **A look at the auditor.** Each read or export of the audit log is also a security event in central logging. The security officer reviews these with the central logs each week, and reports anything unexplained to the Head of Cyber, so the auditor's own use of the log is reviewed by someone else.
 8. **Automated support.** Two means join up review, analysis and reporting. The Admin application's audit page filters and summarises the records for the auditor. \<Organisation\>'s central logging, which receives the application, Windows and SQL Server logs, raises the alerts in the detection use cases U1 to U9 (\<System and Information Integrity Management\>, section 3.4), and the security officer reviews those logs weekly.
 9. **Reports and exports.** The audit page, open only to the auditor group, filters the records and shows a summary. An export gives the auditor the filtered records as a file, for a report or an investigation. Records are always shown with their stored time.

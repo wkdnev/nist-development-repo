@@ -78,7 +78,7 @@ PL-2 lists 15 things a security plan and a privacy plan must hold. The security 
 | a.12 | Describes each control, in place or planned, with the reason for any tailoring | \<System Security Plan\>, section 7: one row for each control; \<Tailoring Register\> | \<Privacy Plan\>, section 6 |
 | a.13 | Includes the risk decisions on architecture and design | \<Risk List\>; \<Decision Register\> | \<Privacy Plan\>, section 5; \<Decision Register\> |
 | a.14 | Includes the activities that need planning and coordination with defined people | The operating calendar in \<Security Operating Procedures\>, Part C; \<Plan of Action and Milestones\>. They are coordinated with the Head of Cyber, the administrators, the legal adviser and \<Organisation\>'s security contact | \<Privacy Plan\>, section 7 |
-| a.15 | Reviewed and approved by the authorising official before it is put into effect | Approved by the system owner, with the Head of Cyber's concurrence, and then reviewed and approved by the authorising official before it is put into effect (D-PL-01). Approving the plan does not authorise \<System Name\>: only TPL-18 does | Approved by the legal adviser and the authorising official (D-PL-02) |
+| a.15 | Reviewed and approved by the authorising official before it is put into effect | Approved by the system owner, with the Head of Cyber's concurrence, and then reviewed and approved by the authorising official before it is put into effect (D-PL-01). Approving the plan does not authorise \<System Name\>: only the authorisation decision record does | Approved by the legal adviser and the authorising official (D-PL-02) |
 
 ### 3.4 Approval, review, sharing and protection
 
@@ -90,7 +90,7 @@ Controls met here: PL-2.
 | --- | --- | --- | --- |
 | 1 Update | After an assessment, a significant change or a problem found in use, the affected plans are updated | System owner | A line in each plan's change record |
 | 2 Check | The plan consistency test is run on the whole document set, and every gap is corrected before the plans are issued. It has 24 checks: for example, that the plan and the assessment agree on the status of every control, and that every section one document cites exists in the other | System owner | The test result, kept with its hash |
-| 3 Approve | The security plan goes to the Head of Cyber for concurrence and then to the authorising official, who reviews and approves it before it is put into effect. The privacy plan is approved by the legal adviser and the authorising official | System owner | \<Decision Register\>, D-PL-01 and D-PL-02, with the sign-off sheet (TPL-24) |
+| 3 Approve | The security plan goes to the Head of Cyber for concurrence and then to the authorising official, who reviews and approves it before it is put into effect. The privacy plan is approved by the legal adviser and the authorising official | System owner | \<Decision Register\>, D-PL-01 and D-PL-02, with the sign-off sheet |
 | 4 Share | When a plan is approved or changed, a link to the restricted copy goes to the Head of Cyber, the administrators and \<Organisation\>'s security contact | System owner | Plan review record, naming the recipients |
 | 5 Protect | The plans and the assessment evidence are marked \<Classification\>. Issued copies are kept only in the restricted document store, where only named people can read or change them, and never in a code repository. Until the store is set up, the master copy and the change record stay in the private records repository on the system owner's computer, which has no remote copy (\<Documentation Map\>, section 4.1). The access list is checked against \<Roles and Responsibilities\> at each review | System owner | Plan review record |
 | 6 Review | Every plan in the register is reviewed every 12 months, and after an assessment, a significant change or a problem found in use. The record shows who reviewed it, their role, the date, the outcome and the actions | System owner | Plan review record, kept in the change record (\<Documentation Map\>, section 4.1) |
@@ -99,28 +99,28 @@ Controls met here: PL-2.
 
 Controls met here: PL-4, PL-4(1).
 
-The Security Operating Procedures are the rules of behaviour. Part A applies to everyone, and Part B, the privileged rules, to privileged users as well (\<Security Operating Procedures\>, section 3). The privacy rules are A23 to A29. The rules on social media, public websites and outside sites are these:
+The Security Operating Procedures are the rules of behaviour. Part A applies to everyone, and Part B, the privileged rules, to privileged users as well (\<Security Operating Procedures\>, section 3). The privacy rules cover looking at personal data only when a task needs it, deleting exported personal data within 30 days, and reporting a loss involving it within 1 hour. The rules on social media, public websites and outside sites are these:
 
-- **A43:** \<System Name\> information, items and how the system works are not posted or discussed on social media, forums or any public website.
-- **A25:** personal data is never disclosed to the public, to the media or on social media.
-- **A44:** work credentials are not used to create accounts on outside sites.
-- **A45:** the use of outside services and AI tools is limited.
+- \<System Name\> information, items and how the system works are not posted or discussed on social media, forums or any public website.
+- Personal data is never disclosed to the public, to the media or on social media.
+- Work credentials are not used to create accounts on outside sites.
+- Outside services and AI tools are not used with \<System Name\> information unless the system owner has approved the tool in writing.
 
 The system owner reviews and updates the rules every 12 months, keeps the register of signatures below, and keeps no other list of signatures.
 
-1. Before access, the person is given the rules, and signs a declaration that they have read and understood them and agree to follow them, on paper or electronically. The system owner completes TPL-21.
+1. Before access, the person is given the rules, and signs a declaration that they have read and understood them and agree to follow them, on paper or electronically. The system owner completes the rules of behaviour acknowledgement.
 2. The signature is added to the register below. The access request in ServiceNow checks the register before access is given, and the group's owner adds nobody to a group without a signature in it.
 3. Everyone signs again every 12 months, and after a material change to the rules: a new or stricter rule, a changed consequence, new monitoring or a new privileged duty. The system owner decides whether a change is material, and records it in the change record of the rules. After a material change everyone signs within 30 days, or loses access.
 
-Signed forms and the register are kept for as long as the person has access, and for 3 years after it ends. The declaration each person signs is the one in \<Security Operating Procedures\>, section 9, which for Part A also records their consent to the monitoring in rules A6 to A8 and confirms that they remain bound by \<Organisation\>'s confidentiality agreement (\<Personnel Security Management\>, section 3.4).
+Signed forms and the register are kept for as long as the person has access, and for 3 years after it ends. The declaration each person signs is the one in \<Security Operating Procedures\>, section 9, which for Part A also records their consent to \<System Name\> recording and reviewing everything they do in it, and confirms that they remain bound by \<Organisation\>'s confidentiality agreement (\<Personnel Security Management\>, section 3.4).
 
 The register starts empty. First signatures are taken on the current version of the rules, before access is given.
 
 **Table 4: Register of signatures**
 
-| TPL-21 record | Name | Role | Parts | Version signed | Reason | Date signed | Next due |
+| Acknowledgement | Name | Role | Parts | Version signed | Reason | Date signed | Next due |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| \[TPL-21 reference\] | \[Name\] | \[Role\] | \[Part A, or Parts A and B\] | \[Version\] | \[First access, yearly or material change\] | \[Date\] | \[Date\] |
+| \[Acknowledgement reference\] | \[Name\] | \[Role\] | \[Part A, or Parts A and B\] | \[Version\] | \[First access, yearly or material change\] | \[Date\] | \[Date\] |
 
 ### 3.6 Architecture
 

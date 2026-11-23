@@ -40,7 +40,7 @@ Controls met here: PE-2, PE-17.
 | Data centre | Hosts both servers | \[Data centre name and address\] | \[Facilities contact\] | EV-PE-01 to EV-PE-04 |
 | Second site | Holds the encrypted backups, with one copy offline or immutable, and the protected copy of the secrets; runs the restore test server every 6 months; the servers are rebuilt there if the main site is lost (\<Contingency Planning Management\>, sections 3.8 and 3.9) | \[Second site name and address\] | \[Facilities contact\] | EV-PE-01 to EV-PE-04 |
 | Offices | Where \<System Name\> is used and printed | \[\<Organisation\> offices\] | \[Office security contact\] | EV-PE-05 |
-| Homes | Remote working, including the administrators' remote administration | Employees' homes | Security officer | C30, TPL-26 |
+| Homes | Remote working, including the administrators' remote administration | Employees' homes | Security officer | Home working check |
 
 No \<System Name\> role needs to enter either data centre. The Windows server and database administrators work from their managed devices over \<Organisation\>'s VPN and managed administration route (flow F11; \<Maintenance Management\>, section 3.4), including when they build the restore test server or rebuild the servers at the second site, and the hardware beneath the servers is maintained by \<Organisation\>'s engineers.
 
@@ -48,7 +48,7 @@ No \<System Name\> role needs to enter either data centre. The Windows server an
 
 Controls met here: PE-1, PE-2, PE-3, PE-4, PE-5, PE-6, PE-6(1), PE-8, PE-9, PE-10, PE-11, PE-12, PE-13, PE-13(1), PE-14, PE-15, PE-16, PE-17.
 
-Who provides each PE control, and the evidence that closes it. The first choice of evidence is \<Organisation\>'s ISO/IEC 27001 certificate and Statement of Applicability, with the Annex A control shown, for both sites. A SOC 2 report serves instead if it covers physical access (criterion CC6.4) and, for power, fire, environment and water, the availability criteria (A1.2). The site inspection (TPL-20) adds what was seen.
+Who provides each PE control, and the evidence that closes it. The first choice of evidence is \<Organisation\>'s ISO/IEC 27001 certificate and Statement of Applicability, with the Annex A control shown, for both sites. A SOC 2 report serves instead if it covers physical access (criterion CC6.4) and, for power, fire, environment and water, the availability criteria (A1.2). The site inspection adds what was seen.
 
 **Table 2: PE inheritance matrix**
 
@@ -56,9 +56,9 @@ Who provides each PE control, and the evidence that closes it. The first choice 
 | --- | --- | --- | --- |
 | PE-1 | Its own physical security policy | The policy, the procedures and this document | The policy, the procedures and this document |
 | PE-2 | Authorised access list for the data centres | Nothing | A.7.2; access list review record (EV-PE-01) |
-| PE-3 | Entry control, logs, visitors, keys and cards | Nothing | A.7.1, A.7.2, A.7.3; TPL-20 (EV-PE-01) |
+| PE-3 | Entry control, logs, visitors, keys and cards | Nothing | A.7.1, A.7.2, A.7.3; the site inspection checklist (EV-PE-01) |
 | PE-4 | Protected cabling | Nothing | A.7.12 (EV-PE-01) |
-| PE-5 | Managed printers with secure release; office security | Users' rules (A33, A36, A37); the device screen lock is \<Organisation\>'s | A.7.7; EV-PE-05; \<Organisation\>'s device policy |
+| PE-5 | Managed printers with secure release; office security | Users' rules: print only on managed printers with secure release, lock the screen when away, and keep desks clear and screens out of view; the device screen lock is \<Organisation\>'s | A.7.7; EV-PE-05; \<Organisation\>'s device policy |
 | PE-6, PE-6(1) | Monitoring, alarms and CCTV; log review; results passed to incident response | Nothing. The security officer handles what \<Organisation\> reports (section 3.7) | A.7.4; monitoring records (EV-PE-01) |
 | PE-8 | Visitor records and review; records hold only the name, organisation, and date and time of the visit (PE-8(3), assessed with PT) | Nothing | A.7.2; sample records (EV-PE-01, EV-PT-02) |
 | PE-9, PE-10, PE-12 | Power protection, emergency shutoff and emergency lighting | Nothing | A.7.11, A.7.12; maintenance records (EV-PE-02) |
@@ -67,7 +67,7 @@ Who provides each PE control, and the evidence that closes it. The first choice 
 | PE-14 | Temperature and humidity control and monitoring | Nothing | A.7.5, A.7.8; monitoring records (EV-PE-03) |
 | PE-15 | Water damage protection | Nothing | A.7.5 (EV-PE-03) |
 | PE-16 | Control of deliveries and removals | Receives notice of host hardware removal and its sanitising certificate; approves removal of any other \<System Name\> equipment (\<Procedures\>, PRO-MA-2) | A.7.2, A.7.10; sample records (EV-PE-04) |
-| PE-17 | Managed devices and route | Home working rules and the yearly check | A.6.7, A.7.9; EV-PE-05; TPL-26 |
+| PE-17 | Managed devices and route | Home working rules and the yearly check | A.6.7, A.7.9; EV-PE-05; the home working check |
 | Compensating | Nothing | Server disk encryption, so physical access to hosts does not expose data | Encryption settings on the servers |
 
 PE-1 is Organisational, PE-5 and PE-17 are Hybrid, and the other 15 are Inherited (\<System Security Plan\>, Table 20). Where \<System Name\> has a step beside an inherited control, such as handling a reported incident (PE-6), checking the servers after a power loss (PE-11) or receiving notice of a hardware removal (PE-16), the step is examined with \<Organisation\>'s evidence and the control stays Inherited, as for MP-5 and MP-7 (D-MP-03). PE-8(3) is in the privacy baseline and is counted with PT.
@@ -81,7 +81,7 @@ PE-1 is Organisational, PE-5 and PE-17 are Hybrid, and the other 15 are Inherite
 | 1 | \<Organisation\> is asked for its certificate, Statement of Applicability and latest audit findings, or its SOC 2 report, for both sites | System owner | \<Evidence Requests\>, EV-PE-01 |
 | 2 | Where those do not cover a control, the facility evidence is asked for | System owner | EV-PE-01 to EV-PE-05 |
 | 3 | What is received is recorded against each control in the matrix, and each corporate parameter value is confirmed as met | System owner | Section 3.3 |
-| 4 | Each data centre, the main site and the second site, is inspected once, at Level 2, by the independent assessor, or by \<Organisation\>'s auditor if the assessor cannot visit | Independent assessor | TPL-20 |
+| 4 | Each data centre, the main site and the second site, is inspected once, at Level 2, by the independent assessor, or by \<Organisation\>'s auditor if the assessor cannot visit | Independent assessor | Site inspection checklist |
 | 5 | Any shortfall is raised as a risk | System owner | \<Risk List\> |
 | 6 | The check is repeated every 12 months, and after a change of site or a significant incident at a site | System owner | Section 3.3 |
 
@@ -101,15 +101,15 @@ Controls met here: PE-5.
 
 Controls met here: PE-17.
 
-1. People work remotely only from home, unless the system owner has approved another place in writing (\<Security Operating Procedures\>, rule A38).
+1. People work remotely only from home, unless the system owner has approved another place in writing (\<Security Operating Procedures\>).
 2. They use only \<Organisation\>'s managed device, and connect to its VPN before opening \<System Name\>. They never use a public or shared computer, and use public Wi-Fi only with the VPN connected first.
 3. They work where others in the home cannot see the screen, and never print \<System Name\> items at home (D-MP-01).
 4. They do not use \<System Name\> from outside the UK, or take a device that can reach it abroad, without written approval from the system owner and the security officer.
 5. They report any concern or incident to the security officer at once, and a lost or stolen device within 1 hour. The security and privacy contacts are in \<Security Operating Procedures\>, section 6.
-6. Every 12 months the security officer puts a short checklist to every person who works from home: the managed device, the VPN, screen privacy, no printing, and reporting. The answers are recorded on TPL-26. Every person completes it, not a sample.
+6. Every 12 months the security officer puts a short checklist to every person who works from home: the managed device, the VPN, screen privacy, no printing, and reporting. The answers are recorded on the home working check. Every person completes it, not a sample.
 7. The system owner's and security officer's offline copies of the contingency plan are kept as \<Contingency Planning Management\>, section 1.1, sets, wherever they are kept, including at home: on the encrypted managed device, or printed in the office and kept in locked storage.
 
-These are rules A35 to A42 of the rules of behaviour, which each person signs (\<Security Operating Procedures\>, Part A).
+These are part of the rules of behaviour, which each person signs (\<Security Operating Procedures\>, Part A).
 
 ### 3.7 Physical incidents
 
@@ -182,7 +182,7 @@ Controls met here: PE-16.
 
 1. **What is controlled.** Hardware and media that hold \<System Name\> information, entering and leaving each data centre.
 2. **Approval.** \<Organisation\>'s own process approves the removal of host hardware beneath the servers, after sanitising it, and tells the system owner beforehand where it can and afterwards with the certificate; the system owner approves the removal of anything else of \<System Name\>'s (\<Maintenance Management\>, section 3.7; PRO-MA-2; D-MA-03).
-3. **Records.** \<Organisation\> keeps its delivery and removal records. \<System Name\>'s own are on TPL-12 and TPL-13.
+3. **Records.** \<Organisation\> keeps its delivery and removal records. \<System Name\>'s own are on the maintenance record and the media record.
 
 ### 3.11 Policy and procedures
 

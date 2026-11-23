@@ -65,9 +65,9 @@ Controls met here: IR-2, IR-2(3), IR-3, IR-3(2), IR-4, IR-4(1), IR-6(1), IR-7(1)
 Preparation covers the CSF 2.0 Govern, Identify and Protect functions as they apply to incidents.
 
 1. **People:** every user learns their part, which is to recognise and report an incident and a personal data breach within 1 hour, in the \<System Name\> briefing, parts B5 and B6, before access and every 12 months (\<Awareness and Training Management\>, section 3.3). Each role holder in section 3.3, and each other role the training matrix gives it, takes module M7 within 30 days of taking the role, and the security officer, the system owner and their deputies before taking it, and every 12 months (PRO-IR-3; \<Procedures\>, PRO-AT-2). M7 covers this plan, the severity levels, the playbooks in section 3.9, preserving evidence, the breach steps in section 3.8, and the contacts. It is module M7 of the role curriculum (\<Awareness and Training Management\>, sections 3.4 and 3.5), and the training register shows who is trained (\<Awareness and Training Management\>, section 3.8). The authorising official takes module M10, on the risk decisions that are theirs, instead of M7, and \<Organisation\>'s security contact is trained by \<Organisation\>. After a change to the plan, or a system change or significant incident that alters a person's part, that person takes the updated module within 30 days. The training content is reviewed every 12 months, and after a plan change or a significant incident.
-2. **Exercises:** a tabletop exercise every 12 months, held with the contingency plan (\<Contingency Planning Management\>, section 3.10), the first within 30 days of the servers being built and before production. \<Organisation\>'s security contact and IT service desk take part. Each exercise walks through one playbook from report to closing, and ends with an after-action report on TPL-11.
+2. **Exercises:** a tabletop exercise every 12 months, held with the contingency plan (\<Contingency Planning Management\>, section 3.10), the first within 30 days of the servers being built and before production. \<Organisation\>'s security contact and IT service desk take part. Each exercise walks through one playbook from report to closing, and ends with an after-action report on the exercise and restore test record.
 3. **Assets and baseline:** the components and baseline in \<Configuration Management\>, sections 3.4 and 3.5, show what normal looks like.
-4. **Tools:** ServiceNow, and the audit records and logs in section 3.10. ServiceNow holds each incident's record, timeline, actions and evidence list, and reminds the owner of each action. A report raises a ticket there, which notifies the security officer. Users raise a request for help there, and see its progress. If ServiceNow is out of use, reports are made by phone or email, users ask the security officer directly for help, and the record is form TPL-10, kept by hand.
+4. **Tools:** ServiceNow, and the audit records and logs in section 3.10. ServiceNow holds each incident's record, timeline, actions and evidence list, and reminds the owner of each action. A report raises a ticket there, which notifies the security officer. Users raise a request for help there, and see its progress. If ServiceNow is out of use, reports are made by phone or email, users ask the security officer directly for help, and the record is an incident record, kept by hand.
 5. **Contacts:** appendix A, checked at each review and exercise.
 6. **Copies:** each role holder keeps a copy of this plan and the contacts that can still be read if the document store, ServiceNow or email is out of use, such as a printed copy.
 
@@ -83,7 +83,7 @@ Controls met here: IR-4.
 | Weekly audit log review (\<Procedures\> (AU)) | Refused access, changes to schemas and their groups, large exports; failed sign-ins and lockouts from \<Organisation\>'s PingFederate and Active Directory records; SQL Server Audit's record of any read of the item tables by a login other than the API's; the daily copies of the newest audit chain hash | The auditor, who reports anything suspicious to the security officer. The security officer does not read the audit log |
 | Alerts | The nine alert events, detection use cases U1 to U9 (\<System and Information Integrity Management\>, section 3.4): repeated failed sign-ins; a break in the audit chain; malware detected; a person added to one of the five role groups or to a server's administrators; a bulk export above a set size; an administrator sign-in out of hours; an audit logging failure; an unexpected change to the software or a stored file; and a change to which groups open a schema | Security officer; the auditor also receives a break in the audit chain, and the Windows server administrator malware, a logging failure and an unexpected change |
 | Microsoft Defender on both servers | Malicious code | Windows server administrator |
-| Backup and integrity checks (\<Security Operating Procedures\>, C8, C12) | Failed backups; a changed stored file, installed release file or release script; malware found by the monthly rescan of stored files | Database and Windows server administrators |
+| Backup and integrity checks (\<Security Operating Procedures\>) | Failed backups; a changed stored file, installed release file or release script; malware found by the monthly rescan of stored files | Database and Windows server administrators |
 | \<Organisation\>'s monitoring (EV-IR-01) | Network and directory events; unauthorised components found by its discovery tools | \<Organisation\>'s security contact |
 | Supplier and NCSC advisories, and NCSC Early Warning | Vulnerabilities in components \<System Name\> uses; incidents and vulnerable services NCSC sees on \<System Name\>'s addresses | Security officer |
 
@@ -108,9 +108,9 @@ The incident lead sets the severity when the incident is confirmed, and may rais
 
 Controls met here: IR-4.
 
-Every incident follows these steps, the same severity table and the same record, TPL-10, so that handling is consistent. Greater severity means more people and faster targets, not a different process.
+Every incident follows these steps, the same severity table and the same record, the incident record, so that handling is consistent. Greater severity means more people and faster targets, not a different process.
 
-1. **Detect and analyse:** the incident lead confirms whether a report is an incident, sets its severity, and opens a record on TPL-10.
+1. **Detect and analyse:** the incident lead confirms whether a report is an incident, sets its severity, and opens a record on the incident record.
 2. **Contain:** limit the harm, for example by disabling an account, which \<System Name\> refuses within 5 minutes, and ending the person's PingFederate sign-in, removing a group membership, or isolating a server. Ending the PingFederate sign-in alone does not end \<System Name\>'s cookie, so an account is always disabled first, and after a suspected compromise it stays disabled for 8 hours unless every key in the key rings is revoked (\<Procedures\>, PRO-IA-3). Preserve evidence first (section 3.10).
 3. **Eradicate:** remove the cause, for example by fixing a flaw or changing secrets.
 4. **Recover:** restore normal service, invoking \<Contingency Planning Management\> if needed. The incident plan leads while the outage may be an incident, with the contingency plan in support, and recovery uses a backup taken before the compromise (\<Contingency Planning Management\>, section 3.6.2).
@@ -164,9 +164,9 @@ Controls met here: IR-4.
 | PingFederate and Active Directory records | \<Organisation\> | As \<Organisation\> sets (EV-AU-05) | Sign-in attempts and changes to group members |
 | Backups | The second site (\<Contingency Planning Management\>, section 3.8) | 14 daily, 8 weekly, 12 monthly | A snapshot of the state before an incident, including the audit log; encrypted, and protected as audit information |
 
-1. **Before changing anything,** export the evidence and record its SHA-256 hash, and note it on TPL-10 with who took it and when.
+1. **Before changing anything,** export the evidence and record its SHA-256 hash, and note it on the incident record with who took it and when.
 2. **Time:** all times are UTC. Check each system's clock against a trusted source before building a timeline; the servers take time from \<Organisation\>, within 1 second of UTC (EV-AU-02).
-3. **Custody:** each piece of evidence is listed on TPL-10 with who holds it, where, and each hand-over.
+3. **Custody:** each piece of evidence is listed on the incident record with who holds it, where, and each hand-over.
 4. **Personal data in evidence** is handled as \<Classification\> and kept only as long as the incident needs.
 
 ### 3.11 Reportable incidents
@@ -191,7 +191,7 @@ Controls met here: IR-5, IR-7, IR-8.
 | Incidents closed with lessons recorded within 10 working days | All |
 | Repeat incidents with the same root cause | None |
 
-The security officer reports these measures monthly on TPL-8, with the monitoring measures (\<Procedures\>, PRO-CA-5, step 1). The resources are the people in section 3.3, ServiceNow, and the evidence sources in section 3.10. \<Organisation\>'s security contact is the first route for forensic help (EV-IR-01). \[Whether an outside forensic firm is kept on call, and its budget\]. Management support comes from the system owner, who gives the role holders the time to train, exercise and respond, and from the Head of Cyber, who approves the plan and reviews it after each incident (section 3.16).
+The security officer reports these measures monthly on the monitoring and integrity report, with the monitoring measures (\<Procedures\>, PRO-CA-5, step 1). The resources are the people in section 3.3, ServiceNow, and the evidence sources in section 3.10. \<Organisation\>'s security contact is the first route for forensic help (EV-IR-01). \[Whether an outside forensic firm is kept on call, and its budget\]. Management support comes from the system owner, who gives the role holders the time to train, exercise and respond, and from the Head of Cyber, who approves the plan and reviews it after each incident (section 3.16).
 
 ### 3.13 Sharing information
 
@@ -203,7 +203,7 @@ Information is shared with \<Organisation\>'s security contact, any affected sup
 
 Controls met here: IR-5.
 
-Incidents and personal data breaches are listed here, each with its TPL-10 record: what happened, the severity, the timeline, the evidence, the actions and the lessons. The measures in section 3.12 are reported each month.
+Incidents and personal data breaches are listed here, each with its incident record: what happened, the severity, the timeline, the evidence, the actions and the lessons. The measures in section 3.12 are reported each month.
 
 **Table 7: Incident and breach register**
 
@@ -221,7 +221,7 @@ Controls met here: IR-4, IR-4(1), IR-6, IR-6(1), IR-6(3), IR-7, IR-7(1).
 | --- | --- | --- | --- |
 | Its own incident process, and a route for \<System Name\>'s reports | IR-6, IR-6(3) | The security contact takes a report at any time, and tells \<System Name\>'s security officer of a compromise on its side within 24 hours | EV-IR-01, EV-SR-01 |
 | Help during an incident | IR-7, IR-4 | Monitoring, network and forensic help; isolating a server; disabling an account; locking or wiping a device | EV-IR-01 |
-| ServiceNow, for incident records and reports | IR-4(1), IR-6(1), IR-7(1) | A workflow built to \<System Name\>'s design: the TPL-10 fields, a notice to the security officer when a report is raised, reminders to each action's owner, and records readable only by the role holders in section 3.3, as they hold Restricted information | EV-IR-02 |
+| ServiceNow, for incident records and reports | IR-4(1), IR-6(1), IR-7(1) | A workflow built to \<System Name\>'s design: the incident record fields, a notice to the security officer when a report is raised, reminders to each action's owner, and records readable only by the role holders in section 3.3, as they hold Restricted information | EV-IR-02 |
 | Its monitoring of the network, PingFederate and Active Directory | IR-4 | Events that show an attack on \<System Name\> reach the security officer | EV-AU-01, EV-AU-05 |
 
 ### 3.16 Keeping the plan
