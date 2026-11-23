@@ -4,13 +4,13 @@
 
 This document sets out how the places where \<System Name\> runs and is used are designed to be protected, to meet the 18 Physical and Environmental Protection (PE) controls and enhancements in the CSS Moderate baseline.
 
-Section 3 is the design: the sites and contacts, who provides each control, how \<Organisation\>'s evidence is obtained and checked, the rules for offices and for working from home, physical incidents, the encryption that stands behind the physical controls, what \<Organisation\> is asked for, what \<System Name\> requires at each data centre, and the policy and procedures. Each subsection names the controls it helps to meet.
+Section 3 is the design: the sites and contacts, who provides each control, how \<Organisation\>'s evidence is obtained and checked, the rules for offices and for working from home, physical incidents, the encryption that stands behind the physical controls, what \<Organisation\> is asked for, what \<System Name\> requires at each data centre.
 
 \<System Name\> has no premises of its own. It runs on two virtual servers in \<Organisation\>'s data centre, with backups, the restore test and recovery at a second site, so 15 of the 18 controls are inherited from \<Organisation\>. \<System Name\>'s own part is small: how its users treat screens and printouts, how they work from home, how physical incidents are handled, and the encryption of the server disks. The values it sets are given in full in this document, and approved in \<Decision Register\> (D-PE-P70).
 
 ## 2 Related documents
 
-Who provides and is responsible for each control, and its status, are in \<System Security Plan\>, section 7.11 (Table 20). The tests, their results and the records an assessor will ask for are in \<Control Assessment Record\> (PE). Each control's risk is in \<Risk List\>, and what is still open is in \<Plan of Action and Milestones\>. The policy is in \<Policy\> (PE), and the steps people follow are in \<Procedures\> (PE).
+Which section of this design meets each control, who is responsible for it and its status are in \<System Security Plan\>, section 7.11 (Table 20). The assessment is in \<Control Assessment Record\> (PE), the risks are in \<Risk List\>, and open work is in \<Plan of Action and Milestones\>. The policy is in \<Policy\> (PE), and the steps people follow are in \<Procedures\> (PE).
 
 ## 3 The design
 
@@ -64,7 +64,7 @@ Who provides each PE control, and the evidence that closes it. The first choice 
 | PE-17 | Managed devices and route | Home working rules and the yearly check | A.6.7, A.7.9; EV-PE-05; the home working check |
 | Compensating | Nothing | Server disk encryption, so physical access to hosts does not expose data | Encryption settings on the servers |
 
-PE-1 is Organisational, PE-5 and PE-17 are Hybrid, and the other 15 are Inherited (\<System Security Plan\>, Table 20). Where \<System Name\> has a step beside an inherited control, such as handling a reported incident (PE-6), checking the servers after a power loss (PE-11) or receiving notice of a hardware removal (PE-16), the step is examined with \<Organisation\>'s evidence and the control stays Inherited, as for MP-5 and MP-7 (D-MP-03). PE-8(3) is in the privacy baseline and is counted with PT.
+PE-1 is Organisational, PE-5 and PE-17 are Hybrid, and the other 15 are Inherited (\<System Security Plan\>, Table 20). Where \<System Name\> has a step beside an inherited control, such as handling a reported incident, checking the servers after a power loss or receiving notice of a hardware removal, the step is examined with \<Organisation\>'s evidence and the control stays Inherited, as for MP-5 and MP-7 (D-MP-03). PE-8(3) is in the privacy baseline and is counted with PT.
 
 ### 3.4 How the evidence is obtained and checked
 
@@ -162,4 +162,4 @@ These are what \<System Name\> requires of \<Organisation\> at both the main dat
 
 ### 3.11 Policy and procedures
 
-\<Policy\> (PE) and \<Procedures\> (PE) meet PE-1. Who they are shared with is in \<Policy\>, section PE.6. Their ownership, approval, review and records follow the rules common to every policy in \<Policy\>, section 1.1.
+\<Policy\> (PE) and \<Procedures\> (PE) are the policy and procedures for this family. Who they are shared with is in \<Policy\>, section PE.6. Their ownership, approval, review and records follow the rules common to every policy in \<Policy\>, section 1.1.

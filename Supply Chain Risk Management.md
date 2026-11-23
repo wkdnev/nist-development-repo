@@ -4,7 +4,7 @@
 
 This document sets out how \<System Name\> manages the risk that it is harmed through what it is built from, where it is hosted and who supplies it, to meet the 12 Supply Chain Risk Management (SR) controls and enhancements in the CSS Moderate baseline.
 
-Section 3 is the design, and is the supply chain risk management plan that SR-2 requires, on the headings of CSS: the principles, the system context, the team, the risks at each stage, the supplier register, the risk tolerance, how components come in, notices, inspection, authenticity and disposal, what \<Organisation\> provides, the policy and procedures, and the values chosen for the controls. Each subsection names the controls it helps to meet.
+Section 3 is the design, and is the supply chain risk management plan that SR-2 requires, on the headings of CSS: the principles, the system context, the team, the risks at each stage, the supplier register, the risk tolerance, how components come in, notices, inspection, authenticity and disposal, what \<Organisation\> provides, the policy and procedures, and the values chosen for the controls.
 
 ## 2 Related documents
 
@@ -57,7 +57,7 @@ The team reviews this plan every 12 months, and after a significant change, a su
 
 ### 3.5 Supplier register
 
-Criticality follows the critical components in \<Risk Assessment Management\>, section 3.9, and \<Organisation\>'s list of critical suppliers (PM-30(1)): High where a compromise would reach items, or the way people sign in. Advisories are watched through the sources in \<System and Information Integrity Management\>, section 3.3. Every supplier in the register is reviewed every 12 months.
+Criticality follows the critical components in \<Risk Assessment Management\>, section 3.9, and \<Organisation\>'s list of critical suppliers: High where a compromise would reach items, or the way people sign in. Advisories are watched through the sources in \<System and Information Integrity Management\>, section 3.3. Every supplier in the register is reviewed every 12 months.
 
 **Table 2: Supplier register**
 
@@ -81,7 +81,7 @@ No critical component may be used without a known source and a SHA-256 record. A
 
 Three processes find and address weaknesses in the supply chain: component checks before use, supplier reviews and release inspection. They are coordinated with \<Organisation\>'s IT service desk and the suppliers in section 3.5. They carry out \<Organisation\>'s organisation-wide supply chain risk management strategy, and the supplier register uses its list of critical suppliers (PM-30, PM-30(1), inherited: \<Program Management\>). Where the two differ, \<Organisation\>'s strategy wins and this plan is changed to match. They sit within \<Organisation\>'s corporate SDLC, which provides the one checked package feed, the lock file support and the pipeline that produces a software bill of materials for each release (\<System Description\>, section 7.12); the developers check each bill of materials. The processes and controls are documented in this plan and in \<System Security Plan\> (SR-03\_ODP\[04\]).
 
-The acquisition strategies, tools and methods (SR-5) are: buying only from suppliers \<Organisation\> has approved, under its contract terms; choosing a component on its origin, publisher, licence, maintainer activity, support period and known flaws before it is used; preferring a supplier that publishes a security policy and advisories; one checked route in for each kind of component, with versions fixed; a bill of materials for each release; and the controls in Table 3.
+The acquisition strategies, tools and methods are: buying only from suppliers \<Organisation\> has approved, under its contract terms; choosing a component on its origin, publisher, licence, maintainer activity, support period and known flaws before it is used; preferring a supplier that publishes a security policy and advisories; one checked route in for each kind of component, with versions fixed; a bill of materials for each release; and the controls in Table 3.
 
 **Table 3: How each component comes in**
 
@@ -99,10 +99,10 @@ The acquisition strategies, tools and methods (SR-5) are: buying only from suppl
 
 ### 3.8 Notices, inspection, authenticity and disposal
 
-1. **Notices** (SR-8). \<Organisation\> reports a supply chain compromise to the security officer within 24 hours, and shares assessment or audit results that affect \<System Name\>. For open-source suppliers, their published advisories are the notice, through the sources in \<System and Information Integrity Management\>, section 3.3. Each notice that applies is recorded on the vulnerability and patch review, and a compromise is handled as an incident.
-2. **Inspection** (SR-10). The release packages, every file a release installs, including the release scripts, and the browser library files are checked against their recorded SHA-256 values at each release before installation, and whenever tampering is suspected. Once installed, the same files are checked monthly by the integrity check (\<System and Information Integrity Management\>, section 3.5). A different value, a missing or extra file, an unsigned or wrongly signed tag, an unexpected package source or damaged packaging is a sign of tampering. \<Organisation\> inspects the host hardware on arrival and after repair.
-3. **Authenticity** (SR-11). Under policy rule R11, package names are checked against look-alikes, packages come only from the in-house package feed under a signed-package trust policy, and browser library files are checked against their publisher's values. A suspected counterfeit is refused and reported to its source, the security officer, \<Organisation\>, the package registry and, if serious, the NCSC. \<Organisation\> trains its buyers every year (SR-11(1)); the developers, who choose the software, learn to spot look-alike and counterfeit packages in role module M5 (\<Awareness and Training Management\>). \<Organisation\> keeps configuration control of the host hardware while it awaits repair and until it returns to service (SR-11(2); \<Maintenance Management\>).
-4. **Disposal** (SR-12). For hardware, virtual disks, media, data and documents, \<System Name\> data is removed first by the method for its type: for the servers' virtual disks, the Windows server administrator destroys every copy of the BitLocker keys; paper is shredded. \<Organisation\> then disposes of the component and confirms in writing. A package or browser library that is retired is removed from the release and the inventory at the next change.
+1. **Notices**. \<Organisation\> reports a supply chain compromise to the security officer within 24 hours, and shares assessment or audit results that affect \<System Name\>. For open-source suppliers, their published advisories are the notice, through the sources in \<System and Information Integrity Management\>, section 3.3. Each notice that applies is recorded on the vulnerability and patch review, and a compromise is handled as an incident.
+2. **Inspection**. The release packages, every file a release installs, including the release scripts, and the browser library files are checked against their recorded SHA-256 values at each release before installation, and whenever tampering is suspected. Once installed, the same files are checked monthly by the integrity check (\<System and Information Integrity Management\>, section 3.5). A different value, a missing or extra file, an unsigned or wrongly signed tag, an unexpected package source or damaged packaging is a sign of tampering. \<Organisation\> inspects the host hardware on arrival and after repair.
+3. **Authenticity**. Under policy rule R11, package names are checked against look-alikes, packages come only from the in-house package feed under a signed-package trust policy, and browser library files are checked against their publisher's values. A suspected counterfeit is refused and reported to its source, the security officer, \<Organisation\>, the package registry and, if serious, the NCSC. \<Organisation\> trains its buyers every year; the developers, who choose the software, learn to spot look-alike and counterfeit packages in role module M5 (\<Awareness and Training Management\>). \<Organisation\> keeps configuration control of the host hardware while it awaits repair and until it returns to service (SR-11(2); \<Maintenance Management\>).
+4. **Disposal**. For hardware, virtual disks, media, data and documents, \<System Name\> data is removed first by the method for its type: for the servers' virtual disks, the Windows server administrator destroys every copy of the BitLocker keys; paper is shredded. \<Organisation\> then disposes of the component and confirms in writing. A package or browser library that is retired is removed from the release and the inventory at the next change.
 
 ### 3.9 What \<Organisation\> provides
 
@@ -116,7 +116,7 @@ The acquisition strategies, tools and methods (SR-5) are: buying only from suppl
 
 ### 3.10 Policy and procedures
 
-\<Policy\> (SR) and \<Procedures\> (SR) meet SR-1. Who they are shared with is in \<Policy\>, section SR.6. Their ownership, approval, review and records follow the rules common to every policy in \<Policy\>, section 1.1.
+\<Policy\> (SR) and \<Procedures\> (SR) are the policy and procedures for this family. Who they are shared with is in \<Policy\>, section SR.6. Their ownership, approval, review and records follow the rules common to every policy in \<Policy\>, section 1.1.
 
 ### 3.11 Values chosen for the controls
 

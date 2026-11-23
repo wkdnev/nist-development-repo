@@ -4,13 +4,13 @@
 
 This document sets out how \<System Name\> is designed to assess risk and respond to it, to meet the 10 Risk Assessment (RA) controls in the CSS Moderate baseline. RA-8, the privacy impact assessment, is in the CSS privacy baseline and is met in \<PII Processing Management\> and \<Data Protection Impact Assessment\>.
 
-Section 3 is the design: the security categorisation, the risk assessment, the supply chain risk assessment, what is monitored for vulnerabilities, the vulnerability timetable, how findings are analysed, shared and reported, the risk response, the critical components, what \<Organisation\> provides, and the policy and procedures. Each subsection names the controls it helps to meet.
+Section 3 is the design: the security categorisation, the risk assessment, the supply chain risk assessment, what is monitored for vulnerabilities, the vulnerability timetable, how findings are analysed, shared and reported, the risk response, the critical components, what \<Organisation\> provides.
 
 
 
 ## 2 Related documents
 
-Who provides and is responsible for each control, and its status, are in \<System Security Plan\>, section 7.15 (Table 24). The tests, their results and the records an assessor will ask for are in \<Control Assessment Record\> (RA). Each control's risk is in \<Risk List\>, and what is still open is in \<Plan of Action and Milestones\>. The policy is in \<Policy\> (RA), and the steps people follow are in \<Procedures\> (RA). The risks, and the method that rates them, are in \<Risk List\>; the categorisation is recorded in \<System Security Plan\>, section 3.3, as RA-2 requires; and the suppliers are managed under the supply chain plan, \<Supply Chain Risk Management\>.
+Which section of this design meets each control, who is responsible for it and its status are in \<System Security Plan\>, section 7.15 (Table 24). The assessment is in \<Control Assessment Record\> (RA), the risks are in \<Risk List\>, and open work is in \<Plan of Action and Milestones\>. The policy is in \<Policy\> (RA), and the steps people follow are in \<Procedures\> (RA). The risks, and the method that rates them, are in \<Risk List\>; the categorisation is recorded in \<System Security Plan\>, section 3.3, as RA-2 requires; and the suppliers are managed under the supply chain plan, \<Supply Chain Risk Management\>.
 
 ## 3 The design
 
@@ -90,8 +90,8 @@ Monitoring also starts whenever a new vulnerability that may affect \<System Nam
 
 The scanner must:
 
-1. scan both servers with an account approved for scanning, so that the scan sees what an administrator sees (RA-5(5));
-2. update its definitions before each scan (RA-5(2));
+1. scan both servers with an account approved for scanning, so that the scan sees what an administrator sees;
+2. update its definitions before each scan;
 3. name each platform and flaw by a standard identifier, CPE and CVE, and rate each flaw by CVSS, so that its results and the package check's can be compared and measured the same way (RA-5b.1 and b.3);
 4. find ports, protocols and services that should not be reachable, against the allowed flows F1 to F11 in \<System Description\>, section 6.5, \<Access Control Management\>, section 3.6, and the host firewall rules in \<System and Communications Protection Management\>, section 3.2;
 5. scan \<System Name\>'s three applications at each release, as this section sets out.
@@ -143,7 +143,7 @@ A monitoring finding, such as a scan result, is first recorded on the vulnerabil
 
 ### 3.9 Critical components
 
-**Method.** A component is critical if its failure or compromise would expose or lose the items, or defeat a security control. Each component in the authorisation boundary, and each outside service it relies on, is judged by the impact levels in \<System Security Plan\>, section 3.3, the recovery priorities in \<Contingency Planning Management\>, section 3.3, and whether it lies on the path to the items. A component that gives unmediated access to a critical component is critical too. The developers' criticality analysis (SA-15(3)) uses this list.
+**Method.** A component is critical if its failure or compromise would expose or lose the items, or defeat a security control. Each component in the authorisation boundary, and each outside service it relies on, is judged by the impact levels in \<System Security Plan\>, section 3.3, the recovery priorities in \<Contingency Planning Management\>, section 3.3, and whether it lies on the path to the items. A component that gives unmediated access to a critical component is critical too. The developers' criticality analysis uses this list.
 
 **Table 6: Critical components**
 
@@ -181,4 +181,4 @@ The list is made at design, before the application is built, and reviewed at eac
 
 ### 3.11 Policy and procedures
 
-\<Policy\> (RA) and \<Procedures\> (RA) meet RA-1. Who they are shared with is in \<Policy\>, section RA.6. Their ownership, approval, review and records follow the rules common to every policy in \<Policy\>, section 1.1.
+\<Policy\> (RA) and \<Procedures\> (RA) are the policy and procedures for this family. Who they are shared with is in \<Policy\>, section RA.6. Their ownership, approval, review and records follow the rules common to every policy in \<Policy\>, section 1.1.

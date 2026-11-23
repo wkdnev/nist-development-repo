@@ -2,13 +2,13 @@
 
 ## 1 Purpose
 
-This document sets out how \<System Name\>'s media are protected to meet the 7 Media Protection (MP) controls in the CSS Moderate baseline.
+This document is the media protection design for \<System Name\>. It covers the Media Protection (MP) family of the CSS Moderate baseline, 7 controls.
 
-Section 3 is the design: every place the information is held outside the running application, how each is marked, stored, moved and sanitised, the limits on portable storage, what \<Organisation\> provides, and the policy and procedures. Each subsection names the controls it helps to meet.
+Section 3 is the design: every place the information is held outside the running application, how each is marked, stored, moved and sanitised, the limits on portable storage, and what \<Organisation\> provides.
 
 ## 2 Related documents
 
-Who provides and is responsible for each control, and its status, are in \<System Security Plan\>, section 7.10 (Table 19). The tests, their results and the records an assessor will ask for are in \<Control Assessment Record\> (MP). Each control's risk is in \<Risk List\>, and what is still open is in \<Plan of Action and Milestones\>. The policy is in \<Policy\> (MP), and the steps people follow are in \<Procedures\> (MP). The rules each user signs for exports, printing and copies are in \<Security Operating Procedures\>, Part A.
+Which section of this design meets each control, who is responsible for it and its status are in \<System Security Plan\>, section 7.10 (Table 19). The assessment is in \<Control Assessment Record\> (MP), the risks are in \<Risk List\>, and open work is in \<Plan of Action and Milestones\>. The policy is in \<Policy\> (MP), and the steps people follow are in \<Procedures\> (MP). The rules each user signs for exports, printing and copies are in \<Security Operating Procedures\>, Part A.
 
 ## 3 The design
 
@@ -56,7 +56,7 @@ Every place \<System Name\> information is held outside the running application,
 
 ### 3.3 Marking scheme
 
-All \<System Name\> information is marked \<Classification\>, \<Organisation\>'s marking (MP-3). Each item also holds its own classification, chosen from a fixed list, which is shown alongside but never lowers the \<Classification\> marking. No other handling caveat is used: who may see an item is set by its schema, not by a further marking. No media is exempt.
+All \<System Name\> information is marked \<Classification\>, \<Organisation\>'s marking. Each item also holds its own classification, chosen from a fixed list, which is shown alongside but never lowers the \<Classification\> marking. No other handling caveat is used: who may see an item is set by its schema, not by a further marking. No media is exempt.
 
 **Table 2: Where the marking goes**
 
@@ -86,17 +86,17 @@ Media are carried physically only by exception. Each move is approved by the sys
 
 ### 3.6 Sanitising methods
 
-Methods follow CSS and IEEE 2883-2022, with the NCSC's guidance for the UK. Each action is recorded on the media record, with the tool used and how the result was verified. Every 12 months the system owner checks a sample of \<Organisation\>'s certificates against those records. Media records are kept for 3 years. That matches the training records, and covers a full authorisation cycle.
+Methods follow IEEE 2883-2022, with the NCSC's guidance for the UK. Each action is recorded on the media record, with the tool used and how the result was verified. Every 12 months the system owner checks a sample of \<Organisation\>'s certificates against those records. Media records are kept for 3 years.
 
 Cryptographic erase is sound only if the media were encrypted before any \<System Name\> information was written to them, and only once every copy of the key is destroyed. Both servers are therefore encrypted before \<System Name\> is installed, and the record on the media record lists each copy of the key and confirms its destruction. Where either condition cannot be shown, the media are purged or destroyed instead.
 
 A backup cannot be erased on its own by destroying its key, because one backup encryption certificate protects every backup made in its 12 months, and destroying it early would make the current backups unusable. Backups are therefore deleted when they expire, and each retired certificate is destroyed only once the last backup it encrypted has been removed, which leaves any copy that survives unreadable (\<Contingency Planning Management\>, section 3.8).
 
-The information is rated Moderate, and the methods in Table 4 are chosen to match it: physical disks are purged or destroyed, encrypted virtual disks are erased by destroying their keys, expired backups are deleted and their retired keys destroyed, and deleting a file is used only where the storage beneath it is covered by one of those.
+In short, physical disks are purged or destroyed, encrypted virtual disks are erased by destroying their keys, expired backups are deleted and their retired keys destroyed, and deleting a file is used only where the storage beneath it is covered by one of those.
 
 **Table 4: Sanitising methods by media type**
 
-| Method | Media | How | Who | Evidence |
+| Method | Media | How | Who | Record |
 | --- | --- | --- | --- | --- |
 | M1 | Server disks and database volumes | Cryptographic erase: destroy every copy of the BitLocker keys, including the recovery keys held in \<Organisation\>'s protected store, then \<Organisation\> deletes the volumes | Windows server administrator, \<Organisation\> | Media record; \<Organisation\>'s confirmation |
 | M2 | Backups, transaction log backups and system-level backups | \<Organisation\>'s backup service deletes each expired copy at both sites, including the offline or immutable copy once its lock ends. Once the last backup a retired backup encryption certificate encrypted is removed, the database administrator destroys every copy of that certificate, in SQL Server, the key store and its protected copy (cryptographic erase). The storage beneath is sanitised by M3 | \<Organisation\>; database administrator | \<Organisation\>'s deletion record; the media record for each certificate destroyed |
@@ -111,7 +111,7 @@ The information is rated Moderate, and the methods in Table 4 are chosen to matc
 
 1. USB and other portable storage are blocked on users' devices by \<Organisation\>'s device control.
 2. No USB device or other removable media is passed through to, or mounted on, either server (\<Maintenance Management\>, MA-3(2)).
-3. The system owner may approve an exception on the exception request, for a stated purpose and time, using only encrypted media issued by \<Organisation\>. That media is used only on \<Organisation\>'s managed devices and the external system named in the approval, is never connected to a personal or other unmanaged device, and is returned for sanitising when the exception ends (AC-20(2)).
+3. The system owner may approve an exception on the exception request, for a stated purpose and time, using only encrypted media issued by \<Organisation\>. That media is used only on \<Organisation\>'s managed devices and the external system named in the approval, is never connected to a personal or other unmanaged device, and is returned for sanitising when the exception ends.
 4. Portable storage with no identifiable owner must not be used. It is handed to the security officer, who records it on the media record.
 
 ### 3.8 What \<Organisation\> provides
@@ -129,4 +129,4 @@ The information is rated Moderate, and the methods in Table 4 are chosen to matc
 
 ### 3.9 Policy and procedures
 
-\<Policy\> (MP) and \<Procedures\> (MP) meet MP-1. Who they are shared with is in \<Policy\>, section MP.6. Their ownership, approval, review and records follow the rules common to every policy in \<Policy\>, section 1.1.
+\<Policy\> (MP) and \<Procedures\> (MP) are the policy and procedures for this family. Who they are shared with is in \<Policy\>, section MP.6. Their ownership, approval, review and records follow the rules common to every policy in \<Policy\>, section 1.1.

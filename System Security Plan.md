@@ -343,12 +343,12 @@ The assessment plan is in \<Control Assessment Record\> (AT), section AT.4, wher
 
 | Control | How it is implemented | Who | Type | Status | Gap entry |
 | --- | --- | --- | --- | --- | --- |
-| AT-1 Policy and Procedures | Policy and procedures in \<Policy\> (AT) and \<Procedures\> (AT); the design is in \<Awareness and Training Management\>. Design: \<Awareness and Training Management\>, section 3.11 | System owner, Head of Cyber | Organisational | Implemented | NC-AT-01 |
-| AT-2 Literacy Training and Awareness | \<Organisation\>'s course, plus the \<System Name\> briefing (\<Awareness and Training Management\>, section 3.3) given when \<Security Operating Procedures\> is signed. Design: \<Awareness and Training Management\>, sections 3.1, 3.2, 3.3, 3.5, 3.6, 3.7 and 3.10 | \<Organisation\>, system owner | Hybrid | Implemented | NC-AT-02, R-AT-01 |
+| AT-1 Policy and Procedures | Policy and procedures in \<Policy\> (AT) and \<Procedures\> (AT); the design is in \<Awareness and Training Management\>. Design: \<Awareness and Training Management\>, section 3.10 | System owner, Head of Cyber | Organisational | Implemented | NC-AT-01 |
+| AT-2 Literacy Training and Awareness | \<Organisation\>'s course, plus the \<System Name\> briefing (\<Awareness and Training Management\>, section 3.3) given when \<Security Operating Procedures\> is signed. Design: \<Awareness and Training Management\>, sections 3.1, 3.2, 3.3, 3.5, 3.6 and 3.7 | \<Organisation\>, system owner | Hybrid | Implemented | NC-AT-02, R-AT-01 |
 | AT-2(2) Insider Threat | Briefing part B4, and \<Organisation\>'s course. Design: \<Awareness and Training Management\>, section 3.3 | \<Organisation\>, system owner | Hybrid | Implemented | NC-AT-03 |
 | AT-2(3) Social Engineering and Mining | Briefing part B3, and \<Organisation\>'s course; no punitive phishing simulations. Design: \<Awareness and Training Management\>, sections 3.1 and 3.3 | \<Organisation\>, system owner | Hybrid | Implemented | NC-AT-04 |
-| AT-3 Role-based Training | Role curriculum M1 to M10 and the training matrix (\<Awareness and Training Management\>, sections 3.4 and 3.5). Design: \<Awareness and Training Management\>, sections 3.1, 3.2, 3.4, 3.5, 3.6, 3.7 and 3.10 | Security officer, Head of Cyber | Organisational | Implemented | NC-AT-05 |
-| AT-4 Training Records | TPL-9 and the training register, kept 3 years; \<Organisation\>'s records of its course (EV-AT-01). Design: \<Awareness and Training Management\>, sections 3.1, 3.6, 3.8, 3.9 and 3.10 | Security officer, \<Organisation\> | Hybrid | Implemented | NC-AT-06 |
+| AT-3 Role-based Training | Role curriculum M1 to M10 and the training matrix (\<Awareness and Training Management\>, sections 3.4 and 3.5). Design: \<Awareness and Training Management\>, sections 3.1, 3.2, 3.4, 3.5, 3.6 and 3.7 | Security officer, Head of Cyber | Organisational | Implemented | NC-AT-05 |
+| AT-4 Training Records | TPL-9 and the training register, kept 3 years; \<Organisation\>'s records of its course (EV-AT-01). Design: \<Awareness and Training Management\>, sections 3.1, 3.6, 3.8 and 3.9 | Security officer, \<Organisation\> | Hybrid | Implemented | NC-AT-06 |
 
 ### 7.3 Audit and Accountability (AU)
 

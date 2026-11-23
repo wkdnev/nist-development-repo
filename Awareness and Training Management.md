@@ -2,15 +2,15 @@
 
 ## 1 Purpose
 
-This document sets out \<System Name\>'s security and privacy awareness and training programme, its learning programme plan in the sense of CSS, which meets the 6 Awareness and Training (AT) controls and enhancements in the CSS Moderate baseline.
+This document is the design of \<System Name\>'s security and privacy awareness and training programme. It covers the Awareness and Training (AT) family of the CSS Moderate baseline, 6 controls and enhancements.
 
-Section 3 is the design: who needs what, the awareness briefing, the role curriculum, the training matrix and timetable, keeping content current, the training register, the measures, and the policy and procedures. It follows the CSS cycle: plan the programme, write the content, give the training, then measure and improve it (sections 3.7 and 3.9). Each subsection names the controls it helps to meet.
+Section 3 is the design: who needs what, the awareness briefing, the role curriculum, the training matrix and timetable, keeping content current, the training register and the measures. The programme is planned, written and given, then measured and improved (sections 3.7 and 3.9).
 
 Training is carried out by people, not by the system, so nothing here is built into \<System Name\>.
 
 ## 2 Related documents
 
-Who provides and is responsible for each control, and its status, are in \<System Security Plan\>, section 7.2 (Table 11). The tests, their results and the records an assessor will ask for are in \<Control Assessment Record\> (AT). Each control's risk is in \<Risk List\>, and what is still open is in \<Plan of Action and Milestones\>. The policy is in \<Policy\> (AT), and the steps people follow are in \<Procedures\> (AT).
+Which section of this design meets each control, who is responsible for it and its status are in \<System Security Plan\>, section 7.2 (Table 11). The assessment is in \<Control Assessment Record\> (AT), the risks are in \<Risk List\>, and open work is in \<Plan of Action and Milestones\>. The policy is in \<Policy\> (AT), and the steps people follow are in \<Procedures\> (AT).
 
 ## 3 The training programme
 
@@ -60,9 +60,9 @@ Awareness has two parts: \<Organisation\>'s general security and privacy course,
 | B1 What \<System Name\> holds | The items in its schemas, marked \<Classification\>; who may see what; why schemas, their read and edit groups, and roles matter |
 | B2 Handling and export | When export is allowed; never forwarding or storing copies outside \<System Name\>; locking the screen |
 | B3 Social engineering and social mining | The forms an attempt takes: phishing and targeted phishing, a false story or false identity (pretexting and impersonation), a reply inside a genuine email thread, bait such as a free download or a found USB stick, an offer of help in return for access, a contact through social media, and following someone through a door. Scenario: an email or call asking for an item "for a tribunal" from someone you don't know. Scenario: an emailed sign-in link that looks like \<System Name\>. Social mining: people gather facts about \<Organisation\>, its staff and \<System Name\> from social media, job adverts, out-of-office replies and casual calls, to make a later request convincing. Do not say what \<System Name\> holds, who uses it or how it is reached. Check with the person through a known route, and report it |
-| B4 Insider threat | Scenario: a colleague exporting many files before leaving. Signs to notice, as CSS lists them: long-lasting and strong dissatisfaction with the job; trying to reach information the person does not need for their work; unexplained access to money; bullying or harassment of colleagues; violence at work; and other serious breaches of policy or rules. Seeing a sign is a reason to report through the route in B5, not to accuse. Access is recorded and monitored, as the SyOps explains |
+| B4 Insider threat | Scenario: a colleague exporting many files before leaving. Signs to notice: long-lasting and strong dissatisfaction with the job; trying to reach information the person does not need for their work; unexplained access to money; bullying or harassment of colleagues; violence at work; and other serious breaches of policy or rules. Seeing a sign is a reason to report through the route in B5, not to accuse. Access is recorded and monitored, as the SyOps explains |
 | B5 Reporting | How to report a suspicious message, a mistake or a lost device; reporting is thanked, never blamed |
-| B6 Privacy | The privacy training for every user (AT-3(5)), about 10 minutes. Which schemas hold personal data, and special category data; using it only for the purpose the schema states, and never exporting or copying it outside \<System Name\> without need; recognising a personal data breach, such as an item sent to the wrong person or a lost export, and reporting it to the security officer within 1 hour; passing any request from a person about their data to the legal adviser, without answering it yourself; and where the privacy notice is. The check includes a question on reporting a breach |
+| B6 Privacy | The privacy training for every user, about 10 minutes. Which schemas hold personal data, and special category data; using it only for the purpose the schema states, and never exporting or copying it outside \<System Name\> without need; recognising a personal data breach, such as an item sent to the wrong person or a lost export, and reporting it to the security officer within 1 hour; passing any request from a person about their data to the legal adviser, without answering it yourself; and where the privacy notice is. The check includes a question on reporting a breach |
 | B7 For line managers | Every access request from your people is raised in ServiceNow. Support it only if the person needs it for their work; the schema's Data Owner authorises it. Tell the group's owner at once when someone moves or leaves. The insider threat signs in B4 show first to a manager: raise a concern early with the security officer or HR |
 
 Between courses, awareness is kept up by the system use notice shown at sign-in, \<Organisation\>'s security messages, and a \<System Name\> security note each quarter, written by the security officer from recent advisories and reports.
@@ -76,19 +76,19 @@ Each module ends with a short check of at least 10 questions, with a pass mark o
 | Module | Learning outcomes | Built on | Length | Delivered by |
 | --- | --- | --- | --- | --- |
 | M1 Privileged access | Use the administrator role only for administration; manage schemas, the read and edit group of each, and system settings safely; recognise misuse | \<Procedures\> (AC); \<Security Operating Procedures\>, Part B | 60 minutes | Security officer |
-| M2 Approving access | Authorise least access in the ServiceNow workflow; add and remove members of an Active Directory group correctly; carry out access reviews | \<Procedures\>, PRO-AC-1, PRO-AC-5 to PRO-AC-7; \<Access Control Management\>, section 3.13 | 30 minutes | Security officer |
+| M2 Approving access | Authorise least access in the ServiceNow workflow; add and remove members of an Active Directory group correctly; carry out access reviews | \<Procedures\> (AC); \<Access Control Management\>, section 3.13 | 30 minutes | Security officer |
 | M3 Configuration and change | Make changes only through change control; keep to the baseline | \<Procedures\> (CM); \<Configuration Management\> | 45 minutes | Security officer |
-| M4 Servers and database | Harden, patch to the timetable, scan, back up and protect keys | \<Procedures\>, PRO-SI-1; \<Risk Assessment Management\>, section 3.6; \<Procedures\> (CP); \<System and Communications Protection Management\> | 90 minutes | Security officer |
-| M5 Secure development | Secure coding to ASVS 5.0 Level 2; bring components in through PRO-SR-1, and spot look-alike and counterfeit packages and libraries; keep secrets out of code; review changes | \<System and Services Acquisition Management\>; \<Procedures\> (SA); \<Procedures\> (SR) | 90 minutes | Security officer |
+| M4 Servers and database | Harden, patch to the timetable, scan, back up and protect keys | \<Procedures\> (SI); \<Risk Assessment Management\>, section 3.6; \<Procedures\> (CP); \<System and Communications Protection Management\> | 90 minutes | Security officer |
+| M5 Secure development | Secure coding to ASVS 5.0 Level 2; bring components in through the supply chain check, and spot look-alike and counterfeit packages and libraries; keep secrets out of code; review changes | \<System and Services Acquisition Management\>; \<Procedures\> (SA); \<Procedures\> (SR) | 90 minutes | Security officer |
 | M6 Monitoring and audit review | Auditors: read and review the audit log weekly, compare it with the server, database, PingFederate and Active Directory records, record the review, and report anything suspicious to the security officer. Security officers: review the alerts and the central logs, and use the detection use cases; they do not read the audit log | \<Audit and Accountability Management\>; \<System and Information Integrity Management\>, section 3.4 | 60 minutes | Head of Cyber |
-| M7 Incident response (IR-2) | Recognise, report, contain and record an incident; know your part in the playbooks | \<Incident Response Management\>; \<Procedures\> (IR) | 60 minutes | Security officer |
-| M8 Contingency (CP-3) | Know your part in recovery; restore from backup | \<Contingency Planning Management\>; \<Procedures\> (CP) | 45 minutes | System owner |
-| M9 Personal data (AT-3(5)), for the roles in Table 4 | Lawful use of personal data; requests and complaints; breaches | \<PII Processing Management\>; \<Procedures\> (PT) | 45 minutes | Legal adviser |
-| M10 Risk decisions in incidents and recovery (IR-2, CP-3) | For the authorising official: when they are called in an incident or a recovery; the severity levels; the decisions that are theirs (running in a reduced state, going beyond the recovery time objective, the risk arising from an incident); and what each decision needs | \<Incident Response Management\>, sections 3.3 and 3.6; \<Contingency Planning Management\>, sections 3.4 and 3.5 | 20 minutes | Security officer |
+| M7 Incident response | Recognise, report, contain and record an incident; know your part in the playbooks | \<Incident Response Management\>; \<Procedures\> (IR) | 60 minutes | Security officer |
+| M8 Contingency | Know your part in recovery; restore from backup | \<Contingency Planning Management\>; \<Procedures\> (CP) | 45 minutes | System owner |
+| M9 Personal data, for the roles in Table 4 | Lawful use of personal data; requests and complaints; breaches | \<PII Processing Management\>; \<Procedures\> (PT) | 45 minutes | Legal adviser |
+| M10 Risk decisions in incidents and recovery | For the authorising official: when they are called in an incident or a recovery; the severity levels; the decisions that are theirs (running in a reduced state, going beyond the recovery time objective, the risk arising from an incident); and what each decision needs | \<Incident Response Management\>, sections 3.3 and 3.6; \<Contingency Planning Management\>, sections 3.4 and 3.5 | 20 minutes | Security officer |
 
 ### 3.5 Training matrix
 
-Every role with access must complete awareness, the briefing and signing \<Security Operating Procedures\> before access; roles without access take what their row sets. Role modules come before privileged access, or for developers before they first work on the code. M7, M8 and M10 are the incident response and contingency training of IR-2 and CP-3, and are taken within 30 days of taking the role, as those controls allow. The security officer, the system owner and their deputies take M7 and M8 before taking the role, because they lead the response and the recovery from the first day. All are repeated every 12 months.
+Every role with access must complete awareness, the briefing and signing \<Security Operating Procedures\> before access; roles without access take what their row sets. Role modules come before privileged access, or for developers before they first work on the code. M7, M8 and M10, the incident response and contingency training, are taken within 30 days of taking the role. The security officer, the system owner and their deputies take M7 and M8 before taking the role, because they lead the response and the recovery from the first day. All are repeated every 12 months.
 
 **Table 4: Training matrix**
 
@@ -110,13 +110,11 @@ Every role with access must complete awareness, the briefing and signing \<Secur
 | Authorising official | \<Organisation\>'s course | None: no access | None | M10 |
 | Line managers who are not \<System Name\> users | Briefing part B7 only, before their first approval | None: no access | None | None |
 
-The matrix carries out AT-2, AT-3, AT-3(5) (\<PII Processing Management\>), IR-2, CP-3 and PL-4 (\<Security Operating Procedures\>).
-
-**Privacy training.** Every user's privacy training is briefing part B6, given before access and every 12 months. Module M9 is for the roles that make decisions about personal data or can reach it across schemas or outside the application: the system owner, Data Owners, the information owner, administrators, Windows server and database administrators, the security officer, the auditor, the business owner and the legal adviser's delegate. Together they meet AT-3(5).
+**Privacy training.** Every user's privacy training is briefing part B6, given before access and every 12 months. Module M9 is for the roles that make decisions about personal data or can reach it across schemas or outside the application: the system owner, Data Owners, the information owner, administrators, Windows server and database administrators, the security officer, the auditor, the business owner and the legal adviser's delegate.
 
 **Deputies.** A deputy holds the same training as the role they cover (\<Roles and Responsibilities\>, section 5), follows that role's row, and is in the register under it.
 
-**Roles without access.** Role training is for everyone with a security or privacy duty for \<System Name\>, not only those with access to it. The CSS guidance on AT-3 names senior security and privacy officers, authorising officials and system owners among those who may need it. So the legal adviser, the authorising official, the information owner and line managers are in the matrix for the duties they hold, though most have no access: the legal adviser's part in incident response, the authorising official's risk decisions in an incident or a recovery, the information owner's categorisation, and the line manager's approval of access requests. Four roles stay out of the matrix. Three rely on \<Organisation\>'s own training, evidenced through EV-AT-02: the Head of Cyber, who approves the policies, delivers module M6 and reviews the administrators' group; the data protection officer, who leads \<Organisation\>'s privacy programme; and \<Organisation\>'s security contact, who works in its security team. The security assessor is independent of \<System Name\> and is not trained by it; their independence is confirmed on the assessor independence statement.
+**Roles without access.** Role training is for everyone with a security or privacy duty for \<System Name\>, not only those with access to it. The legal adviser, the authorising official, the information owner and line managers are in the matrix for the duties they hold, though most have no access: the legal adviser's part in incident response, the authorising official's risk decisions in an incident or a recovery, the information owner's categorisation, and the line manager's approval of access requests. Four roles stay out of the matrix. Three rely on \<Organisation\>'s own training: the Head of Cyber, who approves the policies, delivers module M6 and reviews the administrators' group; the data protection officer, who leads \<Organisation\>'s privacy programme; and \<Organisation\>'s security contact, who works in its security team. The security assessor is independent of \<System Name\> and is not trained by it; their independence is confirmed on the assessor independence statement.
 
 ### 3.6 When training happens
 
@@ -140,11 +138,9 @@ The matrix carries out AT-2, AT-3, AT-3(5) (\<PII Processing Management\>), IR-2
 3. The legal adviser reviews the privacy content.
 4. Each change is recorded on the change record, citing the incident record or exercise report the lesson came from, and the content version goes up. Each training record names the version given.
 
-The steps are in \<Procedures\>, PRO-AT-3.
-
 ### 3.8 Training register
 
-The security officer keeps this register from the training records. The system owner checks it before authorising a role. Records are kept for 3 years. CSS leaves the period to the organisation, and 3 years lets an assessor see each person's last three yearly completions. Each record names the person, the role, the training and its content version, the date, the result of the check, who gave it and the next due date. \<Organisation\> keeps its own course records and provides them on request. The layout stays here. Once the records store is set up, the live register, with its names and dates, is kept there.
+The security officer keeps this register from the training records. The system owner checks it before authorising a role. Records are kept for 3 years, which holds each person's last three yearly completions. Each record names the person, the role, the training and its content version, the date, the result of the check, who gave it and the next due date. \<Organisation\> keeps its own course records and provides them on request. The layout stays here. Once the records store is set up, the live register, with its names and dates, is kept there.
 
 **Table 6: Training register**
 
@@ -180,23 +176,7 @@ The security officer reports these monthly with the continuous monitoring measur
 | Suspicious messages reported each month | Rising; reports, not clicks, are counted |
 | Content reviewed within 12 months and after each significant incident | 100% |
 
-### 3.10 Parameters
+### 3.10 Policy and procedures
 
-Table 8 gives the values CSS asks the organisation to define for AT. This document is written to them, and \<Decision Register\> records their approval.
-
-**Table 8: AT parameters**
-
-| CSS parameter | Value |
-| --- | --- |
-| AT-02\_ODP\[01\], \[02\]: how often literacy training is given | Before access, then every 12 months |
-| AT-02\_ODP\[03\], \[04\]: events that require literacy training | A significant change, a significant incident, or an exercise that changes a role's steps; those affected take the updated briefing or module within 30 days |
-| AT-02\_ODP\[05\]: awareness techniques | The system use notice, \<Organisation\>'s security messages and the quarterly security note |
-| AT-02\_ODP\[06\], \[07\]; AT-03\_ODP\[04\], \[05\]: when content is updated | Every 12 months, and within 30 days of a significant incident, exercise or significant change |
-| AT-03\_ODP\[01\], \[02\]; AT-03(05)\_ODP\[01\]: who takes role-based and privacy training | The roles in Table 4 |
-| AT-03\_ODP\[03\]; AT-03(05)\_ODP\[02\]: how often role training is repeated | Every 12 months |
-| AT-04\_ODP: how long records are kept | 3 years from the date of the training |
-
-### 3.11 Policy and procedures
-
-\<Policy\> (AT) and \<Procedures\> (AT) meet AT-1. Who they are shared with is in \<Policy\>, section AT.6. Their ownership, approval, review and records follow the rules common to every policy in \<Policy\>, section 1.1.
+\<Policy\> (AT) and \<Procedures\> (AT) are the policy and procedures for this family. Who they are shared with is in \<Policy\>, section AT.6. Their ownership, approval, review and records follow the rules common to every policy in \<Policy\>, section 1.1.
 

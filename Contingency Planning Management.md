@@ -2,19 +2,19 @@
 
 ## 1 Purpose
 
-This document sets out how \<System Name\> is recovered after a failure, and the design that meets the 23 Contingency Planning (CP) controls and enhancements in the CSS Moderate baseline.
+This document is \<System Name\>'s contingency plan: the design for how it is recovered after a failure. It covers the Contingency Planning (CP) family of the CSS Moderate baseline, 23 controls and enhancements.
 
-Section 3 is the design, and is the contingency plan that CP-2 requires: the principles, scope and assumptions, the business impact analysis, the roles, the three phases of activation and notification, recovery and reconstitution, the backups, the second site and telecommunications, testing, training and exercises, what \<Organisation\> provides, keeping the plan current, coordination with related plans, and the policy and procedures. With appendix A, which holds the contacts, and appendix B, which lists the associated plans, it can be used on its own in an emergency. Each subsection names the controls it helps to meet.
+Section 3 is the plan: the principles, scope and assumptions, the business impact analysis, the roles, the three phases of activation and notification, recovery and reconstitution, the backups, the second site and telecommunications, testing, training and exercises, what \<Organisation\> provides, keeping the plan current, and coordination with related plans. With appendix A, which holds the contacts, and appendix B, which lists the associated plans, it can be used on its own in an emergency.
 
 ### 1.1 Distribution and protection
 
-Copies go to the people in section 3.4 and the authorising official. \<Organisation\>'s IT service desk receives sections 3.5, 3.6 and 3.9 and appendix A, which it needs to act (CP-02\_ODP\[04\]). The same people are told of every change, with a note of what changed (CP-2f).
+Copies go to the people in section 3.4 and the authorising official. \<Organisation\>'s IT service desk receives sections 3.5, 3.6 and 3.9 and appendix A, which it needs to act. The same people are told of every change, with a note of what changed.
 
-The document is marked \<Classification\>. It is kept in the restricted document store (until the store is set up, the private records repository; \<Documentation Map\>, section 4.1) with the other records, where only the people above can read it and only the system owner can change it (CP-2h). The system owner and security officer each keep a current offline copy, so that the plan can be used when \<System Name\> and the document store are down. The offline copy is section 3 with appendices A and B, which together are the whole plan. There is no separate plan document. Each offline copy is held on an encrypted \<Organisation\> managed device, or printed, marked and kept in locked storage, and is replaced whenever the plan changes. The superseded copy is destroyed as \<Media Protection Management\>, section 3.6, sets out.
+The document is marked \<Classification\>. It is kept in the restricted document store (until the store is set up, the private records repository; \<Documentation Map\>, section 4.1) with the other records, where only the people above can read it and only the system owner can change it. The system owner and security officer each keep a current offline copy, so that the plan can be used when \<System Name\> and the document store are down. The offline copy is section 3 with appendices A and B, which together are the whole plan. There is no separate plan document. Each offline copy is held on an encrypted \<Organisation\> managed device, or printed, marked and kept in locked storage, and is replaced whenever the plan changes. The superseded copy is destroyed as \<Media Protection Management\>, section 3.6, sets out.
 
 ## 2 Related documents
 
-Who provides and is responsible for each control, and its status, are in \<System Security Plan\>, section 7.6 (Table 15). The tests, their results and the records an assessor will ask for are in \<Control Assessment Record\> (CP). Each control's risk is in \<Risk List\>, and what is still open is in \<Plan of Action and Milestones\>. The policy is in \<Policy\> (CP), and the steps people follow are in \<Procedures\> (CP).
+Which section of this design meets each control, who is responsible for it and its status are in \<System Security Plan\>, section 7.6 (Table 15). The assessment is in \<Control Assessment Record\> (CP), the risks are in \<Risk List\>, and open work is in \<Plan of Action and Milestones\>. The policy is in \<Policy\> (CP), and the steps people follow are in \<Procedures\> (CP).
 
 ## 3 The contingency plan
 
@@ -49,7 +49,7 @@ The plan recovers \<System Name\> in three phases: activation and notification, 
 
 ### 3.3 Business impact analysis
 
-This analysis follows CSS, Appendix B. \<System Name\>'s availability is rated Low: an outage delays work, but no service to the public stops. Losing items or audit records cannot be tolerated.
+\<System Name\>'s availability is rated Low: an outage delays work, but no service to the public stops. Losing items or audit records cannot be tolerated.
 
 #### 3.3.1 Impact over time
 
@@ -75,7 +75,7 @@ While \<System Name\> is down nobody can use it, so an outage does not leave lea
 | Administration | 14 days | 7 days | As above | 2 |
 | Reports and bulk export | 14 days | 7 days | Not applicable: produced from the database | 3 |
 
-Every time in Table 2 is counted from the start of the outage, not from when the plan is invoked. The recovery time objective includes reconstitution (section 3.7), so 72 hours is the time for both recovery and reconstitution (CP-10), and users return within 72 hours of the outage starting. The plan is invoked at the latest 24 hours in (section 3.5.1), so the essential functions resume within 72 hours of activation, and normally well within it (CP-2(3)). That leaves 48 hours within the maximum tolerable downtime for a failed first attempt, such as a damaged backup.
+Every time in Table 2 is counted from the start of the outage, not from when the plan is invoked. The recovery time objective includes reconstitution (section 3.7), so 72 hours is the time for both recovery and reconstitution, and users return within 72 hours of the outage starting. The plan is invoked at the latest 24 hours in (section 3.5.1), so the essential functions resume within 72 hours of activation, and normally well within it. That leaves 48 hours within the maximum tolerable downtime for a failed first attempt, such as a damaged backup.
 
 #### 3.3.3 Components, dependencies and order of recovery
 
@@ -91,11 +91,11 @@ Every time in Table 2 is counted from the start of the outage, not from when the
 | 6 | UI application | Finding and reading items | 5 | The tagged release |
 | 7 | Admin application | Administration | 5 | The tagged release |
 
-\<System Name\> cannot be used while PingFederate is unavailable, because nobody can sign in. \<Organisation\>'s recovery time for PingFederate and Active Directory therefore sets a floor under \<System Name\>'s own. It is asked for with EV-CP-01. If it is longer than 72 hours, the system owner takes the recovery objectives back to the authorising official.
+\<System Name\> cannot be used while PingFederate is unavailable, because nobody can sign in. \<Organisation\>'s recovery time for PingFederate and Active Directory therefore sets a floor under \<System Name\>'s own. If it is longer than 72 hours, the system owner takes the recovery objectives back to the authorising official.
 
 #### 3.3.4 Essential assets
 
-**Table 4: Essential assets (CP-2(8))**
+**Table 4: Essential assets**
 
 | Asset | Why it is essential | Recovery |
 | --- | --- | --- |
@@ -149,12 +149,12 @@ Within 4 hours of a report, the database and Windows server administrators asses
 
 #### 3.6.1 Order of recovery
 
-Recovery follows PRO-CP-3 in the order of recovery in section 3.3.3, at the second site if the main one is lost:
+Recovery follows the order of recovery in section 3.3.3, at the second site if the main one is lost:
 
 1. Confirm \<Organisation\>'s services and the site are available, including PingFederate, without which nobody can sign in, and that the firewall allows every flow F1 to F11 in \<System Description\>, section 6.5, including the application server's route to PingFederate (flow F10) and the administrators' managed administration route (flow F11), and the infrastructure rules for DNS, the domain controllers and the certificate authority (\<System and Communications Protection Management\>, section 3.2).
 2. Rebuild the database VM to the baseline in \<Configuration Management\>, sections 3.4 and 3.6, including its server-level settings: the API's login, SQL Server Audit and the backup jobs. Check them against the latest system-level backup (section 3.8).
 3. Restore the secrets from their protected copy. First restore the backup encryption certificate and its private key into SQL Server, with any retired certificate that the chosen backup needs: without it the backup cannot be read.
-4. Restore the latest good backup, then apply the archived transaction logs up to the last consistent point (CP-10(2)). If a backup fails its checks, use the one before it.
+4. Restore the latest good backup, then apply the archived transaction logs up to the last consistent point. If a backup fails its checks, use the one before it.
 5. Rebuild the application VM from the tagged release, with each application as a Windows service under its own group managed service account, and start the API, then the UI application, then the Admin application.
 6. If a compromise is suspected, change every secret, and create a new backup encryption certificate for the backups that follow, keeping the old one until the backups it encrypted are removed.
 7. Move to reconstitution (section 3.7).
@@ -175,14 +175,14 @@ As soon as it is clear that users will not be back within 72 hours of the outage
 
 Users return only once steps 1 to 6 are done, and steps 7 to 9 follow straight after.
 
-1. **Validate the data:** the database administrator runs the checks in PRO-CP-2: row counts against the last known counts, each stored file against its SHA-256 checksum, and the audit chain checked from end to end. The newest audit record shows how much data was lost, against the recovery point objective.
+1. **Validate the data:** the database administrator checks row counts against the last known counts, each stored file against its SHA-256 checksum, and the audit chain from end to end. The newest audit record shows how much data was lost, against the recovery point objective.
 2. **Re-apply deletions:** if the database could not be brought forward to the moment of the failure, items disposed of under the retention schedule, or deleted after a person's request, since the backup was taken would be back. The business owner and the legal adviser check their records of disposals and requests since that time, and the items are deleted again before users return (\<PII Processing Management\>, section 3.7).
 3. **Validate the functions:** sign in, find and read an item, upload a test item to a test schema and remove it, and sign in to the Admin application. Audit records must be written for each.
 4. **Confirm the controls:** the security officer checks that the controls match the main site, including encryption in transit, the members of \<System Name\>'s AD groups against current staff, and audit logging.
 5. **Back up at once:** a full backup is taken and confirmed at the second site.
 6. **Declare recovery:** the system owner declares \<System Name\> recovered, and tells users and the people in section 3.4.
 7. **Clean up:** temporary access is removed. If running at the second site, the return to the main site is a planned change under \<Configuration Management\>.
-8. **Deactivate and learn:** the system owner closes the plan's activation. Within 10 working days an after-action report is written on the exercise and restore test record, and this plan is updated (CP-2g).
+8. **Deactivate and learn:** the system owner closes the plan's activation. Within 10 working days an after-action report is written on the exercise and restore test record, and this plan is updated.
 9. **Restart monitoring, and check the authorisation:** the security officer confirms that the monitoring duties have restarted. If the recovery changed the system in a way that counts as a significant change, such as a move to the second site, the authorising official decides whether \<System Name\> must be assessed or authorised again (\<Assessment, Authorization, and Monitoring Management\>, section 3.9).
 
 ### 3.8 Backups
@@ -215,24 +215,22 @@ The system documentation, including this plan and the other security and privacy
 **Second site.** \<Organisation\> is expected to provide a second site, far enough from the main one not to share its hazards, such as flood, power supply or a single building. The same site serves for storing backups and for processing.
 
 - **Storage.** It holds the encrypted backups, with one copy offline or immutable, under the same physical and access controls as the main site. Backups are encrypted before they leave the database server, so the site's staff cannot read them.
-- **Processing.** If the main site is lost, both servers are rebuilt there, on virtual servers that \<Organisation\> provides, and the essential functions resume within 72 hours of the outage starting (section 3.6.1). \<System Name\> needs nothing else there but its backups, its secrets and the tagged release. The servers are rebuilt to the same baseline (\<Configuration Management\>, section 3.4) by \<System Name\>'s Windows server and database administrators, and the security officer confirms the controls before users return (section 3.7). CP-7 is therefore shared: \<Organisation\> provides the site, the virtual servers and the agreement, and \<System Name\> provides the rebuild and the equivalent controls.
+- **Processing.** If the main site is lost, both servers are rebuilt there, on virtual servers that \<Organisation\> provides, and the essential functions resume within 72 hours of the outage starting (section 3.6.1). \<System Name\> needs nothing else there but its backups, its secrets and the tagged release. The servers are rebuilt to the same baseline (\<Configuration Management\>, section 3.4) by \<System Name\>'s Windows server and database administrators, and the security officer confirms the controls before users return (section 3.7). \<Organisation\> provides the site, the virtual servers and the agreement, and \<System Name\> provides the rebuild and the equivalent controls.
 - **Priority.** \<Organisation\> is asked what priority \<System Name\> has at the second site. Availability is rated Low, with 72 hours to recover, so a modest priority is enough.
 - **Reaching it.** If a wide-area disruption makes the second site hard to reach, \<Organisation\>'s plans say how the site and its backups are reached. \<System Name\> asks for that part of its plans.
 
-**Telecommunications.** Alternate telecommunications are inherited from \<Organisation\>. Its network connects users to both sites. The alternate service must let the essential functions resume within 72 hours of the outage starting, whether the main service fails at the main site or the second site (CP-8). \<Organisation\> is asked what alternate service exists, how quickly it takes over, and what priority its main and alternate agreements give. The alternate service must not share a route, a building entry or a provider with the main one. Telecommunications Service Priority is a United States scheme, so \<Organisation\> is asked whether it uses any UK equivalent.
-
-The evidence is asked for with EV-CP-01 and EV-CP-02. If it is not available, the system owner takes the risk to the authorising official.
+**Telecommunications.** Alternate telecommunications are inherited from \<Organisation\>. Its network connects users to both sites. The alternate service must let the essential functions resume within 72 hours of the outage starting, whether the main service fails at the main site or the second site. \<Organisation\> is asked what alternate service exists, how quickly it takes over, and what priority its main and alternate agreements give. The alternate service must not share a route, a building entry or a provider with the main one. Telecommunications Service Priority is a United States scheme, so \<Organisation\> is asked whether it uses any UK equivalent.
 
 ### 3.10 Testing, training and exercises
 
-This follows CSS. The first restore test and tabletop exercise take place within 30 days of the VMs being built, and before production.
+The first restore test and tabletop exercise take place within 30 days of the VMs being built, and before production.
 
 **Table 7: Test, training and exercise schedule**
 
 | Activity | When | Who | Objective | Record |
 | --- | --- | --- | --- | --- |
-| Role training | Within 30 days of taking a role, and every 12 months. The system owner, the security officer and their deputies take it before taking the role | Everyone in section 3.4: module M8, delivered by the system owner (the security officer delivers it to the system owner), or M10 for the authorising official. \<Organisation\>'s IT service desk is trained by \<Organisation\> | Each person knows this plan, their steps in PRO-CP, the call tree and where the offline copy is | Training record |
-| Restore test | First within 30 days of the VMs being built; then every 6 months | Database administrator, observed by the security officer | Restore the latest backup, with its certificate, to the restore test server at the second site (section 3.8) within the recovery time objective, and pass the checks in PRO-CP-2 | Exercise and restore test record |
+| Role training | Within 30 days of taking a role, and every 12 months. The system owner, the security officer and their deputies take it before taking the role | Everyone in section 3.4: module M8, delivered by the system owner (the security officer delivers it to the system owner), or M10 for the authorising official. \<Organisation\>'s IT service desk is trained by \<Organisation\> | Each person knows this plan, their steps in \<Procedures\> (CP), the call tree and where the offline copy is | Training record |
+| Restore test | First within 30 days of the VMs being built; then every 6 months | Database administrator, observed by the security officer | Restore the latest backup, with its certificate, to the restore test server at the second site (section 3.8) within the recovery time objective, and pass the data checks in section 3.7, step 1 | Exercise and restore test record |
 | Tabletop exercise, with the incident response plan | First within 30 days of the VMs being built; then every 12 months | Everyone in section 3.4, and \<Organisation\>'s IT service desk | Walk through one scenario from activation to deactivation | Exercise and restore test record |
 | Plan review | Every 12 months, and after each test or activation | System owner and authorising official | Keep the plan current and build in what was learned | Change record |
 
@@ -246,7 +244,7 @@ Each test has objectives and a scenario set beforehand. Each test or activation 
 
 | Provided | What \<System Name\> relies on |
 | --- | --- |
-| A second site for backups and for rebuilt servers | A site that does not share the main site's hazards, holds the encrypted backups with one offline or immutable copy, runs the restore test server, meets the same physical and environmental requirements as the main site (\<Physical and Environmental Protection Management\>, section 3.10), can run both servers within 72 hours, and can be reached in a wide-area disruption. For CP-7, \<Organisation\> provides the site and \<System Name\> the rebuild |
+| A second site for backups and for rebuilt servers | A site that does not share the main site's hazards, holds the encrypted backups with one offline or immutable copy, runs the restore test server, meets the same physical and environmental requirements as the main site (\<Physical and Environmental Protection Management\>, section 3.10), can run both servers within 72 hours, and can be reached in a wide-area disruption. \<Organisation\> provides the site and \<System Name\> the rebuild |
 | A backup service | Copying each encrypted backup to the second site, keeping one copy offline or immutable, deleting expired copies, and holding the protected copy of the secrets apart from the backups |
 | Alternate telecommunications | An alternate service with no single point of failure shared with the main one, and a stated priority |
 | Its own disaster recovery and business continuity plans | Who declares a disaster, and the recovery times of the network, PingFederate, Active Directory, name resolution and time |
@@ -264,7 +262,7 @@ Appendix B lists the related plans. This plan and the incident response plan eac
 
 ### 3.14 Policy and procedures
 
-\<Policy\> (CP) and \<Procedures\> (CP) meet CP-1. Who they are shared with is in \<Policy\>, section CP.6. Their ownership, approval, review and records follow the rules common to every policy in \<Policy\>, section 1.1.
+\<Policy\> (CP) and \<Procedures\> (CP) are the policy and procedures for this family. Who they are shared with is in \<Policy\>, section CP.6. Their ownership, approval, review and records follow the rules common to every policy in \<Policy\>, section 1.1.
 
 ## Appendix A Contacts
 
@@ -286,7 +284,7 @@ Appendix B lists the related plans. This plan and the incident response plan eac
 
 | Plan or record | Owner | How it relates |
 | --- | --- | --- |
-| \<Incident Response Management\> Incident response plan | Security officer | Leads when an outage may be an incident (section 3.6.2); exercised together (CP-4(1)) |
+| \<Incident Response Management\> Incident response plan | Security officer | Leads when an outage may be an incident (section 3.6.2); exercised together |
 | \<Organisation\>'s disaster recovery and business continuity plans \[names to add\] | \<Organisation\> | Provide the network, second site and telecommunications |
 | \<Configuration Management\>, the configuration management plan | System owner | The baseline the VMs and applications are rebuilt to |
 | \<Security Operating Procedures\> Security Operating Procedures | System owner | The routine backup, test and review steps and planned shutdown |

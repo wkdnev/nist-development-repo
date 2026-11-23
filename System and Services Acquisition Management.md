@@ -4,13 +4,13 @@
 
 This document sets out how \<System Name\> is designed to be built and bought securely, to meet the 17 System and Services Acquisition (SA) controls and enhancements in the CSS Moderate baseline.
 
-Section 3 is the design: the development framework; the lifecycle, roles and resources; contracts and design information; documentation; engineering principles; external services; developer configuration management; the developer test plan; the process, standards and tools; criticality analysis; unsupported components; what \<Organisation\> and the providers supply; and the policy and procedures. Each subsection names the controls it helps to meet.
+Section 3 is the design: the development framework; the lifecycle, roles and resources; contracts and design information; documentation; engineering principles; external services; developer configuration management; the developer test plan; the process, standards and tools; criticality analysis; unsupported components; what \<Organisation\> and the providers supply; and the policy and procedures.
 
 \<System Name\> is built in-house under \<Organisation\>'s corporate software development life cycle (SDLC), which is inherited from \<Organisation\> (\<System Description\>, section 7.12), so its developers carry most of these duties within it. What comes from outside is \<Organisation\>'s hosting and services, agreed through the interface record, and the packages of the public package registry behind the in-house package feed.
 
 ## 2 Related documents
 
-Who provides and is responsible for each control, and its status, are in \<System Security Plan\>, section 7.16 (Table 25). The tests, their results and the records an assessor will ask for are in \<Control Assessment Record\> (SA). Each control's risk is in \<Risk List\>, and what is still open is in \<Plan of Action and Milestones\>. The policy is in \<Policy\> (SA), and the steps people follow are in \<Procedures\> (SA). Four records sit beside this one, each holding what CSS asks the system's own documents to hold: the engineering principles in \<System Description\>, section 6.8; the functions, ports, protocols and services in \<System Security Plan\>, section 3.7; the critical components in \<Risk Assessment Management\>, section 3.9; and the component support dates in \<Maintenance Management\>, section 3.8. The values this design runs on are set out in this document, and approved in \<Decision Register\>.
+Which section of this design meets each control, who is responsible for it and its status are in \<System Security Plan\>, section 7.16 (Table 25). The assessment is in \<Control Assessment Record\> (SA), the risks are in \<Risk List\>, and open work is in \<Plan of Action and Milestones\>. The policy is in \<Policy\> (SA), and the steps people follow are in \<Procedures\> (SA). Four records sit beside this one, each holding what CSS asks the system's own documents to hold: the engineering principles in \<System Description\>, section 6.8; the functions, ports, protocols and services in \<System Security Plan\>, section 3.7; the critical components in \<Risk Assessment Management\>, section 3.9; and the component support dates in \<Maintenance Management\>, section 3.8. The values this design runs on are set out in this document, and approved in \<Decision Register\>.
 
 ## 3 The design
 
@@ -96,11 +96,11 @@ Nothing is bought for \<System Name\> under contract today. \<Organisation\>'s s
 
 As the developer, \<System Name\>'s team provides the design information CSS asks for:
 
-1. **What each control does** (SA-4(1)): each family's design document, and the security plan, section 7.
-2. **How the controls are designed** (SA-4(2)): the security-relevant external interfaces and the high-level design in \<System Description\>, section 6, and the security plan, sections 3 and 4, and how each security function is built, in the family design documents: enough for an assessor to judge each control.
-3. **The functions, ports, protocols and services in use** (SA-4(9)): the security plan, section 3.7, the allowed flows F1 to F11 in \<System Description\>, section 6.5, and \<Access Control Management\>, section 3.6.
+1. **What each control does**: each family's design document, and the security plan, section 7.
+2. **How the controls are designed**: the security-relevant external interfaces and the high-level design in \<System Description\>, section 6, and the security plan, sections 3 and 4, and how each security function is built, in the family design documents: enough for an assessor to judge each control.
+3. **The functions, ports, protocols and services in use**: the security plan, section 3.7, the allowed flows F1 to F11 in \<System Description\>, section 6.5, and \<Access Control Management\>, section 3.6.
 
-PIV products (SA-4(10)) are not applicable, as \<System Name\> does not use United States government identity cards (TR-SA-01).
+PIV products are not applicable, as \<System Name\> does not use United States government identity cards (TR-SA-01).
 
 ### 3.5 Documentation
 
@@ -144,7 +144,7 @@ Table 4 lists the external services \<System Name\> relies on. The \<Organisatio
 | Source repositories, build pipeline and in-house package feed | \<Organisation\>, under the corporate SDLC | Hold all source code, history and release tags; build and test each release; supply every package | \<Organisation\>'s corporate SDLC, which is inherited, and the repository service's own controls | EV-SA-03, EV-SA-04 |
 | Package registry | nuget.org, whose packages reach \<System Name\> only through the in-house package feed; builds read only its vulnerability data directly | Supplies the .NET packages. Browser libraries come from their publishers' releases, not from it (\<Supply Chain Risk Management\>, section 3.7) | No agreement. It is a supplier of components, not a service \<System Name\> connects to, so SA-9(2) is not asked of it. Each package is trusted on its signature and the check made before it is used, and the registry is managed as a supplier (\<Supply Chain Risk Management\>, section 3.5) | Package checks |
 
-**Trust and service levels.** Each row says what \<System Name\>'s trust in the service rests on, as CSS asks (SA-9). For \<Organisation\>'s services, the service description should state the service levels, how they are measured, and the remedies when they are missed; these are asked for with EV-SA-02. The public package registry offers none, so \<System Name\> relies on its own checks of what it supplies; the risk of a harmful package reaching a release is R-RA-06. The authorising official keeps the risk of each external service.
+**Trust and service levels.** Each row says what \<System Name\>'s trust in the service rests on, as CSS asks. For \<Organisation\>'s services, the service description should state the service levels, how they are measured, and the remedies when they are missed; these are asked for with EV-SA-02. The public package registry offers none, so \<System Name\> relies on its own checks of what it supplies; the risk of a harmful package reaching a release is R-RA-06. The authorising official keeps the risk of each external service.
 
 ### 3.8 Developer configuration management
 
@@ -160,7 +160,7 @@ Table 4 lists the external services \<System Name\> relies on. The \<Organisatio
 
 ### 3.9 Developer test plan
 
-This is the developer security and privacy test plan (SA-11). The testing selected is unit, integration, system and regression testing: unit and integration tests at each build, the scripts on the whole throwaway system at each release, and a repeat run to confirm each fix (SA-11\_ODP\[01\], \[02\]).
+This is the developer security and privacy test plan. The testing selected is unit, integration, system and regression testing: unit and integration tests at each build, the scripts on the whole throwaway system at each release, and a repeat run to confirm each fix (SA-11\_ODP\[01\], \[02\]).
 
 **Depth and coverage** (SA-11\_ODP\[03\]). Every security and privacy function in Table 6 is tested at each release, in each application and on each server where it applies, with at least one test that it allows what it should and one that it refuses what it should; the other kinds of analysis in Table 5 run at their stated frequency.
 
@@ -181,7 +181,7 @@ The scripts are one kind of analysis among several that the CSS guidance expects
 | Verification to OWASP ASVS 5.0 Level 2 | The web applications checked against each Level 2 requirement, with the result recorded | Before go-live, then at each major release |
 | Penetration test | By a tester independent of the build | Before go-live |
 
-**Flaws.** Each flaw found goes to the Risk List and the POA&M, and is fixed in development. A fixed flaw is accepted only when its test passes on a repeat run (PRO-SA-2, step 4).
+**Flaws.** Each flaw found goes to the Risk List and the POA&M, and is fixed in development. A fixed flaw is accepted only when its test passes on a repeat run.
 
 The plan, its results and the evidence are protected as the document set is: restricted, and held in the restricted store (until the store is set up, the private records repository; \<Documentation Map\>, section 4.1).
 
@@ -226,7 +226,7 @@ The process is \<Organisation\>'s corporate SDLC, meeting CSS \<ver\> (section 3
 
 ### 3.11 Criticality analysis
 
-The criticality analysis (SA-15(3)) is held in \<Risk Assessment Management\>, section 3.9, with its method, the critical components and the critical functions. The developers make it with the system owner:
+The criticality analysis is held in \<Risk Assessment Management\>, section 3.9, with its method, the critical components and the critical functions. The developers make it with the system owner:
 
 1. **When** (SA-15(03)\_ODP\[01\]): at design, before \<System Name\> is built, and at each major release and after a significant change.
 2. **Breadth** (SA-15(03)\_ODP\[02\]): every component in the authorisation boundary, and each outside service it relies on.
@@ -248,4 +248,4 @@ Each component is replaced before its vendor's support ends, with the replacemen
 
 ### 3.14 Policy and procedures
 
-\<Policy\> (SA) and \<Procedures\> (SA) meet SA-1. Who they are shared with is in \<Policy\>, section SA.6. Their ownership, approval, review and records follow the rules common to every policy in \<Policy\>, section 1.1.
+\<Policy\> (SA) and \<Procedures\> (SA) are the policy and procedures for this family. Who they are shared with is in \<Policy\>, section SA.6. Their ownership, approval, review and records follow the rules common to every policy in \<Policy\>, section 1.1.

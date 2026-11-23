@@ -2,17 +2,15 @@
 
 ## 1 Purpose
 
-This document sets out how \<System Name\> is designed and configured to meet the 24 Identification and Authentication (IA) controls and enhancements in the CSS Moderate baseline.
+This document is the identification and authentication design for \<System Name\>. It covers the Identification and Authentication (IA) family of the CSS Moderate baseline, 24 controls and enhancements.
 
-Section 3 is the design: who and what is identified, sign-in through PingFederate, the assurance levels, the authenticators, the authentication settings against CSS, sign-in lifetime and signing in again, identity proofing, what \<Organisation\> provides, and the policy and procedures. Each subsection names the controls it helps to meet.
+Section 3 is the design: who and what is identified, sign-in through PingFederate, the assurance levels, the authenticators, the authentication settings, sign-in lifetime and signing in again, identity proofing, and what \<Organisation\> provides.
 
 Every user signs in through \<Organisation\>'s PingFederate, with multi-factor authentication, by OpenID Connect. PingFederate's signed response names the person and carries no groups: \<System Name\>'s API reads the person's groups from Active Directory over LDAPS (flow F7). \<System Name\> holds no accounts or passwords of its own. Its only session is its authentication cookie, which lasts at most 8 hours from sign-in.
 
-
-
 ## 2 Related documents
 
-Who provides and is responsible for each control, and its status, are in \<System Security Plan\>, section 7.7 (Table 16). The tests, their results and the records an assessor will ask for are in \<Control Assessment Record\> (IA). Each control's risk is in \<Risk List\>, and what is still open is in \<Plan of Action and Milestones\>. The policy is in \<Policy\> (IA), and the steps people follow are in \<Procedures\> (IA). Who may do what once signed in is in \<Access Control Management\>.
+Which section of this design meets each control, who is responsible for it and its status are in \<System Security Plan\>, section 7.7 (Table 16). The assessment is in \<Control Assessment Record\> (IA), the risks are in \<Risk List\>, and open work is in \<Plan of Action and Milestones\>. The policy is in \<Policy\> (IA), and the steps people follow are in \<Procedures\> (IA). Who may do what once signed in is in \<Access Control Management\>.
 
 ## 3 The design
 
@@ -54,7 +52,7 @@ There are no shared, guest, anonymous or local accounts, and nobody outside \<Or
 
 **Devices.** \<Organisation\>'s network access control identifies each managed device before it joins the network, and unmanaged devices are kept off it. \<System Name\> does not identify devices itself: it is reached only from that network or the VPN.
 
-**Users from outside \<Organisation\>.** Only \<Organisation\>'s staff and contractors, with an Active Directory account, may use \<System Name\>, so the controls for non-organisational users do not apply (TR-IA-03 to TR-IA-06 in \<Tailoring Register\>). PIV is a United States federal credential, and no \<System Name\> user holds one, so PIV credentials are not accepted (TR-IA-01).
+**Users from outside \<Organisation\>.** Only \<Organisation\>'s staff and contractors, with an Active Directory account, may use \<System Name\>. PIV credentials, a United States federal credential, are not accepted.
 
 ### 3.3 Sign-in through PingFederate
 
@@ -92,11 +90,9 @@ There are no shared, guest, anonymous or local accounts, and nobody outside \<Or
 
 **What the person sees.** Passwords and second factors are entered on PingFederate's page, which masks them and does not say whether an account exists. \<System Name\> shows no sign-in form.
 
-The steps and the trust are the design. The settings shown as placeholders are asked of \<Organisation\> with EV-IA-04, and are filled in when it answers.
+The settings shown as placeholders are agreed with \<Organisation\>.
 
 ### 3.4 Assurance levels
-
-This follows CSS, section 3, and the federal acceptance statement template, applied to sign-in through PingFederate.
 
 Identity assurance is how sure we are that a person is who they claim. Authenticator assurance is how sure we are that the person signing in holds the account. Federation assurance applies when another system, here PingFederate, vouches for the person.
 
@@ -111,7 +107,7 @@ Identity assurance is how sure we are that a person is who they claim. Authentic
 | Business owners | Moderate: approving the disposal of items due under the retention schedule (\<System Description\>, FR-074) | IAL2: \<Organisation\>'s pre-employment checks, with the request authorised by the system owner | AAL2: multi-factor sign-in through PingFederate | PingFederate, at federation assurance level 2, to be set with \<Organisation\> |
 | Services (API to SQL Server) | High: the whole database | Not applicable | Windows authentication with the API's managed service account, whose password Windows sets and no person knows. No database password exists (section 3.5) | Not applicable |
 
-**Reasoning:** \<System Name\> holds information rated Moderate, including personal data, so a failed sign-in check could expose personal data. CSS points to authenticator assurance level 2 for that harm, which needs two factors and replay resistance. The same harm points to identity assurance level 2, which \<Organisation\>'s HR checks are expected to meet: photo identification and a right-to-work check, seen and verified by HR. That is to be confirmed with EV-IA-02. Identity proofing is done once, by \<Organisation\>'s HR, and is not repeated by \<System Name\>. The authorising official accepts these levels (D-IA-01), and they are reviewed every 12 months. Federation is used: PingFederate proves who the person is and vouches for them to \<System Name\>.
+Authenticator assurance level 2 means two factors and replay resistance. Identity assurance level 2 is \<Organisation\>'s HR checks: photo identification and a right-to-work check, seen and verified by HR, done once and not repeated by \<System Name\> (section 3.8). PingFederate proves who the person is and vouches for them to \<System Name\>. The authorising official accepts these levels (D-IA-01), and they are reviewed every 12 months.
 
 ### 3.5 Authenticators
 
@@ -137,19 +133,19 @@ Only the API connects to SQL Server, by Windows authentication with its managed 
 1. **First issue.** For people, \<Organisation\>'s service desk issues authenticators after HR's pre-employment checks, with first content under \<Organisation\>'s corporate standard. The OpenID Connect client credential is issued by \<Organisation\>'s PingFederate team for \<System Name\>'s client and placed in the key store by the Windows server administrator. The token signing key and the audit chain key are generated randomly, at least 256 bits long, by the named administrators and placed in the key store. The audit chain key is generated by the Windows server administrator, never by anyone with rights in SQL Server. Service account passwords are set by Windows.
 2. **Lost, compromised or revoked.** \<Organisation\>'s service desk issues, resets and revokes. Where an authenticator may be compromised, \<Organisation\> disables the AD account first, so that \<System Name\> refuses the person within 5 minutes, then resets the authenticator and ends the person's PingFederate sign-in. Ending the PingFederate sign-in alone does not end \<System Name\>'s cookie, and the account is not re-enabled until 8 hours have passed since it was disabled, unless every key in the key rings has been revoked. After account recovery, \<Organisation\>'s service desk process requires a new password at once.
 3. **No defaults.** \<System Name\> ships with no default account or password. SQL Server accepts Windows authentication only, and its built-in sa login is disabled, so no database password exists. No vendor default is left on either server.
-4. **Protection.** User passwords stay in Active Directory and never reach \<System Name\>: they are typed into PingFederate over TLS, and never into \<System Name\>. The API has no database password: it connects by Windows authentication. The information is rated Moderate, and the token signing key, the audit chain key and the OpenID Connect client credential protect the calls to the API, the audit log and the sign-in, so they are held in the key store, outside the source repositories and settings files, readable only by the service account that needs each, with a protected copy at the second site (\<System Description\>, section 7.7). Windows permissions protect each application's settings (\<Access Control Management\>, section 3.6.3). Everything travels over TLS.
+4. **Protection.** User passwords stay in Active Directory and never reach \<System Name\>: they are typed into PingFederate over TLS, and never into \<System Name\>. The API has no database password: it connects by Windows authentication. The token signing key, the audit chain key and the OpenID Connect client credential, which protect the calls to the API, the audit log and the sign-in, are held in the key store, outside the source repositories and settings files, readable only by the service account that needs each, with a protected copy at the second site (\<System Description\>, section 7.7). Windows permissions protect each application's settings (\<Access Control Management\>, section 3.6.3). Everything travels over TLS.
 5. **What people do.** The rules of behaviour require people never to share a password or second factor, and to report a loss at once (\<Security Operating Procedures\>, Part A). Managed devices encrypt their disks.
-6. **Group accounts.** There are no shared, group or role accounts (TR-AC-02 in \<Tailoring Register\>). Service secrets are changed when an administrator who knew them leaves.
-7. **Certificates.** No person or service signs in to \<System Name\> with a certificate, so public key authentication does not apply (TR-IA-02 in \<Tailoring Register\>). If \<Organisation\>'s PingFederate uses a public key second factor, such as a security key, it applies again, and falls to \<Organisation\>.
-8. **Cryptographic modules.** \<System Name\> uses the cryptographic modules of Windows Server 2025 and .NET. No person signs in to a module directly: the applications reach them through their service accounts, and administrators through their own Windows accounts. Validation of the modules to a United States standard is not required (\<System Description\>, section 7.7). \<Organisation\> is asked which modules and settings its server build uses.
+6. **Group accounts.** There are no shared, group or role accounts. Service secrets are changed when an administrator who knew them leaves.
+7. **Certificates.** No person or service signs in to \<System Name\> with a certificate. A public key second factor in \<Organisation\>'s PingFederate, such as a security key, is \<Organisation\>'s.
+8. **Cryptographic modules.** \<System Name\> uses the cryptographic modules of Windows Server 2025 and .NET. No person signs in to a module directly: the applications reach them through their service accounts, and administrators through their own Windows accounts. They are not validated to a United States standard (\<System Description\>, section 7.7). The server build's modules and settings are \<Organisation\>'s.
 
-### 3.6 Settings against CSS
+### 3.6 Authentication settings
 
-\<System Name\> sets no password rule of its own. \<Organisation\>'s corporate standard applies, and is to be compared with CSS and NCSC password guidance when \<Organisation\> supplies it.
+\<System Name\> sets no password rule of its own: \<Organisation\>'s corporate standard applies. Table 6 gives each setting, with the CSS target for authenticator assurance level 2 that the corporate standard is held to.
 
 **Table 6: Authentication settings at authenticator assurance level 2**
 
-| Requirement | CSS | \<System Name\> |
+| Setting | CSS target | \<System Name\> |
 | --- | --- | --- |
 | Password length, password only | At least 15 characters | \<Organisation\>'s corporate standard, to be supplied |
 | Password length, with multi-factor | At least 8 characters | \<Organisation\>'s corporate standard, to be supplied |
@@ -160,10 +156,10 @@ Only the API connects to SQL Server, by Windows authentication with its managed 
 | Blocklist | Must be checked | \<Organisation\>'s corporate standard |
 | Storage | Salted, with a costly function | Active Directory. \<System Name\> stores no passwords |
 | Rate limiting | At most 100 failures | Lockout by PingFederate and Active Directory: 10 failed attempts in 15 minutes lock the account for 15 minutes |
-| Inactivity timeout | Should be no more than 1 hour | None in \<System Name\>, a departure from this recommendation that the authorising official accepts with the assurance levels (D-IA-01). Users must sign out with Sign out (FR-084) when they leave their device for longer than a short break, and the device screen lock hides an unattended screen |
+| Inactivity timeout | Should be no more than 1 hour | None in \<System Name\>, accepted by the authorising official with the assurance levels (D-IA-01). Users must sign out with Sign out (FR-084) when they leave their device for longer than a short break, and the device screen lock hides an unattended screen |
 | Overall sign-in limit | No more than 24 hours | 8 hours from sign-in: the application's authentication cookie has a fixed lifetime with no sliding extension, never longer than PingFederate's sign-in |
 | Second factor | Required | Provided by PingFederate |
-| Phishing-resistant option | At least one must be offered | Set by \<Organisation\>'s PingFederate; which methods it offers is asked with EV-IA-04 |
+| Phishing-resistant option | At least one must be offered | Set by \<Organisation\>'s PingFederate |
 | Replay resistance | Required | Sign-in responses from PingFederate are signed, short-lived, issued for \<System Name\> only and used once, over TLS (section 3.3) |
 | Sign-in ends on password change | Expected | \<System Name\> holds no passwords. Its session, the authentication cookie, is not ended by a password change or by ending the PingFederate sign-in. Where the password may be compromised, \<Organisation\> disables the account before resetting it, which the API refuses within 5 minutes, and keeps it disabled for 8 hours unless every key in the key rings is revoked |
 | Feedback | No hint whether the user exists | Given by PingFederate, not \<System Name\> |
@@ -180,7 +176,7 @@ Only the API connects to SQL Server, by Windows authentication with its managed 
 
 ### 3.8 Identity proofing
 
-\<Organisation\>'s HR proves who each person is, once, in its pre-employment checks, before the person has an Active Directory account. That is photo identification and a right-to-work check for staff, and the same through the agency for contractors, with a notice of proofing expected to be sent to the person's address of record, which EV-IA-02 confirms. HR sees the evidence, and validates and verifies it, in those checks, and each identity resolves to one person, with one Active Directory account. \<System Name\> does not repeat it. Before adding anyone to a group, the group's owner confirms the request came from that person and their line manager.
+\<Organisation\>'s HR proves who each person is, once, in its pre-employment checks, before the person has an Active Directory account. That is photo identification and a right-to-work check for staff, and the same through the agency for contractors, with a notice of proofing sent to the person's address of record. HR sees the evidence, and validates and verifies it, in those checks, and each identity resolves to one person, with one Active Directory account. \<System Name\> does not repeat it. Before adding anyone to a group, the group's owner confirms the request came from that person and their line manager.
 
 ### 3.9 What \<Organisation\> provides
 
@@ -196,4 +192,4 @@ Only the API connects to SQL Server, by Windows authentication with its managed 
 
 ### 3.10 Policy and procedures
 
-\<Policy\> (IA) and \<Procedures\> (IA) meet IA-1. Who they are shared with is in \<Policy\>, section IA.6. Their ownership, approval, review and records follow the rules common to every policy in \<Policy\>, section 1.1.
+\<Policy\> (IA) and \<Procedures\> (IA) are the policy and procedures for this family. Who they are shared with is in \<Policy\>, section IA.6. Their ownership, approval, review and records follow the rules common to every policy in \<Policy\>, section 1.1.

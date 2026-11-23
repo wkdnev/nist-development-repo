@@ -4,7 +4,7 @@
 
 This document sets out how \<System Name\> is designed to process personal data lawfully, openly and no more than it needs, to meet the 5 Personally Identifiable Information Processing and Transparency (PT) controls that apply and the 15 other controls of the CSS privacy baseline that apply. PT-4 and SI-19 are tailored out (\<Tailoring Register\>, TR-PT-02 and TR-PT-03), as are the seven PT controls that rest on United States law (TR-PT-01). CSS places none of the PT controls in the Moderate baseline. \<System Name\> applies the privacy baseline because it holds personal data: at least the sign-in identities in its audit records, and whatever its information types hold (\<System Description\>, section 3.4), which may include special category data.
 
-Section 3 is the design: the authority, purposes and lawful basis; every kind of personal data \<System Name\> holds; special category data; the privacy notice; people's rights; minimisation, quality, retention and disposal; the impact assessment; where the privacy controls held in other documents are designed; what \<Organisation\> provides; the processing rules and monitoring; and the policy and procedures. Each subsection names the controls it helps to meet.
+Section 3 is the design: the authority, purposes and lawful basis; every kind of personal data \<System Name\> holds; special category data; the privacy notice; people's rights; minimisation, quality, retention and disposal; the impact assessment; where the privacy controls held in other documents are designed; what \<Organisation\> provides; the processing rules and monitoring; and the policy and procedures.
 
 UK law decides what is lawful. The CSS controls set out how it is shown. Where a value needs a legal decision, it is a placeholder for the legal adviser.
 
@@ -12,7 +12,7 @@ UK law decides what is lawful. The CSS controls set out how it is shown. Where a
 
 ## 2 Related documents
 
-Who provides and is responsible for each control, and its status, are in \<System Security Plan\>, section 7.14 (Table 23). The tests, their results and the records an assessor will ask for are in \<Control Assessment Record\> (PT). Each control's risk is in \<Risk List\>, and what is still open is in \<Plan of Action and Milestones\>. The policy is in \<Policy\> (PT), and the steps people follow are in \<Procedures\> (PT). Two documents sit beside this one and are owned by the legal adviser: the privacy plan, \<Privacy Plan\>, which PL-2 calls for, and the data protection impact assessment, \<Data Protection Impact Assessment\>.
+Which section of this design meets each control, who is responsible for it and its status are in \<System Security Plan\>, section 7.14 (Table 23). The assessment is in \<Control Assessment Record\> (PT), the risks are in \<Risk List\>, and open work is in \<Plan of Action and Milestones\>. The policy is in \<Policy\> (PT), and the steps people follow are in \<Procedures\> (PT). Two documents sit beside this one and are owned by the legal adviser: the privacy plan, \<Privacy Plan\>, which PL-2 calls for, and the data protection impact assessment, \<Data Protection Impact Assessment\>.
 
 ## 3 The design
 
@@ -168,4 +168,4 @@ Eight of the privacy baseline controls are assessed with this family, but part o
 
 ### 3.12 Policy and procedures
 
-\<Policy\> (PT) and \<Procedures\> (PT) meet PT-1. Who they are shared with is in \<Policy\>, section PT.6. Their ownership, approval, review and records follow the rules common to every policy in \<Policy\>, section 1.1.
+\<Policy\> (PT) and \<Procedures\> (PT) are the policy and procedures for this family. Who they are shared with is in \<Policy\>, section PT.6. Their ownership, approval, review and records follow the rules common to every policy in \<Policy\>, section 1.1.

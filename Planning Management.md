@@ -4,11 +4,11 @@
 
 This document sets out how \<System Name\>'s plans are written, approved, shared, reviewed and protected, to meet the 7 Planning (PL) controls and enhancements in the CSS Moderate baseline: PL-1, PL-2, PL-4, PL-4(1), PL-8, PL-10 and PL-11. PL-9, from the CSS privacy baseline, is assessed with PT (\<System Security Plan\>, Table 23). PL-7 is outside the baseline, but the concept of operations is kept as a plan in section 3.2 (\<Tailoring Register\>, Table 9). The values the PL controls depend on are given in full in this document, and approved in \<Decision Register\> (D-PL-P71).
 
-Section 3 is the design: the principles, the register of every plan in force, what the security plan and the privacy plan must hold and where each part is, how a plan is approved and kept current, the rules of behaviour and who has signed them, the architecture, the baseline and its tailoring, what \<Organisation\> provides, and the policy and procedures. Each subsection names the controls it helps to meet. The plans themselves are separate documents, listed in section 3.2.
+Section 3 is the design: the principles, the register of every plan in force, what the security plan and the privacy plan must hold and where each part is, how a plan is approved and kept current, the rules of behaviour and who has signed them, the architecture, the baseline and its tailoring, what \<Organisation\> provides. The plans themselves are separate documents, listed in section 3.2.
 
 ## 2 Related documents
 
-Who provides and is responsible for each control, and its status, are in \<System Security Plan\>, section 7.12 (Table 21). The tests, their results and the records an assessor will ask for are in \<Control Assessment Record\> (PL). Each control's risk is in \<Risk List\>, and what is still open is in \<Plan of Action and Milestones\>. The policy is in \<Policy\> (PL), and the steps people follow are in \<Procedures\> (PL).
+Which section of this design meets each control, who is responsible for it and its status are in \<System Security Plan\>, section 7.12 (Table 21). The assessment is in \<Control Assessment Record\> (PL), the risks are in \<Risk List\>, and open work is in \<Plan of Action and Milestones\>. The policy is in \<Policy\> (PL), and the steps people follow are in \<Procedures\> (PL).
 
 ## 3 The design
 
@@ -132,4 +132,4 @@ The baseline is CSS Moderate, with the privacy baseline. The authorising officia
 
 ### 3.9 Policy and procedures
 
-\<Policy\> (PL) and \<Procedures\> (PL) meet PL-1. Who they are shared with is in \<Policy\>, section PL.6. Their ownership, approval, review and records follow the rules common to every policy in \<Policy\>, section 1.1.
+\<Policy\> (PL) and \<Procedures\> (PL) are the policy and procedures for this family. Who they are shared with is in \<Policy\>, section PL.6. Their ownership, approval, review and records follow the rules common to every policy in \<Policy\>, section 1.1.
