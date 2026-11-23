@@ -230,11 +230,33 @@ This matrix is proposed to \<Organisation\>.
 
 | ID | Control | What we need to know | Evidence to provide |
 | --- | --- | --- | --- |
-| EV-PE-01 | PE-2, PE-3, PE-4, PE-6, PE-6(1), PE-8 | Who can enter the data centre, how entry is controlled and logged, how visitors, keys and lines are managed, how access is monitored, and how incidents reach \<System Name\>'s security officer. Also confirm the values in \<Physical and Environmental Protection Management\>. First choice of evidence: \<Organisation\>'s ISO/IEC 27001 certificate, Statement of Applicability and latest audit findings for Annex A.7, or a SOC 2 report covering physical access (CC6.4) and the availability criteria (A1.2), for both the main data centre and the second site (\<Physical and Environmental Protection Management\>, section 3.3). How soon the security contact tells \<System Name\>'s security officer of a physical incident; 24 hours is asked. The name, address and facilities contact of each site | Physical security policy, and audit or certification report |
+| EV-PE-01 | PE-2, PE-3, PE-4, PE-6, PE-6(1), PE-8 | Who can enter the data centre, how entry is controlled and logged, how visitors, keys and lines are managed, how access is monitored, and how incidents reach \<System Name\>'s security officer. Also confirm the values in \<Physical and Environmental Protection Management\>. First choice of evidence: \<Organisation\>'s ISO/IEC 27001 certificate, Statement of Applicability and latest audit findings for Annex A.7, or a SOC 2 report covering physical access (CC6.4) and the availability criteria (A1.2), for both the main data centre and the second site (Table 14a). How soon the security contact tells \<System Name\>'s security officer of a physical incident; 24 hours is asked. The name, address and facilities contact of each site | Physical security policy, and audit or certification report |
 | EV-PE-02 | PE-9, PE-10, PE-11, PE-12 | For the main data centre and the second site: how power is protected, whether there is an emergency shutoff and how it is guarded against accidental or unauthorised use, and what emergency lighting exists. How long the uninterruptible power supply lasts and whether a generator takes over; and, if power cannot be kept, that \<Organisation\>'s hosting staff shut the two VMs down cleanly through the hypervisor, the application server first, and tell \<System Name\>'s Windows server administrator (D-PE-01) | Facilities description, and maintenance records |
 | EV-PE-03 | PE-13, PE-13(1), PE-14, PE-15 | For the main data centre and the second site: what fire detection and suppression exist, who they notify, what temperature and humidity levels apply, how they are monitored, and how water damage is prevented | Facilities description, and maintenance records |
 | EV-PE-04 | PE-16 | For the main data centre and the second site: how hardware and media are authorised and recorded when entering or leaving | Process, and sample records |
 | EV-PE-05 | PE-5, PE-17 | What office controls protect printers and screens, which managed printers have secure (pull) print release, and what controls apply to managed devices and the route at home | Office security rules, and remote working policy |
+
+**How the PE evidence is checked.** The system owner records what \<Organisation\> provides against each control in Table 14a, following \<Procedures\>, PRO-PE-1. The first choice of evidence is \<Organisation\>'s ISO/IEC 27001 certificate, Statement of Applicability and latest audit findings, with the Annex A control shown, for both sites. A SOC 2 report serves instead if it covers physical access (criterion CC6.4) and, for power, fire, environment and water, the availability criteria (A1.2). Where those do not cover a control, the facility evidence in EV-PE-01 to EV-PE-05 is asked for, and each corporate value is confirmed as meeting \<Physical and Environmental Protection Management\>, section 3.10. Each data centre, the main site and the second site, is inspected once, at Level 2, by the independent assessor, or by \<Organisation\>'s auditor if the assessor cannot visit, on the site inspection checklist. Any shortfall is raised in \<Risk List\>. The check is repeated every 12 months, and after a change of site or a significant incident at a site. The organisation does not assess the sites itself: it inherits their protection by evidence, with the single inspection.
+
+**Table 14a: Evidence that closes each PE control**
+
+| Control | Closing evidence |
+| --- | --- |
+| PE-1 | The policy, the procedures and this document |
+| PE-2 | A.7.2; access list review record |
+| PE-3 | A.7.1, A.7.2, A.7.3; the site inspection checklist |
+| PE-4 | A.7.12 |
+| PE-5 | A.7.7; EV-PE-05; \<Organisation\>'s device policy |
+| PE-6, PE-6(1) | A.7.4; monitoring records |
+| PE-8 | A.7.2; sample records |
+| PE-9, PE-10, PE-12 | A.7.11, A.7.12; maintenance records |
+| PE-11 | A.7.11; maintenance records |
+| PE-13, PE-13(1) | A.7.5; fire safety records |
+| PE-14 | A.7.5, A.7.8; monitoring records |
+| PE-15 | A.7.5 |
+| PE-16 | A.7.2, A.7.10; sample records |
+| PE-17 | A.6.7, A.7.9; EV-PE-05; the home working check |
+| Compensating | Encryption settings on the servers |
 
 ## 14 Planning (PL)
 

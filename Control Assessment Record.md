@@ -1799,10 +1799,10 @@ There is one finding for each CSS determination statement, including those about
 | Boundary | Physical and environmental protection of the data centre and second site is inherited from \<Organisation\>. \<System Name\> provides the policy, the printer and screen rules, home working rules, and incident handling |
 | Order of assessment | A, inherited evidence against the matrix (PE-2 to PE-16); B, the site inspection; C, output devices (PE-5); D, home working (PE-17); E, policy (PE-1). The inherited evidence comes first because it closes most statements |
 | Needed from \<Organisation\> | EV-PE-01 to EV-PE-05 in \<Evidence Requests\>: first its ISO/IEC 27001 certificate and Statement of Applicability for Annex A.7, or a SOC 2 report, for both sites |
-| Evidence retained | \<Physical and Environmental Protection Management\>, sections 3.2 and 3.3; \<Evidence Requests\>; completed TPL-20 |
-| Notes | Fifteen of the 18 controls are inherited from \<Organisation\>'s data centres, and the inheritance matrix in \<Physical and Environmental Protection Management\>, section 3.3, shows the evidence that closes each one (EV-PE-01 to EV-PE-05). Screen locking is tested under AC-11, and output marking under MP-3. An unattended screen is locked by \<Organisation\>'s managed devices and the servers. \<System Name\>'s steps beside an inherited control (PE-6, PE-11, PE-16) are examined with \<Organisation\>'s evidence. PE-8(3) is assessed in the PT chapter. An inherited statement stays O-E until \<Organisation\>'s evidence is received. |
+| Evidence retained | \<Physical and Environmental Protection Management\>, sections 3.2 and 3.3; \<Evidence Requests\>, Table 14a; completed TPL-20 |
+| Notes | Fifteen of the 18 controls are inherited from \<Organisation\>'s data centres, and \<Evidence Requests\>, Table 14a, shows the evidence that closes each one (EV-PE-01 to EV-PE-05). Screen locking is tested under AC-11, and output marking under MP-3. An unattended screen is locked by \<Organisation\>'s managed devices and the servers. \<System Name\>'s steps beside an inherited control (PE-6, PE-11, PE-16) are examined with \<Organisation\>'s evidence. PE-8(3) is assessed in the PT chapter. An inherited statement stays O-E until \<Organisation\>'s evidence is received. |
 
-For the Level 2 assessment, the assessor should examine \<Organisation\>'s certificate, Statement of Applicability or SOC 2 report against the inheritance matrix, inspect the main data centre and the second site with TPL-20, interview the security officer and a sample of home workers, and re-determine every statement in section PE.3.
+For the Level 2 assessment, the assessor should examine \<Organisation\>'s certificate, Statement of Applicability or SOC 2 report against \<Evidence Requests\>, Table 14a, inspect the main data centre and the second site with TPL-20, interview the security officer and a sample of home workers, and re-determine every statement in section PE.3.
 
 ## PL Planning
 
@@ -1934,6 +1934,26 @@ There is one finding for each CSS determination statement, including those about
 | Notes | The test is Test-PlanConsistency.py, which reads the whole document set and checks that the plans agree with each other and with the assessments. It runs on the documents only. The plans are compared with CSS, which sets out what a system plan contains, and how its approval, reviews and changes are recorded. |
 
 For the Level 2 assessment, the assessor should run Test-PlanConsistency.py on the issued set, sample signed TPL-21 forms against the register and the access requests, check the restricted store's access list, interview the Head of Cyber, the authorising official and a sample of users, and re-determine every statement in section PL.3.
+
+**Table PL-5: Where each part of the plans that PL-2 requires is held**
+
+| Part | CSS requires | Security plan | Privacy plan |
+| --- | --- | --- | --- |
+| a.1 | Consistent with the enterprise architecture | \<System Security Plan\>, section 4; \<System Description\>, sections 6.6 and 10 | \<Privacy Plan\>, section 8 |
+| a.2 | Defines the components of the system | \<System Security Plan\>, sections 3.1 and 3.4; \<System Description\>, section 6.1 | \<Privacy Plan\>, section 2 |
+| a.3 | Describes the operational context | \<System Security Plan\>, sections 1 and 2; \<Concept of Operations\> | \<Privacy Plan\>, section 2 |
+| a.4 | Names the people in each role | \<System Security Plan\>, section 6; \<Roles and Responsibilities\> | \<Privacy Plan\>, section 3 |
+| a.5 | Identifies the types of information | \<System Security Plan\>, section 3.3 | \<Privacy Plan\>, section 4 |
+| a.6 | Gives the security categorisation, with its reasons | \<System Security Plan\>, section 3.3 | \<Privacy Plan\>, section 4 |
+| a.7 | Describes the threats of concern | \<Risk List\>, section 2 and Table 3c; \<Risk Assessment Management\>, section 3.3 | \<Privacy Plan\>, section 5 |
+| a.8 | Gives the results of a privacy risk assessment | \<Data Protection Impact Assessment\> | \<Data Protection Impact Assessment\> |
+| a.9 | Describes the environment, and the connections to other systems | \<System Security Plan\>, sections 3.1, 3.2 and 4 | \<Privacy Plan\>, section 2 |
+| a.10 | Gives an overview of the requirements | \<System Security Plan\>, sections 1 and 5 | \<Privacy Plan\>, section 6 |
+| a.11 | Identifies the baselines and overlays | \<System Security Plan\>, section 5; \<Tailoring Register\> | \<Privacy Plan\>, section 6 |
+| a.12 | Describes each control, in place or planned, with the reason for any tailoring | \<System Security Plan\>, section 7: one row for each control; \<Tailoring Register\> | \<Privacy Plan\>, section 6 |
+| a.13 | Includes the risk decisions on architecture and design | \<Risk List\>; \<Decision Register\> | \<Privacy Plan\>, section 5; \<Decision Register\> |
+| a.14 | Includes the activities that need planning and coordination with defined people | The operating calendar in \<Security Operating Procedures\>, Part C; \<Plan of Action and Milestones\>. They are coordinated with the Head of Cyber, the administrators, the legal adviser and \<Organisation\>'s security contact | \<Privacy Plan\>, section 7 |
+| a.15 | Reviewed and approved by the authorising official before it is put into effect | Approved by the system owner, with the Head of Cyber's concurrence, and then reviewed and approved by the authorising official before it is put into effect (D-PL-01). Approving the plan does not authorise \<System Name\>: only the authorisation decision record does | Approved by the legal adviser and the authorising official (D-PL-02) |
 
 ## PS Personnel Security
 
@@ -2587,9 +2607,9 @@ There is one finding for each CSS determination statement, including those about
 | SC-02 | User and management functions are separated | O-E | Awaiting evidence from the VMs: the Admin application as its own process and account, reachable only over the administration route (Test-Protection.ps1, TPL-3) (NC-SC-02) |
 | SC-04\[01\] | Unauthorised transfer through shared resources is prevented | O-D | Awaiting D-SC-02 (NC-SC-03) |
 | SC-04\[02\] | Unintended transfer through shared resources is prevented | O-E | Awaiting \<Organisation\>'s evidence: EV-GEN-03 (NC-SC-03) |
-| SC-05\_ODP\[01\] | Denial-of-service events are defined | S | Defined in \<System and Communications Protection Management\>, sections 3.7, 3.9, 3.11 |
-| SC-05\_ODP\[02\] | Protect or limit is selected | S | Defined in \<System and Communications Protection Management\>, sections 3.7, 3.9, 3.11 |
-| SC-05\_ODP\[03\] | Controls are defined | S | Defined in \<System and Communications Protection Management\>, sections 3.7, 3.9, 3.11 |
+| SC-05\_ODP\[01\] | Denial-of-service events are defined | S | Defined in \<System and Communications Protection Management\>, sections 3.7 and 3.9 |
+| SC-05\_ODP\[02\] | Protect or limit is selected | S | Defined in \<System and Communications Protection Management\>, sections 3.7 and 3.9 |
+| SC-05\_ODP\[03\] | Controls are defined | S | Defined in \<System and Communications Protection Management\>, sections 3.7 and 3.9 |
 | SC-05a. | The effects are limited | O-D | The request limit for each client is not yet set (NFR-046), nor the response times (NC-SC-04) |
 | SC-05b. | The controls are employed | O-E | Awaiting \<Organisation\>'s evidence: EV-SC-01 (NC-SC-04) |
 | SC-07\_ODP | Separation is selected | S | Defined in \<System and Communications Protection Management\>, sections 3.1, 3.2, 3.9 |
@@ -2658,11 +2678,11 @@ There is one finding for each CSS determination statement, including those about
 | SC-22\[02\] | Internal and external roles are separated | O-E | Awaiting \<Organisation\>'s evidence: EV-SC-05 (NC-SC-20) |
 | SC-22\[03\] | Roles are separated by exposure | O-E | Awaiting \<Organisation\>'s evidence: EV-SC-05 (NC-SC-20) |
 | SC-23 | Session authenticity is protected | O-D | Awaiting D-AC-P02, and \<Organisation\>'s evidence:  (NC-SC-21) |
-| SC-28\_ODP\[01\] | Protection is selected | S | Defined in \<System and Communications Protection Management\>, sections 3.6, 3.11 |
-| SC-28\_ODP\[02\] | Information is defined | S | Defined in \<System and Communications Protection Management\>, sections 3.6, 3.11 |
+| SC-28\_ODP\[01\] | Protection is selected | S | Defined in \<System and Communications Protection Management\>, section 3.6 |
+| SC-28\_ODP\[02\] | Information is defined | S | Defined in \<System and Communications Protection Management\>, section 3.6 |
 | SC-28 | Information at rest is protected | O-E | Awaiting evidence from the VMs: BitLocker on both, the recovery key test (TPL-11) and the encrypted export working area (NC-SC-22) |
-| SC-28(01)\_ODP\[01\] | Information is defined | S | Defined in \<System and Communications Protection Management\>, sections 3.6, 3.11 |
-| SC-28(01)\_ODP\[02\] | Components are defined | S | Defined in \<System and Communications Protection Management\>, sections 3.6, 3.11 |
+| SC-28(01)\_ODP\[01\] | Information is defined | S | Defined in \<System and Communications Protection Management\>, section 3.6 |
+| SC-28(01)\_ODP\[02\] | Components are defined | S | Defined in \<System and Communications Protection Management\>, section 3.6 |
 | SC-28(01)\[01\] | Cryptography prevents disclosure | O-E | Awaiting evidence from the VMs: BitLocker on both, the recovery key test (TPL-11) and the encrypted export working area (NC-SC-23) |
 | SC-28(01)\[02\] | Cryptography prevents modification | O-E | Awaiting evidence from the VMs: BitLocker on both, the recovery key test (TPL-11) and the encrypted export working area (NC-SC-23) |
 | SC-39 | Each process has its own execution domain | O-D | Awaiting D-SC-02, and \<Organisation\>'s evidence:  (NC-SC-24) |
@@ -2751,8 +2771,8 @@ There is one finding for each CSS determination statement, including those about
 | SI-02c.\[01\] | Software updates are installed in time | O-D | Not yet operated: no flaw has yet been recorded on TPL-7 and fixed on the built VMs (NC-SI-02) |
 | SI-02c.\[02\] | Firmware updates are installed in time | O-D | Not yet operated: no flaw has yet been recorded on TPL-7 and fixed on the built VMs (NC-SI-02) |
 | SI-02d. | Flaw fixing is part of configuration management | O-E | Awaiting \<Organisation\>'s evidence: EV-SI-02 (NC-SI-02) |
-| SI-02(02)\_ODP\[01\] | Mechanisms are defined | S | Defined in \<System and Information Integrity Management\>, sections 3.3, 3.11 |
-| SI-02(02)\_ODP\[02\] | Frequency is defined | S | Defined in \<System and Information Integrity Management\>, sections 3.3, 3.11 |
+| SI-02(02)\_ODP\[01\] | Mechanisms are defined | S | Defined in \<System and Information Integrity Management\>, section 3.3 |
+| SI-02(02)\_ODP\[02\] | Frequency is defined | S | Defined in \<System and Information Integrity Management\>, section 3.3 |
 | SI-02(02) | Update status is checked automatically | O-E | Awaiting evidence of operation on the VMs (NC-SI-03) |
 | SI-03\_ODP\[01\] | Type of protection is selected | O-D | Set in the design, awaiting D-SI-02 (NC-SI-04) |
 | SI-03\_ODP\[02\] | Scan frequency is defined | O-D | Set in the design, awaiting D-SI-02 (NC-SI-04) |
@@ -2798,11 +2818,11 @@ There is one finding for each CSS determination statement, including those about
 | SI-04(05)\_ODP\[01\] | Who is alerted is defined | O-D | Set in the design, awaiting D-SI-P27 (NC-SI-08) |
 | SI-04(05)\_ODP\[02\] | Compromise indicators are defined | O-D | Set in the design, awaiting D-SI-P27 (NC-SI-08) |
 | SI-04(05) | Alerts are raised on those indicators | O-E | Awaiting \<Organisation\>'s evidence: EV-SI-01 (NC-SI-08) |
-| SI-05\_ODP\[01\] | Sources are defined | S | Defined in \<System and Information Integrity Management\>, sections 3.3, 3.8, 3.11 |
-| SI-05\_ODP\[02\] | Who advisories go to is selected | S | Defined in \<System and Information Integrity Management\>, sections 3.3, 3.8, 3.11 |
-| SI-05\_ODP\[03\] | Personnel are defined | S | Defined in \<System and Information Integrity Management\>, sections 3.3, 3.8, 3.11 |
-| SI-05\_ODP\[04\] | Elements are defined | S | Defined in \<System and Information Integrity Management\>, sections 3.3, 3.8, 3.11 |
-| SI-05\_ODP\[05\] | External organisations are defined | S | Defined in \<System and Information Integrity Management\>, sections 3.3, 3.8, 3.11 |
+| SI-05\_ODP\[01\] | Sources are defined | S | Defined in \<System and Information Integrity Management\>, sections 3.3 and 3.8 |
+| SI-05\_ODP\[02\] | Who advisories go to is selected | S | Defined in \<System and Information Integrity Management\>, sections 3.3 and 3.8 |
+| SI-05\_ODP\[03\] | Personnel are defined | S | Defined in \<System and Information Integrity Management\>, sections 3.3 and 3.8 |
+| SI-05\_ODP\[04\] | Elements are defined | S | Defined in \<System and Information Integrity Management\>, sections 3.3 and 3.8 |
+| SI-05\_ODP\[05\] | External organisations are defined | S | Defined in \<System and Information Integrity Management\>, sections 3.3 and 3.8 |
 | SI-05a. | Advisories are received | O-E | Awaiting \<Organisation\>'s evidence: EV-SI-03 (NC-SI-09) |
 | SI-05b. | Internal advisories are generated | O-E | Awaiting \<Organisation\>'s evidence: EV-SI-03 (NC-SI-09) |
 | SI-05c. | Advisories are passed on | O-E | Awaiting \<Organisation\>'s evidence: EV-SI-03 (NC-SI-09) |
@@ -2834,7 +2854,7 @@ There is one finding for each CSS determination statement, including those about
 | SI-07(01)\[01\] | Software is checked | O-E | Awaiting evidence of operation on the VMs (NC-SI-11) |
 | SI-07(01)\[02\] | Firmware is checked | O-E | Awaiting evidence of operation on the VMs (NC-SI-11) |
 | SI-07(01)\[03\] | Information is checked | O-E | Awaiting evidence of operation on the VMs (NC-SI-11) |
-| SI-07(07)\_ODP | Changes for incident response are defined | S | Defined in \<System and Information Integrity Management\>, sections 3.5, 3.11 |
+| SI-07(07)\_ODP | Changes for incident response are defined | S | Defined in \<System and Information Integrity Management\>, section 3.5 |
 | SI-07(07) | Detected changes go to incident response | O-E | Awaiting evidence of operation on the VMs (NC-SI-12) |
 | SI-08a.\[01\] | Spam is detected at entry | N/A | Tailored out, TR-SI-01; awaiting its decision in \<Decision Register\> |
 | SI-08a.\[02\] | Spam is detected at exit | N/A | Tailored out, TR-SI-01; awaiting its decision in \<Decision Register\> |
@@ -2845,14 +2865,14 @@ There is one finding for each CSS determination statement, including those about
 | SI-08(02) | Spam protection updates automatically | N/A | Tailored out, TR-SI-01; awaiting its decision in \<Decision Register\> |
 | SI-10\_ODP | Inputs are defined | O-D | Set in the design, awaiting D-SI-P17 (NC-SI-13) |
 | SI-10 | Validity of inputs is checked | O-E | Awaiting evidence of operation on the VMs (NC-SI-13) |
-| SI-11\_ODP | Who sees detail is defined | S | Defined in \<System and Information Integrity Management\>, sections 3.6, 3.11 |
+| SI-11\_ODP | Who sees detail is defined | S | Defined in \<System and Information Integrity Management\>, section 3.6 |
 | SI-11a. | Errors give what is needed without revealing detail | O-E | Awaiting evidence of operation on the VMs (NC-SI-14) |
 | SI-11b. | Error detail goes only to those named | O-E | Awaiting evidence of operation on the VMs (NC-SI-14) |
 | SI-12\[01\] | Information is managed under the rules | O-D | Awaiting D-PT-05, D-AU-P07, D-CP-P15, D-MP-P20 and D-MP-P69 (NC-SI-15) |
 | SI-12\[02\] | Information is retained under the rules | O-D | Awaiting D-PT-05, D-AU-P07, D-CP-P15, D-MP-P20 and D-MP-P69 (NC-SI-15) |
 | SI-12\[03\] | Output is managed under the rules | O-D | Awaiting D-PT-05, D-AU-P07, D-CP-P15, D-MP-P20 and D-MP-P69 (NC-SI-15) |
 | SI-12\[04\] | Output is retained under the rules | O-D | Awaiting D-PT-05, D-AU-P07, D-CP-P15, D-MP-P20 and D-MP-P69 (NC-SI-15) |
-| SI-16\_ODP | Memory controls are defined | S | Defined in \<System and Information Integrity Management\>, sections 3.6, 3.11 |
+| SI-16\_ODP | Memory controls are defined | S | Defined in \<System and Information Integrity Management\>, section 3.6 |
 | SI-16 | Controls protect memory | O-E | Awaiting evidence from the VMs: data execution prevention and address space layout randomisation on both (TPL-3) (NC-SI-16) |
 
 ### SI.4 Assessment plan
@@ -2864,7 +2884,7 @@ There is one finding for each CSS determination statement, including those about
 | Scope | The 18 SI entries in the Moderate baseline, with 139 determination statements. SI-8 and SI-8(2) are covered by TR-SI-01 |
 | Procedures | CSS, using the CSS published statements and identifiers (catalog release 5.2.0) |
 | Dates | Desk self-assessment of the documents: 22 November 2026 (section 1.4). The Level 1 assessment on the built VMs: \[Dates of the assessment\], set by the Level 1 assessor once appointed (NC-CA-02) |
-| Examine | \<Policy\> (SI), \<Procedures\> (SI) and \<System and Information Integrity Management\>, with its values in section 3.11; \<Risk Assessment Management\>, section 3.6; \<PII Processing Management\>, section 3.7; \<Configuration Management\>, section 3.15; \<Audit and Accountability Management\>, sections 3.5 and 3.10; the release record; the alert rules in central logging; the upload, ZIP, validation, rescan, audit and error-handling code at the release tag. Depth: focused. Coverage: focused |
+| Examine | \<Policy\> (SI), \<Procedures\> (SI) and \<System and Information Integrity Management\>; \<Risk Assessment Management\>, section 3.6; \<PII Processing Management\>, section 3.7; \<Configuration Management\>, section 3.15; \<Audit and Accountability Management\>, sections 3.5 and 3.10; the release record; the alert rules in central logging; the upload, ZIP, validation, rescan, audit and error-handling code at the release tag. Depth: focused. Coverage: focused |
 | Test | Test-Integrity.ps1, on a throwaway test stack built from the release (the SI evidence); Test-Vulnerability.ps1 (the RA evidence) |
 | Interview | The security officer, Windows server administrator, developers and \<Organisation\>'s security contact (INT-SI-01 to INT-SI-09) |
 | Previous results reused | The SI-1 statements, recorded with every family's in section 1.3. No other results are reused |
@@ -2936,8 +2956,8 @@ There is one finding for each CSS determination statement, including those about
 | SR-02b. | Plan is reviewed and updated | O-D | Not yet operated: the supplier register's package, browser library and tool rows are filled when the components are chosen (NC-SR-02) |
 | SR-02c.\[01\] | Plan is protected from disclosure | S | Designed in \<Supply Chain Risk Management\>, sections 3.1, 3.2, 3.3; NC-SR-02 concerns other statements |
 | SR-02c.\[02\] | Plan is protected from modification | S | Designed in \<Supply Chain Risk Management\>, sections 3.1, 3.2, 3.3; NC-SR-02 concerns other statements |
-| SR-02(01)\_ODP\[01\] | Team is defined | S | Defined in \<Supply Chain Risk Management\>, sections 3.3, 3.9, 3.11 |
-| SR-02(01)\_ODP\[02\] | Team's activities are defined | S | Defined in \<Supply Chain Risk Management\>, sections 3.3, 3.9, 3.11 |
+| SR-02(01)\_ODP\[01\] | Team is defined | S | Defined in \<Supply Chain Risk Management\>, sections 3.3, 3.9 |
+| SR-02(01)\_ODP\[02\] | Team's activities are defined | S | Defined in \<Supply Chain Risk Management\>, sections 3.3, 3.9 |
 | SR-02(01) | Team is established | O-E | Awaiting \<Organisation\>'s evidence: EV-SR-01 (NC-SR-03) |
 | SR-03\_ODP\[01\] | What is covered is defined | O-D | Set in the design, awaiting D-SR-03 (NC-SR-04) |
 | SR-03\_ODP\[02\] | Who is coordinated with is defined | O-D | Set in the design, awaiting D-SR-03 (NC-SR-04) |
@@ -2962,9 +2982,9 @@ There is one finding for each CSS determination statement, including those about
 | SR-10\_ODP\[03\] | Frequency is defined | S | Defined in \<Supply Chain Risk Management\>, sections 3.7, 3.8, 3.9 |
 | SR-10\_ODP\[04\] | Signs of tampering are defined | S | Defined in \<Supply Chain Risk Management\>, sections 3.7, 3.8, 3.9 |
 | SR-10 | Components are inspected for tampering | O-E | Awaiting \<Organisation\>'s evidence: EV-SR-02 (NC-SR-08) |
-| SR-11\_ODP\[01\] | Who is told is selected | S | Defined in \<Supply Chain Risk Management\>, sections 3.7, 3.8, 3.11 |
-| SR-11\_ODP\[02\] | External bodies are defined | S | Defined in \<Supply Chain Risk Management\>, sections 3.7, 3.8, 3.11 |
-| SR-11\_ODP\[03\] | Roles told are defined | S | Defined in \<Supply Chain Risk Management\>, sections 3.7, 3.8, 3.11 |
+| SR-11\_ODP\[01\] | Who is told is selected | S | Defined in \<Supply Chain Risk Management\>, sections 3.7, 3.8 |
+| SR-11\_ODP\[02\] | External bodies are defined | S | Defined in \<Supply Chain Risk Management\>, sections 3.7, 3.8 |
+| SR-11\_ODP\[03\] | Roles told are defined | S | Defined in \<Supply Chain Risk Management\>, sections 3.7, 3.8 |
 | SR-11a.\[01\] | Anti-counterfeit policy is in place | O-D | Not yet operated: no look-alike check yet recorded on TPL-6 (NC-SR-09) |
 | SR-11a.\[02\] | Anti-counterfeit procedures are in place | O-D | Not yet operated: no look-alike check yet recorded on TPL-6 (NC-SR-09) |
 | SR-11a.\[03\] | Procedures detect counterfeits | O-E | Awaiting evidence of operation on the VMs (NC-SR-09) |
