@@ -1050,7 +1050,7 @@ These procedures carry out \<Policy\> (PE), rules R1 to R10. The values, inherit
 
 | Procedure | What it does | Who | When | Record | Controls |
 | --- | --- | --- | --- | --- | --- |
-| PRO-PE-1 | Obtains and reviews \<Organisation\>'s evidence for both sites | System owner | Every 12 months, and after a change of site | \<Evidence Requests\>; \<Physical and Environmental Protection Management\>, section 3.3 | PE-2 to PE-16 |
+| PRO-PE-1 | Obtains and reviews \<Organisation\>'s evidence for both sites | System owner | Every 12 months, and after a change of site | \<Evidence Requests\>, Table 14a | PE-2 to PE-16 |
 | PRO-PE-2 | Handles physical incidents, including loss of power | Security officer, \<Organisation\>, Windows server and database administrators | When one occurs | TPL-10 | PE-6, PE-11, IR-4 |
 | PRO-PE-3 | Protects screens and printouts | Everyone | Always | None | PE-5 |
 | PRO-PE-4 | Controls home working | Everyone, security officer | Always; checked every 12 months (C30) | TPL-26 | PE-17 |
@@ -1062,7 +1062,7 @@ These procedures carry out \<Policy\> (PE), rules R1 to R10. The values, inherit
 
 1. The system owner asks \<Organisation\> first for its ISO/IEC 27001 certificate, Statement of Applicability and latest audit findings for Annex A.7, or a SOC 2 report covering physical access (CC6.4) and the availability criteria (A1.2), for both the data centre and the second site (EV-PE-01). **Manual**
 2. Where those do not cover a control, the system owner asks for the facility evidence in EV-PE-01 to EV-PE-05. **Manual**
-3. The system owner records what was received against each control in the inheritance matrix (\<Physical and Environmental Protection Management\>, section 3.3), and confirms that \<Organisation\>'s corporate parameter values are met. **Manual**
+3. The system owner records what was received against each control in \<Evidence Requests\>, Table 14a, and confirms that \<Organisation\>'s corporate parameter values are met. **Manual**
 4. Any shortfall is raised in \<Risk List\>. **Manual**
 5. The system owner repeats this every 12 months, and after a change of site or a significant incident at a site. **Manual**
 
@@ -1090,7 +1090,7 @@ These procedures carry out \<Policy\> (PE), rules R1 to R10. The values, inherit
 
 1. At Level 2, the independent assessor, or \<Organisation\>'s auditor if the assessor cannot visit, inspects each data centre once, the main site and the second site, using TPL-20. **Manual**
 2. The inspection covers entry control and logs, visitors, keys and cards, cabling, power and emergency shutoff, lighting, fire, environment, water and deliveries. **Manual**
-3. The system owner records the result in the inheritance matrix and raises any shortfall in \<Risk List\>. The inspection is repeated after a change of site. **Manual**
+3. The system owner records the result against \<Evidence Requests\>, Table 14a, and raises any shortfall in \<Risk List\>. The inspection is repeated after a change of site. **Manual**
 
 ## PL Planning
 

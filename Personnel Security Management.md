@@ -2,11 +2,11 @@
 
 ## 1 Purpose
 
-This document sets out how \<System Name\> makes sure the people who use and run it are trustworthy, and stay so, to meet the 9 Personnel Security (PS) controls in the CSS Moderate baseline.
+This document is the personnel security design for \<System Name\>: how it makes sure the people who use and run it are trustworthy, and stay so. It covers the Personnel Security (PS) family of the CSS Moderate baseline, 9 controls.
 
-Section 3 is the design: the principles, the risk designation of every role, the minimum screening, the access agreements, what happens when people join, move and leave, the time limits, external people, sanctions, the personnel security register, what \<Organisation\> provides, role duties in job descriptions.
+Section 3 is the design: the principles, the risk designation of every role, the minimum screening, the access agreements, what happens when people join, move and leave, the time limits, external people, sanctions, the personnel security register, what \<Organisation\> provides, and role duties in job descriptions.
 
-Screening, HR and disciplinary processes belong to \<Organisation\>. \<System Name\> sets the minimum it requires of them, records only that each check was confirmed and when, and relies on \<Organisation\>'s evidence for the rest. How access is requested, granted and removed is in \<Access Control Management\>, and the duties of each role are in \<Roles and Responsibilities\>.
+Screening, HR and disciplinary processes belong to \<Organisation\>. \<System Name\> sets the minimum it requires of them, records only that each check was confirmed and when, and relies on \<Organisation\> for the rest. How access is requested, granted and removed is in \<Access Control Management\>, and the duties of each role are in \<Roles and Responsibilities\>.
 
 ## 2 Related documents
 
@@ -74,7 +74,7 @@ In the United Kingdom a basic criminal record check is made through the Disclosu
 
 ### 3.4 Access agreements
 
-Two agreements are signed before access. The rules of behaviour are signed again every 12 months, and within 30 days of a material change. \<Organisation\>'s confidentiality agreement is signed again when \<Organisation\> changes it, and each yearly signature of the rules confirms that the person is still bound by it (\<Security Operating Procedures\>, section 9). CSS places PS-6 in its privacy baseline as well as the Moderate baseline, so the agreements cover privacy too: the rules of behaviour tell each person to look at personal data only when their task needs it, to delete exported personal data within 30 days, and to report a loss involving it within 1 hour.
+Two agreements are signed before access. The rules of behaviour are signed again every 12 months, and within 30 days of a material change. \<Organisation\>'s confidentiality agreement is signed again when \<Organisation\> changes it, and each yearly signature of the rules confirms that the person is still bound by it (\<Security Operating Procedures\>, section 9). The agreements cover privacy too: the rules of behaviour tell each person to look at personal data only when their task needs it, to delete exported personal data within 30 days, and to report a loss involving it within 1 hour.
 
 1. **\<Organisation\>'s confidentiality agreement,** signed on employment or engagement.
 2. **The rules of behaviour,** \<Security Operating Procedures\>: Part A for everyone, and Part B, the privileged rules, for privileged users as well. Each person signs the declaration in \<Security Operating Procedures\>, section 9, on the rules of behaviour acknowledgement, and the signature is recorded in the register of signatures (\<Planning Management\>, section 3.5).
