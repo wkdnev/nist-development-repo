@@ -6,7 +6,7 @@ This document sets out how the places where \<System Name\> runs and is used are
 
 Section 3 is the design: the sites and contacts, who provides each control, how \<Organisation\>'s evidence is obtained and checked, the rules for offices and for working from home, physical incidents, the encryption that stands behind the physical controls, what \<Organisation\> is asked for, what \<System Name\> requires at each data centre, and the policy and procedures. Each subsection names the controls it helps to meet.
 
-\<System Name\> has no premises of its own. It runs on two virtual servers in \<Organisation\>'s data centre, with backups, the restore test and recovery at a second site, so 15 of the 18 controls are inherited from \<Organisation\>. \<System Name\>'s own part is small: how its users treat screens and printouts, how they work from home, how physical incidents are handled, and the encryption of the server disks. The values it sets are P-70 in \<System Description\>, section 4.
+\<System Name\> has no premises of its own. It runs on two virtual servers in \<Organisation\>'s data centre, with backups, the restore test and recovery at a second site, so 15 of the 18 controls are inherited from \<Organisation\>. \<System Name\>'s own part is small: how its users treat screens and printouts, how they work from home, how physical incidents are handled, and the encryption of the server disks. The values it sets are given in full in this document, and approved in \<Decision Register\> (D-PE-P70).
 
 ## 2 Related documents
 
@@ -58,7 +58,7 @@ Who provides each PE control, and the evidence that closes it. The first choice 
 | PE-2 | Authorised access list for the data centres | Nothing | A.7.2; access list review record (EV-PE-01) |
 | PE-3 | Entry control, logs, visitors, keys and cards | Nothing | A.7.1, A.7.2, A.7.3; TPL-20 (EV-PE-01) |
 | PE-4 | Protected cabling | Nothing | A.7.12 (EV-PE-01) |
-| PE-5 | Managed printers with secure release; office security | Users' rules (A33, A36, A37); the device screen lock is \<Organisation\>'s (P-03) | A.7.7; EV-PE-05; \<Organisation\>'s device policy |
+| PE-5 | Managed printers with secure release; office security | Users' rules (A33, A36, A37); the device screen lock is \<Organisation\>'s | A.7.7; EV-PE-05; \<Organisation\>'s device policy |
 | PE-6, PE-6(1) | Monitoring, alarms and CCTV; log review; results passed to incident response | Nothing. The security officer handles what \<Organisation\> reports (section 3.7) | A.7.4; monitoring records (EV-PE-01) |
 | PE-8 | Visitor records and review; records hold only the name, organisation, and date and time of the visit (PE-8(3), assessed with PT) | Nothing | A.7.2; sample records (EV-PE-01, EV-PT-02) |
 | PE-9, PE-10, PE-12 | Power protection, emergency shutoff and emergency lighting | Nothing | A.7.11, A.7.12; maintenance records (EV-PE-02) |
@@ -94,7 +94,7 @@ Controls met here: PE-5.
 1. \<System Name\> items are printed only on \<Organisation\>'s managed printers with secure release: \[managed printers\]. A page prints only when its owner is at the printer.
 2. A printout is collected at once, marked \<Classification\>, locked away when not in use, and shredded when no longer needed (\<Media Protection Management\>, section 3.4).
 3. A screen is locked when its user leaves it, and placed so that others cannot read it.
-4. \<Organisation\>'s managed devices lock the screen after the inactivity period it sets (P-03; \<Access Control Management\>, section 3.15). \<System Name\> has no page lock or idle timeout of its own.
+4. \<Organisation\>'s managed devices lock the screen after the inactivity period it sets (\<Access Control Management\>, section 3.15). \<System Name\> has no page lock or idle timeout of its own.
 5. Desks are kept clear of printouts and notes.
 
 ### 3.6 Working from home

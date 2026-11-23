@@ -31,7 +31,7 @@ These carry out the principles and rules of \<Policy\>, sections MP.3 and MP.4.
 
 Controls met here: MP-2, MP-4.
 
-Every place \<System Name\> information is held outside the running application, with who may reach it. It includes the audit archive, the secret store, incident evidence, the document set, managed printers and the approved locations for users' copies. The system owner reviews the inventory every 12 months (P-69), and adds any new place before it is used (PRO-MP-6). \<System Name\> lets only the editors of a schema create a bulk export of it, and only auditors export the audit log (\<Access Control Management\>, section 3.9). Windows permissions limit the encrypted export working area to the API's service account, and each application's logs to its own service account and the Windows server administrator (\<Access Control Management\>, section 3.6.3). A printout is shared only with people authorised to read that schema.
+Every place \<System Name\> information is held outside the running application, with who may reach it. It includes the audit archive, the secret store, incident evidence, the document set, managed printers and the approved locations for users' copies. The system owner reviews the inventory every 12 months, and adds any new place before it is used (PRO-MP-6). \<System Name\> lets only the editors of a schema create a bulk export of it, and only auditors export the audit log (\<Access Control Management\>, section 3.9). Windows permissions limit the encrypted export working area to the API's service account, and each application's logs to its own service account and the Windows server administrator (\<Access Control Management\>, section 3.6.3). A printout is shared only with people authorised to read that schema.
 
 **Table 1: Media inventory**
 
@@ -39,13 +39,13 @@ Every place \<System Name\> information is held outside the running application,
 | --- | --- | --- | --- | --- |
 | Server disks, both servers | Everything on the servers, including each application's key ring, which is not backed up | BitLocker; \<Organisation\>'s data centre | Windows server administrator; \<Organisation\>'s hosting staff | M1 |
 | Database volumes | Items, their files, schema definitions and audit records | As the server disks | Database administrator; Windows server administrator | M1 |
-| Encrypted export working area on the application server | Working copies of exported items | Encrypted; deleted once downloaded, and always within 24 hours (P-20) | The API's service account; Windows server administrator | M5 |
+| Encrypted export working area on the application server | Working copies of exported items | Encrypted; deleted once downloaded, and always within 24 hours | The API's service account; Windows server administrator | M5 |
 | Users' managed devices | Downloads and exports | \<Organisation\>'s disk encryption and USB blocking (EV-MP-03) | The user | M4 |
 | Approved locations for users' copies | Exports and downloads that users keep | \<Organisation\>'s access control and encryption for the location | The user, and those the location is shared with | M5 |
 | Audit log exports | Filtered audit records that the auditor exports for a report or an investigation | Marked; kept on the auditor's managed device or in an approved location; each export is a security event that the security officer reviews (\<Audit and Accountability Management\>, section 3.8) | Auditor | M5 |
 | \<Organisation\>'s managed printers | Print jobs, held until the user releases them at the printer | Secure release; \<Organisation\>'s control of the printer and its storage (EV-MP-03) | The user who printed; \<Organisation\>'s staff who maintain the printer | M4 |
 | Application logs | Errors, start-up and shut-down events, and the security events | Access limited; kept 30 days (C46) | Windows server administrator | M5 |
-| \<Organisation\>'s central logging | The application security events, SQL Server Audit records and Windows logs, for 12 months (P-07) | \<Organisation\>'s access control for central logging (EV-AU-01) | Auditor; security officer; \<Organisation\>'s logging staff | M5 |
+| \<Organisation\>'s central logging | The application security events, SQL Server Audit records and Windows logs, for 12 months | \<Organisation\>'s access control for central logging (EV-AU-01) | Auditor; security officer; \<Organisation\>'s logging staff | M5 |
 | Backups, through \<Organisation\>'s backup service, at both sites | Everything in the database, its transaction log backups and the system-level backups | Encrypted with AES-256 under the backup encryption certificate before they leave the database server; \<Organisation\>'s backup service copies them to the second site and keeps one copy offline or immutable (\<Contingency Planning Management\>, section 3.8) | Database administrator, who writes them; \<Organisation\>'s backup service staff, who cannot read them | M2 |
 | Support copies | Data, dumps, logs or screenshots sent for support | Approved, minimised and encrypted; under UK GDPR Article 28 terms if personal data remains (\<Procedures\>, PRO-MA-7) | As approved | M5 |
 | Audit archive, offline | Audit records older than 12 months, and the SQL Server Audit records, Windows logs and application security events exported from central logging after 12 months | Encrypted by the archive storage \<Organisation\> provides, held off the database server, with the SHA-256 value of each addition recorded on TPL-8 (\<Audit and Accountability Management\>, section 3.7; EV-AU-03) | Database administrator and security officer, who add to it; the auditor, on request to the system owner | M5, after 24 months and only with the system owner's recorded approval |
@@ -84,7 +84,7 @@ Controls met here: MP-2, MP-4.
 | Media | Controlled area | Rule |
 | --- | --- | --- |
 | Server disks, volumes, backups and physical media | \<Organisation\>'s data centres, at the main and second sites | Encrypted. Reached only by the roles in section 3.2 |
-| Export working copies on the application server | The encrypted working area on the application server | Deleted by \<System Name\> once downloaded, and always within 24 hours (P-20) |
+| Export working copies on the application server | The encrypted working area on the application server | Deleted by \<System Name\> once downloaded, and always within 24 hours |
 | Users' exports and downloads | A managed device, in the locations \<Organisation\> approves: \[approved locations\] | Kept to the minimum, and deleted once no longer needed, and within 30 days at most if they hold personal data (\<Security Operating Procedures\>, A28) |
 | Printouts | Locked storage in \<Organisation\>'s offices | Printed only on \<Organisation\>'s managed printers with secure release. Collected at once, locked away when not in use, kept on site, and shredded when no longer needed, within 30 days if they hold personal data |
 
@@ -98,7 +98,7 @@ Media are carried physically only by exception. Each move is approved by the sys
 
 Controls met here: MP-6.
 
-Methods follow CSS and IEEE 2883-2022, with the NCSC's guidance for the UK. Each action is recorded on TPL-13, with the tool used and how the result was verified (PRO-MP-3). Every 12 months the system owner checks a sample of \<Organisation\>'s certificates against those records. Media records are kept for 3 years (P-69). That matches the training records, and covers a full authorisation cycle.
+Methods follow CSS and IEEE 2883-2022, with the NCSC's guidance for the UK. Each action is recorded on TPL-13, with the tool used and how the result was verified (PRO-MP-3). Every 12 months the system owner checks a sample of \<Organisation\>'s certificates against those records. Media records are kept for 3 years. That matches the training records, and covers a full authorisation cycle.
 
 Cryptographic erase is sound only if the media were encrypted before any \<System Name\> information was written to them, and only once every copy of the key is destroyed. Both servers are therefore encrypted before \<System Name\> is installed, and the record on TPL-13 lists each copy of the key and confirms its destruction. Where either condition cannot be shown, the media are purged or destroyed instead.
 
@@ -125,7 +125,7 @@ Controls met here: MP-7.
 
 1. USB and other portable storage are blocked on users' devices by \<Organisation\>'s device control.
 2. No USB device or other removable media is passed through to, or mounted on, either server (\<Maintenance Management\>, MA-3(2)).
-3. The system owner may approve an exception on TPL-17, for a stated purpose and time, using only encrypted media issued by \<Organisation\>. That media is used only on \<Organisation\>'s managed devices and the external system named in the approval, is never connected to a personal or other unmanaged device, and is returned for sanitising when the exception ends (\<System Description\>, P-48; AC-20(2)).
+3. The system owner may approve an exception on TPL-17, for a stated purpose and time, using only encrypted media issued by \<Organisation\>. That media is used only on \<Organisation\>'s managed devices and the external system named in the approval, is never connected to a personal or other unmanaged device, and is returned for sanitising when the exception ends (AC-20(2)).
 4. Portable storage with no identifiable owner must not be used. It is handed to the security officer, who records it on TPL-13.
 
 ### 3.8 What \<Organisation\> provides

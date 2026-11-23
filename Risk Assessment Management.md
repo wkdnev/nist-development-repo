@@ -34,9 +34,9 @@ These carry out the principles and rules of \<Policy\>, sections RA.3 and RA.4.
 
 Controls met here: RA-2.
 
-\<System Name\> is categorised Moderate: confidentiality Moderate, integrity Moderate and availability Low (\<System Description\>, P-01), unless its application profile sets otherwise. Each of its information types (\<System Description\>, section 3.4, Table 6) is mapped to CSS and rated under CSS, and the system takes the highest level of each. An application rated High in any objective is outside the reference system. The record, with the rationale for each level, is in \<System Security Plan\>, section 3.3, as RA-2 requires. \[Name\] owns the information types and confirms their levels, and the authorising official, \[Name\], approves the categorisation (D-RA-01).
+\<System Name\> is categorised Moderate: confidentiality Moderate, integrity Moderate and availability Low, unless its application profile sets otherwise. Each of its information types (\<System Description\>, section 3.4, Table 6) is mapped to CSS and rated under CSS, and the system takes the highest level of each. An application rated High in any objective is outside the reference system. The record, with the rationale for each level, is in \<System Security Plan\>, section 3.3, as RA-2 requires. \[Name\] owns the information types and confirms their levels, and the authorising official, \[Name\], approves the categorisation (D-RA-01).
 
-Availability is Low because the 120-hour maximum tolerable downtime (\<System Description\>, P-14) means a loss of availability has a limited adverse effect; "business critical" means important to \<Organisation\>, not that \<System Name\> must always be available.
+Availability is Low because the 120-hour maximum tolerable downtime means a loss of availability has a limited adverse effect; "business critical" means important to \<Organisation\>, not that \<System Name\> must always be available.
 
 The last information type, held by every application built on the reference system, covers the sign-in identities and the audit records. \<System Name\> holds no accounts or credentials, as users sign in through PingFederate and the API reads their groups from Active Directory.
 
@@ -66,7 +66,7 @@ Controls met here: RA-3, RA-7.
 
 | When | What is done | Who | Record |
 | --- | --- | --- | --- |
-| Every 12 months (P-74) | The threat model and each risk are reviewed against the method, and each rating, status and last-reviewed date updated. Each acceptance is checked against its review date, and each Medium and High risk for a decision | System owner | TPL-23; \<Risk List\> |
+| Every 12 months | The threat model and each risk are reviewed against the method, and each rating, status and last-reviewed date updated. Each acceptance is checked against its review date, and each Medium and High risk for a decision | System owner | TPL-23; \<Risk List\> |
 | After a significant change, an incident or a new test result | The same, for the threats and risks it affects | System owner | TPL-23; \<Risk List\> |
 | After each review | The results are shared | System owner, with the authorising official and the Head of Cyber | TPL-23 |
 | When a risk needs a decision | Decided by the person its rating calls for | System owner or authorising official | \<Decision Register\> |
@@ -78,7 +78,7 @@ After a significant change, such as a change to how users sign in or to where th
 
 Controls met here: RA-3(1).
 
-Every 12 months, before a new supplier or a new kind of component is added, and after a significant change to the system or where it runs, the system owner and the developers review each item in the supply chain for its origin, support, known problems and end of support (PRO-RA-2). They use the risks by stage and the supplier register in \<Supply Chain Risk Management\>, sections 3.4 and 3.5, the latest package check, and the bill of materials. Each review is recorded on TPL-23, and any new risk goes into the Risk List; the risk of a harmful package entering a release is R-RA-06. The intervals are P-74's. The supply chain plan, \<Supply Chain Risk Management\>, holds the suppliers and how they are managed; this section holds the risk assessment.
+Every 12 months, before a new supplier or a new kind of component is added, and after a significant change to the system or where it runs, the system owner and the developers review each item in the supply chain for its origin, support, known problems and end of support (PRO-RA-2). They use the risks by stage and the supplier register in \<Supply Chain Risk Management\>, sections 3.4 and 3.5, the latest package check, and the bill of materials. Each review is recorded on TPL-23, and any new risk goes into the Risk List; the risk of a harmful package entering a release is R-RA-06. These intervals are the risk assessment values in \<System Description\>, section 4. The supply chain plan, \<Supply Chain Risk Management\>, holds the suppliers and how they are managed; this section holds the risk assessment.
 
 ### 3.5 What is monitored for vulnerabilities
 
@@ -88,7 +88,7 @@ Controls met here: RA-5, RA-5(2), RA-5(5).
 
 | Component | How it is checked | Who | How often |
 | --- | --- | --- | --- |
-| Windows Server 2025, on both servers | Vendor updates, and a credentialed scan (PRO-RA-3) | Windows server administrator | Monthly, and at each release (\<System Description\>, P-30) |
+| Windows Server 2025, on both servers | Vendor updates, and a credentialed scan (PRO-RA-3) | Windows server administrator | Monthly, and at each release |
 | Microsoft SQL Server 2022 | Vendor updates and security advisories, and the credentialed scan of the database server | Database administrator | Monthly |
 | .NET and NuGet packages, through the in-house package feed | The package vulnerability report at each build, and Test-Vulnerability.ps1 at each release | Developers | Each build, and monthly |
 | Browser libraries, served by \<System Name\> itself | Vendor security announcements, and Test-Vulnerability.ps1, which checks each library's version in the browser library manifest against the GitHub Advisory Database; NuGet's audit does not cover them | Developers | Monthly, and at each release |
@@ -114,7 +114,7 @@ Improper configurations are found by the monthly configuration scan against the 
 
 Controls met here: RA-5.
 
-This is the one timetable for vulnerabilities in \<System Name\>, its packages and its servers (\<System Description\>, P-11). It replaces any other limit for vulnerabilities, including the general limits for POA&M items in \<Policy\> (CA). It meets the Cyber Essentials limit of 14 days for high and critical updates, which \<Organisation\> holds.
+This is the one timetable for vulnerabilities in \<System Name\>, its packages and its servers. It replaces any other limit for vulnerabilities, including the general limits for POA&M items in \<Policy\> (CA). It meets the Cyber Essentials limit of 14 days for high and critical updates, which \<Organisation\> holds.
 
 **Table 4: Vulnerability timetable**
 
@@ -174,7 +174,7 @@ Controls met here: RA-9.
 | Admin application | Sets which Active Directory groups open each schema, administers schemas and system settings, runs fixed diagnostics, gives auditors the audit log, and gives the security officer the last sign-in report. It shows no item content | Schema access granted to the wrong groups, or schemas changed or closed |
 | Audit records | Show who did what | Misuse cannot be traced or proved |
 | Backup store | Holds a full, encrypted copy of every item | Every item exposed from a stolen backup and its key, or lost |
-| Export working area | Holds encrypted working copies of items for each export job, deleted as \<System Description\>, P-20 sets | Items disclosed outside their schema's access |
+| Export working area | Holds encrypted working copies of items for each export job, deleted once downloaded, and always within 24 hours | Items disclosed outside their schema's access |
 | Key store | Holds the token signing key, the audit chain key, the OpenID Connect client credential and the exported backup encryption certificate. There is no database password: the API uses Windows authentication | Calls between the applications can be forged, the audit chain rewritten unnoticed, or no backup can be restored |
 | Data protection key rings | Protect each application's authentication cookie and anti-forgery tokens | Sign-in cookies can be forged or read |
 | PingFederate, with Active Directory (\<Organisation\>) | PingFederate authenticates every user with multi-factor authentication; Active Directory holds the groups, read by the API over LDAPS, that decide each role and each schema's access | Anyone could sign in as another user, or be given any role or schema |

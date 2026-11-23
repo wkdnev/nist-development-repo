@@ -22,7 +22,7 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | TPL-10 Incident record | Records an incident from report to lessons, and an alert or malware detection judged not to be an incident, with the reason. Where the incident is recorded in ServiceNow, the ServiceNow record is this record and must hold these fields | IR-4, IR-5, IR-6; PRO-IR-1, PRO-IR-2; PS-8; PRO-PS-6; SI-3, SI-4; PRO-SI-2, PRO-SI-4 |
 | TPL-11 Exercise and restore test | Records a tabletop exercise, restore test or activation as an after-action report, the result and the actions | IR-3, IR-3(2), CP-4, CP-4(1), CP-9(1); PRO-IR-3, PRO-CP-2, PRO-CP-4 |
 | TPL-12 Maintenance record | Records maintenance, who did it and the check afterwards. Kept for 3 years | MA-2, MA-3, MA-3(3), MA-4, MA-5; PRO-MA-1 to PRO-MA-7 |
-| TPL-13 Media record | Records media transport, sanitising, ownerless devices and the yearly certificate check. Kept for 3 years (P-69) | MP-5, MP-6, MP-7; PRO-MP-1 to PRO-MP-4 |
+| TPL-13 Media record | Records media transport, sanitising, ownerless devices and the yearly certificate check. Kept for 3 years | MP-5, MP-6, MP-7; PRO-MP-1 to PRO-MP-4 |
 | TPL-14 Leaver or mover record | Records what happened to someone's access when they left or moved. Kept for 3 years | AC-2; PS-4, PS-5; PRO-PS-2, PRO-PS-3 |
 | TPL-15 Privacy request | Records a request from an individual about their data: to see, correct, delete, restrict, object or receive it in a portable form. Kept for 3 years after it is closed | AC-3(14); SI-18(4); PRO-PT-1 |
 | TPL-16 Supplier review | Records a yearly review of a supplier or external service | SA-5, SA-9, SA-9(2), SR-2, SR-6, SR-8; PRO-SA-3, PRO-SA-4, PRO-SR-2; PS-7; PRO-PS-5 |
@@ -88,13 +88,13 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | --- | --- |
 | Record number |  |
 | Scope: privileged group memberships, or all other group memberships |  |
-| System or layer: application (Active Directory role and schema groups), Windows or SQL Server (every 6 months, P-52) |  |
+| System or layer: application (Active Directory role and schema groups), Windows or SQL Server (every 6 months) |  |
 | Date of the group membership export from Active Directory, or the account export, and who produced it |  |
 | Compared with: the ServiceNow requests that authorised each membership (TPL-2); for Windows and SQL Server, \<Roles and Responsibilities\> and the approved change records |  |
 | Accounts reviewed |  |
 | Accounts confirmed, changed and removed |  |
 | Members who have not signed in for 90 days, from the last sign-in report run by the security officer (FR-085), and removed (\<Procedures\>, PRO-AC-8) |  |
-| Any temporary, emergency, shared or privileged account found in a schema group (none expected: P-39, P-36, P-45) |  |
+| Any temporary, emergency, shared or privileged account found in a schema group (none expected) |  |
 | For a review of risk designations and access agreements (\<Procedures\>, PRO-PS-4): roles checked against \<Roles and Responsibilities\>, designations changed, agreements reviewed, and rescreening falling due within 12 months asked for |  |
 | Reviewer is not reviewing their own access (yes or no) |  |
 | Actions completed, by and date |  |
@@ -190,7 +190,7 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | Record number |  |
 | Period covered, and reviewer |  |
 | Central logs reviewed by the security officer, and anything unexplained |  |
-| Audit log review, by an auditor only (P-08, NFR-027): records compared with the server, database, PingFederate and Active Directory records, anything suspicious, and the date it was reported to the security officer |  |
+| Audit log review, by an auditor only (NFR-027): records compared with the server, database, PingFederate and Active Directory records, anything suspicious, and the date it was reported to the security officer |  |
 | Alerts raised, and what was done |  |
 | Integrity checks: the installed release files against the release record, the file checksum check and malware rescan of stored files, and the audit chain, and the auditor's comparison of the daily chain copies in central logging with the audit log (PRO-AU-2) |  |
 | Audit log reads and exports seen in central logging, and anything unexplained reported to the Head of Cyber (security officer) |  |
@@ -266,7 +266,7 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | Date, and who took part |  |
 | Objectives, and the scenario or backup restored and its date |  |
 | Plans covered: \<Incident Response Management\>, \<Contingency Planning Management\> or both |  |
-| Time to recover and data lost, against the objectives (P-12, 72 hours; P-13, 24 hours) |  |
+| Time to recover and data lost, against the objectives (72 hours; 24 hours) |  |
 | Checks in PRO-CP-2 (row counts, file checksums, audit chain, and group members checked against current staff): result |  |
 | For a restore test: the restore test server used, that the backup encryption certificate was restored from its protected copy, and the TPL-13 record of the server's erasure. For an activation: the items deleted again since the backup (\<Contingency Planning Management\>, section 3.7) |  |
 | Changes made to \<Incident Response Management\>, \<Contingency Planning Management\> or the procedures (IR-4c, IR-8c, CP-2g) |  |
@@ -386,8 +386,8 @@ Record numbers take the form \<template>-\<family>-\<number>, such as TPL-1-AC-0
 | What is asked for, and why |  |
 | Period, with an end date no more than 12 months away |  |
 | Compensating measures |  |
-| For portable storage: the media issued (encrypted, by \<Organisation\>), the managed devices and the one external system it may be used on, confirmation that it will never be connected to a personal or other unmanaged device, and the date it was returned and sanitised (P-48) |  |
-| For an external system: the terms in P-48 confirmed (contract, encryption at rest, location, deletion) |  |
+| For portable storage: the media issued (encrypted, by \<Organisation\>), the managed devices and the one external system it may be used on, confirmation that it will never be connected to a personal or other unmanaged device, and the date it was returned and sanitised |  |
+| For an external system: the terms confirmed (contract, encryption at rest, location, deletion) |  |
 | Security officer's risk assessment |  |
 | Decision: approved or refused, by whom, and date. The authorising official decides above the system owner's authority |  |
 | Risk entry in \<Risk List\>, if any |  |
@@ -533,7 +533,7 @@ Completed for each approver, and filed by the system owner in the restricted sto
 
 ### 2.25 TPL-25 Sharing decision
 
-Completed by the Data Owner before any of a schema's information is shared outside the schema or outside \<Organisation\> (\<Procedures\>, PRO-AC-16; \<System Description\>, P-49). Portable storage and external systems are not approved here: they need an exception on TPL-17.
+Completed by the Data Owner before any of a schema's information is shared outside the schema or outside \<Organisation\> (\<Procedures\>, PRO-AC-16). Portable storage and external systems are not approved here: they need an exception on TPL-17.
 
 **Table 28: TPL-25 Sharing decision record**
 
