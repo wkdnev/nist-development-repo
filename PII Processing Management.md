@@ -43,22 +43,43 @@ One row for each kind of personal data. The first rows come from the information
 
 **Table 1: Personal data inventory**
 
-| Kind of data | Where | Source | Purpose | Article 6 basis | Article 9 and Schedule 1 condition | Recipients | Retention |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| \[Information type 1\], for example HR records: contract, pay, absence, performance | Items in \[schema\] | Editors' uploads | \[Purpose\] | \[Legal adviser\] | Not applicable | Members of the schema's read and edit groups | Section 3.7, H1 to H4 |
-| \[Special category data, if any\], for example health records | Items in \[schema\], marked as special category data | Editors' uploads | \[Purpose\] | \[Legal adviser\] | \[Legal adviser; appropriate policy document if Schedule 1, Part 1 applies\] | Members of that schema's read and edit groups only | Section 3.7, H5 |
-| \[Information type 2\], for example names and contact details in other items | Items in \[schema\] | Editors' uploads | \[Purpose\] | \[Legal adviser\] | Not applicable | Members of the schema's read and edit groups | \[Period for the schema\] |
-| People who sign in: name and Active Directory account name, and the groups the API reads from Active Directory over LDAPS | Each sign-in, held in the authentication cookie; the audit records; items, such as who created or uploaded an item | PingFederate's signed response (the name) and Active Directory (the groups), at each sign-in | Signing in and accountability | \[Legal adviser\] | Not applicable | Readers and editors of the schema, for the names on its items; auditors, for the audit records; the security officer, for the usernames and dates in the last sign-in report (\<System Description\>, FR-085). Administrators see neither item content nor the audit log | Section 3.7, A1 and A2 |
-| Audit records: username, user ID, IP address and browser | The audit log in the \<System Name\> database (\<Audit and Accountability Management\>, section 3.5) | \<System Name\> | Accountability and security | \[Legal adviser\] | Not applicable | Auditors; the security officer sees only the usernames and dates in the last sign-in report (FR-085) | Section 3.7, A2 |
-| Application log: the username in the short security events, and no other personal data (no addresses or cookie values), listed so that any slip is caught | Each application's log on the application server, forwarded to central logging (\<Audit and Accountability Management\>, section 3.10) | \<System Name\> | Troubleshooting and security alerts | \[Legal adviser\] | Not applicable | Server administrators on the server; the auditor and the security officer in central logging | Section 3.7, A3 |
-| Personnel security records of people with access: name, role, risk designation, who confirmed screening and the dates, agreement and signature dates, and leaver and mover records | The personnel security register, the register of signatures, the leaver or mover record and the rules of behaviour acknowledgement, kept by the system owner with the other records (\<Record Templates\>) | The person, \<Organisation\> (the confirmation only) and the system owner | Personnel security and the rules of behaviour | \[Legal adviser\] | Not applicable: no screening result or criminal record data is held (\<Policy\> (PS), R4) | System owner; assessors | Section 3.7, A7 to A9 |
-| Fault reports and notifications: the reporter's name and the description they write, and each person's own notifications | Fault reports in each schema (\<System Description\>, FR-026 to FR-029); notifications (FR-053 to FR-055) | Readers, and \<System Name\> | Managing faulty items; telling people of their own jobs | \[Legal adviser\] | Not applicable | Readers and editors of the schema, for its fault reports; the person alone, for their notifications | Section 3.7, A13 and A14 |
-| Records of privacy requests and complaints: the person's identity and contact details, what they asked or complained of, what was found and the reply | Privacy request record and the data protection complaint record, kept by the legal adviser | The person, and the legal adviser's work | Meeting people's rights and handling complaints | \[Legal adviser\] | \[Legal adviser: any condition, if a request or complaint reveals special category data\] | Legal adviser; the legal adviser's delegate for the search; assessors | Section 3.7, A10 and A11 |
-| Incident and breach records: the people involved or affected, and what happened | Incident record in ServiceNow, and the incident and breach register (\<Incident Response Management\>, sections 3.8 and 3.14) | Reporters, the security officer and the legal adviser | Handling incidents and breaches, and recording every breach (UK GDPR, Article 33(5)) | \[Legal adviser\] | \[Legal adviser, if a record holds special category or criminal offence data\] | The incident roles; the ICO and the people affected, through the legal adviser | Section 3.7, A15 |
-| Other operating records that name people: training, maintenance and media records, access reviews, exceptions, sharing decisions, home working checks and sign-off sheets | The restricted records store, kept by the system owner (\<Record Templates\>) | The people named, and the role holders who keep each record | Running the controls | \[Legal adviser\] | Not applicable | The role holders who keep each record; assessors | Section 3.7, A4 to A6 and A16 |
-| Database backups, holding every item and audit record, including items since deleted | \<Organisation\>'s backup service, at both sites, with one copy offline or immutable (\<Contingency Planning Management\>, section 3.8) | \<System Name\> | Recovery | As the source data | As the source data | Nobody reads them: they are encrypted and restored only for recovery or a restore test | Section 3.7, A12 |
-| Support copies: a log, screenshot or data copy sent to a supplier, only where personal data cannot be removed | The supplier's systems, in the UK | \<System Name\> | Support | As the source data | As the source data | The supplier, under a contract with UK GDPR Article 28 terms | Until no longer needed; the supplier confirms deletion |
-| Export copies | Users' managed devices; the encrypted working area on the application server | Bulk export | Sharing items for work | As the source item | As the source item | The exporting user | 30 days at most on devices (\<Security Operating Procedures\>); working copies deleted once downloaded, and always within 24 hours |
+| Kind of data | Where | Source | Recipients |
+| --- | --- | --- | --- |
+| \[Information type 1\], for example HR records: contract, pay, absence, performance | Items in \[schema\] | Editors' uploads | Members of the schema's read and edit groups |
+| \[Special category data, if any\], for example health records | Items in \[schema\], marked as special category data | Editors' uploads | Members of that schema's read and edit groups only |
+| \[Information type 2\], for example names and contact details in other items | Items in \[schema\] | Editors' uploads | Members of the schema's read and edit groups |
+| People who sign in: name and Active Directory account name, and the groups the API reads from Active Directory over LDAPS | Each sign-in, held in the authentication cookie; the audit records; items, such as who created or uploaded an item | PingFederate's signed response (the name) and Active Directory (the groups), at each sign-in | Readers and editors of the schema, for the names on its items; auditors, for the audit records; the security officer, for the usernames and dates in the last sign-in report (\<System Description\>, FR-085). Administrators see neither item content nor the audit log |
+| Audit records: username, user ID, IP address and browser | The audit log in the \<System Name\> database (\<Audit and Accountability Management\>, section 3.5) | \<System Name\> | Auditors; the security officer sees only the usernames and dates in the last sign-in report (FR-085) |
+| Application log: the username in the short security events, and no other personal data (no addresses or cookie values), listed so that any slip is caught | Each application's log on the application server, forwarded to central logging (\<Audit and Accountability Management\>, section 3.10) | \<System Name\> | Server administrators on the server; the auditor and the security officer in central logging |
+| Personnel security records of people with access: name, role, risk designation, who confirmed screening and the dates, agreement and signature dates, and leaver and mover records | The personnel security register, the register of signatures, the leaver or mover record and the rules of behaviour acknowledgement, kept by the system owner with the other records (\<Record Templates\>) | The person, \<Organisation\> (the confirmation only) and the system owner | System owner; assessors |
+| Fault reports and notifications: the reporter's name and the description they write, and each person's own notifications | Fault reports in each schema (\<System Description\>, FR-026 to FR-029); notifications (FR-053 to FR-055) | Readers, and \<System Name\> | Readers and editors of the schema, for its fault reports; the person alone, for their notifications |
+| Records of privacy requests and complaints: the person's identity and contact details, what they asked or complained of, what was found and the reply | Privacy request record and the data protection complaint record, kept by the legal adviser | The person, and the legal adviser's work | Legal adviser; the legal adviser's delegate for the search; assessors |
+| Incident and breach records: the people involved or affected, and what happened | Incident record in ServiceNow, and the incident and breach register (\<Incident Response Management\>, sections 3.8 and 3.14) | Reporters, the security officer and the legal adviser | The incident roles; the ICO and the people affected, through the legal adviser |
+| Other operating records that name people: training, maintenance and media records, access reviews, exceptions, sharing decisions, home working checks and sign-off sheets | The restricted records store, kept by the system owner (\<Record Templates\>) | The people named, and the role holders who keep each record | The role holders who keep each record; assessors |
+| Database backups, holding every item and audit record, including items since deleted | \<Organisation\>'s backup service, at both sites, with one copy offline or immutable (\<Contingency Planning Management\>, section 3.8) | \<System Name\> | Nobody reads them: they are encrypted and restored only for recovery or a restore test |
+| Support copies: a log, screenshot or data copy sent to a supplier, only where personal data cannot be removed | The supplier's systems, in the UK | \<System Name\> | The supplier, under a contract with UK GDPR Article 28 terms |
+| Export copies | Users' managed devices; the encrypted working area on the application server | Bulk export | The exporting user |
+
+Table 1a gives the purpose, lawful basis and retention of each kind of data in Table 1.
+
+**Table 1a: Purpose, lawful basis and retention of personal data**
+
+| Kind of data | Purpose | Lawful basis and condition | Retention |
+| --- | --- | --- | --- |
+| Information type 1 | \[Purpose\] | Article 6: \[Legal adviser\]. Article 9 and Schedule 1: not applicable | Section 3.7, H1 to H4 |
+| Special category data, if any | \[Purpose\] | Article 6: \[Legal adviser\]. Article 9 and Schedule 1: \[Legal adviser; appropriate policy document if Schedule 1, Part 1 applies\] | Section 3.7, H5 |
+| Information type 2 | \[Purpose\] | Article 6: \[Legal adviser\]. Article 9 and Schedule 1: not applicable | \[Period for the schema\] |
+| People who sign in | Signing in and accountability | Article 6: \[Legal adviser\]. Article 9 and Schedule 1: not applicable | Section 3.7, A1 and A2 |
+| Audit records | Accountability and security | Article 6: \[Legal adviser\]. Article 9 and Schedule 1: not applicable | Section 3.7, A2 |
+| Application log | Troubleshooting and security alerts | Article 6: \[Legal adviser\]. Article 9 and Schedule 1: not applicable | Section 3.7, A3 |
+| Personnel security records of people with access | Personnel security and the rules of behaviour | Article 6: \[Legal adviser\]. Article 9 and Schedule 1: not applicable, as no screening result or criminal record data is held (\<Policy\> (PS), R4) | Section 3.7, A7 to A9 |
+| Fault reports and notifications | Managing faulty items; telling people of their own jobs | Article 6: \[Legal adviser\]. Article 9 and Schedule 1: not applicable | Section 3.7, A13 and A14 |
+| Records of privacy requests and complaints | Meeting people's rights and handling complaints | Article 6: \[Legal adviser\]. Article 9 and Schedule 1: \[Legal adviser: any condition, if a request or complaint reveals special category data\] | Section 3.7, A10 and A11 |
+| Incident and breach records | Handling incidents and breaches, and recording every breach (UK GDPR, Article 33(5)) | Article 6: \[Legal adviser\]. Article 9 and Schedule 1: \[Legal adviser, if a record holds special category or criminal offence data\] | Section 3.7, A15 |
+| Other operating records that name people | Running the controls | Article 6: \[Legal adviser\]. Article 9 and Schedule 1: not applicable | Section 3.7, A4 to A6 and A16 |
+| Database backups, holding every item and audit record, including items since deleted | Recovery | As the source data | Section 3.7, A12 |
+| Support copies | Support | As the source data | Until no longer needed; the supplier confirms deletion |
+| Export copies | Sharing items for work | As the source item | 30 days at most on devices (\<Security Operating Procedures\>); working copies deleted once downloaded, and always within 24 hours |
 
 ### 3.4 Special category data
 
@@ -74,12 +95,12 @@ People sign in on \<Organisation\>'s PingFederate page, so \<System Name\>'s hom
 
 **Table 2: Requests and complaints**
 
-| Request | What happens | Who | Within | Record |
-| --- | --- | --- | --- | --- |
-| To see their data, and a copy of it | The legal adviser confirms the person's identity, and the legal adviser's delegate makes a reasonable and proportionate search of every schema, using the audited search across schemas that only that named role may use (\<System Description\>, FR-073). An auditor searches the audit records, which only auditors read | Legal adviser; the legal adviser's delegate; an auditor | One month, extendable as the law allows | Privacy request record |
-| To correct or delete their data | On the legal adviser's instruction, an editor of the schema makes the change with the correct and delete functions (\<System Description\>, FR-075), and the legal adviser confirms it in writing. Administrators see no item content, so cannot. Each change is audited | Legal adviser; an editor of the schema | One month | Privacy request record; audit records |
-| To restrict or object to the use of their data, or to receive it in a portable form | The legal adviser decides whether the right applies and how it is met, for example by limiting who can reach an item while a dispute about its accuracy is settled | Legal adviser; the schema's Data Owner | One month | Privacy request record |
-| To complain about how their data is handled | The legal adviser acknowledges the complaint, investigates without undue delay, keeps the person informed and tells them the outcome. Any weakness found is raised as a risk | Legal adviser | Acknowledged within 30 days | Data protection complaint record |
+| Request | What happens | Who | Within, and record |
+| --- | --- | --- | --- |
+| To see their data, and a copy of it | The legal adviser confirms the person's identity, and the legal adviser's delegate makes a reasonable and proportionate search of every schema, using the audited search across schemas that only that named role may use (\<System Description\>, FR-073). An auditor searches the audit records, which only auditors read | Legal adviser; the legal adviser's delegate; an auditor | One month, extendable as the law allows. Record: privacy request record |
+| To correct or delete their data | On the legal adviser's instruction, an editor of the schema makes the change with the correct and delete functions (\<System Description\>, FR-075), and the legal adviser confirms it in writing. Administrators see no item content, so cannot. Each change is audited | Legal adviser; an editor of the schema | One month. Record: privacy request record; audit records |
+| To restrict or object to the use of their data, or to receive it in a portable form | The legal adviser decides whether the right applies and how it is met, for example by limiting who can reach an item while a dispute about its accuracy is settled | Legal adviser; the schema's Data Owner | One month. Record: privacy request record |
+| To complain about how their data is handled | The legal adviser acknowledges the complaint, investigates without undue delay, keeps the person informed and tells them the outcome. Any weakness found is raised as a risk | Legal adviser | Acknowledged within 30 days. Record: data protection complaint record |
 
 The time allowed starts once the person's identity is confirmed, and pauses while the legal adviser waits for any clarification the request needs, as the Data (Use and Access) Act 2025 allows. When data is corrected, deleted or restricted, the legal adviser tells anyone it was disclosed to, unless that is impossible or would take disproportionate effort (UK GDPR, Article 19). The recipients outside a schema are found from the Data Owners' sharing decisions, which record what was shared, with whom and why, and the same records give the recipients a reply to a request must name. The export and download audit records show who took copies, from which schema and how many items, but not which items, so they narrow the search rather than settle it.
 
@@ -94,31 +115,31 @@ The time allowed starts once the person's identity is confirmed, and pauses whil
 
 **Table 3: Retention schedule**
 
-| ID | Record type | Period | Trigger | Basis for the period | Disposal |
-| --- | --- | --- | --- | --- | --- |
-| H1 | \[Record type 1\], for example employment contract and changes | \[Period\] | End of employment | \[Reason\] | Delete and audit |
-| H2 | \[Record type 2\], for example pay and pension records | \[Period\] | End of the tax year | \[Reason\] | Delete and audit |
-| H3 | \[Record type 3\], for example absence and leave records | \[Period\] | End of the absence | \[Reason\] | Delete and audit |
-| H4 | \[Record type 4\], for example performance, conduct and grievance records | \[Period\] | Close of the matter | \[Reason\] | Delete and audit |
-| H5 | \[Special category record type, if any\], for example health and occupational health records | \[Period\] | End of employment | \[Reason\] | Delete and audit |
-| A1 | Names of people held from sign-in, in items, such as who created or uploaded an item | As the item that holds it | The item's own trigger | Accountability for the item, which outlasts the person's employment (FR-040) | Deleted with the item (FR-074) |
-| A2 | Audit records | 24 months: 12 online and 12 in an offline archive | Record created | As set in \<Audit and Accountability Management\> | Archive, then delete |
-| A3 | Application log | 30 days | Log written | As set in \<Audit and Accountability Management\>, section 3.10 | Rotated and deleted |
-| A4 | Training records and the training register | 3 years | Training completed | As set in \<Awareness and Training Management\> | Delete |
-| A5 | Maintenance records | 3 years | Job completed | As set in \<Maintenance Management\>, section 3.3 | Delete |
-| A6 | Media records | 3 years | Action completed | As set in \<Media Protection Management\>, section 3.6 | Delete |
-| A7 | Signed rules of behaviour and the register of signatures | While the person has access, and 3 years after | Access ended | As set in \<Planning Management\>, section 3.5 | Delete |
-| A8 | Personnel security register entries | While the person has access, and 3 years after | Access ended | As set in \<Personnel Security Management\>, section 3.9 | Delete |
-| A9 | Leaver and mover records | 3 years | Record completed | As set in \<Personnel Security Management\>, section 3.9 | Delete |
-| A10 | Privacy requests | 3 years | Request closed | Covers a complaint to the ICO about how a request was handled, and matches the other records | Delete |
-| A11 | Data protection complaints | 3 years | Complaint closed | Covers a complaint to the ICO about how a complaint was handled, and matches the other records | Delete |
-| A12 | Database backups, holding every item, including items since deleted | 14 daily, 8 weekly and 12 monthly copies | Backup taken | As set in \<Contingency Planning Management\>, section 3.8 | Expired copies deleted at both sites by \<Organisation\>'s backup service; at the end of the system, method M2 |
-| A13 | Fault reports, with the reporter's name | As the item the report concerns | The item's own trigger | Kept while the item is | Deleted with the item. \[Developers to confirm that FR-038 and FR-074 remove an item's fault reports\] |
-| A14 | Notifications | \[Period\] | Notification created | Only as long as the person needs it | Removed by the scheduled task (FR-055) |
-| A15 | Incident records and the incident and breach register | \[Period, set by the legal adviser\] | Incident closed | Shows what happened and that every breach was recorded (UK GDPR, Article 33(5)) | Delete |
-| A16 | Other operating records that name people | \[Period, set by the system owner; 3 years proposed, to match the other records\] | Record completed or superseded | Covers the assessment cycle | Delete |
-| A17 | Export working copies on the application server | Until downloaded, and 24 hours at most | Export completed | As set in \<Media Protection Management\> | Deleted by the API after the download, and by a background task past 24 hours (FR-050) |
-| A18 | Users' exports, downloads and printouts | Until no longer needed, and 30 days at most if they hold personal data | Export, download or print | As set in \<Media Protection Management\> | Deleted or shredded by the user |
+| ID | Record type | Period, and when it starts | Basis and disposal |
+| --- | --- | --- | --- |
+| H1 | \[Record type 1\], for example employment contract and changes | \[Period\]. Starts: end of employment | Basis: \[Reason\]. Disposal: delete and audit |
+| H2 | \[Record type 2\], for example pay and pension records | \[Period\]. Starts: end of the tax year | Basis: \[Reason\]. Disposal: delete and audit |
+| H3 | \[Record type 3\], for example absence and leave records | \[Period\]. Starts: end of the absence | Basis: \[Reason\]. Disposal: delete and audit |
+| H4 | \[Record type 4\], for example performance, conduct and grievance records | \[Period\]. Starts: close of the matter | Basis: \[Reason\]. Disposal: delete and audit |
+| H5 | \[Special category record type, if any\], for example health and occupational health records | \[Period\]. Starts: end of employment | Basis: \[Reason\]. Disposal: delete and audit |
+| A1 | Names of people held from sign-in, in items, such as who created or uploaded an item | As the item that holds it. Starts: the item's own trigger | Basis: accountability for the item, which outlasts the person's employment (FR-040). Disposal: deleted with the item (FR-074) |
+| A2 | Audit records | 24 months: 12 online and 12 in an offline archive. Starts: record created | Basis: as set in \<Audit and Accountability Management\>. Disposal: archive, then delete |
+| A3 | Application log | 30 days. Starts: log written | Basis: as set in \<Audit and Accountability Management\>, section 3.10. Disposal: rotated and deleted |
+| A4 | Training records and the training register | 3 years. Starts: training completed | Basis: as set in \<Awareness and Training Management\>. Disposal: delete |
+| A5 | Maintenance records | 3 years. Starts: job completed | Basis: as set in \<Maintenance Management\>, section 3.3. Disposal: delete |
+| A6 | Media records | 3 years. Starts: action completed | Basis: as set in \<Media Protection Management\>, section 3.6. Disposal: delete |
+| A7 | Signed rules of behaviour and the register of signatures | While the person has access, and 3 years after. Starts: access ended | Basis: as set in \<Planning Management\>, section 3.5. Disposal: delete |
+| A8 | Personnel security register entries | While the person has access, and 3 years after. Starts: access ended | Basis: as set in \<Personnel Security Management\>, section 3.9. Disposal: delete |
+| A9 | Leaver and mover records | 3 years. Starts: record completed | Basis: as set in \<Personnel Security Management\>, section 3.9. Disposal: delete |
+| A10 | Privacy requests | 3 years. Starts: request closed | Basis: covers a complaint to the ICO about how a request was handled, and matches the other records. Disposal: delete |
+| A11 | Data protection complaints | 3 years. Starts: complaint closed | Basis: covers a complaint to the ICO about how a complaint was handled, and matches the other records. Disposal: delete |
+| A12 | Database backups, holding every item, including items since deleted | 14 daily, 8 weekly and 12 monthly copies. Starts: backup taken | Basis: as set in \<Contingency Planning Management\>, section 3.8. Disposal: expired copies deleted at both sites by \<Organisation\>'s backup service; at the end of the system, method M2 |
+| A13 | Fault reports, with the reporter's name | As the item the report concerns. Starts: the item's own trigger | Basis: kept while the item is. Disposal: deleted with the item. \[Developers to confirm that FR-038 and FR-074 remove an item's fault reports\] |
+| A14 | Notifications | \[Period\]. Starts: notification created | Basis: only as long as the person needs it. Disposal: removed by the scheduled task (FR-055) |
+| A15 | Incident records and the incident and breach register | \[Period, set by the legal adviser\]. Starts: incident closed | Basis: shows what happened and that every breach was recorded (UK GDPR, Article 33(5)). Disposal: delete |
+| A16 | Other operating records that name people | \[Period, set by the system owner; 3 years proposed, to match the other records\]. Starts: record completed or superseded | Basis: covers the assessment cycle. Disposal: delete |
+| A17 | Export working copies on the application server | Until downloaded, and 24 hours at most. Starts: export completed | Basis: as set in \<Media Protection Management\>. Disposal: deleted by the API after the download, and by a background task past 24 hours (FR-050) |
+| A18 | Users' exports, downloads and printouts | Until no longer needed, and 30 days at most if they hold personal data. Starts: export, download or print | Basis: as set in \<Media Protection Management\>. Disposal: deleted or shredded by the user |
 
 ### 3.8 Impact assessment and changes in processing
 

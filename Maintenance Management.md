@@ -67,13 +67,45 @@ All administration of the servers is remote maintenance, done over a network: th
 
 **Table 3: Remote maintenance routes**
 
-| Route | Used by | Tool | Network path | Sign-in | Logged in | How it ends |
-| --- | --- | --- | --- | --- | --- | --- |
-| R1 Windows administration | Windows server administrator; a supplier or \<Organisation\>'s engineer only by watching the administrator's session (section 3.6) | \[Remote desktop or PowerShell remoting\] | From the administrators' managed devices, only over \<Organisation\>'s managed administration route to the servers' management interface (flow F11); from outside the office, through the VPN first | Multi-factor authentication on the managed administration route, and on the VPN as well from outside the office; then the administrator's named Windows account | Windows Security log and \[\<Organisation\>'s route log\] | Sign out of Windows rather than only disconnect, so that no session is left open on the server; close the route connection; end any screen sharing |
-| R2 Database administration | Database administrator | sqlcmd and SQL Server Management Studio | Route R1 (flow F11) to the database server, then SQL Server locally | As R1; then SQL Server by Windows authentication, with the administrator's own account as a named login, never the API's. SQL Server accepts Windows authentication only | SQL Server Audit and error logs, and route R1's logs | Close the SQL Server session, then end the R1 session as above |
-| R3 Admin application | Administrator | Browser | \<Organisation\>'s managed administration route only, over HTTPS (F2); from outside the office, through the VPN first | Sign-in through PingFederate, with multi-factor authentication | \<System Name\> audit log | Use Sign out (FR-084) and lock the device. Otherwise the sign-in ends 8 hours after sign-in, never later than PingFederate's sign-in |
-| R4 Application releases | Developers | Release package | No direct route; the Windows server administrator installs the release over R1 | Not applicable | Change record | Not applicable |
-| R5 Hardware and hypervisor | \<Organisation\> | \<Organisation\>'s tools | \<Organisation\>'s internal management network | \<Organisation\>'s controls | \<Organisation\>'s records | \<Organisation\>'s process |
+| Route | Used by | Tool | Logged in |
+| --- | --- | --- | --- |
+| R1 Windows administration | Windows server administrator; a supplier or \<Organisation\>'s engineer only by watching the administrator's session (section 3.6) | \[Remote desktop or PowerShell remoting\] | Windows Security log and \[\<Organisation\>'s route log\] |
+| R2 Database administration | Database administrator | sqlcmd and SQL Server Management Studio | SQL Server Audit and error logs, and route R1's logs |
+| R3 Admin application | Administrator | Browser | \<System Name\> audit log |
+| R4 Application releases | Developers | Release package | Change record |
+| R5 Hardware and hypervisor | \<Organisation\> | \<Organisation\>'s tools | \<Organisation\>'s records |
+
+The path, sign-in and ending of each route are below.
+
+**R1 Windows administration**
+
+- **Network path:** From the administrators' managed devices, only over \<Organisation\>'s managed administration route to the servers' management interface (flow F11); from outside the office, through the VPN first
+- **Sign-in:** Multi-factor authentication on the managed administration route, and on the VPN as well from outside the office; then the administrator's named Windows account
+- **How it ends:** Sign out of Windows rather than only disconnect, so that no session is left open on the server; close the route connection; end any screen sharing
+
+**R2 Database administration**
+
+- **Network path:** Route R1 (flow F11) to the database server, then SQL Server locally
+- **Sign-in:** As R1; then SQL Server by Windows authentication, with the administrator's own account as a named login, never the API's. SQL Server accepts Windows authentication only
+- **How it ends:** Close the SQL Server session, then end the R1 session as above
+
+**R3 Admin application**
+
+- **Network path:** \<Organisation\>'s managed administration route only, over HTTPS (F2); from outside the office, through the VPN first
+- **Sign-in:** Sign-in through PingFederate, with multi-factor authentication
+- **How it ends:** Use Sign out (FR-084) and lock the device. Otherwise the sign-in ends 8 hours after sign-in, never later than PingFederate's sign-in
+
+**R4 Application releases**
+
+- **Network path:** No direct route; the Windows server administrator installs the release over R1
+- **Sign-in:** Not applicable
+- **How it ends:** Not applicable
+
+**R5 Hardware and hypervisor**
+
+- **Network path:** \<Organisation\>'s internal management network
+- **Sign-in:** \<Organisation\>'s controls
+- **How it ends:** \<Organisation\>'s process
 
 The change control board approves remote work in the change record, which names the route, or the system owner or deputy in an emergency (section 3.3). Strong authentication comes from the multi-factor sign-in on the managed administration route, and from PingFederate's on R3: a Windows password alone never opens a session. A supplier never holds a credential: an approved administrator drives the session and the supplier watches and guides over a shared screen (section 3.6). For each session the logs must show the start and end time, the account, the source address, the route, and the actions where the tool records them, and the session reference goes on the maintenance record. The security officer reviews the logs weekly.
 
@@ -111,24 +143,24 @@ A supplier, \<Organisation\>'s engineer, or anyone else not on the list holds no
 
 **Table 5: Approved maintenance people**
 
-| Person or organisation | Role | Maintains | Screened | Part B signed | Account | Supervised |
-| --- | --- | --- | --- | --- | --- | --- |
-| \[Name\] | Windows server administrator | Both servers | \[Date\] | \[Date\] | Named Windows administrator account | No |
-| \[Name\] | Database administrator | SQL Server 2022 | \[Date\] | \[Date\] | Named SQL Server login | No |
-| \[Name\] | Administrator | Schemas, settings and diagnostics, in the Admin application | \[Date\] | \[Date\] | Their Active Directory account, in the administrators' group | No |
-| \[Developers\] | Developers | Applications, through releases | \[Date\] | \[Date\] | No access to the servers | Not applicable |
-| \<Organisation\>'s engineers, \[names\] | Hardware and hypervisor | The hosts | \<Organisation\>'s screening | Not applicable | \<Organisation\>'s own, on the hosts only; none on the servers | On the hosts, no; on a server, only through an administrator's session |
-| \[Supplier\] | \[Role\] | \[As contracted\] | Not required, as always supervised | Not applicable; bound by the contract's confidentiality terms | None: watches an administrator's shared screen | Yes, always |
+| Person or organisation | Role, and what they maintain | Screened; Part B signed | Account and supervision |
+| --- | --- | --- | --- |
+| \[Name\] | Windows server administrator: both servers | \[Date\]; \[Date\] | Named Windows administrator account. Supervised: no |
+| \[Name\] | Database administrator: SQL Server 2022 | \[Date\]; \[Date\] | Named SQL Server login. Supervised: no |
+| \[Name\] | Administrator: schemas, settings and diagnostics, in the Admin application | \[Date\]; \[Date\] | Their Active Directory account, in the administrators' group. Supervised: no |
+| \[Developers\] | Developers: applications, through releases | \[Date\]; \[Date\] | No access to the servers. Supervised: not applicable |
+| \<Organisation\>'s engineers, \[names\] | Hardware and hypervisor: the hosts | \<Organisation\>'s screening; Part B not applicable | \<Organisation\>'s own, on the hosts only; none on the servers. Supervised: on the hosts, no; on a server, only through an administrator's session |
+| \[Supplier\] | \[Role\]: \[As contracted\] | Screening not required, as always supervised. Part B not applicable: bound by the contract's confidentiality terms | None: watches an administrator's shared screen. Supervised: yes, always |
 
 ### 3.7 Equipment and data that leave
 
 **Table 6: What may leave, and how**
 
-| What | Rule | Approved by | Record |
-| --- | --- | --- | --- |
-| Hardware or a disk beneath the servers | The hosts are \<Organisation\>'s and shared, and the servers' disks are encrypted with BitLocker. \<Organisation\>'s own process approves the removal, and \<Organisation\> first sanitises the hardware of all \<System Name\> information, including configuration and secrets, by the method in \<Media Protection Management\>, section 3.6, and confirms it with a certificate. It tells the system owner beforehand where it can, and afterwards in every case, with the certificate (D-MA-03) | \<Organisation\>'s data centre, under its own process | \<Organisation\>'s record; the maintenance record and the media record for the notice and certificate |
-| Equipment used for maintenance: the administrators' managed devices, and a supplier's own device | Nothing from \<System Name\> is kept on an administrator's device after the job, apart from an approved support copy; the device stays under \<Organisation\>'s management. A supplier sees a shared screen and receives no copy, so their equipment holds no \<System Name\> information. \<Organisation\>'s engineers' equipment at the data centre follows its own process | System owner, for any copy | Maintenance record |
-| A copy of data, a database dump, a log or a screenshot, sent for maintenance or support | Kept to the minimum, with personal data removed where possible; encrypted; sent by an approved route; and the receiver confirms deletion when it is no longer needed. If personal data cannot be removed, the legal adviser agrees first, and the receiver must hold it under a contract with UK GDPR Article 28 terms, in the UK | System owner; the legal adviser as well where personal data remains | Maintenance record or the media record |
+| What | Rule | Approved by, and record |
+| --- | --- | --- |
+| Hardware or a disk beneath the servers | The hosts are \<Organisation\>'s and shared, and the servers' disks are encrypted with BitLocker. \<Organisation\>'s own process approves the removal, and \<Organisation\> first sanitises the hardware of all \<System Name\> information, including configuration and secrets, by the method in \<Media Protection Management\>, section 3.6, and confirms it with a certificate. It tells the system owner beforehand where it can, and afterwards in every case, with the certificate (D-MA-03) | \<Organisation\>'s data centre, under its own process. Record: \<Organisation\>'s record; the maintenance record and the media record for the notice and certificate |
+| Equipment used for maintenance: the administrators' managed devices, and a supplier's own device | Nothing from \<System Name\> is kept on an administrator's device after the job, apart from an approved support copy; the device stays under \<Organisation\>'s management. A supplier sees a shared screen and receives no copy, so their equipment holds no \<System Name\> information. \<Organisation\>'s engineers' equipment at the data centre follows its own process | System owner, for any copy. Record: maintenance record |
+| A copy of data, a database dump, a log or a screenshot, sent for maintenance or support | Kept to the minimum, with personal data removed where possible; encrypted; sent by an approved route; and the receiver confirms deletion when it is no longer needed. If personal data cannot be removed, the legal adviser agrees first, and the receiver must hold it under a contract with UK GDPR Article 28 terms, in the UK | System owner; the legal adviser as well where personal data remains. Record: maintenance record or the media record |
 
 ### 3.8 Security-critical components and support
 
@@ -136,14 +168,14 @@ These are the components that \<System Name\>'s security depends on, taken from 
 
 **Table 7: Security-critical components**
 
-| Component | Version | Support ends | Support or parts within | Who |
-| --- | --- | --- | --- | --- |
-| Hardware and hypervisor hosts | \[\<Organisation\>\] | \[Per \<Organisation\>'s service agreement\] | Support and parts within 24 hours | \<Organisation\> |
-| Windows Server 2025, both servers, with BitLocker and App Control for Business | 2025 | \[As Microsoft's published lifecycle states\] | Updates; a support case under \<Organisation\>'s agreement, \[response time, from \<Organisation\>\] | Windows server administrator |
-| Microsoft SQL Server, database server | 2022 | \[As Microsoft's published lifecycle states\] | Updates; a support case as above | Database administrator |
-| .NET and ASP.NET Core runtime | 10.0, long-term support | \[As Microsoft's published lifecycle states\] | Updates; a support case as above | Developers |
-| Microsoft Defender | \[Version\] | While Windows Server is supported | Updates; a support case as above | Windows server administrator |
-| \[Key store, to be chosen\] | \[Version\] | \[As its supplier states\] | \[Supplier's support terms\] | Windows server administrator |
+| Component | Version; support ends | Support or parts within | Who |
+| --- | --- | --- | --- |
+| Hardware and hypervisor hosts | \[\<Organisation\>\]; \[Per \<Organisation\>'s service agreement\] | Support and parts within 24 hours | \<Organisation\> |
+| Windows Server 2025, both servers, with BitLocker and App Control for Business | 2025; \[As Microsoft's published lifecycle states\] | Updates; a support case under \<Organisation\>'s agreement, \[response time, from \<Organisation\>\] | Windows server administrator |
+| Microsoft SQL Server, database server | 2022; \[As Microsoft's published lifecycle states\] | Updates; a support case as above | Database administrator |
+| .NET and ASP.NET Core runtime | 10.0, long-term support; \[As Microsoft's published lifecycle states\] | Updates; a support case as above | Developers |
+| Microsoft Defender | \[Version\]; while Windows Server is supported | Updates; a support case as above | Windows server administrator |
+| \[Key store, to be chosen\] | \[Version\]; \[As its supplier states\] | \[Supplier's support terms\] | Windows server administrator |
 
 ### 3.9 What \<Organisation\> provides
 

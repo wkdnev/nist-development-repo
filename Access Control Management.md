@@ -87,20 +87,20 @@ The five role groups, for administrators, auditors, the security officer, the bu
 
 **Table 3: Permissions by role**
 
-| Function | Reader | Editor | Administrator | Auditor | Security officer | Business owner | Legal adviser's delegate |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| Search and read items | Own schemas | Own schemas | No | No | No | No: sees only the details of items due for disposal, not their content | Search results for one person |
-| Report a faulty item | Own schemas | Own schemas | No | No | No | No | No |
-| Upload, correct, replace, delete and export items | No | Own schemas | No | No | No | No | No |
-| Manage users, passwords and group membership | No | No | No: done in Active Directory, by each group's owner | No | No | No | No |
-| Manage schemas, and which AD groups open each | No | No | Yes; a change of groups, or deactivating, reactivating or deleting a schema, only with the Data Owner's approval. Only an empty schema can be deleted | No | No | No | No |
-| Grant administrator | No | No | No: the system owner adds the member to the AD group | No | No | No | No |
-| Use the administration dashboard and settings | No | No | Yes | No | No | No | No |
-| Read audit logs | No | No | No | Yes | No | No | No |
-| Read security information | No | No | No | No | Yes | No | No |
-| Run the last sign-in report (FR-085) | No | No | No | No | Yes | No | No |
-| Approve the disposal of items due under the retention schedule (FR-074) | No | No | No | No | No | Yes | No |
-| Search every schema for one person's items, for a request under data protection law (FR-073) | No | No | No | No | No | No | Yes |
+| Function | Who may do it |
+| --- | --- |
+| Search and read items | Readers and editors, in their own schemas. The legal adviser's delegate sees search results for one person. The business owner sees only the details of items due for disposal, not their content |
+| Report a faulty item | Readers and editors, in their own schemas |
+| Upload, correct, replace, delete and export items | Editors, in their own schemas |
+| Manage users, passwords and group membership | Nobody in \<System Name\>: it is done in Active Directory, by each group's owner |
+| Manage schemas, and which AD groups open each | Administrators. A change of groups, or deactivating, reactivating or deleting a schema, needs the Data Owner's approval. Only an empty schema can be deleted |
+| Grant administrator | Nobody in \<System Name\>: the system owner adds the member to the AD group |
+| Use the administration dashboard and settings | Administrators |
+| Read audit logs | Auditors |
+| Read security information | The security officer |
+| Run the last sign-in report (FR-085) | The security officer |
+| Approve the disposal of items due under the retention schedule (FR-074) | The business owner |
+| Search every schema for one person's items, for a request under data protection law (FR-073) | The legal adviser's delegate |
 
 Administrators see no item content. Any item work an administrator does is as a reader or editor, through a schema group given to their everyday account. The business owner approves disposals, and the legal adviser's delegate runs their search, in the UI application. The disposal page shows each item's schema, reference, title, type, date and retention period, but not its content or files; to look inside an item, the business owner asks that schema's Data Owner. An administrator cannot delete a schema that still holds items: a schema in use is retired by deactivating it, and its items leave only by disposal (FR-060, FR-074).
 
@@ -188,11 +188,13 @@ Each app runs under its own Windows account, so a fault in one app cannot reach 
 
 **Table 8: Windows service accounts**
 
-| Account | Runs | Kind | May | May not |
-| --- | --- | --- | --- | --- |
-| \[name to be set at build\] | UI application | Group managed service account in \<Organisation\>'s Active Directory. Windows sets and changes its password, and no person knows it | Log on as a service on the application server | Be an administrator. Sign in at the console or by remote desktop. Be used by a person |
-| \[name to be set at build\] | Admin application | The same | The same | The same |
-| \[name to be set at build\] | API | The same | The same. It signs in to SQL Server with Windows authentication and reads Active Directory over LDAPS, so it holds no database password | The same |
+| Runs | Account | May | May not |
+| --- | --- | --- | --- |
+| UI application | \[name to be set at build\] | Log on as a service on the application server | Be an administrator. Sign in at the console or by remote desktop. Be used by a person |
+| Admin application | \[name to be set at build\] | The same | The same |
+| API | \[name to be set at build\] | The same. It signs in to SQL Server with Windows authentication and reads Active Directory over LDAPS, so it holds no database password | The same |
+
+Each is a group managed service account in \<Organisation\>'s Active Directory. Windows sets and changes its password, and no person knows it.
 
 Each is a managed service account in \<Organisation\>'s Active Directory, with no interactive sign-in, whose password Windows sets and changes.
 
@@ -227,18 +229,18 @@ Item files are held in the SQL Server database, each schema in its own database 
 
 **Table 11: Flows \<System Name\> asks \<Organisation\> to allow**
 
-| Flow | From | To | Service | Needed for |
-| --- | --- | --- | --- | --- |
-| F1 | Users' managed devices, in the office or on the VPN | Application server | HTTPS, TCP 443 | The UI app |
-| F2 | Administrators, auditors and the security officer, over \<Organisation\>'s managed route | Application server | HTTPS, on a port or host name still to be set | The Admin app |
-| F3, F4 | The UI app and the Admin app | The API, on the application server's own loopback address | HTTPS | Needs no firewall rule: it never leaves the server |
-| F5 | Application server | Database server | SQL Server over TLS 1.2 or later with strict encryption, TCP 1433 | The API's database connection |
-| F6 | Users' and administrators' browsers | \<Organisation\>'s PingFederate | HTTPS | Signing in. Both ends are \<Organisation\>'s, so this needs no rule for \<System Name\>'s servers |
-| F7 | Application server | \<Organisation\>'s Active Directory domain controllers | LDAPS, TCP 636 | The API reading each signed-in person's group memberships |
-| F8 | Both servers | \<Organisation\>'s time service, central logging, proxy and backup site | As \<Organisation\> sets: logs, updates and backups encrypted; time by NTP, authenticated where the service allows | Accurate audit times, log forwarding, updates and backups |
-| F10 | Application server | \<Organisation\>'s PingFederate | HTTPS, TCP 443 | The UI app and the Admin app fetching PingFederate's OpenID Connect metadata and signing certificate, and completing each sign-in |
-| F11 | Server and database administrators' managed devices, over \<Organisation\>'s managed administration route, with multi-factor authentication | Both servers | Tool and protocol to be supplied by \<Organisation\> | Server and database administration, using named accounts |
-| None: infrastructure | Both servers; the vulnerability scanner and \<Organisation\>'s discovery tools | \<Organisation\>'s DNS, domain controllers and certificate authority; both servers | DNS, domain and revocation list traffic, and scanning, allowed only on the ports \<System and Communications Protection Management\>, section 3.2, lists for them | Name resolution, domain membership and Kerberos, certificate revocation checks, and scans. These carry no \<System Name\> data |
+| Flow | From and to | Service | Needed for |
+| --- | --- | --- | --- |
+| F1 | Users' managed devices, in the office or on the VPN, to the application server | HTTPS, TCP 443 | The UI app |
+| F2 | Administrators, auditors and the security officer, over \<Organisation\>'s managed route, to the application server | HTTPS, on a port or host name still to be set | The Admin app |
+| F3, F4 | The UI app and the Admin app to the API, on the application server's own loopback address | HTTPS | Needs no firewall rule: it never leaves the server |
+| F5 | Application server to database server | SQL Server over TLS 1.2 or later with strict encryption, TCP 1433 | The API's database connection |
+| F6 | Users' and administrators' browsers to \<Organisation\>'s PingFederate | HTTPS | Signing in. Both ends are \<Organisation\>'s, so this needs no rule for \<System Name\>'s servers |
+| F7 | Application server to \<Organisation\>'s Active Directory domain controllers | LDAPS, TCP 636 | The API reading each signed-in person's group memberships |
+| F8 | Both servers to \<Organisation\>'s time service, central logging, proxy and backup site | As \<Organisation\> sets: logs, updates and backups encrypted; time by NTP, authenticated where the service allows | Accurate audit times, log forwarding, updates and backups |
+| F10 | Application server to \<Organisation\>'s PingFederate | HTTPS, TCP 443 | The UI app and the Admin app fetching PingFederate's OpenID Connect metadata and signing certificate, and completing each sign-in |
+| F11 | Server and database administrators' managed devices, over \<Organisation\>'s managed administration route with multi-factor authentication, to both servers | Tool and protocol to be supplied by \<Organisation\> | Server and database administration, using named accounts |
+| None: infrastructure | Both servers to \<Organisation\>'s DNS, domain controllers and certificate authority; the vulnerability scanner and \<Organisation\>'s discovery tools to both servers | DNS, domain and revocation list traffic, and scanning, allowed only on the ports \<System and Communications Protection Management\>, section 3.2, lists for them | Name resolution, domain membership and Kerberos, certificate revocation checks, and scans. These carry no \<System Name\> data |
 
 Everything else should be refused, in and out. \<System Name\> needs no route to the internet, as browsers load all code from \<System Name\> itself. The applications fetch PingFederate's OpenID Connect metadata and signing certificate, which checks its sign-in responses, from \<Organisation\>'s PingFederate (F10), and fetch nothing from an outside host. ServiceNow and the starters and leavers process (F9) have no connection to \<System Name\>.
 
@@ -367,12 +369,12 @@ Every change to a person's access goes through a request in ServiceNow. ServiceN
 
 **Table 15: Access request workflow**
 
-| Request | Raised by | Approved by | Authorised by | Carried out by |
-| --- | --- | --- | --- | --- |
-| Access to a schema, to read or to edit | The person who needs it, in ServiceNow | Their line manager | The schema's Data Owner | The Data Owner, who adds the person to the schema's AD group with \<Organisation\>'s AD tool |
-| A privileged role | The person | Their line manager | The system owner, who cannot authorise their own | The system owner, who adds the person to the role's AD group |
-| A change of role (mover) | The person's line manager, within 1 working day | Not needed for a removal; as above for any new access | As above for any new access | Each group's owner, who removes the old membership and adds any new one |
-| Removal (leaver) | \<Organisation\>'s starters and leavers process, automatically | Not needed | Not needed | \<Organisation\> disables the AD account at once, and the API refuses it within 5 minutes, which ends access. Each group's owner removes the membership within 5 working days |
+| Request | Raised by | Approved and authorised by | Carried out by |
+| --- | --- | --- | --- |
+| Access to a schema, to read or to edit | The person who needs it, in ServiceNow | Approved: their line manager. Authorised: the schema's Data Owner | The Data Owner, who adds the person to the schema's AD group with \<Organisation\>'s AD tool |
+| A privileged role | The person | Approved: their line manager. Authorised: the system owner, who cannot authorise their own | The system owner, who adds the person to the role's AD group |
+| A change of role (mover) | The person's line manager, within 1 working day | Approved: not needed for a removal; as above for any new access. Authorised: as above for any new access | Each group's owner, who removes the old membership and adds any new one |
+| Removal (leaver) | \<Organisation\>'s starters and leavers process, automatically | Not needed | \<Organisation\> disables the AD account at once, and the API refuses it within 5 minutes, which ends access. Each group's owner removes the membership within 5 working days |
 
 No \<System Name\> account is ever created: a person's AD account is their account, and joining a group is what gives them access.
 

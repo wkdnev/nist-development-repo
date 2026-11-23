@@ -71,45 +71,47 @@ Each PM control is listed with who provides it, which \<System Name\> controls r
 
 **Table 4: PM inheritance**
 
-| PM control | Provider | \<System Name\> controls that rely on it | \<System Name\>'s part | In the privacy baseline |
-| --- | --- | --- | --- | --- |
-| PM-1 Information Security Program Plan | \<Organisation\>, Head of Cyber | Every family's policy (xx-1) | The 19 family policies follow it | No |
-| PM-2 Information Security Program Leadership Role | \<Organisation\>, which appoints the Head of Cyber | All | \[Name\] named as senior information security officer in \<System Security Plan\> | No |
-| PM-3 Information Security and Privacy Resources | \<Organisation\> | CA-5, SA-2 | Fixes costed in \<Plan of Action and Milestones\>, and on the risk and supply chain review | Yes |
-| PM-4 Plan of Action and Milestones Process | \<Organisation\>, Head of Cyber | CA-5 | \<Plan of Action and Milestones\> is kept for \<System Name\>, and its overdue items are reported each quarter to the authorising official. It is not sent to \<Organisation\>'s own process, which has not been seen | Yes |
-| PM-5 System Inventory | \<Organisation\> | CM-8, PL-2 | A system identifier, shown as a placeholder in \<System Security Plan\>, section 2 | No |
-| PM-5(1) Inventory of Personally Identifiable Information | \<Organisation\>, legal adviser | PT-2, PT-3, CM-12 | Personal data inventory in \<PII Processing Management\>, section 3.3 | Yes |
-| PM-6 Measures of Performance | Head of Cyber | CA-7 | \<System Name\>'s own measures in \<Assessment, Authorization, and Monitoring Management\>, section 3.8, reported to the authorising official. They are not part of \<Organisation\>'s measures | Yes |
-| PM-7 Enterprise Architecture | \<Organisation\> | PL-2, PL-8, SA-17 | \<System Description\>, section 6, fits it | Yes |
-| PM-7(1) Offloading | \<Organisation\> | PL-8, SA-8 | None | No |
-| PM-8 Critical Infrastructure Plan | \<Organisation\> | CP-2 | None; \<System Name\> is not critical infrastructure | Yes |
-| PM-9 Risk Management Strategy | \<Organisation\>, Head of Cyber | RA-3, CA-5, CA-6 | Decision rules in \<Risk List\>, section 4.2, set to fit the risk appetite | Yes |
-| PM-10 Authorization Process | \<Organisation\> | CA-6 | Authorisation decision record, on which the authorising official accepts the 62 inherited controls and, as one line, reliance on this programme for the 35 inherited PM controls (\<Assessment, Authorization, and Monitoring Management\>, section 3.5) | Yes |
-| PM-11 Mission and Business Process Definition | \<Organisation\> | CP-2, RA-2 | \<Concept of Operations\>; business impact in \<Contingency Planning Management\> | Yes |
-| PM-12 Insider Threat Program | \<Organisation\> | AU-6, PS-3 | Audit records and reviews; the playbook for bulk export misuse (\<Incident Response Management\>, section 3.9) | No |
-| PM-13 Security and Privacy Workforce | \<Organisation\> | AT-2, AT-3 | The role curriculum in \<Awareness and Training Management\>, and the training records | Yes |
-| PM-14 Testing, Training, and Monitoring | Head of Cyber | CA-2, CA-7, AT-2, CP-4, IR-3 | Family tests and exercises; \<Assessment, Authorization, and Monitoring Management\> | Yes |
-| PM-15 Security and Privacy Groups and Associations | Head of Cyber | SI-5 | None | No |
-| PM-16 Threat Awareness Program | Head of Cyber | SI-5, RA-3 | Advisories handled as \<System and Information Integrity Management\>, section 3.3, sets out | No |
-| PM-16(1) Automated Means for Sharing Threat Intelligence | Head of Cyber | SI-5 | None | No |
-| PM-17 Protecting Controlled Unclassified Information on External Systems | Not applicable | None | United States only | Yes |
-| PM-18 Privacy Program Plan | \<Organisation\>, legal adviser | PT family, PL-2 | \<Privacy Plan\> follows it | Yes |
-| PM-19 Privacy Program Leadership Role | \<Organisation\> | PT family | Data protection officer placeholder in \<Roles and Responsibilities\> and \<Privacy Plan\> | Yes |
-| PM-20 Dissemination of Privacy Program Information | \<Organisation\> | PT-5 | The privacy notices for employees, contractors and agency staff | Yes |
-| PM-20(1) Privacy Policies on Websites, Applications, and Digital Services | \<Organisation\> | PT-5 | A link to the privacy notices from \<System Name\>'s pages (FR-010) | Yes |
-| PM-21 Accounting of Disclosures | \<Organisation\>, legal adviser | PT-2, AU-2 | Downloads and exports are audited, which shows what personal data left \<System Name\>, when and by whom. They are not the accounting itself: the recipient, purpose and address of a disclosure outside \<Organisation\>, and keeping the accounting for 5 years or for as long as the data is held, are \<Organisation\>'s (\<Audit and Accountability Management\>, Appendix B) | Yes |
-| PM-22 Personally Identifiable Information Quality Management | \<Organisation\> | SI-18 | The yearly check of accuracy | Yes |
-| PM-23 Data Governance Body | \<Organisation\> | PT-2 | None | No |
-| PM-24 Data Integrity Board | Not applicable | None | United States only | Yes |
-| PM-25 Minimization of PII Used in Testing, Training, and Research | \<Organisation\> | SA-8(33), SI-12(2) | Testing and development use invented data only | Yes |
-| PM-26 Complaint Management | \<Organisation\>, legal adviser | AC-3(14), PT-5 | Records of privacy requests and data protection complaints | Yes |
-| PM-27 Privacy Reporting | \<Organisation\>, legal adviser | IR-8(1) | Breach steps in section 3.8 of \<Incident Response Management\>, and the breach register in its section 3.14 | Yes |
-| PM-28 Risk Framing | \<Organisation\>, Head of Cyber | RA-3, RA-7 | \<Risk List\> | Yes |
-| PM-29 Risk Management Program Leadership Roles | \<Organisation\> | All | None | No |
-| PM-30 Supply Chain Risk Management Strategy | \<Organisation\> | SR-2, SR-3 | \<Supply Chain Risk Management\> follows it | No |
-| PM-30(1) Suppliers of Critical or Mission-essential Items | \<Organisation\> | RA-9, SR-3, SR-6 | The supplier register with criticality in \<Supply Chain Risk Management\>, section 3.5, and the critical components in \<Risk Assessment Management\>, section 3.9 | No |
-| PM-31 Continuous Monitoring Strategy | \<Organisation\>, Head of Cyber | CA-7 | \<Assessment, Authorization, and Monitoring Management\>, section 3.8, follows it; \<System Name\>'s status is reported to the authorising official, not to \<Organisation\>'s programme | Yes |
-| PM-32 Purposing | \<Organisation\> | SA-8 | \<Concept of Operations\> states \<System Name\>'s purpose | No |
+| PM control | Provider | \<System Name\> controls that rely on it | \<System Name\>'s part |
+| --- | --- | --- | --- |
+| PM-1 Information Security Program Plan | \<Organisation\>, Head of Cyber | Every family's policy (xx-1) | The 19 family policies follow it |
+| PM-2 Information Security Program Leadership Role | \<Organisation\>, which appoints the Head of Cyber | All | \[Name\] named as senior information security officer in \<System Security Plan\> |
+| PM-3 Information Security and Privacy Resources (also in the privacy baseline) | \<Organisation\> | CA-5, SA-2 | Fixes costed in \<Plan of Action and Milestones\>, and on the risk and supply chain review |
+| PM-4 Plan of Action and Milestones Process (also in the privacy baseline) | \<Organisation\>, Head of Cyber | CA-5 | \<Plan of Action and Milestones\> is kept for \<System Name\>, and its overdue items are reported each quarter to the authorising official. It is not sent to \<Organisation\>'s own process, which has not been seen |
+| PM-5 System Inventory | \<Organisation\> | CM-8, PL-2 | A system identifier, shown as a placeholder in \<System Security Plan\>, section 2 |
+| PM-5(1) Inventory of Personally Identifiable Information (also in the privacy baseline) | \<Organisation\>, legal adviser | PT-2, PT-3, CM-12 | Personal data inventory in \<PII Processing Management\>, section 3.3 |
+| PM-6 Measures of Performance (also in the privacy baseline) | Head of Cyber | CA-7 | \<System Name\>'s own measures in \<Assessment, Authorization, and Monitoring Management\>, section 3.8, reported to the authorising official. They are not part of \<Organisation\>'s measures |
+| PM-7 Enterprise Architecture (also in the privacy baseline) | \<Organisation\> | PL-2, PL-8, SA-17 | \<System Description\>, section 6, fits it |
+| PM-7(1) Offloading | \<Organisation\> | PL-8, SA-8 | None |
+| PM-8 Critical Infrastructure Plan (also in the privacy baseline) | \<Organisation\> | CP-2 | None; \<System Name\> is not critical infrastructure |
+| PM-9 Risk Management Strategy (also in the privacy baseline) | \<Organisation\>, Head of Cyber | RA-3, CA-5, CA-6 | Decision rules in \<Risk List\>, section 4.2, set to fit the risk appetite |
+| PM-10 Authorization Process (also in the privacy baseline) | \<Organisation\> | CA-6 | Authorisation decision record, on which the authorising official accepts the 62 inherited controls and, as one line, reliance on this programme for the 35 inherited PM controls (\<Assessment, Authorization, and Monitoring Management\>, section 3.5) |
+| PM-11 Mission and Business Process Definition (also in the privacy baseline) | \<Organisation\> | CP-2, RA-2 | \<Concept of Operations\>; business impact in \<Contingency Planning Management\> |
+| PM-12 Insider Threat Program | \<Organisation\> | AU-6, PS-3 | Audit records and reviews; the playbook for bulk export misuse (\<Incident Response Management\>, section 3.9) |
+| PM-13 Security and Privacy Workforce (also in the privacy baseline) | \<Organisation\> | AT-2, AT-3 | The role curriculum in \<Awareness and Training Management\>, and the training records |
+| PM-14 Testing, Training, and Monitoring (also in the privacy baseline) | Head of Cyber | CA-2, CA-7, AT-2, CP-4, IR-3 | Family tests and exercises; \<Assessment, Authorization, and Monitoring Management\> |
+| PM-15 Security and Privacy Groups and Associations | Head of Cyber | SI-5 | None |
+| PM-16 Threat Awareness Program | Head of Cyber | SI-5, RA-3 | Advisories handled as \<System and Information Integrity Management\>, section 3.3, sets out |
+| PM-16(1) Automated Means for Sharing Threat Intelligence | Head of Cyber | SI-5 | None |
+| PM-17 Protecting Controlled Unclassified Information on External Systems (also in the privacy baseline) | Not applicable | None | United States only |
+| PM-18 Privacy Program Plan (also in the privacy baseline) | \<Organisation\>, legal adviser | PT family, PL-2 | \<Privacy Plan\> follows it |
+| PM-19 Privacy Program Leadership Role (also in the privacy baseline) | \<Organisation\> | PT family | Data protection officer placeholder in \<Roles and Responsibilities\> and \<Privacy Plan\> |
+| PM-20 Dissemination of Privacy Program Information (also in the privacy baseline) | \<Organisation\> | PT-5 | The privacy notices for employees, contractors and agency staff |
+| PM-20(1) Privacy Policies on Websites, Applications, and Digital Services (also in the privacy baseline) | \<Organisation\> | PT-5 | A link to the privacy notices from \<System Name\>'s pages (FR-010) |
+| PM-21 Accounting of Disclosures (also in the privacy baseline) | \<Organisation\>, legal adviser | PT-2, AU-2 | Downloads and exports are audited, which shows what personal data left \<System Name\>, when and by whom. They are not the accounting itself: the recipient, purpose and address of a disclosure outside \<Organisation\>, and keeping the accounting for 5 years or for as long as the data is held, are \<Organisation\>'s (\<Audit and Accountability Management\>, Appendix B) |
+| PM-22 Personally Identifiable Information Quality Management (also in the privacy baseline) | \<Organisation\> | SI-18 | The yearly check of accuracy |
+| PM-23 Data Governance Body | \<Organisation\> | PT-2 | None |
+| PM-24 Data Integrity Board (also in the privacy baseline) | Not applicable | None | United States only |
+| PM-25 Minimization of PII Used in Testing, Training, and Research (also in the privacy baseline) | \<Organisation\> | SA-8(33), SI-12(2) | Testing and development use invented data only |
+| PM-26 Complaint Management (also in the privacy baseline) | \<Organisation\>, legal adviser | AC-3(14), PT-5 | Records of privacy requests and data protection complaints |
+| PM-27 Privacy Reporting (also in the privacy baseline) | \<Organisation\>, legal adviser | IR-8(1) | Breach steps in section 3.8 of \<Incident Response Management\>, and the breach register in its section 3.14 |
+| PM-28 Risk Framing (also in the privacy baseline) | \<Organisation\>, Head of Cyber | RA-3, RA-7 | \<Risk List\> |
+| PM-29 Risk Management Program Leadership Roles | \<Organisation\> | All | None |
+| PM-30 Supply Chain Risk Management Strategy | \<Organisation\> | SR-2, SR-3 | \<Supply Chain Risk Management\> follows it |
+| PM-30(1) Suppliers of Critical or Mission-essential Items | \<Organisation\> | RA-9, SR-3, SR-6 | The supplier register with criticality in \<Supply Chain Risk Management\>, section 3.5, and the critical components in \<Risk Assessment Management\>, section 3.9 |
+| PM-31 Continuous Monitoring Strategy (also in the privacy baseline) | \<Organisation\>, Head of Cyber | CA-7 | \<Assessment, Authorization, and Monitoring Management\>, section 3.8, follows it; \<System Name\>'s status is reported to the authorising official, not to \<Organisation\>'s programme |
+| PM-32 Purposing | \<Organisation\> | SA-8 | \<Concept of Operations\> states \<System Name\>'s purpose |
+
+Controls marked "also in the privacy baseline" are in both the CSS Moderate and the privacy baselines.
 
 Where \<Organisation\>'s document is not yet seen, \<System Name\>'s own document stands in, and the dependency is checked when the evidence arrives.
 

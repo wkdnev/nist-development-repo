@@ -91,12 +91,12 @@ Each person signs both before being added to any \<System Name\> group. The Serv
 
 **Table 3: Joiners, movers and leavers**
 
-| Event | What happens | Who | Within | Record |
-| --- | --- | --- | --- | --- |
-| Joiner | The role's designation is looked up; \<Organisation\> confirms the screening; the person completes training and signs the agreements; the access request is authorised in ServiceNow, by the Data Owner for a schema's groups and by the system owner for a role group; only then do the group owners add them to the groups the role needs | System owner; \<Organisation\>; the Data Owner; the group owners | Before access | Access request record; the rules of behaviour acknowledgement; the register |
-| Mover | The line manager tells the system owner and the owners of the person's groups. Each owner confirms whether the person still needs the group, and removes or adds memberships. A new role's training is completed, and, for a higher risk role, screening repeated, before its group is added | Line manager; system owner; the group owners | 1 working day | Leaver or mover record |
-| Leaver | \<Organisation\> disables the Active Directory account at once, which ends access to \<System Name\> within 5 minutes, and ends the person's PingFederate sign-in. Its starters and leavers process gives notice of the leaver to the group owners, through ServiceNow, and they remove the memberships. Any service secret the person knew is changed, and exported files and printouts are recovered or destroyed. Separately, anyone who has not signed in for 90 days is removed from \<System Name\>'s groups each month (\<Access Control Management\>, section 3.14) | \<Organisation\>; the group owners; system owner | At once, and memberships within 5 working days | Leaver or mover record |
-| Higher-risk leaver, dismissal or suspected misuse | By the urgent route: \<Organisation\>'s service desk disables the Active Directory account and ends the person's PingFederate sign-in, and \<System Name\> refuses the person within 5 minutes, even while a sign-in is open. The account stays disabled for at least 8 hours, unless every key in the key rings is revoked first. The system owner confirms the refusal | \<Organisation\>'s service desk; system owner | 1 hour of notice | Leaver or mover record; the incident record if it is an incident |
+| Event | What happens | Who, within, and record |
+| --- | --- | --- |
+| Joiner | The role's designation is looked up; \<Organisation\> confirms the screening; the person completes training and signs the agreements; the access request is authorised in ServiceNow, by the Data Owner for a schema's groups and by the system owner for a role group; only then do the group owners add them to the groups the role needs | System owner; \<Organisation\>; the Data Owner; the group owners. Within: before access. Record: access request record; the rules of behaviour acknowledgement; the register |
+| Mover | The line manager tells the system owner and the owners of the person's groups. Each owner confirms whether the person still needs the group, and removes or adds memberships. A new role's training is completed, and, for a higher risk role, screening repeated, before its group is added | Line manager; system owner; the group owners. Within: 1 working day. Record: leaver or mover record |
+| Leaver | \<Organisation\> disables the Active Directory account at once, which ends access to \<System Name\> within 5 minutes, and ends the person's PingFederate sign-in. Its starters and leavers process gives notice of the leaver to the group owners, through ServiceNow, and they remove the memberships. Any service secret the person knew is changed, and exported files and printouts are recovered or destroyed. Separately, anyone who has not signed in for 90 days is removed from \<System Name\>'s groups each month (\<Access Control Management\>, section 3.14) | \<Organisation\>; the group owners; system owner. Within: at once, and memberships within 5 working days. Record: leaver or mover record |
+| Higher-risk leaver, dismissal or suspected misuse | By the urgent route: \<Organisation\>'s service desk disables the Active Directory account and ends the person's PingFederate sign-in, and \<System Name\> refuses the person within 5 minutes, even while a sign-in is open. The account stays disabled for at least 8 hours, unless every key in the key rings is revoked first. The system owner confirms the refusal | \<Organisation\>'s service desk; system owner. Within: 1 hour of notice. Record: leaver or mover record; the incident record if it is an incident |
 
 **Leavers.** Disabling the Active Directory account revokes the person's password and second factor. Any service secret the person knew is changed. \<Organisation\> holds an exit interview, which covers the person's continuing confidentiality duties and the return of equipment, and recovers their laptop, phone, pass and any other equipment. Exported files and printouts are recovered or destroyed (\<Security Operating Procedures\>, section 4.4). Items belong to schemas, not to people, so the items a leaver created stay with the schema and its members. The system owner confirms this on the leaver or mover record.
 
@@ -139,9 +139,9 @@ The system owner keeps this register for everyone who has, or will have, access 
 
 **Table 5: Personnel security register**
 
-| Person | Role | Designation | Screening confirmed by \<Organisation\> | Confidentiality agreement signed | Rescreening due |
-| --- | --- | --- | --- | --- | --- |
-| \[Name\] | \[Role\] | \[Standard or Higher risk\] | \[Who confirmed, and date\] | \[Date\] | \[Date, for a higher risk role; otherwise none\] |
+| Person and role | Designation | Screening confirmed by \<Organisation\>; agreement signed | Rescreening due |
+| --- | --- | --- | --- |
+| \[Name\], \[Role\] | \[Standard or Higher risk\] | \[Who confirmed, and date\]; \[Date\] | \[Date, for a higher risk role; otherwise none\] |
 
 ### 3.10 What \<Organisation\> provides
 

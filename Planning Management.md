@@ -31,22 +31,22 @@ Every plan and planning record in force, with its owner, version, approver and n
 
 **Table 1: Plans in force**
 
-| Plan or record | Document | Version | Owner | Approver | Next review |
-| --- | --- | --- | --- | --- | --- |
-| System security plan | \<System Security Plan\> | \<ver\> | System owner | System owner, with the Head of Cyber's concurrence, and approved by the authorising official before it is put into effect (D-PL-01) | Every 12 months, and after an assessment, a significant change or a problem found in use |
-| Privacy plan | \<Privacy Plan\> | \<ver\> | Legal adviser | Legal adviser and authorising official (D-PL-02) | Every 12 months, and after an assessment, a significant change or a problem found in use |
-| Data protection impact assessment | \<Data Protection Impact Assessment\> | \<ver\> | Legal adviser | Legal adviser | Before real data is held, and after a significant change in processing |
-| Supply chain risk management plan | \<Supply Chain Risk Management\> | \<ver\> | System owner | System owner | Every 12 months |
-| Configuration management plan | \<Configuration Management\> | \<ver\> | System owner | System owner | Every 12 months |
-| Contingency plan | \<Contingency Planning Management\> | \<ver\> | System owner | System owner and authorising official | Every 12 months, and after a test or activation |
-| Incident response plan | \<Incident Response Management\> | \<ver\> | Security officer | Head of Cyber | Every 12 months, and after an incident or exercise |
-| Continuous monitoring strategy | \<Assessment, Authorization, and Monitoring Management\> | \<ver\> | System owner | System owner | Every 12 months |
-| Security architecture | \<System Description\>, section 6 | \<ver\> | System owner | System owner | Every 12 months, and after a significant change |
-| Concept of operations | \<Concept of Operations\> | \<ver\> | System owner | System owner | Every 12 months |
-| Rules of behaviour | \<Security Operating Procedures\> | \<ver\> | System owner | System owner (D-PL-04) | Every 12 months, and after a material change |
-| Baseline and tailoring | CSS Moderate and privacy baselines; \<Tailoring Register\> | \<ver\> | System owner | Authorising official, on the system owner's recommendation: the baseline in D-PL-03, and each tailoring entry in its own decision | Every 12 months, and when a condition changes |
-| Risk list | \<Risk List\> | \<ver\> | System owner | System owner | Every 3 months once in operation |
-| Plan of action | \<Plan of Action and Milestones\> | \<ver\> | System owner | System owner | Monthly once in operation |
+| Plan or record | Document and version | Owner and approver | Next review |
+| --- | --- | --- | --- |
+| System security plan | \<System Security Plan\>, \<ver\> | Owner: system owner. Approver: system owner, with the Head of Cyber's concurrence, and approved by the authorising official before it is put into effect (D-PL-01) | Every 12 months, and after an assessment, a significant change or a problem found in use |
+| Privacy plan | \<Privacy Plan\>, \<ver\> | Owner: legal adviser. Approver: legal adviser and authorising official (D-PL-02) | Every 12 months, and after an assessment, a significant change or a problem found in use |
+| Data protection impact assessment | \<Data Protection Impact Assessment\>, \<ver\> | Owner: legal adviser. Approver: legal adviser | Before real data is held, and after a significant change in processing |
+| Supply chain risk management plan | \<Supply Chain Risk Management\>, \<ver\> | Owner: system owner. Approver: system owner | Every 12 months |
+| Configuration management plan | \<Configuration Management\>, \<ver\> | Owner: system owner. Approver: system owner | Every 12 months |
+| Contingency plan | \<Contingency Planning Management\>, \<ver\> | Owner: system owner. Approver: system owner and authorising official | Every 12 months, and after a test or activation |
+| Incident response plan | \<Incident Response Management\>, \<ver\> | Owner: security officer. Approver: Head of Cyber | Every 12 months, and after an incident or exercise |
+| Continuous monitoring strategy | \<Assessment, Authorization, and Monitoring Management\>, \<ver\> | Owner: system owner. Approver: system owner | Every 12 months |
+| Security architecture | \<System Description\>, section 6, \<ver\> | Owner: system owner. Approver: system owner | Every 12 months, and after a significant change |
+| Concept of operations | \<Concept of Operations\>, \<ver\> | Owner: system owner. Approver: system owner | Every 12 months |
+| Rules of behaviour | \<Security Operating Procedures\>, \<ver\> | Owner: system owner. Approver: system owner (D-PL-04) | Every 12 months, and after a material change |
+| Baseline and tailoring | CSS Moderate and privacy baselines; \<Tailoring Register\>, \<ver\> | Owner: system owner. Approver: authorising official, on the system owner's recommendation: the baseline in D-PL-03, and each tailoring entry in its own decision | Every 12 months, and when a condition changes |
+| Risk list | \<Risk List\>, \<ver\> | Owner: system owner. Approver: system owner | Every 3 months once in operation |
+| Plan of action | \<Plan of Action and Milestones\>, \<ver\> | Owner: system owner. Approver: system owner | Monthly once in operation |
 
 The versions in the register are checked by the plan consistency test, and are brought up to date whenever a plan is given a new version. The register is kept in the restricted document store with the plans.
 
@@ -88,9 +88,9 @@ The register starts empty. First signatures are taken on the current version of 
 
 **Table 3: Register of signatures**
 
-| Acknowledgement | Name | Role | Parts | Version signed | Reason | Date signed | Next due |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| \[Acknowledgement reference\] | \[Name\] | \[Role\] | \[Part A, or Parts A and B\] | \[Version\] | \[First access, yearly or material change\] | \[Date\] | \[Date\] |
+| Acknowledgement | Name and role | Parts and version signed | Reason, date signed and next due |
+| --- | --- | --- | --- |
+| \[Acknowledgement reference\] | \[Name\], \[Role\] | \[Part A, or Parts A and B\]; \[Version\] | \[First access, yearly or material change\]; \[Date\]; next due \[Date\] |
 
 ### 3.6 Architecture
 

@@ -74,17 +74,17 @@ As users sign in through PingFederate, failed sign-ins and changes to group memb
 
 **Table 3: Detection use cases**
 
-| ID | Event | Source | Threshold | Alert to | Acknowledge within | Response |
-| --- | --- | --- | --- | --- | --- | --- |
-| U1 | Failed sign-ins | PingFederate sign-in logs, from \<Organisation\> | 5 for one account, or 20 in total, in 15 minutes | Security officer | 1 working day | Respond to the alert |
-| U2 | Audit chain break | Application security event from the chain check; the auditor's weekly comparison with the daily copies | Any | Security officer, auditor | 1 hour | Incident (\<Incident Response Management\>) |
-| U3 | Malware detected | Defender on either server, the AMSI scan of an upload, and the monthly rescan of stored files | Any | Security officer, Windows server administrator | 1 hour | Incident |
-| U4 | Privilege change | Active Directory changes to the membership of \<System Name\>'s five role groups (\<Code\>\_Admins, \<Code\>\_Auditors, \<Code\>\_Security, \<Code\>\_BusinessOwners and \<Code\>\_LegalSearch), from \<Organisation\>; and Windows changes to the local Administrators group on either server | Any person added | Security officer | 1 working day | Check against the approved ServiceNow request or change record; if there is none, incident |
-| U5 | Bulk export | Application security event | More than \[number\] items by one user in a day; proposed reference value 200, awaiting the system owner and business owner (D-SI-P27) | Security officer | 1 working day | Respond to the alert |
-| U6 | Administrator sign-in out of hours | Application security event: a sign-in by a person in \<Code\>\_Admins | Outside \[hours\]; proposed reference value 07:00 to 19:00 UK time, Monday to Friday except public holidays, awaiting the system owner and business owner (D-SI-P27) | Security officer | 1 working day | Respond to the alert |
-| U7 | Audit logging failure | Application log | Any | Security officer, Windows server administrator | 1 hour | Respond to the alert, and restore logging |
-| U8 | Unexpected software change, or a changed stored file | The integrity check of the release files; the file checksum check; a program blocked by App Control for Business | Any | Security officer, Windows server administrator | 1 hour | Incident |
-| U9 | Change to which groups open a schema | Application security event, from the Admin application | Any | Security officer | 1 working day | Check against the change record approved by the schema's Data Owner; if there is none, incident |
+| ID | Event and source | Threshold | Alert, acknowledgement and response |
+| --- | --- | --- | --- |
+| U1 | Failed sign-ins. Source: PingFederate sign-in logs, from \<Organisation\> | 5 for one account, or 20 in total, in 15 minutes | Security officer, within 1 working day. Response: respond to the alert |
+| U2 | Audit chain break. Source: application security event from the chain check; the auditor's weekly comparison with the daily copies | Any | Security officer, auditor, within 1 hour. Response: incident (\<Incident Response Management\>) |
+| U3 | Malware detected. Source: Defender on either server, the AMSI scan of an upload, and the monthly rescan of stored files | Any | Security officer, Windows server administrator, within 1 hour. Response: incident |
+| U4 | Privilege change. Source: Active Directory changes to the membership of \<System Name\>'s five role groups (\<Code\>\_Admins, \<Code\>\_Auditors, \<Code\>\_Security, \<Code\>\_BusinessOwners and \<Code\>\_LegalSearch), from \<Organisation\>; and Windows changes to the local Administrators group on either server | Any person added | Security officer, within 1 working day. Response: check against the approved ServiceNow request or change record; if there is none, incident |
+| U5 | Bulk export. Source: application security event | More than \[number\] items by one user in a day; proposed reference value 200, awaiting the system owner and business owner (D-SI-P27) | Security officer, within 1 working day. Response: respond to the alert |
+| U6 | Administrator sign-in out of hours. Source: application security event: a sign-in by a person in \<Code\>\_Admins | Outside \[hours\]; proposed reference value 07:00 to 19:00 UK time, Monday to Friday except public holidays, awaiting the system owner and business owner (D-SI-P27) | Security officer, within 1 working day. Response: respond to the alert |
+| U7 | Audit logging failure. Source: application log | Any | Security officer, Windows server administrator, within 1 hour. Response: respond to the alert, and restore logging |
+| U8 | Unexpected software change, or a changed stored file. Source: the integrity check of the release files; the file checksum check; a program blocked by App Control for Business | Any | Security officer, Windows server administrator, within 1 hour. Response: incident |
+| U9 | Change to which groups open a schema. Source: application security event, from the Admin application | Any | Security officer, within 1 working day. Response: check against the change record approved by the schema's Data Owner; if there is none, incident |
 
 The thresholds for U5 and U6 are set by the system owner with the business owner, from the hours of service and the expected numbers of users and items, and approved with the alert events (D-SI-P27). How the security officer responds to an alert is in \<Procedures\> (SI). An alert that turns out to be an incident is then handled within the targets for its severity in \<Incident Response Management\>, section 3.6.
 

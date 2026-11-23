@@ -73,18 +73,18 @@ Each module ends with a short check of at least 10 questions, with a pass mark o
 
 **Table 3: Role modules**
 
-| Module | Learning outcomes | Built on | Length | Delivered by |
-| --- | --- | --- | --- | --- |
-| M1 Privileged access | Use the administrator role only for administration; manage schemas, the read and edit group of each, and system settings safely; recognise misuse | \<Procedures\> (AC); \<Security Operating Procedures\>, Part B | 60 minutes | Security officer |
-| M2 Approving access | Authorise least access in the ServiceNow workflow; add and remove members of an Active Directory group correctly; carry out access reviews | \<Procedures\> (AC); \<Access Control Management\>, section 3.13 | 30 minutes | Security officer |
-| M3 Configuration and change | Make changes only through change control; keep to the baseline | \<Procedures\> (CM); \<Configuration Management\> | 45 minutes | Security officer |
-| M4 Servers and database | Harden, patch to the timetable, scan, back up and protect keys | \<Procedures\> (SI); \<Risk Assessment Management\>, section 3.6; \<Procedures\> (CP); \<System and Communications Protection Management\> | 90 minutes | Security officer |
-| M5 Secure development | Secure coding to ASVS 5.0 Level 2; bring components in through the supply chain check, and spot look-alike and counterfeit packages and libraries; keep secrets out of code; review changes | \<System and Services Acquisition Management\>; \<Procedures\> (SA); \<Procedures\> (SR) | 90 minutes | Security officer |
-| M6 Monitoring and audit review | Auditors: read and review the audit log weekly, compare it with the server, database, PingFederate and Active Directory records, record the review, and report anything suspicious to the security officer. Security officers: review the alerts and the central logs, and use the detection use cases; they do not read the audit log | \<Audit and Accountability Management\>; \<System and Information Integrity Management\>, section 3.4 | 60 minutes | Head of Cyber |
-| M7 Incident response | Recognise, report, contain and record an incident; know your part in the playbooks | \<Incident Response Management\>; \<Procedures\> (IR) | 60 minutes | Security officer |
-| M8 Contingency | Know your part in recovery; restore from backup | \<Contingency Planning Management\>; \<Procedures\> (CP) | 45 minutes | System owner |
-| M9 Personal data, for the roles in Table 4 | Lawful use of personal data; requests and complaints; breaches | \<PII Processing Management\>; \<Procedures\> (PT) | 45 minutes | Legal adviser |
-| M10 Risk decisions in incidents and recovery | For the authorising official: when they are called in an incident or a recovery; the severity levels; the decisions that are theirs (running in a reduced state, going beyond the recovery time objective, the risk arising from an incident); and what each decision needs | \<Incident Response Management\>, sections 3.3 and 3.6; \<Contingency Planning Management\>, sections 3.4 and 3.5 | 20 minutes | Security officer |
+| Module | Learning outcomes | Built on | Length and trainer |
+| --- | --- | --- | --- |
+| M1 Privileged access | Use the administrator role only for administration; manage schemas, the read and edit group of each, and system settings safely; recognise misuse | \<Procedures\> (AC); \<Security Operating Procedures\>, Part B | 60 minutes; security officer |
+| M2 Approving access | Authorise least access in the ServiceNow workflow; add and remove members of an Active Directory group correctly; carry out access reviews | \<Procedures\> (AC); \<Access Control Management\>, section 3.13 | 30 minutes; security officer |
+| M3 Configuration and change | Make changes only through change control; keep to the baseline | \<Procedures\> (CM); \<Configuration Management\> | 45 minutes; security officer |
+| M4 Servers and database | Harden, patch to the timetable, scan, back up and protect keys | \<Procedures\> (SI); \<Risk Assessment Management\>, section 3.6; \<Procedures\> (CP); \<System and Communications Protection Management\> | 90 minutes; security officer |
+| M5 Secure development | Secure coding to ASVS 5.0 Level 2; bring components in through the supply chain check, and spot look-alike and counterfeit packages and libraries; keep secrets out of code; review changes | \<System and Services Acquisition Management\>; \<Procedures\> (SA); \<Procedures\> (SR) | 90 minutes; security officer |
+| M6 Monitoring and audit review | Auditors: read and review the audit log weekly, compare it with the server, database, PingFederate and Active Directory records, record the review, and report anything suspicious to the security officer. Security officers: review the alerts and the central logs, and use the detection use cases; they do not read the audit log | \<Audit and Accountability Management\>; \<System and Information Integrity Management\>, section 3.4 | 60 minutes; Head of Cyber |
+| M7 Incident response | Recognise, report, contain and record an incident; know your part in the playbooks | \<Incident Response Management\>; \<Procedures\> (IR) | 60 minutes; security officer |
+| M8 Contingency | Know your part in recovery; restore from backup | \<Contingency Planning Management\>; \<Procedures\> (CP) | 45 minutes; system owner |
+| M9 Personal data, for the roles in Table 4 | Lawful use of personal data; requests and complaints; breaches | \<PII Processing Management\>; \<Procedures\> (PT) | 45 minutes; legal adviser |
+| M10 Risk decisions in incidents and recovery | For the authorising official: when they are called in an incident or a recovery; the severity levels; the decisions that are theirs (running in a reduced state, going beyond the recovery time objective, the risk arising from an incident); and what each decision needs | \<Incident Response Management\>, sections 3.3 and 3.6; \<Contingency Planning Management\>, sections 3.4 and 3.5 | 20 minutes; security officer |
 
 ### 3.5 Training matrix
 
@@ -92,23 +92,23 @@ Every role with access must complete awareness, the briefing and signing \<Secur
 
 **Table 4: Training matrix**
 
-| Role | Awareness and briefing | \<Security Operating Procedures\> | Role modules | Within 30 days |
-| --- | --- | --- | --- | --- |
-| All users | Yes | Part A | None | None |
-| System owner | Yes | Parts A and B | M2, M9 | M7, M8 |
-| Data Owner | Yes | Part A | M2, M9 | M7 |
-| Administrator | Yes | Parts A and B | M1, M3, M9 | M7, M8 |
-| Windows server administrator | Yes | Parts A and B | M4, M3, M9 | M7, M8 |
-| Database administrator | Yes | Parts A and B | M4, M3, M9 | M7, M8 |
-| Developers | Yes | Part A; Part B only if given access to a live system, which the design does not allow | M5, M3 | M7 |
-| Security officer | Yes | Parts A and B | M6, M9 | M7, M8 |
-| Auditor | Yes | Parts A and B | M6, M9 | M7 |
-| Business owner | Yes | Parts A and B | M9 | None |
-| Legal adviser's delegate | Yes | Parts A and B | M9 | None |
-| Information owner | Yes | Part A, if they are a \<System Name\> user | M9 | None |
-| Legal adviser | \<Organisation\>'s course | None: no access | None (delivers M9) | M7 |
-| Authorising official | \<Organisation\>'s course | None: no access | None | M10 |
-| Line managers who are not \<System Name\> users | Briefing part B7 only, before their first approval | None: no access | None | None |
+| Role | Awareness and briefing | Rules signed (\<Security Operating Procedures\>) | Role modules |
+| --- | --- | --- | --- |
+| All users | Yes | Part A | None |
+| System owner | Yes | Parts A and B | M2, M9. Within 30 days: M7, M8 |
+| Data Owner | Yes | Part A | M2, M9. Within 30 days: M7 |
+| Administrator | Yes | Parts A and B | M1, M3, M9. Within 30 days: M7, M8 |
+| Windows server administrator | Yes | Parts A and B | M4, M3, M9. Within 30 days: M7, M8 |
+| Database administrator | Yes | Parts A and B | M4, M3, M9. Within 30 days: M7, M8 |
+| Developers | Yes | Part A; Part B only if given access to a live system, which the design does not allow | M5, M3. Within 30 days: M7 |
+| Security officer | Yes | Parts A and B | M6, M9. Within 30 days: M7, M8 |
+| Auditor | Yes | Parts A and B | M6, M9. Within 30 days: M7 |
+| Business owner | Yes | Parts A and B | M9 |
+| Legal adviser's delegate | Yes | Parts A and B | M9 |
+| Information owner | Yes | Part A, if they are a \<System Name\> user | M9 |
+| Legal adviser | \<Organisation\>'s course | None: no access | None (delivers M9). Within 30 days: M7 |
+| Authorising official | \<Organisation\>'s course | None: no access | Within 30 days: M10 |
+| Line managers who are not \<System Name\> users | Briefing part B7 only, before their first approval | None: no access | None |
 
 **Privacy training.** Every user's privacy training is briefing part B6, given before access and every 12 months. Module M9 is for the roles that make decisions about personal data or can reach it across schemas or outside the application: the system owner, Data Owners, the information owner, administrators, Windows server and database administrators, the security officer, the auditor, the business owner and the legal adviser's delegate.
 
@@ -144,23 +144,23 @@ The security officer keeps this register from the training records. The system o
 
 **Table 6: Training register**
 
-| Person | Role | Awareness and briefing | Role modules | Within 30 days | Next due |
-| --- | --- | --- | --- | --- | --- |
-| \[Name\] | Administrator | \[date\] | \[dates\] | \[dates\] | \[date\] |
-| \[Name\] | Windows server administrator | \[date\] | \[dates\] | \[dates\] | \[date\] |
-| \[Name\] | Database administrator | \[date\] | \[dates\] | \[dates\] | \[date\] |
-| \[Name\], \[Name\], \[Name\] | Developers | \[dates\] | \[dates\] | \[dates\] | \[date\] |
-| \[Name\] | Security officer | \[date\] | \[dates\] | \[dates\] | \[date\] |
-| \[Name\] | Auditor | \[date\] | \[dates\] | \[dates\] | \[date\] |
-| \[Name\] | System owner | \[date\] | \[dates\] | \[dates\] | \[date\] |
-| \[Name\] | Data Owner | \[date\] | \[dates\] | \[dates\] | \[date\] |
-| \[Name\] | Business owner | \[date\] | \[dates\] | None | \[date\] |
-| \[Name\] | Legal adviser's delegate | \[date\] | \[dates\] | None | \[date\] |
-| \[Name\] | Information owner | \[date\] | \[dates\] | None | \[date\] |
-| \[Name\] | Legal adviser | \[date\] | None | \[dates\] | \[date\] |
-| \[Name\] | Authorising official | \[date\] | None | \[dates\] | \[date\] |
-| \[Names\] | Line managers | \[dates\] | None | None | \[date\] |
-| \[Name\] | Deputies, each under the role they cover | \[date\] | \[dates\] | \[dates\] | \[date\] |
+| Person and role | Awareness and briefing | Role modules | Next due |
+| --- | --- | --- | --- |
+| \[Name\], administrator | \[date\] | \[dates\]; within 30 days: \[dates\] | \[date\] |
+| \[Name\], Windows server administrator | \[date\] | \[dates\]; within 30 days: \[dates\] | \[date\] |
+| \[Name\], database administrator | \[date\] | \[dates\]; within 30 days: \[dates\] | \[date\] |
+| \[Name\], \[Name\], \[Name\], developers | \[dates\] | \[dates\]; within 30 days: \[dates\] | \[date\] |
+| \[Name\], security officer | \[date\] | \[dates\]; within 30 days: \[dates\] | \[date\] |
+| \[Name\], auditor | \[date\] | \[dates\]; within 30 days: \[dates\] | \[date\] |
+| \[Name\], system owner | \[date\] | \[dates\]; within 30 days: \[dates\] | \[date\] |
+| \[Name\], Data Owner | \[date\] | \[dates\]; within 30 days: \[dates\] | \[date\] |
+| \[Name\], business owner | \[date\] | \[dates\] | \[date\] |
+| \[Name\], legal adviser's delegate | \[date\] | \[dates\] | \[date\] |
+| \[Name\], information owner | \[date\] | \[dates\] | \[date\] |
+| \[Name\], legal adviser | \[date\] | Within 30 days: \[dates\] | \[date\] |
+| \[Name\], authorising official | \[date\] | Within 30 days: \[dates\] | \[date\] |
+| \[Names\], line managers | \[dates\] | None | \[date\] |
+| \[Name\], deputies, each under the role they cover | \[date\] | \[dates\]; within 30 days: \[dates\] | \[date\] |
 
 ### 3.9 Measures
 

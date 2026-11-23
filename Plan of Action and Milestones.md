@@ -174,9 +174,9 @@ Square brackets in the document set mark a fact that has not yet been supplied, 
 | Decision makers | The decision, name and date of each approval and decision, and the sign-off sheets | 477 |
 | Legal adviser | The lawful bases, special category and criminal offence conditions, retention periods with the business owner, and the impact assessment's scores, advice and sign-off | 112 |
 | Business owner | The information types and their ratings, hours of service, numbers of users and items, and each schema's Data Owner | 33 |
-| System owner | The people in each role, their deputies and contacts, the milestone dates, and the business values the system owner sets | 247 |
+| System owner | The people in each role, their deputies and contacts, the milestone dates, and the business values the system owner sets | 249 |
 | \<Organisation\> | The values, services, names and evidence \<Organisation\> provides | 46 |
 | Developers and administrators at build | Names, versions, counts, hashes, suppliers and settings recorded when the VMs are built and the components chosen | 75 |
 | Assessors and the authorising official | The assessors' names, the assessment dates and sites, and the conditions of authorisation | 62 |
-| Registers, as events happen | The template rows of the registers and the review dates, completed when each event happens | 239 |
+| Registers, as events happen | The template rows of the registers and the review dates, completed when each event happens | 237 |
 | **Total** |  | **1,291** |

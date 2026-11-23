@@ -139,21 +139,95 @@ The PM controls are not on this list: they are \<Organisation\>'s programme, not
 
 ### 3.7 Information exchanges and internal connections
 
-This is the single record of \<System Name\>'s connections. Every external exchange is with a service of \<Organisation\> itself, so this record is the agreement: its row states the interface, the security and privacy needs, the controls, the responsibilities and the impact level, and the system owner and the owner of that service sign it (decision D-CA-04). Any hosting and services agreement \<Organisation\> holds supports it but is not relied on. An exchange with a system outside \<Organisation\> would need its own interconnection or information exchange agreement, and is a significant change (section 3.9). The system owner approves each connection before it is built, reviews each every 12 months with the owner of the other system, both signing again, and records the date a connection ends.
+This is the single record of \<System Name\>'s connections. Every external exchange is with a service of \<Organisation\> itself, so this record is the agreement: its entry states the interface, the security and privacy needs, the controls, the responsibilities and the impact level, and the system owner and the owner of that service sign it (decision D-CA-04). Any hosting and services agreement \<Organisation\> holds supports it but is not relied on. An exchange with a system outside \<Organisation\> would need its own interconnection or information exchange agreement, and is a significant change (section 3.9). The system owner approves each connection before it is built, reviews each every 12 months with the owner of the other system, both signing again, and records the date a connection ends.
 
 **Table 6: Interface record**
 
-| Connection | Type | Information | Security needs | Privacy needs | Responsibilities | Impact | Agreement | Review and end |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| F3, F4: UI application and Admin application to API | Internal | Every request the two user-facing applications make, including item content and audit events | HTTPS on the application server's own loopback address; the API accepts requests only from the two applications, each with a signed, short-lived token that names the signed-in person | Personal data in items and audit events never leaves the application server on this link; the API applies every access check before it returns an item | Developers; Windows server administrator | Moderate | None needed: inside the boundary | Reviewed every 12 months; ends when a component is retired, and is approved again before it is rebuilt in another form |
-| F5: API on the application VM to SQL Server on the database VM | Internal | Items, their files, schema definitions and audit records, including personal data. No user accounts are held | SQL Server over TLS with strict encryption, TCP 1433, with Windows authentication under the API's managed service account and no database password; allowed only from the application server | Personal data, including any special category data in items, is held only in the database and reached only through the API; audit records name the fields changed, not their values | Windows server and database administrators | Moderate | None needed: inside the boundary | Reviewed every 12 months; ends when the application server or the database is retired. A rebuild of either VM re-creates the link to the same settings under an approved change, and is not a new connection |
-| F6, F7, F10: \<Organisation\>'s PingFederate and Active Directory | External | PingFederate's signed OpenID Connect response, which names the person and carries no groups, and its OpenID Connect metadata and the signing certificate that checks the response, which the UI application and Admin application fetch, and with which they complete each sign-in (F10); each person's group membership, read by the API from Active Directory over LDAPS (F7) | The response is signed and sent over TLS, the applications reach PingFederate over HTTPS, TCP 443, from the application server only (F10), and the groups are read over LDAPS; \<System Name\> trusts only \<Organisation\>'s PingFederate | The response and the directory carry the person's name, username and group memberships: staff data that \<Organisation\> already holds. \<System Name\> keeps only the username in its audit records, and asks for no other attribute | \<Organisation\>, for authentication and the directory; system owner, for which groups \<System Name\> uses | Moderate | This record, signed by the system owner and the owner of PingFederate and Active Directory | Reviewed every 12 months; ends if sign-in moves to another service |
-| F9: ServiceNow | Not a system connection: people only (F9) | Access requests and the Data Owner's authorisation; change requests; names of requesters; incident records and requests for help, readable only by the incident roles. None of it passes to \<System Name\> | ServiceNow has no connection to \<System Name\>. Group owners act on an authorised request by changing group membership in Active Directory | Requesters' names, and incident records, which may hold personal data, stay in ServiceNow, under \<Organisation\>'s retention | System owner; Data Owners; \<Organisation\>'s IT service desk | Moderate | None needed: no system connection; ServiceNow is \<Organisation\>'s service | Reviewed every 12 months; ends if the workflow moves |
-| F9: Starters and leavers process | Not a system connection: people only (F9) | Leaver notices to group owners; staff names. None of it passes to \<System Name\> | No connection to \<System Name\>. A leaver's Active Directory account is disabled at once, which ends their access | Staff names and leaving dates stay in \<Organisation\>'s process | System owner; \<Organisation\> | Moderate | None needed: no system connection; the process is \<Organisation\>'s service | Reviewed every 12 months; ends if the process changes |
-| F8: \<Organisation\>'s central logging | External | From both VMs: the Windows security logs; the SQL Server Audit records and error log; the three applications' logs and security events, including each read or export of the audit log and the daily copy of the newest audit-chain hash (\<Audit and Accountability Management\>, section 3.5) | Encrypted in transit; forwarded as written; nobody in \<System Name\>'s team can change or delete the copies; read access only for the auditor, the security officer and \<Organisation\>'s security team | The records hold usernames, IP addresses and item references, never item content or the values of item details; kept 12 months, then archived for 12 months, in the United Kingdom only | \<Organisation\>; Windows server and database administrators | Moderate | This record, signed by the system owner and the service's owner | Reviewed every 12 months; ends if logging moves to another service |
-| F8: \<Organisation\>'s time service | External | Time, into both VMs | Authenticated NTP where available; within 1 second of UTC | None: no personal data passes | \<Organisation\>; Windows server administrator | Moderate, as audit time stamps depend on it | This record, signed by the system owner and the service's owner | As above |
-| F8: \<Organisation\>'s backup site | External | Encrypted SQL Server backups, out from the database VM | Encrypted before leaving the database VM; one copy offline or immutable | Backups hold every item, including personal data, and items since deleted: kept only as the backup schedule sets (14 daily, 8 weekly and 12 monthly copies), in the United Kingdom only, and restored only under the contingency plan or for a restore test on the restore test server at the second site (D-CP-01) | Database administrator; \<Organisation\> | Moderate | This record, signed by the system owner and the service's owner | As above |
-| F8: \<Organisation\>'s authenticated proxy | External | Updates for Windows Server, SQL Server and Defender, out from both VMs through the proxy; nothing else outbound | Outbound only, through the authenticated proxy, or blocked; updates are signed by the supplier | None: no \<System Name\> data passes | \<Organisation\>; Windows server administrator | Moderate | This record, signed by the system owner and the service's owner | As above |
+| Connection | Type | Impact | Agreement |
+| --- | --- | --- | --- |
+| F3, F4: UI application and Admin application to API | Internal | Moderate | None needed: inside the boundary |
+| F5: API on the application VM to SQL Server on the database VM | Internal | Moderate | None needed: inside the boundary |
+| F6, F7, F10: \<Organisation\>'s PingFederate and Active Directory | External | Moderate | This record, signed by the system owner and the owner of PingFederate and Active Directory |
+| F9: ServiceNow | Not a system connection: people only (F9) | Moderate | None needed: no system connection; ServiceNow is \<Organisation\>'s service |
+| F9: Starters and leavers process | Not a system connection: people only (F9) | Moderate | None needed: no system connection; the process is \<Organisation\>'s service |
+| F8: \<Organisation\>'s central logging | External | Moderate | This record, signed by the system owner and the service's owner |
+| F8: \<Organisation\>'s time service | External | Moderate, as audit time stamps depend on it | This record, signed by the system owner and the service's owner |
+| F8: \<Organisation\>'s backup site | External | Moderate | This record, signed by the system owner and the service's owner |
+| F8: \<Organisation\>'s authenticated proxy | External | Moderate | This record, signed by the system owner and the service's owner |
+
+Each connection in Table 6 is recorded in full below.
+
+**F3, F4: UI application and Admin application to API**
+
+- **Information:** Every request the two user-facing applications make, including item content and audit events
+- **Security needs:** HTTPS on the application server's own loopback address; the API accepts requests only from the two applications, each with a signed, short-lived token that names the signed-in person
+- **Privacy needs:** Personal data in items and audit events never leaves the application server on this link; the API applies every access check before it returns an item
+- **Responsibilities:** Developers; Windows server administrator
+- **Review and end:** Reviewed every 12 months; ends when a component is retired, and is approved again before it is rebuilt in another form
+
+**F5: API on the application VM to SQL Server on the database VM**
+
+- **Information:** Items, their files, schema definitions and audit records, including personal data. No user accounts are held
+- **Security needs:** SQL Server over TLS with strict encryption, TCP 1433, with Windows authentication under the API's managed service account and no database password; allowed only from the application server
+- **Privacy needs:** Personal data, including any special category data in items, is held only in the database and reached only through the API; audit records name the fields changed, not their values
+- **Responsibilities:** Windows server and database administrators
+- **Review and end:** Reviewed every 12 months; ends when the application server or the database is retired. A rebuild of either VM re-creates the link to the same settings under an approved change, and is not a new connection
+
+**F6, F7, F10: \<Organisation\>'s PingFederate and Active Directory**
+
+- **Information:** PingFederate's signed OpenID Connect response, which names the person and carries no groups, and its OpenID Connect metadata and the signing certificate that checks the response, which the UI application and Admin application fetch, and with which they complete each sign-in (F10); each person's group membership, read by the API from Active Directory over LDAPS (F7)
+- **Security needs:** The response is signed and sent over TLS, the applications reach PingFederate over HTTPS, TCP 443, from the application server only (F10), and the groups are read over LDAPS; \<System Name\> trusts only \<Organisation\>'s PingFederate
+- **Privacy needs:** The response and the directory carry the person's name, username and group memberships: staff data that \<Organisation\> already holds. \<System Name\> keeps only the username in its audit records, and asks for no other attribute
+- **Responsibilities:** \<Organisation\>, for authentication and the directory; system owner, for which groups \<System Name\> uses
+- **Review and end:** Reviewed every 12 months; ends if sign-in moves to another service
+
+**F9: ServiceNow**
+
+- **Information:** Access requests and the Data Owner's authorisation; change requests; names of requesters; incident records and requests for help, readable only by the incident roles. None of it passes to \<System Name\>
+- **Security needs:** ServiceNow has no connection to \<System Name\>. Group owners act on an authorised request by changing group membership in Active Directory
+- **Privacy needs:** Requesters' names, and incident records, which may hold personal data, stay in ServiceNow, under \<Organisation\>'s retention
+- **Responsibilities:** System owner; Data Owners; \<Organisation\>'s IT service desk
+- **Review and end:** Reviewed every 12 months; ends if the workflow moves
+
+**F9: Starters and leavers process**
+
+- **Information:** Leaver notices to group owners; staff names. None of it passes to \<System Name\>
+- **Security needs:** No connection to \<System Name\>. A leaver's Active Directory account is disabled at once, which ends their access
+- **Privacy needs:** Staff names and leaving dates stay in \<Organisation\>'s process
+- **Responsibilities:** System owner; \<Organisation\>
+- **Review and end:** Reviewed every 12 months; ends if the process changes
+
+**F8: \<Organisation\>'s central logging**
+
+- **Information:** From both VMs: the Windows security logs; the SQL Server Audit records and error log; the three applications' logs and security events, including each read or export of the audit log and the daily copy of the newest audit-chain hash (\<Audit and Accountability Management\>, section 3.5)
+- **Security needs:** Encrypted in transit; forwarded as written; nobody in \<System Name\>'s team can change or delete the copies; read access only for the auditor, the security officer and \<Organisation\>'s security team
+- **Privacy needs:** The records hold usernames, IP addresses and item references, never item content or the values of item details; kept 12 months, then archived for 12 months, in the United Kingdom only
+- **Responsibilities:** \<Organisation\>; Windows server and database administrators
+- **Review and end:** Reviewed every 12 months; ends if logging moves to another service
+
+**F8: \<Organisation\>'s time service**
+
+- **Information:** Time, into both VMs
+- **Security needs:** Authenticated NTP where available; within 1 second of UTC
+- **Privacy needs:** None: no personal data passes
+- **Responsibilities:** \<Organisation\>; Windows server administrator
+- **Review and end:** As above
+
+**F8: \<Organisation\>'s backup site**
+
+- **Information:** Encrypted SQL Server backups, out from the database VM
+- **Security needs:** Encrypted before leaving the database VM; one copy offline or immutable
+- **Privacy needs:** Backups hold every item, including personal data, and items since deleted: kept only as the backup schedule sets (14 daily, 8 weekly and 12 monthly copies), in the United Kingdom only, and restored only under the contingency plan or for a restore test on the restore test server at the second site (D-CP-01)
+- **Responsibilities:** Database administrator; \<Organisation\>
+- **Review and end:** As above
+
+**F8: \<Organisation\>'s authenticated proxy**
+
+- **Information:** Updates for Windows Server, SQL Server and Defender, out from both VMs through the proxy; nothing else outbound
+- **Security needs:** Outbound only, through the authenticated proxy, or blocked; updates are signed by the supplier
+- **Privacy needs:** None: no \<System Name\> data passes
+- **Responsibilities:** \<Organisation\>; Windows server administrator
+- **Review and end:** As above
 
 Every system connection is encrypted. A connection ends when it is no longer needed, or when a component at either end is retired: the Windows server administrator removes it, and the system owner records the end date. Rebuilding a VM re-creates its connections to the same settings under an approved change; anything different is a new connection. \<Organisation\>'s name resolution and certificate authority are infrastructure services that carry no \<System Name\> data; they are covered by \<System and Communications Protection Management\> and are not exchanges here. The API listens only on the loopback address and accepts only the two applications, and the database accepts only the application server (\<Access Control Management\>, section 3.6). A new or changed external exchange is a significant change (section 3.9), so the authorising official weighs its risk before it is built.
 
@@ -169,26 +243,26 @@ This is \<System Name\>'s system-level strategy. It carries out \<Organisation\>
 
 **Table 7: Monitoring measures**
 
-| Measure | Kind | Target | Threshold for action | Source | Frequency | Owner |
-| --- | --- | --- | --- | --- | --- | --- |
-| POA&M items past their date | Compliance | None | Any | \<Plan of Action and Milestones\> | Monthly | System owner |
-| Security updates applied within the flaw-fixing limits (3 days if exploited; 14 days Critical or High; 30 days Medium; 90 days Low) | Effectiveness | All | Any late critical or high update | Vulnerability and patch review | Monthly | Windows server administrator |
-| Failed sign-ins and lockouts | Effectiveness | Reviewed every week | More than 10 failures for one account in a day, or any for a disabled account | \<Organisation\>'s PingFederate record, and \<System Name\>'s audit log for refused sign-in responses; the monitoring and integrity report | Weekly | Auditor |
-| Weekly audit reviews completed | Compliance | All | Any missed week | Monitoring and integrity report | Monthly | Security officer |
-| Audit logging failures | Effectiveness | None | Any | Audit failure alerts; the monitoring and integrity report | Monthly | Windows server administrator |
-| Backup jobs succeeded, and restore tested in the last 6 months | Effectiveness | All | Any failed job, or a restore test overdue | Backup logs; the exercise and restore test record | Weekly | Database administrator |
-| Access and privileged access reviews on time | Compliance | All | Any overdue | Access review record | Quarterly | System owner |
-| Members of \<System Name\>'s AD groups who have not signed in for 90 days | Compliance | None | Any | Access review record | Monthly | System owner |
-| Significant changes made since the last report | Change | Each assessed before it was made | Any not assessed | Change record | Monthly | System owner |
-| Requests from individuals about their data answered within one month | Privacy | All | Any late | Privacy request record | Monthly | Legal adviser |
-| Personal data incidents | Privacy | None | Any | Incident record | Monthly | Security officer |
-| Configuration drift from the baseline | Change | None unapproved | Any | Drift check; the monitoring and integrity report | Monthly | Windows server administrator |
-| Alerts acknowledged within their time, and their outcomes | Effectiveness | All | Any acknowledged late, or any not closed | \<System and Information Integrity Management\>, Table 3; the monitoring and integrity report, the incident record | Monthly | Security officer |
-| Integrity, file checksum and malware rescan results | Effectiveness | No unexplained difference or detection | Any | Integrity and rescan checks; the monitoring and integrity report | Monthly | Security officer |
-| Supplier reviews on time, and each release passing Test-SupplyChain.ps1 and its check before installation | Compliance | All | Any review overdue, or any release installed with a failed check | Supplier review; the supply chain check results | Quarterly | System owner |
-| Security incidents open past their time limit | Effectiveness | None | Any | Incident record | Monthly | Security officer |
-| Vulnerabilities past their fix time | Effectiveness | None | Any Critical or High past its time | Vulnerability and patch review; the timetable in \<Risk Assessment Management\>, section 3.6 | Monthly | Windows server administrator, developers |
-| Changes to the inherited controls: a change to a service \<Organisation\> provides, or its evidence past its review date | Change | None unassessed | Any | \<Organisation\>'s notices; \<Evidence Requests\>; the monitoring and integrity report | Quarterly | System owner |
+| Measure | Target and threshold for action | Source | Frequency and owner |
+| --- | --- | --- | --- |
+| POA&M items past their date (compliance) | Target: none. Act on: any | \<Plan of Action and Milestones\> | Monthly; system owner |
+| Security updates applied within the flaw-fixing limits (3 days if exploited; 14 days Critical or High; 30 days Medium; 90 days Low) (effectiveness) | Target: all. Act on: any late critical or high update | Vulnerability and patch review | Monthly; Windows server administrator |
+| Failed sign-ins and lockouts (effectiveness) | Target: Reviewed every week. Act on: more than 10 failures for one account in a day, or any for a disabled account | \<Organisation\>'s PingFederate record, and \<System Name\>'s audit log for refused sign-in responses; the monitoring and integrity report | Weekly; auditor |
+| Weekly audit reviews completed (compliance) | Target: all. Act on: any missed week | Monitoring and integrity report | Monthly; security officer |
+| Audit logging failures (effectiveness) | Target: none. Act on: any | Audit failure alerts; the monitoring and integrity report | Monthly; Windows server administrator |
+| Backup jobs succeeded, and restore tested in the last 6 months (effectiveness) | Target: all. Act on: any failed job, or a restore test overdue | Backup logs; the exercise and restore test record | Weekly; database administrator |
+| Access and privileged access reviews on time (compliance) | Target: all. Act on: any overdue | Access review record | Quarterly; system owner |
+| Members of \<System Name\>'s AD groups who have not signed in for 90 days (compliance) | Target: none. Act on: any | Access review record | Monthly; system owner |
+| Significant changes made since the last report (change) | Target: Each assessed before it was made. Act on: any not assessed | Change record | Monthly; system owner |
+| Requests from individuals about their data answered within one month (privacy) | Target: all. Act on: any late | Privacy request record | Monthly; legal adviser |
+| Personal data incidents (privacy) | Target: none. Act on: any | Incident record | Monthly; security officer |
+| Configuration drift from the baseline (change) | Target: none unapproved. Act on: any | Drift check; the monitoring and integrity report | Monthly; Windows server administrator |
+| Alerts acknowledged within their time, and their outcomes (effectiveness) | Target: all. Act on: any acknowledged late, or any not closed | \<System and Information Integrity Management\>, Table 3; the monitoring and integrity report, the incident record | Monthly; security officer |
+| Integrity, file checksum and malware rescan results (effectiveness) | Target: No unexplained difference or detection. Act on: any | Integrity and rescan checks; the monitoring and integrity report | Monthly; security officer |
+| Supplier reviews on time, and each release passing Test-SupplyChain.ps1 and its check before installation (compliance) | Target: all. Act on: any review overdue, or any release installed with a failed check | Supplier review; the supply chain check results | Quarterly; system owner |
+| Security incidents open past their time limit (effectiveness) | Target: none. Act on: any | Incident record | Monthly; security officer |
+| Vulnerabilities past their fix time (effectiveness) | Target: none. Act on: any Critical or High past its time | Vulnerability and patch review; the timetable in \<Risk Assessment Management\>, section 3.6 | Monthly; Windows server administrator, developers |
+| Changes to the inherited controls: a change to a service \<Organisation\> provides, or its evidence past its review date (change) | Target: none unassessed. Act on: any | \<Organisation\>'s notices; \<Evidence Requests\>; the monitoring and integrity report | Quarterly; system owner |
 
 **Analysis.** Each month the security officer reads the measures together with the audit review findings, the vulnerability results and the incident records, and looks for a trend across three months. The system owner also reviews the Risk List each month for new or changed risks.
 

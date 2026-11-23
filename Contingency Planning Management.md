@@ -55,12 +55,12 @@ The plan recovers \<System Name\> in three phases: activation and notification, 
 
 **Table 1: Impact of an outage, by function**
 
-| Function | 24 hours | 72 hours | 1 week | 2 weeks |
-| --- | --- | --- | --- | --- |
-| Sign in, find and read items (essential) | Staff wait or use paper copies where they exist | The business processes it supports are delayed | Requests with legal deadlines, such as subject access, are at risk | Deadlines are missed |
-| Upload and manage items | New items queue | Backlog grows | Backlog takes days to clear | Records are incomplete |
-| Administration: schemas and the groups that open each | None while \<System Name\> is down | None while \<System Name\> is down | Starters wait for access | Starters wait for access |
-| Reports and bulk export | None | None | Planned reports are late | Planned reports are late |
+| Function | 24 hours | 72 hours | 1 to 2 weeks |
+| --- | --- | --- | --- |
+| Sign in, find and read items (essential) | Staff wait or use paper copies where they exist | The business processes it supports are delayed | Requests with legal deadlines, such as subject access, are at risk. By 2 weeks: deadlines are missed |
+| Upload and manage items | New items queue | Backlog grows | Backlog takes days to clear. By 2 weeks: records are incomplete |
+| Administration: schemas and the groups that open each | None while \<System Name\> is down | None while \<System Name\> is down | Starters wait for access |
+| Reports and bulk export | None | None | Planned reports are late |
 
 While \<System Name\> is down nobody can use it, so an outage does not leave leavers with access. The members of \<System Name\>'s AD groups are checked against current staff before users return (section 3.7).
 
@@ -68,12 +68,12 @@ While \<System Name\> is down nobody can use it, so an outage does not leave lea
 
 **Table 2: Recovery objectives**
 
-| Function | Maximum tolerable downtime | Recovery time objective | Recovery point objective | Priority |
-| --- | --- | --- | --- | --- |
-| Sign in, find and read items | 120 hours | 72 hours | 24 hours from the daily backup; less with the archived transaction logs | 1 |
-| Upload and manage items | 14 days | 7 days | As above | 2 |
-| Administration | 14 days | 7 days | As above | 2 |
-| Reports and bulk export | 14 days | 7 days | Not applicable: produced from the database | 3 |
+| Function | Maximum downtime; recovery time objective | Recovery point objective | Priority |
+| --- | --- | --- | --- |
+| Sign in, find and read items | 120 hours; 72 hours | 24 hours from the daily backup; less with the archived transaction logs | 1 |
+| Upload and manage items | 14 days; 7 days | As above | 2 |
+| Administration | 14 days; 7 days | As above | 2 |
+| Reports and bulk export | 14 days; 7 days | Not applicable: produced from the database | 3 |
 
 Every time in Table 2 is counted from the start of the outage, not from when the plan is invoked. The recovery time objective includes reconstitution (section 3.7), so 72 hours is the time for both recovery and reconstitution, and users return within 72 hours of the outage starting. The plan is invoked at the latest 24 hours in (section 3.5.1), so the essential functions resume within 72 hours of activation, and normally well within it. That leaves 48 hours within the maximum tolerable downtime for a failed first attempt, such as a damaged backup.
 
@@ -81,15 +81,15 @@ Every time in Table 2 is counted from the start of the outage, not from when the
 
 **Table 3: Order of recovery**
 
-| Order | Component | Needed for | Depends on | Recovered from |
-| --- | --- | --- | --- | --- |
-| 1 | \<Organisation\>'s network, PingFederate sign-in, directory, name resolution, time and certificates | Everything | \<Organisation\> | \<Organisation\>'s plans (appendix B) |
-| 2 | Database VM and SQL Server 2022, with its server-level settings: the API's login, SQL Server Audit and the backup jobs | Every function | 1 | \<Configuration Management\> baseline, checked against the latest system-level backup (section 3.8) |
-| 3 | Secrets: the backup encryption certificate and its private key, with the retired certificates still needed for the backups kept; the token signing key; the audit chain key, with its retired versions kept for checking; and the OpenID Connect client credential. There is no database password: the API connects with Windows authentication | Restoring the database, and starting the API | 1 | The protected copy at the second site (section 3.8) |
-| 4 | The \<System Name\> database: items, files, schema definitions and audit records | Every function | 2, 3 | The latest good backup and transaction logs |
-| 5 | Application VM: API | Every function | 3, 4 | The tagged release and \<Configuration Management\> |
-| 6 | UI application | Finding and reading items | 5 | The tagged release |
-| 7 | Admin application | Administration | 5 | The tagged release |
+| Order | Component | Needed for | Recovered from |
+| --- | --- | --- | --- |
+| 1, provided by \<Organisation\> | \<Organisation\>'s network, PingFederate sign-in, directory, name resolution, time and certificates | Everything | \<Organisation\>'s plans (appendix B) |
+| 2, after 1 | Database VM and SQL Server 2022, with its server-level settings: the API's login, SQL Server Audit and the backup jobs | Every function | \<Configuration Management\> baseline, checked against the latest system-level backup (section 3.8) |
+| 3, after 1 | Secrets: the backup encryption certificate and its private key, with the retired certificates still needed for the backups kept; the token signing key; the audit chain key, with its retired versions kept for checking; and the OpenID Connect client credential. There is no database password: the API connects with Windows authentication | Restoring the database, and starting the API | The protected copy at the second site (section 3.8) |
+| 4, after 2 and 3 | The \<System Name\> database: items, files, schema definitions and audit records | Every function | The latest good backup and transaction logs |
+| 5, after 3 and 4 | Application VM: API | Every function | The tagged release and \<Configuration Management\> |
+| 6, after 5 | UI application | Finding and reading items | The tagged release |
+| 7, after 5 | Admin application | Administration | The tagged release |
 
 \<System Name\> cannot be used while PingFederate is unavailable, because nobody can sign in. \<Organisation\>'s recovery time for PingFederate and Active Directory therefore sets a floor under \<System Name\>'s own. If it is longer than 72 hours, the system owner takes the recovery objectives back to the authorising official.
 
@@ -189,14 +189,14 @@ Users return only once steps 1 to 6 are done, and steps 7 to 9 follow straight a
 
 **Table 6: Backups**
 
-| What | How often | Kept | Where | Protection |
-| --- | --- | --- | --- | --- |
-| The \<System Name\> database, including items, files and audit records | Daily, full SQL Server backup, with checksums | 14 daily, 8 weekly and 12 monthly copies | \<Organisation\>'s backup service, which copies it to the second site and keeps one offline or immutable copy | Encrypted. The key is held apart from the backups. Its SHA-256 value is recorded when taken |
-| SQL Server transaction log backups | Between the daily backups, \[interval\] | Until the oldest daily copy is removed | As above | Encrypted |
-| System-level information: SQL Server's system databases (master and msdb), which hold the logins, SQL Server Audit settings and backup jobs, and each VM's Windows configuration and list of installed software | Weekly, and after each change to them | 8 copies | As above | Encrypted |
-| Secrets, including the backup encryption certificate and its private key | At each change | Every version for 12 months, and each retired backup encryption certificate until the last backup it encrypted is removed | A protected copy at the second site, held apart from the backups | Encrypted, with access limited to the system owner and administrators |
-| This plan and the records | At each change | As each record's retention | The controlled library | Access controlled |
-| Code and releases | Each release | Every release | The Git host, and the tag recorded in \<Configuration Management\> | Access controlled |
+| What | How often, and how long kept | Where | Protection |
+| --- | --- | --- | --- |
+| The \<System Name\> database, including items, files and audit records | Daily, full SQL Server backup, with checksums. Kept: 14 daily, 8 weekly and 12 monthly copies | \<Organisation\>'s backup service, which copies it to the second site and keeps one offline or immutable copy | Encrypted. The key is held apart from the backups. Its SHA-256 value is recorded when taken |
+| SQL Server transaction log backups | Between the daily backups, \[interval\]. Kept: until the oldest daily copy is removed | As above | Encrypted |
+| System-level information: SQL Server's system databases (master and msdb), which hold the logins, SQL Server Audit settings and backup jobs, and each VM's Windows configuration and list of installed software | Weekly, and after each change to them. Kept: 8 copies | As above | Encrypted |
+| Secrets, including the backup encryption certificate and its private key | At each change. Kept: every version for 12 months, and each retired backup encryption certificate until the last backup it encrypted is removed | A protected copy at the second site, held apart from the backups | Encrypted, with access limited to the system owner and administrators |
+| This plan and the records | At each change. Kept: as each record's retention | The controlled library | Access controlled |
+| Code and releases | Each release. Kept: every release | The Git host, and the tag recorded in \<Configuration Management\> | Access controlled |
 
 The database administrator's backup jobs write each encrypted backup to \<Organisation\>'s backup service, which copies it to the second site and keeps one copy offline or immutable, so that an attacker on the network cannot change it. A failed backup alerts the database administrator and the security officer, and the week's backups are checked to confirm every job succeeded and reached the second site (\<Security Operating Procedures\>). The system-level backup is not used to restore a server: the servers are rebuilt from the baseline, and the system-level backup is used to check the rebuild and to recover a setting the baseline missed.
 
@@ -227,12 +227,12 @@ The first restore test and tabletop exercise take place within 30 days of the VM
 
 **Table 7: Test, training and exercise schedule**
 
-| Activity | When | Who | Objective | Record |
-| --- | --- | --- | --- | --- |
-| Role training | Within 30 days of taking a role, and every 12 months. The system owner, the security officer and their deputies take it before taking the role | Everyone in section 3.4: module M8, delivered by the system owner (the security officer delivers it to the system owner), or M10 for the authorising official. \<Organisation\>'s IT service desk is trained by \<Organisation\> | Each person knows this plan, their steps in \<Procedures\> (CP), the call tree and where the offline copy is | Training record |
-| Restore test | First within 30 days of the VMs being built; then every 6 months | Database administrator, observed by the security officer | Restore the latest backup, with its certificate, to the restore test server at the second site (section 3.8) within the recovery time objective, and pass the data checks in section 3.7, step 1 | Exercise and restore test record |
-| Tabletop exercise, with the incident response plan | First within 30 days of the VMs being built; then every 12 months | Everyone in section 3.4, and \<Organisation\>'s IT service desk | Walk through one scenario from activation to deactivation | Exercise and restore test record |
-| Plan review | Every 12 months, and after each test or activation | System owner and authorising official | Keep the plan current and build in what was learned | Change record |
+| Activity | When | Who | Objective and record |
+| --- | --- | --- | --- |
+| Role training | Within 30 days of taking a role, and every 12 months. The system owner, the security officer and their deputies take it before taking the role | Everyone in section 3.4: module M8, delivered by the system owner (the security officer delivers it to the system owner), or M10 for the authorising official. \<Organisation\>'s IT service desk is trained by \<Organisation\> | Each person knows this plan, their steps in \<Procedures\> (CP), the call tree and where the offline copy is. Record: training record |
+| Restore test | First within 30 days of the VMs being built; then every 6 months | Database administrator, observed by the security officer | Restore the latest backup, with its certificate, to the restore test server at the second site (section 3.8) within the recovery time objective, and pass the data checks in section 3.7, step 1. Record: exercise and restore test record |
+| Tabletop exercise, with the incident response plan | First within 30 days of the VMs being built; then every 12 months | Everyone in section 3.4, and \<Organisation\>'s IT service desk | Walk through one scenario from activation to deactivation. Record: exercise and restore test record |
+| Plan review | Every 12 months, and after each test or activation | System owner and authorising official | Keep the plan current and build in what was learned. Record: change record |
 
 Tabletop scenarios rotate through: ransomware on the database VM; loss of the main site; a backup that fails its checks; a key person being unavailable; and PingFederate being unavailable. Training content covers the activation criteria, the call tree, each role's steps and the checks before return. The security officer writes it and reviews it every 12 months and after a plan change, test or activation. Role training is module M8 of the role curriculum (\<Awareness and Training Management\>, section 3.4), and the training register shows who is trained (\<Awareness and Training Management\>, section 3.8). After a change to the plan that alters a person's steps, that person is briefed on the change.
 

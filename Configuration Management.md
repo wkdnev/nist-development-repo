@@ -81,20 +81,20 @@ Every package, browser library, runtime, operating system and database \<System 
 
 **Table 4: Software components**
 
-| Component | Version | Supplier | Licence | Used by | Note |
-| --- | --- | --- | --- | --- | --- |
-| Windows Server 2025 | \<ver\> | Microsoft | Commercial, licensed by \<Organisation\> | Both servers | Includes Microsoft Defender, BitLocker, App Control for Business and managed service accounts |
-| Microsoft SQL Server 2022 | \<ver\> | Microsoft | Commercial, licensed by \<Organisation\> | Database server | |
-| .NET 10 and ASP.NET Core 10 runtime, including Blazor Server | 10.0 | Microsoft | MIT | All three applications | Long-term support release |
-| .NET 10 SDK | \<ver\> | Microsoft | MIT | Build only | |
-| ASP.NET Core OpenID Connect authentication | \<ver\> | Microsoft | MIT | UI application, Admin application | Sign-in through PingFederate |
-| Entity Framework Core 10, with the SQL Server provider | \<ver\> | Microsoft | MIT | API, shared library | |
-| Microsoft.Data.SqlClient | \<ver\> | Microsoft | MIT | API | TLS with strict encryption and Windows authentication |
-| Directory access library for LDAPS | \<ver\> | Microsoft | MIT | API | Group lookup in Active Directory |
-| API documentation package | \<ver\> | \[Supplier\] | \[Licence\] | API | Development only; not in release builds |
-| \[Server-side rendering library for the viewer\] | \<ver\> | \[Supplier\] | \[Licence\] | API | Renders a file as an image on the server, and stamps the classification banner on each page or image of a downloaded copy (FR-020, D-MP-02); a separate library is listed here if one is chosen for the stamping |
-| \[Browser libraries, such as a document viewer or an icon set\] | \<ver\> | \[Supplier\] | \[Licence\] | UI application | From the publisher's release, with its SHA-256 values in the browser library manifest; packaged with the UI application and served by it. No content delivery service |
-| \[Key store\] | \<ver\> | \[Supplier\] | \[Licence\] | All three applications | Holds the token signing key, the audit chain key, the OpenID Connect client credential and the exported backup encryption certificate. Still to be chosen (\<System Security Plan\>, section 3.4); listed here if it is software on the servers, or recorded as a service of \<Organisation\> if not |
+| Component | Version, supplier and licence | Used by | Note |
+| --- | --- | --- | --- |
+| Windows Server 2025 | \<ver\>; Microsoft; commercial, licensed by \<Organisation\> | Both servers | Includes Microsoft Defender, BitLocker, App Control for Business and managed service accounts |
+| Microsoft SQL Server 2022 | \<ver\>; Microsoft; commercial, licensed by \<Organisation\> | Database server | |
+| .NET 10 and ASP.NET Core 10 runtime, including Blazor Server | 10.0; Microsoft; MIT | All three applications | Long-term support release |
+| .NET 10 SDK | \<ver\>; Microsoft; MIT | Build only | |
+| ASP.NET Core OpenID Connect authentication | \<ver\>; Microsoft; MIT | UI application, Admin application | Sign-in through PingFederate |
+| Entity Framework Core 10, with the SQL Server provider | \<ver\>; Microsoft; MIT | API, shared library | |
+| Microsoft.Data.SqlClient | \<ver\>; Microsoft; MIT | API | TLS with strict encryption and Windows authentication |
+| Directory access library for LDAPS | \<ver\>; Microsoft; MIT | API | Group lookup in Active Directory |
+| API documentation package | \<ver\>; \[Supplier\]; \[Licence\] | API | Development only; not in release builds |
+| \[Server-side rendering library for the viewer\] | \<ver\>; \[Supplier\]; \[Licence\] | API | Renders a file as an image on the server, and stamps the classification banner on each page or image of a downloaded copy (FR-020, D-MP-02); a separate library is listed here if one is chosen for the stamping |
+| \[Browser libraries, such as a document viewer or an icon set\] | \<ver\>; \[Supplier\]; \[Licence\] | UI application | From the publisher's release, with its SHA-256 values in the browser library manifest; packaged with the UI application and served by it. No content delivery service |
+| \[Key store\] | \<ver\>; \[Supplier\]; \[Licence\] | All three applications | Holds the token signing key, the audit chain key, the OpenID Connect client credential and the exported backup encryption certificate. Still to be chosen (\<System Security Plan\>, section 3.4); listed here if it is software on the servers, or recorded as a service of \<Organisation\> if not |
 
 Every package comes through \<Organisation\>'s in-house checked package feed, at the version in the lock files. Every browser library is held in the UI application's source repository, at the version and SHA-256 values in the browser library manifest (\<Supply Chain Risk Management\>, section 3.7).
 
