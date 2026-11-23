@@ -63,7 +63,7 @@ Update status is checked automatically, monthly and at each release, by the cred
 | --- | --- | --- |
 | NCSC alerts and advisories | UK threats and vulnerabilities | As published |
 | NCSC Early Warning, through \<Organisation\> | Incidents, abuse and vulnerable services on \<Organisation\>'s internet-facing addresses, such as the VPN and the proxy that \<System Name\>'s updates pass through. \<System Name\> itself has no internet address (NFR-040) | As raised |
-| CISA Known Exploited Vulnerabilities | Flaws being exploited | Each working day, from an alert on new entries (\<Security Operating Procedures\>, C50) |
+| CISA Known Exploited Vulnerabilities | Flaws being exploited | Each working day, from an alert on new entries (\<Security Operating Procedures\>) |
 | Microsoft Security Response Center | Windows Server, SQL Server, .NET and ASP.NET Core | Monthly and out of band |
 | GitHub advisories and dependency alerts | NuGet packages | As raised |
 | Vendors of the other components | Browser libraries and any other component on the approved list | As published |

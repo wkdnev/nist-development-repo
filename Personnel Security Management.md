@@ -82,7 +82,7 @@ In the United Kingdom a basic criminal record check is made through the Disclosu
 
 Controls met here: PS-6.
 
-Two agreements are signed before access. The rules of behaviour are signed again every 12 months, and within 30 days of a material change. \<Organisation\>'s confidentiality agreement is signed again when \<Organisation\> changes it, and each yearly signature of the rules confirms that the person is still bound by it (\<Security Operating Procedures\>, section 9). CSS places PS-6 in its privacy baseline as well as the Moderate baseline, so the agreements cover privacy too: the rules on personal data are A23 to A29.
+Two agreements are signed before access. The rules of behaviour are signed again every 12 months, and within 30 days of a material change. \<Organisation\>'s confidentiality agreement is signed again when \<Organisation\> changes it, and each yearly signature of the rules confirms that the person is still bound by it (\<Security Operating Procedures\>, section 9). CSS places PS-6 in its privacy baseline as well as the Moderate baseline, so the agreements cover privacy too: the rules of behaviour tell each person to look at personal data only when their task needs it, to delete exported personal data within 30 days, and to report a loss involving it within 1 hour.
 
 1. **\<Organisation\>'s confidentiality agreement,** signed on employment or engagement.
 2. **The rules of behaviour,** \<Security Operating Procedures\>: Part A for everyone, and Part B, the privileged rules, for privileged users as well. Each person signs the declaration in \<Security Operating Procedures\>, section 9, on TPL-21, and the signature is recorded in the register of signatures (\<Planning Management\>, section 3.5).
@@ -147,7 +147,7 @@ The same applies to the independent assessors who carry out the Level 2 assessme
 
 Controls met here: PS-8.
 
-A breach of the rules is handled through \<Organisation\>'s disciplinary process, and the rules of behaviour tell each person so (\<Security Operating Procedures\>, A4). When \<Organisation\> starts a formal sanctions process against someone with \<System Name\> access for breaching \<System Name\>'s or \<Organisation\>'s security or privacy rules, it tells the system owner within 1 working day, naming the person and the reason. The system owner decides whether the person's access must change, and keeps no record of the sanction itself, which stays with \<Organisation\>. If the breach is a security incident, the security officer records it on TPL-10, and the system owner decides whether the person's access must end at once.
+A breach of the rules is handled through \<Organisation\>'s disciplinary process, and the rules of behaviour tell each person so (\<Security Operating Procedures\>). When \<Organisation\> starts a formal sanctions process against someone with \<System Name\> access for breaching \<System Name\>'s or \<Organisation\>'s security or privacy rules, it tells the system owner within 1 working day, naming the person and the reason. The system owner decides whether the person's access must change, and keeps no record of the sanction itself, which stays with \<Organisation\>. If the breach is a security incident, the security officer records it on TPL-10, and the system owner decides whether the person's access must end at once.
 
 ### 3.9 Personnel security register
 

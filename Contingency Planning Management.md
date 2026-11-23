@@ -236,7 +236,7 @@ Controls met here: CP-6, CP-9, CP-9(1), CP-9(8), CP-10, CP-10(2).
 | This plan and the records | At each change | As each record's retention | The controlled library | Access controlled |
 | Code and releases | Each release | Every release | The Git host, and the tag recorded in \<Configuration Management\> | Access controlled |
 
-The database administrator's backup jobs write each encrypted backup to \<Organisation\>'s backup service, which copies it to the second site and keeps one copy offline or immutable, so that an attacker on the network cannot change it (EV-CP-01). A failed backup alerts the database administrator and the security officer, and the week's backups are checked under \<Security Operating Procedures\>, duty C8. The system-level backup is not used to restore a server: the servers are rebuilt from the baseline, and the system-level backup is used to check the rebuild and to recover a setting the baseline missed.
+The database administrator's backup jobs write each encrypted backup to \<Organisation\>'s backup service, which copies it to the second site and keeps one copy offline or immutable, so that an attacker on the network cannot change it (EV-CP-01). A failed backup alerts the database administrator and the security officer, and the week's backups are checked to confirm every job succeeded and reached the second site (\<Security Operating Procedures\>). The system-level backup is not used to restore a server: the servers are rebuilt from the baseline, and the system-level backup is used to check the rebuild and to recover a setting the baseline missed.
 
 **Restore tests.** Restores are tested every 6 months (PRO-CP-2), and after a change to the database or the backup method. Each test restores real data, so it runs on a throwaway virtual server at the second site, built to the database server's baseline, with no network route to production, reached only over the administration route by the database administrator and the security officer, and removed once the test is recorded, its virtual disk erased by method M1 (\<Media Protection Management\>, section 3.6) (D-CP-01). The test fetches the backup and the protected copy of the secrets from the second site, so it also proves that both can be retrieved and used there.
 
@@ -339,6 +339,6 @@ Controls met here: CP-1.
 | \<Incident Response Management\> Incident response plan | Security officer | Leads when an outage may be an incident (section 3.6.2); exercised together (CP-4(1)) |
 | \<Organisation\>'s disaster recovery and business continuity plans \[names to add\] | \<Organisation\> | Provide the network, second site and telecommunications (EV-CP-01, EV-CP-02) |
 | \<Configuration Management\>, the configuration management plan | System owner | The baseline the VMs and applications are rebuilt to |
-| \<Security Operating Procedures\> Security Operating Procedures | System owner | The routine backup, test and review steps (C2, C6, C8, C18, C21, C61) and planned shutdown |
+| \<Security Operating Procedures\> Security Operating Procedures | System owner | The routine backup, test and review steps and planned shutdown |
 | TPL-9 and TPL-11 in \<Record Templates\> | System owner | Training records, test records and after-action reports |
 | \<System Security Plan\>, sections 3.4 and 4 | System owner | The inventory and diagrams of what is rebuilt |

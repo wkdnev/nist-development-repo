@@ -94,7 +94,7 @@ Controls met here: RA-5, RA-5(2), RA-5(5).
 | Browser libraries, served by \<System Name\> itself | Vendor security announcements, and Test-Vulnerability.ps1, which checks each library's version in the browser library manifest against the GitHub Advisory Database; NuGet's audit does not cover them | Developers | Monthly, and at each release |
 | \<System Name\>'s own applications: UI application, Admin application and API | A web application scan, reaching them as a user and as an outsider would; the static analysis in the build; and an independent penetration test before go-live | Developers | Each release |
 | Server and database settings | The configuration scan against the baseline in \<Configuration Management\>, which finds the improper configurations RA-5 also asks about | Windows server administrator, database administrator | Monthly |
-| All components, for exploited flaws | CISA's Known Exploited Vulnerabilities catalogue and \<Organisation\>'s alerts (PRO-RA-4) | Security officer | Each working day, from an alert on new entries (\<Security Operating Procedures\>, C50) |
+| All components, for exploited flaws | CISA's Known Exploited Vulnerabilities catalogue and \<Organisation\>'s alerts (PRO-RA-4) | Security officer | Each working day, from an alert on new entries (\<Security Operating Procedures\>) |
 
 Monitoring also starts whenever a new vulnerability that may affect \<System Name\> is reported, through these sources or the reporting route in section 3.7.
 

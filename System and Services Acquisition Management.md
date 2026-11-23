@@ -55,7 +55,7 @@ Controls met here: SA-3, SA-15.
 | PW.7 Review code | Second developer reviews each change, merged through a protected branch (PRO-SA-1) |
 | PW.8 Test executable code | Automated tests, a package scan and a code scan in the build pipeline, and fifteen test scripts (section 3.9) |
 | PW.9 Secure defaults | Deny by default; the authentication cookie lasts no longer than PingFederate's sign-in lifetime |
-| RV.1 Identify vulnerabilities | Test-Vulnerability.ps1; CISA's exploited list each working day (\<Security Operating Procedures\>, C50) |
+| RV.1 Identify vulnerabilities | Test-Vulnerability.ps1; CISA's exploited list each working day (\<Security Operating Procedures\>) |
 | RV.2 Assess and fix vulnerabilities | Timetable in \<Risk Assessment Management\>, section 3.6 |
 | RV.3 Find root causes | Lessons in incident records (TPL-10) and risk reviews (TPL-23) |
 
@@ -258,7 +258,7 @@ The criticality analysis (SA-15(3)) is held in \<Risk Assessment Management\>, s
 
 Controls met here: SA-22.
 
-Each component is replaced before its vendor's support ends, with the replacement planned at least 6 months before. The monthly check covers every component in \<Configuration Management\>, Table 4, and the outside services in section 3.7: it compares each with its supplier's published support dates, and those of the security-critical components are held in \<Maintenance Management\>, section 3.8, with their MA-6 support times (PRO-SA-5; \<Security Operating Procedures\>, C11). A package or browser library has no vendor support date. It counts as unsupported when its maintainers stop releasing fixes, or it is marked deprecated, or it has a known flaw with no fix. The developers check each one in the monthly package check, and replace one found unsupported within 6 months, or within the flaw timetable if it has a known flaw. If a component cannot be replaced in time, the other support allowed is in-house support, or a supplier's extended support, either by exception approved by the authorising official with the risk recorded in \<Risk List\> (SA-22\_ODP).
+Each component is replaced before its vendor's support ends, with the replacement planned at least 6 months before. The monthly check covers every component in \<Configuration Management\>, Table 4, and the outside services in section 3.7: it compares each with its supplier's published support dates, and those of the security-critical components are held in \<Maintenance Management\>, section 3.8, with their MA-6 support times (PRO-SA-5). A package or browser library has no vendor support date. It counts as unsupported when its maintainers stop releasing fixes, or it is marked deprecated, or it has a known flaw with no fix. The developers check each one in the monthly package check, and replace one found unsupported within 6 months, or within the flaw timetable if it has a known flaw. If a component cannot be replaced in time, the other support allowed is in-house support, or a supplier's extended support, either by exception approved by the authorising official with the risk recorded in \<Risk List\> (SA-22\_ODP).
 
 ### 3.13 What \<Organisation\> and the providers supply
 

@@ -44,7 +44,7 @@ Every place \<System Name\> information is held outside the running application,
 | Approved locations for users' copies | Exports and downloads that users keep | \<Organisation\>'s access control and encryption for the location | The user, and those the location is shared with | M5 |
 | Audit log exports | Filtered audit records that the auditor exports for a report or an investigation | Marked; kept on the auditor's managed device or in an approved location; each export is a security event that the security officer reviews (\<Audit and Accountability Management\>, section 3.8) | Auditor | M5 |
 | \<Organisation\>'s managed printers | Print jobs, held until the user releases them at the printer | Secure release; \<Organisation\>'s control of the printer and its storage (EV-MP-03) | The user who printed; \<Organisation\>'s staff who maintain the printer | M4 |
-| Application logs | Errors, start-up and shut-down events, and the security events | Access limited; kept 30 days (C46) | Windows server administrator | M5 |
+| Application logs | Errors, start-up and shut-down events, and the security events | Access limited; kept 30 days | Windows server administrator | M5 |
 | \<Organisation\>'s central logging | The application security events, SQL Server Audit records and Windows logs, for 12 months | \<Organisation\>'s access control for central logging (EV-AU-01) | Auditor; security officer; \<Organisation\>'s logging staff | M5 |
 | Backups, through \<Organisation\>'s backup service, at both sites | Everything in the database, its transaction log backups and the system-level backups | Encrypted with AES-256 under the backup encryption certificate before they leave the database server; \<Organisation\>'s backup service copies them to the second site and keeps one copy offline or immutable (\<Contingency Planning Management\>, section 3.8) | Database administrator, who writes them; \<Organisation\>'s backup service staff, who cannot read them | M2 |
 | Support copies | Data, dumps, logs or screenshots sent for support | Approved, minimised and encrypted; under UK GDPR Article 28 terms if personal data remains (\<Procedures\>, PRO-MA-7) | As approved | M5 |
@@ -85,7 +85,7 @@ Controls met here: MP-2, MP-4.
 | --- | --- | --- |
 | Server disks, volumes, backups and physical media | \<Organisation\>'s data centres, at the main and second sites | Encrypted. Reached only by the roles in section 3.2 |
 | Export working copies on the application server | The encrypted working area on the application server | Deleted by \<System Name\> once downloaded, and always within 24 hours |
-| Users' exports and downloads | A managed device, in the locations \<Organisation\> approves: \[approved locations\] | Kept to the minimum, and deleted once no longer needed, and within 30 days at most if they hold personal data (\<Security Operating Procedures\>, A28) |
+| Users' exports and downloads | A managed device, in the locations \<Organisation\> approves: \[approved locations\] | Kept to the minimum, and deleted once no longer needed, and within 30 days at most if they hold personal data (\<Security Operating Procedures\>) |
 | Printouts | Locked storage in \<Organisation\>'s offices | Printed only on \<Organisation\>'s managed printers with secure release. Collected at once, locked away when not in use, kept on site, and shredded when no longer needed, within 30 days if they hold personal data |
 
 ### 3.5 Transport

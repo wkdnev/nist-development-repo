@@ -63,7 +63,7 @@ Controls met here: CA-2, CA-2(1), CA-7(1).
 
 **Frequency.** Every 12 months, and after a significant change (section 3.9).
 
-**Between assessments.** The developers repeat the security tests at each release and after a significant change, on a separate test environment (\<Security Operating Procedures\>, duty C40). The results feed the next assessment and the plan of action.
+**Between assessments.** The developers repeat the security tests at each release and after a significant change, on a separate test environment (\<Security Operating Procedures\>). The results feed the next assessment and the plan of action.
 
 **Penetration test.** CA-8 is outside the Moderate baseline, but one is commissioned before go-live, by a tester independent of the build (\<Tailoring Register\>, CA-8). Its report goes into the first assessment and the authorisation package, and each finding is rated in \<Risk List\>.
 
@@ -198,7 +198,7 @@ This is \<System Name\>'s system-level strategy. It carries out \<Organisation\>
 | Audit logging failures | Effectiveness | None | Any | PRO-AU-3; TPL-8 | Monthly | Windows server administrator |
 | Backup jobs succeeded, and restore tested in the last 6 months | Effectiveness | All | Any failed job, or a restore test overdue | Backup logs; TPL-11 | Weekly | Database administrator |
 | Access and privileged access reviews on time | Compliance | All | Any overdue | TPL-3 | Quarterly | System owner |
-| Members of \<System Name\>'s AD groups who have not signed in for 90 days | Compliance | None | Any | C9; TPL-3 | Monthly | System owner |
+| Members of \<System Name\>'s AD groups who have not signed in for 90 days | Compliance | None | Any | TPL-3 | Monthly | System owner |
 | Significant changes made since the last report | Change | Each assessed before it was made | Any not assessed | TPL-6 | Monthly | System owner |
 | Requests from individuals about their data answered within one month | Privacy | All | Any late | TPL-15 | Monthly | Legal adviser |
 | Personal data incidents | Privacy | None | Any | TPL-10 | Monthly | Security officer |
