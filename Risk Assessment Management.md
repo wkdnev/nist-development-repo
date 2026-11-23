@@ -66,11 +66,11 @@ Controls met here: RA-3, RA-7.
 
 | When | What is done | Who | Record |
 | --- | --- | --- | --- |
-| Every 12 months | The threat model and each risk are reviewed against the method, and each rating, status and last-reviewed date updated. Each acceptance is checked against its review date, and each Medium and High risk for a decision | System owner | TPL-23; \<Risk List\> |
-| After a significant change, an incident or a new test result | The same, for the threats and risks it affects | System owner | TPL-23; \<Risk List\> |
-| After each review | The results are shared | System owner, with the authorising official and the Head of Cyber | TPL-23 |
+| Every 12 months | The threat model and each risk are reviewed against the method, and each rating, status and last-reviewed date updated. Each acceptance is checked against its review date, and each Medium and High risk for a decision | System owner | Risk and supply chain review; \<Risk List\> |
+| After a significant change, an incident or a new test result | The same, for the threats and risks it affects | System owner | Risk and supply chain review; \<Risk List\> |
+| After each review | The results are shared | System owner, with the authorising official and the Head of Cyber | Risk and supply chain review |
 | When a risk needs a decision | Decided by the person its rating calls for | System owner or authorising official | \<Decision Register\> |
-| At each review | The categorisation is checked against the information \<System Name\> holds, and any change goes to the authorising official (section 3.2) | System owner | TPL-23 |
+| At each review | The categorisation is checked against the information \<System Name\> holds, and any change goes to the authorising official (section 3.2) | System owner | Risk and supply chain review |
 
 After a significant change, such as a change to how users sign in or to where the applications run, the risk assessment is reviewed as a whole, as RA-3 and PRO-RA-1 require.
 
@@ -78,7 +78,7 @@ After a significant change, such as a change to how users sign in or to where th
 
 Controls met here: RA-3(1).
 
-Every 12 months, before a new supplier or a new kind of component is added, and after a significant change to the system or where it runs, the system owner and the developers review each item in the supply chain for its origin, support, known problems and end of support (PRO-RA-2). They use the risks by stage and the supplier register in \<Supply Chain Risk Management\>, sections 3.4 and 3.5, the latest package check, and the bill of materials. Each review is recorded on TPL-23, and any new risk goes into the Risk List; the risk of a harmful package entering a release is R-RA-06. These intervals are the risk assessment values in \<System Description\>, section 4. The supply chain plan, \<Supply Chain Risk Management\>, holds the suppliers and how they are managed; this section holds the risk assessment.
+Every 12 months, before a new supplier or a new kind of component is added, and after a significant change to the system or where it runs, the system owner and the developers review each item in the supply chain for its origin, support, known problems and end of support (PRO-RA-2). They use the risks by stage and the supplier register in \<Supply Chain Risk Management\>, sections 3.4 and 3.5, the latest package check, and the bill of materials. Each review is recorded on the risk and supply chain review, and any new risk goes into the Risk List; the risk of a harmful package entering a release is R-RA-06. These intervals are the risk assessment values in \<System Description\>, section 4. The supply chain plan, \<Supply Chain Risk Management\>, holds the suppliers and how they are managed; this section holds the risk assessment.
 
 ### 3.5 What is monitored for vulnerabilities
 
@@ -126,18 +126,18 @@ This is the one timetable for vulnerabilities in \<System Name\>, its packages a
 | Medium | Vendor rating Medium or Moderate, or CVSS base 4.0 to 6.9 | 30 days |
 | Low | Vendor rating Low, or CVSS base below 4.0 | 90 days |
 
-The clock starts when the fix is released, or when \<System Name\>'s use of the flaw is detected if that is later. The vendor's rating comes first; the CVSS version is recorded on TPL-7. Mitigating means reducing the risk without the fix, for example by turning off the affected feature or blocking its route. A fix that cannot meet its time goes to a risk decision under \<Policy\>, section 1.2, with its compensating measure.
+The clock starts when the fix is released, or when \<System Name\>'s use of the flaw is detected if that is later. The vendor's rating comes first; the CVSS version is recorded on the vulnerability and patch review. Mitigating means reducing the risk without the fix, for example by turning off the affected feature or blocking its route. A fix that cannot meet its time goes to a risk decision under \<Policy\>, section 1.2, with its compensating measure.
 
 ### 3.7 Analysing, sharing and reporting
 
 Controls met here: RA-5, RA-5(11).
 
-1. **Analysis.** Within 5 working days of each scan or check, the security officer records each finding on TPL-7: its severity under section 3.6, whether \<System Name\> uses the affected part, and its due date (PRO-RA-3).
-2. **False positives.** A finding that does not apply, such as a flaw in a feature \<System Name\> does not call, is marked as a false positive on TPL-7 with the reason, and checked again at the next scan.
+1. **Analysis.** Within 5 working days of each scan or check, the security officer records each finding on the vulnerability and patch review: its severity under section 3.6, whether \<System Name\> uses the affected part, and its due date (PRO-RA-3).
+2. **False positives.** A finding that does not apply, such as a flaw in a feature \<System Name\> does not call, is marked as a false positive on the vulnerability and patch review with the reason, and checked again at the next scan.
 3. **Fixing.** The people responsible fix or mitigate each finding within its time, as a change (\<Configuration Management\>). An exploited flaw is fixed or mitigated as an emergency change, and the security officer confirms it and tells the system owner (PRO-RA-4).
 4. **Sharing.** After each scan the security officer shares each finding that applies with the developers and the Windows server administrator, so that the same flaw is fixed wherever it occurs. A finding that may affect \<Organisation\>'s other systems also goes to its security contact, so that it can be removed there too (PRO-RA-5).
-5. **Reports from anyone.** Anyone may report a vulnerability in \<System Name\> to \<Organisation\>'s security contact, which passes the report to the security officer, who records it on TPL-7 and handles it as a scan finding. CSS asks for a public channel, so the contact must be published where people outside \<Organisation\> can find it, for example in a security.txt file on its website (RFC 9116): \[Where the contact is published\] (EV-RA-01). Its published terms must authorise research in good faith, and may ask the reporter to allow a set time for a fix before disclosing the flaw, but must not require it to be kept secret for ever. The time asked for is 90 days (EV-RA-01).
-6. **Flaws in other parties' components.** A flaw found in another party's package or browser library is reported to its maintainer through their published route, and noted on TPL-7.
+5. **Reports from anyone.** Anyone may report a vulnerability in \<System Name\> to \<Organisation\>'s security contact, which passes the report to the security officer, who records it on the vulnerability and patch review and handles it as a scan finding. CSS asks for a public channel, so the contact must be published where people outside \<Organisation\> can find it, for example in a security.txt file on its website (RFC 9116): \[Where the contact is published\] (EV-RA-01). Its published terms must authorise research in good faith, and may ask the reporter to allow a set time for a fix before disclosing the flaw, but must not require it to be kept secret for ever. The time asked for is 90 days (EV-RA-01).
+6. **Flaws in other parties' components.** A flaw found in another party's package or browser library is reported to its maintainer through their published route, and noted on the vulnerability and patch review.
 
 ### 3.8 Risk response
 
@@ -155,7 +155,7 @@ Findings come from four sources: security assessments, privacy assessments, moni
 | 4 Plan | A remediation goes into the Plan of Action and Milestones, with milestones and a due date. A vulnerability follows the timetable in section 3.6 | System owner | \<Plan of Action and Milestones\> |
 | 5 Review | Each acceptance is reviewed by its review date: Medium every 6 months and Low every 12 | System owner; authorising official | \<Risk List\>, section 3 |
 
-A monitoring finding, such as a scan result, is first recorded on TPL-7 (section 3.7). It enters the Risk List only if it cannot be fixed in time.
+A monitoring finding, such as a scan result, is first recorded on the vulnerability and patch review (section 3.7). It enters the Risk List only if it cannot be fixed in time.
 
 ### 3.9 Critical components
 

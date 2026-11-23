@@ -43,9 +43,9 @@ Controls met here: CA-2, CA-5, CA-6, CA-7, CA-7(1).
 | Assess the controls | Level 1: the system owner. Level 2: the independent team, after Level 1 and before the authorisation it supports | \<Control Assessment Record\> | The same: both levels every 12 months |
 | Report | The assessor | \<Security Assessment Report\> | After each assessment |
 | Record and track each weakness | System owner | \<Risk List\> and \<Plan of Action and Milestones\> | Monthly |
-| Authorise | Authorising official | TPL-18 | Before operation; every 12 months; after a significant change |
-| Monitor and report | Security officer; system owner | TPL-8 | Monthly to the system owner; quarterly to the authorising official |
-| Check the monitoring independently | Independent assessor | The assessor's report; TPL-19 | Every 12 months |
+| Authorise | Authorising official | Authorisation decision record | Before operation; every 12 months; after a significant change |
+| Monitor and report | Security officer; system owner | Monitoring and integrity report | Monthly to the system owner; quarterly to the authorising official |
+| Check the monitoring independently | Independent assessor | The assessor's report; the assessor independence statement | Every 12 months |
 
 ### 3.3 Assessment
 
@@ -53,7 +53,7 @@ Controls met here: CA-2, CA-2(1), CA-7(1).
 
 **Levels.** Level 1 is the system owner's self-assessment. It is not independent. It shows the system owner where \<System Name\> stands, and prepares the ground for Level 2. Level 2 is the independent assessment by \[Name\]'s team, which also makes the yearly independent check of monitoring. Level 2 is carried out before the first authorisation and before each yearly re-authorisation, and the authorising official decides only on a Level 2 report. A Level 1 report alone never supports an authorisation (decision D-CA-01).
 
-**Independence.** A member of the team counts as independent once they have completed TPL-19, confirming that they have had no part in designing, building, running or administering \<System Name\>, that they report to no one responsible for it, and declaring any other interest. The authorising official accepts each statement before the assessment starts.
+**Independence.** A member of the team counts as independent once they have completed the assessor independence statement, confirming that they have had no part in designing, building, running or administering \<System Name\>, that they report to no one responsible for it, and declaring any other interest. The authorising official accepts each statement before the assessment starts.
 
 **Method.** Each control is assessed with the procedures of CSS: every determination statement is given a finding of satisfied or other than satisfied, with the basis for it. The methods are examine, interview and test.
 
@@ -115,20 +115,20 @@ Controls met here: CA-6.
 | Risks and decisions | \<Risk List\> and \<Decision Register\> |
 | Family assessments | \<Control Assessment Record\> (AC) to \<Control Assessment Record\> (SR) |
 | Evidence | The test results and records in the evidence store, each with a hash manifest |
-| Assessor independence | TPL-19, accepted by the authorising official |
+| Assessor independence | Assessor independence statement, accepted by the authorising official |
 | Penetration test | The tester's report, before the first authorisation (section 3.3) |
 | Common controls | The record that \<Organisation\>'s authorising official has authorised the inherited controls (EV-CA-01), and \<Organisation\>'s evidence for them (\<Evidence Requests\>) |
-| Decision | TPL-18, with terms, conditions, accepted risks, inherited controls accepted, reliance on \<Organisation\>'s programme for the PM controls accepted, and an end date no more than 12 months away |
+| Decision | Authorisation decision record, with terms, conditions, accepted risks, inherited controls accepted, reliance on \<Organisation\>'s programme for the PM controls accepted, and an end date no more than 12 months away |
 
 **Privacy review.** \<System Name\> holds personal data, so before the decision the legal adviser reviews the privacy plan and the impact assessment, and their view goes to the authorising official with the package.
 
-**The decision.** The authorising official records the decision on TPL-18. It is one of three types: a first authorisation, a re-authorisation, or the withdrawal of an authorisation. The record gives the package received, with versions; the decision, to authorise or not; the terms and conditions, such as items to fix by a date or limits on use; each remaining risk accepted, by its Risk List entry; the inherited controls accepted; reliance on \<Organisation\>'s security and privacy programme for the 35 inherited PM controls, accepted as a group (\<Program Management\>, section 3.3); and an end date no more than 12 months away (PRO-CA-4). It is copied to the system owner and the Head of Cyber. \<System Name\> holds no real data until the authorising official has authorised it. The authorisation is reviewed every 12 months and after a significant change.
+**The decision.** The authorising official records the decision on the authorisation decision record. It is one of three types: a first authorisation, a re-authorisation, or the withdrawal of an authorisation. The record gives the package received, with versions; the decision, to authorise or not; the terms and conditions, such as items to fix by a date or limits on use; each remaining risk accepted, by its Risk List entry; the inherited controls accepted; reliance on \<Organisation\>'s security and privacy programme for the 35 inherited PM controls, accepted as a group (\<Program Management\>, section 3.3); and an end date no more than 12 months away (PRO-CA-4). It is copied to the system owner and the Head of Cyber. \<System Name\> holds no real data until the authorising official has authorised it. The authorisation is reviewed every 12 months and after a significant change.
 
 ### 3.6 Inherited controls
 
 Controls met here: CA-6.
 
-These 62 entries are provided wholly by \<Organisation\>, and the system owner relies on them (\<System Security Plan\>, section 7). The authorising official accepts them on TPL-18 before \<System Name\> operates, once \<Organisation\>'s evidence has been received (\<Evidence Requests\>). The system owner reviews the list every 12 months with \<Organisation\>'s security contact (PRO-CA-7). \<Organisation\>'s authorising official for its common controls authorises them for use, and \<System Name\> holds the record of that authorisation.
+These 62 entries are provided wholly by \<Organisation\>, and the system owner relies on them (\<System Security Plan\>, section 7). The authorising official accepts them on the authorisation decision record before \<System Name\> operates, once \<Organisation\>'s evidence has been received (\<Evidence Requests\>). The system owner reviews the list every 12 months with \<Organisation\>'s security contact (PRO-CA-7). \<Organisation\>'s authorising official for its common controls authorises them for use, and \<System Name\> holds the record of that authorisation.
 
 **Table 5: Inherited controls**
 
@@ -151,7 +151,7 @@ These 62 entries are provided wholly by \<Organisation\>, and the system owner r
 
 The list matches the Inherited entries in \<System Security Plan\>, section 7. CP-7 is not on it: \<Organisation\> provides the second site, but \<System Name\>'s administrators rebuild the servers there, so it is shared (\<Contingency Planning Management\>, section 3.9). PE-8(3) is listed under PT, as in \<System Security Plan\>, Tables 8 and 23, because it is in the privacy baseline and assessed with PT.
 
-The PM controls are not on this list: they are \<Organisation\>'s programme, not system controls, and the authorising official accepts reliance on them as one line on TPL-18, once \<Organisation\>'s evidence for them is in (EV-PM-01 to EV-PM-04, EV-PL-01). The system owner puts the list of 66 to the authorising official for acceptance as a list, with the other proposed ratings, and for acceptance for operation with the authorisation package, once \<Organisation\>'s evidence is in.
+The PM controls are not on this list: they are \<Organisation\>'s programme, not system controls, and the authorising official accepts reliance on them as one line on the authorisation decision record, once \<Organisation\>'s evidence for them is in (EV-PM-01 to EV-PM-04, EV-PL-01). The system owner puts the list of 66 to the authorising official for acceptance as a list, with the other proposed ratings, and for acceptance for operation with the authorisation package, once \<Organisation\>'s evidence is in.
 
 ### 3.7 Information exchanges and internal connections
 
@@ -192,23 +192,23 @@ This is \<System Name\>'s system-level strategy. It carries out \<Organisation\>
 | Measure | Kind | Target | Threshold for action | Source | Frequency | Owner |
 | --- | --- | --- | --- | --- | --- | --- |
 | POA&M items past their date | Compliance | None | Any | \<Plan of Action and Milestones\> | Monthly | System owner |
-| Security updates applied within the flaw-fixing limits (3 days if exploited; 14 days Critical or High; 30 days Medium; 90 days Low) | Effectiveness | All | Any late critical or high update | TPL-7 | Monthly | Windows server administrator |
-| Failed sign-ins and lockouts | Effectiveness | Reviewed every week | More than 10 failures for one account in a day, or any for a disabled account | \<Organisation\>'s PingFederate record, and \<System Name\>'s audit log for refused sign-in responses; TPL-8 | Weekly | Auditor |
-| Weekly audit reviews completed | Compliance | All | Any missed week | TPL-8 | Monthly | Security officer |
-| Audit logging failures | Effectiveness | None | Any | PRO-AU-3; TPL-8 | Monthly | Windows server administrator |
-| Backup jobs succeeded, and restore tested in the last 6 months | Effectiveness | All | Any failed job, or a restore test overdue | Backup logs; TPL-11 | Weekly | Database administrator |
-| Access and privileged access reviews on time | Compliance | All | Any overdue | TPL-3 | Quarterly | System owner |
-| Members of \<System Name\>'s AD groups who have not signed in for 90 days | Compliance | None | Any | TPL-3 | Monthly | System owner |
-| Significant changes made since the last report | Change | Each assessed before it was made | Any not assessed | TPL-6 | Monthly | System owner |
-| Requests from individuals about their data answered within one month | Privacy | All | Any late | TPL-15 | Monthly | Legal adviser |
-| Personal data incidents | Privacy | None | Any | TPL-10 | Monthly | Security officer |
-| Configuration drift from the baseline | Change | None unapproved | Any | PRO-CM-7; TPL-8 | Monthly | Windows server administrator |
-| Alerts acknowledged within their time, and their outcomes | Effectiveness | All | Any acknowledged late, or any not closed | \<System and Information Integrity Management\>, Table 3; TPL-8, TPL-10 | Monthly | Security officer |
-| Integrity, file checksum and malware rescan results | Effectiveness | No unexplained difference or detection | Any | PRO-SI-6; TPL-8 | Monthly | Security officer |
-| Supplier reviews on time, and each release passing Test-SupplyChain.ps1 and its check before installation | Compliance | All | Any review overdue, or any release installed with a failed check | TPL-16; PRO-SR-3 results | Quarterly | System owner |
-| Security incidents open past their time limit | Effectiveness | None | Any | TPL-10 | Monthly | Security officer |
-| Vulnerabilities past their fix time | Effectiveness | None | Any Critical or High past its time | TPL-7; the timetable in \<Risk Assessment Management\>, section 3.6 | Monthly | Windows server administrator, developers |
-| Changes to the inherited controls: a change to a service \<Organisation\> provides, or its evidence past its review date | Change | None unassessed | Any | \<Organisation\>'s notices; \<Evidence Requests\>; TPL-8 | Quarterly | System owner |
+| Security updates applied within the flaw-fixing limits (3 days if exploited; 14 days Critical or High; 30 days Medium; 90 days Low) | Effectiveness | All | Any late critical or high update | Vulnerability and patch review | Monthly | Windows server administrator |
+| Failed sign-ins and lockouts | Effectiveness | Reviewed every week | More than 10 failures for one account in a day, or any for a disabled account | \<Organisation\>'s PingFederate record, and \<System Name\>'s audit log for refused sign-in responses; the monitoring and integrity report | Weekly | Auditor |
+| Weekly audit reviews completed | Compliance | All | Any missed week | Monitoring and integrity report | Monthly | Security officer |
+| Audit logging failures | Effectiveness | None | Any | PRO-AU-3; the monitoring and integrity report | Monthly | Windows server administrator |
+| Backup jobs succeeded, and restore tested in the last 6 months | Effectiveness | All | Any failed job, or a restore test overdue | Backup logs; the exercise and restore test record | Weekly | Database administrator |
+| Access and privileged access reviews on time | Compliance | All | Any overdue | Access review record | Quarterly | System owner |
+| Members of \<System Name\>'s AD groups who have not signed in for 90 days | Compliance | None | Any | Access review record | Monthly | System owner |
+| Significant changes made since the last report | Change | Each assessed before it was made | Any not assessed | Change record | Monthly | System owner |
+| Requests from individuals about their data answered within one month | Privacy | All | Any late | Privacy request record | Monthly | Legal adviser |
+| Personal data incidents | Privacy | None | Any | Incident record | Monthly | Security officer |
+| Configuration drift from the baseline | Change | None unapproved | Any | PRO-CM-7; the monitoring and integrity report | Monthly | Windows server administrator |
+| Alerts acknowledged within their time, and their outcomes | Effectiveness | All | Any acknowledged late, or any not closed | \<System and Information Integrity Management\>, Table 3; the monitoring and integrity report, the incident record | Monthly | Security officer |
+| Integrity, file checksum and malware rescan results | Effectiveness | No unexplained difference or detection | Any | PRO-SI-6; the monitoring and integrity report | Monthly | Security officer |
+| Supplier reviews on time, and each release passing Test-SupplyChain.ps1 and its check before installation | Compliance | All | Any review overdue, or any release installed with a failed check | Supplier review; PRO-SR-3 results | Quarterly | System owner |
+| Security incidents open past their time limit | Effectiveness | None | Any | Incident record | Monthly | Security officer |
+| Vulnerabilities past their fix time | Effectiveness | None | Any Critical or High past its time | Vulnerability and patch review; the timetable in \<Risk Assessment Management\>, section 3.6 | Monthly | Windows server administrator, developers |
+| Changes to the inherited controls: a change to a service \<Organisation\> provides, or its evidence past its review date | Change | None unassessed | Any | \<Organisation\>'s notices; \<Evidence Requests\>; the monitoring and integrity report | Quarterly | System owner |
 
 **Table 8: The strategy against CSS**
 
@@ -223,11 +223,11 @@ This is \<System Name\>'s system-level strategy. It carries out \<Organisation\>
 
 **Analysis.** The analysis and response steps are in PRO-CA-5. Each month the security officer reads the measures together with the audit review findings, the vulnerability results and the incident records, and looks for a trend across three months. The system owner also reviews the Risk List each month for new or changed risks.
 
-**Response.** A measure past its threshold is acted on in the month, and the action is recorded on TPL-8. One not put right in the month becomes an item in \<Plan of Action and Milestones\>.
+**Response.** A measure past its threshold is acted on in the month, and the action is recorded on the monitoring and integrity report. One not put right in the month becomes an item in \<Plan of Action and Milestones\>.
 
-**Reporting.** The security officer reports the measures monthly to the system owner on TPL-8, and sends the privacy measures and any personal data incident to the legal adviser in the same month: that is the privacy status. Each quarter the system owner reports them to the authorising official, with overdue POA&M items, changes in risk, significant changes and incidents.
+**Reporting.** The security officer reports the measures monthly to the system owner on the monitoring and integrity report, and sends the privacy measures and any personal data incident to the legal adviser in the same month: that is the privacy status. Each quarter the system owner reports them to the authorising official, with overdue POA&M items, changes in risk, significant changes and incidents.
 
-**Independent check.** Each year, alongside the Level 2 assessment, an independent assessor whose TPL-19 the authorising official has accepted checks a sample of the monitoring: that the measures were collected, are accurate, and were acted on (PRO-CA-5, step 3). Together with the yearly Level 2 assessment of every control, this yearly check is the ongoing basis on which independent assessors monitor the controls (CA-7(1); decision D-CA-03).
+**Independent check.** Each year, alongside the Level 2 assessment, an independent assessor whose independence statement the authorising official has accepted checks a sample of the monitoring: that the measures were collected, are accurate, and were acted on (PRO-CA-5, step 3). Together with the yearly Level 2 assessment of every control, this yearly check is the ongoing basis on which independent assessors monitor the controls (CA-7(1); decision D-CA-03).
 
 **What forces a re-assessment.** A significant change (section 3.9), a measure past its threshold for three months running, a serious incident, or a new High risk. The authorising official then decides whether \<System Name\> must be re-authorised.
 

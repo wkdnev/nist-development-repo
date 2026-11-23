@@ -122,7 +122,7 @@ Controls met here: CM-6.
 | .NET runtime | Microsoft ASP.NET Core security guidance | Production environment; detailed errors off; interactive API documentation left out | Environment values |
 | Application security settings | \<Access Control Management\>, \<Identification and Authentication Management\> and \<System and Communications Protection Management\> | The authentication cookie's lifetime, no longer than PingFederate's sign-in lifetime, the PingFederate connection (OpenID Connect client), cookie flags, content security policy and allowed origins, at the values in those documents | Settings files at the release tag |
 
-The benchmarks are applied when the servers are built, and the developers apply the hosting and application settings (PRO-CM-3). Each departure from the guidance is recorded on TPL-6 with a reason, and approved by the system owner (PRO-CM-3).
+The benchmarks are applied when the servers are built, and the developers apply the hosting and application settings (PRO-CM-3). Each departure from the guidance is recorded on the change record with a reason, and approved by the system owner (PRO-CM-3).
 
 Each month the Windows server administrator scans both servers against the benchmarks, and the database administrator compares the SQL Server settings. Any difference is reported to the security officer, and is put back or raised as a change (PRO-CM-7). Some Windows settings are set by \<Organisation\>'s Group Policy as part of its corporate configuration: account lockout, the logon banner and the screen lock. \<System Name\> accepts the corporate standard for those.
 
@@ -142,7 +142,7 @@ Every change to a configuration item in section 3.3 follows one route, including
 
 | Step | Who | What | Record |
 | --- | --- | --- | --- |
-| 1 Request | Whoever needs the change | States what is to change and why | A ServiceNow change, or TPL-6 until ServiceNow is set up |
+| 1 Request | Whoever needs the change | States what is to change and why | A ServiceNow change, or the change record until ServiceNow is set up |
 | 2 Impact analysis | Security officer | Answers the questions in section 3.9, and rates the impact | On the change, with the rating |
 | 3 Decision | Change control board, with the legal adviser for a change that touches personal data | Approves, refuses, defers or asks for more. A significant or High impact change goes to the authorising official first | On the change, with the date and members present |
 | 4 Make and test | Developers or administrators | Make the change, and test it on a separate test environment before release | Test result on the change |
@@ -155,7 +155,7 @@ Every change to a configuration item in section 3.3 follows one route, including
 
 **Emergency changes.** An emergency change is allowed only to stop or limit an incident or an outage. The system owner, or their deputy, approves it by phone or in person before it is made. It is recorded within 1 working day, with the impact analysis done afterwards, and the board confirms or reverses it at its next meeting (PRO-CM-8).
 
-**Standing change for routine maintenance.** The routine tasks in the preventive maintenance schedule (\<Procedures\>, PRO-MA-6), which change no configuration item, are approved by the board once as a standing change, reviewed every 12 months and whenever the schedule changes, and each run cites it on TPL-12 (\<Maintenance Management\>, section 3.3). Updates, releases and key changes in that schedule still follow this route.
+**Standing change for routine maintenance.** The routine tasks in the preventive maintenance schedule (\<Procedures\>, PRO-MA-6), which change no configuration item, are approved by the board once as a standing change, reviewed every 12 months and whenever the schedule changes, and each run cites it on the maintenance record (\<Maintenance Management\>, section 3.3). Updates, releases and key changes in that schedule still follow this route.
 
 ### 3.8 Change control board charter
 
@@ -171,7 +171,7 @@ This charter follows CSS, Appendix H.
 | Members | The system owner (chair); the security officer, as security representative; the Windows server administrator; and the legal adviser, as privacy representative. The database administrator and developers attend when their work is affected |
 | Quorum | The system owner, or their deputy, and the security officer. For a change that touches personal data, the legal adviser as well |
 | Meetings | Monthly, and whenever an urgent or security change needs a decision sooner. Each meeting reviews the month's changes, emergency changes and drift reports |
-| Inputs | A change request on TPL-6 or in ServiceNow, with its impact analysis (section 3.9) and test plan |
+| Inputs | A change request on the change record or in ServiceNow, with its impact analysis (section 3.9) and test plan |
 | Decisions | Approve, refuse, defer, or ask for more analysis. Each decision is recorded on the change with the date and the members present |
 | Conflicts | Nobody approves a change they requested or made |
 | Significant changes | Referred to the authorising official before they are made (\<Assessment, Authorization, and Monitoring Management\>, section 3.9) |
@@ -191,7 +191,7 @@ The security officer answers each question on the change before the board decide
 | What changes? | The configuration items in section 3.3 and the components in section 3.5 affected |
 | Which controls are affected? | The families touched, for example access, sign-in, audit, encryption, boundary or backup, and the procedures that rely on them |
 | Does it touch personal data? | If so, the legal adviser analyses its privacy impact and decides with the board whether the personal data inventory, the privacy notice or the impact assessment must change (\<PII Processing Management\>, section 3.8) |
-| Does it add or change a connection or component? | Connections need \<Assessment, Authorization, and Monitoring Management\>, section 3.7; components need section 3.5 and a vulnerability check on TPL-7 |
+| Does it add or change a connection or component? | Connections need \<Assessment, Authorization, and Monitoring Management\>, section 3.7; components need section 3.5 and a vulnerability check on the vulnerability and patch review |
 | Is it a significant change? | The test in \<Assessment, Authorization, and Monitoring Management\>, section 3.9 |
 | How will it be tested? | The test scripts in the test scripts folder that apply, in the test environment, and what proves the affected controls still work |
 | How is it undone? | The back-out plan |
@@ -215,7 +215,7 @@ Controls met here: CM-7, CM-7(1).
 | Software | Anything not on the approved software list, and any package the applications do not use |
 | Services | Any Windows service not needed for those four things |
 
-The Windows server administrator and the developers review all five every 12 months, and record the result on TPL-3 (PRO-CM-5). Anything not needed is removed through a change.
+The Windows server administrator and the developers review all five every 12 months, and record the result on the access review record (PRO-CM-5). Anything not needed is removed through a change.
 
 ### 3.11 Who may change what
 
@@ -241,13 +241,13 @@ Controls met here: CM-8, CM-8(1), CM-8(3), CM-12, CM-12(1).
 
 **Inventory.** One inventory is held at two levels. \<System Security Plan\>, section 3.4, lists the components of the system and where each runs: the two servers, the applications, the database and the security software on them. Section 3.5 gives the software each is built from or runs on, with its version, supplier and licence. Each entry gives the name, type, version and location, and for software also the supplier and licence. The owner follows the type: the Windows server administrator for the servers and Windows Server, the database administrator for SQL Server, and the developers for the applications, packages and browser libraries. The services \<Organisation\> provides outside the boundary are listed in \<System Security Plan\>, section 3.4, for reference only; they belong to \<Organisation\>'s inventory, not this one. Both lists are updated as step 6 of every change, and a change is not closed until they are. They are reviewed with the baseline every 12 months and at each release (PRO-CM-2). A bill of materials from each build checks the software list.
 
-**Unauthorised components.** \<Organisation\>'s discovery tools check its network, including both servers, every month for hardware, software and firmware that is not in the inventory. When one finds an unauthorised component, it alerts the Windows server administrator, who removes the component or disables its network access, tells the security officer, and records it on TPL-8 (PRO-CM-6). Detection is \<Organisation\>'s and the response is \<System Name\>'s, so the control is shared.
+**Unauthorised components.** \<Organisation\>'s discovery tools check its network, including both servers, every month for hardware, software and firmware that is not in the inventory. When one finds an unauthorised component, it alerts the Windows server administrator, who removes the component or disables its network access, tells the security officer, and records it on the monitoring and integrity report (PRO-CM-6). Detection is \<Organisation\>'s and the response is \<System Name\>'s, so the control is shared.
 
 **Where information is held.** Items, their files, schema definitions and audit records are in SQL Server 2022 on the database server, each schema in its own database schema. The application server holds only working files: encrypted export working copies, deleted once downloaded and always within 24 hours, each application's key ring, and logs. Backups go to \<Organisation\>'s backup site. \<System Security Plan\>, sections 3.4 and 4.4, hold the record. A change of location is a change to the baseline, and a new site is a significant change. Each is recorded on the change and in \<System Security Plan\>.
 
 **Finding information.** Items are held by schema in the database, and each schema has its information type (\<System Description\>, section 3.4), so a query of the database lists every item of each type and where it is held. Outside the database, the only place item content may be is the export working area, which the Windows server administrator checks each working day (\<Security Operating Procedures\>). \<Organisation\>'s tools scan both servers for stray copies elsewhere (EV-CM-02). If \<Organisation\> has no such tool, that part of CM-12(1) is other than satisfied, and is recorded in \<Risk List\>.
 
-**Who has access to it.** The approved access list, on TPL-5, names everyone with access to the information or the components that hold it: the members of each of \<System Name\>'s AD groups, taken from the groups with their ServiceNow approvals (TPL-2); the Windows server and database administrators; and \<Organisation\>'s staff with access to the hosts and backups (EV-CM-01). The system owner approves the first list before any real data is held, and a new one at each baseline review (PRO-CM-2). Between reviews, the AD groups and their approvals are the current record.
+**Who has access to it.** The approved access list, on the approved access list, names everyone with access to the information or the components that hold it: the members of each of \<System Name\>'s AD groups, taken from the groups with their ServiceNow approvals; the Windows server and database administrators; and \<Organisation\>'s staff with access to the hosts and backups (EV-CM-01). The system owner approves the first list before any real data is held, and a new one at each baseline review (PRO-CM-2). Between reviews, the AD groups and their approvals are the current record.
 
 ### 3.13 Library, tools, monitoring and retention
 
@@ -259,7 +259,7 @@ Controls met here: CM-2(3), CM-3, CM-6.
 | --- | --- |
 | Configuration library | Git repositories for code and release scripts; \<Organisation\>'s in-house package feed, holding each package at its recorded version; the restricted document store for documents; release records with their checksums and software bill of materials |
 | Tools | Git and its signed tags; the build pipeline; NuGet through the in-house package feed; ServiceNow for changes; CIS-CAT or an equivalent scanner; Test-ConfigurationManagement.ps1; Windows App Control for Business and its policy; \<Organisation\>'s discovery tools (EV-CM-02) |
-| Monitoring | Drift check, monthly and at each release, under PRO-CM-7, reported on TPL-8 to the security officer, and included in the monthly measures in \<Assessment, Authorization, and Monitoring Management\>, section 3.8 |
+| Monitoring | Drift check, monthly and at each release, under PRO-CM-7, reported on the monitoring and integrity report to the security officer, and included in the monthly measures in \<Assessment, Authorization, and Monitoring Management\>, section 3.8 |
 | Retention | Change records for 3 years; the 3 previous configurations, each with tag, package checksums, settings and software bill of materials; superseded documents for 3 years |
 | Disposal | Removed configurations are deleted from the library only after their retention period, with the system owner's approval |
 
@@ -286,7 +286,7 @@ Controls met here: CM-7(2), CM-7(5), CM-10, CM-11.
 1. **Approved software list.** The Windows server administrator keeps the approved software list, which says what may run on the servers. For the applications themselves, the component list in section 3.5 is the list. Both are reviewed every 12 months.
 2. **Allow by exception, by procedure.** Nothing is installed on the servers without an approved request (PRO-CM-4). A person who needs software there raises a request in ServiceNow, and the system owner approves or refuses it. Only the named Windows server administrators have the Windows user rights to install software.
 3. **Enforced by the system.** Windows App Control for Business runs on both servers with a policy that denies every program, script and driver except those the approved software list allows: Windows Server and its components, SQL Server, Microsoft Defender, the tools on the approved list, and \<System Name\>'s own release files, allowed by their signing certificate or by the hashes in the release record. The policy is signed, so that an administrator cannot weaken it without a change. It runs in audit mode when the servers are built, so that anything it would block is found and either approved or removed, and is enforced before go-live (D-CM-01). It is changed only through PRO-CM-1, as step 6 of the change that adds a program, and the monthly drift check confirms it is enforced and unchanged (PRO-CM-7). Anything it blocks is logged and forwarded to central logging.
-4. **Compliance check.** Every 12 months, with the functions review in section 3.10, what is installed on the servers is compared with the approved software list, and the result recorded on TPL-3 (PRO-CM-5).
+4. **Compliance check.** Every 12 months, with the functions review in section 3.10, what is installed on the servers is compared with the approved software list, and the result recorded on the access review record (PRO-CM-5).
 5. **Users' devices.** \<Organisation\>'s policy governs software on users' own devices.
 6. **Licences.** Every component's licence is recorded in section 3.5 before it enters the baseline, and must permit \<System Name\>'s use. A licence that is not a standard open source licence goes to the system owner for a recorded decision. \<System Name\>'s own components are not licensed by quantity. Windows Server and anything else licensed by quantity is \<Organisation\>'s, and is tracked in its licence record.
 7. **Peer-to-peer file sharing.** None is allowed: no peer-to-peer software is on the approved list, and \<Organisation\>'s network controls apply.
@@ -295,7 +295,7 @@ Controls met here: CM-7(2), CM-7(5), CM-10, CM-11.
 
 Controls met here: CM-2(7).
 
-No \<System Name\> device is issued to anyone, for travel or otherwise. \<System Name\> is reached only from \<Organisation\>'s managed laptops, and phones and tablets cannot reach it (\<Access Control Management\>, section 3.6.5). Those laptops are \<Organisation\>'s, so CM-2(7) is inherited from \<Organisation\>'s travel device policy: which locations it treats as high-risk, the configuration of a laptop issued for travel there, and the checks made on it when the person returns (D-CM-02). Its evidence is requested in EV-CM-05. \<System Name\> adds one rule of its own: nobody uses \<System Name\> from outside the UK, or takes a device that can reach it abroad, without written approval from the system owner and the security officer first, recorded on TPL-17 (\<Security Operating Procedures\>).
+No \<System Name\> device is issued to anyone, for travel or otherwise. \<System Name\> is reached only from \<Organisation\>'s managed laptops, and phones and tablets cannot reach it (\<Access Control Management\>, section 3.6.5). Those laptops are \<Organisation\>'s, so CM-2(7) is inherited from \<Organisation\>'s travel device policy: which locations it treats as high-risk, the configuration of a laptop issued for travel there, and the checks made on it when the person returns (D-CM-02). Its evidence is requested in EV-CM-05. \<System Name\> adds one rule of its own: nobody uses \<System Name\> from outside the UK, or takes a device that can reach it abroad, without written approval from the system owner and the security officer first, recorded on the exception request (\<Security Operating Procedures\>).
 
 ### 3.17 Policy, procedures and this plan
 

@@ -212,13 +212,13 @@ Controls met here: CP-2, CP-7, CP-9(1), CP-10.
 Users return only once steps 1 to 6 are done, and steps 7 to 9 follow straight after.
 
 1. **Validate the data:** the database administrator runs the checks in PRO-CP-2: row counts against the last known counts, each stored file against its SHA-256 checksum, and the audit chain checked from end to end. The newest audit record shows how much data was lost, against the recovery point objective.
-2. **Re-apply deletions:** if the database could not be brought forward to the moment of the failure, items disposed of under the retention schedule, or deleted after a person's request, since the backup was taken would be back. The business owner and the legal adviser check their records of disposals and requests since that time (TPL-3, TPL-15), and the items are deleted again before users return (\<PII Processing Management\>, section 3.7).
+2. **Re-apply deletions:** if the database could not be brought forward to the moment of the failure, items disposed of under the retention schedule, or deleted after a person's request, since the backup was taken would be back. The business owner and the legal adviser check their records of disposals and requests since that time, and the items are deleted again before users return (\<PII Processing Management\>, section 3.7).
 3. **Validate the functions:** sign in, find and read an item, upload a test item to a test schema and remove it, and sign in to the Admin application. Audit records must be written for each.
 4. **Confirm the controls:** the security officer checks that the controls match the main site, including encryption in transit, the members of \<System Name\>'s AD groups against current staff, and audit logging.
 5. **Back up at once:** a full backup is taken and confirmed at the second site.
 6. **Declare recovery:** the system owner declares \<System Name\> recovered, and tells users and the people in section 3.4.
 7. **Clean up:** temporary access is removed. If running at the second site, the return to the main site is a planned change under \<Configuration Management\>.
-8. **Deactivate and learn:** the system owner closes the plan's activation. Within 10 working days an after-action report is written on TPL-11, and this plan is updated (CP-2g).
+8. **Deactivate and learn:** the system owner closes the plan's activation. Within 10 working days an after-action report is written on the exercise and restore test record, and this plan is updated (CP-2g).
 9. **Restart monitoring, and check the authorisation:** the security officer confirms that the monitoring duties have restarted. If the recovery changed the system in a way that counts as a significant change, such as a move to the second site, the authorising official decides whether \<System Name\> must be assessed or authorised again (\<Assessment, Authorization, and Monitoring Management\>, section 3.9).
 
 ### 3.8 Backups
@@ -273,14 +273,14 @@ This follows CSS. The first restore test and tabletop exercise take place within
 
 | Activity | When | Who | Objective | Record |
 | --- | --- | --- | --- | --- |
-| Role training | Within 30 days of taking a role, and every 12 months. The system owner, the security officer and their deputies take it before taking the role | Everyone in section 3.4: module M8, delivered by the system owner (the security officer delivers it to the system owner), or M10 for the authorising official. \<Organisation\>'s IT service desk is trained by \<Organisation\> | Each person knows this plan, their steps in PRO-CP, the call tree and where the offline copy is | TPL-9 |
-| Restore test | First within 30 days of the VMs being built; then every 6 months | Database administrator, observed by the security officer | Restore the latest backup, with its certificate, to the restore test server at the second site (section 3.8) within the recovery time objective, and pass the checks in PRO-CP-2 | TPL-11 |
-| Tabletop exercise, with the incident response plan | First within 30 days of the VMs being built; then every 12 months | Everyone in section 3.4, and \<Organisation\>'s IT service desk | Walk through one scenario from activation to deactivation | TPL-11 |
+| Role training | Within 30 days of taking a role, and every 12 months. The system owner, the security officer and their deputies take it before taking the role | Everyone in section 3.4: module M8, delivered by the system owner (the security officer delivers it to the system owner), or M10 for the authorising official. \<Organisation\>'s IT service desk is trained by \<Organisation\> | Each person knows this plan, their steps in PRO-CP, the call tree and where the offline copy is | Training record |
+| Restore test | First within 30 days of the VMs being built; then every 6 months | Database administrator, observed by the security officer | Restore the latest backup, with its certificate, to the restore test server at the second site (section 3.8) within the recovery time objective, and pass the checks in PRO-CP-2 | Exercise and restore test record |
+| Tabletop exercise, with the incident response plan | First within 30 days of the VMs being built; then every 12 months | Everyone in section 3.4, and \<Organisation\>'s IT service desk | Walk through one scenario from activation to deactivation | Exercise and restore test record |
 | Plan review | Every 12 months, and after each test or activation | System owner and authorising official | Keep the plan current and build in what was learned | Change record |
 
 Tabletop scenarios rotate through: ransomware on the database VM; loss of the main site; a backup that fails its checks; a key person being unavailable; and PingFederate being unavailable. Training content covers the activation criteria, the call tree, each role's steps and the checks before return. The security officer writes it and reviews it every 12 months and after a plan change, test or activation (\<Procedures\>, PRO-AT-3). Role training is module M8 of the role curriculum (\<Awareness and Training Management\>, section 3.4), and the training register shows who is trained (\<Awareness and Training Management\>, section 3.8). After a change to the plan that alters a person's steps, that person is briefed on the change.
 
-Each test has objectives and a scenario set beforehand. Each test or activation ends with an after-action report on TPL-11, written within 10 working days: the objectives, what happened, the time to recover and data lost against the objectives, what went wrong, the actions with owners and dates, and the changes made to this plan and to the training content. An action that is not done within the month becomes an item in \<Plan of Action and Milestones\>.
+Each test has objectives and a scenario set beforehand. Each test or activation ends with an after-action report on the exercise and restore test record, written within 10 working days: the objectives, what happened, the time to recover and data lost against the objectives, what went wrong, the actions with owners and dates, and the changes made to this plan and to the training content. An action that is not done within the month becomes an item in \<Plan of Action and Milestones\>.
 
 ### 3.11 What \<Organisation\> provides
 
@@ -340,5 +340,5 @@ Controls met here: CP-1.
 | \<Organisation\>'s disaster recovery and business continuity plans \[names to add\] | \<Organisation\> | Provide the network, second site and telecommunications (EV-CP-01, EV-CP-02) |
 | \<Configuration Management\>, the configuration management plan | System owner | The baseline the VMs and applications are rebuilt to |
 | \<Security Operating Procedures\> Security Operating Procedures | System owner | The routine backup, test and review steps and planned shutdown |
-| TPL-9 and TPL-11 in \<Record Templates\> | System owner | Training records, test records and after-action reports |
+| Training record and the exercise and restore test record in \<Record Templates\> | System owner | Training records, test records and after-action reports |
 | \<System Security Plan\>, sections 3.4 and 4 | System owner | The inventory and diagrams of what is rebuilt |

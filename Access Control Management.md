@@ -315,7 +315,7 @@ The values the access controls depend on are listed by control in Table 13. Lock
 | AC-17 | Remote access only through \<Organisation\>'s VPN, from a managed device, with multi-factor authentication |
 | AC-17(4) | Privileged access over remote access only for approved changes, maintenance and incident response, through the VPN and then the managed administration route, with multi-factor authentication at both |
 | AC-18, AC-19, AC-19(5) | Corporate wireless authenticates user and device (802.1X) and is encrypted (WPA2 or WPA3 Enterprise); managed laptops with full-device encryption are the only mobile devices allowed |
-| AC-20, AC-20(2) | External systems and portable storage not allowed without the system owner's written approval on TPL-17; an approved external system needs a contract with confidentiality terms, encryption at rest, storage in the United Kingdom only, and deletion when the need ends |
+| AC-20, AC-20(2) | External systems and portable storage not allowed without the system owner's written approval on the exception request; an approved external system needs a contract with confidentiality terms, encryption at rest, storage in the United Kingdom only, and deletion when the need ends |
 | AC-21 | The Data Owner decides on sharing outside a schema |
 | AC-22 | No public content, unless the system owner approves |
 
@@ -355,11 +355,11 @@ Controls met here: AC-3, AC-4, AC-21.
 Controls met here: AC-20, AC-20(2), AC-21. AC-20(1) and AC-22 are not applicable (\<Tailoring Register\>, TR-AC-07 and TR-AC-08); rules 4 and 7 keep the conditions for that true.
 
 1. Sharing outside a schema needs a decision by that schema's access approver, its Data Owner, through the manual process in PRO-AC-16.
-2. The approver checks that the recipient is authorised for the information, and the decision is recorded on TPL-25, the sharing decision record. Exported items stay under the schema's rules.
+2. The approver checks that the recipient is authorised for the information, and the decision is recorded on a sharing decision record. Exported items stay under the schema's rules.
 3. Inside \<System Name\>, the schema groups control sharing. Sharing outside is a manual decision.
-4. External systems and portable storage may hold \<System Name\> data only with the system owner's written approval, recorded as an exception on TPL-17 (PRO-AC-15). None is approved, which is why AC-20(1) does not apply (TR-AC-07). An approved external system must meet these terms: a contract with confidentiality terms, encryption at rest, storage in the United Kingdom only, and deletion when the need ends. Terms and conditions are used, not asserted controls (TR-AC-10).
+4. External systems and portable storage may hold \<System Name\> data only with the system owner's written approval, recorded as an exception on the exception request (PRO-AC-15). None is approved, which is why AC-20(1) does not apply (TR-AC-07). An approved external system must meet these terms: a contract with confidentiality terms, encryption at rest, storage in the United Kingdom only, and deletion when the need ends. Terms and conditions are used, not asserted controls (TR-AC-10).
 5. Personal devices, personal cloud storage and any unmanaged system are prohibited: exported files are saved only in approved \<Organisation\> locations, \<System Name\> is used only on a managed device, and no outside service or AI tool is used without the system owner's written approval (\<Security Operating Procedures\>). \<Organisation\>'s network access control keeps unmanaged devices off the network.
-6. USB and other portable storage may not hold \<System Name\> data without the system owner's approval, recorded as an exception on TPL-17 (PRO-AC-15; \<Security Operating Procedures\>). \<Organisation\>'s device control on managed devices enforces this. Portable storage issued under an exception may be used only on \<Organisation\>'s managed devices and the external system named in the approval, must never be connected to a personal or other unmanaged device, and is returned for sanitising when the exception ends (AC-20(2)).
+6. USB and other portable storage may not hold \<System Name\> data without the system owner's approval, recorded as an exception on the exception request (PRO-AC-15; \<Security Operating Procedures\>). \<Organisation\>'s device control on managed devices enforces this. Portable storage issued under an exception may be used only on \<Organisation\>'s managed devices and the external system named in the approval, must never be connected to a personal or other unmanaged device, and is returned for sanitising when the exception ends (AC-20(2)).
 7. \<System Name\> holds and serves no public content. Every item needs sign-in, and the sign-in requirement on every page that returns content enforces this.
 
 ### 3.11 Review schedules
@@ -378,7 +378,7 @@ Controls met here: AC-2, AC-2(3), AC-6(7), AC-14.
 | Actions allowed without signing in | Every 12 months, and after a change | System owner | PRO-AC-14 |
 | This document | Every 12 months, and after a significant change | System owner | PRO-AC-14 |
 
-In each access review, the group's owner checks its members against the ServiceNow requests, and removes in Active Directory any member who no longer needs the access. Each review is recorded on TPL-3 (PRO-AC-7). The review is manual.
+In each access review, the group's owner checks its members against the ServiceNow requests, and removes in Active Directory any member who no longer needs the access. Each review is recorded on the access review record (PRO-AC-7). The review is manual.
 
 ### 3.12 Exception rules
 
@@ -414,7 +414,7 @@ These rules apply:
 1. **Two decisions before any access.** The line manager confirms the person needs it for their work. The owner of the data, or the system owner, decides whether to allow it, and only then adds the person to the AD group.
 2. **Nobody decides their own request.** The person who raises a request cannot approve or authorise it. ServiceNow is set to refuse it. An owner who needs access to their own group asks the system owner.
 3. **What each request records:** the person; what is asked for; the business reason; who approved and who authorised it, and when; that the training is done and the rules are signed; and who carried it out, and when.
-4. **The record.** The closed ServiceNow request is TPL-2, the record of the access decision: it holds TPL-2's fields. It is kept for 3 years.
+4. **The record.** The closed ServiceNow request is the access request record, the record of the access decision: it holds the access request record's fields. It is kept for 3 years.
 5. **Before the person is added to a group,** they complete security training and sign \<Security Operating Procedures\> (PRO-AC-1).
 6. **A high-risk individual.** \<Organisation\> disables the AD account within 1 hour. \<System Name\>'s API then refuses the disabled account within 5 minutes, which also ends any session the person has open (section 3.14). Ending the person's PingFederate sign-in as well stops a new sign-in, but it is not what ends access to \<System Name\>.
 7. **Conditions for membership.** A need confirmed by the line manager, authorisation by the group's owner, security training, and a signed acknowledgement of \<Security Operating Procedures\> are the conditions for membership of any group (PRO-AC-1, PRO-AC-5, PRO-AC-6).
@@ -434,7 +434,7 @@ Controls met here: AC-2, AC-2(3), AC-2(13).
 | The account has expired | AD accounts with an end date are disabled by Active Directory on that date | None |
 | The person leaves | \<Organisation\> disables the leaver's AD account at once, and \<System Name\> refuses it within 5 minutes. Each group's owner removes the membership within 5 working days | Leavers and movers |
 | The account breaches policy | \<Organisation\> disables the AD account on notice, as for a high-risk individual (PRO-AC-4) | Disabling a high-risk individual |
-| A high-risk individual | Within 1 hour of notice from management or \<Organisation\>'s security contact of misconduct, compromised credentials, a hostile departure or the departure of the holder of a higher risk role (\<Personnel Security Management\>, section 3.2), \<Organisation\> disables the AD account, so the person cannot sign in again, and \<System Name\>'s API refuses the disabled account within 5 minutes, ending any open session. The account stays disabled for at least 8 hours, unless every key in the key rings is revoked first, so that a cookie issued before it was disabled cannot be used again (PRO-AC-4, record TPL-14; TPL-10 if it is an incident) | Disabling a high-risk individual |
+| A high-risk individual | Within 1 hour of notice from management or \<Organisation\>'s security contact of misconduct, compromised credentials, a hostile departure or the departure of the holder of a higher risk role (\<Personnel Security Management\>, section 3.2), \<Organisation\> disables the AD account, so the person cannot sign in again, and \<System Name\>'s API refuses the disabled account within 5 minutes, ending any open session. The account stays disabled for at least 8 hours, unless every key in the key rings is revoked first, so that a cookie issued before it was disabled cannot be used again (PRO-AC-4, the leaver or mover record; the incident record if it is an incident) | Disabling a high-risk individual |
 | The account is unused | \<Organisation\> disables AD accounts unused for 90 days within 1 working day. In addition, each month, the security officer lists, from the last sign-in report (FR-085), every member who has not signed in to \<System Name\> for 90 days, and the owner of each group removes them, so that an unused membership ends even while the Active Directory account stays in use for other work (PRO-AC-8) | Unused accounts |
 
 ### 3.15 Sign-in session, sign-out, failed sign-ins and device lock

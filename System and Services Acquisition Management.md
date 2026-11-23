@@ -57,7 +57,7 @@ Controls met here: SA-3, SA-15.
 | PW.9 Secure defaults | Deny by default; the authentication cookie lasts no longer than PingFederate's sign-in lifetime |
 | RV.1 Identify vulnerabilities | Test-Vulnerability.ps1; CISA's exploited list each working day (\<Security Operating Procedures\>) |
 | RV.2 Assess and fix vulnerabilities | Timetable in \<Risk Assessment Management\>, section 3.6 |
-| RV.3 Find root causes | Lessons in incident records (TPL-10) and risk reviews (TPL-23) |
+| RV.3 Find root causes | Lessons in incident records and risk reviews |
 
 ### 3.3 Lifecycle, roles and resources
 
@@ -69,18 +69,18 @@ Controls met here: SA-2, SA-3.
 
 | Stage | Security and privacy check | Who | Record |
 | --- | --- | --- | --- |
-| 1 Plan | The change's security and privacy effect is noted, including whether it affects personal data | Developers | TPL-6 |
-| 2 Design | The threat model is updated before a significant change is built (PRO-RA-1). The security officer checks each significant design against the principles (section 3.6). The critical components are identified at design, and reviewed at each major release and after a significant change (section 3.11) | Security officer, developers, system owner | TPL-6; \<Risk List\>, section 2.1; \<Risk Assessment Management\>, section 3.9; TPL-23 |
-| 3 Build | Another developer reviews each change before it merges. A new third-party component is checked first, and comes in only through the in-house package feed, or for a browser library with its SHA-256 in the browser library manifest (PRO-SA-7, PRO-SR-1) | Developers | The merge review; TPL-6 |
+| 1 Plan | The change's security and privacy effect is noted, including whether it affects personal data | Developers | Change record |
+| 2 Design | The threat model is updated before a significant change is built (PRO-RA-1). The security officer checks each significant design against the principles (section 3.6). The critical components are identified at design, and reviewed at each major release and after a significant change (section 3.11) | Security officer, developers, system owner | Change record; \<Risk List\>, section 2.1; \<Risk Assessment Management\>, section 3.9; the risk and supply chain review |
+| 3 Build | Another developer reviews each change before it merges. A new third-party component is checked first, and comes in only through the in-house package feed, or for a browser library with its SHA-256 in the browser library manifest (PRO-SA-7, PRO-SR-1) | Developers | The merge review; the change record |
 | 4 Test | The build pipeline runs the automated tests and scans, and the developer test plan runs at each release (section 3.9) | Developers, security officer | Results and manifest |
-| 5 Release | The change control board approves the release (\<Configuration Management\>), with the guides confirmed, a signed tag, recorded checksums and its release files allowed by the App Control for Business policy (\<Configuration Management\>, section 3.15) | Developers; the change control board | TPL-6; the release tag and release record |
-| 6 Retire | A component is replaced before its support ends (section 3.12). When \<System Name\> itself is retired, its items and media are disposed of as \<Media Protection Management\> and \<PII Processing Management\> set out | Developers, system owner | TPL-7; disposal records |
+| 5 Release | The change control board approves the release (\<Configuration Management\>), with the guides confirmed, a signed tag, recorded checksums and its release files allowed by the App Control for Business policy (\<Configuration Management\>, section 3.15) | Developers; the change control board | Change record; the release tag and release record |
+| 6 Retire | A component is replaced before its support ends (section 3.12). When \<System Name\> itself is retired, its items and media are disposed of as \<Media Protection Management\> and \<PII Processing Management\> set out | Developers, system owner | Vulnerability and patch review; disposal records |
 
 **Requirements.** The high-level security and privacy requirements are the CSS Moderate baseline and the CSS privacy baseline, chosen from the categorisation, with the privacy plan (\<Planning Management\>, section 3.7; \<Privacy Plan\>).
 
-**Risk management in each change.** Each change records its security and privacy effect on TPL-6, the threat model and the risks it affects are reviewed before a significant change is built (\<Risk List\>, section 2.1; PRO-RA-1), and the security officer checks each significant design (PRO-SA-1). A change that affects personal data goes to the legal adviser (PRO-PT-3).
+**Risk management in each change.** Each change records its security and privacy effect on the change record, the threat model and the risks it affects are reviewed before a significant change is built (\<Risk List\>, section 2.1; PRO-RA-1), and the security officer checks each significant design (PRO-SA-1). A change that affects personal data goes to the legal adviser (PRO-PT-3).
 
-**Resources.** Every 12 months the system owner raises the cost of security and privacy in \<Organisation\>'s yearly budgeting, as a separate line in \<System Name\>'s budget request, and records it on TPL-23 (PRO-SA-6).
+**Resources.** Every 12 months the system owner raises the cost of security and privacy in \<Organisation\>'s yearly budgeting, as a separate line in \<System Name\>'s budget request, and records it on the risk and supply chain review (PRO-SA-6).
 
 ### 3.4 Contracts and design information
 
@@ -127,7 +127,7 @@ Two guides are kept with the code: the Administrator Guide (\<Administrator Guid
 | Using \<System Name\> securely and protecting people's privacy | \<User Guide\>, sections 3 and 4 |
 | Users' responsibilities for security and privacy | \<User Guide\>, sections 4 and 5 |
 
-When a supplier's document is missing or does not exist, the system owner records it and each attempt to get it on that supplier's TPL-16 review, and chases the supplier for it. If it is still missing at the next review, the system owner raises the gap as a risk in \<Risk List\> and uses the supplier's published documentation meanwhile (PRO-SA-4).
+When a supplier's document is missing or does not exist, the system owner records it and each attempt to get it on that supplier's the supplier review review, and chases the supplier for it. If it is still missing at the next review, the system owner raises the gap as a risk in \<Risk List\> and uses the supplier's published documentation meanwhile (PRO-SA-4).
 
 ### 3.6 Engineering principles
 
@@ -141,7 +141,7 @@ Controls met here: SA-9, SA-9(2).
 
 Table 4 lists the external services \<System Name\> relies on. The \<Organisation\> services in it are the services named for SA-9(2) (SA-09(02)\_ODP). Each provider must meet \<System Name\>'s security and privacy requirements, and must employ the controls \<System Name\> inherits or shares from it, as \<System Security Plan\>, section 7, and \<Assessment, Authorization, and Monitoring Management\>, section 3.6, list them (SA-09\_ODP\[01\]). Each states those controls, and the functions, ports, protocols and other services it needs, in its signed row of the interface record (\<Assessment, Authorization, and Monitoring Management\>, Table 6), which is the agreement with each \<Organisation\> service (D-CA-04), or, for a service with no connection to \<System Name\>, in its service description, asked for with EV-SA-02 and EV-SA-03. Any hosting and services agreement is support only. \<Organisation\>'s name resolution and certificate authority carry no \<System Name\> data, and are covered by \<System and Communications Protection Management\>.
 
-**Oversight.** The system owner oversees each service, and reviews each provider's compliance every 12 months on TPL-16, against its signed row or service description, the evidence in \<Evidence Requests\>, its service levels and any problem since the last review (PRO-SA-3; SA-09\_ODP\[02\]). Table 4 and \<Roles and Responsibilities\> say who uses each service.
+**Oversight.** The system owner oversees each service, and reviews each provider's compliance every 12 months on the supplier review, against its signed row or service description, the evidence in \<Evidence Requests\>, its service levels and any problem since the last review (PRO-SA-3; SA-09\_ODP\[02\]). Table 4 and \<Roles and Responsibilities\> say who uses each service.
 
 **Table 4: External services**
 
@@ -170,7 +170,7 @@ Controls met here: SA-10.
 4. **Releases.** Each release is tagged, the tag is signed, and its checksums are recorded.
 5. **Scans.** The build pipeline runs a package scan, a code scan and a secret scan on each change, and the secret scan blocks a merge.
 6. **Deployment.** Only a release approved by the change control board is deployed (\<Configuration Management\>, PRO-CM-1).
-7. **Recording.** Each approved change records its security and privacy effect on TPL-6 (PRO-SA-1).
+7. **Recording.** Each approved change records its security and privacy effect on the change record (PRO-SA-1).
 8. **Flaws.** Each security flaw is tracked in the Risk List and the POA&M, and reported to the system owner and the security officer.
 9. **Environments.** Development, test and production are kept apart. Developers' computers and the throwaway test environment hold invented data only and have no route to production (\<System Description\>, section 6.7; NFR-089).
 
@@ -227,7 +227,7 @@ The plan, its results and the evidence are protected as the document set is: res
 
 Controls met here: SA-15.
 
-The process is \<Organisation\>'s corporate SDLC, meeting CSS \<ver\> (section 3.2). The standards are CSS, OWASP ASVS 5.0 Level 2 for the web applications, the NCSC secure design principles and the CSS privacy engineering objectives, with the UK Software Security Code of Practice alongside. Every 12 months the developers and the security officer review the process, standards, tools, tool options and tool settings against the security and privacy requirements of the CSS Moderate and privacy baselines, as \<System Security Plan\> and \<Privacy Plan\> set them, and the verification standard, OWASP ASVS 5.0 Level 2, and record the review on TPL-23 (PRO-SA-6). A change to the process or a tool is made through change control, and Table 7 is updated with it.
+The process is \<Organisation\>'s corporate SDLC, meeting CSS \<ver\> (section 3.2). The standards are CSS, OWASP ASVS 5.0 Level 2 for the web applications, the NCSC secure design principles and the CSS privacy engineering objectives, with the UK Software Security Code of Practice alongside. Every 12 months the developers and the security officer review the process, standards, tools, tool options and tool settings against the security and privacy requirements of the CSS Moderate and privacy baselines, as \<System Security Plan\> and \<Privacy Plan\> set them, and the verification standard, OWASP ASVS 5.0 Level 2, and record the review on the risk and supply chain review (PRO-SA-6). A change to the process or a tool is made through change control, and Table 7 is updated with it.
 
 **Table 7: Development tools**
 
