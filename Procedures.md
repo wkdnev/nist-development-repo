@@ -202,9 +202,9 @@ These procedures define how access control activities are performed: the workflo
 
 | Activity | How often | By | Output | Steps |
 | --- | --- | --- | --- | --- |
-| Privileged access review | Every 3 months (P-04) | System owner prepares; auditor checks and signs; Head of Cyber reviews the system owner's own memberships and checks the administrators | Signed review | PRO-AC-7 |
-| Server and database account review | Every 6 months (P-52) | System owner, security officer | Signed review | PRO-AC-7 |
-| All other access review | Every 12 months (P-05) | Data Owners | Signed review | PRO-AC-7 |
+| Privileged access review | Every 3 months | System owner prepares; auditor checks and signs; Head of Cyber reviews the system owner's own memberships and checks the administrators | Signed review | PRO-AC-7 |
+| Server and database account review | Every 6 months | System owner, security officer | Signed review | PRO-AC-7 |
+| All other access review | Every 12 months | Data Owners | Signed review | PRO-AC-7 |
 | Inactive members | Monthly | Security officer; the groups' owners | Members who have not signed in for 90 days removed from their groups, date recorded | PRO-AC-8 |
 | Open exceptions | With each access review | System owner | Exceptions ended or renewed | PRO-AC-15 |
 | Policy and procedures | Every 12 months, and after a change | System owner | Updated change record | PRO-AC-14 |
@@ -218,15 +218,15 @@ Table AC-4 summarises each procedure: what starts it, who acts, its time limit, 
 
 | Procedure | Starts when | Who acts | Time limit | Record | Controls |
 | --- | --- | --- | --- | --- | --- |
-| PRO-AC-1 Joiner | Access is requested | The person, line manager, the group's owner (P-37), security officer | Training and signed \<Security Operating Procedures\> before the person is added to a group | ServiceNow request (TPL-2), TPL-9, TPL-21 and the register of signatures | AC-2, PL-4, PS-6, AT-2 |
-| PRO-AC-2 Mover | A role changes | Line manager, the groups' owners | Notified within 1 working day (P-06) | ServiceNow request (TPL-2), TPL-14 | AC-2, PS-5 |
-| PRO-AC-3 Leaver | The starters and leavers process prompts | \<Organisation\> disables the Active Directory account at once; the groups' owners | Within 5 working days (\<System Description\>, P-06) | TPL-14 | AC-2, AC-2(3), PS-4 |
-| PRO-AC-4 Urgent disable | A concern is raised | Anyone, \<Organisation\>'s service desk, system owner | Within 1 hour (P-41) | TPL-14, and TPL-10 if it is an incident | AC-2(13), IR-6 |
+| PRO-AC-1 Joiner | Access is requested | The person, line manager, the group's owner, security officer | Training and signed \<Security Operating Procedures\> before the person is added to a group | ServiceNow request (TPL-2), TPL-9, TPL-21 and the register of signatures | AC-2, PL-4, PS-6, AT-2 |
+| PRO-AC-2 Mover | A role changes | Line manager, the groups' owners | Notified within 1 working day | ServiceNow request (TPL-2), TPL-14 | AC-2, PS-5 |
+| PRO-AC-3 Leaver | The starters and leavers process prompts | \<Organisation\> disables the Active Directory account at once; the groups' owners | Within 5 working days | TPL-14 | AC-2, AC-2(3), PS-4 |
+| PRO-AC-4 Urgent disable | A concern is raised | Anyone, \<Organisation\>'s service desk, system owner | Within 1 hour | TPL-14, and TPL-10 if it is an incident | AC-2(13), IR-6 |
 | PRO-AC-5 Schema access | Access to a schema is requested, or the groups that open a schema are to change | The person, line manager, Data Owner, administrator | Before access or before the change | ServiceNow request (TPL-2); change record (TPL-6) for a change of groups | AC-2, AC-3, AC-5, AC-6 |
 | PRO-AC-6 Privileged access | A privileged role is requested | The person, line manager, system owner | Role modules M1 and M2 (\<Awareness and Training Management\>) passed and signed Part B before access | ServiceNow request (TPL-2), TPL-9 | AC-2, AC-6(5), AT-3 |
-| PRO-AC-7 Access review | The review falls due | The groups' owners, system owner, auditor, security officer, Head of Cyber | Every 3 months for the role groups, every 6 months for server and database accounts, every 12 months for schema groups (\<System Description\>, P-04, P-52 and P-05) | TPL-3 | AC-2, AC-6(7) |
-| PRO-AC-8 Inactive accounts | Monthly | \<Organisation\>; security officer; the groups' owners | 90 days without signing in, for both the Active Directory account and \<System Name\>'s groups (P-38) | TPL-3 | AC-2(3) |
-| PRO-AC-9 Locked account | A user asks | \<Organisation\>'s IT service desk | As P-42 sets | \<Organisation\>'s record | AC-7 |
+| PRO-AC-7 Access review | The review falls due | The groups' owners, system owner, auditor, security officer, Head of Cyber | Every 3 months for the role groups, every 6 months for server and database accounts, every 12 months for schema groups | TPL-3 | AC-2, AC-6(7) |
+| PRO-AC-8 Inactive accounts | Monthly | \<Organisation\>; security officer; the groups' owners | 90 days without signing in, for both the Active Directory account and \<System Name\>'s groups | TPL-3 | AC-2(3) |
+| PRO-AC-9 Locked account | A user asks | \<Organisation\>'s IT service desk | Unlocks on its own after 15 minutes, or sooner after an identity check | \<Organisation\>'s record | AC-7 |
 | PRO-AC-10 Forgotten password | A user asks | \<Organisation\>'s IT service desk | After its identity check | \<Organisation\>'s record | IA-5 |
 | PRO-AC-11 Ending access at once | A person's access must end at once | \<Organisation\>'s service desk; the groups' owners | At once; \<System Name\> refuses the person within 5 minutes | Note of the reason; TPL-10 if it is an incident | AC-2, AC-2(13) |
 | PRO-AC-12 First administrator | \<System Name\> is first built | Windows server administrator, database administrator, system owner | At build | TPL-6 | AC-2, IA-5 |
@@ -239,7 +239,7 @@ Table AC-4 summarises each procedure: what starts it, who acts, its time limit, 
 #### PRO-AC-1 New user (joiner)
 
 1. The person raises an access request in ServiceNow, naming the schemas and level needed, and the reason. **Manual**
-2. Their line manager approves or refuses it. The owner of each group asked for then authorises or refuses it (P-37): the Data Owner for a schema's read or edit group, and the system owner for a role group. Nobody decides their own request. The ServiceNow workflow keeps the record. **Manual**
+2. Their line manager approves or refuses it. The owner of each group asked for then authorises or refuses it: the Data Owner for a schema's read or edit group, and the system owner for a role group. Nobody decides their own request. The ServiceNow workflow keeps the record. **Manual**
 3. Before the person is added to any group, they complete security and privacy awareness training, receive the \<System Name\> briefing from the system owner (\<Awareness and Training Management\>, section 3.3), complete any role training their role needs first (\<Awareness and Training Management\>, section 3.5), and sign Part A of \<Security Operating Procedures\>, and Part B if the access is privileged. \<Organisation\> must also have confirmed their screening, and they must have signed \<Organisation\>'s confidentiality agreement (\<Procedures\>, PRO-PS-1). The security officer records the training on TPL-9, and the system owner records the signature on TPL-21 and in the register of signatures (\<Planning Management\>, section 3.5). No access is given until this is done.
 4. The owner who authorised the request adds the person to the approved AD groups, with \<Organisation\>'s AD tool. No \<System Name\> account is created: the person's Active Directory account is their account. **Manual**
 5. The person signs in through PingFederate, and \<System Name\>'s API reads their groups from Active Directory over LDAPS.
@@ -247,21 +247,21 @@ Table AC-4 summarises each procedure: what starts it, who acts, its time limit, 
 
 #### PRO-AC-2 Role change (mover)
 
-1. The line manager raises a change request in ServiceNow within the time in P-06, and tells the system owner and the owners of the person's groups (\<Procedures\>, PRO-PS-3). **Manual**
-2. The approver in P-37 approves the new access in the ServiceNow approval workflow. Access for the new role is added only once its role training is done, and, for a higher risk role, the screening repeated.
+1. The line manager raises a change request in ServiceNow within 1 working day, and tells the system owner and the owners of the person's groups (\<Procedures\>, PRO-PS-3). **Manual**
+2. The line manager approves the new access in the ServiceNow approval workflow. Access for the new role is added only once its role training is done, and, for a higher risk role, the screening repeated.
 3. Each group's owner removes the old membership and adds any new one in Active Directory. The change takes effect within 5 minutes, because \<System Name\>'s API reads the person's groups on every request (\<System Description\>, section 7.2). No sign-in needs to be ended. **Manual**
 
 #### PRO-AC-3 Leaver
 
 1. \<Organisation\> disables the person's Active Directory account at once, which stops them signing in, and \<System Name\>'s API refuses the disabled account within 5 minutes, even if a session is open. The starters and leavers process prompts the owners of the groups the person belongs to. **Manual**
-2. Each owner removes the person from their AD group within the time in P-06. **Manual**
+2. Each owner removes the person from their AD group within 5 working days. **Manual**
 3. The owner records the date in the ServiceNow request and on TPL-14. No session needs to be ended by hand: the API's refusal of the disabled account ends it. Service secrets, the exit interview, equipment and exports follow \<Procedures\>, PRO-PS-2; a leaver from a higher risk role follows PRO-AC-4.
 
 #### PRO-AC-4 Urgent disable (high-risk individual)
 
 1. Whoever raises the concern, or learns that the holder of a higher risk role is leaving (\<Procedures\>, PRO-PS-2), tells the system owner and \<Organisation\>'s service desk.
-2. Within the time in P-41, \<Organisation\>'s service desk disables the person's Active Directory account, and ends their PingFederate sign-in so that they cannot start a new one. **Manual**
-3. The account stays disabled for at least 8 hours (\<System Description\>, P-02), unless the Windows server administrator has revoked every key in the UI and Admin applications' key rings, so that a cookie issued before it was disabled cannot be used again if it is re-enabled (\<Identification and Authentication Management\>, section 3.7). **Manual**
+2. Within 1 hour of notice, \<Organisation\>'s service desk disables the person's Active Directory account, and ends their PingFederate sign-in so that they cannot start a new one. **Manual**
+3. The account stays disabled for at least 8 hours, unless the Windows server administrator has revoked every key in the UI and Admin applications' key rings, so that a cookie issued before it was disabled cannot be used again if it is re-enabled (\<Identification and Authentication Management\>, section 3.7). **Manual**
 4. The system owner confirms with the service desk that the account is disabled, and, after 5 minutes, checks \<System Name\>'s audit log or asks the auditor to confirm that the person's requests are being refused.
 5. The system owner records the reason and informs anyone who needs to know.
 
@@ -282,20 +282,20 @@ The API compares the group names on the schema definition with the person's Acti
 
 #### PRO-AC-7 Access review
 
-1. At the intervals in P-04, P-05 and P-52, each group's owner lists its members from Active Directory. For server and database accounts, the system owner obtains \<Organisation\>'s export of the Windows administrator groups on both servers (EV-AC-02) and the database administrator's list of SQL Server logins and their roles. **Manual**
-2. The owner checks each member against the ServiceNow requests, removes anyone who no longer needs the access, and checks that no privileged account is in a schema group (P-45). For server and database accounts, the system owner and the security officer check each against \<Roles and Responsibilities\> and the approved change records, confirm in the training register that each holder's modules are current, and have anything not needed removed.
+1. Every 3 months for role groups, every 12 months for schema groups and every 6 months for server and database accounts, each group's owner lists its members from Active Directory. For server and database accounts, the system owner obtains \<Organisation\>'s export of the Windows administrator groups on both servers (EV-AC-02) and the database administrator's list of SQL Server logins and their roles. **Manual**
+2. The owner checks each member against the ServiceNow requests, removes anyone who no longer needs the access, and checks that no privileged account is in a schema group. For server and database accounts, the system owner and the security officer check each against \<Roles and Responsibilities\> and the approved change records, confirm in the training register that each holder's modules are current, and have anything not needed removed.
 3. The result is recorded on TPL-3. A Data Owner signs the review of their schema's groups. For the role groups, the system owner prepares the review and the auditor checks and signs it. The system owner and the security officer sign the server and database review.
 4. The Head of Cyber reviews any role-group membership the system owner holds, and checks the administrators' membership, each quarter, and signs TPL-3 for that part. Nobody signs off their own access.
 
 #### PRO-AC-8 Inactive accounts
 
-1. \<Organisation\> disables Active Directory accounts unused for 90 days within 1 working day (P-38).
+1. \<Organisation\> disables Active Directory accounts unused for 90 days within 1 working day.
 2. Each month, the security officer runs the last sign-in report in the Admin application (\<System Description\>, FR-085), lists the members of each \<System Name\> group who have not signed in for 90 days, and sends each owner their list. **Manual**
 3. The owner removes those members from the group, unless the person is on leave and still needs the access, and records the date on TPL-3. **Manual**
 
 #### PRO-AC-9 Locked account
 
-1. PingFederate and Active Directory lock an account after repeated failed sign-ins, and release it, as P-42 sets: 10 failed attempts in 15 minutes lock the account for 15 minutes. \<System Name\> has no lock of its own.
+1. PingFederate and Active Directory lock an account after repeated failed sign-ins, and release it: 10 failed attempts in 15 minutes lock the account for 15 minutes. \<System Name\> has no lock of its own.
 2. A user who is locked out asks \<Organisation\>'s IT service desk, which checks who they are. **Manual**
 
 #### PRO-AC-10 Forgotten password
@@ -428,7 +428,7 @@ These procedures define how audit records are reviewed, protected and retained. 
 | PRO-AU-2 | Check the audit chain, and respond to suspected tampering | Daily by the API, weekly by the auditor, and on any alert | Auditor, security officer, database administrator | TPL-8; incident record | AU-9, AU-9(4) |
 | PRO-AU-3 | Respond to a logging failure | On any alert | Windows server administrator, security officer | TPL-8; incident record | AU-5 |
 | PRO-AU-4 | Check capacity, retention, the archive and time synchronisation | Monthly | Database administrator, security officer, Windows server administrator | TPL-8 | AU-4, AU-8, AU-11 |
-| PRO-AU-5 | Review and change the logged events | Every 12 months (P-62), and on change | System owner, developers, database administrator | Updated \<Audit and Accountability Management\>; \<Decision Register\> | AU-2, AU-12 |
+| PRO-AU-5 | Review and change the logged events | Every 12 months, and on change | System owner, developers, database administrator | Updated \<Audit and Accountability Management\>; \<Decision Register\> | AU-2, AU-12 |
 | PRO-AU-6 | Give or remove auditor access | On request, and at each quarterly access review | System owner | ServiceNow request; access review record | AU-9(4), AC-2 |
 | PRO-AU-7 | Handle the application log | Monthly check | Windows server administrator | TPL-8 | AU-9, AU-11, PT-3 |
 
@@ -454,7 +454,7 @@ These procedures define how audit records are reviewed, protected and retained. 
 #### PRO-AU-3 Logging failure
 
 1. The Windows server administrator and security officer are alerted within 1 hour.
-2. While logging fails, \<System Name\> refuses every action it cannot record (P-61). The Windows server administrator and database administrator find the cause and restore logging.
+2. While logging fails, \<System Name\> refuses every action it cannot record. The Windows server administrator and database administrator find the cause and restore logging.
 3. The security officer records the period in which actions were refused, and tells the system owner.
 4. If records may have been lost or changed, the evidence is preserved as in PRO-AU-2, step 4, and the incident is handled under PRO-IR-2.
 
@@ -463,12 +463,12 @@ These procedures define how audit records are reviewed, protected and retained. 
 1. Each month the database administrator checks the free space and the size of the audit table. In the first month of use they also measure the records per day and the bytes per record, and confirm the storage size in \<Audit and Accountability Management\>, section 3.7. **Manual**
 2. They raise more storage before records are at risk.
 3. Each month the database administrator copies records older than 12 months to the offline archive, records on TPL-8 the archive's SHA-256 hash and the hash of the last record archived, and then removes those records from the database. The chain check starts from that hash. Archived records older than 24 months may be deleted only with the system owner's recorded approval. **Manual** Records under a legal hold notified by the legal adviser, or held as incident evidence, are listed on TPL-8 and not deleted until released.
-4. Each month the security officer exports from central logging the SQL Server Audit records, Windows logs and application security events that are 12 months old, adds them to the offline archive, and records the export's SHA-256 hash on TPL-8 (P-07). **Manual**
+4. Each month the security officer exports from central logging the SQL Server Audit records, Windows logs and application security events that are 12 months old, adds them to the offline archive, and records the export's SHA-256 hash on TPL-8. **Manual**
 5. Each month the Windows server administrator checks that both VMs are within 1 second of UTC from \<Organisation\>'s time source, \[Organisation time source\], and reports any drift over 5 seconds to the security officer. The result is recorded on TPL-8. **Manual**
 
 #### PRO-AU-5 Changing the logged events
 
-1. The system owner decides on any change to the logged events, both the application events and the SQL Server settings, reviews the list every 12 months (P-62), and records each decision in \<Decision Register\>. **Manual**
+1. The system owner decides on any change to the logged events, both the application events and the SQL Server settings, reviews the list every 12 months, and records each decision in \<Decision Register\>. **Manual**
 2. The system owner agrees with \<Organisation\>'s security contact any change to the Windows, PingFederate and Active Directory events, and to what central monitoring needs from \<System Name\> (AU-2, part b). **Manual**
 3. Developers make a change to the application events through the normal release process, because the events are built into each release. The list of events is \<Audit and Accountability Management\>, Table 2, and it is changed there first.
 4. The database administrator applies a change to the SQL Server settings in \<Audit and Accountability Management\>, appendix A, through a recorded change (\<Configuration Management\>), and the appendix is changed first.
@@ -589,7 +589,7 @@ These procedures define how \<System Name\>'s configuration is changed and recor
 
 #### PRO-CM-2 Reviewing the baseline, inventory and access list
 
-1. Every 12 months and at each release, the system owner and Windows server administrator review the baseline (\<System Description\>, P-63). **Manual**
+1. Every 12 months and at each release, the system owner and Windows server administrator review the baseline. **Manual**
 2. They keep the 3 previous configurations, each as its tagged code, package checksums, settings and bill of materials, in the configuration library (\<Configuration Management\>, section 3.13). **Manual**
 3. At the same review, they check the inventory in \<System Security Plan\>, section 3.4, and \<Configuration Management\>, section 3.5, against the servers and the bill of materials, and correct any difference through PRO-CM-1. **Manual**
 4. At the yearly review, the system owner approves a new approved access list on TPL-5: the members of \<System Name\>'s AD groups with their approvals, the Windows server and database administrators, and \<Organisation\>'s staff with access to the hosts and backups (\<Configuration Management\>, section 3.12). The first list is approved before any real data is held. **Manual**
@@ -618,7 +618,7 @@ These procedures define how \<System Name\>'s configuration is changed and recor
 
 #### PRO-CM-7 Monitoring for drift
 
-1. Each month and at each release (\<System Description\>, P-29), the Windows server administrator scans both VMs against the CIS Benchmarks with CIS-CAT or an equivalent tool, and runs Test-ConfigurationManagement.ps1.
+1. Each month and at each release, the Windows server administrator scans both VMs against the CIS Benchmarks with CIS-CAT or an equivalent tool, and runs Test-ConfigurationManagement.ps1.
 2. The Windows server administrator confirms that the App Control policy on both VMs is enforced and matches the policy in the release record, and reviews what it blocked. **Manual**
 3. The database administrator compares the SQL Server settings with the baseline. **Manual**
 4. Any difference from \<Configuration Management\>, sections 3.4 to 3.6 and 3.15, is reported to the security officer on TPL-8. **Manual**
@@ -765,13 +765,13 @@ These procedures define how identifiers and authenticators are issued, changed a
 1. The person, or whoever notices, tells \<Organisation\>'s IT service desk and the security officer straight away. This includes a password written down or seen, and a lost phone or key used as a second factor. **Manual**
 2. If the password or second factor may be known to someone else, the service desk first disables the person's Active Directory account, as in PRO-AC-4. \<System Name\>'s API then refuses the person within 5 minutes, ending any open session. Ending the PingFederate sign-in alone is not enough, because it does not end \<System Name\>'s authentication cookie. **Manual**
 3. The service desk resets the password or the second factor, after checking who the person is, and ends the person's PingFederate sign-in. **Manual**
-4. The account is re-enabled no sooner than 8 hours (\<System Description\>, P-02) after it was disabled, so that no cookie issued before then still works. If the person needs access sooner, the Windows server administrator first revokes every key in the UI and Admin applications' key rings, which signs every user out, and records it on TPL-6. **Manual**
+4. The account is re-enabled no sooner than 8 hours after it was disabled, so that no cookie issued before then still works. If the person needs access sooner, the Windows server administrator first revokes every key in the UI and Admin applications' key rings, which signs every user out, and records it on TPL-6. **Manual**
 5. For a role change, the group's owner removes the memberships the person no longer needs (PRO-AC-2), and the API refuses them within 5 minutes. **Manual**
 6. The security officer decides whether this is a security incident, and if so raises it under \<Procedures\> (IR). **Manual**
 
 #### PRO-IA-4 Changing service secrets and the signing key
 
-1. Every 12 months (\<System Description\>, P-10), at once if exposed, and when an administrator who could read them leaves, the Windows server administrator changes the secrets in \<Identification and Authentication Management\>, section 3.5: the token signing key, the audit chain key and the OpenID Connect client credential. The client credential is changed with \<Organisation\>'s PingFederate team, in PingFederate and the key store together, so that sign-in is not interrupted. The retired version of the audit chain key stays in the key store for checking only, for the retention period in P-07, so older audit records can still be checked (\<Audit and Accountability Management\>, section 3.5). Each application runs under a group managed service account, whose password Windows sets and changes, and the API connects to SQL Server with Windows authentication, so there is no service account password or database password to change.
+1. Every 12 months, at once if exposed, and when an administrator who could read them leaves, the Windows server administrator changes the secrets in \<Identification and Authentication Management\>, section 3.5: the token signing key, the audit chain key and the OpenID Connect client credential. The client credential is changed with \<Organisation\>'s PingFederate team, in PingFederate and the key store together, so that sign-in is not interrupted. The retired version of the audit chain key stays in the key store for checking only, for the 24-month audit retention period, so older audit records can still be checked (\<Audit and Accountability Management\>, section 3.5). Each application runs under a group managed service account, whose password Windows sets and changes, and the API connects to SQL Server with Windows authentication, so there is no service account password or database password to change.
 2. They update the protected copy at the second site (\<Contingency Planning Management\>, section 3.8).
 3. They record the change on TPL-6: the date, who made it and which secret, never the value. Changing the token signing key does not end users' sign-ins, because their cookies are protected by each application's key ring. **Manual**
 
@@ -793,7 +793,7 @@ These procedures define how identifiers and authenticators are issued, changed a
 
 #### PRO-IA-8 Disabling unused identifiers
 
-1. \<Organisation\> disables Active Directory accounts unused for 90 days within 1 working day (\<System Description\>, P-38; \<Access Control Management\>, section 3.14).
+1. \<Organisation\> disables Active Directory accounts unused for 90 days within 1 working day (\<Access Control Management\>, section 3.14).
 2. A disabled identifier is never deleted or reused (PRO-IA-1, step 4). **Manual**
 
 ## IR Incident Response
@@ -836,8 +836,8 @@ These procedures carry out \<Policy\> (IR) and \<Incident Response Management\>.
 
 #### PRO-IR-3 Training and testing
 
-1. The security officer trains each person with an incident role within 30 days of taking it, every 12 months and after a plan change or a system change that alters their part (\<System Description\>, P-56), and records it on TPL-9 and in the training register (\<Awareness and Training Management\>, section 3.8). This is module M7 in the training matrix (\<Awareness and Training Management\>, section 3.5), with its 80% check. The content is the plan, the severity levels, the playbooks, preserving evidence, the breach steps and the contacts. **Manual**
-2. The security officer reviews the content every 12 months, and after a plan change or a significant incident (\<System Description\>, P-58). **Manual**
+1. The security officer trains each person with an incident role within 30 days of taking it, every 12 months and after a plan change or a system change that alters their part, and records it on TPL-9 and in the training register (\<Awareness and Training Management\>, section 3.8). This is module M7 in the training matrix (\<Awareness and Training Management\>, section 3.5), with its 80% check. The content is the plan, the severity levels, the playbooks, preserving evidence, the breach steps and the contacts. **Manual**
+2. The security officer reviews the content every 12 months, and after a plan change or a significant incident. **Manual**
 3. Every 12 months the security officer runs a tabletop exercise with the people named in \<Incident Response Management\> and \<Contingency Planning Management\>, and \<Organisation\>'s security contact and IT service desk, rotating through the playbooks, and writes an after-action report on TPL-11. **Manual**
 
 #### PRO-IR-4 Getting help
@@ -922,7 +922,7 @@ These procedures carry out \<Policy\> (MA), rules R1 to R12. The lists, routes a
 
 #### PRO-MA-3 Maintenance tools
 
-1. The Windows server administrator keeps the approved tool list in \<Maintenance Management\>, section 3.5, as part of the approved software list, and reviews it with the system owner every 12 months (P-67; C28). **Manual**
+1. The Windows server administrator keeps the approved tool list in \<Maintenance Management\>, section 3.5, as part of the approved software list, and reviews it with the system owner every 12 months (C28). **Manual**
 2. A new tool for the servers needs the system owner's approval of the request (\<Procedures\>, PRO-CM-4), and is installed by a change that adds it to the App Control for Business policy (\<Procedures\>, PRO-CM-1). **Manual**
 3. On the servers, App Control for Business refuses any tool whose publisher or hash does not match its rule. A tool from outside the baseline, on an administrator's managed device or copied onto a server for a job, is inspected before use: its version, publisher and file hash are compared with the list, and the result is recorded on TPL-12. A tool found modified is reported as a security incident. **Manual**
 4. Any file or disk image holding diagnostic or test programs is scanned by Defender before use, and the scan recorded on TPL-12. No removable media are connected to the servers.
@@ -932,7 +932,7 @@ These procedures carry out \<Policy\> (MA), rules R1 to R12. The lists, routes a
 #### PRO-MA-4 Remote maintenance
 
 1. The change record names the route from \<Maintenance Management\>, section 3.4, and is approved under PRO-MA-1, step 2. **Manual**
-2. The administrator connects only through that route, with multi-factor sign-in and a named account (EV-MA-02). Server and database administration reaches the two servers only from the administrators' managed devices over the managed administration route (F11), and the Admin application is reached only through that route. From outside the office, the VPN is used first (P-54).
+2. The administrator connects only through that route, with multi-factor sign-in and a named account (EV-MA-02). Server and database administration reaches the two servers only from the administrators' managed devices over the managed administration route (F11), and the Admin application is reached only through that route. From outside the office, the VPN is used first.
 3. A supplier holds no account: they watch and guide over the administrator's shared screen, without control, and the administrator drives. Each session is logged as set in \<Maintenance Management\>, section 3.4. **Manual**
 4. When the work is finished, the administrator signs out of Windows and SQL Server rather than only disconnecting, closes the route connection and ends any screen sharing. **Manual**
 5. The administrator records the job on TPL-12 with the session reference. The security officer reviews the session logs weekly (C4, C5). **Manual**
@@ -941,8 +941,8 @@ These procedures carry out \<Policy\> (MA), rules R1 to R12. The lists, routes a
 
 1. The system owner approves the list of maintenance organisations and people in \<Maintenance Management\>, section 3.6. **Manual**
 2. Before giving access, the administrator checks the person is on the list, is screened, has signed Part B of \<Security Operating Procedures\> and has a named account. **Manual**
-3. A supplier, or anyone else not on the list, gets no account (P-39). They take part only by watching and guiding over the shared screen of a Windows server or database administrator who is on the list and competent in the work, who drives and supervises the session and can end it at once. They receive no copy of \<System Name\>'s data except under PRO-MA-7. **Manual**
-4. The Windows server administrator checks the list when someone leaves, and every 12 months (P-67; C28). **Manual**
+3. A supplier, or anyone else not on the list, gets no account. They take part only by watching and guiding over the shared screen of a Windows server or database administrator who is on the list and competent in the work, who drives and supervises the session and can end it at once. They receive no copy of \<System Name\>'s data except under PRO-MA-7. **Manual**
+4. The Windows server administrator checks the list when someone leaves, and every 12 months (C28). **Manual**
 
 #### PRO-MA-6 Preventive maintenance schedule
 
@@ -956,7 +956,7 @@ Flaw fixes (SI-2), releases (CM-3) and key changes (SC-12) follow their own proc
 | Check disk space and growth | Both VMs and the database | Windows server and database administrators | Monthly | TPL-8 |
 | Apply updates (SI-2) | Windows, SQL Server, .NET | As \<Security Operating Procedures\>, section 4.3 | Monthly, and within the fix times | TPL-7 |
 | Renew certificates | Both VMs | Windows server administrator | 30 days before expiry (C39) | TPL-6 |
-| Change keys and secrets (SC-12) | Key store, and the backup encryption certificate | Windows server and database administrators | As \<System Description\>, P-10, sets (C20) | TPL-6 |
+| Change keys and secrets (SC-12) | Key store, and the backup encryption certificate | Windows server and database administrators | Every 12 months, at once if exposed, and when a holder leaves (C20) | TPL-6 |
 | Clear old application logs | Application VM | Windows server administrator | Monthly (C46) | TPL-8 |
 | Build each release on the patched .NET runtime (CM-3) | Applications | Developers | Each release, checked monthly (C11) | TPL-6 |
 | Check support end dates | Components in \<Maintenance Management\>, section 3.8 | Developers, Windows server administrator | Monthly (C11) | TPL-7 |
@@ -969,7 +969,7 @@ Flaw fixes (SI-2), releases (CM-3) and key changes (SC-12) follow their own proc
 3. The database's structure is never changed from a page. Before a release changes it, which the database administrator applies under an approved change, a backup is taken and checked (\<Procedures\>, PRO-CP-1). **Manual**
 4. The diagnostics run, or the structure change, and the outcome are recorded on TPL-12 with the change or incident reference. **Manual**
 5. Before any data, dump, log or screenshot is sent for maintenance or support, the system owner approves it. **Manual**
-6. It is cut to the minimum, with personal data removed where possible, encrypted, and sent by an approved route. If personal data cannot be removed, the legal adviser agrees first, and the receiver must hold it under a contract with UK GDPR Article 28 terms, in the UK (P-23). **Manual**
+6. It is cut to the minimum, with personal data removed where possible, encrypted, and sent by an approved route. If personal data cannot be removed, the legal adviser agrees first, and the receiver must hold it under a contract with UK GDPR Article 28 terms, in the UK. **Manual**
 7. It is recorded on TPL-12 or TPL-13, and the receiver confirms deletion when it is no longer needed. **Manual**
 
 ## MP Media Protection
@@ -1000,7 +1000,7 @@ These procedures carry out \<Policy\> (MP), rules R1 to R12. The media inventory
 1. Anyone who prints an item from \<System Name\> uses only an \<Organisation\> managed printer with secure release, and keeps the classification marking that \<System Name\> puts on each printed page. **Manual**
 2. They collect it at once, keep it locked away when not in use, and share it only with people authorised to read that schema. **Manual**
 3. It does not leave the site without the system owner's approval (PRO-MP-2). **Manual**
-4. They cross-cut shred it to DIN 66399 level P-4 or better when it is no longer needed, and within 30 days if it holds personal data (P-69). **Manual**
+4. They cross-cut shred it to DIN 66399 level P-4 or better when it is no longer needed, and within 30 days if it holds personal data. **Manual**
 
 #### PRO-MP-2 Disks, volumes and backups
 
@@ -1016,24 +1016,24 @@ These procedures carry out \<Policy\> (MP), rules R1 to R12. The media inventory
 3. Backups are not erased one at a time: \<Organisation\>'s backup service deletes each expired copy at both sites, including the offline or immutable copy (EV-CP-01). Once the last backup a retired backup encryption certificate encrypted is removed, the database administrator destroys every copy of that certificate, in SQL Server, the key store and its protected copy at the second site, and lists each on TPL-13. **Manual**
 4. \<Organisation\> purges or destroys physical disks and gives a certificate. **Manual** (EV-MP-02)
 5. Each action is recorded on TPL-13 with the item, serial, method, tool, verification and certificate. **Manual**
-6. Every 12 months, the system owner checks a sample of \<Organisation\>'s certificates against TPL-13 (P-69). **Manual**
+6. Every 12 months, the system owner checks a sample of \<Organisation\>'s certificates against TPL-13. **Manual**
 
 #### PRO-MP-4 Portable storage and ownerless devices
 
 1. USB and other portable storage are blocked on users' devices, and no USB device or other removable media is passed through to, or mounted on, the VMs. **Manual** (EV-AC-17, EV-MP-03)
-2. The system owner approves any exception on TPL-17, for a stated purpose and time, using only encrypted media issued by \<Organisation\>, on the terms in \<System Description\>, P-48. When the exception ends, the holder returns the media, and it is sanitised and recorded on TPL-13 before reuse. **Manual**
+2. The system owner approves any exception on TPL-17, for a stated purpose and time, using only encrypted media issued by \<Organisation\>, on the terms in \<Access Control Management\>, section 3.10. When the exception ends, the holder returns the media, and it is sanitised and recorded on TPL-13 before reuse. **Manual**
 3. Anyone who finds portable storage with no identifiable owner does not use it, and hands it to the security officer, who records it on TPL-13. **Manual**
 
 #### PRO-MP-5 Export copies and users' copies
 
 1. Only an editor of a schema can bulk export its items, and only an auditor can export the audit log. An auditor keeps an audit log export only on their managed device or in an approved location, and deletes it once the report or investigation no longer needs it.
 2. \<System Name\> deletes each export copy after the download, and a background task removes any left past 24 hours. Each working day, the Windows server administrator checks the encrypted export working area on the application VM, deletes anything older than 24 hours, and records it on TPL-8 (C49). **Manual**
-3. Users save exports and downloads only in approved \<Organisation\> locations: \[approved locations\], on a managed device, and delete them once no longer needed, and within 30 days at most if they hold personal data (P-69; \<Security Operating Procedures\>, A28 and A30 to A35). **Manual**
+3. Users save exports and downloads only in approved \<Organisation\> locations: \[approved locations\], on a managed device, and delete them once no longer needed, and within 30 days at most if they hold personal data (\<Security Operating Procedures\>, A28 and A30 to A35). **Manual**
 4. Export files and downloaded files carry the classification marking that \<System Name\> stamps in the file and puts in its name, and the user who keeps them does not remove it or rename the file without it. **Manual**
 
 #### PRO-MP-6 Media inventory
 
-1. The system owner reviews the media inventory in \<Media Protection Management\>, section 3.2, every 12 months (P-69) and after a change that creates a new copy of \<System Name\> information. **Manual**
+1. The system owner reviews the media inventory in \<Media Protection Management\>, section 3.2, every 12 months and after a change that creates a new copy of \<System Name\> information. **Manual**
 2. Any new place is added, with its protection, access and sanitising method, before it is used. **Manual**
 
 ## PE Physical and Environmental Protection
@@ -1077,7 +1077,7 @@ These procedures carry out \<Policy\> (PE), rules R1 to R10. The values, inherit
 
 1. Users print items from \<System Name\> only on \<Organisation\>'s managed printers with secure release: \[managed printers\]. **Manual** (EV-PE-05)
 2. They release and collect printouts at once, and keep the classification marking that \<System Name\> prints on each page (PRO-MP-1). **Manual**
-3. Users lock their screen when they leave it, place it so that others cannot read it, and keep their desk clear of printed documents. \<Organisation\>'s managed devices also lock the screen after the inactivity period in \<System Description\>, P-03. **Manual**
+3. Users lock their screen when they leave it, place it so that others cannot read it, and keep their desk clear of printed documents. \<Organisation\>'s managed devices also lock the screen after 15 minutes of inactivity. **Manual**
 
 #### PRO-PE-4 Working from home
 
@@ -1184,7 +1184,7 @@ These procedures carry out \<Policy\> (PS). Steps marked **Manual** rely on peop
 #### PRO-PS-2 Leavers
 
 1. \<Organisation\> disables the person's Active Directory account at once, which ends their access to \<System Name\>. The starters and leavers process tells the system owner and the owners of the person's groups, who remove the memberships within 5 working days (\<Procedures\>, PRO-AC-3).
-2. For a higher-risk leaver, a dismissal or suspected misuse, anyone who knows tells the system owner and \<Organisation\>'s service desk, and the urgent route is followed (\<Procedures\>, PRO-AC-4). Within 1 hour of notice (P-41), the service desk disables the Active Directory account and ends the person's PingFederate sign-in. The account stays disabled for at least 8 hours, unless every key in the key rings is revoked first. The system owner confirms that both are done and that \<System Name\> refuses the person within 5 minutes. **Manual**
+2. For a higher-risk leaver, a dismissal or suspected misuse, anyone who knows tells the system owner and \<Organisation\>'s service desk, and the urgent route is followed (\<Procedures\>, PRO-AC-4). Within 1 hour of notice, the service desk disables the Active Directory account and ends the person's PingFederate sign-in. The account stays disabled for at least 8 hours, unless every key in the key rings is revoked first. The system owner confirms that both are done and that \<System Name\> refuses the person within 5 minutes. **Manual**
 3. Disabling the Active Directory account revokes the person's password and second factor. The system owner has any service secret the person knew changed (\<Procedures\>, PRO-IA-4). **Manual**
 4. \<Organisation\> holds the exit interview, covering the person's continuing confidentiality duties and the return of equipment, and recovers their laptop, phone, pass and any other equipment. The person's exported files and printouts are recovered or destroyed. **Manual** (EV-PS-02)
 5. The system owner confirms that the items the person managed stay available, and completes TPL-14. **Manual**
@@ -1262,7 +1262,7 @@ These procedures carry out \<Policy\> (PT). Steps marked **Manual** have no syst
 
 1. Each change record (TPL-6) says whether the change affects personal data. **Manual**
 2. If it does, the legal adviser reviews it and decides whether the inventory (\<PII Processing Management\>, section 3.3), the privacy notice or the impact assessment must change. **Manual**
-3. The system owner asks \<Organisation\> to keep the privacy notices current, and every 12 months checks with the legal adviser that each group of people in the inventory is covered by a notice that names \<System Name\> and holds what P-73 sets, and that the link on \<System Name\>'s pages works (EV-PT-01; \<Security Operating Procedures\>, C33). **Manual**
+3. The system owner asks \<Organisation\> to keep the privacy notices current, and every 12 months checks with the legal adviser that each group of people in the inventory is covered by a notice that names \<System Name\> and holds the information UK GDPR, Articles 13 and 14, require, and that the link on \<System Name\>'s pages works (EV-PT-01; \<Security Operating Procedures\>, C33). **Manual**
 
 #### PRO-PT-4 Impact assessment
 
@@ -1380,7 +1380,7 @@ These procedures carry out \<Policy\> (SA). Steps marked **Manual** have no syst
 2. Developers also run the test scripts in the developer test plan (\<System and Services Acquisition Management\>, section 3.9) in the test environment, a throwaway copy of the whole system built from the tagged release with invented data. **Manual**
 3. Developers keep the results with a README and a manifest, in the evidence for the family, and raise each flaw in \<Risk List\> and \<Plan of Action and Milestones\>. **Manual**
 4. The security officer confirms that each fixed flaw passes when the test is run again. **Manual**
-5. Before go-live, and at each major release, the developers verify the web applications to OWASP ASVS 5.0 Level 2 (\<System Description\>, P-28), and record the result.
+5. Before go-live, and at each major release, the developers verify the web applications to OWASP ASVS 5.0 Level 2, and record the result.
 
 #### PRO-SA-3 Buying a product or service
 
@@ -1397,7 +1397,7 @@ These procedures carry out \<Policy\> (SA). Steps marked **Manual** have no syst
 #### PRO-SA-5 Unsupported components
 
 1. The monthly check (\<Security Operating Procedures\>, C11) compares each component in \<Configuration Management\>, Table 4, and each outside service in \<System and Services Acquisition Management\>, section 3.7, with its supplier's support dates, using those held in \<Maintenance Management\>, section 3.8, for the security-critical components, and checks that each package and browser library is still maintained, is not deprecated, and has no known flaw without a fix. **Manual**
-2. Developers plan a replacement at least 6 months before support ends, and replace a package or browser library found unsupported within 6 months, or within the flaw timetable (P-11) if it has a known flaw. **Manual**
+2. Developers plan a replacement at least 6 months before support ends, and replace a package or browser library found unsupported within 6 months, or within the flaw timetable if it has a known flaw. **Manual**
 3. Any exception, with in-house support or a supplier's extended support meanwhile, goes to the authorising official, with the risk entered in \<Risk List\>. **Manual**
 
 #### PRO-SA-6 Budgeting and reviews
@@ -1549,8 +1549,8 @@ These procedures carry out \<Policy\> (SI). The values, detection use cases and 
 #### PRO-SI-7 Managing information
 
 1. The scheduled task lists the items past their retention period, the business owner approves their disposal, and the task deletes them; each disposal is recorded in the audit trail (FR-074; PRO-PT-5).
-2. The database administrator keeps audit records for 12 months online and 12 months archived, and the security officer archives the SQL Server, Windows and security-event records from central logging after 12 months, so they too are kept 24 months (P-07; PRO-AU-4). Application logs stay on the servers for 30 days.
-3. Export working copies are deleted after download and within 24 hours, and users delete their copies within 30 days at most if they hold personal data (P-20, P-69; PRO-MP-5). Backups expire as P-15 sets, and a recovery deletes again any item disposed of since the backup (PRO-CP-6, step 2).
+2. The database administrator keeps audit records for 12 months online and 12 months archived, and the security officer archives the SQL Server, Windows and security-event records from central logging after 12 months, so they too are kept 24 months (PRO-AU-4). Application logs stay on the servers for 30 days.
+3. Export working copies are deleted after download and within 24 hours, and users delete their copies within 30 days at most if they hold personal data (PRO-MP-5). Backups expire after their schedule (at most 12 monthly copies), and a recovery deletes again any item disposed of since the backup (PRO-CP-6, step 2).
 4. Sanitising of media is recorded on TPL-13 (PRO-MP-3). **Manual**
 
 #### PRO-SI-8 Testing integrity controls

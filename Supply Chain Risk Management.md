@@ -116,7 +116,7 @@ The acquisition strategies, tools and methods (SR-5) are: buying only from suppl
 Controls met here: SR-8, SR-10, SR-11, SR-11(1), SR-11(2), SR-12.
 
 1. **Notices** (SR-8). \<Organisation\> reports a supply chain compromise to the security officer within 24 hours, and shares assessment or audit results that affect \<System Name\> (EV-SR-01). For open-source suppliers, their published advisories are the notice, through the sources in \<System and Information Integrity Management\>, section 3.3. Each notice that applies is recorded on TPL-7, and a compromise is handled as an incident (PRO-SR-5).
-2. **Inspection** (SR-10). The release packages, every file a release installs, including the release scripts, and the browser library files are checked against their recorded SHA-256 values at each release before installation, and whenever tampering is suspected (PRO-SR-3). Once installed, the same files are checked monthly by the integrity check (\<System and Information Integrity Management\>, section 3.5; P-29). A different value, a missing or extra file, an unsigned or wrongly signed tag, an unexpected package source or damaged packaging is a sign of tampering. \<Organisation\> inspects the host hardware on arrival and after repair (EV-SR-02).
+2. **Inspection** (SR-10). The release packages, every file a release installs, including the release scripts, and the browser library files are checked against their recorded SHA-256 values at each release before installation, and whenever tampering is suspected (PRO-SR-3). Once installed, the same files are checked monthly by the integrity check (\<System and Information Integrity Management\>, section 3.5). A different value, a missing or extra file, an unsigned or wrongly signed tag, an unexpected package source or damaged packaging is a sign of tampering. \<Organisation\> inspects the host hardware on arrival and after repair (EV-SR-02).
 3. **Authenticity** (SR-11). Under policy rule R11, package names are checked against look-alikes, packages come only from the in-house package feed under a signed-package trust policy, and browser library files are checked against their publisher's values. A suspected counterfeit is refused and reported to its source, the security officer, \<Organisation\>, the package registry and, if serious, the NCSC. \<Organisation\> trains its buyers every year (SR-11(1)); the developers, who choose the software, learn to spot look-alike and counterfeit packages in role module M5 (\<Awareness and Training Management\>). \<Organisation\> keeps configuration control of the host hardware while it awaits repair and until it returns to service (SR-11(2); \<Maintenance Management\>; PRO-SR-4).
 4. **Disposal** (SR-12). For hardware, virtual disks, media, data and documents, \<System Name\> data is removed first by the method for its type (PRO-MP-3): for the servers' virtual disks, the Windows server administrator destroys every copy of the BitLocker keys; paper is shredded. \<Organisation\> then disposes of the component and confirms in writing (PRO-SR-6). A package or browser library that is retired is removed from the release and the inventory at the next change.
 
@@ -142,7 +142,7 @@ Controls met here: SR-1.
 
 Controls met here: SR-2, SR-2(1), SR-3, SR-5, SR-6, SR-8, SR-10, SR-11, SR-11(1), SR-11(2), SR-12.
 
-These are the organisation-defined parameters for the SR controls. They are \<System Description\>, P-76, approved in \<Decision Register\> (D-SR-P76).
+These are the organisation-defined parameters for the SR controls. They are approved in \<Decision Register\> (D-SR-P76).
 
 **Table 5: Values chosen**
 
@@ -154,7 +154,7 @@ These are the organisation-defined parameters for the SR controls. They are \<Sy
 | SR-5 | Strategies, tools and methods | Section 3.7 |
 | SR-6 | Review frequency | Every supplier every 12 months; a new High supplier before it is used |
 | SR-8 | What is notified | Supply chain compromises, within 24 hours, and the results of assessments or audits that affect \<System Name\> |
-| SR-10 | What is inspected; when; signs of tampering | The release packages, installed files, release scripts and browser library files, and the host hardware; at each release before installation, monthly once installed (P-29), and when tampering is suspected; the signs in section 3.8, item 2 |
+| SR-10 | What is inspected; when; signs of tampering | The release packages, installed files, release scripts and browser library files, and the host hardware; at each release before installation, monthly once installed, and when tampering is suspected; the signs in section 3.8, item 2 |
 | SR-11 | Who counterfeits are reported to | The source of the component; the security officer and \<Organisation\>; the package registry, and the NCSC if serious |
 | SR-11(1) | Who is trained | \<Organisation\>'s buyers, every year |
 | SR-11(2) | Components kept under configuration control during repair | The host hardware beneath the two servers, with its disks |

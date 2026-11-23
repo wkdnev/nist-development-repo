@@ -68,7 +68,7 @@ Awareness has two parts: \<Organisation\>'s general security and privacy course,
 | B3 Social engineering and social mining | The forms an attempt takes: phishing and targeted phishing, a false story or false identity (pretexting and impersonation), a reply inside a genuine email thread, bait such as a free download or a found USB stick, an offer of help in return for access, a contact through social media, and following someone through a door. Scenario: an email or call asking for an item "for a tribunal" from someone you don't know. Scenario: an emailed sign-in link that looks like \<System Name\>. Social mining: people gather facts about \<Organisation\>, its staff and \<System Name\> from social media, job adverts, out-of-office replies and casual calls, to make a later request convincing. Do not say what \<System Name\> holds, who uses it or how it is reached. Check with the person through a known route, and report it |
 | B4 Insider threat | Scenario: a colleague exporting many files before leaving. Signs to notice, as CSS lists them: long-lasting and strong dissatisfaction with the job; trying to reach information the person does not need for their work; unexplained access to money; bullying or harassment of colleagues; violence at work; and other serious breaches of policy or rules. Seeing a sign is a reason to report through the route in B5, not to accuse. Access is recorded and monitored, as the SyOps explains |
 | B5 Reporting | How to report a suspicious message, a mistake or a lost device; reporting is thanked, never blamed |
-| B6 Privacy | The privacy training for every user (AT-3(5)), about 10 minutes. Which schemas hold personal data, and special category data; using it only for the purpose the schema states, and never exporting or copying it outside \<System Name\> without need; recognising a personal data breach, such as an item sent to the wrong person or a lost export, and reporting it to the security officer within 1 hour (\<System Description\>, P-21); passing any request from a person about their data to the legal adviser, without answering it yourself; and where the privacy notice is. The check includes a question on reporting a breach |
+| B6 Privacy | The privacy training for every user (AT-3(5)), about 10 minutes. Which schemas hold personal data, and special category data; using it only for the purpose the schema states, and never exporting or copying it outside \<System Name\> without need; recognising a personal data breach, such as an item sent to the wrong person or a lost export, and reporting it to the security officer within 1 hour; passing any request from a person about their data to the legal adviser, without answering it yourself; and where the privacy notice is. The check includes a question on reporting a breach |
 | B7 For line managers | Every access request from your people is raised in ServiceNow. Support it only if the person needs it for their work; the schema's Data Owner authorises it. Tell the group's owner at once when someone moves or leaves. The insider threat signs in B4 show first to a manager: raise a concern early with the security officer or HR |
 
 Between courses, awareness is kept up by the system use notice shown at sign-in, \<Organisation\>'s security messages, and a \<System Name\> security note each quarter, written by the security officer from recent advisories and reports.
@@ -202,19 +202,19 @@ The security officer reports these monthly with the continuous monitoring measur
 
 Controls met here: AT-2, AT-3, AT-4.
 
-The values CSS asks the organisation to define for AT are \<System Description\> parameters. This document is written to them, and \<Decision Register\> records their approval.
+Table 8 gives the values CSS asks the organisation to define for AT. This document is written to them, and \<Decision Register\> records their approval.
 
 **Table 8: AT parameters**
 
-| CSS parameter | Value | Parameter |
-| --- | --- | --- |
-| AT-02\_ODP\[01\], \[02\]: how often literacy training is given | Before access, then every 12 months | P-24 |
-| AT-02\_ODP\[03\], \[04\]: events that require literacy training | A significant change, a significant incident, or an exercise that changes a role's steps | P-56 |
-| AT-02\_ODP\[05\]: awareness techniques | The system use notice, \<Organisation\>'s security messages and the quarterly security note | P-57 |
-| AT-02\_ODP\[06\], \[07\]; AT-03\_ODP\[04\], \[05\]: when content is updated | Every 12 months, and within 30 days of a significant incident, exercise or significant change | P-58 |
-| AT-03\_ODP\[01\], \[02\]; AT-03(05)\_ODP\[01\]: who takes role-based and privacy training | The roles in Table 4 | P-59 |
-| AT-03\_ODP\[03\]; AT-03(05)\_ODP\[02\]: how often role training is repeated | Every 12 months | P-24 |
-| AT-04\_ODP: how long records are kept | 3 years | P-60 |
+| CSS parameter | Value |
+| --- | --- |
+| AT-02\_ODP\[01\], \[02\]: how often literacy training is given | Before access, then every 12 months |
+| AT-02\_ODP\[03\], \[04\]: events that require literacy training | A significant change, a significant incident, or an exercise that changes a role's steps; those affected take the updated briefing or module within 30 days |
+| AT-02\_ODP\[05\]: awareness techniques | The system use notice, \<Organisation\>'s security messages and the quarterly security note |
+| AT-02\_ODP\[06\], \[07\]; AT-03\_ODP\[04\], \[05\]: when content is updated | Every 12 months, and within 30 days of a significant incident, exercise or significant change |
+| AT-03\_ODP\[01\], \[02\]; AT-03(05)\_ODP\[01\]: who takes role-based and privacy training | The roles in Table 4 |
+| AT-03\_ODP\[03\]; AT-03(05)\_ODP\[02\]: how often role training is repeated | Every 12 months |
+| AT-04\_ODP: how long records are kept | 3 years from the date of the training |
 
 ### 3.11 Policy and procedures
 

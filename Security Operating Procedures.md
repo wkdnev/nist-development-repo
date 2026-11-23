@@ -100,7 +100,7 @@ Frequencies and time limits are those set in the family documents, and the value
 
 **A31.** Save exported files only in approved \<Organisation\> locations: \[approved locations\]. Never save them on personal devices, in personal cloud storage or in personal email.
 
-**A32.** Do not copy \<System Name\> information to USB drives or other removable media. USB storage is blocked on managed devices. Where there is a business need, ask for an exception (section 5), and use only encrypted media issued by \<Organisation\>. Use that media only on \<Organisation\>'s managed devices and the external system named in the approval, never connect it to a personal or other unmanaged device, and return it for sanitising when the exception ends (P-48). Never use a USB drive or other portable storage that has no known owner, such as one you find: hand it to the security officer.
+**A32.** Do not copy \<System Name\> information to USB drives or other removable media. USB storage is blocked on managed devices. Where there is a business need, ask for an exception (section 5), and use only encrypted media issued by \<Organisation\>. Use that media only on \<Organisation\>'s managed devices and the external system named in the approval, never connect it to a personal or other unmanaged device, and return it for sanitising when the exception ends. Never use a USB drive or other portable storage that has no known owner, such as one you find: hand it to the security officer.
 
 **A33.** Print \<System Name\> items only on \<Organisation\>'s managed printers with secure release, and make sure each page carries the \<Classification\> marking. Collect them from the printer straight away, lock them away when not in use, do not take them off site, and cross-cut shred them when finished, to DIN 66399 level P-4 or better.
 
@@ -110,7 +110,7 @@ Frequencies and time limits are those set in the family documents, and the value
 
 **A35.** Use \<System Name\> only on a device managed by \<Organisation\>. Do not use personal computers, phones or tablets. Phones and tablets cannot reach \<System Name\>.
 
-**A36.** Lock your screen whenever you leave your device, even briefly. Use Sign out at the end of each working day, and whenever you leave your device for longer than a short break (P-53). \<System Name\> does not lock the page itself: your device locks its screen after 15 minutes without activity (P-03), and your sign-in ends 8 hours after you signed in (P-02).
+**A36.** Lock your screen whenever you leave your device, even briefly. Use Sign out at the end of each working day, and whenever you leave your device for longer than a short break. \<System Name\> does not lock the page itself: your device locks its screen after 15 minutes without activity, and your sign-in ends 8 hours after you signed in.
 
 **A37.** Keep your desk clear of printed documents and notes, and place your screen so that others cannot read it.
 
@@ -223,7 +223,7 @@ Part B applies, in addition to Part A, to the system owner, administrators, audi
 
 **B22.** Report any suspected security incident, including one you caused, to the security officer at once.
 
-**B23.** Use privileged access from outside the office only for an approved change, maintenance or an incident, and only through the VPN and then the managed administration route, signing in with multi-factor authentication at both (P-54). Record the change or incident reference, and disconnect as soon as the task is done.
+**B23.** Use privileged access from outside the office only for an approved change, maintenance or an incident, and only through the VPN and then the managed administration route, signing in with multi-factor authentication at both. Record the change or incident reference, and disconnect as soon as the task is done.
 
 ## 4 Part C: operating procedures
 
@@ -241,7 +241,7 @@ The detection use cases U1 to U9 in \<System and Information Integrity Managemen
 | C1 | Check all services are healthy | Administrator | The API health check and each application's start page | Health check log on TPL-8, one line a day | SI-4, CP-2 |
 | C2 | Back up the database, which holds every item and file | Database administrator | \<Procedures\>, PRO-CP-1 | Backup job log, checked at C8 | CP-9 |
 | C50 | Check the alert of new entries in CISA's Known Exploited Vulnerabilities catalogue, and \<Organisation\>'s alerts, against \<System Name\>'s components; fix or mitigate any match within 3 days | Security officer | \<Procedures\>, PRO-RA-4 | TPL-7 | RA-5, SI-2, SI-5 |
-| C49 | Check the encrypted export working area on the application server, and delete any working copy older than 24 hours (\<System Description\>, P-20) | Windows server administrator | \<Procedures\>, PRO-MP-5 | TPL-8 | MP-4, MP-6 |
+| C49 | Check the encrypted export working area on the application server, and delete any working copy older than 24 hours | Windows server administrator | \<Procedures\>, PRO-MP-5 | TPL-8 | MP-4, MP-6 |
 | **Weekly** |  |  |  |  |  |
 | C3 | Review the audit log, including refused sign-ins and privileged actions, against the server and database records and the PingFederate and Active Directory records of failed sign-ins and lockouts | Auditor | Section 4.2 | TPL-8 | AC-2, AC-6(9), AC-7, AU-6 |
 | C4 | Review the central logs and any alerts, including the security events for each read or export of the audit log. The security officer does not read the audit log | Security officer | \<Procedures\>, PRO-SI-3 and PRO-SI-4 | TPL-8 | SI-4, AU-6 |
@@ -269,7 +269,7 @@ The detection use cases U1 to U9 in \<System and Information Integrity Managemen
 | C18 | Test that backups can be restored, with the backup encryption certificate, on the restore test server at the second site, and erase that server afterwards | Database administrator; Windows server administrator for the test server | \<Procedures\>, PRO-CP-2 | TPL-11; TPL-13 | CP-4, CP-9(1) |
 | **Every 12 months** |  |  |  |  |  |
 | C19 | Review the members of each schema's groups, and the system owner the role groups at C15 | Data Owners | \<Procedures\>, PRO-AC-7 | TPL-3 | AC-2 |
-| C20 | Change keys and secrets as \<System Description\>, P-10 sets. The API has no database password | Database administrator, Windows server administrator | \<Procedures\>, PRO-IA-4 and PRO-SC-3 | TPL-6 | IA-5, SC-12 |
+| C20 | Change keys and secrets: the key store's keys and secrets and the backup encryption certificate every 12 months, the data protection key rings every 90 days, and any at once if exposed. The API has no database password | Database administrator, Windows server administrator | \<Procedures\>, PRO-IA-4 and PRO-SC-3 | TPL-6 | IA-5, SC-12 |
 | C21 | Exercise the incident response and contingency plans | Security officer, system owner | \<Procedures\>, PRO-IR-3; \<Procedures\>, PRO-CP-4 | TPL-11 | IR-3, CP-4 |
 | C22 | Complete awareness and role training | Everyone; the security officer keeps records | \<Procedures\>, PRO-AT-1 to PRO-AT-5 | TPL-9 | AT-2, AT-3, AT-4 |
 | C23 | Re-sign Parts A and B | Everyone; the system owner keeps the register of signatures | Section 9 | TPL-21; the register of signatures (\<Planning Management\>, section 3.5) | PL-4, PS-6 |
@@ -282,7 +282,7 @@ The detection use cases U1 to U9 in \<System and Information Integrity Managemen
 | C30 | Assess home working controls | Security officer | \<Procedures\>, PRO-PE-4 | TPL-26 | PE-17 |
 | C31 | Review risk designations and access agreements, and check a sample of group members against the personnel security register | System owner | \<Procedures\>, PRO-PS-4 and PRO-PS-7 | TPL-3 | PS-2, PS-6 |
 | C32 | Check personal data is accurate, relevant and still needed, and approve the disposal of items due under the retention schedule (\<System Description\>, FR-074) | Data Owners; the business owner approves disposal | \<Procedures\>, PRO-PT-5 | TPL-3 | SI-18, PT-3 |
-| C33 | Check, with the legal adviser, that the privacy notices cover every group of people in the inventory, name \<System Name\> and hold what P-73 sets, and that the link on \<System Name\>'s pages works | System owner | \<Procedures\>, PRO-PT-3 | TPL-4 | PT-5 |
+| C33 | Check, with the legal adviser, that the privacy notices cover every group of people in the inventory, name \<System Name\> and hold the information UK GDPR, Articles 13 and 14, require, and that the link on \<System Name\>'s pages works | System owner | \<Procedures\>, PRO-PT-3 | TPL-4 | PT-5 |
 | C34 | Review exceptions | System owner | Section 5 | Exception register, TPL-17 | PL-4, CA-5 |
 | C35 | Review these SyOps, the plans in the register and the architecture, the other security documents, each tailoring condition, and the access list of the restricted area that holds the plans | System owner | Each document's change record; \<Procedures\>, PRO-PL-1, PRO-PL-4, PRO-PL-5 and PRO-PL-6 | Document change record; plan review record | PL-4c, PL-2, PL-8 |
 | C52 | Review the cryptographic and key register, the host firewall allow-lists, each VM's trust stores, external services and exceptions; schedule keys and certificates due for change | System owner, security officer, \<Organisation\> | \<Procedures\>, PRO-SC-8 | TPL-23 | SC-7(4), SC-12, SC-13, SC-17 |
@@ -296,12 +296,12 @@ The detection use cases U1 to U9 in \<System and Information Integrity Managemen
 | C61 | Review the contingency plan with the authorising official, check it against the incident response plan and \<Organisation\>'s plans, renew the backup encryption certificate when due, and refresh the offline copies of the plan | System owner, with the database administrator for the certificate | \<Procedures\>, PRO-CP-7 and PRO-CP-1 | Change record; distribution record | CP-2, CP-2(1), CP-9(8) |
 | C62 | Review the authenticator inventory, that each change period was met, and the assurance levels, and take any change to the authorising official | System owner, security officer | \<Procedures\>, PRO-IA-7 | \<Identification and Authentication Management\> change record | IA-5, IA-12 |
 | C63 | Review the risks, the threat model and the categorisation, check each acceptance against its review date, and share the result with the authorising official and the Head of Cyber | System owner | \<Procedures\>, PRO-RA-1 | TPL-23; \<Risk List\> | RA-2, RA-3, RA-7 |
-| C66 | Review the list of logged events, the application events and the SQL Server settings, and record each decision (\<System Description\>, P-62) | System owner | \<Procedures\>, PRO-AU-5 | \<Decision Register\>; \<Audit and Accountability Management\> change record | AU-2 |
-| C67 | Review the media inventory, and check a sample of sanitising certificates (\<System Description\>, P-69) | System owner | \<Procedures\>, PRO-MP-6 | \<Media Protection Management\> change record; TPL-13 | MP-2, MP-4, MP-6 |
+| C66 | Review the list of logged events, the application events and the SQL Server settings, and record each decision | System owner | \<Procedures\>, PRO-AU-5 | \<Decision Register\>; \<Audit and Accountability Management\> change record | AU-2 |
+| C67 | Review the media inventory, and check a sample of sanitising certificates | System owner | \<Procedures\>, PRO-MP-6 | \<Media Protection Management\> change record; TPL-13 | MP-2, MP-4, MP-6 |
 | C68 | Review the data protection impact assessment, with the system owner and the business owner | Legal adviser | \<Procedures\>, PRO-PT-4 | \<Data Protection Impact Assessment\> change record | RA-8, PT-7 |
 | **When an event occurs** |  |  |  |  |  |
 | C36 | Grant, change or remove access | The groups' owners; \<Organisation\>'s service desk disables accounts | Section 4.4 | TPL-2 (the ServiceNow request), TPL-14 | AC-2, PS-4, PS-5 |
-| C37 | Apply updates within the time limits in \<System Description\>, P-11 | Windows server administrator, database administrator, developers | Section 4.3, through approved change | TPL-6, TPL-7 | SI-2, CM-3 |
+| C37 | Apply updates within the time limits: 3 days if exploited; 14 days Critical or High; 30 days Medium; 90 days Low | Windows server administrator, database administrator, developers | Section 4.3, through approved change | TPL-6, TPL-7 | SI-2, CM-3 |
 | C38 | Make a change, including an emergency change | Change control element | Section 4.5 | TPL-6 | CM-3, CM-4, CM-5 |
 | C39 | Renew certificates before they expire | Windows server administrator | \<Procedures\>, PRO-SC-2 | TPL-6 | SC-8, SC-17 |
 | C40 | Repeat the security tests at each release and after a significant change | Developers | The developer test plan in \<System and Services Acquisition Management\>, section 3.9 (15 scripts, including Test-Protection.ps1 for \<Procedures\>, PRO-SC-1), in the test environment; \<Procedures\>, PRO-SA-2 | Results, with a manifest, in the evidence for each family | CA-2, CM-4(2), SA-11 |
@@ -324,7 +324,7 @@ The detection use cases U1 to U9 in \<System and Information Integrity Managemen
 
 ### 4.3 Vulnerability management (C10, C11, C37, C50)
 
-What is checked for vulnerabilities, by whom and how often is in \<Risk Assessment Management\>, section 3.5. Each fix is made within the time for its severity in \<System Description\>, P-11: 3 days if exploited, as an emergency change; 14 days Critical or High; 30 days Medium; 90 days Low. New entries in CISA's Known Exploited Vulnerabilities catalogue raise an alert, which the security officer checks with \<Organisation\>'s alerts each working day (C50).
+What is checked for vulnerabilities, by whom and how often is in \<Risk Assessment Management\>, section 3.5. Each fix is made within the time for its severity: 3 days if exploited, as an emergency change; 14 days Critical or High; 30 days Medium; 90 days Low. New entries in CISA's Known Exploited Vulnerabilities catalogue raise an alert, which the security officer checks with \<Organisation\>'s alerts each working day (C50).
 
 A fix that cannot be made in time is entered in \<Risk List\> as a non-compliance, with its compensating measure, and decided under \<Policy\>, section 1.2; a remediation then goes into \<Plan of Action and Milestones\> (\<Risk Assessment Management\>, sections 3.6 and 3.8). Updates are tested first, as \<Procedures\>, PRO-SI-1 requires. The clock and the severity are as \<Risk Assessment Management\>, section 3.6, sets out.
 
@@ -334,7 +334,7 @@ A fix that cannot be made in time is entered in \<Risk List\> as a non-complianc
 2. **Mover.** The person's manager tells the system owner and the owners of the person's groups within 1 working day of a role change. Access no longer needed is removed and recorded on TPL-14. Access for the new role is given only once its training is done, and, for a higher risk role, the screening repeated (\<Procedures\>, PRO-PS-3).
 3. **Leaver.** \<Organisation\> disables the person's Active Directory account at once, and \<System Name\> refuses them within 5 minutes, even while a sign-in is open. The owners of their groups remove the memberships within 5 working days. Any exported files or paper are recovered or destroyed, and recorded on TPL-14.
 4. **Higher-risk leaver, dismissal or misuse.** \<Organisation\>'s service desk disables the Active Directory account within 1 hour of notice, which ends access to \<System Name\> within 5 minutes, and ends the person's PingFederate sign-in so that they cannot start a new one. The account stays disabled for at least 8 hours, and the system owner confirms that \<System Name\> refuses the person (\<Procedures\>, PRO-AC-4, PRO-PS-2).
-5. **Inactive members.** Members of \<System Name\>'s groups who have not signed in for 90 days are removed from them each month (C9). \<Organisation\> disables Active Directory accounts unused for 90 days within 1 working day (P-38).
+5. **Inactive members.** Members of \<System Name\>'s groups who have not signed in for 90 days are removed from them each month (C9). \<Organisation\> disables Active Directory accounts unused for 90 days within 1 working day.
 
 ### 4.5 Change control (C38)
 
@@ -353,7 +353,7 @@ The security officer analyses each change's impact against the criteria in \<Con
 
 ### 4.7 Remote maintenance (C41)
 
-1. Remote maintenance is done only over a route in \<Maintenance Management\>, section 3.4, from the administrators' managed devices through \<Organisation\>'s managed administration route (F11), with multi-factor authentication and a named account, for an approved change or an incident. From outside the office, connect to the VPN first (P-54, B23).
+1. Remote maintenance is done only over a route in \<Maintenance Management\>, section 3.4, from the administrators' managed devices through \<Organisation\>'s managed administration route (F11), with multi-factor authentication and a named account, for an approved change or an incident. From outside the office, connect to the VPN first (B23).
 2. The connection is logged, limited to the task, and ended as soon as it is finished.
 3. Afterwards the server or database administrator runs their checks in the checklist after maintenance (\<Procedures\>, Table MA-2) and records the work on TPL-12, with the connection log reference. Within 1 working day, the security officer runs the sign-in, audit chain and checksum checks, then reviews and signs the result.
 4. Outside maintenance staff hold no account: they watch and guide over the administrator's shared screen, and the administrator drives and supervises the session (B21).

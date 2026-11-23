@@ -125,8 +125,8 @@ Four design documents are also the plan that CSS requires for their family, in t
 4. **Status.** A control is implemented, partially implemented, not implemented or not applicable. Its assessment result is satisfied or other than satisfied, as CSS uses the terms.
 5. **Placeholders.** Text in square brackets is a fact that only someone else can supply, such as a date from \<Organisation\>. They are counted by kind in \<Plan of Action and Milestones\>, section 5.7.
 6. **Drafts and approvals.** Nothing is shown as approved unless the person who approves it has done so. Every approval and decision is in \<Decision Register\>.
-7. **Values.** Values that CSS asks the organisation to define are set at corporate level by \<Organisation\>. Their reference values are the parameters in \<System Description\>, section 4, which the design documents cite rather than repeat. Where a design document's value does not match the corporate value, the design document is changed.
-8. **Reference numbers.** Identifiers such as PRO-AC-3, TPL-7, EV-MP-01 and P-20 never change when a document is renumbered. \<Documentation Map\>, Table 9, lists every kind and where it is defined.
+7. **Values.** Values that CSS asks the organisation to define are set at corporate level by \<Organisation\>. Their reference values are listed in \<System Description\>, section 4, and every document writes the value out in full where it uses it, never as a code. A change to a value is made in section 4 and in every document that states it. Where a design document's value does not match the corporate value, the design document is changed.
+8. **Reference numbers.** Identifiers such as PRO-AC-3, TPL-7 and EV-MP-01 never change when a document is renumbered. \<Documentation Map\>, Table 9, lists every kind and where it is defined.
 
 ## 8 Reviewing the set
 

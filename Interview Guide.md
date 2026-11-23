@@ -54,7 +54,7 @@ Questions are numbered INT-XX-nn, where XX is the family code, and each names th
 | INT-AC-03 | How do you decide who holds privileged roles? | AC-02e, AC-06(05) | The ServiceNow requests (TPL-2) for the five role groups |
 | INT-AC-04 | How are duties separated, and where does staffing prevent it? | AC-05a, AC-05b | Roles document, risk acceptance |
 | INT-AC-05 | How do you decide whether a non-compliance is accepted or remediated? | All; PRO-AC-17 | Decision register, TPL-1 records |
-| INT-AC-06 | What is allowed on external systems and portable storage? | AC-20, AC-20(02) | P-48, any approvals |
+| INT-AC-06 | What is allowed on external systems and portable storage? | AC-20, AC-20(02) | The rule that none is allowed without the system owner's written approval, and any approvals |
 | INT-AC-43 | Ask the Head of Cyber: how do you review the role-group memberships the system owner holds, and check the administrators' group, each quarter? | AC-05b, AC-06(07) | TPL-3 with the Head of Cyber's sign-off |
 | INT-AC-45 | Show me the last 6-monthly review of the Windows administrator accounts, SQL Server logins and service accounts. What was removed? | AC-02j, AC-06(07) | TPL-3 signed by the system owner and security officer; the exports in EV-AC-02 |
 
@@ -102,7 +102,7 @@ Questions are numbered INT-XX-nn, where XX is the family code, and each names th
 | --- | --- | --- | --- |
 | INT-AC-19 | Who has administrator rights on each VM and in the database? | AC-06(01), AC-06(05) | Group and role listings |
 | INT-AC-20 | What rights do the group managed service accounts of the three applications have, on the server, in SQL Server and in Active Directory? | AC-06 | Service account settings, SQL Server logins and database role grants |
-| INT-AC-21 | From where, and how, do you administer the VMs? When may you do it from outside the office (P-54)? | AC-17, AC-17(04) | Administration route (flow F11 in \<System Description\>, section 6.5); firewall rules |
+| INT-AC-21 | From where, and how, do you administer the VMs? When may you do it from outside the office? | AC-17, AC-17(04) | Administration route (flow F11 in \<System Description\>, section 6.5); firewall rules |
 | INT-AC-22 | What are the logon lockout, banner and screen lock settings? | AC-07, AC-08, AC-11 | Policy export |
 | INT-AC-23 | How are your privileged actions logged? | AC-06(09) | Sample log |
 | INT-AC-44 | When did you last do privileged work from outside the office? Show me the reason and the record of the session | AC-17(04)(a), AC-17(04)(b) | The change or incident record; the VPN and administration route connection logs; the Windows, SQL Server or audit log entries |
@@ -114,7 +114,7 @@ Questions are numbered INT-XX-nn, where XX is the family code, and each names th
 | ID | Question | Statements | Ask to see |
 | --- | --- | --- | --- |
 | INT-AC-24 | How do you make sure a new page or API function needs the right access? | AC-03, AC-06(10) | Code review practice, test checks |
-| INT-AC-25 | Do you have any access to production? | AC-05a, AC-06 | The server and database account review (TPL-3, P-52) |
+| INT-AC-25 | Do you have any access to production? | AC-05a, AC-06 | The server and database account review (TPL-3) |
 | INT-AC-26 | How are diagnostic and test pages kept out of a release? | AC-06(10), AC-14 | Build settings |
 
 ### 3.7 \<Organisation\> security contact
@@ -138,7 +138,7 @@ Questions are numbered INT-XX-nn, where XX is the family code, and each names th
 | INT-AC-32 | Have you read the rules of behaviour, and did you sign them? | AC-01a, AC-02c | Signed acknowledgement |
 | INT-AC-33 | What do you do if you can see an item you should not? | AC-03 | None |
 | INT-AC-34 | Do you use \<System Name\> from a phone, or a personal device, or copy items to USB? | AC-19, AC-20 | None |
-| INT-AC-39 | When do you sign out of \<System Name\>, and what happens if you leave it open all day? | AC-02(05), AC-12 | Sign-out entries in the audit log; the cookie and re-check settings (P-02, NFR-102) |
+| INT-AC-39 | When do you sign out of \<System Name\>, and what happens if you leave it open all day? | AC-02(05), AC-12 | Sign-out entries in the audit log; the cookie and re-check settings (NFR-102) |
 
 ### 3.9 Business owner
 

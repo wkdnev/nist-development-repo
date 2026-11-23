@@ -39,16 +39,16 @@ Entries are numbered TR-XX-nn, where XX is the family code. Section 8 lists the 
 
 | ID | Control or part | Tailoring | Rationale | Condition that must hold | If the condition changes |
 | --- | --- | --- | --- | --- | --- |
-| TR-AC-01 | AC-2(2) | Not applicable | Temporary and emergency accounts are prohibited (P-39), so there is nothing to remove or disable automatically | Each access review confirms that no such account exists | If such accounts are ever needed, they are Active Directory accounts with an end date, and AC-2(2) applies |
-| TR-AC-02 | AC-2k | Not applicable | Shared and group accounts are prohibited (P-36) | \<System Name\> holds no accounts of its own: every account is a person's own Active Directory account, and there is no built-in or default account | A process for changing shared authenticators is needed |
+| TR-AC-01 | AC-2(2) | Not applicable | Temporary and emergency accounts are prohibited, so there is nothing to remove or disable automatically | Each access review confirms that no such account exists | If such accounts are ever needed, they are Active Directory accounts with an end date, and AC-2(2) applies |
+| TR-AC-02 | AC-2k | Not applicable | Shared and group accounts are prohibited | \<System Name\> holds no accounts of its own: every account is a person's own Active Directory account, and there is no built-in or default account | A process for changing shared authenticators is needed |
 | TR-AC-03 | AC-8a.01 | Replace the statement with one naming \<Organisation\> | \<System Name\> is not a U.S. Government system, so the statement would be untrue | The notice names \<Organisation\>, and a legal adviser agrees the wording | Applies again if \<System Name\> serves a U.S. Government customer |
-| TR-AC-04 | AC-8c | Not applicable | \<System Name\> is not publicly accessible | Items and functions need sign-in, except the list in P-51 | AC-8c applies in full |
-| TR-AC-07 | AC-20(1) | Not applicable | P-48 does not allow external systems to reach or hold \<System Name\> data without the system owner's approval, and none is proposed | No such approval is given | Verification of controls and retained agreements are needed for each approval |
-| TR-AC-08 | AC-22 | Not applicable | \<System Name\> holds no public content (P-50) | Items and functions need sign-in, except the list in P-51 | AC-22 applies in full |
+| TR-AC-04 | AC-8c | Not applicable | \<System Name\> is not publicly accessible | Items and functions need sign-in, except the list in \<Access Control Management\>, section 3.17 | AC-8c applies in full |
+| TR-AC-07 | AC-20(1) | Not applicable | The external systems rule does not allow external systems to reach or hold \<System Name\> data without the system owner's approval, and none is proposed | No such approval is given | Verification of controls and retained agreements are needed for each approval |
+| TR-AC-08 | AC-22 | Not applicable | \<System Name\> holds no public content | Items and functions need sign-in, except the list in \<Access Control Management\>, section 3.17 | AC-22 applies in full |
 | TR-AC-09 | AC-07\_ODP\[05\], \[06\] | Not selected | The account lock is the chosen action, so no delay algorithm or other action is needed | The lock remains in place | Define the value that is then selected |
-| TR-AC-10 | AC-20\_ODP\[03\] | Not selected | Terms and conditions are used, not asserted controls | P-48 remains the rule | Define the asserted controls |
+| TR-AC-10 | AC-20\_ODP\[03\] | Not selected | Terms and conditions are used, not asserted controls | No external system without the system owner's written approval remains the rule | Define the asserted controls |
 
-TR-AC-05 (AC-17(4)) and TR-AC-06 (AC-19, AC-19(5)) were withdrawn: privileged remote access is allowed for the needs in P-54, and managed laptops are mobile devices, so those controls apply. The numbers are not reused.
+TR-AC-05 (AC-17(4)) and TR-AC-06 (AC-19, AC-19(5)) were withdrawn: privileged remote access is allowed for approved changes, maintenance and incident response, and managed laptops are mobile devices, so those controls apply. The numbers are not reused.
 
 ### 2.2 Considered and not proposed
 
@@ -60,10 +60,10 @@ These controls may look unnecessary but are not proposed for tailoring, so that 
 | --- | --- |
 | AC-18, AC-18(1) | \<System Name\> provides no wireless access, but users may reach it over \<Organisation\>'s wireless network, so the control is inherited and needs evidence |
 | AC-18(3) | It needs confirming on the built VMs and workstation builds |
-| AC-17, AC-17(1) to (4) | Approved users may work remotely through \<Organisation\>'s service. Privileged access from outside the office is allowed for the defined needs in P-54, so AC-17(4) applies |
+| AC-17, AC-17(1) to (4) | Approved users may work remotely through \<Organisation\>'s service. Privileged access from outside the office is allowed for approved changes, maintenance and incident response, so AC-17(4) applies |
 | AC-20, AC-20(2) | Downloads can reach any device the user has, so the rule and its enforcement remain relevant |
-| AC-19, AC-19(5) | Managed laptops are mobile devices, so the controls are inherited from \<Organisation\>'s device management and encryption (P-47; EV-AC-15) |
-| AC-2(5), AC-11, AC-11(1), AC-12 | \<System Name\> has no idle lock, idle timeout or session limit. AC-11 and AC-11(1) are inherited from the screen lock on \<Organisation\>'s managed devices (\<System Description\>, P-03). AC-12 is shared: the application's cookie ends 8 hours after sign-in, never later than PingFederate's sign-in (P-02), and is re-checked every 5 minutes. AC-2(5) is shared: users must sign out as P-53 sets, with Sign out (FR-084) (\<System Description\>, section 7.3) |
+| AC-19, AC-19(5) | Managed laptops are mobile devices, so the controls are inherited from \<Organisation\>'s device management and encryption (EV-AC-15) |
+| AC-2(5), AC-11, AC-11(1), AC-12 | \<System Name\> has no idle lock, idle timeout or session limit. AC-11 and AC-11(1) are inherited from the screen lock on \<Organisation\>'s managed devices. AC-12 is shared: the application's cookie ends 8 hours after sign-in, never later than PingFederate's sign-in, and is re-checked every 5 minutes. AC-2(5) is shared: users must sign out at the end of each working day and when away longer than a short break, with Sign out (FR-084) (\<System Description\>, section 7.3) |
 
 ## 3 Identification and Authentication (IA)
 
@@ -113,7 +113,7 @@ The PT controls are in the CSS privacy baseline, not Moderate, and are assessed 
 
 | ID | Control or part | Tailoring | Rationale | Condition that must hold | If the condition changes |
 | --- | --- | --- | --- | --- | --- |
-| TR-SC-01 | SC-15 | Not applicable | \<System Name\> has no collaborative computing devices or applications: its two servers have no camera or microphone and run no conferencing software, and users' devices are outside the boundary | None is added to the system, checked at each significant change and against the approved software list every 12 months (P-65) | SC-15 applies |
+| TR-SC-01 | SC-15 | Not applicable | \<System Name\> has no collaborative computing devices or applications: its two servers have no camera or microphone and run no conferencing software, and users' devices are outside the boundary | None is added to the system, checked at each significant change and against the approved software list every 12 months | SC-15 applies |
 
 ## 7 System and Information Integrity (SI)
 
@@ -123,7 +123,7 @@ No RA or CA control is tailored.
 
 | ID | Control or part | Tailoring | Rationale | Condition that must hold | If the condition changes |
 | --- | --- | --- | --- | --- | --- |
-| TR-SI-01 | SI-8, SI-8(2) | Not applicable | \<System Name\> sends and receives no email or other message: it has no mail or messaging component and no outbound route for one (\<System Description\>, FR-056, FR-080), so it has no entry or exit point for spam. Users' email is \<Organisation\>'s, outside the boundary | No mail or messaging component or route is added, checked at each significant change and against the approved software list every 12 months (P-65) | SI-8 and SI-8(2) apply |
+| TR-SI-01 | SI-8, SI-8(2) | Not applicable | \<System Name\> sends and receives no email or other message: it has no mail or messaging component and no outbound route for one (\<System Description\>, FR-056, FR-080), so it has no entry or exit point for spam. Users' email is \<Organisation\>'s, outside the boundary | No mail or messaging component or route is added, checked at each significant change and against the approved software list every 12 months | SI-8 and SI-8(2) apply |
 
 ## 8 Controls outside the baseline
 
@@ -170,7 +170,7 @@ CSS does not select the controls in Table 9 at Moderate, so they are not assesse
 | IA | IA-2(5) Individual Authentication with Group Authentication | A person signs in as themselves before using a shared account | Not required. There are no shared accounts |
 | IA | IA-2(6) Access to Accounts, Separate Device | The second factor is on a device separate from the one signing in | Not required. Set by \<Organisation\>'s PingFederate, and asked with EV-IA-04 |
 | IA | IA-5(7) No Embedded Unencrypted Static Authenticators | No passwords or keys left in code, scripts or settings | Not required. Done in design: the token signing key, the audit chain key and the OpenID Connect client credential are held in the key store, outside the source repositories and settings files, and the API has no database password (\<Identification and Authentication Management\>, section 3.5) |
-| IA | IA-5(13) Expiration of Cached Authenticators | Cached sign-in details expire | Not required. \<System Name\> caches no authenticators: it holds the sign-in only in its authentication cookie, for no longer than PingFederate's sign-in lifetime (P-02) |
+| IA | IA-5(13) Expiration of Cached Authenticators | Cached sign-in details expire | Not required. \<System Name\> caches no authenticators: it holds the sign-in only in its authentication cookie, for no longer than PingFederate's sign-in lifetime |
 | IA | IA-9 Service Identification and Authentication | Services prove who they are to each other | In no baseline. Done in design: the UI application and the Admin application to the API with a signed token; the API to the database and to Active Directory with its managed service account; and the applications' check of PingFederate's signed response (\<Identification and Authentication Management\>, section 3.2) |
 | IA | IA-10 Adaptive Authentication | Extra checks when a sign-in looks unusual | In no baseline. A matter for \<Organisation\>'s PingFederate |
 | IA | IA-12(4) In-person Validation and Verification | Identity evidence checked in person | Selected only at High. \<Organisation\>'s HR is asked how it checks (EV-IA-02) |
@@ -268,7 +268,7 @@ CSS does not select the controls in Table 9 at Moderate, so they are not assesse
 | SC | SC-7(18) Fail Secure | The boundary fails closed | Not required. Done in design: deny by default |
 | SC | SC-7(21) Isolation of System Components | Separates components by boundary | Not required. Done in design: separate application and database servers |
 | SC | SC-12(1) to SC-12(3) | Key availability and symmetric and asymmetric key production | Not required. Keys are recorded with their store and owner (\<System and Communications Protection Management\>, section 3.4) |
-| SC | SC-23(1), SC-23(3), SC-23(5) | Invalidate session identifiers at sign-out, unique identifiers, allowed certificate authorities | Not required. \<System Name\>'s only session identifier is its protected authentication cookie. Done in design: only PingFederate's signed response is accepted; the cookie lasts 8 hours from sign-in at most and never longer than PingFederate's sign-in (P-02); and Sign out (FR-084) clears it (\<System and Communications Protection Management\>, section 3.3) |
+| SC | SC-23(1), SC-23(3), SC-23(5) | Invalidate session identifiers at sign-out, unique identifiers, allowed certificate authorities | Not required. \<System Name\>'s only session identifier is its protected authentication cookie. Done in design: only PingFederate's signed response is accepted; the cookie lasts 8 hours from sign-in at most and never longer than PingFederate's sign-in; and Sign out (FR-084) clears it (\<System and Communications Protection Management\>, section 3.3) |
 | SC | SC-28(2), SC-28(3) | Offline storage of information at rest; protected key storage | Not required. Done in part: encrypted backups with the key held apart (K10) |
 | SC | SC-45 System Time Synchronization | Synchronises clocks with an authoritative source | Not selected at Moderate in the SC family. Done in design: \<Organisation\>'s time service (rule O1; \<Audit and Accountability Management\>) |
 | SI | SI-2(5), SI-2(6) | Automatic updates; removing previous versions after an update | Not required. Done in part: updates go through change control (\<System and Information Integrity Management\>, section 3.3) |

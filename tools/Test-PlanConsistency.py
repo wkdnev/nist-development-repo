@@ -396,7 +396,7 @@ class Checker:
                 if nid not in ncs:
                     p.append(f"{nid} is cited but not in the non-compliance register")
 
-        @self.check("L11", "Every decision cited exists once in <Decision Register>, and each parameter approval names a parameter that exists")
+        @self.check("L11", "Every decision cited exists once in <Decision Register>, and no document cites a value by a parameter code such as P-02")
         def _(p):
             dup = [d for d, n in collections.Counter(decisions).items() if n > 1]
             if dup:
@@ -406,15 +406,11 @@ class Checker:
                 for d in set(re.findall(r"\bD-[A-Z]{2,3}-P?\d+\b", text)):
                     if d not in dset:
                         p.append(f"{doc}: cites {d}, which is not in \\<Decision Register\\>")
-            params = set(re.findall(r"^\| (P-\d+) \|", ds.text("System Description"), re.M))
-            for d in dset:
-                m = re.match(r"D-[A-Z]{2,3}-P(\d+)$", d)
-                if m and f"P-{m.group(1)}" not in params:
-                    p.append(f"{d}: P-{m.group(1)} is not in \\<System Description\\>, section 4")
+            # Values are written out in words wherever they are used; parameter codes (P-01 to P-76)
+            # are no longer used. DIN 66399 level P-4, CSS task P-5 and ECDSA P-256 are not parameter codes.
             for doc, text in ds.docs.items():
-                for prm in set(re.findall(r"(?<![A-Z]-)(?<![\w-])(?<!level )(?<!task )(?<!66399 )P-(\d+)\b(?!-)", text)) - {"256"}:
-                    if f"P-{prm}" not in params:
-                        p.append(f"{doc}: cites P-{prm}, which is not a parameter")
+                for prm in sorted(set(re.findall(r"(?<![A-Z]-)(?<![\w-])(?<!level )(?<!task )(?<!66399 )(?<!ECDSA )P-(\d+)\b(?!-)", text))):
+                    p.append(f"{doc}: cites P-{prm}; write the value out instead")
 
         @self.check("L12", "Every evidence request cited exists once in <Evidence Requests>")
         def _(p):

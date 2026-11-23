@@ -196,8 +196,8 @@ Findings: **S** satisfied. **O-D** other than satisfied, because a decision or a
 | AC-02i.02 | Access rests on intended usage | O-E | Awaiting \<Organisation\>'s evidence: EV-AC-01 and EV-AC-02 (NC-AC-02) |
 | AC-02i.03 | Access rests on the set attributes | O-E | Awaiting \<Organisation\>'s evidence: EV-AC-01 and EV-AC-02 (NC-AC-02) |
 | AC-02j. | Accounts are reviewed | O-E | Awaiting \<Organisation\>'s evidence: EV-AC-01 and EV-AC-02 (NC-AC-02) |
-| AC-02k.\[01\] | Shared authenticator process is established | N/A | TR-AC-02: Shared and group accounts are prohibited (P-36) |
-| AC-02k.\[02\] | Shared authenticator process is implemented | N/A | TR-AC-02: Shared and group accounts are prohibited (P-36) |
+| AC-02k.\[01\] | Shared authenticator process is established | N/A | TR-AC-02: Shared and group accounts are prohibited |
+| AC-02k.\[02\] | Shared authenticator process is implemented | N/A | TR-AC-02: Shared and group accounts are prohibited |
 | AC-02l.\[01\] | Aligned with termination processes | O-E | Awaiting \<Organisation\>'s evidence: EV-AC-01 and EV-AC-02 (NC-AC-02) |
 | AC-02l.\[02\] | Aligned with transfer processes | O-E | Awaiting \<Organisation\>'s evidence: EV-AC-01 and EV-AC-02 (NC-AC-02) |
 | AC-02(01)\_ODP | Automated mechanisms are defined | S | Defined in \<Access Control Management\>, sections 3.1, 3.6.5, 3.13 |
@@ -347,8 +347,8 @@ This records how the assessment is planned and carried out, following CSS. It co
 | Interview | The system owner, administrators, Data Owners, auditors and security officers, the Windows server and database administrators, developers, \<Organisation\>'s security contact, a sample of users, the business owner, the legal adviser's delegate and the Head of Cyber, using INT-AC-01 to 45. The people are named in \<Roles and Responsibilities\> |
 | Previous results reused | The AC-1 statements, recorded with every family's in section 1.3. No other results are reused |
 | Boundary | The whole stack on the two Windows Server 2025 VMs: the UI application, Admin application, API and shared library on the application server, and SQL Server 2022 on the database server, with Windows accounts, SQL Server logins and roles, and each application's group managed service account, as well as the Active Directory role and schema groups that give users access. \<Organisation\>'s network, remote access, devices, PingFederate and Active Directory are inherited, and Cyber Essentials Plus supports but does not prove them |
-| Order of assessment | A, access enforcement (AC-3, AC-14, AC-6(10), AC-6(1)); B, privilege (AC-6, AC-6(5), AC-5, AC-6(2), AC-6(9)); C, account lifecycle (AC-2 and its enhancements, AC-6(7)); D, sign-in, sign-in lifetime and screen lock (AC-7, AC-8, AC-2(5), AC-12, AC-11, AC-11(1)), where AC-12 rests on the application's session (P-02, NFR-102) within PingFederate's sign-in, AC-2(5) on Sign out and the rule in P-53, and AC-11 and AC-11(1) on the device screen lock (P-03); E, network and devices (AC-4, AC-17, AC-18 and AC-19 families); F, organisation (AC-20 family, AC-21, AC-22, AC-1). Access enforcement comes first because the other results depend on it |
-| Needed from \<Organisation\> | Evidence for the inherited parts of AC-2(3), AC-4, AC-7, AC-11, AC-17 (including privileged access through the VPN, P-54), AC-18, AC-19, AC-20 and AC-6(9), as requested in \<Evidence Requests\> |
+| Order of assessment | A, access enforcement (AC-3, AC-14, AC-6(10), AC-6(1)); B, privilege (AC-6, AC-6(5), AC-5, AC-6(2), AC-6(9)); C, account lifecycle (AC-2 and its enhancements, AC-6(7)); D, sign-in, sign-in lifetime and screen lock (AC-7, AC-8, AC-2(5), AC-12, AC-11, AC-11(1)), where AC-12 rests on the application's session (NFR-102) within PingFederate's sign-in, AC-2(5) on Sign out and the rule that users sign out at the end of each working day and when away longer than a short break, and AC-11 and AC-11(1) on the device screen lock; E, network and devices (AC-4, AC-17, AC-18 and AC-19 families); F, organisation (AC-20 family, AC-21, AC-22, AC-1). Access enforcement comes first because the other results depend on it |
+| Needed from \<Organisation\> | Evidence for the inherited parts of AC-2(3), AC-4, AC-7, AC-11, AC-17 (including privileged access through the VPN), AC-18, AC-19, AC-20 and AC-6(9), as requested in \<Evidence Requests\> |
 | Approval | The authorising official approves this plan. Approved by: \[Name\] |
 | Evidence retained | The AC evidence, with its manifest; TPL-2 (the ServiceNow requests), TPL-3, TPL-14, TPL-17 and TPL-25 records; \<Access Control Management\>, section 3 |
 
@@ -1166,7 +1166,7 @@ This records the Level 1 self-assessment of the 24 IA entries in the CSS Moderat
 | IA-3 | Other than satisfied | 0 of 3 | NC-IA-06: awaits \<Organisation\>'s evidence (EV-IA-01) |
 | IA-4 | Other than satisfied | 2 of 6 | NC-IA-07: awaits \<Organisation\>'s evidence (EV-AC-01) |
 | IA-4(4) | Other than satisfied | 1 of 2 | NC-IA-08: awaits \<Organisation\>'s evidence (EV-AC-01) |
-| IA-5 | Other than satisfied | 0 of 12 | NC-IA-09: awaits approval of P-10; not yet operated; awaits \<Organisation\>'s evidence (EV-IA-04 and EV-IA-01) |
+| IA-5 | Other than satisfied | 0 of 12 | NC-IA-09: awaits approval of the key and secret change periods; not yet operated; awaits \<Organisation\>'s evidence (EV-IA-04 and EV-IA-01) |
 | IA-5(1) | Other than satisfied | 0 of 10 | NC-IA-10: awaits \<Organisation\>'s evidence (EV-IA-04) |
 | IA-5(2) | Not applicable | 0 of 4 | Tailored out in TR-IA-02, awaiting D-IA-03 |
 | IA-5(6) | Other than satisfied | 0 of 1 | NC-IA-11: not yet operated; awaits \<Organisation\>'s evidence (EV-IA-04) |
@@ -1212,8 +1212,8 @@ There is one finding for each CSS determination statement, including those about
 | IA-04d. | Reuse is prevented | O-E | Awaiting \<Organisation\>'s evidence: EV-AC-01 (NC-IA-07) |
 | IA-04(04)\_ODP | Status to show is defined | S | Defined in \<Identification and Authentication Management\>, sections 3.2, 3.9 |
 | IA-04(04) | Identifiers show the status | O-E | Awaiting \<Organisation\>'s evidence: EV-AC-01 (NC-IA-08) |
-| IA-05\_ODP\[01\] | Change periods are defined | O-D | Set in the design, awaiting P-10 (NC-IA-09) |
-| IA-05\_ODP\[02\] | Change events are defined | O-D | Set in the design, awaiting P-10 (NC-IA-09) |
+| IA-05\_ODP\[01\] | Change periods are defined | O-D | Set in the design, awaiting approval of the key and secret change periods (NC-IA-09) |
+| IA-05\_ODP\[02\] | Change events are defined | O-D | Set in the design, awaiting approval of the key and secret change periods (NC-IA-09) |
 | IA-05a. | Identity is verified before issuing | O-E | Awaiting \<Organisation\>'s evidence: EV-IA-04 and EV-IA-01 (NC-IA-09) |
 | IA-05b. | Initial content is established | O-D | Not yet operated: the secrets are first generated and placed in the key store when the VMs are built (NC-IA-09) |
 | IA-05c. | Strength is sufficient | O-E | Awaiting \<Organisation\>'s evidence: EV-IA-04 and EV-IA-01 (NC-IA-09) |
@@ -1791,7 +1791,7 @@ There is one finding for each CSS determination statement, including those about
 | Procedures | CSS, using the CSS published statements and identifiers (catalog release 5.2.0) |
 | Dates | Desk self-assessment of the documents: 22 November 2026 (section 1.4). The Level 1 assessment on the built VMs: \[Dates of the assessment\], set by the Level 1 assessor once appointed (NC-CA-02) |
 | Site | The main data centre and the second site named in \<Physical and Environmental Protection Management\>, section 3.2 |
-| Examine | \<Policy\> (PE), \<Procedures\> (PE) and \<Physical and Environmental Protection Management\>, with the inheritance matrix; \<Security Operating Procedures\>, A33, A35 to A42 and section 4.6; \<Incident Response Management\>, section 3.9; the TPL-26 home working checks and TPL-10 physical incident records; P-70 and D-PE-01. Depth: focused. Coverage: focused |
+| Examine | \<Policy\> (PE), \<Procedures\> (PE) and \<Physical and Environmental Protection Management\>, with the inheritance matrix; \<Security Operating Procedures\>, A33, A35 to A42 and section 4.6; \<Incident Response Management\>, section 3.9; the TPL-26 home working checks and TPL-10 physical incident records; the physical and environmental values (D-PE-P70) and D-PE-01. Depth: focused. Coverage: focused |
 | Test | None for PE. Screen locking is tested under AC-11, and output marking under MP-3 |
 | Interview | The security officer, a sample of home workers, \<Organisation\>'s security contact and its facilities contact (\<Interview Guide\>, INT-PE-01 to INT-PE-05) |
 | Site inspection | Once at Level 2, using TPL-20, by the independent assessor or \<Organisation\>'s auditor (PRO-PE-5) |
@@ -1800,7 +1800,7 @@ There is one finding for each CSS determination statement, including those about
 | Order of assessment | A, inherited evidence against the matrix (PE-2 to PE-16); B, the site inspection; C, output devices (PE-5); D, home working (PE-17); E, policy (PE-1). The inherited evidence comes first because it closes most statements |
 | Needed from \<Organisation\> | EV-PE-01 to EV-PE-05 in \<Evidence Requests\>: first its ISO/IEC 27001 certificate and Statement of Applicability for Annex A.7, or a SOC 2 report, for both sites |
 | Evidence retained | \<Physical and Environmental Protection Management\>, sections 3.2 and 3.3; \<Evidence Requests\>; completed TPL-20 |
-| Notes | Fifteen of the 18 controls are inherited from \<Organisation\>'s data centres, and the inheritance matrix in \<Physical and Environmental Protection Management\>, section 3.3, shows the evidence that closes each one (EV-PE-01 to EV-PE-05). Screen locking is tested under AC-11, and output marking under MP-3. An unattended screen is locked by \<Organisation\>'s managed devices and the servers (P-03). \<System Name\>'s steps beside an inherited control (PE-6, PE-11, PE-16) are examined with \<Organisation\>'s evidence. PE-8(3) is assessed in the PT chapter. An inherited statement stays O-E until \<Organisation\>'s evidence is received. |
+| Notes | Fifteen of the 18 controls are inherited from \<Organisation\>'s data centres, and the inheritance matrix in \<Physical and Environmental Protection Management\>, section 3.3, shows the evidence that closes each one (EV-PE-01 to EV-PE-05). Screen locking is tested under AC-11, and output marking under MP-3. An unattended screen is locked by \<Organisation\>'s managed devices and the servers. \<System Name\>'s steps beside an inherited control (PE-6, PE-11, PE-16) are examined with \<Organisation\>'s evidence. PE-8(3) is assessed in the PT chapter. An inherited statement stays O-E until \<Organisation\>'s evidence is received. |
 
 For the Level 2 assessment, the assessor should examine \<Organisation\>'s certificate, Statement of Applicability or SOC 2 report against the inheritance matrix, inspect the main data centre and the second site with TPL-20, interview the security officer and a sample of home workers, and re-determine every statement in section PE.3.
 
@@ -2031,7 +2031,7 @@ There is one finding for each CSS determination statement, including those about
 | Scope | The 9 PS entries in the Moderate baseline, with 68 determination statements |
 | Procedures | CSS, using the CSS published statements and identifiers (catalog release 5.2.0) |
 | Dates | Desk self-assessment of the documents: 22 November 2026 (section 1.4). The Level 1 assessment on the built VMs: \[Dates of the assessment\], set by the Level 1 assessor once appointed (NC-CA-02) |
-| Examine | \<Policy\> (PS), \<Procedures\> (PS) and \<Personnel Security Management\>; \<System Description\>, P-06, P-41, P-71 and P-72; \<Decision Register\>, D-PS-01, D-PS-02 and D-PS-P72; \<Roles and Responsibilities\>; \<Security Operating Procedures\>, sections 4.4 and 9; \<Procedures\>, PRO-AC-3 and PRO-AC-4; \<Record Templates\>, TPL-2, TPL-3, TPL-14, TPL-16 and TPL-21. Depth: focused. Coverage: focused |
+| Examine | \<Policy\> (PS), \<Procedures\> (PS) and \<Personnel Security Management\>; \<System Description\>, section 4, for the leaver, high-risk, rules of behaviour and personnel security values; \<Decision Register\>, D-PS-01, D-PS-02 and D-PS-P72; \<Roles and Responsibilities\>; \<Security Operating Procedures\>, sections 4.4 and 9; \<Procedures\>, PRO-AC-3 and PRO-AC-4; \<Record Templates\>, TPL-2, TPL-3, TPL-14, TPL-16 and TPL-21. Depth: focused. Coverage: focused |
 | Test | Not applicable to this family. Test-PlanConsistency.py checks that every role has a risk designation (the PL evidence) |
 | Interview | The system owner, a Data Owner, a line manager and \<Organisation\>'s HR (INT-PS-01 to INT-PS-08) |
 | Boundary | \<System Name\>'s own designations, agreements, time limits and register. \<Organisation\>'s screening, HR and disciplinary processes are provider evidence (EV-PS-01 to EV-PS-03) |
@@ -2043,7 +2043,7 @@ There is one finding for each CSS determination statement, including those about
 For the Level 2 assessment, the assessor should:
 
 - sample people with access against the personnel security register, TPL-2 and the signed agreements;
-- follow one leaver, one higher-risk leaver or urgent disable, and one mover from notice to TPL-14, and compare the times with the audit records and P-06, P-41 and P-72;
+- follow one leaver, one higher-risk leaver or urgent disable, and one mover from notice to TPL-14, and compare the times with the audit records and the required times: memberships removed within 5 working days, an urgent disable within 1 hour, and a supplier's mover or leaver notice within 1 working day;
 - check that everyone in a higher risk role was screened or rescreened within the last 5 years;
 - examine EV-PS-01 to EV-PS-03;
 - hold the interviews, and re-determine every statement in section PS.3.
@@ -2191,7 +2191,7 @@ There is one finding for each CSS determination statement, including those about
 | Scope | 5 PT controls and 15 privacy baseline controls outside Moderate, with 103 determination statements, covering every kind of personal data in \<PII Processing Management\>, section 3.3 |
 | Procedures | CSS, using the CSS published statements and identifiers (catalog release 5.2.0); UK GDPR, the DPA 2018 and the Data (Use and Access) Act 2025 for what the organisation must comply with |
 | Dates | Desk self-assessment of the documents: 22 November 2026 (section 1.4). The Level 1 assessment on the built VMs: \[Dates of the assessment\], set by the Level 1 assessor once appointed (NC-CA-02) |
-| Examine | \<Policy\> (PT), \<Procedures\> (PT) and \<PII Processing Management\>, \<Data Protection Impact Assessment\>, \<Privacy Plan\>, \<Incident Response Management\>, section 3.8, \<Security Operating Procedures\>, A23 to A29 and C33; \<System Description\>, P-22, P-31 and P-73; \<Decision Register\>, D-PT-01 to D-PT-07 and D-PT-P22, D-PT-P31 and D-PT-P73; TPL-3, TPL-15, TPL-22 and TPL-25 records; the audit record format, the item management functions, the correct and delete functions, and the search across schemas for one person's data (\<System Description\>, FR-073). Depth: focused. Coverage: focused |
+| Examine | \<Policy\> (PT), \<Procedures\> (PT) and \<PII Processing Management\>, \<Data Protection Impact Assessment\>, \<Privacy Plan\>, \<Incident Response Management\>, section 3.8, \<Security Operating Procedures\>, A23 to A29 and C33; \<System Description\>, section 4, for the request time, the laws that apply and the privacy values; \<Decision Register\>, D-PT-01 to D-PT-07 and D-PT-P22, D-PT-P31 and D-PT-P73; TPL-3, TPL-15, TPL-22 and TPL-25 records; the audit record format, the item management functions, the correct and delete functions, and the search across schemas for one person's data (\<System Description\>, FR-073). Depth: focused. Coverage: focused |
 | Test | Test-PersonalData.ps1, on a fresh throwaway stack (the PT evidence) |
 | Interview | The legal adviser, the business owner, the data protection officer, a Data Owner, an editor, the system owner, the security officer and the legal adviser's delegate who would handle a request (INT-PT-01 to INT-PT-12) |
 | Previous results reused | The PT-1 statements, recorded with every family's in section 1.3. No other results are reused |
@@ -2305,7 +2305,7 @@ There is one finding for each CSS determination statement, including those about
 | Scope | The 10 RA entries in the Moderate baseline, with 73 determination statements |
 | Procedures | CSS, using the CSS published statements and identifiers (catalog release 5.2.0); CSS for the risk method |
 | Dates | Desk self-assessment of the documents: 22 November 2026 (section 1.4). The Level 1 assessment on the built VMs: \[Dates of the assessment\], set by the Level 1 assessor once appointed (NC-CA-02) |
-| Examine | \<Policy\> (RA), \<Procedures\> (RA) and \<Risk Assessment Management\>; \<Risk List\>, with its threat model; \<System Security Plan\>, section 3; \<System Description\>, P-01, P-11, P-30 and P-74; \<Supply Chain Risk Management\>; \<Data Protection Impact Assessment\>, section 6; \<Decision Register\>, D-RA-01 to D-RA-04; \<Plan of Action and Milestones\>; TPL-7 and TPL-23 records. Depth: focused. Coverage: focused |
+| Examine | \<Policy\> (RA), \<Procedures\> (RA) and \<Risk Assessment Management\>; \<Risk List\>, with its threat model; \<System Security Plan\>, section 3; \<System Description\>, section 4, for the categorisation, flaw fixing, vulnerability scanning and risk assessment values; \<Supply Chain Risk Management\>; \<Data Protection Impact Assessment\>, section 6; \<Decision Register\>, D-RA-01 to D-RA-04; \<Plan of Action and Milestones\>; TPL-7 and TPL-23 records. Depth: focused. Coverage: focused |
 | Test | Test-Vulnerability.ps1, on the release tag and the servers (the RA evidence) |
 | Interview | The system owner, the authorising official, the security officer, the Windows server administrator, the developers and \<Organisation\>'s security contact |
 | Previous results reused | The RA-1 statements, recorded with every family's in section 1.3. No other results are reused |
@@ -2406,10 +2406,10 @@ There is one finding for each CSS determination statement, including those about
 | SA-04(02)\_ODP\[02\] | Other information is defined | O-D | Set in the design, awaiting D-PL-01 (NC-SA-06) |
 | SA-04(02)\_ODP\[03\] | Level of detail is defined | O-D | Set in the design, awaiting D-PL-01 (NC-SA-06) |
 | SA-04(02) | Developer provides design information | S | Designed in \<System and Services Acquisition Management\>, section 3.4; NC-SA-06 concerns other statements |
-| SA-04(09)\[01\] | Developer identifies functions | O-E | Awaiting evidence from the VMs: the functions, ports, protocols and services in \<System Security Plan\>, section 3.7, are checked when the VMs are built (P-65) (NC-SA-07) |
-| SA-04(09)\[02\] | Developer identifies ports | O-E | Awaiting evidence from the VMs: the functions, ports, protocols and services in \<System Security Plan\>, section 3.7, are checked when the VMs are built (P-65) (NC-SA-07) |
-| SA-04(09)\[03\] | Developer identifies protocols | O-E | Awaiting evidence from the VMs: the functions, ports, protocols and services in \<System Security Plan\>, section 3.7, are checked when the VMs are built (P-65) (NC-SA-07) |
-| SA-04(09)\[04\] | Developer identifies services | O-E | Awaiting evidence from the VMs: the functions, ports, protocols and services in \<System Security Plan\>, section 3.7, are checked when the VMs are built (P-65) (NC-SA-07) |
+| SA-04(09)\[01\] | Developer identifies functions | O-E | Awaiting evidence from the VMs: the functions, ports, protocols and services in \<System Security Plan\>, section 3.7, are checked when the VMs are built (NC-SA-07) |
+| SA-04(09)\[02\] | Developer identifies ports | O-E | Awaiting evidence from the VMs: the functions, ports, protocols and services in \<System Security Plan\>, section 3.7, are checked when the VMs are built (NC-SA-07) |
+| SA-04(09)\[03\] | Developer identifies protocols | O-E | Awaiting evidence from the VMs: the functions, ports, protocols and services in \<System Security Plan\>, section 3.7, are checked when the VMs are built (NC-SA-07) |
+| SA-04(09)\[04\] | Developer identifies services | O-E | Awaiting evidence from the VMs: the functions, ports, protocols and services in \<System Security Plan\>, section 3.7, are checked when the VMs are built (NC-SA-07) |
 | SA-04(10) | Only approved PIV products are used | N/A | Tailored out, TR-SA-01; awaiting its decision in \<Decision Register\> |
 | SA-05\_ODP\[01\] | Actions for missing documents are defined | O-D | Set in the design, awaiting D-SA-P75 (NC-SA-08) |
 | SA-05\_ODP\[02\] | Who receives documentation is defined | O-D | Set in the design, awaiting D-SA-P75 (NC-SA-08) |
@@ -2472,13 +2472,13 @@ There is one finding for each CSS determination statement, including those about
 | SA-11\_ODP\[01\] | Test types are selected | O-D | Set in the design, awaiting D-SA-P28 and D-SA-P75 (NC-SA-13) |
 | SA-11\_ODP\[02\] | Frequency is defined | O-D | Set in the design, awaiting D-SA-P28 and D-SA-P75 (NC-SA-13) |
 | SA-11\_ODP\[03\] | Depth and coverage are defined | O-D | Set in the design, awaiting D-SA-P28 and D-SA-P75 (NC-SA-13) |
-| SA-11a.\[01\] | Security assessment plan is developed | O-D | Not yet operated: the developer test plan has not yet been run on a release, and the web applications not yet verified to P-28 (NC-SA-13) |
-| SA-11a.\[02\] | Security assessment plan is implemented | O-D | Not yet operated: the developer test plan has not yet been run on a release, and the web applications not yet verified to P-28 (NC-SA-13) |
-| SA-11a.\[03\] | Privacy assessment plan is developed | O-D | Not yet operated: the developer test plan has not yet been run on a release, and the web applications not yet verified to P-28 (NC-SA-13) |
-| SA-11a.\[04\] | Privacy assessment plan is implemented | O-D | Not yet operated: the developer test plan has not yet been run on a release, and the web applications not yet verified to P-28 (NC-SA-13) |
-| SA-11b. | Testing is performed at the set depth and frequency | O-D | Not yet operated: the developer test plan has not yet been run on a release, and the web applications not yet verified to P-28 (NC-SA-13) |
+| SA-11a.\[01\] | Security assessment plan is developed | O-D | Not yet operated: the developer test plan has not yet been run on a release, and the web applications not yet verified to OWASP ASVS 5.0 Level 2 (NC-SA-13) |
+| SA-11a.\[02\] | Security assessment plan is implemented | O-D | Not yet operated: the developer test plan has not yet been run on a release, and the web applications not yet verified to OWASP ASVS 5.0 Level 2 (NC-SA-13) |
+| SA-11a.\[03\] | Privacy assessment plan is developed | O-D | Not yet operated: the developer test plan has not yet been run on a release, and the web applications not yet verified to OWASP ASVS 5.0 Level 2 (NC-SA-13) |
+| SA-11a.\[04\] | Privacy assessment plan is implemented | O-D | Not yet operated: the developer test plan has not yet been run on a release, and the web applications not yet verified to OWASP ASVS 5.0 Level 2 (NC-SA-13) |
+| SA-11b. | Testing is performed at the set depth and frequency | O-D | Not yet operated: the developer test plan has not yet been run on a release, and the web applications not yet verified to OWASP ASVS 5.0 Level 2 (NC-SA-13) |
 | SA-11c.\[01\] | Evidence of the plan is produced | O-E | Awaiting evidence of operation on the VMs (NC-SA-13) |
-| SA-11c.\[02\] | Test results are produced | O-D | Not yet operated: the developer test plan has not yet been run on a release, and the web applications not yet verified to P-28 (NC-SA-13) |
+| SA-11c.\[02\] | Test results are produced | O-D | Not yet operated: the developer test plan has not yet been run on a release, and the web applications not yet verified to OWASP ASVS 5.0 Level 2 (NC-SA-13) |
 | SA-11d. | Flaw fixing can be verified | O-E | Awaiting evidence of operation on the VMs (NC-SA-13) |
 | SA-11e. | Flaws found are corrected | O-E | Awaiting evidence of operation on the VMs (NC-SA-13) |
 | SA-15\_ODP\[01\] | Review frequency is defined | O-D | Set in the design, awaiting D-SA-P75 (NC-SA-14) |
@@ -2513,7 +2513,7 @@ There is one finding for each CSS determination statement, including those about
 | Scope | The 17 SA entries in the Moderate baseline, with 160 determination statements. SA-4(10) is assessed against the condition in TR-SA-01 |
 | Procedures | CSS, using the CSS published statements and identifiers (catalog release 5.2.0); CSS for the development process |
 | Dates | Desk self-assessment of the documents: 22 November 2026 (section 1.4). The Level 1 assessment on the built VMs: \[Dates of the assessment\], set by the Level 1 assessor once appointed (NC-CA-02) |
-| Examine | \<Policy\> (SA), \<Procedures\> (SA) and \<System and Services Acquisition Management\>; \<System Description\>, section 6 and P-28, P-68 and P-75; \<System Security Plan\>, sections 3, 4 and 7; \<Risk Assessment Management\>; \<Maintenance Management\>; \<Configuration Management\>, Table 4; the interface record in \<Assessment, Authorization, and Monitoring Management\>, Table 6; \<Risk List\>, section 2.1; \<Organisation\>'s corporate SDLC, which \<System Name\> is built under; the guides; the test evidence folders. Depth: focused. Coverage: focused |
+| Examine | \<Policy\> (SA), \<Procedures\> (SA) and \<System and Services Acquisition Management\>; \<System Description\>, section 6, and its values for the verification standard, timely maintenance and acquisition and development; \<System Security Plan\>, sections 3, 4 and 7; \<Risk Assessment Management\>; \<Maintenance Management\>; \<Configuration Management\>, Table 4; the interface record in \<Assessment, Authorization, and Monitoring Management\>, Table 6; \<Risk List\>, section 2.1; \<Organisation\>'s corporate SDLC, which \<System Name\> is built under; the guides; the test evidence folders. Depth: focused. Coverage: focused |
 | Test | Test-Development.ps1, read-only, against the repositories, the release history and the build files (the SA evidence) |
 | Interview | The developers, the system owner, the security officer and \<Organisation\>'s contract owner (\<Interview Guide\>, section 19) |
 | Previous results reused | The SA-1 statements, recorded with every family's in section 1.3. No other results are reused |
@@ -2549,7 +2549,7 @@ This records the Level 1 self-assessment of the 25 SC entries in the CSS Moderat
 | SC-1 | Other than satisfied | 18 of 25 | NC-SC-01: awaits approval of \<Policy\> (SC) and \<Procedures\> (SC), their first issue and review, and EV-GEN-04 |
 | SC-2 | Other than satisfied | 0 of 1 | NC-SC-02: awaits evidence from the VMs |
 | SC-4 | Other than satisfied | 0 of 2 | NC-SC-03: awaits approval of D-SC-02; awaits \<Organisation\>'s evidence (EV-GEN-03) |
-| SC-5 | Other than satisfied | 3 of 5 | NC-SC-04: the request limit for each client is not yet set (NFR-046), nor the response times (P-34); awaits \<Organisation\>'s evidence (EV-SC-01) |
+| SC-5 | Other than satisfied | 3 of 5 | NC-SC-04: the request limit for each client is not yet set (NFR-046), nor the response times; awaits \<Organisation\>'s evidence (EV-SC-01) |
 | SC-7 | Other than satisfied | 1 of 7 | NC-SC-05: the address ranges, the Admin application's port, the central logging port and the scanner ports in the host firewall allow-lists are not yet filled in (\<System and Communications Protection Management\>, section 3.2); awaits \<Organisation\>'s evidence (EV-SC-02) |
 | SC-7(3) | Other than satisfied | 0 of 1 | NC-SC-06: awaits \<Organisation\>'s evidence (EV-SC-02) |
 | SC-7(4) | Other than satisfied | 0 of 11 | NC-SC-07: awaits \<Organisation\>'s evidence (EV-SC-02) |
@@ -2590,7 +2590,7 @@ There is one finding for each CSS determination statement, including those about
 | SC-05\_ODP\[01\] | Denial-of-service events are defined | S | Defined in \<System and Communications Protection Management\>, sections 3.7, 3.9, 3.11 |
 | SC-05\_ODP\[02\] | Protect or limit is selected | S | Defined in \<System and Communications Protection Management\>, sections 3.7, 3.9, 3.11 |
 | SC-05\_ODP\[03\] | Controls are defined | S | Defined in \<System and Communications Protection Management\>, sections 3.7, 3.9, 3.11 |
-| SC-05a. | The effects are limited | O-D | The request limit for each client is not yet set (NFR-046), nor the response times (P-34) (NC-SC-04) |
+| SC-05a. | The effects are limited | O-D | The request limit for each client is not yet set (NFR-046), nor the response times (NC-SC-04) |
 | SC-05b. | The controls are employed | O-E | Awaiting \<Organisation\>'s evidence: EV-SC-01 (NC-SC-04) |
 | SC-07\_ODP | Separation is selected | S | Defined in \<System and Communications Protection Management\>, sections 3.1, 3.2, 3.9 |
 | SC-07a.\[01\] | External interfaces are monitored | O-D | The address ranges, the Admin application's port, the central logging port and the scanner ports in the host firewall allow-lists are not yet filled in (\<System and Communications Protection Management\>, section 3.2) (NC-SC-05) |

@@ -10,7 +10,7 @@ Section 3 is the design: the development framework; the lifecycle, roles and res
 
 ## 2 Related documents
 
-Who provides and is responsible for each control, and its status, are in \<System Security Plan\>, section 7.16 (Table 25). The tests, their results and the records an assessor will ask for are in \<Control Assessment Record\> (SA). Each control's risk is in \<Risk List\>, and what is still open is in \<Plan of Action and Milestones\>. The policy is in \<Policy\> (SA), and the steps people follow are in \<Procedures\> (SA). Four records sit beside this one, each holding what CSS asks the system's own documents to hold: the engineering principles in \<System Description\>, section 6.8; the functions, ports, protocols and services in \<System Security Plan\>, section 3.7; the critical components in \<Risk Assessment Management\>, section 3.9; and the component support dates in \<Maintenance Management\>, section 3.8. The values this design runs on are \<System Description\>, P-28, P-68, P-74 and P-75, approved in \<Decision Register\>.
+Who provides and is responsible for each control, and its status, are in \<System Security Plan\>, section 7.16 (Table 25). The tests, their results and the records an assessor will ask for are in \<Control Assessment Record\> (SA). Each control's risk is in \<Risk List\>, and what is still open is in \<Plan of Action and Milestones\>. The policy is in \<Policy\> (SA), and the steps people follow are in \<Procedures\> (SA). Four records sit beside this one, each holding what CSS asks the system's own documents to hold: the engineering principles in \<System Description\>, section 6.8; the functions, ports, protocols and services in \<System Security Plan\>, section 3.7; the critical components in \<Risk Assessment Management\>, section 3.9; and the component support dates in \<Maintenance Management\>, section 3.8. The values this design runs on are set out in this document, and approved in \<Decision Register\>.
 
 ## 3 The design
 
@@ -54,7 +54,7 @@ Controls met here: SA-3, SA-15.
 | PW.6 Secure build settings | Release builds |
 | PW.7 Review code | Second developer reviews each change, merged through a protected branch (PRO-SA-1) |
 | PW.8 Test executable code | Automated tests, a package scan and a code scan in the build pipeline, and fifteen test scripts (section 3.9) |
-| PW.9 Secure defaults | Deny by default; the authentication cookie lasts no longer than PingFederate's sign-in lifetime (\<System Description\>, P-02) |
+| PW.9 Secure defaults | Deny by default; the authentication cookie lasts no longer than PingFederate's sign-in lifetime |
 | RV.1 Identify vulnerabilities | Test-Vulnerability.ps1; CISA's exploited list each working day (\<Security Operating Procedures\>, C50) |
 | RV.2 Assess and fix vulnerabilities | Timetable in \<Risk Assessment Management\>, section 3.6 |
 | RV.3 Find root causes | Lessons in incident records (TPL-10) and risk reviews (TPL-23) |
@@ -182,7 +182,7 @@ This is the developer security and privacy test plan (SA-11). The testing select
 
 **Depth and coverage** (SA-11\_ODP\[03\]). Every security and privacy function in Table 6 is tested at each release, in each application and on each server where it applies, with at least one test that it allows what it should and one that it refuses what it should; the other kinds of analysis in Table 5 run at their stated frequency.
 
-Each script runs in the test environment, a throwaway copy of the whole system built from a tagged release with invented data, or only reads, keeps its results with a README and a manifest of SHA-256 hashes in the evidence for its family, and is run at each release. The web applications are verified to OWASP ASVS 5.0 Level 2 (\<System Description\>, P-28).
+Each script runs in the test environment, a throwaway copy of the whole system built from a tagged release with invented data, or only reads, keeps its results with a README and a manifest of SHA-256 hashes in the evidence for its family, and is run at each release. The web applications are verified to OWASP ASVS 5.0 Level 2.
 
 The scripts are one kind of analysis among several that the CSS guidance expects for software written in-house. Table 5 says when each is done.
 
@@ -227,7 +227,7 @@ The plan, its results and the evidence are protected as the document set is: res
 
 Controls met here: SA-15.
 
-The process is \<Organisation\>'s corporate SDLC, meeting CSS \<ver\> (section 3.2). The standards are CSS, OWASP ASVS 5.0 Level 2 for the web applications, the NCSC secure design principles and the CSS privacy engineering objectives, with the UK Software Security Code of Practice alongside. Every 12 months the developers and the security officer review the process, standards, tools, tool options and tool settings against the security and privacy requirements of the CSS Moderate and privacy baselines, as \<System Security Plan\> and \<Privacy Plan\> set them, and the verification standard in P-28, and record the review on TPL-23 (PRO-SA-6). A change to the process or a tool is made through change control, and Table 7 is updated with it.
+The process is \<Organisation\>'s corporate SDLC, meeting CSS \<ver\> (section 3.2). The standards are CSS, OWASP ASVS 5.0 Level 2 for the web applications, the NCSC secure design principles and the CSS privacy engineering objectives, with the UK Software Security Code of Practice alongside. Every 12 months the developers and the security officer review the process, standards, tools, tool options and tool settings against the security and privacy requirements of the CSS Moderate and privacy baselines, as \<System Security Plan\> and \<Privacy Plan\> set them, and the verification standard, OWASP ASVS 5.0 Level 2, and record the review on TPL-23 (PRO-SA-6). A change to the process or a tool is made through change control, and Table 7 is updated with it.
 
 **Table 7: Development tools**
 
@@ -250,7 +250,7 @@ Controls met here: SA-15(3).
 
 The criticality analysis (SA-15(3)) is held in \<Risk Assessment Management\>, section 3.9, with its method, the critical components and the critical functions. The developers make it with the system owner (PRO-SA-1, PRO-RA-6):
 
-1. **When** (SA-15(03)\_ODP\[01\]): at design, before \<System Name\> is built, and at each major release and after a significant change (P-74).
+1. **When** (SA-15(03)\_ODP\[01\]): at design, before \<System Name\> is built, and at each major release and after a significant change.
 2. **Breadth** (SA-15(03)\_ODP\[02\]): every component in the authorisation boundary, and each outside service it relies on.
 3. **Depth** (SA-15(03)\_ODP\[03\]): each component and each function judged against the impact levels, the recovery priorities and whether it lies on the path to the items, down to the applications, servers, stores and keys named in \<Risk Assessment Management\>, Table 6, not to modules within them.
 
@@ -258,7 +258,7 @@ The criticality analysis (SA-15(3)) is held in \<Risk Assessment Management\>, s
 
 Controls met here: SA-22.
 
-Each component is replaced before its vendor's support ends, with the replacement planned at least 6 months before (P-68). The monthly check covers every component in \<Configuration Management\>, Table 4, and the outside services in section 3.7: it compares each with its supplier's published support dates, and those of the security-critical components are held in \<Maintenance Management\>, section 3.8, with their MA-6 support times (PRO-SA-5; \<Security Operating Procedures\>, C11). A package or browser library has no vendor support date. It counts as unsupported when its maintainers stop releasing fixes, or it is marked deprecated, or it has a known flaw with no fix. The developers check each one in the monthly package check, and replace one found unsupported within 6 months, or within the flaw timetable (P-11) if it has a known flaw. If a component cannot be replaced in time, the other support allowed is in-house support, or a supplier's extended support, either by exception approved by the authorising official with the risk recorded in \<Risk List\> (SA-22\_ODP).
+Each component is replaced before its vendor's support ends, with the replacement planned at least 6 months before. The monthly check covers every component in \<Configuration Management\>, Table 4, and the outside services in section 3.7: it compares each with its supplier's published support dates, and those of the security-critical components are held in \<Maintenance Management\>, section 3.8, with their MA-6 support times (PRO-SA-5; \<Security Operating Procedures\>, C11). A package or browser library has no vendor support date. It counts as unsupported when its maintainers stop releasing fixes, or it is marked deprecated, or it has a known flaw with no fix. The developers check each one in the monthly package check, and replace one found unsupported within 6 months, or within the flaw timetable if it has a known flaw. If a component cannot be replaced in time, the other support allowed is in-house support, or a supplier's extended support, either by exception approved by the authorising official with the risk recorded in \<Risk List\> (SA-22\_ODP).
 
 ### 3.13 What \<Organisation\> and the providers supply
 

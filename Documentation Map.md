@@ -231,7 +231,6 @@ These identifiers do not change when a document is renumbered or moved, so citat
 | --- | --- | --- |
 | R1 | A policy rule, numbered in each chapter | \<Policy\> |
 | PRO-AC-1 | A procedure | \<Procedures\> |
-| P-01 | A parameter: a value the controls depend on | \<System Description\>, section 4 |
 | AC-02\_ODP\[01\], AC-02a. | The CSS own identifier for a parameter or a determination statement | \<Control Assessment Record\> |
 | D-AC-nn | A decision. D-AC-Pnn is the approval of parameter values | \<Decision Register\> |
 | NC-AU-nn | A non-compliance entry | \<Risk List\>, section 5 |

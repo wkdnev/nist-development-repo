@@ -57,7 +57,7 @@ Every role in \<Roles and Responsibilities\> has a designation. A role is higher
 | Editor | Standard | Creates, uploads, manages and exports items within their own schemas |
 | Line manager | Standard | Approves their people's access requests in ServiceNow and reports movers and leavers; no access of their own is implied |
 
-A higher risk role adds two things to what every role needs. Screening is repeated before the role is granted and every 5 years (P-72). And when the holder leaves, their access is ended by the urgent route, not left to \<Organisation\>'s starters and leavers process: the service desk disables the Active Directory account within 1 hour of notice, and the system owner confirms that \<System Name\> refuses the person (Table 3; \<Procedures\>, PRO-AC-4). Every role, standard or higher risk, completes the training its row in \<Awareness and Training Management\>, Table 4, sets: the role modules before taking the role, and the rest within 30 days. A deputy holds the designation of the role they cover (\<Roles and Responsibilities\>, section 5).
+A higher risk role adds two things to what every role needs. Screening is repeated before the role is granted and every 5 years. And when the holder leaves, their access is ended by the urgent route, not left to \<Organisation\>'s starters and leavers process: the service desk disables the Active Directory account within 1 hour of notice, and the system owner confirms that \<System Name\> refuses the person (Table 3; \<Procedures\>, PRO-AC-4). Every role, standard or higher risk, completes the training its row in \<Awareness and Training Management\>, Table 4, sets: the role modules before taking the role, and the rest within 30 days. A deputy holds the designation of the role they cover (\<Roles and Responsibilities\>, section 5).
 
 ### 3.3 Screening standard
 
@@ -82,12 +82,12 @@ In the United Kingdom a basic criminal record check is made through the Disclosu
 
 Controls met here: PS-6.
 
-Two agreements are signed before access. The rules of behaviour are signed again every 12 months, and within 30 days of a material change (P-71). \<Organisation\>'s confidentiality agreement is signed again when \<Organisation\> changes it, and each yearly signature of the rules confirms that the person is still bound by it (\<Security Operating Procedures\>, section 9). CSS places PS-6 in its privacy baseline as well as the Moderate baseline, so the agreements cover privacy too: the rules on personal data are A23 to A29.
+Two agreements are signed before access. The rules of behaviour are signed again every 12 months, and within 30 days of a material change. \<Organisation\>'s confidentiality agreement is signed again when \<Organisation\> changes it, and each yearly signature of the rules confirms that the person is still bound by it (\<Security Operating Procedures\>, section 9). CSS places PS-6 in its privacy baseline as well as the Moderate baseline, so the agreements cover privacy too: the rules on personal data are A23 to A29.
 
 1. **\<Organisation\>'s confidentiality agreement,** signed on employment or engagement.
 2. **The rules of behaviour,** \<Security Operating Procedures\>: Part A for everyone, and Part B, the privileged rules, for privileged users as well. Each person signs the declaration in \<Security Operating Procedures\>, section 9, on TPL-21, and the signature is recorded in the register of signatures (\<Planning Management\>, section 3.5).
 
-Each person signs both before being added to any \<System Name\> group. The ServiceNow access request checks the register of signatures, and is not approved without a signature in it; the date the confidentiality agreement was signed is in the personnel security register (section 3.9). The system owner reviews the agreements every 12 months (P-72), updates the rules of behaviour, and asks \<Organisation\> to update its agreement where it no longer covers \<System Name\>.
+Each person signs both before being added to any \<System Name\> group. The ServiceNow access request checks the register of signatures, and is not approved without a signature in it; the date the confidentiality agreement was signed is in the personnel security register (section 3.9). The system owner reviews the agreements every 12 months, updates the rules of behaviour, and asks \<Organisation\> to update its agreement where it no longer covers \<System Name\>.
 
 ### 3.5 Joiners, movers and leavers
 
@@ -105,8 +105,8 @@ Controls met here: PS-3, PS-4, PS-5, PS-6.
 | --- | --- | --- | --- | --- |
 | Joiner | The role's designation is looked up; \<Organisation\> confirms the screening; the person completes training and signs the agreements; the access request is authorised in ServiceNow, by the Data Owner for a schema's groups and by the system owner for a role group; only then do the group owners add them to the groups the role needs | System owner; \<Organisation\>; the Data Owner; the group owners | Before access | TPL-2; TPL-21; the register |
 | Mover | The line manager tells the system owner and the owners of the person's groups. Each owner confirms whether the person still needs the group, and removes or adds memberships. A new role's training is completed, and, for a higher risk role, screening repeated, before its group is added | Line manager; system owner; the group owners | 1 working day | TPL-14 |
-| Leaver | \<Organisation\> disables the Active Directory account at once, which ends access to \<System Name\> within 5 minutes, and ends the person's PingFederate sign-in. Its starters and leavers process gives notice of the leaver to the group owners, through ServiceNow, and they remove the memberships. Any service secret the person knew is changed, and exported files and printouts are recovered or destroyed. Separately, anyone who has not signed in for 90 days is removed from \<System Name\>'s groups each month (\<Access Control Management\>, section 3.14) | \<Organisation\>; the group owners; system owner | At once, and memberships within 5 working days (\<System Description\>, P-06) | TPL-14 |
-| Higher-risk leaver, dismissal or suspected misuse | By the urgent route (\<Procedures\>, PRO-AC-4): \<Organisation\>'s service desk disables the Active Directory account and ends the person's PingFederate sign-in, and \<System Name\> refuses the person within 5 minutes, even while a sign-in is open (P-41). The account stays disabled for at least 8 hours, unless every key in the key rings is revoked first. The system owner confirms the refusal | \<Organisation\>'s service desk; system owner | 1 hour of notice | TPL-14; TPL-10 if it is an incident |
+| Leaver | \<Organisation\> disables the Active Directory account at once, which ends access to \<System Name\> within 5 minutes, and ends the person's PingFederate sign-in. Its starters and leavers process gives notice of the leaver to the group owners, through ServiceNow, and they remove the memberships. Any service secret the person knew is changed, and exported files and printouts are recovered or destroyed. Separately, anyone who has not signed in for 90 days is removed from \<System Name\>'s groups each month (\<Access Control Management\>, section 3.14) | \<Organisation\>; the group owners; system owner | At once, and memberships within 5 working days | TPL-14 |
+| Higher-risk leaver, dismissal or suspected misuse | By the urgent route (\<Procedures\>, PRO-AC-4): \<Organisation\>'s service desk disables the Active Directory account and ends the person's PingFederate sign-in, and \<System Name\> refuses the person within 5 minutes, even while a sign-in is open. The account stays disabled for at least 8 hours, unless every key in the key rings is revoked first. The system owner confirms the refusal | \<Organisation\>'s service desk; system owner | 1 hour of notice | TPL-14; TPL-10 if it is an incident |
 
 **Leavers.** Disabling the Active Directory account revokes the person's password and second factor. Any service secret the person knew is changed (\<Procedures\>, PRO-IA-4). \<Organisation\> holds an exit interview, which covers the person's continuing confidentiality duties and the return of equipment, and recovers their laptop, phone, pass and any other equipment. Exported files and printouts are recovered or destroyed (\<Security Operating Procedures\>, section 4.4). Items belong to schemas, not to people, so the items a leaver created stay with the schema and its members. The system owner confirms this on TPL-14.
 
@@ -116,19 +116,19 @@ Controls met here: PS-3, PS-4, PS-5, PS-6.
 
 Controls met here: PS-2, PS-3, PS-4, PS-5, PS-6, PS-7, PS-8.
 
-These are the values in \<System Description\>, P-06, P-41, P-71 and P-72.
+These values are approved in \<Decision Register\> (D-PS-P72).
 
 **Table 4: Personnel security time limits**
 
 | Event | Limit | Who acts | Record |
 | --- | --- | --- | --- |
 | Screening confirmed and agreements signed | Before the person is added to any \<System Name\> group | System owner | TPL-2; TPL-21 |
-| Leaver | \<Organisation\> disables the Active Directory account at once, which ends access; group memberships removed within 5 working days (\<System Description\>, P-06) | \<Organisation\>; the owners of the person's groups | TPL-14 |
-| Higher-risk leaver, dismissal or suspected misuse | Active Directory account disabled, and PingFederate sign-in ended, within 1 hour of notice, and kept disabled for at least 8 hours (P-41) | \<Organisation\>'s service desk; the system owner confirms | TPL-14; TPL-10 if it is an incident |
+| Leaver | \<Organisation\> disables the Active Directory account at once, which ends access; group memberships removed within 5 working days | \<Organisation\>; the owners of the person's groups | TPL-14 |
+| Higher-risk leaver, dismissal or suspected misuse | Active Directory account disabled, and PingFederate sign-in ended, within 1 hour of notice, and kept disabled for at least 8 hours | \<Organisation\>'s service desk; the system owner confirms | TPL-14; TPL-10 if it is an incident |
 | Mover | Access reviewed, and the system owner told, within 1 working day | Line manager, system owner, the owners of the person's groups | TPL-14 |
 | Supplier's leaver or mover | Supplier tells the system owner within 1 working day | Supplier | TPL-14 |
 | Formal sanctions process started for a breach of the rules by someone with \<System Name\> access | System owner told, with the person and the reason, within 1 working day | \<Organisation\> | TPL-10 if it is an incident |
-| Rules of behaviour signed again | Every 12 months, and within 30 days of a material change to the rules (P-71) | Everyone | TPL-21 |
+| Rules of behaviour signed again | Every 12 months, and within 30 days of a material change to the rules | Everyone | TPL-21 |
 | Confidentiality agreement signed again | When \<Organisation\> changes it | Everyone | Personnel security register |
 | Designations and agreements reviewed | Every 12 months, and when a role's access changes | System owner | TPL-3 |
 | Rescreening for higher risk roles | Before the role is granted, and every 5 years; the system owner asks for it when the register shows it falls due within the next 12 months | \<Organisation\>; system owner | Personnel security register |
@@ -147,7 +147,7 @@ The same applies to the independent assessors who carry out the Level 2 assessme
 
 Controls met here: PS-8.
 
-A breach of the rules is handled through \<Organisation\>'s disciplinary process, and the rules of behaviour tell each person so (\<Security Operating Procedures\>, A4). When \<Organisation\> starts a formal sanctions process against someone with \<System Name\> access for breaching \<System Name\>'s or \<Organisation\>'s security or privacy rules, it tells the system owner within 1 working day, naming the person and the reason (P-72). The system owner decides whether the person's access must change, and keeps no record of the sanction itself, which stays with \<Organisation\>. If the breach is a security incident, the security officer records it on TPL-10, and the system owner decides whether the person's access must end at once.
+A breach of the rules is handled through \<Organisation\>'s disciplinary process, and the rules of behaviour tell each person so (\<Security Operating Procedures\>, A4). When \<Organisation\> starts a formal sanctions process against someone with \<System Name\> access for breaching \<System Name\>'s or \<Organisation\>'s security or privacy rules, it tells the system owner within 1 working day, naming the person and the reason. The system owner decides whether the person's access must change, and keeps no record of the sanction itself, which stays with \<Organisation\>. If the breach is a security incident, the security officer records it on TPL-10, and the system owner decides whether the person's access must end at once.
 
 ### 3.9 Personnel security register
 

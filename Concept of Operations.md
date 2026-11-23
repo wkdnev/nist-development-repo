@@ -23,7 +23,7 @@ The business owner is \[Name\] and the information owner is \[Name\] (\<System D
 | Readers | Search and read items in their schemas, view and download files, and report a fault in an item | UI application |
 | Editors | A reader's work, and create, upload, bulk upload, manage and bulk export the schema's items. Edit includes read | UI application |
 | Administrators | Manage schemas, which groups open each schema (a change only with the Data Owner's approval), and system settings. Open no item content. There is one Administrator role and no separate global administrator | Admin application |
-| Auditors | Read, search and export the audit log, and review it weekly (\<System Description\>, P-08). Hold no administration role | Admin application |
+| Auditors | Read, search and export the audit log, and review it weekly. Hold no administration role | Admin application |
 | Security officers | Read security information, review alerts and the central logs, and lead incident response. Do not read the audit log. Hold no administration role | Admin application |
 | Business owners | Approve the disposal of items due under the retention schedule (\<System Description\>, FR-074) | UI application |
 | Legal adviser's delegates | Search every schema for one person's items to answer a request under data protection law (\<System Description\>, FR-073). Hold no other role, and are named by the legal adviser | UI application |
@@ -46,9 +46,9 @@ An item normally moves through four stages: it is added to a schema, found and r
 | Export a schema's items | Editor | Chooses items by filters and runs an export in the background, then downloads it. Taking exported items outside \<Organisation\>'s systems needs the Data Owner's decision |
 | Manage schemas | Administrator | Creates, changes, deactivates and deletes schemas, and names each schema's read group and edit group |
 | Start a new person | The person, their line manager, the group's owner | The person requests access in ServiceNow, their line manager approves it, and the group's owner authorises it: the Data Owner for a schema, the system owner for a role. The owner then adds the person to the Active Directory group. \<System Name\> creates no account |
-| Remove a leaver | \<Organisation\>, the group owners | \<Organisation\> disables the person's Active Directory account at once, which ends their access, and the group owners remove their group memberships within 5 working days (\<System Description\>, P-06) |
-| Check activity | Auditor, security officer | The auditor reads and searches the audit log, reviews it weekly (\<System Description\>, P-08), compares it with the server, database, PingFederate and Active Directory records, records the review, and reports anything suspicious to the security officer. The security officer reviews alerts and the central logs |
-| Answer a request about personal data | Legal adviser and their delegate | The delegate finds every item about the person across all schemas, and the legal adviser answers within the time in P-22 |
+| Remove a leaver | \<Organisation\>, the group owners | \<Organisation\> disables the person's Active Directory account at once, which ends their access, and the group owners remove their group memberships within 5 working days |
+| Check activity | Auditor, security officer | The auditor reads and searches the audit log, reviews it weekly, compares it with the server, database, PingFederate and Active Directory records, records the review, and reports anything suspicious to the security officer. The security officer reviews alerts and the central logs |
+| Answer a request about personal data | Legal adviser and their delegate | The delegate finds every item about the person across all schemas, and the legal adviser answers within one month of confirming the person's identity |
 | Dispose of items | Business owner | Items due under the retention schedule are listed, and deleted once approved. The disposal is recorded |
 
 ## 5 Operational scenarios
@@ -65,7 +65,7 @@ An item normally moves through four stages: it is added to a schema, found and r
 | Forgotten password or lockout | A user cannot sign in | \<Organisation\>'s IT service desk resets the Active Directory password or releases the lock, after checking who they are |
 | A stolen password | A user thinks someone knows their password or has their second factor | They tell the service desk and the security officer. The account is disabled first, which ends their \<System Name\> sign-in within 5 minutes, then the password or factor is reset; the account stays disabled for 8 hours unless every sign-in is ended (\<Procedures\>, PRO-IA-3) |
 | A suspected incident | A user sees something wrong, such as items they should not see, or an alert fires | They report it to the security officer within 1 hour. The security officer sets its severity, tells \<Organisation\>'s security contact, and follows the playbook; a suspected account compromise is contained by disabling the account, which \<System Name\> refuses within 5 minutes; if personal data is involved, the legal adviser decides on telling the ICO within 72 hours (\<Incident Response Management\>) |
-| Leaving a desk | A user walks away while signed in | They must use Sign out if they will be away for longer than a short break (\<System Description\>, P-53). The device's screen lock hides the screen after the inactivity time \<Organisation\> sets (P-03). The sign-in ends 8 hours after sign-in at most (P-02) |
+| Leaving a desk | A user walks away while signed in | They must use Sign out if they will be away for longer than a short break. The device's screen lock hides the screen after 15 minutes of inactivity. The sign-in ends 8 hours after sign-in at most |
 | A new starter or a leaver | Staff change | Access is requested and authorised for a starter, and removed for a leaver |
 
 ## 6 Operational concepts
@@ -79,7 +79,7 @@ It runs on \<Organisation\>'s internal network, on two Windows Server 2025 virtu
 1. A person signs in through \<Organisation\>'s single sign-on, PingFederate, with multi-factor authentication against Active Directory. \<System Name\> holds no accounts and no passwords.
 2. PingFederate's signed response names the person and carries no groups. The API reads the person's group memberships directly from Active Directory over LDAPS, and gives the roles and schema access those groups allow.
 3. Their group memberships decide which schemas they see. Each schema names a read group and an edit group. A schema with no group is closed to everyone, and administrators open no item content.
-4. The application's session is its authentication cookie. It ends 8 hours after sign-in at most, never later than PingFederate's sign-in (P-02), and when the person uses Sign out; an open page re-checks the person every 5 minutes, and the API refuses a disabled account or removed membership within 5 minutes. An unattended screen is locked by the operating system on \<Organisation\>'s managed devices (P-03).
+4. The application's session is its authentication cookie. It ends 8 hours after sign-in at most, never later than PingFederate's sign-in, and when the person uses Sign out; an open page re-checks the person every 5 minutes, and the API refuses a disabled account or removed membership within 5 minutes. An unattended screen is locked by the operating system on \<Organisation\>'s managed devices after 15 minutes of inactivity.
 
 ### 6.3 Modes of operation
 
@@ -88,11 +88,11 @@ It runs on \<Organisation\>'s internal network, on two Windows Server 2025 virtu
 | Mode | What happens |
 | --- | --- |
 | Normal | Everyone can work as usual |
-| PingFederate down | Nobody can sign in, because \<Organisation\>'s PingFederate authenticates every user and there is no local sign-in. People already signed in carry on until their sign-in ends, 8 hours after it began (P-02) |
+| PingFederate down | Nobody can sign in, because \<Organisation\>'s PingFederate authenticates every user and there is no local sign-in. People already signed in carry on until their sign-in ends, 8 hours after it began |
 | Active Directory down | Nobody can sign in or be authorised. If the API cannot read a person's groups, it gives them no role and no schema, and refuses the request |
 | API down | Nobody can work, because both applications reach the items only through the API |
 | Database down | The API cannot read any data, so it refuses every request and nobody can open an item. People stay signed in |
-| Maintenance | Only when a job needs downtime, users cannot reach \<System Name\>. Planned maintenance falls in the windows in P-32, and users get 2 working days' notice (P-67) |
+| Maintenance | Only when a job needs downtime, users cannot reach \<System Name\>. Planned maintenance falls in the agreed maintenance windows, and users get 2 working days' notice |
 
 These modes come from reading the design.
 
@@ -105,4 +105,4 @@ Each part of operation, from changes, patching and monitoring to backups, incide
 1. Which \<Organisation\> staff will use \<System Name\>, and from where? \[Teams and locations, from the business owner\].
 2. Who is the Data Owner of each schema? \[Name and role for each schema, from the business owner\].
 3. Which business processes will \<System Name\> support, and what are the expected benefits? See sections 2 and 4.
-4. What hours must it be available, and how many users, schemas and items are expected? \[Hours, and numbers of users, schemas and items, from the business owner (\<System Description\>, P-32 and P-33)\].
+4. What hours must it be available, and how many users, schemas and items are expected? \[Hours, and numbers of users, schemas and items, from the business owner\].

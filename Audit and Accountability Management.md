@@ -19,8 +19,8 @@ Controls met here: AU-2, AU-3, AU-6, AU-9, AU-11, AU-12.
 1. **Complete.** The agreed events are recorded every time they occur.
 2. **Attributable.** Each record shows what happened, when, where, from where, the outcome and who was involved. The person is the one PingFederate authenticated.
 3. **Protected.** Nobody can change a record, and nobody deletes one except to remove it from the database once it is archived (section 3.7). Only auditors read them, with two exceptions: the last sign-in report (FR-085), which shows the security officer each member's username and last sign-in date, and nothing else; and the database administrator, who reaches the table only to archive it.
-4. **Reviewed.** Records are examined every week (P-08) by someone who does not administer the system.
-5. **Retained.** Records are kept for 12 months online and 12 months in an offline archive (P-07): long enough to investigate an incident found late.
+4. **Reviewed.** Records are examined every week by someone who does not administer the system.
+5. **Retained.** Records are kept for 12 months online and 12 months in an offline archive: long enough to investigate an incident found late.
 6. **No secrets.** Records never hold a password, key, token or authentication cookie, and hold only the personal data an investigation needs.
 7. **One audit log.** \<System Name\> has one application audit log, written only by the API. Any other log that repeats its content is protected as audit information.
 
@@ -47,7 +47,7 @@ An investigation must be able to follow an action from the network to the databa
 | PingFederate and Active Directory | Every sign-in attempt, failed sign-in, lockout and second-factor result for \<System Name\>; every change to an account; every change to the members of \<System Name\>'s groups | \<Organisation\>'s own logs | \<Organisation\> |
 | \<Organisation\>'s network services | Firewall and VPN events, and the time service | \<Organisation\>'s central monitoring | \<Organisation\> |
 
-Each source logs at every occurrence. The system owner selects the events for the sources \<System Name\> controls: the application events in Table 2 and the SQL Server settings in appendix A. Developers make application changes through a release, and the database administrator applies SQL Server changes through a recorded change. The Windows, PingFederate and Active Directory events are agreed with \<Organisation\> (section 3.11). The system owner reviews the list every 12 months (P-62) and on any change, and records the decision in \<Decision Register\> (PRO-AU-5).
+Each source logs at every occurrence. The system owner selects the events for the sources \<System Name\> controls: the application events in Table 2 and the SQL Server settings in appendix A. Developers make application changes through a release, and the database administrator applies SQL Server changes through a recorded change. The Windows, PingFederate and Active Directory events are agreed with \<Organisation\> (section 3.11). The system owner reviews the list every 12 months and on any change, and records the decision in \<Decision Register\> (PRO-AU-5).
 
 ### 3.3 Application events
 
@@ -98,7 +98,7 @@ Every application record has the same fields, in one record format, held in the 
 
 **Records from the servers.** SQL Server and Windows records must hold the same six kinds of content. Windows events do so by design. SQL Server Audit records carry the time, the login, the database, the client address and the result once the audit is set as appendix A sets out.
 
-**Limits on content (rule R8; AU-3(3)).** A record never holds a password, key, token or cookie. It holds only the personal data an investigation needs: the named fields above. The free text holds no further personal data. A data-change record names the item and the fields that changed, but never their old or new values, and a deletion record names the item but holds none of its content. So no personal data about the people the items describe is copied into the log, and a correction or erasure (\<System Description\>, FR-075) leaves no copy there. Where an investigation needs an earlier value, it is taken from the backups (P-15).
+**Limits on content (rule R8; AU-3(3)).** A record never holds a password, key, token or cookie. It holds only the personal data an investigation needs: the named fields above. The free text holds no further personal data. A data-change record names the item and the fields that changed, but never their old or new values, and a deletion record names the item but holds none of its content. So no personal data about the people the items describe is copied into the log, and a correction or erasure (\<System Description\>, FR-075) leaves no copy there. Where an investigation needs an earlier value, it is taken from the backups.
 
 ### 3.5 How records are stored and protected
 
@@ -111,13 +111,13 @@ Controls met here: AU-9, AU-9(4).
 | The audit log | API only, through its database service account, which may add and read records, with update and delete denied. UI application and Admin application send their events to the API, which accepts them only from those two applications and never from a user's browser | The auditor group, through the Admin application's audit pages. The security officer sees only each member's username and last sign-in date, through the last sign-in report (FR-085). The database administrator can reach the table to archive it, under rule B12 | Nobody changes a record. The database administrator removes records only once they are archived (PRO-AU-4); SQL Server Audit records each removal, and the auditor checks it against TPL-8 |
 | The offline archive, held at \[archive location, to be agreed with \<Organisation\> with its storage (EV-AU-03)\], encrypted, and off the database server | The database administrator, each month, for records older than 12 months | The auditor, on request to the system owner | Nobody, until 24 months; then only with the system owner's recorded approval |
 | The newest chain hash, copied daily | The API, as a security event in its application log, forwarded to central logging | The auditor and security officer, in central logging | Nobody in \<System Name\>'s team: the copy in central logging is held by \<Organisation\> |
-| Application logs | Each application's Windows service account | The Windows server administrators on the server; the auditor and the security officer in central logging | Removed from the server after 30 days; the copy in central logging is kept as P-07 sets |
+| Application logs | Each application's Windows service account | The Windows server administrators on the server; the auditor and the security officer in central logging | Removed from the server after 30 days; the copy in central logging is kept 12 months, then archived for 12 months |
 | SQL Server Audit files and error log | SQL Server | The database administrator on the server; the auditor in central logging | Nobody. They are forwarded to central logging as they are written, and the copy there is the protected record. The database administrator may not change or delete the files, and stopping or changing the audit is itself recorded (appendix A) |
 | Windows logs | Windows | The Windows server administrators; the auditor through \<Organisation\>'s report or monitoring | Clearing the log is itself logged (event 1102) |
 
 **The chain hash.** Each record holds a hash of its own fields and the previous record's hash, so a changed or removed record breaks the chain. The design uses a keyed hash, HMAC-SHA-256, with the key held outside the database, readable only by the API's account (key K11 in \<System and Communications Protection Management\>, section 3.4). The time is hashed at the precision at which it is stored, so that a stored hash can be recomputed.
 
-**Who holds the key.** The Windows server administrator generates K11 and places it in the key store. They hold no rights in SQL Server, and the database administrator never holds the key, so nobody who can change rows can also recompute the chain. Each record names the version of the key that hashed it. When K11 is changed, the retired version stays in the key store for checking only, for the retention period in P-07, so that older records, and archived ones, can still be checked.
+**Who holds the key.** The Windows server administrator generates K11 and places it in the key store. They hold no rights in SQL Server, and the database administrator never holds the key, so nobody who can change rows can also recompute the chain. Each record names the version of the key that hashed it. When K11 is changed, the retired version stays in the key store for checking only, for the 24-month audit retention period, so that older records, and archived ones, can still be checked.
 
 **The daily copy.** Each day the API writes the number and hash of the newest record as a security event to its application log, which is forwarded to central logging. That copy is out of reach of the applications, the database and their administrators. Removing the newest records, or rebuilding the chain, no longer matches it.
 
@@ -144,7 +144,7 @@ Administrators have none of these functions. They are the people whose actions t
 Controls met here: AU-6(3), AU-8.
 
 1. Each record takes its time from the clock of the server that writes it. Every record's time is in UTC, to the nearest second or finer.
-2. Each server takes its time from \<Organisation\>'s time service, \[Organisation time source\], and stays within 1 second of UTC (P-09).
+2. Each server takes its time from \<Organisation\>'s time service, \[Organisation time source\], and stays within 1 second of UTC.
 3. Each month the Windows server administrator checks both servers, records the result on TPL-8, and reports any drift over 5 seconds to the security officer (PRO-AU-4).
 4. A change to a server's clock is itself a Windows event (4616).
 
@@ -160,16 +160,16 @@ Controls met here: AU-4, AU-11.
 
 | Information | Kept | Then |
 | --- | --- | --- |
-| Audit records | 12 months in the database (P-07) | Copied to the offline archive, with the archive's SHA-256 hash and the hash of the last record archived recorded on TPL-8, then removed from the database. The chain check starts from that hash |
-| Archived audit records | A further 12 months, offline (P-07) | May be deleted, only with the system owner's recorded approval |
+| Audit records | 12 months in the database | Copied to the offline archive, with the archive's SHA-256 hash and the hash of the last record archived recorded on TPL-8, then removed from the database. The chain check starts from that hash |
+| Archived audit records | A further 12 months, offline | May be deleted, only with the system owner's recorded approval |
 | Application logs | 30 days | Deleted |
 | Records held as incident evidence | Until the incident is closed | As the incident record says (\<Incident Response Management\>) |
 | Records under a legal hold: a claim, a tribunal, a regulator's enquiry or a person's request for their data | Until the legal adviser releases them | The legal adviser tells the system owner and the database administrator, who list the hold on TPL-8. Held records stay in the archive, even past 24 months, until the hold is released (PRO-AU-4) |
-| Backup copies of the database, which include the audit log | As the backup schedule in P-15: 14 daily, 8 weekly and 12 monthly copies | Encrypted, and protected as audit information (\<Contingency Planning Management\>) |
-| SQL Server Audit records, Windows logs and the application security events | 12 months in \<Organisation\>'s central logging (P-07; EV-AU-01) | Exported each month by the security officer to the offline archive, with the archive's SHA-256 hash recorded on TPL-8, and kept there a further 12 months, as the audit log is (PRO-AU-4) |
+| Backup copies of the database, which include the audit log | As the backup schedule: 14 daily, 8 weekly and 12 monthly copies | Encrypted, and protected as audit information (\<Contingency Planning Management\>) |
+| SQL Server Audit records, Windows logs and the application security events | 12 months in \<Organisation\>'s central logging (EV-AU-01) | Exported each month by the security officer to the offline archive, with the archive's SHA-256 hash recorded on TPL-8, and kept there a further 12 months, as the audit log is (PRO-AU-4) |
 | PingFederate and Active Directory logs | As \<Organisation\> sets; at least 12 months is asked for | \<Organisation\>'s process (EV-AU-05) |
 
-Storage is sized for the full 24 months when the servers are built, from the numbers in P-33: 12 months in the database, and the same again for the archive. The size is the number of records each day, \[records per day, to be measured\], times the average size of a record, \[bytes per record, to be measured\], times 365 days, plus half as much again for growth. Both figures are measured in the test environment before the request goes to \<Organisation\>, and again in the first month of use. A disk-space alert on the database server warns the database administrator before storage fills. The database administrator also checks free space and the size of the audit table each month, and asks for more before records are at risk (PRO-AU-4). The audit log is backed up with the database (\<Contingency Planning Management\>).
+Storage is sized for the full 24 months when the servers are built, from the expected numbers of users, schemas and items: 12 months in the database, and the same again for the archive. The size is the number of records each day, \[records per day, to be measured\], times the average size of a record, \[bytes per record, to be measured\], times 365 days, plus half as much again for growth. Both figures are measured in the test environment before the request goes to \<Organisation\>, and again in the first month of use. A disk-space alert on the database server warns the database administrator before storage fills. The database administrator also checks free space and the size of the audit table each month, and asks for more before records are at risk (PRO-AU-4). The audit log is backed up with the database (\<Contingency Planning Management\>).
 
 The periods are those of \<System Name\>'s retention schedule (\<System and Information Integrity Management\>, section 3.7, and \<PII Processing Management\>, section 3.7). The database administrator archives records each month, and applies the rules for incident evidence and legal holds (PRO-AU-4, PRO-AU-7).
 
@@ -177,14 +177,14 @@ The periods are those of \<System Name\>'s retention schedule (\<System and Info
 
 Controls met here: AU-6, AU-6(1), AU-6(3), AU-7, AU-7(1).
 
-1. **Weekly review.** As P-08 sets, the auditor, the only role that reads the application audit log, reviews the records since the last review, following \<Security Operating Procedures\>, section 4.2, which lists the unusual activity to look for (PRO-AU-1; duty C3). The auditor judges what each finding could lead to. The auditor holds no administration role, so nobody reviews their own actions.
+1. **Weekly review.** Every week, the auditor, the only role that reads the application audit log, reviews the records since the last review, following \<Security Operating Procedures\>, section 4.2, which lists the unusual activity to look for (PRO-AU-1; duty C3). The auditor judges what each finding could lead to. The auditor holds no administration role, so nobody reviews their own actions.
 2. **Across stores.** The auditor compares the application records with the SQL Server and Windows logs and \<Organisation\>'s PingFederate and Active Directory records of sign-ins and group changes, lining them up by UTC time and username. This is done by hand, which is proportionate for one system.
 3. **Against requests.** Every change to access is checked against its approved ServiceNow request (\<Access Control Management\>, section 3.13).
 4. **Report.** Findings go to the security officer and system owner on TPL-8, with the date, the period covered, the reviewer and the result. Anything unexplained is raised as a security incident.
 5. **More review when risk rises.** After an incident or new threat information, the system owner sets a more frequent or closer review (PRO-AU-1, step 5).
 6. **A second look at the most powerful.** Each quarter the auditor reports the administrators' actions to the Head of Cyber, who checks them (PRO-AU-1, step 6; \<Security Operating Procedures\>, duty C16).
 7. **A look at the auditor.** Each read or export of the audit log is also a security event in central logging. The security officer reviews these with the central logs each week, and reports anything unexplained to the Head of Cyber, so the auditor's own use of the log is reviewed by someone else.
-8. **Automated support.** Two means join up review, analysis and reporting. The Admin application's audit page filters and summarises the records for the auditor. \<Organisation\>'s central logging, which receives the application, Windows and SQL Server logs, raises the alerts in the detection use cases U1 to U9 (\<System and Information Integrity Management\>, section 3.4), and the security officer reviews those logs as P-08 sets.
+8. **Automated support.** Two means join up review, analysis and reporting. The Admin application's audit page filters and summarises the records for the auditor. \<Organisation\>'s central logging, which receives the application, Windows and SQL Server logs, raises the alerts in the detection use cases U1 to U9 (\<System and Information Integrity Management\>, section 3.4), and the security officer reviews those logs weekly.
 9. **Reports and exports.** The audit page, open only to the auditor group, filters the records and shows a summary. An export gives the auditor the filtered records as a file, for a report or an investigation. Records are always shown with their stored time.
 
 **Table 7: Search and sort on the audit page**
@@ -209,14 +209,14 @@ Controls met here: AU-5, AU-6(1), AU-9.
 
 | Event | Alert to | Within | Then |
 | --- | --- | --- | --- |
-| A logging failure: an audit record cannot be written | Security officer, Windows server administrator, through central monitoring | 1 hour (P-61) | Every action that cannot be recorded is refused until logging is restored. Logging is restored, and the period of refusals is recorded (PRO-AU-3) |
+| A logging failure: an audit record cannot be written | Security officer, Windows server administrator, through central monitoring | 1 hour | Every action that cannot be recorded is refused until logging is restored. Logging is restored, and the period of refusals is recorded (PRO-AU-3) |
 | A break in the audit chain, or other sign of tampering | Security officer, auditor, through central monitoring (U2) | At once | Evidence is preserved, and an incident is raised (PRO-AU-2) |
 | A server clock more than 5 seconds from UTC | Security officer | At the monthly check | The Windows server administrator corrects it with \<Organisation\> |
 | Audit storage running low | Database administrator | When the disk-space alert fires, and at the monthly check | More storage is raised before records are at risk (PRO-AU-4) |
 
 The audit service reports a failed write to \<Organisation\>'s central monitoring, which raises the logging failure alert and does not depend on \<System Name\> itself being healthy.
 
-When an audit record cannot be written, the action it records is refused (P-61). A change is written in the same database transaction as its audit record, so neither is kept without the other. A view, download, search or export writes its record before any item, file or result is returned. The person sees the general error message. Only what is never audited still works: the health check, Sign out, the access-denied page and static files. So no item is seen or changed without a record, which fits the fail-secure principle (\<System Description\>, NFR-052) and the Low availability rating. The cost is that a logging fault stops the service until it is fixed, which is why the alert comes within 1 hour. The Windows server and database administrators find the cause and restore logging. The security officer records the period in which actions were refused, and tells the system owner. If records may be lost or changed, the evidence is preserved first (PRO-AU-3).
+When an audit record cannot be written, the action it records is refused. A change is written in the same database transaction as its audit record, so neither is kept without the other. A view, download, search or export writes its record before any item, file or result is returned. The person sees the general error message. Only what is never audited still works: the health check, Sign out, the access-denied page and static files. So no item is seen or changed without a record, which fits the fail-secure principle (\<System Description\>, NFR-052) and the Low availability rating. The cost is that a logging fault stops the service until it is fixed, which is why the alert comes within 1 hour. The Windows server and database administrators find the cause and restore logging. The security officer records the period in which actions were refused, and tells the system owner. If records may be lost or changed, the evidence is preserved first (PRO-AU-3).
 
 A full disk is a logging failure like any other: if the audit log cannot be written because storage has run out, the first alert in Table 8 applies. The CSS separate warning before storage fills, AU-5(1), is not in the Moderate baseline; the disk-space alert in section 3.7 gives one anyway.
 
@@ -274,7 +274,7 @@ These are the settings for SQL Server 2022 on the database server, so that it lo
 | Time | UTC, as SQL Server Audit records it | Times that line up with the audit log |
 | On audit failure | Fail the operation (FAIL\_OPERATION), and report the failure to central monitoring | A database read or change that SQL Server cannot record is refused, as section 3.9 sets out for the application, and the failure is alerted |
 | Audit file permissions | Written by the SQL Server service account; readable by the database administrator; changed or deleted by nobody. The auditor reads the copies in central logging | Protection as audit information (AU-9) |
-| Audit file retention on the server | At least 30 days, and never removed before central logging has received them | The copy in central logging is kept as P-07 sets (section 3.7) |
+| Audit file retention on the server | At least 30 days, and never removed before central logging has received them | The copy in central logging is kept 12 months, then archived for 12 months (section 3.7) |
 
 Changing any of these is itself a change to logging: it is made through a recorded change (\<Configuration Management\>), and SQL Server Audit records the change.
 
