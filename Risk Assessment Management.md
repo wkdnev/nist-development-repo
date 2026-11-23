@@ -16,8 +16,6 @@ Who provides and is responsible for each control, and its status, are in \<Syste
 
 ### 3.1 Principles
 
-Controls met here: RA-3, RA-5, RA-7, RA-9.
-
 1. **Risk-based.** Decisions follow the rated risk, assessed by a stated method.
 2. **Named decisions.** A named person decides each risk, at the level its rating calls for.
 3. **Keep looking.** Vulnerabilities are looked for all the time, not only at assessment.
@@ -32,8 +30,6 @@ These carry out the principles and rules of \<Policy\>, sections RA.3 and RA.4.
 
 ### 3.2 Security categorisation
 
-Controls met here: RA-2.
-
 \<System Name\> is categorised Moderate: confidentiality Moderate, integrity Moderate and availability Low, unless its application profile sets otherwise. Each of its information types (\<System Description\>, section 3.4, Table 6) is mapped to CSS and rated under CSS, and the system takes the highest level of each. An application rated High in any objective is outside the reference system. The record, with the rationale for each level, is in \<System Security Plan\>, section 3.3, as RA-2 requires. \[Name\] owns the information types and confirms their levels, and the authorising official, \[Name\], approves the categorisation (D-RA-01).
 
 Availability is Low because the 120-hour maximum tolerable downtime means a loss of availability has a limited adverse effect; "business critical" means important to \<Organisation\>, not that \<System Name\> must always be available.
@@ -43,8 +39,6 @@ The last information type, held by every application built on the reference syst
 The categorisation is reviewed with the risk assessment, and whenever an information type is added or changed.
 
 ### 3.3 Risk assessment
-
-Controls met here: RA-3, RA-7.
 
 \<System Name\>'s risk assessment is the Risk List, \<Risk List\>. It follows CSS: a threat source exploits a weakness, with a likelihood, to cause an impact. The method is set out in full in its section 4, beside the risks it rates, so that the Risk List can be read on its own. Table 1, below, summarises it. The threats to the application are modelled before it is built, from its profile and functions, and again at each significant change, and the threat model is kept in the Risk List, section 2.1 (\<System Description\>, NFR-083). Each threat in it leads to a risk in the register.
 
@@ -76,13 +70,9 @@ After a significant change, such as a change to how users sign in or to where th
 
 ### 3.4 Supply chain risk assessment
 
-Controls met here: RA-3(1).
-
 Every 12 months, before a new supplier or a new kind of component is added, and after a significant change to the system or where it runs, the system owner and the developers review each item in the supply chain for its origin, support, known problems and end of support (PRO-RA-2). They use the risks by stage and the supplier register in \<Supply Chain Risk Management\>, sections 3.4 and 3.5, the latest package check, and the bill of materials. Each review is recorded on the risk and supply chain review, and any new risk goes into the Risk List; the risk of a harmful package entering a release is R-RA-06. These intervals are the risk assessment values in \<System Description\>, section 4. The supply chain plan, \<Supply Chain Risk Management\>, holds the suppliers and how they are managed; this section holds the risk assessment.
 
 ### 3.5 What is monitored for vulnerabilities
-
-Controls met here: RA-5, RA-5(2), RA-5(5).
 
 **Table 3: Components checked for vulnerabilities**
 
@@ -112,8 +102,6 @@ Improper configurations are found by the monthly configuration scan against the 
 
 ### 3.6 Vulnerability timetable
 
-Controls met here: RA-5.
-
 This is the one timetable for vulnerabilities in \<System Name\>, its packages and its servers. It replaces any other limit for vulnerabilities, including the general limits for POA&M items in \<Policy\> (CA). It meets the Cyber Essentials limit of 14 days for high and critical updates, which \<Organisation\> holds.
 
 **Table 4: Vulnerability timetable**
@@ -130,8 +118,6 @@ The clock starts when the fix is released, or when \<System Name\>'s use of the 
 
 ### 3.7 Analysing, sharing and reporting
 
-Controls met here: RA-5, RA-5(11).
-
 1. **Analysis.** Within 5 working days of each scan or check, the security officer records each finding on the vulnerability and patch review: its severity under section 3.6, whether \<System Name\> uses the affected part, and its due date (PRO-RA-3).
 2. **False positives.** A finding that does not apply, such as a flaw in a feature \<System Name\> does not call, is marked as a false positive on the vulnerability and patch review with the reason, and checked again at the next scan.
 3. **Fixing.** The people responsible fix or mitigate each finding within its time, as a change (\<Configuration Management\>). An exploited flaw is fixed or mitigated as an emergency change, and the security officer confirms it and tells the system owner (PRO-RA-4).
@@ -140,8 +126,6 @@ Controls met here: RA-5, RA-5(11).
 6. **Flaws in other parties' components.** A flaw found in another party's package or browser library is reported to its maintainer through their published route, and noted on the vulnerability and patch review.
 
 ### 3.8 Risk response
-
-Controls met here: RA-7.
 
 Findings come from four sources: security assessments, privacy assessments, monitoring and audits. Each is answered the same way, within the risk tolerance in section 3.3.
 
@@ -158,8 +142,6 @@ Findings come from four sources: security assessments, privacy assessments, moni
 A monitoring finding, such as a scan result, is first recorded on the vulnerability and patch review (section 3.7). It enters the Risk List only if it cannot be fixed in time.
 
 ### 3.9 Critical components
-
-Controls met here: RA-9.
 
 **Method.** A component is critical if its failure or compromise would expose or lose the items, or defeat a security control. Each component in the authorisation boundary, and each outside service it relies on, is judged by the impact levels in \<System Security Plan\>, section 3.3, the recovery priorities in \<Contingency Planning Management\>, section 3.3, and whether it lies on the path to the items. A component that gives unmediated access to a critical component is critical too. The developers' criticality analysis (SA-15(3)) uses this list.
 
@@ -187,8 +169,6 @@ The list is made at design, before the application is built, and reviewed at eac
 
 ### 3.10 What \<Organisation\> provides
 
-Controls met here: RA-3, RA-3(1), RA-5, RA-5(11), RA-7, RA-9.
-
 **Table 7: Asked of \<Organisation\>**
 
 | Provided | Controls | What \<System Name\> relies on | Evidence asked |
@@ -200,7 +180,5 @@ Controls met here: RA-3, RA-3(1), RA-5, RA-5(11), RA-7, RA-9.
 | Hosting, network and hardware, and their suppliers | RA-3(1) | Their supply chain risk is managed, and the approved suppliers are known | EV-SR-01, EV-SR-02 |
 
 ### 3.11 Policy and procedures
-
-Controls met here: RA-1.
 
 \<Policy\> (RA) and \<Procedures\> (RA) meet RA-1. Who they are shared with is in \<Policy\>, section RA.6. Their ownership, approval, review and records follow the rules common to every policy in \<Policy\>, section 1.1.

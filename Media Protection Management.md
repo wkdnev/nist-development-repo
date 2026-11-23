@@ -14,8 +14,6 @@ Who provides and is responsible for each control, and its status, are in \<Syste
 
 ### 3.1 Principles
 
-Controls met here: MP-3, MP-4, MP-6.
-
 1. **Same protection.** Every copy gets the protection of the information it holds.
 2. **Know where it is.** Every place \<System Name\> information is held is listed, and copies are kept only as long as needed.
 3. **Marked.** \<System Name\> information is marked \<Classification\> wherever it goes.
@@ -28,8 +26,6 @@ These carry out the principles and rules of \<Policy\>, sections MP.3 and MP.4.
 **Figure 1: What happens to every copy**
 
 ### 3.2 Media inventory
-
-Controls met here: MP-2, MP-4.
 
 Every place \<System Name\> information is held outside the running application, with who may reach it. It includes the audit archive, the secret store, incident evidence, the document set, managed printers and the approved locations for users' copies. The system owner reviews the inventory every 12 months, and adds any new place before it is used (PRO-MP-6). \<System Name\> lets only the editors of a schema create a bulk export of it, and only auditors export the audit log (\<Access Control Management\>, section 3.9). Windows permissions limit the encrypted export working area to the API's service account, and each application's logs to its own service account and the Windows server administrator (\<Access Control Management\>, section 3.6.3). A printout is shared only with people authorised to read that schema.
 
@@ -60,8 +56,6 @@ Every place \<System Name\> information is held outside the running application,
 
 ### 3.3 Marking scheme
 
-Controls met here: MP-3.
-
 All \<System Name\> information is marked \<Classification\>, \<Organisation\>'s marking (MP-3). Each item also holds its own classification, chosen from a fixed list, which is shown alongside but never lowers the \<Classification\> marking. No other handling caveat is used: who may see an item is set by its schema, not by a further marking. No media is exempt.
 
 **Table 2: Where the marking goes**
@@ -77,8 +71,6 @@ All \<System Name\> information is marked \<Classification\>, \<Organisation\>'s
 
 ### 3.4 Storage, export copies and users' copies
 
-Controls met here: MP-2, MP-4.
-
 **Table 3: Where media are stored**
 
 | Media | Controlled area | Rule |
@@ -90,13 +82,9 @@ Controls met here: MP-2, MP-4.
 
 ### 3.5 Transport
 
-Controls met here: MP-5.
-
 Media are carried physically only by exception. Each move is approved by the system owner, the media are encrypted or, for paper, sealed, an authorised courier carries them with tracking, and the move is recorded on the media record: from and to, the sender and receiver, the protection and the courier. The receiver confirms arrival on the same record, so that the media are accounted for from release to receipt. Only \<Organisation\>'s hosting staff and its authorised courier carry media, with one exception: the holder of an approved portable storage exception carries that media themselves, encrypted, to and from the external system named in the approval, as the exception request states (section 3.7). A printout does not leave the site without the system owner's approval. Copies sent over the network, such as backups that \<Organisation\>'s backup service copies to the second site, are not transport in this sense: they are encrypted before they leave the database server and protected in transit (\<Contingency Planning Management\>, section 3.8). Any physical movement of backup media by \<Organisation\> follows this section (EV-MP-01).
 
 ### 3.6 Sanitising methods
-
-Controls met here: MP-6.
 
 Methods follow CSS and IEEE 2883-2022, with the NCSC's guidance for the UK. Each action is recorded on the media record, with the tool used and how the result was verified (PRO-MP-3). Every 12 months the system owner checks a sample of \<Organisation\>'s certificates against those records. Media records are kept for 3 years. That matches the training records, and covers a full authorisation cycle.
 
@@ -119,8 +107,6 @@ The information is rated Moderate, and the methods in Table 4 are chosen to matc
 
 ### 3.7 Portable storage
 
-Controls met here: MP-7.
-
 \<System Name\> restricts portable storage rather than prohibiting it outright: it is blocked by default on users' devices and on both servers, and used only under an approved exception.
 
 1. USB and other portable storage are blocked on users' devices by \<Organisation\>'s device control.
@@ -129,8 +115,6 @@ Controls met here: MP-7.
 4. Portable storage with no identifiable owner must not be used. It is handed to the security officer, who records it on the media record.
 
 ### 3.8 What \<Organisation\> provides
-
-Controls met here: MP-2, MP-4, MP-5, MP-6, MP-7.
 
 **Table 5: Asked of \<Organisation\>**
 
@@ -144,7 +128,5 @@ Controls met here: MP-2, MP-4, MP-5, MP-6, MP-7.
 | Locked storage for paper | MP-4 | Lockable storage in its offices, and a cross-cut shredder | EV-MP-01 |
 
 ### 3.9 Policy and procedures
-
-Controls met here: MP-1.
 
 \<Policy\> (MP) and \<Procedures\> (MP) meet MP-1. Who they are shared with is in \<Policy\>, section MP.6. Their ownership, approval, review and records follow the rules common to every policy in \<Policy\>, section 1.1.

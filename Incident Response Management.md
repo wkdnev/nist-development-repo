@@ -14,8 +14,6 @@ Who provides and is responsible for each control, and its status, are in \<Syste
 
 ### 3.1 Principles
 
-Controls met here: IR-4, IR-6, IR-6(3).
-
 1. **Report early.** A suspected incident is reported straight away, and within 1 hour.
 2. **Preserve evidence.** Contain the harm, and do not clean up first.
 3. **One plan.** Everyone follows the same steps, so handling is consistent.
@@ -26,8 +24,6 @@ These carry out the principles and rules of \<Policy\>, sections IR.3 and IR.4.
 
 ### 3.2 Scope
 
-Controls met here: IR-8.
-
 The plan follows CSS, which treats incident response as part of managing cyber risk across the six CSF 2.0 functions: preparation (Govern, Identify, Protect), detection (Detect), and handling and recovery (Respond, Recover). It meets the needs of a Moderate system holding items that include personal data (\<System Description\>, section 3.4), run by a small named team.
 
 It covers the UI application, the Admin application, the API, the \<System Name\> SQL Server database, its backups and secrets, and the two Windows Server 2025 virtual servers at \<Organisation\>. Incidents in \<Organisation\>'s own services, including PingFederate and Active Directory, are handled by \<Organisation\>, with this plan for \<System Name\>'s part.
@@ -37,8 +33,6 @@ It covers the UI application, the Admin application, the API, the \<System Name\
 **Figure 1: The steps every incident follows**
 
 ### 3.3 How the response is organised
-
-Controls met here: IR-7, IR-8.
 
 **Table 1: Incident response roles**
 
@@ -60,8 +54,6 @@ The targets in section 3.6 for Critical and High incidents run in clock hours, s
 
 ### 3.4 Preparation
 
-Controls met here: IR-2, IR-2(3), IR-3, IR-3(2), IR-4, IR-4(1), IR-6(1), IR-7(1), IR-8.
-
 Preparation covers the CSF 2.0 Govern, Identify and Protect functions as they apply to incidents.
 
 1. **People:** every user learns their part, which is to recognise and report an incident and a personal data breach within 1 hour, in the \<System Name\> briefing, parts B5 and B6, before access and every 12 months (\<Awareness and Training Management\>, section 3.3). Each role holder in section 3.3, and each other role the training matrix gives it, takes module M7 within 30 days of taking the role, and the security officer, the system owner and their deputies before taking it, and every 12 months (PRO-IR-3; \<Procedures\>, PRO-AT-2). M7 covers this plan, the severity levels, the playbooks in section 3.9, preserving evidence, the breach steps in section 3.8, and the contacts. It is module M7 of the role curriculum (\<Awareness and Training Management\>, sections 3.4 and 3.5), and the training register shows who is trained (\<Awareness and Training Management\>, section 3.8). The authorising official takes module M10, on the risk decisions that are theirs, instead of M7, and \<Organisation\>'s security contact is trained by \<Organisation\>. After a change to the plan, or a system change or significant incident that alters a person's part, that person takes the updated module within 30 days. The training content is reviewed every 12 months, and after a plan change or a significant incident.
@@ -72,8 +64,6 @@ Preparation covers the CSF 2.0 Govern, Identify and Protect functions as they ap
 6. **Copies:** each role holder keeps a copy of this plan and the contacts that can still be read if the document store, ServiceNow or email is out of use, such as a printed copy.
 
 ### 3.5 Detection sources
-
-Controls met here: IR-4.
 
 **Table 2: How incidents are found**
 
@@ -88,8 +78,6 @@ Controls met here: IR-4.
 | Supplier and NCSC advisories, and NCSC Early Warning | Vulnerabilities in components \<System Name\> uses; incidents and vulnerable services NCSC sees on \<System Name\>'s addresses | Security officer |
 
 ### 3.6 Severity and targets
-
-Controls met here: IR-4.
 
 The incident lead sets the severity when the incident is confirmed, and may raise or lower it as facts emerge.
 
@@ -106,8 +94,6 @@ The incident lead sets the severity when the incident is confirmed, and may rais
 
 ### 3.7 Handling an incident
 
-Controls met here: IR-4.
-
 Every incident follows these steps, the same severity table and the same record, the incident record, so that handling is consistent. Greater severity means more people and faster targets, not a different process.
 
 1. **Detect and analyse:** the incident lead confirms whether a report is an incident, sets its severity, and opens a record on the incident record.
@@ -117,8 +103,6 @@ Every incident follows these steps, the same severity table and the same record,
 5. **Close and learn:** within 10 working days of containment, the incident lead records the root cause and lessons, and updates this plan, the training and the exercise scenarios; the system owner updates \<Risk List\> and \<Plan of Action and Milestones\> (PRO-IR-7).
 
 ### 3.8 Personal data breaches
-
-Controls met here: IR-4, IR-6, IR-8(1).
 
 A personal data breach is any security incident that leads to the accidental or unlawful loss, change, disclosure of, or access to personal data. The privacy requirements that apply are UK GDPR Article 33, reporting to the ICO, Article 34, telling the people affected, and Article 33(5), recording every breach, with the Data Protection Act 2018 and the Data (Use and Access) Act 2025.
 
@@ -130,8 +114,6 @@ A personal data breach is any security incident that leads to the accidental or 
 6. **What the ICO report holds:** what happened, the kinds and rough numbers of people and records, the likely effects, what is being done, and the contact details of the data protection officer, or of the legal adviser if no officer is required (UK GDPR, Article 33(3)(b)).
 
 ### 3.9 Playbooks
-
-Controls met here: IR-4.
 
 **Table 4: Playbooks**
 
@@ -152,8 +134,6 @@ Controls met here: IR-4.
 
 ### 3.10 Evidence and forensic readiness
 
-Controls met here: IR-4.
-
 **Table 5: Evidence sources**
 
 | Source | Where it is kept | Kept for | Notes |
@@ -171,15 +151,11 @@ Controls met here: IR-4.
 
 ### 3.11 Reportable incidents
 
-Controls met here: IR-6, IR-8.
-
 An event is anything seen in \<System Name\> or reported about it. It becomes an incident when the incident lead confirms that it harms, or may harm, the confidentiality, integrity or availability of \<System Name\> or its information, or breaks a security rule. People report what they suspect; they do not wait to be sure. Everyone reports a suspected incident to the security officer within 1 hour, and the rules of behaviour repeat this (\<Security Operating Procedures\>, Part A).
 
 These must be reported: suspected account misuse; access to items by someone who should not have it; an exposed password or secret; malicious code; an attack on the system; loss or unexpected change of items, stored files or audit records; and a failure of logging or backups. Anything else that looks wrong should be reported too.
 
 ### 3.12 Measures and resources
-
-Controls met here: IR-5, IR-7, IR-8.
 
 **Table 6: Measures**
 
@@ -195,13 +171,9 @@ The security officer reports these measures monthly on the monitoring and integr
 
 ### 3.13 Sharing information
 
-Controls met here: IR-6, IR-6(3), IR-8.
-
 Information is shared with \<Organisation\>'s security contact, any affected supplier, and the ICO and the people affected through the legal adviser. The security officer tells \<Organisation\>'s security contact of every confirmed incident, and any other supplier whose product or service is involved, using the supplier register (\<Supply Chain Risk Management\>, section 3.5). \<Organisation\> in turn reports a compromise on its side to the security officer within 24 hours. Crime or a significant cyber attack is reported by the system owner to the NCSC or to Report Fraud, the national police reporting service that replaced Action Fraud. Anything else goes through the system owner. Only \[\<Organisation\> communications contact\] speaks to the press or the public about an incident, with the system owner's agreement. If ServiceNow or email may be compromised, use the phone numbers in appendix A. This document is marked \<Classification\>, and is kept in the restricted document store with the other records.
 
 ### 3.14 Incident and breach register
-
-Controls met here: IR-5.
 
 Incidents and personal data breaches are listed here, each with its incident record: what happened, the severity, the timeline, the evidence, the actions and the lessons. The measures in section 3.12 are reported each month.
 
@@ -212,8 +184,6 @@ Incidents and personal data breaches are listed here, each with its incident rec
 | \[Incident reference\] | \[date opened\] | \[what happened\] | \[severity\] | \[yes or no\] | \[status\] |
 
 ### 3.15 What \<Organisation\> provides
-
-Controls met here: IR-4, IR-4(1), IR-6, IR-6(1), IR-6(3), IR-7, IR-7(1).
 
 **Table 8: Asked of \<Organisation\>**
 
@@ -226,16 +196,12 @@ Controls met here: IR-4, IR-4(1), IR-6, IR-6(1), IR-6(3), IR-7, IR-7(1).
 
 ### 3.16 Keeping the plan
 
-Controls met here: IR-8.
-
 1. **Review and approval.** The Head of Cyber reviews and approves the plan every 12 months and after an incident.
 2. **Copies.** Copies go to every role holder in section 3.3 and their deputies: the security officer, the system owner, the authorising official, the technical response team, the auditor and the legal adviser; and to the administrators, the Head of Cyber and \<Organisation\>'s security contact. Each keeps a copy that can be read when the document store is out of use (section 3.4).
 3. **Updates.** The security officer updates the plan after each incident and exercise (PRO-IR-7), and when a system or organisational change affects it. Changes are told to the same people, with the change record. Version control records every change.
 4. **Protection.** The plan is marked \<Classification\>, and kept in the restricted document store (until the store is set up, the private records repository; \<Documentation Map\>, section 4.1), where only the people in item 2 can read it and only the security officer can change it.
 
 ### 3.17 Policy and procedures
-
-Controls met here: IR-1.
 
 \<Policy\> (IR) and \<Procedures\> (IR) meet IR-1. Who they are shared with is in \<Policy\>, section IR.6. Their ownership, approval, review and records follow the rules common to every policy in \<Policy\>, section 1.1.
 

@@ -16,8 +16,6 @@ Who provides and is responsible for each control, and its status, are in \<Syste
 
 ### 3.1 Principles
 
-Controls met here: CA-2, CA-2(1), CA-3, CA-5, CA-6, CA-7, CA-9.
-
 1. **Two levels of assessment.** The system owner self-assesses at Level 1. An independent team assesses at Level 2, and every authorisation rests on a Level 2 assessment.
 2. **Authorise knowingly.** The authorising official accepts the remaining risk by name, in writing, for no more than 12 months at a time.
 3. **Nothing in production before authorisation.** \<System Name\> holds no real data until it is authorised.
@@ -28,8 +26,6 @@ Controls met here: CA-2, CA-2(1), CA-3, CA-5, CA-6, CA-7, CA-9.
 These carry out the principles and rules of \<Policy\>, sections CA.3 and CA.4.
 
 ### 3.2 The cycle
-
-Controls met here: CA-2, CA-5, CA-6, CA-7, CA-7(1).
 
 ![Figure 1: From assessment to authorisation to monitoring](figures/cam-figure-1.png)
 
@@ -49,8 +45,6 @@ Controls met here: CA-2, CA-5, CA-6, CA-7, CA-7(1).
 
 ### 3.3 Assessment
 
-Controls met here: CA-2, CA-2(1), CA-7(1).
-
 **Levels.** Level 1 is the system owner's self-assessment. It is not independent. It shows the system owner where \<System Name\> stands, and prepares the ground for Level 2. Level 2 is the independent assessment by \[Name\]'s team, which also makes the yearly independent check of monitoring. Level 2 is carried out before the first authorisation and before each yearly re-authorisation, and the authorising official decides only on a Level 2 report. A Level 1 report alone never supports an authorisation (decision D-CA-01).
 
 **Independence.** A member of the team counts as independent once they have completed the assessor independence statement, confirming that they have had no part in designing, building, running or administering \<System Name\>, that they report to no one responsible for it, and declaring any other interest. The authorising official accepts each statement before the assessment starts.
@@ -68,8 +62,6 @@ Controls met here: CA-2, CA-2(1), CA-7(1).
 **Penetration test.** CA-8 is outside the Moderate baseline, but one is commissioned before go-live, by a tester independent of the build (\<Tailoring Register\>, CA-8). Its report goes into the first assessment and the authorisation package, and each finding is rated in \<Risk List\>.
 
 ### 3.4 Plan of action and milestones
-
-Controls met here: CA-5.
 
 Every weakness that needs a fix has one item in \<Plan of Action and Milestones\>, with its control, source, fix, owner, resources, milestone, due time and state. The Risk List rates the weakness and records the decision; only those to be fixed go to the plan. Evidence still to come from \<Organisation\> is tracked in \<Evidence Requests\>, an approval still to be given in \<Decision Register\>, and an accepted risk in \<Risk List\>, section 3 (\<Risk List\>, Table 5).
 
@@ -93,8 +85,6 @@ A consistency test checks that every item named in the Risk List exists in the p
 The steps are in \<Procedures\>, PRO-CA-3.
 
 ### 3.5 Authorisation
-
-Controls met here: CA-6.
 
 **Table 3: Who authorises**
 
@@ -126,8 +116,6 @@ Controls met here: CA-6.
 
 ### 3.6 Inherited controls
 
-Controls met here: CA-6.
-
 These 62 entries are provided wholly by \<Organisation\>, and the system owner relies on them (\<System Security Plan\>, section 7). The authorising official accepts them on the authorisation decision record before \<System Name\> operates, once \<Organisation\>'s evidence has been received (\<Evidence Requests\>). The system owner reviews the list every 12 months with \<Organisation\>'s security contact (PRO-CA-7). \<Organisation\>'s authorising official for its common controls authorises them for use, and \<System Name\> holds the record of that authorisation.
 
 **Table 5: Inherited controls**
@@ -155,8 +143,6 @@ The PM controls are not on this list: they are \<Organisation\>'s programme, not
 
 ### 3.7 Information exchanges and internal connections
 
-Controls met here: CA-3, CA-9.
-
 This is the single record of \<System Name\>'s connections. Every external exchange is with a service of \<Organisation\> itself, so, as CSS allows within one organisation, this record is the agreement: its row states the interface, the security and privacy needs, the controls, the responsibilities and the impact level, and the system owner and the owner of that service sign it (decision D-CA-04). That is the agreement type chosen under CA-3. Any hosting and services agreement \<Organisation\> holds supports it but is not relied on. An exchange with a system outside \<Organisation\> would need its own interconnection or information exchange agreement, and is a significant change (section 3.9). The system owner approves each connection before it is built, reviews each every 12 months with the owner of the other system, both signing again, and records the date a connection ends (PRO-CA-2).
 
 **Table 6: Interface record**
@@ -178,8 +164,6 @@ Every system connection is encrypted. A connection ends when it is no longer nee
 Users' and administrators' devices are outside the boundary. They connect by browser, as a class and not one by one: \<Organisation\>'s managed devices, over HTTPS, in the office or on the VPN (\<Access Control Management\>, section 3.6). Server and database administrators' managed devices reach both servers only over \<Organisation\>'s managed administration route, with multi-factor authentication, using named accounts (F11). \<Organisation\>'s firewall allows only the flows \<System Name\> has asked for (\<Access Control Management\>, section 3.6.4).
 
 ### 3.8 Continuous monitoring
-
-Controls met here: CA-7, CA-7(1), CA-7(4).
 
 This is \<System Name\>'s system-level strategy. It carries out \<Organisation\>'s organisation-level continuous monitoring strategy (PM-31, inherited: \<Program Management\>; EV-PM-03), and follows CSS. Where the two differ, \<Organisation\>'s strategy wins and this section is changed to match. Monitoring starts at go-live.
 
@@ -235,8 +219,6 @@ This is \<System Name\>'s system-level strategy. It carries out \<Organisation\>
 
 ### 3.9 Significant change
 
-Controls met here: CA-2, CA-3, CA-6, CA-7.
-
 A significant change is one likely to alter \<System Name\>'s security or privacy risk. It must be assessed before it is made (PRO-CA-6), and the authorising official decides whether \<System Name\> must be re-assessed or re-authorised. These always count as significant:
 
 1. A new or changed external connection, or a change to an agreement in section 3.7.
@@ -255,8 +237,6 @@ Routine patches within the time limits of \<Security Operating Procedures\>, and
 
 ### 3.10 What \<Organisation\> provides
 
-Controls met here: CA-3, CA-6.
-
 **Table 9: Asked of \<Organisation\>**
 
 | Provided | Controls | What \<System Name\> relies on | Evidence asked |
@@ -266,7 +246,5 @@ Controls met here: CA-3, CA-6.
 | Evidence for each inherited control | CA-6, and each control's own family | Each control's evidence request in \<Evidence Requests\> | By family |
 
 ### 3.11 Policy and procedures
-
-Controls met here: CA-1.
 
 \<Policy\> (CA) and \<Procedures\> (CA) meet CA-1. Who they are shared with is in \<Policy\>, section CA.6. Their ownership, approval, review and records follow the rules common to every policy in \<Policy\>, section 1.1.

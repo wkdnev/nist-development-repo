@@ -18,8 +18,6 @@ Who provides and is responsible for each control, and its status, are in \<Syste
 
 ### 3.1 Principles
 
-Controls met here: IA-2, IA-2(1), IA-2(2), IA-4, IA-5, IA-5(6), IA-12.
-
 1. **Unique.** Each person has one named identifier, which is never reused.
 2. **Proven.** A person's identity is established before they have an account.
 3. **Strong.** Every sign-in needs more than a password.
@@ -30,8 +28,6 @@ Controls met here: IA-2, IA-2(1), IA-2(2), IA-4, IA-5, IA-5(6), IA-12.
 These carry out the principles and rules of \<Policy\>, sections IA.3 and IA.4.
 
 ### 3.2 Who and what is identified
-
-Controls met here: IA-2, IA-2(12), IA-3, IA-4, IA-4(4), IA-8, IA-8(1), IA-8(2), IA-8(4).
 
 **Table 1: Identifiers**
 
@@ -61,8 +57,6 @@ There are no shared, guest, anonymous or local accounts, and nobody outside \<Or
 **Users from outside \<Organisation\>.** Only \<Organisation\>'s staff and contractors, with an Active Directory account, may use \<System Name\>, so the controls for non-organisational users do not apply (TR-IA-03 to TR-IA-06 in \<Tailoring Register\>). PIV is a United States federal credential, and no \<System Name\> user holds one, so PIV credentials are not accepted (TR-IA-01).
 
 ### 3.3 Sign-in through PingFederate
-
-Controls met here: IA-2, IA-2(1), IA-2(2), IA-2(8), IA-6, IA-11.
 
 ![Figure 1: How a person signs in](figures/iam-figure-1.png)
 
@@ -102,8 +96,6 @@ The steps and the trust are the design. The settings shown as placeholders are a
 
 ### 3.4 Assurance levels
 
-Controls met here: IA-2, IA-2(1), IA-2(2), IA-5, IA-12.
-
 This follows CSS, section 3, and the federal acceptance statement template, applied to sign-in through PingFederate.
 
 Identity assurance is how sure we are that a person is who they claim. Authenticator assurance is how sure we are that the person signing in holds the account. Federation assurance applies when another system, here PingFederate, vouches for the person.
@@ -122,8 +114,6 @@ Identity assurance is how sure we are that a person is who they claim. Authentic
 **Reasoning:** \<System Name\> holds information rated Moderate, including personal data, so a failed sign-in check could expose personal data. CSS points to authenticator assurance level 2 for that harm, which needs two factors and replay resistance. The same harm points to identity assurance level 2, which \<Organisation\>'s HR checks are expected to meet: photo identification and a right-to-work check, seen and verified by HR. That is to be confirmed with EV-IA-02. Identity proofing is done once, by \<Organisation\>'s HR, and is not repeated by \<System Name\>. The authorising official accepts these levels (D-IA-01), and they are reviewed every 12 months (PRO-IA-7). Federation is used: PingFederate proves who the person is and vouches for them to \<System Name\>.
 
 ### 3.5 Authenticators
-
-Controls met here: IA-5, IA-5(1), IA-5(2), IA-5(6), IA-7.
 
 **Table 5: Authenticator inventory**
 
@@ -155,8 +145,6 @@ Only the API connects to SQL Server, by Windows authentication with its managed 
 
 ### 3.6 Settings against CSS
 
-Controls met here: IA-2(1), IA-2(2), IA-2(8), IA-5, IA-5(1), IA-6, IA-11.
-
 \<System Name\> sets no password rule of its own. \<Organisation\>'s corporate standard applies, and is to be compared with CSS and NCSC password guidance when \<Organisation\> supplies it (EV-IA-04).
 
 **Table 6: Authentication settings at authenticator assurance level 2**
@@ -182,8 +170,6 @@ Controls met here: IA-2(1), IA-2(2), IA-2(8), IA-5, IA-5(1), IA-6, IA-11.
 
 ### 3.7 Sign-in lifetime and signing in again
 
-Controls met here: IA-2, IA-11.
-
 \<System Name\>'s session is its authentication cookie (\<Access Control Management\>, section 3.15). It has no idle timeout, session limit or page lock.
 
 1. A sign-in lasts 8 hours from sign-in, with no sliding extension, and never longer than PingFederate's sign-in. It ends sooner when the person uses Sign out (FR-084), or when their account is disabled or their membership removed, which the API refuses within 5 minutes. The person then signs in again through PingFederate.
@@ -194,13 +180,9 @@ Controls met here: IA-2, IA-11.
 
 ### 3.8 Identity proofing
 
-Controls met here: IA-12, IA-12(2), IA-12(3), IA-12(5).
-
 \<Organisation\>'s HR proves who each person is, once, in its pre-employment checks, before the person has an Active Directory account. That is photo identification and a right-to-work check for staff, and the same through the agency for contractors, with a notice of proofing expected to be sent to the person's address of record, which EV-IA-02 confirms. HR sees the evidence, and validates and verifies it, in those checks, and each identity resolves to one person, with one Active Directory account. \<System Name\> does not repeat it. Before adding anyone to a group, the group's owner confirms the request came from that person and their line manager (\<Procedures\>, PRO-AC-1).
 
 ### 3.9 What \<Organisation\> provides
-
-Controls met here: IA-2, IA-2(1), IA-2(2), IA-2(8), IA-3, IA-4, IA-4(4), IA-5, IA-5(1), IA-6, IA-7, IA-12, IA-12(2), IA-12(3), IA-12(5).
 
 **Table 7: Asked of \<Organisation\>**
 
@@ -213,7 +195,5 @@ Controls met here: IA-2, IA-2(1), IA-2(2), IA-2(8), IA-3, IA-4, IA-4(4), IA-5, I
 | Cryptographic modules on the servers | IA-7 | The Windows Server 2025 build's modules, reached only through Windows accounts, as set by \<Organisation\>'s build | EV-IA-03 |
 
 ### 3.10 Policy and procedures
-
-Controls met here: IA-1.
 
 \<Policy\> (IA) and \<Procedures\> (IA) meet IA-1. Who they are shared with is in \<Policy\>, section IA.6. Their ownership, approval, review and records follow the rules common to every policy in \<Policy\>, section 1.1.

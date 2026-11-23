@@ -14,8 +14,6 @@ Who provides and is responsible for each control, and its status, are in \<Syste
 
 ### 3.1 Principles
 
-Controls met here: SR-2, SR-3.
-
 1. **Know the supply chain.** Every supplier is named, with its criticality.
 2. **One way in.** Every package comes through one checked source, and every browser library through one checked, recorded route.
 3. **Fix and verify.** A release is built from exactly the components recorded for it, and can be shown to be so.
@@ -30,8 +28,6 @@ These carry out the principles and rules of \<Policy\>, sections SR.3 and SR.4.
 
 ### 3.2 System context
 
-Controls met here: SR-2.
-
 \<System Name\> is three .NET 10 web applications, the UI application, the Admin application and the API, with a shared library built into all three, and a Microsoft SQL Server 2022 database (\<System Description\>, sections 6.3 and 6.4). The applications run as Windows services, each under its own group managed service account, on two Windows Server 2025 virtual servers in \<Organisation\>'s data centre. The test environment is a throwaway copy of the whole system, built from a tagged release. Its impact level is Moderate. Users sign in through \<Organisation\>'s PingFederate, and the API reads their Active Directory groups over LDAPS to decide their access. \<System Name\> is built in-house under \<Organisation\>'s corporate SDLC.
 
 This plan covers \<System Name\>, its software packages, browser libraries, build and developer tools, scanners, the \<Organisation\> services it relies on (\<System and Services Acquisition Management\>, Table 4), hosting and hardware, and the suppliers who support any of them.
@@ -40,15 +36,11 @@ What it is built from: the Microsoft products in the reference stack; \[number\]
 
 ### 3.3 The supply chain team
 
-Controls met here: SR-2, SR-2(1), SR-6.
-
 The supply chain team is the system owner, the security officer, a developer and \<Organisation\>'s IT service desk (SR-02(01)\_ODP\[01\]). Its activities (SR-02(01)\_ODP\[02\]) are to keep this plan and the supplier register current; to review each supplier in the register every 12 months, and a new High supplier before it is used, on the supplier review; to handle notices of compromise and suspected counterfeits; and to bring \<Organisation\>'s hardware, repair and disposal processes into the plan (PRO-SR-2, PRO-SR-4, PRO-SR-5). The system owner leads it and approves the plan.
 
 The team reviews this plan every 12 months, and after a significant change, a supply chain compromise, or a new threat to the supply chain in the threat model (\<Risk List\>, section 2.1) (PRO-SR-2). The plan is restricted, under version control, and held in the restricted store (until the store is set up, the private records repository; \<Documentation Map\>, section 4.1). \<Organisation\>'s part is evidenced through EV-SR-01.
 
 ### 3.4 Risks across the lifecycle
-
-Controls met here: SR-2, SR-3.
 
 **Table 1: Supply chain risks by stage**
 
@@ -64,8 +56,6 @@ Controls met here: SR-2, SR-3.
 | Disposal | Data leaves with a component | PRO-MP-3, then \<Organisation\>'s disposal (PRO-SR-6) |
 
 ### 3.5 Supplier register
-
-Controls met here: SR-3, SR-5, SR-6, SR-8.
 
 Criticality follows the critical components in \<Risk Assessment Management\>, section 3.9, and \<Organisation\>'s list of critical suppliers (PM-30(1)): High where a compromise would reach items, or the way people sign in. Advisories are watched through the sources in \<System and Information Integrity Management\>, section 3.3. Every supplier in the register is reviewed every 12 months (PRO-SR-2).
 
@@ -85,13 +75,9 @@ Criticality follows the critical components in \<Risk Assessment Management\>, s
 
 ### 3.6 Risk tolerance
 
-Controls met here: SR-2, SR-3.
-
 No critical component may be used without a known source and a SHA-256 record. A known flaw in any component is fixed to the timetable in \<Risk Assessment Management\>, section 3.6, and an unsupported component is replaced as \<System and Services Acquisition Management\>, section 3.12, sets. A High supplier that has not been reviewed within 12 months, or a component that fails a check in section 3.8, is recorded in \<Risk List\> for a decision. The risk that a harmful package, browser library or build tool still enters a release is R-RA-06.
 
 ### 3.7 How components come in
-
-Controls met here: SR-3, SR-5, SR-10, SR-11.
 
 Three processes find and address weaknesses in the supply chain: component checks before use (PRO-SR-1), supplier reviews (PRO-SR-2) and release inspection (PRO-SR-3). They are coordinated with \<Organisation\>'s IT service desk and the suppliers in section 3.5. They carry out \<Organisation\>'s organisation-wide supply chain risk management strategy, and the supplier register uses its list of critical suppliers (PM-30, PM-30(1), inherited: \<Program Management\>; EV-PM-03). Where the two differ, \<Organisation\>'s strategy wins and this plan is changed to match. They sit within \<Organisation\>'s corporate SDLC, which provides the one checked package feed, the lock file support and the pipeline that produces a software bill of materials for each release (\<System Description\>, section 7.12); the developers check each bill of materials (PRO-SR-3). The processes and controls are documented in this plan and in \<System Security Plan\> (SR-03\_ODP\[04\]).
 
@@ -113,16 +99,12 @@ The acquisition strategies, tools and methods (SR-5) are: buying only from suppl
 
 ### 3.8 Notices, inspection, authenticity and disposal
 
-Controls met here: SR-8, SR-10, SR-11, SR-11(1), SR-11(2), SR-12.
-
 1. **Notices** (SR-8). \<Organisation\> reports a supply chain compromise to the security officer within 24 hours, and shares assessment or audit results that affect \<System Name\> (EV-SR-01). For open-source suppliers, their published advisories are the notice, through the sources in \<System and Information Integrity Management\>, section 3.3. Each notice that applies is recorded on the vulnerability and patch review, and a compromise is handled as an incident (PRO-SR-5).
 2. **Inspection** (SR-10). The release packages, every file a release installs, including the release scripts, and the browser library files are checked against their recorded SHA-256 values at each release before installation, and whenever tampering is suspected (PRO-SR-3). Once installed, the same files are checked monthly by the integrity check (\<System and Information Integrity Management\>, section 3.5). A different value, a missing or extra file, an unsigned or wrongly signed tag, an unexpected package source or damaged packaging is a sign of tampering. \<Organisation\> inspects the host hardware on arrival and after repair (EV-SR-02).
 3. **Authenticity** (SR-11). Under policy rule R11, package names are checked against look-alikes, packages come only from the in-house package feed under a signed-package trust policy, and browser library files are checked against their publisher's values. A suspected counterfeit is refused and reported to its source, the security officer, \<Organisation\>, the package registry and, if serious, the NCSC. \<Organisation\> trains its buyers every year (SR-11(1)); the developers, who choose the software, learn to spot look-alike and counterfeit packages in role module M5 (\<Awareness and Training Management\>). \<Organisation\> keeps configuration control of the host hardware while it awaits repair and until it returns to service (SR-11(2); \<Maintenance Management\>; PRO-SR-4).
 4. **Disposal** (SR-12). For hardware, virtual disks, media, data and documents, \<System Name\> data is removed first by the method for its type (PRO-MP-3): for the servers' virtual disks, the Windows server administrator destroys every copy of the BitLocker keys; paper is shredded. \<Organisation\> then disposes of the component and confirms in writing (PRO-SR-6). A package or browser library that is retired is removed from the release and the inventory at the next change.
 
 ### 3.9 What \<Organisation\> provides
-
-Controls met here: SR-2(1), SR-3, SR-5, SR-6, SR-8, SR-10, SR-11(1), SR-11(2), SR-12.
 
 **Table 4: Asked of \<Organisation\>**
 
@@ -134,13 +116,9 @@ Controls met here: SR-2(1), SR-3, SR-5, SR-6, SR-8, SR-10, SR-11(1), SR-11(2), S
 
 ### 3.10 Policy and procedures
 
-Controls met here: SR-1.
-
 \<Policy\> (SR) and \<Procedures\> (SR) meet SR-1. Who they are shared with is in \<Policy\>, section SR.6. Their ownership, approval, review and records follow the rules common to every policy in \<Policy\>, section 1.1.
 
 ### 3.11 Values chosen for the controls
-
-Controls met here: SR-2, SR-2(1), SR-3, SR-5, SR-6, SR-8, SR-10, SR-11, SR-11(1), SR-11(2), SR-12.
 
 These are the organisation-defined parameters for the SR controls. They are approved in \<Decision Register\> (D-SR-P76).
 

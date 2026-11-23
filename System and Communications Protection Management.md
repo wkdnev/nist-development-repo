@@ -16,8 +16,6 @@ Who provides and is responsible for each control, and its status, are in \<Syste
 
 ### 3.1 Principles
 
-Controls met here: SC-2, SC-7, SC-7(5), SC-8, SC-12.
-
 1. **Deny by default.** Only the agreed flows are allowed, at \<Organisation\>'s firewalls and on each server.
 2. **Encrypt everything that moves.** Every flow that carries \<System Name\>'s data, sign-ins or credentials uses TLS, including those that stay inside a server. The exceptions are time, which uses NTP, authenticated where \<Organisation\>'s time service allows, and the servers' infrastructure traffic to \<Organisation\>'s DNS, domain controllers and certificate authority, which carries no \<System Name\> data and is protected as Windows and \<Organisation\> set it (section 3.3).
 3. **Know every key.** Every key and cryptographic use is recorded, owned, protected and changed on time.
@@ -30,8 +28,6 @@ These carry out the principles and rules of \<Policy\>, sections SC.3 and SC.4.
 **Figure 1: The boundary, the flows and their protection**
 
 ### 3.2 Boundary and allowed flows
-
-Controls met here: SC-2, SC-7, SC-7(3), SC-7(4), SC-7(5), SC-7(7), SC-7(8), SC-15.
 
 \<System Name\> has no publicly accessible component, so it needs no public subnetwork, and no connection of its own to an outside network. Users reach it from \<Organisation\>'s network, and administrators over \<Organisation\>'s managed administration route, as \<System Description\>, section 6, sets out (SC-7). Its external connections are limited to the \<Organisation\> services in \<Assessment, Authorization, and Monitoring Management\>, Table 6: PingFederate and Active Directory (F6, F7, F10), central logging, the time service, the backup site and the authenticated proxy (F8), each reached only through \<Organisation\>'s managed interfaces (SC-7(3)). Traffic to these \<Organisation\> services goes directly to them, as Table 3 allows. Traffic from the servers to anything outside \<Organisation\>'s network goes only through the authenticated proxy, and only for updates to Windows Server, SQL Server and Defender; anything else is blocked (SC-7(8)).
 
@@ -81,8 +77,6 @@ Each server's host firewall denies everything not listed below (SC-7(5)). \<Orga
 
 ### 3.3 Transport encryption and sign-in
 
-Controls met here: SC-7(4), SC-8, SC-8(1), SC-10, SC-13, SC-23.
-
 Every flow uses this profile, from NCSC's guidance. It covers F1 to F5, including the API calls that stay on the application server (F3, F4), F7, the API's LDAPS connection to Active Directory, on which the directory's certificate is checked, and F10, the applications' HTTPS connection to PingFederate for its OpenID Connect metadata and signing certificate and to complete each sign-in, on which PingFederate's certificate is checked. F6, sign-in through PingFederate, and F8, the servers' logging, proxy and backup traffic, are encrypted as \<Organisation\> sets. Time, also on F8, uses NTP from \<Organisation\>'s time service, authenticated where that service allows. F9 is between people and carries nothing to or from \<System Name\>. F11, server and database administration, runs only over \<Organisation\>'s managed administration route, encrypted as \<Organisation\> sets. The DNS, domain and certificate revocation traffic is not TLS and carries no \<System Name\> data: Kerberos and domain traffic are protected by Windows' own signing and encryption, DNS answers by \<Organisation\>'s validating resolvers (section 3.8), and revocation lists by their signatures. Transmitted information is protected for both confidentiality and integrity (SC-8), and TLS both prevents its disclosure and detects changes to it (SC-8(1)).
 
 **Table 4: TLS profile**
@@ -104,8 +98,6 @@ Every flow uses this profile, from NCSC's guidance. It covers F1 to F5, includin
 Network connections end at the end of the session or when idle (SC-10). Each ordinary TLS connection on F1 to F5, F7 and F10 is closed when the exchange ends or when it has been idle for the web server's or database's connection time-out \[the time-outs as configured, from Test-Protection.ps1\]. The Blazor live connection is kept open by its own keep-alive messages while the page is open, so it is never idle at the network level: it is closed when the session ends, that is when the cookie reaches 8 hours, at Sign out, or within 5 minutes of the person being refused (\<System Description\>, section 7.3), and when the person closes the page. There is no idle time-out in the application, as the authorising official is asked to accept in D-IA-01; an unattended screen is locked after 15 minutes. \<Organisation\> ends network and remote access (VPN) sessions after 30 minutes idle.
 
 ### 3.4 Cryptographic and key register
-
-Controls met here: SC-12, SC-13, SC-17.
 
 Every key and cryptographic use in \<System Name\> is listed here (SC-12, SC-13). The cryptoperiods are: the data protection key rings every 90 days; the keys and secrets in the key store, and the backup encryption certificate, every 12 months; certificates as issued, at most 1 year; and any of them at once if exposed. Each key is managed through its life as follows (SC-12):
 
@@ -140,8 +132,6 @@ Certificates come from \<Organisation\>'s certificate authority, under its certi
 
 ### 3.5 Mobile code and the page policy
 
-Controls met here: SC-18.
-
 Acceptable mobile code is JavaScript served by \<System Name\> itself: Blazor Server's own script and the packaged browser libraries. Unacceptable mobile code is everything else, including scripts from outside services, inline scripts, eval, WebAssembly, Java applets, ActiveX and browser plug-ins. Blazor Server runs no WebAssembly, and the page policy blocks it; a browser library that needs it would need the system owner's approval and a change to the policy first (SC-18a).
 
 Use is authorised by the system owner's approval of any new mobile code (PRO-SC-5) and controlled by the page policy below, which each browser enforces. It is monitored by the check of page code at each release (PRO-SC-5), the monthly scan of the browser libraries, and the monthly check of the release files, including every script served, against their recorded checksums (\<System and Information Integrity Management\>) (SC-18b).
@@ -163,8 +153,6 @@ Use is authorised by the system owner's approval of any new mobile code (PRO-SC-
 
 ### 3.6 Information at rest
 
-Controls met here: SC-4, SC-28, SC-28(1).
-
 The information protected at rest, for both confidentiality and integrity, is the items and their files in SQL Server, the audit records, the database files, the backups, the bulk export working copies, the applications' log files, the data protection key rings and the secrets in the key store (SC-28). Cryptography protects it on both servers' disks and in the backups (SC-28(1)): encryption prevents its disclosure, and prevents its offline modification, as BitLocker refuses to unlock a disk whose start-up chain has been changed; changes to stored files and audit records are detected by their SHA-256 checksums and the keyed audit chain.
 
 1. **The servers' disks.** BitLocker with XTS-AES 256 and the TPM on both servers. Recovery keys are held in \<Organisation\>'s protected store, and one is tested every 12 months (PRO-SC-7).
@@ -175,8 +163,6 @@ The information protected at rest, for both confidentiality and integrity, is th
 
 ### 3.7 Denial of service, shared resources and process isolation
 
-Controls met here: SC-2, SC-4, SC-5, SC-39.
-
 1. **Denial of service** (SC-5). \<System Name\> limits the effects of three types of event: network flooding, request flooding from one client, and resource exhaustion from oversized work. The controls for each are: \<Organisation\>'s network protections for network flooding (EV-SC-01); each application's request limit for each client for request flooding (NFR-046); and the upload and batch limits and the API as the only route to a database on its own server, for resource exhaustion. Account lockout in PingFederate and Active Directory is a sign-in control, not a protection against denial of service. When the service slows or fails under traffic, the security officer and \<Organisation\>'s service desk respond (PRO-SC-6).
 2. **Shared resources** (SC-4). Windows Server on both servers clears memory and storage before they are given to another process or user. Each application runs as its own Windows service under its own account, and holds each person's page state on their own live connection only. Export copies are in a working area readable only by the API, can be fetched only by the person who started the job (\<System Description\>, section 7.5), and are removed, as above. Content is sent so that it is not kept in shared caches. Beneath the servers, \<Organisation\>'s hypervisor keeps their memory and disks apart from other virtual machines on the same hosts and clears them before reuse (EV-GEN-03). SC-4 is therefore Hybrid.
 3. **Process isolation** (SC-39). Windows Server on both servers gives each process its own address space, and each application and SQL Server runs as its own process under its own account. This is part of \<System Name\>, so SC-39 is a System control.
@@ -184,13 +170,9 @@ Controls met here: SC-2, SC-4, SC-5, SC-39.
 
 ### 3.8 Name resolution
 
-Controls met here: SC-20, SC-21, SC-22.
-
 \<System Name\> uses \<Organisation\>'s DNS, which provides signed authoritative answers, validating resolvers, and fault-tolerant servers with internal and external roles kept apart (SC-20, SC-21, SC-22). \<System Name\> runs no DNS service of its own. \<Organisation\>'s evidence is asked for in EV-SC-05.
 
 ### 3.9 What \<Organisation\> provides
-
-Controls met here: SC-5, SC-7, SC-7(3), SC-7(4), SC-7(5), SC-7(7), SC-7(8), SC-10, SC-17, SC-20, SC-21, SC-22.
 
 **Table 7: Asked of \<Organisation\>**
 
@@ -205,13 +187,9 @@ Controls met here: SC-5, SC-7, SC-7(3), SC-7(4), SC-7(5), SC-7(7), SC-7(8), SC-1
 
 ### 3.10 Policy and procedures
 
-Controls met here: SC-1.
-
 \<Policy\> (SC) and \<Procedures\> (SC) meet SC-1. Who they are shared with is in \<Policy\>, section SC.6. Their ownership, approval, review and records follow the rules common to every policy in \<Policy\>, section 1.1.
 
 ### 3.11 Values chosen for the controls
-
-Controls met here: SC-5, SC-7, SC-7(4), SC-7(5), SC-7(7), SC-7(8), SC-8, SC-8(1), SC-10, SC-12, SC-13, SC-15, SC-17, SC-28, SC-28(1).
 
 These are the organisation-defined parameters for the SC controls. The values that are \<System Description\> parameters are approved in \<Decision Register\> (D-SC-P10, D-SC-P26), and the rest with this design.
 

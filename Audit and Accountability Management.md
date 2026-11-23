@@ -14,8 +14,6 @@ Who provides and is responsible for each control, and its status, are in \<Syste
 
 ### 3.1 Principles
 
-Controls met here: AU-2, AU-3, AU-6, AU-9, AU-11, AU-12.
-
 1. **Complete.** The agreed events are recorded every time they occur.
 2. **Attributable.** Each record shows what happened, when, where, from where, the outcome and who was involved. The person is the one PingFederate authenticated.
 3. **Protected.** Nobody can change a record, and nobody deletes one except to remove it from the database once it is archived (section 3.7). Only auditors read them, with two exceptions: the last sign-in report (FR-085), which shows the security officer each member's username and last sign-in date, and nothing else; and the database administrator, who reaches the table only to archive it.
@@ -27,8 +25,6 @@ Controls met here: AU-2, AU-3, AU-6, AU-9, AU-11, AU-12.
 These carry out the principles and rules of \<Policy\>, sections AU.3 and AU.4.
 
 ### 3.2 Where audit records come from
-
-Controls met here: AU-2, AU-12.
 
 An investigation must be able to follow an action from the network to the database. So records come from six sources. \<System Name\>'s team controls the first three. \<Organisation\> controls the rest, as part of its corporate configuration.
 
@@ -50,8 +46,6 @@ An investigation must be able to follow an action from the network to the databa
 Each source logs at every occurrence. The system owner selects the events for the sources \<System Name\> controls: the application events in Table 2 and the SQL Server settings in appendix A. Developers make application changes through a release, and the database administrator applies SQL Server changes through a recorded change. The Windows, PingFederate and Active Directory events are agreed with \<Organisation\> (section 3.11). The system owner reviews the list every 12 months and on any change, and records the decision in \<Decision Register\> (PRO-AU-5).
 
 ### 3.3 Application events
-
-Controls met here: AU-2, AU-12.
 
 Table 2 lists every event type \<System Name\>'s applications log, the actions recorded under each, and what an investigator learns from it. That is the reason each is selected (AU-2, part d). Together they answer who signed in, what they saw or changed, what they were refused, who changed access or settings, and when nothing could be logged.
 
@@ -78,8 +72,6 @@ This table is the full list of event types and actions that \<System Name\>'s ap
 
 ### 3.4 What a record holds
 
-Controls met here: AU-3, AU-3(1), AU-3(3), AU-8, AU-9, AU-12.
-
 Every application record has the same fields, in one record format, held in the shared library and filled in by the audit service in the API. Every event in sections 3.2 and 3.3 writes a record with this content. Table 3 shows which part of AU-3 each meets.
 
 **Table 3: Audit record content**
@@ -101,8 +93,6 @@ Every application record has the same fields, in one record format, held in the 
 **Limits on content (rule R8; AU-3(3)).** A record never holds a password, key, token or cookie. It holds only the personal data an investigation needs: the named fields above. The free text holds no further personal data. A data-change record names the item and the fields that changed, but never their old or new values, and a deletion record names the item but holds none of its content. So no personal data about the people the items describe is copied into the log, and a correction or erasure (\<System Description\>, FR-075) leaves no copy there. Where an investigation needs an earlier value, it is taken from the backups.
 
 ### 3.5 How records are stored and protected
-
-Controls met here: AU-9, AU-9(4).
 
 **Table 4: Where audit information is held, and who can reach it**
 
@@ -141,8 +131,6 @@ Administrators have none of these functions. They are the people whose actions t
 
 ### 3.6 Time
 
-Controls met here: AU-6(3), AU-8.
-
 1. Each record takes its time from the clock of the server that writes it. Every record's time is in UTC, to the nearest second or finer.
 2. Each server takes its time from \<Organisation\>'s time service, \[Organisation time source\], and stays within 1 second of UTC.
 3. Each month the Windows server administrator checks both servers, records the result on the monitoring and integrity report, and reports any drift over 5 seconds to the security officer (PRO-AU-4).
@@ -153,8 +141,6 @@ One time source across the applications, the servers, PingFederate and the netwo
 CSS no longer asks for clock synchronisation under AU-8. In Revision 5 it moved to SC-45(1), which is not in the Moderate baseline. \<System Name\> keeps the rule of 1 second anyway, because the weekly comparison across stores depends on it.
 
 ### 3.7 Retention and capacity
-
-Controls met here: AU-4, AU-11.
 
 **Table 6: Retention**
 
@@ -174,8 +160,6 @@ Storage is sized for the full 24 months when the servers are built, from the exp
 The periods are those of \<System Name\>'s retention schedule (\<System and Information Integrity Management\>, section 3.7, and \<PII Processing Management\>, section 3.7). The database administrator archives records each month, and applies the rules for incident evidence and legal holds (PRO-AU-4, PRO-AU-7).
 
 ### 3.8 Review, analysis and reporting
-
-Controls met here: AU-6, AU-6(1), AU-6(3), AU-7, AU-7(1).
 
 1. **Weekly review.** Every week, the auditor, the only role that reads the application audit log, reviews the records since the last review, following \<Security Operating Procedures\>, section 4.2, which lists the unusual activity to look for (PRO-AU-1). The auditor judges what each finding could lead to. The auditor holds no administration role, so nobody reviews their own actions.
 2. **Across stores.** The auditor compares the application records with the SQL Server and Windows logs and \<Organisation\>'s PingFederate and Active Directory records of sign-ins and group changes, lining them up by UTC time and username. This is done by hand, which is proportionate for one system.
@@ -203,8 +187,6 @@ The page only reads. It cannot change a record or its order, and an export is a 
 
 ### 3.9 Failures and alerts
 
-Controls met here: AU-5, AU-6(1), AU-9.
-
 **Table 8: Alerts**
 
 | Event | Alert to | Within | Then |
@@ -224,8 +206,6 @@ Alerts are raised by the detection use cases in \<System and Information Integri
 
 ### 3.10 The application logs
 
-Controls met here: AU-9, AU-11.
-
 Each application also keeps its own log of errors, start-up and shut-down. The API also writes to it a short security event for each event that raises an alert (\<System and Information Integrity Management\>, section 3.4), each read or export of the audit log, each failed chain check, and once a day the newest chain hash. A security event holds the event type, the time, the username, the schema and a count, or the hash. It holds no item details and no other personal data. These rules apply to the application logs:
 
 1. The application logs are audit information. On the server only the Windows server administrators may read them; the auditor and the security officer read them in central logging.
@@ -234,8 +214,6 @@ Each application also keeps its own log of errors, start-up and shut-down. The A
 4. Each month the Windows server administrator checks who can read them and how old they are (PRO-AU-7).
 
 ### 3.11 What \<Organisation\> provides
-
-Controls met here: AU-2, AU-4, AU-5, AU-6, AU-6(1), AU-6(3), AU-8, AU-11, AU-12.
 
 \<Organisation\> sets these as part of its corporate configuration. The \<System Name\> team has no control over them. \<System Name\> states what it relies on, and asks for the evidence.
 
@@ -252,8 +230,6 @@ Controls met here: AU-2, AU-4, AU-5, AU-6, AU-6(1), AU-6(3), AU-8, AU-11, AU-12.
 The system owner agrees two things with \<Organisation\>'s security contact, and records them: which logs \<Organisation\>'s monitoring needs from \<System Name\> and its servers; and which of \<Organisation\>'s own records, of PingFederate, Active Directory, the network and the VPN, \<System Name\>'s auditor receives. The five requests, EV-AU-01 to EV-AU-05, are sent together, and central monitoring is settled with \<Organisation\>'s security contact before the servers are built.
 
 ### 3.12 Policy and procedures
-
-Controls met here: AU-1.
 
 \<Policy\> (AU) and \<Procedures\> (AU) meet AU-1. Who they are shared with is in \<Policy\>, section AU.6. Their ownership, approval, review and records follow the rules common to every policy in \<Policy\>, section 1.1.
 

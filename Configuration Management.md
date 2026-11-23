@@ -14,8 +14,6 @@ Who provides and is responsible for each control, and its status, are in \<Syste
 
 ### 3.1 Principles
 
-Controls met here: CM-2, CM-3, CM-6, CM-7, CM-8, CM-8(3).
-
 1. **Known baseline.** The approved configuration is recorded and versioned, so that any release can be rebuilt exactly.
 2. **Controlled change.** No change happens without an impact analysis, approval and testing.
 3. **Least functionality.** Anything \<System Name\> does not need is turned off or left out.
@@ -26,8 +24,6 @@ Controls met here: CM-2, CM-3, CM-6, CM-7, CM-8, CM-8(3).
 These carry out the principles and rules of \<Policy\>, sections CM.3 and CM.4.
 
 ### 3.2 Roles and processes
-
-Controls met here: CM-3, CM-3(4), CM-9.
 
 **Table 1: Configuration management roles**
 
@@ -48,8 +44,6 @@ The holders are named in \<Roles and Responsibilities\>. The processes are the n
 
 ### 3.3 Configuration items
 
-Controls met here: CM-3, CM-9.
-
 **Table 2: Configuration items**
 
 | Item | Held in | Controlled by |
@@ -62,8 +56,6 @@ Controls met here: CM-3, CM-9.
 | Security documents | Restricted document store; until it is set up, the private records repository (\<Documentation Map\>, section 4.1) | System owner |
 
 ### 3.4 Baseline
-
-Controls met here: CM-2, CM-2(2), CM-2(3).
 
 The baseline is what a release must contain so that it can be rebuilt exactly.
 
@@ -84,8 +76,6 @@ Three means keep the baseline current, complete and accurate: signed release tag
 The system owner and the Windows server administrator review the baseline every 12 months and at each release (PRO-CM-2). Step 6 of every change updates it (PRO-CM-1). The three previous configurations are kept, so that a release can be rolled back (section 3.13).
 
 ### 3.5 Software components and licences
-
-Controls met here: CM-7(5), CM-8, CM-10.
 
 Every package, browser library, runtime, operating system and database \<System Name\> is built from or runs on, with its licence. This is the reference stack of \<System Description\>, sections 6.3 and 6.4; an application that replaces a part records it as a departure in \<System Description\>, section 3.6. A new component is recorded here, and checked for known vulnerabilities, before it enters the baseline (PRO-CM-4). Licences are checked again at each release and every 12 months (PRO-CM-9).
 
@@ -110,8 +100,6 @@ Every package comes through \<Organisation\>'s in-house checked package feed, at
 
 ### 3.6 Secure settings for every layer
 
-Controls met here: CM-6.
-
 **Table 5: Secure settings**
 
 | Layer | Guidance | Key settings | Where set |
@@ -129,8 +117,6 @@ Each month the Windows server administrator scans both servers against the bench
 Both servers are configured to the CIS Benchmark by policy that \<Organisation\> applies, with only the functions, ports and services \<System Name\> needs, and checked with a benchmark tool (\<System Description\>, NFR-091). Where \<Organisation\>'s hardened build already sets a setting, its build standard is asked for as evidence (EV-CM-04) and compared with the benchmark, and any shortfall is recorded as a departure.
 
 ### 3.7 Change control
-
-Controls met here: CM-3, CM-3(2), CM-4, CM-4(2), CM-5, CM-8(1).
 
 Every change to a configuration item in section 3.3 follows one route, including routine patches. Developers or administrators make the change through a release, and nothing else reaches the servers. Figure 1 shows the route.
 
@@ -159,8 +145,6 @@ Every change to a configuration item in section 3.3 follows one route, including
 
 ### 3.8 Change control board charter
 
-Controls met here: CM-3, CM-3(4).
-
 This charter follows CSS, Appendix H.
 
 **Table 7: Change control board charter**
@@ -179,8 +163,6 @@ This charter follows CSS, Appendix H.
 | Records | Kept for 3 years (CM-03\_ODP\[01\]) |
 
 ### 3.9 Security impact analysis
-
-Controls met here: CM-4.
 
 The security officer answers each question on the change before the board decides. This follows CSS, Appendix I.
 
@@ -201,8 +183,6 @@ The security officer rates the impact Low, Medium or High. A High impact needs t
 
 ### 3.10 Least functionality
 
-Controls met here: CM-7, CM-7(1).
-
 \<System Name\> is configured to do four things: store, search and show items, and administer them. Table 9 lists what is prohibited or restricted.
 
 **Table 9: What is prohibited or restricted**
@@ -218,8 +198,6 @@ Controls met here: CM-7, CM-7(1).
 The Windows server administrator and the developers review all five every 12 months, and record the result on the access review record (PRO-CM-5). Anything not needed is removed through a change.
 
 ### 3.11 Who may change what
-
-Controls met here: CM-5.
 
 **Table 10: Access restrictions for change**
 
@@ -237,8 +215,6 @@ Nobody approves a change they requested or made. Every change by any of these pe
 
 ### 3.12 Inventory and where information is held
 
-Controls met here: CM-8, CM-8(1), CM-8(3), CM-12, CM-12(1).
-
 **Inventory.** One inventory is held at two levels. \<System Security Plan\>, section 3.4, lists the components of the system and where each runs: the two servers, the applications, the database and the security software on them. Section 3.5 gives the software each is built from or runs on, with its version, supplier and licence. Each entry gives the name, type, version and location, and for software also the supplier and licence. The owner follows the type: the Windows server administrator for the servers and Windows Server, the database administrator for SQL Server, and the developers for the applications, packages and browser libraries. The services \<Organisation\> provides outside the boundary are listed in \<System Security Plan\>, section 3.4, for reference only; they belong to \<Organisation\>'s inventory, not this one. Both lists are updated as step 6 of every change, and a change is not closed until they are. They are reviewed with the baseline every 12 months and at each release (PRO-CM-2). A bill of materials from each build checks the software list.
 
 **Unauthorised components.** \<Organisation\>'s discovery tools check its network, including both servers, every month for hardware, software and firmware that is not in the inventory. When one finds an unauthorised component, it alerts the Windows server administrator, who removes the component or disables its network access, tells the security officer, and records it on the monitoring and integrity report (PRO-CM-6). Detection is \<Organisation\>'s and the response is \<System Name\>'s, so the control is shared.
@@ -251,8 +227,6 @@ Controls met here: CM-8, CM-8(1), CM-8(3), CM-12, CM-12(1).
 
 ### 3.13 Library, tools, monitoring and retention
 
-Controls met here: CM-2(3), CM-3, CM-6.
-
 **Table 11: Library, tools, monitoring and retention**
 
 | Item | Detail |
@@ -264,8 +238,6 @@ Controls met here: CM-2(3), CM-3, CM-6.
 | Disposal | Removed configurations are deleted from the library only after their retention period, with the system owner's approval |
 
 ### 3.14 What \<Organisation\> provides
-
-Controls met here: CM-2(7), CM-3, CM-5, CM-6, CM-8(3), CM-10, CM-12(1).
 
 **Table 12: Asked of \<Organisation\>**
 
@@ -281,8 +253,6 @@ Controls met here: CM-2(7), CM-3, CM-5, CM-6, CM-8(3), CM-10, CM-12(1).
 
 ### 3.15 Approved software and installation
 
-Controls met here: CM-7(2), CM-7(5), CM-10, CM-11.
-
 1. **Approved software list.** The Windows server administrator keeps the approved software list, which says what may run on the servers. For the applications themselves, the component list in section 3.5 is the list. Both are reviewed every 12 months.
 2. **Allow by exception, by procedure.** Nothing is installed on the servers without an approved request (PRO-CM-4). A person who needs software there raises a request in ServiceNow, and the system owner approves or refuses it. Only the named Windows server administrators have the Windows user rights to install software.
 3. **Enforced by the system.** Windows App Control for Business runs on both servers with a policy that denies every program, script and driver except those the approved software list allows: Windows Server and its components, SQL Server, Microsoft Defender, the tools on the approved list, and \<System Name\>'s own release files, allowed by their signing certificate or by the hashes in the release record. The policy is signed, so that an administrator cannot weaken it without a change. It runs in audit mode when the servers are built, so that anything it would block is found and either approved or removed, and is enforced before go-live (D-CM-01). It is changed only through PRO-CM-1, as step 6 of the change that adds a program, and the monthly drift check confirms it is enforced and unchanged (PRO-CM-7). Anything it blocks is logged and forwarded to central logging.
@@ -293,13 +263,9 @@ Controls met here: CM-7(2), CM-7(5), CM-10, CM-11.
 
 ### 3.16 Devices for travel to high-risk areas
 
-Controls met here: CM-2(7).
-
 No \<System Name\> device is issued to anyone, for travel or otherwise. \<System Name\> is reached only from \<Organisation\>'s managed laptops, and phones and tablets cannot reach it (\<Access Control Management\>, section 3.6.5). Those laptops are \<Organisation\>'s, so CM-2(7) is inherited from \<Organisation\>'s travel device policy: which locations it treats as high-risk, the configuration of a laptop issued for travel there, and the checks made on it when the person returns (D-CM-02). Its evidence is requested in EV-CM-05. \<System Name\> adds one rule of its own: nobody uses \<System Name\> from outside the UK, or takes a device that can reach it abroad, without written approval from the system owner and the security officer first, recorded on the exception request (\<Security Operating Procedures\>).
 
 ### 3.17 Policy, procedures and this plan
-
-Controls met here: CM-1, CM-9.
 
 \<Policy\> (CM) and \<Procedures\> (CM) meet CM-1. Who they are shared with is in \<Policy\>, section CM.6. Their ownership, approval, review and records follow the rules common to every policy in \<Policy\>, section 1.1.
 

@@ -18,8 +18,6 @@ Who provides and is responsible for each control, and its status, are in \<Syste
 
 ### 3.1 Principles
 
-Controls met here: AC-3(14), PT-2, PT-3, RA-8, SA-8(33).
-
 1. **Lawful and known purpose.** Personal data is processed only for a stated purpose, with a recorded lawful basis and, for special category data, a recorded condition.
 2. **Only what is needed, only as long as needed.** \<System Name\> holds no more personal data than the purpose requires, for no longer than the retention schedule allows.
 3. **People's rights.** People can see, correct and ask to delete their data, and complain, as the law allows.
@@ -33,8 +31,6 @@ These carry out the principles and rules of \<Policy\>, sections PT.3 and PT.4.
 
 ### 3.2 Authority, purposes and lawful basis
 
-Controls met here: PT-2, PT-3, PT-4, PT-5(2), PT-6, PT-6(1), PT-6(2), PT-7(1), PT-7(2), PT-8.
-
 The authority is UK GDPR, the Data Protection Act 2018 and the Data (Use and Access) Act 2025. Personal data is processed only for the purposes stated in the application profile (\<System Description\>, sections 3.1 and 3.4): \[Purposes, for example HR administration\], and accountability for the use of \<System Name\>. Processing means storing, finding, displaying, printing and exporting items, within schema access. Each schema's read group and edit group limit who processes its items, and the rules of behaviour on personal data (\<Security Operating Procedures\>) keep processing to what is compatible with the stated purposes.
 
 Each kind of personal data has an Article 6 lawful basis, and special category data an Article 9 condition and, where needed, a Schedule 1 condition. Criminal offence data, such as a conduct record about an offence, also needs a Schedule 1 condition under Article 10 and section 10 of the Data Protection Act 2018, and is handled as special category data is (section 3.4). They are recorded in the inventory in section 3.3, and the legal adviser sets each. Where a Schedule 1, Part 1 condition is relied on, an appropriate policy document is put in place.
@@ -46,8 +42,6 @@ Consent is not the lawful basis for employee data, because employees cannot free
 The controls that rest on United States law and federal bodies do not apply: the Privacy Act, Federal Register notices, Social Security numbers, the First Amendment and computer matching. \<Organisation\> operates in the United Kingdom (\<Tailoring Register\>, TR-PT-01).
 
 ### 3.3 Personal data inventory
-
-Controls met here: AU-3(3), PT-2, PT-3, PT-7, SI-12(1).
 
 One row for each kind of personal data. The first rows come from the information types in the application profile (\<System Description\>, Table 6); the HR wording is an example. The other rows are held by every application built on the reference system. The legal adviser sets each basis and condition. No data is transferred outside the UK, and no processor outside \<Organisation\> is used, except a supplier giving support under the terms in section 3.2. The inventory must match \<Organisation\>'s record of processing (UK GDPR, Article 30; EV-PM-02).
 
@@ -72,21 +66,15 @@ One row for each kind of personal data. The first rows come from the information
 
 ### 3.4 Special category data
 
-Controls met here: PT-7.
-
 Health and other special category data may be held only in schemas the business owner authorises, and only by the members of those schemas' read and edit groups, whom the schema's Data Owner authorises in ServiceNow. The schema access checks enforce this. Each item that holds it is marked as special category data (\<System Description\>, FR-035), so that it can be found and handled with care. Criminal offence data is handled in the same way: kept only in schemas the business owner authorises for it, and its items given the same marking. The conditions that allow the processing are set by the legal adviser (section 3.3), with an appropriate policy document where Schedule 1, Part 1 or Part 3 needs one.
 
 ### 3.5 Transparency
-
-Controls met here: PT-3, PT-5.
 
 \<Organisation\>'s privacy notices tell people how their data is used. Each group of people whose data \<System Name\> holds must be covered by one: employees by the employee privacy notice, given to each on joining; contractors and agency staff by the notice \<Organisation\> gives them; and anyone else an information type holds data about, such as former employees or people named in documents, by the notice the legal adviser names for them, or a recorded reason under UK GDPR, Article 14(5) why none is given. Each notice must name \<System Name\> and its purposes, give the authority and lawful basis, hold the information UK GDPR, Articles 13 and 14 require, including how to make a request or complaint and the right to complain to the ICO, be in plain language, and be reviewed every 12 months.
 
 People sign in on \<Organisation\>'s PingFederate page, so \<System Name\>'s home page and About page link to the notice, with a short statement of what \<System Name\> records about its users: their name, the groups they belong to, and what they do (\<System Description\>, FR-010). The notice is therefore available when a person joins and every time they use \<System Name\>. The notices are asked of \<Organisation\> (EV-PT-01).
 
 ### 3.6 People's rights
-
-Controls met here: AC-3(14), SI-18(4).
 
 **Table 2: Requests and complaints**
 
@@ -102,8 +90,6 @@ The time allowed starts once the person's identity is confirmed, and pauses whil
 Requests and complaints follow PRO-PT-1.
 
 ### 3.7 Minimisation, quality, retention and disposal
-
-Controls met here: SA-8(33), SI-12(1), SI-12(2), SI-12(3), SI-18, SI-19.
 
 1. **Minimisation.** What personal data is collected is reviewed at design, in each change record, and in the impact assessment. Each schema holds only the personal data its items' purpose requires.
 2. **Quality.** Every 12 months each Data Owner checks that their schema's personal data is accurate, relevant, timely and complete, and no more than its items' purpose requires, and records the check on the access review record (PRO-PT-5). An editor of the schema corrects or deletes inaccurate or out-of-date data (FR-036, FR-038), and each correction and deletion is audited. Administrators see no item content, so take no part.
@@ -142,15 +128,11 @@ Controls met here: SA-8(33), SI-12(1), SI-12(2), SI-12(3), SI-18, SI-19.
 
 ### 3.8 Impact assessment and changes in processing
 
-Controls met here: PT-3, RA-8, SA-8(33).
-
 The data protection impact assessment, \<Data Protection Impact Assessment\>, follows the ICO's sample template. The legal adviser completes and approves it before production, with the advice of the data protection officer, and reviews it after any significant change in processing and every 12 months. Its measures go into the Plan of Action and Milestones, and its residual risks to the authorising official. If a high risk remains, the legal adviser consults the ICO before processing starts.
 
 Every change record says whether the change affects personal data, through change control (\<Configuration Management\>, section 3.7). If it does, the legal adviser reviews it, and decides whether the inventory, the privacy notice or the impact assessment must change, and whether the change, such as a new collection of personal data, needs a new or revised impact assessment (\<Configuration Management\>, section 3.9; PRO-PT-3, PRO-PT-4).
 
 ### 3.9 Privacy controls held in other documents
-
-Controls met here: AT-3(5), AU-3(3), IR-2(3), IR-8(1), PE-8(3), PL-9, SC-7(24).
 
 Eight of the privacy baseline controls are assessed with this family, but part of their design belongs with another. Table 4 says where the design of each is held.
 
@@ -169,8 +151,6 @@ Eight of the privacy baseline controls are assessed with this family, but part o
 
 ### 3.10 What \<Organisation\> provides
 
-Controls met here: PE-8(3), PT-1, PT-2, PT-3, PT-5, RA-8.
-
 **Table 5: Asked of \<Organisation\>**
 
 | Provided | Controls | What \<System Name\> relies on | Evidence asked |
@@ -182,14 +162,10 @@ Controls met here: PE-8(3), PT-1, PT-2, PT-3, PT-5, RA-8.
 
 ### 3.11 Processing rules and monitoring
 
-Controls met here: SC-7(24).
-
 1. **Processing rules.** Schema access, through each schema's read group and edit group, and the measures in the impact assessment, are the rules for processing personal data. \<System Name\>'s schema access checks and audit records enforce them.
 2. **Monitoring.** Permitted processing is monitored at the external interfaces, where data leaves \<System Name\>: every view, download and export by a user's browser is audited, an export above a set size raises an alert (FR-052), and the logs sent to central logging carry no personal data beyond the username in a security event. It is monitored at the key internal boundaries: the API, the only route to the data, checks schema access and audits every item access; and SQL Server Audit records any read of the item tables by a login other than the API's. The auditors review the audit log and those records weekly and report anything suspicious to the security officer. The impact assessment decides whether further monitoring is needed.
 3. **Exceptions.** Each processing exception is approved and recorded in the exception register (\<Security Operating Procedures\>, section 5). Exceptions are reviewed at each access review, and removed when they are no longer supported.
 
 ### 3.12 Policy and procedures
-
-Controls met here: PT-1.
 
 \<Policy\> (PT) and \<Procedures\> (PT) meet PT-1. Who they are shared with is in \<Policy\>, section PT.6. Their ownership, approval, review and records follow the rules common to every policy in \<Policy\>, section 1.1.

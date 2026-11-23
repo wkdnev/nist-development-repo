@@ -14,8 +14,6 @@ Who provides and is responsible for each control, and its status, are in \<Syste
 
 ### 3.1 Principles
 
-Controls met here: PL-2, PL-4.
-
 1. **One current set.** The System Security Plan is the single statement of how controls are met, and every plan it relies on is listed in one register.
 2. **Rules before access.** Nobody gets access without signing the rules.
 3. **Plans change with the system.** Plans change when the system, its risks or an assessment changes, and every review and change is recorded.
@@ -28,8 +26,6 @@ These carry out the principles and rules of \<Policy\>, sections PL.3 and PL.4.
 **Figure 1: How a plan is kept current**
 
 ### 3.2 Register of plans in force
-
-Controls met here: PL-2.
 
 Every plan and planning record in force, with its owner, version, approver and next review. The design documents for each control family are not plans, and are listed in \<Documentation Map\>.
 
@@ -56,8 +52,6 @@ The versions in the register are checked by the plan consistency test, and are b
 
 ### 3.3 What the plans hold
 
-Controls met here: PL-2.
-
 PL-2 lists 15 things a security plan and a privacy plan must hold. The security plan is \<System Security Plan\>, written to CSS, and the privacy plan is \<Privacy Plan\>. Table 2 shows where each part is held.
 
 **Table 2: Where each required part of the plans is held**
@@ -82,8 +76,6 @@ PL-2 lists 15 things a security plan and a privacy plan must hold. The security 
 
 ### 3.4 Approval, review, sharing and protection
 
-Controls met here: PL-2.
-
 **Table 3: How a plan is kept current**
 
 | Step | What happens | Who | Record |
@@ -96,8 +88,6 @@ Controls met here: PL-2.
 | 6 Review | Every plan in the register is reviewed every 12 months, and after an assessment, a significant change or a problem found in use. The record shows who reviewed it, their role, the date, the outcome and the actions | System owner | Plan review record, kept in the change record (\<Documentation Map\>, section 4.1) |
 
 ### 3.5 Rules of behaviour and the register of signatures
-
-Controls met here: PL-4, PL-4(1).
 
 The Security Operating Procedures are the rules of behaviour. Part A applies to everyone, and Part B, the privileged rules, to privileged users as well (\<Security Operating Procedures\>, section 3). The privacy rules cover looking at personal data only when a task needs it, deleting exported personal data within 30 days, and reporting a loss involving it within 1 hour. The rules on social media, public websites and outside sites are these:
 
@@ -124,19 +114,13 @@ The register starts empty. First signatures are taken on the current version of 
 
 ### 3.6 Architecture
 
-Controls met here: PL-8.
-
 The security architecture is \<System Description\>, section 6. The protection goals, the design principles, the trust zones and the layers of defence are in \<System Description\>, section 6.8. What is inherited from \<Organisation\>, and where the trust zones meet its network, is in \<System Description\>, sections 6.6 and 10: this is how the architecture fits \<Organisation\>'s enterprise architecture. The assumptions about, and dependencies on, external systems and services are in \<System Description\>, section 6.8. The privacy architecture is in \<Privacy Plan\>, section 8, which covers the same for the processing of personal data. The system owner reviews the architecture against the system itself every 12 months and after a significant change. Each change is carried into the security plan, the privacy plan, the concept of operations, the list of critical components (\<Risk Assessment Management\>, section 3.9), the procedures and any procurement, and each is noted in the review record (PRO-PL-5). New open questions go to \<Decision Register\> or \<Plan of Action and Milestones\>, and not into the architecture.
 
 ### 3.7 Baseline and tailoring
 
-Controls met here: PL-10, PL-11.
-
 The baseline is CSS Moderate, with the privacy baseline. The authorising official selects it on the system owner's recommendation (D-PL-03). It was chosen from the categorisation of \<System Name\>'s information in \<System Security Plan\>, section 3.3, which is Moderate for confidentiality and integrity and Low for availability. A control, or a part of one, is set aside only through \<Tailoring Register\>, with a rationale, a condition that must hold, what happens if the condition changes, and a decision by the authorising official, on the system owner's recommendation, recorded in \<Decision Register\>. Each condition is checked at the yearly review (PRO-PL-4). The plan consistency test checks that the applicability table in \<System Security Plan\> agrees with the tailoring register.
 
 ### 3.8 What \<Organisation\> provides
-
-Controls met here: PL-2, PL-8.
 
 **Table 5: Asked of \<Organisation\>**
 
@@ -147,7 +131,5 @@ Controls met here: PL-2, PL-8.
 | The restricted document store | PL-2, PL-9 | A SharePoint area where only named people can read or change the plans. It is not yet set up; until it is, the master copy stays in the private records repository (\<Documentation Map\>, section 4.1) | Not an evidence request |
 
 ### 3.9 Policy and procedures
-
-Controls met here: PL-1.
 
 \<Policy\> (PL) and \<Procedures\> (PL) meet PL-1. Who they are shared with is in \<Policy\>, section PL.6. Their ownership, approval, review and records follow the rules common to every policy in \<Policy\>, section 1.1.

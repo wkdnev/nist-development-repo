@@ -14,8 +14,6 @@ Who provides and is responsible for each control, and its status, are in \<Syste
 
 ### 3.1 Principles
 
-Controls met here: SI-2, SI-3, SI-4, SI-7, SI-10.
-
 1. **Fix flaws on time.** Every flaw is fixed to the one timetable.
 2. **Check what comes in.** Every upload and input is checked on the server, and every upload is scanned before it is stored.
 3. **Watch and alert.** Logs are collected, reviewed and turned into alerts.
@@ -28,8 +26,6 @@ These carry out the principles and rules of \<Policy\>, sections SI.3 and SI.4.
 **Figure 1: How integrity is kept, from upload to alert**
 
 ### 3.2 Upload checks and malware scanning
-
-Controls met here: SI-3, SI-10.
 
 Every upload passes these checks on the server before it is stored (SI-3, SI-10): a new item, each file in a batch, and a file that replaces a stored one (FR-037). Files are held in the SQL Server database, not as files on disk, so Defender's file scans on the database server cannot see them; the API must pass each one to Defender itself. All API inputs and search terms are validated on the server too, for type, length and range, and database queries use parameters.
 
@@ -51,8 +47,6 @@ A file scanned at upload may hold malware that Defender learns to recognise only
 
 ### 3.3 Flaw remediation and advisories
 
-Controls met here: SI-2, SI-2(2), SI-5.
-
 Flaws come from the package check, the advisories in Table 2, the scans in \<Risk Assessment Management\>, section 3.5, and tests. Each is recorded on the vulnerability and patch review and fixed or mitigated within the one timetable in \<Risk Assessment Management\>, section 3.6, counted from the fix's release, or its detection if later (PRO-SI-1). Each update is tested in the separate test environment for its effect and side effects, then installed through change control (\<Configuration Management\>, section 3.7; PRO-SI-1). A flaw in CISA's Known Exploited Vulnerabilities catalogue is fixed or mitigated within 3 days as an emergency change (PRO-RA-4). A fix that cannot meet its time goes to a risk decision with its compensating measure (PRO-RA-3, step 8). Windows, SQL Server and Defender updates are signed by Microsoft, so App Control for Business lets them run; a release that adds or changes one of \<System Name\>'s own programs updates the App Control policy in the same change (\<Configuration Management\>, section 3.15). Firmware updates for the hosts are \<Organisation\>'s (Table 6).
 
 Update status is checked automatically, monthly and at each release, by the credentialed scan of both servers, Test-Vulnerability.ps1 for the packages and browser libraries, and the Windows Update reports from both servers, and at each build and as raised by the repositories' dependency alerts (SI-2(2)).
@@ -71,8 +65,6 @@ Update status is checked automatically, monthly and at each release, by the cred
 An internal advisory is a security officer's note on the vulnerability and patch review, naming the flaw, the components affected, the deadline under the timetable and who acts. The security officer passes alerts and advisories to the Windows server and database administrators and the developers, and to \<Organisation\>'s security contact when one may affect \<Organisation\>'s other systems. A directive that applies is carried out to the timetable, through change control; if it cannot be, the issuer is told (SI-5).
 
 ### 3.4 Monitoring and detection use cases
-
-Controls met here: SI-4, SI-4(2), SI-4(4), SI-4(5).
 
 Application, Windows and SQL Server logs, including Defender's detections and the programs App Control for Business blocks, are forwarded to \<Organisation\>'s central logging \[service\] (EV-SI-01). The audit log stays in the database for the auditors; for the events that use cases U2, U5, U6, U7, U8 and U9 need, for each read or export of the audit log, and once a day for the newest audit chain hash, the API also writes a short security event to the application log (the event type, the time, the username, the schema and a count, or the hash, with no item details; \<Audit and Accountability Management\>, section 3.10), so the alerts work without the security officer reading the audit log (\<System Description\>, section 7.6). Alert rules in the central logging service analyse the events in near real time (SI-4(2)). The aim is to detect attacks, misuse and unauthorised local, network and remote connections: local connections through the Windows sign-in events on both servers, network connections through \<Organisation\>'s network monitoring, and remote connections through the VPN and administration route records.
 
@@ -99,8 +91,6 @@ The thresholds for U5 and U6 are set by the system owner with the business owner
 \<Organisation\> monitors traffic into and out of the network continuously, against the allowed flows (\<System and Communications Protection Management\>, section 3.2). Unusual or unauthorised traffic is traffic outside those flows, and, outbound, unusually large transfers (SI-4(4)). Users are monitored only after the legal adviser's opinion, only as far as needed, and with staff told what is monitored and why (SI-4f).
 
 ### 3.5 Integrity baseline and checks
-
-Controls met here: SI-7, SI-7(1), SI-7(7).
 
 The integrity baseline is the release record of the running release (\<Configuration Management\>, section 3.4). It holds the SHA-256 value of each release package and of every file the release installs on the application server, including the release scripts, which are the same hashes App Control for Business allows to run (\<Configuration Management\>, section 3.15). Table 4 names the items; the full values are kept with the release record.
 
@@ -129,13 +119,9 @@ Test-Integrity.ps1 is the test of these controls: it checks the upload checks, e
 
 ### 3.6 Error handling and memory protection
 
-Controls met here: SI-11, SI-16.
-
 Users and API callers see a general error message, with a reference they can quote when they report it; the detail goes only to the application log, under the same reference (SI-11a). Error detail holds no password, key, token, cookie or personal data beyond the username (FR-076, NFR-023). On the servers only the Windows server administrators can read the application logs, and in central logging the auditor and the security officer (\<Audit and Accountability Management\>, section 3.10). Developers hold no administrator access on the servers, so they see the detail of a fault only as the Windows server administrator passes it to them on the fault's record (SI-11b). Memory is protected by .NET managed memory and by Windows data execution prevention and address randomisation on the servers (SI-16).
 
 ### 3.7 Information retention
-
-Controls met here: SI-12.
 
 Information and output are kept and disposed of under \<System Name\>'s retention schedule, which is held in \<PII Processing Management\>, section 3.7, Table 3 (SI-12). This table summarises it, with the periods that other designs set; where the two differ, the schedule is right and this table is corrected.
 
@@ -153,8 +139,6 @@ Information and output are kept and disposed of under \<System Name\>'s retentio
 
 ### 3.8 What \<Organisation\> provides
 
-Controls met here: SI-2, SI-4, SI-4(2), SI-4(4), SI-4(5), SI-5, SI-7, SI-7(1).
-
 **Table 6: Asked of \<Organisation\>**
 
 | Provided | Controls | What \<System Name\> relies on | Evidence asked |
@@ -165,19 +149,13 @@ Controls met here: SI-2, SI-4, SI-4(2), SI-4(4), SI-4(5), SI-5, SI-7, SI-7(1).
 
 ### 3.9 Email and spam protection
 
-Controls met here: SI-8, SI-8(2).
-
 \<System Name\> sends and receives no email, so it has no spam protection of its own to set or update (\<Tailoring Register\>, TR-SI-01).
 
 ### 3.10 Policy and procedures
 
-Controls met here: SI-1.
-
 \<Policy\> (SI) and \<Procedures\> (SI) meet SI-1. Who they are shared with is in \<Policy\>, section SI.6. Their ownership, approval, review and records follow the rules common to every policy in \<Policy\>, section 1.1.
 
 ### 3.11 Values chosen for the controls
-
-Controls met here: SI-2, SI-2(2), SI-3, SI-4, SI-4(4), SI-4(5), SI-5, SI-7, SI-7(1), SI-7(7), SI-10, SI-11, SI-16.
 
 These are the organisation-defined parameters for the SI controls. The values that are \<System Description\> parameters are approved in \<Decision Register\> (D-RA-P11, D-SI-P17, D-SI-P27, D-CM-P29, D-RA-P30), and the rest with this design.
 

@@ -16,8 +16,6 @@ Who provides and is responsible for each control, and its status, are in \<Syste
 
 ### 3.1 Principles
 
-Controls met here: AC-2, AC-2(1), AC-3.
-
 1. **Deny by default.** Nothing is allowed unless a role or group grants it. A schema with no group is closed to everyone.
 2. **One person, one account.** Each person uses their own Active Directory account. Accounts are never shared, and \<System Name\> holds no accounts or passwords of its own.
 3. **Schemas are the boundary.** Each schema has a read group and an edit group, owned by its Data Owner. Edit includes read.
@@ -37,8 +35,6 @@ The access control library, built into all three apps, makes the schema decision
 **Figure 1: How an access decision is made**
 
 ### 3.2 Account types
-
-Controls met here: AC-2, AC-2(2), AC-6(5).
 
 Every person signs in with their Active Directory account, through PingFederate. The types below are the kinds of access an account may hold.
 
@@ -67,8 +63,6 @@ Shared and group accounts are prohibited (TR-AC-02), and \<System Name\> holds n
 
 ### 3.3 Roles
 
-Controls met here: AC-2, AC-3, AC-6, AC-6(5).
-
 **Table 2: Roles**
 
 | Role | Purpose | Granted through | Group owner, who authorises and manages its members |
@@ -91,8 +85,6 @@ The five role groups, for administrators, auditors, the security officer, the bu
 
 ### 3.4 Permissions
 
-Controls met here: AC-2, AC-3, AC-5, AC-6, AC-6(10).
-
 **Table 3: Permissions by role**
 
 | Function | Reader | Editor | Administrator | Auditor | Security officer | Business owner | Legal adviser's delegate |
@@ -113,8 +105,6 @@ Controls met here: AC-2, AC-3, AC-5, AC-6, AC-6(10).
 Administrators see no item content. Any item work an administrator does is as a reader or editor, through a schema group given to their everyday account. The business owner approves disposals, and the legal adviser's delegate runs their search, in the UI application. The disposal page shows each item's schema, reference, title, type, date and retention period, but not its content or files; to look inside an item, the business owner asks that schema's Data Owner. An administrator cannot delete a schema that still holds items: a schema in use is retired by deactivating it, and its items leave only by disposal (FR-060, FR-074).
 
 ### 3.5 Separation of duties
-
-Controls met here: AC-5.
 
 1. Nobody approves their own access or privilege.
 2. Nobody reviews their own access or their own privileged actions.
@@ -141,8 +131,6 @@ Table 4 shows each pair of duties that one person must not hold together, the ro
 | Holding access | Reviewing that access | Each account holder; the auditor, Data Owners, system owner and security officer review | Procedure: nobody reviews their own access (PRO-AC-7) |
 
 ### 3.6 Access routes
-
-Controls met here: AC-4, AC-6.
 
 Figure 2 shows \<System Name\>'s boundary and the routes into and inside it. It is the boundary figure of \<System Description\>.
 
@@ -196,8 +184,6 @@ These rules follow from it:
 
 #### 3.6.1 Windows service accounts
 
-Controls met here: AC-6.
-
 Each app runs under its own Windows account, so a fault in one app cannot reach another's files.
 
 **Table 8: Windows service accounts**
@@ -212,8 +198,6 @@ Each is a managed service account in \<Organisation\>'s Active Directory, with n
 
 #### 3.6.2 Who may sign in to the servers
 
-Controls met here: AC-2, AC-6(5).
-
 **Table 9: Sign-in to the servers**
 
 | Server | May sign in | How | May not |
@@ -224,8 +208,6 @@ Controls met here: AC-2, AC-6(5).
 The holders are named in \<Roles and Responsibilities\>. \<Organisation\> creates and removes these accounts through its ServiceNow process, with the system owner's approval (EV-AC-02).
 
 #### 3.6.3 File permissions on the application server
-
-Controls met here: AC-6, AC-6(1).
 
 **Table 10: File permissions**
 
@@ -240,8 +222,6 @@ Controls met here: AC-6, AC-6(1).
 Item files are held in the SQL Server database, each schema in its own database schema. No item is held as a file on a share.
 
 #### 3.6.4 Firewall rules
-
-Controls met here: AC-4.
 
 \<Organisation\>'s corporate network team writes, holds and changes every firewall rule, through its own change process. The \<System Name\> team has no control over them and cannot see or change a rule. So \<System Name\> does not design the rules. It states the flows it needs, in Table 11, and asks \<Organisation\> to allow those and nothing else. The rules themselves are \<Organisation\>'s evidence (EV-AC-03).
 
@@ -265,8 +245,6 @@ Everything else should be refused, in and out. \<System Name\> needs no route to
 What \<System Name\> itself controls is limited to its own servers: the API listens only on the loopback address, each app accepts only HTTPS, the API accepts requests only from the two apps' addresses, and each server's host firewall allows only the rules in \<System and Communications Protection Management\>, section 3.2.
 
 #### 3.6.5 What \<Organisation\>'s corporate configuration provides
-
-Controls met here: AC-2, AC-2(1), AC-7, AC-11, AC-11(1), AC-12, AC-17, AC-17(1), AC-17(2), AC-17(3), AC-17(4), AC-18, AC-18(1), AC-18(3), AC-19, AC-19(5), AC-20, AC-20(2).
 
 ![Figure 3: Who provides each part of access control](figures/acm-figure-3.png)
 
@@ -321,8 +299,6 @@ The values the access controls depend on are listed by control in Table 13. Lock
 
 ### 3.8 Privileged functions and security information
 
-Controls met here: AC-6, AC-6(1), AC-6(2), AC-6(9), AC-6(10).
-
 **Privileged functions:** managing schemas and the AD groups each uses, including deactivating and deleting empty schemas; approving a change to a schema's groups or its deactivation or deletion; changing settings; running diagnostics; reading audit logs; running the last sign-in report; approving the disposal of items due under the retention schedule; searching every schema for one person's items; and database maintenance. Managing the members of the five role groups is also privileged, and is done in Active Directory by the system owner as their owner.
 
 **Security-relevant information:** secrets and security settings, the OpenID Connect client credential, PingFederate's signing certificate, access groups and schema access rules, audit logs, firewall rules and certificates.
@@ -342,8 +318,6 @@ These rules apply:
 
 ### 3.9 Export and download rules
 
-Controls met here: AC-3, AC-4, AC-21.
-
 1. Only editors of a schema may bulk export its items.
 2. An export job can be seen, downloaded or cancelled only by the person who started it.
 3. Exports are delivered as downloads. Writing exports to a server folder is not allowed.
@@ -352,7 +326,7 @@ Controls met here: AC-3, AC-4, AC-21.
 
 ### 3.10 Information sharing rules
 
-Controls met here: AC-20, AC-20(2), AC-21. AC-20(1) and AC-22 are not applicable (\<Tailoring Register\>, TR-AC-07 and TR-AC-08); rules 4 and 7 keep the conditions for that true.
+AC-20(1) and AC-22 are not applicable (\<Tailoring Register\>, TR-AC-07 and TR-AC-08); rules 4 and 7 keep the conditions for that true.
 
 1. Sharing outside a schema needs a decision by that schema's access approver, its Data Owner, through the manual process in PRO-AC-16.
 2. The approver checks that the recipient is authorised for the information, and the decision is recorded on a sharing decision record. Exported items stay under the schema's rules.
@@ -363,8 +337,6 @@ Controls met here: AC-20, AC-20(2), AC-21. AC-20(1) and AC-22 are not applicable
 7. \<System Name\> holds and serves no public content. Every item needs sign-in, and the sign-in requirement on every page that returns content enforces this.
 
 ### 3.11 Review schedules
-
-Controls met here: AC-2, AC-2(3), AC-6(7), AC-14.
 
 **Table 14: Review schedules**
 
@@ -389,8 +361,6 @@ In each access review, the group's owner checks its members against the ServiceN
 5. Steps are in PRO-AC-15.
 
 ### 3.13 Access request workflow
-
-Controls met here: AC-2, AC-2(1), AC-2(13).
 
 ![Figure 4: Access request workflow](figures/acm-figure-4.png)
 
@@ -423,8 +393,6 @@ These rules apply:
 
 ### 3.14 Disabling accounts and ending access
 
-Controls met here: AC-2, AC-2(3), AC-2(13).
-
 \<Organisation\> disables Active Directory accounts. A disabled account cannot sign in through PingFederate. Disabling an account does not remove its group memberships, so \<System Name\>'s API checks on every request that the account is enabled, as well as reading its groups, and holds each answer for at most 5 minutes. A person whose account is disabled, whose groups no longer allow them, or whose groups cannot be read is refused within 5 minutes, even while a session is open: by the next request, or by the 5-minute re-check of an open page, which skips the cache (NFR-102). Table 16 shows when access is ended.
 
 **Table 16: When access is ended**
@@ -439,8 +407,6 @@ Controls met here: AC-2, AC-2(3), AC-2(13).
 
 ### 3.15 Sign-in session, sign-out, failed sign-ins and device lock
 
-Controls met here: AC-2(5), AC-7, AC-11, AC-11(1), AC-12.
-
 \<System Name\>'s session is its authentication cookie, which it sets and ends itself. Failed sign-ins and the screen lock are \<Organisation\>'s corporate configuration (section 3.6.5).
 
 1. **Session lifetime (AC-12).** The cookie has a fixed absolute lifetime of 8 hours from sign-in, with no sliding extension. PingFederate's sign-in lifetime for \<System Name\> is set to at least 8 hours, which EV-IA-04 confirms, so the cookie always ends within PingFederate's sign-in; if PingFederate is ever set shorter, the 8 hours are lowered to match through a change. The UI is Blazor Server, so an open page keeps a live connection: the application re-checks the person on it every 5 minutes and ends it when the cookie has expired or the person is refused (NFR-102). That re-check makes the API read Active Directory afresh, skipping its 5-minute cache, so an open page is also ended within 5 minutes. The session therefore ends 8 hours after sign-in, on Sign out, or within 5 minutes of the person's account being disabled or their groups no longer allowing them. Ending a person's PingFederate sign-in on its own does not end the cookie. This control is shared: the application ends its session, within PingFederate's lifetime.
@@ -451,15 +417,11 @@ Controls met here: AC-2(5), AC-7, AC-11, AC-11(1), AC-12.
 
 ### 3.16 System use notice
 
-Controls met here: AC-8.
-
 Each app shows the notice on a page straight after the user signs in through PingFederate, before they can go further. No other page, menu or data is served until the notice is accepted, so it is shown before access to \<System Name\> is granted. Whether PingFederate shows a banner of its own is asked in EV-IA-04. The wording is: "This system is for authorised use only. Activity is monitored, recorded and audited. Unauthorised use may lead to disciplinary or legal action. By continuing you accept these terms.". The legal adviser approves the wording. The notice names \<Organisation\>, not the U.S. Government (TR-AC-03).
 
 The notice stays until the user accepts it, and the acceptance is written to the audit log. It is text on a page of the UI app and of the Admin application, changed only through an approved change (PRO-AC-13). \<System Name\> is not public, so no conditions for public systems apply (TR-AC-04). On the servers, the Windows logon banner, which is \<Organisation\>'s corporate configuration, gives a system use notice before an administrator signs in (section 3.6.5).
 
 ### 3.17 Actions allowed without signing in
-
-Controls met here: AC-14.
 
 Only these actions are allowed without signing in:
 
@@ -477,8 +439,6 @@ The UI app, the Admin application and the API each refuse anything not marked as
 
 ### 3.18 Audit of accounts and privileged actions
 
-Controls met here: AC-2, AC-2(4), AC-6(9).
-
 1. **Account events.** Active Directory audits the creation of every account, every change to an account and to the members of a group, and enabling, including unlocking, disabling and removal. \<Organisation\> holds these records.
 2. **Sign-ins.** \<System Name\> audits every sign-in it accepts, every sign-in response it refuses, every failed group lookup, every account found disabled, every acceptance of the system use notice and every sign-out, with the person and the time. PingFederate records every sign-in attempt.
 3. **Schema settings.** \<System Name\>'s audit log records changes to schemas and to which AD groups open each schema, with the reference of the Data Owner's approval. A change of groups raises an alert to the security officer (U9).
@@ -486,8 +446,6 @@ Controls met here: AC-2, AC-2(4), AC-6(9).
 5. **Review.** The auditor reviews privileged actions weekly (\<Security Operating Procedures\>; Table 14).
 
 ### 3.19 Remote, wireless and mobile access
-
-Controls met here: AC-17, AC-17(1), AC-17(2), AC-17(3), AC-17(4), AC-18, AC-18(1), AC-18(3), AC-19, AC-19(5).
 
 These are provided by \<Organisation\>'s corporate network and device configuration, over which the \<System Name\> team has no control (section 3.6.5). \<System Name\> has no remote access or wireless function of its own.
 
@@ -502,8 +460,6 @@ These are provided by \<Organisation\>'s corporate network and device configurat
 **Mobile devices.** The only mobile devices allowed are \<Organisation\>'s managed laptops. \<Organisation\> sets their configuration and connection requirements, authorises each before it can join the network, and encrypts each with full-device encryption, BitLocker (AC-19, AC-19(5)). Phones and tablets are not used with \<System Name\>, and none is authorised; \<Organisation\>'s device management and network access control enforce this. Both controls are inherited, with EV-AC-15 as the evidence.
 
 ### 3.20 Policy and procedures
-
-Controls met here: AC-1.
 
 \<Policy\> (AC) and \<Procedures\> (AC) meet AC-1. Who they are shared with is in \<Policy\>, section AC.6. Their ownership, approval, review and records follow the rules common to every policy in \<Policy\>, section 1.1.
 

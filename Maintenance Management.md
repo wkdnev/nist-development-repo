@@ -14,8 +14,6 @@ Who provides and is responsible for each control, and its status, are in \<Syste
 
 ### 3.1 Principles
 
-Controls met here: MA-2, MA-3, MA-5.
-
 1. **Approve first.** No maintenance happens without approval.
 2. **Known people, tools and routes.** Only those on the approved lists are used.
 3. **Protect data.** Nothing leaves with \<System Name\>'s information on it unless it is approved and protected.
@@ -26,8 +24,6 @@ These carry out the principles and rules of \<Policy\>, sections MA.3 and MA.4.
 Maintenance means preventive and corrective work, repair and replacement, done on site or remotely. \<System Name\> runs on two virtual servers at \<Organisation\>, so there is no \<System Name\> hardware to repair: \<Organisation\> maintains the hosts beneath them.
 
 ### 3.2 Who maintains what
-
-Controls met here: MA-2, MA-5.
 
 **Table 1: Who maintains what**
 
@@ -43,8 +39,6 @@ Controls met here: MA-2, MA-5.
 \<Organisation\>'s engineers maintain the hosts over route R5 and hold no account on the two servers. If one ever needs to work on a server, they work as a supplier does, through an administrator's session (section 3.6). \<System Name\>'s change records and the maintenance record cover the work of \<System Name\>'s own people; \<Organisation\>'s maintenance of the hosts and services is approved, monitored and recorded under its own process, which \<System Name\> inherits (EV-MA-01).
 
 ### 3.3 How a maintenance job is controlled
-
-Controls met here: MA-2, MA-5.
 
 ![Figure 1: How a maintenance job is controlled](figures/mam-figure-1.png)
 
@@ -69,8 +63,6 @@ Controls met here: MA-2, MA-5.
 
 ### 3.4 Remote maintenance routes
 
-Controls met here: MA-4.
-
 MA-4 requires the tools used for remote maintenance to be allowed only as policy says and documented in the security plan. \<System Security Plan\>, section 3.7, points here for the routes, and section 3.5 lists the tools. CSS counts maintenance over any network, internal or external, as remote (nonlocal), so all administration of the servers is remote: they are at \<Organisation\>'s data centre, and no \<System Name\> role enters it.
 
 **Table 3: Remote maintenance routes**
@@ -86,8 +78,6 @@ MA-4 requires the tools used for remote maintenance to be allowed only as policy
 The change control board approves remote work in the change record, which names the route, or the system owner or deputy in an emergency (section 3.3). Strong authentication (MA-4c) comes from the multi-factor sign-in on the managed administration route, and from PingFederate's on R3: a Windows password alone never opens a session. A supplier never holds a credential: an approved administrator drives the session and the supplier watches and guides over a shared screen (section 3.6). For each session the logs must show the start and end time, the account, the source address, the route, and the actions where the tool records them, and the session reference goes on the maintenance record. The security officer reviews the logs weekly.
 
 ### 3.5 Approved maintenance tools
-
-Controls met here: MA-2, MA-3, MA-3(1), MA-3(2), MA-4.
 
 MA-3 covers tools used specifically to diagnose and repair \<System Name\>: those on the administrators' managed devices and any tool installed or copied onto a server for maintenance. CSS's guidance leaves out the utilities that are part of the system itself, so the parts of Windows Server and SQL Server in the baseline are listed below for completeness but are controlled as the baseline is, by change control and the drift check (\<Configuration Management\>).
 
@@ -113,8 +103,6 @@ Not approved on the servers: any shell or package manager carried inside a relea
 
 ### 3.6 Approved maintenance people
 
-Controls met here: MA-5.
-
 The system owner approves this list. The Windows server administrator checks it when someone leaves, and every 12 months (PRO-MA-5).
 
 Before giving access, the administrator checks that the person is on the list, is screened, has signed Part B of the rules of behaviour, and has a named account, granted through the access process in \<Access Control Management\>. Only people on the list work without supervision.
@@ -134,8 +122,6 @@ A supplier, \<Organisation\>'s engineer, or anyone else not on the list holds no
 
 ### 3.7 Equipment and data that leave
 
-Controls met here: MA-2, MA-3(3).
-
 **Table 6: What may leave, and how**
 
 | What | Rule | Approved by | Record |
@@ -145,8 +131,6 @@ Controls met here: MA-2, MA-3(3).
 | A copy of data, a database dump, a log or a screenshot, sent for maintenance or support | Kept to the minimum, with personal data removed where possible; encrypted; sent by an approved route; and the receiver confirms deletion when it is no longer needed (PRO-MA-7). If personal data cannot be removed, the legal adviser agrees first, and the receiver must hold it under a contract with UK GDPR Article 28 terms, in the UK | System owner; the legal adviser as well where personal data remains | Maintenance record or the media record |
 
 ### 3.8 Security-critical components and support
-
-Controls met here: MA-6.
 
 These are the components that \<System Name\>'s security depends on (MA-06\_ODP\[01\]), taken from the critical components in \<Risk Assessment Management\>, section 3.9. PingFederate and Active Directory are critical too, but are \<Organisation\>'s, and their support is its own. \<Organisation\> provides support and parts for the hardware and the hypervisor within 24 hours of a failure, so that a restore fits the 72-hour recovery time objective. Support for Microsoft software is obtained through \<Organisation\>'s Microsoft support agreement, under which an administrator raises a case (EV-MA-01); if a component cannot be fixed in time, the server is rebuilt under \<Contingency Planning Management\>. Support dates are checked each month against the vendors' published lifecycles, software is kept on supported versions, and a replacement is planned at least 6 months before support ends (SA-22).
 
@@ -163,8 +147,6 @@ These are the components that \<System Name\>'s security depends on (MA-06\_ODP\
 
 ### 3.9 What \<Organisation\> provides
 
-Controls met here: MA-2, MA-3(3), MA-4, MA-6.
-
 **Table 8: Asked of \<Organisation\>**
 
 | Provided | Controls | What \<System Name\> relies on | Evidence asked |
@@ -176,7 +158,5 @@ Controls met here: MA-2, MA-3(3), MA-4, MA-6.
 | Maintenance of the services \<System Name\> depends on | MA-2 | Notice before work on PingFederate, Active Directory, the network, the time service or the backup store that affects \<System Name\> | EV-MA-01 |
 
 ### 3.10 Policy and procedures
-
-Controls met here: MA-1.
 
 \<Policy\> (MA) and \<Procedures\> (MA) meet MA-1. Who they are shared with is in \<Policy\>, section MA.6. Their ownership, approval, review and records follow the rules common to every policy in \<Policy\>, section 1.1.

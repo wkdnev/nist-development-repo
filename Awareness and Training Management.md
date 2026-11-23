@@ -16,8 +16,6 @@ Who provides and is responsible for each control, and its status, are in \<Syste
 
 ### 3.1 Principles
 
-Controls met here: AT-2, AT-2(3), AT-3, AT-4.
-
 1. **Trained before access.** Nobody is given access to \<System Name\> until they have completed awareness training, the \<System Name\> briefing and the rules of behaviour.
 2. **Every privileged user is trained for the role.** Anyone who is not a standard user completes the modules for their role before the access is given. That includes the system owner, who authorises privileged roles and manages the role groups.
 3. **Repeated every 12 months.** All training is repeated yearly, and after a significant incident or change.
@@ -32,8 +30,6 @@ Figure 1 shows the path a person follows.
 **Figure 1: Training before and after access**
 
 ### 3.2 Who needs what
-
-Controls met here: AT-2, AT-3.
 
 **Table 1: What each audience needs to know and do**
 
@@ -55,8 +51,6 @@ Controls met here: AT-2, AT-3.
 
 ### 3.3 Awareness and the \<System Name\> briefing
 
-Controls met here: AT-2, AT-2(2), AT-2(3).
-
 Awareness has two parts: \<Organisation\>'s general security and privacy course, and the \<System Name\> briefing. \<Organisation\>'s course is expected to cover the general case, including insider threat and social engineering. The system owner gives this 25-minute briefing to every user, whatever their grade, including managers and contractors, before they are given access, together with the signature of \<Security Operating Procedures\>. It ends with a 5-question check, which the person must pass in full; a wrong answer is talked through and asked again.
 
 **Table 2: Briefing outline**
@@ -74,8 +68,6 @@ Awareness has two parts: \<Organisation\>'s general security and privacy course,
 Between courses, awareness is kept up by the system use notice shown at sign-in, \<Organisation\>'s security messages, and a \<System Name\> security note each quarter, written by the security officer from recent advisories and reports.
 
 ### 3.4 Role curriculum
-
-Controls met here: AT-3.
 
 Each module ends with a short check of at least 10 questions, with a pass mark of 80%. Anyone below it repeats the module. The security officer writes the content, and Table 3 names who delivers each module. Nobody delivers training to themselves: the Head of Cyber delivers M7 to the security officer, and the security officer gives the system owner the briefing and M8.
 
@@ -95,8 +87,6 @@ Each module ends with a short check of at least 10 questions, with a pass mark o
 | M10 Risk decisions in incidents and recovery (IR-2, CP-3) | For the authorising official: when they are called in an incident or a recovery; the severity levels; the decisions that are theirs (running in a reduced state, going beyond the recovery time objective, the risk arising from an incident); and what each decision needs | \<Incident Response Management\>, sections 3.3 and 3.6; \<Contingency Planning Management\>, sections 3.4 and 3.5 | 20 minutes | Security officer |
 
 ### 3.5 Training matrix
-
-Controls met here: AT-2, AT-3.
 
 Every role with access must complete awareness, the briefing and signing \<Security Operating Procedures\> before access; roles without access take what their row sets. Role modules come before privileged access, or for developers before they first work on the code. M7, M8 and M10 are the incident response and contingency training of IR-2 and CP-3, and are taken within 30 days of taking the role, as those controls allow. The security officer, the system owner and their deputies take M7 and M8 before taking the role, because they lead the response and the recovery from the first day. All are repeated every 12 months.
 
@@ -130,8 +120,6 @@ The matrix carries out AT-2, AT-3, AT-3(5) (\<PII Processing Management\>), IR-2
 
 ### 3.6 When training happens
 
-Controls met here: AT-2, AT-3, AT-4.
-
 **Table 5: Training timetable**
 
 | When | What | Who checks |
@@ -147,8 +135,6 @@ Controls met here: AT-2, AT-3, AT-4.
 
 ### 3.7 Keeping content current
 
-Controls met here: AT-2, AT-3.
-
 1. Every 12 months, the security officer reviews the briefing and each module against the curriculum and changes, and reads the incident records and exercise reports of the year, inside and outside \<Organisation\>, adding each lesson to the briefing or module it concerns.
 2. After a significant incident, exercise or change, the lesson is added within 30 days.
 3. The legal adviser reviews the privacy content.
@@ -157,8 +143,6 @@ Controls met here: AT-2, AT-3.
 The steps are in \<Procedures\>, PRO-AT-3.
 
 ### 3.8 Training register
-
-Controls met here: AT-4.
 
 The security officer keeps this register from the training records. The system owner checks it before authorising a role. Records are kept for 3 years. CSS leaves the period to the organisation, and 3 years lets an assessor see each person's last three yearly completions. Each record names the person, the role, the training and its content version, the date, the result of the check, who gave it and the next due date. \<Organisation\> keeps its own course records and provides them on request. The layout stays here. Once the records store is set up, the live register, with its names and dates, is kept there.
 
@@ -184,8 +168,6 @@ The security officer keeps this register from the training records. The system o
 
 ### 3.9 Measures
 
-Controls met here: AT-4.
-
 The security officer reports these monthly with the continuous monitoring measures on the monitoring and integrity report (PRO-AT-5), and the system owner reviews them (\<Policy\>, section AT.6). Anyone overdue is reminded, and privileged access is suspended after 30 days overdue (Table 5).
 
 **Table 7: Training measures**
@@ -199,8 +181,6 @@ The security officer reports these monthly with the continuous monitoring measur
 | Content reviewed within 12 months and after each significant incident | 100% |
 
 ### 3.10 Parameters
-
-Controls met here: AT-2, AT-3, AT-4.
 
 Table 8 gives the values CSS asks the organisation to define for AT. This document is written to them, and \<Decision Register\> records their approval.
 
@@ -217,8 +197,6 @@ Table 8 gives the values CSS asks the organisation to define for AT. This docume
 | AT-04\_ODP: how long records are kept | 3 years from the date of the training |
 
 ### 3.11 Policy and procedures
-
-Controls met here: AT-1.
 
 \<Policy\> (AT) and \<Procedures\> (AT) meet AT-1. Who they are shared with is in \<Policy\>, section AT.6. Their ownership, approval, review and records follow the rules common to every policy in \<Policy\>, section 1.1.
 

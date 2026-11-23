@@ -16,8 +16,6 @@ Who provides and is responsible for each control, and its status, are in \<Syste
 
 ### 3.1 Principles
 
-Controls met here: SA-3, SA-9, SA-10, SA-11, SA-15, SA-22.
-
 1. **A named framework.** Development follows \<Organisation\>'s corporate SDLC, whose security practices meet CSS \<ver\>, practice by practice.
 2. **Known changes only.** Only reviewed and approved changes reach a release.
 3. **Test before release.** Every security function is tested at each release, to a stated depth.
@@ -30,8 +28,6 @@ These carry out the principles and rules of \<Policy\>, sections SA.3 and SA.4.
 **Figure 1: How \<System Name\> is built and bought**
 
 ### 3.2 Development framework
-
-Controls met here: SA-3, SA-15.
 
 \<System Name\> is developed under \<Organisation\>'s corporate SDLC, which is inherited and whose security practices meet CSS \<ver\>. A later version of CSS is adopted when final. The table gives each of the 19 practices and how \<System Name\> meets it, through the corporate SDLC or, where the SDLC does not provide a practice, by its own means or a departure recorded in \<System Description\>, section 3.6. The UK Software Security Code of Practice's principles 1.1 to 3.5 align with these practices. Its fourth theme, communication with customers, is for software that is sold, which \<System Name\> is not.
 
@@ -61,8 +57,6 @@ Controls met here: SA-3, SA-15.
 
 ### 3.3 Lifecycle, roles and resources
 
-Controls met here: SA-2, SA-3.
-
 \<System Name\> goes through six stages, each with its security and privacy check. The roles are in \<Roles and Responsibilities\>, and the privacy roles in \<Privacy Plan\>, section 3.
 
 **Table 2: Lifecycle stages**
@@ -83,8 +77,6 @@ Controls met here: SA-2, SA-3.
 **Resources.** Every 12 months the system owner raises the cost of security and privacy in \<Organisation\>'s yearly budgeting, as a separate line in \<System Name\>'s budget request, and records it on the risk and supply chain review (PRO-SA-6).
 
 ### 3.4 Contracts and design information
-
-Controls met here: SA-4, SA-4(1), SA-4(2), SA-4(9), SA-4(10).
 
 \<System Name\>'s software is written in-house. What is bought, now or later, uses \<Organisation\>'s standard contract, with security and privacy terms added for each of the nine things SA-4 asks a contract to hold: the functional requirements, the strength of mechanisms, assurance, the controls, documentation and its protection, the development and operating environments, who is responsible for security, privacy and supply chain risk, and acceptance criteria (PRO-SA-3). The contract sets them out as follows:
 
@@ -112,8 +104,6 @@ PIV products (SA-4(10)) are not applicable, as \<System Name\> does not use Unit
 
 ### 3.5 Documentation
 
-Controls met here: SA-5.
-
 Two guides are kept with the code: the Administrator Guide (\<Administrator Guide\>), on secure installation, configuration and operation, the security and privacy functions, and known weaknesses in privileged functions; and the User Guide (\<User Guide\>), on signing in, using \<System Name\> securely, personal data and users' responsibilities. The developers confirm them against \<System Name\> before it goes into operation, and again at each release (PRO-SA-4). They go to administrators, the security officer and users.
 
 **Table 3: Where the guides cover each topic**
@@ -131,13 +121,9 @@ When a supplier's document is missing or does not exist, the system owner record
 
 ### 3.6 Engineering principles
 
-Controls met here: SA-8.
-
 The NCSC secure design principles and the CSS privacy engineering objectives are mapped to \<System Name\>'s specification and design in \<System Description\>, section 6.8, which holds them. They are applied in the specification, design, development, implementation and modification of \<System Name\>. The security officer checks each significant design against them (PRO-SA-1).
 
 ### 3.7 External services
-
-Controls met here: SA-9, SA-9(2).
 
 Table 4 lists the external services \<System Name\> relies on. The \<Organisation\> services in it are the services named for SA-9(2) (SA-09(02)\_ODP). Each provider must meet \<System Name\>'s security and privacy requirements, and must employ the controls \<System Name\> inherits or shares from it, as \<System Security Plan\>, section 7, and \<Assessment, Authorization, and Monitoring Management\>, section 3.6, list them (SA-09\_ODP\[01\]). Each states those controls, and the functions, ports, protocols and other services it needs, in its signed row of the interface record (\<Assessment, Authorization, and Monitoring Management\>, Table 6), which is the agreement with each \<Organisation\> service (D-CA-04), or, for a service with no connection to \<System Name\>, in its service description, asked for with EV-SA-02 and EV-SA-03. Any hosting and services agreement is support only. \<Organisation\>'s name resolution and certificate authority carry no \<System Name\> data, and are covered by \<System and Communications Protection Management\>.
 
@@ -162,8 +148,6 @@ Table 4 lists the external services \<System Name\> relies on. The \<Organisatio
 
 ### 3.8 Developer configuration management
 
-Controls met here: SA-10.
-
 1. **What is controlled.** The configuration items in \<Configuration Management\>, section 3.3: application code, release scripts, settings files without secrets, the SQL Server settings scripts, the lock files that fix each package's version, and documents; and the test scripts. They are controlled during development, implementation and operation.
 2. **Where.** In Git, in \[number\] private repositories provided under \<Organisation\>'s corporate SDLC, each with one protected default branch.
 3. **How a change gets in.** On a branch, reviewed and approved by another developer before it merges into the protected default branch.
@@ -175,8 +159,6 @@ Controls met here: SA-10.
 9. **Environments.** Development, test and production are kept apart. Developers' computers and the throwaway test environment hold invented data only and have no route to production (\<System Description\>, section 6.7; NFR-089).
 
 ### 3.9 Developer test plan
-
-Controls met here: SA-11.
 
 This is the developer security and privacy test plan (SA-11). The testing selected is unit, integration, system and regression testing: unit and integration tests at each build, the scripts on the whole throwaway system at each release, and a repeat run to confirm each fix (SA-11\_ODP\[01\], \[02\]).
 
@@ -225,8 +207,6 @@ The plan, its results and the evidence are protected as the document set is: res
 
 ### 3.10 Development process, standards and tools
 
-Controls met here: SA-15.
-
 The process is \<Organisation\>'s corporate SDLC, meeting CSS \<ver\> (section 3.2). The standards are CSS, OWASP ASVS 5.0 Level 2 for the web applications, the NCSC secure design principles and the CSS privacy engineering objectives, with the UK Software Security Code of Practice alongside. Every 12 months the developers and the security officer review the process, standards, tools, tool options and tool settings against the security and privacy requirements of the CSS Moderate and privacy baselines, as \<System Security Plan\> and \<Privacy Plan\> set them, and the verification standard, OWASP ASVS 5.0 Level 2, and record the review on the risk and supply chain review (PRO-SA-6). A change to the process or a tool is made through change control, and Table 7 is updated with it.
 
 **Table 7: Development tools**
@@ -246,8 +226,6 @@ The process is \<Organisation\>'s corporate SDLC, meeting CSS \<ver\> (section 3
 
 ### 3.11 Criticality analysis
 
-Controls met here: SA-15(3).
-
 The criticality analysis (SA-15(3)) is held in \<Risk Assessment Management\>, section 3.9, with its method, the critical components and the critical functions. The developers make it with the system owner (PRO-SA-1, PRO-RA-6):
 
 1. **When** (SA-15(03)\_ODP\[01\]): at design, before \<System Name\> is built, and at each major release and after a significant change.
@@ -256,13 +234,9 @@ The criticality analysis (SA-15(3)) is held in \<Risk Assessment Management\>, s
 
 ### 3.12 Unsupported components
 
-Controls met here: SA-22.
-
 Each component is replaced before its vendor's support ends, with the replacement planned at least 6 months before. The monthly check covers every component in \<Configuration Management\>, Table 4, and the outside services in section 3.7: it compares each with its supplier's published support dates, and those of the security-critical components are held in \<Maintenance Management\>, section 3.8, with their MA-6 support times (PRO-SA-5). A package or browser library has no vendor support date. It counts as unsupported when its maintainers stop releasing fixes, or it is marked deprecated, or it has a known flaw with no fix. The developers check each one in the monthly package check, and replace one found unsupported within 6 months, or within the flaw timetable if it has a known flaw. If a component cannot be replaced in time, the other support allowed is in-house support, or a supplier's extended support, either by exception approved by the authorising official with the risk recorded in \<Risk List\> (SA-22\_ODP).
 
 ### 3.13 What \<Organisation\> and the providers supply
-
-Controls met here: SA-3, SA-4, SA-9, SA-9(2), SA-10, SA-15.
 
 **Table 8: Asked of \<Organisation\> and the providers**
 
@@ -273,7 +247,5 @@ Controls met here: SA-3, SA-4, SA-9, SA-9(2), SA-10, SA-15.
 | The corporate SDLC, with its source repositories, build pipeline and package feed | SA-3, SA-9, SA-9(2), SA-10, SA-15 | Its security practices, which meet CSS, and the controls on the private repositories and the pipeline | EV-SA-03, EV-SA-04 |
 
 ### 3.14 Policy and procedures
-
-Controls met here: SA-1.
 
 \<Policy\> (SA) and \<Procedures\> (SA) meet SA-1. Who they are shared with is in \<Policy\>, section SA.6. Their ownership, approval, review and records follow the rules common to every policy in \<Policy\>, section 1.1.

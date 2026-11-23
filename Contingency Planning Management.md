@@ -20,8 +20,6 @@ Who provides and is responsible for each control, and its status, are in \<Syste
 
 ### 3.1 Principles
 
-Controls met here: CP-2, CP-2(1), CP-4, CP-6, CP-9, CP-9(1), CP-9(8), CP-10.
-
 1. **Know what matters.** Recovery objectives come from a business impact analysis, not a guess.
 2. **Keep copies apart.** Encrypted backups are held away from the main site, with one copy that an attacker on the network cannot change.
 3. **Test recovery.** A backup counts only once it has been restored and checked.
@@ -32,8 +30,6 @@ Controls met here: CP-2, CP-2(1), CP-4, CP-6, CP-9, CP-9(1), CP-9(8), CP-10.
 These carry out the principles and rules of \<Policy\>, sections CP.3 and CP.4.
 
 ### 3.2 Scope and assumptions
-
-Controls met here: CP-2, CP-2(8).
 
 The plan recovers \<System Name\> in three phases: activation and notification, recovery, and reconstitution. Figure 1 shows them against the time allowed.
 
@@ -53,13 +49,9 @@ The plan recovers \<System Name\> in three phases: activation and notification, 
 
 ### 3.3 Business impact analysis
 
-Controls met here: CP-2, CP-2(3), CP-2(8).
-
 This analysis follows CSS, Appendix B. \<System Name\>'s availability is rated Low: an outage delays work, but no service to the public stops. Losing items or audit records cannot be tolerated.
 
 #### 3.3.1 Impact over time
-
-Controls met here: CP-2.
 
 **Table 1: Impact of an outage, by function**
 
@@ -74,8 +66,6 @@ While \<System Name\> is down nobody can use it, so an outage does not leave lea
 
 #### 3.3.2 Recovery objectives
 
-Controls met here: CP-2, CP-2(3), CP-10.
-
 **Table 2: Recovery objectives**
 
 | Function | Maximum tolerable downtime | Recovery time objective | Recovery point objective | Priority |
@@ -88,8 +78,6 @@ Controls met here: CP-2, CP-2(3), CP-10.
 Every time in Table 2 is counted from the start of the outage, not from when the plan is invoked. The recovery time objective includes reconstitution (section 3.7), so 72 hours is the time for both recovery and reconstitution (CP-10), and users return within 72 hours of the outage starting. The plan is invoked at the latest 24 hours in (section 3.5.1), so the essential functions resume within 72 hours of activation, and normally well within it (CP-2(3)). That leaves 48 hours within the maximum tolerable downtime for a failed first attempt, such as a damaged backup.
 
 #### 3.3.3 Components, dependencies and order of recovery
-
-Controls met here: CP-2, CP-2(8).
 
 **Table 3: Order of recovery**
 
@@ -107,8 +95,6 @@ Controls met here: CP-2, CP-2(8).
 
 #### 3.3.4 Essential assets
 
-Controls met here: CP-2(8).
-
 **Table 4: Essential assets (CP-2(8))**
 
 | Asset | Why it is essential | Recovery |
@@ -121,8 +107,6 @@ Controls met here: CP-2(8).
 The applications' key rings are not essential. They protect the authentication cookie and anti-forgery tokens only: if they are lost, users simply sign in again through PingFederate. They are protected by Windows for the server they were made on, so they could not be read on a rebuilt server, and they are not backed up or restored.
 
 ### 3.4 Roles
-
-Controls met here: CP-2.
 
 **Table 5: Contingency roles**
 
@@ -139,11 +123,7 @@ Each role has a deputy, as Table 5 shows. Contact details are in appendix A.
 
 ### 3.5 Activation and notification
 
-Controls met here: CP-2.
-
 #### 3.5.1 When the plan is invoked
-
-Controls met here: CP-2, CP-2(3).
 
 The system owner, or their deputy, invokes this plan when any of these is true:
 
@@ -156,13 +136,9 @@ Shorter outages are handled as normal operations or incidents. Invoking at 24 ho
 
 #### 3.5.2 Outage assessment
 
-Controls met here: CP-2.
-
 Within 4 hours of a report, the database and Windows server administrators assess the outage and tell the system owner: the cause if known, what is damaged, the expected duration, whether data may be lost or altered, and whether it may be a security incident. If it may be, the security officer starts the incident response plan at the same time.
 
 #### 3.5.3 Notification
-
-Controls met here: CP-2.
 
 1. Whoever finds the failure tells \<Organisation\>'s IT service desk and the security officer.
 2. The security officer tells the system owner, and starts the activity log.
@@ -171,11 +147,7 @@ Controls met here: CP-2.
 
 ### 3.6 Recovery
 
-Controls met here: CP-2, CP-7, CP-10.
-
 #### 3.6.1 Order of recovery
-
-Controls met here: CP-2, CP-7, CP-10, CP-10(2).
 
 Recovery follows PRO-CP-3 in the order of recovery in section 3.3.3, at the second site if the main one is lost:
 
@@ -189,25 +161,17 @@ Recovery follows PRO-CP-3 in the order of recovery in section 3.3.3, at the seco
 
 #### 3.6.2 Recovery during a security incident
 
-Controls met here: CP-2, CP-10.
-
 If the outage may be an incident, the incident response plan leads and this plan supports it. Evidence is kept before anything is rebuilt. The restore uses a backup taken before the compromise, and every secret is changed.
 
 #### 3.6.3 Running in a reduced state
-
-Controls met here: CP-2.
 
 There is no manual alternative for reading items. If full recovery would take longer than 72 hours, the system owner may restore sign-in, finding and reading first, with uploads and administration turned off, once the authorising official accepts the risk. Security controls stay in force throughout.
 
 #### 3.6.4 Escalation
 
-Controls met here: CP-2, CP-2(3).
-
 As soon as it is clear that users will not be back within 72 hours of the outage starting, and in any case if the database has not been restored 24 hours after the plan is invoked, the system owner tells the authorising official, with a new estimate and the options, including running in a reduced state (section 3.6.3). This leaves the authorising official time to decide before the recovery time objective is missed.
 
 ### 3.7 Reconstitution
-
-Controls met here: CP-2, CP-7, CP-9(1), CP-10.
 
 Users return only once steps 1 to 6 are done, and steps 7 to 9 follow straight after.
 
@@ -222,8 +186,6 @@ Users return only once steps 1 to 6 are done, and steps 7 to 9 follow straight a
 9. **Restart monitoring, and check the authorisation:** the security officer confirms that the monitoring duties have restarted. If the recovery changed the system in a way that counts as a significant change, such as a move to the second site, the authorising official decides whether \<System Name\> must be assessed or authorised again (\<Assessment, Authorization, and Monitoring Management\>, section 3.9).
 
 ### 3.8 Backups
-
-Controls met here: CP-6, CP-9, CP-9(1), CP-9(8), CP-10, CP-10(2).
 
 **Table 6: Backups**
 
@@ -250,8 +212,6 @@ The system documentation, including this plan and the other security and privacy
 
 ### 3.9 Second site and telecommunications
 
-Controls met here: CP-6, CP-6(1), CP-6(3), CP-7, CP-7(1), CP-7(2), CP-7(3), CP-8, CP-8(1), CP-8(2).
-
 **Second site.** \<Organisation\> is expected to provide a second site, far enough from the main one not to share its hazards, such as flood, power supply or a single building. The same site serves for storing backups and for processing.
 
 - **Storage.** It holds the encrypted backups, with one copy offline or immutable, under the same physical and access controls as the main site. Backups are encrypted before they leave the database server, so the site's staff cannot read them.
@@ -264,8 +224,6 @@ Controls met here: CP-6, CP-6(1), CP-6(3), CP-7, CP-7(1), CP-7(2), CP-7(3), CP-8
 The evidence is asked for with EV-CP-01 and EV-CP-02. If it is not available, the system owner takes the risk to the authorising official.
 
 ### 3.10 Testing, training and exercises
-
-Controls met here: CP-2, CP-3, CP-4, CP-4(1), CP-9(1).
 
 This follows CSS. The first restore test and tabletop exercise take place within 30 days of the VMs being built, and before production.
 
@@ -284,8 +242,6 @@ Each test has objectives and a scenario set beforehand. Each test or activation 
 
 ### 3.11 What \<Organisation\> provides
 
-Controls met here: CP-2(1), CP-4(1), CP-6, CP-6(1), CP-6(3), CP-7, CP-7(1), CP-7(2), CP-7(3), CP-8, CP-8(1), CP-8(2).
-
 **Table 8: Asked of \<Organisation\>**
 
 | Provided | Controls | What \<System Name\> relies on | Evidence asked |
@@ -297,8 +253,6 @@ Controls met here: CP-2(1), CP-4(1), CP-6, CP-6(1), CP-6(3), CP-7, CP-7(1), CP-7
 
 ### 3.12 Keeping the plan current
 
-Controls met here: CP-2.
-
 1. **Review and approval.** The system owner and the authorising official review the plan every 12 months, and after each test or activation, and approve each new version.
 2. **Update.** A change to the system that affects recovery updates the plan as part of the change (\<Configuration Management\>, section 3.9). Each after-action report lists the changes made to the plan (section 3.10).
 3. **Telling people.** The people who hold copies (section 1.1) are told of each change, with a note of what changed from the change record (PRO-CP-7).
@@ -306,13 +260,9 @@ Controls met here: CP-2.
 
 ### 3.13 Coordination with related plans
 
-Controls met here: CP-2(1), CP-4(1).
-
 Appendix B lists the related plans. This plan and the incident response plan each cite the other. Their tabletop exercise is held together, and \<Organisation\>'s IT service desk takes part (section 3.10). \<Organisation\>'s disaster recovery and business continuity plans provide the network, PingFederate, the second site and telecommunications. The system owner agrees with \<Organisation\> how the plans fit: who declares a disaster, and the recovery times of the services \<System Name\> depends on (section 3.3.3).
 
 ### 3.14 Policy and procedures
-
-Controls met here: CP-1.
 
 \<Policy\> (CP) and \<Procedures\> (CP) meet CP-1. Who they are shared with is in \<Policy\>, section CP.6. Their ownership, approval, review and records follow the rules common to every policy in \<Policy\>, section 1.1.
 

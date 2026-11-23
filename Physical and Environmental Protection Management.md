@@ -16,8 +16,6 @@ Who provides and is responsible for each control, and its status, are in \<Syste
 
 ### 3.1 Principles
 
-Controls met here: PE-5, PE-6.
-
 1. **Inherit with evidence.** A physical control counts only once \<Organisation\> has evidenced it.
 2. **Same protection everywhere.** The second site meets the same requirements as the main one.
 3. **Protect what users see.** Screens and printouts are protected by the people who use them.
@@ -26,8 +24,6 @@ Controls met here: PE-5, PE-6.
 These carry out the principles and rules of \<Policy\>, sections PE.3 and PE.4.
 
 ### 3.2 Sites and contacts
-
-Controls met here: PE-2, PE-17.
 
 ![Figure 1: Where \<System Name\> is, and who protects each place](figures/pem-figure-1.png)
 
@@ -45,8 +41,6 @@ Controls met here: PE-2, PE-17.
 No \<System Name\> role needs to enter either data centre. The Windows server and database administrators work from their managed devices over \<Organisation\>'s VPN and managed administration route (flow F11; \<Maintenance Management\>, section 3.4), including when they build the restore test server or rebuild the servers at the second site, and the hardware beneath the servers is maintained by \<Organisation\>'s engineers.
 
 ### 3.3 Who provides each control
-
-Controls met here: PE-1, PE-2, PE-3, PE-4, PE-5, PE-6, PE-6(1), PE-8, PE-9, PE-10, PE-11, PE-12, PE-13, PE-13(1), PE-14, PE-15, PE-16, PE-17.
 
 Who provides each PE control, and the evidence that closes it. The first choice of evidence is \<Organisation\>'s ISO/IEC 27001 certificate and Statement of Applicability, with the Annex A control shown, for both sites. A SOC 2 report serves instead if it covers physical access (criterion CC6.4) and, for power, fire, environment and water, the availability criteria (A1.2). The site inspection adds what was seen.
 
@@ -89,8 +83,6 @@ The organisation does not assess the sites itself. It inherits their protection 
 
 ### 3.5 Offices: screens and printing
 
-Controls met here: PE-5.
-
 1. \<System Name\> items are printed only on \<Organisation\>'s managed printers with secure release: \[managed printers\]. A page prints only when its owner is at the printer.
 2. A printout is collected at once, marked \<Classification\>, locked away when not in use, and shredded when no longer needed (\<Media Protection Management\>, section 3.4).
 3. A screen is locked when its user leaves it, and placed so that others cannot read it.
@@ -98,8 +90,6 @@ Controls met here: PE-5.
 5. Desks are kept clear of printouts and notes.
 
 ### 3.6 Working from home
-
-Controls met here: PE-17.
 
 1. People work remotely only from home, unless the system owner has approved another place in writing (\<Security Operating Procedures\>).
 2. They use only \<Organisation\>'s managed device, and connect to its VPN before opening \<System Name\>. They never use a public or shared computer, and use public Wi-Fi only with the VPN connected first.
@@ -113,8 +103,6 @@ These are part of the rules of behaviour, which each person signs (\<Security Op
 
 ### 3.7 Physical incidents
 
-Controls met here: PE-6, PE-8, PE-11.
-
 The loss or theft of a device or printout, unauthorised entry to a data centre, and fire, flood or power loss affecting \<System Name\> are security incidents. Whoever sees one reports it to the security officer at once. \<Organisation\>'s security contact tells the security officer of any physical incident at a site that affects \<System Name\>, and of any anomaly in the visitor records, within 24 hours. The security officer handles it with the playbooks for a lost device or printout and for intrusion, fire, flood or power loss at a data centre (\<Incident Response Management\>, section 3.9), and the contingency plan is invoked if a site is lost (\<Contingency Planning Management\>).
 
 **Loss of power.** Each data centre's uninterruptible power supply carries the hosts until a generator takes over, or for long enough for an orderly shutdown. If power cannot be kept, \<Organisation\>'s hosting staff shut both servers down cleanly through the hypervisor, the application server first, before the backup power runs out, and tell the Windows server administrator (D-PE-01). A clean guest shutdown stops the applications and SQL Server in order, so no \<System Name\> administrator has to be reached in the minutes the supply lasts. When power returns, the administrators start the servers and run the start-up checks (\<Security Operating Procedures\>, section 4.6), and the security officer records it as a physical incident. This applies at the second site too whenever \<System Name\> runs there. How long the backup power lasts, whether there is a generator, and how the shutdown is done, are asked of \<Organisation\> (EV-PE-02).
@@ -124,8 +112,6 @@ The loss or theft of a device or printout, unauthorised entry to a data centre, 
 Both servers' disks are encrypted, and backups are encrypted before they leave the database server. Someone who reaches a host, a disk or a backup copy therefore cannot read \<System Name\>'s items. This does not replace \<Organisation\>'s physical controls: it limits the harm if one fails.
 
 ### 3.9 What \<Organisation\> provides
-
-Controls met here: PE-2, PE-3, PE-4, PE-5, PE-6, PE-6(1), PE-8, PE-9, PE-10, PE-11, PE-12, PE-13, PE-13(1), PE-14, PE-15, PE-16, PE-17.
 
 **Table 4: Asked of \<Organisation\>**
 
@@ -143,8 +129,6 @@ These are what \<System Name\> requires of \<Organisation\> at both the main dat
 
 #### 3.10.1 Entry, keys and cabling
 
-Controls met here: PE-2, PE-3, PE-4.
-
 1. **Access list.** \<Organisation\> keeps the list of people authorised to enter each data centre, and issues each an individual card or credential. The list is reviewed every 12 months, and a person is removed when their need ends or they leave. No \<System Name\> role is on it: every administrator works remotely (\<Maintenance Management\>, section 3.4).
 2. **Entry control.** Every data centre entrance and exit is controlled by \<Organisation\>'s electronic access control system, with individual cards or credentials, and every entry and exit is logged.
 3. **Public areas and visitors.** A staffed reception controls the areas open to the public. Visitors are signed in, and always escorted.
@@ -153,15 +137,11 @@ Controls met here: PE-2, PE-3, PE-4.
 
 #### 3.10.2 Monitoring and visitor records
 
-Controls met here: PE-6, PE-6(1), PE-8, PE-8(3).
-
 1. **Monitoring.** \<Organisation\> monitors each data centre with intrusion alarms and CCTV, and responds to alarms.
 2. **Entry log review.** The entry logs are reviewed monthly, and after a physical security incident or alarm. The results of each review, and of any investigation that follows, go to \<Organisation\>'s incident response, and to \<System Name\>'s security officer where they affect \<System Name\> (section 3.7).
 3. **Visitor records.** Visitor records are kept for 12 months and reviewed monthly. They hold only the visitor's name and organisation, and the date and time of the visit (PE-8(3); \<PII Processing Management\>, section 3.9). Anomalies go to \<Organisation\>'s security contact, who tells \<System Name\>'s security officer (section 3.7).
 
 #### 3.10.3 Power and lighting
-
-Controls met here: PE-9, PE-10, PE-11, PE-12.
 
 1. **Power equipment.** \<Organisation\> protects the power equipment and cabling that serve the hosts from damage and destruction.
 2. **Emergency shutoff.** Power to the hosting equipment for both servers can be shut off in an emergency, by switches near the exits of the data centre room. The shutoff is guarded against accidental and unauthorised use, and \<Organisation\> is asked how (EV-PE-02).
@@ -170,22 +150,16 @@ Controls met here: PE-9, PE-10, PE-11, PE-12.
 
 #### 3.10.4 Fire, temperature, humidity and water
 
-Controls met here: PE-13, PE-13(1), PE-14, PE-15.
-
 1. **Fire.** Each data centre has fire detection and suppression systems, with an independent energy source. Detection works automatically and notifies \<Organisation\>'s facilities staff and the fire and rescue service.
 2. **Temperature and humidity.** Kept within the ASHRAE TC 9.9 recommended envelope: 18 to 27°C, a dew point from -9 to 15°C, and at most 60% relative humidity. They are monitored continuously.
 3. **Water.** Each data centre has master shutoff or isolation valves that can be reached, work, and are known to key people.
 
 #### 3.10.5 Deliveries and removals
 
-Controls met here: PE-16.
-
 1. **What is controlled.** Hardware and media that hold \<System Name\> information, entering and leaving each data centre.
 2. **Approval.** \<Organisation\>'s own process approves the removal of host hardware beneath the servers, after sanitising it, and tells the system owner beforehand where it can and afterwards with the certificate; the system owner approves the removal of anything else of \<System Name\>'s (\<Maintenance Management\>, section 3.7; PRO-MA-2; D-MA-03).
 3. **Records.** \<Organisation\> keeps its delivery and removal records. \<System Name\>'s own are on the maintenance record and the media record.
 
 ### 3.11 Policy and procedures
-
-Controls met here: PE-1.
 
 \<Policy\> (PE) and \<Procedures\> (PE) meet PE-1. Who they are shared with is in \<Policy\>, section PE.6. Their ownership, approval, review and records follow the rules common to every policy in \<Policy\>, section 1.1.
