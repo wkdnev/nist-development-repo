@@ -1935,6 +1935,26 @@ There is one finding for each CSS determination statement, including those about
 
 For the Level 2 assessment, the assessor should run Test-PlanConsistency.py on the issued set, sample signed TPL-21 forms against the register and the access requests, check the restricted store's access list, interview the Head of Cyber, the authorising official and a sample of users, and re-determine every statement in section PL.3.
 
+**Table PL-5: Where each part of the plans that PL-2 requires is held**
+
+| Part | CSS requires | Security plan | Privacy plan |
+| --- | --- | --- | --- |
+| a.1 | Consistent with the enterprise architecture | \<System Security Plan\>, section 4; \<System Description\>, sections 6.6 and 10 | \<Privacy Plan\>, section 8 |
+| a.2 | Defines the components of the system | \<System Security Plan\>, sections 3.1 and 3.4; \<System Description\>, section 6.1 | \<Privacy Plan\>, section 2 |
+| a.3 | Describes the operational context | \<System Security Plan\>, sections 1 and 2; \<Concept of Operations\> | \<Privacy Plan\>, section 2 |
+| a.4 | Names the people in each role | \<System Security Plan\>, section 6; \<Roles and Responsibilities\> | \<Privacy Plan\>, section 3 |
+| a.5 | Identifies the types of information | \<System Security Plan\>, section 3.3 | \<Privacy Plan\>, section 4 |
+| a.6 | Gives the security categorisation, with its reasons | \<System Security Plan\>, section 3.3 | \<Privacy Plan\>, section 4 |
+| a.7 | Describes the threats of concern | \<Risk List\>, section 2 and Table 3c; \<Risk Assessment Management\>, section 3.3 | \<Privacy Plan\>, section 5 |
+| a.8 | Gives the results of a privacy risk assessment | \<Data Protection Impact Assessment\> | \<Data Protection Impact Assessment\> |
+| a.9 | Describes the environment, and the connections to other systems | \<System Security Plan\>, sections 3.1, 3.2 and 4 | \<Privacy Plan\>, section 2 |
+| a.10 | Gives an overview of the requirements | \<System Security Plan\>, sections 1 and 5 | \<Privacy Plan\>, section 6 |
+| a.11 | Identifies the baselines and overlays | \<System Security Plan\>, section 5; \<Tailoring Register\> | \<Privacy Plan\>, section 6 |
+| a.12 | Describes each control, in place or planned, with the reason for any tailoring | \<System Security Plan\>, section 7: one row for each control; \<Tailoring Register\> | \<Privacy Plan\>, section 6 |
+| a.13 | Includes the risk decisions on architecture and design | \<Risk List\>; \<Decision Register\> | \<Privacy Plan\>, section 5; \<Decision Register\> |
+| a.14 | Includes the activities that need planning and coordination with defined people | The operating calendar in \<Security Operating Procedures\>, Part C; \<Plan of Action and Milestones\>. They are coordinated with the Head of Cyber, the administrators, the legal adviser and \<Organisation\>'s security contact | \<Privacy Plan\>, section 7 |
+| a.15 | Reviewed and approved by the authorising official before it is put into effect | Approved by the system owner, with the Head of Cyber's concurrence, and then reviewed and approved by the authorising official before it is put into effect (D-PL-01). Approving the plan does not authorise \<System Name\>: only the authorisation decision record does | Approved by the legal adviser and the authorising official (D-PL-02) |
+
 ## PS Personnel Security
 
 ### PS.1 Purpose

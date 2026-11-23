@@ -2,9 +2,9 @@
 
 ## 1 Purpose
 
-This document sets out how \<System Name\>'s plans are written, approved, shared, reviewed and protected, to meet the 7 Planning (PL) controls and enhancements in the CSS Moderate baseline: PL-1, PL-2, PL-4, PL-4(1), PL-8, PL-10 and PL-11. PL-9, from the CSS privacy baseline, is assessed with PT (\<System Security Plan\>, Table 23). PL-7 is outside the baseline, but the concept of operations is kept as a plan in section 3.2 (\<Tailoring Register\>, Table 9). The values the PL controls depend on are given in full in this document, and approved in \<Decision Register\> (D-PL-P71).
+This document is the design for how \<System Name\>'s plans are written, approved, shared, reviewed and protected. It covers the Planning (PL) family of the CSS Moderate baseline, 7 controls and enhancements. The concept of operations is kept as a plan too (section 3.2). The values the PL controls depend on are given in full in this document, and approved in \<Decision Register\> (D-PL-P71).
 
-Section 3 is the design: the principles, the register of every plan in force, what the security plan and the privacy plan must hold and where each part is, how a plan is approved and kept current, the rules of behaviour and who has signed them, the architecture, the baseline and its tailoring, what \<Organisation\> provides. The plans themselves are separate documents, listed in section 3.2.
+Section 3 is the design: the principles, the register of every plan in force, what the security plan and the privacy plan hold, how a plan is approved and kept current, the rules of behaviour and who has signed them, the architecture, the baseline and its tailoring, and what \<Organisation\> provides. The plans themselves are separate documents, listed in section 3.2.
 
 ## 2 Related documents
 
@@ -52,31 +52,11 @@ The versions in the register are checked by the plan consistency test, and are b
 
 ### 3.3 What the plans hold
 
-PL-2 lists 15 things a security plan and a privacy plan must hold. The security plan is \<System Security Plan\>, written to CSS, and the privacy plan is \<Privacy Plan\>. Table 2 shows where each part is held.
-
-**Table 2: Where each required part of the plans is held**
-
-| Part | CSS requires | Security plan | Privacy plan |
-| --- | --- | --- | --- |
-| a.1 | Consistent with the enterprise architecture | \<System Security Plan\>, section 4; \<System Description\>, sections 6.6 and 10 | \<Privacy Plan\>, section 8 |
-| a.2 | Defines the components of the system | \<System Security Plan\>, sections 3.1 and 3.4; \<System Description\>, section 6.1 | \<Privacy Plan\>, section 2 |
-| a.3 | Describes the operational context | \<System Security Plan\>, sections 1 and 2; \<Concept of Operations\> | \<Privacy Plan\>, section 2 |
-| a.4 | Names the people in each role | \<System Security Plan\>, section 6; \<Roles and Responsibilities\> | \<Privacy Plan\>, section 3 |
-| a.5 | Identifies the types of information | \<System Security Plan\>, section 3.3 | \<Privacy Plan\>, section 4 |
-| a.6 | Gives the security categorisation, with its reasons | \<System Security Plan\>, section 3.3 | \<Privacy Plan\>, section 4 |
-| a.7 | Describes the threats of concern | \<Risk List\>, section 2 and Table 3c; \<Risk Assessment Management\>, section 3.3 | \<Privacy Plan\>, section 5 |
-| a.8 | Gives the results of a privacy risk assessment | \<Data Protection Impact Assessment\> | \<Data Protection Impact Assessment\> |
-| a.9 | Describes the environment, and the connections to other systems | \<System Security Plan\>, sections 3.1, 3.2 and 4 | \<Privacy Plan\>, section 2 |
-| a.10 | Gives an overview of the requirements | \<System Security Plan\>, sections 1 and 5 | \<Privacy Plan\>, section 6 |
-| a.11 | Identifies the baselines and overlays | \<System Security Plan\>, section 5; \<Tailoring Register\> | \<Privacy Plan\>, section 6 |
-| a.12 | Describes each control, in place or planned, with the reason for any tailoring | \<System Security Plan\>, section 7: one row for each control; \<Tailoring Register\> | \<Privacy Plan\>, section 6 |
-| a.13 | Includes the risk decisions on architecture and design | \<Risk List\>; \<Decision Register\> | \<Privacy Plan\>, section 5; \<Decision Register\> |
-| a.14 | Includes the activities that need planning and coordination with defined people | The operating calendar in \<Security Operating Procedures\>, Part C; \<Plan of Action and Milestones\>. They are coordinated with the Head of Cyber, the administrators, the legal adviser and \<Organisation\>'s security contact | \<Privacy Plan\>, section 7 |
-| a.15 | Reviewed and approved by the authorising official before it is put into effect | Approved by the system owner, with the Head of Cyber's concurrence, and then reviewed and approved by the authorising official before it is put into effect (D-PL-01). Approving the plan does not authorise \<System Name\>: only the authorisation decision record does | Approved by the legal adviser and the authorising official (D-PL-02) |
+The security plan is \<System Security Plan\>, and the privacy plan is \<Privacy Plan\>. Between them, with the documents they point to, they hold: the architecture and how it fits \<Organisation\>'s; the components; the operational context; the people in each role; the information types and their categorisation; the threats; the privacy risk assessment; the environment and connections; the requirements, baselines and tailoring; each control, in place or planned; the risk decisions on architecture and design; and the activities that need planning and coordination. Each is approved before it is put into effect (section 3.4). Where each part is held is mapped in \<Control Assessment Record\>, Table PL-5.
 
 ### 3.4 Approval, review, sharing and protection
 
-**Table 3: How a plan is kept current**
+**Table 2: How a plan is kept current**
 
 | Step | What happens | Who | Record |
 | --- | --- | --- | --- |
@@ -106,7 +86,7 @@ Signed forms and the register are kept for as long as the person has access, and
 
 The register starts empty. First signatures are taken on the current version of the rules, before access is given.
 
-**Table 4: Register of signatures**
+**Table 3: Register of signatures**
 
 | Acknowledgement | Name | Role | Parts | Version signed | Reason | Date signed | Next due |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -122,12 +102,12 @@ The baseline is CSS Moderate, with the privacy baseline. The authorising officia
 
 ### 3.8 What \<Organisation\> provides
 
-**Table 5: Asked of \<Organisation\>**
+**Table 4: Asked of \<Organisation\>**
 
 | Provided | What \<System Name\> relies on |
 | --- | --- |
 | Its enterprise architecture standards | The standards that \<System Name\>'s plans and architecture must fit |
-| Who runs the hypervisor beneath the servers, and whether it is within the Cyber Essentials Plus scope | The answer settles a dependency recorded in the architecture |
+| The hypervisor beneath the servers | Run by \<Organisation\>; who runs it, and whether it is within the Cyber Essentials Plus scope, is a dependency recorded in the architecture |
 | The restricted document store | A SharePoint area where only named people can read or change the plans. It is not yet set up; until it is, the master copy stays in the private records repository (\<Documentation Map\>, section 4.1) |
 
 ### 3.9 Policy and procedures
