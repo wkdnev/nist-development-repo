@@ -183,7 +183,7 @@ Incidents and personal data breaches are listed here, each with its incident rec
 
 ### 3.15 What \<Organisation\> provides
 
-**Table 8: Asked of \<Organisation\>**
+**Table 8: Provided by \<Organisation\>**
 
 | Provided | What \<System Name\> relies on |
 | --- | --- |

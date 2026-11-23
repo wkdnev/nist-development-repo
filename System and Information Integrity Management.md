@@ -2,13 +2,13 @@
 
 ## 1 Purpose
 
-This document sets out how \<System Name\> is designed and configured to keep its software and information sound, to meet the 18 System and Information Integrity (SI) controls and enhancements in the CSS Moderate baseline.
+This document is the system and information integrity design for \<System Name\>: how it keeps its software and information sound. It covers the System and Information Integrity (SI) family of the CSS Moderate baseline, 18 controls and enhancements.
 
-Section 3 is the design: the upload checks and malware scanning; flaw remediation and advisories; monitoring and the detection use cases; the integrity baseline and checks; error handling and memory protection; retention; what \<Organisation\> provides; email and spam protection; the policy and procedures; and the values chosen for the controls.
+Section 3 is the design: the upload checks and malware scanning; flaw remediation and advisories; monitoring and the detection use cases; the integrity baseline and checks; error handling and memory protection; retention; what \<Organisation\> provides; and email and spam protection.
 
 ## 2 Related documents
 
-Which section of this design meets each control, who is responsible for it and its status are in \<System Security Plan\>, section 7.18 (Table 27). The assessment is in \<Control Assessment Record\> (SI), the risks are in \<Risk List\>, and open work is in \<Plan of Action and Milestones\>. The policy is in \<Policy\> (SI), and the steps people follow are in \<Procedures\> (SI). The vulnerability timetable is in \<Risk Assessment Management\>, section 3.6, the retention schedule in \<PII Processing Management\>, section 3.7, and the audit design in \<Audit and Accountability Management\>. The privacy controls SI-12(1) to SI-12(3), SI-18, SI-18(4) and SI-19 are set out in \<PII Processing Management\>. The values the design runs on are set out in this document, and their approvals, with SI's decisions, are in \<Decision Register\> (D-SI-01, D-SI-02, D-SI-P17 and D-SI-P27, with D-RA-P11, D-CM-P29 and D-MP-P20).
+Which section of this design meets each control, who is responsible for it and its status are in \<System Security Plan\>, section 7.18 (Table 27). The assessment is in \<Control Assessment Record\> (SI), the risks are in \<Risk List\>, and open work is in \<Plan of Action and Milestones\>. The policy is in \<Policy\> (SI), and the steps people follow are in \<Procedures\> (SI). The vulnerability timetable is in \<Risk Assessment Management\>, section 3.6, the retention schedule in \<PII Processing Management\>, section 3.7, and the audit design in \<Audit and Accountability Management\>. Minimising personal data, its quality and de-identification are in \<PII Processing Management\>. The values this design sets, and SI's decisions, are approved in \<Decision Register\> (D-SI-01, D-SI-02, D-SI-P17 and D-SI-P27, with D-RA-P11, D-CM-P29 and D-MP-P20).
 
 ## 3 The design
 
@@ -27,7 +27,7 @@ These carry out the principles and rules of \<Policy\>, sections SI.3 and SI.4.
 
 ### 3.2 Upload checks and malware scanning
 
-Every upload passes these checks on the server before it is stored: a new item, each file in a batch, and a file that replaces a stored one (FR-037). Files are held in the SQL Server database, not as files on disk, so Defender's file scans on the database server cannot see them; the API must pass each one to Defender itself. All API inputs and search terms are validated on the server too, for type, length and range, and database queries use parameters.
+Every upload passes these checks on the server before it is stored: a new item, each file in a batch, and a file that replaces a stored one (FR-037). Files are held in the SQL Server database, not as files on disk, so Defender's file scans on the database server cannot see them; the API must pass each one to Defender itself. Every API request's parameters and body, the batch list, and search terms and filters are validated on the server too, for type, length and range, and database queries use parameters.
 
 **Table 1: Upload checks**
 
@@ -43,7 +43,7 @@ Every upload passes these checks on the server before it is stored: a new item, 
 
 Microsoft Defender, which is signature and behaviour based, runs on both servers, with real-time protection, definitions that update automatically at least daily through \<Organisation\>'s update route, and a weekly full scan. A definition update changes no configuration item in \<Configuration Management\>, section 3.3, so it needs no change record; Defender's engine and platform updates come with the Windows updates, through change control. Its only exclusions are those Microsoft recommends for SQL Server's data, log and backup files, recorded in the baseline and reviewed with it. What it finds is blocked and quarantined, and the Windows server administrator and the security officer are alerted (U3). A flagged upload is refused and recorded in the audit trail. Each false positive is recorded on the incident record with how it was resolved. When the upload scan is first turned on, every file already stored is scanned once.
 
-A file scanned at upload may hold malware that Defender learns to recognise only later, and the weekly scan never reaches it inside the database. So each month, and at each release, the API's file checksum check also passes every stored file to Defender through AMSI, with current definitions (D-SI-02, Neil's choice). A flagged file raises U3; the security officer handles it under PRO-SI-4, the item's file is blocked from viewing, download and export until it is resolved, and the schema's Data Owner decides what happens to the item. A file is therefore at most a month behind the latest definitions when it is downloaded or exported, and users' managed devices scan what arrives there (\<Organisation\>'s endpoint protection).
+A file scanned at upload may hold malware that Defender learns to recognise only later, and the weekly scan never reaches it inside the database. So each month, and at each release, the API's file checksum check also passes every stored file to Defender through AMSI, with current definitions (D-SI-02). A flagged file raises U3; the security officer responds to it as to any alert, the item's file is blocked from viewing, download and export until it is resolved, and the schema's Data Owner decides what happens to the item. A file is therefore at most a month behind the latest definitions when it is downloaded or exported, and users' managed devices scan what arrives there (\<Organisation\>'s endpoint protection).
 
 ### 3.3 Flaw remediation and advisories
 
@@ -76,17 +76,17 @@ As users sign in through PingFederate, failed sign-ins and changes to group memb
 
 | ID | Event | Source | Threshold | Alert to | Acknowledge within | Response |
 | --- | --- | --- | --- | --- | --- | --- |
-| U1 | Failed sign-ins | PingFederate sign-in logs, from \<Organisation\> | 5 for one account, or 20 in total, in 15 minutes | Security officer | 1 working day | PRO-SI-4 |
+| U1 | Failed sign-ins | PingFederate sign-in logs, from \<Organisation\> | 5 for one account, or 20 in total, in 15 minutes | Security officer | 1 working day | Respond to the alert |
 | U2 | Audit chain break | Application security event from the chain check; the auditor's weekly comparison with the daily copies | Any | Security officer, auditor | 1 hour | Incident (\<Incident Response Management\>) |
 | U3 | Malware detected | Defender on either server, the AMSI scan of an upload, and the monthly rescan of stored files | Any | Security officer, Windows server administrator | 1 hour | Incident |
 | U4 | Privilege change | Active Directory changes to the membership of \<System Name\>'s five role groups (\<Code\>\_Admins, \<Code\>\_Auditors, \<Code\>\_Security, \<Code\>\_BusinessOwners and \<Code\>\_LegalSearch), from \<Organisation\>; and Windows changes to the local Administrators group on either server | Any person added | Security officer | 1 working day | Check against the approved ServiceNow request or change record; if there is none, incident |
-| U5 | Bulk export | Application security event | More than \[number\] items by one user in a day; proposed reference value 200, awaiting the system owner and business owner (D-SI-P27) | Security officer | 1 working day | PRO-SI-4 |
-| U6 | Administrator sign-in out of hours | Application security event: a sign-in by a person in \<Code\>\_Admins | Outside \[hours\]; proposed reference value 07:00 to 19:00 UK time, Monday to Friday except public holidays, awaiting the system owner and business owner (D-SI-P27) | Security officer | 1 working day | PRO-SI-4 |
-| U7 | Audit logging failure | Application log | Any | Security officer, Windows server administrator | 1 hour | PRO-SI-4, and logging restored |
+| U5 | Bulk export | Application security event | More than \[number\] items by one user in a day; proposed reference value 200, awaiting the system owner and business owner (D-SI-P27) | Security officer | 1 working day | Respond to the alert |
+| U6 | Administrator sign-in out of hours | Application security event: a sign-in by a person in \<Code\>\_Admins | Outside \[hours\]; proposed reference value 07:00 to 19:00 UK time, Monday to Friday except public holidays, awaiting the system owner and business owner (D-SI-P27) | Security officer | 1 working day | Respond to the alert |
+| U7 | Audit logging failure | Application log | Any | Security officer, Windows server administrator | 1 hour | Respond to the alert, and restore logging |
 | U8 | Unexpected software change, or a changed stored file | The integrity check of the release files; the file checksum check; a program blocked by App Control for Business | Any | Security officer, Windows server administrator | 1 hour | Incident |
 | U9 | Change to which groups open a schema | Application security event, from the Admin application | Any | Security officer | 1 working day | Check against the change record approved by the schema's Data Owner; if there is none, incident |
 
-The thresholds for U5 and U6 are set by the system owner with the business owner, from the hours of service and the expected numbers of users and items, and approved with the alert events (D-SI-P27). An alert that turns out to be an incident is then handled within the targets for its severity in \<Incident Response Management\>, section 3.6.
+The thresholds for U5 and U6 are set by the system owner with the business owner, from the hours of service and the expected numbers of users and items, and approved with the alert events (D-SI-P27). How the security officer responds to an alert is in \<Procedures\> (SI). An alert that turns out to be an incident is then handled within the targets for its severity in \<Incident Response Management\>, section 3.6.
 
 \<Organisation\> monitors traffic into and out of the network continuously, against the allowed flows (\<System and Communications Protection Management\>, section 3.2). Unusual or unauthorised traffic is traffic outside those flows, and, outbound, unusually large transfers. Users are monitored only after the legal adviser's opinion, only as far as needed, and with staff told what is monitored and why.
 
@@ -113,13 +113,13 @@ The integrity baseline is the release record of the running release (\<Configura
 | Information: the audit records | The keyed audit chain check (\<Audit and Accountability Management\>, section 3.5) | Daily and at each start-up of the API; at each weekly review by the auditor; after a restore | Scheduled in the API; the auditor and security officer review the result |
 | Firmware of the hosts beneath the two VMs | \<Organisation\>'s checks | Monthly, and at a change to the hosting | \<Organisation\> |
 
-A difference found by any of these raises U8, or U2 for the audit chain, and is handled as an incident (\<Incident Response Management\>; SI-7(7)): the item is restored from the release record's package, a trusted copy or a backup taken before the change. For firmware, \<Organisation\>'s security contact is told. Settings, the App Control policy and the CIS Benchmark settings are checked for drift by \<Procedures\>, PRO-CM-7, at the same times.
+A difference found by any of these raises U8, or U2 for the audit chain, and is handled as an incident (\<Incident Response Management\>): the item is restored from the release record's package, a trusted copy or a backup taken before the change. For firmware, \<Organisation\>'s security contact is told. Settings, the App Control policy and the CIS Benchmark settings are checked for drift by the configuration scan at the same times (\<Configuration Management\>).
 
-Test-Integrity.ps1 is the test of these controls: it checks the upload checks, error handling, checksums, the audit chain and the alerts on a throwaway test stack built from the release, and an assessor may run it against the VMs.
+Test-Integrity.ps1 is the test of these controls: it checks the upload checks, error handling, checksums, the audit chain and the alerts on a throwaway test stack built from the release, and can also be run against the servers.
 
 ### 3.6 Error handling and memory protection
 
-Users and API callers see a general error message, with a reference they can quote when they report it; the detail goes only to the application log, under the same reference. Error detail holds no password, key, token, cookie or personal data beyond the username (FR-076, NFR-023). On the servers only the Windows server administrators can read the application logs, and in central logging the auditor and the security officer (\<Audit and Accountability Management\>, section 3.10). Developers hold no administrator access on the servers, so they see the detail of a fault only as the Windows server administrator passes it to them on the fault's record. Memory is protected by .NET managed memory and by Windows data execution prevention and address randomisation on the servers.
+Users and API callers see a general error message, with a reference they can quote when they report it; the detail goes only to the application log, under the same reference. Error detail holds no password, key, token, cookie or personal data beyond the username (FR-076, NFR-023). On the servers only the Windows server administrators can read the application logs, and in central logging the auditor and the security officer (\<Audit and Accountability Management\>, section 3.10). Developers hold no administrator access on the servers, so they see the detail of a fault only as the Windows server administrator passes it to them on the fault's record. Memory is protected by .NET managed memory and by hardware-enforced data execution prevention and address space layout randomisation on both servers, which are Windows Server 2025 defaults that the baseline keeps on.
 
 ### 3.7 Information retention
 
@@ -139,7 +139,7 @@ Information and output are kept and disposed of under \<System Name\>'s retentio
 
 ### 3.8 What \<Organisation\> provides
 
-**Table 6: Asked of \<Organisation\>**
+**Table 6: Provided by \<Organisation\>**
 
 | Provided | What \<System Name\> relies on |
 | --- | --- |
@@ -149,31 +149,9 @@ Information and output are kept and disposed of under \<System Name\>'s retentio
 
 ### 3.9 Email and spam protection
 
-\<System Name\> sends and receives no email, so it has no spam protection of its own to set or update (\<Tailoring Register\>, TR-SI-01).
+\<System Name\> sends and receives no email, so it has no spam protection of its own to set or update.
 
 ### 3.10 Policy and procedures
 
 \<Policy\> (SI) and \<Procedures\> (SI) are the policy and procedures for this family. Who they are shared with is in \<Policy\>, section SI.6. Their ownership, approval, review and records follow the rules common to every policy in \<Policy\>, section 1.1.
-
-### 3.11 Values chosen for the controls
-
-These are the organisation-defined parameters for the SI controls. The values that are \<System Description\> parameters are approved in \<Decision Register\> (D-RA-P11, D-SI-P17, D-SI-P27, D-CM-P29, D-RA-P30), and the rest with this design.
-
-**Table 7: Values chosen**
-
-| Control | Parameter | Value |
-| --- | --- | --- |
-| SI-2 | Time to install security-relevant software and firmware updates | From the fix's release or its detection if later: 3 days if exploited, 14 days Critical or High, 30 days Medium, 90 days Low |
-| SI-2(2) | Mechanisms; frequency | The credentialed scan, Test-Vulnerability.ps1, the dependency alerts and the Windows Update reports; monthly and at each release, and at each build for packages (section 3.3) |
-| SI-3 | Type; scan frequency; where real-time scans run; response; who is alerted | Signature and non-signature based (Defender); a full scan weekly; on both servers' endpoints, and each file as it is uploaded, with every stored file rescanned monthly and at each release; block and quarantine, refuse the upload, and block a stored file found flagged; the security officer and the Windows server administrator (U3) |
-| SI-4 | Objectives; techniques; information provided, to whom and how often | Detect attacks, misuse, and unauthorised local, network and remote connections; the use cases in Table 3, the weekly review and \<Organisation\>'s network monitoring; the alerts, reviews and their outcomes, to the system owner monthly and to \<Organisation\>'s security contact for a confirmed incident |
-| SI-4(4) | Frequency; unusual or unauthorised activity, inbound and outbound | Continuously; traffic outside the allowed flows in \<System and Communications Protection Management\>, section 3.2, and, outbound, unusually large transfers |
-| SI-4(5) | Who is alerted; indications of compromise | As Table 3 names for each; the events U1 to U9 |
-| SI-5 | Sources; who advisories go to | Table 2; the Windows server and database administrators and the developers, and \<Organisation\>'s security contact when one may affect its other systems |
-| SI-7 | Software, firmware and information; actions | The release files and scripts, the hosts' firmware, the stored files and the audit records; raise U8 or U2, handle as an incident and restore from a trusted copy |
-| SI-7(1) | When each is checked | Table 4a |
-| SI-7(7) | Security-relevant changes handled as incidents | Any unexpected change to the release files or scripts, a stored file, an audit record or the hosts' firmware, and any program App Control for Business blocks that is not explained by an approved change |
-| SI-10 | Inputs checked | Every API request's parameters and body, each upload and the files in a batch, the batch list, and search terms and filters |
-| SI-11 | Who sees error detail | The Windows server administrators on the servers; the auditor and the security officer in central logging; developers only through the fault's record |
-| SI-16 | Controls protecting memory | .NET managed memory, and hardware-enforced data execution prevention and address space layout randomisation on both servers, which are Windows Server 2025 defaults that the baseline keeps on |
 

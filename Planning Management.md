@@ -102,7 +102,7 @@ The baseline is CSS Moderate, with the privacy baseline. The authorising officia
 
 ### 3.8 What \<Organisation\> provides
 
-**Table 4: Asked of \<Organisation\>**
+**Table 4: Provided by \<Organisation\>**
 
 | Provided | What \<System Name\> relies on |
 | --- | --- |

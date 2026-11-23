@@ -145,7 +145,7 @@ Part of the privacy design is held in other documents. Table 4 says where.
 
 ### 3.10 What \<Organisation\> provides
 
-**Table 5: Asked of \<Organisation\>**
+**Table 5: Provided by \<Organisation\>**
 
 | Provided | What \<System Name\> relies on |
 | --- | --- |

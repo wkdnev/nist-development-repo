@@ -145,7 +145,7 @@ The system owner keeps this register for everyone who has, or will have, access 
 
 ### 3.10 What \<Organisation\> provides
 
-**Table 6: Asked of \<Organisation\>**
+**Table 6: Provided by \<Organisation\>**
 
 | Provided | What \<System Name\> relies on |
 | --- | --- |

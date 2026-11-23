@@ -180,7 +180,7 @@ Only the API connects to SQL Server, by Windows authentication with its managed 
 
 ### 3.9 What \<Organisation\> provides
 
-**Table 7: Asked of \<Organisation\>**
+**Table 7: Provided by \<Organisation\>**
 
 | Provided | What \<System Name\> relies on |
 | --- | --- |

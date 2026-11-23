@@ -2,9 +2,9 @@
 
 ## 1 Purpose
 
-This document sets out how \<System Name\> is designed and configured to meet the 25 System and Communications Protection (SC) controls and enhancements in the CSS Moderate baseline.
+This document is the system and communications protection design for \<System Name\>. It covers the System and Communications Protection (SC) family of the CSS Moderate baseline, 25 controls and enhancements.
 
-Section 3 is the design: the principles, the boundary and the allowed flows, with each server's host firewall; transport encryption and sign-in; the cryptographic and key register and certificates; the page policy for mobile code; information at rest; denial of service, shared resources and process isolation; name resolution; what \<Organisation\> provides; the policy and procedures; and the values chosen for the controls. SC-7(24), which is in the privacy baseline, is set out in \<PII Processing Management\>.
+Section 3 is the design: the principles, the boundary and the allowed flows, with each server's host firewall; transport encryption and sign-in; the cryptographic and key register and certificates; the page policy for mobile code; information at rest; denial of service, shared resources and process isolation; name resolution; and what \<Organisation\> provides. How personal data is handled at the boundary is in \<PII Processing Management\>. The key change and transport encryption values are approved in \<Decision Register\> (D-SC-P10, D-SC-P26).
 
 Much of this family is \<Organisation\>'s network: firewalls, the VPN, the proxy, DNS and the certificate authority. \<System Name\>'s own part is its listening addresses, host firewalls, TLS, keys, pages and the protection of what it stores.
 
@@ -31,7 +31,7 @@ These carry out the principles and rules of \<Policy\>, sections SC.3 and SC.4.
 
 \<System Name\> has no publicly accessible component, so it needs no public subnetwork, and no connection of its own to an outside network. Users reach it from \<Organisation\>'s network, and administrators over \<Organisation\>'s managed administration route, as \<System Description\>, section 6, sets out. Its external connections are limited to the \<Organisation\> services in \<Assessment, Authorization, and Monitoring Management\>, Table 6: PingFederate and Active Directory (F6, F7, F10), central logging, the time service, the backup site and the authenticated proxy (F8), each reached only through \<Organisation\>'s managed interfaces. Traffic to these \<Organisation\> services goes directly to them, as Table 3 allows. Traffic from the servers to anything outside \<Organisation\>'s network goes only through the authenticated proxy, and only for updates to Windows Server, SQL Server and Defender; anything else is blocked.
 
-Like every server joined to \<Organisation\>'s domain, both servers also use \<Organisation\>'s DNS, its domain controllers and its certificate authority's revocation lists. These are infrastructure services that carry no \<System Name\> data, so they are not exchanges (\<Assessment, Authorization, and Monitoring Management\>, section 3.7), but they are allowed only on the DNS, domain controller and certificate authority ports in the outbound table below. Likewise the vulnerability scanner and \<Organisation\>'s discovery tools reach the servers only from their own addresses, on the ports listed for them below. \<System Name\> has no collaborative computing devices or applications, so SC-15 is tailored out (\<Tailoring Register\>, TR-SC-01). The flows, F1 to F11, are in \<System Description\>, section 6.5, \<System Security Plan\>, section 3.7, Table 7.
+Like every server joined to \<Organisation\>'s domain, both servers also use \<Organisation\>'s DNS, its domain controllers and its certificate authority's revocation lists. These are infrastructure services that carry no \<System Name\> data, so they are not exchanges (\<Assessment, Authorization, and Monitoring Management\>, section 3.7), but they are allowed only on the DNS, domain controller and certificate authority ports in the outbound table below. Likewise the vulnerability scanner and \<Organisation\>'s discovery tools reach the servers only from their own addresses, on the ports listed for them below. \<System Name\> has no collaborative computing devices or applications. The flows, F1 to F11, are in \<System Description\>, section 6.5, \<System Security Plan\>, section 3.7, Table 7.
 
 \<System Name\>'s own part is how each application listens and each server's host firewall:
 
@@ -40,7 +40,7 @@ Like every server joined to \<Organisation\>'s domain, both servers also use \<O
 3. The API listens only on the application server's loopback address.
 4. The database accepts connections only from the application server, on TCP 1433.
 
-Each server's host firewall denies everything not listed below. \<Organisation\>'s firewalls apply the same flows at the network edge. Communications are monitored at \<Organisation\>'s managed interfaces by its network monitoring (\<System and Information Integrity Management\>), and at each host firewall, the key internal interface, by Windows Firewall's log of refused connections, forwarded to central logging \[to be confirmed in the logging set-up, EV-AU-01\]. A new flow, port or listening address goes through change control and updates these lists first; a temporary exception is recorded on the exception request with an end date, and exceptions are reviewed every 12 months. Split tunnelling is not allowed: \<Organisation\>'s VPN prevents it on every remote device.
+Each server's host firewall denies everything not listed below. \<Organisation\>'s firewalls apply the same flows at the network edge. Communications are monitored at \<Organisation\>'s managed interfaces by its network monitoring (\<System and Information Integrity Management\>), and at each host firewall, the key internal interface, by Windows Firewall's log of refused connections, forwarded to central logging \[to be confirmed in the logging set-up with \<Organisation\>\]. A new flow, port or listening address goes through change control and updates these lists first; a temporary exception is recorded on the exception request with an end date, and exceptions are reviewed every 12 months. Split tunnelling is not allowed: \<Organisation\>'s VPN prevents it on every remote device.
 
 **Table 1: Application server, inbound**
 
@@ -48,8 +48,8 @@ Each server's host firewall denies everything not listed below. \<Organisation\>
 | --- | --- | --- | --- |
 | A1 | TCP 443 (UI application) | Users' networks, Z1 \[address ranges from \<Organisation\>\] | F1 |
 | A2 | Admin application port \[to be set\] | \<Organisation\>'s administration route only, Z2 \[address range\], with multi-factor authentication at the route, through the VPN first from outside the office | F2 |
-| A3 | Server administration \[tool and port, EV-MA-02\] | Server and database administrators' managed devices, over \<Organisation\>'s managed administration route only, Z2, with multi-factor authentication and named accounts | F11 |
-| A4 | \[Scanner and discovery tool ports, from the scanner when chosen and EV-CM-02\] | The vulnerability scanner's and \<Organisation\>'s discovery tools' own addresses only \[address range\] | Credentialed and configuration scans and checks for unauthorised components; not a data flow |
+| A3 | Server administration \[tool and port, from \<Organisation\>\] | Server and database administrators' managed devices, over \<Organisation\>'s managed administration route only, Z2, with multi-factor authentication and named accounts | F11 |
+| A4 | \[Scanner and discovery tool ports, from the scanner when chosen and from \<Organisation\>\] | The vulnerability scanner's and \<Organisation\>'s discovery tools' own addresses only \[address range\] | Credentialed and configuration scans and checks for unauthorised components; not a data flow |
 | None | API | Not reachable from the network: loopback only | F3, F4 |
 
 **Table 2: Database server, inbound**
@@ -57,7 +57,7 @@ Each server's host firewall denies everything not listed below. \<Organisation\>
 | Rule | Port | From | Flow |
 | --- | --- | --- | --- |
 | D1 | TCP 1433 (SQL Server) | Application server address only | F5 |
-| D2 | Server and database administration \[tool and port, EV-MA-02\] | Server and database administrators' managed devices, over \<Organisation\>'s managed administration route only, Z2, with multi-factor authentication and named accounts | F11 |
+| D2 | Server and database administration \[tool and port, from \<Organisation\>\] | Server and database administrators' managed devices, over \<Organisation\>'s managed administration route only, Z2, with multi-factor authentication and named accounts | F11 |
 | D3 | \[Scanner and discovery tool ports, as for the application server\] | The vulnerability scanner's and \<Organisation\>'s discovery tools' own addresses only \[address range\] | Credentialed and configuration scans and checks for unauthorised components; not a data flow |
 
 **Table 3: Both servers, outbound**
@@ -66,14 +66,14 @@ Each server's host firewall denies everything not listed below. \<Organisation\>
 | --- | --- | --- | --- |
 | O1 | UDP 123 | \<Organisation\>'s time service | Time (F8) |
 | O2 | \[To be confirmed\] | \<Organisation\>'s central logging | Logs (F8) |
-| O3 | \[Proxy port\] | \<Organisation\>'s authenticated proxy | Updates to Windows Server, SQL Server and Defender, the only traffic allowed outside \<Organisation\>'s network (F8; SC-7(8)) |
+| O3 | \[Proxy port\] | \<Organisation\>'s authenticated proxy | Updates to Windows Server, SQL Server and Defender, the only traffic allowed outside \<Organisation\>'s network (F8) |
 | O4 | TCP 1433 (application server only) | Database server | Data (F5) |
-| O5 | \[Port of \<Organisation\>'s backup service, EV-CP-01\] (database server only) | \<Organisation\>'s backup service, which copies to the second site | Encrypted SQL Server backups (F8) |
+| O5 | \[Port of \<Organisation\>'s backup service\] (database server only) | \<Organisation\>'s backup service, which copies to the second site | Encrypted SQL Server backups (F8) |
 | O6 | TCP 636, LDAPS (application server only) | \<Organisation\>'s Active Directory | Reading the signed-in person's group memberships (F7) |
 | O7 | TCP 443, HTTPS (application server only) | \<Organisation\>'s PingFederate | Fetching PingFederate's OpenID Connect metadata and signing certificate, and completing each sign-in (F10) |
 | O8 | TCP and UDP 53 | \<Organisation\>'s DNS resolvers | Name resolution (section 3.8); infrastructure, not a data flow |
-| O9 | Kerberos (TCP and UDP 88), LDAP (TCP and UDP 389), SMB (TCP 445), RPC (TCP 135 and the domain controllers' dynamic ports) and Kerberos password change (TCP and UDP 464) \[to be confirmed against \<Organisation\>'s domain controller rules, EV-SC-02\] | \<Organisation\>'s domain controllers | Domain membership, Group Policy, Kerberos for Windows authentication (K8, F5) and the managed service accounts' passwords; infrastructure, not a data flow |
-| O10 | \[Port of the certificate authority's revocation list and authority information addresses, EV-SC-04\] | \<Organisation\>'s certificate authority | Checking that certificates have not been revoked; the lists are signed; infrastructure, not a data flow |
+| O9 | Kerberos (TCP and UDP 88), LDAP (TCP and UDP 389), SMB (TCP 445), RPC (TCP 135 and the domain controllers' dynamic ports) and Kerberos password change (TCP and UDP 464) \[to be confirmed against \<Organisation\>'s domain controller rules\] | \<Organisation\>'s domain controllers | Domain membership, Group Policy, Kerberos for Windows authentication (K8, F5) and the managed service accounts' passwords; infrastructure, not a data flow |
+| O10 | \[Port of the certificate authority's revocation list and authority information addresses, from \<Organisation\>\] | \<Organisation\>'s certificate authority | Checking that certificates have not been revoked; the lists are signed; infrastructure, not a data flow |
 
 ### 3.3 Transport encryption and sign-in
 
@@ -107,7 +107,7 @@ Every key and cryptographic use in \<System Name\> is listed here. The cryptoper
 4. **Access.** Each key is readable only by the account that uses it and by its owner.
 5. **Change and destruction.** A key is changed at its cryptoperiod, when a holder leaves, and at once if compromise is suspected. The old key is deleted from its store once nothing needs it, except where Table 5 keeps it: retired audit chain keys for checking, and backup encryption certificates until their last backup is gone. A replaced certificate's private key is deleted from the server.
 
-The agents for central logging and the backup service, and the servers' own computer accounts, which authenticate them to \<Organisation\>'s domain and proxy, use credentials that Windows or \<Organisation\> manages; \<System Name\> holds none. If \<Organisation\> ever requires a credential to be held on the servers for one of them, it is added to Table 5. The register matches \<System Description\>, section 7.7. Values are never recorded, only where they are kept. Validation of cryptographic modules to a United States standard is not required: NCSC's profiles and these algorithms are used instead.
+The agents for central logging and the backup service, and the servers' own computer accounts, which authenticate them to \<Organisation\>'s domain and proxy, use credentials that Windows or \<Organisation\> manages; \<System Name\> holds none. If \<Organisation\> ever requires a credential to be held on the servers for one of them, it is added to Table 5. The register matches \<System Description\>, section 7.7. Values are never recorded, only where they are kept. Cryptographic modules are not validated to a United States standard; NCSC's profiles and these algorithms are used.
 
 **Table 5: Cryptographic and key register**
 
@@ -122,8 +122,8 @@ The agents for central logging and the backup service, and the servers' own comp
 | K9 BitLocker keys (both servers) | Encryption of the servers' disks | XTS-AES 256 with the TPM | TPM; recovery keys in \<Organisation\>'s protected store | Windows server administrator | Life of the disk; recovery key tested every 12 months |
 | K10 Backup encryption certificate | Protects the key of each encrypted database backup, made by SQL Server's backup encryption | AES-256 for the backup, under an RSA certificate of at least 2048 bits | The database server's master database; exported with its private key, protected by a strong password, to the key store and its protected copy at the second site, apart from the backups (\<Contingency Planning Management\>, section 3.8) | Database administrator | 1 year. Each retired certificate is kept until the last backup it encrypted is removed, as no backup can be restored without it, and then every copy is destroyed (\<Media Protection Management\>, section 3.6, M2) |
 | K11 Audit chain key | Keys the hash that chains the audit records (\<Audit and Accountability Management\>, section 3.5) | HMAC-SHA-256, at least 256 random bits | Key store outside the database, readable only by the API's service account. Each record names the key version; retired versions stay in the key store for checking only, for the audit retention period; protected copy at the second site | Windows server administrator, who holds no rights in SQL Server | 12 months, at once if exposed, and when a holder leaves |
-| K12 PingFederate signing certificate | Signs the OpenID Connect sign-in responses \<System Name\> accepts. \<System Name\> holds only the public part, and trusts nothing else | As \<Organisation\> sets it \[algorithm and size, EV-IA-04\] | \<Organisation\>'s PingFederate; the public part fetched by the UI application and Admin application from PingFederate's OpenID Connect metadata (F10) | \<Organisation\>; Windows server administrator for \<System Name\>'s PingFederate connection | As \<Organisation\> sets it. \<System Name\> follows each change of certificate without a gap |
-| K13 OpenID Connect client credential | Authenticates the UI application and the Admin application to PingFederate when completing each sign-in (F10) | As \<Organisation\> sets for PingFederate clients \[type, EV-IA-04\] | Key store outside the source code and settings files, readable only by the UI and Admin applications' service accounts; protected copy at the second site | Windows server administrator, with \<Organisation\>'s PingFederate team | 12 months, at once if exposed, and when a holder leaves |
+| K12 PingFederate signing certificate | Signs the OpenID Connect sign-in responses \<System Name\> accepts. \<System Name\> holds only the public part, and trusts nothing else | As \<Organisation\> sets it \[algorithm and size, from \<Organisation\>\] | \<Organisation\>'s PingFederate; the public part fetched by the UI application and Admin application from PingFederate's OpenID Connect metadata (F10) | \<Organisation\>; Windows server administrator for \<System Name\>'s PingFederate connection | As \<Organisation\> sets it. \<System Name\> follows each change of certificate without a gap |
+| K13 OpenID Connect client credential | Authenticates the UI application and the Admin application to PingFederate when completing each sign-in (F10) | As \<Organisation\> sets for PingFederate clients \[type, from \<Organisation\>\] | Key store outside the source code and settings files, readable only by the UI and Admin applications' service accounts; protected copy at the second site | Windows server administrator, with \<Organisation\>'s PingFederate team | 12 months, at once if exposed, and when a holder leaves |
 | A1 Password hashing | Not used: \<System Name\> holds no user passwords and no database password | None | Not applicable | Not applicable | Not applicable |
 | A2 Audit chain | Shows audit records were not changed | HMAC-SHA-256 with K11, as the audit design requires | Database | Developers | Not applicable |
 | A3 File checksums | Shows stored files were not changed | SHA-256 | Database | Developers | Not applicable |
@@ -164,17 +164,17 @@ The information protected at rest, for both confidentiality and integrity, is th
 ### 3.7 Denial of service, shared resources and process isolation
 
 1. **Denial of service**. \<System Name\> limits the effects of three types of event: network flooding, request flooding from one client, and resource exhaustion from oversized work. The controls for each are: \<Organisation\>'s network protections for network flooding; each application's request limit for each client for request flooding (NFR-046); and the upload and batch limits and the API as the only route to a database on its own server, for resource exhaustion. Account lockout in PingFederate and Active Directory is a sign-in control, not a protection against denial of service. When the service slows or fails under traffic, the security officer and \<Organisation\>'s service desk respond.
-2. **Shared resources**. Windows Server on both servers clears memory and storage before they are given to another process or user. Each application runs as its own Windows service under its own account, and holds each person's page state on their own live connection only. Export copies are in a working area readable only by the API, can be fetched only by the person who started the job (\<System Description\>, section 7.5), and are removed, as above. Content is sent so that it is not kept in shared caches. Beneath the servers, \<Organisation\>'s hypervisor keeps their memory and disks apart from other virtual machines on the same hosts and clears them before reuse. SC-4 is therefore Hybrid.
-3. **Process isolation**. Windows Server on both servers gives each process its own address space, and each application and SQL Server runs as its own process under its own account. This is part of \<System Name\>, so SC-39 is a System control.
+2. **Shared resources**. Windows Server on both servers clears memory and storage before they are given to another process or user. Each application runs as its own Windows service under its own account, and holds each person's page state on their own live connection only. Export copies are in a working area readable only by the API, can be fetched only by the person who started the job (\<System Description\>, section 7.5), and are removed, as above. Content is sent so that it is not kept in shared caches. Beneath the servers, \<Organisation\>'s hypervisor keeps their memory and disks apart from other virtual machines on the same hosts and clears them before reuse.
+3. **Process isolation**. Windows Server on both servers gives each process its own address space, and each application and SQL Server runs as its own process under its own account.
 4. **Separation of functions**. The Admin application is a separate application and process from the UI application, and is reached only over \<Organisation\>'s managed administration route (section 3.2). The API is a third, and the database is on its own server.
 
 ### 3.8 Name resolution
 
-\<System Name\> uses \<Organisation\>'s DNS, which provides signed authoritative answers, validating resolvers, and fault-tolerant servers with internal and external roles kept apart. \<System Name\> runs no DNS service of its own. \<Organisation\>'s evidence is asked for in EV-SC-05.
+\<System Name\> uses \<Organisation\>'s DNS, which provides signed authoritative answers, validating resolvers, and fault-tolerant servers with internal and external roles kept apart. \<System Name\> runs no DNS service of its own.
 
 ### 3.9 What \<Organisation\> provides
 
-**Table 7: Asked of \<Organisation\>**
+**Table 7: Provided by \<Organisation\>**
 
 | Provided | What \<System Name\> relies on |
 | --- | --- |
@@ -189,26 +189,3 @@ The information protected at rest, for both confidentiality and integrity, is th
 
 \<Policy\> (SC) and \<Procedures\> (SC) are the policy and procedures for this family. Who they are shared with is in \<Policy\>, section SC.6. Their ownership, approval, review and records follow the rules common to every policy in \<Policy\>, section 1.1.
 
-### 3.11 Values chosen for the controls
-
-These are the organisation-defined parameters for the SC controls. The values that are \<System Description\> parameters are approved in \<Decision Register\> (D-SC-P10, D-SC-P26), and the rest with this design.
-
-**Table 8: Values chosen**
-
-| Control | Parameter | Value |
-| --- | --- | --- |
-| SC-5 | Types of event; protect or limit; controls | Network flooding, request flooding and resource exhaustion; limit; the controls for each in section 3.7 |
-| SC-7 | Physical or logical separation of public components | Logical, though \<System Name\> has no publicly accessible component |
-| SC-7(4) | How often exceptions are reviewed | Every 12 months, and by \<Organisation\> as EV-SC-02 states |
-| SC-7(5) | Where deny by default applies; the systems | At \<Organisation\>'s managed interfaces, and on both servers by their host firewalls (section 3.2) |
-| SC-7(7) | Safeguards for a split tunnel | None: split tunnelling is not allowed in any case |
-| SC-7(8) | Traffic; external networks | All traffic from both servers to any network outside \<Organisation\>'s own; that traffic is only updates, through \<Organisation\>'s authenticated proxy |
-| SC-8 | Confidentiality or integrity | Both |
-| SC-8(1) | Prevent disclosure or detect changes | Both |
-| SC-10 | Time of inactivity | The web server's and database's connection time-outs for ordinary connections; the end of the session (8 hours after sign-in, Sign out or refusal) for the Blazor live connection; 30 minutes for \<Organisation\>'s network and VPN sessions |
-| SC-12 | Key generation, distribution, storage, access and destruction | Section 3.4, with its cryptoperiods |
-| SC-13 | Uses; types of cryptography | The uses in Table 5, with the algorithm stated for each; NCSC's TLS profiles in transit (Table 4) |
-| SC-15 | Exceptions to remote activation | Not applicable (TR-SC-01) |
-| SC-17 | Certificate policy | \<Organisation\>'s certificate policy |
-| SC-28 | Confidentiality or integrity; information | Both; the information in section 3.6 |
-| SC-28(1) | Information; components or media | The information in section 3.6; both servers' disks and the backups |

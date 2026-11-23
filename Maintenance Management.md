@@ -147,7 +147,7 @@ These are the components that \<System Name\>'s security depends on, taken from 
 
 ### 3.9 What \<Organisation\> provides
 
-**Table 8: Asked of \<Organisation\>**
+**Table 8: Provided by \<Organisation\>**
 
 | Provided | What \<System Name\> relies on |
 | --- | --- |

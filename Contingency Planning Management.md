@@ -240,7 +240,7 @@ Each test has objectives and a scenario set beforehand. Each test or activation 
 
 ### 3.11 What \<Organisation\> provides
 
-**Table 8: Asked of \<Organisation\>**
+**Table 8: Provided by \<Organisation\>**
 
 | Provided | What \<System Name\> relies on |
 | --- | --- |

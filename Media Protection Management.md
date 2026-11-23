@@ -116,7 +116,7 @@ In short, physical disks are purged or destroyed, encrypted virtual disks are er
 
 ### 3.8 What \<Organisation\> provides
 
-**Table 5: Asked of \<Organisation\>**
+**Table 5: Provided by \<Organisation\>**
 
 | Provided | What \<System Name\> relies on |
 | --- | --- |

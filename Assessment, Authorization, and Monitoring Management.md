@@ -222,7 +222,7 @@ Routine patches within the time limits of \<Security Operating Procedures\>, and
 
 ### 3.10 What \<Organisation\> provides
 
-**Table 8: Asked of \<Organisation\>**
+**Table 8: Provided by \<Organisation\>**
 
 | Provided | What \<System Name\> relies on |
 | --- | --- |

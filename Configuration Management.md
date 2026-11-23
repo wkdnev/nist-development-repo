@@ -237,7 +237,7 @@ Nobody approves a change they requested or made. Every change by any of these pe
 
 ### 3.14 What \<Organisation\> provides
 
-**Table 12: Asked of \<Organisation\>**
+**Table 12: Provided by \<Organisation\>**
 
 | Provided | What \<System Name\> relies on |
 | --- | --- |

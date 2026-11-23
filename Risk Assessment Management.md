@@ -2,15 +2,13 @@
 
 ## 1 Purpose
 
-This document sets out how \<System Name\> is designed to assess risk and respond to it, to meet the 10 Risk Assessment (RA) controls in the CSS Moderate baseline. RA-8, the privacy impact assessment, is in the CSS privacy baseline and is met in \<PII Processing Management\> and \<Data Protection Impact Assessment\>.
+This document is the risk assessment design for \<System Name\>. It covers the Risk Assessment (RA) family of the CSS Moderate baseline, 10 controls and enhancements. The privacy impact assessment is in \<PII Processing Management\> and \<Data Protection Impact Assessment\>.
 
 Section 3 is the design: the security categorisation, the risk assessment, the supply chain risk assessment, what is monitored for vulnerabilities, the vulnerability timetable, how findings are analysed, shared and reported, the risk response, the critical components, what \<Organisation\> provides.
 
-
-
 ## 2 Related documents
 
-Which section of this design meets each control, who is responsible for it and its status are in \<System Security Plan\>, section 7.15 (Table 24). The assessment is in \<Control Assessment Record\> (RA), the risks are in \<Risk List\>, and open work is in \<Plan of Action and Milestones\>. The policy is in \<Policy\> (RA), and the steps people follow are in \<Procedures\> (RA). The risks, and the method that rates them, are in \<Risk List\>; the categorisation is recorded in \<System Security Plan\>, section 3.3, as RA-2 requires; and the suppliers are managed under the supply chain plan, \<Supply Chain Risk Management\>.
+Which section of this design meets each control, who is responsible for it and its status are in \<System Security Plan\>, section 7.15 (Table 24). The assessment is in \<Control Assessment Record\> (RA), the risks are in \<Risk List\>, and open work is in \<Plan of Action and Milestones\>. The policy is in \<Policy\> (RA), and the steps people follow are in \<Procedures\> (RA). The method that rates the risks is in \<Risk List\>, the categorisation is recorded in \<System Security Plan\>, section 3.3, and the suppliers are managed under the supply chain plan, \<Supply Chain Risk Management\>.
 
 ## 3 The design
 
@@ -30,7 +28,7 @@ These carry out the principles and rules of \<Policy\>, sections RA.3 and RA.4.
 
 ### 3.2 Security categorisation
 
-\<System Name\> is categorised Moderate: confidentiality Moderate, integrity Moderate and availability Low, unless its application profile sets otherwise. Each of its information types (\<System Description\>, section 3.4, Table 6) is mapped to CSS and rated under CSS, and the system takes the highest level of each. An application rated High in any objective is outside the reference system. The record, with the rationale for each level, is in \<System Security Plan\>, section 3.3, as RA-2 requires. \[Name\] owns the information types and confirms their levels, and the authorising official, \[Name\], approves the categorisation (D-RA-01).
+\<System Name\> is categorised Moderate: confidentiality Moderate, integrity Moderate and availability Low, unless its application profile sets otherwise. Each of its information types (\<System Description\>, section 3.4, Table 6) is mapped to CSS and rated under CSS, and the system takes the highest level of each. An application rated High in any objective is outside the reference system. The record, with the reason for each level, is in \<System Security Plan\>, section 3.3. \[Name\] owns the information types and confirms their levels, and the authorising official, \[Name\], approves the categorisation (D-RA-01).
 
 Availability is Low because the 120-hour maximum tolerable downtime means a loss of availability has a limited adverse effect; "business critical" means important to \<Organisation\>, not that \<System Name\> must always be available.
 
@@ -40,7 +38,7 @@ The categorisation is reviewed with the risk assessment, and whenever an informa
 
 ### 3.3 Risk assessment
 
-\<System Name\>'s risk assessment is the Risk List, \<Risk List\>. It follows CSS: a threat source exploits a weakness, with a likelihood, to cause an impact. The method is set out in full in its section 4, beside the risks it rates, so that the Risk List can be read on its own. Table 1, below, summarises it. The threats to the application are modelled before it is built, from its profile and functions, and again at each significant change, and the threat model is kept in the Risk List, section 2.1 (\<System Description\>, NFR-083). Each threat in it leads to a risk in the register.
+\<System Name\>'s risk assessment is the Risk List, \<Risk List\>. A risk is a threat source exploiting a weakness, with a likelihood, to cause an impact. The method is set out in full in its section 4, and Table 1 summarises it. The threats to the application are modelled before it is built, from its profile and functions, and again at each significant change, and the threat model is kept in the Risk List, section 2.1 (\<System Description\>, NFR-083). Each threat in it leads to a risk in the register.
 
 **Table 1: The risk method at a glance**
 
@@ -54,7 +52,7 @@ The categorisation is reviewed with the risk assessment, and whenever an informa
 | Uncertainty | Where the evidence is a single test or a document review, the higher of the two plausible ratings is used. Ratings set before the evidence was seen are marked provisional | \<Risk List\>, section 4.1 and Table 3d |
 | Privacy risk | Rated by the same method. The data protection impact assessment adds the effects on individuals | \<Risk List\>; \<Data Protection Impact Assessment\> |
 | Who decides | Low: the system owner. Medium: the authorising official, on the system owner's advice. High: the authorising official, and only for a stated period while a fix runs. A risk that is reduced is decided at its residual rating. Any tailoring: the authorising official, whatever the rating | \<Risk List\>, section 4.2 |
-| Tolerance | The thresholds are \<System Name\>'s own, and the Head of Cyber checks them against \<Organisation\>'s risk management strategy and risk appetite | EV-PM-01 |
+| Tolerance | The thresholds are \<System Name\>'s own, and the Head of Cyber checks them against \<Organisation\>'s risk management strategy and risk appetite | \<Risk List\>, section 4.2 |
 
 **Table 2: When the risk assessment is reviewed**
 
@@ -66,7 +64,7 @@ The categorisation is reviewed with the risk assessment, and whenever an informa
 | When a risk needs a decision | Decided by the person its rating calls for | System owner or authorising official | \<Decision Register\> |
 | At each review | The categorisation is checked against the information \<System Name\> holds, and any change goes to the authorising official (section 3.2) | System owner | Risk and supply chain review |
 
-After a significant change, such as a change to how users sign in or to where the applications run, the risk assessment is reviewed as a whole, as RA-3 and PRO-RA-1 require.
+After a significant change, such as a change to how users sign in or to where the applications run, the risk assessment is reviewed as a whole.
 
 ### 3.4 Supply chain risk assessment
 
@@ -83,7 +81,7 @@ Every 12 months, before a new supplier or a new kind of component is added, and 
 | .NET and NuGet packages, through the in-house package feed | The package vulnerability report at each build, and Test-Vulnerability.ps1 at each release | Developers | Each build, and monthly |
 | Browser libraries, served by \<System Name\> itself | Vendor security announcements, and Test-Vulnerability.ps1, which checks each library's version in the browser library manifest against the GitHub Advisory Database; NuGet's audit does not cover them | Developers | Monthly, and at each release |
 | \<System Name\>'s own applications: UI application, Admin application and API | A web application scan, reaching them as a user and as an outsider would; the static analysis in the build; and an independent penetration test before go-live | Developers | Each release |
-| Server and database settings | The configuration scan against the baseline in \<Configuration Management\>, which finds the improper configurations RA-5 also asks about | Windows server administrator, database administrator | Monthly |
+| Server and database settings | The configuration scan against the baseline in \<Configuration Management\>, which finds improper configurations | Windows server administrator, database administrator | Monthly |
 | All components, for exploited flaws | CISA's Known Exploited Vulnerabilities catalogue and \<Organisation\>'s alerts | Security officer | Each working day, from an alert on new entries (\<Security Operating Procedures\>) |
 
 Monitoring also starts whenever a new vulnerability that may affect \<System Name\> is reported, through these sources or the reporting route in section 3.7.
@@ -92,13 +90,11 @@ The scanner must:
 
 1. scan both servers with an account approved for scanning, so that the scan sees what an administrator sees;
 2. update its definitions before each scan;
-3. name each platform and flaw by a standard identifier, CPE and CVE, and rate each flaw by CVSS, so that its results and the package check's can be compared and measured the same way (RA-5b.1 and b.3);
+3. name each platform and flaw by a standard identifier, CPE and CVE, and rate each flaw by CVSS, so that its results and the package check's can be compared and measured the same way;
 4. find ports, protocols and services that should not be reachable, against the allowed flows F1 to F11 in \<System Description\>, section 6.5, \<Access Control Management\>, section 3.6, and the host firewall rules in \<System and Communications Protection Management\>, section 3.2;
-5. scan \<System Name\>'s three applications at each release, as this section sets out.
+5. scan \<System Name\>'s three applications at each release.
 
-Items 4 and 5 come from the CSS guidance on RA-5.
-
-Improper configurations are found by the monthly configuration scan against the baseline, which uses a standard checklist format (\<Configuration Management\>; \<Procedures\>, PRO-CM-7; RA-5b.1 and b.2).
+Improper configurations are found by the monthly configuration scan against the baseline, which uses a standard checklist format (\<Configuration Management\>).
 
 ### 3.6 Vulnerability timetable
 
@@ -122,7 +118,7 @@ The clock starts when the fix is released, or when \<System Name\>'s use of the 
 2. **False positives.** A finding that does not apply, such as a flaw in a feature \<System Name\> does not call, is marked as a false positive on the vulnerability and patch review with the reason, and checked again at the next scan.
 3. **Fixing.** The people responsible fix or mitigate each finding within its time, as a change (\<Configuration Management\>). An exploited flaw is fixed or mitigated as an emergency change, and the security officer confirms it and tells the system owner.
 4. **Sharing.** After each scan the security officer shares each finding that applies with the developers and the Windows server administrator, so that the same flaw is fixed wherever it occurs. A finding that may affect \<Organisation\>'s other systems also goes to its security contact, so that it can be removed there too.
-5. **Reports from anyone.** Anyone may report a vulnerability in \<System Name\> to \<Organisation\>'s security contact, which passes the report to the security officer, who records it on the vulnerability and patch review and handles it as a scan finding. CSS asks for a public channel, so the contact must be published where people outside \<Organisation\> can find it, for example in a security.txt file on its website (RFC 9116): \[Where the contact is published\]. Its published terms must authorise research in good faith, and may ask the reporter to allow a set time for a fix before disclosing the flaw, but must not require it to be kept secret for ever. The time asked for is 90 days.
+5. **Reports from anyone.** Anyone may report a vulnerability in \<System Name\> to \<Organisation\>'s security contact, which passes the report to the security officer, who records it on the vulnerability and patch review and handles it as a scan finding. The contact is published where people outside \<Organisation\> can find it, for example in a security.txt file on its website (RFC 9116): \[Where the contact is published\]. Its published terms must authorise research in good faith, and may ask the reporter to allow a set time for a fix before disclosing the flaw, but must not require it to be kept secret for ever. The time asked for is 90 days.
 6. **Flaws in other parties' components.** A flaw found in another party's package or browser library is reported to its maintainer through their published route, and noted on the vulnerability and patch review.
 
 ### 3.8 Risk response
@@ -163,13 +159,13 @@ A monitoring finding, such as a scan result, is first recorded on the vulnerabil
 
 PingFederate with Active Directory is critical because \<System Name\> holds no accounts and relies on \<Organisation\> to authenticate every user. The application server and the export working area are critical because each gives a path to the items that goes round the other controls.
 
-**Critical functions.** CSS asks for critical functions as well as components. Five functions would expose or lose the items if they failed: signing in and deciding access (PingFederate with Active Directory, the API, the key store and the data protection key rings); storing and showing items (the database server, the application server, the API and the UI application); administering schemas and access (the Admin application); recording who did what (the audit records); and recovering items (the backup store).
+**Critical functions.** Five functions would expose or lose the items if they failed: signing in and deciding access (PingFederate with Active Directory, the API, the key store and the data protection key rings); storing and showing items (the database server, the application server, the API and the UI application); administering schemas and access (the Admin application); recording who did what (the audit records); and recovering items (the backup store).
 
 The list is made at design, before the application is built, and reviewed at each major release and after a significant change. The system owner approves it (D-RA-04).
 
 ### 3.10 What \<Organisation\> provides
 
-**Table 7: Asked of \<Organisation\>**
+**Table 7: Provided by \<Organisation\>**
 
 | Provided | What \<System Name\> relies on |
 | --- | --- |
