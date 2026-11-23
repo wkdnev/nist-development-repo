@@ -114,21 +114,21 @@ The register starts empty. First signatures are taken on the current version of 
 
 ### 3.6 Architecture
 
-The security architecture is \<System Description\>, section 6. The protection goals, the design principles, the trust zones and the layers of defence are in \<System Description\>, section 6.8. What is inherited from \<Organisation\>, and where the trust zones meet its network, is in \<System Description\>, sections 6.6 and 10: this is how the architecture fits \<Organisation\>'s enterprise architecture. The assumptions about, and dependencies on, external systems and services are in \<System Description\>, section 6.8. The privacy architecture is in \<Privacy Plan\>, section 8, which covers the same for the processing of personal data. The system owner reviews the architecture against the system itself every 12 months and after a significant change. Each change is carried into the security plan, the privacy plan, the concept of operations, the list of critical components (\<Risk Assessment Management\>, section 3.9), the procedures and any procurement, and each is noted in the review record (PRO-PL-5). New open questions go to \<Decision Register\> or \<Plan of Action and Milestones\>, and not into the architecture.
+The security architecture is \<System Description\>, section 6. The protection goals, the design principles, the trust zones and the layers of defence are in \<System Description\>, section 6.8. What is inherited from \<Organisation\>, and where the trust zones meet its network, is in \<System Description\>, sections 6.6 and 10: this is how the architecture fits \<Organisation\>'s enterprise architecture. The assumptions about, and dependencies on, external systems and services are in \<System Description\>, section 6.8. The privacy architecture is in \<Privacy Plan\>, section 8, which covers the same for the processing of personal data. The system owner reviews the architecture against the system itself every 12 months and after a significant change. Each change is carried into the security plan, the privacy plan, the concept of operations, the list of critical components (\<Risk Assessment Management\>, section 3.9), the procedures and any procurement, and each is noted in the review record. New open questions go to \<Decision Register\> or \<Plan of Action and Milestones\>, and not into the architecture.
 
 ### 3.7 Baseline and tailoring
 
-The baseline is CSS Moderate, with the privacy baseline. The authorising official selects it on the system owner's recommendation (D-PL-03). It was chosen from the categorisation of \<System Name\>'s information in \<System Security Plan\>, section 3.3, which is Moderate for confidentiality and integrity and Low for availability. A control, or a part of one, is set aside only through \<Tailoring Register\>, with a rationale, a condition that must hold, what happens if the condition changes, and a decision by the authorising official, on the system owner's recommendation, recorded in \<Decision Register\>. Each condition is checked at the yearly review (PRO-PL-4). The plan consistency test checks that the applicability table in \<System Security Plan\> agrees with the tailoring register.
+The baseline is CSS Moderate, with the privacy baseline. The authorising official selects it on the system owner's recommendation (D-PL-03). It was chosen from the categorisation of \<System Name\>'s information in \<System Security Plan\>, section 3.3, which is Moderate for confidentiality and integrity and Low for availability. A control, or a part of one, is set aside only through \<Tailoring Register\>, with a rationale, a condition that must hold, what happens if the condition changes, and a decision by the authorising official, on the system owner's recommendation, recorded in \<Decision Register\>. Each condition is checked at the yearly review. The plan consistency test checks that the applicability table in \<System Security Plan\> agrees with the tailoring register.
 
 ### 3.8 What \<Organisation\> provides
 
 **Table 5: Asked of \<Organisation\>**
 
-| Provided | Controls | What \<System Name\> relies on | Evidence asked |
-| --- | --- | --- | --- |
-| Its enterprise architecture standards | PL-2, PL-8 | The standards that \<System Name\>'s plans and architecture must fit | EV-PL-01 |
-| Who runs the hypervisor beneath the servers, and whether it is within the Cyber Essentials Plus scope | PL-8 | The answer settles a dependency recorded in the architecture | EV-PL-01 |
-| The restricted document store | PL-2, PL-9 | A SharePoint area where only named people can read or change the plans. It is not yet set up; until it is, the master copy stays in the private records repository (\<Documentation Map\>, section 4.1) | Not an evidence request |
+| Provided | What \<System Name\> relies on |
+| --- | --- |
+| Its enterprise architecture standards | The standards that \<System Name\>'s plans and architecture must fit |
+| Who runs the hypervisor beneath the servers, and whether it is within the Cyber Essentials Plus scope | The answer settles a dependency recorded in the architecture |
+| The restricted document store | A SharePoint area where only named people can read or change the plans. It is not yet set up; until it is, the master copy stays in the private records repository (\<Documentation Map\>, section 4.1) |
 
 ### 3.9 Policy and procedures
 

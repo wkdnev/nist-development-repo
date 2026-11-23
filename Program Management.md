@@ -48,7 +48,7 @@ PM controls relied on here: PM-1, PM-4, PM-31.
 
 1. **One programme.** \<Organisation\> runs one security and privacy programme, and \<System Name\> is one system within it.
 2. **Inherit with evidence.** A common control counts for \<System Name\> only once \<Organisation\> has evidenced it. Before \<System Name\> operates, the authorising official accepts reliance on the programme for the 35 inherited PM controls as one line on the authorisation decision record, naming any not yet evidenced.
-3. **Follow, and report to the authorising official.** \<System Name\>'s policies, plans and registers follow the programme. Its plan of action and monitoring results are reported each quarter to the authorising official only (\<Assessment, Authorization, and Monitoring Management\>, sections 3.4 and 3.8); the Head of Cyber receives the assessment report and the authorisation decision. Whether anything more must reach \<Organisation\>'s own processes is for \<Organisation\> to say (EV-PM-01, EV-PM-03).
+3. **Follow, and report to the authorising official.** \<System Name\>'s policies, plans and registers follow the programme. Its plan of action and monitoring results are reported each quarter to the authorising official only (\<Assessment, Authorization, and Monitoring Management\>, sections 3.4 and 3.8); the Head of Cyber receives the assessment report and the authorisation decision. Whether anything more must reach \<Organisation\>'s own processes is for \<Organisation\> to say.
 4. **Stand in, and say so.** Where \<Organisation\>'s document has not been seen, \<System Name\>'s own document stands in, and the dependency is checked when the evidence arrives.
 
 ![Figure 1: How \<System Name\> relies on the organisation's programme](figures/pmm-figure-1.png)
@@ -66,8 +66,8 @@ PM controls relied on here: PM-2, PM-10, PM-19, PM-29.
 | Senior information security officer | \[Name\], Head of Cyber | PM-2 | |
 | Senior official for privacy: the data protection officer | \[Name, or the reason none is required\] | PM-19 | Completed by the legal adviser |
 | Authorising official | \[Name\] | PM-10 | |
-| Authorising official for \<Organisation\>'s common controls | \[Organisation common control official\] | PM-10 | Asked of \<Organisation\> (EV-CA-01; \<Assessment, Authorization, and Monitoring Management\>) |
-| Senior accountable official for risk management | \[\<Organisation\> to name\] | PM-29 | \<Organisation\> is asked to name the official (EV-PM-01) |
+| Authorising official for \<Organisation\>'s common controls | \[Organisation common control official\] | PM-10 | Asked of \<Organisation\> (\<Assessment, Authorization, and Monitoring Management\>) |
+| Senior accountable official for risk management | \[\<Organisation\> to name\] | PM-29 | \<Organisation\> is asked to name the official |
 | System owner | \[Name\] | All | Keeps \<System Name\>'s documents in step with the programme, and sends the evidence requests |
 | Legal adviser | \[Name\] | PM-18 to PM-27 | Owns the privacy plan, and \<System Name\>'s part of the privacy programme |
 
@@ -92,7 +92,7 @@ Each PM control is listed with who provides it, which \<System Name\> controls r
 | PM-7(1) Offloading | \<Organisation\> | PL-8, SA-8 | None | EV-PL-01 | No |
 | PM-8 Critical Infrastructure Plan | \<Organisation\> | CP-2 | None; \<System Name\> is not critical infrastructure | EV-PM-01 | Yes |
 | PM-9 Risk Management Strategy | \<Organisation\>, Head of Cyber | RA-3, CA-5, CA-6 | Decision rules in \<Risk List\>, section 4.2, set to fit the risk appetite | EV-PM-01 | Yes |
-| PM-10 Authorization Process | \<Organisation\> | CA-6 | Authorisation decision record, on which the authorising official accepts the 62 inherited controls and, as one line, reliance on this programme for the 35 inherited PM controls (\<Assessment, Authorization, and Monitoring Management\>, section 3.5; PRO-CA-7) | EV-PM-03 | Yes |
+| PM-10 Authorization Process | \<Organisation\> | CA-6 | Authorisation decision record, on which the authorising official accepts the 62 inherited controls and, as one line, reliance on this programme for the 35 inherited PM controls (\<Assessment, Authorization, and Monitoring Management\>, section 3.5) | EV-PM-03 | Yes |
 | PM-11 Mission and Business Process Definition | \<Organisation\> | CP-2, RA-2 | \<Concept of Operations\>; business impact in \<Contingency Planning Management\> | EV-PM-01 | Yes |
 | PM-12 Insider Threat Program | \<Organisation\> | AU-6, PS-3 | Audit records and reviews; the playbook for bulk export misuse (\<Incident Response Management\>, section 3.9) | EV-PM-01 | No |
 | PM-13 Security and Privacy Workforce | \<Organisation\> | AT-2, AT-3 | The role curriculum in \<Awareness and Training Management\>, and the training records | EV-PM-01 | Yes |
@@ -103,14 +103,14 @@ Each PM control is listed with who provides it, which \<System Name\> controls r
 | PM-17 Protecting Controlled Unclassified Information on External Systems | Not applicable | None | United States only | None | Yes |
 | PM-18 Privacy Program Plan | \<Organisation\>, legal adviser | PT family, PL-2 | \<Privacy Plan\> follows it | EV-PM-04 | Yes |
 | PM-19 Privacy Program Leadership Role | \<Organisation\> | PT family | Data protection officer placeholder in \<Roles and Responsibilities\> and \<Privacy Plan\> | EV-PM-04 | Yes |
-| PM-20 Dissemination of Privacy Program Information | \<Organisation\> | PT-5 | The privacy notices for employees, contractors and agency staff (EV-PT-01) | EV-PM-04 | Yes |
+| PM-20 Dissemination of Privacy Program Information | \<Organisation\> | PT-5 | The privacy notices for employees, contractors and agency staff | EV-PM-04 | Yes |
 | PM-20(1) Privacy Policies on Websites, Applications, and Digital Services | \<Organisation\> | PT-5 | A link to the privacy notices from \<System Name\>'s pages (FR-010) | EV-PM-04 | Yes |
 | PM-21 Accounting of Disclosures | \<Organisation\>, legal adviser | PT-2, AU-2 | Downloads and exports are audited, which shows what personal data left \<System Name\>, when and by whom. They are not the accounting itself: the recipient, purpose and address of a disclosure outside \<Organisation\>, and keeping the accounting for 5 years or for as long as the data is held, are \<Organisation\>'s (\<Audit and Accountability Management\>, Appendix B) | EV-PM-04 | Yes |
-| PM-22 Personally Identifiable Information Quality Management | \<Organisation\> | SI-18 | The yearly check of accuracy (\<Procedures\>, PRO-PT-5) | EV-PM-04 | Yes |
+| PM-22 Personally Identifiable Information Quality Management | \<Organisation\> | SI-18 | The yearly check of accuracy | EV-PM-04 | Yes |
 | PM-23 Data Governance Body | \<Organisation\> | PT-2 | None | EV-PM-04 | No |
 | PM-24 Data Integrity Board | Not applicable | None | United States only | None | Yes |
 | PM-25 Minimization of PII Used in Testing, Training, and Research | \<Organisation\> | SA-8(33), SI-12(2) | Testing and development use invented data only | EV-PM-04 | Yes |
-| PM-26 Complaint Management | \<Organisation\>, legal adviser | AC-3(14), PT-5 | Records of privacy requests and data protection complaints (\<Procedures\>, PRO-PT-1 and PRO-PT-2) | EV-PM-04 | Yes |
+| PM-26 Complaint Management | \<Organisation\>, legal adviser | AC-3(14), PT-5 | Records of privacy requests and data protection complaints | EV-PM-04 | Yes |
 | PM-27 Privacy Reporting | \<Organisation\>, legal adviser | IR-8(1) | Breach steps in section 3.8 of \<Incident Response Management\>, and the breach register in its section 3.14 | EV-PM-04 | Yes |
 | PM-28 Risk Framing | \<Organisation\>, Head of Cyber | RA-3, RA-7 | \<Risk List\> | EV-PM-01 | Yes |
 | PM-29 Risk Management Program Leadership Roles | \<Organisation\> | All | None | EV-PM-01 | No |
@@ -127,7 +127,7 @@ PM controls relied on here: PM-5(1), PM-18, PM-26, PM-27.
 
 \<System Name\> applies the CSS privacy baseline, as it holds personal data. That baseline includes 24 PM controls: PM-3, PM-4, PM-5(1), PM-6 to PM-11, PM-13, PM-14, PM-17 to PM-22, PM-20(1), PM-24 to PM-28 and PM-31. CSS still expects them to be met once, by the organisation's programme, so they stay \<Organisation\>'s to provide. They stay inherited and are not assessed for \<System Name\>. Two of them, PM-17 and PM-24, rest on United States law and do not apply.
 
-For the rest, \<System Name\>'s privacy controls depend on them directly: the personal data inventory on PM-5(1), complaints on PM-26, breach reporting on PM-27, and the privacy plan on PM-18. Until \<Organisation\> evidences its privacy programme (EV-PM-04, EV-PM-02), \<System Name\>'s own privacy plan, inventory and procedures stand in.
+For the rest, \<System Name\>'s privacy controls depend on them directly: the personal data inventory on PM-5(1), complaints on PM-26, breach reporting on PM-27, and the privacy plan on PM-18. Until \<Organisation\> evidences its privacy programme, \<System Name\>'s own privacy plan, inventory and procedures stand in.
 
 ### 3.5 What is asked of \<Organisation\>
 

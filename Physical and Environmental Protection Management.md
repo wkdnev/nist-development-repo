@@ -49,18 +49,18 @@ Who provides each PE control, and the evidence that closes it. The first choice 
 | Control | \<Organisation\> provides | \<System Name\> provides | Closing evidence |
 | --- | --- | --- | --- |
 | PE-1 | Its own physical security policy | The policy, the procedures and this document | The policy, the procedures and this document |
-| PE-2 | Authorised access list for the data centres | Nothing | A.7.2; access list review record (EV-PE-01) |
-| PE-3 | Entry control, logs, visitors, keys and cards | Nothing | A.7.1, A.7.2, A.7.3; the site inspection checklist (EV-PE-01) |
-| PE-4 | Protected cabling | Nothing | A.7.12 (EV-PE-01) |
+| PE-2 | Authorised access list for the data centres | Nothing | A.7.2; access list review record |
+| PE-3 | Entry control, logs, visitors, keys and cards | Nothing | A.7.1, A.7.2, A.7.3; the site inspection checklist |
+| PE-4 | Protected cabling | Nothing | A.7.12 |
 | PE-5 | Managed printers with secure release; office security | Users' rules: print only on managed printers with secure release, lock the screen when away, and keep desks clear and screens out of view; the device screen lock is \<Organisation\>'s | A.7.7; EV-PE-05; \<Organisation\>'s device policy |
-| PE-6, PE-6(1) | Monitoring, alarms and CCTV; log review; results passed to incident response | Nothing. The security officer handles what \<Organisation\> reports (section 3.7) | A.7.4; monitoring records (EV-PE-01) |
-| PE-8 | Visitor records and review; records hold only the name, organisation, and date and time of the visit (PE-8(3), assessed with PT) | Nothing | A.7.2; sample records (EV-PE-01, EV-PT-02) |
-| PE-9, PE-10, PE-12 | Power protection, emergency shutoff and emergency lighting | Nothing | A.7.11, A.7.12; maintenance records (EV-PE-02) |
-| PE-11 | UPS; if power cannot be kept, a clean shutdown of both servers through the hypervisor (section 3.7; D-PE-01) | Nothing. The administrators run the start-up checks when power returns (\<Security Operating Procedures\>, section 4.6) | A.7.11; maintenance records (EV-PE-02) |
-| PE-13, PE-13(1) | Fire detection and suppression, with automatic notification | Nothing | A.7.5; fire safety records (EV-PE-03) |
-| PE-14 | Temperature and humidity control and monitoring | Nothing | A.7.5, A.7.8; monitoring records (EV-PE-03) |
-| PE-15 | Water damage protection | Nothing | A.7.5 (EV-PE-03) |
-| PE-16 | Control of deliveries and removals | Receives notice of host hardware removal and its sanitising certificate; approves removal of any other \<System Name\> equipment (\<Procedures\>, PRO-MA-2) | A.7.2, A.7.10; sample records (EV-PE-04) |
+| PE-6, PE-6(1) | Monitoring, alarms and CCTV; log review; results passed to incident response | Nothing. The security officer handles what \<Organisation\> reports (section 3.7) | A.7.4; monitoring records |
+| PE-8 | Visitor records and review; records hold only the name, organisation, and date and time of the visit (PE-8(3), assessed with PT) | Nothing | A.7.2; sample records |
+| PE-9, PE-10, PE-12 | Power protection, emergency shutoff and emergency lighting | Nothing | A.7.11, A.7.12; maintenance records |
+| PE-11 | UPS; if power cannot be kept, a clean shutdown of both servers through the hypervisor (section 3.7; D-PE-01) | Nothing. The administrators run the start-up checks when power returns (\<Security Operating Procedures\>, section 4.6) | A.7.11; maintenance records |
+| PE-13, PE-13(1) | Fire detection and suppression, with automatic notification | Nothing | A.7.5; fire safety records |
+| PE-14 | Temperature and humidity control and monitoring | Nothing | A.7.5, A.7.8; monitoring records |
+| PE-15 | Water damage protection | Nothing | A.7.5 |
+| PE-16 | Control of deliveries and removals | Receives notice of host hardware removal and its sanitising certificate; approves removal of any other \<System Name\> equipment | A.7.2, A.7.10; sample records |
 | PE-17 | Managed devices and route | Home working rules and the yearly check | A.6.7, A.7.9; EV-PE-05; the home working check |
 | Compensating | Nothing | Server disk encryption, so physical access to hosts does not expose data | Encryption settings on the servers |
 
@@ -105,7 +105,7 @@ These are part of the rules of behaviour, which each person signs (\<Security Op
 
 The loss or theft of a device or printout, unauthorised entry to a data centre, and fire, flood or power loss affecting \<System Name\> are security incidents. Whoever sees one reports it to the security officer at once. \<Organisation\>'s security contact tells the security officer of any physical incident at a site that affects \<System Name\>, and of any anomaly in the visitor records, within 24 hours. The security officer handles it with the playbooks for a lost device or printout and for intrusion, fire, flood or power loss at a data centre (\<Incident Response Management\>, section 3.9), and the contingency plan is invoked if a site is lost (\<Contingency Planning Management\>).
 
-**Loss of power.** Each data centre's uninterruptible power supply carries the hosts until a generator takes over, or for long enough for an orderly shutdown. If power cannot be kept, \<Organisation\>'s hosting staff shut both servers down cleanly through the hypervisor, the application server first, before the backup power runs out, and tell the Windows server administrator (D-PE-01). A clean guest shutdown stops the applications and SQL Server in order, so no \<System Name\> administrator has to be reached in the minutes the supply lasts. When power returns, the administrators start the servers and run the start-up checks (\<Security Operating Procedures\>, section 4.6), and the security officer records it as a physical incident. This applies at the second site too whenever \<System Name\> runs there. How long the backup power lasts, whether there is a generator, and how the shutdown is done, are asked of \<Organisation\> (EV-PE-02).
+**Loss of power.** Each data centre's uninterruptible power supply carries the hosts until a generator takes over, or for long enough for an orderly shutdown. If power cannot be kept, \<Organisation\>'s hosting staff shut both servers down cleanly through the hypervisor, the application server first, before the backup power runs out, and tell the Windows server administrator (D-PE-01). A clean guest shutdown stops the applications and SQL Server in order, so no \<System Name\> administrator has to be reached in the minutes the supply lasts. When power returns, the administrators start the servers and run the start-up checks (\<Security Operating Procedures\>, section 4.6), and the security officer records it as a physical incident. This applies at the second site too whenever \<System Name\> runs there. How long the backup power lasts, whether there is a generator, and how the shutdown is done, are asked of \<Organisation\>.
 
 ### 3.8 Encryption behind the physical controls
 
@@ -144,7 +144,7 @@ These are what \<System Name\> requires of \<Organisation\> at both the main dat
 #### 3.10.3 Power and lighting
 
 1. **Power equipment.** \<Organisation\> protects the power equipment and cabling that serve the hosts from damage and destruction.
-2. **Emergency shutoff.** Power to the hosting equipment for both servers can be shut off in an emergency, by switches near the exits of the data centre room. The shutoff is guarded against accidental and unauthorised use, and \<Organisation\> is asked how (EV-PE-02).
+2. **Emergency shutoff.** Power to the hosting equipment for both servers can be shut off in an emergency, by switches near the exits of the data centre room. The shutoff is guarded against accidental and unauthorised use, and \<Organisation\> is asked how.
 3. **Backup power.** An uninterruptible power supply that carries the hosts to a generator, or for long enough for \<Organisation\>'s hosting staff to shut both servers down cleanly (section 3.7).
 4. **Emergency lighting.** Automatic emergency lighting in each data centre comes on in a power failure and covers the emergency exits and evacuation routes.
 

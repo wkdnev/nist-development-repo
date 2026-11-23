@@ -79,7 +79,7 @@ Each module ends with a short check of at least 10 questions, with a pass mark o
 | M2 Approving access | Authorise least access in the ServiceNow workflow; add and remove members of an Active Directory group correctly; carry out access reviews | \<Procedures\>, PRO-AC-1, PRO-AC-5 to PRO-AC-7; \<Access Control Management\>, section 3.13 | 30 minutes | Security officer |
 | M3 Configuration and change | Make changes only through change control; keep to the baseline | \<Procedures\> (CM); \<Configuration Management\> | 45 minutes | Security officer |
 | M4 Servers and database | Harden, patch to the timetable, scan, back up and protect keys | \<Procedures\>, PRO-SI-1; \<Risk Assessment Management\>, section 3.6; \<Procedures\> (CP); \<System and Communications Protection Management\> | 90 minutes | Security officer |
-| M5 Secure development | Secure coding to ASVS 5.0 Level 2; bring components in through PRO-SR-1, and spot look-alike and counterfeit packages and libraries (PRO-SR-4); keep secrets out of code; review changes | \<System and Services Acquisition Management\>; \<Procedures\> (SA); \<Procedures\> (SR) | 90 minutes | Security officer |
+| M5 Secure development | Secure coding to ASVS 5.0 Level 2; bring components in through PRO-SR-1, and spot look-alike and counterfeit packages and libraries; keep secrets out of code; review changes | \<System and Services Acquisition Management\>; \<Procedures\> (SA); \<Procedures\> (SR) | 90 minutes | Security officer |
 | M6 Monitoring and audit review | Auditors: read and review the audit log weekly, compare it with the server, database, PingFederate and Active Directory records, record the review, and report anything suspicious to the security officer. Security officers: review the alerts and the central logs, and use the detection use cases; they do not read the audit log | \<Audit and Accountability Management\>; \<System and Information Integrity Management\>, section 3.4 | 60 minutes | Head of Cyber |
 | M7 Incident response (IR-2) | Recognise, report, contain and record an incident; know your part in the playbooks | \<Incident Response Management\>; \<Procedures\> (IR) | 60 minutes | Security officer |
 | M8 Contingency (CP-3) | Know your part in recovery; restore from backup | \<Contingency Planning Management\>; \<Procedures\> (CP) | 45 minutes | System owner |
@@ -110,7 +110,7 @@ Every role with access must complete awareness, the briefing and signing \<Secur
 | Authorising official | \<Organisation\>'s course | None: no access | None | M10 |
 | Line managers who are not \<System Name\> users | Briefing part B7 only, before their first approval | None: no access | None | None |
 
-The matrix carries out AT-2, AT-3, AT-3(5) (\<PII Processing Management\>), IR-2 (\<Procedures\>, PRO-IR-3), CP-3 (\<Procedures\>, PRO-CP-4) and PL-4 (\<Security Operating Procedures\>).
+The matrix carries out AT-2, AT-3, AT-3(5) (\<PII Processing Management\>), IR-2, CP-3 and PL-4 (\<Security Operating Procedures\>).
 
 **Privacy training.** Every user's privacy training is briefing part B6, given before access and every 12 months. Module M9 is for the roles that make decisions about personal data or can reach it across schemas or outside the application: the system owner, Data Owners, the information owner, administrators, Windows server and database administrators, the security officer, the auditor, the business owner and the legal adviser's delegate. Together they meet AT-3(5).
 
@@ -125,7 +125,7 @@ The matrix carries out AT-2, AT-3, AT-3(5) (\<PII Processing Management\>), IR-2
 | When | What | Who checks |
 | --- | --- | --- |
 | Before any access | \<Organisation\>'s course, the \<System Name\> briefing and its check, and the signature of \<Security Operating Procedures\> | The security officer records it; the group's owner adds no one before it is recorded |
-| Before privileged access | The role modules in the matrix, each with its check, and Part B signed | The system owner checks the training register and the register of signatures: before authorising a role group (PRO-AC-6), and before asking \<Organisation\> for a Windows server or database administrator's access (PRO-AT-2) |
+| Before privileged access | The role modules in the matrix, each with its check, and Part B signed | The system owner checks the training register and the register of signatures: before authorising a role group, and before asking \<Organisation\> for a Windows server or database administrator's access |
 | Before a developer first works on \<System Name\> code | Modules M5 and M3 | The system owner, before the developer is given access to the code |
 | Before a line manager's first approval of an access request | Briefing part B7, if they are not already a \<System Name\> user | Security officer, from ServiceNow's list of approvers |
 | Within 30 days of taking a role | Incident response (M7), contingency (M8) and, for the authorising official, risk decisions (M10) | Security officer |
@@ -168,7 +168,7 @@ The security officer keeps this register from the training records. The system o
 
 ### 3.9 Measures
 
-The security officer reports these monthly with the continuous monitoring measures on the monitoring and integrity report (PRO-AT-5), and the system owner reviews them (\<Policy\>, section AT.6). Anyone overdue is reminded, and privileged access is suspended after 30 days overdue (Table 5).
+The security officer reports these monthly with the continuous monitoring measures on the monitoring and integrity report, and the system owner reviews them (\<Policy\>, section AT.6). Anyone overdue is reminded, and privileged access is suspended after 30 days overdue (Table 5).
 
 **Table 7: Training measures**
 

@@ -73,11 +73,11 @@ The baseline is what a release must contain so that it can be rebuilt exactly.
 
 Three means keep the baseline current, complete and accurate: signed release tags in the source repositories; lock files and the recorded checksum of each package; and the release record, which states the exact configuration. The build produces a software bill of materials at each release.
 
-The system owner and the Windows server administrator review the baseline every 12 months and at each release (PRO-CM-2). Step 6 of every change updates it (PRO-CM-1). The three previous configurations are kept, so that a release can be rolled back (section 3.13).
+The system owner and the Windows server administrator review the baseline every 12 months and at each release. Step 6 of every change updates it. The three previous configurations are kept, so that a release can be rolled back (section 3.13).
 
 ### 3.5 Software components and licences
 
-Every package, browser library, runtime, operating system and database \<System Name\> is built from or runs on, with its licence. This is the reference stack of \<System Description\>, sections 6.3 and 6.4; an application that replaces a part records it as a departure in \<System Description\>, section 3.6. A new component is recorded here, and checked for known vulnerabilities, before it enters the baseline (PRO-CM-4). Licences are checked again at each release and every 12 months (PRO-CM-9).
+Every package, browser library, runtime, operating system and database \<System Name\> is built from or runs on, with its licence. This is the reference stack of \<System Description\>, sections 6.3 and 6.4; an application that replaces a part records it as a departure in \<System Description\>, section 3.6. A new component is recorded here, and checked for known vulnerabilities, before it enters the baseline. Licences are checked again at each release and every 12 months.
 
 **Table 4: Software components**
 
@@ -110,11 +110,11 @@ Every package comes through \<Organisation\>'s in-house checked package feed, at
 | .NET runtime | Microsoft ASP.NET Core security guidance | Production environment; detailed errors off; interactive API documentation left out | Environment values |
 | Application security settings | \<Access Control Management\>, \<Identification and Authentication Management\> and \<System and Communications Protection Management\> | The authentication cookie's lifetime, no longer than PingFederate's sign-in lifetime, the PingFederate connection (OpenID Connect client), cookie flags, content security policy and allowed origins, at the values in those documents | Settings files at the release tag |
 
-The benchmarks are applied when the servers are built, and the developers apply the hosting and application settings (PRO-CM-3). Each departure from the guidance is recorded on the change record with a reason, and approved by the system owner (PRO-CM-3).
+The benchmarks are applied when the servers are built, and the developers apply the hosting and application settings. Each departure from the guidance is recorded on the change record with a reason, and approved by the system owner.
 
-Each month the Windows server administrator scans both servers against the benchmarks, and the database administrator compares the SQL Server settings. Any difference is reported to the security officer, and is put back or raised as a change (PRO-CM-7). Some Windows settings are set by \<Organisation\>'s Group Policy as part of its corporate configuration: account lockout, the logon banner and the screen lock. \<System Name\> accepts the corporate standard for those.
+Each month the Windows server administrator scans both servers against the benchmarks, and the database administrator compares the SQL Server settings. Any difference is reported to the security officer, and is put back or raised as a change. Some Windows settings are set by \<Organisation\>'s Group Policy as part of its corporate configuration: account lockout, the logon banner and the screen lock. \<System Name\> accepts the corporate standard for those.
 
-Both servers are configured to the CIS Benchmark by policy that \<Organisation\> applies, with only the functions, ports and services \<System Name\> needs, and checked with a benchmark tool (\<System Description\>, NFR-091). Where \<Organisation\>'s hardened build already sets a setting, its build standard is asked for as evidence (EV-CM-04) and compared with the benchmark, and any shortfall is recorded as a departure.
+Both servers are configured to the CIS Benchmark by policy that \<Organisation\> applies, with only the functions, ports and services \<System Name\> needs, and checked with a benchmark tool (\<System Description\>, NFR-091). Where \<Organisation\>'s hardened build already sets a setting, its build standard is asked for as evidence and compared with the benchmark, and any shortfall is recorded as a departure.
 
 ### 3.7 Change control
 
@@ -139,9 +139,9 @@ Every change to a configuration item in section 3.3 follows one route, including
 
 **Who made each change.** The change record names who made it. The servers and the database record it independently: Windows logs each administrator sign-in, installed service and policy change, and SQL Server Audit records each change to a table, login, role or permission (\<Audit and Accountability Management\>, section 3.2). The comparison with the baseline, monthly and at each release, finds a change that has no record.
 
-**Emergency changes.** An emergency change is allowed only to stop or limit an incident or an outage. The system owner, or their deputy, approves it by phone or in person before it is made. It is recorded within 1 working day, with the impact analysis done afterwards, and the board confirms or reverses it at its next meeting (PRO-CM-8).
+**Emergency changes.** An emergency change is allowed only to stop or limit an incident or an outage. The system owner, or their deputy, approves it by phone or in person before it is made. It is recorded within 1 working day, with the impact analysis done afterwards, and the board confirms or reverses it at its next meeting.
 
-**Standing change for routine maintenance.** The routine tasks in the preventive maintenance schedule (\<Procedures\>, PRO-MA-6), which change no configuration item, are approved by the board once as a standing change, reviewed every 12 months and whenever the schedule changes, and each run cites it on the maintenance record (\<Maintenance Management\>, section 3.3). Updates, releases and key changes in that schedule still follow this route.
+**Standing change for routine maintenance.** The routine tasks in the preventive maintenance schedule, which change no configuration item, are approved by the board once as a standing change, reviewed every 12 months and whenever the schedule changes, and each run cites it on the maintenance record (\<Maintenance Management\>, section 3.3). Updates, releases and key changes in that schedule still follow this route.
 
 ### 3.8 Change control board charter
 
@@ -195,7 +195,7 @@ The security officer rates the impact Low, Medium or High. A High impact needs t
 | Software | Anything not on the approved software list, and any package the applications do not use |
 | Services | Any Windows service not needed for those four things |
 
-The Windows server administrator and the developers review all five every 12 months, and record the result on the access review record (PRO-CM-5). Anything not needed is removed through a change.
+The Windows server administrator and the developers review all five every 12 months, and record the result on the access review record. Anything not needed is removed through a change.
 
 ### 3.11 Who may change what
 
@@ -208,22 +208,22 @@ The Windows server administrator and the developers review all five every 12 mon
 | Windows settings | The named Windows server administrators; \<Organisation\>, through Group Policy | Named administrator accounts, only over \<Organisation\>'s managed administration route, with multi-factor authentication (F11); \<Organisation\>'s change process |
 | SQL Server settings and database structure | The named database administrators, the structure only through a release. The API's database account cannot create, alter or drop tables | Database permissions (\<Access Control Management\>, section 3.6) |
 | Application settings and secrets | The named Windows server administrators | Windows permissions on the settings files; secrets in the key store |
-| The hosts, network and firewall | \<Organisation\> | Its physical and logical controls, and its change process (EV-CM-01) |
+| The hosts, network and firewall | \<Organisation\> | Its physical and logical controls, and its change process |
 | This document set | The system owner | The restricted document store, under version control; until it is set up, the private records repository (\<Documentation Map\>, section 4.1) |
 
 Nobody approves a change they requested or made. Every change by any of these people follows the route in section 3.7.
 
 ### 3.12 Inventory and where information is held
 
-**Inventory.** One inventory is held at two levels. \<System Security Plan\>, section 3.4, lists the components of the system and where each runs: the two servers, the applications, the database and the security software on them. Section 3.5 gives the software each is built from or runs on, with its version, supplier and licence. Each entry gives the name, type, version and location, and for software also the supplier and licence. The owner follows the type: the Windows server administrator for the servers and Windows Server, the database administrator for SQL Server, and the developers for the applications, packages and browser libraries. The services \<Organisation\> provides outside the boundary are listed in \<System Security Plan\>, section 3.4, for reference only; they belong to \<Organisation\>'s inventory, not this one. Both lists are updated as step 6 of every change, and a change is not closed until they are. They are reviewed with the baseline every 12 months and at each release (PRO-CM-2). A bill of materials from each build checks the software list.
+**Inventory.** One inventory is held at two levels. \<System Security Plan\>, section 3.4, lists the components of the system and where each runs: the two servers, the applications, the database and the security software on them. Section 3.5 gives the software each is built from or runs on, with its version, supplier and licence. Each entry gives the name, type, version and location, and for software also the supplier and licence. The owner follows the type: the Windows server administrator for the servers and Windows Server, the database administrator for SQL Server, and the developers for the applications, packages and browser libraries. The services \<Organisation\> provides outside the boundary are listed in \<System Security Plan\>, section 3.4, for reference only; they belong to \<Organisation\>'s inventory, not this one. Both lists are updated as step 6 of every change, and a change is not closed until they are. They are reviewed with the baseline every 12 months and at each release. A bill of materials from each build checks the software list.
 
-**Unauthorised components.** \<Organisation\>'s discovery tools check its network, including both servers, every month for hardware, software and firmware that is not in the inventory. When one finds an unauthorised component, it alerts the Windows server administrator, who removes the component or disables its network access, tells the security officer, and records it on the monitoring and integrity report (PRO-CM-6). Detection is \<Organisation\>'s and the response is \<System Name\>'s, so the control is shared.
+**Unauthorised components.** \<Organisation\>'s discovery tools check its network, including both servers, every month for hardware, software and firmware that is not in the inventory. When one finds an unauthorised component, it alerts the Windows server administrator, who removes the component or disables its network access, tells the security officer, and records it on the monitoring and integrity report. Detection is \<Organisation\>'s and the response is \<System Name\>'s, so the control is shared.
 
 **Where information is held.** Items, their files, schema definitions and audit records are in SQL Server 2022 on the database server, each schema in its own database schema. The application server holds only working files: encrypted export working copies, deleted once downloaded and always within 24 hours, each application's key ring, and logs. Backups go to \<Organisation\>'s backup site. \<System Security Plan\>, sections 3.4 and 4.4, hold the record. A change of location is a change to the baseline, and a new site is a significant change. Each is recorded on the change and in \<System Security Plan\>.
 
-**Finding information.** Items are held by schema in the database, and each schema has its information type (\<System Description\>, section 3.4), so a query of the database lists every item of each type and where it is held. Outside the database, the only place item content may be is the export working area, which the Windows server administrator checks each working day (\<Security Operating Procedures\>). \<Organisation\>'s tools scan both servers for stray copies elsewhere (EV-CM-02). If \<Organisation\> has no such tool, that part of CM-12(1) is other than satisfied, and is recorded in \<Risk List\>.
+**Finding information.** Items are held by schema in the database, and each schema has its information type (\<System Description\>, section 3.4), so a query of the database lists every item of each type and where it is held. Outside the database, the only place item content may be is the export working area, which the Windows server administrator checks each working day (\<Security Operating Procedures\>). \<Organisation\>'s tools scan both servers for stray copies elsewhere. If \<Organisation\> has no such tool, that part of CM-12(1) is other than satisfied, and is recorded in \<Risk List\>.
 
-**Who has access to it.** The approved access list, on the approved access list, names everyone with access to the information or the components that hold it: the members of each of \<System Name\>'s AD groups, taken from the groups with their ServiceNow approvals; the Windows server and database administrators; and \<Organisation\>'s staff with access to the hosts and backups (EV-CM-01). The system owner approves the first list before any real data is held, and a new one at each baseline review (PRO-CM-2). Between reviews, the AD groups and their approvals are the current record.
+**Who has access to it.** The approved access list, on the approved access list, names everyone with access to the information or the components that hold it: the members of each of \<System Name\>'s AD groups, taken from the groups with their ServiceNow approvals; the Windows server and database administrators; and \<Organisation\>'s staff with access to the hosts and backups. The system owner approves the first list before any real data is held, and a new one at each baseline review. Between reviews, the AD groups and their approvals are the current record.
 
 ### 3.13 Library, tools, monitoring and retention
 
@@ -232,7 +232,7 @@ Nobody approves a change they requested or made. Every change by any of these pe
 | Item | Detail |
 | --- | --- |
 | Configuration library | Git repositories for code and release scripts; \<Organisation\>'s in-house package feed, holding each package at its recorded version; the restricted document store for documents; release records with their checksums and software bill of materials |
-| Tools | Git and its signed tags; the build pipeline; NuGet through the in-house package feed; ServiceNow for changes; CIS-CAT or an equivalent scanner; Test-ConfigurationManagement.ps1; Windows App Control for Business and its policy; \<Organisation\>'s discovery tools (EV-CM-02) |
+| Tools | Git and its signed tags; the build pipeline; NuGet through the in-house package feed; ServiceNow for changes; CIS-CAT or an equivalent scanner; Test-ConfigurationManagement.ps1; Windows App Control for Business and its policy; \<Organisation\>'s discovery tools |
 | Monitoring | Drift check, monthly and at each release, under PRO-CM-7, reported on the monitoring and integrity report to the security officer, and included in the monthly measures in \<Assessment, Authorization, and Monitoring Management\>, section 3.8 |
 | Retention | Change records for 3 years; the 3 previous configurations, each with tag, package checksums, settings and software bill of materials; superseded documents for 3 years |
 | Disposal | Removed configurations are deleted from the library only after their retention period, with the system owner's approval |
@@ -241,22 +241,22 @@ Nobody approves a change they requested or made. Every change by any of these pe
 
 **Table 12: Asked of \<Organisation\>**
 
-| Provided | Controls | What \<System Name\> relies on | Evidence asked |
-| --- | --- | --- | --- |
-| Physical and logical limits on changing the hosts | CM-5 | Only authorised \<Organisation\> staff can change the hosts and hosting, through its change process | EV-CM-01 |
-| Tools that detect unauthorised components, and that locate information | CM-8(3), CM-12(1) | Both servers are checked every month for unauthorised hardware, software and firmware, and the Windows server administrator is alerted; stray copies of items outside the database are found | EV-CM-02 |
-| A travel device policy for its managed laptops: high-risk locations, the configuration issued for travel there, and the checks on return | CM-2(7) | Any laptop that can reach \<System Name\> and is taken to a high-risk location is configured for it, and checked on return before it reconnects | EV-CM-05 |
-| Licences for the software on the servers and hosting, and controls on peer-to-peer software | CM-10 | Windows Server and the hosting are licensed, and peer-to-peer software is blocked | EV-CM-03 |
-| Group Policy settings on the servers | CM-6 | The corporate standard for lockout, the logon banner and the screen lock | EV-AC-05 to EV-AC-07 |
-| The hardened server build, and the Group Policy that applies the CIS Benchmark | CM-6 | Both servers are built and kept to the CIS Benchmark, with any setting the build leaves out recorded as a departure | EV-CM-04 |
-| ServiceNow, for the change workflow | CM-3 | A workflow built by the Application Support Team to \<System Name\>'s design | None |
+| Provided | What \<System Name\> relies on |
+| --- | --- |
+| Physical and logical limits on changing the hosts | Only authorised \<Organisation\> staff can change the hosts and hosting, through its change process |
+| Tools that detect unauthorised components, and that locate information | Both servers are checked every month for unauthorised hardware, software and firmware, and the Windows server administrator is alerted; stray copies of items outside the database are found |
+| A travel device policy for its managed laptops: high-risk locations, the configuration issued for travel there, and the checks on return | Any laptop that can reach \<System Name\> and is taken to a high-risk location is configured for it, and checked on return before it reconnects |
+| Licences for the software on the servers and hosting, and controls on peer-to-peer software | Windows Server and the hosting are licensed, and peer-to-peer software is blocked |
+| Group Policy settings on the servers | The corporate standard for lockout, the logon banner and the screen lock |
+| The hardened server build, and the Group Policy that applies the CIS Benchmark | Both servers are built and kept to the CIS Benchmark, with any setting the build leaves out recorded as a departure |
+| ServiceNow, for the change workflow | A workflow built by the Application Support Team to \<System Name\>'s design |
 
 ### 3.15 Approved software and installation
 
 1. **Approved software list.** The Windows server administrator keeps the approved software list, which says what may run on the servers. For the applications themselves, the component list in section 3.5 is the list. Both are reviewed every 12 months.
-2. **Allow by exception, by procedure.** Nothing is installed on the servers without an approved request (PRO-CM-4). A person who needs software there raises a request in ServiceNow, and the system owner approves or refuses it. Only the named Windows server administrators have the Windows user rights to install software.
-3. **Enforced by the system.** Windows App Control for Business runs on both servers with a policy that denies every program, script and driver except those the approved software list allows: Windows Server and its components, SQL Server, Microsoft Defender, the tools on the approved list, and \<System Name\>'s own release files, allowed by their signing certificate or by the hashes in the release record. The policy is signed, so that an administrator cannot weaken it without a change. It runs in audit mode when the servers are built, so that anything it would block is found and either approved or removed, and is enforced before go-live (D-CM-01). It is changed only through PRO-CM-1, as step 6 of the change that adds a program, and the monthly drift check confirms it is enforced and unchanged (PRO-CM-7). Anything it blocks is logged and forwarded to central logging.
-4. **Compliance check.** Every 12 months, with the functions review in section 3.10, what is installed on the servers is compared with the approved software list, and the result recorded on the access review record (PRO-CM-5).
+2. **Allow by exception, by procedure.** Nothing is installed on the servers without an approved request. A person who needs software there raises a request in ServiceNow, and the system owner approves or refuses it. Only the named Windows server administrators have the Windows user rights to install software.
+3. **Enforced by the system.** Windows App Control for Business runs on both servers with a policy that denies every program, script and driver except those the approved software list allows: Windows Server and its components, SQL Server, Microsoft Defender, the tools on the approved list, and \<System Name\>'s own release files, allowed by their signing certificate or by the hashes in the release record. The policy is signed, so that an administrator cannot weaken it without a change. It runs in audit mode when the servers are built, so that anything it would block is found and either approved or removed, and is enforced before go-live (D-CM-01). It is changed only through PRO-CM-1, as step 6 of the change that adds a program, and the monthly drift check confirms it is enforced and unchanged. Anything it blocks is logged and forwarded to central logging.
+4. **Compliance check.** Every 12 months, with the functions review in section 3.10, what is installed on the servers is compared with the approved software list, and the result recorded on the access review record.
 5. **Users' devices.** \<Organisation\>'s policy governs software on users' own devices.
 6. **Licences.** Every component's licence is recorded in section 3.5 before it enters the baseline, and must permit \<System Name\>'s use. A licence that is not a standard open source licence goes to the system owner for a recorded decision. \<System Name\>'s own components are not licensed by quantity. Windows Server and anything else licensed by quantity is \<Organisation\>'s, and is tracked in its licence record.
 7. **Peer-to-peer file sharing.** None is allowed: no peer-to-peer software is on the approved list, and \<Organisation\>'s network controls apply.

@@ -37,13 +37,13 @@ Each kind of personal data has an Article 6 lawful basis, and special category d
 
 Consent is not the lawful basis for employee data, because employees cannot freely refuse their employer, as the ICO's guidance on employment records says. So there is no consent tool, and PT-4 is tailored out on that condition (\<Tailoring Register\>, TR-PT-02). \<System Name\> sets only strictly necessary cookies, which need no consent banner.
 
-\<System Name\> makes no decision about a person by automated means alone, and does no profiling, so UK GDPR Article 22 does not apply. Personal data is not sold, shared with third parties for their own purposes, or transferred outside the United Kingdom. No processor outside \<Organisation\> handles it in normal operation. A supplier sees or receives personal data only to give support, with the legal adviser's agreement, under a contract with UK GDPR Article 28 terms, and holding it in the UK (\<Maintenance Management\>, section 3.7; \<Procedures\>, PRO-MA-7).
+\<System Name\> makes no decision about a person by automated means alone, and does no profiling, so UK GDPR Article 22 does not apply. Personal data is not sold, shared with third parties for their own purposes, or transferred outside the United Kingdom. No processor outside \<Organisation\> handles it in normal operation. A supplier sees or receives personal data only to give support, with the legal adviser's agreement, under a contract with UK GDPR Article 28 terms, and holding it in the UK (\<Maintenance Management\>, section 3.7).
 
 The controls that rest on United States law and federal bodies do not apply: the Privacy Act, Federal Register notices, Social Security numbers, the First Amendment and computer matching. \<Organisation\> operates in the United Kingdom (\<Tailoring Register\>, TR-PT-01).
 
 ### 3.3 Personal data inventory
 
-One row for each kind of personal data. The first rows come from the information types in the application profile (\<System Description\>, Table 6); the HR wording is an example. The other rows are held by every application built on the reference system. The legal adviser sets each basis and condition. No data is transferred outside the UK, and no processor outside \<Organisation\> is used, except a supplier giving support under the terms in section 3.2. The inventory must match \<Organisation\>'s record of processing (UK GDPR, Article 30; EV-PM-02).
+One row for each kind of personal data. The first rows come from the information types in the application profile (\<System Description\>, Table 6); the HR wording is an example. The other rows are held by every application built on the reference system. The legal adviser sets each basis and condition. No data is transferred outside the UK, and no processor outside \<Organisation\> is used, except a supplier giving support under the terms in section 3.2. The inventory must match \<Organisation\>'s record of processing (UK GDPR, Article 30).
 
 **Table 1: Personal data inventory**
 
@@ -61,7 +61,7 @@ One row for each kind of personal data. The first rows come from the information
 | Incident and breach records: the people involved or affected, and what happened | Incident record in ServiceNow, and the incident and breach register (\<Incident Response Management\>, sections 3.8 and 3.14) | Reporters, the security officer and the legal adviser | Handling incidents and breaches, and recording every breach (UK GDPR, Article 33(5)) | \[Legal adviser\] | \[Legal adviser, if a record holds special category or criminal offence data\] | The incident roles; the ICO and the people affected, through the legal adviser | Section 3.7, A15 |
 | Other operating records that name people: training, maintenance and media records, access reviews, exceptions, sharing decisions, home working checks and sign-off sheets | The restricted records store, kept by the system owner (\<Record Templates\>) | The people named, and the role holders who keep each record | Running and evidencing the controls | \[Legal adviser\] | Not applicable | The role holders who keep each record; assessors | Section 3.7, A4 to A6 and A16 |
 | Database backups, holding every item and audit record, including items since deleted | \<Organisation\>'s backup service, at both sites, with one copy offline or immutable (\<Contingency Planning Management\>, section 3.8) | \<System Name\> | Recovery | As the source data | As the source data | Nobody reads them: they are encrypted and restored only for recovery or a restore test | Section 3.7, A12 |
-| Support copies: a log, screenshot or data copy sent to a supplier, only where personal data cannot be removed | The supplier's systems, in the UK | \<System Name\> | Support | As the source data | As the source data | The supplier, under a contract with UK GDPR Article 28 terms | Until no longer needed; the supplier confirms deletion (PRO-MA-7) |
+| Support copies: a log, screenshot or data copy sent to a supplier, only where personal data cannot be removed | The supplier's systems, in the UK | \<System Name\> | Support | As the source data | As the source data | The supplier, under a contract with UK GDPR Article 28 terms | Until no longer needed; the supplier confirms deletion |
 | Export copies | Users' managed devices; the encrypted working area on the application server | Bulk export | Sharing items for work | As the source item | As the source item | The exporting user | 30 days at most on devices (\<Security Operating Procedures\>); working copies deleted once downloaded, and always within 24 hours |
 
 ### 3.4 Special category data
@@ -72,7 +72,7 @@ Health and other special category data may be held only in schemas the business 
 
 \<Organisation\>'s privacy notices tell people how their data is used. Each group of people whose data \<System Name\> holds must be covered by one: employees by the employee privacy notice, given to each on joining; contractors and agency staff by the notice \<Organisation\> gives them; and anyone else an information type holds data about, such as former employees or people named in documents, by the notice the legal adviser names for them, or a recorded reason under UK GDPR, Article 14(5) why none is given. Each notice must name \<System Name\> and its purposes, give the authority and lawful basis, hold the information UK GDPR, Articles 13 and 14 require, including how to make a request or complaint and the right to complain to the ICO, be in plain language, and be reviewed every 12 months.
 
-People sign in on \<Organisation\>'s PingFederate page, so \<System Name\>'s home page and About page link to the notice, with a short statement of what \<System Name\> records about its users: their name, the groups they belong to, and what they do (\<System Description\>, FR-010). The notice is therefore available when a person joins and every time they use \<System Name\>. The notices are asked of \<Organisation\> (EV-PT-01).
+People sign in on \<Organisation\>'s PingFederate page, so \<System Name\>'s home page and About page link to the notice, with a short statement of what \<System Name\> records about its users: their name, the groups they belong to, and what they do (\<System Description\>, FR-010). The notice is therefore available when a person joins and every time they use \<System Name\>. The notices are asked of \<Organisation\>.
 
 ### 3.6 People's rights
 
@@ -92,7 +92,7 @@ Requests and complaints follow PRO-PT-1.
 ### 3.7 Minimisation, quality, retention and disposal
 
 1. **Minimisation.** What personal data is collected is reviewed at design, in each change record, and in the impact assessment. Each schema holds only the personal data its items' purpose requires.
-2. **Quality.** Every 12 months each Data Owner checks that their schema's personal data is accurate, relevant, timely and complete, and no more than its items' purpose requires, and records the check on the access review record (PRO-PT-5). An editor of the schema corrects or deletes inaccurate or out-of-date data (FR-036, FR-038), and each correction and deletion is audited. Administrators see no item content, so take no part.
+2. **Quality.** Every 12 months each Data Owner checks that their schema's personal data is accurate, relevant, timely and complete, and no more than its items' purpose requires, and records the check on the access review record. An editor of the schema corrects or deletes inaccurate or out-of-date data (FR-036, FR-038), and each correction and deletion is audited. Administrators see no item content, so take no part.
 3. **Retention.** Each kind of record is kept for the period below, then disposed of. A retention period is set on each schema or item type, and a scheduled task lists the items due (\<System Description\>, FR-074). Rows H1 to H5 are examples for a schema of HR records, and are replaced by the record types in the application profile. The business owner sets each period with the legal adviser, guided by the ICO's employment records guidance. Row A1 covers the names held from sign-in in items, which stay with the item for accountability and are disposed of with it.
 4. **Disposal.** At the end of its period an item is deleted once the business owner approves its deletion in the UI application (\<System Description\>, FR-074), the deletion is audited, and the space it held in the database is cleared afterwards so that no readable copy remains in the live database. Copies remain in the encrypted backups until they expire, at most 12 months later (row A12). They are beyond use there: the backups are held apart, encrypted, and restored only for recovery or a restore test, and a recovery deletes the item again before users return (\<Contingency Planning Management\>, section 3.7). The same applies to an item deleted after a person's request, and the legal adviser says so in the reply where it matters to the person. Media are sanitised as \<Media Protection Management\>, section 3.6 sets out.
 5. **Testing, training and research.** Testing and training use invented data only, loaded into each test environment, and no real personal data is used for research.
@@ -124,13 +124,13 @@ Requests and complaints follow PRO-PT-1.
 | A15 | Incident records and the incident and breach register | \[Period, set by the legal adviser\] | Incident closed | Shows what happened and that every breach was recorded (UK GDPR, Article 33(5)) | Delete |
 | A16 | Other operating records that name people | \[Period, set by the system owner; 3 years proposed, to match the other records\] | Record completed or superseded | Evidence of the controls for the assessment cycle | Delete |
 | A17 | Export working copies on the application server | Until downloaded, and 24 hours at most | Export completed | MP-4, MP-6, as set in \<Media Protection Management\> | Deleted by the API after the download, and by a background task past 24 hours (FR-050) |
-| A18 | Users' exports, downloads and printouts | Until no longer needed, and 30 days at most if they hold personal data | Export, download or print | MP-6, as set in \<Media Protection Management\> | Deleted or shredded by the user (PRO-MP-5) |
+| A18 | Users' exports, downloads and printouts | Until no longer needed, and 30 days at most if they hold personal data | Export, download or print | MP-6, as set in \<Media Protection Management\> | Deleted or shredded by the user |
 
 ### 3.8 Impact assessment and changes in processing
 
 The data protection impact assessment, \<Data Protection Impact Assessment\>, follows the ICO's sample template. The legal adviser completes and approves it before production, with the advice of the data protection officer, and reviews it after any significant change in processing and every 12 months. Its measures go into the Plan of Action and Milestones, and its residual risks to the authorising official. If a high risk remains, the legal adviser consults the ICO before processing starts.
 
-Every change record says whether the change affects personal data, through change control (\<Configuration Management\>, section 3.7). If it does, the legal adviser reviews it, and decides whether the inventory, the privacy notice or the impact assessment must change, and whether the change, such as a new collection of personal data, needs a new or revised impact assessment (\<Configuration Management\>, section 3.9; PRO-PT-3, PRO-PT-4).
+Every change record says whether the change affects personal data, through change control (\<Configuration Management\>, section 3.7). If it does, the legal adviser reviews it, and decides whether the inventory, the privacy notice or the impact assessment must change, and whether the change, such as a new collection of personal data, needs a new or revised impact assessment (\<Configuration Management\>, section 3.9).
 
 ### 3.9 Privacy controls held in other documents
 
@@ -153,12 +153,12 @@ Eight of the privacy baseline controls are assessed with this family, but part o
 
 **Table 5: Asked of \<Organisation\>**
 
-| Provided | Controls | What \<System Name\> relies on | Evidence asked |
-| --- | --- | --- | --- |
-| The privacy notices for employees, contractors and agency staff | PT-3, PT-5 | Each names \<System Name\> and its purposes, gives the lawful basis and the information in UK GDPR, Articles 13 and 14, is given on joining, and is reviewed every 12 months | EV-PT-01 |
-| The record of processing | PT-2 | It lists the personal data \<System Name\> holds, matching section 3.3 | EV-PM-02 |
-| The privacy programme and the data protection officer | PT-1, RA-8 | A data protection officer advises on the impact assessment, or the reason none is required is recorded | EV-PM-04 |
-| Visitor records | PE-8(3) | They hold only name, organisation, and the date and time of the visit | EV-PT-02 |
+| Provided | What \<System Name\> relies on |
+| --- | --- |
+| The privacy notices for employees, contractors and agency staff | Each names \<System Name\> and its purposes, gives the lawful basis and the information in UK GDPR, Articles 13 and 14, is given on joining, and is reviewed every 12 months |
+| The record of processing | It lists the personal data \<System Name\> holds, matching section 3.3 |
+| The privacy programme and the data protection officer | A data protection officer advises on the impact assessment, or the reason none is required is recorded |
+| Visitor records | They hold only name, organisation, and the date and time of the visit |
 
 ### 3.11 Processing rules and monitoring
 

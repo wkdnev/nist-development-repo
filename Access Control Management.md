@@ -57,7 +57,7 @@ Every person signs in with their Active Directory account, through PingFederate.
 | Supplier or \<Organisation\> engineer doing maintenance | Nobody | No | Holds no account on the servers or in \<System Name\>; watches and guides over the shared screen of an approved administrator, who drives the session (\<Maintenance Management\>, section 3.6; D-MA-01) |
 | Shared, guest, anonymous and demonstration | Nobody | No | Prohibited on the servers |
 
-Temporary and emergency accounts are prohibited, so there is nothing to remove or disable automatically. Each access review confirms that none exists (PRO-AC-7). If such accounts were ever needed, they would be Active Directory accounts with an end date, and the tailoring decision would be made again.
+Temporary and emergency accounts are prohibited, so there is nothing to remove or disable automatically. Each access review confirms that none exists. If such accounts were ever needed, they would be Active Directory accounts with an end date, and the tailoring decision would be made again.
 
 Shared and group accounts are prohibited (TR-AC-02), and \<System Name\> holds no passwords, so there is no shared password to change when someone leaves a group.
 
@@ -81,7 +81,7 @@ Each group's owner adds and removes its members in Active Directory, with \<Orga
 
 The authorised users of \<System Name\> are the members of its AD groups. Each person's groups are their access, and the approved source for each membership is its ServiceNow request. \<Organisation\> manages the AD accounts themselves. The administrator manages schemas, and which AD groups open each, in \<System Name\>'s Admin app; a change to a schema's groups needs that schema's Data Owner's approval in a change record.
 
-The five role groups, for administrators, auditors, the security officer, the business owner and the legal adviser's delegate, are privileged. The system owner is their only owner, and authorises each member after role training and a signed Part B of \<Security Operating Procedures\> (PRO-AC-6). An administrator cannot add anyone to a group. On the servers, privileged access is held through Windows administrator group membership and SQL Server roles, and only the named Windows server and database administrators may sign in (section 3.6.2). The API's database service account is privileged and headless, and is managed by the database administrator.
+The five role groups, for administrators, auditors, the security officer, the business owner and the legal adviser's delegate, are privileged. The system owner is their only owner, and authorises each member after role training and a signed Part B of \<Security Operating Procedures\>. An administrator cannot add anyone to a group. On the servers, privileged access is held through Windows administrator group membership and SQL Server roles, and only the named Windows server and database administrators may sign in (section 3.6.2). The API's database service account is privileged and headless, and is managed by the database administrator.
 
 ### 3.4 Permissions
 
@@ -127,8 +127,8 @@ Table 4 shows each pair of duties that one person must not hold together, the ro
 | Holding administrator | Granting it | Administrators; the system owner, who alone manages that AD group | Active Directory: an administrator cannot add a member to the group |
 | Application administration | Windows administration and database administration | Administrator; Windows server administrator; SQL Server database administrator | Separate accounts on separate layers, held by three different people (\<Roles and Responsibilities\>) |
 | Development | Production administration | Developers; Windows server and database administrators | Developers hold no administrator account on the servers |
-| Granting role-group access | Reviewing it | The system owner grants and prepares each role-group review; the auditor checks and signs it; the Head of Cyber reviews the system owner's own memberships | Procedure (PRO-AC-7) |
-| Holding access | Reviewing that access | Each account holder; the auditor, Data Owners, system owner and security officer review | Procedure: nobody reviews their own access (PRO-AC-7) |
+| Granting role-group access | Reviewing it | The system owner grants and prepares each role-group review; the auditor checks and signs it; the Head of Cyber reviews the system owner's own memberships | Procedure |
+| Holding access | Reviewing that access | Each account holder; the auditor, Data Owners, system owner and security officer review | Procedure: nobody reviews their own access |
 
 ### 3.6 Access routes
 
@@ -205,7 +205,7 @@ Each is a managed service account in \<Organisation\>'s Active Directory, with n
 | Application server | The named Windows server administrators | Their own named administrator accounts, only over \<Organisation\>'s managed administration route, with multi-factor authentication (F11) | Developers, application users, the service accounts, and any shared account |
 | Database server | The named Windows server administrators, and the named database administrators | The same | The same |
 
-The holders are named in \<Roles and Responsibilities\>. \<Organisation\> creates and removes these accounts through its ServiceNow process, with the system owner's approval (EV-AC-02).
+The holders are named in \<Roles and Responsibilities\>. \<Organisation\> creates and removes these accounts through its ServiceNow process, with the system owner's approval.
 
 #### 3.6.3 File permissions on the application server
 
@@ -223,7 +223,7 @@ Item files are held in the SQL Server database, each schema in its own database 
 
 #### 3.6.4 Firewall rules
 
-\<Organisation\>'s corporate network team writes, holds and changes every firewall rule, through its own change process. The \<System Name\> team has no control over them and cannot see or change a rule. So \<System Name\> does not design the rules. It states the flows it needs, in Table 11, and asks \<Organisation\> to allow those and nothing else. The rules themselves are \<Organisation\>'s evidence (EV-AC-03).
+\<Organisation\>'s corporate network team writes, holds and changes every firewall rule, through its own change process. The \<System Name\> team has no control over them and cannot see or change a rule. So \<System Name\> does not design the rules. It states the flows it needs, in Table 11, and asks \<Organisation\> to allow those and nothing else. The rules themselves are \<Organisation\>'s evidence.
 
 **Table 11: Flows \<System Name\> asks \<Organisation\> to allow**
 
@@ -254,23 +254,23 @@ These are set by \<Organisation\> as part of its corporate network, directory an
 
 **Table 12: Provided by \<Organisation\>'s corporate configuration**
 
-| Provided | Controls | What \<System Name\> relies on | Evidence asked |
-| --- | --- | --- | --- |
-| Single sign-on: PingFederate | AC-7, AC-12 in part, and the IA controls | Every user is authenticated by PingFederate, with multi-factor authentication. Repeated failed sign-ins lock the account: 10 failed attempts within 15 minutes lock it for 15 minutes. The OpenID Connect response \<System Name\> receives is signed. PingFederate's sign-in lifetime for \<System Name\> is at least 8 hours, so \<System Name\>'s own 8-hour session always ends within it (AC-12). PingFederate ends its sign-in when the person uses Sign out | EV-IA-04 |
-| Accounts and groups: Active Directory | AC-2 and its enhancements, AC-6(5), AC-6(7) | Each person has one AD account, created, changed and disabled by \<Organisation\>'s starters and leavers process. A disabled account can no longer sign in, and \<System Name\>'s API refuses it within 5 minutes. Only a group's owner can change its members. The API reads group membership over LDAPS | EV-AC-01 |
-| Account lockout on the servers and on users' devices | AC-7 | Repeated failed Windows sign-ins lock the account | EV-AC-05 |
-| Logon banner on the servers | AC-8 | A system use notice before an administrator signs in to Windows | EV-AC-06 |
-| Screen lock on the servers and on users' devices | AC-11, AC-11(1) | An unattended screen locks after 15 minutes of inactivity, hides what was on it, and needs the password to unlock. As \<System Name\> has no page lock of its own, this is the only session lock | EV-AC-07 |
-| Remote access | AC-17, AC-17(1), AC-17(2), AC-17(3) | One route in from outside: the VPN, from a managed device, with multi-factor authentication, encrypted, logged and monitored, through one managed gateway | EV-AC-08 to EV-AC-11 |
-| Privileged remote access | AC-17(4) | An administrator working remotely comes in through the VPN and then the managed administration route, with multi-factor authentication at both, only for approved changes, maintenance and incident response. The servers' administration ports cannot be reached from external networks any other way | EV-AC-12 |
-| Wireless | AC-18, AC-18(1), AC-18(3) | Corporate wireless authenticates users and devices and is encrypted; the servers have no wireless | EV-AC-13, EV-AC-14 |
-| Device controls | AC-19, AC-19(5), AC-20, AC-20(2) | Managed laptops are the only mobile devices allowed, configured by \<Organisation\> with full-device encryption; phones and tablets cannot reach \<System Name\>; unmanaged devices are kept off the network; USB storage is blocked unless approved | EV-AC-15 to EV-AC-17 |
+| Provided | What \<System Name\> relies on |
+| --- | --- |
+| Single sign-on: PingFederate | Every user is authenticated by PingFederate, with multi-factor authentication. Repeated failed sign-ins lock the account: 10 failed attempts within 15 minutes lock it for 15 minutes. The OpenID Connect response \<System Name\> receives is signed. PingFederate's sign-in lifetime for \<System Name\> is at least 8 hours, so \<System Name\>'s own 8-hour session always ends within it (AC-12). PingFederate ends its sign-in when the person uses Sign out |
+| Accounts and groups: Active Directory | Each person has one AD account, created, changed and disabled by \<Organisation\>'s starters and leavers process. A disabled account can no longer sign in, and \<System Name\>'s API refuses it within 5 minutes. Only a group's owner can change its members. The API reads group membership over LDAPS |
+| Account lockout on the servers and on users' devices | Repeated failed Windows sign-ins lock the account |
+| Logon banner on the servers | A system use notice before an administrator signs in to Windows |
+| Screen lock on the servers and on users' devices | An unattended screen locks after 15 minutes of inactivity, hides what was on it, and needs the password to unlock. As \<System Name\> has no page lock of its own, this is the only session lock |
+| Remote access | One route in from outside: the VPN, from a managed device, with multi-factor authentication, encrypted, logged and monitored, through one managed gateway |
+| Privileged remote access | An administrator working remotely comes in through the VPN and then the managed administration route, with multi-factor authentication at both, only for approved changes, maintenance and incident response. The servers' administration ports cannot be reached from external networks any other way |
+| Wireless | Corporate wireless authenticates users and devices and is encrypted; the servers have no wireless |
+| Device controls | Managed laptops are the only mobile devices allowed, configured by \<Organisation\> with full-device encryption; phones and tablets cannot reach \<System Name\>; unmanaged devices are kept off the network; USB storage is blocked unless approved |
 
 \<System Name\>'s own settings for these controls are its sign-in session (section 3.15) and its system use notice (section 3.16). \<System Name\> has no page lock of its own.
 
 ### 3.7 Settings
 
-The values the access controls depend on are listed by control in Table 13. Lockout and multi-factor authentication are PingFederate's and are not set in \<System Name\>. The session lifetime is a fixed 8 hours set in \<System Name\>; PingFederate's own sign-in lifetime is set to at least that (EV-IA-04). The policy review and ownership values are in \<Policy\>, section 1.1.
+The values the access controls depend on are listed by control in Table 13. Lockout and multi-factor authentication are PingFederate's and are not set in \<System Name\>. The session lifetime is a fixed 8 hours set in \<System Name\>; PingFederate's own sign-in lifetime is set to at least that. The policy review and ownership values are in \<Policy\>, section 1.1.
 
 **Table 13: Access control values**
 
@@ -331,9 +331,9 @@ AC-20(1) and AC-22 are not applicable (\<Tailoring Register\>, TR-AC-07 and TR-A
 1. Sharing outside a schema needs a decision by that schema's access approver, its Data Owner, through the manual process in PRO-AC-16.
 2. The approver checks that the recipient is authorised for the information, and the decision is recorded on a sharing decision record. Exported items stay under the schema's rules.
 3. Inside \<System Name\>, the schema groups control sharing. Sharing outside is a manual decision.
-4. External systems and portable storage may hold \<System Name\> data only with the system owner's written approval, recorded as an exception on the exception request (PRO-AC-15). None is approved, which is why AC-20(1) does not apply (TR-AC-07). An approved external system must meet these terms: a contract with confidentiality terms, encryption at rest, storage in the United Kingdom only, and deletion when the need ends. Terms and conditions are used, not asserted controls (TR-AC-10).
+4. External systems and portable storage may hold \<System Name\> data only with the system owner's written approval, recorded as an exception on the exception request. None is approved, which is why AC-20(1) does not apply (TR-AC-07). An approved external system must meet these terms: a contract with confidentiality terms, encryption at rest, storage in the United Kingdom only, and deletion when the need ends. Terms and conditions are used, not asserted controls (TR-AC-10).
 5. Personal devices, personal cloud storage and any unmanaged system are prohibited: exported files are saved only in approved \<Organisation\> locations, \<System Name\> is used only on a managed device, and no outside service or AI tool is used without the system owner's written approval (\<Security Operating Procedures\>). \<Organisation\>'s network access control keeps unmanaged devices off the network.
-6. USB and other portable storage may not hold \<System Name\> data without the system owner's approval, recorded as an exception on the exception request (PRO-AC-15; \<Security Operating Procedures\>). \<Organisation\>'s device control on managed devices enforces this. Portable storage issued under an exception may be used only on \<Organisation\>'s managed devices and the external system named in the approval, must never be connected to a personal or other unmanaged device, and is returned for sanitising when the exception ends (AC-20(2)).
+6. USB and other portable storage may not hold \<System Name\> data without the system owner's approval, recorded as an exception on the exception request (\<Security Operating Procedures\>). \<Organisation\>'s device control on managed devices enforces this. Portable storage issued under an exception may be used only on \<Organisation\>'s managed devices and the external system named in the approval, must never be connected to a personal or other unmanaged device, and is returned for sanitising when the exception ends (AC-20(2)).
 7. \<System Name\> holds and serves no public content. Every item needs sign-in, and the sign-in requirement on every page that returns content enforces this.
 
 ### 3.11 Review schedules
@@ -350,7 +350,7 @@ AC-20(1) and AC-22 are not applicable (\<Tailoring Register\>, TR-AC-07 and TR-A
 | Actions allowed without signing in | Every 12 months, and after a change | System owner | PRO-AC-14 |
 | This document | Every 12 months, and after a significant change | System owner | PRO-AC-14 |
 
-In each access review, the group's owner checks its members against the ServiceNow requests, and removes in Active Directory any member who no longer needs the access. Each review is recorded on the access review record (PRO-AC-7). The review is manual.
+In each access review, the group's owner checks its members against the ServiceNow requests, and removes in Active Directory any member who no longer needs the access. Each review is recorded on the access review record. The review is manual.
 
 ### 3.12 Exception rules
 
@@ -385,11 +385,11 @@ These rules apply:
 2. **Nobody decides their own request.** The person who raises a request cannot approve or authorise it. ServiceNow is set to refuse it. An owner who needs access to their own group asks the system owner.
 3. **What each request records:** the person; what is asked for; the business reason; who approved and who authorised it, and when; that the training is done and the rules are signed; and who carried it out, and when.
 4. **The record.** The closed ServiceNow request is the access request record, the record of the access decision: it holds the access request record's fields. It is kept for 3 years.
-5. **Before the person is added to a group,** they complete security training and sign \<Security Operating Procedures\> (PRO-AC-1).
+5. **Before the person is added to a group,** they complete security training and sign \<Security Operating Procedures\>.
 6. **A high-risk individual.** \<Organisation\> disables the AD account within 1 hour. \<System Name\>'s API then refuses the disabled account within 5 minutes, which also ends any session the person has open (section 3.14). Ending the person's PingFederate sign-in as well stops a new sign-in, but it is not what ends access to \<System Name\>.
-7. **Conditions for membership.** A need confirmed by the line manager, authorisation by the group's owner, security training, and a signed acknowledgement of \<Security Operating Procedures\> are the conditions for membership of any group (PRO-AC-1, PRO-AC-5, PRO-AC-6).
+7. **Conditions for membership.** A need confirmed by the line manager, authorisation by the group's owner, security training, and a signed acknowledgement of \<Security Operating Procedures\> are the conditions for membership of any group.
 8. **Notice of a change.** When an account is no longer needed, a user leaves or moves, or their need changes, the owners of the groups the person belongs to and the system owner are told within 1 working day in each case. The notice comes as a prompt from \<Organisation\>'s starters and leavers process.
-9. **Aligned with leavers and movers.** \<System Name\> uses the same AD account that \<Organisation\>'s leaver and transfer processes act on, so disabling it ends access to \<System Name\>. The starters and leavers process prompts the group owners to remove memberships (PRO-AC-2, PRO-AC-3).
+9. **Aligned with leavers and movers.** \<System Name\> uses the same AD account that \<Organisation\>'s leaver and transfer processes act on, so disabling it ends access to \<System Name\>. The starters and leavers process prompts the group owners to remove memberships.
 
 ### 3.14 Disabling accounts and ending access
 
@@ -401,9 +401,9 @@ These rules apply:
 | --- | --- | --- |
 | The account has expired | AD accounts with an end date are disabled by Active Directory on that date | None |
 | The person leaves | \<Organisation\> disables the leaver's AD account at once, and \<System Name\> refuses it within 5 minutes. Each group's owner removes the membership within 5 working days | Leavers and movers |
-| The account breaches policy | \<Organisation\> disables the AD account on notice, as for a high-risk individual (PRO-AC-4) | Disabling a high-risk individual |
+| The account breaches policy | \<Organisation\> disables the AD account on notice, as for a high-risk individual | Disabling a high-risk individual |
 | A high-risk individual | Within 1 hour of notice from management or \<Organisation\>'s security contact of misconduct, compromised credentials, a hostile departure or the departure of the holder of a higher risk role (\<Personnel Security Management\>, section 3.2), \<Organisation\> disables the AD account, so the person cannot sign in again, and \<System Name\>'s API refuses the disabled account within 5 minutes, ending any open session. The account stays disabled for at least 8 hours, unless every key in the key rings is revoked first, so that a cookie issued before it was disabled cannot be used again (PRO-AC-4, the leaver or mover record; the incident record if it is an incident) | Disabling a high-risk individual |
-| The account is unused | \<Organisation\> disables AD accounts unused for 90 days within 1 working day. In addition, each month, the security officer lists, from the last sign-in report (FR-085), every member who has not signed in to \<System Name\> for 90 days, and the owner of each group removes them, so that an unused membership ends even while the Active Directory account stays in use for other work (PRO-AC-8) | Unused accounts |
+| The account is unused | \<Organisation\> disables AD accounts unused for 90 days within 1 working day. In addition, each month, the security officer lists, from the last sign-in report (FR-085), every member who has not signed in to \<System Name\> for 90 days, and the owner of each group removes them, so that an unused membership ends even while the Active Directory account stays in use for other work | Unused accounts |
 
 ### 3.15 Sign-in session, sign-out, failed sign-ins and device lock
 
@@ -419,7 +419,7 @@ These rules apply:
 
 Each app shows the notice on a page straight after the user signs in through PingFederate, before they can go further. No other page, menu or data is served until the notice is accepted, so it is shown before access to \<System Name\> is granted. Whether PingFederate shows a banner of its own is asked in EV-IA-04. The wording is: "This system is for authorised use only. Activity is monitored, recorded and audited. Unauthorised use may lead to disciplinary or legal action. By continuing you accept these terms.". The legal adviser approves the wording. The notice names \<Organisation\>, not the U.S. Government (TR-AC-03).
 
-The notice stays until the user accepts it, and the acceptance is written to the audit log. It is text on a page of the UI app and of the Admin application, changed only through an approved change (PRO-AC-13). \<System Name\> is not public, so no conditions for public systems apply (TR-AC-04). On the servers, the Windows logon banner, which is \<Organisation\>'s corporate configuration, gives a system use notice before an administrator signs in (section 3.6.5).
+The notice stays until the user accepts it, and the acceptance is written to the audit log. It is text on a page of the UI app and of the Admin application, changed only through an approved change. \<System Name\> is not public, so no conditions for public systems apply (TR-AC-04). On the servers, the Windows logon banner, which is \<Organisation\>'s corporate configuration, gives a system use notice before an administrator signs in (section 3.6.5).
 
 ### 3.17 Actions allowed without signing in
 
@@ -433,7 +433,7 @@ Only these actions are allowed without signing in:
 6. check that the API is running, which returns one status word;
 7. on the application server's loopback address only, the UI and Admin applications' token request to the API, which carries no user's cookie: the application asks for a token naming a person it has already signed in. Each application authenticates it with Windows authentication under its own service account, and the API issues tokens only to those two accounts. Only the API's service account can read the token signing key, so no application can make its own token.
 
-Each is needed before a person can identify themselves, or involves no person, and none returns business data. The API health check supports monitoring. The list and the reasons are also stated in \<System Security Plan\>. The list is reviewed every 12 months and after a change (PRO-AC-14).
+Each is needed before a person can identify themselves, or involves no person, and none returns business data. The API health check supports monitoring. The list and the reasons are also stated in \<System Security Plan\>. The list is reviewed every 12 months and after a change.
 
 The UI app, the Admin application and the API each refuse anything not marked as open, so a page or function that states no access rule is refused.
 

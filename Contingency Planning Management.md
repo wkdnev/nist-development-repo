@@ -10,7 +10,7 @@ Section 3 is the design, and is the contingency plan that CP-2 requires: the pri
 
 Copies go to the people in section 3.4 and the authorising official. \<Organisation\>'s IT service desk receives sections 3.5, 3.6 and 3.9 and appendix A, which it needs to act (CP-02\_ODP\[04\]). The same people are told of every change, with a note of what changed (CP-2f).
 
-The document is marked \<Classification\>. It is kept in the restricted document store (until the store is set up, the private records repository; \<Documentation Map\>, section 4.1) with the other records, where only the people above can read it and only the system owner can change it (CP-2h). The system owner and security officer each keep a current offline copy, so that the plan can be used when \<System Name\> and the document store are down. The offline copy is section 3 with appendices A and B, which together are the whole plan. There is no separate plan document. Each offline copy is held on an encrypted \<Organisation\> managed device, or printed, marked and kept in locked storage, and is replaced whenever the plan changes (PRO-CP-7). The superseded copy is destroyed as \<Media Protection Management\>, section 3.6, sets out.
+The document is marked \<Classification\>. It is kept in the restricted document store (until the store is set up, the private records repository; \<Documentation Map\>, section 4.1) with the other records, where only the people above can read it and only the system owner can change it (CP-2h). The system owner and security officer each keep a current offline copy, so that the plan can be used when \<System Name\> and the document store are down. The offline copy is section 3 with appendices A and B, which together are the whole plan. There is no separate plan document. Each offline copy is held on an encrypted \<Organisation\> managed device, or printed, marked and kept in locked storage, and is replaced whenever the plan changes. The superseded copy is destroyed as \<Media Protection Management\>, section 3.6, sets out.
 
 ## 2 Related documents
 
@@ -41,7 +41,7 @@ The plan recovers \<System Name\> in three phases: activation and notification, 
 
 **Assumptions:**
 
-1. \<Organisation\> provides a second site, network, sign-in through PingFederate, directory, name resolution and time (EV-CP-01, EV-CP-02).
+1. \<Organisation\> provides a second site, network, sign-in through PingFederate, directory, name resolution and time.
 2. The latest good backup, its transaction logs, the latest system-level backup and the protected copy of the secrets, including the backup encryption certificate, are at the second site.
 3. The tagged release and the baseline in \<Configuration Management\>, section 3.4, can be reached to rebuild the applications.
 4. At least one holder or deputy of each role in section 3.4 is available.
@@ -198,9 +198,9 @@ Users return only once steps 1 to 6 are done, and steps 7 to 9 follow straight a
 | This plan and the records | At each change | As each record's retention | The controlled library | Access controlled |
 | Code and releases | Each release | Every release | The Git host, and the tag recorded in \<Configuration Management\> | Access controlled |
 
-The database administrator's backup jobs write each encrypted backup to \<Organisation\>'s backup service, which copies it to the second site and keeps one copy offline or immutable, so that an attacker on the network cannot change it (EV-CP-01). A failed backup alerts the database administrator and the security officer, and the week's backups are checked to confirm every job succeeded and reached the second site (\<Security Operating Procedures\>). The system-level backup is not used to restore a server: the servers are rebuilt from the baseline, and the system-level backup is used to check the rebuild and to recover a setting the baseline missed.
+The database administrator's backup jobs write each encrypted backup to \<Organisation\>'s backup service, which copies it to the second site and keeps one copy offline or immutable, so that an attacker on the network cannot change it. A failed backup alerts the database administrator and the security officer, and the week's backups are checked to confirm every job succeeded and reached the second site (\<Security Operating Procedures\>). The system-level backup is not used to restore a server: the servers are rebuilt from the baseline, and the system-level backup is used to check the rebuild and to recover a setting the baseline missed.
 
-**Restore tests.** Restores are tested every 6 months (PRO-CP-2), and after a change to the database or the backup method. Each test restores real data, so it runs on a throwaway virtual server at the second site, built to the database server's baseline, with no network route to production, reached only over the administration route by the database administrator and the security officer, and removed once the test is recorded, its virtual disk erased by method M1 (\<Media Protection Management\>, section 3.6) (D-CP-01). The test fetches the backup and the protected copy of the secrets from the second site, so it also proves that both can be retrieved and used there.
+**Restore tests.** Restores are tested every 6 months, and after a change to the database or the backup method. Each test restores real data, so it runs on a throwaway virtual server at the second site, built to the database server's baseline, with no network route to production, reached only over the administration route by the database administrator and the security officer, and removed once the test is recorded, its virtual disk erased by method M1 (\<Media Protection Management\>, section 3.6) (D-CP-01). The test fetches the backup and the protected copy of the secrets from the second site, so it also proves that both can be retrieved and used there.
 
 **Encryption.** Every backup is encrypted by SQL Server's backup encryption, with AES-256, before it leaves the database server, so that nobody who holds a copy, including the second site's staff, can read or change it. The key that protects it is a backup encryption certificate in the database server's master database (K10 in the key register, \<System and Communications Protection Management\>, section 3.4). The certificate and its private key are exported, protected by a strong password that is itself held as a secret, apart from the export, to the key store and its protected copy at the second site, held apart from the backups, where only the system owner and the administrators can reach them. A backup cannot be restored on a rebuilt server, or on the restore test server, without that certificate, so every restore starts by restoring it (section 3.6.1). A new certificate is made every 12 months, and each retired certificate is kept until the last backup it encrypted is removed, and then every copy of it is destroyed (\<Media Protection Management\>, section 3.6, method M2). The SHA-256 value recorded when a backup is taken is checked before it is restored.
 
@@ -236,7 +236,7 @@ This follows CSS. The first restore test and tabletop exercise take place within
 | Tabletop exercise, with the incident response plan | First within 30 days of the VMs being built; then every 12 months | Everyone in section 3.4, and \<Organisation\>'s IT service desk | Walk through one scenario from activation to deactivation | Exercise and restore test record |
 | Plan review | Every 12 months, and after each test or activation | System owner and authorising official | Keep the plan current and build in what was learned | Change record |
 
-Tabletop scenarios rotate through: ransomware on the database VM; loss of the main site; a backup that fails its checks; a key person being unavailable; and PingFederate being unavailable. Training content covers the activation criteria, the call tree, each role's steps and the checks before return. The security officer writes it and reviews it every 12 months and after a plan change, test or activation (\<Procedures\>, PRO-AT-3). Role training is module M8 of the role curriculum (\<Awareness and Training Management\>, section 3.4), and the training register shows who is trained (\<Awareness and Training Management\>, section 3.8). After a change to the plan that alters a person's steps, that person is briefed on the change.
+Tabletop scenarios rotate through: ransomware on the database VM; loss of the main site; a backup that fails its checks; a key person being unavailable; and PingFederate being unavailable. Training content covers the activation criteria, the call tree, each role's steps and the checks before return. The security officer writes it and reviews it every 12 months and after a plan change, test or activation. Role training is module M8 of the role curriculum (\<Awareness and Training Management\>, section 3.4), and the training register shows who is trained (\<Awareness and Training Management\>, section 3.8). After a change to the plan that alters a person's steps, that person is briefed on the change.
 
 Each test has objectives and a scenario set beforehand. Each test or activation ends with an after-action report on the exercise and restore test record, written within 10 working days: the objectives, what happened, the time to recover and data lost against the objectives, what went wrong, the actions with owners and dates, and the changes made to this plan and to the training content. An action that is not done within the month becomes an item in \<Plan of Action and Milestones\>.
 
@@ -244,18 +244,18 @@ Each test has objectives and a scenario set beforehand. Each test or activation 
 
 **Table 8: Asked of \<Organisation\>**
 
-| Provided | Controls | What \<System Name\> relies on | Evidence asked |
-| --- | --- | --- | --- |
-| A second site for backups and for rebuilt servers | CP-6, CP-6(1), CP-6(3), CP-7, CP-7(1), CP-7(2), CP-7(3) | A site that does not share the main site's hazards, holds the encrypted backups with one offline or immutable copy, runs the restore test server, meets the same physical and environmental requirements as the main site (\<Physical and Environmental Protection Management\>, section 3.10), can run both servers within 72 hours, and can be reached in a wide-area disruption. For CP-7, \<Organisation\> provides the site and \<System Name\> the rebuild | EV-CP-01 |
-| A backup service | CP-6, CP-9 | Copying each encrypted backup to the second site, keeping one copy offline or immutable, deleting expired copies, and holding the protected copy of the secrets apart from the backups | EV-CP-01, EV-MP-01 |
-| Alternate telecommunications | CP-8, CP-8(1), CP-8(2) | An alternate service with no single point of failure shared with the main one, and a stated priority | EV-CP-02 |
-| Its own disaster recovery and business continuity plans | CP-2(1), CP-4(1) | Who declares a disaster, and the recovery times of the network, PingFederate, Active Directory, name resolution and time | EV-CP-01 |
+| Provided | What \<System Name\> relies on |
+| --- | --- |
+| A second site for backups and for rebuilt servers | A site that does not share the main site's hazards, holds the encrypted backups with one offline or immutable copy, runs the restore test server, meets the same physical and environmental requirements as the main site (\<Physical and Environmental Protection Management\>, section 3.10), can run both servers within 72 hours, and can be reached in a wide-area disruption. For CP-7, \<Organisation\> provides the site and \<System Name\> the rebuild |
+| A backup service | Copying each encrypted backup to the second site, keeping one copy offline or immutable, deleting expired copies, and holding the protected copy of the secrets apart from the backups |
+| Alternate telecommunications | An alternate service with no single point of failure shared with the main one, and a stated priority |
+| Its own disaster recovery and business continuity plans | Who declares a disaster, and the recovery times of the network, PingFederate, Active Directory, name resolution and time |
 
 ### 3.12 Keeping the plan current
 
 1. **Review and approval.** The system owner and the authorising official review the plan every 12 months, and after each test or activation, and approve each new version.
 2. **Update.** A change to the system that affects recovery updates the plan as part of the change (\<Configuration Management\>, section 3.9). Each after-action report lists the changes made to the plan (section 3.10).
-3. **Telling people.** The people who hold copies (section 1.1) are told of each change, with a note of what changed from the change record (PRO-CP-7).
+3. **Telling people.** The people who hold copies (section 1.1) are told of each change, with a note of what changed from the change record.
 4. **Record.** The plan is under version control, which records every change.
 
 ### 3.13 Coordination with related plans
@@ -287,7 +287,7 @@ Appendix B lists the related plans. This plan and the incident response plan eac
 | Plan or record | Owner | How it relates |
 | --- | --- | --- |
 | \<Incident Response Management\> Incident response plan | Security officer | Leads when an outage may be an incident (section 3.6.2); exercised together (CP-4(1)) |
-| \<Organisation\>'s disaster recovery and business continuity plans \[names to add\] | \<Organisation\> | Provide the network, second site and telecommunications (EV-CP-01, EV-CP-02) |
+| \<Organisation\>'s disaster recovery and business continuity plans \[names to add\] | \<Organisation\> | Provide the network, second site and telecommunications |
 | \<Configuration Management\>, the configuration management plan | System owner | The baseline the VMs and applications are rebuilt to |
 | \<Security Operating Procedures\> Security Operating Procedures | System owner | The routine backup, test and review steps and planned shutdown |
 | Training record and the exercise and restore test record in \<Record Templates\> | System owner | Training records, test records and after-action reports |

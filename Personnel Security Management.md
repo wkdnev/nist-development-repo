@@ -53,7 +53,7 @@ Every role in \<Roles and Responsibilities\> has a designation. A role is higher
 | Editor | Standard | Creates, uploads, manages and exports items within their own schemas |
 | Line manager | Standard | Approves their people's access requests in ServiceNow and reports movers and leavers; no access of their own is implied |
 
-A higher risk role adds two things to what every role needs. Screening is repeated before the role is granted and every 5 years. And when the holder leaves, their access is ended by the urgent route, not left to \<Organisation\>'s starters and leavers process: the service desk disables the Active Directory account within 1 hour of notice, and the system owner confirms that \<System Name\> refuses the person (Table 3; \<Procedures\>, PRO-AC-4). Every role, standard or higher risk, completes the training its row in \<Awareness and Training Management\>, Table 4, sets: the role modules before taking the role, and the rest within 30 days. A deputy holds the designation of the role they cover (\<Roles and Responsibilities\>, section 5).
+A higher risk role adds two things to what every role needs. Screening is repeated before the role is granted and every 5 years. And when the holder leaves, their access is ended by the urgent route, not left to \<Organisation\>'s starters and leavers process: the service desk disables the Active Directory account within 1 hour of notice, and the system owner confirms that \<System Name\> refuses the person (Table 3). Every role, standard or higher risk, completes the training its row in \<Awareness and Training Management\>, Table 4, sets: the role modules before taking the role, and the rest within 30 days. A deputy holds the designation of the role they cover (\<Roles and Responsibilities\>, section 5).
 
 ### 3.3 Screening standard
 
@@ -63,10 +63,10 @@ A higher risk role adds two things to what every role needs. Screening is repeat
 
 | Check | What it confirms | \<Organisation\>'s practice |
 | --- | --- | --- |
-| Identity | The person is who they say they are | \[\<Organisation\>'s standard and evidence\] (EV-PS-01) |
-| Right to work | They may lawfully work in the UK | \[\<Organisation\>'s standard and evidence\] (EV-PS-01) |
-| Employment history | Their recent employment is as stated | \[\<Organisation\>'s standard and evidence\] (EV-PS-01) |
-| Basic criminal record check | Unspent convictions only | \[\<Organisation\>'s standard and evidence\] (EV-PS-01) |
+| Identity | The person is who they say they are | \[\<Organisation\>'s standard and evidence\] |
+| Right to work | They may lawfully work in the UK | \[\<Organisation\>'s standard and evidence\] |
+| Employment history | Their recent employment is as stated | \[\<Organisation\>'s standard and evidence\] |
+| Basic criminal record check | Unspent convictions only | \[\<Organisation\>'s standard and evidence\] |
 
 \<System Name\> records only that \<Organisation\> confirmed the screening, and the date. It never holds a screening result or criminal record data (\<Policy\> (PS), R4). If \<Organisation\>'s standard is fuller, for example BS 7858:2019, that standard applies.
 
@@ -96,9 +96,9 @@ Each person signs both before being added to any \<System Name\> group. The Serv
 | Joiner | The role's designation is looked up; \<Organisation\> confirms the screening; the person completes training and signs the agreements; the access request is authorised in ServiceNow, by the Data Owner for a schema's groups and by the system owner for a role group; only then do the group owners add them to the groups the role needs | System owner; \<Organisation\>; the Data Owner; the group owners | Before access | Access request record; the rules of behaviour acknowledgement; the register |
 | Mover | The line manager tells the system owner and the owners of the person's groups. Each owner confirms whether the person still needs the group, and removes or adds memberships. A new role's training is completed, and, for a higher risk role, screening repeated, before its group is added | Line manager; system owner; the group owners | 1 working day | Leaver or mover record |
 | Leaver | \<Organisation\> disables the Active Directory account at once, which ends access to \<System Name\> within 5 minutes, and ends the person's PingFederate sign-in. Its starters and leavers process gives notice of the leaver to the group owners, through ServiceNow, and they remove the memberships. Any service secret the person knew is changed, and exported files and printouts are recovered or destroyed. Separately, anyone who has not signed in for 90 days is removed from \<System Name\>'s groups each month (\<Access Control Management\>, section 3.14) | \<Organisation\>; the group owners; system owner | At once, and memberships within 5 working days | Leaver or mover record |
-| Higher-risk leaver, dismissal or suspected misuse | By the urgent route (\<Procedures\>, PRO-AC-4): \<Organisation\>'s service desk disables the Active Directory account and ends the person's PingFederate sign-in, and \<System Name\> refuses the person within 5 minutes, even while a sign-in is open. The account stays disabled for at least 8 hours, unless every key in the key rings is revoked first. The system owner confirms the refusal | \<Organisation\>'s service desk; system owner | 1 hour of notice | Leaver or mover record; the incident record if it is an incident |
+| Higher-risk leaver, dismissal or suspected misuse | By the urgent route: \<Organisation\>'s service desk disables the Active Directory account and ends the person's PingFederate sign-in, and \<System Name\> refuses the person within 5 minutes, even while a sign-in is open. The account stays disabled for at least 8 hours, unless every key in the key rings is revoked first. The system owner confirms the refusal | \<Organisation\>'s service desk; system owner | 1 hour of notice | Leaver or mover record; the incident record if it is an incident |
 
-**Leavers.** Disabling the Active Directory account revokes the person's password and second factor. Any service secret the person knew is changed (\<Procedures\>, PRO-IA-4). \<Organisation\> holds an exit interview, which covers the person's continuing confidentiality duties and the return of equipment, and recovers their laptop, phone, pass and any other equipment. Exported files and printouts are recovered or destroyed (\<Security Operating Procedures\>, section 4.4). Items belong to schemas, not to people, so the items a leaver created stay with the schema and its members. The system owner confirms this on the leaver or mover record.
+**Leavers.** Disabling the Active Directory account revokes the person's password and second factor. Any service secret the person knew is changed. \<Organisation\> holds an exit interview, which covers the person's continuing confidentiality duties and the return of equipment, and recovers their laptop, phone, pass and any other equipment. Exported files and printouts are recovered or destroyed (\<Security Operating Procedures\>, section 4.4). Items belong to schemas, not to people, so the items a leaver created stay with the schema and its members. The system owner confirms this on the leaver or mover record.
 
 **Movers.** Each group owner removes the memberships the person no longer needs, and adds any the new role needs through an access request, once the new role's training is done (\<Awareness and Training Management\>, section 3.5). A change to a person's groups takes effect within 5 minutes, because the API reads them from Active Directory on every request (\<Access Control Management\>, sections 3.14 and 3.15). No \<System Name\> role gives physical access to the servers (\<Physical and Environmental Protection Management\>, section 3.2), so a move changes logical access only.
 
@@ -147,17 +147,17 @@ The system owner keeps this register for everyone who has, or will have, access 
 
 **Table 6: Asked of \<Organisation\>**
 
-| Provided | Controls | What \<System Name\> relies on | Evidence asked |
-| --- | --- | --- | --- |
-| Pre-employment screening | PS-2, PS-3 | Each person is screened to at least the minimum in section 3.3, rescreened as section 3.6 says, and confirmed to the system owner with the date only | EV-PS-01 |
-| Starters, movers and leavers | PS-4, PS-5 | A leaver's Active Directory account is disabled at once, and the group owners are told of every mover and leaver | EV-AC-01 |
-| Exit interviews, equipment, discipline and job descriptions | PS-4, PS-8, PS-9 | Exit interviews cover continuing confidentiality duties and the return of equipment, equipment is recovered, the start of a formal sanctions process is notified within 1 working day, and job descriptions refer to the duties in \<Roles and Responsibilities\> | EV-PS-02 |
-| The confidentiality agreement | PS-6 | Every person signs it before access, and again when \<Organisation\> changes it | EV-PS-02 |
-| Contract terms for external people | PS-7 | Contracts require the same personnel security, and notice of movers and leavers within 1 working day | EV-PS-03 |
+| Provided | What \<System Name\> relies on |
+| --- | --- |
+| Pre-employment screening | Each person is screened to at least the minimum in section 3.3, rescreened as section 3.6 says, and confirmed to the system owner with the date only |
+| Starters, movers and leavers | A leaver's Active Directory account is disabled at once, and the group owners are told of every mover and leaver |
+| Exit interviews, equipment, discipline and job descriptions | Exit interviews cover continuing confidentiality duties and the return of equipment, equipment is recovered, the start of a formal sanctions process is notified within 1 working day, and job descriptions refer to the duties in \<Roles and Responsibilities\> |
+| The confidentiality agreement | Every person signs it before access, and again when \<Organisation\> changes it |
+| Contract terms for external people | Contracts require the same personnel security, and notice of movers and leavers within 1 working day |
 
 ### 3.11 Role duties in job descriptions
 
-The security and privacy duties of every \<System Name\> role are stated in \<Roles and Responsibilities\>. \<Organisation\>'s job descriptions for those roles refer to them (EV-PS-02).
+The security and privacy duties of every \<System Name\> role are stated in \<Roles and Responsibilities\>. \<Organisation\>'s job descriptions for those roles refer to them.
 
 ### 3.12 Policy and procedures
 
